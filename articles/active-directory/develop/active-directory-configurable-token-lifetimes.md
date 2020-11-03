@@ -9,23 +9,45 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 1410af4d3c1fb9974818e5c4ebc469eee03a314c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948630"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503783"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)
 
 Puede especificar la vigencia de un token emitido por la Plataforma de identidad de Microsoft. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización. No obstante, actualmente no se admite la configuración de la vigencia de los tokens para las [entidades de servicio de identidad administrada](../managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Después de escuchar a los clientes durante la versión preliminar, hemos implementado las [funcionalidades de administración de sesiones de autenticación](../conditional-access/howto-conditional-access-session-lifetime.md) en el acceso condicional de Azure AD. Puede usar esta nueva característica para configurar la vigencia de los tokens de actualización mediante la configuración de la frecuencia de inicio de sesión. A partir del 30 de mayo de 2020, ningún inquilino nuevo podrá usar la directiva de vigencia de token configurable para configurar tokens de actualización y de sesión. La retirada se realizará varios meses después, lo que significa que dejaremos de contemplar las directivas de token de actualización y sesión existentes. Después, podrá seguir configurando la duración del token de acceso.
+> Después del 30 de enero de 2021, los inquilinos ya no podrán configurar la duración de los tokens de actualización y sesión, y Azure Active Directory dejará de respetar la configuración existente de los tokens de sesión y actualización en las directivas después de esa fecha. Después de la retirada, todavía podrá configurar la duración de los tokens de acceso.
+> Se han implementado  [funciones de administración de sesiones de autenticación](../conditional-access/howto-conditional-access-session-lifetime.md) en el acceso condicional de Azure AD. Puede usar esta nueva característica para configurar la vigencia de los tokens de actualización mediante la configuración de la frecuencia de inicio de sesión. El acceso condicional es una característica de Azure AD Premium P1 y puede evaluar si Premium es adecuado para la organización en la [página de precios de Premium](https://azure.microsoft.com/en-us/pricing/details/active-directory/). 
+> 
+> En el caso de los inquilinos que no usen la administración de sesiones de autenticación en el acceso condicional después de la fecha de retirada, pueden esperar que Azure AD respetará la configuración predeterminada que se describe en la sección siguiente.
+
+## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Propiedades de vigencia de tokens configurables después de la retirada
+La configuración de los tokens de actualización y sesión se ve afectada por las siguientes propiedades y sus correspondientes valores establecidos. Después de la retirada de la configuración de tokens de actualización y sesión, Azure AD solo respetará el valor predeterminado que se describe a continuación, con independencia de que las directivas tengan valores personalizados configurados.  
+
+|Propiedad   |Cadena de propiedad de directiva    |Afecta a |Valor predeterminado |
+|----------|-----------|------------|------------|
+|Tiempo máximo de inactividad del token de actualización |MaxInactiveTime  |Tokens de actualización |90 días  |
+|Antigüedad máxima del token de actualización (un solo factor)  |MaxAgeSingleFactor  |Tokens de actualización (para los usuarios)  |Hasta que se revoca  |
+|Antigüedad máxima del token de actualización (varios factores)  |MaxAgeMultiFactor  |Tokens de actualización (para los usuarios) |180 días  |
+|Antigüedad máxima del token de sesión (un solo factor)  |MaxAgeSessionSingleFactor |Tokens de sesión (persistentes y no persistentes)  |Hasta que se revoca |
+|Antigüedad máxima del token de sesión (varios factores)  |MaxAgeSessionMultiFactor  |Tokens de sesión (persistentes y no persistentes)  |180 días |
+
+Puede usar el cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) para identificar directivas de vigencia de token cuyos valores de propiedad difieren de los valores predeterminados de Azure AD.
+
+Para comprender mejor cómo se usan las directivas en el inquilino, puede usar el cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) para identificar qué aplicaciones y entidades de servicio están vinculadas a las directivas. 
+
+Si el inquilino tiene directivas que definen valores personalizados para las propiedades de configuración de tokens de sesión y actualización, Microsoft recomienda actualizarlas a los valores que reflejen los valores predeterminados descritos anteriormente. Si no se realiza ningún cambio, Azure AD respetará de forma automática los valores predeterminados.  
+
+## <a name="overview"></a>Información general
 
 En Azure AD, un objeto de directiva representa un conjunto de reglas que se exigen en algunas o todas las aplicaciones de una organización. Cada tipo de directiva tiene una estructura única con un conjunto de propiedades que luego se aplican a los objetos a los que están asignadas.
 

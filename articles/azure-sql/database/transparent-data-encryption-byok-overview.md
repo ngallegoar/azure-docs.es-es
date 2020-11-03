@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602676"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790889"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ En Azure SQL Database y Azure Synapse Analytics, el protector de TDE se estable
 > Para aquellos que usan TDE administrado por el servicio y que quieren empezar a usar TDE administrado por el cliente, los datos permanecen cifrados durante el proceso de cambio y no hay tiempo de inactividad ni se vuelven a cifrar los archivos de la base de datos. El cambio de una clave administrada por el servicio a una clave administrada por el cliente solo requiere el nuevo cifrado de la DEK, que es una operación rápida y en línea.
 
 > [!NOTE]
-> Para proporcionar a los clientes de Azure SQL dos capas de cifrado de datos en reposo, se está implementando el cifrado de infraestructura (mediante el algoritmo de cifrado AES-256) con claves administradas por la plataforma. Esto proporciona una capa adicional de cifrado en reposo junto con TDE con claves administradas por el cliente, que ya está disponible. En este momento, los clientes deben solicitar el acceso a esta funcionalidad. Si está interesado en esta funcionalidad, póngase en contacto con AzureSQLDoubleEncryptionAtRest@service.microsoft.com.
+> <a id="doubleencryption"></a> Para proporcionar a los clientes de Azure SQL dos capas de cifrado de datos en reposo, se está implementando el cifrado de infraestructura (mediante el algoritmo de cifrado AES-256) con claves administradas por la plataforma. Esto proporciona una capa adicional de cifrado en reposo junto con TDE con claves administradas por el cliente, que ya está disponible. En Azure SQL Database y Managed Instance, todas las bases de datos, incluida la base de datos maestra y otras bases de datos del sistema, se cifrarán cuando se active el cifrado de infraestructura. En este momento, los clientes deben solicitar el acceso a esta funcionalidad. Si está interesado en esta funcionalidad, póngase en contacto con AzureSQLDoubleEncryptionAtRest@service.microsoft.com.
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Ventajas del TDE administrado por el cliente
 
@@ -56,11 +56,11 @@ El Cifrado de datos transparente (TDE) administrado por el cliente le proporcion
 
 Para que el servidor pueda usar el protector de TDE almacenado en AKV para cifrar la DEK, el administrador del almacén de claves debe conceder los siguientes derechos de acceso al servidor mediante su identidad única de Azure Active Directory (Azure AD):
 
-- **get**: para recuperar la parte pública y las propiedades de la clave en Key Vault
+- **get** : para recuperar la parte pública y las propiedades de la clave en Key Vault
 
-- **wrapKey**: para poder proteger (cifrar) la DEK
+- **wrapKey** : para poder proteger (cifrar) la DEK
 
-- **unwrapKey**: para poder desproteger (descifrar) la DEK
+- **unwrapKey** : para poder desproteger (descifrar) la DEK
 
 El administrador de Key Vault también puede [habilitar el registro de eventos de auditoría del almacén de claves](../../azure-monitor/insights/key-vault-insights-overview.md), por lo que se pueden auditar más adelante.
 
@@ -95,7 +95,7 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 - Si va a importar una clave existente en el almacén de claves, asegúrese de proporcionarla en uno de los formatos de archivo compatibles (.pfx, .byok o .backup).
 
 > [!NOTE]
-> Azure SQL admite ahora el uso de una clave RSA almacenada en un HSM administrado como protector de TDE. Esta característica está en **versión preliminar pública**. HSM administrado de Azure Key Vault es un servicio en la nube totalmente administrado, de alta disponibilidad y de un solo inquilino que cumple los estándares y que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de FIPS 140-2, nivel 3. Obtenga más información sobre [HSM administrados](https://aka.ms/mhsm).
+> Azure SQL admite ahora el uso de una clave RSA almacenada en un HSM administrado como protector de TDE. Esta característica está en **versión preliminar pública**. HSM administrado de Azure Key Vault es un servicio en la nube totalmente administrado, de alta disponibilidad y de un solo inquilino que cumple los estándares y que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de FIPS 140-2, nivel 3. Obtenga más información sobre [HSM administrados](../../key-vault/managed-hsm/index.yml).
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Recomendaciones para la configuración de TDE administrado por el cliente
@@ -106,7 +106,7 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 
 - Configure un bloqueo de recursos en el almacén de claves para controlar quién puede eliminar este recurso crítico y para evitar la eliminación accidental o no autorizada. Obtenga más información acerca de los [bloqueos de recursos](../../azure-resource-manager/management/lock-resources.md).
 
-- Habilite la auditoría y la generación de informes en todas las claves de cifrado: El almacén de claves proporciona registros que son fáciles de insertar en otras herramientas de administración de eventos e información de seguridad. [Log Analytics](../../azure-monitor/insights/azure-key-vault.md) de Operations Management Suite es un ejemplo de un servicio que ya está integrado.
+- Habilite la auditoría y la generación de informes en todas las claves de cifrado: El almacén de claves proporciona registros que son fáciles de insertar en otras herramientas de administración de eventos e información de seguridad. [Log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) de Operations Management Suite es un ejemplo de un servicio que ya está integrado.
 
 - Vincule cada servidor con dos almacenes de claves que residan en regiones diferentes y que conserven el mismo material de clave para garantizar una alta disponibilidad de bases de datos cifradas. Marque solo la clave del almacén de claves que está en la misma región que un protector de TDE. El sistema cambiará automáticamente al almacén de claves de la región remota si se produce una interrupción que afecte al almacén de claves en la misma región.
 
@@ -146,7 +146,7 @@ A continuación se muestra una vista de los pasos adicionales necesarios en el p
 
 Es posible que alguien con los derechos de acceso suficientes al almacén de claves deshabilite accidentalmente el acceso del servidor a la clave al realizar alguna de las siguientes acciones:
 
-- Revocación de los permisos *get*, *wrapKey* o *unwrapKey* del almacén de claves desde el servidor.
+- Revocación de los permisos *get* , *wrapKey* o *unwrapKey* del almacén de claves desde el servidor.
 
 - Eliminar la clave.
 
@@ -163,7 +163,7 @@ Obtenga más información sobre los [errores comunes que hacen que las bases de 
 Para supervisar el estado de la base de datos y habilitar las alertas para la pérdida de acceso al protector de TDE, configure las siguientes características de Azure:
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). Una base de datos inaccesible que haya perdido el acceso al protector de TDE aparecerá como "No disponible" después de que se haya denegado la primera conexión a la base de datos.
-- [Registro de actividad](../../service-health/alerts-activity-log-service-notifications.md) cuando se produce un error de acceso al protector de TDE en el almacén de claves administrado por el cliente, las entradas se agregan al registro de actividad.  La creación de alertas para estos eventos le permitirá restablecer el acceso lo antes posible.
+- [Registro de actividad](../../service-health/alerts-activity-log-service-notifications-portal.md) cuando se produce un error de acceso al protector de TDE en el almacén de claves administrado por el cliente, las entradas se agregan al registro de actividad.  La creación de alertas para estos eventos le permitirá restablecer el acceso lo antes posible.
 - Los [grupos de acciones](../../azure-monitor/platform/action-groups.md) se pueden definir para que envíen notificaciones y alertas en función de las preferencias, por ejemplo, correo electrónico/SMS/Inserción/Voz, aplicación lógica, webhook, ITSM o Runbook de Automation.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Realización de copias de seguridad y restauración de bases de datos con TDE administrado por el cliente

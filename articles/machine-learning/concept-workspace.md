@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: dccdbcb99b32a922d76b29e5896cdf99290758d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b40ce0951e2d9c8933d4f0ea9d24b1673e254d6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302458"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495719"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
@@ -88,8 +88,8 @@ También puede realizar las siguientes tareas de administración de áreas de tr
 
 Hay varias maneras de crear un área de trabajo:  
 
-* Use [Azure Portal](how-to-manage-workspace.md) si quiere utilizar una interfaz de apuntar y hacer clic que le guíe por cada paso.
-* Use el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true#&preserve-view=trueworkspace) si quiere crear un área de trabajo al momento a partir de scripts de Python o cuadernos de Jupyter.
+* Use [Azure Portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) si quiere utilizar una interfaz de apuntar y hacer clic que le guíe por cada paso.
+* Use el [SDK de Azure Machine Learning para Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) si quiere crear un área de trabajo al momento a partir de scripts de Python o cuadernos de Jupyter.
 * Use una [plantilla de Azure Resource Manager](how-to-create-workspace-template.md) o la [CLI de Azure Machine Learning](reference-azure-machine-learning-cli.md) cuando necesite automatizar o personalizar la creación con estándares de seguridad corporativos.
 * Si trabaja en Visual Studio Code, use la [extensión de VS Code](how-to-manage-resources-vscode.md#create-a-workspace).
 
@@ -114,7 +114,7 @@ Al crear una nueva área de trabajo, se crean automáticamente varios recursos d
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): almacena secretos que usan los destinos de proceso y otra información confidencial que el área de trabajo necesita.
 
 > [!NOTE]
-> Además de crear nuevas versiones, también puede usar los servicios de Azure existentes.
+> En su lugar, puede usar instancias de recursos de Azure existentes al crear el área de trabajo con el [SDK de Python](how-to-manage-workspace.md?tabs=python#create-a-workspace), el [SDK de R](https://azure.github.io/azureml-sdk-for-r/reference/create_workspace.html) o la CLI de Azure Machine Learning [con una plantilla de Resource Manager](how-to-create-workspace-template.md).
 
 <a name="wheres-enterprise"></a>
 
@@ -131,9 +131,9 @@ En cualquiera de las ediciones, los clientes son responsables de los costos de l
 Para una introducción a Azure Machine Learning, consulte:
 
 + [Información general de Azure Machine Learning](overview-what-is-azure-ml.md)
-+ [Creación de un área de trabajo](how-to-manage-workspace.md)
-+ [Administración de un área de trabajo](how-to-manage-workspace.md)
-+ [Tutorial: Creación del primer experimento de ML con el SDK de Python](tutorial-1st-experiment-sdk-setup.md)
++ [Creación y administración de un área de trabajo](how-to-manage-workspace.md)
++ [Tutorial: Introducción a Azure Machine Learning en el entorno de desarrollo](tutorial-1st-experiment-sdk-setup-local.md)
++ [Tutorial: Creación del primer experimento de ML en una instancia de proceso](tutorial-1st-experiment-sdk-setup.md)
 + [Tutorial: Introducción a Azure Machine Learning con el SDK de R](tutorial-1st-r-experiment.md)
 + [Tutorial: Creación del primer modelo de clasificación con el aprendizaje automático automatizado](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Predicción del precio de un automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md)

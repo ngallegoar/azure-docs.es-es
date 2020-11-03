@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1d2185509631bf03717e418e485cfcaad1e21c63
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3412bfe95951a3fea035ffc6452719ede5e66d4d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102700"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519612"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configuración de una conexión de indexador a una base de datos de Cosmos DB mediante una identidad administrada
 
@@ -29,7 +29,7 @@ Antes de obtener más información acerca de esta característica, se recomienda
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - Activar la identidad administrada asignada por el sistema
 
-Cuando se habilita una identidad administrada asignada por el sistema, Azure crea una identidad para el servicio de búsqueda que se puede usar para autenticarse en otros servicios de Azure en el mismo inquilino y la misma suscripción. Después, puede usar esta identidad en las asignaciones de control de acceso basado en rol (RBAC) que permiten el acceso a los datos durante la indexación.
+Cuando se habilita una identidad administrada asignada por el sistema, Azure crea una identidad para el servicio de búsqueda que se puede usar para autenticarse en otros servicios de Azure en el mismo inquilino y la misma suscripción. Después, puede usar esta identidad en las asignaciones de control de acceso basado en roles de Azure (Azure RBAC) que permiten el acceso a los datos durante la indexación.
 
 ![Activar la identidad administrada asignada por el sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activar la identidad administrada asignada por el sistema")
 
@@ -43,13 +43,13 @@ En este paso, concederá permiso a su servicio de Azure Cognitive Search para le
 
 1. En Azure Portal, navegue hasta la cuenta de Cosmos DB que contiene los datos que quiere indexar.
 2. Seleccione **Access Control (IAM)**
-3. Seleccione **Agregar** y, a continuación, **Agregar asignación de roles** .
+3. Seleccione **Agregar** y, a continuación, **Agregar asignación de roles**.
 
     ![Agregar asignación de roles](./media/search-managed-identities/add-role-assignment-cosmos-db.png "Agregar asignación de roles")
 
-4. Seleccione el **Rol de lector de cuentas de Cosmos DB** .
-5. Deje **Asignar acceso a** como **Usuario, grupo o entidad de servicio de Azure AD** .
-6. Busque el servicio de búsqueda, selecciónelo y elija **Guardar** .
+4. Seleccione el **Rol de lector de cuentas de Cosmos DB**.
+5. Deje **Asignar acceso a** como **Usuario, grupo o entidad de servicio de Azure AD**.
+6. Busque el servicio de búsqueda, selecciónelo y elija **Guardar**.
 
     ![Agregue la asignación del rol Lector y acceso a datos](./media/search-managed-identities/add-role-assignment-cosmos-db-account-reader-role.png "Agregar la asignación del rol Lector y acceso a datos").
 

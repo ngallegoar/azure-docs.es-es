@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d676d891683cc11dd8c1999c26464373d17e97be
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932029"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518014"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -123,7 +123,7 @@ No. Una red virtual está limitada a una única región. Una red virtual, sin em
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>¿Puedo conectar una red virtual a otra red virtual en Azure?
 Sí. Puede conectar una red virtual a otra mediante los métodos siguientes:
-- **Emparejamiento de redes virtuales**: para obtener más información, consulte la [VNet peering overview](virtual-network-peering-overview.md) (Introducción al emparejamiento de redes virtuales).
+- **Emparejamiento de redes virtuales** : para obtener más información, consulte la [VNet peering overview](virtual-network-peering-overview.md) (Introducción al emparejamiento de redes virtuales).
 - **Una instancia de Azure VPN Gateway.** : para obtener más información, consulte [Configure a VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Configuración de una conexión de red virtual a red virtual). 
 
 ## <a name="name-resolution-dns"></a>resolución de nombres DNS
@@ -159,10 +159,10 @@ Sí. Todas las interfaces de red (NIC) conectadas a una máquina virtual impleme
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>¿Cuáles son los distintos tipos de direcciones IP que se pueden asignar a máquinas virtuales?
 * **Privada:** se asigna a cada uno de los NIC de todas las máquinas virtuales. Para asignar la dirección se puede usar el método estático o el dinámico. La direcciones IP privadas se asignan del intervalo especificado en la configuración de subred de la red virtual. A los recursos implementados a través del modelo de implementación clásica se les asignan direcciones IP privadas, aunque no estén conectadas a una red virtual. El comportamiento del método de asignación es diferente en función de si se ha implementado un recurso con el modelo de implementación clásica o de Resource Manager: 
 
-  - **Resource Manager**: una dirección IP privada asignada con el método dinámico o estático permanece asignada a una máquina virtual (Resource Manager) hasta que se elimina el recurso. La diferencia es que cuando se usa el método estático el usuario selecciona la dirección que se asigna y cuando se usa el dinámico es Azure quien la elige. 
-  - **Clásica**: las direcciones IP privadas asignadas con el método dinámico pueden cambiar cuando se reinicia una máquina virtual (clásica) después de haber estado en un estado detenido (desasignada). Si necesita asegurarse de que la dirección IP privada de un recurso implementado mediante el modelo de implementación clásica no cambie nunca, asigne una dirección IP privada con el método estático.
+  - **Resource Manager** : una dirección IP privada asignada con el método dinámico o estático permanece asignada a una máquina virtual (Resource Manager) hasta que se elimina el recurso. La diferencia es que cuando se usa el método estático el usuario selecciona la dirección que se asigna y cuando se usa el dinámico es Azure quien la elige. 
+  - **Clásica** : las direcciones IP privadas asignadas con el método dinámico pueden cambiar cuando se reinicia una máquina virtual (clásica) después de haber estado en un estado detenido (desasignada). Si necesita asegurarse de que la dirección IP privada de un recurso implementado mediante el modelo de implementación clásica no cambie nunca, asigne una dirección IP privada con el método estático.
 
-* **Pública:** opcionalmente, se puede asignar a NIC conectadas a máquinas virtuales implementadas a través del modelo de implementación de Azure Resource Manager. La dirección se puede asignar con el método de asignación estática o el de asignación dinámica. Todas las máquinas virtuales y las instancias de rol de Cloud Services implementadas a través del modelo de implementación clásica existen en un servicio en la nube, al que se asigna una dirección IP virtual (VIP) pública y *dinámica*. Si se desea, una dirección IP pública *estática*, que se denomina [dirección IP reservada](virtual-networks-reserved-public-ip.md), puede asignarse como si fuera una VIP. Las direcciones IP públicas se pueden asignar a máquinas virtuales o instancias de rol de Cloud Services individuales implementadas mediante el modelo de implementación clásica. Estas direcciones se denominan direcciones [IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) y se puede asignar dinámicamente.
+* **Pública:** opcionalmente, se puede asignar a NIC conectadas a máquinas virtuales implementadas a través del modelo de implementación de Azure Resource Manager. La dirección se puede asignar con el método de asignación estática o el de asignación dinámica. Todas las máquinas virtuales y las instancias de rol de Cloud Services implementadas a través del modelo de implementación clásica existen en un servicio en la nube, al que se asigna una dirección IP virtual (VIP) pública y *dinámica*. Si se desea, una dirección IP pública *estática* , que se denomina [dirección IP reservada](virtual-networks-reserved-public-ip.md), puede asignarse como si fuera una VIP. Las direcciones IP públicas se pueden asignar a máquinas virtuales o instancias de rol de Cloud Services individuales implementadas mediante el modelo de implementación clásica. Estas direcciones se denominan direcciones [IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) y se puede asignar dinámicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>¿Puedo reservar una dirección IP interna para una máquina virtual que crearé más adelante?
 No. Las direcciones IP privadas no se pueden reservar. Si hay una dirección IP privada disponible, el servidor DHCP la asigna a una máquina virtual o una instancia de rol. La máquina virtual puede ser, o no, aquella a la que quiere que se asigne la dirección IP privada. Sin embargo, la dirección IP privada de una máquina virtual ya creada se puede cambiar por cualquier dirección IP privada disponible.
@@ -267,11 +267,11 @@ Se puede conectar a estos recursos a través de ExpressRoute o de red virtual a 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>¿Puedo habilitar el emparejamiento de VNET si mis redes virtuales pertenecen a suscripciones de diferentes inquilinos de Azure Active Directory?
 Sí. No es posible establecer el emparejamiento de VNET (ya sea local o global) si las suscripciones pertenecen a diferentes inquilinos de Azure Active Directory. Para ello, use el portal, PowerShell o la CLI.
 
-### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mi conexión de emparejamiento de VNET se encuentra en estado *Iniciado*, ¿por qué no puedo conectarme?
-Si la conexión de emparejamiento está en estado *Iniciado*, esto significa que ha creado un solo vínculo. Se debe crear un vínculo bidireccional con el fin de establecer una conexión correcta. Por ejemplo, para emparejar VNET A a VNET B, debe crearse un vínculo de VNET A a VNET B y de VNET B a VNET A. La creación de ambos vínculos cambiará el estado a *Conectado*.
+### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mi conexión de emparejamiento de VNET se encuentra en estado *Iniciado* , ¿por qué no puedo conectarme?
+Si la conexión de emparejamiento está en estado *Iniciado* , esto significa que ha creado un solo vínculo. Se debe crear un vínculo bidireccional con el fin de establecer una conexión correcta. Por ejemplo, para emparejar VNET A a VNET B, debe crearse un vínculo de VNET A a VNET B y de VNET B a VNET A. La creación de ambos vínculos cambiará el estado a *Conectado*.
 
-### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Mi conexión de emparejamiento de VNet se encuentra en estado *Desconectado*, ¿por qué no puedo crear una conexión de emparejamiento?
-Si la conexión de emparejamiento de VNet está en estado *Desconectado*, significa que se ha eliminado uno de los vínculos creados. Para volver a establecer una conexión de emparejamiento, deberá eliminar el vínculo y volverlo a crear.
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Mi conexión de emparejamiento de VNet se encuentra en estado *Desconectado* , ¿por qué no puedo crear una conexión de emparejamiento?
+Si la conexión de emparejamiento de VNet está en estado *Desconectado* , significa que se ha eliminado uno de los vínculos creados. Para volver a establecer una conexión de emparejamiento, deberá eliminar el vínculo y volverlo a crear.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>¿Puedo emparejar mi red virtual con otra en una suscripción diferente?
 Sí. Puede emparejar redes virtuales entre suscripciones y entre regiones.
@@ -283,9 +283,9 @@ No. Los espacios de direcciones no deben solaparse para habilitar el emparejamie
 La creación de una conexión de emparejamiento VNET es gratuita. Se cobra la transferencia de datos a través de conexiones de emparejamiento. [Consulte aquí](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>¿Está cifrado el tráfico de emparejamiento de VNET?
-No. El tráfico entre recursos en redes virtuales emparejadas es privado y aislado. Sigue estando en la columna vertebral de Microsoft.
+Cuando el tráfico de Azure se mueve entre centros de datos (fuera de los límites físicos no controlados por Microsoft o en nombre de Microsoft), se usa el [cifrado de capa de vínculo de datos MACsec](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) en el hardware de red subyacente.  Esto es aplicable al tráfico de emparejamiento de VNet.
 
-### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>¿Por qué mi conexión de emparejamiento está en estado *Desconectado*?
+### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>¿Por qué mi conexión de emparejamiento está en estado *Desconectado* ?
 Las conexiones de emparejamiento de redes virtuales pasan a un estado *Desconectado* cuando se elimina un vínculo de emparejamiento de red virtual. Debe eliminar ambos vínculos para restablecer una conexión de emparejamiento correcta.
 
 ### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Si se empareja VNETA con VNETB y se empareja VNETB con VNETC, ¿significa que VNETA y VNETC están emparejadas?
@@ -326,12 +326,12 @@ Existen dos pasos para asegurar un recurso de servicio de Azure mediante puntos 
 1. Active los puntos de conexión de servicio para el servicio de Azure.
 2. Configure las ACL de red virtual en el servicio de Azure.
 
-El primer paso es realizar una operación del lado de red y, el segundo, es realizar una operación del lado del recurso de servicio. Según los permisos RBAC otorgados al rol de administrador, el mismo administrador o varios administradores diferentes pueden realizar ambos pasos. Le recomendamos que primero active los puntos de conexión de servicio de la red virtual antes de configurar las ACL de red virtual en el lado del servicio de Azure. Por lo tanto, los pasos deben realizarse en la secuencia que se detalló anteriormente para configurar los puntos de conexión de servicio de la red virtual.
+El primer paso es realizar una operación del lado de red y, el segundo, es realizar una operación del lado del recurso de servicio. Según los permisos RBAC de Azure otorgados al rol de administrador, el mismo administrador u otros pueden realizar los dos pasos. Le recomendamos que primero active los puntos de conexión de servicio de la red virtual antes de configurar las ACL de red virtual en el lado del servicio de Azure. Por lo tanto, los pasos deben realizarse en la secuencia que se detalló anteriormente para configurar los puntos de conexión de servicio de la red virtual.
 
 >[!NOTE]
 > Debe completar las dos operaciones descritas anteriormente antes de poder limitar el acceso del servicio de Azure a la red virtual y a la subred permitidas. Si solo activa los puntos de conexión de servicio del servicio de Azure en el lado de red no obtendrá el acceso limitado. Asimismo, también debe configurar las ACL de red virtual en el lado del servicio de Azure.
 
-Ciertos servicios (como SQL y CosmosDB) permiten excepciones en la secuencia anterior si usa la marca **IgnoreMissingVnetServiceEndpoint**. Una vez que la marca se establece en **True**, las ACL de la red virtual pueden establecerse en el lado del servicio de Azure antes de configurar los puntos de conexión de servicio en el lado de red. Los servicios de Azure proporcionan esta marca para ayudar a los clientes en los casos en que los firewalls de IP específicos estén configurados en los servicios de Azure y la activación de los puntos de conexión de servicio en el lado de la red pueda provocar una caída de la conectividad, ya que la IP de origen cambia de una dirección IPv4 pública a una dirección privada. La configuración de las ACL de la red virtual en el lado del servicio de Azure antes de configurar los puntos de conexión de servicio en el lado de red puede ayudarle a evitar que la conectividad se vea afectada.
+Ciertos servicios (como SQL y CosmosDB) permiten excepciones en la secuencia anterior si usa la marca **IgnoreMissingVnetServiceEndpoint**. Una vez que la marca se establece en **True** , las ACL de la red virtual pueden establecerse en el lado del servicio de Azure antes de configurar los puntos de conexión de servicio en el lado de red. Los servicios de Azure proporcionan esta marca para ayudar a los clientes en los casos en que los firewalls de IP específicos estén configurados en los servicios de Azure y la activación de los puntos de conexión de servicio en el lado de la red pueda provocar una caída de la conectividad, ya que la IP de origen cambia de una dirección IPv4 pública a una dirección privada. La configuración de las ACL de la red virtual en el lado del servicio de Azure antes de configurar los puntos de conexión de servicio en el lado de red puede ayudarle a evitar que la conectividad se vea afectada.
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>¿Todos los servicios de Azure residen en la red virtual de Azure que proporciona el cliente? ¿Cómo funciona el punto de conexión de servicio de la red virtual con los servicios de Azure?
 
@@ -411,7 +411,7 @@ No hay límite en el número total de puntos de conexión de servicio de la red 
 |Azure SQL| 128|
 |Azure Synapse Analytics|   128|
 |Azure KeyVault|    127|
-|Azure Cosmos DB|   64|
+|Azure Cosmos DB|   64|
 |Centro de eventos de Azure|   128|
 |Azure Service Bus| 128|
 |Azure Data Lake Store V1|  100|

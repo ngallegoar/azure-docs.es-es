@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 2f1edc14efdeaf70bf4c2acc0e31e1517753ed3e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361490"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546354"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico o VM de VMware
 
@@ -29,7 +29,7 @@ La licencia que se proporciona con la plantilla de OVF es una licencia de evalua
 Puede acceder al servidor de configuración como se indica a continuación:
 
 * Inicie sesión en la máquina virtual en la que está implementado e inicie el **administrador de configuración de Azure Site Recovery** desde el acceso directo del escritorio.
-* Como alternativa, puede acceder al servidor de configuración de forma remota desde https://*NombreDeServidorDeConfiguración*/:44315/. Inicie sesión con las credenciales de administrador.
+* Como alternativa, puede acceder al servidor de configuración de forma remota desde https:// *NombreDeServidorDeConfiguración* /:44315/. Inicie sesión con las credenciales de administrador.
 
 ## <a name="modify-vmware-server-settings"></a>Modificación de la configuración del servidor de VMware
 
@@ -103,7 +103,7 @@ La fecha de expiración aparece en **Configuration Server health** (Mantenimient
 
 - Cuando la fecha de expiración es dos meses o menos, el servicio comienza a enviar notificaciones en el portal y por correo electrónico (si está suscrito a las notificaciones de Azure Site Recovery).
 - Aparece un banner de notificación en la página de recursos de almacén. Para más información, seleccione el banner.
-- Si ve el botón **Actualizar ahora**, quiere decir que algunos componentes en el entorno no se han actualizado a la versión 9.4.xxxx.x o superior. Actualice los componentes antes de renovar el certificado. La renovación no es posible en versiones anteriores.
+- Si ve el botón **Actualizar ahora** , quiere decir que algunos componentes en el entorno no se han actualizado a la versión 9.4.xxxx.x o superior. Actualice los componentes antes de renovar el certificado. La renovación no es posible en versiones anteriores.
 
 ### <a name="if-certificates-are-yet-to-expire"></a>Si los certificados aún no han expirado
 
@@ -128,7 +128,7 @@ Si lo necesita, puede volver a registrar el servidor de configuración en el mis
 1. En el almacén, abra **Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**.
 2. En **Servers** (Servidores), seleccione **Download registration key** (Descargar clave de registro) para descargar el archivo de credenciales de almacén.
 3. Inicie sesión en la máquina del servidor de configuración.
-4. En **%ProgramData%\ASR\home\svsystems\bin**, abra **cspsconfigtool.exe**.
+4. En **%ProgramData%\ASR\home\svsystems\bin** , abra **cspsconfigtool.exe**.
 5. En la pestaña **Vault Registration** (Registro del almacén), seleccione **Browse** (Examinar) y busque el archivo de credenciales de almacén que ha descargado.
 6. Si lo necesita, proporcione los detalles del servidor proxy. Después, seleccione **Register** (Registrar).
 7. Abra la ventana de comandos de administrador de PowerShell y ejecute el comando siguiente:
@@ -169,12 +169,12 @@ Los paquetes acumulativos se ejecutan para actualizar el servidor de configuraci
 - Si ejecuta 9.7 9.8, 9,9 o 9.10, puede actualizar directamente a 9.11.
 - Si ejecuta la versión 9.6 o anterior, y desea actualizar a 9.11, primero debe actualizar a la versión 9.7 antes de hacerlo a la versión 9.11.
 
-Para obtener instrucciones detalladas sobre la instrucción de soporte técnico de los componentes de Azure Site Recovery, consulte [aquí](https://aka.ms/asr_support_statement).
-[Aquí](https://aka.ms/asr_update_rollups) hay disponibles vínculos a paquetes acumulativos para actualizar a todas las versiones del servidor de configuración.
+Para obtener instrucciones detalladas sobre la instrucción de soporte técnico de los componentes de Azure Site Recovery, consulte [aquí](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
+[Aquí](./service-updates-how-to.md#links-to-currently-supported-update-rollups) hay disponibles vínculos a paquetes acumulativos para actualizar a todas las versiones del servidor de configuración.
 
 > [!IMPORTANT]
 > Con cada nueva versión "N" de un componente de Azure Site Recovery que se publica, todas las versiones anteriores a "N-4" se consideran excluidas del soporte técnico. Siempre es aconsejable actualizar a las versiones más recientes disponibles.</br>
-> Para obtener instrucciones detalladas sobre la instrucción de soporte técnico de los componentes de Azure Site Recovery, consulte [aquí](https://aka.ms/asr_support_statement).
+> Para obtener instrucciones detalladas sobre la instrucción de soporte técnico de los componentes de Azure Site Recovery, consulte [aquí](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
 
 Actualice el servidor como se indica a continuación:
 
@@ -183,16 +183,16 @@ Actualice el servidor como se indica a continuación:
     ![Actualizar](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Descargue el archivo del instalador de actualizaciones en el servidor de configuración.
 
-    ![Actualizar](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Captura de pantalla que muestra dónde hacer clic para descargar el archivo del instalador de actualizaciones.](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Haga doble clic para ejecutar el instalador.
 5. El instalador detecta la versión actual que se ejecuta en la máquina. Haga clic en **Sí** para iniciar la actualización.
 6. Cuando la actualización finaliza se valida la configuración del servidor.
 
-    ![Actualizar](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Captura de pantalla que muestra la configuración completada de validación del servidor.](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Haga clic en **Finish** (Finalizar) para cerrar el instalador.
-8. Para actualizar el resto de los componentes de Site Recovery, consulte nuestra [guía de actualización](https://aka.ms/asr_vmware_upgrades).
+8. Para actualizar el resto de los componentes de Site Recovery, consulte nuestra [guía de actualización](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## <a name="upgrade-configuration-serverprocess-server-from-the-command-line"></a>Actualización del servidor de configuración o del servidor de procesos desde la línea de comandos
 

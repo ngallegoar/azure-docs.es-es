@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 820fec5fd782d66e5b681f5fbb9bbb8f8d4f6648
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 73cf0d18c68baf7e0e19d15d621a7a3d87a486a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106525"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748128"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -32,7 +32,7 @@ Las tablas de este artículo proporcionan información acerca de la cobertura ge
 Las regiones de Azure son centros de datos globales en los que se encuentran los recursos de proceso, red y almacenamiento de Azure. Al crear un recurso de Azure, los clientes deben seleccionar la ubicación del recurso. Esta ubicación determina el centro de datos (o la zona de disponibilidad) de Azure en que se crea el recurso.
 
 ## <a name="expressroute-locations"></a>Ubicaciones de ExpressRoute
-Las ubicaciones de ExpressRoute (a las que a veces se denomina ubicaciones de emparejamiento o ubicaciones de punto de encuentro) son instalaciones de ubicación compartida en las que se encuentran los dispositivos de Microsoft Enterprise Edge (MSEE). Las ubicaciones de ExpressRoute son el punto de entrada a la red de Microsoft (y se distribuyen globalmente, lo que proporciona a los clientes la oportunidad de conectarse a la red de Microsoft en todo el mundo). Estas ubicaciones son donde los asociados de ExpressRoute y los clientes ExpressRoute Direct emiten conexiones cruzadas a la red de Microsoft. En general, no es preciso que la ubicación de ExpressRoute coincida con la región de Azure. Por ejemplo, un cliente puede crear un circuito ExpressRoute con la ubicación de recursos *Este de EE. UU.* , en la ubicación de emparejamiento *Seattle* .
+Las ubicaciones de ExpressRoute (a las que a veces se denomina ubicaciones de emparejamiento o ubicaciones de punto de encuentro) son instalaciones de ubicación compartida en las que se encuentran los dispositivos de Microsoft Enterprise Edge (MSEE). Las ubicaciones de ExpressRoute son el punto de entrada a la red de Microsoft (y se distribuyen globalmente, lo que proporciona a los clientes la oportunidad de conectarse a la red de Microsoft en todo el mundo). Estas ubicaciones son donde los asociados de ExpressRoute y los clientes ExpressRoute Direct emiten conexiones cruzadas a la red de Microsoft. En general, no es preciso que la ubicación de ExpressRoute coincida con la región de Azure. Por ejemplo, un cliente puede crear un circuito ExpressRoute con la ubicación de recursos *Este de EE. UU.* , en la ubicación de emparejamiento *Seattle*.
 
 Tendrá acceso a los servicios de Azure en todas las regiones dentro de una región geopolítica si se conectó al menos a una ubicación de ExpressRoute dentro de la región geopolítica. 
 
@@ -111,7 +111,7 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Marsella** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | Sur de Francia | N/D | DE-CIX, GEANT, Interxion, Jaguar Network, Ooredoo Cloud Connect |
 | **Melbourne** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | Sudeste de Australia | 10 Gb/s, 100 Gb/s | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | N/D | 10 Gb/s, 100 Gb/s | Claro, C3ntro, Equinix, Megaport, Neutrona Networks |
-| **Milán** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | N/D | 10 Gb/s | Colt, Equinix, Retelit |
+| **Milán** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | N/D | 10 Gb/s | Colt, Equinix, Fastweb, Retelit |
 | **Mineápolis** | [Cologix MIN1](https://www.cologix.com/data-centers/minneapolis/min1/) | 1 | N/D | 10 Gb/s, 100 Gb/s | Cologix |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | N/D | 10 Gb/s, 100 Gb/s | Bell Canada, Cologix, Fibrenoire, Megaport, Telus, Zayo |
 | **Mumbai (Bombay)** | Tata Communications | 2 | Oeste de la India | 10 Gb/s | DE-CIX, Global CloudXchange (GCX), Reliance Jio, Sify, Tata Communications, Verizon |
@@ -146,7 +146,7 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | N/D | 10 Gb/s | Cologix, Telus |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | Este de EE. UU., Este de EE. UU. 2 | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, Internet2, InterCloud, IX Reach, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, Orange, PacketFabric, SES, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Washington DC2** | [Coresite Reston](https://www.coresite.com/data-center-locations/northern-virginia-washington-dc) | 1 | Este de EE. UU., Este de EE. UU. 2 | 10 Gb/s, 100 Gb/s | CenturyLink Cloud Connect, Coresite, Intelsat, Megaport, Viasat, Zayo | 
-| **Zúrich** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Norte de Suiza | 10 Gb/s, 100 Gb/s | Intercloud, Interxion, Megaport, Swisscom |
+| **Zúrich** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Norte de Suiza | 10 Gb/s, 100 Gb/s | Eqinix, Intercloud, Interxion, Megaport, Swisscom |
 
  **+** indica próximamente
 

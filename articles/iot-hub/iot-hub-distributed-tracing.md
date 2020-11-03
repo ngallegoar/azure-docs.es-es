@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 99a58cdbed10703c64b980af8571bce2d2638e72
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: efc4d07e9e3a64a36f2ecf3fa0000379bef380f9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152151"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538585"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -29,7 +29,7 @@ IoT Hub es uno de los primeros servicios de Azure que admite el seguimiento dist
 La habilitación del seguimiento distribuido para IoT Hub le ofrece la capacidad de:
 
 - Supervisar de forma precisa el flujo de cada mensaje a través de IoT Hub mediante [contexto de seguimiento](https://github.com/w3c/trace-context). Este contexto de seguimiento incluye id. de correlación que permiten correlacionar eventos de un componente con eventos de otro componente. Se puede aplicar a un subconjunto de mensajes de dispositivo de IoT o a todos esos mensajes mediante [dispositivo gemelo](iot-hub-devguide-device-twins.md).
-- Registrar automáticamente el contexto de seguimiento en [registros de diagnóstico de Azure Monitor](iot-hub-monitor-resource-health.md).
+- Registrar automáticamente el contexto de seguimiento en [registros de Azure Monitor](monitor-iot-hub.md).
 - Medir y comprender la latencia y el flujo de mensajes desde los dispositivos a IoT Hub y los puntos de conexión de enrutamiento.
 - Comenzar a considerar cómo desea implementar el seguimiento distribuido para los servicios que no son de Azure en su solución de IoT.
 
@@ -57,17 +57,17 @@ En esta sección, configurará una instancia de IoT Hub para registrar atributos
 
 1. En el panel izquierdo de IoT Hub, desplácese hacia abajo hasta la sección **Supervisión** y haga clic en **Configuración de diagnóstico**.
 
-1. Si la configuración de diagnóstico ya no está activada, haga clic en **Activar diagnóstico**. Si ya ha habilitado la configuración de diagnóstico, haga clic en **Agregar configuración de diagnóstico** .
+1. Haga clic en **Agregar configuración de diagnóstico**.
 
-1. En el campo **Nombre**, escriba un nombre para una nueva configuración de diagnóstico. Por ejemplo, **DistributedTracingSettings**.
+1. En el campo **Nombre** , escriba un nombre para una nueva configuración de diagnóstico. Por ejemplo, **DistributedTracingSettings**.
 
 1. Elija una o varias de las opciones siguientes que determinan dónde se enviará el registro:
 
-    - **Archivar en una cuenta de almacenamiento**: configure una cuenta de almacenamiento para que contenga la información de registro.
-    - **Transmisión a un centro de eventos**: configure un centro de eventos para que contenga la información de registro.
-    - **Enviar a Log Analytics**: Configure un área de trabajo de Log Analytics para que contenga la información de registro.
+    - **Archivar en una cuenta de almacenamiento** : configure una cuenta de almacenamiento para que contenga la información de registro.
+    - **Transmisión a un centro de eventos** : configure un centro de eventos para que contenga la información de registro.
+    - **Enviar a Log Analytics** : Configure un área de trabajo de Log Analytics para que contenga la información de registro.
 
-1. En la sección **Registro**, seleccione las operaciones para las que desea la información de registro.
+1. En la sección **Registro** , seleccione las operaciones para las que desea la información de registro.
 
     No olvide incluir **DistributedTracing** y configure un valor para **Retención** para establecer el número de días que desea conservar el registro. La retención de registros afecta a los costos de almacenamiento.
 
@@ -83,7 +83,7 @@ Una vez activado el registro, IoT Hub graba un registro cuando un mensaje que co
 - IoT Hub procesa el mensaje.
 - El mensaje se enruta a puntos de conexión personalizados. El enrutamiento debe estar habilitado.
 
-Para más información sobre estos registros y sus esquemas, vea [Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
+Para obtener más información sobre estos registros y sus esquemas, consulte [Supervisión de IoT Hub](monitor-iot-hub.md) y [Seguimiento distribuido en registros de recursos de IoT Hub](monitor-iot-hub-reference.md#distributed-tracing-preview).
 
 ## <a name="set-up-device"></a>Configuración de un dispositivo
 
@@ -206,7 +206,7 @@ Para cambiar el porcentaje de mensajes que se van a seguir desde la nube, debe a
 
 1. Elija un valor en **Velocidad de muestreo** entre 0 % y 100 %.
 
-1. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save** (Guardar).
 
 1. Espere unos segundos y presione **Actualizar**. Si el dispositivo lo reconoce correctamente, aparece un icono de sincronización con una marca de verificación.
 
@@ -260,7 +260,7 @@ Para ver todos los seguimientos registrados por una instancia de IoT Hub, consul
 
 ### <a name="query-using-log-analytics"></a>Consulta mediante Log Analytics
 
-Si ha configurado [Log Analytics con registros de diagnóstico](../azure-monitor/platform/resource-logs.md#send-to-azure-storage), consulte mediante la búsqueda de registros en la categoría `DistributedTracing`. Por ejemplo, esta consulta muestra todos los seguimientos registrados:
+Si ha configurado [Log Analytics con registros de recursos](../azure-monitor/platform/resource-logs.md#send-to-azure-storage), consulte mediante la búsqueda de registros en la categoría `DistributedTracing`. Por ejemplo, esta consulta muestra todos los seguimientos registrados:
 
 ```Kusto
 // All distributed traces 
@@ -278,7 +278,7 @@ Registros de ejemplo como se muestran en Log Analytics:
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
 | 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
-Para entender los diferentes tipos de registros, vea [Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
+Para entender los diferentes tipos de registros, consulte [Registros de seguimiento distribuido de Azure IoT Hub](monitor-iot-hub-reference.md#distributed-tracing-preview).
 
 ### <a name="application-map"></a>Mapa de aplicación
 
@@ -313,7 +313,7 @@ Una vez habilitada, la compatibilidad con el seguimiento distribuido para IoT Hu
 1. El dispositivo de IoT envía el mensaje a IoT Hub.
 1. El mensaje llega a la puerta de enlace de IoT Hub.
 1. IoT Hub busca `tracestate` en las propiedades del mensaje y comprobaciones si tiene el formato correcto.
-1. En ese caso, IoT Hub genera un elemento `trace-id` único global para el mensaje y un elemento `span-id` para el "salto" y los anota en los registros de diagnóstico de Azure Monitor en la operación `DiagnosticIoTHubD2C`.
+1. En ese caso, IoT Hub genera un elemento `trace-id` único global para el mensaje y un elemento `span-id` para el "salto" y los anota en los [registros de seguimiento distribuido de IoT Hub](monitor-iot-hub-reference.md#distributed-tracing-preview) en la operación `DiagnosticIoTHubD2C`.
 1. Una vez finalizado el procesamiento del mensaje, IoT Hub genera otro elemento `span-id` y lo registra junto con el elemento `trace-id` existente en la operación `DiagnosticIoTHubIngress`.
 1. Si el enrutamiento está habilitado para el mensaje, IoT Hub lo escribe en el punto de conexión personalizado y registra otro `span-id` con el mismo `trace-id` bajo la categoría `DiagnosticIoTHubEgress`.
 1. Los pasos anteriores se repiten para cada mensaje generado.
@@ -330,3 +330,4 @@ Una vez habilitada, la compatibilidad con el seguimiento distribuido para IoT Hu
 - Para obtener más información sobre el patrón general del seguimiento distribuido en microservicios, consulte [Microservice architecture pattern: distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html) (Patrón de arquitectura de microservicios: seguimiento distribuido).
 - Para establecer la configuración para aplicar parámetros de seguimiento distribuido a un gran número de dispositivos, consulte [Configuración y supervisión de dispositivos IoT a escala mediante Azure Portal](./iot-hub-automatic-device-management.md).
 - Para obtener más información sobre Azure Monitor, consulte [Introducción a Azure Monitor](../azure-monitor/overview.md).
+- Para obtener más información sobre el uso de Azure Monitor con IoT HUb, consulte [Supervisión de IoT Hub](monitor-iot-hub.md).

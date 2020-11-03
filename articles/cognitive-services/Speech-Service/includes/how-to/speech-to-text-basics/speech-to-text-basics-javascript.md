@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 04d54afa6a2dc9aab778f927d55b270a1ca2a660
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f16b0fb5cf241604c627925a7cd905c1683399fd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210732"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886735"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 
@@ -41,15 +41,7 @@ Descargue y extraiga el archivo *microsoft.cognitiveservices.speech.sdk.bundle.j
 ```
 
 > [!TIP]
-> Si el destino es un explorador web y usa la etiqueta `<script>`, el prefijo `sdk` no es necesario. El prefijo `sdk` es un alias que se usa para asignar un nombre al módulo `require`.
-
-# <a name="import"></a>[import](#tab/import)
-
-```javascript
-import * from "microsoft-cognitiveservices-speech-sdk";
-```
-
-Para más información sobre `import`, consulte <a href="https://javascript.info/import-export" target="_blank">export and import <span class="docon docon-navigate-external x-hidden-focus"></span></a> (export e import).
+> Si el destino es un explorador web y se usa la etiqueta `<script>`, el prefijo `sdk` no es necesario al referenciar clases. El prefijo `sdk` es un alias que se usa para asignar un nombre al módulo `require`.
 
 # <a name="require"></a>[require](#tab/require)
 
@@ -63,77 +55,106 @@ Para más información sobre `require`, consulte <a href="https://nodejs.org/en/
 
 ## <a name="create-a-speech-configuration"></a>Creación de una configuración de voz
 
-Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true). Esta clase incluye información sobre la suscripción, como la clave, la región asociada, el punto de conexión, el host o el token de autorización.
+Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true). Esta clase incluye información sobre la suscripción, como la clave, la región asociada, el punto de conexión, el host o el token de autorización. Cree una clase [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) mediante su clave y región. Consulte la página de [soporte por regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para buscar el identificador de región.
 
-> [!NOTE]
-> Debe crear siempre una configuración, independientemente de si va a realizar reconocimiento de voz, síntesis de voz, traducción o reconocimiento de intenciones.
+```javascript
+const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+```
 
-Existen diversas maneras para inicializar un elemento [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true):
+Existen otras maneras de inicializar una clase [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true):
 
-* Con una suscripción: pase una clave y la región asociada.
 * Con un punto de conexión: pase un punto de conexión del servicio de voz. La clave y el token de autorización son opcionales.
 * Con un host: pase una dirección de host. La clave y el token de autorización son opcionales.
 * Con un token de autorización: pase el token de autorización y la región asociada.
 
-Vamos a echar un vistazo al procedimiento de creación de un elemento [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) con una clave y una región. Consulte la página de [soporte por regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para buscar el identificador de región.
-
-```javascript
-const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
-
-## <a name="initialize-a-recognizer"></a>Inicialización de un reconocedor
-
-Una vez creado un elemento [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true), el paso siguiente consiste en inicializar un elemento [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true). Al inicializar [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true), se usa `speechConfig`. Esto proporciona las credenciales que necesita el servicio de voz para validar la solicitud.
-
-```javascript
-const recognizer = new SpeechRecognizer(speechConfig);
-```
-
-## <a name="recognize-from-microphone-or-file"></a>Reconocimiento desde un micrófono o archivo
-
-Si desea especificar el dispositivo de entrada de audio, es preciso que cree [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true) y lo use como parámetro al inicializar [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true).
-
-Para reconocer la voz mediante el micrófono del dispositivo, cree un elemento `AudioConfig` mediante `fromDefaultMicrophoneInput()`y, después, utilice la configuración de audio al crear el objeto `SpeechRecognizer`.
-
-```javascript
-const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
-```
-
-> [!TIP]
-> [Obtenga información sobre cómo obtener el identificador de dispositivo del dispositivo de entrada de audio](../../../how-to-select-audio-input-devices.md).
-
-Si desea reconocer la voz de un archivo de audio, en lugar de usar un micrófono, tiene que especificar un elemento `AudioConfig`. Sin embargo, al crear [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true), en lugar de llamar a `fromDefaultMicrophoneInput()`, llama a `fromWavFileInput()` y usa el parámetro `filename`.
-
-> [!IMPORTANT]
-> El reconocimiento de la voz desde un archivo *solo* se admite en el SDK de **Node.js**.
-
-```javascript
-const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
-const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
-```
-
-## <a name="recognize-speech"></a>Reconocer la voz
-
-La [clase Recognizer](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true) de Speech SDK para JavaScript expone algunos métodos que puede usar para el reconocimiento de voz.
-
-* Reconocimiento de una sola captura (asincrónico): realiza el reconocimiento en modo sin bloqueo (asincrónico). Esto reconocerá una expresión única. El final de una expresión única se determina mediante la escucha de un silencio al final o hasta que se procesa un máximo de 15 segundos de audio.
-* Reconocimiento continuo (asincrónico): inicia de forma asincrónica la operación de reconocimiento continuo. El usuario se registra a eventos y controla los distintos estados de la aplicación. Para detener el reconocimiento continuo asincrónico, llame a [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#stopcontinuousrecognitionasync).
-
 > [!NOTE]
-> Obtenga información adicional sobre cómo [elegir el modo de reconocimiento de voz](../../../how-to-choose-recognition-mode.md).
+> Debe crear siempre una configuración, independientemente de si va a realizar reconocimiento de voz, síntesis de voz, traducción o reconocimiento de intenciones.
 
-### <a name="single-shot-recognition"></a>Reconocimiento de una sola captura
+## <a name="recognize-from-microphone"></a>Reconocimiento desde un micrófono
 
-Este es un ejemplo de reconocimiento asincrónico de una sola captura mediante [`recognizeOnceAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#recognizeonceasync):
+Para reconocer la voz desde el micrófono del dispositivo, cree una clase `AudioConfig` mediante `fromDefaultMicrophoneInput()`. A continuación, inicialice una clase [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true), y pase `speechConfig` y `audioConfig`.
 
 ```javascript
-recognizer.recognizeOnceAsync(result => {
-    // Interact with result
-});
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+
+function fromMic() {
+    let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
+    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+    
+    console.log('Speak into your microphone.');
+    recognizer.recognizeOnceAsync(result => {
+        console.log(`RECOGNIZED: Text=${result.text}`);
+    });
+}
+fromMic();
 ```
 
-Deberá escribir código para controlar el resultado. Este ejemplo evalúa el elemento [`result.reason`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognitionresult?view=azure-node-latest&preserve-view=true#reason):
+Si desea usar un dispositivo de entrada de audio *específico* , debe especificar el identificador de dispositivo en la clase `AudioConfig`. Consulte [cómo obtener el identificador del dispositivo](../../../how-to-select-audio-input-devices.md) de entrada de audio.
+
+## <a name="recognize-from-file"></a>Reconocimiento desde un archivo 
+
+# <a name="browser"></a>[Browser](#tab/browser)
+
+Para reconocer la voz desde un archivo de audio en un entorno de JavaScript basado en explorador, use la función `fromWavFileInput()` para crear una clase [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true). La función `fromWavFileInput()` espera un objeto [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File/File) de JavaScript como un parámetro.
+
+```javascript
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+
+function fromFile() {
+    // wavByteContent should be a byte array of the raw wav content
+    let file = new File([wavByteContent]);
+    let audioConfig = sdk.AudioConfig.fromWavFileInput(file);
+    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+    
+    recognizer.recognizeOnceAsync(result => {
+        console.log(`RECOGNIZED: Text=${result.text}`);
+    });
+}
+fromFile();
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/node)
+
+Para reconocer la voz desde un archivo de audio de Node.js, se requiere un patrón de diseño alternativo que use una secuencia de entrada, ya que el objeto [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File/File) de JavaScript no se puede usar en un entorno de ejecución de Node.js. El código siguiente:
+
+* Crea una secuencia de entrada mediante `createPushStream()`.
+* Abre el archivo `.wav` al crear un flujo de lectura y lo escribe en el flujo de entrada.
+* Crea una configuración de audio mediante el flujo de entrada.
+
+```javascript
+const fs = require('fs');
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+
+function fromFile() {
+    let pushStream = sdk.AudioInputStream.createPushStream();
+
+    fs.createReadStream("YourAudioFile.wav").on('data', function(arrayBuffer) {
+        pushStream.write(arrayBuffer.slice());
+    }).on('end', function() {
+        pushStream.close();
+    });
+ 
+    let audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
+    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+    recognizer.recognizeOnceAsync(result => {
+        console.log(`RECOGNIZED: Text=${result.text}`);
+        recognizer.close();
+    });
+}
+fromFile();
+```
+
+El uso de una secuencia de extracción como entrada interpreta que los datos de audio son un PCM sin formato; es decir, se omiten los encabezados.
+La API seguirá funcionando en determinados casos si no se ha omitido el encabezado, pero para obtener mejores resultados considere la posibilidad de aplicar la lógica para leer los encabezados, de manera que `fs` se inicie al *principio de los datos de audio*.
+
+---
+
+## <a name="error-handling"></a>Control de errores
+
+Los ejemplos anteriores sencillamente obtienen el texto reconocido de `result.text`, pero para gestionar los errores y otras respuestas, deberá escribir código para determinar el resultado. En el código siguiente se evalúa la propiedad [`result.reason`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognitionresult?view=azure-node-latest&preserve-view=true#reason) y:
 
 * Imprime el resultado del reconocimiento: `ResultReason.RecognizedSpeech`.
 * Si no hay ninguna coincidencia de reconocimiento, se informa al usuario: `ResultReason.NoMatch`.
@@ -143,7 +164,6 @@ Deberá escribir código para controlar el resultado. Este ejemplo evalúa el el
 switch (result.reason) {
     case ResultReason.RecognizedSpeech:
         console.log(`RECOGNIZED: Text=${result.text}`);
-        console.log("    Intent not recognized.");
         break;
     case ResultReason.NoMatch:
         console.log("NOMATCH: Speech could not be recognized.");
@@ -161,17 +181,19 @@ switch (result.reason) {
     }
 ```
 
-### <a name="continuous-recognition"></a>Reconocimiento continuo
+## <a name="continuous-recognition"></a>Reconocimiento continuo
 
-El reconocimiento continuo es un poco más complicado que el reconocimiento de una sola captura. Requiere que se suscriba a los eventos `Recognizing`, `Recognized` y `Canceled` para obtener los resultados del reconocimiento. Para detener el reconocimiento, debe llamar a [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#stopcontinuousrecognitionasync). Este es un ejemplo de cómo se realiza el reconocimiento continuo en un archivo de entrada de audio.
+En los ejemplos anteriores se usa el reconocimiento de una sola captura, que reconoce una única expresión. El final de una expresión única se determina mediante la escucha de un silencio al final o hasta que se procesa un máximo de 15 segundos de audio.
 
-Comencemos por definir la entrada e inicializar un elemento [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true):
+En cambio, el reconocimiento continuo se usa para **establecer** cuándo cesar el reconocimiento. Requiere que se suscriba a los eventos `Recognizing`, `Recognized` y `Canceled` para obtener los resultados del reconocimiento. Para detener el reconocimiento, debe llamar a [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#stopcontinuousrecognitionasync). Este es un ejemplo de cómo se realiza el reconocimiento continuo en un archivo de entrada de audio.
+
+Comience por definir la entrada e inicializar una clase [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true):
 
 ```javascript
-const recognizer = new SpeechRecognizer(speechConfig);
+const recognizer = new sdk.SpeechRecognizer(speechConfig);
 ```
 
-Nos suscribiremos a los eventos enviados desde el elemento [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true).
+A continuación, suscríbase a los eventos enviados desde [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true).
 
 * [`recognizing`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#recognizing): se señalizan los eventos que contienen los resultados intermedios del reconocimiento.
 * [`recognized`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#recognized): se señalizan los eventos que contienen los resultados finales del reconocimiento (lo que indica un intento de reconocimiento correcto).
@@ -210,13 +232,12 @@ recognizer.sessionStopped = (s, e) => {
 };
 ```
 
-Con todo configurado, podemos llamar a [`startContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#startcontinuousrecognitionasync).
+Cuando todo esté configurado, llame a [`startContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#startcontinuousrecognitionasync) para iniciar el reconocimiento.
 
 ```javascript
-// Starts continuous recognition. Uses stopContinuousRecognitionAsync() to stop recognition.
 recognizer.startContinuousRecognitionAsync();
 
-// Something later can call, stops recognition.
+// make the following call at some point to stop recognition.
 // recognizer.StopContinuousRecognitionAsync();
 ```
 
@@ -238,7 +259,7 @@ Una tarea común en el reconocimiento de voz es especificar el idioma de entrada
 speechConfig.speechRecognitionLanguage = "it-IT";
 ```
 
-La propiedad [`speechRecognitionLanguage`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#speechrecognitionlanguage) espera una cadena con formato de configuración regional de idioma. En la columna **Locale**, puede proporcionar cualquier valor de la lista de idiomas o configuraciones regionales [compatibles](../../../language-support.md).
+La propiedad [`speechRecognitionLanguage`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#speechrecognitionlanguage) espera una cadena con formato de configuración regional de idioma. En la columna **Locale** , puede proporcionar cualquier valor de la lista de idiomas o configuraciones regionales [compatibles](../../../language-support.md).
 
 ## <a name="improve-recognition-accuracy"></a>Mejora de la precisión del reconocimiento
 
@@ -252,7 +273,7 @@ Para usar una lista de frases, primero debe crear un objeto [`PhraseListGrammar`
 Los cambios realizados en el objeto [`PhraseListGrammar`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar?view=azure-node-latest&preserve-view=true) se aplican en el siguiente reconocimiento o después de una reconexión al servicio de voz.
 
 ```javascript
-const phraseList = PhraseListGrammar.fromRecognizer(recognizer);
+const phraseList = sdk.PhraseListGrammar.fromRecognizer(recognizer);
 phraseList.addPhrase("Supercalifragilisticexpialidocious");
 ```
 

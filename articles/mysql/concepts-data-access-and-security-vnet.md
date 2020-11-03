@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: f114dd4d4f0a9a26a8aab1f8aeecd4d29678a8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dba6b3f2137230ebe95f1bc89156cf6b127c8f52
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896293"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428145"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for MySQL
 
@@ -35,7 +35,7 @@ También puede considerar la posibilidad de usar [Private Link](concepts-data-ac
 
 **Subred:** una red virtual contiene **subredes**. Cualquier máquina virtual (VM) de Azure que tenga se asignará a las subredes. Una subred puede contener varias máquinas virtuales u otros nodos de proceso. Los nodos de proceso que se encuentran fuera de la red virtual no pueden tener acceso a su red virtual a menos que configure la seguridad para que permita el acceso.
 
-**Punto de conexión de servicio de red virtual:** un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] es una subred cuyos valores de propiedad incluyen uno o más nombres formales de tipo de servicio de Azure. En este artículo nos interesa el nombre de tipo de **Microsoft.Sql**, que hace referencia al servicio de Azure denominado SQL Database. Esta etiqueta de servicio también se aplica a los servicios Azure Database for MySQL y PostgreSQL. Es importante tener en cuenta que, al aplicar la etiqueta de servicio de **Microsoft.Sql** a un punto de conexión de servicio de red virtual, se configurará el tráfico de punto de conexión de servicio de todos los servidores de Azure SQL Database, Azure Database for MySQL y Azure Database for PostgreSQL de la subred. 
+**Punto de conexión de servicio de red virtual:** un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] es una subred cuyos valores de propiedad incluyen uno o más nombres formales de tipo de servicio de Azure. En este artículo nos interesa el nombre de tipo de **Microsoft.Sql** , que hace referencia al servicio de Azure denominado SQL Database. Esta etiqueta de servicio también se aplica a los servicios Azure Database for MySQL y PostgreSQL. Es importante tener en cuenta que, al aplicar la etiqueta de servicio de **Microsoft.Sql** a un punto de conexión de servicio de red virtual, se configurará el tráfico de punto de conexión de servicio de todos los servidores de Azure SQL Database, Azure Database for MySQL y Azure Database for PostgreSQL de la subred. 
 
 **Regla de red virtual:** una regla de red virtual para el servidor de Azure Database for MySQL es una subred que se muestra en la lista de control de acceso (ACL) del servidor de Azure Database for MySQL. Para estar en la ACL de su servidor de Azure Database for MySQL, la subred debe contener el nombre de tipo **Microsoft.Sql**.
 
@@ -88,7 +88,7 @@ Existe una separación de los roles de seguridad en la administración de puntos
 - **Administrador de red:** &nbsp; se activa el punto de conexión.
 - **Administrador de base de datos:** &nbsp; se actualiza la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor de Azure Database for MySQL.
 
-*Alternativa de RBAC:*
+*Alternativa de RBAC de Azure:*
 
 Los roles de administrador de red y de base de datos tienen más funcionalidades de las que se necesitan para administrar las reglas de red virtual. Solo se necesita un subconjunto de sus capacidades.
 
@@ -152,7 +152,7 @@ Para ver artículos sobre cómo crear reglas de red virtual, consulte lo siguien
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]: ../role-based-access-control/overview.md
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 

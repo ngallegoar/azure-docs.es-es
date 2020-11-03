@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 44077c2685ce78b7ba1ea140a34dd75dcf5c7c46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe241a3fd74e1421f1bd3d39087fe776ee7b61d9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543472"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integración de Azure Active Directory con SAML SSO for Jira by resolution GmbH
 
@@ -27,7 +27,7 @@ La integración de SAML SSO for Jira by resolution GmbH con Azure AD proporciona
 * Puede permitir que los usuarios inicien sesión automáticamente en Jira mediante SAML SSO for Jira by resolution GmbH (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -61,7 +61,7 @@ Para configurar un inicio de sesión único en Azure AD, deberá agregar una nu
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **SAML SSO for Jira by resolution GmbH**, seleccione **SAML SSO for Jira by resolution GmbH** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación. También puede cambiar el nombre de la aplicación empresarial.
+4. En el cuadro de búsqueda, escriba **SAML SSO for Jira by resolution GmbH** , seleccione **SAML SSO for Jira by resolution GmbH** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación. También puede cambiar el nombre de la aplicación empresarial.
 
      ![SAML SSO for Jira by resolution GmbH en la lista de resultados](common/search-new-app.png)
 
@@ -89,7 +89,7 @@ Para configurar el inicio de sesión único con SAML SSO for Jira by resolution 
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. Para **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** para habilitar el inicio de sesión único.
+2. Para **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
@@ -97,24 +97,24 @@ Para configurar el inicio de sesión único con SAML SSO for Jira by resolution 
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
+4. En la sección **Configuración básica de SAML** , si desea configurar la aplicación en modo iniciado por **IDP** , realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de SAML SSO for Jira by resolution GmbH](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la sección "Configuración básica de S A M L" con los cuadros de texto "Identificador" y "Dirección U R L de respuesta" resaltados y el botón "Guardar" seleccionado.](common/idp-intiated.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<server-base-url>/plugins/servlet/samlsso`
+    a. En el cuadro de texto **Identificador** , escriba una dirección URL con el patrón siguiente: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/samlsso`
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+    c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SAML SSO for Jira by resolution GmbH](common/metadata-upload-additional-signon.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/samlsso`
+    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/samlsso`
 
     > [!NOTE]
     > Para los valores de identificador, dirección URL de respuesta y dirección URL de inicio de sesión, reemplace **\<server-base-url>** por la dirección URL base de la instancia de Jira. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal. Si tiene algún problema, póngase en contacto con el [equipo de soporte técnico de clientes de SAML SSO for Jira by resolution GmbH](https://www.resolution.de/go/support).
 
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, descargue el archivo **XML de metadatos de federación**  y guárdelo en su equipo.
+4. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , descargue el archivo **XML de metadatos de federación**  y guárdelo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -124,37 +124,37 @@ Para configurar el inicio de sesión único con SAML SSO for Jira by resolution 
 
 2. Mantenga el puntero sobre el icono de engranaje en el lado derecho y haga clic en **Manage apps** (Administrar aplicaciones).
     
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/addon1.png)
+    ![Captura de pantalla que muestra una flecha que apunta al icono del engranaje y a la opción "Manage apps" (Administrar aplicaciones) seleccionada en la lista desplegable.](./media/samlssojira-tutorial/addon1.png)
 
 3. Se le redirigirá a la página de acceso de administrador para especificar la **contraseña** y haga clic en el botón **Confirm** (Confirmar).
 
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/addon2.png)
+    ![Captura de pantalla que muestra la página "Administrator Access" (Acceso de administrador).](./media/samlssojira-tutorial/addon2.png)
 
 4. Jira normalmente redirige a Atlassian Marketplace. En caso contrario, haga clic en **Find new apps** (Buscar nuevas aplicaciones) en el panel izquierdo. Busque **SAML Single Sign On (SSO) for JIRA** y haga clic en el botón **Install** (Instalar) para instalar el nuevo complemento SAML.
 
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/store.png)
+    ![Captura de pantalla que muestra la página "Atlassian Marketplace for JIRA" (Atlassian Marketplace para JIRA) con una flecha que señala al botón "Install" (Instalar) para la aplicación "S A M L Single Sign on (S S O) Jira, S A M L/S S O" (Inicio de sesión único [S S O] de S A M L en Jira, S A M L/S S O).](./media/samlssojira-tutorial/store.png)
 
 5. Se iniciará la instalación del complemento. Cuando termine, haga clic en el botón **Close** (Cerrar).
 
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/store-2.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Installing" (Instalando).](./media/samlssojira-tutorial/store-2.png)
 
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/store-3.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Installed and ready to go!" (Instalado y listo para usarse) con el botón "Close" (Cerrar) seleccionado.](./media/samlssojira-tutorial/store-3.png)
 
 6. A continuación, haga clic en **Manage** (Administrar).
 
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/store-4.png)
+    ![Captura de pantalla que muestra la aplicación "S A M L Single Sign On (S S O) Jira, S A M L/S S O (Inicio de sesión único [S S O] de S A M L en Jira, S A M L/S S O) con el botón "Manage" (Administrar) seleccionado.](./media/samlssojira-tutorial/store-4.png)
     
 8. Después, haga clic en **Configure** (Configurar) para configurar el complemento que se acaba de instalar.
 
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/store-5.png)
+    ![Captura de pantalla que muestra la página "Manage apps" (Administrar aplicaciones), con el botón "Configure" (Configurar) seleccionado para la aplicación "S A M L SingleSignOn for JIRA".](./media/samlssojira-tutorial/store-5.png)
 
 9. En el asistente **SAML SingleSignOn Plugin Configuration** (Configuración del complemento SingleSignOn de SAML), haga clic en **Add new IdP** (Agregar IdP nuevo) para configurar a Azure AD como el nuevo proveedor de identidades.
 
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/addon4.png) 
+    ![Captura de pantalla que muestra la página de bienvenida con el botón "Add new I d P" (Agregar nuevo I d P) seleccionado.](./media/samlssojira-tutorial/addon4.png) 
 
 10. En la página **Choose your SAML Identity Provider** (Elegir el proveedor de identidades SAML), siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/addon5a.png)
+    ![Captura de pantalla que muestra la página "Choose your S A M L Identity Provider" (Elegir el proveedor de identidades de S A M L) con el cuadro de texto "Name" (Nombre) resaltado y el botón "Next" (Siguiente) seleccionado.](./media/samlssojira-tutorial/addon5a.png)
  
     a. Establezca **Azure AD** como el tipo de IdP.
     
@@ -166,11 +166,11 @@ Para configurar el inicio de sesión único con SAML SSO for Jira by resolution 
     
 11. En la página **Identity provider configuration** (Configuración del proveedor de identidades), haga clic en el botón **Next** (Siguiente).
  
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/addon5b.png)
+    ![Captura de pantalla que muestra la pantalla "Identity provider configuration" (Configuración del proveedor de identidades).](./media/samlssojira-tutorial/addon5b.png)
 
 12. En la página **Import SAML IdP Metadata** (Importar los metadatos del IdP de SAML), siga los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/addon5c.png)
+    ![Captura de pantalla que muestra la página "Import S A M L I d P Metadata" (Importar metadatos del I d P de S A M L) con la acción "Select Metadata X M L File" (Seleccionar archivo X M L de metadatos) seleccionada.](./media/samlssojira-tutorial/addon5c.png)
 
     a. Haga clic en el botón **Select Metadata XML File** (Seleccionar archivo XML de metadatos) y elija el archivo **XML de metadatos de federación** que ha descargado antes.
 
@@ -182,25 +182,25 @@ Para configurar el inicio de sesión único con SAML SSO for Jira by resolution 
     
 13. En la página **User ID attribute and transformation** (Transformación y atributo del id. de usuario), haga clic en el botón **Next** (Siguiente).
 
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/addon5d.png)
+    ![Captura de pantalla que muestra la página "User I D attribute and transformation" (Atributo de id. de usuario y transformación) con el botón "Next" (Siguiente) seleccionado.](./media/samlssojira-tutorial/addon5d.png)
     
 14. En la página **User creation and update** (Creación y actualización de usuarios), haga clic en **Save & Next** (Guardar y siguiente) para guardar la configuración.
     
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/addon6a.png)
+    ![Captura de pantalla que muestra la página "User creation and update" (Creación y actualización de usuarios) con el botón "Save & Next" (Guardar y siguiente) seleccionado.](./media/samlssojira-tutorial/addon6a.png)
     
 15. En la página **Test your settings** (Probar su configuración), haga clic en **Skip test & configure manually** (Omitir la prueba y configurar manualmente) para omitir la prueba de usuario por ahora. Esto se realizará en la sección siguiente y requiere la configuración de algunos valores en Azure Portal.
     
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/addon6b.png)
+    ![Captura de pantalla que muestra la página "Test your settings" (Probar su configuración) con el botón "Skip test & configure manually" (Omitir prueba y configurar manualmente) seleccionado.](./media/samlssojira-tutorial/addon6b.png)
     
 16. Haga clic en **OK** (Aceptar) para omitir la advertencia.
     
-    ![Configurar inicio de sesión único](./media/samlssojira-tutorial/addon6c.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo de advertencia con el botón "O K" (Aceptar) seleccionado.](./media/samlssojira-tutorial/addon6c.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon". Con el usuario, probará el inicio de sesión único.
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -208,13 +208,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Nuevo usuario](common/new-user.png)
 
-3. En las **propiedades de usuario**, siga estos pasos:
+3. En las **propiedades de usuario** , siga estos pasos:
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **Britta Simon**.
+    a. En el campo **Nombre** , escriba **Britta Simon**.
   
-    b. En el campo **Nombre de usuario**, escriba <b>BrittaSimon@contoso.com</b>.
+    b. En el campo **Nombre de usuario** , escriba <b>BrittaSimon@contoso.com</b>.
 
     c. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro de contraseña.
 
@@ -240,11 +240,11 @@ En esta sección, agregará a Britta Simon a la aplicación empresarial, que le 
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario de la lista y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario de la lista y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
 
 ### <a name="create-the-test-user-also-in-jira"></a>Creación del usuario de prueba también en Jira
 
@@ -256,23 +256,23 @@ Para permitir que los usuarios de Azure AD inicien sesión en SAML SSO for Jira
 
 2. Mantenga el puntero sobre el icono de engranaje y seleccione **Administración de usuarios**.
 
-   ![Agregar empleado](./media/samlssojira-tutorial/user1.png)
+   ![Captura de pantalla que muestra el icono de engranaje seleccionado y "User management" (Administración de usuarios) seleccionada en el menú desplegable.](./media/samlssojira-tutorial/user1.png)
 
 3. Se le redirigirá a la página de acceso de administrador para especificar la **contraseña** y haga clic en el botón **Confirm** (Confirmar).
 
-    ![Agregar empleado](./media/samlssojira-tutorial/user2.png) 
+    ![Captura de pantalla que muestra la página "Administrator Access" (Acceso de administrador) con el cuadro de texto "Password" (Contraseña) resaltado.](./media/samlssojira-tutorial/user2.png) 
 
 4. En la sección de la pestaña **User management** (Administración de usuarios), haga clic en **Create user** (Crear usuario).
 
-    ![Agregar empleado](./media/samlssojira-tutorial/user3-new.png) 
+    ![Captura de pantalla que muestra la sección "User management" (Administración de usuarios) con el botón "Create user" (Crear usuario) seleccionado.](./media/samlssojira-tutorial/user3-new.png) 
 
 5. En la página del cuadro de diálogo **"Create New User"** (Crear nuevo usuario), realice los pasos siguientes. El usuario se crea exactamente igual que en Azure AD:
 
     ![Agregar empleado](./media/samlssojira-tutorial/user4-new.png) 
 
-    a. En el cuadro de texto **Dirección de correo electrónico**, escriba la dirección de correo electrónico del usuario: <b>BrittaSimon@contoso.com</b>.
+    a. En el cuadro de texto **Dirección de correo electrónico** , escriba la dirección de correo electrónico del usuario: <b>BrittaSimon@contoso.com</b>.
 
-    b. En el cuadro de texto **Nombre completo**, escriba el nombre completo del usuario: **Britta Simon**.
+    b. En el cuadro de texto **Nombre completo** , escriba el nombre completo del usuario: **Britta Simon**.
 
     c. En el cuadro de texto **Username** (Nombre de usuario), escriba la dirección de correo electrónico del usuario: <b>BrittaSimon@contoso.com</b>. 
 
@@ -284,7 +284,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en SAML SSO for Jira
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de SAML SSO for Jira by resolution GmbH en el Panel de acceso, debería iniciar sesión automáticamente en la solución SAML SSO for Jira by resolution GmbH para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de SAML SSO for Jira by resolution GmbH en el Panel de acceso, debería iniciar sesión automáticamente en la solución SAML SSO for Jira by resolution GmbH para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 También puede probar el inicio de sesión único si va a `https://<server-base-url>/plugins/servlet/samlsso`. Reemplace **\<server-base-url>** por la dirección URL base de la instancia de Jira.
 
@@ -295,7 +295,7 @@ Como se ha indicado en la sección anterior, actualmente hay dos formas de desen
 
 En esencia, todos los usuarios que tienen acceso a Jira se redirigirán al inicio de sesión único después de activar una opción en el complemento.
 
-Para activar el redireccionamiento de inicio de sesión único, realice lo siguiente en **la instancia de Jira**:
+Para activar el redireccionamiento de inicio de sesión único, realice lo siguiente en **la instancia de Jira** :
 
 1. Acceda a la página de configuración del complemento SAML SSO de Jira.
 1. Haga clic en **Redirección** en el panel izquierdo.
@@ -313,9 +313,8 @@ Después de activar la opción, todavía puede llegar a la solicitud de nombre d
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

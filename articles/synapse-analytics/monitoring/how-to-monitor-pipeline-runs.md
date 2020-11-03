@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 10/27/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61d860def7209908e65e9456a4bcde87eed522fc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387326"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746397"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Uso de Synapse Studio para supervisar las ejecuciones de canalización del área de trabajo
 
-Con Azure Synapse Analytics, puede crear canalizaciones complejas que pueden automatizar y orquestar el movimiento de datos, la transformación de datos y las actividades de proceso dentro de su solución. Puede crear y supervisar estas canalizaciones mediante Synapse Studio (versión preliminar).
+Con Azure Synapse Analytics, puede crear canalizaciones complejas que pueden automatizar e integrar el movimiento de datos, la transformación de datos y las actividades de proceso dentro de su solución. Puede crear y supervisar estas canalizaciones mediante Synapse Studio (versión preliminar).
 
 En este artículo se explica cómo supervisar las ejecuciones de canalización, lo que le permite vigilar el estado más reciente, los problemas y el progreso de sus canalizaciones.
 

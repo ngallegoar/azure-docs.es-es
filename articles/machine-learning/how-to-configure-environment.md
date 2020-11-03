@@ -10,13 +10,13 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 98bc108af22491c6ea0b64bc2e278b6b32f43a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
+ms.openlocfilehash: a6612f3df5fba834dff8fc60e90c359ceff4cbe1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203099"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743114"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Configuración de un entorno de desarrollo para Azure Machine Learning
 
@@ -61,7 +61,7 @@ Cree un archivo de configuración del área de trabajo con uno de los métodos s
 
 * Azure portal
 
-    **Descargue el archivo**: En [Azure Portal](https://ms.portal.azure.com), seleccione **Descargar config.json** desde la sección **Información general** del área de trabajo.
+    **Descargue el archivo** : En [Azure Portal](https://ms.portal.azure.com), seleccione **Descargar config.json** desde la sección **Información general** del área de trabajo.
 
     ![Azure portal](./media/how-to-configure-environment/configure.png)
 
@@ -122,6 +122,9 @@ Al ejecutar un servidor de Jupyter Notebook local, se recomienda crear un kernel
 
 Consulte el [repositorio de cuadernos de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks) para empezar a trabajar con Azure Machine Learning y Jupyter Notebook.
 
+> [!NOTE]
+> Puede encontrar un repositorio de ejemplos administrado por la comunidad en https://github.com/Azure/azureml-examples.
+
 ### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
 Para usar Visual Studio Code para el desarrollo:
@@ -139,10 +142,10 @@ No hay nada que instalar o configurar para una instancia de proceso.
 
 Cree una en cualquier momento desde el área de trabajo de Azure Machine Learning. Basta con que proporcione un nombre y especifique un tipo de máquina virtual de Azure. Pruébelo ahora con este [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
 
-Para más información sobre las instancias de proceso, incluido cómo instalar paquetes, vea [Instancias de proceso](concept-compute-instance.md).
+Para obtener más información acerca de las instancias de proceso, incluyendo cómo instalar paquetes, consulte [Creación y administración de una instancia de proceso de Azure Machine Learning](how-to-create-manage-compute-instance.md).
 
 > [!TIP]
-> Para evitar incurrir en cargos por una instancia de proceso no usada, [detenga la instancia de proceso](tutorial-1st-experiment-bring-data.md#clean-up-resources).
+> Para evitar incurrir en cargos por una instancia de proceso no usada, [detenga la instancia de proceso](how-to-create-manage-compute-instance.md#manage).
 
 Además de un servidor de Jupyter Notebook y JupyterLab, puede usar instancias de proceso en la [característica de cuadernos integrada en Estudio de Azure Machine Learning](how-to-run-jupyter-notebooks.md).
 
@@ -254,12 +257,12 @@ Una vez que se esté ejecutando el clúster, [cree una biblioteca](https://docs.
    * No seleccione **Attach automatically to all clusters** (Asociar automáticamente a todos los clústeres).
    * Seleccione **Asociar** junto al nombre del clúster.
 
-1. Supervise los errores hasta que el estado cambie a **Asociado**, lo que podría tardar varios minutos.  Si se produce un error en este paso:
+1. Supervise los errores hasta que el estado cambie a **Asociado** , lo que podría tardar varios minutos.  Si se produce un error en este paso:
 
    Pruebe a reiniciar el clúster de la manera siguiente:
    1. En el panel izquierdo, seleccione **Clústeres**.
    1. En la tabla, seleccione el nombre del clúster.
-   1. En la ficha **Bibliotecas**, seleccione **Reiniciar**.
+   1. En la ficha **Bibliotecas** , seleccione **Reiniciar**.
 
    También debe tener en cuenta lo siguiente:
    + En la configuración de AutoML, al usar Azure Databricks, agregue los siguientes parámetros:

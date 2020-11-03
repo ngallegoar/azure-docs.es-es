@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a0d1de622eefad4ae5e55a427f8b0b1bf4360c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c05badb3b2292a29b8227c7f03b841474c97ad
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84792103"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548224"
 ---
-Puede usar la API REST [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el estado de mantenimiento de los puntos de conexión. Se recomienda usar las [métricas de IoT Hub](../articles/iot-hub/iot-hub-metrics.md) relativas a la latencia de mensajes de enrutamiento para identificar y depurar errores cuando el estado del punto de conexión no responda o esté en mal estado, ya que se espera que la latencia sea mayor con el punto de conexión en uno de esos estados.
-
+Puede usar la API REST [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el estado de mantenimiento de los puntos de conexión. Se recomienda usar las [métricas de enrutamiento de IoT Hub](../articles/iot-hub/monitor-iot-hub-reference.md#routing-metrics) relativas a la latencia de mensajes de enrutamiento para identificar y depurar errores cuando el estado del punto de conexión no responda o esté en mal estado, ya que se espera que la latencia sea mayor con el punto de conexión en uno de esos estados. Para obtener más información sobre el uso de métricas de IoT Hub, consulte [Supervisión de IoT Hub](../articles/iot-hub/monitor-iot-hub.md).
 
 |Estado de mantenimiento|Descripción|
 |---|---|

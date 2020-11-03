@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: def394369ebcb8b457d78ad6537830487e8049f7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277518"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508036"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -30,7 +30,7 @@ Un punto de conexión privado de Azure es una interfaz de red que le conecta de 
 |Subrecurso de destino   |      Subrecurso que se va a conectar. Cada tipo de recurso de vínculo privado tiene diferentes opciones para seleccionar según las preferencias.    |
 |Método de aprobación de conexión    |  Automático o manual. Según los permisos del control de acceso basado en rol (RBAC), el punto de conexión privado se puede aprobar automáticamente. Si intenta conectarse a un recurso de vínculo privado sin RBAC, use el método manual para permitir que el propietario del recurso apruebe la conexión.        |
 |Mensaje de solicitud     |  Puede especificar un mensaje para que las conexiones solicitadas se aprueben manualmente. Este mensaje se puede usar para identificar una solicitud específica.        |
-|Estado de conexión   |   Propiedad de solo lectura que especifica si el punto de conexión privado está activo. Solo los puntos de conexión privados en un estado aprobado se pueden usar para enviar tráfico. Estados adicionales disponibles: <br>-**Aprobado**: La conexión se aprobó de forma automática o manual y está lista para usarse.</br><br>-**Pendiente**: La conexión se creó manualmente y está pendiente de aprobación por parte del propietario del recurso de vínculo privado.</br><br>-**Rechazado**: El propietario del recurso de vínculo privado rechazó la conexión.</br><br>-**Desconectado**: El propietario del recurso de vínculo privado quitó la conexión. El punto de conexión privado se vuelve informativo y debe eliminarse para la limpieza. </br>|
+|Estado de conexión   |   Propiedad de solo lectura que especifica si el punto de conexión privado está activo. Solo los puntos de conexión privados en un estado aprobado se pueden usar para enviar tráfico. Estados adicionales disponibles: <br>-**Aprobado** : La conexión se aprobó de forma automática o manual y está lista para usarse.</br><br>-**Pendiente** : La conexión se creó manualmente y está pendiente de aprobación por parte del propietario del recurso de vínculo privado.</br><br>-**Rechazado** : El propietario del recurso de vínculo privado rechazó la conexión.</br><br>-**Desconectado** : El propietario del recurso de vínculo privado quitó la conexión. El punto de conexión privado se vuelve informativo y debe eliminarse para la limpieza. </br>|
 
 Estos son algunos detalles importantes acerca de los puntos de conexión privados: 
 - El punto de conexión privado permite la conectividad entre los consumidores de la misma red virtual, las redes virtuales emparejadas de forma regional, las redes virtuales emparejadas de forma global y las instalaciones locales que usan [VPN](https://azure.microsoft.com/services/vpn-gateway/) o [Express Route](https://azure.microsoft.com/services/expressroute/) y servicios con la tecnología Private Link.
@@ -139,9 +139,10 @@ En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar
 - [Creación de un punto de conexión privado para la cuenta de almacenamiento mediante el portal](create-private-endpoint-storage-portal.md)
 - [Creación de un punto de conexión privado para la cuenta de Azure Cosmos mediante el portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creación del propio servicio Private Link con Azure PowerShell](create-private-link-service-powershell.md)
-- [Creación de su propio servicio Private Link para Azure Database for PostgreSQL: servidor único con el Portal](../postgresql/howto-configure-privatelink-portal.md)
+- [Creación de un servicio Private Link propio para Azure Database for PostgreSQL: servidor único con el portal](../postgresql/howto-configure-privatelink-portal.md)
 - [Creación de su propio servicio Private Link para Azure Database for PostgreSQL: servidor único con la CLI](../postgresql/howto-configure-privatelink-cli.md)
-- [Creación de su propio servicio Private Link para Azure Database for MySQL con el Portal](../mysql/howto-configure-privatelink-portal.md)
+- [Creación de un servicio Private Link propio para Azure Database for MySQL con el portal](../mysql/howto-configure-privatelink-portal.md)
 - [Creación de su propio servicio Private Link para Azure Database for MySQL con la CLI](../mysql/howto-configure-privatelink-cli.md)
-- [Creación de su propio servicio Private Link para Azure Database for MariaDB con el Portal](../mariadb/howto-configure-privatelink-portal.md)
+- [Creación de un servicio Private Link propio para Azure Database for MariaDB con el portal](../mariadb/howto-configure-privatelink-portal.md)
 - [Creación de su propio servicio Private Link para Azure Database for MariaDB con la CLI](../mariadb/howto-configure-privatelink-cli.md)
+- [Creación de una instancia propia de Private Link para Azure Key Vault con el portal y la CLI](../key-vault/general/private-link-service.md)

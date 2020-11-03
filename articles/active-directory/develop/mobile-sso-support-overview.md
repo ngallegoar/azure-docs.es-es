@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 27a58fc66de31fef272ab2f2c2bfaa9896a07d4b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209326"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740154"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Compatibilidad con inicio de sesión único y directivas de protección de aplicaciones en el desarrollo de aplicaciones móviles
 
@@ -47,7 +47,7 @@ Si actualmente usa la [biblioteca ADAL](../azuread-dev/active-directory-authenti
 
 Para las aplicaciones iOS, tenemos un [inicio rápido](quickstart-v2-ios.md) que muestra cómo configurar inicios de sesión con MSAL, con [instrucciones para configurar MSAL para varios escenarios de inicio de sesión único](single-sign-on-macos-ios.md).
 
-Para aplicaciones Android, tenemos un [inicio rápido](quickstart-v2-android.md) que muestra cómo configurar inicios de sesión con MSAL, con instrucciones para usar [autenticación desacoplada](brokered-auth.md) o [agentes de autorización](authorization-agents.md).
+Para aplicaciones de Android, tenemos un [inicio rápido](quickstart-v2-android.md) que muestra cómo configurar inicios de sesión con MSAL y con instrucciones para saber [cómo habilitar el inicio de sesión único entre aplicaciones de Android mediante MSAL](msal-android-single-sign-on.md).
 
 ### <a name="use-the-system-web-browser"></a>Uso del explorador web del sistema
 

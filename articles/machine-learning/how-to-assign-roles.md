@@ -1,7 +1,7 @@
 ---
 title: Administración de roles del área de trabajo
 titleSuffix: Azure Machine Learning
-description: Conozca cómo acceder a un área de trabajo de Azure Machine Learning mediante el control de acceso basado en rol (RBAC).
+description: Conozca cómo obtener acceso a un área de trabajo de Azure Machine Learning mediante el control de acceso basado en roles de Azure (Azure RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
-ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: how-to, seodec18, devx-track-azurecli
+ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966413"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736612"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Administración del acceso a un área de trabajo de Azure Machine Learning
 
@@ -34,9 +34,9 @@ Un área de trabajo de Azure Machine Learning es un recurso de Azure. Al igual q
 | **Rol personalizado** | Permite personalizar el acceso a las operaciones de control o de plano de datos específicas dentro de un área de trabajo. Por ejemplo, el envío de una ejecución, la creación de un proceso, la implementación de un modelo o el registro de un conjunto de registros. |
 
 > [!IMPORTANT]
-> El acceso de los roles puede tener un ámbito de varios niveles en Azure. Por ejemplo, un usuario con acceso de propietario a un área de trabajo podría no tener acceso de propietario al grupo de recursos que contiene el área de trabajo. Para más información, consulte [Cómo funciona RBAC](/azure/role-based-access-control/overview#how-rbac-works).
+> El acceso de los roles puede tener un ámbito de varios niveles en Azure. Por ejemplo, un usuario con acceso de propietario a un área de trabajo podría no tener acceso de propietario al grupo de recursos que contiene el área de trabajo. Para obtener más información, consulte [Cómo funciona Azure RBAC](/azure/role-based-access-control/overview#how-azure-rbac-works).
 
-Para más información sobre roles integrados específicos, consulte [Roles integrados de Azure](/azure/role-based-access-control/built-in-roles).
+Para obtener más información sobre roles integrados específicos, consulte [Roles integrados de Azure](/azure/role-based-access-control/built-in-roles).
 
 ## <a name="manage-workspace-access"></a>Administración del acceso al área de trabajo
 
@@ -173,7 +173,7 @@ Actualmente, no estamos publicando [roles integrados de Azure](/azure/role-based
 
 Sí, estos son algunos escenarios comunes con definiciones de roles propuestos personalizados que puede usar como base para definir sus propios roles personalizados:
 
-* __Data Scientist Custom__ (Personalizado para científico de datos): Permite que un científico de datos realice todas las operaciones dentro de un área de trabajo **excepto**:
+* __Data Scientist Custom__ (Personalizado para científico de datos): Permite que un científico de datos realice todas las operaciones dentro de un área de trabajo **excepto** :
 
     * Creación de proceso
     * Implementación de modelos en un clúster de AKS de producción
@@ -209,7 +209,7 @@ Sí, estos son algunos escenarios comunes con definiciones de roles propuestos p
     }
     ```
 
-* __Data Scientist Restricted Custom__ (Personalizado restringido para el científico de datos): Una definición de roles más restringida sin caracteres comodín en las acciones permitidas. Puede realizar todas las operaciones dentro de un área de trabajo **excepto**:
+* __Data Scientist Restricted Custom__ (Personalizado restringido para el científico de datos): Una definición de roles más restringida sin caracteres comodín en las acciones permitidas. Puede realizar todas las operaciones dentro de un área de trabajo **excepto** :
 
     * Creación de proceso
     * Implementación de modelos en un clúster de AKS de producción
@@ -270,7 +270,7 @@ Sí, estos son algunos escenarios comunes con definiciones de roles propuestos p
     }
     ```
      
-* __Personalizado para científico de datos de MLflow__: permite que un científico de datos realice todas las operaciones admitidas en AzureML de MLflow **excepto**:
+* __Personalizado para científico de datos de MLflow__ : permite que un científico de datos realice todas las operaciones admitidas en AzureML de MLflow **excepto** :
 
    * Creación de proceso
    * Implementación de modelos en un clúster de AKS de producción
@@ -351,7 +351,7 @@ Sí, estos son algunos escenarios comunes con definiciones de roles propuestos p
     }
     ```
 
-* __Workspace Admin__ (Administrador del área de trabajo): permite realizar todas las operaciones dentro del ámbito de un área de trabajo, **excepto**:
+* __Workspace Admin__ (Administrador del área de trabajo): permite realizar todas las operaciones dentro del ámbito de un área de trabajo, **excepto** :
 
     * Crear una nueva área de trabajo
     * Asignación de cuotas de nivel de suscripción o de área de trabajo
@@ -432,13 +432,13 @@ Estos son algunos de los aspectos que debe tener en cuenta al usar el control de
     - "Microsoft.Network/virtualNetworks/join/action" en el recurso de red virtual.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" en el recurso de subred.
     
-    Para más información sobre RBAC con redes, consulte los [roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
+    Para obtener más información sobre Azure RBAC con redes, consulte los [Roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
 
 - A veces puede tardar hasta una hora para que las nuevas asignaciones de roles surtan efecto sobre los permisos almacenados en caché en la pila.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>Q. ¿Qué permisos necesito para usar una identidad administrada asignada por el usuario con mis clústeres de Amlcompute?
 
-Para asignar una identidad asignada por el usuario en los clústeres de Amlcompute, debe tener permisos de escritura para crear el proceso y el [rol de operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Para más información sobre RBAC con identidades administradas, consulte [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+Para asignar una identidad asignada por el usuario en los clústeres de Amlcompute, debe tener permisos de escritura para crear el proceso y el [rol de operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Para obtener más información sobre Azure RBAC con identidades administradas, consulte [Cómo administrar una identidad administrada asignada por el usuario](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>Q. ¿Se admite el control de acceso basado en rol en el portal de Studio?

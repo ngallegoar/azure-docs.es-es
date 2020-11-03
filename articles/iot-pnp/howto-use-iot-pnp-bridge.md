@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042803"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793065"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Procedimiento para conectar una muestra de puente de IoT Plug and Play que se ejecuta en Linux o Windows a IoT Hub
 
@@ -30,7 +30,7 @@ En este inicio rápido se asume que utiliza Ubuntu Linux. Los pasos de este inic
 
 Para completar este inicio rápido en Linux, es preciso instalar el siguiente software en el entorno Linux local:
 
-Instale **GCC**, **Git**, **cmake** y todas las dependencias necesarias con el comando `apt-get`:
+Instale **GCC** , **Git** , **cmake** y todas las dependencias necesarias con el comando `apt-get`:
 
 ```sh
 sudo apt-get update
@@ -107,9 +107,13 @@ Esta operación puede tardar varios minutos en completarse.
 
 Después de clonar el repositorio de puente IoT Plug and Play en el equipo, vaya al directorio `pnpbridge/docs/schema` del repositorio clonado, donde podrá encontrar el [código JSON de configuración](https://aka.ms/iot-pnp-bridge-env-config) o `config.json` para la muestra del sensor del entorno del puente. Puede obtener más información acerca de los archivos de configuración en el [documento sobre conceptos de puente IoT Plug and Play](concepts-iot-pnp-bridge.md).
 
-En el campo `root-_interface_model_id`, deberá copiar el identificador del modelo de IoT Plug and Play que identifique el modelo del dispositivo. En este ejemplo, es `dtmi:com:example:SampleDevice;1`. Modifique los parámetros siguientes en **pnp_bridge_parameters** en el archivo `config.json` en:
+En el campo `root-_interface_model_id`, deberá copiar el identificador del modelo de IoT Plug and Play que identifique el modelo del dispositivo. En este ejemplo, es `dtmi:com:example:SampleDevice;1`. Modifique los parámetros siguientes en el nodo **pnp_bridge_parameters** del archivo `config.json`:
 
-  Uso de la cadena de conexión (el valor de symmetric_key debe coincidir con la clave SAS en la cadena de conexión):
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> El valor de symmetric_key debe coincidir con la clave SAS de la cadena de conexión.
 
   ```JSON
     {

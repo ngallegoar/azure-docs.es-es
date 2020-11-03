@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279068"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737856"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Uso de procedimientos almacenados en Synapse SQL
 
@@ -24,6 +24,9 @@ Sugerencias para implementar procedimientos almacenados en un grupo de Synapse S
 ## <a name="what-to-expect"></a>Qué esperar
 
 Synapse SQL admite muchas de las características de T-SQL que se usan en SQL Server. Más importante aún, hay características específicas de escalabilidad horizontal que puede utilizar para maximizar el rendimiento de la solución.
+
+> [!NOTE]
+> En el cuerpo del procedimiento puede usar solo las características que se admiten en el área expuesta de Synapse SQL. Consulte [este artículo](overview-features.md) para identificar objetos y la instrucción que se puede usar en procedimientos almacenados. En los ejemplos de estos artículos se usan características genéricas que están disponibles en el área de superficie aprovisionada y sin servidor.
 
 Para mantener la escalabilidad y el rendimiento del grupo de SQL, también hay algunas características y funcionalidad que tienen diferencias de comportamiento y otras que no son compatibles.
 

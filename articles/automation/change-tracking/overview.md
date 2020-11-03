@@ -3,14 +3,14 @@ title: Información general de Change Tracking e Inventario en Azure Automation
 description: En este artículo se describe la característica Change Tracking e Inventario, que ayuda a identificar los cambios en el software y el servicio de Microsoft que se producen en su entorno.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9654529723b5b69c15358be9e06db4f8cbed35e3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209346"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670737"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
@@ -48,7 +48,7 @@ Seguimiento de cambios e inventario no admite o tiene las siguientes limitacione
 - Recursión para el seguimiento del registro de Windows
 - Sistemas de archivos de red
 - Otros métodos de instalación
-- Archivos * **.exe** almacenados en Windows
+- Archivos **_.exe_* almacenados en Windows
 - Los valores y la columna **Tamaño máximo de archivos** no se usan en la implementación actual.
 - Si intenta recopilar más de 2500 archivos en un ciclo de recopilación de 30 minutos, el rendimiento de Seguimiento de cambios e inventario podría degradarse.
 - Cuando el tráfico de red es elevado, los registros de cambios pueden tardar hasta seis horas en aparecer.
@@ -58,7 +58,7 @@ Seguimiento de cambios e inventario no admite o tiene las siguientes limitacione
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Consulte [Sistemas operativos admitidos](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) para obtener una lista de las versiones del sistema operativo Windows y Linux compatibles con el agente de Log Analytics.
+Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Vea [Sistemas operativos admitidos](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) para obtener una lista de las versiones del sistema operativo Windows y Linux compatibles con el agente de Log Analytics.
 
 Para comprender los requisitos de cliente para TLS 1.2, consulte el artículo sobre el [cumplimiento de TLS 1.2 para Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -73,17 +73,19 @@ Las direcciones siguientes se requieren en concreto para Seguimiento de cambios 
 |*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
 |*.azure-automation.net | *.azure-automation.us|
 
-Al crear reglas de seguridad de grupo de red o configurar Azure Firewall para permitir el tráfico en el servicio Automation y en el área de trabajo de Log Analytics, utilice la [etiqueta de servicio](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** y **AzureMonitor** . De esta forma, se simplifica la administración continua de las reglas de seguridad de red. Para conectarse al servicio Automation desde las máquinas virtuales de Azure de forma segura y privada, revise [Uso de Azure Private Link](../how-to/private-link-security.md). Para obtener información de intervalos y la etiqueta de servicio actual para incluirla como parte de las configuraciones del firewall local, consulte [Archivos JSON descargables](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Al crear reglas de seguridad de grupo de red o configurar Azure Firewall para permitir el tráfico en el servicio Automation y en el área de trabajo de Log Analytics, utilice la [etiqueta de servicio](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** y **AzureMonitor**. De esta forma, se simplifica la administración continua de las reglas de seguridad de red. Para conectarse al servicio Automation desde las máquinas virtuales de Azure de forma segura y privada, revise [Uso de Azure Private Link](../how-to/private-link-security.md). Para obtener información de intervalos y la etiqueta de servicio actual para incluirla como parte de las configuraciones del firewall local, consulte [Archivos JSON descargables](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitación de Change Tracking e Inventario
 
-Estas son las formas en que puede habilitar Seguimiento de cambios e inventario y seleccionar las máquinas que se van a administrar:
+Puede habilitar Seguimiento de cambios e inventario de las siguientes maneras:
 
-* [Desde una máquina virtual de Azure](enable-from-vm.md)
-* [Examinando varias máquinas virtuales de Azure](enable-from-portal.md)
-* [Desde una cuenta de Azure Automation](enable-from-automation-account.md).
-* En el caso de los servidores habilitados para Arc o de las máquinas que no son de Azure, instale el agente de Log Analytics desde los servidores habilitados para Azure Arc con la [extensión de máquina virtual](../../azure-arc/servers/manage-vm-extensions.md) y, luego, [habilite las máquinas en el área de trabajo](enable-from-automation-account.md#enable-machines-in-the-workspace) para Seguimiento de cambios e inventario.
-* [Con un runbook de Automation](enable-from-runbook.md).
+- Desde la [cuenta de Automation](enable-from-automation-account.md) para una o varias máquinas de Azure y que no sean de Azure.
+
+- De forma manual, para máquinas que no sean de Azure, incluidos servidores o máquinas registrados con [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md). Para las máquinas híbridas, se recomienda instalar el agente de Log Analytics para Windows; para ello, primero debe conectar la máquina a los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, después, usar Azure Policy para asignar la directiva integrada [Implementar el agente de Log Analytics en máquinas de Azure Arc con Windows con *Linux* o *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Si también planea supervisar las máquinas con Azure Monitor para VM, en su lugar, use la iniciativa [Habilitar Azure Monitor para VM](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+
+- Para una sola máquina virtual de Azure, desde la [página de la máquina virtual](enable-from-vm.md) en Azure Portal. Este escenario está disponible para las VM Linux y Windows.
+
+- Para [varias máquinas virtuales de Azure](enable-from-portal.md), selecciónelas en la página Máquinas virtuales de Azure Portal.
 
 ## <a name="tracking-file-changes"></a>Seguimiento de cambios en los archivos
 
@@ -106,16 +108,16 @@ Change Tracking e Inventario permite la supervisión de los cambios en las clave
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Supervisa los scripts que se ejecutan al apagar el equipo.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Supervisa las claves que se cargan antes de que el usuario inicie sesión en la cuenta de Windows. La clave se usa para aplicaciones de 32 bits que se ejecutan en equipos de 64 bits.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Supervisa los cambios en la configuración de la aplicación.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Supervisa los controladores de los menús contextuales que se enlazan directamente con el Explorador de Windows y se suelen ejecutar en el proceso con **explorer.exe** .
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Supervisa los controladores de enlace de copia que se enlazan directamente con el Explorador de Windows y se suelen ejecutar en el proceso con **explorer.exe** .
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Supervisa los controladores de los menús contextuales que se enlazan directamente con el Explorador de Windows y se suelen ejecutar en el proceso con **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Supervisa los controladores de enlace de copia que se enlazan directamente con el Explorador de Windows y se suelen ejecutar en el proceso con **explorer.exe**.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Supervisa el registro del controlador de superposición de iconos.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Supervisa el registro del controlador de superposición de iconos para aplicaciones de 32 bits que se ejecutan en equipos de 64 bits.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Supervisa si hay nuevos complementos de objetos auxiliares de explorador para Internet Explorer. Se utiliza para acceder a Document Object Model (DOM) de la página actual y controlar la navegación.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Supervisa si hay nuevos complementos de objetos auxiliares de explorador para Internet Explorer. Se usa para acceder a Document Object Model (DOM) de la página actual y controlar la navegación de aplicaciones de 32 bits que se ejecutan en equipos de 64 bits.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Supervisa si hay nuevas extensiones de Internet Explorer, como menús de la herramienta personalizada y botones de la barra de herramientas personalizada.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Supervisa si hay nuevas extensiones de Internet Explorer, como menús de la herramienta personalizada y botones de la barra de herramientas personalizada para aplicaciones de 32 bits que se ejecutan en equipos de 64 bits.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Supervisa los controladores de 32 bits asociados a wavemapper, wave1 y wave2, msacm.imaadpcm, .msadpcm, .msgsm610 y vidc. Es similar a la sección [drivers] del archivo **system.ini** .
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Supervisa los controladores de 32 bits asociados a wavemapper, wave1 y wave2, msacm.imaadpcm, .msadpcm, .msgsm610 y vidc para aplicaciones de 32 bits que se ejecutan en equipos de 64 bits. Es similar a la sección [drivers] del archivo **system.ini** .
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Supervisa los controladores de 32 bits asociados a wavemapper, wave1 y wave2, msacm.imaadpcm, .msadpcm, .msgsm610 y vidc. Es similar a la sección [drivers] del archivo **system.ini**.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Supervisa los controladores de 32 bits asociados a wavemapper, wave1 y wave2, msacm.imaadpcm, .msadpcm, .msgsm610 y vidc para aplicaciones de 32 bits que se ejecutan en equipos de 64 bits. Es similar a la sección [drivers] del archivo **system.ini**.
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Supervisa la lista de DDL del sistema conocidas o utilizadas habitualmente. La supervisión impide que las personas se aprovechen de permisos de directorio de aplicaciones débiles colocando versiones de troyanos en archivos DLL del sistema.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Supervisa la lista de paquetes que pueden recibir notificaciones de eventos de **winlogon.exe** , el modelo de compatibilidad de inicio de sesión interactivo para Windows.
 
@@ -125,7 +127,7 @@ Change Tracking e Inventory es compatible con la recursión, lo que permite espe
 
 - Los caracteres comodín son necesarios para realizar el seguimiento de varios archivos.
 
-- Puede usar caracteres comodín solo en el último segmento de la ruta de acceso de un archivo, como **c:\carpeta\\archivo** * o **/etc/*.conf** .
+- Puede usar caracteres comodín solo en el último segmento de la ruta de acceso de un archivo, como **c:\carpeta\\archivo** _ o _ */etc/* .conf**.
 
 - Si una variable de entorno tiene una ruta de acceso no válida, la validación será correcta pero se producirá un error en dicha ruta durante la ejecución.
 
@@ -160,7 +162,7 @@ El uso medio de datos de Log Analytics para una máquina con Change Tracking e I
 
 ### <a name="microsoft-service-data"></a>Datos de servicio de Microsoft
 
-La frecuencia de recopilación predeterminada para los servicios de Microsoft es de 30 minutos. Puede configurar la frecuencia con un control deslizante en la pestaña **Servicios de Microsoft** bajo **Editar configuración** .
+La frecuencia de recopilación predeterminada para los servicios de Microsoft es de 30 minutos. Puede configurar la frecuencia con un control deslizante en la pestaña **Servicios de Microsoft** bajo **Editar configuración**.
 
 ![Control deslizante de Servicios de Microsoft](./media/overview/windowservices.png)
 

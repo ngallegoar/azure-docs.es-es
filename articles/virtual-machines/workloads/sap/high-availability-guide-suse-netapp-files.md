@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 453cec1bbb1f9dd61b840457e93cc2c49b956509
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7e42fb43fee4d3f8097b7ac530056d948e3f98c8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166002"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486198"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP
 
@@ -204,7 +204,7 @@ Primero deberá crear los volúmenes de Azure NetApp Files. Implemente las VM. D
 
 Las instrucciones de esta sección solo se aplican si se usan volúmenes de Azure NetApp Files con el protocolo NFSv4.1. Realice la configuración en todas las máquinas virtuales donde se montarán los volúmenes NFSv4.1 de Azure NetApp Files.  
 
-1. Compruebe la configuración del dominio NFS. Asegúrese de que el dominio esté configurado como dominio predeterminado de Azure NetApp Files, es decir, **`defaultv4iddomain.com`** y que la asignación se haya establecido en **nobody** .  
+1. Compruebe la configuración del dominio NFS. Asegúrese de que el dominio esté configurado como dominio predeterminado de Azure NetApp Files, es decir, **`defaultv4iddomain.com`** y que la asignación se haya establecido en **nobody**.  
 
     > [!IMPORTANT]
     > Asegúrese de establecer el dominio NFS de `/etc/idmapd.conf` en la máquina virtual para que coincida con la configuración de dominio predeterminada en Azure NetApp Files: **`defaultv4iddomain.com`** . Si hay alguna discrepancia entre la configuración de dominio del cliente NFS (es decir, la máquina virtual) y el servidor NFS (es decir la configuración de Azure NetApp), los permisos de archivos en volúmenes de Azure NetApp que estén montados en las máquinas virtuales se mostrarán como `nobody`.  
@@ -221,7 +221,7 @@ Las instrucciones de esta sección solo se aplican si se usan volúmenes de Azur
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** Compruebe `nfs4_disable_idmapping`. Debe establecerse en **S** . Para crear la estructura de directorio en la que se encuentra `nfs4_disable_idmapping`, ejecute el comando mount. No podrá crear manualmente el directorio en /sys/modules, ya que el acceso está reservado para el kernel o los controladores.  
+4. **[A]** Compruebe `nfs4_disable_idmapping`. Debe establecerse en **S**. Para crear la estructura de directorio en la que se encuentra `nfs4_disable_idmapping`, ejecute el comando mount. No podrá crear manualmente el directorio en /sys/modules, ya que el acceso está reservado para el kernel o los controladores.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -307,7 +307,7 @@ Primero deberá crear los volúmenes de Azure NetApp Files. Implemente las VM. D
          1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
          1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **lb.QAS.ASCS.3200** ).
          1. Seleccione la dirección IP de front-end para ASCS, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **frontend.QAS.ASCS** ).
-         1. Conserve el protocolo **TCP** y escriba el puerto **3200** .
+         1. Conserve el protocolo **TCP** y escriba el puerto **3200**.
          1. Aumente el tiempo de espera de inactividad a 30 minutos
          1. **Asegúrese de habilitar la dirección IP flotante**
          1. Haga clic en Aceptar
@@ -324,7 +324,7 @@ Primero deberá crear los volúmenes de Azure NetApp Files. Implemente las VM. D
       > Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno (sin dirección IP pública), no hay conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, vea [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
       > [!IMPORTANT]
-      > No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0** . Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información.
+      > No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información.
 
 ### <a name="create-pacemaker-cluster"></a>Creación del clúster de Pacemaker
 
@@ -340,9 +340,9 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    </code></pre>
 
    > [!NOTE]
-   > El problema conocido con el uso de un guion en los nombres de host se ha corregido con la versión **3.1.1** del paquete **sap-suse-cluster-connector** . Si utiliza nodos de clúster con un guion en el nombre de host, asegúrese de usar al menos la versión 3.1.1 del paquete sap-suse-cluster-connector. Si lo hace, el clúster no funcionará. 
+   > El problema conocido con el uso de un guion en los nombres de host se ha corregido con la versión **3.1.1** del paquete **sap-suse-cluster-connector**. Si utiliza nodos de clúster con un guion en el nombre de host, asegúrese de usar al menos la versión 3.1.1 del paquete sap-suse-cluster-connector. Si lo hace, el clúster no funcionará. 
 
-   Asegúrese de que instaló la nueva versión del conector de clúster SUSE SAP. La antigua se llamaba sap_suse_cluster_connector y la nueva se llama **sap-suse-cluster-connector** .
+   Asegúrese de que instaló la nueva versión del conector de clúster SUSE SAP. La antigua se llamaba sap_suse_cluster_connector y la nueva se llama **sap-suse-cluster-connector**.
 
    <pre><code>sudo zypper info sap-suse-cluster-connector
    
@@ -673,11 +673,11 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
 
 6. **[A]** Configure la conexión persistente
 
-   La comunicación entre el servidor de aplicaciones de SAP NetWeaver y ASCS/SCS se enruta a través de un equilibrador de carga de software. El equilibrador de carga desconecta las conexiones inactivas después de un tiempo de expiración que se puede configurar. Para evitar esto, debe establecer un parámetro en el perfil de SAP NetWeaver ASCS/SCS y cambiar la configuración del sistema Linux. Para más información, lea la [nota de SAP 1410736][1410736].
+   La comunicación entre el servidor de aplicaciones de SAP NetWeaver y ASCS/SCS se enruta a través de un equilibrador de carga de software. El equilibrador de carga desconecta las conexiones inactivas después de un tiempo de expiración que se puede configurar. Para evitarlo, tendrá que establecer un parámetro en el perfil de SAP NetWeaver ASCS/SCS, si usa ENSA1, y cambiar la configuración `keepalive` del sistema Linux en todos los servidores SAP para ENSA1 y ENSA2. Para más información, lea la [nota de SAP 1410736][1410736].
 
    <pre><code>
    # Change the Linux system configuration
-   sudo sysctl net.ipv4.tcp_keepalive_time=120
+   sudo sysctl net.ipv4.tcp_keepalive_time=300
    </code></pre>
 
 7. **[A]** Configure los usuarios de SAP después de la instalación

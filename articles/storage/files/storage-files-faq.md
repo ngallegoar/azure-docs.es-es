@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563699"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746834"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -22,7 +22,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 1. La sección Comentarios de este artículo.
 2. [Página de preguntas y respuestas de Microsoft sobre Azure Storage](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
 3. [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Soporte técnico de Microsoft. Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda**, seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.
+4. Soporte técnico de Microsoft. Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda** , seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.
 
 ## <a name="general"></a>General
 * <a id="why-files-useful"></a>
@@ -257,7 +257,25 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="ad-multiple-forest"></a>
  **¿La autenticación con AD DS local para recursos compartidos de archivos de Azure admite la integración en un entorno de AD DS mediante varios bosques?**    
 
-    La autenticación con AD DS local para Azure Files solo se integra con el bosque del servicio de dominio en el que está registrada la cuenta de almacenamiento. Para admitir la autenticación desde otro bosque, la confianza de bosque del entorno debe estar configurada correctamente. La forma en que Azure Files se registra en AD DS es prácticamente la misma que la de un servidor de archivos normal, donde se crea una identidad (cuenta de inicio de sesión de equipo o servicio) en AD DS para la autenticación. La única diferencia es que el nombre de entidad de seguridad de servicio registrado de la cuenta de almacenamiento finaliza en "file.core.windows.net", que no coincide con el sufijo del dominio. Póngase en contacto con el administrador del dominio para saber si es preciso realizar una actualización de la directiva de enrutamiento DNS para habilitar la autenticación de varios bosques debido al sufijo de dominio diferente.
+    La autenticación con AD DS local para Azure Files solo se integra con el bosque del servicio de dominio en el que está registrada la cuenta de almacenamiento. Para admitir la autenticación desde otro bosque, la confianza de bosque del entorno debe estar configurada correctamente. La forma en que Azure Files se registra en AD DS es prácticamente la misma que la de un servidor de archivos normal, donde se crea una identidad (cuenta de inicio de sesión de equipo o servicio) en AD DS para la autenticación. La única diferencia es que el nombre de entidad de seguridad de servicio registrado de la cuenta de almacenamiento finaliza en "file.core.windows.net", que no coincide con el sufijo del dominio. Póngase en contacto con el administrador del dominio para saber si es preciso realizar una actualización de la directiva de enrutamiento de sufijos para habilitar la autenticación de varios bosques debido al sufijo de dominio diferente. A continuación le proporcionamos un ejemplo para configurar la directiva de enrutamiento de sufijos.
+    
+    Ejemplo: Cuando los usuarios del dominio del bosque A quieren obtener acceso a un recurso compartido de archivos con la cuenta de almacenamiento registrada en un dominio del bosque B, esta opción no funcionará automáticamente porque la entidad de servicio de la cuenta de almacenamiento no tiene un sufijo que coincida con el sufijo de ningún dominio del bosque A. Para solucionar este problema, se puede configurar manualmente una regla de enrutamiento de sufijos del bosque A al bosque B para un sufijo personalizado de tipo "file.core.windows.net".
+    En primer lugar, debe agregar un nuevo sufijo personalizado en el bosque B. Asegúrese de que dispone de los permisos administrativos adecuados para cambiar la configuración y, a continuación, siga estos pasos:   
+    1. Inicie sesión en un dominio de equipo unido al bosque B.
+    2.  Abra la consola de "Dominios y confianzas de Active Directory".
+    3.  Haga clic con el botón derecho en "Dominios y confianzas de Active Directory".
+    4.  Haga clic en "Propiedades".
+    5.  Haga clic en "Agregar".
+    6.  Agregue el sufijo "file.core.windows.net" como sufijo de UPN.
+    7.  Haga clic en "Aplicar" y en "Aceptar" para cerrar el asistente.
+    
+    A continuación, agregue la regla de enrutamiento de sufijos en el bosque A para que se redirija al bosque B.
+    1.  Inicie sesión en un dominio de equipo unido al bosque A.
+    2.  Abra la consola de "Dominios y confianzas de Active Directory".
+    3.  Haga clic con el botón derecho en el dominio en el que quiera obtener acceso al recurso compartido de archivos, haga clic en la pestaña "Confianzas" y seleccione el dominio del bosque B en las confianzas de salida. Si no ha configurado la confianza entre los dos bosques, primero debe configurarla.
+    4.  Haga clic en "Propiedades" y en "Enrutamiento del sufijo de nombre".
+    5.  Compruebe si aparece el sufijo "*.file.core.windows.net". Si no es así, haga clic en "Actualizar".
+    6.  Seleccione "*.file.core.windows.net" y, a continuación, haga clic en "Habilitar" y "Aplicar".
 
 * <a id=""></a>
  **¿Qué regiones están disponibles para la autenticación con AD DS para Azure Files?**

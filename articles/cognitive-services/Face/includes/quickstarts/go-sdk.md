@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 1154bf3ddde67ba5074517ab4f96ed6764edf6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84fd9e66c03fd92f3824b685bc550c70d4a6340
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859817"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886743"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para Go. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -49,9 +49,9 @@ cd my-app
 
 El área de trabajo contendrá tres carpetas:
 
-* **src**: este directorio contendrá código fuente y paquetes. Todos los paquetes instalados con el comando `go get` se encontrarán en esta carpeta.
-* **pkg**: este directorio contendrá objetos de paquete de Go compilados. Todos estos archivos tienen la extensión `.a`.
-* **bin**: este directorio contendrá los archivos ejecutables binarios que se crean al ejecutar `go install`.
+* **src** : este directorio contendrá código fuente y paquetes. Todos los paquetes instalados con el comando `go get` se encontrarán en esta carpeta.
+* **pkg** : este directorio contendrá objetos de paquete de Go compilados. Todos estos archivos tienen la extensión `.a`.
+* **bin** : este directorio contendrá los archivos ejecutables binarios que se crean al ejecutar `go install`.
 
 > [!TIP]
 > Para más información sobre la estructura de un área de trabajo de Go, consulte la [documentación del lenguaje Go](https://golang.org/doc/code.html#Workspaces). En esta guía se incluye información para establecer `$GOPATH` y `$GOROOT`.
@@ -125,6 +125,9 @@ Agregue el siguiente código al método **main**. Este código define una imagen
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect)]
 
+> [!TIP]
+> También puede detectar caras en una imagen local. Consulte los métodos [Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client), como **DetectWithStream**.
+
 ### <a name="display-detected-face-data"></a>Visualización de los datos faciales detectados
 
 El siguiente bloque de código toma el primer elemento de la matriz de objetos **[DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace)** e imprime sus atributos en la consola. Si usó una imagen con varias caras, debe iterar la matriz en su lugar.
@@ -182,6 +185,9 @@ El siguiente código ordena las imágenes por su prefijo, detecta caras y las as
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
 
+> [!TIP]
+> También puede crear una clase **PersonGroup** a partir de imágenes remotas referenciadas por una dirección URL. Consulte los métodos [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient), como **AddFaceFromURL**.
+
 ### <a name="train-persongroup"></a>Entrenamiento del objeto PersonGroup
 
 Una vez asignadas las caras, entrene el objeto **PersonGroup** para que identifique las características visuales asociadas con cada uno de sus objetos **Person**. El siguiente código llama al método **train** asincrónico, sondea el resultado e imprime el estado en la consola.
@@ -190,7 +196,7 @@ Una vez asignadas las caras, entrene el objeto **PersonGroup** para que identifi
 
 ## <a name="identify-a-face"></a>Identificar una cara
 
-La operación de identificación toma una imagen de una persona (o de varias) y busca la identidad de cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto **PersonGroup**, una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen.
+La operación de identificación toma una imagen de una persona (o de varias) y busca la identidad de cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto **PersonGroup** , una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen.
 
 > [!IMPORTANT]
 > Para ejecutar este ejemplo, primero debe ejecutar el código de [Creación y entrenamiento de un grupo de personas](#create-and-train-a-person-group).
@@ -220,7 +226,7 @@ Este código imprime los resultados detallados de las coincidencias en la consol
 
 ## <a name="verify-faces"></a>Comprobar caras
 
-La operación Verificar toma dos identificadores de caras o un objeto **Person**, y determina si pertenecen a la misma persona.
+La operación Verificar toma dos identificadores de caras o un objeto **Person** , y determina si pertenecen a la misma persona.
 
 En el código siguiente se detectan caras en dos imágenes de origen y, a continuación, se compara cada una con una cara detectada a partir de una imagen de destino.
 

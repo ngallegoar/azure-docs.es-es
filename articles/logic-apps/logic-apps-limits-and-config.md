@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 8669330a8cfccea0dcc10c318c2be4acbcb7788c
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 0235b8350e21fa51d1b3fed747a11b681f125e67
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169360"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540727"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -41,14 +41,14 @@ Estos son los límites de una definición de aplicación lógica:
 
 <a name="run-duration-retention-limits"></a>
 
-## <a name="run-duration-and-retention-limits"></a>Límites de retención y duración de ejecución
+## <a name="run-duration-and-retention-history-limits"></a>Límites del historial de retención y duración de ejecución
 
 Estos son los límites de ejecución de una única aplicación lógica:
 
 | Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
-| Duración de la ejecución | 90 días | 366 días | Para calcular la duración de la ejecución se usa la hora de inicio de una ejecución y el límite especificado *en la hora de inicio* por la configuración del flujo de trabajo, [**Retención del historial de ejecución en días**](#change-duration). <p><p>Para cambiar este límite predeterminado, que es de 90 días, consulte la sección en que se explica cómo[cambiar la duración de ejecución](#change-duration). |
-| Retención de la ejecución en el almacenamiento | 90 días | 366 días | Para calcular la duración de la retención se usa la hora de inicio de una ejecución y el límite especificado *en la hora actual* por la configuración del flujo de trabajo, [**Retención del historial de ejecución en días**](#change-retention). Si una ejecución se completa o se agota el tiempo de espera, el cálculo de la retención siempre usa la hora de inicio de la ejecución. Cuando la duración de una ejecución supera el límite de retención *actual* , la ejecución se quita del historial de ejecuciones. <p><p>Si cambia este valor, el límite actual siempre se usa para calcular la retención, sea cual sea el límite anterior. Por ejemplo, si reduce el límite de retención de 90 días a 30 días, las ejecuciones con una antigüedad de 60 días se quitan del historial de ejecuciones. Si aumenta el período de retención de 30 días a 60 días, las ejecuciones de 20 días de antigüedad permanecen en el historial de ejecuciones 40 días más. <p><p>Para cambiar este límite predeterminado, que es de 90 días, consulte la sección en que se explica cómo[cambiar la retención de ejecución en el almacenamiento](#change-retention). |
+| Duración de la ejecución | 90 días | 366 días | Para calcular la duración de la ejecución se usa la hora de inicio de una ejecución y el límite especificado en la configuración del flujo de trabajo, [**Retención del historial de ejecución en días**](#change-duration) en esa hora de inicio. <p><p>Para cambiar el límite predeterminado,vea [Cambio de la retención y el historial de ejecución en el almacenamiento](#change-duration). |
+| Retención del historial de ejecución en el almacenamiento | 90 días | 366 días | Cuando la duración de una ejecución supera el límite de retención del historial de ejecución actual, la ejecución se quita del historial de ejecución en el almacenamiento. Tanto si se completa la ejecución como si se agota el tiempo de espera, la retención del historial de ejecución siempre se calcula mediante la hora de inicio de la ejecución y el límite actual especificado en la configuración del flujo de trabajo [**Retención del historial de ejecución en días**](#change-retention). Con independencia del límite anterior, el actual siempre se usa para calcular la retención. <p><p>Para cambiar el límite predeterminado y obtener más información,vea [Cambio de la retención de la duración y el historial de ejecución en el almacenamiento](#change-retention). En cambio, para aumentar el límite máximo, [póngase en contacto con el equipo de Logic Apps](mailto://logicappsemail@microsoft.com) para obtener ayuda con sus requisitos. |
 | Intervalo de periodicidad mínima | 1 segundo | 1 segundo ||
 | Intervalo de periodicidad máxima | 500 días | 500 días ||
 |||||
@@ -56,25 +56,51 @@ Estos son los límites de ejecución de una única aplicación lógica:
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-run-retention-in-storage"></a>Cambio de la duración de ejecución y de la retención de la ejecución en el almacenamiento
+### <a name="change-run-duration-and-history-retention-in-storage"></a>Cambio de la duración de ejecución y de la retención del historial en el almacenamiento
 
-Para cambiar el límite predeterminado de la duración de ejecución y la retención de la ejecución en el almacenamiento, siga estos pasos. En cambio, para aumentar el límite máximo, [póngase en contacto con el equipo de Logic Apps](mailto://logicappsemail@microsoft.com) para obtener ayuda con sus requisitos.
+El mismo valor controla el número máximo de días que un flujo de trabajo puede ejecutarse y mantener el historial de ejecución en el almacenamiento. Para cambiar el valor predeterminado o el límite actual de estas propiedades, siga estos pasos.
 
-> [!NOTE]
-> En el caso de las aplicaciones lógicas en Azure multiinquilino, el límite predeterminado de 90 días es el mismo que el límite máximo. Solo puede disminuir este valor.
-> En el caso de las aplicaciones lógicas en un entorno de servicio de integración, puede disminuir o aumentar el límite predeterminado de 90 días.
+* En el caso de las aplicaciones lógicas en Azure multiinquilino, el límite predeterminado de 90 días es el mismo que el límite máximo. Solo puede disminuir este valor.
 
-1. Vaya a [Azure Portal](https://portal.azure.com). En el cuadro de búsqueda de Azure Portal, busque y seleccione **Logic Apps** .
+* En el caso de las aplicaciones lógicas en un entorno de servicio de integración, puede disminuir o aumentar el límite predeterminado de 90 días.
 
-1. Elija la aplicación lógica y ábrala en Diseñador de aplicación lógica.
+Por ejemplo, imagine que reduce el límite de retención de 90 días a 30. Se quita una ejecución de 60 días de antigüedad del historial de ejecución. Si aumenta el período de retención de 30 a 60 días, una ejecución de 20 días de antigüedad permanece en el historial de ejecución 40 días más.
 
-1. En el menú de la aplicación lógica, seleccione **Configuración del flujo de trabajo** .
+> [!IMPORTANT]
+> Cuando la duración de una ejecución supera el límite de retención del historial de ejecución actual, la ejecución se quita del historial de ejecución en el almacenamiento. Para evitar la pérdida del historial de ejecución, asegúrese de que el límite de retención sea *siempre* mayor que la duración más larga posible de la ejecución.
 
-1. En **Opciones del entorno de ejecución** , en la lista **Retención del historial de ejecución en días** , seleccione **Personalizado** .
+1. En el cuadro de búsqueda de [Azure Portal](https://portal.azure.com), busque y seleccione **Logic Apps**.
+
+1. Busque y seleccione la aplicación lógica. Abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+
+1. En el menú de la aplicación lógica, seleccione **Configuración del flujo de trabajo**.
+
+1. En **Opciones del entorno de ejecución** , en la lista **Retención del historial de ejecución en días** , seleccione **Personalizado**.
 
 1. Arrastre el control deslizante para cambiar el número de días que desea.
 
-1. Cuando haya terminado, en la barra de herramientas **Configuración del flujo de trabajo** , seleccione **Guardar** .
+1. Cuando haya terminado, en la barra de herramientas **Configuración del flujo de trabajo** , seleccione **Guardar**.
+
+Si genera una plantilla de Azure Resource Manager para la aplicación lógica, esta configuración aparece como una propiedad en la definición de recursos del flujo de trabajo, que se describe en la [referencia de plantillas de flujo de trabajo Microsoft.Logic](/templates/microsoft.logic/workflows):
+
+```json
+{
+   "name": "{logic-app-name}",
+   "type": "Microsoft.Logic/workflows",
+   "location": "{Azure-region}",
+   "apiVersion": "2019-05-01",
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "runtimeConfiguration": {
+         "lifetime": {
+            "unit": "day",
+            "count": {number-of-days}
+         }
+      }
+   }
+}
+```
 
 <a name="looping-debatching-limits"></a>
 
@@ -144,7 +170,7 @@ Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las s
 
 | Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
-| Solicitud saliente | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Entre los ejemplos de solicitudes salientes se incluyen las llamadas realizadas por desencadenadores HTTP. <p><p>**Sugerencia** : Para las operaciones de ejecución más largas, use un [patrón de sondeo asincrónico](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [bucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para solucionar de forma alternativa los límites de tiempo de espera cuando se llama a otra aplicación lógica que tiene un [punto de conexión al que se puede llamar](logic-apps-http-endpoint.md), puede usar la acción integrada Azure Logic Apps en su lugar, que puede encontrar en el selector de conectores en **Integrado** . |
+| Solicitud saliente | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Entre los ejemplos de solicitudes salientes se incluyen las llamadas realizadas por desencadenadores HTTP. <p><p>**Sugerencia** : Para las operaciones de ejecución más largas, use un [patrón de sondeo asincrónico](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [bucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para solucionar de forma alternativa los límites de tiempo de espera cuando se llama a otra aplicación lógica que tiene un [punto de conexión al que se puede llamar](logic-apps-http-endpoint.md), puede usar la acción integrada Azure Logic Apps en su lugar, que puede encontrar en el selector de conectores en **Integrado**. |
 | Solicitud entrante | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Algunos ejemplos de solicitudes entrantes son las llamadas recibidas por los desencadenadores de solicitud y los desencadenadores de webhook. <p><p>**Nota** : Para que el autor de llamada original obtenga la respuesta, todos los pasos de la respuesta deben terminar dentro del límite, a menos que llame a otra aplicación lógica como un flujo de trabajo anidado. Para obtener más información, consulte [Llamada, desencadenamiento o anidación de aplicaciones lógicas](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 

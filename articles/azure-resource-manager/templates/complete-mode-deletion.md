@@ -2,13 +2,13 @@
 title: Eliminación del modo completo
 description: Muestra cómo los tipos de recursos controlan la eliminación en modo completo en las plantillas de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 10/06/2020
-ms.openlocfilehash: 72303a7916aec39c05f9b4fa2cbc77de18b7fb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: b1f7623d6eee1ff629412a4cc0d76e59e6c9e847
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766712"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370131"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminación de recursos de Azure en implementaciones en modo completo
 
@@ -24,7 +24,6 @@ Los recursos se enumeran por espacio de nombres del proveedor de recursos. Para 
 
 > [!NOTE]
 > Use siempre la [operación what-if](template-deploy-what-if.md) antes de implementar una plantilla en el modo completo. What-if muestra qué recursos se crearán, eliminarán o modificarán. Use what-if para evitar la eliminación accidental de recursos.
-
 Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
@@ -47,6 +46,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft.BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -176,6 +176,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.Singularity](#microsoftsingularity)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.SQL](#microsoftsql)
@@ -364,6 +365,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | privateClouds | Sí |
+> | privateClouds / addons | No |
 > | privateClouds / authorizations | No |
 > | privateClouds / clusters | No |
 > | privateClouds/globalReachConnections | No |
@@ -426,12 +428,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | clusters | Sí |
 
+## <a name="microsoftbaremetalinfrastructure"></a>Microsoft.BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Eliminación del modo completo |
+> | ------------- | ----------- |
+> | bareMetalInstances | Sí |
+
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | batchAccounts | Sí |
+> | batchAccounts/certificates | No |
+> | batchAccounts/pools | No |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -973,7 +984,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | workspaces | Sí |
 > | workspaces / dbWorkspaces | No |
-> | workspaces / storageEncryption | No |
 > | workspaces/virtualNetworkPeerings | No |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1129,6 +1139,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | applicationgroups/desktops | No |
 > | applicationgroups/startmenuitems | No |
 > | hostpools | Sí |
+> | hostpools / msixpackages | No |
 > | hostpools/sessionhosts | No |
 > | hostpools/sessionhosts/usersessions | No |
 > | hostpools/usersessions | No |
@@ -1381,12 +1392,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | devices | Sí |
+> | networkFunctions | Sí |
+> | networkFunctionVendors | No |
 > | registeredSubscriptions | No |
 > | vendors | No |
-> | vendors/vendorskus | No |
-> | vendors/vendorskus/previewSubscriptions | No |
-> | virtualnetworkfunctions | Sí |
-> | virtualnetworkfunctionvendors | No |
+> | vendors / vendorSkus | No |
+> | vendors / vendorSkus / previewSubscriptions | No |
+> | virtualNetworkFunctions | Sí |
+> | virtualNetworkFunctionVendors | No |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1507,9 +1520,20 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | workspaces | Sí |
+> | workspaces / batchEndpoints | Sí |
+> | workspaces / batchEndpoints / deployments | Sí |
+> | workspaces / codes | No |
+> | workspaces / codes / versions | No |
 > | workspaces/computes | No |
+> | workspaces / datastores | No |
 > | workspaces/eventGridFilters | No |
+> | workspaces / jobs | No |
+> | workspaces / labelingJobs | No |
 > | workspaces/linkedServices | No |
+> | workspaces / models | No |
+> | workspaces / models / versions | No |
+> | workspaces / onlineEndpoints | Sí |
+> | workspaces / onlineEndpoints / deployments | Sí |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -2157,6 +2181,17 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | SignalR | Sí |
 > | SignalR/eventGridFilters | No |
 
+## <a name="microsoftsingularity"></a>Microsoft.Singularity
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Eliminación del modo completo |
+> | ------------- | ----------- |
+> | accounts | Sí |
+> | accounts / accountQuotaPolicies | No |
+> | accounts / groupPolicies | No |
+> | accounts / jobs | No |
+> | accounts / storageContainers | No |
+
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
@@ -2289,6 +2324,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | clusters | Sí |
+> | clusters / privateEndpoints | No |
 > | streamingjobs | Sí |
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
@@ -2423,6 +2459,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | runtimes | No |
 > | serverFarms | Sí |
 > | serverFarms/eventGridFilters | No |
+> | serverFarms / firstPartyApps | No |
+> | serverFarms / firstPartyApps / keyVaultSettings | No |
 > | sites | Sí |
 > | sites/config  | No |
 > | sites/eventGridFilters | No |

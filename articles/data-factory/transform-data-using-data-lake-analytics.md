@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: f99bc5b07f3749fac28f60d28b040a7e0682971b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d890f73ea8b2294755b14055cb11904d50160cc4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522421"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632131"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Procesamiento de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -45,7 +45,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades genéricas que
 | **resourceGroupName**    | Nombre del grupo de recursos de Azure                | No                                       |
 
 ### <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
-El servicio vinculado de Azure Data Lake Analytics requiere una autenticación de entidad de servicio para conectarse al servicio Azure Data Lake Analytics. Para usar la autenticación de la entidad de servicio, registre una entidad de aplicación en Azure Active Directory (Azure AD) y concédale acceso a Data Lake Analytics y al almacén de Data Lake Store que utiliza. Consulte [Autenticación entre servicios](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) para ver los pasos detallados. Anote los siguientes valores; los usará para definir el servicio vinculado:
+El servicio vinculado de Azure Data Lake Analytics requiere una autenticación de entidad de servicio para conectarse al servicio Azure Data Lake Analytics. Para usar la autenticación de la entidad de servicio, registre una entidad de aplicación en Azure Active Directory (Azure AD) y concédale acceso a Data Lake Analytics y al almacén de Data Lake Store que utiliza. Consulte [Autenticación entre servicios](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md) para ver los pasos detallados. Anote los siguientes valores; los usará para definir el servicio vinculado:
 
 * Identificador de aplicación
 * Clave de la aplicación 
@@ -198,5 +198,5 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
-* [Actividad de ejecución de Batch de Machine Learning](transform-data-using-machine-learning.md)
+* [Actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: a019b86adf3dfe950b7d93f50c834d004a2aebf9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de4661bcfd7106d515480e39dc4660f44f469a3d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462350"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631706"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory: preguntas más frecuentes
 > [!NOTE]
@@ -70,7 +70,7 @@ En la tabla siguiente se proporciona una lista de entornos de proceso compatible
 | --- | --- |
 | [Clúster de HDInsight a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) o [clúster HDInsight propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Actividades de Machine Learning: ejecución de lotes y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning Studio (clásico)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Actividades de Estudio (clásico): ejecución de lotes y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |
 | [Análisis con Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[U-SQL de análisis con Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics (anteriormente, SQL Data Warehouse)](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimiento almacenado](data-factory-stored-proc-activity.md) |
 
@@ -205,4 +205,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [adf-pricing-details]: https://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: https://azure.microsoft.com/pricing/details/hdinsight/
 [hdinsight-alternate-storage]: https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-[hdinsight-alternate-storage-2]: https://docs.microsoft.com/archive/blogs/cindygross/use-additional-storage-accounts-with-hdinsight-hive
+[hdinsight-alternate-storage-2]: /archive/blogs/cindygross/use-additional-storage-accounts-with-hdinsight-hive

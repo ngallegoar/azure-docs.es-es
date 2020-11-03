@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f8086aced26fc46fb1430df074082e8c3365baa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287328"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746820"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creación de un contenedor de perfiles con Azure Files y AD DS
 
@@ -35,14 +35,14 @@ Para configurar una cuenta de almacenamiento:
 
 3. Seleccione **+Agregar**.
 
-4. En la página **Crear cuenta de almacenamiento**, escriba la siguiente información:
+4. En la página **Crear cuenta de almacenamiento** , escriba la siguiente información:
 
     - Cree un nuevo grupo de recursos.
     - Escriba un nombre único para la cuenta de almacenamiento.
-    - En **Ubicación**, se recomienda elegir la misma ubicación que el grupo host de Windows Virtual Desktop.
-    - En **Rendimiento**, seleccione **Estándar**. (En función de los requisitos de IOPS. Para más información, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop](store-fslogix-profile.md)).
-    - En **Tipo de cuenta**, seleccione **StorageV2** o **FileStorage** (solo disponible si el nivel de rendimiento es Premium).
-    - En **Replicación**, seleccione **Almacenamiento con redundancia local (LRS)** .
+    - En **Ubicación** , se recomienda elegir la misma ubicación que el grupo host de Windows Virtual Desktop.
+    - En **Rendimiento** , seleccione **Estándar**. (En función de los requisitos de IOPS. Para más información, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop](store-fslogix-profile.md)).
+    - En **Tipo de cuenta** , seleccione **StorageV2** o **FileStorage** (solo disponible si el nivel de rendimiento es Premium).
+    - En **Replicación** , seleccione **Almacenamiento con redundancia local (LRS)** .
 
 5. Cuando haya terminado, seleccione **Revisar y crear** y, después, **Crear**.
 
@@ -58,7 +58,7 @@ Para crear un recurso compartido de archivos:
 
 2. En la página Información general, seleccione **Recursos compartidos de archivos**.
 
-3. Seleccione **+ Recursos compartidos de archivos**, cree un nuevo recurso compartido de archivos denominado **perfiles**, especifique una cuota adecuada o deje el campo en blanco para no incluir una cuota.
+3. Seleccione **+ Recursos compartidos de archivos** , cree un nuevo recurso compartido de archivos denominado **perfiles** , especifique una cuota adecuada o deje el campo en blanco para no incluir una cuota.
 
 4. Seleccione **Crear**.
 
@@ -68,7 +68,7 @@ Después, deberá habilitar la autenticación de Active Directory (AD). Para ha
 
 1. Protocolo de Escritorio remoto en la máquina virtual unida a un dominio.
 
-2. Siga las instrucciones del artículo [Parte 1: Habilitación de la autenticación de AD DS para los recursos compartidos de archivos de Azure](../storage/files/storage-files-identity-ad-ds-enable.md) para instalar el módulo AzFilesHybrid y habilitar la autenticación.
+2. Siga las instrucciones del artículo [Habilitación de la autenticación de AD DS para los recursos compartidos de archivos de Azure](../storage/files/storage-files-identity-ad-ds-enable.md) para instalar el módulo AzFilesHybrid y habilitar la autenticación.
 
 3.  Abra Azure Portal, abra la cuenta de almacenamiento, seleccione **Configuración** y, después, confirme que **Active Directory (AD)** está establecido en **Habilitado**.
 
@@ -86,7 +86,7 @@ Para configurar los permisos de nivel de recurso compartido, asigne a cada usuar
 >[!NOTE]
 >Las cuentas o grupos a los que asigna permisos deben haberse creado en el dominio y sincronizarse con Azure AD. Las cuentas creadas en Azure AD no funcionan.
 
-Para asignar permisos de control de acceso basado en roles (RBAC):
+Para asignar los permisos del control de acceso basado en roles de Azure (Azure RBAC):
 
 1. Abra Azure Portal.
 
@@ -98,7 +98,7 @@ Para asignar permisos de control de acceso basado en roles (RBAC):
 
 5. Seleccione **Agregar una asignación de roles**.
 
-6. En la pestaña **Agregar asignación de roles**, seleccione **Colaborador con privilegios elevados de recursos compartidos de SMB de datos de archivos de almacenamiento** para la cuenta de administrador.
+6. En la pestaña **Agregar asignación de roles** , seleccione **Colaborador con privilegios elevados de recursos compartidos de SMB de datos de archivos de almacenamiento** para la cuenta de administrador.
 
      Para asignar permisos de usuario para los perfiles de FSLogix, siga estas mismas instrucciones. Sin embargo, cuando llegue al paso 5, seleccione **Colaborador de recursos compartidos de SMB de datos de archivos de almacenamiento** en su lugar.
 
@@ -106,7 +106,7 @@ Para asignar permisos de control de acceso basado en roles (RBAC):
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Asignación de permisos de usuarios en el recurso compartido de archivos de Azure
 
-Una vez que haya asignado permisos de RBAC a los usuarios, deberá configurar los permisos NTFS.
+Una vez que haya asignado permisos de Azure RBAC a los usuarios, deberá configurar los permisos NTFS.
 
 Necesitará conocer lo siguiente de Azure Portal para comenzar:
 
@@ -141,7 +141,7 @@ Para obtener la clave de la cuenta de almacenamiento:
 
 2. Abra la cuenta de almacenamiento que creó en [Configuración de una cuenta de almacenamiento](#set-up-a-storage-account).
 
-3. En la pestaña **Cuenta de almacenamiento**, seleccione **Claves de acceso**.
+3. En la pestaña **Cuenta de almacenamiento** , seleccione **Claves de acceso**.
 
 4. Copie **key1** o **key2** en un archivo del equipo local.
 

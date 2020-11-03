@@ -2,15 +2,15 @@
 title: Implementación de recursos en el grupo de administración
 description: Se describe cómo implementar recursos en el ámbito de un grupo de administración en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 23f86d7d0b7e1f882cf3fb74adc484e0fe47db87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 084ab69f463334569d37efd9187bfe587bfc524d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372432"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668939"
 ---
-# <a name="create-resources-at-the-management-group-level"></a>Creación de recursos a nivel de grupo de administración
+# <a name="management-group-deployments-with-arm-templates"></a>Implementaciones de grupos de administración con plantillas de Resource Manager
 
 A medida que la organización madura, puede implementar una plantilla de Azure Resource Manager (plantilla de ARM) para crear recursos a nivel de grupo de administración. Por ejemplo, es posible que deba definir y asignar [directivas](../../governance/policy/overview.md) o el [control de acceso basado en rol de Azure (RBAC de Azure)](../../role-based-access-control/overview.md) para un grupo de administración. Con las plantillas de nivel de grupo de administración, puede aplicar directivas y asignar roles mediante declaración en el nivel de grupo de administración.
 
@@ -52,42 +52,26 @@ El esquema que se usa para las implementaciones de nivel de grupo de administrac
 Para las plantillas, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    ...
+}
 ```
 
 El esquema de un archivo de parámetros es el mismo para todos los ámbitos de implementación. Para los archivos de parámetros, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
-
-## <a name="deployment-scopes"></a>Ámbitos de implementación
-
-Al implementar en un grupo de administración, puede establecer como destino el grupo de administración especificado en el comando de implementación o seleccionar otros grupos de administración del inquilino.
-
-Los recursos definidos en la sección de recursos de la plantilla se aplican al grupo de administración del comando de implementación.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
-
-Para establecer como destino otro grupo de administración, agregue una implementación anidada y especifique la propiedad `scope`. Establezca la propiedad `scope` en un valor con el formato `Microsoft.Management/managementGroups/<mg-name>`.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
-
-También puede establecer como destino suscripciones o grupos de recursos con un grupo de administración. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
-
-Para establecer como destino una suscripción dentro del grupo de administración, use una implementación anidada y la propiedad `subscriptionId`.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
-
-Para establecer como destino un grupo de recursos dentro de esa suscripción, agregue otra implementación anidada y la propiedad `resourceGroup`.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
-
-Para usar la implementación de un grupo de administración para crear un grupo de recursos dentro de una suscripción e implementar una cuenta de almacenamiento en ese grupo de recursos, vea [Implementación a una suscripción y a un grupo de recursos](#deploy-to-subscription-and-resource-group).
 
 ## <a name="deployment-commands"></a>Comandos de implementación
 
-Los comandos para las implementaciones de grupos de administración son diferentes de los comandos para las implementaciones de grupos de recursos.
+Para implementar en un grupo de administración, use los comandos de implementación de grupos de administración.
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para la CLI de Azure, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
@@ -99,6 +83,8 @@ az deployment mg create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 En el caso de Azure PowerShell, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment).
 
 ```azurepowershell-interactive
@@ -109,42 +95,70 @@ New-AzManagementGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
-Para la API REST, use [Deployments: Create At Management Group Scope](/rest/api/resources/deployments/createorupdateatmanagementgroupscope).
+---
+
+Para obtener información más detallada sobre los comandos de implementación y las opciones para implementar plantillas de Resource Manager, consulte:
+
+* [Implementación de recursos con Azure Portal y plantillas de Resource Manager](deploy-portal.md)
+* [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md)
+* [Implementación de recursos con las plantillas de ARM y Azure PowerShell](deploy-powershell.md)
+* [Implementación de recursos con plantillas de Resource Manager y la API de REST de Azure Resource Manager](deploy-rest.md)
+* [Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub](deploy-to-azure-button.md)
+* [Implementación de plantillas de Resource Manager desde Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Ámbitos de implementación
+
+Al implementar en un grupo de administración, puede implementar los recursos en:
+
+* el grupo de administración de destino de la operación
+* otro grupo de administración en el inquilino
+* suscripciones en el grupo de administración
+* grupos de recursos del grupo de administración (a través de dos implementaciones anidadas)
+* se pueden aplicar [recursos de extensión](scope-extension-resources.md) a los recursos
+
+El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
+
+En esta sección se muestra cómo especificar distintos ámbitos. Puede combinar estos distintos ámbitos en una sola plantilla.
+
+### <a name="scope-to-target-management-group"></a>Ámbito del grupo de administración de destino
+
+Los recursos definidos en la sección de recursos de la plantilla se aplican al grupo de administración del comando de implementación.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
+
+### <a name="scope-to-another-management-group"></a>Ámbito de otro grupo de administración
+
+Para establecer como destino otro grupo de administración, agregue una implementación anidada y especifique la propiedad `scope`. Establezca la propiedad `scope` en un valor con el formato `Microsoft.Management/managementGroups/<mg-name>`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+
+### <a name="scope-to-subscription"></a>Ámbito de la suscripción
+
+También puede establecer como destino suscripciones con un grupo de administración. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
+
+Para establecer como destino una suscripción dentro del grupo de administración, use una implementación anidada y la propiedad `subscriptionId`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+
+### <a name="scope-to-resource-group"></a>Ámbito del grupo de recursos
+
+Para establecer como destino un grupo de recursos dentro de esa suscripción, agregue dos implementaciones anidadas. La primera tiene como destino la suscripción que tiene el grupo de recursos. La segunda tiene como destino el grupo de recursos al establecer la propiedad `resourceGroup`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+
+Para usar la implementación de un grupo de administración para crear un grupo de recursos dentro de una suscripción e implementar una cuenta de almacenamiento en ese grupo de recursos, vea [Implementación a una suscripción y a un grupo de recursos](#deploy-to-subscription-and-resource-group).
 
 ## <a name="deployment-location-and-name"></a>Ubicación y nombre de la implementación
 
 En el caso de las implementaciones de nivel de grupo de administración, debe proporcionar una ubicación para la implementación. La ubicación de la implementación es independiente de la ubicación de los recursos que se implementan. La ubicación de implementación especifica dónde se almacenarán los datos de la implementación.
 
-Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json**, se crea un nombre de predeterminado **azuredeploy**.
+Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json** , se crea un nombre de predeterminado **azuredeploy**.
 
 Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
 
-## <a name="use-template-functions"></a>Usar funciones de plantillas
-
-En las implementaciones de nivel de grupo de administración, hay algunas consideraciones importantes que deben tenerse en cuenta al usar las funciones de plantilla:
-
-* La función [resourceGroup()](template-functions-resource.md#resourcegroup)**no** se admite.
-* La función [subscription()](template-functions-resource.md#subscription)**no** se admite.
-* Se admiten las funciones [reference()](template-functions-resource.md#reference) y [list()](template-functions-resource.md#list).
-* No use la función [resourceId()](template-functions-resource.md#resourceid) para los recursos implementados en el grupo de administración.
-
-  En su lugar, use la función [extensionResourceId()](template-functions-resource.md#extensionresourceid) para los recursos que se implementan como extensiones del grupo de administración. Las definiciones de directivas personalizadas que se implementan en un grupo de administración son extensiones del grupo de administración.
-
-  Para obtener el identificador de recurso de una definición de directiva personalizada en el nivel de grupo de administración, use:
-  
-  ```json
-  "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
-  ```
-
-  Utilice la función [tenantResourceId](template-functions-resource.md#tenantresourceid) para los recursos de inquilino que están disponibles en el grupo de administración. Las definiciones de directivas integradas son recursos del nivel de inquilino.
-
-  Para obtener el identificador de recurso de una definición de directiva integrada, utilice:
-  
-  ```json
-  "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
-  ```
-
 ## <a name="azure-policy"></a>Azure Policy
+
+Las definiciones de directivas personalizadas que se implementan en un grupo de administración son extensiones del grupo de administración. Para obtener el identificador de una definición de directiva personalizada, use la función [extensionResourceId()](template-functions-resource.md#extensionresourceid). Las definiciones de directivas integradas son recursos del nivel de inquilino. Para obtener el identificador de una definición de directiva integrada, use la función [tenantResourceId](template-functions-resource.md#tenantresourceid).
 
 En el ejemplo siguiente se muestra cómo [definir](../../governance/policy/concepts/definition-structure.md) una directiva en el nivel de grupo de administración y cómo asignarla.
 

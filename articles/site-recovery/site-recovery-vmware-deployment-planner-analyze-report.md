@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 901f4a9d4fd53f665c3d078f5e463dcde2af1882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef4baa4be7f6058ca704f8f499c47099de7c1a85
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654878"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372096"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Análisis del informe de Deployment Planner para la recuperación ante desastres de VMware en Azure
 
@@ -102,7 +102,7 @@ Este resultado es el número total de núcleos que se deben configurar antes de 
 ![Número de núcleos de Azure requeridos en Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-cores-v2a.png)
 
 ### <a name="required-on-premises-infrastructure"></a>Infraestructura local requerida
-Esta cifra es el número total de servidores de configuración y servidores de proceso adicionales configurables que serían suficientes para proteger todas las máquinas virtuales compatibles. En función de las [recomendaciones de tamaño para el servidor de configuración](https://aka.ms/asr-v2a-on-prem-components) admitidas, la herramienta puede recomendar más servidores. Las recomendaciones se basan en el valor mayor de los siguientes elementos, la actividad diaria o el número máximo de máquinas virtuales (se supone que cada máquina virtual tiene tres discos), lo que se alcance primero en el servidor de configuración o en el servidor de procesos adicional. Encontrará los detalles de la actividad total por día y el número total de discos protegidos en la sección "Resumen local".
+Esta cifra es el número total de servidores de configuración y servidores de proceso adicionales configurables que serían suficientes para proteger todas las máquinas virtuales compatibles. En función de las [recomendaciones de tamaño para el servidor de configuración](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server) admitidas, la herramienta puede recomendar más servidores. Las recomendaciones se basan en el valor mayor de los siguientes elementos, la actividad diaria o el número máximo de máquinas virtuales (se supone que cada máquina virtual tiene tres discos), lo que se alcance primero en el servidor de configuración o en el servidor de procesos adicional. Encontrará los detalles de la actividad total por día y el número total de discos protegidos en la sección "Resumen local".
 
 ![Infraestructura local requerida en Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-on-premises-components-v2a.png)
 
@@ -132,13 +132,13 @@ Puede ver el costo mensual o anual. Obtenga más información sobre las [regione
 
 **Cost by components** (Costo por componentes): el costo total de recuperación ante desastres se divide en cuatro componentes: costo de proceso, almacenamiento, red y licencia de Azure Site Recovery. El costo se calcula en función del consumo en el que se incurrirá durante la replicación y en el transcurso del simulacro de recuperación ante desastres por los servicios de proceso, almacenamiento (premium y estándar), circuito ExpressRoute o VPN configurados entre el sitio local y Azure, y la licencia de Azure Site Recovery.
 
-**Cost by states**: el costo total de recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres.
+**Cost by states** : el costo total de recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres.
 
 **Replication cost** (Costo de replicación):  costo en el que se incurrirá durante la replicación. Incluye el costo de almacenamiento, red y licencia de Azure Site Recovery.
 
 **DR-Drill cost** (Costo del simulacro de recuperación ante desastres): costo en el que se incurrirá durante las conmutaciones por error de prueba. Azure Site Recovery pone en marcha las máquinas virtuales durante la conmutación por error de prueba. El costo del simulacro de recuperación ante desastres incluye el costo de los servicios de proceso y almacenamiento de las máquinas virtuales en ejecución.
 
-**Azure storage cost per Month/Year**: muestra el costo total en el que se incurrirá por el almacenamiento premium y estándar por la replicación y el simulacro de recuperación ante desastres.
+**Azure storage cost per Month/Year** : muestra el costo total en el que se incurrirá por el almacenamiento premium y estándar por la replicación y el simulacro de recuperación ante desastres.
 Puede ver el análisis detallado de los costos por máquina virtual en la hoja [Cost Estimation](site-recovery-vmware-deployment-planner-cost-estimation.md) (Estimación de costos).
 
 ### <a name="growth-factor-and-percentile-values-used"></a>Factor de crecimiento y valores de percentil utilizados
@@ -161,11 +161,11 @@ Puede darse el caso de que sepa que no puede establecer un ancho de banda de má
 
 ![Selección de ubicación de almacenamiento de máquina virtual](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Tipo de almacenamiento de replicación**: disco administrado estándar o premium, que se usa para replicar todas las máquinas virtuales correspondientes que se mencionan en la columna **VMs to Place** (Máquinas virtuales para colocar).
+**Tipo de almacenamiento de replicación** : disco administrado estándar o premium, que se usa para replicar todas las máquinas virtuales correspondientes que se mencionan en la columna **VMs to Place** (Máquinas virtuales para colocar).
 
-**Tipo de cuenta de almacenamiento de registros**: todos los registros de la replicación se almacenan en una cuenta de almacenamiento estándar.
+**Tipo de cuenta de almacenamiento de registros** : todos los registros de la replicación se almacenan en una cuenta de almacenamiento estándar.
 
-**Prefijo sugerido para la cuenta de almacenamiento**: el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento en caché. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](https://aka.ms/storage-performance-checklist).
+**Prefijo sugerido para la cuenta de almacenamiento** : el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento en caché. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](/en-in/azure/storage/blobs/storage-performance-checklist).
 
 **Suggested Log Account Name** (Nombre de cuenta de registros sugerido): el nombre de la cuenta de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
 
@@ -178,7 +178,7 @@ Puede darse el caso de que sepa que no puede establecer un ancho de banda de má
 
 **VM Name** (Nombre de la máquina virtual): el nombre o la dirección IP de la máquina virtual que se utilizan en VMListFile cuando se genera un informe. Esta columna también muestra los discos (VMDK) que están conectados a las máquinas virtuales. Para distinguir las máquinas virtuales de vCenter con nombres o direcciones IP, los nombres incluyen el nombre del host de ESXi. El host de ESXi enumerado es en el que se colocó la máquina virtual cuando la herramienta la detecto en el período de generación de perfiles.
 
-**VM Compatibility** (Compatibilidad de la máquina virtual): los valores son **Yes** (Sí) y **Yes\*** (Sí). **Sí**\* es para las instancias en las que la máquina virtual es una opción para [discos SSD Premium](../virtual-machines/disks-types.md). En este caso, la alta actividad de la generación de perfiles o el disco de IOPS se encuadra en las categorías P20 o P30, pero el tamaño del disco hace que se asigne a una categoría P10 o P20. La cuenta de almacenamiento decide a qué tipo de disco de almacenamiento Premium se asigna un disco, en función de su tamaño. Por ejemplo:
+**VM Compatibility** (Compatibilidad de la máquina virtual): Los valores son **Sí** y **Sí\* *_. _* Sí**\* es para las instancias en las que la máquina virtual es una opción para [discos SSD Premium](../virtual-machines/disks-types.md). En este caso, la alta actividad de la generación de perfiles o el disco de IOPS se encuadra en las categorías P20 o P30, pero el tamaño del disco hace que se asigne a una categoría P10 o P20. La cuenta de almacenamiento decide a qué tipo de disco de almacenamiento Premium se asigna un disco, en función de su tamaño. Por ejemplo:
 * Menos de 128 GB es P10.
 * De 128 GB a 256 GB es P15
 * De 256 GB a 512 GB es P20.
@@ -190,7 +190,7 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 
 **Storage Type** (Tipo de almacenamiento): estándar o premium.
 
-**Asrseeddisk (disco administrado) creado para la replicación**: el nombre del disco que se crea al habilitar la replicación. Almacena los datos y sus instantáneas en Azure.
+**Asrseeddisk (disco administrado) creado para la replicación** : el nombre del disco que se crea al habilitar la replicación. Almacena los datos y sus instantáneas en Azure.
 
 **Peak R/W IOPS (with Growth Factor)** (Valor máximo de IOPS de lectura y escritura [con factor de crecimiento]): el valor máximo de IOPS de lectura/escritura de la carga de trabajo en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de IOPS de lectura y escritura de una máquina virtual no es siempre la suma de las IOPS de lectura y escritura de los discos individuales de la máquina virtual, ya que las IOPS de lectura y escritura máximas de la máquina virtual es el máximo de la suma de las IOPS de lectura y escritura sus discos individuales durante cada minuto del período de generación de perfiles.
 
@@ -219,7 +219,7 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 
 **VM Name** (Nombre de la máquina virtual): el nombre o la dirección IP de la máquina virtual que se utilizan en VMListFile cuando se genera un informe. Esta columna también muestra los VMDK que están conectados a las máquinas virtuales. Para distinguir las máquinas virtuales de vCenter con nombres o direcciones IP, los nombres incluyen el nombre del host de ESXi. El host de ESXi enumerado es en el que se colocó la máquina virtual cuando la herramienta la detecto en el período de generación de perfiles.
 
-**VM Compatibility** (Compatibilidad de la máquina virtual): indica el motivo por el que una máquina virtual dada no es compatible con Site Recovery. Se describen las razones de cada disco incompatible de la máquina virtual, que, en función de los [límites de almacenamiento](https://aka.ms/azure-storage-scalbility-performance) publicados, pueden ser cualesquiera de las siguientes:
+**VM Compatibility** (Compatibilidad de la máquina virtual): indica el motivo por el que una máquina virtual dada no es compatible con Site Recovery. Se describen las razones de cada disco incompatible de la máquina virtual, que, en función de los [límites de almacenamiento](/en-in/azure/storage/common/scalability-targets-standard-account) publicados, pueden ser cualesquiera de las siguientes:
 
 * El tamaño del disco de datos es incorrecto o el tamaño de disco de sistema operativo es incorrecto. [Revise](vmware-physical-azure-support-matrix.md#azure-vm-requirements) los límites compatibilidad. 
 * El tamaño total de la máquina virtual (replicación + TFO) supera el límite de tamaño de la cuenta de almacenamiento que se admite (35 TB). Esta incompatibilidad se produce normalmente cuando uno de los discos de la máquina virtual tiene una característica de rendimiento que supera los límites de almacenamiento estándar de Azure o de Site Recovery. Una instancia de este tipo coloca la máquina virtual en la zona de almacenamiento premium. Sin embargo, el tamaño máximo que se admite de una cuenta de almacenamiento Premium es de 35 TB y una sola máquina virtual protegida no se puede proteger en varias cuentas de almacenamiento. Tenga también en cuenta que si se realiza una conmutación por error de prueba en una máquina virtual protegida, esta se ejecuta en la misma cuenta de almacenamiento en la que se lleva a cabo la replicación. En este caso, configure el doble del tamaño del disco para que la replicación y la conmutación por error de prueba puedan realizarse en paralelo.

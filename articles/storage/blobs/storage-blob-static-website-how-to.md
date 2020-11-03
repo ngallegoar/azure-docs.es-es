@@ -7,13 +7,13 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 5c9d7faebe7fefdddbf194e3a9ad36b4644115e0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289878"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746450"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedaje de un sitio web estático en Azure Storage
 
@@ -38,15 +38,15 @@ El hospedaje de sitios web estáticos es una característica que permite habilit
 
 4. Seleccione **Habilitado** para habilitar el hospedaje del sitio web estático para la cuenta de almacenamiento.
 
-5. En el campo **Index document name** (Nombre del documento de índice), especifique una página de índice predeterminada (por ejemplo: *index.html*). 
+5. En el campo **Index document name** (Nombre del documento de índice), especifique una página de índice predeterminada (por ejemplo: *index.html* ). 
 
    La página de índice predeterminada se muestra cuando un usuario navega hasta la raíz del sitio web estático.  
 
-6. En el campo **Error document path** (Ruta de acceso del documento de error), especifique una página de error predeterminada (por ejemplo: *404.html*). 
+6. En el campo **Error document path** (Ruta de acceso del documento de error), especifique una página de error predeterminada (por ejemplo: *404.html* ). 
 
    La página de error predeterminada se muestra cuando un usuario intenta navegar a una página que no existe en el sitio web estático.
 
-7. Haga clic en **Save**(Guardar). Azure Portal ahora muestra el punto de conexión estático del sitio web. 
+7. Haga clic en **Save** (Guardar). Azure Portal ahora muestra el punto de conexión estático del sitio web. 
 
     ![Habilitación del hospedaje del sitio web estático para una cuenta de almacenamiento](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -259,7 +259,7 @@ Después de habilitar las métricas, las estadísticas de tráfico de los archiv
 
 4. A continuación, seleccione la métrica **Egress**.
 
-   ![Métrica de métricas de sitios web estáticos de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Captura de pantalla que muestra la métrica de salida de sitios web estáticos de Azure Storage.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
 5. Seleccione **Sum** del selector *Aggregation* (Agregación).
 

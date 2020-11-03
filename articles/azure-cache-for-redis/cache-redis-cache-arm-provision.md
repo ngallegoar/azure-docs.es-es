@@ -1,22 +1,22 @@
 ---
 title: Implementación de Azure Resource Manager mediante una plantilla de Azure Cache for Redis
-description: Use una plantilla de Azure Resource Manager para implementar Azure Cache for Redis. Se suministran plantillas para escenarios frecuentes.
+description: Aprenda a usar una plantilla de Azure Resource Manager (plantilla de Resource Manager) para implementar un recurso de Azure Cache for Redis. Se suministran plantillas para escenarios frecuentes.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461245"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735973"
 ---
-# <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Creación de una instancia de Azure Cache for Redis mediante una plantilla de Resource Manager
+# <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Cache for Redis mediante una plantilla de Resource Manager
 
-Descubra cómo crear una plantilla de Azure Resource Manager que implementa una instancia de Azure Cache for Redis. La memoria caché se puede usar con una cuenta de almacenamiento existente para mantener los datos de diagnóstico. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades. Actualmente, se comparten los ajustes de configuración de diagnóstico para todas las cachés de la misma región para una suscripción. Actualizar una caché en la región afectará a todas las demás cachés de la región.
+Descubra cómo crear una plantilla de Azure Resource Manager (plantilla de Resource Manager) que implemente una instancia de Azure Cache for Redis. La memoria caché se puede usar con una cuenta de almacenamiento existente para mantener los datos de diagnóstico. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades. Actualmente, se comparten los ajustes de configuración de diagnóstico para todas las cachés de la misma región para una suscripción. Actualizar una caché en la región afectará a todas las demás cachés de la región.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,8 +26,8 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* **Una cuenta de almacenamiento**: Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](/azure/storage/common/storage-account-create?tabs=azure-portal). La cuenta de almacenamiento se utiliza con datos de diagnóstico.
+* **Suscripción de Azure** : Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* **Una cuenta de almacenamiento** : Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal). La cuenta de almacenamiento se utiliza con datos de diagnóstico.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -46,7 +46,7 @@ También hay plantillas de Resource Manager disponibles para el nuevo [nivel Pre
 * [Creación de una instancia de Azure Cache for Redis de nivel Prémium con persistencia de datos](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Creación de una instancia de Redis Cache premium implementada en una red virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 
-Para buscar las últimas plantillas, diríjase a [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) y busque `Azure Cache for Redis`.
+Para buscar las últimas plantillas, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) y busque _Azure Cache for Redis_.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
@@ -55,11 +55,11 @@ Para buscar las últimas plantillas, diríjase a [Plantillas de inicio rápido d
     [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 1. Seleccione o escriba los siguientes valores:
 
-    * **Suscripción**: seleccione la suscripción de Azure que se usa para crear el recurso compartido de datos y los restantes recursos.
-    * **Grupo de recursos**: seleccione **Crear nuevo** para crear un grupo de recursos, o bien seleccione un grupo de recursos existente.
-    * **Ubicación**: seleccione una ubicación para el grupo de recursos. La cuenta de almacenamiento y Redis Caché deben estar en la misma región. Redis Caché utiliza de forma predeterminada la misma ubicación que el grupo de recursos. Por lo tanto, especifique la misma ubicación que la de la cuenta de almacenamiento.
-    * **Nombre de Redis Cache**: escriba un nombre para la introducir de Redis Caché.
-    * **Cuenta de almacenamiento de diagnósticos existente**: escriba el identificador de recurso de una cuenta de almacenamiento. La sintaxis es: **/subscriptions/&lt;ID DE LA SUSCRIPCIÓN>/resourceGroups/&lt;NOMBRE DEL GRUPO DE RECURSOS>/providers/Microsoft.Storage/storageAccounts/&lt;NOMBRE DE LA CUENTA DE ALMACENAMIENTO>** .
+    * **Suscripción** : seleccione la suscripción de Azure que se usa para crear el recurso compartido de datos y los restantes recursos.
+    * **Grupo de recursos** : seleccione **Crear nuevo** para crear un grupo de recursos, o bien seleccione un grupo de recursos existente.
+    * **Ubicación** : seleccione una ubicación para el grupo de recursos. La cuenta de almacenamiento y Redis Caché deben estar en la misma región. Redis Caché utiliza de forma predeterminada la misma ubicación que el grupo de recursos. Por lo tanto, especifique la misma ubicación que la de la cuenta de almacenamiento.
+    * **Nombre de Redis Cache** : escriba un nombre para la introducir de Redis Caché.
+    * **Cuenta de almacenamiento de diagnósticos existente** : escriba el identificador de recurso de una cuenta de almacenamiento. La sintaxis es `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
 
     Use el valor predeterminado en el resto de la configuración.
 1. Seleccione **Acepto los términos y condiciones indicados anteriormente** y, después, **Comprar**.

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e047f11cc243ab1a36a8c61dd1b229d9e115115
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907057"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892492"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Uso de PowerShell para invitar en bloque a usuarios de colaboración de Azure AD B2B
 
@@ -116,7 +116,7 @@ foreach ($email in $invitations)
 
 El script enviará una invitación a las direcciones de correo electrónico del archivo Invitations.csv. Debería ver una salida similar a la siguiente para cada usuario:
 
-![Salida de PowerShell que muestra la aceptación pendiente del usuario](media/tutorial-bulk-invite/B2BBulkImport.png)
+![Captura de pantalla que muestra la salida de PowerShell, con la aceptación pendiente por parte del usuario.](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## <a name="verify-users-exist-in-the-directory"></a>Verificación de la existencia de los usuarios en el directorio
 
@@ -126,7 +126,7 @@ Para verificar que se agregaron los usuarios invitados a Azure AD, ejecute el si
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Debería ver los usuarios invitados en la lista, con un nombre principal de usuario (UPN) con el formato *direccióndecorreoelectrónico*#EXT#\@*dominio*. Por ejemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, donde contoso.onmicrosoft.com es la organización desde la que se enviaron las invitaciones.
+Debería ver los usuarios invitados en la lista, con un nombre principal de usuario (UPN) con el formato *direccióndecorreoelectrónico* #EXT#\@*dominio*. Por ejemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com* , donde contoso.onmicrosoft.com es la organización desde la que se enviaron las invitaciones.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4362b579b7f01570a2b5fd072bf53ad495797cd8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83195246"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783783"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Uso de claves administradas por el cliente en Azure Key Vault para el servicio Import/Export
 
@@ -37,9 +37,9 @@ Antes de comenzar, asegúrese de que:
 
     - **Eliminación temporal** y **No purgar** se han establecido en la instancia existente de Key Vault. Estas propiedades no están habilitadas de forma predeterminada. Para habilitar estas propiedades, consulte las secciones **Habilitación de la eliminación temporal** y **Habilitación de la protección de purgas** en cualquiera de los siguientes artículos:
 
-        - [Uso de la eliminación temporal con PowerShell](../../key-vault/general/soft-delete-powershell.md).
-        - [Uso de la eliminación temporal con la CLI](../../key-vault/general/soft-delete-cli.md).
-    - El almacén de claves existente debe tener una clave RSA con un tamaño de 2048 o más. Para obtener más información acerca de las claves, consulte la sección **Claves en Key Vault** en [Información acerca de claves, secretos y certificados de Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+        - [Uso de la eliminación temporal con PowerShell](../../key-vault/general/key-vault-recovery.md).
+        - [Uso de la eliminación temporal con la CLI](../../key-vault/general/key-vault-recovery.md).
+    - El almacén de claves existente debe tener una clave RSA con un tamaño de 2048 o más. Para obtener más información sobre las claves, consulte [Acerca de las claves](../../key-vault/keys/about-keys.md).
     - El almacén de claves debe estar en la misma región que la cuenta de almacenamiento para los datos.  
     - Si no tiene una instancia existente de Azure Key Vault, también puede crearla insertada, como se describe en la sección siguiente.
 
@@ -52,7 +52,7 @@ La configuración de la clave administrada por el cliente para el servicio Impor
 
     ![Elección de una opción de cifrado](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
 
-3. En la hoja **Cifrado**, puede ver y copiar la clave de BitLocker del dispositivo. En **Tipo de cifrado**, puede elegir cómo desea proteger la clave de BitLocker. De forma predeterminada, se usa una clave administrada por Microsoft.
+3. En la hoja **Cifrado** , puede ver y copiar la clave de BitLocker del dispositivo. En **Tipo de cifrado** , puede elegir cómo desea proteger la clave de BitLocker. De forma predeterminada, se usa una clave administrada por Microsoft.
 
     ![Visualización de la clave de BitLocker](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
 
@@ -60,11 +60,11 @@ La configuración de la clave administrada por el cliente para el servicio Impor
 
     ![Selección de una clave administrada por el cliente](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
 
-5. En la hoja **Seleccionar clave en Azure Key Vault**, la suscripción se rellena automáticamente. Para **Almacén de claves**, puede seleccionar un almacén de claves existente de la lista desplegable.
+5. En la hoja **Seleccionar clave en Azure Key Vault** , la suscripción se rellena automáticamente. Para **Almacén de claves** , puede seleccionar un almacén de claves existente de la lista desplegable.
 
     ![Selección o creación de una instancia de Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. También puede seleccionar **Crear nuevo** para crear un nuevo almacén de claves. En la hoja **Crear el almacén de claves**, escriba el grupo de recursos y el nombre del almacén de claves. Acepte todos los otros valores predeterminados. Seleccione **Revisar + crear**.
+6. También puede seleccionar **Crear nuevo** para crear un nuevo almacén de claves. En la hoja **Crear el almacén de claves** , escriba el grupo de recursos y el nombre del almacén de claves. Acepte todos los otros valores predeterminados. Seleccione **Revisar + crear**.
 
     ![Creación de una nueva instancia de Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
@@ -72,7 +72,7 @@ La configuración de la clave administrada por el cliente para el servicio Impor
 
     ![Crear una instancia de Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
-8. En la hoja **Seleccionar clave en Azure Key Vault**, puede seleccionar una clave del almacén de claves existente.
+8. En la hoja **Seleccionar clave en Azure Key Vault** , puede seleccionar una clave del almacén de claves existente.
 
 9. Si creó un nuevo almacén de claves, seleccione **Crear nuevo** para crear una clave. El tamaño de la clave RSA puede ser de 2048 o superior.
 
@@ -88,7 +88,7 @@ La configuración de la clave administrada por el cliente para el servicio Impor
 
     ![Nueva clave creada en el almacén de claves](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 
-En la hoja **Cifrado**, puede ver el almacén de claves y la clave seleccionados para la clave administrada por el cliente.
+En la hoja **Cifrado** , puede ver el almacén de claves y la clave seleccionados para la clave administrada por el cliente.
 
 > [!IMPORTANT]
 > Solo puede deshabilitar las claves administradas por Microsoft y pasar a claves administradas por el cliente en cualquier fase del trabajo de importación y exportación. Sin embargo, no se puede deshabilitar la clave administrada por el cliente una vez que la ha creado.
@@ -101,9 +101,9 @@ Si recibe errores relacionados con la clave administrada por el cliente, use la 
 |----------------|------------|-----------------|
 | CmkErrorAccessRevoked | Se revoca el acceso a la clave que administra el cliente.                                                       | Sí, compruebe si: <ol><li>Key Vault todavía tiene el MSI en la directiva de acceso.</li><li>La directiva de acceso tiene habilitados los permisos Get, Wrap y Unwrap.</li><li>Si el almacén de claves está en una red virtual detrás del firewall, compruebe si la opción **Permitir servicios de confianza de Microsoft** está habilitada.</li><li>Compruebe si la característica MSI del recurso de trabajo se restableció en `None` mediante las API.<br>Si es así, vuelva a establecer el valor en `Identity = SystemAssigned`. Esto vuelve a crear la identidad para el recurso de trabajo.<br>Una vez creada la nueva identidad, habilite los permisos `Get`, `Wrap` y `Unwrap` en la identidad nueva de la directiva de acceso del almacén de claves.</li></ol>                                                                                            |
 | CmkErrorKeyDisabled      | Se deshabilitó la clave administrada por el cliente.                                         | Sí, habilitando la versión de la clave.     |
-| CmkErrorKeyNotFound      | No se encuentra la clave administrada por el cliente. | Sí, si la clave se ha eliminado, pero todavía está dentro de la duración de la purga, mediante [Deshacer la eliminación de la clave del almacén de claves](https://docs.microsoft.com/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>De lo contrario, <ol><li>Sí, si el cliente tiene una copia de seguridad de la clave y la restaura.</li><li>De lo contrario, no.</li></ol>
-| CmkErrorVaultNotFound |No se encuentra el almacén de claves de la clave administrada por el cliente. |   Si se ha eliminado el almacén de claves:<ol><li>Sí, si está dentro de la duración de la protección de purga, con los pasos descritos en [Recuperación de un almacén de claves](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>No, si está fuera de la duración de la protección de purga.</li></ol><br>De lo contrario, si el almacén de claves se migró a otro inquilino, sí, se puede recuperar con uno de estos pasos:<ol><li>Revierta el almacén de claves de vuelta al inquilino anterior.</li><li>Establezca `Identity = None` y, luego, vuelva a establecer el valor en `Identity = SystemAssigned`. Esto elimina y vuelve a crear la identidad una vez que se crea la identidad nueva. Habilite los permisos `Get`, `Wrap` y `Unwrap` a la identidad nueva en la directiva de acceso del almacén de claves.</li></ol>|
+| CmkErrorKeyNotFound      | No se encuentra la clave administrada por el cliente. | Sí, si la clave se ha eliminado, pero todavía está dentro de la duración de la purga, mediante [Deshacer la eliminación de la clave del almacén de claves](/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>De lo contrario, <ol><li>Sí, si el cliente tiene una copia de seguridad de la clave y la restaura.</li><li>De lo contrario, no.</li></ol>
+| CmkErrorVaultNotFound |No se encuentra el almacén de claves de la clave administrada por el cliente. |   Si se ha eliminado el almacén de claves:<ol><li>Sí, si está dentro de la duración de la protección de purga, con los pasos descritos en [Recuperación de un almacén de claves](../../key-vault/general/soft-delete-overview.md#key-vault-recovery).</li><li>No, si está fuera de la duración de la protección de purga.</li></ol><br>De lo contrario, si el almacén de claves se migró a otro inquilino, sí, se puede recuperar con uno de estos pasos:<ol><li>Revierta el almacén de claves de vuelta al inquilino anterior.</li><li>Establezca `Identity = None` y, luego, vuelva a establecer el valor en `Identity = SystemAssigned`. Esto elimina y vuelve a crear la identidad una vez que se crea la identidad nueva. Habilite los permisos `Get`, `Wrap` y `Unwrap` a la identidad nueva en la directiva de acceso del almacén de claves.</li></ol>|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+- [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md)

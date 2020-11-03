@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: c7414728ab65258f73f80ee7fb303c7e6b961052
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a54d0c85902915d2ee62acd8a1d38b8db8b221c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404967"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536052"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 
@@ -42,7 +42,7 @@ Estas son algunas de las propiedades que puede establecer para un centro de IoT:
 
 **IP Filter** (Filtro de IP): especifique un intervalo de direcciones IP que el centro de IoT va a aceptar o rechazar.
 
-**Propiedades**: proporciona la lista de propiedades que puede copiar y usar en otra parte, como el identificador de recursos, el grupo de recursos, la ubicación, etc.
+**Propiedades** : proporciona la lista de propiedades que puede copiar y usar en otra parte, como el identificador de recursos, el grupo de recursos, la ubicación, etc.
 
 ### <a name="shared-access-policies"></a>Directivas de acceso compartido
 
@@ -125,5 +125,4 @@ Para eliminar un centro de Iot, busque el que quiere eliminar y luego haga clic 
 Siga estos vínculos para más información sobre la administración de Azure IoT Hub:
 
 * [Enrutamiento de mensajes con IoT Hub](tutorial-routing.md)
-* [Métricas de IoT Hub](iot-hub-metrics.md)
-* [Supervisión de operaciones](iot-hub-operations-monitoring.md)
+* [Supervisión del centro de IoT](monitor-iot-hub.md)

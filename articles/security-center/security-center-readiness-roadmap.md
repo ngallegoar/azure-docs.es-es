@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 38e1fc7f062908f8c4a4b9aa903ca09dd7fb9ea5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: fcaf427c2e0ab275a5a6e08306dda785bca690d6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342338"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784174"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Mapa de ruta de preparación para Azure Security Center
 Este documento le proporciona un mapa de ruta de preparación que le ayudará a empezar a trabajar con Azure Security Center.
@@ -78,7 +78,7 @@ Vídeos
 
 Artículos    
 * [Uso de Azure Security Center para dar respuesta a incidentes](./tutorial-security-incident.md)
-* [Automatización de respuestas con automatización de flujos de trabajo](workflow-automation.md)
+* [Uso de la automatización para responder a los desencadenadores de Security Center](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Protección en la nube avanzada
 

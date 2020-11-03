@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 03/17/2020
-ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283384"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461726"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitectura de conectividad de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -307,14 +307,14 @@ Si la red virtual incluye un DNS personalizado, el servidor DNS personalizado de
 
 ### <a name="networking-constraints"></a>Restricciones de redes
 
-**TLS 1.2 se aplica en las conexiones salientes**: En enero 2020, Microsoft aplicó TLS 1.2 para el tráfico entre servicios en todos los servicios de Azure. En el caso de Instancia administrada de Azure SQL, esto supuso la aplicación de TLS 1.2 en las conexiones salientes usadas para la replicación y las conexiones del servidor vinculado a SQL Server. Si usa versiones de SQL Server anteriores a 2016 con SQL Managed Instance, asegúrese de que se hayan aplicado las [actualizaciones específicas de TLS 1.2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+**TLS 1.2 se aplica en las conexiones salientes** : En enero 2020, Microsoft aplicó TLS 1.2 para el tráfico entre servicios en todos los servicios de Azure. En el caso de Instancia administrada de Azure SQL, esto supuso la aplicación de TLS 1.2 en las conexiones salientes usadas para la replicación y las conexiones del servidor vinculado a SQL Server. Si usa versiones de SQL Server anteriores a 2016 con SQL Managed Instance, asegúrese de que se hayan aplicado las [actualizaciones específicas de TLS 1.2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
 Las siguientes características de red virtual no se admiten actualmente con SQL Managed Instance:
 
-- **Emparejamiento de Microsoft**: la habilitación del [emparejamiento de Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) en circuitos de ExpressRoute emparejados directamente o de manera transitiva con la red virtual en la que reside SQL Managed Instance afecta al flujo de tráfico entre los componentes de SQL Managed Instance dentro de la red virtual y los servicios de los que depende, causando problemas de disponibilidad. Se prevé que se produzcan errores en las implementaciones de SQL Managed Instance en la red virtual con el emparejamiento de Microsoft habilitado.
-- **Emparejamiento global de redes virtuales**: la conectividad de [emparejamiento de redes virtuales](../../virtual-network/virtual-network-peering-overview.md) entre regiones de Azure no funciona con Instancia administrada de SQL debido a las [restricciones del equilibrador de carga documentadas](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
-- **AzurePlatformDNS**: el uso de la [etiqueta de servicio](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear la resolución DNS de la plataforma hace que SQL Managed Instance no esté disponible. Aunque SQL Managed Instance admite DNS definida por el cliente para la resolución DNS dentro del motor, existe una dependencia en la DNS de la plataforma para las operaciones de plataforma.
-- **NAT Gateway**: el uso de [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) para controlar la conectividad saliente con una dirección IP pública específica, representaría SQL Managed Instance como no disponible. Actualmente, el servicio SQL Managed Instance está limitado al uso de un equilibrador de carga básico que no proporciona coexistencia de flujos entrantes y salientes con Virtual Network NAT.
+- **Emparejamiento de Microsoft** : la habilitación del [emparejamiento de Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) en circuitos de ExpressRoute emparejados directamente o de manera transitiva con la red virtual en la que reside SQL Managed Instance afecta al flujo de tráfico entre los componentes de SQL Managed Instance dentro de la red virtual y los servicios de los que depende, causando problemas de disponibilidad. Se prevé que se produzcan errores en las implementaciones de SQL Managed Instance en la red virtual con el emparejamiento de Microsoft habilitado.
+- **Emparejamiento global de redes virtuales** : la conectividad de [emparejamiento de redes virtuales](../../virtual-network/virtual-network-peering-overview.md) entre regiones de Azure no funciona con instancias de SQL Managed Instance colocadas en subredes creadas antes del 22/9/2020.
+- **AzurePlatformDNS** : el uso de la [etiqueta de servicio](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear la resolución DNS de la plataforma hace que SQL Managed Instance no esté disponible. Aunque SQL Managed Instance admite DNS definida por el cliente para la resolución DNS dentro del motor, existe una dependencia en la DNS de la plataforma para las operaciones de plataforma.
+- **NAT Gateway** : el uso de [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) para controlar la conectividad saliente con una dirección IP pública específica, representaría SQL Managed Instance como no disponible. Actualmente, el servicio SQL Managed Instance está limitado al uso de un equilibrador de carga básico que no proporciona coexistencia de flujos entrantes y salientes con Virtual Network NAT.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[En desuso] Requisitos de red sin configuración de subred asistida por servicio
 

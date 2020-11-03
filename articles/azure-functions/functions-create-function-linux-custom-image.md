@@ -3,14 +3,14 @@ title: Creación de funciones de Azure en Linux mediante una imagen personalizad
 description: Aprenda a crear funciones de Azure que se ejecutan en una imagen de Linux personalizada.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758989"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747109"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creación de una función en Linux con un contenedor personalizado
 
@@ -95,7 +95,10 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-El parámetro `-DjavaVersion` indica al entorno de ejecución de Functions qué versión de Java debe usar. Use `-DjavaVersion=11` si quiere que las funciones se ejecuten en Java 11, que se encuentra en versión preliminar. Cuando no se especifica `-DjavaVersion`, el valor predeterminado de Maven es Java 8. Para obtener más información, consulte [Versiones de Java](functions-reference-java.md#java-versions).
+El parámetro `-DjavaVersion` indica al entorno de ejecución de Functions qué versión de Java debe usar. Use `-DjavaVersion=11` si quiere que las funciones se ejecuten en Java 11. Cuando no se especifica `-DjavaVersion`, el valor predeterminado de Maven es Java 8. Para obtener más información, consulte [Versiones de Java](functions-reference-java.md#java-versions).
+
+> [!IMPORTANT]
+> Para llevar a cabo los pasos de este artículo, la variable de entorno `JAVA_HOME` se debe establecer en la ubicación de instalación de la versión correcta del JDK.
 
 Maven le pide los valores necesarios para finalizar la generación del proyecto en la implementación.   
 Indique los siguientes valores cuando se le solicite:
@@ -303,7 +306,7 @@ Con la imagen implementada en la aplicación de funciones en Azure, ya puede inv
 
     1. Seleccione la función que quiera comprobar.
 
-    1. En el panel de navegación izquierdo, seleccione **Funciones**y, a continuación, seleccione la función que quiera comprobar.
+    1. En el panel de navegación izquierdo, seleccione **Funciones** y, a continuación, seleccione la función que quiera comprobar.
 
         ![Elija su función en Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
@@ -372,7 +375,7 @@ Puede habilitar Azure Functions para que actualice automáticamente la implement
 
 1. Copie la dirección URL del webhook de implementación en el portapapeles.
 
-1. Abra [Docker Hub](https://hub.docker.com/), inicie sesión y seleccione **Repositorios** en la barra de navegación. Busque y seleccione la imagen, seleccione la pestaña **Webhooks**, especifique un **nombre de webhook**, pegue la dirección URL en **Dirección URL de webhook** y, finalmente, seleccione **Crear**:
+1. Abra [Docker Hub](https://hub.docker.com/), inicie sesión y seleccione **Repositorios** en la barra de navegación. Busque y seleccione la imagen, seleccione la pestaña **Webhooks** , especifique un **nombre de webhook** , pegue la dirección URL en **Dirección URL de webhook** y, finalmente, seleccione **Crear** :
 
     ![Agregar el webhook al repositorio de DockerHub](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
@@ -438,7 +441,7 @@ SSH habilita la comunicación segura entre un contenedor y un cliente. Con SSH h
 
 ## <a name="write-to-an-azure-storage-queue"></a>Escritura en una cola de Azure Storage
 
-Azure Functions permite conectar funciones a otros servicios y recursos de Azure sin tener que escribir su propio código de integración. Estos *enlaces*, que representan la entrada y la salida, se declaran dentro de la definición de función. Los datos de los enlaces se proporcionan a la función como parámetros. Un *desencadenador* es un tipo especial de enlace de entrada. Si bien una función tiene un único desencadenador, puede tener varios enlaces de entrada y salida. Para más información, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md).
+Azure Functions permite conectar funciones a otros servicios y recursos de Azure sin tener que escribir su propio código de integración. Estos *enlaces* , que representan la entrada y la salida, se declaran dentro de la definición de función. Los datos de los enlaces se proporcionan a la función como parámetros. Un *desencadenador* es un tipo especial de enlace de entrada. Si bien una función tiene un único desencadenador, puede tener varios enlaces de entrada y salida. Para más información, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md).
 
 En esta sección se muestra cómo integrar la función con una cola de Azure Storage. El enlace de salida que se agrega a esta función escribe datos de una solicitud HTTP en un mensaje de la cola.
 

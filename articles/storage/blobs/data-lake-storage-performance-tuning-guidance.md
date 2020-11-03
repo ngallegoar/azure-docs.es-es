@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a1ae0971b016ed226351167cfabfca7d3cafd19f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905412"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677353"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimizar Azure Data Lake Storage Gen2 para el rendimiento
 
@@ -27,7 +27,7 @@ Data Lake Storage Gen2 puede escalar para ofrecer la capacidad de proceso necesa
 
 Cuando se ingieren datos de un sistema de origen para Data Lake Storage Gen2, es importante tener en cuenta que el hardware de origen, el hardware de red de origen y la conectividad de red con Data Lake Storage Gen2 pueden constituir un cuello de botella.  
 
-![Rendimiento de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![Diagrama en el que se muestran los factores que se deben tener en cuenta a la hora de ingerir datos desde un sistema de origen en Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
 Es importante asegurarse de que el movimiento de datos no se ve afectado por estos factores.
 
@@ -107,7 +107,7 @@ Hay tres niveles dentro de un clúster de HDInsight que se pueden optimizar para
 
 **Ejecute el clúster con más nodos o máquinas virtuales de un tamaño mayor.**  Un clúster mayor le permitirá ejecutar más contenedores de YARN, tal como se muestra en la ilustración siguiente.
 
-![Rendimiento de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![Diagrama en el que se muestra cómo un clúster mayor le permitirá ejecutar más contenedores de YARN.](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
 **Use máquinas virtuales con más ancho de banda de red.**  La cantidad de ancho de banda de red puede ser un cuello de botella, si hay menos de lo que necesita la capacidad de proceso de Data Lake Storage Gen2.  Diferentes máquinas virtuales tendrán varios tamaños de ancho de banda de red.  Elija un tipo de máquina virtual que tenga el mayor ancho de banda de red posible.
 
@@ -115,7 +115,7 @@ Hay tres niveles dentro de un clúster de HDInsight que se pueden optimizar para
 
 **Use contenedores de YARN menores.**  Reduzca el tamaño de cada contenedor de YARN para crear más contenedores con la misma cantidad de recursos.
 
-![Rendimiento de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![Diagrama en el que se muestra el resultado al reducir el tamaño de cada contenedor de YARN para crear más contenedores.](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
 En función de la carga de trabajo, siempre habrá un tamaño de contenedor de YARN mínimo que se necesite. Si elige un contenedor demasiado pequeño, los trabajos no tendrán memoria suficiente. Normalmente, los contenedores de YARN no deben ser menores de 1 GB. Es habitual ver contenedores de YARN de 3 GB. Para algunas cargas de trabajo, puede que necesite contenedores de YARN mayores.  
 
@@ -125,7 +125,7 @@ En función de la carga de trabajo, siempre habrá un tamaño de contenedor de Y
 
 **Use todos los contenedores disponibles.**  Establezca el número de tareas para que sea igual o mayor que el número de contenedores disponibles de modo que se usen todos los recursos.
 
-![Rendimiento de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![Diagrama en el que se muestra el uso de todos los contenedores.](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
 **Los errores de las tareas son costosos.** Si cada tarea tiene una gran cantidad de datos que se van a procesar, el error de una tarea provoca un reintento que resulta caro.  Por lo tanto, es mejor que cree más tareas y que cada una procese una pequeña cantidad de datos.
 

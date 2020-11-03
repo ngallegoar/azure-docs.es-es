@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 657ddc9f772d31e8845631501e72175ecfbc78d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74aed815d011503cb6caea56cfad5e076bdcbfbd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442706"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793422"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Las nuevas versiones de la [biblioteca cliente de Elastic Database](elastic-database-client-library.md) están disponibles mediante NuGet y la interfaz del Administrador de paquetes NuGet en Visual Studio. Las actualizaciones contienen correcciones de errores y compatibilidad para nuevas capacidades de la biblioteca de clientes.
 
-**En la versión más reciente**: vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+**En la versión más reciente** : vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 Vuelva a generar la aplicación con la nueva biblioteca, además de cambiar los metadatos de Shard Map Manager existentes almacenados en sus bases de datos de Azure SQL Database para admitir nuevas características.
 
@@ -45,7 +45,7 @@ Al realizar estos pasos de actualización en orden se asegura de que las version
 
 **4. Actualice las bases de datos de Shard Map Manager**. Actualice los metadatos compatibles con sus asignaciones de partición en Azure SQL Database.  Hay dos maneras de hacerlo, mediante PowerShell o C#. Ambas opciones se muestran a continuación.
 
-***Opción 1: actualizar los metadatos mediante PowerShell***
+**_Opción 1: actualizar los metadatos mediante PowerShell_* _
 
 1. Descargue la utilidad de línea de comandos más reciente de NuGet desde [aquí](https://nuget.org/nuget.exe) y guárdela en una carpeta.
 2. Abra un símbolo del sistema, navegue a la misma carpeta y emita el comando: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
@@ -53,9 +53,9 @@ Al realizar estos pasos de actualización en orden se asegura de que las version
 4. Descargue el script de actualización del cliente de base de datos elástica del [Centro de scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)y guárdelo en la misma carpeta que contiene el archivo DLL.
 5. Desde esa carpeta, ejecute “PowerShell .\upgrade.ps1” desde el símbolo del sistema y siga las indicaciones.
 
-***Opción 2: actualizar los metadatos mediante C#***
+_*_Opción 2: actualizar los metadatos mediante C#_*_
 
-De forma alternativa, puede crear una aplicación de Visual Studio que abra ShardMapManager, recorra en iteración todas las particiones y realice la actualización de metadatos mediante una llamada a los métodos [UpgradeLocalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore) y [UpgradeGlobalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore), como en este ejemplo:
+De forma alternativa, puede crear una aplicación de Visual Studio que abra ShardMapManager, recorra en iteración todas las particiones y realice la actualización de metadatos mediante una llamada a los métodos [UpgradeLocalStore](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore) y [UpgradeGlobalStore](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore), como en este ejemplo:
 
 ```csharp
     ShardMapManager smm =
@@ -72,7 +72,7 @@ De forma alternativa, puede crear una aplicación de Visual Studio que abra Shar
 
 Estas técnicas para las actualizaciones de metadatos se pueden aplicar varias veces sin problema. Por ejemplo, si una versión anterior del cliente crea sin darse cuenta una partición después de haber actualizado, puede ejecutar la actualización de nuevo en todas las particiones para asegurarse de que la última versión de metadatos está presente en toda su infraestructura.
 
-**Nota:**  Las nuevas versiones de la biblioteca cliente publicadas hasta la fecha seguirán funcionando con versiones anteriores de los metadatos de Shard Map Manager en Azure SQL Database, y viceversa.   Sin embargo, para aprovechar algunas de las nuevas características en el cliente más reciente, es necesario actualizar los metadatos.   Tenga en cuenta que las actualizaciones de metadatos no afectarán a los datos de usuario ni los datos específicos de la aplicación, solo a los objetos creados y utilizados por el Administrador de mapa de particiones.  Las aplicaciones seguirán funcionando a través de la secuencia de actualización que se ha descrito anteriormente.
+_ *Nota:* * Las nuevas versiones de la biblioteca cliente publicadas hasta la fecha seguirán funcionando con versiones anteriores de los metadatos de Shard Map Manager en Azure SQL Database, y viceversa.   Sin embargo, para aprovechar algunas de las nuevas características en el cliente más reciente, es necesario actualizar los metadatos.   Tenga en cuenta que las actualizaciones de metadatos no afectarán a los datos de usuario ni los datos específicos de la aplicación, solo a los objetos creados y utilizados por el Administrador de mapa de particiones.  Las aplicaciones seguirán funcionando a través de la secuencia de actualización que se ha descrito anteriormente.
 
 ## <a name="elastic-database-client-version-history"></a>Historial de versiones de cliente de base de datos elástica
 

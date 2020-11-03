@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6115ca375c3e5bf2be3335fe2231628ec7bf309f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267744"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440491"
 ---
 # <a name="scenario-any-to-any"></a>Escenario: Universal
 
@@ -22,14 +22,14 @@ Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastant
 
 ## <a name="design"></a><a name="design"></a>Diseño
 
-Para averiguar el número de tablas de rutas que se necesitarán en un escenario de WAN virtual, puede crear una matriz de conectividad, donde cada celda representa si un origen (fila) puede comunicarse con un destino (columna). La matriz de conectividad de este escenario es trivial, pero se incluye para que sea coherente con otros escenarios.
+Para averiguar el número de tablas de rutas que se necesitarán en un escenario de WAN virtual, puede crear una matriz de conectividad, donde cada celda representa si un origen (fila) puede comunicarse con un destino (columna).
 
 | De |   A |  *Redes virtuales* | *Ramas* |
 | -------------- | -------- | ---------- | ---|
-| Redes virtuales     | &#8594;|      X     |     X    |
-| Ramas   | &#8594;|    X     |     X    |
+| Redes virtuales     | &#8594;| Directo | Directo |
+| Ramas   | &#8594;| Directo  | Directo |
 
-Cada una de las celdas de la tabla anterior describe si una conexión de Virtual WAN (el lado "From" del flujo, los encabezados de fila de la tabla) aprende un prefijo de destino (el lado "To" del flujo, los encabezados de columna en cursiva de la tabla) para un flujo de tráfico concreto, donde una "X" significa que la conectividad la proporciona Virtual WAN.
+En cada una de las celdas de la tabla anterior se describe si una conexión de Virtual WAN (el lado "De" del flujo, los encabezados de fila) se comunica con un prefijo de destino (el lado "A" del flujo, los encabezados de columna en cursiva). En este escenario no hay ningún firewall o dispositivo virtual de red, por lo que la comunicación fluye directamente a través de Virtual WAN (de ahí la palabra "Directo" en la tabla).
 
 Dado que todas las conexiones de redes virtuales y ramas (VPN, ExpressRoute y VPN de usuario) tienen los mismos requisitos de conectividad, se requiere una sola tabla de rutas. Como resultado, todas las conexiones se asociarán y se propagarán a la misma tabla de rutas, la tabla de rutas predeterminada:
 
@@ -44,7 +44,7 @@ Para obtener más información sobre el enrutamiento de centros virtuales, vea [
 
 ## <a name="architecture"></a><a name="architecture"></a>Arquitectura
 
-En la **Ilustración 1**, todas las redes virtuales y ramas (VPN, ExpressRoute, P2S) pueden comunicarse entre sí. En un centro virtual, las conexiones funcionan de la siguiente manera:
+En la **Ilustración 1** , todas las redes virtuales y ramas (VPN, ExpressRoute, P2S) pueden comunicarse entre sí. En un centro virtual, las conexiones funcionan de la siguiente manera:
 
 * Una conexión VPN conecta un sitio VPN a una puerta de enlace de VPN.
 * La conexión de red virtual conecta una red virtual a un centro virtual. El enrutador del centro virtual proporciona la funcionalidad de tránsito entre las redes virtuales.

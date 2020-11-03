@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 10/26/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: c59dbe9464e70c1a071b64fabf91ce56f409d8d7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258528"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740159"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de la Plataforma de identidad de Microsoft
 
@@ -32,7 +32,8 @@ Consulte las secciones siguientes para saber cómo un recurso puede validar y ut
 
 > [!IMPORTANT]
 > Los tokens de acceso se crean según la *audiencia* del token, es decir la aplicación que posee los ámbitos en el token.  Así es cómo la configuración de un recurso `accessTokenAcceptedVersion` en el [manifiesto de la aplicación](reference-app-manifest.md#manifest-reference) para `2` permite que un cliente llame al punto de conexión de la versión 1.0 para recibir un token de acceso de la versión 2.0.  De forma similar, este es el motivo por el que al cambiar las [notificaciones opcionales](active-directory-optional-claims.md) del token de acceso, no se modifica el token de acceso que se recibe al solicitar un token para `user.read`, que es propiedad del recurso.
-> Por la misma razón, al probar la aplicación cliente con una cuenta personal (como hotmail.com o outlook.com), es posible que el token de acceso que recibe el cliente sea una cadena opaca. Esto se debe a que el recurso al que se accede ha solicitado vales MSA (cuenta de Microsoft) heredados que están cifrados y que el cliente no puede entender.
+>
+> Por la misma razón, al probar la aplicación cliente con una API de Microsoft que admite una cuenta personal (como outlook.com o hotmail.com), comprobará que el token de acceso que ha recibido el cliente es una cadena opaca. Esto se debe a que el recurso al que se accede ha utilizado tokens cifrados y el cliente no puede entenderlos.  Esto es normal y no debería ser un problema para la aplicación; las aplicaciones cliente nunca deben depender del formato del token de acceso. 
 
 ## <a name="sample-tokens"></a>Tokens de ejemplo
 
@@ -58,9 +59,9 @@ Vea este token de la versión 2.0 en [JWT.ms](https://jwt.ms/#access_token=eyJ0e
 
 Los JWT (JSON Web Token) se dividen en tres partes:
 
-* **Encabezado**: proporciona información sobre cómo [validar el token](#validating-tokens) incluida la información sobre el tipo de token y cómo fue firmado.
-* **Carga**: contiene todos los datos importantes sobre el usuario o la aplicación que está intentando llamar a su servicio.
-* **Firma**: es la materia prima utilizada para validar el token.
+* **Encabezado** : proporciona información sobre cómo [validar el token](#validating-tokens) incluida la información sobre el tipo de token y cómo fue firmado.
+* **Carga** : contiene todos los datos importantes sobre el usuario o la aplicación que está intentando llamar a su servicio.
+* **Firma** : es la materia prima utilizada para validar el token.
 
 Cada fragmento se separa por un punto (`.`) y se codifica por separado en Base64.
 
@@ -100,10 +101,10 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `name` | String | Proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que el valor sea único, es mutable y está diseñado para usarse solo con fines de visualización. El ámbito `profile` es necesario para recibir esta notificación. |
 | `scp` | Cadena, una lista de ámbitos separada por espacios. | El conjunto de ámbitos expuestos por la aplicación para los cuales la aplicación cliente ha solicitado (y recibido) consentimiento. Su aplicación debe comprobar que estos ámbitos son válidos y están expuestos por la aplicación, y tomar decisiones de autorización basadas en el valor de estos ámbitos. Solo se incluye para los [tokens de usuario](#user-and-application-tokens). |
 | `roles` | Matriz de cadenas, una lista de permisos | El conjunto de permisos expuestos por la aplicación para la que la aplicación o el usuario solicitante ha recibido permiso para llamar. Para los [tokens de aplicaciones](#user-and-application-tokens), esta acción se usa durante el flujo de credenciales de cliente ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) y [v2.0](v2-oauth2-client-creds-grant-flow.md)) en lugar de los ámbitos de usuario.  Para los [tokens de usuario](#user-and-application-tokens) se rellena con los roles a los que se ha asignado el usuario en la aplicación de destino. |
-| `wids` | Matriz de GUID [RoleTemplateID](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids) | Denota los roles de todos los inquilinos asignados a este usuario desde la sección de roles presentes en [la página de roles de administrador](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids).  Esta notificación se configura por aplicación, a través de la propiedad `groupMembershipClaims` del [manifiesto de aplicación](reference-app-manifest.md).  Es necesario establecerla en "All" o "DirectoryRole".  Es posible que no esté presente en los tokens obtenidos a través del flujo implícito por motivos de longitud del token. |
+| `wids` | Matriz de GUID [RoleTemplateID](../roles/permissions-reference.md#role-template-ids) | Denota los roles de todos los inquilinos asignados a este usuario desde la sección de roles presentes en [la página de roles de administrador](../roles/permissions-reference.md#role-template-ids).  Esta notificación se configura por aplicación, a través de la propiedad `groupMembershipClaims` del [manifiesto de aplicación](reference-app-manifest.md).  Es necesario establecerla en "All" o "DirectoryRole".  Es posible que no esté presente en los tokens obtenidos a través del flujo implícito por motivos de longitud del token. |
 | `groups` | Matriz JSON de identificadores GUID | Proporciona identificadores de objeto que representan la pertenencia al grupo del firmante. Estos valores son únicos (vea el id. de objeto) y se pueden usar de forma segura para administrar el acceso, por ejemplo, para exigir autorización para tener acceso a un recurso. Los grupos incluidos en la notificación de grupos se configuran por aplicación mediante la propiedad `groupMembershipClaims` del [manifiesto de aplicación](reference-app-manifest.md). Un valor NULL excluirá todos los grupos, un valor de "SecurityGroup" incluirá únicamente la pertenencia a grupos de seguridad de Active Directory y un valor de "All" incluirá grupos de seguridad y listas de distribución de Microsoft 365. <br><br>Consulte la notificación `hasgroups` que aparece a continuación para más información sobre el uso de la notificación `groups` con la concesión implícita. <br>Para los demás flujos, si el número de grupos en los que el usuario está supera un límite (150 para SAML, 200 para JWT), se agregará una notificación de uso por encima del límite a los orígenes de notificaciones que apuntan al punto de conexión de Microsoft Graph que contiene la lista de grupos del usuario. |
 | `hasgroups` | Boolean | Si está presente, siempre es `true`, lo cual indica que el usuario está en al menos un grupo. Se usa en lugar de la notificación `groups` para métodos JWT en flujos de concesión implícita si las notificaciones completas de los grupos amplían el fragmento URI por encima de los límites de longitud de la URL (actualmente 6 o más grupos). Indica que el cliente debe utilizar Microsoft Graph API para determinar los grupos del usuario (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
-| `groups:src1` | Objeto JSON | Para las solicitudes de tokens que no tienen limitación de longitud (consulte `hasgroups` descrito anteriormente) pero que todavía son demasiado grandes para el token, se incluirá un enlace a la lista completa de grupos del usuario. Para métodos JWT como una notificación distribuida, para SAML como una nueva notificación en lugar de la notificación `groups`. <br><br>**Valor de JWT de ejemplo**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
+| `groups:src1` | Objeto JSON | Para las solicitudes de tokens que no tienen limitación de longitud (consulte `hasgroups` descrito anteriormente) pero que todavía son demasiado grandes para el token, se incluirá un enlace a la lista completa de grupos del usuario. Para métodos JWT como una notificación distribuida, para SAML como una nueva notificación en lugar de la notificación `groups`. <br><br>**Valor de JWT de ejemplo** : <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | String | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso, y se puede usar como clave en tablas de base de datos. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. El asunto es, sin embargo, un identificador en pares (es único para un id. de aplicación determinado). Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto. Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. Vea también la notificación `oid` (que sigue siendo la misma en las todas aplicaciones en un inquilino). |
 | `oid` | Cadena, un identificador GUID | El identificador inmutable de un objeto en la plataforma de identidades Microsoft, en este caso, una cuenta de usuario. También se puede usar para realizar comprobaciones de autorización de forma segura y como clave en tablas de base de datos. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`. Por tanto, `oid` puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph. Microsoft Graph devuelve este identificador como la propiedad `id` de una [cuenta de usuario](/graph/api/resources/user) determinada. Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
 | `tid` | Cadena, un identificador GUID | Representa el inquilino de Azure AD de donde proviene el usuario. En el caso de las cuentas profesionales y educativas, el GUID es el identificador del inquilino inmutable de la organización a la que pertenece el usuario. En el caso de las cuentas personales, el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. El ámbito `profile` es necesario para recibir esta notificación. |
@@ -177,7 +178,7 @@ Proporcionamos bibliotecas y ejemplos de código que le muestran cómo controlar
 
 ### <a name="validating-the-signature"></a>Validación de la firma
 
-Un JWT contiene tres segmentos, que están separados por el carácter `.` . El primer segmento se conoce como el **encabezado**, el segundo como el **cuerpo** y el tercero como la **firma**. El segmento de firma se puede utilizar para validar la autenticidad del token con el fin de que la aplicación pueda confiar en él.
+Un JWT contiene tres segmentos, que están separados por el carácter `.` . El primer segmento se conoce como el **encabezado** , el segundo como el **cuerpo** y el tercero como la **firma**. El segmento de firma se puede utilizar para validar la autenticidad del token con el fin de que la aplicación pueda confiar en él.
 
 Los tokens emitidos por Azure AD se firman con algoritmos de cifrado asimétrico estándar del sector, como RS256. El encabezado de JWT contiene información acerca de clave y el método de cifrado utilizados para firmar el token:
 

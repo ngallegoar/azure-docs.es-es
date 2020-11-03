@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ca4ed58de030e372f97ebda87d12340a57a584d5
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f0dfa137e42d60246ce8f5281f002d5ca567c2ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207094"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427527"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -111,7 +111,7 @@ Como administrador, puede crear una instancia de proceso en nombre de un cientí
 * [Plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)  Para más información sobre cómo buscar los valores de TenantID y ObjectID necesarios en esta plantilla, consulte [Encontrar identificadores de objeto de identidad para la configuración de autenticación](../healthcare-apis/find-identity-object-ids.md).  También puede encontrar estos valores en el portal de Azure Active Directory.
 * API DE REST
 
-El científico de datos para el que se crea la instancia de proceso necesita los siguientes permisos de [control de acceso basado en rol (RBAC) de Azure](../role-based-access-control/overview.md): 
+El científico de datos para el que se crea la instancia de proceso necesita los siguientes permisos de [control de acceso basado en roles de Azure (Azure RBAC)](../role-based-access-control/overview.md): 
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
@@ -129,7 +129,7 @@ Inicie, detenga, reinicie y elimine una instancia de proceso. Una instancia de p
 
 # <a name="python"></a>[Python](#tab/python)
 
-En todos los siguientes ejemplos, el nombre de la instancia de proceso es **instance** .
+En todos los siguientes ejemplos, el nombre de la instancia de proceso es **instance**.
 
 * Obtener estado
 
@@ -170,7 +170,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-En todos los siguientes ejemplos, el nombre de la instancia de proceso es **instance** .
+En todos los siguientes ejemplos, el nombre de la instancia de proceso es **instance**.
 
 * Stop
 
@@ -226,9 +226,9 @@ Para cada instancia de proceso del área de trabajo que creó, o que se creó au
 
 ---
 
-[RBAC](/azure/role-based-access-control/overview) permite controlar qué usuarios del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar una instancia de proceso. Todos los usuarios del rol colaborador y propietario del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar las instancias de proceso en el área de trabajo. Sin embargo, solo el creador de una instancia de proceso específica o el usuario asignado, si se creó en su nombre, tienen permiso para acceder a Jupyter, JupyterLab y RStudio en esa instancia de proceso. Una instancia de proceso está dedicada a un solo usuario que tiene acceso raíz y puede pasar por el terminal a través de Jupyter, JupyterLab o RStudio. La instancia de proceso incluirá el usuario que ha iniciado sesión y todas las acciones usarán la identidad de ese usuario para RBAC y la atribución de ejecuciones de experimentos. El acceso SSH se controla mediante un mecanismo de clave pública-privada.
+[Azure RBAC](/azure/role-based-access-control/overview) permite controlar qué usuarios del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar una instancia de proceso. Todos los usuarios del rol colaborador y propietario del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar las instancias de proceso en el área de trabajo. Sin embargo, solo el creador de una instancia de proceso específica o el usuario asignado, si se creó en su nombre, tienen permiso para acceder a Jupyter, JupyterLab y RStudio en esa instancia de proceso. Una instancia de proceso está dedicada a un solo usuario que tiene acceso raíz y puede pasar por el terminal a través de Jupyter, JupyterLab o RStudio. La instancia de proceso incluirá el usuario que ha iniciado sesión y todas las acciones usarán la identidad de ese usuario para Azure RBAC y la atribución de ejecuciones de experimentos. El acceso SSH se controla mediante un mecanismo de clave pública-privada.
 
-RBAC puede controlar estas acciones:
+Azure RBAC puede controlar estas acciones:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/computes/delete*
@@ -255,13 +255,13 @@ Puede instalar paquetes directamente en Jupyter Notebook o en RStudio:
 * RStudio: use la pestaña **Paquetes** , situada en la parte inferior derecha, o la pestaña **Consola** , situada en la parte superior izquierda.  
 * Python: agregue el código de instalación y ejecútelo en una celda de Jupyter Notebook.
 
-O bien, puede realizar la instalación desde una ventana de terminal. Instale los paquetes de Python en el entorno de **Python 3.6: AzureML** .  Instale los paquetes de R en el entorno de **R** .
+O bien, puede realizar la instalación desde una ventana de terminal. Instale los paquetes de Python en el entorno de **Python 3.6: AzureML**.  Instale los paquetes de R en el entorno de **R**.
 Las funciones magic %pip y %conda instalan paquetes automáticamente en el kernel actualmente en ejecución en la sesión de Jupyter Notebook.
 
 ## <a name="add-new-kernels"></a>Incorporación de nuevos kernels
 
 > [!WARNING]
->  Durante la personalización de la instancia de proceso, asegúrese de no eliminar el entorno de Conda **azureml_py36** ni el kernel de **Python 3.6: AzureML** . Esto es necesario para la funcionalidad de Jupyter/JupyterLab.
+>  Durante la personalización de la instancia de proceso, asegúrese de no eliminar el entorno de Conda **azureml_py36** ni el kernel de **Python 3.6: AzureML**. Esto es necesario para la funcionalidad de Jupyter/JupyterLab.
 
 Para agregar un kernel nuevo de Jupyter a la instancia de proceso:
 

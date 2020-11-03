@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: fe93ada343e83d61526b6b899429d9e2b7b745d3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9736c4d2b048aa18f283689247f5597d7526f1df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996178"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480367"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperación ante desastres para Oracle Database 12c en el entorno de Azure
 
@@ -42,7 +42,7 @@ A continuación, se muestra un resumen de la configuración de Azure:
 - El Jumpbox, el servicio de aplicación, la base de datos y la puerta de enlace de VPN en subredes independientes
 - El grupo de seguridad de red se aplica en las subredes de la aplicación y de base de datos
 
-![Captura de pantalla de la página de la topología de recuperación ante desastres](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![Diagrama que muestra los sitios principal y de recuperación ante desastres en Azure.](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
 ## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Escenario 2: sitio principal en ubicación local y sitio de recuperación ante desastres en Azure
 
@@ -68,7 +68,7 @@ A continuación, se muestra un resumen de la configuración de Azure:
 - Una directiva o regla de NSG para permitir el tráfico entrante en el puerto TCP 1521 (o el definido por el usuario)
 - Una directiva o regla de NSG para restringir el acceso a la red virtual solo a la dirección o direcciones IP locales (base de datos o aplicación)
 
-![Captura de pantalla de la página de la topología de recuperación ante desastres](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![Diagrama que muestra las conexiones directas entre el sitio local y Azure, lo que requiere abrir puertos TCP en el firewall.](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Enfoque 2: VPN de sitio a sitio
 Un mejor enfoque consiste en el uso de una VPN de sitio a sitio. Para más información acerca de cómo configurar una VPN, consulte [Creación de una red virtual con una conexión VPN de sitio a sitio mediante la CLI](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).

@@ -2,17 +2,17 @@
 title: Solución de problemas de un entorno de ejecución de integración autohospedado en Azure Data Factory
 description: Conozca cómo solucionar problemas del entorno de ejecución de integración autohospedado en Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/16/2020
-ms.author: abnarain
-ms.openlocfilehash: f0957b74bf13acfcc80e38cccaec389fbbd19fa0
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/26/2020
+ms.author: lle
+ms.openlocfilehash: 3598db409e5493737753a8a1b03de168af5c664b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131329"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637197"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -24,7 +24,7 @@ En este artículo se exploran los métodos comunes de solución de problemas del
 
 En el caso de las actividades con error que se ejecutan en IR autohospedado o IR compartido, Azure Data Factory admite la visualización y carga de registros de errores. Puede seguir los pasos a continuación para obtener el identificador del informe de errores y, a continuación, escribir el identificador del informe para buscar problemas conocidos relacionados.
 
-1. Vaya a la página **Ejecuciones de actividad** .
+1. Vaya a la página **Ejecuciones de actividad**.
 
 1. En la columna **ERROR** , haga clic en el botón siguiente.
 
@@ -102,7 +102,7 @@ Cuando tratamos casos relacionados con el protocolo de enlace SSL/TLS, es posibl
 
 - A continuación, se muestra una manera rápida e intuitiva de solucionar los errores de compilación de la cadena de certificados X.509.
  
-    1. Exporte el certificado, que debe comprobarse. Vaya a Administrar certificado de equipo, busque el certificado que quiere comprobar y haga clic con el botón derecho en **Todas las tareas** -> **Exportar** .
+    1. Exporte el certificado, que debe comprobarse. Vaya a Administrar certificado de equipo, busque el certificado que quiere comprobar y haga clic con el botón derecho en **Todas las tareas** -> **Exportar**.
     
         ![Exportar tareas](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +138,7 @@ Cuando tratamos casos relacionados con el protocolo de enlace SSL/TLS, es posibl
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. A continuación, se abrirá la **herramienta de recuperación de URL** . Para comprobar los certificados de AIA, CDP y OCSP, haga clic en el botón **Recuperar** .
+    1. A continuación, se abrirá la **herramienta de recuperación de URL**. Para comprobar los certificados de AIA, CDP y OCSP, haga clic en el botón **Recuperar**.
 
         ![Botón de recuperación](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -164,14 +164,14 @@ Si observa el monitor de procesos, puede ver el siguiente resultado:
 
 > [!TIP] 
 > Puede establecer un filtro como se muestra en la captura de pantalla siguiente.
-> Nos indica que el archivo dll **System.ValueTuple** no se encuentra en la carpeta relacionada con GAC ni en las carpetas *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* o *C:\Program Files\Microsoft Integration Runtime\4.0\Shared* .
-> Básicamente, cargará el archivo dll desde la carpeta *GAC* en primer lugar, a continuación, desde la carpeta *Shared* y, por último, desde la carpeta *Gateway* . Por lo tanto, puede colocar el archivo dll en cualquier ruta de acceso que pueda ser útil.
+> Nos indica que el archivo dll **System.ValueTuple** no se encuentra en la carpeta relacionada con GAC ni en las carpetas *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* o *C:\Program Files\Microsoft Integration Runtime\4.0\Shared*.
+> Básicamente, cargará el archivo dll desde la carpeta *GAC* en primer lugar, a continuación, desde la carpeta *Shared* y, por último, desde la carpeta *Gateway*. Por lo tanto, puede colocar el archivo dll en cualquier ruta de acceso que pueda ser útil.
 
 ![Configuración de los filtros](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
 #### <a name="resolution"></a>Solución
 
-Puede ver que **System.ValueTuple.dll** se encuentra en la carpeta *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway\DataScan* . Copie **System.ValueTuple.dll** en la carpeta *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* para resolver el problema.
+Puede ver que **System.ValueTuple.dll** se encuentra en la carpeta *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway\DataScan*. Copie **System.ValueTuple.dll** en la carpeta *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* para resolver el problema.
 
 Puede usar el mismo método para resolver otros problemas de archivos o ensamblados que faltan.
 
@@ -179,11 +179,11 @@ Puede usar el mismo método para resolver otros problemas de archivos o ensambla
 
 La razón por la que se ve el archivo System.ValueTuple.dll en *%windir%\Microsoft.NET\assembly* y *%windir%\assembly* es que es un comportamiento de .NET. 
 
-En el siguiente error, puede ver claramente que el ensamblado *System.ValueTuple* no está ahí. Por lo tanto, este problema se produce cuando la aplicación intenta comprobar el ensamblado *System.ValueTuple.dll* .
+En el siguiente error, puede ver claramente que el ensamblado *System.ValueTuple* no está ahí. Por lo tanto, este problema se produce cuando la aplicación intenta comprobar el ensamblado *System.ValueTuple.dll*.
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
-Para obtener más información sobre GAC, consulte [este artículo](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+Para obtener más información sobre GAC, consulte [este artículo](/dotnet/framework/app-domains/gac).
 
 
 ### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Cómo auditar la clave de IR autohospedada que falta
@@ -201,7 +201,7 @@ El entorno de ejecución de integración autohospedado se desconecta repentiname
 
 #### <a name="resolution"></a>Solución
 
-Si no se cumple ninguna de las causas anteriores, puede ir a la carpeta *%programdata%\Microsoft\Data Transfer\DataManagementGateway* y comprobar si se ha eliminado el archivo denominado **Configuraciones** . Si se ha eliminado, siga las instrucciones que se indican [aquí](https://www.netwrix.com/how_to_detect_who_deleted_file.html) para auditar quién elimina el archivo.
+Si no se cumple ninguna de las causas anteriores, puede ir a la carpeta *%programdata%\Microsoft\Data Transfer\DataManagementGateway* y comprobar si se ha eliminado el archivo denominado **Configuraciones**. Si se ha eliminado, siga las instrucciones que se indican [aquí](https://www.netwrix.com/how_to_detect_who_deleted_file.html) para auditar quién elimina el archivo.
 
 ![Comprobación del archivo de configuraciones](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
@@ -210,7 +210,7 @@ Si no se cumple ninguna de las causas anteriores, puede ir a la carpeta *%progra
 
 #### <a name="symptoms"></a>Síntomas
 
-Después de crear IR autohospedados para los almacenes de datos de origen y de destino, querrá conectar los dos IR juntos para finalizar una copia. Si los almacenes de datos están configurados en redes virtuales diferentes o no pueden entender el mecanismo de puerta de enlace, se producirán errores como: *no se encuentra el controlador de origen en el IR de destino* ; *el origen no puede tener acceso al IR de destino* .
+Después de crear IR autohospedados para los almacenes de datos de origen y de destino, querrá conectar los dos IR juntos para finalizar una copia. Si los almacenes de datos están configurados en redes virtuales diferentes o no pueden entender el mecanismo de puerta de enlace, se producirán errores como: *no se encuentra el controlador de origen en el IR de destino* ; *el origen no puede tener acceso al IR de destino*.
  
 #### <a name="cause"></a>Causa
 
@@ -295,7 +295,7 @@ Si el error se muestra como en el ejemplo anterior, *UnauthorizedAccessException
 
     ![Cuenta de servicio de inicio de sesión](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Compruebe si la cuenta de servicio de inicio de sesión tiene el permiso de lectura y escritura en la carpeta *%programdata%\Microsoft\DataTransfer\DataManagementGateway* .
+2. Compruebe si la cuenta de servicio de inicio de sesión tiene el permiso de lectura y escritura en la carpeta *%programdata%\Microsoft\DataTransfer\DataManagementGateway*.
 
     - De manera predeterminada, si no se ha cambiado la cuenta de inicio de sesión del servicio, debe tener el permiso de lectura y escritura.
 
@@ -305,7 +305,7 @@ Si el error se muestra como en el ejemplo anterior, *UnauthorizedAccessException
         1. Realice una desinstalación limpia de la instancia de IR autohospedado actual.
         1. Instale los bits de IR autohospedado.
         1. Siga las instrucciones siguientes para cambiar la cuenta de servicio: 
-            1. Vaya a la carpeta de instalación de IR autohospedado y cambie a la carpeta: *Microsoft Integration Runtime\4.0\Shared* .
+            1. Vaya a la carpeta de instalación de IR autohospedado y cambie a la carpeta: *Microsoft Integration Runtime\4.0\Shared*.
             1. Inicie una línea de comandos con privilegio elevado. Reemplace *\<user>* y *\<password>* por su propio nombre de usuario y contraseña y, a continuación, ejecute el comando siguiente:
                        
                 ```
@@ -468,7 +468,7 @@ La respuesta esperada es la siguiente:
 
 > [!NOTE] 
 > Consideraciones del proxy:
-> *    Compruebe si el servidor proxy debe colocarse en la lista de destinatarios seguros. Si es así, asegúrese de que [estos dominios](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) estén en la lista de destinatarios seguros.
+> *    Compruebe si el servidor proxy debe colocarse en la lista de destinatarios seguros. Si es así, asegúrese de que [estos dominios](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) estén en la lista de destinatarios seguros.
 > *    Compruebe que el certificado TLS/SSL de "wu2.frontend.clouddatahub.net/" es de confianza en el servidor proxy.
 > *    Si usa la autenticación de Active Directory en el proxy, cambie la cuenta de servicio por la cuenta de usuario que pueda acceder al proxy como "Integration Runtime Service".
 
@@ -590,8 +590,8 @@ Al intentar conectarse mediante telnet **8.8.8.8 888** con el seguimiento de net
 Esto significa que no puede establecer una conexión TCP con el lado servidor  **8.8.8.8** en función del puerto  **888** , por lo que verá dos paquetes **SynReTransmit** adicionales. Como el origen **SELF-HOST2** no ha podido establecer la conexión con  **8.8.8.8** en el primer paquete, seguirá intentándolo.
 
 > [!TIP]
-> - Puede hacer clic en **Cargar filtro** -> **Filtro estándar** -> **Direcciones** -> **Direcciones IPv4** .
-> - Escriba **Dirección IPv4 = = 8.8.8.8** como filtro y haga clic en **Aplicar** . Después, solo verá la comunicación desde el equipo local al destino  **8.8.8.8** .
+> - Puede hacer clic en **Cargar filtro** -> **Filtro estándar** -> **Direcciones** -> **Direcciones IPv4**.
+> - Escriba **Dirección IPv4 = = 8.8.8.8** como filtro y haga clic en **Aplicar**. Después, solo verá la comunicación desde el equipo local al destino  **8.8.8.8**.
 
 ![direcciones de filtro 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         
@@ -618,34 +618,76 @@ En el ejemplo siguiente se muestra el aspecto que tendría un escenario correcto
 
 ### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>Recepción de correo electrónico para actualizar la configuración de red para permitir la comunicación con nuevas direcciones IP
 
-#### <a name="symptoms"></a>Síntomas
+#### <a name="email-notification-from-microsoft"></a>Notificación por correo electrónico de Microsoft
 
 Es posible que reciba la siguiente notificación por correo electrónico, que le recomienda actualizar la configuración de red para permitir la comunicación con nuevas direcciones IP para Azure Data Factory antes del 8 de noviembre de 2020:
 
    ![Notificación por correo electrónico](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
 
-#### <a name="resolution"></a>Resolución
+#### <a name="how-to-determine-if-you-are-impacted-by-this-notification"></a>Procedimiento para determinar si se ve afectado por esta notificación
 
-Esta notificación es para las **comunicaciones salientes** de la instancia de **Integration Runtime** que se ejecuta **en el entorno local**  o dentro de una **red privada virtual de Azure** al servicio ADF. Por ejemplo, si tiene IR autohospedada o IR de Azure-SQL Server Integration Services (SSIS) en una red virtual de Azure, que necesita acceso al servicio ADF, debe revisar si tiene que agregar este nuevo intervalo IP en las reglas del **grupo de seguridad de red (NSG)** . Si la regla de NSG saliente usa la etiqueta de servicio, no habrá ningún impacto.
+Esta notificación afecta a los escenarios siguientes:
+##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>Escenario 1: comunicación saliente desde el entorno de ejecución de integración autohospedado que se ejecuta en el entorno local detrás del firewall corporativo
+Procedimiento para determinar si se ve afectado:
+- No se verá afectado si define reglas de firewall basadas en nombres FQDN mediante el enfoque descrito en este documento: [Configuraciones de firewall y configuración de direcciones IP permitidas](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- Pero se verá afectado si habilita de forma explícita la lista de direcciones IP de salida permitidas en el firewall corporativo.
 
-#### <a name="more-details"></a>Más detalles
+Acción que debe llevarse a cabo si se ve afectado: notificar al equipo de infraestructura de red que actualice la configuración de red para usar las direcciones IP de Data Factory más recientes antes del 8 de noviembre de 2020.  Para descargar las direcciones IP más recientes, vaya al [vínculo de descarga del intervalo IP de etiquetas de servicio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
-Estos nuevos intervalos IP **solo tienen efecto en las reglas de comunicación salientes** de su **firewall local** o **red privada virtual de Azure** al servicio ADF (consulte [Configuración del firewall y configuración de la lista de permitidos para direcciones IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) como referencia). En los escenarios en los que tiene IR autohospedado o IR de SSIS en una red local o en una red virtual de Azure, que necesita comunicarse con el servicio ADF.
+##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>Escenario 2: comunicación saliente desde el entorno de ejecución de integración autohospedado que se ejecuta en una máquina virtual de Azure dentro de la red virtual de Azure administrada por el cliente
+Procedimiento para determinar si se ve afectado:
+- Compruebe si tiene alguna regla de NSG de salida en la red privada que contiene el entorno de ejecución de integración autohospedado. Si no hay restricciones de salida, no habrá ningún impacto.
+- Si tiene restricciones de reglas de salida, compruebe si usa etiquetas de servicio o no. Si usa etiquetas de servicio, no es necesario cambiar ni agregar nada, ya que los nuevos intervalos IP están bajo una etiqueta de servicio existente. 
+ ![Comprobación de destino](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+- Pero se verá afectado si habilita de forma explícita la lista de direcciones IP salientes permitidas en la configuración de las reglas de NSG en la red virtual de Azure.
 
-Para los usuarios existentes que usan la **VPN de Azure** :
+Acción que debe llevarse a cabo si se ve afectado: notificar al equipo de infraestructura de red que actualice las reglas de NSG de la configuración de red virtual de Azure para usar las direcciones IP de Data Factory más recientes antes del 8 de noviembre de 2020.  Para descargar las direcciones IP más recientes, vaya al [vínculo de descarga del intervalo IP de etiquetas de servicio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
-1. Compruebe las reglas de NSG de salida de la red privada en la que está configurado SSIS o Azure SSIS. Si no hay restricciones de salida, no se ven afectadas.
-1. Si tiene restricciones de reglas de salida, compruebe si usa etiquetas de servicio o no. Si usa etiquetas de servicio, no es necesario cambiar ni agregar nada, ya que los nuevos intervalos IP están bajo una etiqueta de servicio existente. 
-  
-    ![Comprobación de destino](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Escenario 3: comunicación saliente de Azure-SSIS Integration Runtime en la red virtual de Azure administrada por el cliente
+- Compruebe si tiene alguna regla de NSG de salida en la red privada que contiene Azure-SSIS Integration Runtime. Si no hay restricciones de salida, no habrá ningún impacto.
+- Si tiene restricciones de reglas de salida, compruebe si usa etiquetas de servicio o no. Si usa etiquetas de servicio, no es necesario cambiar ni agregar nada, ya que los nuevos intervalos IP están bajo una etiqueta de servicio existente.
+- Pero se verá afectado si habilita de forma explícita la lista de direcciones IP salientes permitidas en la configuración de las reglas de NSG en la red virtual de Azure.
 
-1. Si usa direcciones IP directamente en la configuración de la regla, compruebe si agrega todos los intervalos IP en el [vínculo de descarga del intervalo IP de etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Ya hemos colocado los nuevos intervalos IP en este archivo. Para un nuevo usuario: Solo tiene que hacer un seguimiento de la configuración de IR autohospedado o IR de SSIS en nuestro documento para configurar las reglas de NSG.
+Acción que debe llevarse a cabo si se ve afectado: notificar al equipo de infraestructura de red que actualice las reglas de NSG de la configuración de red virtual de Azure para usar las direcciones IP de Data Factory más recientes antes del 8 de noviembre de 2020.  Para descargar las direcciones IP más recientes, vaya al [vínculo de descarga del intervalo IP de etiquetas de servicio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
-Para un usuario existente que tenga IR de SSIS o IR autohospedado **entorno el entorno local** :
+### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>No se ha podido establecer la relación de confianza para el canal seguro SSL/TLS 
 
-- Valide con el equipo de infraestructura de red y compruebe si es necesario incluir las direcciones del nuevo intervalo IP en la comunicación para las reglas de salida.
-- En el caso de las reglas de firewall basadas en nombres FQDN, no se requieren actualizaciones cuando se usa la configuración documentada en [configuración de firewall y configuración de la lista de permitidos para la dirección IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
-- Algunos firewalls locales admiten etiquetas de servicio, si usa el archivo de configuración de etiquetas de servicio de Azure actualizado, no se necesita ningún otro cambio.
+#### <a name="symptoms"></a>Síntomas
+
+El IR autohospedado no pudo conectarse al servicio ADF.
+
+Al comprobar el registro de eventos de SHIR o los registros de notificación de cliente en la tabla CustomLogEvent, se encontrará el mensaje de error siguiente:
+
+`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.The remote certificate is invalid according to the validation procedure.`
+
+Procedimiento para comprobar el certificado de servidor del servicio ADF:
+
+La manera más sencilla es abrir la dirección URL del servicio ADF en el explorador, por ejemplo, abrir https://eu.frontend.clouddatahub.net/ en el equipo donde está instalado SHIR y, después, ver la información del certificado de servidor:
+
+  ![Comprobación del certificado de servidor del servicio ADF](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+
+  ![Comprobación de la ruta del certificado de servidor](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+
+#### <a name="cause"></a>Causa
+
+Este problema se debe a dos motivos:
+
+- La entidad de certificación raíz del certificado de servidor del servicio ADF no es de confianza en el equipo donde está instalado SHIR. 
+- Usa un proxy en el entorno y el certificado de servidor del servicio ADF se sustituye por el proxy, mientras que el certificado de servidor reemplazado no es de confianza para el equipo en el que está instalado SHIR.
+
+#### <a name="solution"></a>Solución
+
+- Para el motivo 1, asegúrese de que el certificado de servidor de ADF y su cadena de certificados son de confianza para el equipo en el que está instalado SHIR.
+- Para el motivo 2, confíe en la entidad de certificación raíz reemplazada en el equipo con SHIR, o bien configure el proxy para que no reemplace el certificado de servidor de ADF.
+
+Consulte [este artículo](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) para obtener más información sobre la confianza de un certificado en Windows.
+
+#### <a name="additional-info"></a>Información adicional
+Se va a implementar un nuevo certificado SSL, que está firmado por DigiCert; compruebe si la raíz global de DigiCert G2 está en la CA raíz de confianza.
+
+  ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+
+En caso contrario, puede descargarlo [aquí](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
 ## <a name="self-hosted-ir-sharing"></a>Uso compartido del entorno de ejecución de integración autohospedado
 
@@ -667,7 +709,7 @@ Para obtener más ayuda para solucionar problemas, pruebe los siguientes recurso
 *  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-data-factory.html)
 *  [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Información de Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Guía de rendimiento de flujos de datos de asignación](concepts-data-flow-performance.md)

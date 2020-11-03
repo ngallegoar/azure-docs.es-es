@@ -16,12 +16,12 @@ ms.date: 04/17/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 29a1a991ab79c38dad1a89533091d80406615d35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb326c889a76eedd82c8918c705bdb5bbe5d195
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969476"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893615"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Creación, enumeración o eliminación de una identidad administrada asignada por el usuario mediante la CLI de Azure
 
@@ -30,15 +30,15 @@ Las identidades administradas para los recursos de Azure proporcionan a los serv
 
 En este artículo, aprenderá a crear, enumerar y eliminar una identidad administrada asignada por el usuario mediante la CLI de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
-- Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para ejecutar los scripts de ejemplo, tiene dos opciones:
-    - Use [Azure Cloud Shell](../../cloud-shell/overview.md), que puede abrir mediante el botón **Probar** en la esquina superior derecha de los bloques de código.
-    - Ejecute scripts localmente instalando la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) y, a continuación, inicie sesión en Azure con [az login](/cli/azure/reference-index#az-login). Use una cuenta asociada a la suscripción de Azure en la que desea crear recursos.   
+## <a name="prerequisites"></a>Prerrequisitos
 
-> [!NOTE]
+- Si no está familiarizado con las identidades administradas para los recursos de Azure, vea [¿Qué son las identidades administradas para recursos de Azure?](overview.md) Para obtener información sobre los tipos de identidad administrada asignados por el sistema y asignados por el usuario, va [Tipos de identidad administrada](overview.md#managed-identity-types).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+> [!NOTE]   
 > Para modificar los permisos de usuario al usar una entidad de servicio de aplicación mediante la CLI, debe proporcionar los permisos adicionales de la entidad de servicio en Graph API de Azure AD como partes de la CLI, realice solicitudes GET en Graph API. De lo contrario, puede acabar recibiendo el mensaje "No tiene privilegios suficientes para completar la operación". Para ello, tendrá que entrar en el Registro de aplicación en Azure Active Directory, seleccionar la aplicación, hacer clic en Permisos de API, desplazarse hacia abajo y seleccionar Azure Active Directory Graph. Desde allí, seleccione Permisos de la aplicación y, a continuación, agregue los permisos adecuados. 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario 

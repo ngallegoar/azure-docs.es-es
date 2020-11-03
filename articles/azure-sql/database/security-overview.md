@@ -11,24 +11,24 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
-ms.date: 09/21/2020
-ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/26/2020
+ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321431"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780366"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Información general sobre las capacidades de seguridad de Azure SQL Database e Instancia administrada de SQL
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-En este artículo se detallan los fundamentos de la protección de la capa de datos de una aplicación con [Azure SQL Database](sql-database-paas-overview.md) e [Instancia administrada de Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md). La estrategia de seguridad descrita sigue el enfoque por capas de defensa en profundidad, como se muestra en la siguiente imagen, y se mueve desde el exterior hacia el centro:
+En este artículo se detallan los fundamentos de la protección de la capa de datos de una aplicación con [Azure SQL Database](sql-database-paas-overview.md) e [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) y [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). La estrategia de seguridad descrita sigue el enfoque por capas de defensa en profundidad, como se muestra en la siguiente imagen, y se mueve desde el exterior hacia el centro:
 
 ![Diagrama de capas de defensa en profundidad. Los datos del cliente se revisten de capas de seguridad de red, administración de acceso e información sobre amenazas.](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Seguridad de las redes
 
-Microsoft Azure SQL Database e Instancia administrada de SQL ofrecen un servicio de base de datos relacional para aplicaciones empresariales y en la nube. Para ayudar a proteger los datos del cliente, los firewalls evitan el acceso de red al servidor hasta que se concede acceso explícitamente según la dirección IP o el origen del tráfico de red virtual de Azure.
+Microsoft Azure SQL Database, SQL Managed Instance y Azure Synapse Analytics ofrecen un servicio de base de datos relacional para aplicaciones empresariales y en la nube. Para ayudar a proteger los datos del cliente, los firewalls evitan el acceso de red al servidor hasta que se concede acceso explícitamente según la dirección IP o el origen del tráfico de red virtual de Azure.
 
 ### <a name="ip-firewall-rules"></a>Reglas de firewall de IP
 
@@ -36,7 +36,7 @@ Las reglas de firewall de IP otorgan acceso a las bases de datos según la direc
 
 ### <a name="virtual-network-firewall-rules"></a>Reglas de firewall de red virtual
 
-Los [puntos de conexión del servicio de redes virtuales](../../virtual-network/virtual-network-service-endpoints-overview.md) amplía la conectividad de red virtual a través de la red troncal de Azure y permite que Azure SQL Database identifique la subred de la red virtual desde la que se origina el tráfico. Para permitir que el tráfico llegue a Azure SQL Database, use las [etiquetas de servicio](../../virtual-network/security-overview.md) de SQL para permitir el tráfico saliente a través de grupos de seguridad de red.
+Los [puntos de conexión del servicio de redes virtuales](../../virtual-network/virtual-network-service-endpoints-overview.md) amplía la conectividad de red virtual a través de la red troncal de Azure y permite que Azure SQL Database identifique la subred de la red virtual desde la que se origina el tráfico. Para permitir que el tráfico llegue a Azure SQL Database, use las [etiquetas de servicio](../../virtual-network/network-security-groups-overview.md) de SQL para permitir el tráfico saliente a través de grupos de seguridad de red.
 
 Las [reglas de red virtual](vnet-service-endpoint-rule-overview.md) permiten que Azure SQL Database solo acepte comunicaciones que se envían desde subredes seleccionadas en una red virtual.
 
@@ -52,11 +52,11 @@ Las [reglas de red virtual](vnet-service-endpoint-rule-overview.md) permiten que
 
 La autenticación es el proceso por el cual se demuestra que el usuario es quien dice ser. Azure SQL Database e Instancia administrada de SQL admiten dos tipos de autenticación:
 
-- **Autenticación de SQL**:
+- **Autenticación de SQL** :
 
     La autenticación de SQL hace referencia a la autenticación de un usuario al conectarse a Azure SQL Database o Instancia administrada de Azure SQL con el nombre de usuario y la contraseña. Cuando se crea el servidor, se debe especificar un inicio de sesión de **administrador de servidor** con un nombre de usuario y una contraseña. Con estas credenciales, un **administrador de servidor** puede autenticarse en cualquier base de datos en ese servidor o instancia como propietario de la base de datos. Después de eso, pueden crearse inicios de sesión SQL y usuarios adicionales mediante el administrador del servidor, lo que permite a los usuarios conectarse usando el nombre de usuario y contraseña.
 
-- **Autenticación de Azure Active Directory**:
+- **Autenticación de Azure Active Directory** :
 
     la autenticación de Azure Active Directory es un mecanismo de conexión a [Azure SQL Database](sql-database-paas-overview.md), [Instancia administrada de Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) y [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure Active Directory (Azure AD). La autenticación de Azure AD permite a los administradores administrar centralmente las identidades y los permisos de los usuarios de la base de datos, junto con otros servicios de Azure, en una ubicación central. Esto incluye la minimización de almacenamiento de contraseñas y permite directivas centralizadas de rotación de contraseñas.
 
@@ -97,9 +97,9 @@ Advanced Threat Protection analiza los registros para detectar un comportamiento
 
 ### <a name="transport-layer-security-encryption-in-transit"></a>Seguridad de la capa de transporte (cifrado en tránsito)
 
-SQL Database e Instancia administrada de SQL protegen los datos de los clientes mediante el cifrado de datos en movimiento con [Seguridad de la capa de transporte (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+SQL Database, SQL Managed Instance y Azure Synapse Analytics protegen los datos de los clientes mediante el cifrado de datos en movimiento con [Seguridad de la capa de transporte (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-SQL Database e Instancia administrada de SQL aplican el cifrado (SSL/TLS) en todo momento para todas las conexiones. Esto garantiza que todos los datos se cifran "en tránsito" entre el cliente y el servidor independientemente de la configuración de **Encrypt** o **TrustServerCertificate** en la cadena de conexión.
+SQL Database, SQL Managed Instance y Azure Synapse Analytics aplican el cifrado (SSL/TLS) en todo momento para todas las conexiones. Esto garantiza que todos los datos se cifran "en tránsito" entre el cliente y el servidor independientemente de la configuración de **Encrypt** o **TrustServerCertificate** en la cadena de conexión.
 
 Como procedimiento recomendado, en la cadena de conexión usada por la aplicación, especifique una conexión cifrada y _**no**_ confíe en el certificado de servidor. Esto obliga a la aplicación a comprobar el certificado de servidor y, por tanto, impide que la aplicación sea vulnerable a ataques de tipo "Man in the middle".
 
@@ -112,7 +112,7 @@ Por ejemplo, cuando se utiliza el controlador ADO.NET, esto se logra a través d
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Cifrado de datos transparente (cifrado en reposo)
 
-[Cifrado de datos transparente (TDE) para Azure SQL Database e Instancia administrada de SQL](transparent-data-encryption-tde-overview.md) agrega una capa de seguridad para ayudar a proteger los datos en reposo frente al acceso no autorizado o sin conexión a archivos sin formato o copias de seguridad. Los escenarios habituales incluyen el robo del centro de datos o la eliminación no segura de hardware o medios como unidades de disco y cintas de copia de seguridad. TDE cifra toda la base de datos mediante un algoritmo de cifrado de AES, lo que no requiere que los desarrolladores de aplicaciones hagan cambios en las aplicaciones existentes.
+[Cifrado de datos transparente (TDE) para Azure SQL Database, SQL Managed Instance y Azure Synapse Analytics](transparent-data-encryption-tde-overview.md) agrega una capa de seguridad para ayudar a proteger los datos en reposo frente al acceso no autorizado o sin conexión a archivos sin formato o copias de seguridad. Los escenarios habituales incluyen el robo del centro de datos o la eliminación no segura de hardware o medios como unidades de disco y cintas de copia de seguridad. TDE cifra toda la base de datos mediante un algoritmo de cifrado de AES, lo que no requiere que los desarrolladores de aplicaciones hagan cambios en las aplicaciones existentes.
 
 En Azure, todas las bases de datos recién creadas se cifran de forma predeterminada y la clave de cifrado de la base de datos se protege mediante un certificado de servidor integrado.  El servicio administra el mantenimiento y la rotación de certificados, y no se requiere ninguna acción por parte del usuario. Los clientes que prefieren tomar el control de las claves de cifrado pueden administrar las claves en [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
 
@@ -124,7 +124,7 @@ La compatibilidad de [Bring Your Own Key](transparent-data-encryption-byok-overv
 
 ![Diagrama que muestra los aspectos básicos de la característica Always Encrypted. Solo las aplicaciones que contengan una clave pueden acceder a las bases de datos SQL con bloqueo.](./media/security-overview/azure-database-ae.png)
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) es una característica creada para proteger la información confidencial almacenada en columnas específicas de bases de datos (por ejemplo, números de tarjeta de crédito, números de identificación nacional o datos según la _necesidad de conocimiento_). Esto incluye a administradores de bases de datos u otros usuarios con privilegios que tengan autorización para acceder a la base de datos para realizar tareas de administración, pero que no tienen necesidades empresariales de acceder a datos específicos de las columnas cifradas. Los datos están siempre cifrados, lo que significa que los datos cifrados se descifran solo para el procesamiento por parte de las aplicaciones cliente con acceso a la clave de cifrado. La clave de cifrado nunca se expone a SQL Database ni a Instancia administrada de SQL, y se puede almacenar en el [almacén de certificados de Windows](always-encrypted-certificate-store-configure.md) o en [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) es una característica creada para proteger la información confidencial almacenada en columnas específicas de bases de datos (por ejemplo, números de tarjeta de crédito, números de identificación nacional o datos según la _necesidad de conocimiento_ ). Esto incluye a administradores de bases de datos u otros usuarios con privilegios que tengan autorización para acceder a la base de datos para realizar tareas de administración, pero que no tienen necesidades empresariales de acceder a datos específicos de las columnas cifradas. Los datos están siempre cifrados, lo que significa que los datos cifrados se descifran solo para el procesamiento por parte de las aplicaciones cliente con acceso a la clave de cifrado. La clave de cifrado nunca se expone a SQL Database ni a Instancia administrada de SQL, y se puede almacenar en el [almacén de certificados de Windows](always-encrypted-certificate-store-configure.md) o en [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos
 

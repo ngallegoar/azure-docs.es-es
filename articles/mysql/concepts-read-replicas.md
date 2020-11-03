@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 10/26/2020
+ms.openlocfilehash: c66845a801b93db4ba718bc0aba5c39eabdd24b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151176"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791977"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
 
@@ -24,7 +24,7 @@ Para más información sobre los problemas y las características de replicació
 > [!NOTE]
 > Comunicación sin prejuicios
 >
-> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_ . En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
+> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Casos en los que utilizar las réplicas de lectura
@@ -36,9 +36,6 @@ Un caso habitual es que las cargas de trabajo de análisis e inteligencia empres
 Dado que las réplicas son de solo lectura, no reducen directamente las cargas de capacidad de escritura en el servidor maestro. Esta característica no está destinada a cargas de trabajo intensivas de escritura.
 
 Esta característica de réplica de lectura utiliza la replicación asincrónica de MySQL. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el origen y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor maestro. Use esta característica con cargas de trabajo que puedan admitir este retraso.
-
-> [!IMPORTANT]
-> Azure Database for MySQL utiliza el registro binario basado en **FILAS** . Si falta una clave principal en la tabla, se examinan todas las filas de la tabla para las operaciones DML. Esto provoca un aumento del intervalo de replicación. Para asegurar que la réplica es capaz de mantenerse al día con los cambios en el origen, generalmente recomendamos agregar una clave primaria en las tablas del servidor de origen antes de crear el servidor de la réplica o volver a crear el servidor de réplica si ya tiene uno.
 
 ## <a name="cross-region-replication"></a>Replicación entre regiones
 Puede crear una réplica de lectura en una región distinta a la del servidor de origen. La replicación entre regiones puede ser útil para escenarios como el planeamiento de la recuperación ante desastres o la incorporación de datos más cerca de los usuarios.
@@ -71,7 +68,7 @@ Sin embargo, existen limitaciones que deben considerarse:
 
 Si un servidor de origen no tiene ningún servidor de réplica existente, el origen se reiniciará primero a fin de prepararse para la replicación.
 
-Cuando se inicia el flujo de trabajo de creación de la réplica, se crea un servidor Azure Database for MySQL en blanco. El nuevo servidor se rellena con los datos que estaban en el servidor de origen. El tiempo de creación depende de la cantidad de datos en el origen y del tiempo transcurrido desde la última copia de seguridad completa semanal. Puede oscilar desde unos minutos hasta varias horas. El servidor de réplica siempre se crea en el mismo grupo de recursos y en la misma suscripción que el servidor de origen. Si desea crear un servidor réplica en otro grupo de recursos o en una suscripción diferente, puede [mover el servidor réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) después de la creación.
+Cuando se inicia el flujo de trabajo de creación de la réplica, se crea un servidor Azure Database for MySQL en blanco. El nuevo servidor se rellena con los datos que estaban en el servidor de origen. El tiempo de creación depende de la cantidad de datos en el origen y del tiempo transcurrido desde la última copia de seguridad completa semanal. Puede oscilar desde unos minutos hasta varias horas. El servidor de réplica siempre se crea en el mismo grupo de recursos y en la misma suscripción que el servidor de origen. Si desea crear un servidor réplica en otro grupo de recursos o en una suscripción diferente, puede [mover el servidor réplica](../azure-resource-manager/management/move-resource-group-and-subscription.md) después de la creación.
 
 Cada réplica se habilita para el [crecimiento automático](concepts-pricing-tiers.md#storage-auto-grow) del almacenamiento. La característica de crecimiento automático permite a la réplica mantenerse al día con los datos replicados en ella y evitar una interrupción en la replicación causada por errores de almacenamiento insuficiente.
 
@@ -79,7 +76,7 @@ Aprenda a [crear una réplica de lectura en Azure Portal](howto-read-replicas-po
 
 ## <a name="connect-to-a-replica"></a>Conexión a una réplica
 
-Durante la creación, una réplica hereda las reglas de firewall del servidor de origen. Posteriormente, estas reglas serán independientes del servidor de origen.
+Durante la creación, una réplica hereda las reglas de firewall del servidor de origen. Posteriormente, estas reglas son independientes del servidor de origen.
 
 La réplica hereda la cuenta de administrador del servidor de origen. Todas las cuentas de usuario del servidor de origen se replican en las réplicas de lectura. Solo se puede conectar a una réplica de lectura utilizando las cuentas de usuario disponibles en el servidor de origen.
 
@@ -95,7 +92,7 @@ Cuando se le solicite, escriba la contraseña de la cuenta de usuario.
 
 Azure Database for MySQL proporciona la métrica de **retraso de replicación en segundos** en Azure Monitor. Esta métrica está disponible únicamente para las réplicas. Esta métrica se calcula utilizando la métrica `seconds_behind_master` disponible en el comando `SHOW SLAVE STATUS` de MySQL. Establezca una alerta que le informe cuando el retraso de replicación alcance un valor que no sea aceptable para la carga de trabajo.
 
-Si ve un mayor retraso en la replicación, consulte el artículo [Solucionar problemas de latencia de replicación](howto-troubleshoot-replication-latency.md) para solucionar problemas y comprender las causas posibles.
+Si ve un mayor retraso en la replicación, consulte [Solución de problemas de latencia de replicación](howto-troubleshoot-replication-latency.md) para solucionar problemas y comprender las causas posibles.
 
 ## <a name="stop-replication"></a>Detención replicación
 

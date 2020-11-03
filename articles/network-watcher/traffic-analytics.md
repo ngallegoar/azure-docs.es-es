@@ -13,12 +13,12 @@ ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: c0d0e1c5f096a45c08265927a288b4ff56876d94
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7a5157c955a51215a9e62711ebb7838b61fda496
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951594"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424263"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -46,13 +46,13 @@ Las redes virtuales de Azure tienen registros de flujos de grupos de seguridad d
 
 - **Grupo de seguridad de red (NSG)** : contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a los recursos conectados a Azure Virtual Network. Los grupos de seguridad de red se pueden asociar a subredes, máquinas virtuales individuales (clásicas) o interfaces de red (NIC) individuales conectadas a máquinas virtuales (Resource Manager). Para más información, consulte [Introducción a los grupos de seguridad de red](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Registros de flujo de los grupos de seguridad de red (NSG)** : Le permiten ver información acerca del tráfico IP de entrada y salida que pasa por un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de cinco tuplas sobre el flujo (dirección IP de origen o destino, puerto de origen o destino y protocolo), y si se permitió o denegó el tráfico. Para más información acerca de los registros de flujos de un grupo de seguridad de red, consulte [Introducción a los registros de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: servicio de Azure que recopila datos de supervisión y los almacena los datos en un repositorio central. Estos datos pueden incluir eventos, datos de rendimiento o datos personalizados proporcionados mediante la API de Azure. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. Las aplicaciones de supervisión, como Network Performance Monitor y el análisis de tráfico, se crean con registros de Azure Monitor como base. Para más información, consulte los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Área de trabajo de Log Analytics**: instancia de los registros de Azure Monitor en la que se almacenan los datos pertenecientes a una cuenta de Azure. Para más información sobre las áreas de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network Watcher**: servicio regional que permite supervisar y diagnosticar problemas en un nivel de escenario de red en Azure. Puede activar y desactivar los registros de flujo del grupo de seguridad de red con Network Watcher. Para más información, consulte [Network Watcher](network-watcher-monitoring-overview.md).
+- **Log Analytics** : servicio de Azure que recopila datos de supervisión y los almacena los datos en un repositorio central. Estos datos pueden incluir eventos, datos de rendimiento o datos personalizados proporcionados mediante la API de Azure. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. Las aplicaciones de supervisión, como Network Performance Monitor y el análisis de tráfico, se crean con registros de Azure Monitor como base. Para más información, consulte los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Área de trabajo de Log Analytics** : instancia de los registros de Azure Monitor en la que se almacenan los datos pertenecientes a una cuenta de Azure. Para más información sobre las áreas de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Network Watcher** : servicio regional que permite supervisar y diagnosticar problemas en un nivel de escenario de red en Azure. Puede activar y desactivar los registros de flujo del grupo de seguridad de red con Network Watcher. Para más información, consulte [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Funcionamiento de Análisis de tráfico
 
-Análisis de tráfico examina los registros de flujo sin formato del grupo de seguridad de red y captura los registros reducidos agregando los flujos habituales en la misma dirección IP de origen, IP de destino, puerto de destino y protocolo. Por ejemplo, Host 1 (dirección IP: 10.10.10.10) se comunica con Host 2 (dirección IP: 10.10.20.10), cien veces durante un período de una hora mediante un puerto (por ejemplo, 80) y un protocolo (por ejemplo, http). El registro reducido tiene una entrada que indica que el Host 1 y el Host 2 se comunicaron 100 veces durante un período de 1 hora mediante el puerto *80* y el protocolo *HTTP*, en lugar de incluir 100 entradas. Los registros reducidos se mejoran con información sobre geografía, seguridad y topología y, a continuación, se almacenan en un área de trabajo de Log Analytics. La siguiente imagen muestra el flujo de datos:
+Análisis de tráfico examina los registros de flujo sin formato del grupo de seguridad de red y captura los registros reducidos agregando los flujos habituales en la misma dirección IP de origen, IP de destino, puerto de destino y protocolo. Por ejemplo, Host 1 (dirección IP: 10.10.10.10) se comunica con Host 2 (dirección IP: 10.10.20.10), cien veces durante un período de una hora mediante un puerto (por ejemplo, 80) y un protocolo (por ejemplo, http). El registro reducido tiene una entrada que indica que el Host 1 y el Host 2 se comunicaron 100 veces durante un período de 1 hora mediante el puerto *80* y el protocolo *HTTP* , en lugar de incluir 100 entradas. Los registros reducidos se mejoran con información sobre geografía, seguridad y topología y, a continuación, se almacenan en un área de trabajo de Log Analytics. La siguiente imagen muestra el flujo de datos:
 
 ![Flujo de datos del procesamiento de registros de flujo del grupo de seguridad de red](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
@@ -164,7 +164,7 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 
 ### <a name="user-access-requirements"></a>Requisitos del acceso de usuario
 
-La cuenta debe ser miembro de uno de los siguientes [roles integrados](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) de Azure:
+La cuenta debe ser miembro de uno de los siguientes [roles integrados de Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
 
 |Modelo de implementación   | Role                   |
 |---------          |---------               |
@@ -226,8 +226,8 @@ New-AzStorageAccount `
 
 Seleccione las opciones siguientes, tal y como se muestra en la imagen:
 
-1. En *Estado*, seleccione **Activo**.
-2. En *Versión de los registros de flujo*, seleccione **Versión 2**. La versión 2 contiene estadísticas de la sesión de flujo (Bytes y paquetes)
+1. En *Estado* , seleccione **Activo**.
+2. En *Versión de los registros de flujo* , seleccione **Versión 2**. La versión 2 contiene estadísticas de la sesión de flujo (Bytes y paquetes)
 3. Seleccione una cuenta de almacenamiento existente para almacenar los registros de flujos. Asegúrese de que el almacenamiento no tenga el "espacio de nombres jerárquico de Data Lake Storage Gen2 habilitado" establecido en true.
 4. Establezca **Retención** en el número de días que desea almacenar los datos. Si desea almacenar los datos de forma permanente, establezca el valor en *0*. Puede incurrir en gastos de Azure Storage por la cuenta de almacenamiento. 
 5. Seleccione *Activo* en **Estado de Análisis de tráfico**.
@@ -271,7 +271,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 - Estadísticas de tráfico malintencionado permitido o bloqueado
   - ¿Por qué un host recibe tráfico malintencionado y por qué se permiten flujos provenientes de un origen malintencionado? Este comportamiento requiere más investigación y probablemente se deba optimizar la configuración.
 
-    Seleccione **Ver todo** en **Host**, como se muestra en la imagen siguiente:
+    Seleccione **Ver todo** en **Host** , como se muestra en la imagen siguiente:
 
     ![Panel que muestra información sobre los hosts con más tráfico](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 

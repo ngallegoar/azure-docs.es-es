@@ -3,15 +3,15 @@ title: Directivas de Azure API Management para la integración de Dapr | Microso
 description: Conozca las directivas de Azure API Management para interactuar con las extensiones de microservicios de Dapr.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 9/13/2020
+ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: d537040be4ed4cbf961a4621980d3d290e306359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf9c4d233cfad454d63da4dce30a38af80d24ab
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339711"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558404"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Directivas de API Management para la integración de Dapr
 
@@ -104,14 +104,14 @@ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto
 
 ## <a name="send-message-to-pubsub-topic"></a><a name="pubsub"></a> Envío de un mensaje al tema de publicación/suscripción
 
-Esta directiva le indica a la puerta de enlace de API Management que envíe un mensaje a un tema de publicación/suscripción de Dapr. Para ello, la directiva realiza una solicitud HTTP POST a `http://localhost:3500/v1.0/publish/{{pub-name}}/{{topic}}` con el fin de reemplazar los parámetros de la plantilla y agregar el contenido especificado en la instrucción.
+Esta directiva le indica a la puerta de enlace de API Management que envíe un mensaje a un tema de publicación/suscripción de Dapr. Para ello, la directiva realiza una solicitud HTTP POST a `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}` con el fin de reemplazar los parámetros de la plantilla y agregar el contenido especificado en la instrucción.
 
 La directiva presupone que el entorno de ejecución de Dapr se está ejecutando en un contenedor sidecar situado en el mismo pod que la puerta de enlace. El entorno de ejecución de Dapr implementa la semántica de publicación/suscripción.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
 ```xml
-<publish-to-dapr topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
@@ -131,7 +131,8 @@ La sección "backend" está vacía y la solicitud no se reenvía al back-end.
      <inbound>
         <base />
         <publish-to-dapr
-               topic="@("orders/new")"
+           pubsub-name="orders"
+               topic="new"
                response-variable-name="dapr-response">
             @(context.Request.Body.As<string>())
         </publish-to-dapr>
@@ -158,7 +159,8 @@ La sección "backend" está vacía y la solicitud no se reenvía al back-end.
 
 | Atributo        | Descripción                     | Obligatorio | Valor predeterminado |
 |------------------|---------------------------------|----------|---------|
-| topic            | Nombre del tema de destino.               | Sí      | N/D     |
+| pubsub-name      | Nombre del componente PubSub de destino. Se asigna al parámetro [pubsubname](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) de Dapr. Si no está presente, el valor del atributo __topic__ debe tener el formato `pubsub-name/topic-name`.    | No       | None    |
+| topic            | El nombre del tema. Se asigna al parámetro [topic](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) de Dapr.               | Sí      | N/D     |
 | ignore-error     | Si se establece en `true`, indica a la directiva que no desencadene la sección ["on-error"](api-management-error-handling-policies.md) tras recibir un error del entorno de ejecución de Dapr. | No | `false` |
 | response-variable-name | Nombre de la entrada de la colección [Variables](api-management-policy-expressions.md#ContextVariables) que se va a usar para almacenar la respuesta del entorno de ejecución de Dapr. | No | None |
 | timeout | Tiempo (en segundos) que se debe esperar a que responda el entorno de ejecución de Dapr. Puede oscilar entre 1 y 240 segundos. | No | 5 |

@@ -9,20 +9,23 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3367a20ca5e2dc59880ed66939413606ff83963b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122728"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737831"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consulta de datos de Azure Cosmos DB con un grupo de SQL sin servidor en Azure Synapse Link (versión preliminar)
 
-El grupo de SQL sin servidor de Synapse (anteriormente SQL a petición) permite analizar los datos de los contenedores de Azure Cosmos DB que están habilitados con [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) casi en tiempo real y sin que el rendimiento de las cargas de trabajo transaccionales resulte afectado. Ofrece una sintaxis T-SQL familiar para consultar los datos del [almacén analítico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) y la conectividad integrada en una amplia gama de herramientas de consulta ad hoc y de inteligencia empresarial a través de la interfaz de T-SQL.
+El grupo de SQL sin servidor de Synapse permite analizar los datos de los contenedores de Azure Cosmos DB que están habilitados con [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) casi en tiempo real, sin afectar al rendimiento de las cargas de trabajo transaccionales. Ofrece una sintaxis T-SQL familiar para consultar los datos del [almacén analítico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) y la conectividad integrada en una amplia gama de herramientas de consulta ad hoc y de inteligencia empresarial a través de la interfaz de T-SQL.
 
 Para consultar Azure Cosmos DB, se admite el área expuesta de [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) completa a través de la función [OPENROWSET](develop-openrowset.md), incluida la mayoría de las [funciones y operadores de SQL](overview-features.md). También puede almacenar los resultados de la consulta que lee los datos de Azure Cosmos DB junto con los de Azure Blob Storage o Azure Data Lake Storage mediante [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand). Actualmente no se pueden almacenar los resultados de las consultas de un grupo de SQL sin servidor en Azure Cosmos DB mediante [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
 En este artículo, aprenderá a escribir una consulta con un grupo de SQL sin servidor que consultará datos de contenedores de Azure Cosmos DB que están habilitados para Synapse Link. Después, puede obtener más información sobre la creación de vistas de un grupo de SQL sin servidor en contenedores de Azure Cosmos DB y cómo conectarlas a modelos de Power BI en [este](./tutorial-data-analyst.md) tutorial. 
+
+> [!IMPORTANT]
+> En este tutorial se usa un contenedor con un [esquema bien definido de Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). La experiencia de consulta que proporciona el grupo SQL sin servidor para el [esquema de fidelidad completa de Azure Cosmos DB](#full-fidelity-schema) es un comportamiento temporal que se cambiará en función de los comentarios de la versión preliminar. No confíe en el esquema del conjunto de resultados de la función `OPENROWSET` sin una cláusula `WITH` que lea los datos de un contenedor con un esquema de fidelidad completa, ya que la experiencia de consulta podría cambiarse y alinearse con la del esquema bien definido. Publique los comentarios en el [Foro de comentarios de Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics), o bien póngase en contacto con el [equipo del producto de Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) para proporcionarlos.
 
 ## <a name="overview"></a>Introducción
 
@@ -73,7 +76,15 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-En el ejemplo anterior, se indica a un grupo de SQL sin servidor que se conecte a la base de datos `covid` en la cuenta de Azure Cosmos DB `MyCosmosDbAccount` autenticada con la clave de Azure Cosmos DB (en el ejemplo anterior es ficticia). Después, se accede al almacén analítico del contenedor `EcdcCases` en la región `West US 2`. Como no se proyectan propiedades específicas, la función `OPENROWSET` devolverá todas las propiedades de los elementos de Azure Cosmos DB.
+En el ejemplo anterior, se indica a un grupo de SQL sin servidor que se conecte a la base de datos `covid` en la cuenta de Azure Cosmos DB `MyCosmosDbAccount` autenticada con la clave de Azure Cosmos DB (en el ejemplo anterior es ficticia). Después, se accede al almacén analítico del contenedor `EcdcCases` en la región `West US 2`. Como no se proyectan propiedades específicas, la función `OPENROWSET` devolverá todas las propiedades de los elementos de Azure Cosmos DB. 
+
+Si los elementos del contenedor de Cosmos DB tienen las propiedades `date_rep`, `cases`y `geo_id`, los resultados de esta consulta se muestran en la tabla siguiente:
+
+| date_rep | cases | geo_id |
+| --- | --- | --- |
+| 2020-08-13 | 254 | RS |
+| 2020-08-12 | 235 | RS |
+| 2020-08-11 | 163 | RS |
 
 Si tiene que explorar datos del otro contenedor de la misma base de datos de Azure Cosmos DB, puede usar la misma cadena de conexión y hacer referencia al contenedor necesario como tercer parámetro:
 
@@ -178,7 +189,6 @@ Obtenga más información sobre cómo analizar [tipos de datos complejos en Syna
 > Si ve caracteres inesperados en el texto, como `MÃƒÂ©lade` en lugar de `Mélade`, la intercalación de la base de datos no está establecida en [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8). 
 > [Cambie la intercalación de la base de datos](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) por alguna intercalación UTF8 mediante una instrucción SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
-
 ## <a name="flattening-nested-arrays"></a>Acoplamiento de matrices anidadas
 
 Es posible que los datos de Azure Cosmos DB tengan submatrices anidadas como la matriz del creador del conjunto de datos [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/):
@@ -253,12 +263,83 @@ Las cuentas de Azure Cosmos DB de SQL (Core) API admiten tipos de propiedad JSO
 | Null | `any SQL type` 
 | Objeto o matriz anidados | varchar(max) (intercalación de base de datos UTF8), serializado como texto JSON |
 
+## <a name="full-fidelity-schema"></a>Esquema de fidelidad completa
+
+El esquema de fidelidad completa de Azure Cosmos DB registra los valores y sus tipos de mejor coincidencia para cada propiedad de un contenedor.
+La función `OPENROWSET` en un contenedor con un esquema de fidelidad completa proporciona el tipo y el valor real en cada celda. Imagine que la consulta siguiente lee los elementos de un contenedor con un esquema de fidelidad completa:
+
+```sql
+SELECT *
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) as rows
+```
+
+El resultado de esta consulta devolverá tipos y valores con formato de texto JSON: 
+
+| date_rep | cases | geo_id |
+| --- | --- | --- |
+| {"date":"2020-08-13"} | {"int32":"254"} | {"string":"RS"} |
+| {"date":"2020-08-12"} | {"int32":"235"}| {"string":"RS"} |
+| {"date":"2020-08-11"} | {"int32":"316"} | {"string":"RS"} |
+| {"date":"2020-08-10"} | {"int32":"281"} | {"string":"RS"} |
+| {"date":"2020-08-09"} | {"int32":"295"} | {"string":"RS"} |
+| {"string":"2020/08/08"} | {"int32":"312"} | {"string":"RS"} |
+| {"date":"2020-08-07"} | {"float64":"339.0"} | {"string":"RS"} |
+
+En cada valor, puede ver el tipo identificado en el elemento del contenedor de Cosmos DB. La mayoría de los valores de la propiedad `date_rep` contienen valores `date`, pero algunos de ellos se almacenan incorrectamente como cadenas en Cosmos DB. El esquema de fidelidad completa devolverá valores `date` con el tipo correcto y valores `string` con formato incorrecto.
+El número de casos es una información almacenada como valor `int32`, pero hay un valor que se especifica como número decimal. Este valor tiene el tipo `float64`. Si hay algunos valores que superan el número `int32` mayor, se almacenarían como tipo `int64`. Todos los valores `geo_id` de este ejemplo se almacenan como tipos `string`.
+
+> [!IMPORTANT]
+> La función `OPENROWSET` sin una cláusula `WITH` expone valores con los tipos esperados y valores con tipos especificados incorrectamente. Esta función está diseñada para la exploración de datos y no para la creación de informes. No analice los valores JSON devueltos por esta función para generar informes; use una [cláusula WITH](#querying-items-with-full-fidelity-schema) explícita para crearlos.
+> Para que el almacén analítico de fidelidad completa sea correcto, tendrá que limpiar los valores que tienen tipos incorrectos en el contenedor de Azure Cosmos DB. 
+
 Para consultar cuentas de Azure Cosmos DB del tipo Mongo DB API, [aquí](../../cosmos-db/analytical-store-introduction.md#analytical-schema) puede obtener más información sobre la representación de esquemas de fidelidad completa en el almacén analítico y los nombres de propiedad extendidos que se van a usar.
+
+### <a name="querying-items-with-full-fidelity-schema"></a>Consulta de elementos con un esquema de fidelidad completa
+
+Al consultar el esquema de fidelidad completa, debe especificar de forma explícita el tipo SQL y el tipo de propiedad de Cosmos DB que se espera en la cláusula `WITH`. No use `OPENROWSET` sin la cláusula `WITH` en los informes, ya que el formato del conjunto de resultados podría cambiarse en la vista previa en función de los comentarios.
+
+En el ejemplo siguiente, se supone que `string` es el tipo correcto para la propiedad `geo_id` y `int32` el tipo correcto para la propiedad `cases`:
+
+```sql
+SELECT geo_id, cases = SUM(cases)
+FROM OPENROWSET(
+      'CosmosDB'
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string',
+             cases INT '$.cases.int32'
+    ) as rows
+GROUP BY geo_id
+```
+
+Los valores para `geo_id` y `cases` que tienen otros tipos se devolverán como valores `NULL`. Esta consulta solo hará referencia a `cases` con el tipo especificado en la expresión (`cases.int32`).
+
+Si tiene valores con otros tipos (`cases.int64`, `cases.float64`) que no se pueden limpiar en el contenedor de Cosmos DB, tendrá que hacerles referencia de forma explícita en la cláusula `WITH` y combinar los resultados. La consulta siguiente agrega los elementos `int32`, `int64` y `float64` almacenados en la columna `cases`:
+
+```sql
+SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', 
+             cases_int INT '$.cases.int32',
+             cases_bigint BIGINT '$.cases.int64',
+             cases_float FLOAT '$.cases.float64'
+    ) as rows
+GROUP BY geo_id
+```
+
+En este ejemplo, el número de casos se almacena como valores `int32`, `int64` o `float64`, y se deben extraer todos los valores para calcular el número de casos por país. 
 
 ## <a name="known-issues"></a>Problemas conocidos
 
 - El alias se **DEBE** especificar después de la función `OPENROWSET` (por ejemplo, `OPENROWSET (...) AS function_alias`). Si se omite el alias, es posible que haya problemas de conexión y que el punto de conexión SQL sin servidor de Synapse no esté disponible de manera temporal. Este problema se resolverá en noviembre de 2020.
-- El grupo de SQL sin servidor actualmente no admite el [esquema con fidelidad total de Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). Use un grupo de SQL sin servidor solo para acceder al esquema bien definido de Cosmos DB.
+- La experiencia de consulta que proporciona el grupo SQL sin servidor para el [esquema de total fidelidad de Azure Cosmos DB](#full-fidelity-schema) es un comportamiento temporal que se cambiará en función de los comentarios de la versión preliminar. No se base en el esquema que proporciona la función `OPENROWSET` sin la cláusula `WITH` durante la versión preliminar pública, ya que la experiencia de consulta podría estar alineada con un esquema bien definido en función de los comentarios de los clientes. Póngase en contacto con el [equipo del producto de Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) para proporcionar comentarios.
 
 En la tabla siguiente se enumeran los posibles errores y las acciones para solucionar problemas:
 
@@ -277,5 +358,6 @@ Puede informar sugerencias y problemas en la [página de comentarios de Azure Sy
 
 Para más información, consulte los siguientes artículos.
 
+- [Uso de Power BI y el grupo Synapse SQL sin servidor con Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
 - [Procedimiento para crear y usar vistas en SQL a petición](create-use-views.md) 
 - [Tutorial sobre la creación de vistas de SQL a petición en Azure Cosmos DB y su conexión a modelos de Power BI a través de DirectQuery](./tutorial-data-analyst.md)

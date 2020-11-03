@@ -5,18 +5,18 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 399f81a5246633912d1e17a13492e404119e362f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0252af90a6afb5b2a59620afaa61702f208991e7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282073"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785262"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lectura de la fuente de cambios de Azure Cosmos DB
 
-Puede trabajar con la fuente de cambios de Azure Cosmos DB mediante un modelo de inserción o un modelo de extracción. Con un modelo de inserción, un servidor (el procesador de fuente de cambios) envía el trabajo a un cliente que tiene la lógica de negocios para procesar este trabajo. Sin embargo, el servidor se encarga de la complejidad de comprobar el trabajo y almacenar el estado del último trabajo procesado.
+Puede trabajar con la fuente de cambios de Azure Cosmos DB mediante un modelo de inserción o un modelo de extracción. Con un modelo de inserción, el procesador de fuente de cambios envía el trabajo a un cliente que tiene la lógica de negocios para procesarlo. Sin embargo, el procesador de fuente de cambios se encarga de la complejidad de comprobar el trabajo y almacenar el estado del último trabajo procesado.
 
 Con un modelo de extracción, el cliente tiene que extraer el trabajo del servidor. En este caso, el cliente no solo tiene lógica de negocios para procesar el trabajo, sino que también almacena el estado del último trabajo procesado. De este modo, se encarga del equilibrio de carga entre varios clientes que procesan el trabajo en paralelo, así como de los errores.
 
@@ -68,7 +68,7 @@ Puede ejecutar en paralelo el procesamiento de los cambios en varios clientes, d
 No hay ninguna garantía de entrega "al menos una vez" incluida en el modelo de extracción. Este le ofrece un control de bajo nivel para decidir cómo quiere administrar los errores.
 
 > [!NOTE]
-> El modelo de extracción de la fuente de cambios actualmente se encuentra en [versión preliminar solo para el SDK de .NET para Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview). La versión preliminar todavía no está disponible para otras versiones del SDK.
+> El modelo de extracción de la fuente de cambios actualmente se encuentra en [versión preliminar solo para el SDK de .NET para Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview). La versión preliminar todavía no está disponible para otras versiones del SDK.
 
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Fuente de cambios en las API de Cassandra y MongoDB
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: c41a6679009f1467c5bcd04d9629ef9256238e00
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b74c7c3e9678c89edbe90d648520b9526c8fb569
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127052"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748647"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Creación de una instancia de IoT Edge para análisis de vídeo (Intel NUC)
 
@@ -117,7 +117,7 @@ Configure IoT Edge para registrarse y conectarse a la aplicación de IoT Central
 
 1. Reemplace `{scope_id}` por el **ámbito de identificador** que anotó en el archivo *scratchpad.txt* en el tutorial anterior.
 
-1. Reemplace `{registration_id}` por *lva-gateway-001*, el dispositivo que creó en el tutorial anterior.
+1. Reemplace `{registration_id}` por *lva-gateway-001* , el dispositivo que creó en el tutorial anterior.
 
 1. Reemplace `{symmetric_key}` por la **Clave principal** del dispositivo **lva-gateway-001** que anotó en el archivo *scratchpad.txt* en el tutorial anterior.
 
@@ -140,7 +140,7 @@ Configure IoT Edge para registrarse y conectarse a la aplicación de IoT Central
 
 Si los módulos IoT Edge no se inician correctamente, consulte [Solución de problemas del dispositivo IoT Edge](../../iot-edge/troubleshoot.md).
 
-## <a name="collect-the-rstp-stream-from-your-camera"></a>Recopilación de la secuencia RSTP desde la cámara
+## <a name="collect-the-rtsp-stream-from-your-camera"></a>Recopilación de la secuencia RSTP de la cámara
 
 Identifique las direcciones URL de la secuencia RTSP de las cámaras conectadas al dispositivo IoT Edge, por ejemplo:
 

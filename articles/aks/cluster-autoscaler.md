@@ -4,12 +4,12 @@ description: Aprenda a usar el escalado automático de clústeres para escalar a
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 7368745d3b6bf9731f987d6f4fc36b81d354fed8
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e644a931152c83a5232c8233d519f7807ab708af
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103873"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542648"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -19,7 +19,7 @@ En este artículo se muestra cómo habilitar y administrar el escalado automáti
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para este artículo es preciso usar la versión 2.0.76 de la CLI de Azure, o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
+Para este artículo, es necesario usar la versión 2.0.76 de la CLI de Azure o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="about-the-cluster-autoscaler"></a>Acerca del escalado automático de clústeres
 
@@ -47,7 +47,7 @@ Horizontal Pod Autoscaler y Cluster Autoscaler pueden funcionar juntos y a menud
 
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Crear un clúster de AKS y habilitar el escalado automático de clústeres
 
-Si necesita crear un clúster de AKS, use el comando [az aks create][az-aks-create]. Para habilitar y configurar el escalado automático de clústeres en el grupo de nodos del clúster, use el parámetro *--enable-cluster-autoscaler* y especifique un nodo *--min-count* y *--max-count* .
+Si necesita crear un clúster de AKS, use el comando [az aks create][az-aks-create]. Para habilitar y configurar el escalado automático de clústeres en el grupo de nodos del clúster, use el parámetro `--enable-cluster-autoscaler` y especifique un nodo `--min-count` y `--max-count`.
 
 > [!IMPORTANT]
 > El escalador automático del clúster es un componente de Kubernetes. Aunque el clúster de AKS usa un conjunto de escalado de máquinas virtuales para los nodos, no habilite ni edite manualmente la configuración de escalado automático del conjunto de escalado en Azure Portal o mediante la CLI de Azure. Permita que el escalador automático del clúster de Kubernetes administre la configuración del escalado necesaria. Para más información, consulte [¿Puedo modificar los recursos de AKS en el grupo de recursos del nodo?][aks-faq-node-resource-group]
@@ -74,7 +74,7 @@ Tardará unos minutos en crear el clúster y configurar las opciones del escalad
 
 ## <a name="update-an-existing-aks-cluster-to-enable-the-cluster-autoscaler"></a>Actualización de un clúster de AKS existente para habilitar el escalador automático de clústeres
 
-Use el comando [az aks update][az-aks-update] para habilitar y configurar el escalador automático de clústeres en el grupo de nodos para el clúster existente. Use el parámetro *--enable-cluster-autoscaler* y especifique un nodo *--min-count* y *--max-count* .
+Use el comando [az aks update][az-aks-update] para habilitar y configurar el escalador automático de clústeres en el grupo de nodos para el clúster existente. Use el parámetro `--enable-cluster-autoscaler` y especifique un nodo `--min-count` y `--max-count`.
 
 > [!IMPORTANT]
 > El escalador automático del clúster es un componente de Kubernetes. Aunque el clúster de AKS usa un conjunto de escalado de máquinas virtuales para los nodos, no habilite ni edite manualmente la configuración de escalado automático del conjunto de escalado en Azure Portal o mediante la CLI de Azure. Permita que el escalador automático del clúster de Kubernetes administre la configuración del escalado necesaria. Para más información, consulte [¿Puedo modificar los recursos de AKS en el grupo de recursos del nodo?][aks-faq-node-resource-group]
@@ -97,7 +97,7 @@ Tardará unos minutos en actualizar el clúster y configurar las opciones del es
 > [!IMPORTANT]
 > Si tiene varios grupos de nodos en el clúster de AKS, vaya a la sección de [escalado automático con varios grupos de agentes](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Los clústeres con varios grupos de agentes habilitados requieren el uso del conjunto de comandos `az aks nodepool` para cambiar las propiedades específicas del grupo de nodos en lugar de `az aks`.
 
-En el paso anterior para crear un clúster de AKS o actualizar un grupo de nodos existente, el número mínimo de nodos del escalado automático de clústeres se estableció en *1* , y el número máximo de nodos se estableció en *3* . Como las necesidades de la aplicación van cambiando, es posible que deba ajustar el número de nodos del escalado automático de clústeres.
+En el paso anterior para crear un clúster de AKS o actualizar un grupo de nodos existente, el número mínimo de nodos del escalado automático de clústeres se estableció en *1* , y el número máximo de nodos se estableció en *3*. Como las necesidades de la aplicación van cambiando, es posible que deba ajustar el número de nodos del escalado automático de clústeres.
 
 Para cambiar el número de nodos, use el comando [az aks update][az-aks-update].
 
@@ -131,7 +131,14 @@ También puede configurar detalles más pormenorizados del escalador automático
 | scale-down-unready-time          | Cuánto tiempo debe ser innecesario un nodo no listo antes de que sea válido para la reducción vertical         | 20 minutos    |
 | scale-down-utilization-threshold | Nivel de uso del nodo, definido como la suma de los recursos solicitados dividida por la capacidad, por debajo del cual se puede considerar un nodo para la reducción vertical | 0.5 |
 | max-graceful-termination-sec     | Número máximo de segundos que el escalador automático del clúster espera la terminación del pod al intentar reducir verticalmente un nodo. | 600 segundos   |
-| balance-similar-node-groups | Detecta grupos de nodos similares y equilibra el número de nodos entre aquellos. | false |
+| balance-similar-node-groups      | Detecta grupos de nodos similares y equilibra el número de nodos entre ellos                 | false         |
+| expander                         | Tipo de grupo de nodos [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) que se va a usar en el escalado vertical. Valores posibles: `most-pods`, `random`, `least-waste` | random | 
+| skip-nodes-with-local-storage    | Si es true, el escalador automático del clúster no eliminará nunca nodos con pods con almacenamiento local, por ejemplo, EmptyDir o HostPath | true |
+| skip-nodes-with-system-pods      | Si es true, el escalador automático del clúster nunca eliminará los nodos con pods de kube-system (excepto para DaemonSet o mirror) | true | 
+| max-empty-bulk-delete            | Número máximo de nodos vacíos que se pueden eliminar al mismo tiempo.                      | 10 nodos      |
+| new-pod-scale-up-delay           | En escenarios como la escala de ráfagas y lotes en los que no quiere que la CA actúe antes de que el programador de Kubernetes programe todos los pods, puede indicarle a la CA que ignore los pods no programados antes de que tengan una antigüedad concreta".                                                                                                                | 10 segundos    |
+| max-total-unready-percentage     | Porcentaje máximo de nodos no leídos en el clúster. Una vez que se haya superado este porcentaje, la CA detiene las operaciones | 45 % | 
+| ok-total-unready-count           | Número de nodos no leídos permitidos, con independencia del valor de max-total-unready-percentage            | 3 nodos       |
 
 > [!IMPORTANT]
 > El perfil del escalador automático del clúster afecta a todos los grupos de nodos que usan el escalador automático del clúster. No se puede establecer un perfil del escalador automático por grupo de nodos.
@@ -194,7 +201,7 @@ az aks update \
 
 ## <a name="disable-the-cluster-autoscaler"></a>Deshabilitar el escalado automático de clústeres
 
-Si ya no quiere usar el escalado automático de clústeres, puede deshabilitarlo mediante el comando [az aks update][az-aks-update-preview], especificando el parámetro *--disable-cluster-autoscaler* . Los nodos no se quitan cuando se deshabilita el escalado automático de clústeres.
+Si ya no quiere usar el escalado automático de clústeres, puede deshabilitarlo mediante el comando [az aks update][az-aks-update-preview], especificando el parámetro `--disable-cluster-autoscaler`. Los nodos no se quitan cuando se deshabilita el escalado automático de clústeres.
 
 ```azurecli-interactive
 az aks update \
@@ -207,18 +214,18 @@ Puede escalar manualmente el clúster después de deshabilitar el escalado autom
 
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Volver a habilitar un escalado automático de clústeres deshabilitado
 
-Si quiere volver a habilitar el escalado automático de clústeres en un clúster existente, puede volver a habilitarlo mediante el comando [az aks update][az-aks-update-preview], especificando los parámetros *--enable-cluster-autoscaler* , *--min-count* y *--max-count* .
+Si quiere volver a habilitar el escalado automático de clústeres en un clúster existente, puede hacerlo mediante el comando [az aks update][az-aks-update-preview], si especifica los parámetros `--enable-cluster-autoscaler`, `--min-count` y `--max-count`.
 
 ## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Recuperación de registros y estado del escalador automático del clúster
 
 Para diagnosticar y depurar los eventos del escalador automático, los registros y el estado se pueden recuperar desde el complemento del escalador automático.
 
-AKS administra el escalador automático del clúster en su nombre y lo ejecuta en el plano de control administrado. Los registros del nodo principal deben estar configurados para que se puedan ver como resultado.
+AKS administra el escalador automático del clúster en su nombre y lo ejecuta en el plano de control administrado. Puede habilitar el nodo del plano de control para ver los registros y las operaciones de la CA.
 
 Para configurar los registros que se van a insertar desde el escalador automático del clúster en Log Analytics, siga estos pasos.
 
 1. Configure una regla para que los registros de recursos inserten registros del escalador automático del clúster en Log Analytics. [Las instrucciones se detallan aquí][aks-view-master-logs], asegúrese de activar la casilla correspondiente a `cluster-autoscaler` al seleccionar las opciones para "Registros".
-1. Haga clic en la sección "Registros" en el clúster mediante Azure Portal.
+1. Seleccione la sección "Registros" del clúster mediante Azure Portal.
 1. Escriba la consulta de ejemplo siguiente en Log Analytics:
 
 ```
@@ -230,7 +237,7 @@ Debería ver devueltos registros similares al ejemplo siguiente, siempre y cuand
 
 ![Registros de Log Analytics](media/autoscaler/autoscaler-logs.png)
 
-El escalador automático del clúster también escribirá el estado de mantenimiento en un archivo ConfigMap llamado `cluster-autoscaler-status`. Para recuperar estos registros, ejecute el comando siguiente `kubectl`. Se informará del estado de mantenimiento para cada grupo de nodos configurado con el escalador automático del clúster.
+El escalador automático del clúster también escribirá el estado de mantenimiento en un objeto `configmap` llamado `cluster-autoscaler-status`. Para recuperar estos registros, ejecute el comando siguiente `kubectl`. Se informará del estado de mantenimiento para cada grupo de nodos configurado con el escalador automático del clúster.
 
 ```
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
@@ -242,7 +249,7 @@ Para más información sobre lo que se registra del escalador automático, consu
 
 El escalado automático de clústeres también se puede usar con [varios grupos de nodos][aks-multiple-node-pools] habilitados. Siga este documento para aprender a habilitar varios grupos de nodos y agregar grupos de nodos adicionales a un clúster existente. Cuando se utilizan ambas características juntas, se activa el escalado automático de clústeres en cada grupo de nodos individuales del clúster y se pueden pasar reglas de escalado automático únicas a cada uno de ellos.
 
-En el comando siguiente se supone que ha seguido las [instrucciones iniciales](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) anteriores de este documento y desea actualizar el número máximo de grupos de nodos existentes de *3* a *5* . Use el comando [az aks nodepool update][az-aks-nodepool-update] para actualizar la configuración de un grupo de nodos existente.
+En el comando siguiente se supone que ha seguido las [instrucciones iniciales](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) anteriores de este documento y desea actualizar el número máximo de grupos de nodos existentes de *3* a *5*. Use el comando [az aks nodepool update][az-aks-nodepool-update] para actualizar la configuración de un grupo de nodos existente.
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -264,7 +271,7 @@ az aks nodepool update \
   --disable-cluster-autoscaler
 ```
 
-Si quiere volver a habilitar el escalado automático de clústeres en un clúster existente, puede volver a habilitarlo mediante el comando [az aks nodepool update][az-aks-nodepool-update], especificando los parámetros *--enable-cluster-autoscaler* , *--min-count* y *--max-count* .
+Si quiere volver a habilitar el escalado automático de clústeres en un clúster existente, puede volver a habilitarlo mediante el comando [az aks nodepool update][az-aks-nodepool-update], especificando los parámetros `--enable-cluster-autoscaler`, `--min-count` y `--max-count`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322302"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893988"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para reglas de alertas de métrica en Azure Monitor
 
@@ -502,7 +502,7 @@ Tenga en cuenta las restricciones siguientes cuando use dimensiones en una regla
 - Solo puede seleccionar un valor por dimensión dentro de cada criterio.
 - No se puede usar "\*" como valor de dimensión.
 - Cuando las métricas configuradas con distintos criterios admiten la misma dimensión, se debe establecer de forma explícita un valor de dimensión configurado de la misma manera para todas esas métricas, en los criterios pertinentes.
-    - En el ejemplo siguiente, como las métricas **Transactions** y **SuccessE2ELatency** tienen una dimensión **ApiName**, y *criterion1* especifica el valor *"GetBlob"* para la dimensión **ApiName**, *criterion2* también debe establecer un valor *"GetBlob"* para la dimensión **ApiName**.
+    - En el ejemplo siguiente, como las métricas **Transactions** y **SuccessE2ELatency** tienen una dimensión **ApiName** , y *criterion1* especifica el valor *"GetBlob"* para la dimensión **ApiName** , *criterion2* también debe establecer un valor *"GetBlob"* para la dimensión **ApiName**.
 
 ### <a name="template-file"></a>Archivo de plantilla
 
@@ -707,15 +707,15 @@ Tenga en cuenta las restricciones siguientes cuando use dimensiones en una regla
 ## <a name="multiple-dimensions-static-threshold"></a>Varias dimensiones, umbral estático
 Una sola regla de alerta puede supervisar varias series temporales de métricas a la vez, por lo que habrá menos reglas de alerta para administrar. El ejemplo siguiente crea una regla de alerta de métrica estática con las métricas dimensionales.
 
-En el ejemplo siguiente, la regla de alerta supervisa las combinaciones de valores de dimensión de las dimensiones **ResponseType** y **ApiName** para la métrica **Transactions**:
-1. **ResponseType**: el carácter comodín "\*" significa que para cada valor de la dimensión **ResponseType**, incluidos los valores futuros, se supervisa individualmente una serie temporal diferente.
-2. **ApiName**: se supervisa una serie temporal distinta solo para los valores de dimensión **GetBlob** y **PutBlob**.
+En el ejemplo siguiente, la regla de alerta supervisa las combinaciones de valores de dimensión de las dimensiones **ResponseType** y **ApiName** para la métrica **Transactions** :
+1. **ResponseType** : el carácter comodín "\*" significa que para cada valor de la dimensión **ResponseType** , incluidos los valores futuros, se supervisa individualmente una serie temporal diferente.
+2. **ApiName** : se supervisa una serie temporal distinta solo para los valores de dimensión **GetBlob** y **PutBlob**.
 
 Por ejemplo, algunas de las series temporales que se pueden supervisar con esta regla de alertas son:
-- Métrica = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
-- Métrica = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
-- Métrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
-- Métrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
+- Métrica = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
+- Métrica = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
+- Métrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
+- Métrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
 
 ### <a name="template-file"></a>Archivo de plantilla
 
@@ -898,15 +898,15 @@ Por ejemplo, algunas de las series temporales que se pueden supervisar con esta 
 Una sola regla de alertas de umbrales dinámicos puede crear umbrales personalizados para cientos de series temporales de métricas (incluso de distintos tipos) a la vez, por lo que habrá menos reglas de alerta para administrar. El ejemplo siguiente crea una regla de alerta de métrica de umbrales dinámicos con las métricas dimensionales.
 
 
-En el ejemplo siguiente, la regla de alerta supervisa las combinaciones de valores de dimensión de las dimensiones **ResponseType** y **ApiName** para la métrica **Transactions**:
-1. **ResponseType**: para cada valor de la dimensión **ResponseType**, incluidos los valores futuros, se supervisa individualmente una serie temporal diferente.
-2. **ApiName**: se supervisa una serie temporal distinta solo para los valores de dimensión **GetBlob** y **PutBlob**.
+En el ejemplo siguiente, la regla de alerta supervisa las combinaciones de valores de dimensión de las dimensiones **ResponseType** y **ApiName** para la métrica **Transactions** :
+1. **ResponseType** : para cada valor de la dimensión **ResponseType** , incluidos los valores futuros, se supervisa individualmente una serie temporal diferente.
+2. **ApiName** : se supervisa una serie temporal distinta solo para los valores de dimensión **GetBlob** y **PutBlob**.
 
 Por ejemplo, algunas de las series temporales que se pueden supervisar con esta regla de alertas son:
-- Métrica = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
-- Métrica = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
-- Métrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
-- Métrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
+- Métrica = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
+- Métrica = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
+- Métrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
+- Métrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
 
 >[!NOTE]
 > Actualmente no se admiten varios criterios para las reglas de alertas de métricas que usan umbrales dinámicos.
@@ -3132,7 +3132,7 @@ Las [pruebas de disponibilidad de Application Insights](../app/monitor-web-app-a
 > [!NOTE]
 > `&amp`; es la referencia de entidad HTML para &. Los parámetros de dirección URL se siguen separando con un solo símbolo &, pero si se menciona la dirección URL en HTML, es necesario codificarla. Por lo tanto, si tiene un símbolo "&" en el valor del parámetro pingURL, tiene que agregarle un escape con "`&amp`;".
 
-### <a name="parameter-file"></a>Archivo de parámetros
+### <a name="template-file"></a>Archivo de plantilla
 
 ```json
 {
@@ -3234,8 +3234,6 @@ Las [pruebas de disponibilidad de Application Insights](../app/monitor-web-app-a
 }
 ```
 
-
-
 ### <a name="parameter-file"></a>Archivo de parámetros
 
 ```json
@@ -3254,12 +3252,53 @@ Las [pruebas de disponibilidad de Application Insights](../app/monitor-web-app-a
         },
         "location": {
             "value": "Replace with the location of your Application Insights resource"
-        }
+        },
+        "pingText": {
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
+            "type": "String"
+        },
     }
 }
 ```
 
+La configuración adicional del parámetro `pingText` de coincidencia de contenido se controla en la parte `Configuration/Webtest` del archivo de plantilla. En concreto, la sección siguiente:
 
+```xml
+<RuleParameter Name=\"FindText\" Value=\"',parameters('pingText'), '\" />
+<RuleParameter Name=\"IgnoreCase\" Value=\"False\" />
+<RuleParameter Name=\"UseRegularExpression\" Value=\"False\" /> 
+<RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />
+```
+### <a name="test-locations"></a>Ubicaciones de prueba
+
+|Identificador                  | Region           |
+|:-------------------|:-----------------|
+| `emea-nl-ams-azr`  | Oeste de Europa      |
+| `us-ca-sjc-azr`    | Oeste de EE. UU.          |
+| `emea-ru-msa-edge` | Sur de Reino Unido         |
+| `emea-se-sto-edge` | Oeste de Reino Unido          |
+| `apac-sg-sin-azr`  | Sudeste de Asia   |
+| `us-tx-sn1-azr`    | Centro-sur de EE. UU. |
+| `us-il-ch1-azr`    | Centro-Norte de EE. UU |
+| `emea-gb-db3-azr`  | Norte de Europa     |
+| `apac-jp-kaw-edge` | Japón Oriental       |
+| `emea-fr-pra-edge` | Centro de Francia   |
+| `emea-ch-zrh-edge` | Sur de Francia     |
+| `us-va-ash-azr`    | Este de EE. UU.          |
+| `apac-hk-hkn-azr`  | Este de Asia        |
+| `us-fl-mia-edge`   | Centro de EE. UU.       |
+| `latam-br-gru-edge`| Sur de Brasil      |
+| `emea-au-syd-edge` | Este de Australia   |
+
+### <a name="us-government-test-locations"></a>Ubicaciones de pruebas de la Administración pública de EE. UU.
+
+|Identificador                    | Region           |
+|----------------------|------------------|
+| `usgov-va-azr`       | `USGov Virginia` |
+| `usgov-phx-azr`      | `USGov Arizona`  |
+| `usgov-tx-azr`       | `USGov Texas`    |
+| `usgov-ddeast-azr`   | `USDoD East`     |
+| `usgov-ddcentral-azr`| `USDoD Central`  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

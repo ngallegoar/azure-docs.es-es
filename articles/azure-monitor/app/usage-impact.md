@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7393c36099795bbc989ae4b690100284d53f08e5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323713"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678386"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análisis de impacto con Application Insights
 
-La herramienta Impacto analiza cómo influyen los tiempos de carga y otras propiedades en las tasas de conversión para las distintas partes de su aplicación. Para ser más exactos, detecta cómo **cualquier dimensión** de una **vista de página**, **evento personalizado** o **solicitud** afecta el uso de una diferente **vista de página** o **evento personalizado**. 
+La herramienta Impacto analiza cómo influyen los tiempos de carga y otras propiedades en las tasas de conversión para las distintas partes de su aplicación. Para ser más exactos, detecta cómo **cualquier dimensión** de una **vista de página** , **evento personalizado** o **solicitud** afecta el uso de una diferente **vista de página** o **evento personalizado**. 
 
 ![Herramienta Impacto](./media/usage-impact/0001-impact.png)
 
@@ -36,11 +36,11 @@ Pero analizar el rendimiento es solo un subconjunto de las capacidades de Impact
 
 Para empezar a responder a preguntas con la herramienta Impacto, elija una vista de página inicial, un evento personalizado o una solicitud.
 
-![Herramienta Impacto](./media/usage-impact/0002-dropdown.png)
+![Captura de pantalla en la que se muestra dónde elegir una vista de página inicial, un evento personalizado o una solicitud.](./media/usage-impact/0002-dropdown.png)
 
 1. Seleccione una vista de página en la lista desplegable **For the page view** (Para la vista de página).
 2. Deje la lista desplegable **analyze how its** (Analizar su) en la selección predeterminada de **Duración** (en este contexto **Duración** es un alias para **Tiempo de carga de la página**.)
-3. Para la lista desplegable **afecta al uso de**, seleccione un evento personalizado. Este evento debe corresponder a un elemento de la interfaz de usuario en la vista de página que seleccionó en el paso 1.
+3. Para la lista desplegable **afecta al uso de** , seleccione un evento personalizado. Este evento debe corresponder a un elemento de la interfaz de usuario en la vista de página que seleccionó en el paso 1.
 
 ![Captura de resultados](./media/usage-impact/0003-results.png)
 
@@ -54,7 +54,7 @@ Impacto admite propiedades y medidas personalizadas y estándar, así que puede 
 
 1. Seleccione una vista de página en la lista desplegable **For the page view** (Para la vista de página).
 2. Elija "País o región" en la lista desplegable **analyze how its** (Analizar su).
-3. En la lista desplegable **afecta el uso de**, seleccione un evento personalizado que corresponda a un elemento de la interfaz de usuario en la vista de página que eligió en el paso 1.
+3. En la lista desplegable **afecta el uso de** , seleccione un evento personalizado que corresponda a un elemento de la interfaz de usuario en la vista de página que eligió en el paso 1.
 
 En este caso, los resultados ya no se ajustan en un modelo de eje x continuo como lo hacían en el primer ejemplo. En su lugar, se presenta una visualización similar a un embudo segmentado. Ordenar por **Uso** para ver la variación de conversión para el evento personalizado basándose en el país o región.
 
@@ -65,9 +65,9 @@ En segundo plano, la herramienta Impacto se basa en el [coeficiente de correlaci
 
 El análisis básico de cómo funciona Análisis de impacto es el siguiente:
 
-_A_ = la vista de página/evento personalizado/solicitud principal que seleccionó en la primera lista desplegable. (**Para la vista de página**).
+_A_ = la vista de página/evento personalizado/solicitud principal que seleccionó en la primera lista desplegable. ( **Para la vista de página** ).
 
-_B_ = la vista de página/evento personalizado secundario que seleccionó (**afecta al uso de**).
+_B_ = la vista de página/evento personalizado secundario que seleccionó ( **afecta al uso de** ).
 
 Impacto examina una muestra de todas las sesiones de los usuarios en el intervalo de tiempo seleccionado. Para cada sesión, busca cada aparición de _A_.
 
@@ -76,7 +76,7 @@ A continuación las sesiones se dividen en dos tipos diferentes de _subsesiones_
 - Una subsesión convertida se compone de una sesión que termina con un evento _B_ y abarca todos los eventos _A_ que se producen antes _B_.
 - Se produce un subsesión no convertida cuando todos los eventos _A_ ocurren sin un terminal _B_.
 
-La manera en la que se calcula el impacto varía en función de si estamos realizando el análisis por métricas o dimensiones. En el caso de las métricas, se calcula un promedio de todos los eventos _A_en una subsesión se promedian. Mientras que para las dimensiones, el valor de cada _A_ contribuye _1/N_ al valor asignado a _B_ donde _N_ es el número de eventos _A_en la subsesión.
+La manera en la que se calcula el impacto varía en función de si estamos realizando el análisis por métricas o dimensiones. En el caso de las métricas, se calcula un promedio de todos los eventos _A_ en una subsesión se promedian. Mientras que para las dimensiones, el valor de cada _A_ contribuye _1/N_ al valor asignado a _B_ donde _N_ es el número de eventos _A_ en la subsesión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

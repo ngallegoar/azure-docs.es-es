@@ -1,21 +1,21 @@
 ---
 title: Apertura de puertos para una VM mediante Azure PowerShell
-description: Aprenda a abrir un puerto o crear un punto de conexión a la máquina virtual Windows con el modelo de implementación de Azure Resource Manager y Azure PowerShell
+description: Aprenda a abrir un puerto y crear un punto de conexión en la máquina virtual mediante Azure PowerShell.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a417c271c16aabe91836f425f26c0a55e7103557
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a432ce978f6fa9e3a472cb15e9ef9241bc41004d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973944"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891761"
 ---
-# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Apertura de puertos y puntos de conexión para una máquina virtual en Azure mediante PowerShell
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-using-powershell"></a>Apertura de puertos y puntos de conexión para una máquina virtual mediante PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Comandos rápidos
@@ -27,9 +27,9 @@ Inicie sesión en una cuenta de Azure:
 Connect-AzAccount
 ```
 
-En los ejemplos siguientes, reemplace los nombres de parámetros por los suyos propios. Los nombres de parámetro de ejemplo incluían *myResourceGroup*, *myNetworkSecurityGroup* y *myVnet*.
+En los ejemplos siguientes, reemplace los nombres de parámetros por los suyos propios. Los nombres de parámetro de ejemplo incluían *myResourceGroup* , *myNetworkSecurityGroup* y *myVnet*.
 
-Cree una regla con [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecurityruleconfig). En el siguiente ejemplo crea una regla denominada *myNetworkSecurityGroupRule* para permitir el tráfico *TCP* en el puerto *80*:
+Cree una regla con [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecurityruleconfig). En el siguiente ejemplo crea una regla denominada *myNetworkSecurityGroupRule* para permitir el tráfico *TCP* en el puerto *80* :
 
 ```powershell
 $httprule = New-AzNetworkSecurityRuleConfig `
@@ -45,7 +45,7 @@ $httprule = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-A continuación, cree un grupo de seguridad de red con [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) y asigne la regla HTTP que acaba de crear como se indica a continuación. En el ejemplo siguiente se crea un grupo de seguridad de red denominado *myNetworkSecurityGroup*:
+A continuación, cree un grupo de seguridad de red con [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) y asigne la regla HTTP que acaba de crear como se indica a continuación. En el ejemplo siguiente se crea un grupo de seguridad de red denominado *myNetworkSecurityGroup* :
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `

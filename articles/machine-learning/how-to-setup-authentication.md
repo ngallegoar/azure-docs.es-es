@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 8eb042b214ba1e4aea1eda1c65996d55ddde216e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729039"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741889"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning
 
@@ -26,9 +26,9 @@ Obtenga información sobre cómo autenticarse en el área de trabajo de Azure Ma
 En general, hay dos tipos de autenticación que se pueden utilizar con Azure Machine Learning:
 
 * __Interactiva:__ el usuario utiliza la cuenta en Azure Active Directory para autenticarse directamente o para obtener un token que se usa para la autenticación. La autenticación interactiva se usa durante la experimentación y el desarrollo iterativo o dónde quiere controlar el acceso a los recursos (por ejemplo, un servicio web) por usuario.
-* __Entidad de servicio__: el usuario crea una cuenta de entidad de servicio en Azure Active Directory y la usa para autenticarse u obtener un token. Una entidad de servicio se usa cuando se necesita un proceso automatizado para autenticarse en el servicio sin necesidad de interacción del usuario. Por ejemplo, un script de implementación e integración continua que entrena y prueba un modelo cada vez que cambia el código de entrenamiento. También puede usar una entidad de servicio para recuperar un token para autenticarse en un servicio web si no quiere exigir que el usuario final del servicio se autentique. O bien cuando la autenticación del usuario final no se realiza directamente mediante Azure Active Directory.
+* __Entidad de servicio__ : el usuario crea una cuenta de entidad de servicio en Azure Active Directory y la usa para autenticarse u obtener un token. Una entidad de servicio se usa cuando se necesita un proceso automatizado para autenticarse en el servicio sin necesidad de interacción del usuario. Por ejemplo, un script de implementación e integración continua que entrena y prueba un modelo cada vez que cambia el código de entrenamiento. También puede usar una entidad de servicio para recuperar un token para autenticarse en un servicio web si no quiere exigir que el usuario final del servicio se autentique. O bien cuando la autenticación del usuario final no se realiza directamente mediante Azure Active Directory.
 
-Independientemente del tipo de autenticación que se use, el control de acceso basado en roles (RBAC) se usa para limitar el nivel de acceso permitido para los recursos. Por ejemplo, una cuenta que se usa para obtener el token de acceso para un modelo implementado solo necesita acceso de lectura al área de trabajo. Para obtener más información sobre For, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
+Independientemente del tipo de autenticación que se use, el control de acceso basado en roles de Azure (Azure RBAC) se usa para limitar el nivel de acceso permitido a los recursos. Por ejemplo, una cuenta que se usa para obtener el token de acceso para un modelo implementado solo necesita acceso de lectura al área de trabajo. Para obtener más información sobre Azure RBAC, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -100,7 +100,7 @@ La forma más fácil de crear una entidad de servicio y de conceder acceso al á
     az extension add -n azure-cli-ml
     ```
 
-1. Cree la entidad de servicio. En el ejemplo siguiente, se crea una entidad de servicio denominada **ml-auth**:
+1. Cree la entidad de servicio. En el ejemplo siguiente, se crea una entidad de servicio denominada **ml-auth** :
 
     ```azurecli-interactive
     az ad sp create-for-rbac --sdk-auth --name ml-auth
@@ -285,8 +285,8 @@ Use `token_response["accessToken"]` para capturar el token de autenticación. Co
 
 Las implementaciones de modelos creadas por Azure Machine Learning proporcionan dos métodos de autenticación:
 
-* **Basado en claves**: se usa una clave estática para autenticarse en el servicio web.
-* **Basado en tokens**: debe obtenerse un token temporal desde el área de trabajo y usarlo para autenticarse en el servicio web. Este token expira tras un período de tiempo y debe actualizarse para seguir trabajando con el servicio web.
+* **Basado en claves** : se usa una clave estática para autenticarse en el servicio web.
+* **Basado en tokens** : debe obtenerse un token temporal desde el área de trabajo y usarlo para autenticarse en el servicio web. Este token expira tras un período de tiempo y debe actualizarse para seguir trabajando con el servicio web.
 
     > [!NOTE]
     > La autenticación basada en el token solo está disponible al implementarla en Azure Kubernetes Service.

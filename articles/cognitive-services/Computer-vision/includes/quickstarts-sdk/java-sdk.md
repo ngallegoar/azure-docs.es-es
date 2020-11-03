@@ -7,29 +7,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 12/19/2019
+ms.date: 10/13/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 2b305b1ffc5c72780f903c7798fbce24c630baba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ac0d09ea1641688dc59df1bbdbe19712d0cebe4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321888"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886738"
 ---
 <a name="HOLTop"></a>
 
-[Documentación de referencia](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Artefacto (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [Ejemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Documentación de referencia](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [Ejemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
-* La versión actual de [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* La última versión de [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * La [herramienta de compilación de Gradle](https://gradle.org/install/) u otro administrador de dependencias.
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Creación de un recurso de Computer Vision"  target="_blank">cree un recurso de Computer Vision <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación al servicio Computer Vision. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
-* [Cree las variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) `COMPUTER_VISION_SUBSCRIPTION_KEY` y `COMPUTER_VISION_ENDPOINT` para la clave y la dirección URL del punto de conexión, respectivamente.
 
 ## <a name="setting-up"></a>Instalación
 
@@ -41,13 +40,17 @@ En una ventana de la consola (como cmd, PowerShell o Bash), cree un directorio p
 mkdir myapp && cd myapp
 ```
 
-Ejecute el comando `gradle init` desde el directorio de trabajo. Este comando creará archivos de compilación esenciales para Gradle, como *build.gradle.kts*, que se usa en tiempo de ejecución para crear y configurar la aplicación.
+Ejecute el comando `gradle init` desde el directorio de trabajo. Este comando creará archivos de compilación esenciales para Gradle, como *build.gradle.kts* , que se usa en tiempo de ejecución para crear y configurar la aplicación.
 
 ```console
 gradle init --type basic
 ```
 
-Cuando se le solicite que elija un **DSL**, seleccione **Kotlin**.
+Cuando se le solicite que elija un **DSL** , seleccione **Kotlin**.
+
+### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
+
+En este inicio rápido se usa el administrador de dependencias Gradle. Puede encontrar la biblioteca de cliente y la información de otros administradores de dependencias en el [repositorio central de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
 
 Busque *build.gradle.kts* y ábralo con el IDE o el editor de texto que prefiera. A continuación, cópielo en la siguiente configuración de compilación. Esta configuración define el proyecto como una aplicación Java cuyo punto de entrada es la clase **ComputerVisionQuickstarts**. Importa la biblioteca de Computer Vision.
 
@@ -62,7 +65,12 @@ application {
 repositories {
     mavenCentral()
 }
+dependencies {
+    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
+}
 ```
+
+### <a name="create-a-java-file"></a>Creación de un archivo Java
 
 En el directorio de trabajo, ejecute el siguiente comando para crear una carpeta de origen del proyecto:
 
@@ -74,19 +82,23 @@ Vaya a la nueva carpeta y cree un archivo denominado *ComputerVisionQuickstarts.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imports)]
 
-A continuación, agregue una definición de clase para **ComputerVisionQuickstarts**.
+> [!TIP]
+> ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java), que contiene los ejemplos de código de este inicio rápido.
 
-### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
+En la clase **ComputerVisionQuickstarts** de la aplicación, cree variables para el punto de conexión y la clave del recurso.
 
-En este inicio rápido se usa el administrador de dependencias Gradle. Puede encontrar la biblioteca de cliente y la información de otros administradores de dependencias en el [repositorio central de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_creds)]
 
-En el archivo *build.gradle.kts* del proyecto, incluya la biblioteca de cliente de Computer Vision como una dependencia.
 
-```kotlin
-dependencies {
-    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
-}
-```
+> [!IMPORTANT]
+> Vaya a Azure Portal. Si el recurso de [nombre del producto] que ha creado en la sección **Requisitos previos** se ha implementado correctamente, haga clic en el botón **Ir al recurso** en **Pasos siguientes**. Puede encontrar su clave y punto de conexión en la página de **clave y punto de conexión** del recurso, en **Administración de recursos**. 
+>
+> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Cognitive Services.
+
+En el método **main** de la aplicación, agregue llamadas para los métodos que se usan en este inicio rápido. Se definirán más adelante.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
+
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -108,32 +120,24 @@ En estos fragmentos de código se muestra cómo realizar las siguientes tareas c
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-> [!NOTE]
-> En este inicio rápido se da por supuesto que ha [creado una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave de Computer Vision, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY`.
 
-El código siguiente agrega un método `main` a la clase y se crean variables para el punto de conexión y la clave de Azure del recurso. Tendrá que escribir su propia cadena de punto de conexión, que puede encontrar comprobando la sección de **Introducción** de Azure Portal. 
+En un nuevo método, cree una instancia de un objeto [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) con su punto de conexión y clave.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_mainvars)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
-A continuación, agregue el código siguiente para crear un objeto [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) y pasarlo a otros métodos, que definirá más adelante.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_client)]
-
-> [!NOTE]
-> Si ha creado la variable de entorno después de haber iniciado la aplicación, tendrá que cerrar y volver a abrir el editor, el IDE o el shell que lo ejecuta para acceder a la variable.
 
 ## <a name="analyze-an-image"></a>Análisis de una imagen
 
 El código siguiente define un método, `AnalyzeLocalImage`, que utiliza el objeto de cliente para analizar una imagen local e imprimir los resultados. El método devuelve una descripción de texto, categorización, lista de etiquetas, caras detectadas, marcas de contenido para adultos, colores principales y tipo de imagen.
 
+> [!TIP]
+> También puede analizar una imagen remota mediante su dirección URL. Consulte los métodos [ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable), como **AnalyzeImage**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para escenarios relacionados con imágenes remotas.
+
 ### <a name="set-up-test-image"></a>Configuración de una imagen de prueba
 
-En primer lugar, cree una carpeta **recursos/** en la carpeta **src /main/** del proyecto y agregue una imagen que desee analizar. A continuación, agregue la siguiente definición de método a la clase **ComputerVisionQuickstarts**. Si es necesario, cambie el valor de `pathToLocalImage` para que coincida con el archivo de imagen. 
+En primer lugar, cree una carpeta **recursos/** en la carpeta **src /main/** del proyecto y agregue una imagen que desee analizar. A continuación, agregue la siguiente definición de método a la clase **ComputerVisionQuickstarts**. Cambie el valor de `pathToLocalImage` para que coincida con el archivo de imagen. 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
-
-> [!NOTE]
-> También puede analizar una imagen remota mediante su dirección URL. Consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para ver los escenarios que implican imágenes remotas.
 
 ### <a name="specify-visual-features"></a>Especificación de características visuales
 
@@ -206,14 +210,14 @@ El código siguiente imprime información sobre el tipo de imagen (si es una ima
 
 Computer Vision puede leer texto visible de una imagen y convertirlo en un flujo de caracteres. En esta sección se define un método, `ReadFromFile`, que toma una ruta de acceso de archivo local e imprime el texto de la imagen en la consola.
 
-> [!NOTE]
-> También puede leer el texto de una imagen remota mediante su dirección URL. Consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para ver los escenarios que implican imágenes remotas.
+> [!TIP]
+> También puede leer el texto de una imagen remota referenciada por una dirección URL. Consulte los métodos [ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable), como **read**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para escenarios relacionados con imágenes remotas.
 
 ### <a name="set-up-test-image"></a>Configuración de una imagen de prueba
 
 Cree una carpeta **resources/** en la carpeta **src/main/** del proyecto y agregue una imagen de la que quiera leer texto. Puede descargar una [imagen de ejemplo](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) para usarla.
 
-A continuación, agregue la siguiente definición de método a la clase **ComputerVisionQuickstarts**. Si es necesario, cambie el valor de `localFilePath` para que coincida con el archivo de imagen. 
+A continuación, agregue la siguiente definición de método a la clase **ComputerVisionQuickstarts**. Cambie el valor de `localFilePath` para que coincida con el archivo de imagen. 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_setup)]
 

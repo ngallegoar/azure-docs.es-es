@@ -2,13 +2,13 @@
 title: Compatibilidad de etiquetas de los recursos
 description: Muestra los tipos de recursos de Azure que admiten etiquetas. Proporciona detalles de todos los servicios de Azure.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 27e25b1048bb759a3b38859788c27c03f1cf0447
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: c3a94ece52e5c5b17a50fed9810303480a9c974a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371548"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370294"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](tag-resources.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos. Puede ver los costos por etiquetas en el [análisis de costos de Cost Management](../../cost-management-billing/costs/group-filter.md) y los [datos de uso diario y de facturación de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -37,6 +37,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft.BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -167,6 +168,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.Singularity](#microsoftsingularity)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.SQL](#microsoftsql)
@@ -361,6 +363,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | privateClouds | Sí | Sí |
+> | privateClouds / addons | No | No |
 > | privateClouds / authorizations | No | No |
 > | privateClouds / clusters | No | No |
 > | privateClouds/globalReachConnections | No | No |
@@ -423,12 +426,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | clusters | Sí | Sí |
 
+## <a name="microsoftbaremetalinfrastructure"></a>Microsoft.BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | bareMetalInstances | Sí | Sí |
+
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | batchAccounts | Sí | Sí |
+> | batchAccounts/certificates | No | No |
+> | batchAccounts/pools | No | No |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -737,7 +749,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | plans | Sí | Sí |
+> | plans | Sí | No |
 > | registeredSubscriptions | No | No |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
@@ -973,7 +985,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | workspaces | Sí | Sí |
 > | workspaces / dbWorkspaces | No | No |
-> | workspaces / storageEncryption | No | No |
 > | workspaces/virtualNetworkPeerings | No | No |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1132,6 +1143,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | applicationgroups/desktops | No | No |
 > | applicationgroups/startmenuitems | No | No |
 > | hostpools | Sí | Sí |
+> | hostpools / msixpackages | No | No |
 > | hostpools/sessionhosts | No | No |
 > | hostpools/sessionhosts/usersessions | No | No |
 > | hostpools/usersessions | No | No |
@@ -1384,12 +1396,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | devices | Sí | Sí |
+> | networkFunctions | Sí | Sí |
+> | networkFunctionVendors | No | No |
 > | registeredSubscriptions | No | No |
 > | vendors | No | No |
-> | vendors/vendorskus | No | No |
-> | vendors/vendorskus/previewSubscriptions | No | No |
-> | virtualnetworkfunctions | Sí | Sí |
-> | virtualnetworkfunctionvendors | No | No |
+> | vendors / vendorSkus | No | No |
+> | vendors / vendorSkus / previewSubscriptions | No | No |
+> | virtualNetworkFunctions | Sí | Sí |
+> | virtualNetworkFunctionVendors | No | No |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1537,9 +1551,20 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | workspaces | Sí | Sí |
+> | workspaces / batchEndpoints | Sí | Sí |
+> | workspaces / batchEndpoints / deployments | Sí | Sí |
+> | workspaces / codes | No | No |
+> | workspaces / codes / versions | No | No |
 > | workspaces/computes | No | No |
+> | workspaces / datastores | No | No |
 > | workspaces/eventGridFilters | No | No |
+> | workspaces / jobs | No | No |
+> | workspaces / labelingJobs | No | No |
 > | workspaces/linkedServices | No | No |
+> | workspaces / models | No | No |
+> | workspaces / models / versions | No | No |
+> | workspaces / onlineEndpoints | Sí | Sí |
+> | workspaces / onlineEndpoints / deployments | Sí | Sí |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -2194,6 +2219,17 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | SignalR | Sí | Sí |
 > | SignalR/eventGridFilters | No | No |
 
+## <a name="microsoftsingularity"></a>Microsoft.Singularity
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | accounts | Sí | Sí |
+> | accounts / accountQuotaPolicies | No | No |
+> | accounts / groupPolicies | No | No |
+> | accounts / jobs | No | No |
+> | accounts / storageContainers | No | No |
+
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
@@ -2332,6 +2368,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | clusters | Sí | Sí |
+> | clusters / privateEndpoints | No | No |
 > | streamingjobs | Sí (vea la nota siguiente) | Sí |
 
 > [!NOTE]
@@ -2433,8 +2470,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | accounts | Sí | Sí |
-> | plans | Sí | Sí |
+> | accounts | Sí | No |
+> | plans | Sí | No |
 > | registeredSubscriptions | No | No |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -2469,6 +2506,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | runtimes | No | No |
 > | serverFarms | Sí | Sí |
 > | serverFarms/eventGridFilters | No | No |
+> | serverFarms / firstPartyApps | No | No |
+> | serverFarms / firstPartyApps / keyVaultSettings | No | No |
 > | sites | Sí | Sí |
 > | sites/config  | No | No |
 > | sites/eventGridFilters | No | No |

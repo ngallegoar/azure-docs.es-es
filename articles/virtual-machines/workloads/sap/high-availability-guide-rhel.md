@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: a216e942d63941c19aea8fa1c07962de0744e9bd
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 9b4684f8d9a6bd04a11961632b616258db7344a3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165050"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487575"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux
 
@@ -231,7 +231,7 @@ En primer lugar, debe crear las máquinas virtuales de este clúster. Después, 
          1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
          1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb-3200** ).
          1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **nw1-ascs-frontend** ).
-         1. Conserve el protocolo **TCP** y escriba el puerto **3200** .
+         1. Conserve el protocolo **TCP** y escriba el puerto **3200**.
          1. Aumente el tiempo de espera de inactividad a 30 minutos
          1. **Asegúrese de habilitar la dirección IP flotante**
          1. Haga clic en Aceptar
@@ -247,7 +247,7 @@ En primer lugar, debe crear las máquinas virtuales de este clúster. Después, 
 > Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno (sin dirección IP pública), no hay conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, vea [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0** . Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información.
+> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información.
 
 ### <a name="create-pacemaker-cluster"></a>Creación del clúster de Pacemaker
 
@@ -499,10 +499,10 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
 
 1. **[A]** Configure la conexión persistente
 
-   La comunicación entre el servidor de aplicaciones de SAP NetWeaver y ASCS/SCS se enruta a través de un equilibrador de carga de software. El equilibrador de carga desconecta las conexiones inactivas después de un tiempo de expiración que se puede configurar. Para evitar esto, debe establecer un parámetro en el perfil de SAP NetWeaver ASCS/SCS y cambiar la configuración del sistema Linux. Para más información, lea la [nota de SAP 1410736][1410736].
+   La comunicación entre el servidor de aplicaciones de SAP NetWeaver y ASCS/SCS se enruta a través de un equilibrador de carga de software. El equilibrador de carga desconecta las conexiones inactivas después de un tiempo de expiración que se puede configurar. Para evitarlo, tendrá que establecer un parámetro en el perfil de SAP NetWeaver ASCS/SCS, si usa ENSA1, y cambiar la configuración `keepalive` del sistema Linux en todos los servidores SAP para ENSA1 y ENSA2. Para más información, lea la [nota de SAP 1410736][1410736].
 
    <pre><code># Change the Linux system configuration
-   sudo sysctl net.ipv4.tcp_keepalive_time=120
+   sudo sysctl net.ipv4.tcp_keepalive_time=300
    </code></pre>
 
 1. **[A]** Actualización del archivo /usr/sap/sapservices

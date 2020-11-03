@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/15/2019
 ms.author: jeedes
-ms.openlocfilehash: e56684c30d243e0b7848355234fef896ccd220ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b0c42046df716c8ae65046e5f3314817da0a17e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543302"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893804"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-screencast-o-matic"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Screencast-O-Matic
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Screencast-O-Matic con Azure Active Dir
 * Permitir que los usuarios inicien sesión automáticamente en Screencast-O-Matic con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -50,7 +50,7 @@ Para configurar la integración de Screencast-O-Matic en Azure AD, deberá agreg
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Screencast-O-Matic** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería** , escriba **Screencast-O-Matic** en el cuadro de búsqueda.
 1. Seleccione **Screencast-O-Matic** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-screencast-o-matic"></a>Configuración y prueba del inicio de sesión único de Azure AD para Screencast-O-Matic
@@ -70,20 +70,20 @@ Para configurar y probar el inicio de sesión único de Azure AD con Screencast-
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Screencast-O-Matic**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Screencast-O-Matic** , busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML** , especifique los valores de los siguientes campos:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://screencast-o-matic.com/<InstanceName>`
+    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://screencast-o-matic.com/<InstanceName>`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Screencast-O-Matic](mailto:support@screencast-o-matic.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -95,11 +95,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Haga clic en **Crear**.
 
@@ -113,13 +113,13 @@ En esta sección va a permitir que B.Simon acceda a Screencast-O-Matic mediante 
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
 
 ## <a name="configure-screencast-o-matic-sso"></a>Configuración del inicio de sesión único en Screencast-O-Matic
 
@@ -137,15 +137,15 @@ En esta sección va a permitir que B.Simon acceda a Screencast-O-Matic mediante 
 
     ![Suscripción](./media/screencast-tutorial/tutorial_screencast_sub.png)
 
-1. En la sección **Access page** (Página de acceso), haga clic en **Configurar**.
+1. En la sección **Access page** (Página de acceso), haga clic en **Setup** (Configurar).
 
-    ![Acceso](./media/screencast-tutorial/tutorial_screencast_setup.png)
+    ![Captura de pantalla que muestra la sección "Access Page" (Página de acceso) con el botón "Setup" (Configurar).](./media/screencast-tutorial/tutorial_screencast_setup.png)
 
 1. En **Setup Access Page** (Configurar página de acceso), realice los pasos siguientes.
 
 1. En la sección **Access URL** (Dirección URL de acceso), escriba el nombre de instancia en el cuadro de texto indicado.
 
-    ![Acceso](./media/screencast-tutorial/tutorial_screencast_access.png)
+    ![Captura de pantalla que muestra la sección "Access U R L" (Dirección U R L de acceso) con el cuadro de texto de nombre de instancia resaltado.](./media/screencast-tutorial/tutorial_screencast_access.png)
 
 1. Seleccione **Require Domain User** (Requerir usuario de dominio) en la sección **SAML User Restriction (optional)** [Restricción de usuario SAML (opcional)].
 
@@ -163,14 +163,14 @@ En esta sección, se crea un usuario llamado Britta Simon en Screencast-O-Matic.
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Screencast-O-Matic en el panel de acceso, debería iniciar sesión automáticamente en la versión de Screencast-O-Matic para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Screencast-O-Matic en el panel de acceso, debería iniciar sesión automáticamente en la versión de Screencast-O-Matic para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prueba de Screencast-O-Matic con Azure AD](https://aad.portal.azure.com/)

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1126798bdf07f54811c83b932af9928f3e3115dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667867"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792011"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 
@@ -34,7 +34,7 @@ Azure Machine Learning puede implementar modelos de Machine Learning entrenados 
 
 - Si necesita implementar un **Standard Load Balancer (SLB)** en el clúster en lugar de un Basic Load Balancer (BLB), cree un clúster en el portal de AKS, la CLI o el SDK y, a continuación, **adjuntarlo** al área de trabajo de AML.
 
-- Si tiene una instancia de Azure Policy que restringe la creación de direcciones IP públicas, se producirá un error en la creación del clúster de AKS. AKS requiere una dirección IP pública para el [tráfico de salida](/azure/aks/limit-egress-traffic). En este artículo de tráfico de salida también se proporcionan instrucciones para bloquear el tráfico de salida desde el clúster a través de la dirección IP pública, excepto en el caso de algunos nombres de dominio completos. Hay dos formas de habilitar una dirección IP pública:
+- Si tiene una instancia de Azure Policy que restringe la creación de direcciones IP públicas, se producirá un error en la creación del clúster de AKS. AKS requiere una dirección IP pública para el [tráfico de salida](/azure/aks/limit-egress-traffic). En el artículo de tráfico de salida también se proporcionan instrucciones para bloquear el tráfico de salida desde el clúster a través de la dirección IP pública, excepto en el caso de algunos nombres de dominio completos. Hay dos formas de habilitar una dirección IP pública:
     - El clúster puede usar la dirección IP pública creada de forma predeterminada con BLB o SLB.
     - El clúster se puede crear sin una dirección IP pública y luego configurar una dirección IP pública con un firewall con una ruta definida por el usuario. Para obtener más información, consulte [Personalización de la salida de un clúster con una ruta definida por el usuario](/azure/aks/egress-outboundtype).
     
@@ -54,14 +54,14 @@ Azure Machine Learning puede implementar modelos de Machine Learning entrenados 
    
  - Si quiere implementar modelos en nodos de **GPU** o en nodos de **FPGA** (o en cualquier SKU específica), debe crear un clúster con la SKU específica. No se admite la creación de un grupo de nodos secundarios en un clúster existente ni la implementación de modelos en el grupo de nodos secundarios.
  
-- Al crear o adjuntar un clúster, puede seleccionar si quiere crearlo para __desarrollo y pruebas__ o __producción__. Si quiere crear un clúster de AKS para __desarrollo__,  __validación__y __pruebas__, en lugar de producción, especifique el __propósito del clúster__ en __desarrollo y pruebas__. Si no especifica el propósito del clúster, se crea un clúster de __producción__. 
+- Al crear o adjuntar un clúster, puede seleccionar si quiere crearlo para __desarrollo y pruebas__ o __producción__. Si quiere crear un clúster de AKS para __desarrollo__ ,  __validación__ y __pruebas__ , en lugar de producción, especifique el __propósito del clúster__ en __desarrollo y pruebas__. Si no especifica el propósito del clúster, se crea un clúster de __producción__. 
 
     > [!IMPORTANT]
     > Un clúster de __desarrollo y pruebas__ no es adecuado para un tráfico de nivel de producción y puede aumentar los tiempos de inferencia. Los clústeres de desarrollo y pruebas tampoco garantizan la tolerancia a errores.
 
-- Al crear o adjuntar un clúster, si se va a usar para __producción__, debe contener al menos 12 __CPU virtuales__. El número de CPU virtuales se puede calcular multiplicando el __número de nodos__ en el clúster por el __número de núcleos__ proporcionados por el tamaño de máquina virtual seleccionado. Por ejemplo, si usa un valor de VM de "Standard_D3_v2", que tiene 4 CPU virtuales, debe seleccionar un número de nodos de 3 o más.
+- Al crear o adjuntar un clúster, si se va a usar para __producción__ , debe contener al menos 12  __CPU virtuales__. El número de CPU virtuales se puede calcular multiplicando el __número de nodos__ en el clúster por el __número de núcleos__ proporcionados por el tamaño de máquina virtual seleccionado. Por ejemplo, si usa un valor de VM de "Standard_D3_v2", que tiene 4 CPU virtuales, debe seleccionar un número de nodos de 3 o más.
 
-    Para los clústeres de __desarrollo y pruebas__, se recomiendan al menos dos CPU virtuales.
+    Para los clústeres de __desarrollo y pruebas__ , se recomiendan al menos dos CPU virtuales.
 
 - El SDK de Azure Machine Learning no admite escalar un clúster de AKS. Para escalar los nodos en el clúster, use la interfaz de usuario para el clúster de AKS en Azure Machine Learning Studio. Solo puede cambiar el número de nodos, no el tamaño de máquina virtual del clúster. Para más información acerca del escalado de nodos en un clúster de AKS, consulte los artículos siguientes:
 
@@ -124,7 +124,7 @@ Result
 1.16.13
 ```
 
-Si quiere **comprobar mediante programación las versiones disponibles**, utilice la API REST [Container Service Client - List Orchestrators](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators). Para buscar las versiones disponibles, examine las entradas en las que `orchestratorType` sea `Kubernetes`. Las entradas `orchestrationVersion` asociadas contienen las versiones disponibles que se pueden **adjuntar** al área de trabajo.
+Si quiere **comprobar mediante programación las versiones disponibles** , utilice la API REST [Container Service Client - List Orchestrators](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators). Para buscar las versiones disponibles, examine las entradas en las que `orchestratorType` sea `Kubernetes`. Las entradas `orchestrationVersion` asociadas contienen las versiones disponibles que se pueden **adjuntar** al área de trabajo.
 
 Para buscar la versión predeterminada que se usa al **crear** un clúster a través de Azure Machine Learning, busque la entrada en la que `orchestratorType` sea `Kubernetes` y `default` sea `true`. El valor de `orchestratorVersion` asociado es la versión predeterminada. El siguiente fragmento de código JSON es un ejemplo de entrada:
 
@@ -147,7 +147,7 @@ Para buscar la versión predeterminada que se usa al **crear** un clúster a tra
 
 ## <a name="create-a-new-aks-cluster"></a>Creación de un clúster de AKS
 
-**Tiempo estimado**: Aproximadamente 10 minutos.
+**Tiempo estimado** : Aproximadamente 10 minutos.
 
 Crear o asociar un clúster de AKS es un proceso único en el área de trabajo. Puede volver a usar este clúster con diferentes implementaciones. Si elimina el clúster o el grupo de recursos que lo contiene, tendrá que crear un nuevo clúster la próxima vez que tenga que realizar una implementación. Puede tener varios clústeres de AKS asociados al área de trabajo.
 
@@ -302,7 +302,7 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-En Azure Machine Learning Studio, seleccione __Proceso__, __Inference clusters__ (Clústeres de inferencia) y el clúster que quiere quitar. Use el vínculo __Desasociar__ para desasociar el clúster.
+En Azure Machine Learning Studio, seleccione __Proceso__ , __Inference clusters__ (Clústeres de inferencia) y el clúster que quiere quitar. Use el vínculo __Desasociar__ para desasociar el clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

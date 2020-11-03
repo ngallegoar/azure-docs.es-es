@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: caaf8e25cdf43602fda8fc72caf7d16b7b56c06a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc9da659e7e55e8b15071f957d6a51e3b4673244
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361898"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427569"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Administración de un servicio web mediante el portal de servicios web de Azure Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
@@ -44,7 +44,7 @@ Si el usuario no tiene los permisos correctos para acceder a recursos en el port
 
 Para más información sobre cómo crear un área de trabajo, consulte cómo [crear y compartir un área de trabajo de Azure Machine Learning Studio (clásico)](create-workspace.md).
 
-Para más información acerca de cómo establecer los permisos de acceso, consulte [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Para obtener más información sobre la definición de los permisos de acceso, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## <a name="manage-new-web-services"></a>Administración de servicios web nuevos
@@ -64,8 +64,8 @@ Para administrar un servicio web, haga clic en Servicios web. En la página Serv
 
 Al hacer clic en un servicio web, se abrirá la correspondiente página Inicio rápido. Esta página tiene dos opciones de menú que le permiten administrar el servicio web:
 
-* **PANEL**: permite ver el uso del servicio web.
-* **CONFIGURAR**: permite agregar texto descriptivo, actualizar la clave de la cuenta de almacenamiento asociada con el servicio web, y habilitar y deshabilitar datos de ejemplo.
+* **PANEL** : permite ver el uso del servicio web.
+* **CONFIGURAR** : permite agregar texto descriptivo, actualizar la clave de la cuenta de almacenamiento asociada con el servicio web, y habilitar y deshabilitar datos de ejemplo.
 
 ### <a name="monitoring-how-the-web-service-is-being-used"></a>Supervisión del uso del servicio web
 Haga clic en la pestaña **Panel** .
@@ -131,8 +131,8 @@ En la página de puntos de conexión del servicio web clásico puede agregar y e
 
 Haga clic en uno de los puntos de conexión para abrir la página Inicio rápido del servicio web. En la página Inicio rápido hay dos opciones de menú que permiten administrar el servicio web:
 
-* **PANEL**: permite ver el uso del servicio web.
-* **CONFIGURAR**: permite agregar texto descriptivo, activar y desactivar el registro de errores, actualizar la clave de la cuenta de almacenamiento asociada con el servicio web, y habilitar y deshabilitar datos de ejemplo.
+* **PANEL** : permite ver el uso del servicio web.
+* **CONFIGURAR** : permite agregar texto descriptivo, activar y desactivar el registro de errores, actualizar la clave de la cuenta de almacenamiento asociada con el servicio web, y habilitar y deshabilitar datos de ejemplo.
 
 ### <a name="monitoring-how-the-web-service-is-being-used"></a>Supervisión del uso del servicio web
 Haga clic en la pestaña **Panel** .

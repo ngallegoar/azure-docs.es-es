@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
-ms.openlocfilehash: fd0f489bd6109a5dcd6625eb26286e0d40c50c63
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e4f6cefd56c12162b370c78b6df2cd29ece030f1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962333"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515719"
 ---
 # <a name="enable-write-accelerator"></a>Habilitar el acelerador de escritura
 
@@ -57,7 +57,7 @@ Hay límites en los discos duros virtuales de Azure Premium Storage por máquina
 | M16ms, M16s | 2 | 2.500 |
 | M8ms, M8s | 1 | 1250 |
 
-Los límites de IOPS son por máquina virtual y *no* por disco. Todos los discos del Acelerador de escritura comparten el mismo límite de IOPS por máquina virtual.
+Los límites de IOPS son por máquina virtual y *no* por disco. Todos los discos del Acelerador de escritura comparten el mismo límite de IOPS por máquina virtual. En una máquina virtual, los discos conectados no pueden superar el límite de IOPS del acelerador de escritura. Por ejemplo, aunque los discos conectados pueden realizar 30 000 IOPS, el sistema no permite que superen 20 000 IOPS para M416ms_v2.
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Habilitación del Acelerador de escritura en un disco específico
 
@@ -75,7 +75,7 @@ En este momento, los requisitos previos siguientes se aplican al uso del Acelera
 El módulo de Azure PowerShell a partir de la versión 5.5.0 incluye los cambios en los cmdlets pertinentes para habilitar o deshabilitar el Acelerador de escritura para discos específicos de Azure Premium Storage.
 Con el fin de habilitar o implementar los discos compatibles con el Acelerador de escritura, se modificaron los comandos de PowerShell siguientes y se extendieron para que aceptaran un parámetro para el Acelerador de escritura.
 
-Se ha agregado **-WriteAccelerator**, un nuevo parámetro de modificador, a los siguientes cmdlets:
+Se ha agregado **-WriteAccelerator** , un nuevo parámetro de modificador, a los siguientes cmdlets:
 
 - [Set-AzVMOsDisk](/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
 - [Add-AzVMDataDisk](/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
@@ -84,13 +84,13 @@ Se ha agregado **-WriteAccelerator**, un nuevo parámetro de modificador, a los 
 
 Si no se proporciona el parámetro, la propiedad se establece en false y se implementarán discos no compatibles con el Acelerador de escritura.
 
-Se agregó **-OsDiskWriteAccelerator**, un nuevo parámetro de modificador, a los siguientes cmdlets:
+Se agregó **-OsDiskWriteAccelerator** , un nuevo parámetro de modificador, a los siguientes cmdlets:
 
 - [Set-AzVmssStorageProfile](/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
 Si no se especifica el parámetro, la propiedad se establece en false de forma predeterminada y se devuelven los discos que no usan el Acelerador de escritura.
 
-Se agregó **-OsDiskWriteAccelerator**, un nuevo parámetro booleano opcional (que no admite valores NULL), a los siguientes cmdlets:
+Se agregó **-OsDiskWriteAccelerator** , un nuevo parámetro booleano opcional (que no admite valores NULL), a los siguientes cmdlets:
 
 - [Update-AzVM](/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
 - [Update-AzVmss](/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)

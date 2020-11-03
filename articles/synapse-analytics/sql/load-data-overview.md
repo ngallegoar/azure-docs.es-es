@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483735"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474672"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Diseño de una estrategia de carga de datos de PolyBase para el grupo de SQL de Azure Synapse
 
-Los almacenes de datos SMP tradicionales usan un proceso de extracción, transformación y carga (ETL) para cargar los datos. El grupo de SQL de Azure es una arquitectura de diseño de procesamiento paralelo masivo (MPP) que aprovecha la escalabilidad y la flexibilidad de los recursos de proceso y almacenamiento. El uso de un proceso de extracción, carga y transformación (ELT) puede aprovechar las ventajas de MPP y eliminar los recursos necesarios para transformar los datos antes de cargarlos.
+Los almacenes de datos SMP tradicionales usan un proceso de extracción, transformación y carga (ETL) para cargar los datos. El grupo de SQL de Azure es una arquitectura de diseño de procesamiento paralelo masivo (MPP) que aprovecha la escalabilidad y la flexibilidad de los recursos de proceso y almacenamiento. El uso de un proceso de extracción, carga y transformación (ELT) puede aprovechar las ventajas de las funcionalidades integradas de procesamiento de consultas distribuidas, y eliminar los recursos necesarios para transformar los datos antes de cargarlos.
 
 Mientras que el grupo de SQL es compatible con muchos métodos de carga, incluidas opciones que no son Polybase como BCP y SQL BulkCopy API, la manera más rápida y más escalable para cargar la fecha es a través de PolyBase.  PolyBase es una tecnología que tiene acceso a datos externos almacenados en Azure Blob Storage o Azure Data Lake Store mediante el lenguaje T-SQL.
 
@@ -112,7 +112,7 @@ Para dar formato a los archivos de texto:
 
 ## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. Cargar los datos en las tablas de almacenamiento provisional del grupo de SQL mediante PolyBase
 
-Es una práctica recomendada para cargar datos en una tabla de almacenamiento provisional. Las tablas de almacenamiento provisional le permiten controlar los errores sin interferir con las tablas de producción. Asimismo, una tabla de almacenamiento provisional también ofrece la posibilidad de usar MPP del grupo de SQL para transformaciones de datos antes de insertar los datos en tablas de producción.
+Es una práctica recomendada para cargar datos en una tabla de almacenamiento provisional. Las tablas de almacenamiento provisional le permiten controlar los errores sin interferir con las tablas de producción. Asimismo, una tabla de almacenamiento provisional también ofrece la posibilidad de usar las funcionalidades integradas de procesamiento de consultas distribuidas del grupo de SQL para transformaciones de datos antes de insertar estos datos en tablas de producción.
 
 ### <a name="options-for-loading-with-polybase"></a>Opciones para cargar datos con PolyBase
 

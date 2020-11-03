@@ -1,5 +1,5 @@
 ---
-title: Qué es el aprendizaje automático automatizado / ML automatizado
+title: Qué es el aprendizaje automático automatizado AutoML
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo Azure Machine Learning puede elegir de forma automática un algoritmo y generar un modelo a partir de él para ahorrar tiempo, mediante los parámetros y criterios que proporcione con el fin de seleccionar el mejor algoritmo para el modelo.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 4908f66dbc699a449b7b94febac8133bacc9f669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c3e5602834576e8d3de86ac7d6683f9b6f7b89
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760976"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367523"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -70,18 +70,18 @@ Vea ejemplos de regresión y aprendizaje automático automatizado para prediccio
 
 Durante el entrenamiento, Azure Machine Learning crea una serie de canalizaciones en paralelo que prueban distintos parámetros y algoritmos. El servicio recorre en iteración los algoritmos de ML que corresponden con las selecciones de características, de forma que cada iteración genera un modelo con una puntuación de entrenamiento. Cuanto mayor sea la puntuación, mejor se "ajustará" el modelo a sus datos.  Se detendrá una vez que logre los criterios de salida definidos en el experimento. 
 
-Si usa **Azure Machine Learning**, puede diseñar y ejecutar sus experimentos de entrenamiento de Machine Learning automatizado mediante los siguientes pasos:
+Si usa **Azure Machine Learning** , puede diseñar y ejecutar sus experimentos de entrenamiento de Machine Learning automatizado mediante los siguientes pasos:
 
 1. **Identifique el problema de Machine Learning** que quiere solucionar: clasificación, previsión o regresión.
 
-1. **Elija si desea usar el SDK de Python o la experiencia web de Studio**: Aprenda sobre la paridad entre el [SDK de Python y la experiencia web de Studio](#parity).
+1. **Elija si desea usar el SDK de Python o la experiencia web de Studio** : Aprenda sobre la paridad entre el [SDK de Python y la experiencia web de Studio](#parity).
 
    * Si busca una experiencia sin código o limitada, pruebe la experiencia web de Azure Machine Learning Studio en [https://ml.azure.com](https://ml.azure.com/).  
    * Los desarrolladores de Python pueden consultar el [SDK de Python de Azure Machine Learning](how-to-configure-auto-train.md). 
     
-1. **Especifique el origen y el formato de los datos de entrenamiento etiquetados**: matrices de Numpy o dataframes de Pandas.
+1. **Especifique el origen y el formato de los datos de entrenamiento etiquetados** : matrices de Numpy o dataframes de Pandas.
 
-1. **Configure el destino de proceso para el entrenamiento del modelo**, puede ser [un equipo local, los procesos de Azure Machine Learning, las máquinas virtuales remotas o Azure Databricks](how-to-set-up-training-targets.md).  Obtenga información sobre el entrenamiento automático [en recursos remotos](how-to-auto-train-remote.md).
+1. **Configure el destino de proceso para el entrenamiento del modelo** , puede ser [un equipo local, los procesos de Azure Machine Learning, las máquinas virtuales remotas o Azure Databricks](how-to-set-up-training-targets.md).  Obtenga información sobre el entrenamiento automático [en recursos remotos](how-to-auto-train-remote.md).
 
 1. **Configure los parámetros de aprendizaje de automático automatizado** que determinan el número de iteraciones en diferentes modelos, las configuraciones de hiperparámetros, la caracterización y preprocesamiento de datos y las métricas que se deben observar para seleccionar al mejor modelo.  
 1. **Envíe la ejecución del entrenamiento.**
@@ -140,8 +140,8 @@ Para habilitar esta configuración, realice lo siguiente:
 
 El aprendizaje automático automatizado admite modelos de conjunto, que están habilitados de forma predeterminada. El aprendizaje de conjunto mejora los resultados del aprendizaje automático y su rendimiento predictivo mediante la combinación de varios modelos en lugar de usar modelos únicos. Las iteraciones de conjunto aparecen como las iteraciones finales de la ejecución. El aprendizaje automático automatizado usa los métodos de conjunto de votaciones y apilamiento para combinar modelos:
 
-* **Votación**: realiza la predicción en función de la media ponderada de las probabilidades de clase predichas (para tareas de clasificación) o de los destinos de regresión predichos (para tareas de regresión).
-* **Apilamiento**: el apilamiento combina modelos heterogéneos y entrena un metamodelo basado en la salida de los modelos individuales. Los metamodelos predeterminados actuales son LogisticRegression para las tareas de clasificación y ElasticNet para las tareas de regresión y previsión.
+* **Votación** : realiza la predicción en función de la media ponderada de las probabilidades de clase predichas (para tareas de clasificación) o de los destinos de regresión predichos (para tareas de regresión).
+* **Apilamiento** : el apilamiento combina modelos heterogéneos y entrena un metamodelo basado en la salida de los modelos individuales. Los metamodelos predeterminados actuales son LogisticRegression para las tareas de clasificación y ElasticNet para las tareas de regresión y previsión.
 
 El [algoritmo de selección de conjunto de Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) con inicialización de conjunto ordenado se utiliza para decidir qué modelos se van a utilizar en el conjunto. En un nivel alto, este algoritmo inicializa el conjunto con hasta cinco modelos con las mejores puntuaciones individuales y comprueba que estos modelos se encuentran en un umbral del 5 % de la mejor puntuación para evitar un conjunto inicial deficiente. A continuación, para cada iteración de conjunto, se agrega un nuevo modelo al conjunto existente y se calcula la puntuación resultante. Si un nuevo modelo ha mejorado la puntuación de conjunto existente, el conjunto se actualiza para incluir el nuevo modelo.
 
@@ -151,14 +151,14 @@ Consulte el [procedimiento](how-to-configure-auto-train.md#ensemble) para cambia
 
 La interfaz web siempre usa para el aprendizaje automático automatizado un [destino de proceso](concept-compute-target.md) remoto.  Pero cuando use el SDK de Python, elegirá un destino de proceso o bien local o remoto para el entrenamiento de ML automatizado.
 
-* **Proceso local**: el entrenamiento se produce en el proceso del equipo portátil o máquina virtual local. 
-* **Proceso remoto**: el entrenamiento se produce en los clústeres de proceso de Machine Learning.  
+* **Proceso local** : el entrenamiento se produce en el proceso del equipo portátil o máquina virtual local. 
+* **Proceso remoto** : el entrenamiento se produce en los clústeres de proceso de Machine Learning.  
 
 ### <a name="choose-compute-target"></a>Selección del destino de proceso
 Tenga en cuenta estos factores al elegir el destino de proceso:
 
- * **Elija un proceso local**: si su escenario es de exploraciones iniciales o demostraciones con datos reducidos y entrenamientos cortos (es decir, segundos o un par de minutos por cada ejecución secundaria), el entrenamiento en el equipo local puede ser la mejor opción.  No hay tiempo de instalación y los recursos de infraestructura (su equipo o máquina virtual) están disponibles directamente.
- * **Elija un clúster de proceso de ML remoto**: si va a realizar un entrenamiento con conjuntos de datos de mayor tamaño, como en los entrenamientos de producción con la creación de modelos que necesiten entrenamientos más largos, el proceso remoto proporciona un rendimiento de tiempo de extremo a extremo mucho mejor, ya que `AutoML` pondrá en paralelo los entrenamientos en los nodos del clúster. En un proceso remoto, el tiempo de inicio para la infraestructura interna agregará alrededor de 1,5 minutos por ejecución secundaria, además de minutos adicionales para la infraestructura de clústeres si las máquinas virtuales no están todavía en funcionamiento.
+ * **Elija un proceso local** : si su escenario es de exploraciones iniciales o demostraciones con datos reducidos y entrenamientos cortos (es decir, segundos o un par de minutos por cada ejecución secundaria), el entrenamiento en el equipo local puede ser la mejor opción.  No hay tiempo de instalación y los recursos de infraestructura (su equipo o máquina virtual) están disponibles directamente.
+ * **Elija un clúster de proceso de ML remoto** : si va a realizar un entrenamiento con conjuntos de datos de mayor tamaño, como en los entrenamientos de producción con la creación de modelos que necesiten entrenamientos más largos, el proceso remoto proporciona un rendimiento de tiempo de extremo a extremo mucho mejor, ya que `AutoML` pondrá en paralelo los entrenamientos en los nodos del clúster. En un proceso remoto, el tiempo de inicio para la infraestructura interna agregará alrededor de 1,5 minutos por ejecución secundaria, además de minutos adicionales para la infraestructura de clústeres si las máquinas virtuales todavía no están en funcionamiento.
 
 ### <a name="pros-and-cons"></a>Ventajas y desventajas
 Cuando elija entre local y remoto tenga en cuenta estas ventajas y desventajas.
@@ -219,7 +219,7 @@ Los valores siguientes le permiten configurar el experimento de aprendizaje auto
 |**Divide los datos en conjuntos de entrenamiento y validación**| ✓|✓
 |**Admite tareas de Machine Learning: clasificación, regresión y predicción**| ✓| ✓
 |**Optimiza en función de la métrica principal**| ✓| ✓
-|**Admite el proceso de AML como destino de proceso** | ✓|✓
+|**Admite el proceso de Azure Machine Learning como destino de proceso** | ✓|✓
 |**Configura el horizonte de previsión, los intervalos de destino y el período acumulado**|✓|✓
 |**Establece criterios de salida** |✓|✓ 
 |**Establece el número de iteraciones simultáneas**| ✓|✓
@@ -271,9 +271,9 @@ Hay varios recursos que le ayudarán a ponerse en marcha con AutoML.
 
 ### <a name="tutorials-how-tos"></a>Tutoriales y procedimientos
 Los tutoriales son ejemplos de introducción de un extremo a otro de escenarios de AutoML.
-+ **Para una primera experiencia de código**, siga el Tutorial[: Entrenar automáticamente un modelo de regresión con Azure Machine Learning SDK de Python](tutorial-auto-train-models.md).
++ **Para una primera experiencia de código** , siga el Tutorial [: Entrenar automáticamente un modelo de regresión con Azure Machine Learning SDK de Python](tutorial-auto-train-models.md).
 
- + **Para obtener una experiencia de poco o sin código**, consulte el [Tutorial: Cree modelos de clasificación de ML de aprendizaje automático con Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
+ + **Para obtener una experiencia de poco o sin código** , consulte el [Tutorial: Cree modelos de clasificación de ML de aprendizaje automático con Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
 Los artículos de procedimientos proporcionan información adicional sobre la funcionalidad que ofrece AutoML. Por ejemplo, 
 

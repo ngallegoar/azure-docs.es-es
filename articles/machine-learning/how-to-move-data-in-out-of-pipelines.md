@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: a1bd93931f8a94f598952b28fc3db23d33e5783f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 195c334500c8c540d819e949353b34bea65b3d4f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329778"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741894"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 
@@ -101,6 +101,9 @@ train_step = PythonScriptStep(
 )
 ```
 
+> [!NOTE]
+> Tendrá que reemplazar los valores de todos estos argumentos (es decir, `"train_data"`, `"train.py"`, `cluster` y `iris_dataset`) con sus propios datos. El fragmento de código anterior solo muestra el formulario de la llamada y no forma parte de un ejemplo de Microsoft. 
+
 También puede usar métodos como `random_split()` y `take_sample()` para crear varias entradas o reducir la cantidad de datos que se pasan al paso de la canalización:
 
 ```python
@@ -150,6 +153,9 @@ ws = run.experiment.workspace
 ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 ```
 
+> [!NOTE]
+> Los fragmentos de código anteriores muestran el formulario de las llamadas y no forman parte de un ejemplo de Microsoft. Debe reemplazar los distintos argumentos con valores de su propio proyecto.
+
 ## <a name="use-pipelinedata-for-intermediate-data"></a>Uso de `PipelineData` para los datos intermedios
 
 Mientras que los objetos `Dataset` representan datos persistentes, los objetos [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) se utilizan para los datos temporales que son la salida de los pasos de la canalización. Dado que la duración de un objeto `PipelineData` es mayor que un solo paso de la canalización, los definirá en el script de definición de la canalización. Al crear un objeto `PipelineData`, debe proporcionar un nombre y un almacén de datos en el que vayan a residir los datos. Pase los objetos `PipelineData` al elemento `PythonScriptStep` mediante _ambos_ argumentos, `arguments` y `outputs`:
@@ -175,6 +181,9 @@ Puede optar por crear el objeto `PipelineData` con un modo de acceso que proporc
 ```python
 PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
 ```
+
+> [!NOTE]
+> Los fragmentos de código anteriores muestran el formulario de las llamadas y no forman parte de un ejemplo de Microsoft. Debe reemplazar los distintos argumentos con valores de su propio proyecto.
 
 > [!TIP]
 > Una experiencia mejorada para pasar datos intermedios entre los pasos de la canalización se encuentra disponible con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Para obtener un ejemplo de código con `OutputFileDatasetConfig`, obtenga información sobre cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
@@ -226,6 +235,9 @@ pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 ```
 
 El valor de una entrada `PipelineData` es la ruta de acceso a la salida anterior. 
+
+> [!NOTE]
+> Los fragmentos de código anteriores muestran el formulario de las llamadas y no forman parte de un ejemplo de Microsoft. Debe reemplazar los distintos argumentos con valores de su propio proyecto.
 
 > [!TIP]
 > Una experiencia mejorada para pasar datos intermedios entre los pasos de la canalización se encuentra disponible con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Para obtener un ejemplo de código con `OutputFileDatasetConfig`, obtenga información sobre cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).

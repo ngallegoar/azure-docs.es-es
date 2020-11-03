@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 993c0bdf1e8e29a7cff9bd1cad60bf78386b16a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578230"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782236"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Claves administradas por el cliente para el cifrado de Azure Storage
 
@@ -65,7 +65,7 @@ Para obtener información sobre cómo configurar el cifrado de Azure Storage con
 > [!IMPORTANT]
 > Las claves administradas por el cliente dependen de identidades administradas para los recursos de Azure, una característica de Azure AD. Las identidades administradas no admiten actualmente escenarios entre directorios. Al configurar las claves administradas por el cliente en Azure Portal, se asigna automáticamente una identidad administrada a la cuenta de almacenamiento en segundo plano. Si posteriormente mueve la suscripción, el grupo de recursos o la cuenta de almacenamiento de un directorio de Azure AD a otro, la identidad administrada asociada a la cuenta de almacenamiento no se transfiere al nuevo inquilino, por lo que es posible que las claves administradas por el cliente dejen de funcionar. Para más información, vea **Transferencia de una suscripción entre directorios de Azure AD** en [Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
-El cifrado de almacenamiento de Azure admite claves RSA y RSA-HSM de los tamaños 2048, 3072 y 4096. Para más información acerca de las claves, consulte la sección **Claves en Key Vault** en [Información acerca de claves, secretos y certificados de Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+El cifrado de almacenamiento de Azure admite claves RSA y RSA-HSM de los tamaños 2048, 3072 y 4096. Para obtener más información sobre las claves, consulte [Acerca de las claves](../../key-vault/keys/about-keys.md).
 
 El uso de un almacén de claves o HSM administrado tiene costos asociados. Para más información, vea [Precios de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
@@ -109,7 +109,7 @@ Para volver a llamar a estas operaciones, restaure el acceso a la clave administ
 
 Todas las operaciones de datos que no aparecen en esta sección pueden continuar después de que se hayan revocado las claves administradas por el cliente o se haya deshabilitado o eliminado una clave.
 
-Para revocar el acceso a las claves administradas por el cliente, use [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) o la [CLI de Azure](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
+Para revocar el acceso a las claves administradas por el cliente, use [PowerShell](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys) o la [CLI de Azure](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys).
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Claves administradas por el cliente para discos administrados por Azure
 

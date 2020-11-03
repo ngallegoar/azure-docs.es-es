@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: d46b3ba9e3df5e2b3600db2be2a41789fed5242f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: bbe4d43fde3746e6c992b7f03927f081d3814597
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207978"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745753"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -57,14 +57,14 @@ AKS se basa en diversos recursos de infraestructura de Azure, como los conjuntos
 
 Para habilitar esta arquitectura, cada implementación de AKS abarca dos grupos de recursos:
 
-1. Debe cree el primer grupo de recursos. Este grupo solo contiene el recurso del servicio de Kubernetes. El proveedor de recursos de AKS crea automáticamente el segundo grupo de recursos durante la implementación. Un ejemplo del segundo grupo de recursos es *MC_myResourceGroup_myAKSCluster_eastus* . Para obtener información sobre cómo especificar el nombre de este segundo grupo de recursos, consulte la sección siguiente.
-1. El segundo grupo de recursos, conocido como el *grupo de recursos del nodo* , contiene todos los recursos de infraestructura asociados con el clúster. Estos recursos incluyen las máquinas virtuales de nodos de Kubernetes, las redes virtuales y el almacenamiento. De forma predeterminada, el grupo de recursos del nodo tiene un nombre como *MC_myResourceGroup_myAKSCluster_eastus* . AKS elimina automáticamente el recurso del nodo cada vez que se elimina el clúster, por lo que solo se debe usar para los recursos que comparten el ciclo de vida del clúster.
+1. Debe cree el primer grupo de recursos. Este grupo solo contiene el recurso del servicio de Kubernetes. El proveedor de recursos de AKS crea automáticamente el segundo grupo de recursos durante la implementación. Un ejemplo del segundo grupo de recursos es *MC_myResourceGroup_myAKSCluster_eastus*. Para obtener información sobre cómo especificar el nombre de este segundo grupo de recursos, consulte la sección siguiente.
+1. El segundo grupo de recursos, conocido como el *grupo de recursos del nodo* , contiene todos los recursos de infraestructura asociados con el clúster. Estos recursos incluyen las máquinas virtuales de nodos de Kubernetes, las redes virtuales y el almacenamiento. De forma predeterminada, el grupo de recursos del nodo tiene un nombre como *MC_myResourceGroup_myAKSCluster_eastus*. AKS elimina automáticamente el recurso del nodo cada vez que se elimina el clúster, por lo que solo se debe usar para los recursos que comparten el ciclo de vida del clúster.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>¿Puedo proporcionar mi propio nombre para el grupo de recursos del nodo de AKS?
 
 Sí. De forma predeterminada, AKS asignará el nombre *MC_resourcegroupname_clustername_location* al grupo de recursos del nodo, pero también puede proporcionar su propio nombre.
 
-Para especificar un nombre de su elección para el grupo de recursos, instale la versión de la extensión de la CLI de Azure [aks-preview][aks-preview-cli]*0.3.2* o una posterior. Cuando cree un clúster de AKS mediante el comando [az aks create][az-aks-create], use el parámetro *--node-resource-group* y especifique un nombre para el grupo de recursos. Si [usa una plantilla de Azure Resource Manager][aks-rm-template] para implementar un clúster de AKS, puede definir el nombre del grupo de recursos mediante la propiedad *nodeResourceGroup* .
+Para especificar un nombre de su elección para el grupo de recursos, instale la versión de la extensión de la CLI de Azure [aks-preview][aks-preview-cli]*0.3.2* o una posterior. Cuando cree un clúster de AKS mediante el comando [az aks create][az-aks-create], use el parámetro *--node-resource-group* y especifique un nombre para el grupo de recursos. Si [usa una plantilla de Azure Resource Manager][aks-rm-template] para implementar un clúster de AKS, puede definir el nombre del grupo de recursos mediante la propiedad *nodeResourceGroup*.
 
 * El proveedor de recursos de Azure crea automáticamente el grupo de recursos secundario en su propia suscripción.
 * Solo puede especificar un nombre personalizado para el grupo de recursos cuando cree el clúster.
@@ -95,12 +95,15 @@ AKS admite los siguientes [controladores de admisión][admission-controllers]:
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
+- *PodNodeSelector*
+- *PodTolerationRestriction*
+- *ExtendedResourceToleration*
 
 Actualmente, no puede modificar la lista de controladores de admisión en AKS.
 
 ## <a name="can-i-use-admission-controller-webhooks-on-aks"></a>¿Puedo utilizar webhooks de controlador de admisión en AKS?
 
-Sí, puede usar webhooks de controlador de admisión en AKS. Se recomienda excluir los espacios de nombres internos de AKS que estén marcados con la **etiqueta de plano de control** . Por ejemplo, al agregar lo siguiente a la configuración de webhook:
+Sí, puede usar webhooks de controlador de admisión en AKS. Se recomienda excluir los espacios de nombres internos de AKS que estén marcados con la **etiqueta de plano de control**. Por ejemplo, al agregar lo siguiente a la configuración de webhook:
 
 ```
 namespaceSelector:
@@ -108,6 +111,8 @@ namespaceSelector:
     - key: control-plane
       operator: DoesNotExist
 ```
+
+AKS pasa por el firewall la salida del servidor de la API, por lo que los webhooks del controlador de admisión deben ser accesibles desde el clúster.
 
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>¿Los webhooks de controlador de admisión pueden afectar a los espacios de nombres internos de kube-system y de AKS?
 
@@ -193,11 +198,18 @@ Aunque AKS tiene mecanismos de resistencia para admitir este tipo de configuraci
 
 ## <a name="can-i-use-custom-vm-extensions"></a>¿Puedo usar extensiones de máquina virtual personalizadas?
 
-No, AKS es un servicio administrado y no se admite la manipulación de los recursos de IaaS. Para instalar componentes personalizados, etc. Aproveche las API y los mecanismos de Kubernetes. Por ejemplo, aproveche DaemonSets para instalar los componentes necesarios.
+Se admite el agente de Log Analytics porque es una extensión que administra Microsoft. De lo contrario, no, AKS es un servicio administrado y no se admite la manipulación de los recursos de IaaS. Para instalar componentes personalizados, etc., use los mecanismos y las API de Kubernetes. Por ejemplo, aproveche DaemonSets para instalar los componentes necesarios.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>¿AKS guarda datos de los clientes fuera de la región del clúster?
 
 La característica para permitir el almacenamiento de datos de clientes en una sola región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico. En todas las demás regiones, los datos de clientes se almacenan en la geoárea.
+
+## <a name="are-aks-images-required-to-run-as-root"></a>¿Las imágenes de AKS deben ejecutarse como raíz?
+
+Excepto en el caso de las dos imágenes siguientes, no es necesario que las imágenes de AKS se ejecuten como raíz:
+
+- *mcr.microsoft.com/oss/kubernetes/coredns*
+- *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
 
 <!-- LINKS - internal -->
 

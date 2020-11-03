@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: de6a416666866a4089d22f2fa047dc860c922d3c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 36c15907c0f45befacf35389652f6d91c0ab1958
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341250"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787914"
 ---
 # <a name="planning-and-operations-guide"></a>Guía de planeamiento y operaciones
 Esta guía está destinada a profesionales de tecnología de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube que planean usar Azure Security Center.
@@ -71,8 +71,8 @@ Security Center hace posible que estos usuarios cumplan estas diversas responsab
 
 Security Center usa el [control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md), que proporciona [roles integrados](../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios en Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que tienen acceso. Esto significa que al usuario se le asigna el rol de Propietario, Colaborador o Lector para la suscripción o el grupo de recursos a los que pertenece un recurso. Además de estos roles, hay dos roles específicos de Security Center:
 
-- **Lector de seguridad**: un usuario que pertenece a este rol solo puede ver las configuraciones de Security Center, que incluyen recomendaciones, alertas, directivas y estados, pero no puede realizar cambios.
-- **Administrador de seguridad**: igual que el lector de seguridad pero también puede actualizar la directiva de seguridad o descartar recomendaciones y alertas.
+- **Lector de seguridad** : un usuario que pertenece a este rol solo puede ver las configuraciones de Security Center, que incluyen recomendaciones, alertas, directivas y estados, pero no puede realizar cambios.
+- **Administrador de seguridad** : igual que el lector de seguridad pero también puede actualizar la directiva de seguridad o descartar recomendaciones y alertas.
 
 Los roles de Security Center descritos anteriormente no tienen acceso a otras áreas de servicio de Azure, como Storage, Web y móvil o Internet de las cosas.
 
@@ -207,9 +207,9 @@ Aunque el objetivo de este artículo no es ayudarle a crear su propio plan de re
 
 Puede utilizar alertas de Security Center durante las fases siguientes:
 
-* **Detectar**: identifique una actividad sospechosa en uno o varios recursos.
-* **Evaluar**: realice la evaluación inicial para más información acerca de la actividad sospechosa.
-* **Diagnosticar**: siga los pasos de corrección para llevar a cabo el procedimiento técnico para solucionar el problema.
+* **Detectar** : identifique una actividad sospechosa en uno o varios recursos.
+* **Evaluar** : realice la evaluación inicial para más información acerca de la actividad sospechosa.
+* **Diagnosticar** : siga los pasos de corrección para llevar a cabo el procedimiento técnico para solucionar el problema.
 
 Cada alerta de seguridad proporciona información que sirve para comprender la naturaleza del ataque y sugerir posibles mitigaciones. Algunas alertas también proporcionan vínculos a más datos o a otras fuentes de información dentro de Azure. Puede usar la información proporcionada para proseguir la investigación y para iniciar la mitigación, y también puede buscar datos relacionados con la seguridad que se almacenan en el área de trabajo.
 
@@ -219,7 +219,7 @@ En el ejemplo siguiente se muestra una actividad sospechosa de RDP:
 
 En esta página se muestran los detalles relacionados con la hora en que ocurrió el ataque, el nombre del host de origen, la máquina virtual de destino y también pasos recomendados. En algunas circunstancias, la información de origen del ataque puede estar vacía. Consulte [Missing Source Information in Azure Security Center Alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) (Falta de información de origen en las alertas de Azure Security Center) para más información acerca de este tipo de comportamiento.
 
-Una vez identificado el sistema en peligro, puede ejecutar una [automatización de flujos de trabajo](workflow-automation.md) creada anteriormente. Se trata de una colección de procedimientos que se pueden ejecutar desde Security Center una vez que se desencadene mediante una alerta.
+Una vez identificado el sistema en riesgo, puede ejecutar una [automatización de flujos de trabajo](workflow-automation.md) creada anteriormente. Se trata de una colección de procedimientos que se pueden ejecutar desde Security Center una vez que se desencadene mediante una alerta.
 
 En el vídeo [Uso de Azure Security Center y Microsoft Operations Management Suite para dar respuesta a incidentes](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703), puede ver algunas demostraciones que muestran cómo se puede usar Security Center en cada una de estas fases.
 

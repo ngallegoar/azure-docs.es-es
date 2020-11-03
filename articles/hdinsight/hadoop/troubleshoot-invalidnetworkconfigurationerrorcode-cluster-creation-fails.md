@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82780443"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790923"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Error al crear el clúster con InvalidNetworkConfigurationErrorCode en Azure HDInsight
 
@@ -60,7 +60,7 @@ Azure Storage y SQL no tienen direcciones IP fijas, por lo que es necesario perm
 
 * Si el clúster usa un [grupo de seguridad de red (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
-    Vaya a Azure Portal e identifique el grupo de seguridad de red que está asociado a la subred donde se va a implementar el clúster. En la sección **Reglas de seguridad de salida**, permita el acceso de salida a Internet sin límite (tenga en cuenta que un número menor de **prioridad** aquí es más prioritario). Además, en la sección **Subredes**, confirme si este grupo de seguridad de red se aplica a la subred del clúster.
+    Vaya a Azure Portal e identifique el grupo de seguridad de red que está asociado a la subred donde se va a implementar el clúster. En la sección **Reglas de seguridad de salida** , permita el acceso de salida a Internet sin límite (tenga en cuenta que un número menor de **prioridad** aquí es más prioritario). Además, en la sección **Subredes** , confirme si este grupo de seguridad de red se aplica a la subred del clúster.
 
 * Si el clúster usa [rutas definidas por el usuario (UDR)](../../virtual-network/virtual-networks-udr-overview.md).
 
@@ -68,11 +68,24 @@ Azure Storage y SQL no tienen direcciones IP fijas, por lo que es necesario perm
 
     Si hay rutas definidas, asegúrese de que existan para las direcciones IP de la región en la que se implementó el clúster y de que el **NextHopType** de cada ruta sea **Internet**. Debe haber una ruta definida para cada dirección IP requerida documentada en el artículo mencionado anteriormente.
 
+## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>"No se pudo establecer una conexión saliente del clúster para comunicarse con el proveedor de recursos de HDInsight. Asegúrese de que está permitida la conectividad saliente".
+
+### <a name="issue"></a>Incidencia
+
+La descripción del error contiene el texto "No se pudo establecer una conexión saliente del clúster para comunicarse con el proveedor de recursos de HDInsight. Asegúrese de que está permitida la conectividad saliente".
+
+### <a name="cause"></a>Causa
+
+Cuando se usan clústeres de HDInsight con vínculos privados, el acceso saliente del clúster debe configurarse para permitir conexiones al proveedor de recursos de HDInsight.
+
+### <a name="resolution"></a>Resolución
+
+* Para resolver este problema, consulte los pasos de configuración de vínculo privado de HDInsight descritos en [Configuración de Private Link](../hdinsight-private-link.md).
 ---
 
 ## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>"La configuración de red virtual no es compatible con un requisito de HDInsight".
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Las descripciones de error contienen mensajes similares a los siguientes:
 
@@ -85,7 +98,7 @@ ErrorDescription: Virtual Network configuration is not compatible with HDInsight
 
 Es probable que haya un problema con la configuración de DNS personalizada.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Compruebe que 168.63.129.16 se encuentra en la cadena de DNS personalizada. Los servidores DNS de una red virtual pueden reenviar consultas DNS a resoluciones recursivas de Azure para resolver los nombres de host en la red virtual. Para obtener más información, vea [Resolución de nombres en redes virtuales](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). El acceso a las resoluciones recursivas de Azure se proporciona a través de la IP virtual 168.63.129.16.
 
@@ -101,7 +114,7 @@ Compruebe que 168.63.129.16 se encuentra en la cadena de DNS personalizada. Los 
     cat /etc/resolv.conf | grep nameserver*
     ```
 
-    Puede ver algo así:
+    Deberíamos ver algo parecido a lo siguiente:
 
     ```output
     nameserver 168.63.129.16
@@ -145,4 +158,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c183c906644d5d672b97642b1b072a2a08a70973
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 45cad20a2e32640cabf4c57ce6411fcd5ab67da3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203762"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748220"
 ---
 # <a name="azure-tls-certificate-changes"></a>Cambios en los certificados TLS de Azure  
 
@@ -27,7 +27,7 @@ Microsoft está actualizando los servicios de Azure para que usen los certificad
 - Los puntos de conexión de Azure existentes realizarán la transición de forma escalonada a partir del 13 de agosto de 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) y [DPS](/azure/iot-dps/) permanecerán en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Azure Storage](/azure/storage) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-
+- [Azure Cache for Redis](/azure/azure-cache-for-redis) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](../../azure-cache-for-redis/cache-whats-new.md).
 > [!IMPORTANT]
 > Es posible que los clientes necesiten actualizar sus aplicaciones después de este cambio, con el fin de evitar errores de conectividad al intentar conectarse a los servicios de Azure.
 
@@ -48,7 +48,7 @@ Los certificados TLS usados por los servicios de Azure se encadenarán a una de 
 | [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
 | [D-TRUST Root Class 3 CA 2 2009](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt) | 58e8abb0361533fb80f79b1b6d29d3ff8d5f00f0 |
 | [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
-| [Microsoft EV ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20EV%20ECC%20Root%20Certificate%20Authority%202017.crt) | 6b1937abfd64e1e40daf2262a27857c015d6228d |
+| [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 999a64c37ff47d9fab95f14769891460eec4c3c5 |
 
 ## <a name="when-can-i-retire-the-old-intermediate-thumbprint"></a>¿Cuándo puedo retirar la huella digital intermedia anterior?
 

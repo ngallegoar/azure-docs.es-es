@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0111da00962f267387e66978952e8a7c9f5d7308
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f09ef109be68dbdb6c82ce5fc89761b10bec85f3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970054"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781692"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar un nombre de dominio personalizado para Azure App Service
 
@@ -24,12 +24,13 @@ Para completar este tutorial:
 
 * [Cree una aplicación de App Service](./index.yml) o use alguna aplicación que haya creado para otro tutorial.
 * [Elimine el límite de gasto en mi suscripción](../cost-management-billing/manage/spending-limit.md#remove). No puede comprar dominios de App Service con créditos de una suscripción gratuita.
+* Una instancia de App Service en una región pública de Azure. Tenga en cuenta que, en este momento, no se admiten las nubes nacionales de Azure.
 
 ## <a name="prepare-the-app"></a>Preparación de la aplicación
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Para usar dominios personalizados en Azure App Service, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) de la aplicación debe ser un nivel de pago (**Compartido**, **Básico**, **Estándar** o **Premium**). En este paso, asegúrese de que la aplicación se encuentra en el plan de tarifa admitido.
+Para usar dominios personalizados en Azure App Service, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) de la aplicación debe ser un nivel de pago ( **Compartido** , **Básico** , **Estándar** o **Premium** ). En este paso, asegúrese de que la aplicación se encuentra en el plan de tarifa admitido.
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -53,15 +54,15 @@ El nivel actual de la aplicación aparece resaltado con un cuadro azul. Asegúre
 
 :::image type="content" source="./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png" alt-text="Captura de pantalla del menú de navegación izquierdo de la página de la aplicación con la opción de escalar verticalmente (plan de App Service) seleccionada.":::
 
-Si el plan de App Service no es **F1**, cierre la página **Escalar verticalmente** y vaya directamente a [Buy the domain](#buy-the-domain) (Comprar el dominio).
+Si el plan de App Service no es **F1** , cierre la página **Escalar verticalmente** y vaya directamente a [Buy the domain](#buy-the-domain) (Comprar el dominio).
 
 ### <a name="scale-up-the-app-service-plan"></a>Escalado vertical del plan de App Service
 
-Seleccione cualquiera de los niveles no gratuitos (**D1**, **B1**, **B2**, **B3**, o cualquier nivel de la categoría **Producción**). Para ver opciones adicionales, haga clic en **Ver opciones adicionales**.
+Seleccione cualquiera de los niveles no gratuitos ( **D1** , **B1** , **B2** , **B3** , o cualquier nivel de la categoría **Producción** ). Para ver opciones adicionales, haga clic en **Ver opciones adicionales**.
 
 Haga clic en **Aplicar**.
 
-:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Captura de pantalla del menú de navegación izquierdo de la página de la aplicación con la opción de escalar verticalmente (plan de App Service) seleccionada.":::
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Captura de pantalla de los planes de tarifa de dominio personalizado en la categoría producción con la pestaña producción, el plan B1 y el botón Aplicar resaltado.":::
 
 Cuando vea la siguiente notificación, significará que la operación de escalado se habrá completado.
 
@@ -76,27 +77,27 @@ Para obtener información sobre precios de los dominios de Azure App Service, vi
 Abra [Azure Portal](https://portal.azure.com/) e inicie sesión con su cuenta de Azure.
 
 ### <a name="launch-buy-domains"></a>Iniciar Comprar dominios
-En la pestaña **App Service**, haga clic en el nombre de la aplicación, seleccione **Configuración** y elija **Dominios personalizados**
+En la pestaña **App Service** , haga clic en el nombre de la aplicación, seleccione **Configuración** y elija **Dominios personalizados**
    
 ![Captura de pantalla de la opción Dominios personalizados resaltada.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-En la página **Dominios personalizados**, haga clic en **Comprar dominio**.
+En la página **Dominios personalizados** , haga clic en **Comprar dominio**.
 
 ![Captura de pantalla de la opción Comprar dominio resaltada.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
 > [!NOTE]
-> Si no aparece la sección **Dominios de App Service**, debe quitar el límite de gasto de la cuenta de Azure (vea los [requisitos previos](#prerequisites)).
+> Si no aparece la sección **Dominios de App Service** , debe quitar el límite de gasto de la cuenta de Azure (vea los [requisitos previos](#prerequisites)).
 >
 >
 
 ### <a name="configure-the-domain-purchase"></a>Configurar la compra del dominio
 
-En la página **Dominio de App Service**, escriba el nombre de dominio que quiere comprar en el cuadro **Buscar dominio** y escriba `Enter`. Los dominios disponibles sugeridos se muestran justo debajo del cuadro de texto. Seleccione uno o varios dominios que quiera comprar.
+En la página **Dominio de App Service** , escriba el nombre de dominio que quiere comprar en el cuadro **Buscar dominio** y escriba `Enter`. Los dominios disponibles sugeridos se muestran justo debajo del cuadro de texto. Seleccione uno o varios dominios que quiera comprar.
 
 ![Captura de pantalla del cuadro de búsqueda Buscar dominio.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
-> Los siguientes [dominios de primer nivel](https://wikipedia.org/wiki/Top-level_domain) son compatibles con los dominios de App Service: _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_ y _co.in_.
+> Los siguientes [dominios de primer nivel](https://wikipedia.org/wiki/Top-level_domain) son compatibles con los dominios de App Service: _com_ , _net_ , _co.uk_ , _org_ , _nl_ , _in_ , _biz_ , _org.uk_ y _co.in_.
 >
 >
 
@@ -120,7 +121,7 @@ Haga clic en **Condiciones legales** para consultar las condiciones y los gastos
 >
 >
 
-De nuevo en la hoja **Dominio de App Service**, haga clic en **Aceptar**. Mientras la operación está en curso, verá las notificaciones siguientes:
+De nuevo en la hoja **Dominio de App Service** , haga clic en **Aceptar**. Mientras la operación está en curso, verá las notificaciones siguientes:
 
 ![Captura de pantalla que muestra el mensaje de validación en curso.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
 
@@ -132,12 +133,12 @@ Si ha asignado nombres de host predeterminados a la aplicación, también verá 
 
 ![Captura de pantalla que muestra la notificación de éxito para cada nombre de host seleccionado.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-También verá los nombres de host seleccionados en la página **Dominios personalizados**, en la sección **Nombres de host personalizados**.
+También verá los nombres de host seleccionados en la página **Dominios personalizados** , en la sección **Nombres de host personalizados**.
 
 ![Captura de pantalla de los nombres de host seleccionados en la sección Nombres de host personalizados de la página Dominios personalizados.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> Si un dominio personalizado contiene la etiqueta **Not Secure**, significa que aún no está enlazado a un certificado TLS/SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para configurar un enlace TLS, consulte [Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service](configure-ssl-bindings.md).
+> Si un dominio personalizado contiene la etiqueta **Not Secure** , significa que aún no está enlazado a un certificado TLS/SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para configurar un enlace TLS, consulte [Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service](configure-ssl-bindings.md).
 >
 
 Para probar los nombres de host, vaya a los nombres de host enumerados en el explorador. En el ejemplo de la captura de pantalla anterior, intente navegar a _kontoso.net_ y _www\.kontoso.net_.
@@ -152,11 +153,11 @@ También puede asignar nombres de host en el dominio de App Service a cualquier 
 - Misma suscripción: Para ello, siga los pasos que se describen a continuación.
 
 ### <a name="launch-add-hostname"></a>Iniciar Agregar nombre de host
-En la página **App Services**, seleccione el nombre de la aplicación a la que quiere asignar los nombres de host, seleccione **Configuración** y después **Dominios personalizados**.
+En la página **App Services** , seleccione el nombre de la aplicación a la que quiere asignar los nombres de host, seleccione **Configuración** y después **Dominios personalizados**.
 
 ![Captura de pantalla de la opción Dominios personalizados resaltada.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-Asegúrese de que el dominio comprado aparece en la sección **Dominios de App Service**, pero no lo seleccione. 
+Asegúrese de que el dominio comprado aparece en la sección **Dominios de App Service** , pero no lo seleccione. 
 
 ![Captura de pantalla del dominio adquirido en la sección Dominios de App Service.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
@@ -168,7 +169,7 @@ Asegúrese de que el dominio comprado aparece en la sección **Dominios de App S
 Seleccione **Agregar nombre de host**.
 
 ### <a name="configure-hostname"></a>Configurar el nombre de host
-En el cuadro de diálogo **Agregar nombre de host**, escriba el nombre de dominio completo de su dominio de App Service o cualquier subdominio. Por ejemplo:
+En el cuadro de diálogo **Agregar nombre de host** , escriba el nombre de dominio completo de su dominio de App Service o cualquier subdominio. Por ejemplo:
 
 - kontoso.net
 - www\.kontoso.net
@@ -183,7 +184,7 @@ Una vez completada la operación, verá una notificación de operación correcta
 ![Captura de pantalla de la notificación de éxito para el nombre de host asignado.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 ### <a name="close-add-hostname"></a>Cerrar Agregar nombre de host
-En la página **Agregar nombre de host**, asigne otros nombres de host a la aplicación, según sea necesario. Cuando termine, cierre la página **Agregar nombre de host**.
+En la página **Agregar nombre de host** , asigne otros nombres de host a la aplicación, según sea necesario. Cuando termine, cierre la página **Agregar nombre de host**.
 
 Ahora debería ver el nombre de host recién asignado en la página **Dominios personalizados** de la aplicación.
 
@@ -199,11 +200,11 @@ El dominio de App Service que compró es válido durante un año a partir del mo
 
 Si desea desactivar la renovación automática, o si desea renovar manualmente su dominio, siga estos pasos.
 
-En la pestaña **App Service**, haga clic en el nombre de la aplicación, seleccione **Configuración** y elija **Dominios personalizados**.
+En la pestaña **App Service** , haga clic en el nombre de la aplicación, seleccione **Configuración** y elija **Dominios personalizados**.
 
 ![Captura de pantalla de la opción Dominios personalizados resaltada.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-En la sección **Dominios de App Service**, seleccione el dominio que desea configurar.
+En la sección **Dominios de App Service** , seleccione el dominio que desea configurar.
 
 ![Captura de pantalla del dominio adquirido en la sección Dominios de App Service.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 

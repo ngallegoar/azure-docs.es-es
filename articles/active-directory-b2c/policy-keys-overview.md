@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8019c049d830df0c2f3301a450eed60145c8eab3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02294d4832224f1c94a4c586f3dcc455255bfbbf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570405"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670115"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Introducción a las claves de directiva en Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Azure Active Directory B2C (Azure AD B2C) almacena secretos y certificados en
 > [!NOTE]
 > Actualmente, la configuración de las claves de directiva solo se limita a las [directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
-Puede configurar secretos y certificados para establecer la confianza entre servicios en Azure Portal, en el menú **Claves de directiva**. Las claves pueden ser simétricas o asimétricas. La criptografía *simétrica*, o criptografía de clave privada, es donde se usa un secreto compartido para cifrar y descifrar los datos. La criptografía *asimétrica*, o la criptografía de clave pública, es un sistema de cifrado que usa pares de claves, que se componen de claves públicas que se comparten con la aplicación de usuario de confianza y las claves privadas que solo conoce Azure AD B2C.
+Puede configurar secretos y certificados para establecer la confianza entre servicios en Azure Portal, en el menú **Claves de directiva**. Las claves pueden ser simétricas o asimétricas. La criptografía *simétrica* , o criptografía de clave privada, es donde se usa un secreto compartido para cifrar y descifrar los datos. La criptografía *asimétrica* , o la criptografía de clave pública, es un sistema de cifrado que usa pares de claves, que se componen de claves públicas que se comparten con la aplicación de usuario de confianza y las claves privadas que solo conoce Azure AD B2C.
 
 ## <a name="policy-keyset-and-keys"></a>Claves y conjunto de claves de directiva
 
@@ -46,11 +46,11 @@ Se recomienda establecer los valores de activación y expiración de claves de a
 
 Para crear una clave, puede elegir uno de los métodos siguientes:
 
-- **Manual**: cree un secreto con una cadena que defina. El secreto es una clave simétrica. Puede establecer las fechas de activación y expiración.
-- **Generado**: se genera automáticamente una clave. Puede establecer fechas de activación y de expiración. Hay dos opciones:
-  - **Secreto**: genera una clave simétrica.
-  - **RSA**: genera un par de claves (claves asimétricas).
-- **Cargar**: cargue un certificado o una clave PKCS12. El certificado debe contener las claves públicas y privadas (claves asimétricas).
+- **Manual** : cree un secreto con una cadena que defina. El secreto es una clave simétrica. Puede establecer las fechas de activación y expiración.
+- **Generado** : se genera automáticamente una clave. Puede establecer fechas de activación y de expiración. Hay dos opciones:
+  - **Secreto** : genera una clave simétrica.
+  - **RSA** : genera un par de claves (claves asimétricas).
+- **Cargar** : cargue un certificado o una clave PKCS12. El certificado debe contener las claves públicas y privadas (claves asimétricas).
 
 ## <a name="key-rollover"></a>Sustitución de claves
 
@@ -74,10 +74,17 @@ Para agregar o eliminar claves de cifrado y firma, siga estos pasos:
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
-1. En la página de información general, en **Directivas**, seleccione **Identity Experience Framework**.
+1. En la página de información general, en **Directivas** , seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva**. 
     1. Para agregar una nueva clave, seleccione **Agregar**.
     1. Para quitar una nueva clave, seleccione la clave y, a continuación, seleccione **Eliminar**. Para eliminar la clave, escriba el nombre del contenedor de claves que se va a eliminar. Azure AD B2C eliminará la clave y creará una copia de la clave con el sufijo .bak.
+
+### <a name="replace-a-key"></a>Reemplazo de una clave
+
+Las claves de un conjunto de claves no se pueden reemplazar ni quitar. Si tiene que cambiar una clave existente:
+
+- Se recomienda agregar una nueva clave con la **fecha de activación** establecida en la fecha y hora actuales. Azure AD B2C activará la nueva clave y dejará de usar la clave activa anterior.
+- También puede crear un conjunto de claves con las claves correctas. Actualice la directiva para usar el nuevo conjunto de claves y, después, quite el conjunto de claves anterior. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

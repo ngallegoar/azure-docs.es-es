@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993546"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782389"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault
 
@@ -35,15 +35,15 @@ El uso de claves administradas del cliente con el cifrado de Azure Storage requi
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Para obtener información sobre cómo crear un almacén de claves con Azure Portal, consulte [Inicio rápido: Creación de un almacén de claves mediante Azure Portal](../../key-vault/general/quick-create-portal.md). Al crear el almacén de claves, seleccione **Habilitar protección de purga**, como se muestra en la siguiente imagen.
+Para obtener información sobre cómo crear un almacén de claves con Azure Portal, consulte [Inicio rápido: Creación de un almacén de claves mediante Azure Portal](../../key-vault/general/quick-create-portal.md). Al crear el almacén de claves, seleccione **Habilitar protección de purga** , como se muestra en la siguiente imagen.
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Captura de pantalla que muestra cómo habilitar la protección de purga al crear un almacén de claves":::
 
 Para habilitar la protección de purga en un almacén de claves existente, siga estos pasos:
 
 1. Vaya al almacén de claves en Azure Portal.
-1. En **Configuración**, elija **Propiedades**.
-1. En la sección **Protección de purga**, elija **Habilitar protección de purga**.
+1. En **Configuración** , elija **Propiedades**.
+1. En la sección **Protección de purga** , elija **Habilitar protección de purga**.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -58,7 +58,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-Para obtener información sobre cómo habilitar la protección de purga en un almacén de claves existente con PowerShell, consulte [Uso de la eliminación temporal con PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Para obtener información sobre cómo habilitar la protección de purga en un almacén de claves existente con PowerShell, consulte [Uso de la eliminación temporal con PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 A continuación, asigne una identidad administrada asignada por el sistema a la cuenta de almacenamiento. Usará esta identidad administrada para conceder los permisos de la cuenta de almacenamiento para obtener acceso al almacén de claves. Para obtener más información sobre las identidades administradas asignadas por el sistema, consulte [¿Qué son las identidades administradas para los recursos de Azure?](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -93,7 +93,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Para obtener información sobre cómo habilitar la protección de purga en un almacén de claves existente con la CLI de Azure, consulte [Uso de la eliminación temporal con la CLI](../../key-vault/general/soft-delete-cli.md).
+Para obtener información sobre cómo habilitar la protección de purga en un almacén de claves existente con la CLI de Azure, consulte [Uso de la eliminación temporal con la CLI](../../key-vault/general/key-vault-recovery.md).
 
 A continuación, asigne una identidad administrada asignada por el sistema a una cuenta de almacenamiento. Usará esta identidad administrada para conceder los permisos de la cuenta de almacenamiento para obtener acceso al almacén de claves. Para obtener más información sobre las identidades administradas asignadas por el sistema, consulte [¿Qué son las identidades administradas para los recursos de Azure?](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -129,7 +129,7 @@ az keyvault set-policy \
 
 A continuación, agregue una clave al almacén de claves.
 
-El cifrado de Azure Storage admite claves RSA y RSA-HSM de los tamaños 2048, 3072 y 4096. Para más información acerca de las claves, consulte la sección **Claves en Key Vault** en [Información acerca de claves, secretos y certificados de Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+El cifrado de Azure Storage admite claves RSA y RSA-HSM de los tamaños 2048, 3072 y 4096. Para obtener más información sobre las claves, vea [Acerca de las claves](../../key-vault/keys/about-keys.md).
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -175,7 +175,7 @@ Azure Storage puede actualizar automáticamente la clave administrada por el cli
 Para configurar las claves administradas por el cliente con la actualización automática de la versión de clave en Azure Portal, siga estos pasos:
 
 1. Vaya a la cuenta de almacenamiento.
-1. En la hoja **Configuración** de la cuenta de almacenamiento, haga clic en **Cifrado**. Seleccione la opción **Claves administradas de cliente**, como se muestra en la siguiente imagen.
+1. En la hoja **Configuración** de la cuenta de almacenamiento, haga clic en **Cifrado**. Seleccione la opción **Claves administradas de cliente** , como se muestra en la siguiente imagen.
 
     ![Captura de pantalla del portal que muestra la opción de cifrado](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
@@ -190,7 +190,7 @@ Para configurar las claves administradas por el cliente con la actualización au
 
 Después de especificar la clave, Azure Portal indica que está habilitada la actualización automática de la versión de la clave y muestra la versión de la clave actualmente en uso para el cifrado.
 
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Captura de pantalla que muestra cómo habilitar la protección de purga al crear un almacén de claves":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Captura de pantalla que muestra habilita la opción de actualización automática de la versión de la clave":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -241,7 +241,7 @@ Si prefiere actualizar manualmente la versión de la clave, especifique de maner
 Para configurar las claves administradas por el cliente con la actualización manual de la versión de clave en Azure Portal, especifique el URI de la clave, incluida la versión. Para especificar una clave como URI, siga estos pasos:
 
 1. Para buscar el URI de la clave en Azure Portal, vaya al almacén de claves y seleccione la opción de configuración **Claves**. Seleccione la clave que desee y luego haga clic en ella para ver sus versiones. Seleccione cualquiera de las versiones de clave para ver su configuración.
-1. Copie el valor del campo **Identificador de clave**, que proporciona el URI.
+1. Copie el valor del campo **Identificador de clave** , que proporciona el URI.
 
     ![Captura de pantalla en que se muestra el URI de la clave del almacén de claves](media/customer-managed-keys-configure-key-vault/portal-copy-key-identifier.png)
 

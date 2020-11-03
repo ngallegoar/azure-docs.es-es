@@ -8,16 +8,19 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 278fbdf7010fe7b14488bb021ab8a366393ad512
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4a2be6719fdaaa9dc859df21cc030478e474210
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087369"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428237"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Uso de MirrorMaker para replicar temas de Apache Kafka con Kafka en HDInsight
 
 Obtenga información sobre cómo usar la característica de creación de reflejo de Apache Kafka para replicar temas a un clúster secundario. La creación de reflejo se puede ejecutar como proceso continuo, o utilizar de forma intermitente como método de migración de datos de un clúster a otro.
+
+> [!NOTE]
+> Este artículo contiene referencias al término *lista de permitidos* , un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
 
 En este ejemplo, la creación de reflejo se usa para replicar temas entre dos clústeres de HDInsight. Los dos clústeres están en redes virtuales diferentes de distintos centros de datos.
 
@@ -42,13 +45,13 @@ Los clústeres principales y secundarios pueden tener un número diferente de no
 
 Si tiene que crear un reflejo entre los clústeres Kafka en distintas redes, existen las siguientes consideraciones adicionales:
 
-* **Puertas de enlace**: las redes deben poder comunicarse en el nivel TCP/IP.
+* **Puertas de enlace** : las redes deben poder comunicarse en el nivel TCP/IP.
 
-* **Direccionamiento del servidor**: Si lo desea, puede direccionar los nodos del clúster utilizando direcciones IP o nombres de dominio completo.
+* **Direccionamiento del servidor** : Si lo desea, puede direccionar los nodos del clúster utilizando direcciones IP o nombres de dominio completo.
 
-    * **Direcciones IP**: Si configura los clústeres de Kafka para que utilicen publicidad basada en direcciones IP, puede configurar la creación de reflejo utilizando las direcciones IP de los nodos de agentes y los nodos de Zookeeper.
+    * **Direcciones IP** : Si configura los clústeres de Kafka para que utilicen publicidad basada en direcciones IP, puede configurar la creación de reflejo utilizando las direcciones IP de los nodos de agentes y los nodos de Zookeeper.
     
-    * **Nombres de dominio**: Si no configura los clústeres de Kafka para que utilicen publicidad basada en direcciones IP, es necesario que los clústeres puedan conectarse entre sí utilizando los nombres de dominio completo (FQDN). Para ello, debe haber un Sistema de nombres de dominio (DNS) en cada red que esté configurado de forma que se reenvíen solicitudes a las demás redes. Al crear una instancia de Azure Virtual Network, en lugar de usar el DNS automático proporcionado con la red, debe especificar un servidor DNS personalizado y la dirección IP para el servidor. Una vez creada la red virtual, debe crear una máquina virtual de Azure que use esa dirección IP, y en ella instalar y configurar el software DNS.
+    * **Nombres de dominio** : Si no configura los clústeres de Kafka para que utilicen publicidad basada en direcciones IP, es necesario que los clústeres puedan conectarse entre sí utilizando los nombres de dominio completo (FQDN). Para ello, debe haber un Sistema de nombres de dominio (DNS) en cada red que esté configurado de forma que se reenvíen solicitudes a las demás redes. Al crear una instancia de Azure Virtual Network, en lugar de usar el DNS automático proporcionado con la red, debe especificar un servidor DNS personalizado y la dirección IP para el servidor. Una vez creada la red virtual, debe crear una máquina virtual de Azure que use esa dirección IP, y en ella instalar y configurar el software DNS.
 
     > [!WARNING]  
     > Cree y configure el servidor DNS personalizado antes de instalar HDInsight en la red virtual. No es necesaria ninguna configuración adicional para que HDInsight use el servidor DNS configurado para la red virtual.
@@ -68,8 +71,8 @@ Esta arquitectura contiene dos clústeres en diferentes grupos de recursos y red
     | kafka-primary-rg | Centro de EE. UU. |
     | kafka-secondary-rg | Centro-Norte de EE. UU |
 
-1. Cree una nueva red virtual, **kafka-primary-vnet**, en **kafka-primary-rg**. Deje los valores predeterminados.
-1. Cree una nueva red virtual, **kafka-secondary-vnet**, en **kafka-secondary-rg** también con la configuración predeterminada.
+1. Cree una nueva red virtual, **kafka-primary-vnet** , en **kafka-primary-rg**. Deje los valores predeterminados.
+1. Cree una nueva red virtual, **kafka-secondary-vnet** , en **kafka-secondary-rg** también con la configuración predeterminada.
 
 1. Cree dos nuevos clústeres de Kafka:
 
@@ -80,9 +83,9 @@ Esta arquitectura contiene dos clústeres en diferentes grupos de recursos y red
 
 1. Cree los emparejamientos de las redes virtuales. Este paso creará dos emparejamientos: uno de **kafka-primary-vnet** a **kafka-secondary-vnet** y otro de **kafka-secondary-vnet** a **kafka-primary-vnet**.
     1. Seleccione la red virtual **kafka-primary-vnet**.
-    1. En **Configuración**, seleccione **Emparejamiento**.
+    1. En **Configuración** , seleccione **Emparejamiento**.
     1. Seleccione **Agregar**.
-    1. En la pantalla **Agregar emparejamiento**, escriba los datos tal y como aparecen en la captura de pantalla siguiente.
+    1. En la pantalla **Agregar emparejamiento** , escriba los datos tal y como aparecen en la captura de pantalla siguiente.
 
         ![Agregar emparejamiento de red virtual de HDInsight Kafka](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
@@ -118,11 +121,11 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 ### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Registre las direcciones IP de los agentes y las direcciones Zookeeper del clúster principal.
 
 1. Seleccione **Hosts** en el panel de Ambari.
-1. Tome nota de las direcciones IP de los agentes y los nodos de Zookeeper. El nombre del host de los nodos de los agentes comienza por **wn**, mientras que el nombre del host de los nodos de Zookeeper comienza por **zk**.
+1. Tome nota de las direcciones IP de los agentes y los nodos de Zookeeper. El nombre del host de los nodos de los agentes comienza por **wn** , mientras que el nombre del host de los nodos de Zookeeper comienza por **zk**.
 
     ![Ver direcciones IP de nodo en Apache Ambari](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
-1. Repita los tres pasos anteriores con el segundo clúster, **kafka-secondary-cluster**: configure la publicidad basada en IP, establezca los agentes de escucha y tome nota de las direcciones IP de Zookeeper y el agente.
+1. Repita los tres pasos anteriores con el segundo clúster, **kafka-secondary-cluster** : configure la publicidad basada en IP, establezca los agentes de escucha y tome nota de las direcciones IP de Zookeeper y el agente.
 
 ## <a name="create-topics"></a>Creación de temas
 
@@ -157,7 +160,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 
     La respuesta contiene `testtopic`.
 
-1. Use lo siguiente para ver la información del host de Zookeeper de este clúster (el **principal**):
+1. Use lo siguiente para ver la información del host de Zookeeper de este clúster (el **principal** ):
 
     ```bash
     echo $PRIMARY_ZKHOSTS
@@ -181,7 +184,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 
     Para más información, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Para configurar la comunicación con el clúster **principal**, se utiliza un archivo `consumer.properties`. Para crear el archivo, use el comando siguiente:
+1. Para configurar la comunicación con el clúster **principal** , se utiliza un archivo `consumer.properties`. Para crear el archivo, use el comando siguiente:
 
     ```bash
     nano consumer.properties
@@ -198,7 +201,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 
     Este archivo contiene la información del consumidor que se va a usar cuando se lea desde el clúster Kafka principal. Para más información sobre la configuración de los consumidores, consulte [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) (Configuraciones de consumidor) en kafka.apache.org.
 
-    Para guardar el archivo, presione **Ctr+X**, luego, **Y** y **Entrar**.
+    Para guardar el archivo, presione **Ctr+X** , luego, **Y** y **Entrar**.
 
 1. Antes de configurar el productor que se comunica con el clúster secundario, configure una variable para las direcciones IP del agente del clúster **secundario**. Utilice los comandos siguientes para crear esta variable:
 
@@ -210,7 +213,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 
     `10.23.0.14:9092,10.23.0.4:9092,10.23.0.12:9092`
 
-1. Para establecer comunicación con el **clúster secundario**, se utiliza un archivo `producer.properties`. Para crear el archivo, use el comando siguiente:
+1. Para establecer comunicación con el **clúster secundario** , se utiliza un archivo `producer.properties`. Para crear el archivo, use el comando siguiente:
 
     ```bash
     nano producer.properties
@@ -252,15 +255,15 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 
         1. Vaya al panel de Ambari del clúster secundario: `https://SECONDARYCLUSTERNAME.azurehdinsight.net`.
         1. Haga clic en **Services** (Servicios) > **Kafka**. Seleccione la pestaña **Configs** (Configuraciones).
-        1. En el campo __Filtro__, escriba un valor de `auto.create`. La lista de propiedades se filtra y se muestra el valor `auto.create.topics.enable`.
+        1. En el campo __Filtro__ , escriba un valor de `auto.create`. La lista de propiedades se filtra y se muestra el valor `auto.create.topics.enable`.
         1. Cambie el valor de `auto.create.topics.enable` a true y, a continuación, seleccione __Guardar__. Agregue una nota y, a continuación, seleccione de nuevo __Guardar__.
-        1. Seleccione el servicio __Kafka__, seleccione __Reiniciar__ y luego seleccione __Restart all affected__ (Reiniciar todos los afectados). Cuando se le solicite, seleccione __Confirm Restart All__ (Confirmar reiniciar todo).
+        1. Seleccione el servicio __Kafka__ , seleccione __Reiniciar__ y luego seleccione __Restart all affected__ (Reiniciar todos los afectados). Cuando se le solicite, seleccione __Confirm Restart All__ (Confirmar reiniciar todo).
 
         ![Habilitar la creación automática de temas en Kafka](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
 ## <a name="start-mirrormaker"></a>Inicio de MirrorMaker
 
-1. En la conexión SSH con el clúster **secundario**, use el siguiente comando para iniciar el proceso de MirrorMaker:
+1. En la conexión SSH con el clúster **secundario** , use el siguiente comando para iniciar el proceso de MirrorMaker:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
@@ -277,7 +280,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 
     Ahora, el consumidor del nodo secundario espera a recibir mensajes.
 
-2. En la conexión SSH con el clúster **principal**, use el siguiente comando para iniciar un productor y enviar mensajes al tema:
+2. En la conexión SSH con el clúster **principal** , use el siguiente comando para iniciar un productor y enviar mensajes al tema:
 
     ```bash
     export PRIMARY_BROKERHOSTS=BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092
@@ -286,7 +289,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 
      Cuando llegue a una línea en blanco con un cursor, escriba algunos mensajes de texto. Los mensajes se envían al tema del clúster **principal**. Cuando haya terminado, use **Ctrl + C** para finalizar el proceso de productor.
 
-3. En la conexión SSH con el clúster **secundario**, use **Ctrl + C** para iniciar el proceso de MirrorMaker. El proceso puede tardar varios segundos en finalizar. Para comprobar que los mensajes se han replicado en el clúster secundario, use el siguiente comando:
+3. En la conexión SSH con el clúster **secundario** , use **Ctrl + C** para iniciar el proceso de MirrorMaker. El proceso puede tardar varios segundos en finalizar. Para comprobar que los mensajes se han replicado en el clúster secundario, use el siguiente comando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning

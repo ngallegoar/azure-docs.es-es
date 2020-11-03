@@ -9,18 +9,50 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: f490038e6257829e63b1b28591d17eee76e17eb4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6e18599e83a301ecda94525949f9f4cd077085a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139363"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742018"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) de Azure Machine Learning.
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
+
+## <a name="2020-10-26"></a>26-10-2020
+
+### <a name="azure-machine-learning-sdk-for-python-v1170"></a>SDK de Azure Machine Learning para Python v1.17.0
++ **nuevos ejemplos**
+  + Puede encontrar un repositorio de ejemplos administrado por la comunidad en https://github.com/Azure/azureml-examples.
++ **Mejoras y correcciones de errores**
+  + **azureml-automl-core**
+    + Se corrigió un problema por el que get_output puede generar un error de tipo XGBoostError.
+  + **azureml-automl-runtime**
+    + Ahora, las características basadas en el calendario y la hora que ha creado AutoML tendrán el prefijo.
+    + Se ha corregido un error de tipo IndexError que se produce durante el entrenamiento de StackEnsemble para los conjuntos de valores de clasificación que cuentan con un gran número de clases y submuestras habilitadas.
+    + Se corrigió un problema por el que las predicciones de VotingRegressor podrían ser imprecisas después de reajustar el modelo.
+  + **azureml-core**
+    + Se agregaron detalles adicionales sobre la relación entre la configuración de implementación de AKS y los conceptos de Azure Kubernetes Service.
+    + El cliente puede usar el SDK del servicio vinculado para vincular el área de trabajo de Synapse al área de trabajo de AML. Se admite CRUD.
+    + Compatibilidad con etiquetas de cliente del entorno. El usuario puede etiquetar entornos y hacer referencia a ellos mediante etiquetas.
+  + **azureml-dataprep**
+    + Se ha mejorado el mensaje de error al usar una versión de Spark que no es compatible actualmente con Scala 2.12.
+  + **azureml-explain-model**
+    + El paquete azureml-explain-model está oficialmente en desuso.
+  + **azureml-mlflow**
+    + Se resolvió un error en mlflow.projects.run del back-end de azureml, donde el estado de finalización no se controlaba correctamente.
+  + **azureml-pipeline-core**
+    + Se agrega compatibilidad para crear, enumerar y obtener la programación de canalización basada en un punto de conexión de canalización.
+    +  Se ha mejorado la documentación de PipelineData.as_dataset con un ejemplo de uso que no es válido. Si se usa PipelineData.as_dataset de forma incorrecta, se generará un mensaje de tipo ValueException.
+    + Se ha cambiado el cuaderno de canalizaciones de HyperDriveStep para registrar el mejor modelo de PipelineStep directamente después de la ejecución de HyperDriveStep.
+  + **azureml-pipeline-steps**
+    + Se ha cambiado el cuaderno de canalizaciones de HyperDriveStep para registrar el mejor modelo de PipelineStep directamente después de la ejecución de HyperDriveStep.
+  + **azureml-train-automl-client**
+    + Se corrigió un problema por el que get_output puede generar un error de tipo XGBoostError.
+
 
 ## <a name="2020-10-12"></a>12-10-2020
 
@@ -179,7 +211,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
   + Nueva página de aterrizaje de introducción 
   
 + **Características en versión preliminar**
-    + Característica de recopilación de los cuadernos. Con la característica  [Recopilar](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview) , ahora, los usuarios pueden limpiar fácilmente los cuadernos. Esta característica usa un análisis de dependencia automatizado del cuaderno y garantiza que el código esencial se conserva, pero se quitan las piezas irrelevantes.
+    + Característica de recopilación de los cuadernos. Con la característica [Recopilar](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview), los usuarios pueden limpiar fácilmente los cuadernos. Esta característica usa un análisis de dependencia automatizado del cuaderno y garantiza que el código esencial se conserve, pero se quitan las partes irrelevantes.
 
 + **Mejoras y correcciones de errores**
   + Mejora de la velocidad y la confiabilidad
@@ -347,7 +379,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
   + **azureml-pipeline-steps**
     + Documento actualizaciones de azureml-pipeline-steps.
     +  Se agregó soporte en ParallelRunConfig `load_yaml()` para que los usuarios definan entornos en línea con el resto de la configuración o en un archivo separado
-  + **azureml-train-automl-client** .
+  + **azureml-train-automl-client**.
     + Se quitó la capacidad de especificar `enable_cache` como parte de AutoMLConfig
   + **azureml-train-automl-runtime**
     + Se agregó la disponibilidad limitada de características distribuidos de varios nodos y varias GPU con BERT.
@@ -497,7 +529,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
     + AutoML Forecasting ahora admite la previsión de clientes más allá del horizonte máximo especificado previamente sin necesidad de reentrenar el modelo. Si el destino de la previsión es posterior al horizonte máximo especificado, la función forecast() realizará predicciones puntuales hasta la fecha más alejada mediante un modo de operación recursivo. Para ver cómo se ilustra la nueva característica, consulte la sección "Previsión posterior al horizonte máximo" del cuaderno "forecasting-forecast-function" de la [carpeta](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)".
   
   + **azureml-pipeline-steps**
-    + Se ha publicado ParallelRunStep y forma parte del paquete **azureml-pipeline-steps** . La funcionalidad ParallelRunStep del paquete **azureml-contrib-pipeline-steps** está en desuso. Cambios en la versión preliminar pública:
+    + Se ha publicado ParallelRunStep y forma parte del paquete **azureml-pipeline-steps**. La funcionalidad ParallelRunStep del paquete **azureml-contrib-pipeline-steps** está en desuso. Cambios en la versión preliminar pública:
       + Se ha agregado el parámetro configurable opcional `run_max_try` para controlar el número máximo de llamadas para ejecutar el método en un lote dado, el valor predeterminado es 3.
       + Ya no se generan PipelineParameters automáticamente. Los siguientes valores configurables se pueden establecer como PipelineParameter de forma explícita.
         + mini_batch_size
@@ -1740,7 +1772,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
   + El rendimiento de `read_parquet` ha mejorado cuando se ejecuta en Spark.
   + Se ha corregido un problema en que se producía un error `column_type_builder` en el caso de una sola columna con formatos de fecha ambiguos.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 + **Característica en vista previa**
   + El streaming de archivos de registro y de salida ahora está disponible para las páginas de detalles de la ejecución. Los archivos transmitirán las actualizaciones en tiempo real cuando se active la alternancia de la vista previa.
   + Se ofrece en versión preliminar la capacidad de establecer la cuota en el nivel de área de trabajo. Las cuotas de AmlCompute se asignan en el nivel de suscripción, pero ahora puede distribuir esa cuota entre las áreas de trabajo y asignarla con el fin de conseguir un uso compartido y una gobernanza equitativos. Solo tiene que hacer clic en la hoja **Usages+Quotas** (Usos y cuotas) de la barra de navegación izquierda del área de trabajo y seleccionar la pestaña **Configure Quotas** (Configurar cuotas). Debe ser administrador de la suscripción para poder establecer cuotas en el nivel de área de trabajo, ya que se trata de una operación entre áreas de trabajo.
@@ -1880,7 +1912,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
   + **azureml-pipeline-steps**
     + El almacén de datos DBFS se admite ahora en las entradas y salidas de DatabricksStep.
     + Se actualiza la documentación para Azure Batch Step con respecto a las entradas y salidas.
-    + En AzureBatchStep, se cambió el valor predeterminado de *delete_batch_job_after_finish* a *true* .
+    + En AzureBatchStep, se cambió el valor predeterminado de *delete_batch_job_after_finish* a *true*.
   + **azureml-telemetry**
     +  Se mueve azureml-contrib-opendatasets a azureml-opendatasets.
     + Se permite que las clases del conjunto de datos abierto se registren en el área de trabajo de Azure Machine Learning y aprovechen sin problemas las funcionalidades del conjunto de datos de AML.
@@ -1912,7 +1944,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
 
 + **Nuevas características:**
   + **azureml-opendatasets**
-    + **azureml-contrib-opendatasets** ahora está disponible como **azureml-opendatasets** . El paquete antiguo puede seguir funcionando, pero le recomendamos que use **azureml-opendatasets** de ahora en adelante para obtener mejoras y funcionalidades más avanzadas.
+    + **azureml-contrib-opendatasets** ahora está disponible como **azureml-opendatasets**. El paquete antiguo puede seguir funcionando, pero le recomendamos que use **azureml-opendatasets** de ahora en adelante para obtener mejoras y funcionalidades más avanzadas.
     + Este nuevo paquete le permite registrar conjuntos de datos abiertos como un conjunto de datos en el área de trabajo de Azure Machine Learning y aprovechar completamente las funcionalidades que ofrece dicho conjunto de datos.
     + También incluye funcionalidades existentes, por ejemplo, el consumo de conjuntos de datos abiertos como dataframes de SPARK o Pandas y combinaciones de ubicaciones para algún conjunto de datos como el tiempo.
 
@@ -2019,7 +2051,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
   + Ahora puede volver a enviar un ciclo de script existente de un clúster de proceso remoto existente.
   + Ahora puede ejecutar una canalización publicada con parámetros nuevos en la pestaña Canalizaciones.
   + Los detalles de la ejecución ahora admiten un nuevo visor de archivos de instantánea. Puede ver una instantánea del directorio cuando envió una ejecución concreta. También puede descargar el cuaderno que se envió para iniciar la ejecución.
@@ -2031,7 +2063,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 
 + **Nuevas características:**
   + El SDK de Azure Machine Learning ahora admite Python 3.7.
-  + Ahora, los estimadores de DNN de Azure Machine Learning proporcionan compatibilidad con múltiples versiones integrada. Por ejemplo, el estimador `TensorFlow`  ahora acepta un parámetro `framework_version` y los usuarios pueden especificar las versiones "1.10" o "1.12". Para obtener una lista de las versiones compatibles con la versión actual del SDK, llame a `get_supported_versions()` en la clase de marco deseada (por ejemplo, `TensorFlow.get_supported_versions()`).
+  + Ahora, los estimadores de DNN de Azure Machine Learning proporcionan compatibilidad con múltiples versiones integrada. Por ejemplo, el estimador `TensorFlow` ahora acepta un parámetro `framework_version` y los usuarios pueden especificar las versiones "1.10" o "1.12". Para obtener una lista de las versiones compatibles con la versión actual del SDK, llame a `get_supported_versions()` en la clase de marco deseada (por ejemplo, `TensorFlow.get_supported_versions()`).
   Para obtener una lista de las versiones compatibles con la versión más reciente del SDK, consulte la [documentación del estimador de DNN](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py&preserve-view=true).
 
 ## <a name="2019-03-25"></a>25-03-2019
@@ -2077,7 +2109,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 + **Mejoras y correcciones de errores**
   + Se ha agregado compatibilidad en las canalizaciones de Azure Machine Learning con el establecimiento de la propiedad source_directory_data_store en un almacén de datos deseado (como un almacenamiento de blobs) en [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true) que se suministran a [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py&preserve-view=true). De forma predeterminada los pasos utilizan el almacén de Azure File como el almacén de datos de respaldo, lo que provocar problemas de limitación cuando un gran número de pasos se ejecutan simultáneamente.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 + **Nuevas características:**
   + Nueva experiencia de arrastrar y soltar el editor de tablas en informes. Los usuarios pueden arrastrar una columna desde el cuadro al área de la tabla en la que se mostrará una vista previa de la tabla. Las columnas se pueden reorganizar.

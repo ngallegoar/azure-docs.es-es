@@ -1,17 +1,17 @@
 ---
-title: 'Introducción a la continuidad empresarial con Azure Database for MySQL: servidor flexible'
+title: 'Introducción a la continuidad empresarial: servidor flexible de Azure Database for MySQL'
 description: 'Obtenga información sobre los conceptos de la continuidad empresarial Azure Database for MySQL: servidor flexible.'
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 0c1afaa7d2d7971b2570914aa7c69fa7c666ae46
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 833031a787f8571a8f8aea8e536410d4abcca298
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107851"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546422"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Introducción a la continuidad empresarial con Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -21,7 +21,6 @@ ms.locfileid: "92107851"
 Azure Database for MySQL: servidor flexible habilita capacidades de continuidad empresarial que protegen las bases de datos en caso de una interrupción, ya sea planeada o no. Características como las copias de seguridad automatizadas y la alta disponibilidad abordan distintos niveles de protección ante errores con diferentes tiempos de recuperación y riesgos de pérdida de datos. Cuando diseñe la aplicación para protegerse frente a errores, debe tener en cuenta el objetivo de tiempo de recuperación (RTO) y el objetivo de punto de recuperación (RPO) de cada aplicación. El RTO es la tolerancia al tiempo de inactividad y el RPO es la tolerancia de pérdida de datos después de una interrupción del servicio de base de datos.
 
 En la tabla siguiente se muestran las características que ofrece un servidor flexible.
-
 
 | **Característica** | **Descripción** | **Restricciones** |
 | ---------- | ----------- | ------------ |
@@ -34,17 +33,18 @@ En la tabla siguiente se muestran las características que ofrece un servidor fl
 > No se ofrece ningún contrato de nivel de servicio de tiempo de actividad, RTO ni RPO durante el período de versión preliminar. Los detalles que se proporcionan en esta página solo tienen fines informativos y de planeación.
 
 ## <a name="planned-downtime-mitigation"></a>Mitigación del tiempo de inactividad planeado
+
 Estos son algunos escenarios de mantenimiento planeado que conllevan tiempo de inactividad:
 
 | **Escenario** | **Process**|
 | :------------ | :----------- |
 | **Escalado de proceso (usuario)**| Cuando se realiza una operación de escalado de proceso, se aprovisiona un nuevo servidor flexible con la configuración del proceso escalado. Antes de apagar el servidor de bases de datos existente, se permite que finalicen los puntos de comprobación activos, se purgan las conexiones de cliente y se cancelan las transacciones sin confirmar. Después, el almacenamiento se conecta al nuevo servidor y se inicia la base de datos, que, en caso necesario, realiza una recuperación antes de aceptar conexiones de cliente. |
-| **Nueva implementación de software (Azure)** | La implementación de nuevas características o correcciones de errores se producen automáticamente como parte del mantenimiento planeado del servicio, y es posible programar cuándo se realizan. Para obtener más información, vea la [documentación](https://aka.ms/servicehealthpm) y el [portal](https://aka.ms/servicehealthpm). |
-| **Actualizaciones de versiones secundarias (Azure)** | Azure Database for MySQL revisa automáticamente los servidores de bases de datos según la versión secundaria determinada por Azure. Se produce como parte del mantenimiento planeado del servicio. Esto provocaría un breve tiempo de inactividad en términos de segundos y el servidor de base de datos se reiniciará automáticamente con la nueva versión secundaria. Para obtener más información, vea la [documentación](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification) y el [portal](https://aka.ms/servicehealthpm).|
+| **Nueva implementación de software (Azure)** | La implementación de nuevas características o correcciones de errores se produce automáticamente como parte del mantenimiento planeado del servicio, y es posible programar cuándo se realizan esas actividades. Para obtener más información, vea la [documentación](https://aka.ms/servicehealthpm) y el [portal](https://aka.ms/servicehealthpm). |
+| **Actualizaciones de versiones secundarias (Azure)** | Azure Database for MySQL revisa automáticamente los servidores de bases de datos según la versión secundaria determinada por Azure. Se produce como parte del mantenimiento planeado del servicio. Esto provocaría un breve tiempo de inactividad en términos de segundos y el servidor de base de datos se reiniciará automáticamente con la nueva versión secundaria. Para obtener más información, vea la [documentación](../concepts-monitoring.md#planned-maintenance-notification) y el [portal](https://aka.ms/servicehealthpm).|
 
-Cuando el servidor flexible se configura con **alta disponibilidad con redundancia de zona**, primero realiza operaciones en el servidor en espera y, después, en el principal sin conmutación por error. Vea [Conceptos: alta disponibilidad](./concepts-high-availability.md) para obtener más detalles.
+Cuando el servidor flexible se configura con **alta disponibilidad con redundancia de zona** , primero realiza operaciones en el servidor en espera y, después, en el principal sin conmutación por error. Vea [Conceptos: alta disponibilidad](./concepts-high-availability.md) para obtener más detalles.
 
-##  <a name="unplanned-downtime-mitigation"></a>Mitigación del tiempo de inactividad no planeado
+## <a name="unplanned-downtime-mitigation"></a>Mitigación del tiempo de inactividad no planeado
 
 Se pueden producir tiempos de inactividad no planeados como resultado de errores imprevistos, incluidos errores subyacentes de hardware, problemas de red y errores de software. Si el servidor de bases de datos deja de funcionar de forma inesperada, en caso de estar configurado con alta disponibilidad (HA), se activa la réplica en espera. Si no es así, se aprovisiona automáticamente un nuevo servidor de bases de datos. Aunque no es posible evitar un tiempo de inactividad no planeado, el servidor flexible lo reduce gracias a las operaciones de recuperación automáticas tanto en el servidor de bases de datos como en las capas de almacenamiento sin necesidad de intervención humana.
 
@@ -60,12 +60,10 @@ Estos son algunos escenarios de error no planeados y el proceso de recuperación
 | **Error de zona de disponibilidad** | Aunque se trata de un evento poco frecuente, si quiere recuperarse de un error de nivel de zona, puede realizar una recuperación a un momento dado mediante la copia de seguridad y elegir un punto de restauración personalizado para obtener los datos más recientes. Se implementará un nuevo servidor flexible en otra zona. El tiempo necesario para la restauración dependerá de la copia de seguridad anterior y del número de registros de transacciones que se vayan a recuperar. | El servidor flexible realizará la conmutación automática por error en el sitio en espera. Vea la [página de conceptos de alta disponibilidad](./concepts-high-availability.md) para obtener más detalles. |
 | **Error de región** | La réplica entre regiones y las características de restauración geográfica todavía no se admiten en la versión preliminar. | |
 
-
 > [!IMPORTANT]
-> Los servidores eliminados **no** se pueden restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Use el [bloqueo de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) para evitar la eliminación accidental del servidor.
-
+> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Use el [bloqueo de recursos de Azure](../../azure-resource-manager/management/lock-resources.md) para evitar la eliminación accidental del servidor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   Obtenga información sobre [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
--   Más información sobre [copia de seguridad y recuperación](./concepts-backup-restore.md)
+- Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
+- Más información sobre [copia de seguridad y recuperación](./concepts-backup-restore.md)

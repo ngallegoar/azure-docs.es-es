@@ -11,40 +11,42 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 73560c49e10ab96c934d4dd3cea9395093a26420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82629055"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629432"
 ---
-# <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copia de archivos de varios contenedores con Azure Data Factory
+# <a name="copy-multiple-folders-with-azure-data-factory"></a>Copia de varias carpetas con Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este artículo se describe una plantilla de solución que puede usar para copiar archivos de varios contenedores entre almacenes de archivos. Por ejemplo, puede usarla para migrar su instancia de Data Lake de AWS S3 a Azure Data Lake Store. O podría usarla para replicar todo el contenido de una cuenta de Azure Blob Storage a otra.
+En este artículo se describe una plantilla de solución en la que puede usar varias actividades de copia para copiar contenedores o carpetas entre almacenes basados en archivos, donde cada actividad de copia se supone que copie un solo contenedor o carpeta. 
 
 > [!NOTE]
 > Si desea copiar archivos desde un único contenedor, es más eficaz utilizar la [herramienta Copiar datos](copy-data-tool.md) para crear una canalización con una sola actividad de copia. La plantilla de este artículo es más de lo que necesita para esa situación.
 
 ## <a name="about-this-solution-template"></a>Acerca de esta plantilla de solución
 
-Esta plantilla enumera los contenedores del almacén del almacenamiento de origen. A continuación, copia esos contenedores en el almacén de destino.
+Esta plantilla enumera las carpetas de una carpeta principal determinada en el almacén de almacenamiento de origen. A continuación, copia cada una de estas carpetas en el almacén de destino.
 
 La plantilla contiene tres actividades:
-- **GetMetadata** examina el almacenamiento de origen y obtiene la lista de contenedores.
-- **ForEach** obtiene la lista de contenedores de la actividad **GetMetadata** y, a continuación, recorre en iteración la lista y pasa cada contenedor a la actividad Copy.
-- **Copy** copia cada contenedor desde el almacén de almacenamiento de origen al almacén de destino.
+- **GetMetadata** examina el almacén de almacenamiento de origen y obtiene la lista de subcarpetas de una carpeta principal determinada.
+- **ForEach** obtiene la lista de subcarpetas de la actividad **GetMetadata** y, a continuación, recorre en iteración la lista y pasa cada carpeta a la actividad Copy.
+- **Copy** copia cada carpeta desde el almacén de almacenamiento de origen al almacén de destino.
 
 La plantilla define los parámetros siguientes:
-- *SourceFileFolder* es la ruta de acceso de la carpeta del almacén de origen de datos, donde puede obtener una lista de los contenedores. La ruta de acceso es el directorio raíz, que contiene varias carpetas de contenedor. El valor predeterminado para este parámetro es `sourcefolder`.
-- *SourceFileDirectory* es la ruta de acceso de la subcarpeta en el directorio raíz del almacén de origen de datos. El valor predeterminado para este parámetro es `subfolder`.
-- *DestinationFileFolder* es la ruta de acceso de la carpeta donde se copiarán los archivos en el almacén de destino. El valor predeterminado para este parámetro es `destinationfolder`.
-- *DestinationFileDirectory* es la ruta de acceso de la subcarpeta donde se copiarán los archivos en el almacén de destino. El valor predeterminado para este parámetro es `subfolder`.
+- *SourceFileFolder* forma parte de la ruta de acceso de la carpeta principal del almacén de origen de datos: *SourceFileFolder/SourceFileDirectory* , donde puede obtener una lista de las subcarpetas. 
+- *SourceFileDirectory* forma parte de la ruta de acceso de la carpeta principal del almacén de origen de datos: *SourceFileFolder/SourceFileDirectory* , donde puede obtener una lista de las subcarpetas. 
+- *DestinationFileFolder* forma parte de la ruta de acceso de la carpeta principal: *DestinationFileFolder/DestinationFileDirectory* donde se copiarán los archivos en el almacén de destino. 
+- *DestinationFileDirectory* forma parte de la ruta de acceso de la carpeta principal: *DestinationFileFolder/DestinationFileDirectory* donde se copiarán los archivos en el almacén de destino. 
+
+Si quiere copiar varios contenedores debajo de carpetas raíz entre almacenes de almacenamiento, puede especificar los cuatro parámetros como */* . Al hacerlo, replicará todo lo que haya entre los almacenes de almacenamiento.
 
 ## <a name="how-to-use-this-solution-template"></a>Uso de esta plantilla de solución
 
-1. Vaya a la plantilla **Copy multiple files containers between File Stores**(Copiar varios contenedores de archivos entre almacenes de archivos). Cree una **nueva** conexión con el almacén de almacenamiento de origen. El almacén de almacenamiento de origen es desde donde se van a copiar los archivos de varios contenedores.
+1. Vaya a la plantilla **Copy multiple files containers between File Stores** (Copiar varios contenedores de archivos entre almacenes de archivos). Cree una **nueva** conexión con el almacén de almacenamiento de origen. El almacén de almacenamiento de origen es desde donde se van a copiar los archivos de varios contenedores.
 
     ![Creación de una nueva conexión con el origen](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
 
@@ -60,7 +62,7 @@ La plantilla define los parámetros siguientes:
 
     ![Visualización de la canalización](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Seleccione **Depurar**, escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
+5. Seleccione **Depurar** , escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
 
     ![Ejecución de la canalización](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

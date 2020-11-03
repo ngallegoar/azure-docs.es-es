@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 3fd1ae82450c6203833a1e7b9947d516950c0330
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3975a57c095a8593e392e932bd125308853d3756
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146594"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541526"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enriquecimientos de mensajes para mensajes de IoT Hub del dispositivo a la nube
 
@@ -63,7 +63,7 @@ Los enriquecimientos se pueden configurar mediante los métodos siguientes:
 | **Método** | **Comando** |
 | ----- | -----| 
 | Portal | [Azure Portal](https://portal.azure.com) | Consulte el [tutorial sobre enriquecimientos de mensajes](tutorial-message-enrichments.md). | 
-| Azure CLI   | [az iot hub message-enrichment](/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Azure CLI   | [az iot hub message-enrichment](/cli/azure/iot/hub/message-enrichment) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
 La adición de enriquecimientos de mensajes no agrega latencia al enrutamiento de mensajes.
@@ -84,7 +84,7 @@ Para probar enriquecimientos de mensajes, consulte el [tutorial sobre enriquecim
 
 * Las actualizaciones de un dispositivo gemelo pueden tardar hasta cinco minutos en quedar reflejadas en el valor de enriquecimiento correspondiente.
 
-* El tamaño total del mensaje, incluidos los enriquecimientos, no puede superar los 256 KB. Si el tamaño del mensaje supera los 256 KB, el centro de IoT eliminará el mensaje. Puede usar [métricas de IoT Hub](iot-hub-metrics.md) para identificar y depurar errores cuando se eliminan los mensajes. Por ejemplo, puede supervisar d2c.telemetry.egress.invalid.
+* El tamaño total del mensaje, incluidos los enriquecimientos, no puede superar los 256 KB. Si el tamaño del mensaje supera los 256 KB, el centro de IoT eliminará el mensaje. Puede usar [métricas de IoT Hub](monitor-iot-hub-reference.md#metrics) para identificar y depurar errores cuando se eliminan los mensajes. Por ejemplo, puede supervisar la métrica de *mensajes de telemetría incompatibles* ( *d2c.telemetry.egress.invalid* ) en las [métricas de enrutamiento](monitor-iot-hub-reference.md#routing-metrics). Para obtener más información, vea [Supervisión de IoT Hub](monitor-iot-hub.md).
 
 * Los mensajes enriquecidos no se aplican a los eventos de cambio de gemelo digital.
 

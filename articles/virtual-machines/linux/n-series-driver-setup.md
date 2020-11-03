@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: c0f05bd9ebd100956cfb7b2b6188e18616368dd0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 9b6e752f8352db565239aba4a990752b1c397f5f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168484"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517266"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
 
@@ -162,6 +162,23 @@ Las máquinas virtuales de la serie N que puedan usar RDMA se implementan desde 
 
 * **HPC basada en CentOS 7.4** : los controladores RDMA e Intel MPI 5.1 están instalados en la máquina virtual.
 
+* **HPC basado en CentOS** : CentOS-HPC 7.6 y versiones posteriores (para SKU en las que se admite InfiniBand a través de SR-IOV). Estas imágenes tienen preinstaladas las bibliotecas OFED y MPI de Mellanox.
+
+> [!NOTE]
+> Las tarjetas CX3-Pro solo se admiten a través de las versiones de LTS de OFED de Mellanox. Use la versión de LTS de OFED de Mellanox (4.9-0.1.7.0) en las máquinas virtuales de la serie N con tarjetas ConnectX3-Pro. Para obtener más información, vea [Controladores de Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
+>
+> Además, algunas de las imágenes HPC de Azure Marketplace más recientes tienen OFED 5.1 de Mellanox y versiones posteriores, que no admiten tarjetas ConnectX3-Pro. Compruebe la versión OFED de Mellanox en la imagen de HPC antes de usarla en máquinas virtuales con tarjetas ConnectX3-Pro.
+>
+> Las imágenes siguientes son las de CentOS-HPC más recientes que admiten tarjetas ConnectX3-Pro:
+>
+> - OpenLogic:CentOS-HPC:7.6:7.6.2020062900
+> - OpenLogic:CentOS-HPC:7_6gen2:7.6.2020062901
+> - OpenLogic:CentOS-HPC:7.7:7.7.2020062600
+> - OpenLogic:CentOS-HPC:7_7-gen2:7.7.2020062601
+> - OpenLogic:CentOS-HPC:8_1:8.1.2020062400
+> - OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
+>
+
 ## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Instalación de controladores GRID en VM de la serie NV o NVv3
 
 Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv3, establezca una conexión SSH a cada VM y siga los pasos para su distribución de Linux. 
@@ -208,7 +225,7 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv3, estable
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
 
-6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí** .
+6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí**.
 
 7. Una vez completada la instalación, copie /etc/nvidia/gridd.conf.template en un nuevo archivo gridd.conf en la ubicación /etc/nvidia/
 
@@ -281,7 +298,7 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv3, estable
 
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
-6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí** .
+6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí**.
 
 7. Una vez completada la instalación, copie /etc/nvidia/gridd.conf.template en un nuevo archivo gridd.conf en la ubicación /etc/nvidia/
   

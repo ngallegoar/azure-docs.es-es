@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0da6c614572e73a00db1087621eaca3bd790aad6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119351"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891812"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager
 
@@ -44,7 +44,7 @@ Para completar este artículo, necesitará lo siguiente:
 Abra una plantilla llamada [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Crear una cuenta de almacenamiento estándar) desde [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) y configure dos problemas de plantilla.
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
-2. En **Nombre de archivo**, pegue el código URL siguiente:
+2. En **Nombre de archivo** , pegue el código URL siguiente:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
@@ -96,14 +96,14 @@ El error de implementación se puede encontrar desde Azure Portal mediante el pr
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Abra el grupo de recursos seleccionando **Grupos de recursos** y, después, el nombre del grupo de recursos. Verá **1 Failed** (1 error) en **Implementación**.
 
-    ![Solución del problemas del tutorial de Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
+    ![Captura de pantalla que resalta la implementación con errores.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
 3. Seleccione **Detalles del error**.
 
-    ![Solución del problemas del tutorial de Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![Captura de pantalla que resalta el vínculo Detalles del error.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
     El mensaje de error es el mismo que el que se ha mostrado anteriormente:
 
-    ![Solución del problemas del tutorial de Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![Captura de pantalla que muestra los detalles del error.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
 El error también se puede encontrar desde los registros de actividad:
 

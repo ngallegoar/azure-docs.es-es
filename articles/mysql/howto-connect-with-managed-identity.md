@@ -6,13 +6,13 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 7733148777cde2a487e5c93d7750eb7a24ff531c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 74530b861b4dc7a35fa8b192ecc0e79ce5fa59c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88999400"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742986"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Conexión con identidad administrada a Azure Database for MySQL
 
@@ -31,20 +31,20 @@ Aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Si no está familiarizado con la característica Managed Identities for Azure Resources, consulte esta [introducción](../../articles/active-directory/managed-identities-azure-resources/overview.md). Si no tiene una cuenta de Azure, [regístrese para obtener una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para realizar la creación de recursos necesarios y la administración de roles, la cuenta debe tener permisos de "Propietario" en el ámbito adecuado (su suscripción o grupo de recursos). Si necesita ayuda con la asignación de roles, consulte [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](../../articles/role-based-access-control/role-assignments-portal.md).
+- Para realizar la creación de recursos necesarios y la administración de roles, la cuenta debe tener permisos de "Propietario" en el ámbito adecuado (su suscripción o grupo de recursos). Si necesita ayuda con la asignación de roles, vea [Uso del control de acceso basado en rol de Azure (RBAC de Azure) para administrar el acceso a los recursos de la suscripción de Azure](../../articles/role-based-access-control/role-assignments-portal.md).
 - Necesita la VM de Azure (por ejemplo, Ubuntu Linux en ejecución) que le gustaría usar para acceder a la base de datos mediante identidad administrada.
 - Necesita un servidor de bases de datos de Azure Database for MySQL que tenga configurada la [Autenticación de Azure AD](howto-configure-sign-in-azure-ad-authentication.md).
 - Para seguir el ejemplo de C#, complete primero la guía sobre la [conexión con C#](connect-csharp.md).
 
 ## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>Creación de una identidad administrada asignada por el usuario para su VM
 
-Cree una identidad en la suscripción con el comando [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create). Puede usar el mismo grupo de recursos en el que se ejecuta la máquina virtual o uno diferente.
+Cree una identidad en la suscripción con el comando [az identity create](/cli/azure/identity#az-identity-create). Puede usar el mismo grupo de recursos en el que se ejecuta la máquina virtual o uno diferente.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-Para configurar la identidad en los pasos siguientes, use el comando [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) para almacenar en variables el id. de cliente y el id. de recurso de la identidad.
+Para configurar la identidad en los pasos siguientes, use el comando [az identity show](/cli/azure/identity#az-identity-show) para almacenar en variables el id. de cliente y el id. de recurso de la identidad.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -54,7 +54,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-Ahora podemos asignar la identidad asignada por el usuario a la VM con el comando [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign):
+Ahora podemos asignar la identidad asignada por el usuario a la VM con el comando [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign):
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

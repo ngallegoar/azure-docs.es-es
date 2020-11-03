@@ -11,12 +11,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 8194f520abf5c8d4e47fa279f6cf82013024e9ec
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152160"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792470"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flujos de dispositivos IoT Hub (versión preliminar)
 
@@ -56,7 +57,7 @@ La creación mediante programación de un flujo de dispositivos a través del SD
 
 1. La aplicación de dispositivo registra una devolución de llamada de antemano para recibir notificaciones cuando se inicie un flujo de dispositivos nuevo al dispositivo. Por lo general, ese paso ocurre cuando el dispositivo se inicia y se conecta a IoT Hub.
 
-2. El programa del lado del servicio proporciona el id. de dispositivo (_no_ la dirección IP) para iniciar un flujo de dispositivos cuando sea necesario.
+2. El programa del lado del servicio proporciona el id. de dispositivo ( _no_ la dirección IP) para iniciar un flujo de dispositivos cuando sea necesario.
 
 3. Para notificar al programa del lado del dispositivo, el centro de IoT invoca la devolución de llamada registrada en el paso 1. El dispositivo puede aceptar o rechazar la solicitud de iniciación del flujo. Esta lógica puede ser específica para el escenario de la aplicación. Si el dispositivo rechaza la solicitud de flujo, IoT Hub se lo informa al servicio como corresponde; de lo contrario, se realizan los pasos siguientes.
 
@@ -103,7 +104,7 @@ El resultado es un objeto JSON de todos los puntos de conexión que el dispositi
 ```
 
 > [!NOTE]
-> Asegúrese de que tiene instalada versión 2.0.57 de la CLI de Azure, o cualquier versión posterior. Puede descargar la versión más reciente desde la página [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Asegúrese de que tiene instalada versión 2.0.57 de la CLI de Azure, o cualquier versión posterior. Puede descargar la versión más reciente desde la página [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Habilitación de la conectividad saliente para los puntos de conexión de streaming de dispositivo
@@ -119,28 +120,28 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Asegúrese de que tiene instalada versión 2.0.57 de la CLI de Azure, o cualquier versión posterior. Puede descargar la versión más reciente desde la página [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Asegúrese de que tiene instalada versión 2.0.57 de la CLI de Azure, o cualquier versión posterior. Puede descargar la versión más reciente desde la página [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 >
 
-## <a name="troubleshoot-via-device-streams-activity-logs"></a>Solución de problemas a través de los registros de actividad de los flujos de dispositivos
+## <a name="troubleshoot-via-device-streams-resource-logs"></a>Solución de problemas a través de los registros de recursos de flujos de dispositivos
 
-Puede configurar los registros de Azure Monitor para que recopilen el registro de actividad de los flujos de dispositivos en IoT Hub. Esto puede ser muy útil en los escenarios de solución de problemas.
+Puede configurar Azure Monitor para recopilar los [registros de recursos para los flujos de dispositivos](monitor-iot-hub-reference.md#device-streams-preview) que emite su instancia de IoT Hub. Esto puede ser muy útil en los escenarios de solución de problemas.
 
-Siga estos pasos para configurar los registros de Azure Monitor para las actividades de flujo de dispositivos de IoT Hub:
+Siga los pasos que se indican a continuación para crear una configuración de diagnóstico que envíe registros de flujos de dispositivos para la instancia de IoT Hub a los registros de Azure Monitor:
 
-1. Vaya a la pestaña *Configuración de diagnóstico* en IoT Hub y haga clic en el vínculo *Activación del diagnóstico*.
+1. En Azure Portal, navegue a su centro de IoT. En el panel de la izquierda, seleccione **Configuración de diagnóstico** en **Supervisión**. Después, seleccione **Agregar configuración de diagnóstico**.
 
-   !["Habilitación de registros de diagnóstico"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
+2. Proporcione un nombre para la configuración de diagnóstico y seleccione **DeviceStreams** en la lista de registros. A continuación, seleccione **Enviar a Log Analytics**. Se le guiará para que elija un área de trabajo de Log Analytics existente o cree una.
 
-2. Proporcione un nombre para la configuración de diagnóstico y elija la opción *Enviar a Log Analytics*. Se le guiará para que elija un recurso existente del área de trabajo de Log Analytics o para que cree uno. Además, compruebe *DeviceStreams* de la lista.
+    :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Habilitación de los registros de flujos de dispositivos":::
 
-    !["Habilitación de los registros de flujos de dispositivos"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
-
-3. Ahora puede acceder a los registros de flujos de dispositivos en la pestaña *Registros* del portal de IoT Hub. Los registros de actividad del flujo de dispositivos aparecerán en la tabla `AzureDiagnostics` y tendrán `Category=DeviceStreams`.
+3. Después de crear una configuración de diagnóstico para enviar los registros de flujos del dispositivo a un área de trabajo de Log Analytics, puede acceder a ellos si seleccione **Registros** en **Supervisión** en el panel izquierdo de su instancia de IoT Hub en Azure Portal. Los registros de flujos de dispositivos aparecerán en la tabla `AzureDiagnostics` y tendrán `Category=DeviceStreams`. Tenga en cuenta que pueden pasar varios minutos después de una operación para que los registros aparezcan en la tabla.
 
    Como se muestra a continuación, la identidad del dispositivo de destino y el resultado de la operación también están disponibles en los registros.
 
    !["Acceso a los registros de flujo de dispositivo"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
+
+Para obtener más información sobre el uso de Azure Monitor con IoT Hub, consulte [Supervisión de IoT Hub](monitor-iot-hub.md). Para obtener información sobre todos los registros de recursos, las métricas y las tablas disponibles para IoT Hub, consulte [Referencia de supervisión de datos en Azure IoT Hub](monitor-iot-hub-reference.md).
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
@@ -158,13 +159,13 @@ Dos lados de cada flujo (en el lado del dispositivo y del servicio) usan el SDK 
 
 Hay dos [ejemplos de inicio rápido](./index.yml) disponibles en la página de IoT Hub. Estos muestran el uso de los flujos de dispositivos por parte de las aplicaciones.
 
-* En el ejemplo *echo*, se muestra el uso mediante programación de los flujos de los dispositivos (llamando directamente a las API del SDK).
+* En el ejemplo *echo* , se muestra el uso mediante programación de los flujos de los dispositivos (llamando directamente a las API del SDK).
 
-* En el ejemplo *local proxy*, se muestra el uso de la tunelización del tráfico de las aplicaciones cliente/servidor existentes (como aplicaciones SSH, RDP o web) mediante flujos de datos de dispositivos.
+* En el ejemplo *local proxy* , se muestra el uso de la tunelización del tráfico de las aplicaciones cliente/servidor existentes (como aplicaciones SSH, RDP o web) mediante flujos de datos de dispositivos.
 
 Estos ejemplos se tratan con más detalle a continuación.
 
-### <a name="echo-sample"></a>Ejemplo Eco
+### <a name="echo-sample"></a>Ejemplo de eco
 
 En el ejemplo de echo, se muestra el uso mediante programación de flujos de datos de dispositivos para enviar y recibir bytes entre la aplicación del servicio y la aplicación del dispositivo. Tenga en cuenta que puede usar programas de servicio y dispositivos en diferentes lenguajes. Por ejemplo, puede usar el programa de dispositivos C con el programa de servicio en C#.
 

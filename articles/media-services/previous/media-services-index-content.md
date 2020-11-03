@@ -3,7 +3,7 @@ title: Indización de archivos multimedia con el Indizador multimedia de Azure
 description: El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. En este tema se muestra cómo usar el Indizador multimedia.
 services: media-services
 documentationcenter: ''
-author: Asolanki
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
@@ -12,23 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/22/2019
-ms.author: juliako
+ms.date: 10/21/2020
+ms.author: inhenkel
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06bd9f159281a1353ca9474bf0876e99b6d1940a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 12a4099a6a3f0d06dfbb40171970c7386c3e4d22
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018966"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518847"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indización de archivos multimedia con el Indizador multimedia de Azure
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> El procesador de multimedia **Azure Media Indexer** se va a retirar. Para ver las fechas de retirada, consulte el tema [componentes heredados](legacy-components.md). [Video Indexer de Azure Media Services ](../video-indexer/index.yml) reemplaza a su procesador multimedia heredado. Para más información, consulte [Migración de Azure Media Indexer y Azure Media Indexer 2 a Video Indexer de Azure Media Services](migrate-indexer-v1-v2.md).
+> [!IMPORTANT]
+> Se recomienda que los clientes migren de los indizadores v1 y v2 a usar el [modo básico AudioAnalyzerPreset de Media Services v3](../latest/analyzing-video-audio-files-concept.md). Tanto el procesador de multimedia [Azure Media Indexer](media-services-index-content.md) como los procesadores de multimedia [Azure Media Indexer 2 Preview](./legacy-components.md) se están retirando. Para ver las fechas de retirada, consulte el tema [componentes heredados](legacy-components.md).
 
 El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede procesar uno o varios archivos multimedia en un lote.  
 

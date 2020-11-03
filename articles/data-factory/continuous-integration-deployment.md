@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1836e6fc1c29e74bceba62bbeb40ce9cc5831895
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 629c27602df14c0b35e2063d8db2d0b13bbff99a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147432"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635905"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -26,9 +26,9 @@ ms.locfileid: "92147432"
 
 La integración continua es el procedimiento de probar cada cambio realizado en el código base automáticamente y tan pronto como sea posible.  La entrega continua sigue las pruebas realizadas durante la integración continua y envía los cambios a un sistema de ensayo o producción.
 
-En Azure Data Factory, la integración y la entrega continuas (CI/CD) implican el traslado de canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro. Azure Data Factory usa las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) para almacenar la configuración de las distintas entidades de ADF (canalizaciones, conjuntos de datos, flujos de datos, etc.). Se sugieren dos métodos para promover una factoría de datos a otro entorno:
+En Azure Data Factory, la integración y la entrega continuas (CI/CD) implican el traslado de canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro. Azure Data Factory usa las [plantillas de Azure Resource Manager](../azure-resource-manager/templates/overview.md) para almacenar la configuración de las distintas entidades de ADF (canalizaciones, conjuntos de datos, flujos de datos, etc.). Se sugieren dos métodos para promover una factoría de datos a otro entorno:
 
--    Implementación automatizada mediante la integración de Data Factory con [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops).
+-    Implementación automatizada mediante la integración de Data Factory con [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops).
 -    Carga manual de una plantilla de Resource Manager mediante la integración de la experiencia de usuario de Data Factory con Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -62,51 +62,51 @@ A continuación se ofrece una guía para configurar una versión de Azure Pipeli
 
 ### <a name="requirements"></a>Requisitos
 
--   Una suscripción a Azure vinculada a Visual Studio Team Foundation Server o Azure Repos que use el  [punto de conexión de servicio de Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
+-   Una suscripción a Azure vinculada a Visual Studio Team Foundation Server o Azure Repos que use el [punto de conexión de servicio de Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
 -   Una factoría de datos configurada con la integración de GIT de Azure Repos.
 
--   Un  [almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) que contenga los secretos para cada entorno.
+-   Un [almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) que contenga los secretos para cada entorno.
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Configuración de una versión de Azure Pipelines
 
 1.  En [Azure DevOps](https://dev.azure.com/), abra el proyecto configurado con la factoría de datos.
 
-1.  En el lado izquierdo de la página, seleccione **Canalizaciones** y después **Versiones** .
+1.  En el lado izquierdo de la página, seleccione **Canalizaciones** y después **Versiones**.
 
     ![Selección de Canalizaciones, Versiones](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Seleccione **Nueva canalización** o, si tiene canalizaciones existentes, seleccione **Nueva** y, luego **Nueva canalización de versión** .
+1.  Seleccione **Nueva canalización** o, si tiene canalizaciones existentes, seleccione **Nueva** y, luego **Nueva canalización de versión**.
 
-1.  Seleccione la plantilla **Fase vacía** .
+1.  Seleccione la plantilla **Fase vacía**.
 
     ![Selección de Trabajo vacío](media/continuous-integration-deployment/continuous-integration-image13.png)
 
 1.  En el cuadro **Nombre de la fase** , escriba el nombre del entorno.
 
-1.  Seleccione **Agregar artefacto** y después el mismo repositorio de Git configurado con la factoría de datos de desarrollo. Seleccione la [rama de publicación](source-control.md#configure-publishing-settings) del repositorio en **Rama predeterminada** . De forma predeterminada, esta rama de publicación es `adf_publish`. En **Versión predeterminada** , seleccione **Más reciente de la rama predeterminada** .
+1.  Seleccione **Agregar artefacto** y después el mismo repositorio de Git configurado con la factoría de datos de desarrollo. Seleccione la [rama de publicación](source-control.md#configure-publishing-settings) del repositorio en **Rama predeterminada**. De forma predeterminada, esta rama de publicación es `adf_publish`. En **Versión predeterminada** , seleccione **Más reciente de la rama predeterminada**.
 
     ![Agregar un artefacto](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 1.  Añada una tarea de implementación de Azure Resource Manager:
 
-    a.  En la vista de fase, seleccione **Ver tareas de la fase** .
+    a.  En la vista de fase, seleccione **Ver tareas de la fase**.
 
     ![Vista de fase](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Cree una nueva tarea. Busque **Implementación de una plantilla de Resource Manager** y, después, seleccione **Agregar** .
+    b.  Cree una nueva tarea. Busque **Implementación de una plantilla de Resource Manager** y, después, seleccione **Agregar**.
 
     c.  En la tarea de implementación, seleccione la suscripción, el grupo de recursos y la ubicación de la factoría de datos de destino. Proporcione las credenciales si es necesario.
 
     d.  En la lista **Acción** , seleccione **Create or update resource group** (Crear o actualizar grupo de recursos).
 
-    e.  Seleccione el botón de puntos suspensivos ( **...** ) situado junto al cuadro **Plantilla** . Busque la plantilla de Azure Resource Manager que se ha generado en la rama de publicación del repositorio de Git configurado. Busque el archivo `ARMTemplateForFactory.json` en la carpeta <FactoryName> de la rama adf_publish.
+    e.  Seleccione el botón de puntos suspensivos ( **...** ) situado junto al cuadro **Plantilla**. Busque la plantilla de Azure Resource Manager que se ha generado en la rama de publicación del repositorio de Git configurado. Busque el archivo `ARMTemplateForFactory.json` en la carpeta <FactoryName> de la rama adf_publish.
 
     f.  Seleccione **…** junto al cuadro **Parámetros de plantilla** para elegir el archivo de parámetros. Busque el archivo `ARMTemplateParametersForFactory.json` en la carpeta <FactoryName> de la rama adf_publish.
 
     g.  Seleccione **…** junto al cuadro **Reemplazar parámetros de plantilla** y escriba los valores de los parámetros deseados de la factoría de datos de destino. En el caso de las credenciales que proceden de Azure Key Vault, escriba el nombre del secreto entre comillas dobles. Por ejemplo, si el nombre del secreto es cred1, escriba **"$(cred1)"** para este valor.
 
-    h. Seleccione **Incremental** para el **Modo de implementación** .
+    h. Seleccione **Incremental** para el **Modo de implementación**.
 
     > [!WARNING]
     > En el modo de implementación completa, se **eliminarán** aquellos recursos que existan en el grupo de recursos, pero no estén especificados en la nueva plantilla de Resource Manager. Para más información, consulte [Modos de implementación de Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md).
@@ -115,7 +115,7 @@ A continuación se ofrece una guía para configurar una versión de Azure Pipeli
 
 1.  Guarde la canalización de versión.
 
-1. Para desencadenar una versión, seleccione **Crear versión** . Para automatizar la creación de versiones, consulte [Desencadenadores de versión de Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/release/triggers?view=azure-devops).
+1. Para desencadenar una versión, seleccione **Crear versión**. Para automatizar la creación de versiones, consulte [Desencadenadores de versión de Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops).
 
    ![Selección de Crear versión](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -151,7 +151,7 @@ Hay dos formas de administrar los secretos:
 
     El archivo de parámetros también debe estar en la rama de publicación.
 
-1. Agregue una [tarea de Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) antes de la tarea de implementación de Azure Resource Manager que se ha descrito en la sección anterior:
+1. Agregue una [tarea de Azure Key Vault](/azure/devops/pipelines/tasks/deploy/azure-key-vault) antes de la tarea de implementación de Azure Resource Manager que se ha descrito en la sección anterior:
 
     1.  En la pestaña **Tareas** , cree una tarea. Busque **Azure Key Vault** y agréguelo.
 
@@ -167,7 +167,7 @@ Es posible que se produzca un error de acceso denegado en la tarea Azure Key Vau
 
 Puede producirse un error en la implementación si intenta actualizar desencadenadores activos. Para actualizar desencadenadores activos, debe detenerlos manualmente e iniciarlos después de la implementación. Puede hacerlo mediante una tarea de Azure PowerShell:
 
-1.  En la pestaña **Tareas** de la versión, agregue una tarea **Azure PowerShell** . Elija la versión de la tarea 4.*. 
+1.  En la pestaña **Tareas** de la versión, agregue una tarea **Azure PowerShell**. Elija la versión de la tarea 4.*. 
 
 1.  Seleccione la suscripción en la que se encuentra la factoría.
 
@@ -225,17 +225,17 @@ Al exportar una plantilla de Resource Manager, Data Factory lee este archivo des
 
 ### <a name="custom-parameter-syntax"></a>Sintaxis de los parámetros personalizados
 
-A continuación se indican algunas de las instrucciones que se deben seguir para crear el archivo de parámetros personalizados, **arm-template-parameters-definition.json** . El archivo consta de una sección para cada tipo de entidad: desencadenador, canalización, servicio vinculado, conjunto de datos, entorno de ejecución de integración i flujo de datos.
+A continuación se indican algunas de las instrucciones que se deben seguir para crear el archivo de parámetros personalizados, **arm-template-parameters-definition.json**. El archivo consta de una sección para cada tipo de entidad: desencadenador, canalización, servicio vinculado, conjunto de datos, entorno de ejecución de integración i flujo de datos.
 
 * Escriba la ruta de acceso de la propiedad en el tipo de entidad correspondiente.
-* El establecimiento de un nombre de propiedad en  `*` indica que quiere parametrizar todas las propiedades que incluye (solo en el primer nivel, no de forma recursiva). También puede proporcionar excepciones a esta configuración.
-* El establecimiento del valor de una propiedad como una cadena indica que quiere parametrizar la propiedad. Use el formato `<action>:<name>:<stype>`.
-   *  `<action>` puede ser uno de estos caracteres:
-      * `=` significa que el valor actual debe conservarse como el valor predeterminado para el parámetro.
-      * `-` significa que no se debe conservar el valor predeterminado para el parámetro.
-      * `|` es un caso especial para los secretos de Azure Key Vault para una cadena de conexión o claves.
-   * `<name>` es el nombre del parámetro. Si está en blanco, toma el nombre de la propiedad. Si el valor empieza por un carácter `-`, el nombre está abreviado. Por ejemplo, `AzureStorage1_properties_typeProperties_connectionString` se abreviará a `AzureStorage1_connectionString`.
-   * `<stype>` es el tipo del parámetro. Si `<stype>` está en blanco, el tipo predeterminado es `string`. Los valores admitidos son: `string`, `bool`, `number`, `object` y `securestring`.
+* El establecimiento de un nombre de propiedad en `*` indica que quiere parametrizar todas las propiedades que incluye (solo hasta el primer nivel, no de forma recursiva). También puede proporcionar excepciones a esta configuración.
+* El establecimiento del valor de una propiedad como una cadena indica que quiere parametrizar la propiedad. Use el formato `<action>:<name>:<stype>`.
+   *  `<action>` puede ser uno de estos caracteres:
+      * `=` significa que el valor actual se debe conservar como el predeterminado para el parámetro.
+      * `-` significa que no se debe conservar el valor predeterminado para el parámetro.
+      * `|` es un caso especial para los secretos de Azure Key Vault para cadenas de conexión o claves.
+   * `<name>` es el nombre del parámetro. Si está en blanco, toma el nombre de la propiedad. Si el valor empieza por un carácter `-`, el nombre está abreviado. Por ejemplo, `AzureStorage1_properties_typeProperties_connectionString` se abreviará a `AzureStorage1_connectionString`.
+   * `<stype>` es el tipo del parámetro. Si `<stype>` está en blanco, el tipo predeterminado es `string`. Los valores admitidos son: `string`, `bool`, `number`, `object` y `securestring`.
 * Al especificar una matriz en el archivo de definición indica que la propiedad coincidente en la plantilla es una matriz. Data Factory recorre en iteración todos los objetos de la matriz mediante la definición especificada en el objeto del entorno de ejecución de integración de la matriz. El segundo objeto, una cadena, se convierte en el nombre de la propiedad, que se utiliza como el nombre del parámetro para cada iteración.
 * Una definición no puede ser específica de una instancia de recurso. Cualquier definición se aplica a todos los recursos de ese tipo.
 * De forma predeterminada, todas las cadenas seguras, como los secretos de Key Vault, las cadenas de conexión, las claves y los tokens, están parametrizadas.
@@ -603,11 +603,11 @@ Si ha configurado Git, se generan las plantillas vinculadas y se guardan junto c
 
 Normalmente, las plantillas vinculadas de Resource Manager tienen una plantilla principal y un conjunto de plantillas secundarias vinculadas a la principal. La plantilla principal se denomina ArmTemplate_master.json y las plantillas secundarias se denominan con el patrón ArmTemplate_0.json, ArmTemplate_1.json, etc. 
 
-Para usar plantillas vinculadas en lugar de la plantilla de Resource Manager completa, actualice la tarea de CI/CD para que apunte a ArmTemplate_master.json en lugar de ArmTemplateForFactory.json (la plantilla de Resource Manager completa). Resource Manager también necesita que cargue las plantillas vinculadas en una cuenta de almacenamiento para que Azure pueda acceder a ellas durante la implementación. Para más información, vea [Implementación de plantillas vinculadas de Resource Manager con VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+Para usar plantillas vinculadas en lugar de la plantilla de Resource Manager completa, actualice la tarea de CI/CD para que apunte a ArmTemplate_master.json en lugar de ArmTemplateForFactory.json (la plantilla de Resource Manager completa). Resource Manager también necesita que cargue las plantillas vinculadas en una cuenta de almacenamiento para que Azure pueda acceder a ellas durante la implementación. Para más información, vea [Implementación de plantillas vinculadas de Resource Manager con VSTS](/archive/blogs/najib/deploying-linked-arm-templates-with-vsts).
 
 No se olvide de agregar los scripts de Data Factory en la canalización de CI/CD antes y después de la tarea de implementación.
 
-Si no ha configurado Git, puede acceder a las plantillas vinculadas a través de **Export ARM Template** en la lista **Plantilla de ARM** .
+Si no ha configurado Git, puede acceder a las plantillas vinculadas a través de **Export ARM Template** en la lista **Plantilla de ARM**.
 
 ## <a name="hotfix-production-environment"></a>Entorno de producción de revisión
 
@@ -637,17 +637,17 @@ Si implementa una factoría en producción y se da cuenta de que hay un error qu
 
 Si usa la integración de Git con la factoría de datos y tiene una canalización de CI/CD que mueve los cambios desde el entorno de desarrollo al de prueba y, luego, al de producción, los procedimientos recomendados son los siguientes:
 
--   **Integración de Git** . Configure solo la factoría de datos de desarrollo con la integración de Git. Los cambios en los entornos de prueba y producción se implementan a través de CI/CD y no se necesita la integración Git.
+-   **Integración de Git**. Configure solo la factoría de datos de desarrollo con la integración de Git. Los cambios en los entornos de prueba y producción se implementan a través de CI/CD y no se necesita la integración Git.
 
--   **Script anterior y posterior a la implementación** . Antes del paso de implementación de Resource Manager en CI/CD, debe completar ciertas tareas, como detener y reiniciar los desencadenadores y realizar la limpieza. Se recomienda usar scripts de PowerShell antes y después de la tarea de implementación. Para más información, vea [Actualización de desencadenadores activos](#updating-active-triggers). El equipo de Data Factory ha [proporcionado el script](#script) que se va a usar y que se encuentra en la parte inferior de esta página.
+-   **Script anterior y posterior a la implementación**. Antes del paso de implementación de Resource Manager en CI/CD, debe completar ciertas tareas, como detener y reiniciar los desencadenadores y realizar la limpieza. Se recomienda usar scripts de PowerShell antes y después de la tarea de implementación. Para más información, vea [Actualización de desencadenadores activos](#updating-active-triggers). El equipo de Data Factory ha [proporcionado el script](#script) que se va a usar y que se encuentra en la parte inferior de esta página.
 
--   **Entornos de ejecución de integración y uso compartido** . Los entornos de ejecución de integración no cambian a menudo y son similares en todas las fases de CI/CD. Por tanto, Data Factory espera que el usuario tenga el mismo nombre y tipo de entorno de ejecución de integración en todas las etapas de CI/CD. Si quiere compartir entornos de ejecución de integración en todas las fases, considere la posibilidad de usar una factoría ternaria solo para contener los entornos de ejecución de integración compartidos. Puede usar esta factoría compartida en todos los entornos como un tipo de entorno de ejecución de integración vinculado.
+-   **Entornos de ejecución de integración y uso compartido**. Los entornos de ejecución de integración no cambian a menudo y son similares en todas las fases de CI/CD. Por tanto, Data Factory espera que el usuario tenga el mismo nombre y tipo de entorno de ejecución de integración en todas las etapas de CI/CD. Si quiere compartir entornos de ejecución de integración en todas las fases, considere la posibilidad de usar una factoría ternaria solo para contener los entornos de ejecución de integración compartidos. Puede usar esta factoría compartida en todos los entornos como un tipo de entorno de ejecución de integración vinculado.
 
--   **Implementación de un punto de conexión privado administrado** . Si ya existe un punto de conexión privado en una fábrica y se intenta implementar una plantilla de Resource Manager que contiene un punto de conexión privado con el mismo nombre pero con propiedades modificadas, se produce un error en la implementación. Es decir, se puede implementar correctamente un punto de conexión privado siempre que tenga las mismas propiedades que el que ya existe en la fábrica. Si alguna propiedad difiere entre entornos, se puede invalidar si se parametriza esa propiedad y se proporciona el valor respectivo durante la implementación.
+-   **Implementación de un punto de conexión privado administrado**. Si ya existe un punto de conexión privado en una fábrica y se intenta implementar una plantilla de Resource Manager que contiene un punto de conexión privado con el mismo nombre pero con propiedades modificadas, se produce un error en la implementación. Es decir, se puede implementar correctamente un punto de conexión privado siempre que tenga las mismas propiedades que el que ya existe en la fábrica. Si alguna propiedad difiere entre entornos, se puede invalidar si se parametriza esa propiedad y se proporciona el valor respectivo durante la implementación.
 
--   **Key Vault** . Cuando se usan servicios vinculados cuya información de conexión se almacena en Azure Key Vault, se recomienda mantener almacenes de claves independientes para entornos diferentes. También puede configurar niveles de permisos independientes para cada almacén de claves. Por ejemplo, es posible que no quiera que los miembros del equipo tengan permisos para ver los secretos de producción. Si sigue este enfoque, se recomienda mantener los mismos nombres de secreto en todas las fases. Si mantiene los mismos nombres de secreto, no es necesario parametrizar cada cadena de conexión en los entornos de CI/CD, porque lo único que cambia es el nombre del almacén de claves, que es un parámetro independiente.
+-   **Key Vault**. Cuando se usan servicios vinculados cuya información de conexión se almacena en Azure Key Vault, se recomienda mantener almacenes de claves independientes para entornos diferentes. También puede configurar niveles de permisos independientes para cada almacén de claves. Por ejemplo, es posible que no quiera que los miembros del equipo tengan permisos para ver los secretos de producción. Si sigue este enfoque, se recomienda mantener los mismos nombres de secreto en todas las fases. Si mantiene los mismos nombres de secreto, no es necesario parametrizar cada cadena de conexión en los entornos de CI/CD, porque lo único que cambia es el nombre del almacén de claves, que es un parámetro independiente.
 
--  **Nomenclatura de los recursos** . Debido a las restricciones de las plantillas de ARM, pueden surgir problemas en la implementación si los recursos contienen espacios en el nombre. Para los recursos, el equipo de Azure Data Factory recomienda usar los caracteres "_" o "-" en lugar de espacios. Por ejemplo, "Canalización_1" sería un nombre preferible en lugar de "Pipeline 1".
+-  **Nomenclatura de los recursos**. Debido a las restricciones de las plantillas de ARM, pueden surgir problemas en la implementación si los recursos contienen espacios en el nombre. Para los recursos, el equipo de Azure Data Factory recomienda usar los caracteres "_" o "-" en lugar de espacios. Por ejemplo, "Canalización_1" sería un nombre preferible en lugar de "Pipeline 1".
 
 ## <a name="unsupported-features"></a>Características no admitidas
 
@@ -666,12 +666,12 @@ Si usa la integración de Git con la factoría de datos y tiene una canalizació
 
 Se puede usar este script de ejemplo para detener los desencadenadores antes de la implementación y reiniciarlos más adelante. El script también incluye código para eliminar recursos que se han quitado. Guarde el script en un repositorio de Git de Azure DevOps y haga referencia a él mediante una tarea de Azure PowerShell de la versión 4.*.
 
-Al ejecutar un script anterior a la implementación, tendrá que especificar una variante de los siguientes parámetros en el campo **Argumentos de script** .
+Al ejecutar un script anterior a la implementación, tendrá que especificar una variante de los siguientes parámetros en el campo **Argumentos de script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
 
 
-Al ejecutar un script posterior a la implementación, tendrá que especificar una variante de los siguientes parámetros en el campo **Argumentos de script** .
+Al ejecutar un script posterior a la implementación, tendrá que especificar una variante de los siguientes parámetros en el campo **Argumentos de script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 

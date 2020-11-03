@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335541"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735066"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ Cada número en la versión indica compatibilidad general con la versión anteri
 * Las versiones secundarias cambian cuando se hacen cambios de funcionalidad que son compatibles con otras versiones anteriores secundarias.
 * Las versiones de revisión cambian cuando se hacen correcciones de errores compatibles con versiones anteriores.
 
-Los usuarios deben querer ejecutar la última versión de revisión de la versión secundaria que están ejecutando; por ejemplo, si su clúster de producción usa la versión **`1.17.7`** y **`1.17.8`** es la última versión de revisión disponible para la serie *1.17*, debe actualizar a **`1.17.8`** en cuanto pueda asegurarse de que el clúster esté completamente revisado y sea compatible.
+Los usuarios deben querer ejecutar la última versión de revisión de la versión secundaria que están ejecutando; por ejemplo, si su clúster de producción usa la versión **`1.17.7`** y **`1.17.8`** es la última versión de revisión disponible para la serie *1.17* , debe actualizar a **`1.17.8`** en cuanto pueda asegurarse de que el clúster esté completamente revisado y sea compatible.
 
 ## <a name="kubernetes-version-support-policy"></a>Directiva de soporte técnico de versión de Kubernetes
 
@@ -93,9 +93,9 @@ New Supported Version List
 
 ### <a name="supported-kubectl-versions"></a>Versiones de `kubectl` admitidas
 
-Puede usar una versión secundaria de `kubectl` que sea inmediatamente anterior o posterior a la versión de *kube-apiserver*, lo que es coherente con la [directiva de compatibilidad de Kubernetes para kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
+Puede usar una versión secundaria de `kubectl` que sea inmediatamente anterior o posterior a la versión de *kube-apiserver* , lo que es coherente con la [directiva de compatibilidad de Kubernetes para kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
-Por ejemplo, si la versión de *kube-apiserver* es *1.17*, puede usar las versiones de `kubectl` comprendidas entre *1.16* y *1.18* con esa versión de *kube-apiserver*.
+Por ejemplo, si la versión de *kube-apiserver* es *1.17* , puede usar las versiones de `kubectl` comprendidas entre *1.16* y *1.18* con esa versión de *kube-apiserver*.
 
 Para instalar o actualizar la versión de `kubectl`, ejecute `az aks install-cli`.
 
@@ -121,9 +121,9 @@ Las versiones de revisión específicas se pueden omitir, o su implantación pue
 
 ## <a name="azure-portal-and-cli-versions"></a>Versiones de Azure Portal y CLI
 
-Al implementar un clúster de AKS en Azure Portal o con la CLI de Azure, el clúster siempre se establece de forma predeterminada en la versión secundaria n-1 y la revisión más reciente. Por ejemplo, si AKS admite *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e* y *1.15.f*, la versión predeterminada seleccionada es la *1.16.c*.
+Al implementar un clúster de AKS en Azure Portal o con la CLI de Azure, el clúster siempre se establece de forma predeterminada en la versión secundaria n-1 y la revisión más reciente. Por ejemplo, si AKS admite *1.17.a* , *1.17.b* , *1.16.c* , *1.16.d* , *1.15.e* y *1.15.f* , la versión predeterminada seleccionada es la *1.16.c*.
 
-Para averiguar qué versiones están disponibles actualmente para su suscripción y región, utilice el comando [az aks get-versions][az-aks-get-versions]. En el ejemplo siguiente se enumeran las versiones de Kubernetes disponibles para la región *EastUS*:
+Para averiguar qué versiones están disponibles actualmente para su suscripción y región, utilice el comando [az aks get-versions][az-aks-get-versions]. En el ejemplo siguiente se enumeran las versiones de Kubernetes disponibles para la región *EastUS* :
 
 ```azurecli-interactive
 az aks get-versions --location eastus --output table
@@ -135,11 +135,12 @@ Para ver el historial de versiones anteriores, consulte [aquí](https://en.wikip
 
 |  Versión de K8s | Versión anterior  | Versión preliminar de AKS  | Disponibilidad general de AKS  | Fin de la vida útil |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | 19 de septiembre de 2019  | Enero de 2019   | Marzo de 2020  | 1.19 disponibilidad general | 
+| 1.16  | 19 de septiembre de 2019  | Enero de 2019   | Marzo de 2020  | Enero de 2021* | 
 | 1.17  | 9 de diciembre de 2019  | Enero de 2019   | Julio de 2020  | 1.20 disponibilidad general | 
 | 1.18  | 23 de marzo de 2020  | Mayo de 2020   | Agosto de 2020  | 1.21 disponibilidad general | 
 | 1.19  | 4 de agosto de 2020  | Septiembre de 2020   | Noviembre de 2020  | 1.22 disponibilidad general | 
 | 1.20  | 8 de diciembre de 2020  | Enero de 2021   | Marzo de 2021  | 1.23 Disponibilidad general | 
+\* Debido a la temporada de vacaciones, AKS ampliará la duración de la versión 1.16 de noviembre de 2020 hasta el enero de 2021. Obtenga más información [aquí](https://github.com/Azure/AKS/releases/tag/2020-10-12)
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
@@ -151,7 +152,7 @@ A partir de Kubernetes 1.19, la [comunidad de código abierto ha ampliado el so
 
 Si está en el versión *n-3* o anterior, está fuera del soporte técnico y se le pedirá que la actualice. Si la actualización de la versión n-3 a n-2 se completa correctamente, estará dentro de nuestras directivas de soporte técnico. Por ejemplo:
 
-- Si la versión de AKS admitida más antigua es la*1.15.a* y la suya es la *1.14.b* o anterior, no es compatible.
+- Si la versión de AKS admitida más antigua es la *1.15.a* y la suya es la *1.14.b* o anterior, no es compatible.
 - Si la actualización de *1.14.b* a *1.15.a* se realiza correctamente, estará de nuevo dentro de nuestras directivas de soporte técnico.
 
 No se admite el cambio a una versión anterior.
@@ -174,11 +175,11 @@ El plano de control debe estar dentro de una ventana de versiones de todos los g
 
 **¿Puedo saltarme varias versiones de AKS durante la actualización del clúster?**
 
-Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. Por ejemplo, se permiten las actualizaciones entre *1.12.x* -> *1.13.x* o *1.13.x* -> *1.14.x*, pero no entre *1.12.x* -> *1.14.x*.
+Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. Por ejemplo, se permiten las actualizaciones entre *1.12.x* -> *1.13.x* o *1.13.x* -> *1.14.x* , pero no entre *1.12.x* -> *1.14.x*.
 
-Para actualizar de *1.12.x* -> *1.14.x*, la primera actualización sería de *1.12.x* -> *1.13.x* y, después, de *1.13.x* -> *1.14.x*.
+Para actualizar de *1.12.x* -> *1.14.x* , la primera actualización sería de *1.12.x* -> *1.13.x* y, después, de *1.13.x* -> *1.14.x*.
 
-Solo se pueden omitir varias versiones cuando se actualiza una versión que no es compatible a otra que sí lo es. Por ejemplo, cuando se actualiza de la versión *1.10.x*, que no es compatible, a la versión *1.15.x*, que sí lo es.
+Solo se pueden omitir varias versiones cuando se actualiza una versión que no es compatible a otra que sí lo es. Por ejemplo, cuando se actualiza de la versión *1.10.x* , que no es compatible, a la versión *1.15.x* , que sí lo es.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

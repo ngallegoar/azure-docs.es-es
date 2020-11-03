@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
-ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d441284b265ab11dd5ece42ec3737e455d662435
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68717351"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545810"
 ---
 # <a name="monitor-site-recovery"></a>Supervisión de Site Recovery
 
@@ -36,15 +36,15 @@ Es posible que quiera revisar las [preguntas comunes de supervisión](monitoring
 
 2. En el panel, explore en profundidad las diferentes áreas. 
 
-    ![Panel de Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
+    ![Captura de pantalla en la que se muestran las áreas del panel donde puede explorar en profundidad.](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
-3. En **Elementos replicados**, haga clic en **Ver todo** para ver todos los servidores en el almacén.
+3. En **Elementos replicados** , haga clic en **Ver todo** para ver todos los servidores en el almacén.
 4. Haga clic en los detalles del estado de cada sección para explorar en profundidad.
-5. En **Vista de la infraestructura**, ordene la información de supervisión por el tipo de máquinas que replica.
+5. En **Vista de la infraestructura** , ordene la información de supervisión por el tipo de máquinas que replica.
 
 ## <a name="monitor-replicated-items"></a>Supervisión de elementos replicados
 
-En **Elementos replicados**, supervise el estado de todas las máquinas que tienen habilitada la replicación en el almacén.
+En **Elementos replicados** , supervise el estado de todas las máquinas que tienen habilitada la replicación en el almacén.
 
 **State** | **Detalles**
 --- | ---
@@ -55,7 +55,7 @@ No aplicable | Los servidores cuya replicación no se espera actualmente. Esto p
 
 ## <a name="monitor-test-failovers"></a>Supervisión de conmutaciones por error de prueba
 
-En **Prueba de conmutación por error correcta**, supervise el estado de la conmutación por error de las máquinas del almacén.
+En **Prueba de conmutación por error correcta** , supervise el estado de la conmutación por error de las máquinas del almacén.
 
 - Recomendamos que ejecute una conmutación por error de prueba en máquinas replicadas al menos una vez cada seis meses. Es una forma de comprobar que la conmutación por error funciona según lo esperado, sin interrumpir su entorno de producción. 
 - Una conmutación por error de prueba se considera correcta solo después de que la conmutación por error y la limpieza posterior a la conmutación por error se hayan completado correctamente.
@@ -68,7 +68,7 @@ No aplicable | Máquinas que, actualmente, no son aptas para una conmutación po
 
 ## <a name="monitor-configuration-issues"></a>Supervisión de problemas de configuración
 
-En **Problemas de configuración**, supervise los problemas que puedan afectar a su capacidad de conmutar por error correctamente.
+En **Problemas de configuración** , supervise los problemas que puedan afectar a su capacidad de conmutar por error correctamente.
 
 - Los problemas de configuración (salvo en el caso de la disponibilidad de actualizaciones de software) se detectan mediante una operación periódica de validador que se ejecuta cada 12 horas de forma predeterminada. Puede forzar la operación de validador para que se ejecute inmediatamente; para ello, haga clic en el icono de actualización junto al encabezado de la sección **Problemas de configuración**.
 - Haga clic en los vínculos para obtener más detalles. En caso de producirse problemas que afecten a máquinas específicas, haga clic en **Necesita atención** en la columna **Configuraciones de destino**. Entre los detalles se incluyen recomendaciones de corrección.
@@ -83,7 +83,7 @@ Actualizaciones de software | La disponibilidad de nuevas actualizaciones de sof
 
 ## <a name="monitor-errors"></a>Supervisión de errores
 
-En **Resumen de errores**, supervise los síntomas de los errores actualmente activos que pueden afectar a la replicación de servidores en el almacén, junto con el número de máquinas afectadas.
+En **Resumen de errores** , supervise los síntomas de los errores actualmente activos que pueden afectar a la replicación de servidores en el almacén, junto con el número de máquinas afectadas.
 
 - Los errores que afectan a los componentes de la infraestructura local se muestran al principio de la sección. Por ejemplo, la falta de recepción de latido del proveedor de Azure Site Recovery en el servidor de configuración local o en el host de Hyper-V.
 - A continuación, se muestran los síntomas de errores de replicación que afectan a los servidores replicados.
@@ -93,7 +93,7 @@ En **Resumen de errores**, supervise los síntomas de los errores actualmente ac
 
 ## <a name="monitor-the-infrastructure"></a>Supervise la infraestructura.
 
-En la **Vista de la infraestructura**, supervise los componentes de infraestructura implicados en la replicación, así como el estado de conectividad entre los servidores y los servicios de Azure.
+En la **Vista de la infraestructura** , supervise los componentes de infraestructura implicados en la replicación, así como el estado de conectividad entre los servidores y los servicios de Azure.
 
 - Una línea verde indica que el estado de la conexión es correcto.
 - Una línea roja con el icono de error superpuesto indica la existencia de uno o varios síntomas de error que afectan a la conectividad.
@@ -123,29 +123,29 @@ En la **Vista de la infraestructura**, supervise los componentes de infraestruct
 
 ## <a name="monitor-recovery-plans"></a>Supervisión de planes de recuperación
 
-En **Planes de recuperación**, supervise el número de planes, cree nuevos planes y modifique los existentes.  
+En **Planes de recuperación** , supervise el número de planes, cree nuevos planes y modifique los existentes.  
 
 ## <a name="monitor-jobs"></a>Supervisión de trabajos
 
-En **Trabajos**, supervise el estado de las operaciones de Site Recovery.
+En **Trabajos** , supervise el estado de las operaciones de Site Recovery.
 
 - La mayoría de las operaciones de Azure Site Recovery se ejecutan de forma asincrónica, con un trabajo de seguimiento que se crea y usa para realizar un seguimiento del progreso de la operación. 
 - El objeto de trabajo tiene toda la información que necesita para realizar un seguimiento del estado y el progreso de la operación. 
 
 Supervise los trabajos de la siguiente manera:
 
-1. En el panel > sección **Trabajos**, puede ver un resumen de los trabajos que se han completado, están en curso o en espera de entrada en las últimas 24 horas. Puede hacer clic en cualquier estado para obtener más información sobre los trabajos pertinentes.
+1. En el panel > sección **Trabajos** , puede ver un resumen de los trabajos que se han completado, están en curso o en espera de entrada en las últimas 24 horas. Puede hacer clic en cualquier estado para obtener más información sobre los trabajos pertinentes.
 2. Haga clic en **Ver todo** para ver todos los trabajos en las últimas 24 horas.
 
     > [!NOTE]
     > También puede tener acceso a información del trabajo en el menú Almacén > **Trabajos de Site Recovery**. 
 
-2. En la lista **Trabajos de Site Recovery**, se muestra una lista de trabajos. En el menú superior, puede obtener detalles del error para trabajos específicos, filtrar la lista de trabajos en función de criterios específicos y exportar los detalles del trabajo seleccionado a Excel.
+2. En la lista **Trabajos de Site Recovery** , se muestra una lista de trabajos. En el menú superior, puede obtener detalles del error para trabajos específicos, filtrar la lista de trabajos en función de criterios específicos y exportar los detalles del trabajo seleccionado a Excel.
 3. Puede profundizar en un trabajo haciendo clic en él. 
 
 ## <a name="monitor-virtual-machines"></a>Supervisión de máquinas virtuales
 
-En **Elementos replicados**, obtenga una lista de las máquinas replicadas. 
+En **Elementos replicados** , obtenga una lista de las máquinas replicadas. 
     ![Vista de lista de elementos replicados de Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. Puede ver y filtrar la información. En el menú Acción de la parte superior, puede realizar acciones para una máquina determinada, como ejecutar una conmutación por error de prueba o ver errores específicos.
@@ -153,13 +153,13 @@ En **Elementos replicados**, obtenga una lista de las máquinas replicadas.
 4. Haga clic en **Filtrar** para ver información basada en parámetros específicos como el estado de la replicación, o bien una directiva de replicación determinada.
 5. Haga clic con el botón derecho en una máquina para iniciar operaciones como la conmutación por error de prueba para ella o ver detalles del error específicos asociados a ella.
 6. Haga clic en una máquina para profundizar en más detalles para ella. Los detalles incluyen:
-   - **Información de replicación**: estado y mantenimiento actual de la máquina.
+   - **Información de replicación** : estado y mantenimiento actual de la máquina.
    - **RPO** (objetivo de punto de recuperación): el RPO actual de la máquina virtual y la hora a la que se calculó por última vez el RPO.
-   - **Puntos de recuperación**: puntos de recuperación disponibles más recientes de la máquina.
-   - **Preparación de la conmutación por error**: indica si se ejecutó una conmutación por error de prueba para la máquina, la versión del agente que se ejecuta en la máquina (para las máquinas que ejecutan Mobility Service) y cualquier problema de configuración.
-   - **Errores**: lista de síntomas de errores de replicación observados actualmente en la máquina y posibles causas o acciones.
-   - **Eventos**: una lista cronológica de eventos recientes que afectan a la máquina. Los detalles del error muestran los síntomas de errores observados actualmente, mientras que los eventos son un registro histórico de problemas que han afectado a la máquina.
-   - **Vista de la infraestructura**: muestra el estado de la infraestructura para el escenario al replicarse las máquinas en Azure.
+   - **Puntos de recuperación** : puntos de recuperación disponibles más recientes de la máquina.
+   - **Preparación de la conmutación por error** : indica si se ejecutó una conmutación por error de prueba para la máquina, la versión del agente que se ejecuta en la máquina (para las máquinas que ejecutan Mobility Service) y cualquier problema de configuración.
+   - **Errores** : lista de síntomas de errores de replicación observados actualmente en la máquina y posibles causas o acciones.
+   - **Eventos** : una lista cronológica de eventos recientes que afectan a la máquina. Los detalles del error muestran los síntomas de errores observados actualmente, mientras que los eventos son un registro histórico de problemas que han afectado a la máquina.
+   - **Vista de la infraestructura** : muestra el estado de la infraestructura para el escenario al replicarse las máquinas en Azure.
 
      ![Información general/detalles de elementos replicados de Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
@@ -173,9 +173,9 @@ Puede suscribirse para recibir notificaciones por correo electrónico para estos
 
 Suscríbase de la siguiente manera:
 
-En el almacén > sección **Supervisión**, haga clic en **Eventos de Site Recovery**.
+En el almacén > sección **Supervisión** , haga clic en **Eventos de Site Recovery**.
 1. Haga clic en **Notificaciones por correo electrónico**.
-1. En **Notificaciones por correo electrónico**, active las notificaciones y especifique a quién deben enviarse. Puede enviarlas a todos los administradores de suscripción y, de forma opcional, a direcciones de correo electrónico específicas.
+1. En **Notificaciones por correo electrónico** , active las notificaciones y especifique a quién deben enviarse. Puede enviarlas a todos los administradores de suscripción y, de forma opcional, a direcciones de correo electrónico específicas.
 
     ![Notificaciones por correo electrónico](./media/site-recovery-monitor-and-troubleshoot/email.png)
 

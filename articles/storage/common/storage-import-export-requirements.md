@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d17b9cdebf06e7d754a23a7224bbe3dba1a2832c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276404"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783613"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -50,7 +50,7 @@ Para más información sobre las cuentas de almacenamiento, vea [Información ge
 Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento. Dicho de otra forma, un trabajo de importación y exportación no puede abarcar varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-account-create.md).
 
 > [!IMPORTANT]
-> En el caso de las cuentas de almacenamiento donde se habilitó la característica [Puntos de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) , use la opción **Permitir servicios de Microsoft de confianza…** para [habilitar el servicio Import/Export](/azure/storage/common/storage-network-security) para importar o exportar datos hacia y desde Azure.
+> En el caso de las cuentas de almacenamiento en las que se habilitó la característica [Puntos de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md), use la opción **Permitir servicios de Microsoft de confianza…** para habilitar el servicio [Import/Export](./storage-network-security.md) para importar o exportar datos hacia y desde Azure.
 
 ## <a name="supported-storage-types"></a>Tipos de almacenamiento compatibles
 
@@ -94,4 +94,4 @@ Al preparar las unidades de disco duro y copiar los datos mediante la herramient
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
+* [Introducción a la utilidad de línea de comandos AzCopy](./storage-use-azcopy-v10.md)

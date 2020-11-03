@@ -1,7 +1,6 @@
 ---
-title: Referencia de datos de supervisión | Microsoft Docs
-titleSuffix: Azure Machine Learning
-description: Obtenga información sobre los datos y recursos recopilados para Azure Machine Learning y disponibles en Azure Monitor. Azure Monitor recopila y muestra datos sobre el área de trabajo de Azure Machine Learning y le permite ver las métricas, establecer alertas y analizar los datos registrados.
+title: Supervisión de la referencia de datos de Azure Machine Learning | Microsoft Docs
+description: Material de referencia importante y necesario para supervisar Azure Machine Learning. Obtenga información sobre los datos y recursos recopilados para Azure Machine Learning y disponibles en Azure Monitor. Azure Monitor recopila y muestra datos sobre el área de trabajo de Azure Machine Learning y le permite ver las métricas, establecer alertas y analizar los datos registrados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +8,127 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 04/27/2020
-ms.openlocfilehash: 405b0aa051d0d1142d7dd4ccbf2bca4ef9cc3545
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/02/2020
+ms.openlocfilehash: edd2b3e02c1a768b1f18a62faaf9b59539b92774
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650595"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739149"
 ---
-# <a name="azure-machine-learning-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Machine Learning
+# <a name="monitoring-azure-machine-learning-data-reference"></a>Supervisión de la referencia de datos de Azure Machine Learning
 
 Obtenga información sobre los datos y los recursos recopilados por Azure Monitor de su área de trabajo de Azure Machine Learning. Consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md) para obtener más información sobre la recopilación y el análisis de datos de supervisión.
 
+## <a name="metrics"></a>Métricas
+
+En esta sección se enumeran todas las métricas de la plataforma recopiladas automáticamente para Azure Machine Learning. El proveedor de recursos de estas métricas es [Microsoft.MachineLearningServices/workspaces](/azure/azure-monitor/platform/metrics-supported#microsoftmachinelearningservicesworkspaces).
+
+**Modelo**
+
+| Métrica | Unidad | Descripción |
+| ----- | ----- | ----- |
+| Error al realizar la implementación del modelo | Count | Número de implementaciones de modelos que dieron error. |
+| Implementación del modelo iniciada | Count | Número de implementaciones de modelos que se iniciaron. |
+| Implementación de modelo correcta | Count | El número de implementaciones de modelos que se realizaron correctamente. |
+| Error en el registro de modelo | Count | El número de registros de modelos que dieron error. |
+| Registro de modelo realizado correctamente | Count | El número de registros de modelo que se realizaron correctamente. |
+
+**Cuota**
+
+La información de cuota es solo para proceso de Azure Machine Learning.
+
+| Métrica | Unidad | Descripción |
+| ----- | ----- | ----- |
+| Núcleos activos | Count | El número de núcleos de proceso activos. |
+| Nodos activos | Count | El número de nodos de proceso activos. |
+| Núcleos inactivos | Count | El número de núcleos de proceso inactivos. |
+| Nodos inactivos | Count | El número de nodos de ejecución inactivos. |
+| Núcleos de salida | Count | Número de núcleos de salida. |
+| Nodos de salida | Count | Número de nodos de salida. |
+| Núcleos con prioridad | Count | Número de núcleos con prioridad. |
+| Nodos con prioridad | Count | Número de nodos con prioridad. |
+| Porcentaje de uso de la cuota | Percent | Porcentaje de cuota usada. |
+| Núcleos totales | Count | Los núcleos totales. |
+| Nodos totales | Count | Los núcleos totales. |
+| Núcleos no utilizables | Count | El número de núcleos no utilizables. |
+| Nodos no utilizables | Count | El número de nodos no utilizables. |
+
+**Recurso**
+
+| Métrica | Unidad | Descripción |
+| ----- | ----- | ----- |
+| CpuUtilization | Percent | Porcentaje de la CPU utilizado para un nodo concreto durante una ejecución o trabajo. Esta métrica solo se publica cuando se ejecuta un trabajo en un nodo. Un trabajo puede usar uno o varios nodos. Esta métrica se publica por nodo. |
+| GpuUtilization | Percent | Porcentaje de la GPU utilizado para un nodo concreto durante una ejecución o trabajo. Un nodo puede tener una o varias GPU. Esta métrica se publica por GPU por nodo. |
+
+**Ejecutar**
+
+Información sobre las ejecuciones de aprendizaje.
+
+| Métrica | Unidad | Descripción |
+| ----- | ----- | ----- |
+| Ejecuciones finalizadas | Count | Número de ejecuciones completadas. |
+| Ejecuciones con error | Count | Número de ejecuciones con error. |
+| Ejecuciones iniciadas | Count | Número de ejecuciones iniciadas. |
+
+## <a name="metric-dimensions"></a>Dimensiones de métricas
+
+Para obtener más información sobre las dimensiones de métricas, consulte [Métricas multidimensionales](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+
+Azure Machine Learning tiene las siguientes dimensiones asociadas a sus métricas.
+
+| Dimensión | Descripción |
+| ---- | ---- |
+| Cluster Name | Nombre de la instancia de proceso. Está disponible para todas las métricas de la cuota. |
+| Nombre de familia de VM | El nombre de la familia de máquinas virtuales que usa el clúster. Está disponible para el porcentaje de uso de la cuota. |
+| Prioridad de VM | La prioridad de la VM. Está disponible para el porcentaje de uso de la cuota.
+| CreatedTime | Solo está disponible para los elementos CpuUtilization y GpuUtilization. |
+| deviceId | Identificador del dispositivo (GPU). Solo está disponible para GpuUtilization. |
+| NodeId | Identificador del nodo creado en el que se está ejecutando el trabajo Solo está disponible para los elementos CpuUtilization y GpuUtilization. |
+| RunId | Identificador de la ejecución o el trabajo. Solo está disponible para los elementos CpuUtilization y GpuUtilization. |
+| ComputeType | El tipo de proceso que usó la ejecución. Solo está disponible para las ejecuciones completadas, con errores e iniciadas. |
+| PipelineStepType | El tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) que se usó en la ejecución. Solo está disponible para las ejecuciones completadas, con errores e iniciadas. |
+| PublishedPipelineId | El Id. de la canalización publicada utilizada en la ejecución. Solo está disponible para las ejecuciones completadas, con errores e iniciadas. |
+| RunType | El tipo de ejecución. Solo está disponible para las ejecuciones completadas, con errores e iniciadas. |
+
+Los valores válidos para la dimensión RunType son:
+
+| Value | Descripción |
+| ----- | ----- |
+| Experimento | Ejecuciones que no son de canalización. |
+| PipelineRun | Una ejecución de canalización, que es el elemento primario de una StepRun. |
+| StepRun | Una ejecución para un paso de canalización. |
+| ReusedStepRun | Una ejecución de un paso de canalización que reutiliza una ejecución anterior. |
+
+## <a name="activity-log"></a>Registro de actividades
+
+En la tabla siguiente se enumeran las operaciones relacionadas con Azure Machine Learning que se pueden crear en el registro de actividad.
+
+| Operación | Descripción |
+|:---|:---|
+| Crea o actualiza las áreas de trabajo de Machine Learning | Se creó o actualizó un área de trabajo. |
+| CheckComputeNameAvailability | Permite comprobar si un nombre de proceso ya está en uso. |
+| Crea o actualiza los recursos del proceso | Se creó o actualizó un recurso de proceso. |
+| Elimina los recursos del proceso | Se eliminó un recurso de proceso. |
+| Enumeración de secretos | Operación que enumera los secretos de un área de trabajo de Machine Learning. |
+
 ## <a name="resource-logs"></a>Registros del recurso
 
-En la tabla siguiente se enumeran las propiedades de los registros de recursos de Azure Machine Learning cuando se recopilan en registros de Azure Monitor o Azure Storage.
+En esta sección se enumeran los tipos de registros de recursos que se pueden recopilar para el área de trabajo de Azure Machine Learning.
+
+Proveedor de recursos y tipo: [Microsoft.MachineLearningServices/workspace](/azure/azure-monitor/platform/resource-logs-categories#microsoftmachinelearningservicesworkspaces).
+
+| Category | Display Name (Nombre para mostrar) |
+| ----- | ----- |
+| AmlComputeClusterEvent | AmlComputeClusterEvent |
+| AmlComputeClusterNodeEvent | AmlComputeClusterNodeEvent |
+| AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
+| AmlComputeJobEvent | AmlComputeJobEvent |
+| AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
+
+## <a name="schemas"></a>Esquemas
+
+Los siguientes esquemas los usa Azure Machine Learning.
 
 ### <a name="amlcomputejobevents-table"></a>Tabla AmlComputeJobEvents
 
@@ -42,8 +147,8 @@ En la tabla siguiente se enumeran las propiedades de los registros de recursos d
 | ResourceGroupName | Nombre del grupo de recursos |
 | JobName | Nombre del trabajo |
 | ClusterId | Id. del clúster |
-| EventType | Tipo de evento de trabajo, p. ej., JobSubmitted, JobRunning, JobFailed, JobSucceeded, etc. |
-| ExecutionState | Estado del trabajo (ejecución), p. ej., Queued, Running, Succeeded, Failed |
+| EventType | Tipo del evento de trabajo. Por ejemplo, JobSubmitted, JobRunning, JobFailed, JobSucceeded. |
+| ExecutionState | Estado del trabajo (ejecución). Por ejemplo, En cola, En ejecución, Correcto, Con errores. |
 | ErrorDetails | Detalles del error de trabajo |
 | CreationApiVersion | Versión de API que se usa para crear el trabajo |
 | ClusterResourceGroupName | Nombre del grupo de recursos del clúster |
@@ -109,7 +214,7 @@ En la tabla siguiente se enumeran las propiedades de los registros de recursos d
 | VmSize | El tamaño de la máquina virtual del nodo |
 | VmFamilyName | La familia de la máquina virtual a la que pertenece el nodo |
 | VmPriority | Prioridad del nodo creado Dedicado/LowPriority |
-| Publicador | Publicar de la imagen de la máquina virtual, por ejemplo, microsoft-dsvm |
+| Publicador | Publicador de la imagen de VM. Por ejemplo, microsoft-dsvm. |
 | Oferta | Oferta asociada con la creación de la VM |
 | SKU | SKU del nodo o la máquina virtual creada |
 | Versión | Versión de la imagen usada mientras se crea el nodo o la máquina virtual |
@@ -122,91 +227,6 @@ En la tabla siguiente se enumeran las propiedades de los registros de recursos d
 | StartTaskEndTime | Hora a la que se asignó la tarea a un nodo y se terminó |
 | TotalE2ETimeInSeconds | Tiempo total en que el nodo estuvo activo |
 
-### <a name="metrics"></a>Métricas
-
-En las tablas siguientes se enumeran las métricas de plataforma recopiladas para Azure Machine Learning. Todas las métricas se almacenan en el espacio de nombres **Área de trabajo de Azure Machine Learning**.
-
-**Model**
-
-| Métrica | Unidad | Descripción |
-| ----- | ----- | ----- |
-| Error al realizar la implementación del modelo | Count | Número de implementaciones de modelos que dieron error. |
-| Implementación del modelo iniciada | Count | Número de implementaciones de modelos que se iniciaron. |
-| Implementación de modelo correcta | Count | El número de implementaciones de modelos que se realizaron correctamente. |
-| Error en el registro de modelo | Count | El número de registros de modelos que dieron error. |
-| Registro de modelo realizado correctamente | Count | El número de registros de modelo que se realizaron correctamente. |
-
-**Cuota**
-
-La información de cuota es solo para proceso de Azure Machine Learning.
-
-| Métrica | Unidad | Descripción |
-| ----- | ----- | ----- |
-| Núcleos activos | Count | El número de núcleos de proceso activos. |
-| Nodos activos | Count | El número de nodos de proceso activos. |
-| Núcleos inactivos | Count | El número de núcleos de proceso inactivos. |
-| Nodos inactivos | Count | El número de nodos de ejecución inactivos. |
-| Núcleos de salida | Count | Número de núcleos de salida. |
-| Nodos de salida | Count | Número de nodos de salida. |
-| Núcleos con prioridad | Count | Número de núcleos con prioridad. |
-| Nodos con prioridad | Count | Número de nodos con prioridad. |
-| Porcentaje de uso de la cuota | Percent | Porcentaje de cuota usada. |
-| Núcleos totales | Count | Los núcleos totales. |
-| Nodos totales | Count | Los núcleos totales. |
-| Núcleos no utilizables | Count | El número de núcleos no utilizables. |
-| Nodos no utilizables | Count | El número de nodos no utilizables. |
-
-A continuación se indican las dimensiones que se pueden usar para filtrar las métricas de cuota:
-
-| Dimensión | Métrica(s) disponible(s) con | Descripción |
-| ---- | ---- | ---- |
-| Cluster Name | Todas las métricas de cuota | Nombre de la instancia de proceso. |
-| Nombre de familia de VM | Porcentaje de uso de la cuota | El nombre de la familia de máquinas virtuales que usa el clúster. |
-| Prioridad de VM | Porcentaje de uso de la cuota | La prioridad de la VM.
-
-**Recurso**
-
-| Métrica | Unidad | Descripción |
-| ----- | ----- | ----- |
-| CpuUtilization | Percent | Porcentaje de la CPU utilizado para un nodo concreto durante una ejecución o trabajo. Esta métrica solo se publica cuando se ejecuta un trabajo en un nodo. Un trabajo puede usar uno o varios nodos. Esta métrica se publica por nodo. |
-| GpuUtilization | Percent | Porcentaje de la GPU utilizado para un nodo concreto durante una ejecución o trabajo. Un nodo puede tener una o varias GPU. Esta métrica se publica por GPU por nodo. |
-
-A continuación se indican las dimensiones que se pueden usar para filtrar las métricas de recursos:
-
-| Dimensión | Descripción |
-| ----- | ----- |
-| CreatedTime | |
-| deviceId | Identificador del dispositivo (GPU). Solo está disponible para GpuUtilization. |
-| NodeId | Identificador del nodo creado en el que se está ejecutando el trabajo |
-| RunId | Identificador de la ejecución o el trabajo. |
-
-**Ejecutar**
-
-Información sobre las ejecuciones de aprendizaje.
-
-| Métrica | Unidad | Descripción |
-| ----- | ----- | ----- |
-| Ejecuciones finalizadas | Count | Número de ejecuciones completadas. |
-| Ejecuciones con error | Count | Número de ejecuciones con error. |
-| Ejecuciones iniciadas | Count | Número de ejecuciones iniciadas. |
-
-A continuación se indican las dimensiones que se pueden usar para filtrar las métricas de ejecución:
-
-| Dimensión | Descripción |
-| ---- | ---- |
-| ComputeType | El tipo de proceso que usó la ejecución. |
-| PipelineStepType | El tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) que se usó en la ejecución. |
-| PublishedPipelineId | El Id. de la canalización publicada utilizada en la ejecución. |
-| RunType | El tipo de ejecución. |
-
-Los valores válidos para la dimensión RunType son:
-
-| Value | Descripción |
-| ----- | ----- |
-| Experimento | Ejecuciones que no son de canalización. |
-| PipelineRun | Una ejecución de canalización, que es el elemento primario de una StepRun. |
-| StepRun | Una ejecución para un paso de canalización. |
-| ReusedStepRun | Una ejecución de un paso de canalización que reutiliza una ejecución anterior. |
 
 ## <a name="see-also"></a>Consulte también
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd67a5a7f1bf665333e06c66f73c7f18727a3e12
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88140860"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427776"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Creación de máquinas virtuales de VMware en la nube privada
 
@@ -28,7 +28,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 1. Seleccione **Todos los servicios**.
 2. Busque **Servicios de CloudSimple**.
 3. Seleccione el servicio de CloudSimple en el que quiere crear la nube privada.
-4. En la página **Información general**, haga clic en **Go to the CloudSimple portal** (Ir al portal de CloudSimple) para abrir una nueva pestaña del explorador para el portal de CloudSimple.  Si se le solicita, inicie sesión con las credenciales de inicio de sesión en Azure.  
+4. En la página **Información general** , haga clic en **Go to the CloudSimple portal** (Ir al portal de CloudSimple) para abrir una nueva pestaña del explorador para el portal de CloudSimple.  Si se le solicita, inicie sesión con las credenciales de inicio de sesión en Azure.  
 
     ![Inicio del portal de CloudSimple](media/launch-cloudsimple-portal.png)
 
@@ -58,37 +58,37 @@ Para acceder a vCenter, empiece desde el portal de CloudSimple. En la página pr
 1. En vCenter, haga clic en el icono **Hosts and Clusters** (Hosts y clústeres).
 
 2. Haga clic con el botón derecho en **Workload** (Carga de trabajo) y seleccione **New Virtual Machine** (Nueva máquina virtual).
-    ![Nueva máquina virtual](media/vcvm01.png)
+    ![Captura de pantalla en la que se resalta la opción de menú Nueva máquina virtual.](media/vcvm01.png)
 
 3. Seleccione **Create new virtual machine** (Crear nueva máquina virtual) y haga clic en **Next** (Siguiente).
-    ![Nueva máquina virtual](media/vcvm02.png)
+    ![Captura de pantalla en la que se resalta la opción Crear nueva máquina virtual.](media/vcvm02.png)
 
 4. Asigne un nombre a la máquina virtual, seleccione la ubicación de la **máquina virtual de la carga de trabajo** y haga clic en **Next** (Siguiente).
-    ![Nueva máquina virtual](media/vcvm03.png)
+    ![Captura de pantalla que resalta la opción VM de carga de trabajo.](media/vcvm03.png)
 
 5. Seleccione el recurso de proceso **Workload** (Carga de trabajo) y haga clic en **Next** (Siguiente).
-    ![Nueva máquina virtual](media/vcvm04.png)
+    ![Captura de pantalla que resalta el recurso de proceso Carga de trabajo.](media/vcvm04.png)
 
 6. Seleccione **vsanDatastore** y haga clic en **Next** (Siguiente).
-    ![Nueva máquina virtual](media/vcvm05.png)
+    ![Captura de pantalla que resalta la opción vsanDatastore.](media/vcvm05.png)
 
 7. Mantenga la selección de compatibilidad de ESXi 6.5 predeterminada y haga clic en **Next** (Siguiente).
-    ![Nueva máquina virtual](media/vcvm06.png)
+    ![Captura de pantalla que muestra la opción de compatibilidad ESXi 6.5 seleccionada.](media/vcvm06.png)
 
 8. Seleccione el SO invitado del archivo ISO para la máquina virtual que va a crear y haga clic en **Next** (Siguiente).
-    ![Nueva máquina virtual](media/vcvm07.png)
+    ![Captura de pantalla que muestra cómo seleccionar el SO invitado de la imagen ISO para la VM.](media/vcvm07.png)
 
 9. Seleccione las opciones de disco duro y de red. Para la nueva unidad de CD/DVD, seleccione **Datastore ISO file** (Archivo ISO de almacén de datos).  Si quiere permitir el tráfico entre la dirección IP pública y esta máquina virtual, seleccione la red como **vm-1**.
-    ![Nueva máquina virtual](media/vcvm08.png)
+    ![Captura de pantalla donde se resalta dónde se selecciona el archivo ISO del almacén de datos.](media/vcvm08.png)
 
 10. Se abrirá una ventana de selección. Seleccione el archivo que ha cargado previamente en la carpeta de archivos ISO y plantillas, y haga clic en **Aceptar**.
     ![Nueva máquina virtual](media/vcvm10.png)
 
 11. Revise la configuración y haga clic en **OK** (Aceptar) para crear la nueva máquina virtual.
-    ![Nueva máquina virtual](media/vcvm11.png)
+    ![Captura de pantalla que muestra dónde se revisa la configuración.](media/vcvm11.png)
 
 La máquina virtual se agregado ahora a los recursos de proceso de carga de trabajo y está lista para su uso. 
-![Nueva máquina virtual](media/vcvm12.png)
+![Captura de pantalla que muestra la VM que se ha agregado a los recursos de proceso de carga de trabajo.](media/vcvm12.png)
 
 La configuración básica ya se ha completado. Puede empezar a usar su nube privada de la misma forma que usaría la infraestructura de máquina virtual local.
 
@@ -139,7 +139,7 @@ Las páginas de red del portal de CloudSimple permiten especificar la configurac
 5. Use el control deslizante para cambiar el tiempo de espera de inactividad si lo desea.
 6. Escriba la dirección IP local a la que quiere asignar una dirección IP pública.
 7. Si lo desea, escriba un nombre DNS asociado.
-8. Haga clic en **Done**(Listo).
+8. Haga clic en **Done** (Listo).
 
     ![Dirección IP pública](media/quick-create-pc-public-ip.png)
 

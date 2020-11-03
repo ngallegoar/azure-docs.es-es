@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 8/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 9bfec8c1da0581fa7f17dd671358218f22c877c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6cbda4067e98c16ea26f3436b5f65e696549462
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708482"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370311"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -110,7 +110,7 @@ output_data1 = PipelineData(
 ## <a name="set-up-a-compute-target"></a>Configuración de un destino de proceso
 
 
-En Azure Machine Learning, el término __proceso__ (o __destino de proceso__) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático.   En el apartado sobre los [destinos de proceso para el entrenamiento de modelos](concept-compute-target.md#train) encontrará una lista completa de destinos de proceso, mientras que en el apartado sobre la [creación de destinos de proceso](how-to-create-attach-compute-studio.md) obtendrá información sobre cómo crearlos y adjuntarlos a un área de trabajo.   El proceso para crear o adjuntar un destino de proceso es el mismo independientemente de si entrena un modelo o ejecuta un paso de la canalización. Después de crear y adjuntar el destino de proceso, utilice el objeto `ComputeTarget` en su [paso de canalización](#steps).
+En Azure Machine Learning, el término __proceso__ (o __destino de proceso__ ) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático.   En el apartado sobre los [destinos de proceso para el entrenamiento de modelos](concept-compute-target.md#train) encontrará una lista completa de destinos de proceso, mientras que en el apartado sobre la [creación de destinos de proceso](how-to-create-attach-compute-studio.md) obtendrá información sobre cómo crearlos y adjuntarlos a un área de trabajo.   El proceso para crear o adjuntar un destino de proceso es el mismo independientemente de si entrena un modelo o ejecuta un paso de la canalización. Después de crear y adjuntar el destino de proceso, utilice el objeto `ComputeTarget` en su [paso de canalización](#steps).
 
 > [!IMPORTANT]
 > No se admite la realización de operaciones de administración en destinos de proceso desde dentro de trabajos remotos. Puesto que las canalizaciones de aprendizaje automático se envían como un trabajo remoto, no use operaciones de administración en destinos de proceso desde dentro de la canalización.
@@ -251,6 +251,18 @@ from azureml.pipeline.core import Pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
+### <a name="how-python-environments-work-with-pipeline-parameters"></a>Cómo funcionan los entornos de Python con los parámetros de canalización
+
+Como se explicó anteriormente en [Configuración del entorno de ejecución de entrenamiento](#configure-the-training-runs-environment), el estado del entorno y las dependencias de la biblioteca de Python se especifican mediante un objeto `Environment`. Por lo general, puede especificar un objeto `Environment` existente haciendo referencia a su nombre y, opcionalmente, a una versión:
+
+```python
+aml_run_config = RunConfiguration()
+aml_run_config.environment.name = 'MyEnvironment'
+aml_run_config.environment.version = '1.0'
+```
+
+Sin embargo, si decide usar objetos `PipelineParameter` para establecer las variables dinámicamente en tiempo de ejecución para los pasos de la canalización, no puede usar esta técnica para hacer referencia a un objeto `Environment` existente. En su lugar, si quiere usar objetos `PipelineParameter`, debe establecer el campo `environment` de `RunConfiguration` en un objeto `Environment`. Es su responsabilidad asegurarse de que dicho `Environment` tenga establecidas correctamente sus dependencias en los paquetes externos de Python.
+
 ### <a name="use-a-dataset"></a>Uso de un conjunto de datos 
 
 Los conjuntos de datos creados desde Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database y Azure Database for PostgreSQL se pueden usar como entrada en cualquier paso de una canalización. Puede escribir la salida en [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py&preserve-view=true) o bien, si quiere escribir los datos en un almacén de datos específico, use [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true). 
@@ -337,6 +349,8 @@ Cuando se ejecuta por primera vez una canalización, Azure Machine Learning:
 ![Diagrama de ejecución de un experimento como una canalización](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 Para obtener más información, consulte la documentación de referencia de la [clase Experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true).
+
+## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time"></a>Uso de parámetros de canalización para argumentos que cambian en tiempo de inferencia
 
 ## <a name="view-results-of-a-pipeline"></a>Visualización de los resultados de una canalización
 

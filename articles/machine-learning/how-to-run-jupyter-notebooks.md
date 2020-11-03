@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 4373618bacad00675d5f639225c435296010949b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221429"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628684"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Ejecución de los cuadernos de Jupyter Notebook en el área de trabajo
 
@@ -42,15 +42,15 @@ En el área de trabajo de Azure Machine Learning, cree un nuevo cuaderno de Jupy
 Para crear un nuevo cuaderno: 
 
 1. En [Azure Machine Learning Studio](https://ml.azure.com), abra el área de trabajo.
-1. En el lado izquierdo, seleccione **Notebooks** . 
-1. Seleccione el icono **Crear archivo** situado encima de la lista **Archivos de usuario** en la sección **Mis archivos** .
+1. En el lado izquierdo, seleccione **Notebooks**. 
+1. Seleccione el icono **Crear archivo** situado encima de la lista **Archivos de usuario** en la sección **Mis archivos**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Crear un nuevo archivo":::
 
 1. Dele un nombre al archivo. 
 1. En el caso de los archivos de Jupyter Notebook, seleccione **Notebook** como tipo de archivo.
 1. Seleccione un directorio de archivos.
-1. Seleccione **Crear** .
+1. Seleccione **Crear**.
 
 También puede crear archivos de texto.  Seleccione **Texto** como el tipo de archivo y agregue la extensión al nombre (por ejemplo, miarchivo.py o miarchivo.txt).  
 
@@ -75,16 +75,16 @@ Puede acceder a todas las operaciones de Git mediante una ventana de terminal. T
 Para tener acceso al terminal:
 
 1. En [Azure Machine Learning Studio](https://ml.azure.com), abra el área de trabajo.
-1. En el lado izquierdo, seleccione **Notebooks** .
+1. En el lado izquierdo, seleccione **Notebooks**.
 1. Seleccione cualquier cuaderno situado en la sección **Archivos de usuario** en el lado izquierdo.  Si allí no tiene ningún cuaderno, primero [cree un cuaderno](#create).
 1. Seleccione un destino de **Proceso** o cree uno nuevo y espere hasta que se esté ejecutando.
-1. Seleccione el icono de **Abrir terminal** .
+1. Seleccione el icono de **Abrir terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Crear un nuevo archivo":::.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Abra el terminal":::.
 
-1. Si no ve el icono, seleccione los puntos **...** que se encuentran a la derecha del destino de proceso y, a continuación, seleccione **Abrir terminal** .
+1. Si no ve el icono, seleccione los puntos **...** que se encuentran a la derecha del destino de proceso y, a continuación, seleccione **Abrir terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Crear un nuevo archivo":::.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Abrir el terminal desde los puntos ...":::.
 
 
 Obtenga más información sobre [la clonación de repositorios de GIT de en el sistema de archivos del área de trabajo](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
@@ -113,10 +113,10 @@ También puede iniciar Jupyter o JupyterLab desde la barra de herramientas de No
 
 Use el modo de enfoque para expandir la vista actual de forma que pueda centrarse en las pestañas activas. El modo de enfoque oculta el explorador de archivos de Notebooks.
 
-1. En la barra de herramientas de la ventana del terminal, seleccione  **Modo de enfoque** para activar el modo de enfoque. En función del ancho de la ventana, es posible que se encuentre bajo el elemento de menú **...** de la barra de herramientas.
-1. En el modo de enfoque, vuelva a la vista estándar seleccionando  **Vista estándar** .
+1. En la barra de herramientas de la ventana del terminal, seleccione **Modo de enfoque** para activar el modo de enfoque. En función del ancho de la ventana, es posible que se encuentre bajo el elemento de menú **...** de la barra de herramientas.
+1. En el modo de enfoque, seleccione **Vista estándar** para volver a la vista estándar.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Crear un nuevo archivo":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Cambio entre el modo de enfoque y la vista estándar":::
 
 
 ### <a name="use-intellisense"></a>Usar IntelliSense
@@ -136,20 +136,20 @@ Durante la creación de un cuaderno, normalmente acaba con las celdas usadas par
 1. Ejecute todas las celdas del cuaderno.
 1. Seleccione la celda que contiene el código que desea que ejecute el nuevo cuaderno. Por ejemplo, el código que envía un experimento o quizás el código que registra un modelo.
 1. Seleccione el icono de **recopilación** que aparece en la barra de herramientas de celda.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Crear un nuevo archivo":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Captura de pantalla: seleccione el icono de recopilación":::
 1. Escriba el nombre del nuevo cuaderno "recopilado".  
 
 El nuevo cuaderno solo contiene celdas de código, con todas las celdas necesarias para generar los mismos resultados que la celda seleccionada para la recopilación.
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Guardar y revisar un cuaderno
 
-Azure Machine Learning crea un archivo de punto de comprobación cuando se crea un archivo  *ipynb* .
+Azure Machine Learning crea un archivo de punto de comprobación cuando se crea un archivo *ipynb*.
 
 En la barra de herramientas del cuaderno, seleccione el menú y luego, **Archivo&gt;Guardar y punto de control** para guardar manualmente el cuaderno y agregará un archivo de punto de control asociado con el cuaderno.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Crear un nuevo archivo":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Captura de pantalla de la herramienta guardar en la barra de herramientas del cuaderno":::
 
-Cada cuaderno se guarda automáticamente cada 30 segundos.  El guardado automático actualiza solo el archivo inicial  *ipynb* , no el archivo de punto de control.
+Cada cuaderno se guarda automáticamente cada 30 segundos. El guardado automático actualiza solo el archivo *ipynb* inicial, no el archivo de punto de control.
  
 Seleccione **Puntos de control** en el menú del cuaderno para crear un punto de control con nombre y revertir el cuaderno a un punto de control guardado.
 
@@ -180,8 +180,8 @@ Los **archivos de usuario** y los cuadernos *se pueden* eliminar de cualquiera d
 Para ejecutar un experimento desde un cuaderno de Notebook, primero tiene que conectarse a una [instancia de proceso](concept-compute-instance.md) en ejecución. Si no tiene una instancia de proceso, siga estos pasos para crear una: 
 
 1. Seleccione **+** en la barra de herramientas de Notebook. 
-2. Asigne un nombre al proceso y elija el **Tamaño de la máquina virtual** . 
-3. Seleccione **Crear** .
+2. Asigne un nombre al proceso y elija el **Tamaño de la máquina virtual**. 
+3. Seleccione **Crear**.
 4. La instancia de proceso se conecta automáticamente al cuaderno de Notebook y ya puede ejecutar las celdas.
 
 Solo puede ver y usar las instancias de proceso que usted cree.  Los **Archivos de usuario** se almacenan de forma independiente de la máquina virtual y se comparten entre todas las instancias de proceso en el área de trabajo.
@@ -218,7 +218,7 @@ El cuaderno de Notebook buscará automáticamente todos los kernels de Jupyter i
 1. Seleccione [**Abrir terminal**](#terminal) en la barra de herramientas de Notebook.
 1. Use la ventana de terminal para crear un nuevo entorno.  Por ejemplo, el código siguiente crea `newenv`:
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. Active el entorno.  Por ejemplo, después de crear `newenv`:
 
@@ -228,8 +228,8 @@ El cuaderno de Notebook buscará automáticamente todos los kernels de Jupyter i
 1. Instalación del paquete PIP e ipykernel en el entorno nuevo y creación de un kernel para ese entorno conda
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

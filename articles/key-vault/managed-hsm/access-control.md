@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: a21d0db383e8c563f0b187061a95ac818dd2a4f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 803dc4d1a7b78df891780eb741cba4e57ab2d5dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993688"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784429"
 ---
 # <a name="managed-hsm-access-control"></a>Control de acceso de HSM administrado
 
@@ -46,7 +46,7 @@ Por ejemplo, un administrador de suscripciones (ya que tienen permiso de "Colabo
 
 Cuando se crea un HSM administrado en una suscripción de Azure, se asocia automáticamente al inquilino de Azure Active Directory de la suscripción. En ambos planos, todos los llamadores deben registrarse en este inquilino y autenticarse para acceder al HSM administrado.
 
-La aplicación se autentica con Azure Active Directory antes de llamar a cualquier plano. La aplicación puede utilizar cualquier [método de autenticación compatible](../../active-directory/develop/authentication-scenarios.md) según el tipo de aplicación. La aplicación adquiere un token para un recurso del plano para conceder acceso. El recurso es un punto de conexión en el plano de administración o de datos, según el entorno de Azure. La aplicación usa el token y envía la solicitud de una API de REST al punto de conexión de HSM administrado. Para más información, revise [todo el flujo de autenticación](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
+La aplicación se autentica con Azure Active Directory antes de llamar a cualquier plano. La aplicación puede utilizar cualquier [método de autenticación compatible](../../active-directory/develop/authentication-vs-authorization.md) según el tipo de aplicación. La aplicación adquiere un token para un recurso del plano para conceder acceso. El recurso es un punto de conexión en el plano de administración o de datos, según el entorno de Azure. La aplicación usa el token y envía la solicitud de una API de REST al punto de conexión de HSM administrado. Para más información, revise [todo el flujo de autenticación](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 El uso de un único mecanismo de autenticación para ambos planos tiene varias ventajas:
 
@@ -63,18 +63,18 @@ En la siguiente tabla se muestran los puntos de conexión para los planos de adm
 | Plano de&nbsp;acceso | Puntos de conexión de acceso | Operaciones | Mecanismo de control de acceso |
 | --- | --- | --- | --- |
 | Plano de administración | **Global:**<br> management.azure.com:443<br> | Creación, lectura, actualización, eliminación y traslado de HSM administrados<br>Establecimiento de etiquetas de HSM administrado | Azure RBAC |
-| Plano de datos | **Global:**<br> &lt;hsm-name&gt;.vault.azure.net:443<br> | **Claves**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Administración de roles del plano de datos (RBAC local de HSM administrado)***: enumerar definiciones de roles, asignar roles, eliminar asignaciones de roles, definir roles personalizados<br/><br/>** Copia de seguridad y restauración **: copia de seguridad, restauración, comprobación de operaciones de copia de seguridad y restauración del estado <br/><br/>** Dominio de seguridad**: descargar y cargar el dominio de seguridad | RBAC local de HSM administrado |
+| Plano de datos | **Global:**<br> &lt;hsm-name&gt;.vault.azure.net:443<br> | **Claves** : decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Administración de roles del plano de datos (RBAC local de HSM administrado)** _: enumerar definiciones de roles, asignar roles, eliminar asignaciones de roles, definir roles personalizados<br/><br/>_ *Copia de seguridad y restauración **: creación y restauración de copias de seguridad, comprobación de las operaciones de creación y restauración de copias de seguridad de estado <br/><br/>** Dominio de seguridad**: descargar y cargar el dominio de seguridad | RBAC local de HSM administrado |
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Plano de administración y RBAC de Azure
 
-En el plano de administración, utilice RBAC de Azure para autorizar las operaciones que un llamador puede ejecutar. En el modelo de RBAC, cada suscripción de Azure tiene una instancia de Azure Active Directory. Puede conceder acceso a usuarios, grupos y aplicaciones desde este directorio. El acceso se concede para administrar recursos de la suscripción de Azure que usan el modelo de implementación de Azure Resource Manager. Para conceder acceso, use [Azure Portal](https://portal.azure.com/), la [CLI de Azure](../../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+En el plano de administración, utilice RBAC de Azure para autorizar las operaciones que un llamador puede ejecutar. En el modelo de RBAC, cada suscripción de Azure tiene una instancia de Azure Active Directory. Puede conceder acceso a usuarios, grupos y aplicaciones desde este directorio. El acceso se concede para administrar recursos de la suscripción de Azure que usan el modelo de implementación de Azure Resource Manager. Para conceder acceso, use [Azure Portal](https://portal.azure.com/), la [CLI de Azure](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de Azure Resource Manager](/rest/api/authorization/roleassignments).
 
 Puede crear un almacén de claves en un grupo de recursos y administrar el acceso mediante Azure Active Directory. Puede conceder a usuarios o grupos la capacidad de administrar los almacenes de claves en un grupo de recursos. Puede conceder acceso a un nivel de ámbito específico mediante la asignación de roles de RBAC apropiados. Para conceder acceso a un usuario para administrar almacén de claves, debe asignar un rol `key vault Contributor` predefinido al usuario en un ámbito específico. Los siguientes niveles de ámbitos se pueden asignar a un rol de RBAC:
 
-- **Grupo de administración**:  un rol de RBAC asignado al nivel de suscripción se aplica a todas las suscripciones de ese grupo de administración.
-- **Suscripción**: Un rol de RBAC asignado al nivel de suscripción se aplica a todos los recursos y grupos de recursos de esa suscripción.
-- **Grupo de recursos**: Un rol de RBAC asignado al nivel de grupo de recursos se aplica a todos los recursos de dicho grupo de recursos.
-- **Recurso específico**: un rol de RBAC asignado a un recurso concreto se aplica a dicho recurso. En este caso, el recurso es un almacén de claves específico.
+- **Grupo de administración** :  un rol de RBAC asignado al nivel de suscripción se aplica a todas las suscripciones de ese grupo de administración.
+- **Suscripción** : Un rol de RBAC asignado al nivel de suscripción se aplica a todos los recursos y grupos de recursos de esa suscripción.
+- **Grupo de recursos** : Un rol de RBAC asignado al nivel de grupo de recursos se aplica a todos los recursos de dicho grupo de recursos.
+- **Recurso específico** : un rol de RBAC asignado a un recurso concreto se aplica a dicho recurso. En este caso, el recurso es un almacén de claves específico.
 
 Existen varios roles predefinidos. Si un rol predefinido no se ajusta a sus necesidades, puede definir uno propio. Para más información, vea [RBAC: roles integrados](../../role-based-access-control/built-in-roles.md).
 

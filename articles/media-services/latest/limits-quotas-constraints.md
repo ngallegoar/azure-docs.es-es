@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: b1836b1d0dc69a2a0b186a54974895eb0d8cd91a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6ca7a444f2a3d4babe220548edb10bd37784be7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265497"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678107"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Cuotas y límites de Azure Media Services
@@ -32,7 +32,7 @@ Este documento enumera algunos de los límites más comunes de Microsoft Azure M
 
 | Resource | Límite predeterminado |
 | --- | --- |
-| [Cuentas de Media Services](media-services-account-concept.md) en una suscripción única | 25 (fijo) |
+| [Cuentas de Media Services](media-services-account-concept.md) en una suscripción única | 100 (fijo) |
 
 ## <a name="asset-limits"></a>Límites de recursos
 
@@ -90,7 +90,7 @@ Se eliminarán automáticamente los registros de trabajo de más de 90 días de 
 
 | Resource | Límite predeterminado |
 | --- | --- |
-| [Puntos de conexión de streaming](streaming-endpoint-concept.md) (detenidos o en ejecución) por cuenta de Media Services|2 |
+| [Puntos de conexión de streaming](streaming-endpoint-concept.md) (detenidos o en ejecución) por cuenta de Media Services | 2 |
 | Unidades de streaming premium | 10 |
 | [Filtros de manifiesto dinámico](filters-dynamic-manifest-overview.md)|100|
 | [Directivas de streaming](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
@@ -102,9 +102,9 @@ Se eliminarán automáticamente los registros de trabajo de más de 90 días de 
 
 ## <a name="protection-limits"></a>Límites de protección
 
-| Resource | Límite predeterminado | 
-| --- | --- | 
-| Opciones por [directiva de clave de contenido](content-key-policy-concept.md) |30 | 
+| Resource | Límite predeterminado |
+| --- | --- |
+| Opciones por [directiva de clave de contenido](content-key-policy-concept.md) |30 |
 | Licencias por mes para cada uno de los tipos DRM en el servicio de entrega de claves de Media Services por cuenta|1 000 000|
 
 ## <a name="support-ticket"></a>Incidencia de soporte técnico

@@ -1,41 +1,33 @@
 ---
-title: 'Adición de varias conexiones sitio a sitio de una instancia de VPN Gateway a una red virtual: Azure Portal'
+title: 'Adición de varias conexiones sitio a sitio de una instancia de VPN Gateway a una red virtual: Azure portal'
 description: Agregar conexiones S2S de varios sitios a VPN Gateway con una conexión existente
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 09/02/2020
+ms.date: 10/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: ec2516010768eded939b0ffa44c197f102c7766b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d39b0d39511571701fd092f641cb8ca3ae42c7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401204"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890175"
 ---
-# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente
+# <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>Adición de conexiones S2S adicionales a una red virtual: Azure portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (clásico)](vpn-gateway-multi-site.md)
 >
-> 
 
-Los pasos de este artículo le ayudan a agregar conexiones de sitio a sitio (S2S) a VPN Gateway con una conexión existente mediante Azure Portal. Este tipo de conexión se denomina con frecuencia, configuración "multisitio". Puede agregar una conexión S2S a una red virtual que ya tiene una conexión S2S, una conexión de punto a sitio o una conexión entre dos redes virtuales. Existen algunas limitaciones al agregar conexiones. Vea la sección [Antes de empezar](#before) de este artículo para comprobarlas antes de iniciar la configuración. 
+Los pasos de este artículo le ayudan a agregar conexiones de sitio a sitio (S2S) adicionales a VPN Gateway con una conexión existente. Esta arquitectura se denomina con frecuencia configuración "multisitio". Puede agregar una conexión S2S a una red virtual que ya tiene una conexión S2S, una conexión de punto a sitio o una conexión entre dos redes virtuales. Existen algunas limitaciones al agregar conexiones. Vea la sección [Requisitos previos](#before) de este artículo para comprobarlas antes de iniciar la configuración.
 
 Este artículo se aplica a redes virtuales de Resource Manager que tienen una puerta de enlace de VPN RouteBased. Estos pasos no se aplican a las nuevas configuraciones de conexión coexistentes de ExpressRoute/de sitio a sitio. Sin embargo, si solo va a agregar una nueva conexión VPN a una configuración coexistente, puede seguir estos pasos. Consulte [conexiones coexistentes de ExpressRoute/S2S](../expressroute/expressroute-howto-coexist-resource-manager.md) para obtener información sobre las conexiones coexistentes.
 
-### <a name="deployment-models-and-methods"></a>Modelos de implementación y métodos
-[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+## <a name="prerequisites"></a><a name="before"></a>Requisitos previos
 
-Esta tabla se actualiza cada vez que hay nuevos artículos y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde esta tabla.
-
-[!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
-
-## <a name="before-you-begin"></a><a name="before"></a>Antes de empezar
 Compruebe los siguientes aspectos:
 
 * No va a configurar una configuración de ExpressRoute y VPN Gateway coexistente nueva.
@@ -45,47 +37,49 @@ Compruebe los siguientes aspectos:
 * Tiene un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio](vpn-gateway-about-vpn-devices.md). Si no conoce la configuración de su dispositivo VPN o los intervalos de direcciones IP ubicados en la configuración de la red local, necesita trabajar con alguien que pueda proporcionarle estos detalles.
 * Tiene una dirección IP pública externa para el dispositivo VPN.
 
-## <a name="part-1---configure-a-connection"></a><a name="part1"></a>Parte 1: Configuración de una conexión
+## <a name="configure-a-connection"></a><a name="configure"></a>Configuración de una conexión
+
 1. Desde un explorador, vaya [Azure Portal](https://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
-2. Haga clic en **Todos los recursos**, localice su **puerta de enlace de red virtual** en la lista de recursos y haga clic en ella.
-3. En la página **Puerta de enlace de red virtual**, haga clic en **Conexiones**.
-   
-    ![Página Conexiones](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Página Conexiones")<br>
-4. En la página **Conexiones**, haga clic en **+Agregar**.
-   
-    ![Botón Agregar conexión](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Botón Agregar conexión")<br>
-5. En la página **Agregar conexión**, rellene los campos siguientes:
-   
+1. Seleccione **Todos los recursos** , localice su **puerta de enlace de red virtual** en la lista de recursos y selecciónela.
+1. En la página **Puerta de enlace de red virtual** , seleccione **Conexiones**.
+
+   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connections.png" alt-text="Conexiones de VPN Gateway":::
+1. En la página **Conexiones** , seleccione **+ Agregar**.
+1. De este modo se abrirá la página **Agregar conexión**.
+
+   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/add-connection.png" alt-text="Página Agregar conexión":::
+1. En la página **Agregar conexión** , rellene los campos siguientes:
+
    * **Nombre:** el nombre que quiere darle al sitio para el que está creando la conexión.
-   * **Tipo de conexión**: seleccione **De sitio a sitio (IPsec)** .
-     
-     ![Página Agregar conexión](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Página Agregar conexión")<br>
+   * **Tipo de conexión** : seleccione **De sitio a sitio (IPsec)** .
 
-## <a name="part-2---add-a-local-network-gateway"></a><a name="part2"></a>Parte 2: Agregar una puerta de enlace de red local
-1. Haga clic en **Puerta de enlace de red local** ***Elegir una puerta de enlace de red local***. Se abre la página **Elegir puerta de enlace de red local**.
-   
-    ![Elegir puerta de enlace de red local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Elegir puerta de enlace de red local")<br>
-2. Haga clic en **Crear nueva** para abrir la página **Crear puerta de enlace de red local**.
-   
-    ![Página Crear puerta de enlace de red local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Crear puerta de enlace de red local")<br>
-3. En la página **Crear puerta de enlace de red local**, rellene los campos siguientes:
-   
+## <a name="add-a-local-network-gateway"></a><a name="local"></a>Adición de una puerta de enlace de red local
+
+1. En el campo **Puerta de enlace de red local** , seleccione **_Elegir una puerta de enlace de red local_ *_. Se abre la página _* Elegir puerta de enlace de red local**.
+1. Seleccione **+ Crear nueva** para abrir la página **Crear puerta de enlace de red local**.
+
+   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/create-local-network-gateway.png" alt-text="Página Crear puerta de enlace de red local":::
+1. En la página **Crear puerta de enlace de red local** , rellene los campos siguientes:
+
    * **Nombre:** el nombre que quiere darle al recurso de puerta de enlace de red local.
-   * **Dirección IP:** la dirección IP pública del dispositivo VPN del sitio al que quiere conectarse.
+   * **Punto de conexión:** Dirección IP pública del dispositivo VPN del sitio al que quiere conectarse o FQDN del punto de conexión.
    * **Espacio de direcciones:** el espacio de direcciones al que quiere que se enrute el nuevo sitio de red local.
-4. Haga clic en **Aceptar** en la página **Crear puerta de enlace de red local** para guardar los cambios.
+1. Seleccione **Aceptar** en la página **Crear puerta de enlace de red local** para guardar los cambios.
 
-## <a name="part-3---add-the-shared-key-and-create-the-connection"></a><a name="part3"></a>Parte 3: Agregar la clave compartida y crear la conexión
-1. En la página **Agregar conexión**, agregue la clave compartida que quiere usar para crear la conexión. Puede obtener la clave compartida de su dispositivo VPN o crear una aquí y, después, configurar su dispositivo VPN para que use la misma clave compartida. Lo importante es que las claves sean exactamente iguales.
-   
-    ![Clave compartida](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Clave compartida")<br>
-2. En la parte inferior de la página, haga clic en **Aceptar** para crear la conexión.
+## <a name="add-the-shared-key"></a><a name="part3"></a>Adición de la clave compartida
 
-## <a name="part-4---verify-the-vpn-connection"></a><a name="part4"></a>Parte 4: Comprobar la conexión VPN
+1. Después de crear la puerta de enlace de red local, vuelva a la página **Agregar conexión**.
+1. Rellene los demás campos. En **Clave compartida (PSK)** , puede obtener la clave compartida de su dispositivo VPN o crear una aquí y, después, configurar su dispositivo VPN para que use la misma clave compartida. Lo importante es que las claves sean exactamente iguales.
 
+## <a name="create-the-connection"></a><a name="create"></a>Creación de la conexión
 
-[!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+1. En la parte inferior de la página, seleccione **Aceptar** para crear la conexión. La conexión empieza a crearse inmediatamente.
+1. Una vez completada la conexión, puede verla y comprobarla.
+
+## <a name="view-and-verify-the-vpn-connection"></a><a name="verify"></a>Visualización y comprobación de la conexión VPN
+
+[!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [ruta de aprendizaje](/learn/paths/deploy-a-website-with-azure-virtual-machines/) de las máquinas virtuales para más información.
+Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Para más información, consulte las [rutas de aprendizaje de las máquinas virtuales](/learn/paths/deploy-a-website-with-azure-virtual-machines/).

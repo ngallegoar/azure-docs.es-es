@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 00d8e0d3ba57034bd65dfb7663341e4fcdf586dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310917"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372300"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Creación del controlador de datos de Azure Arc
 
@@ -39,7 +39,7 @@ Actualmente, la lista admitida de servicios y distribuciones de Kubernetes es la
 > * La versión mínima admitida de Kubernetes es la versión 1.14.
 > * Consulte [Requisitos de conectividad](connectivity.md) para comprender qué conectividad se requiere entre su entorno y Azure.
 > * Consulte [Configuración de almacenamiento](storage-configuration.md) para conocer los detalles acerca de cómo configurar el almacenamiento persistente.
-> * si usa Azure Kubernetes Service, el tamaño de la máquina virtual del nodo de trabajo del clúster debe ser al menos **Standard_D8s_v3** y usar **discos Premium.** 
+> * si usa Azure Kubernetes Service, el tamaño de la máquina virtual del nodo de trabajo del clúster debe ser al menos **Standard_D8s_v3** y usar **discos Premium.** El clúster no debe abarcar varias zonas de disponibilidad. 
 > * Si usa otra distribución o servicio de Kubernetes, debe asegurarse de que tiene un tamaño mínimo de nodo de 8 GB de memoria RAM y 4 núcleos y una capacidad total de 32 GB de RAM disponible entre todos los nodos de Kubernetes. Por ejemplo, podría tener 1 nodo con 32 GB de memoria RAM y 4 núcleos o bien tener 2 nodos con 16 GB de memoria RAM y 4 núcleos cada uno.
 
 > [!NOTE]

@@ -10,13 +10,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63378369b9924f01c5d0217746a8a2c330c88631
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
+ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970629"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894107"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -1178,7 +1178,7 @@ Para más sugerencias e información, en concreto para las máquinas virtuales d
 
 En la mayoría de los escenarios, tendrá que crear discos adicionales para implementar la base de datos de SAP en la máquina virtual. En el capítulo [Estructura de VM/disco para implementaciones de SAP][planning-guide-5.5.1] de este documento ya se trataron las consideraciones sobre el número de discos. Azure Portal permite asociar y desasociar discos una vez implementada una máquina virtual base. Los discos se pueden asociar y desasociar cuando la máquina virtual se está ejecutando, así como cuando se encuentra detenida. Al asociar un disco, Azure Portal ofrece la posibilidad de asociar un disco vacío o uno existente que en ese momento no esté conectado a ninguna otra máquina virtual.
 
-**Nota**: Los discos solo pueden estar asociados a una máquina virtual al mismo tiempo.
+**Nota** : Los discos solo pueden estar asociados a una máquina virtual al mismo tiempo.
 
 ![Conexión/desconexión de discos con Azure Standard Storage][planning-guide-figure-1400]
 
@@ -1186,7 +1186,7 @@ Durante la implementación de una nueva máquina virtual, puede decidir si desea
 
 Después, debe decidir si desea crear un disco vacío o si quiere seleccionar un disco existente que se haya cargado con anterioridad y deba asociar ahora a la VM.
 
-**IMPORTANTE**: **NO** se recomienda usar el almacenamiento en caché de host con Azure Standard Storage. Debe dejar la preferencia de caché de host en el valor predeterminado, es decir, NINGUNO. Con Azure Premium Storage, debería habilitar el almacenamiento en caché de lectura si la característica de E/S es principalmente de lectura, como es típico del tráfico de E/S relativo a archivos de datos de bases de datos. En el caso del archivo de registro de transacciones, se recomienda no utilizar el almacenamiento en caché.
+**IMPORTANTE** : **NO** se recomienda usar el almacenamiento en caché de host con Azure Standard Storage. Debe dejar la preferencia de caché de host en el valor predeterminado, es decir, NINGUNO. Con Azure Premium Storage, debería habilitar el almacenamiento en caché de lectura si la característica de E/S es principalmente de lectura, como es típico del tráfico de E/S relativo a archivos de datos de bases de datos. En el caso del archivo de registro de transacciones, se recomienda no utilizar el almacenamiento en caché.
 
 ---
 > ![Logotipo de Windows.][Logo_Windows] Windows
@@ -1776,8 +1776,8 @@ La **recuperación ante desastres (DR)** también tiene el objetivo de minimizar
 
 Podemos descomponer la explicación sobre la alta disponibilidad de SAP en Azure en dos partes:
 
-* **Alta disponibilidad de la infraestructura de Azure**, por ejemplo, la alta disponibilidad del proceso (VM), la red, el almacenamiento, etc., y sus beneficios para aumentar la disponibilidad de las aplicaciones de SAP.
-* **Alta disponibilidad de las aplicaciones de SAP**, por ejemplo, la alta disponibilidad de los componentes de software de SAP:
+* **Alta disponibilidad de la infraestructura de Azure** , por ejemplo, la alta disponibilidad del proceso (VM), la red, el almacenamiento, etc., y sus beneficios para aumentar la disponibilidad de las aplicaciones de SAP.
+* **Alta disponibilidad de las aplicaciones de SAP** , por ejemplo, la alta disponibilidad de los componentes de software de SAP:
   * servidores de aplicaciones de SAP,
   * instancia de SAP ASCS/SCS,
   * servidor de base de datos,
@@ -1832,7 +1832,7 @@ Los discos de Azure Managed Disks se colocan automáticamente en el dominio de e
 
 La arquitectura de ejemplo de un sistema SAP NetWeaver que utilice la alta disponibilidad de la infraestructura de Azure y las cuentas de almacenamiento podría ser como esta:
 
-![Utilización de la alta disponibilidad de la infraestructura de Azure para lograr una mayor disponibilidad de las aplicaciones de SAP][planning-guide-figure-2900]
+![Diagrama que muestra un sistema SAP NetWeaver que utiliza la alta disponibilidad de la infraestructura de Azure y las cuentas de almacenamiento.][planning-guide-figure-2900]
 
 La arquitectura de ejemplo de un sistema SAP NetWeaver que utilice la alta disponibilidad de la infraestructura de Azure y los discos de Managed Disks podría ser como esta:
 
@@ -1892,7 +1892,7 @@ Solo discos no administrados: Es posible que se deba cuestionar la siguiente exp
 
 ##### <a name="windows-logologo_windows-ha-on-windows"></a>![Logotipo de Windows.][Logo_Windows] Alta disponibilidad en Windows
 
-![Arquitectura de alta disponibilidad de las aplicaciones de SAP NetWeaver con SQL Server en IaaS de Azure][planning-guide-figure-3200]
+![Diagrama que muestra la arquitectura de alta disponibilidad de las aplicaciones de SAP NetWeaver con SQL Server en IaaS de Azure.][planning-guide-figure-3200]
 
 Las siguientes construcciones de Azure se utilizan en el sistema SAP NetWeaver para minimizar el impacto causado por problemas de infraestructura y la aplicación de revisiones en el host:
 

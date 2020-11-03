@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/12/2020
-ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: e778538efe97266eb73f85e8548a9cd5ca1f53c4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.date: 10/23/2020
+ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
+ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341318"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735481"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Protección de un entorno de inferencia de Azure Machine Learning con redes virtuales
 
@@ -42,12 +42,12 @@ En este artículo aprenderá a proteger los siguientes recursos de inferencia en
 
 + Una red virtual y una subred existentes que se usarán con los recursos de proceso.
 
-+ Para implementar recursos en una red virtual o subred, la cuenta de usuario debe tener permisos para realizar las siguientes acciones en los controles de acceso basados en rol (RBAC) de Azure:
++ Para implementar recursos en una red virtual o subred, la cuenta de usuario debe tener permisos para realizar las siguientes acciones en los controles de acceso basados en roles de Azure (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" en el recurso de red virtual.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" en el recurso de subred.
 
-    Para obtener más información sobre RBAC con redes, vea los [roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
+    Para obtener más información sobre Azure RBAC con redes, consulte los [roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
 
 <a id="aksvnet"></a>
 
@@ -68,7 +68,7 @@ Para agregar AKS en una red virtual a su área de trabajo, siga los pasos siguie
 
 1. Seleccione __Clústeres de inferencia__ en el centro y, después, seleccione __+__ .
 
-1. En el cuadro de diálogo __Nuevo clúster de inferencia__ , seleccione __Avanzado__ en __Configuración de red__ .
+1. En el cuadro de diálogo __Nuevo clúster de inferencia__ , seleccione __Avanzado__ en __Configuración de red__.
 
 1. Para configurar este recurso de proceso para que use una red virtual, realice las acciones siguientes:
 
@@ -123,7 +123,7 @@ Hay dos métodos para aislar el tráfico hacia y desde el clúster de AKS a la r
 * __Equilibrador de carga interno de AKS__ : Este enfoque configura el punto de conexión de las implementaciones en AKS para usar una dirección IP privada en la red virtual.
 
 > [!WARNING]
-> **Use un AKS privado o un equilibrador de carga interno, pero no ambos** .
+> El equilibrador de carga interno no funciona con un clúster de AKS que usa kubenet. Si quiere usar un equilibrador de carga interno y un clúster de AKS privado al mismo tiempo, configure el clúster de AKS privado con Azure Container Networking Interface (CNI). Para obtener más información, consulte [Configuración de redes de Azure CNI en Azure Kubernetes Service](../aks/configure-azure-cni.md).
 
 ### <a name="private-aks-cluster"></a>Clúster privado de AKS
 
@@ -134,11 +134,11 @@ Después de crear el clúster privado de AKS, [adjunte el clúster a la red virt
 > [!IMPORTANT]
 > Antes de usar un clúster de AKS habilitado para Private Link con Azure Machine Learning, debe abrir una incidencia de soporte técnico para habilitar esta funcionalidad. Para obtener más información, consulte [Administración y configuración de cuotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
-## <a name="internal-aks-load-balancer"></a>Equilibrador de carga interno de AKS
+### <a name="internal-aks-load-balancer"></a>Equilibrador de carga interno de AKS
 
 De manera predeterminada, las implementaciones de AKS usan un [equilibrador de carga público](../aks/load-balancer-standard.md). En esta sección, aprenderá a configurar AKS para usar un equilibrador de carga interno. Un equilibrador de carga interno (o privado) se usa cuando solo se admiten direcciones IP privadas como front-end. Los equilibradores de carga internos se usan para equilibrar la carga del tráfico dentro de una red virtual.
 
-Un equilibrador de carga privado se habilita mediante la configuración de AKS para usar un _equilibrador de carga interno_ . 
+Un equilibrador de carga privado se habilita mediante la configuración de AKS para usar un _equilibrador de carga interno_. 
 
 #### <a name="network-contributor-role"></a>Rol de colaborador de red
 
@@ -159,7 +159,7 @@ Un equilibrador de carga privado se habilita mediante la configuración de AKS p
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
     ```
 
-1. Para buscar el identificador del grupo de recursos que contiene la red virtual, use el siguiente comando. Reemplace `<resource-group-name>` por el nombre del grupo de recursos que _contiene la red virtual_ .
+1. Para buscar el identificador del grupo de recursos que contiene la red virtual, use el siguiente comando. Reemplace `<resource-group-name>` por el nombre del grupo de recursos que _contiene la red virtual_.
 
     ```azurecli-interactive
     az group show -n <resource-group-name> --query id
@@ -256,7 +256,7 @@ A fin de usar ACI en una red virtual para su área de trabajo, siga los pasos si
 1. Para habilitar la delegación de subred en la red virtual, use la información del artículo [Adición o eliminación de una delegación de subred](../virtual-network/manage-subnet-delegation.md). Puede habilitar la delegación al crear una red virtual o agregarla a una red existente.
 
     > [!IMPORTANT]
-    > Al habilitar la delegación, use `Microsoft.ContainerInstance/containerGroups` como el valor __Delegar subred en un servicio__ .
+    > Al habilitar la delegación, use `Microsoft.ContainerInstance/containerGroups` como el valor __Delegar subred en un servicio__.
 
 2. Implemente el modelo mediante [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use los parámetros `vnet_name` y `subnet_name`. Establezca estos parámetros en el nombre de red virtual y subred donde habilitó la delegación.
 

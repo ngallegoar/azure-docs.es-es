@@ -5,16 +5,16 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119011"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892322"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Solución de problemas de conectividad - Azure Event Grid
 
-Hay varias razones por las que las aplicaciones cliente no pueden conectarse a un tema o dominio de Event Grid. Los problemas de conectividad que experimenta pueden ser permanentes o transitorios. Si el problema sucede todo el tiempo (permanente), puede que desee comprobar la configuración del firewall de la organización, la configuración del firewall de IP, las etiquetas de servicio, los puntos de conexión privados, etc. En el caso de problemas transitorios, la ejecución de comandos para comprobar los paquetes descartados y la obtención de seguimientos de red puede ayudar a solucionar los problemas.
+Hay varias razones por las que las aplicaciones cliente no pueden conectarse a un tema o dominio de Event Grid. Los problemas de conectividad que experimenta pueden ser permanentes o transitorios. Si el problema sucede todo el tiempo (es permanente), es posible que quiera comprobar la configuración del firewall de la organización, la configuración del firewall de IP, las etiquetas de servicio, los puntos de conexión privados, etc. En el caso de problemas transitorios, la ejecución de comandos para comprobar los paquetes descartados y la obtención de seguimientos de red puede ayudar a solucionar los problemas.
 
 En este artículo se proporcionan consejos sobre cómo solucionar problemas de conectividad con Azure Event Grid.
 
@@ -22,7 +22,7 @@ En este artículo se proporcionan consejos sobre cómo solucionar problemas de c
 
 Si la aplicación no puede conectarse a la cuadrícula de eventos, siga los pasos de esta sección para solucionar el problema.
 
-### <a name="check-if-there-is-a-service-outage"></a>Compruebe si hay una interrupción del servicio
+### <a name="check-if-theres-a-service-outage"></a>Comprobación de una interrupción del servicio
 
 Compruebe la interrupción del servicio de Azure Event Grid en el [sitio de estado del servicio de Azure](https://azure.microsoft.com/status/).
 
@@ -48,14 +48,16 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 ### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Compruebe que las direcciones IP se permiten en el firewall corporativo
 
-Cuando trabaja con Azure, en ocasiones tiene que permitir intervalos de direcciones IP específicos o direcciones URL en el firewall o proxy corporativo para tener acceso a todos los servicios de Azure que está usando o intentando usar. Compruebe que se permite el tráfico en las direcciones IP utilizadas por Event Grid. En el caso de las direcciones IP utilizadas por Azure Event Grid: consulte [Rangos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519) y [Etiqueta de servicio: AzureEventGrid](network-security.md#service-tags).
+Cuando trabaja con Azure, en ocasiones tiene que permitir intervalos de direcciones IP específicos o direcciones URL en el firewall o proxy corporativo para acceder a todos los servicios de Azure usa o intenta usar. Compruebe que se permite el tráfico en las direcciones IP utilizadas por Event Grid. En el caso de las direcciones IP utilizadas por Azure Event Grid: consulte [Rangos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519) y [Etiqueta de servicio: AzureEventGrid](network-security.md#service-tags).
+
+En el documento [Intervalos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519) también se enumeran las direcciones IP **por región**. Puede permitir intervalos de direcciones para la **región del tema** y la **región emparejada** en el firewall o el proxy corporativo. Para obtener una región emparejada para una región, vea [Continuidad empresarial y recuperación ante desastres (BCDR): Regiones emparejadas de Azure](/azure/best-practices-availability-paired-regions). 
 
 > [!NOTE]
 > Se pueden agregar nuevas direcciones IP a la etiqueta de servicio AzureEventGrid, aunque no es habitual. Por lo tanto, es conveniente realizar una comprobación semanal de las etiquetas de servicio.
 
 ### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Compruebe que se permite la etiqueta de servicio AzureEventGrid en los grupos de seguridad de red
 
-Si la aplicación se ejecuta dentro de una subred y hay un grupo de seguridad de red asociado, confirme si se permite saliente de Internet o la etiqueta de servicio AzureEventGrid. Consulte [Etiquetas de servicio](../virtual-network/service-tags-overview.md)
+Si la aplicación se ejecuta dentro de una subred y hay un grupo de seguridad de red asociado, confirme si se permite el tráfico saliente de Internet o la etiqueta de servicio AzureEventGrid. Vea [Etiquetas de servicio](../virtual-network/service-tags-overview.md)
 
 ### <a name="check-the-ip-firewall-settings-for-your-topicdomain"></a>Compruebe la configuración del firewall de IP para su tema o dominio
 
@@ -63,13 +65,13 @@ Compruebe que el firewall de IP del tema o dominio EventGrid no bloquea la direc
 
 De forma predeterminada, los temas o dominios de Event Grid son accesibles desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-Las reglas de firewall de IP se aplican en el nivel de tema o dominio de Event Grid. Por lo tanto, las reglas se aplican a todas las conexiones de clientes que usan cualquier protocolo admitido. Cualquier intento de conexión desde una dirección IP que no coincida con una regla IP admitida en el tema o dominio de Event Grid se rechaza como prohibido. La respuesta no menciona la regla IP.
+Las reglas de firewall de IP se aplican en el nivel de tema o dominio de Event Grid. Por lo tanto, las reglas se aplican a todas las conexiones de clientes que usan cualquier protocolo admitido. Cualquier intento de conexión desde una dirección IP que no coincida con una regla IP admitida en el tema o dominio de Event Grid se rechazará como prohibido. La respuesta no menciona la regla IP.
 
 Para obtener más información, consulte [Configuración de reglas de firewall de IP para un tema o dominio de Azure Event Grid](configure-firewall.md).
 
 #### <a name="find-the-ip-addresses-blocked-by-ip-firewall"></a>Busque las direcciones IP bloqueadas por el firewall de IP
 
-Habilite los registros de diagnóstico para el tema o dominio de Event Grid [Habilitar los registros de diagnóstico](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). Verá la dirección IP para la conexión que se deniega.
+Habilite los registros de diagnóstico para el tema o dominio de Event Grid [Habilitar los registros de diagnóstico](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). Verá la dirección IP para la conexión que se ha denegado.
 
 ```json
 {
@@ -91,9 +93,9 @@ Para obtener más información, consulte [Configuración de puntos de conexión 
 
 ## <a name="troubleshoot-transient-connectivity-issues"></a>Solución de problemas de conectividad transitorios
 
-Si tiene problemas de conectividad intermitentes, consulte las siguientes secciones para obtener sugerencias para la solución de problemas.
+Si tiene problemas de conectividad intermitentes, consulte las sugerencias de solución de problemas de las secciones siguientes.
 
-### <a name="run-the-command-to-check-dropped-packets"></a>Ejecute el comando para comprobar los paquetes destacados
+### <a name="run-the-command-to-check-dropped-packets"></a>Ejecutar el comando para comprobar los paquetes descartados
 
 Si hay problemas de conectividad intermitentes, ejecute el siguiente comando para comprobar si hay paquetes descartados. Este comando intentará establecer 25 conexiones TCP diferentes cada segundo con el servicio. A continuación, puede comprobar cuántas de ellas se han realizado correctamente y cuántas han fallado y, además, ver la latencia de conexión TCP. Puede descargar la herramienta `psping` desde [aquí](/sysinternals/downloads/psping).
 

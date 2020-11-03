@@ -1,27 +1,30 @@
 ---
-title: Recopilación y análisis de contadores de rendimiento en Azure Monitor | Microsoft Docs
+title: Recopilación de orígenes de datos de rendimiento de Windows y Linux con el agente de Log Analytics en Azure Monitor
 description: Azure Monitor recopila contadores de rendimiento para analizar el rendimiento de los agentes de Windows y Linux.  En este artículo se describe cómo configurar la colección de contadores de rendimiento de los agentes de Windows y Linux, se proporcionan detalles dela ubicación en que se almacenan en área de trabajo y se indica cómo analizarlos en Azure Portal.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: bf744e4edc9e631ce1efd04688611fb78fb6fce2
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/21/2020
+ms.openlocfilehash: 71fc3f457338796289c2f6ac54f3bc713a91cc29
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131197"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461369"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor
-Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
+# <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Recopilación de orígenes de datos de rendimiento de Windows y Linux con el agente de Log Analytics
+Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento de los agentes de Log Analytics a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
+
+> [!IMPORTANT]
+> En este artículo se trata la recopilación de datos de rendimiento con el [agente de Log Analytics](log-analytics-agent.md), que es uno de los agentes usados por Azure Monitor. Otros agentes recopilan otros datos y se configuran de forma diferente. Consulte [Información general sobre los agentes de Azure Monitor](agents-overview.md) para obtener una lista de los agentes disponibles y los datos que pueden recopilar.
 
 ![Contadores de rendimiento](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configuración de contadores de rendimiento
-Los contadores de rendimiento se configuran en el [menú Datos en Configuración avanzada](agent-data-sources.md#configuring-data-sources).
+Configure los contadores de rendimiento en el [menú Datos en Configuración avanzada](agent-data-sources.md#configuring-data-sources) para el área de trabajo de Log Analytics.
 
-La primera vez que se configuran los contadores de rendimiento de Windows o Linux para un área de trabajo nueva, se proporciona la opción de crear rápidamente varios contadores comunes.  Se muestran todos con una casilla junto a cada uno.  Asegúrese de que están marcados todos los contadores que desea crear inicialmente y, luego, haga clic en **Add the selected performance counters**(Agregar los contadores de rendimiento seleccionados).
+La primera vez que se configuran los contadores de rendimiento de Windows o Linux para un área de trabajo nueva, se proporciona la opción de crear rápidamente varios contadores comunes.  Se muestran todos con una casilla junto a cada uno.  Asegúrese de que están marcados todos los contadores que desea crear inicialmente y, luego, haga clic en **Add the selected performance counters** (Agregar los contadores de rendimiento seleccionados).
 
 Para los contadores de rendimiento de Windows, puede elegir una instancia específica para cada contador de rendimiento. Para los contadores de rendimiento de Linux, la instancia de cada contador que elija se aplica a todos los contadores secundarios del contador primario. La siguiente tabla muestra las instancias comunes disponibles para los contadores de rendimiento de Windows y de Linux.
 

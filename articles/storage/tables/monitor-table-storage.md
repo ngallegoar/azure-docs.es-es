@@ -5,16 +5,16 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 8104d1d1f8864f8b7c5a6add6c602007f2d04822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9dd12c05f4fcf6d7afb9b4e881106ae89a89117
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711098"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748007"
 ---
 # <a name="monitoring-azure-table-storage"></a>Supervisión de Azure Table Storage
 
@@ -52,23 +52,204 @@ Si lo desea, puede seguir usando las métricas y registros clásicos. De hecho, 
 
 ## <a name="collection-and-routing"></a>Recopilación y enrutamiento
 
-Las métricas de la plataforma y el registro de actividad se recopilan automáticamente, pero se pueden enrutar a otras ubicaciones mediante una configuración de diagnóstico. Se debe crear una configuración de diagnóstico para recopilar registros de recursos. 
+Las métricas de la plataforma y el registro de actividad se recopilan automáticamente, pero se pueden enrutar a otras ubicaciones mediante una configuración de diagnóstico. 
 
-Para crear una configuración de diagnóstico mediante Azure Portal, la CLI de Azure o PowerShell, consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../../azure-monitor/platform/diagnostic-settings.md). 
-
-Para ver una plantilla de Azure Resource Manager que crea una configuración de diagnóstico, consulte [Configuración de diagnóstico para Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
-
-Al crear una configuración de diagnóstico, deberá elegir el tipo de almacenamiento para el que desea habilitar los registros, por ejemplo, blob, cola, tabla, archivo. Para Table Storage, elija **tabla**. 
-
-Si crea la configuración de diagnóstico en Azure Portal, puede seleccionar el recurso de una lista. Si usa PowerShell o la CLI de Azure, debe usar el identificador de recurso del punto de conexión de Table Storage. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
-
-También tendrá que especificar una de las categorías de operaciones siguientes para las que quiere recopilar registros. 
+Para recopilar registros de recursos, debe crear una configuración de diagnóstico. Cuando cree la configuración, elija **tabla** como tipo de almacenamiento para habilitar los registros. A continuación, especifique una de las siguientes categorías de operaciones de las que quiera recopilar registros. 
 
 | Category | Descripción |
 |:---|:---|
 | StorageRead | Operaciones de lectura en objetos. |
 | StorageWrite | Operaciones de escritura en objetos. |
 | StorageDelete | Operaciones de eliminación en objetos. |
+
+## <a name="creating-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
+
+Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure o una plantilla de Azure Resource Manager. 
+
+Para obtener instrucciones generales, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas de la plataforma en Azure](../../azure-monitor/platform/diagnostic-settings.md).
+
+> [!NOTE]
+> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Para inscribirse en la versión preliminar, visite [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Esta característica está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
+
+### <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
+
+1. Inicie sesión en Azure Portal.
+
+2. Vaya a la cuenta de almacenamiento.
+
+3. En la sección **Supervisión** , seleccione **Configuración de diagnóstico (versión preliminar)** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Portal: Registros de diagnóstico](media/monitor-table-storage/diagnostic-logs-settings-pane.png)   
+
+4. Elija **tabla** como tipo de almacenamiento para habilitar los registros.
+
+5. Haga clic en **Agregar configuración de diagnóstico**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Portal: registros de recursos; agregar configuración de diagnóstico](media/monitor-table-storage/diagnostic-logs-settings-pane-2.png)
+
+   Aparecerá la página de **Configuración de diagnóstico**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Página de registros de recursos](media/monitor-table-storage/diagnostic-logs-page.png)
+
+6. En el campo **Nombre** de la página, escriba un nombre para la configuración de registro de recursos. A continuación, seleccione qué operaciones quiere registrar (operaciones de lectura, escritura y eliminación) y dónde quiere que se envíen los registros.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archivo de registros en una cuenta de almacenamiento
+
+1. Seleccione la casilla **Archivar en una cuenta de almacenamiento** y, a continuación, haga clic en el botón **Configurar**.
+
+   > [!div class="mx-imgBorder"]   
+   > ![Almacenamiento de archivos en la página de configuración de diagnóstico ](media/monitor-table-storage/diagnostic-logs-settings-pane-archive-storage.png)
+
+2. En la lista desplegable de la **Cuenta de almacenamiento** , seleccione la cuenta de almacenamiento en la que quiera archivar los registros, haga clic en el botón **Aceptar** y, a continuación, haga clic en el botón **Guardar**.
+
+   > [!NOTE]
+   > Antes de elegir una cuenta de almacenamiento como destino de exportación, consulte [Archivar registros de recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage) para comprender los requisitos previos de la cuenta de almacenamiento.
+
+#### <a name="stream-logs-to-azure-event-hubs"></a>Transmisión de registros a Azure Event Hubs
+
+1. Seleccione la casilla **Transmitir a un centro de eventos** y haga clic en **Configurar**.
+
+2. En el panel para **Seleccionar un centro de eventos** , elija el espacio de nombres, el nombre y el nombre de la directiva del centro de eventos al que quiere transmitir los registros. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Centro de eventos en la página de configuración de diagnóstico](media/monitor-table-storage/diagnostic-logs-settings-pane-event-hub.png)
+
+3. Haga clic en el botón **Aceptar** y, a continuación, en el botón **Guardar**.
+
+#### <a name="send-logs-to-azure-log-analytics"></a>Envío de registros a Azure Log Analytics
+
+1. Seleccione la casilla **Enviar a Log Analytics** , seleccione un área de trabajo de Log Analytics y, a continuación, haga clic en el botón **Guardar**.
+
+   > [!div class="mx-imgBorder"]   
+   > ![Instancia de Log Analytics de la página de configuración de diagnóstico](media/monitor-table-storage/diagnostic-logs-settings-pane-log-analytics.png)
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+1. Abra una ventana de comandos de Windows PowerShell e inicie sesión en su suscripción de Azure con el comando `Connect-AzAccount`. A continuación, siga las instrucciones que aparecen en pantalla.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. Establezca la suscripción activa como la suscripción de la cuenta de almacenamiento en la que quiere habilitar el registro.
+
+   ```powershell
+   Set-AzContext -SubscriptionId <subscription-id>
+   ```
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archivo de registros en una cuenta de almacenamiento
+
+Habilite los registros mediante el cmdlet de PowerShell [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) junto con el parámetro `StorageAccountId`.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio de tabla. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
+
+Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el parámetro **Category**.
+
+Este es un ejemplo:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
+
+Para obtener una descripción de cada parámetro, consulte [Archivo de registros de recursos de Azure mediante Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+
+#### <a name="stream-logs-to-an-event-hub"></a>Transmitir registros a un centro de eventos
+
+Habilite los registros mediante el cmdlet de PowerShell [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) con el parámetro `EventHubAuthorizationRuleId`.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Este es un ejemplo:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
+
+Para obtener una descripción de cada parámetro, consulte [Transmisión de datos a Event Hubs a través de los cmdlets de PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+
+#### <a name="send-logs-to-log-analytics"></a>Envío de registros a Log Analytics
+
+Habilite los registros mediante el cmdlet de PowerShell [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) con el parámetro `WorkspaceId`.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Este es un ejemplo:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
+
+Para obtener más información, consulte [Transmisión de registros de recursos de Azure al área de trabajo de Log Analytics en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+1. En primer lugar, abra [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) o, si ha [instalado](https://docs.microsoft.com/cli/azure/install-azure-cli) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
+
+2. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento en la quera habilitar los registros.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+
+   Reemplace el valor de marcador de posición `<subscription-id>` por el identificador de la suscripción.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archivo de registros en una cuenta de almacenamiento
+
+Habilite los registros mediante el comando [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio Table Storage. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
+
+Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el valor del parámetro **category**.
+
+Este es un ejemplo:
+
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+
+Para obtener una descripción de cada parámetro, consulte [Archivo de registros de recursos mediante la CLI de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
+
+#### <a name="stream-logs-to-an-event-hub"></a>Transmitir registros a un centro de eventos
+
+Habilite los registros mediante el comando [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Este es un ejemplo:
+
+`az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
+
+Para obtener una descripción de cada parámetro, consulte [Transmisión de datos a Event Hubs a través de la CLI de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
+
+#### <a name="send-logs-to-log-analytics"></a>Envío de registros a Log Analytics
+
+Habilite los registros mediante el comando [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+```
+
+Este es un ejemplo:
+
+`az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
+
+ Para obtener más información, consulte [Transmisión de registros de recursos de Azure al área de trabajo de Log Analytics en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### <a name="template"></a>[Plantilla](#tab/template)
+
+Para ver una plantilla de Azure Resource Manager que crea una configuración de diagnóstico, consulte [Configuración de diagnóstico para Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+
+---
+
 
 ## <a name="analyzing-metrics"></a>Análisis de métricas
 
@@ -139,7 +320,7 @@ Puede leer los valores de métricas de la cuenta de almacenamiento o el servicio
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+### <a name="net"></a>[.NET](#tab/azure-portal)
 
 Azure Monitor proporciona el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para leer la definición y los valores de las métricas. El [código de ejemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) muestra cómo utilizar el SDK con parámetros diferentes. Debe usar `0.18.0-preview` o una versión posterior para las métricas de almacenamiento.
  
@@ -279,6 +460,10 @@ En el ejemplo siguiente se muestra cómo leer datos de métricas sobre una métr
 
 ```
 
+### <a name="template"></a>[Plantilla](#tab/template)
+
+N/D
+
 ---
 
 ## <a name="analyzing-logs"></a>Análisis de datos
@@ -299,7 +484,7 @@ Las entradas del registro se crean solo si se presentan solicitudes al punto de 
 - Solicitudes correctas
 - Solicitudes erróneas, incluidos errores de tiempo de espera, de limitación, de red, de autorización y de otro tipo
 - Solicitudes que usan una firma de acceso compartido (SAS) u OAuth, incluidas las solicitudes correctas como con error
-- Solicitudes de datos de análisis (datos de registro clásicos en el contenedor **$logs**, y datos de métricas de clase en las tablas **$metric**)
+- Solicitudes de datos de análisis (datos de registro clásicos en el contenedor **$logs** , y datos de métricas de clase en las tablas **$metric** )
 
 Las solicitudes realizadas por el propio servicio Table Storage, como la creación o eliminación de registros, no se registran. Para encontrar una lista completa de los datos registrados, consulte [Operaciones y mensajes de estado registrados por Storage](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Formato del registro de Storage](monitor-table-storage-reference.md).
 

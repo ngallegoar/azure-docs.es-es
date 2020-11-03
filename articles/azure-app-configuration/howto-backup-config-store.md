@@ -6,16 +6,16 @@ author: avanigupta
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074862"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737086"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Copia de seguridad automática de almacenes de App Configuration
 
@@ -62,7 +62,7 @@ az group create --name $resourceGroupName --location westus
 ## <a name="create-app-configuration-stores"></a>Creación de almacenes de App Configuration
 
 Cree los almacenes de App Configuration primario y secundario en diferentes regiones.
-Reemplace `<primary_appconfig_name>` y `<secondary_appconfig_name>` por nombres únicos para los almacenes de configuración. El nombre de cada almacén debe ser único, porque se usa como nombre DNS.
+Reemplace`<primary_appconfig_name>` y `<secondary_appconfig_name>` por nombres únicos para los almacenes de configuración. El nombre de cada almacén debe ser único, porque se usa como nombre DNS.
 
 ```azurecli-interactive
 primaryAppConfigName="<primary_appconfig_name>"
@@ -213,7 +213,7 @@ Para probar que todo funciona, puede crear, actualizar o eliminar un valor de cl
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-Ha desencadenado el evento. En unos instantes, Event Grid enviará la notificación de eventos a la cola. *Después de la siguiente ejecución programada de la función*, consulte los valores de configuración en el almacén secundario para comprobar si este contiene el valor de clave actualizado del almacén primario.
+Ha desencadenado el evento. En unos instantes, Event Grid enviará la notificación de eventos a la cola. *Después de la siguiente ejecución programada de la función* , consulte los valores de configuración en el almacén secundario para comprobar si este contiene el valor de clave actualizado del almacén primario.
 
 > [!NOTE]
 > Puede [desencadenar manualmente la función](../azure-functions/functions-manually-run-non-http.md) durante las pruebas y la solución de problemas sin necesidad de esperar al desencadenador de temporizador programado.

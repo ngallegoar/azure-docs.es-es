@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: e033f00f7657f7f4e5e63509672e924979ce03e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d2f600a651f44abddf4a77f2a01486fa0259f2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362523"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428429"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Desencadenar aplicaciones, procesos o flujos de trabajo de CI/CD basados en eventos de Azure Machine Learning (versión preliminar)
 
@@ -62,19 +62,19 @@ Estos eventos se publican a través de Azure Event Grid. Con Azure Portal, Po
 
 Al configurar eventos, puede aplicar filtros para que se desencadenen únicamente con datos de eventos específicos. En el ejemplo siguiente, para eventos de cambio de estado de ejecución, puede filtrar por tipos de ejecución. El evento solo se desencadena cuando se cumplen los criterios. Consulte el [Esquema de Event Grid de Azure Machine Learning](/azure/event-grid/event-schema-machine-learning) para obtener información sobre los datos de eventos que puede filtrar. 
 
-Las suscripciones para eventos de Azure Machine Learning están protegidas por el control de acceso basado en rol (RBAC). Solo un [colaborador o propietario](how-to-assign-roles.md#default-roles) de un área de trabajo puede crear, actualizar y eliminar suscripciones a eventos.  Los filtros pueden aplicarse a las suscripciones de eventos, ya sea durante la [creación](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) de la suscripción de eventos o en un momento posterior. 
+Las suscripciones para eventos de Azure Machine Learning están protegidas por el control de acceso basado en rol (RBAC de Azure). Solo un [colaborador o propietario](how-to-assign-roles.md#default-roles) de un área de trabajo puede crear, actualizar y eliminar suscripciones a eventos.  Los filtros pueden aplicarse a las suscripciones de eventos, ya sea durante la [creación](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) de la suscripción de eventos o en un momento posterior. 
 
 
 1. Vaya a Azure Portal y seleccione una suscripción nueva o existente. 
 
-1. Seleccione la pestaña de filtros y desplácese hacia abajo hasta los filtros avanzados. En **Clave** y **Valor**, proporcione los tipos de propiedad por los que desee filtrar. Aquí puede ver que el evento solo se desencadenará cuando el tipo de ejecución sea una ejecución de canalización o de paso de canalización.  
+1. Seleccione la pestaña de filtros y desplácese hacia abajo hasta los filtros avanzados. En **Clave** y **Valor** , proporcione los tipos de propiedad por los que desee filtrar. Aquí puede ver que el evento solo se desencadenará cuando el tipo de ejecución sea una ejecución de canalización o de paso de canalización.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filtrado de eventos":::
 
 
 + **Filtrado por tipo de evento:** Una suscripción de eventos puede especificar uno o varios tipos de evento de Azure Machine Learning.
 
-+ **Filtrado por asunto del evento:** Azure Event Grid admite filtros de asunto en función de las coincidencias de __comienza por__ y __termina en__, con el fin de que los eventos con un asunto coincidente se entreguen al suscriptor. Distintos eventos de aprendizaje automático tienen un formato de asunto diferente.
++ **Filtrado por asunto del evento:** Azure Event Grid admite filtros de asunto en función de las coincidencias de __comienza por__ y __termina en__ , con el fin de que los eventos con un asunto coincidente se entreguen al suscriptor. Distintos eventos de aprendizaje automático tienen un formato de asunto diferente.
 
   | Tipo de evento | Formato de asunto | Asunto de ejemplo |
   | ---------- | ----------- | ----------- |
@@ -84,7 +84,7 @@ Las suscripciones para eventos de Azure Machine Learning están protegidas por
   | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
   | `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
-+ **Filtrado avanzado**: Azure Event Grid también admite el filtrado avanzado basado en el esquema de eventos publicados. Los detalles del esquema de eventos de Azure Machine Learning se pueden encontrar en [Esquema de eventos de Azure Event Grid para Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Entre los filtrados avanzados de ejemplo que puede realizar se incluyen:
++ **Filtrado avanzado** : Azure Event Grid también admite el filtrado avanzado basado en el esquema de eventos publicados. Los detalles del esquema de eventos de Azure Machine Learning se pueden encontrar en [Esquema de eventos de Azure Event Grid para Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Entre los filtrados avanzados de ejemplo que puede realizar se incluyen:
 
   En el caso del evento `Microsoft.MachineLearningServices.ModelRegistered`, filtrar el valor de etiqueta del modelo:
 
@@ -120,7 +120,7 @@ Azure Event Grid permite a los clientes compilar controladores de mensajes des
 
     ![select-events-in-workspace.png](./media/how-to-use-event-grid/select-event.png)
 
-1. Seleccione el tipo de evento que se va a consumir. Por ejemplo, en la captura de pantalla siguiente se ha seleccionado __Modelo registrado__, __Modelo implementado__, __Ejecución completada__ y __Desfase del conjunto de datos detectado__:
+1. Seleccione el tipo de evento que se va a consumir. Por ejemplo, en la captura de pantalla siguiente se ha seleccionado __Modelo registrado__ , __Modelo implementado__ , __Ejecución completada__ y __Desfase del conjunto de datos detectado__ :
 
     ![add-event-type](./media/how-to-use-event-grid/add-event-type-updated.png)
 

@@ -16,12 +16,12 @@ ms.date: 12/06/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13c69dda1e300bcff95b6a017fdeb308a6bbf3a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1383fc6cca34cac141ce9f1316b4df0879900aa
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969255"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892005"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Asignación de un acceso de identidad administrada a un recurso mediante la CLI de Azure
 
@@ -29,13 +29,13 @@ ms.locfileid: "90969255"
 
 Una vez que haya configurado un recurso de Azure con una identidad administrada, puede dar acceso de identidad administrada a otro recurso, al igual que cualquier entidad de seguridad. En este ejemplo se muestra cómo otorgar acceso de identidad administrada a una máquina virtual o un conjunto de escalado de máquinas virtuales de Azure a una cuenta de almacenamiento de Azure mediante la CLI de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
-- Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para ejecutar los scripts de ejemplo, tiene dos opciones:
-    - Use [Azure Cloud Shell](../../cloud-shell/overview.md), que puede abrir mediante el botón **Probar** en la esquina superior derecha de los bloques de código.
-    - Ejecute scripts localmente instalando la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) y, a continuación, inicie sesión en Azure con [az login](/cli/azure/reference-index#az-login). Use una cuenta asociada a la suscripción de Azure en la que desea crear recursos.
+## <a name="prerequisites"></a>Prerrequisitos
+
+- Si no está familiarizado con las identidades administradas para los recursos de Azure, vea [¿Qué son las identidades administradas para recursos de Azure?](overview.md). Para obtener información sobre los tipos de identidad administrada asignados por el sistema y asignados por el usuario, va [Tipos de identidad administrada](overview.md#managed-identity-types).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Uso de RBAC de Azure para asignar el acceso de una identidad administrada a otro recurso
 

@@ -1,7 +1,7 @@
 ---
-title: Configuración del tiempo de espera de inactividad y restablecimiento de TCP de Load Balancer en Azure
+title: Configuración del tiempo de espera de inactividad y restablecimiento de TCP de Load Balancer
 titleSuffix: Azure Load Balancer
-description: En este artículo, aprenderá a configurar Azure Load Balancer tiempo de espera de inactividad de TCP.
+description: En este artículo, aprenderá a configurar el tiempo de espera de inactividad y restablecimiento de TCP de Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -11,51 +11,106 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/09/2020
+ms.date: 10/26/2020
 ms.author: allensu
-ms.openlocfilehash: 26c4c01aaf6abe6b9c9ac6daf6836d7b660ba21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a6be588544883b77c3ff115c9dba5e6ecd5fbd7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649871"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747182"
 ---
-# <a name="configure-tcp-idle-timeout-for-azure-load-balancer"></a>Configuración del tiempo de espera de inactividad de TCP de Azure Load Balancer
+# <a name="configure-tcp-reset-and-idle-timeout-for-azure-load-balancer"></a>Configuración del tiempo de espera de inactividad y restablecimiento de TCP de Azure Load Balancer
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Azure Load Balancer tiene el siguiente intervalo de tiempo de espera de inactividad:
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+* De 4 a 100 minutos para las reglas de salida.
+* De 4 a 30 minutos para reglas de Load Balancer y las reglas NAT de entrada.
+
+De forma predeterminada, se establece en 4 minutos. Si un período de inactividad es mayor que el valor del tiempo de espera, no habrá ninguna garantía de que todavía exista la sesión TCP o HTTP entre el cliente y el servicio. 
+
+En las secciones siguientes se describe cómo cambiar la configuración del tiempo de espera de inactividad y restablecimiento de los recursos de Load Balancer.
+
+## <a name="set-tcp-reset-and-idle-timeout"></a>Configuración del tiempo de espera de inactividad y restablecimiento de TCP
+---
+# <a name="portal"></a>[**Portal**](#tab/tcp-reset-idle-portal)
+
+Para establecer el tiempo de espera de inactividad y restablecimiento de una instancia de Load Balancer, edite la regla de carga equilibrada. 
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+
+2. En el menú izquierdo, seleccione **Grupos de recursos**.
+
+3. Seleccione el grupo de recursos del equilibrador de carga. En este ejemplo se crea un grupo de recursos denominado **myResourceGroup**.
+
+4. Seleccione el equilibrador de carga. En este ejemplo, el equilibrador de carga se denomina **myLoadBalancer**.
+
+5. En **Configuración** , seleccione **Reglas de equilibrio de carga**.
+
+     :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Edite las reglas del equilibrador de carga." border="true":::
+
+6. Seleccione la regla de equilibrio de carga. En este ejemplo, la regla de equilibrio de carga se denomina **myLBrule**.
+
+7. En la regla de equilibrio de carga, mueva el control deslizante hacia **Tiempo de espera de inactividad (minutos)** al valor de tiempo de espera.  
+
+8. En **Restablecimiento de TCP** , seleccione **Habilitado**.
+
+   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Establezca el tiempo de espera de inactividad y el restablecimiento de TCP." border="true":::
+
+9. Seleccione **Guardar**.
+
+# <a name="powershell"></a>[**PowerShell**](#tab/tcp-reset-idle-powershell)
+
+Para establecer el tiempo de espera de inactividad y el restablecimiento de TCP, establezca los valores de los siguientes parámetros de la regla de equilibrio de carga con [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
+
+* **IdleTimeoutInMinutes**
+* **EnableTcpReset**
 
 Si decide instalar y usar PowerShell de forma local, para realizar los pasos de este artículo necesita la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
-Azure Load Balancer tiene una configuración de tiempo de espera de inactividad de 4 a 120 minutos. De forma predeterminada, se establece en 4 minutos. Si un período de inactividad es mayor que el valor de tiempo de espera, no hay ninguna garantía de que todavía exista la sesión TCP o HTTP entre el cliente y el servicio en la nube. Obtenga más información sobre el [tiempo de espera de inactividad de TCP](load-balancer-tcp-reset.md).
+Reemplace los siguientes ejemplos por los valores de los recursos:
 
-Las secciones siguientes describen cómo cambiar la configuración de tiempo de espera de inactividad para los recursos de IP pública y equilibrador de carga.
+* **myResourceGroup**
+* **myLoadBalancer**
 
-
-## <a name="configure-the-tcp-idle-timeout-for-your-public-ip"></a>Configuración del tiempo de espera de inactividad de TCP para la IP pública
-
-```azurepowershell-interactive
-$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
-$publicIP.IdleTimeoutInMinutes = "15"
-Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```azurepowershell
+$lb = Get-AzLoadBalancer -Name "myLoadBalancer" -ResourceGroup "myResourceGroup"
+$lb.LoadBalancingRules[0].IdleTimeoutInMinutes = '15'
+$lb.LoadBalancingRules[0].EnableTcpReset = 'true'
+Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-`IdleTimeoutInMinutes` es opcional. Si no se establece, el tiempo de espera predeterminado es de 4 minutos. El intervalo de tiempo de espera aceptable está entre 4 y 120 minutos.
+# <a name="azure-cli"></a>[**CLI de Azure**](#tab/tcp-reset-idle-cli)
 
-## <a name="set-the-tcp-idle-timeout-on-rules"></a>Establecimiento del tiempo de espera de inactividad de TCP en reglas
+Para establecer el tiempo de espera de inactividad y el restablecimiento de TCP, use los parámetros del comando [az network lb rule update](/cli/azure/network/lb/rule?az_network_lb_rule_update):
 
-Para establecer el tiempo de espera de inactividad de un equilibrador de carga, se establece el valor de "IdleTimeoutInMinutes" en la regla de carga equilibrada. Por ejemplo:
+* **--idle-timeout**
+* **--enable-tcp-reset**
 
-```azurepowershell-interactive
-$lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
-$lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
+Valide el entorno antes de empezar:
+
+* Inicie sesión en Azure Portal y compruebe que la suscripción está activa, para lo que debe ejecutar `az login`.
+* Compruebe la versión de la CLI de Azure en una ventana de terminal o de comandos, para lo que debe ejecutar `az --version`. Para saber cuál es la versión más reciente, consulte las [notas de la versión más reciente](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
+  * Si no tiene la versión más reciente, actualice la instalación, para lo que debe seguir las instrucciones que encontrará en la [guía de instalación del sistema operativo o de la plataforma](/cli/azure/install-azure-cli).
+
+Reemplace los siguientes ejemplos por los valores de los recursos:
+
+* **myResourceGroup**
+* **myLoadBalancer**
+* **myLBrule**
+
+
+```azurecli
+az network lb rule update \
+    --resource-group myResourceGroup \
+    --name myLBrule \
+    --lb-name myLoadBalancer \
+    --idle-timeout 15 \
+    --enable-tcp-reset true
 ```
-
+---
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Información general sobre el equilibrador de carga interno](load-balancer-internal-overview.md)
+Para obtener más información sobre el tiempo de espera de inactividad y el restablecimiento de TCP, consulte [Tiempo de espera de inactividad y restablecimiento de TCP de Load Balancer](load-balancer-tcp-reset.md).
 
-[Introducción a la creación de un equilibrador de carga orientado a Internet](quickstart-load-balancer-standard-public-powershell.md)
-
-[Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
+Para obtener más información sobre cómo configurar el modo de distribución del equilibrador de carga, consulte [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md).

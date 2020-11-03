@@ -2,25 +2,22 @@
 title: Administración de módulos en Azure Automation
 description: En este artículo se explica cómo usar los módulos de PowerShell para habilitar cmdlets en runbooks y recursos de DSC en configuraciones de DSC.
 services: automation
-ms.service: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/31/2020
+ms.subservice: shared-capabilities
+ms.date: 10/22/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 2bf3dda6e3d99b5ed67298343f5238d304df7e2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c940ede63e2a467a29ae56308893d573925d0039
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187377"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458156"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Administración de módulos en Azure Automation
 
 Azure Automation usa una serie de módulos de PowerShell para habilitar cmdlets en runbooks y recursos de DSC en configuraciones de DSC. Los módulos compatibles incluyen:
 
-* [Azure PowerShell Az.Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
-* [Azure PowerShell AzureRM.Automation](/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
+* [Azure PowerShell Az.Automation](/powershell/azure/new-azureps-module-az)
+* [Azure PowerShell AzureRM.Automation](/powershell/module/azurerm.automation/)
 * Otros módulos de PowerShell
 * Módulo `Orchestrator.AssetManagement.Cmdlets` interno
 * Módulos de Python 2
@@ -106,9 +103,9 @@ Azure Automation puede importar un módulo personalizado para que sus cmdlets es
 
 ## <a name="migrate-to-az-modules"></a>Migración a módulos Az
 
-En esta sección se explica cómo migrar a los módulos Az en Automation. Para más información, vea [Migración de Azure PowerShell de AzureRM a Az](/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0). 
+En esta sección se explica cómo migrar a los módulos Az en Automation. Para más información, vea [Migración de Azure PowerShell de AzureRM a Az](/powershell/azure/migrate-from-azurerm-to-az).
 
-No es recomendable ejecutar módulos Az y AzureRM en la misma cuenta de Automation. Cuando esté seguro de que quiere migrar de AzureRM a Az, es mejor confirmar completamente una migración entera. Automation suele reutilizar espacios aislados dentro de la cuenta de Automation para ahorrar en los tiempos de inicio. Si no realiza una migración completa del módulo, puede iniciar un trabajo que usa solo módulos AzureRM y luego iniciar otro trabajo que usa solo módulos Az. El espacio aislado pronto se bloquea, y recibe un error que indica que los módulos no son compatibles. Esta situación da lugar a bloqueos que se producen aleatoriamente de cualquier runbook o configuración específicos. 
+No es recomendable ejecutar módulos Az y AzureRM en la misma cuenta de Automation. Cuando esté seguro de que quiere migrar de AzureRM a Az, es mejor confirmar completamente una migración entera. Automation suele reutilizar espacios aislados dentro de la cuenta de Automation para ahorrar en los tiempos de inicio. Si no realiza una migración completa del módulo, puede iniciar un trabajo que usa solo módulos AzureRM y luego iniciar otro trabajo que usa solo módulos Az. El espacio aislado pronto se bloquea, y recibe un error que indica que los módulos no son compatibles. Esta situación da lugar a bloqueos que se producen aleatoriamente de cualquier runbook o configuración específicos.
 
 >[!NOTE]
 >Cuando se crea una cuenta de Automation, incluso después de la migración a módulos Az, Automation instala los módulos AzureRM de forma predeterminada. Es posible actualizar los runbooks de tutorial con los cmdlets de AzureRM, aunque no debe ejecutar estos runbooks.
@@ -119,27 +116,27 @@ Asegúrese de probar todos los runbooks y las configuraciones de DSC cuidadosame
 
 ### <a name="stop-and-unschedule-all-runbooks-that-use-azurerm-modules"></a>Detención y anulación de la programación de todos los runbooks que usan módulos de AzureRM
 
-Para asegurarse de no ejecutar ningún runbook ni configuración de DSC existente que use módulos AzureRM, debe detener y anular la programación de todos los runbooks y las configuraciones afectados. En primer lugar, asegúrese de revisar cada runbook o configuración de DSC y sus programaciones por separado para garantizar que puede volver a programar el elemento en el futuro en caso necesario. 
+Para asegurarse de no ejecutar ningún runbook ni configuración de DSC existente que use módulos AzureRM, debe detener y anular la programación de todos los runbooks y las configuraciones afectados. En primer lugar, asegúrese de revisar cada runbook o configuración de DSC y sus programaciones por separado para garantizar que puede volver a programar el elemento en el futuro en caso necesario.
 
-Cuando esté listo para quitar las programaciones, puede usar Azure Portal o el cmdlet [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0). Consulte [Eliminación de una programación](schedules.md#remove-a-schedule).
+Cuando esté listo para quitar las programaciones, puede usar Azure Portal o el cmdlet [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule). Consulte [Eliminación de una programación](schedules.md#remove-a-schedule).
 
 ### <a name="remove-azurerm-modules"></a>Eliminación de los módulos AzureRM
 
-Es posible quitar los módulos AzureRM antes de importar los módulos Az. Sin embargo, si lo hace, puede interrumpir la sincronización del control de código fuente y provocar errores en los scripts que siguen programados. Si decide quitar los módulos, ver [Desinstalación de AzureRM](/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.8.0#uninstall-azurerm).
+Es posible quitar los módulos AzureRM antes de importar los módulos Az. Sin embargo, si lo hace, puede interrumpir la sincronización del control de código fuente y provocar errores en los scripts que siguen programados. Si decide quitar los módulos, ver [Desinstalación de AzureRM](/powershell/azure/migrate-from-azurerm-to-az#uninstall-azurerm).
 
 ### <a name="import-az-modules"></a>Importación de módulos Az
 
 Al importar un módulo Az en la cuenta de Automation, no se importa automáticamente ese módulo en la sesión de PowerShell que usan los runbooks. Los módulos se importan en la sesión de PowerShell en las situaciones siguientes:
 
 * Cuando un runbook invoca un cmdlet desde un módulo.
-* Cuando un runbook importa el módulo de forma explícita con el cmdlet [Import-Module](/powershell/module/microsoft.powershell.core/import-module?view=powershell-7).
+* Cuando un runbook importa el módulo de forma explícita con el cmdlet [Import-Module](/powershell/module/microsoft.powershell.core/import-module).
 * Cuando un runbook importa otro módulo dependiente.
 
 Puede importar los módulos Az en Azure Portal. No olvide importar solo los módulos Az que necesite, no todo el módulo Az.Automation. Dado que [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) es una dependencia para los otros módulos Az, asegúrese de importar este módulo antes que cualquier otro.
 
-1. En la cuenta de Automation, en **Recursos compartidos**, seleccione **Módulos**. 
+1. En la cuenta de Automation, en **Recursos compartidos** , seleccione **Módulos**.
 2. Seleccione **Explorar la galería**.  
-3. En la barra de búsqueda, escriba el nombre del módulo, por ejemplo, `Az.Accounts`. 
+3. En la barra de búsqueda, escriba el nombre del módulo, por ejemplo, `Az.Accounts`.
 4. En la página Módulo de PowerShell, seleccione **Importar** para importar el módulo en la cuenta de Automation.
 
     ![Captura de pantalla de la importación de módulos a la cuenta de Automation](../media/modules/import-module.png)
@@ -150,25 +147,36 @@ También puede realizar esta importación con la [Galería de PowerShell](https:
 
 ### <a name="test-your-runbooks"></a>Prueba de los runbooks
 
-Una vez que los módulos Az se han importado en la cuenta de Automation, puede empezar a editar los runbooks y las configuraciones de DSC para usar los nuevos módulos. Una manera de probar la modificación de un runbook para usar los nuevos cmdlets consiste en utilizar el comando `Enable-AzureRmAlias -Scope Process` al principio del runbook. Al incorporar este comando al runbook, el script se puede ejecutar sin cambios. 
+Una vez que los módulos Az se han importado en la cuenta de Automation, puede empezar a editar los runbooks y las configuraciones de DSC para usar los nuevos módulos. Una manera de probar la modificación de un runbook para usar los nuevos cmdlets consiste en utilizar el comando `Enable-AzureRmAlias -Scope Process` al principio del runbook. Al incorporar este comando al runbook, el script se puede ejecutar sin cambios.
 
 ## <a name="author-modules"></a>Creación de módulos
 
-Se recomienda que tenga en cuenta los aspectos de esta sección al crear un módulo de PowerShell personalizado para usarlo en Azure Automation. Para preparar el módulo para la importación, debe crear al menos un archivo **.dll** de módulo psd1, psm1 o PowerShell con el mismo nombre que la carpeta del módulo. Después, debe comprimir la carpeta del módulo para que Azure Automation pueda importarla como un único archivo. El paquete **.zip** debe tener el mismo nombre que la carpeta de módulo que contiene. 
+Se recomienda que tenga en cuenta los aspectos de esta sección al crear un módulo de PowerShell personalizado para usarlo en Azure Automation. Para preparar el módulo para la importación, debe crear al menos un archivo **.dll** de módulo psd1, psm1 o PowerShell con el mismo nombre que la carpeta del módulo. Después, debe comprimir la carpeta del módulo para que Azure Automation pueda importarla como un único archivo. El paquete **.zip** debe tener el mismo nombre que la carpeta de módulo que contiene.
 
-Para más información sobre la creación de un módulo de PowerShell, consulte [Cómo escribir un módulo de script de PowerShell](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module?view=powershell-7).
+Para más información sobre la creación de un módulo de PowerShell, consulte [Cómo escribir un módulo de script de PowerShell](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
 ### <a name="version-folder"></a>Carpeta de versiones
 
-NO incluya una carpeta de versiones en el paquete **.zip** del módulo. Este problema es menos importante para los runbooks, pero causa un problema con el servicio State Configuration (DSC). Azure Automation crea automáticamente la carpeta de versiones cuando el módulo se distribuye a los nodos que State Configuration. Si existe una carpeta de versiones, terminará con dos instancias. Este es un ejemplo de estructura de carpetas para un módulo de DSC:
+El control de versiones de módulos en paralelo de PowerShell le permite usar más de una versión de un módulo en PowerShell. Esto puede ser útil si tiene scripts anteriores que se han probado y solo funcionan con una versión determinada de un módulo de PowerShell, pero para otros necesita una versión más reciente del mismo módulo.
+
+A fin de crear módulos de PowerShell para que contengan varias versiones, cree la carpeta del módulo y, después, cree una carpeta en su interior para cada versión del módulo que quiera usar. En el ejemplo siguiente, un módulo denominado *TestModule* proporciona dos versiones: 1.0.0 y 2.0.0.
+
+```dos
+TestModule
+   1.0.0
+   2.0.0
+```
+
+Dentro de cada una de las carpetas de versión, copie los archivos **.dll** de módulo de PowerShell o .psm1 y .psd1 que componen un módulo en la carpeta de la versión correspondiente. Comprima la carpeta del módulo para que Azure Automation pueda importarla como un único archivo .zip. Mientras que Automation solo muestra la versión más alta del módulo importado, si el paquete de módulo contiene versiones en paralelo, estarán disponibles para su uso en los runbooks o configuraciones de DSC.  
+
+Aunque Automation admite módulos que contienen versiones en paralelo en el mismo paquete, no admite el uso de varias versiones de un módulo entre importaciones de paquetes de módulos. Por ejemplo, puede importar el **módulo A** , que contiene las versiones 1 y 2 a la cuenta de Automation. Después, actualice el **módulo A** para incluir las versiones 3 y 4; cuando lo importe en la cuenta de Automation, solo las versiones 3 y 4 se pueden usar en cualquier runbook o configuración de DSC. Si necesita que todas las versiones (1, 2, 3 y 4) estén disponibles, se deben incluir en el archivo .zip.
+
+Si va a usar otras versiones del mismo módulo entre runbooks, siempre debe declarar la versión que quiera utilizar en el runbook con el cmdlet `Import-Module` e incluir el parámetro `-RequiredVersion <version>`. Incluso si la versión que quiere usar es la más reciente. Esto se debe a que los trabajos de runbook se pueden ejecutar en el mismo espacio aislado. Si el espacio aislado ya ha cargado de forma explícita un módulo de un número de versión concreto, porque un trabajo anterior de ese espacio aislado lo haya indicado, los trabajos futuros de ese espacio aislado no cargarán automáticamente la versión más reciente de ese módulo. Esto se debe a que alguna versión ya está cargada en el espacio aislado.
+
+Para un recurso de DSC, use el comando siguiente para especificar una versión concreta:
 
 ```powershell
-myModule
-  - DSCResources
-    - myResourceFolder
-      myResourceModule.psm1
-      myResourceSchema.mof
-  myModuleManifest.psd1
+Import-DscResource -ModuleName <ModuleName> -ModuleVersion <version>
 ```
 
 ### <a name="help-information"></a>Información de ayuda
@@ -219,7 +227,7 @@ Incluya una sinopsis, una descripción y un identificador URI de ayuda para todo
 
 ### <a name="connection-type"></a>Tipo de conexión
 
-Si el módulo se conecta a un servicio externo, defina un tipo de conexión mediante un [módulo de integración personalizado](#custom-modules). Cada cmdlet del módulo debería aceptar una instancia de ese tipo de conexión (objeto de conexión) como parámetro. Los usuarios asignan parámetros del recurso de conexión a los parámetros correspondientes del cmdlet cada vez que llaman a un cmdlet. 
+Si el módulo se conecta a un servicio externo, defina un tipo de conexión mediante un [módulo de integración personalizado](#custom-modules). Cada cmdlet del módulo debería aceptar una instancia de ese tipo de conexión (objeto de conexión) como parámetro. Los usuarios asignan parámetros del recurso de conexión a los parámetros correspondientes del cmdlet cada vez que llaman a un cmdlet.
 
 ![Uso de una conexión personalizada en Azure Portal](../media/modules/connection-create-new.png)
 
@@ -289,11 +297,11 @@ Cree todos los cmdlets del módulo sin estado. Pueden ejecutarse varios trabajos
 
 ### <a name="module-dependency"></a>Dependencia de los módulos
 
-Asegúrese de que el módulo está totalmente contenido en un paquete que se puede copiar mediante XCopy. Los módulos de Automation se distribuyen en los espacios aislados de Automation cuando los runbooks se ejecutan. Los módulos deben funcionar de forma independiente con respecto al host que los ejecuta. 
+Asegúrese de que el módulo está totalmente contenido en un paquete que se puede copiar mediante XCopy. Los módulos de Automation se distribuyen en los espacios aislados de Automation cuando los runbooks se ejecutan. Los módulos deben funcionar de forma independiente con respecto al host que los ejecuta.
 
-Debe ser capaz de comprimir y mover un paquete de módulos y conseguir que funcione con normalidad cuando se importe en el entorno de PowerShell de otro host. Para que esto ocurra, asegúrese de que el módulo no dependa de ningún archivo que esté fuera de la carpeta del módulo que se comprime cuando el módulo se importa en Automation. 
+Debe ser capaz de comprimir y mover un paquete de módulos y conseguir que funcione con normalidad cuando se importe en el entorno de PowerShell de otro host. Para que esto ocurra, asegúrese de que el módulo no dependa de ningún archivo que esté fuera de la carpeta del módulo que se comprime cuando el módulo se importa en Automation.
 
-El módulo no debe depender de ninguna configuración de registro única en un host. Un ejemplo es la configuración que se realiza cuando se instala un producto. 
+El módulo no debe depender de ninguna configuración de registro única en un host. Un ejemplo es la configuración que se realiza cuando se instala un producto.
 
 ### <a name="module-file-paths"></a>Rutas de acceso a los archivos del módulo
 
@@ -301,21 +309,21 @@ Asegúrese de que todos los archivos del módulo tienen rutas de acceso con meno
 
 ## <a name="import-modules"></a>Importación de módulos
 
-En esta sección se definen varias formas de importar un módulo en la cuenta de Automation. 
+En esta sección se definen varias formas de importar un módulo en la cuenta de Automation.
 
 ### <a name="import-modules-in-the-azure-portal"></a>Importación de módulos en Azure Portal
 
 Para importar un módulo en Azure Portal:
 
 1. Vaya a su cuenta de Automation.
-2. En **Recursos compartidos**, seleccione **Módulos**.
-3. Seleccione **Agregar un módulo**. 
+2. En **Recursos compartidos** , seleccione **Módulos**.
+3. Seleccione **Agregar un módulo**.
 4. Seleccione el archivo **.zip** que contiene el módulo.
 5. Seleccione **Aceptar** para iniciar el proceso de importación.
 
 ### <a name="import-modules-by-using-powershell"></a>Importación de módulos mediante PowerShell
 
-Puede usar el cmdlet [New-AzAutomationModule](/powershell/module/az.automation/new-azautomationmodule?view=azps-3.7.0) para importar un módulo en la cuenta de Automation. El cmdlet toma una dirección URL para un paquete .zip del módulo.
+Puede usar el cmdlet [New-AzAutomationModule](/powershell/module/az.automation/new-azautomationmodule) para importar un módulo en la cuenta de Automation. El cmdlet toma una dirección URL para un paquete .zip del módulo.
 
 ```azurepowershell-interactive
 New-AzAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
@@ -336,14 +344,14 @@ Puede importar módulos de la [Galería de PowerShell](https://www.powershellgal
 Para importar un módulo directamente desde la Galería de PowerShell:
 
 1. Vaya a https://www.powershellgallery.com y busque el módulo que desea importar.
-2. En **Opciones de instalación**, en la pestaña **Azure Automation**, seleccione **Implementar en Azure Automation**. Esta acción abre Azure Portal. 
+2. En **Opciones de instalación** , en la pestaña **Azure Automation** , seleccione **Implementar en Azure Automation**. Esta acción abre Azure Portal. 
 3. En la página Importar, seleccione su cuenta de Automation y seleccione **Aceptar**.
 
 ![Captura de pantalla del módulo de importación de la Galería de PowerShell](../media/modules/powershell-gallery.png)
 
 Para importar un módulo de la Galería de PowerShell directamente desde la cuenta de Automation:
 
-1. En **Recursos compartidos**, seleccione **Módulos**. 
+1. En **Recursos compartidos** , seleccione **Módulos**. 
 2. Seleccione **Examinar galería** y busque el módulo en la galería. 
 3. Seleccione el módulo que quiere importar y, después, haga clic en **Importar**. 
 4. Seleccione **Aceptar** para iniciar el proceso de importación.
@@ -358,8 +366,8 @@ Si tiene problemas con un módulo o necesita revertir a una versión anterior de
 
 Para eliminar un módulo en Azure Portal:
 
-1. Vaya a su cuenta de Automation. En **Recursos compartidos**, seleccione **Módulos**. 
-2. Seleccione el módulo que quiera quitar. 
+1. Vaya a su cuenta de Automation. En **Recursos compartidos** , seleccione **Módulos**.
+2. Seleccione el módulo que quiera quitar.
 3. En la página Módulo, seleccione **Eliminar**. Si este módulo es uno de los [módulos predeterminados](#default-modules), se revertirá a la versión que existía cuando se creó la cuenta de Automation.
 
 ### <a name="delete-modules-by-using-powershell"></a>Eliminación de módulos mediante PowerShell
@@ -372,5 +380,6 @@ Remove-AzAutomationModule -Name <moduleName> -AutomationAccountName <automationA
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre el uso de los módulos de Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/get-started-azureps?view=azps-3.7.0).
-* Para más información sobre la creación de módulos de PowerShell, consulte [Escritura de un módulo de Windows PowerShell](/powershell/scripting/developer/module/writing-a-windows-powershell-module?view=powershell-7).
+* Para más información sobre el uso de los módulos de Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/get-started-azureps).
+
+* Para más información sobre la creación de módulos de PowerShell, consulte [Escritura de un módulo de Windows PowerShell](/powershell/scripting/developer/module/writing-a-windows-powershell-module).

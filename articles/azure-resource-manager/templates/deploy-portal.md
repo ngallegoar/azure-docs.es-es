@@ -2,24 +2,24 @@
 title: Implementación de recursos con Azure Portal
 description: Utilice Azure Portal y Azure Resource Manager para implementar los recursos en un grupo de recursos de su suscripción.
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: b87ac48bbaec7f94d5e75939cf5ec17df0ff2d2f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85255269"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668769"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Implementación de recursos con plantillas de ARM y Azure Portal
 
-Aprenda a usar [Azure Portal](https://portal.azure.com) con [plantillas de Azure Resource Manager (ARM)](overview.md) para implementar los recursos de Azure. Para más información sobre cómo administrar los recursos, consulte [Administración de recursos de Azure con Azure Portal](../management/manage-resources-portal.md).
+Aprenda a usar [Azure Portal](https://portal.azure.com) con [plantillas de Azure Resource Manager (plantillas de Resource Manager)](overview.md) para implementar los recursos de Azure. Para más información sobre cómo administrar los recursos, consulte [Administración de recursos de Azure con Azure Portal](../management/manage-resources-portal.md).
 
 La implementación de recursos de Azure mediante Azure Portal implica normalmente dos pasos:
 
 - Cree un grupo de recursos.
 - Implemente recursos en el grupo de recursos.
 
-Además, también puede implementar una plantilla de ARM para crear recursos de Azure.
+Además, puede crear una plantilla de Resource Manager personalizada para implementar recursos de Azure.
 
 En el artículo se muestran ambos métodos.
 
@@ -35,14 +35,14 @@ En el artículo se muestran ambos métodos.
 
 1. Seleccione o escriba los siguientes valores de propiedad:
 
-    - **Suscripción**: Seleccione una suscripción de Azure.
-    - **Grupo de recursos**: asigne un nombre al grupo de recursos.
-    - **Región**: seleccione una ubicación de Azure. Aquí es donde los grupos de recursos almacenan los metadatos sobre los recursos. Por motivos de cumplimiento, debería especificar dónde se almacenan esos metadatos. Por lo general, se recomienda especificar una ubicación en la que vayan a residir la mayoría de los recursos. Si usa la misma ubicación, puede simplificar la plantilla.
+    - **Suscripción** : Seleccione una suscripción de Azure.
+    - **Grupo de recursos** : asigne un nombre al grupo de recursos.
+    - **Región** : seleccione una ubicación de Azure. Esta ubicación es donde los grupos de recursos almacenan los metadatos sobre los recursos. Por motivos de cumplimiento, debería especificar dónde se almacenan esos metadatos. Por lo general, se recomienda especificar una ubicación donde estará la mayoría de los recursos. Si usa la misma ubicación, puede simplificar la plantilla.
 
    ![Establecer valores de grupo](./media/deploy-portal/set-group-properties.png)
 
 1. Seleccione **Revisar + crear**.
-1. Revise los valores y, luego, seleccione **Crear**.
+1. Revise los valores y luego seleccione **Crear**.
 1. Para poder ver el nuevo grupo de recursos en la lista, seleccione **Actualizar**.
 
 ## <a name="deploy-resources-to-a-resource-group"></a>Implementación de recursos en un grupo de recursos
@@ -61,7 +61,7 @@ Una vez creado el grupo de recursos, puede implementar recursos en él desde Mar
 
    ![Creación de un grupo de recursos](./media/deploy-portal/select-existing-group.png)
 
-   Como alternativa, puede decidir crear un nuevo grupo de recursos al implementar estos últimos. Seleccione **Crear nuevo** y asígnele un nombre al grupo de recursos.
+   Puede decidir crear un nuevo grupo de recursos al implementar los recursos. Seleccione **Crear nuevo** y asígnele un nombre al grupo de recursos.
 
 1. Comenzará la implementación. Esta operación puede tardar varios minutos. Algunos recursos tardan más que otros. Cuando haya terminado la implementación, verá una notificación. Seleccione **Ir a recurso**.
 
@@ -70,6 +70,8 @@ Una vez creado el grupo de recursos, puede implementar recursos en él desde Mar
 1. Después de implementar los recursos, puede agregar más recursos al grupo de recursos si hace clic en **Agregar**.
 
    ![Agregar recurso](./media/deploy-portal/add-resource.png)
+
+Aunque no lo vio, el portal usó una plantilla de Resource Manager para implementar los recursos seleccionados. Puede encontrar la plantilla en el historial de implementación. Para obtener más información, consulte [Exportación de la plantilla después de la implementación](export-template-portal.md#export-template-after-deployment).
 
 ## <a name="deploy-resources-from-custom-template"></a>Implementación de recursos desde plantilla personalizada
 
@@ -85,20 +87,20 @@ Si desea ejecutar una implementación sin usar las plantillas de Marketplace, pu
 1. Seleccione **Crear**.
 1. Tiene varias opciones para crear una plantilla:
 
-    - **Crear su propia plantilla en el editor**: cree una plantilla mediante el editor de plantillas del portal.  El editor tiene la capacidad para agregar un esquema de plantilla de recursos.
-    - **Plantillas comunes**: Hay cuatro plantillas comunes para crear una máquina virtual Linux, una máquina virtual Windows, una aplicación web y una base de datos de Azure SQL Database respectivamente.
-    - **Cargar una plantilla de inicio rápido de GitHub**: use una [plantilla de inicio rápido](https://azure.microsoft.com/resources/templates/) existente.
+    - **Crear su propia plantilla en el editor** : cree su propia plantilla en el editor de plantillas del portal.
+    - **Plantillas comunes** : seleccione entre soluciones comunes.
+    - **Cargar una plantilla de inicio rápido de GitHub** : seleccione entre las [plantillas de inicio rápido](https://azure.microsoft.com/resources/templates/).
 
    ![Ver las opciones](./media/deploy-portal/see-options.png)
 
     En este tutorial se proporcionan las instrucciones para cargar una plantilla de inicio rápido.
 
-1. En **Cargar una plantilla de inicio rápido de GitHub**, escriba o seleccione **101-storage-account-create**.
+1. En **Cargar una plantilla de inicio rápido de GitHub** , escriba o seleccione **101-storage-account-create**.
 
     Tiene dos opciones:
 
-    - **Seleccionar plantilla**: implemente la plantilla.
-    - **Editar plantilla**: edite la plantilla de inicio rápido antes de implementarla.
+    - **Seleccionar plantilla** : implemente la plantilla.
+    - **Editar plantilla** : edite la plantilla de inicio rápido antes de implementarla.
 
 1. Seleccione **Editar plantilla** para explorar el editor de plantillas del portal. La plantilla se carga en el editor. Observe que hay dos parámetros: **storageAccountType** y **location**.
 
@@ -113,12 +115,12 @@ Si desea ejecutar una implementación sin usar las plantillas de Marketplace, pu
 1. Seleccione **Guardar**. Ahora verá la interfaz de implementación de plantillas del portal. Observe los dos parámetros que definió en la plantilla.
 1. Escriba o seleccione los valores de propiedad:
 
-    - **Suscripción**: Seleccione una suscripción de Azure.
-    - **Grupo de recursos**: seleccione **Crear nuevo** y asígnele un nombre.
-    - **Ubicación**: Seleccione una ubicación de Azure.
-    - **Tipo de cuenta de almacenamiento**: Use el valor predeterminado.
-    - **Ubicación**: Use el valor predeterminado.
-    - **Acepto los términos y condiciones indicados anteriormente**: (seleccionar)
+    - **Suscripción** : Seleccione una suscripción de Azure.
+    - **Grupo de recursos** : seleccione **Crear nuevo** y asígnele un nombre.
+    - **Ubicación** : Seleccione una ubicación de Azure.
+    - **Tipo de cuenta de almacenamiento** : Use el valor predeterminado.
+    - **Ubicación** : Use el valor predeterminado.
+    - **Acepto los términos y condiciones indicados anteriormente** : (seleccionar)
 
 1. Seleccione **Comprar**.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 2d112db720d8ad5a1cba1ec2f35fbb59670e1e92
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b9653cded11edd36602caea0ecd50cfb8dd05ebe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996740"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547187"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configuración de ASM de Oracle en una máquina virtual Linux en Azure  
 
@@ -191,7 +191,7 @@ Para este tutorial, el usuario predeterminado es *grid* y el grupo predeterminad
    11       0       1152 sr0
    ```
 
-3. Para dar formato al disco */dev/sdc*, ejecute el siguiente comando y responda a los mensajes con:
+3. Para dar formato al disco */dev/sdc* , ejecute el siguiente comando y responda a los mensajes con:
    - *n* para la nueva partición
    - *p* para la partición principal
    - *1* para seleccionar la primera partición
@@ -527,7 +527,7 @@ Para configurar la instalación de ASM de Oracle, complete los pasos siguientes:
    - Haga clic en `ok` para crear el grupo de discos.
    - Haga clic en `ok` para cerrar la ventana de confirmación.
 
-   ![Captura de pantalla del cuadro de diálogo Create Disk Group (Crear grupo de discos)](./media/oracle-asm/asm04.png)
+   ![Captura de pantalla del cuadro de diálogo Crear grupo de discos y donde se resalta la opción Externa (ninguna).](./media/oracle-asm/asm04.png)
 
 6. Seleccione **Exit** (Salir) para cerrar el asistente para la configuración de ASM.
 

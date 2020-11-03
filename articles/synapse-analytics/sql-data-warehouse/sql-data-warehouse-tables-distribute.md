@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85214016"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487014"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Instrucciones para diseñar tablas distribuidas en un grupo de SQL de Synapse
 
 Recomendaciones para diseñar tablas distribuidas por hash y tablas distribuidas por round robin en grupos de SQL de Synapse.
 
-En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos de un grupo de SQL de Synapse.  Para obtener más información, consulte [Arquitectura de Azure Synapse Analytics (anteriormente SQL DW)](massively-parallel-processing-mpp-architecture.md).
+En este artículo se asume que está familiarizado con los conceptos de distribución y movimiento de datos en Synapse SQL.  Para obtener más información, vea [Arquitectura de Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>¿Qué es una tabla distribuida?
 
@@ -32,7 +32,7 @@ Las **tablas distribuidas por hash** mejoran el rendimiento de las consultas en 
 
 Otra opción de almacenamiento de tabla es replicar una tabla pequeña en todos los nodos de proceso. Para más información, consulte [Instrucciones de diseño para el uso de tablas replicadas en Azure SQL Data Warehouse](design-guidance-for-replicated-tables.md). Para elegir rápidamente entre las tres opciones, consulte Tablas distribuidas en [Información general de Tablas](sql-data-warehouse-tables-overview.md).
 
-Como parte del diseño de tablas, comprenda tanto como sea posible sobre los datos y cómo se consultan los datos.  Por ejemplo, considere estas preguntas:
+Como parte del diseño de tablas, comprenda tanto como sea posible sobre los datos y cómo se consultan los datos.    Por ejemplo, considere estas preguntas:
 
 - ¿Qué tamaño tiene la tabla?
 - ¿Con qué frecuencia se actualiza la tabla?

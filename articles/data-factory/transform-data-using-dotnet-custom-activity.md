@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 8b8114a6abf5579ed0750862d59a5d13178339f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e84f7a2ee8c2f7a57ce1734ad3392a217d6de5fe
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276509"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632114"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 
@@ -36,7 +36,7 @@ Para mover datos desde y hacia un almacén de datos incompatible con Data Factor
 Consulte los artículos siguientes si no está familiarizado con el servicio Azure Batch:
 
 * [Aspectos básicos de Azure Batch](../batch/batch-technical-overview.md) para información general del servicio Azure Batch.
-* Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para crear una cuenta de Azure Batch, o [Azure Portal](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure Portal. Consulte el artículo [Using PowerShell to manage Azure Batch Account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) (Administración de cuentas de Azure Batch con PowerShell) para instrucciones detalladas sobre el uso del cmdlet.
+* Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para crear una cuenta de Azure Batch, o [Azure Portal](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure Portal. Consulte el artículo [Using PowerShell to manage Azure Batch Account](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) (Administración de cuentas de Azure Batch con PowerShell) para instrucciones detalladas sobre el uso del cmdlet.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para crear un grupo de Azure Batch.
 
 ## <a name="azure-batch-linked-service"></a>Servicio vinculado de Azure Batch
@@ -108,7 +108,7 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 | linkedServiceName     | Servicio vinculado a Azure Batch. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  | Sí      |
 | command               | Comando de la aplicación personalizada que se va a ejecutar. Si la aplicación ya está disponible en el nodo del grupo de Azure Batch, se pueden omitir las propiedades resourceLinkedService y folderPath. Por ejemplo, puede especificar que el comando sea `cmd /c dir`, que el nodo del grupo de lotes de Windows admite de forma nativa. | Sí      |
 | resourceLinkedService | Servicio de Azure Storage vinculado a la cuenta de almacenamiento en la que está almacenada la aplicación personalizada | No &#42;       |
-| folderPath            | Ruta de acceso a la carpeta de la aplicación personalizada y todas sus dependencias<br/><br/>Si tiene dependencias que se almacenan en subcarpetas (es decir, en una estructura jerárquica de carpetas bajo *folderPath*) la estructura de carpetas se elimina cuando los archivos se copian en Azure Batch. Es decir, todos los archivos se copian en una sola carpeta sin subcarpetas. Para evitar este comportamiento, considere la posibilidad de comprimir los archivos, copiar el archivo comprimido y, a continuación, descomprimirlo con código personalizado en la ubicación deseada. | No &#42;       |
+| folderPath            | Ruta de acceso a la carpeta de la aplicación personalizada y todas sus dependencias<br/><br/>Si tiene dependencias que se almacenan en subcarpetas (es decir, en una estructura jerárquica de carpetas bajo *folderPath* ) la estructura de carpetas se elimina cuando los archivos se copian en Azure Batch. Es decir, todos los archivos se copian en una sola carpeta sin subcarpetas. Para evitar este comportamiento, considere la posibilidad de comprimir los archivos, copiar el archivo comprimido y, a continuación, descomprimirlo con código personalizado en la ubicación deseada. | No &#42;       |
 | referenceObjects      | Matriz de servicios vinculados y conjuntos de datos existentes. Los servicios vinculados y los conjuntos de datos a los que se hace referencia se pasan a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a recursos de Data Factory | No       |
 | extendedProperties    | Propiedades definidas por el usuario que se pueden pasar a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a propiedades adicionales | No       |
 | retentionTimeInDays | Tiempo de retención de los archivos enviados para la actividad personalizada. El valor predeterminado es 30 días. | No |
@@ -310,7 +310,7 @@ Puede enviar los valores personalizados desde el código de una actividad person
 
 ## <a name="retrieve-securestring-outputs"></a>Recuperación de salidas de SecureString
 
-Los valores de propiedades confidenciales designados como de tipo *SecureString*, tal y como se muestra en algunos de los ejemplos de este artículo, se enmascaran en la pestaña Supervisión de la interfaz de usuario de Data Factory.  Sin embargo, en la ejecución de la canalización real, una propiedad *SecureString* se serializa como JSON dentro del archivo `activity.json` como texto sin formato. Por ejemplo:
+Los valores de propiedades confidenciales designados como de tipo *SecureString* , tal y como se muestra en algunos de los ejemplos de este artículo, se enmascaran en la pestaña Supervisión de la interfaz de usuario de Data Factory.  Sin embargo, en la ejecución de la canalización real, una propiedad *SecureString* se serializa como JSON dentro del archivo `activity.json` como texto sin formato. Por ejemplo:
 
 ```json
 "extendedProperties": {
@@ -356,7 +356,7 @@ Si tiene código .NET ya existente escrito para la actividad de DotNet (personal
   - Ya no es necesario el paquete NuGet Microsoft.Azure.Management.DataFactories.
   - Compile el código, cargue el ejecutable y sus dependencias en Azure Storage y defina la ruta de acceso en la propiedad `folderPath`.
 
-Para un ejemplo completo de cómo el archivo DLL entero y el ejemplo de canalización que se describen en el artículo [Uso de actividades personalizadas en una canalización de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) de la versión 1 de Data Factory se pueden reescribir como una actividad personalizada de Data Factory, consulte un [ejemplo de la actividad personalizada de Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
+Para un ejemplo completo de cómo el archivo DLL entero y el ejemplo de canalización que se describen en el artículo [Uso de actividades personalizadas en una canalización de Azure Data Factory](./v1/data-factory-use-custom-activities.md) de la versión 1 de Data Factory se pueden reescribir como una actividad personalizada de Data Factory, consulte un [ejemplo de la actividad personalizada de Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Escalado automático de Azure Batch
 
@@ -376,7 +376,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 Para más información, consulte [Escalado automático de los nodos de proceso en un grupo de Azure Batch](../batch/batch-automatic-scaling.md) .
 
-Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Batch puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada. Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Batch podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
+Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale), el servicio Batch puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada. Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Batch podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras:
@@ -387,5 +387,5 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
-* [Actividad de ejecución de Batch de Machine Learning](transform-data-using-machine-learning.md)
+* [Actividad de ejecución de lotes de Estudio de Azure Machine Learning (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

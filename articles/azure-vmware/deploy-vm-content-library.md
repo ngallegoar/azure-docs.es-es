@@ -3,12 +3,12 @@ title: Creación de una biblioteca de contenido para implementar máquinas virtu
 description: Cree una biblioteca de contenido para implementar una máquina virtual en una nube privada de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 3a1b0a091dcdf9a225b4bf91ec83f542c2310285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57db8ac4da8eef826d85feb11680c9c87823ee36
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575804"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461692"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution
 
@@ -18,7 +18,7 @@ En este artículo, le guiaremos por el procedimiento de creación de una bibliot
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar este tutorial, se necesitan un segmento de conmutador lógico NSX-T y un servicio DHCP administrado.  Para más información, consulte el artículo [Administración de DHCP en Azure VMWare Solution](manage-dhcp.md).
+Para realizar este tutorial, se necesitan un segmento de conmutador lógico NSX-T y un servicio DHCP administrado.  Para más información, consulte el artículo [Administración de DHCP en Azure VMware Solution](manage-dhcp.md).
 
 ## <a name="create-a-content-library"></a>Crear una biblioteca de contenido
 
@@ -92,7 +92,7 @@ Ahora que se ha creado la biblioteca de contenido, puede agregar una imagen ISO 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene previsto usar la extensión de nube híbrida (HCX) para migrar las cargas de trabajo de máquinas virtuales a la nube privada, use el procedimiento [Instalación de HCX para Azure VMware Solution](tutorial-deploy-vmware-hcx.md).
+Si tiene previsto usar VMware HCX para migrar cargas de trabajo de VM a su nube privada, siga el procedimiento [Implementación y configuración de VMware HCX](tutorial-deploy-vmware-hcx.md).
 
 <!-- LINKS - external-->
 

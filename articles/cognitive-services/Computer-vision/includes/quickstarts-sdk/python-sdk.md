@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 744ef58b54dc3718c4693ce2aad69024e2d6e2fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: da9ff2ab1ce90b7b27d52c68dc27eb646fe62513
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321893"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886739"
 ---
 <a name="HOLTop"></a>
 
@@ -27,26 +27,10 @@ ms.locfileid: "89321893"
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Creación de un recurso de Computer Vision"  target="_blank">cree un recurso de Computer Vision <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación al servicio Computer Vision. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
-* [Cree las variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) `COMPUTER_VISION_SUBSCRIPTION_KEY` y `COMPUTER_VISION_ENDPOINT` para la clave y la dirección URL del punto de conexión, respectivamente.
 
-> [!NOTE]
-> Puede descargar el [código fuente completo de los ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) que se presentan a continuación y de ejemplos de cada función, disponibles en [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python).
 
 ## <a name="setting-up"></a>Instalación
  
-### <a name="create-a-new-python-application"></a>Creación de una nueva aplicación de Python
-
-Cree un nuevo script de Python, por ejemplo, &mdash;*quickstart-file.py*. Ábralo en el editor o el IDE que prefiera e importe las siguientes bibliotecas.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_imports)]
-
-A continuación, cree variables para el punto de conexión y la clave de Azure del recurso.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_vars)]
-
-> [!NOTE]
-> Si ha creado la variable de entorno después de haber iniciado la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que lo ejecuta para acceder a la variable.
-
 ### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
 
 Puede instalar la biblioteca cliente con lo siguiente:
@@ -54,6 +38,25 @@ Puede instalar la biblioteca cliente con lo siguiente:
 ```console
 pip install --upgrade azure-cognitiveservices-vision-computervision
 ```
+
+### <a name="create-a-new-python-application"></a>Creación de una nueva aplicación de Python
+
+Por ejemplo, cree un nuevo archivo Python &mdash;*quickstart-file.py*. Ábralo en el editor o el IDE que prefiera e importe las siguientes bibliotecas.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_imports)]
+
+> [!TIP]
+> ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py), que contiene los ejemplos de código de este inicio rápido.
+
+A continuación, cree variables para el punto de conexión y la clave de Azure del recurso.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_vars)]
+
+> [!IMPORTANT]
+> Vaya a Azure Portal. Si el recurso de Computer Vision que ha creado en la sección **Requisitos previos** se ha implementado correctamente, haga clic en el botón **Ir al recurso** en **Pasos siguientes**. Puede encontrar su clave y punto de conexión en la página de **clave y punto de conexión** del recurso, en **Administración de recursos**. 
+>
+> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Por ejemplo, [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -75,18 +78,18 @@ En estos fragmentos de código se muestra cómo realizar las siguientes tareas c
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-> [!NOTE]
-> En este inicio rápido se da por supuesto que ha [creado una variable de entorno](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para la clave de Computer Vision, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY`.
-
 Cree una instancia de un cliente con la clave y el punto de conexión. Cree un objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) con la clave y úselo con el punto de conexión para crear un objeto [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_client)]
 
 ## <a name="analyze-an-image"></a>Análisis de una imagen
 
-Guarde una referencia a la dirección URL de una imagen que desee analizar.
+Use el objeto de cliente para analizar las características visuales de una imagen remota. En primer lugar, guarde una referencia a la dirección URL de una imagen que desee analizar.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_remoteimage)]
+
+> [!TIP]
+> También puede analizar una imagen local. Consulte los métodos [ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python), como **analyze_image_in_stream**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) para escenarios relacionados con imágenes locales.
 
 ### <a name="get-image-description"></a>Obtención de la descripción de la imagen
 
@@ -110,7 +113,7 @@ El código siguiente obtiene el conjunto de las etiquetas detectadas en la image
 
 El código siguiente detecta objetos comunes en la imagen y los imprime en la consola. Consulte [Detección de objetos](../../concept-object-detection.md) para más información.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]        
 
 ### <a name="detect-brands"></a>Detección de marcas
 
@@ -164,6 +167,9 @@ En primer lugar, use el siguiente código para llamar al método **read** para l
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
 
+> [!TIP]
+> También puede leer el texto de una imagen local. Consulte los métodos [ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python), como **read_in_stream**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) para escenarios relacionados con imágenes locales.
+
 ### <a name="get-read-results"></a>Obtención de resultados de lectura
 
 A continuación, obtenga el identificador de operación devuelto por la llamada a **read** y úselo para consultar los resultados de la operación en el servicio. El código siguiente comprueba la operación a intervalos de un segundo hasta que se devuelven los resultados. A continuación, imprime los datos de texto extraídos en la consola.
@@ -196,3 +202,4 @@ En este inicio rápido, ha aprendido a usar la biblioteca de Computer Vision par
 
 * [¿Qué es Computer Vision?](../../overview.md)
 * El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).
+           

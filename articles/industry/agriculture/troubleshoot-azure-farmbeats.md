@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: cc2eb7ecb7f0587c065aac1cfb57cfae10b732ac
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: dd0ed78c56e4d656a2ecee6395d831ed093e85b5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168297"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677368"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Solución de problemas de Azure FarmBeats
 
-En este artículo se proporcionan soluciones a problemas comunes de Azure FarmBeats. Para obtener ayuda adicional, póngase en contacto con el [foro de soporte técnico de preguntas y respuestas](https://aka.ms/farmbeatssupport) o envíenos un correo electrónico a farmbeatssupport@microsoft.com.
+En este artículo se proporcionan soluciones a problemas comunes de Azure FarmBeats. Para obtener ayuda adicional, póngase en contacto con el [foro de soporte técnico de preguntas y respuestas](/answers/topics/azure-farmbeats.html) o envíenos un correo electrónico a farmbeatssupport@microsoft.com.
 
 > [!NOTE]
   > Si ha instalado FarmBeats durante el mes de abril y nota que se están produciendo errores en los trabajos con un mensaje de error vacío, es posible que no se haya asignado ninguna cuota de lote a su instalación debido a que se ha dado prioridad de asistencia a organizaciones sanitarias y de seguridad de importancia crítica. Vea [aquí](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) para obtener más información. Tendrá que solicitar que las máquinas virtuales se asignen a la cuenta de Batch para ejecutar los trabajos correctamente.
@@ -44,9 +44,9 @@ Póngase en contacto con nosotros y proporciónenos los detalles siguientes:
 - Nombre del grupo de recursos
 - Siga los pasos siguientes para adjuntar el archivo de registro para el error de implementación:
 
-    1. En Azure Portal, vaya al **grupo de recursos** .
+    1. En Azure Portal, vaya al **grupo de recursos**.
 
-    2. En el lado izquierdo, seleccione **Implementaciones** en **Configuración** .
+    2. En el lado izquierdo, seleccione **Implementaciones** en **Configuración**.
 
     3. En cada implementación que se muestre con el estado **Error** , seleccione entre los detalles para descargar los detalles de la implementación. Adjunte este archivo al correo.
 
@@ -133,7 +133,7 @@ Al eliminar un dispositivo, podría encontrarse con uno de los siguientes escena
 
 1. elimine los sensores asociados con el dispositivo mediante Accelerator.  
 2. En caso de que quiera asociar los sensores a otro dispositivo, solicite a su asociado de dispositivo que haga lo mismo.  
-3. Elimine el dispositivo mediante una llamada `DELETE API` y establezca el parámetro force como *true* .  
+3. Elimine el dispositivo mediante una llamada `DELETE API` y establezca el parámetro force como *true*.  
 
 **Mensaje** : "Se hace referencia al dispositivo en los dispositivos como ParentDeviceId: hay uno o más dispositivos que están asociados con este dispositivo como dispositivos secundarios. Elimínelos y, después, elimine este dispositivo".  
 
@@ -205,8 +205,8 @@ Si ya se le ha concedido acceso y se encuentra con este error, actualice la pág
 
     1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
     2. En el cuadro **Buscar** , busque el grupo de recursos Datahub de FarmBeats.
-    3. Seleccione Storage account storage (Almacenamiento de la cuenta de almacenamiento)***** > **Containers** > **batch-prep-files** > **to_vm** > **config.ini** .
-    4. Seleccione **Editar** .
+    3. Seleccione Storage account storage (Almacenamiento de la cuenta de almacenamiento)***** > **Containers** > **batch-prep-files** > **to_vm** > **config.ini**.
+    4. Seleccione **Editar**.
     5. Actualización del nombre de usuario en la sección sentinel_account
 
   **Actualización de la contraseña de Sentinel**
@@ -215,11 +215,11 @@ Si ya se le ha concedido acceso y se encuentra con este error, actualice la pág
     2. En el cuadro **Buscar** , busque el grupo de recursos Datahub de FarmBeats.
     3. Seleccione keyvault-* * * * *
     4. Seleccione Directivas de acceso en Configuración.
-    5. Seleccione **Agregar directiva de acceso** .
+    5. Seleccione **Agregar directiva de acceso**.
     6. Use **Administración de secretos** en Configurar a partir de una plantilla y agréguese a usted mismo a la entidad de seguridad.
-    7. Seleccione **Agregar** y, después, **Guardar** en la página **Directivas de acceso** .
-    8. Seleccione **Secretos** en **Configuración** .
-    9. Seleccione **Sentinel-password** .
+    7. Seleccione **Agregar** y, después, **Guardar** en la página **Directivas de acceso**.
+    8. Seleccione **Secretos** en **Configuración**.
+    9. Seleccione **Sentinel-password**.
     10. Cree una nueva versión del valor y habilítela.
 
 - Vuelva a ejecutar el trabajo con errores o ejecute un trabajo de índices por satélite para un intervalo de fechas de 5 a 7 días; luego, compruebe si el trabajo se ha realizado correctamente.
@@ -287,9 +287,9 @@ este problema puede producirse si se realizan actividades de mantenimiento en el
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el cuadro **Buscar** , busque el grupo de recursos Datahub de FarmBeats.
-3. En el panel **Grupo de recursos** , busque la cuenta de almacenamiento *datahublogs\** . Por ejemplo, *datahublogsmvxmq* .  
-4. En la columna **Nombre** , seleccione la cuenta de almacenamiento para ver el panel **Cuenta de almacenamiento** .
-5. En el panel **datahubblogs\*** , seleccione **Abrir en el Explorador** para ver la aplicación **Abrir Explorador de Azure Storage** .
+3. En el panel **Grupo de recursos** , busque la cuenta de almacenamiento *datahublogs\** . Por ejemplo, *datahublogsmvxmq*.  
+4. En la columna **Nombre** , seleccione la cuenta de almacenamiento para ver el panel **Cuenta de almacenamiento**.
+5. En el panel **datahubblogs\* *_, seleccione _* Abrir en el Explorador** para ver la aplicación **Abrir Explorador de Azure Storage**.
 6. En el panel izquierdo, seleccione **Contenedores de blob** y, a continuación, seleccione **job-logs** para los registros de Azure Data Factory o **appinsights-logs** para los registros de App Service.
 7. Seleccione **Descargar** para descargar los registros en una carpeta local de la máquina.
 
@@ -300,19 +300,19 @@ este problema puede producirse si se realizan actividades de mantenimiento en el
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el cuadro de texto **Buscar** , busque el grupo de recursos Accelerator de FarmBeats.
 3. En el panel **Grupo de recursos** , busque la cuenta de almacenamiento *storage\** . Por ejemplo, *storagedop4k\** .
-4. Seleccione la cuenta de almacenamiento en la columna **Nombre** para ver el panel **Cuenta de almacenamiento** .
-5. En el panel **storage\*** , seleccione **Abrir en el Explorador** para abrir la aplicación Explorador de Azure Storage.
+4. Seleccione la cuenta de almacenamiento en la columna **Nombre** para ver el panel **Cuenta de almacenamiento**.
+5. En el panel **storage\* *_, seleccione _* Abrir en el Explorador** para abrir la aplicación Explorador de Azure Storage.
 6. En el panel izquierdo, seleccione **Contenedores de blob** y, a continuación, seleccione **job-logs** para los registros de Azure Data Factory o **appinsights-logs** para los registros de App Service.
 7. Seleccione **Descargar** y descargue los registros en una carpeta local de la máquina.
 
 ## <a name="high-cpu-usage"></a>Uso elevado de CPU
 
-**Error** : recibe una alerta por correo electrónico que hace referencia a una **alerta de uso elevado de CPU** .
+**Error** : recibe una alerta por correo electrónico que hace referencia a una **alerta de uso elevado de CPU**.
 
 **Acción correctiva** :
 
 1. vaya al grupo de recursos Datahub de FarmBeats.
-2. Seleccione **App Service** .  
+2. Seleccione **App Service**.  
 3. Vaya a la [página de precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) de escalabilidad vertical y seleccione un plan de tarifa adecuado.
 
 ## <a name="weather-data-job-failures"></a>Errores de trabajos de datos meteorológicos
@@ -329,24 +329,24 @@ este problema puede producirse si se realizan actividades de mantenimiento en el
 
 :::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Captura de pantalla que resalta la etiqueta sku:Datahub.":::
 
-3. En la página de información general de la factoría de datos, haga clic en **Author and Monitor** (Crear y supervisar). Se abre una pestaña nueva en el explorador. Haga clic en **Monitor** .
+3. En la página de información general de la factoría de datos, haga clic en **Author and Monitor** (Crear y supervisar). Se abre una pestaña nueva en el explorador. Haga clic en **Monitor**.
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Captura de pantalla que resalta la etiqueta sku:Datahub.":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Captura de pantalla que resalta la opción de menú Supervisar.":::
 
 4. Verá una lista de ejecuciones de canalización que forman parte de la ejecución del trabajo meteorológico. Haga clic en el trabajo para el que quiera recopilar registros.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Captura de pantalla que resalta la etiqueta sku:Datahub.":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Captura de pantalla que resalta la opción de menú Ejecuciones de la canalización y el trabajo seleccionado.":::
 
 5. En la página de información general de la canalización, verá la lista de ejecuciones de actividad. Tome nota de los identificadores de ejecución de las actividades para las que quiera recopilar registros.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Captura de pantalla que resalta la etiqueta sku:Datahub.":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Captura de pantalla que muestra la lista de ejecuciones de actividad.":::
 
-6. Vuelva al grupo de recursos FarmBeats en Azure Portal y haga clic en la cuenta de almacenamiento con el nombre **datahublogs-XXXX** .
+6. Vuelva al grupo de recursos FarmBeats en Azure Portal y haga clic en la cuenta de almacenamiento con el nombre **datahublogs-XXXX**.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Captura de pantalla que resalta la etiqueta sku:Datahub.":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Captura de pantalla que resalta la cuenta de almacenamiento con el nombre datahublogs-XXXX.":::
 
-7. Haga clic en **Contenedores** -> **adfjobs** . En el cuadro de búsqueda, escriba el identificador de ejecución del trabajo que anotó en el paso 5 anterior.
+7. Haga clic en **Contenedores** -> **adfjobs**. En el cuadro de búsqueda, escriba el identificador de ejecución del trabajo que anotó en el paso 5 anterior.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Captura de pantalla que resalta la etiqueta sku:Datahub.":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Proyecto FarmBeats":::
 
 8. El resultado de la búsqueda contendrá la carpeta que incluye los registros que pertenecen al trabajo. Descargue los registros y envíelos a farmbeatssupport@microsoft.com para obtener ayuda con la depuración del problema.

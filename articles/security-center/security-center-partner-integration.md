@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 039fabbbb04f352042973f559e34a3c3a77e7500
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: cf297cdeec88a31950d007246f987957db80e247
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340434"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785891"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -26,9 +26,9 @@ Este documento le ayuda a administrar las soluciones de seguridad que ya está c
 ## <a name="integrated-azure-security-solutions"></a>Soluciones de seguridad de Azure integradas
 Security Center facilita la habilitación de soluciones de seguridad integradas en Azure. Dicha integración aporta las siguientes ventajas:
 
-- **Implementación simplificada**: Security Center ofrece un aprovisionamiento optimizado de soluciones de asociados integradas. En el caso de soluciones antimalware y de evaluación de vulnerabilidades, Security Center puede aprovisionar el agente en las máquinas virtuales. En el caso de aplicaciones de firewall, Security Center puede ocuparse de gran parte de la configuración de red necesaria.
-- **Detecciones integradas**: Los eventos de seguridad de las soluciones de asociados se recopilan, agregan y aparecen automáticamente como parte de las alertas e incidentes de Security Center. Estos eventos también se fusionan con las detecciones procedentes de otros orígenes para proporcionar funcionalidades avanzadas de detección de amenazas.
-- **Supervisión y administración unificadas del mantenimiento**: Los clientes pueden usar eventos de mantenimiento integrados para supervisar todas las soluciones de asociados de un vistazo. La administración básica está disponible con un acceso sencillo a la configuración avanzada mediante la solución de asociado.
+- **Implementación simplificada** : Security Center ofrece un aprovisionamiento optimizado de soluciones de asociados integradas. En el caso de soluciones antimalware y de evaluación de vulnerabilidades, Security Center puede aprovisionar el agente en las máquinas virtuales. En el caso de aplicaciones de firewall, Security Center puede ocuparse de gran parte de la configuración de red necesaria.
+- **Detecciones integradas** : Los eventos de seguridad de las soluciones de asociados se recopilan, agregan y aparecen automáticamente como parte de las alertas e incidentes de Security Center. Estos eventos también se fusionan con las detecciones procedentes de otros orígenes para proporcionar funcionalidades avanzadas de detección de amenazas.
+- **Supervisión y administración unificadas del mantenimiento** : Los clientes pueden usar eventos de mantenimiento integrados para supervisar todas las soluciones de asociados de un vistazo. La administración básica está disponible con un acceso sencillo a la configuración avanzada mediante la solución de asociado.
 
 Actualmente, las soluciones de seguridad integradas incluyen la evaluación de vulnerabilidades por [Qualys](https://www.qualys.com/public-cloud/#azure) y [Rapid7](https://www.rapid7.com/products/insightvm/) y el firewall de aplicaciones web de Microsoft Application Gateway.
 
@@ -53,7 +53,7 @@ Las soluciones de seguridad de Azure que se implementan desde Security Center se
 
 1. En el menú de Security Center, seleccione **Soluciones de seguridad**.
 
-En la página **Soluciones de seguridad**, puede ver el mantenimiento de las soluciones de seguridad integradas de Azure y ejecutar tareas de administración básicas.
+En la página **Soluciones de seguridad** , puede ver el mantenimiento de las soluciones de seguridad integradas de Azure y ejecutar tareas de administración básicas.
 
 ### <a name="connected-solutions"></a>Soluciones conectadas
 
@@ -75,8 +75,8 @@ El estado de una solución de asociado puede ser:
 
 Seleccione **Ver** para más información y opciones adicionales, entre las que se incluyen:
 
-   - **Consola de soluciones**: se abre la experiencia de administración para esta solución.
-   - **Vincular VM**: se abre la página Vincular aplicaciones. Aquí puede conectar recursos a la solución de asociados.
+   - **Consola de soluciones** : se abre la experiencia de administración para esta solución.
+   - **Vincular VM** : se abre la página Vincular aplicaciones. Aquí puede conectar recursos a la solución de asociados.
    - **Eliminar solución**
    - **Configuración**
 
@@ -105,5 +105,5 @@ La sección **Agregar orígenes de datos** incluye otros orígenes de datos disp
 
 En este documento, ha aprendido a integrar soluciones de asociados en Security Center. Para obtener más información relacionada, consulte los siguientes artículos:
 
-* [Exportación de alertas y recomendaciones de seguridad](continuous-export.md). Aprenda a configurar una integración con Azure Sentinel o cualquier otro SIEM.
+* [Exportación continua de alertas y recomendaciones de seguridad](continuous-export.md). Aprenda a configurar una integración con Azure Sentinel o cualquier otro SIEM.
 * [Supervisión del estado de seguridad en Security Center](security-center-monitoring.md). Aprenda a supervisar el estado de los recursos de Azure.

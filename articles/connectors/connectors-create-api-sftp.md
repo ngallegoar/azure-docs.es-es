@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
-ms.openlocfilehash: cd2f8ce45ef9270866941cdedb7c768529c3175f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70fb956af7ff45c7b54f04d7ed441ec39f9d80a5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033309"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673821"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP en Azure Logic Apps
 
@@ -45,10 +45,10 @@ El conector SFTP controla solo los archivos que tengan un tamaño de *50 MB o m
   > El conector SFTP admite estos formatos de clave privada: OpenSSH, ssh.com y PuTTY
   >
   > Al crear la aplicación lógica, después de agregar el desencadenador o la acción SFTP que desee, deberá proporcionar información de conexión para el servidor SFTP. 
-  > Si usa una clave privada SSH, asegúrese de ***copiar*** la clave del archivo de clave privada SSH y ***pegar*** esa clave en los datos de conexión. ***No especifique ni edite manualmente la clave***, ya que podría producirse un error en la conexión. 
+  > Si usa una clave privada SSH, asegúrese de * **copiar** _ la clave del archivo de clave privada SSH y _*_pegarla_*_ en los datos de conexión. _*_No escriba ni edite manualmente la clave_*_ , ya que se podría producir un error en la conexión. 
   > Para más información, consulte los pasos más adelante en este artículo.
 
-* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+_ Conocimientos básicos sobre [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * La aplicación lógica desde donde quiere acceder a la cuenta de SFTP. Para comenzar con un desencadenador de SFTP, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar una acción de SFTP, inicie la aplicación lógica con otro desencadenador, por ejemplo, el desencadenador **Recurrence**.
 
@@ -82,7 +82,7 @@ Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba
 
    > [!IMPORTANT]
    >
-   > Al escribir la clave privada SSH en la propiedad **SSH private key**, siga estos pasos adicionales para asegurarse de proporcionar el valor completo y correcto para esta propiedad. 
+   > Al escribir la clave privada SSH en la propiedad **SSH private key** , siga estos pasos adicionales para asegurarse de proporcionar el valor completo y correcto para esta propiedad. 
    > Una clave no válida provoca un error de conexión.
 
    Aunque puede usar cualquier editor de texto, estos son los pasos de ejemplo que muestran cómo copiar y pegar correctamente la clave mediante Notepad.exe.
@@ -93,9 +93,9 @@ Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba
 
    1. Seleccione **Editar** > **Copiar**.
 
-   1. En el desencadenador o la acción SFTP que ha agregado, pegue la clave *completa* que copió en la propiedad **SSH private key**, que admite varias líneas. ***Asegúrese de pegar*** la clave. ***No especifique ni edite la clave manualmente***.
+   1. En el desencadenador o la acción SFTP que ha agregado, pegue la clave *completa* que copió en la propiedad **SSH private key** , que admite varias líneas. **_Asegúrese de pegar_* _ la clave. _*_No escriba ni edite la clave manualmente_*_.
 
-1. Cuando haya terminado de especificar los detalles de conexión, elija **Crear**.
+1. Cuando haya terminado de especificar los detalles de conexión, elija _*Crear**.
 
 1. Proporcione los detalles necesarios para el desencadenador o la acción seleccionados y continúe con la compilación del flujo de trabajo de la aplicación lógica.
 
@@ -107,7 +107,7 @@ Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba
 
 Este desencadenador inicia un flujo de trabajo de aplicación lógica cuando se agrega o se modifica un archivo en un servidor SFTP. Por ejemplo, puede agregar una condición que compruebe el contenido del archivo y obtenga el contenido en función de si cumple una condición especificada. Luego, puede agregar una acción que obtenga el contenido del archivo y lo coloque en una carpeta en el servidor SFTP.
 
-**Ejemplo Enterprise**: Puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que representan los pedidos de los clientes. Seguidamente, puede usar una acción SFTP, como **Get file content** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
+**Ejemplo Enterprise** : Puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que representan los pedidos de los clientes. Seguidamente, puede usar una acción SFTP, como **Get file content** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
 
 <a name="get-content"></a>
 
@@ -117,7 +117,7 @@ Esta acción obtiene el contenido de un archivo en un servidor SFTP. Por ejemplo
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/azure/data-factory/connector-sftp) del conector.
+Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](../data-factory/connector-sftp.md) del conector.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 2fb94faacc2bc7d6c3b1e166e617f3f675594cef
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101263"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503494"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Acceso del indexador al contenido protegido por las características de seguridad de red de Azure (Azure Cognitive Search)
 
@@ -46,7 +46,7 @@ Los clientes pueden proteger estos recursos a través de varios mecanismos de ai
 | Azure Functions | Compatible | Se admite solo con determinados niveles de funciones de Azure. |
 
 > [!NOTE]
-> Además de las opciones enumeradas anteriormente, en el caso de las cuentas de Azure Storage protegidas por red, los clientes pueden aprovechar el hecho de que Azure Cognitive Search es un [servicio de Microsoft de confianza](../storage/common/storage-network-security.md#trusted-microsoft-services). Esto significa que un servicio de búsqueda específico puede omitir las restricciones de red virtual o IP sobre la cuenta de almacenamiento y puede acceder a los datos que esta contiene si tiene habilitado el control de acceso basado en rol adecuado. Para más información, consulte [Conexiones del indexador mediante la excepción del servicio de confianza](search-indexer-howto-access-trusted-service-exception.md). Esta opción puede usarse en lugar de la ruta de restricciones de IP; en cualquier caso, la cuenta de almacenamiento o el servicio de búsqueda no se puedan mover a otra región.
+> Además de las opciones enumeradas anteriormente, en el caso de las cuentas de Azure Storage protegidas por red, los clientes pueden aprovechar el hecho de que Azure Cognitive Search es un [servicio de Microsoft de confianza](../storage/common/storage-network-security.md#trusted-microsoft-services). Esto significa que un servicio de búsqueda concreto puede omitir las restricciones de red virtual o IP sobre la cuenta de almacenamiento, y puede que acceder a los datos que esta contiene si tiene habilitado el control de acceso basado en rol adecuado. Para más información, consulte [Conexiones del indexador mediante la excepción del servicio de confianza](search-indexer-howto-access-trusted-service-exception.md). Esta opción puede usarse en lugar de la ruta de restricciones de IP; en cualquier caso, la cuenta de almacenamiento o el servicio de búsqueda no se puedan mover a otra región.
 
 A la hora de elegir qué mecanismo de acceso seguro debe utilizar un indexador, tenga en cuenta las siguientes restricciones:
 
@@ -87,7 +87,7 @@ Esta funcionalidad solo está disponible en los servicios de búsqueda facturabl
 
 Los clientes deben llamar a la operación de administración de búsqueda, [API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) de un **recurso de vínculo privado compartido** , a fin de crear una conexión de punto de conexión privado a su recurso seguro (por ejemplo, una cuenta de almacenamiento). El tráfico que atraviesa esta conexión de punto de conexión privado (saliente) solo se originará en la red virtual que se encuentre en el entorno de ejecución "privado" del indexador específico del servicio de búsqueda.
 
-Azure Cognitive Search validará que los autores de llamada de esta API tengan permisos RBAC para aprobar las solicitudes de conexión de punto de conexión privado al recurso seguro. Por ejemplo, si solicita una conexión de punto de conexión privado a una cuenta de almacenamiento con permisos de solo lectura, se rechazará esta llamada.
+Azure Cognitive Search validará que los autores de llamada de esta API tengan permisos RBAC de Azure para aprobar las solicitudes de conexión de punto de conexión privado al recurso seguro. Por ejemplo, si solicita una conexión de punto de conexión privado a una cuenta de almacenamiento con permisos de solo lectura, se rechazará esta llamada.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Paso 2: Aprobación de la conexión del punto de conexión privado
 
@@ -123,7 +123,7 @@ Una vez que tenga un punto de conexión privado aprobado a un recurso, los index
 
 Para garantizar un rendimiento y una estabilidad óptimos del servicio de búsqueda, se imponen restricciones (por nivel de servicio de búsqueda) sobre las dimensiones siguientes:
 
-- Los tipos de indexadores que se pueden establecer como *privados* .
+- Los tipos de indexadores que se pueden establecer como *privados*.
 - El número de recursos de vínculo privado compartidos que se pueden crear.
 - El número de tipos de recursos distintos para los que se pueden crear recursos de vínculo privado compartidos.
 

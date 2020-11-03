@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082257"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629449"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desarrollo de la acción de script con HDInsight
 
@@ -239,7 +239,7 @@ Los siguientes asistentes están disponibles para su uso en el script:
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Descarga un archivo del URI de origen en la ruta de acceso de archivo especificada. De forma predeterminada, no sobrescribirá un archivo existente. |
 | `untar_file TARFILE DESTDIR` |Extrae un archivo tar (mediante `-xf`) en el directorio de destino. |
-| `test_is_headnode` |Si se ejecutaba en un nodo principal del clúster, devuelve 1. En caso contrario, devuelve 0. |
+| `test_is_headnode` |Si el script se ha ejecutado en un nodo principal del clúster, devuelve 1; en caso contrario, devuelve 0. |
 | `test_is_datanode` |Si el nodo actual es un nodo de datos (trabajo), devuelve 1. En caso contrario, devuelve 0. |
 | `test_is_first_datanode` |Si el nodo actual es el primer nodo (trabajo) de datos (llamado workernode0), devuelve 1. En caso contrario, devuelve 0. |
 | `get_headnodes` |Devuelve el nombre de dominio completo de los nodos principales del clúster. Los nombres están delimitados por comas. En caso de error, se devuelve una cadena vacía. |
@@ -256,7 +256,7 @@ Esta sección proporciona instrucciones sobre cómo implementar algunos de los p
 
 En algunos casos, un script puede requerir parámetros. Por ejemplo, puede que necesite la contraseña de administrador para el clúster si utiliza la API REST de Ambari.
 
-Los parámetros que se pasan al script se conocen como *parámetros posicionales*, y se asignan a `$1` para el primer parámetro, `$2` para el segundo y así sucesivamente. `$0` contiene el nombre del script.
+Los parámetros que se pasan al script se conocen como *parámetros posicionales* , y se asignan a `$1` para el primer parámetro, `$2` para el segundo y así sucesivamente. `$0` contiene el nombre del script.
 
 Los valores se pasan al script como parámetros deben estar rodeados de comillas simples ('). De este modo, se garantiza que el valor pasado se trate literalmente.
 
@@ -268,7 +268,7 @@ La instrucción siguiente establece una variable de entorno:
 VARIABLENAME=value
 ```
 
-Donde VARIABLENAME es el nombre de la variable. Para obtener acceso a la variable, use `$VARIABLENAME`. Por ejemplo, para asignar un valor proporcionado por un parámetro posicional como una variable de entorno denominada PASSWORD, use esta instrucción:
+En el ejemplo anterior, `VARIABLENAME` es el nombre de la variable. Para obtener acceso a la variable, use `$VARIABLENAME`. Por ejemplo, para asignar un valor proporcionado por un parámetro posicional como una variable de entorno denominada PASSWORD, use esta instrucción:
 
 ```bash
 PASSWORD=$1
@@ -292,7 +292,7 @@ Los scripts usados para personalizar un clúster deben almacenarse en una de las
 
 * Un __URI legible públicamente__. Por ejemplo, una dirección URL a los datos almacenados en OneDrive, Dropbox u otro servicio de hospedaje de archivo.
 
-* Una __cuenta de Azure Data Lake Storage__ que esté asociada con el clúster de HDInsight. Para más información sobre el uso de Azure Data Lake Storage con HDInsight, consulte [Inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Una __cuenta de Azure Data Lake Storage__ que esté asociada con el clúster de HDInsight. Para más información sobre el uso de Azure Data Lake Storage con HDInsight, consulte [Inicio rápido: Configuración de clústeres en HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
     > [!NOTE]  
     > La entidad de servicio que HDInsight usa para acceder a Data Lake Storage debe tener acceso de lectura al script.
@@ -332,9 +332,9 @@ Microsoft proporciona scripts de ejemplo para instalar los componentes en un cl�
 
 Estos son los errores que pueden producirse al usar los scripts desarrollados:
 
-**Error**: `$'\r': command not found`. A veces seguido de `syntax error: unexpected end of file`.
+**Error** : `$'\r': command not found`. A veces seguido de `syntax error: unexpected end of file`.
 
-*Causa*: este error se produce si las líneas en un script terminan con CRLF. Los sistemas UNIX esperan solo LF como final de la línea.
+*Causa* : este error se produce si las líneas en un script terminan con CRLF. Los sistemas UNIX esperan solo LF como final de la línea.
 
 Este problema suele producirse cuando se crea el script en un entorno Windows, ya que CRLF es una línea común final para muchos editores de texto en Windows.
 
@@ -350,9 +350,9 @@ Este problema suele producirse cuando se crea el script en un entorno Windows, y
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modifica el archivo directamente |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE contendrá una versión con finales de línea solo LF. |
 
-**Error**: `line 1: #!/usr/bin/env: No such file or directory`.
+**Error** : `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Causa*: este error se produce cuando el script se guarda como UTF-8 con una marca BOM (Byte Order Mark).
+*Causa* : este error se produce cuando el script se guarda como UTF-8 con una marca BOM (Byte Order Mark).
 
 *Solución:* guarde el archivo como ASCII o UTF-8 sin una marca BOM. También puede usar el siguiente comando en un sistema Linux o UNIX para crear un archivo sin marca BOM:
 
@@ -365,5 +365,5 @@ Reemplace `INFILE` con el archivo que contiene la marca BOM. `OUTFILE` debe ser 
 ## <a name="next-steps"></a><a name="seeAlso"></a>Pasos siguientes
 
 * Obtenga información sobre cómo [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
-* Use la [referencia del SDK de .NET de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) para obtener más información sobre la creación de aplicaciones .NET que administran HDInsight.
-* Use la [API de REST de HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para obtener información sobre cómo usar REST para realizar acciones de administración en clústeres de HDInsight.
+* Use la [referencia del SDK de .NET de HDInsight](/dotnet/api/overview/azure/hdinsight) para obtener más información sobre la creación de aplicaciones .NET que administran HDInsight.
+* Use la [API de REST de HDInsight](/rest/api/hdinsight/) para obtener información sobre cómo usar REST para realizar acciones de administración en clústeres de HDInsight.

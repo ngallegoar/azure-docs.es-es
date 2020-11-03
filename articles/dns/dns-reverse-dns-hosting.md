@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709205"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489683"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Alojamiento de zonas de búsqueda inversa DNS en Azure DNS
 
@@ -29,11 +29,11 @@ Este artículo le guiará por los pasos necesarios para crear su primera zona de
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Creación de una zona de búsqueda inversa DNS
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. En el menú **central**, seleccione **Nuevo** > **Redes** y, luego, **Zona DNS**.
+1. En el menú **central** , seleccione **Nuevo** > **Redes** y, luego, **Zona DNS**.
 
    ![Selección de "Zona DNS"](./media/dns-reverse-dns-hosting/figure1.png)
 
-1. En el panel **Crear zona DNS**, asígnele un nombre a la zona DNS. El nombre de la zona está diseñado de forma diferente para los prefijos IPv4 e IPv6. Use las instrucciones para [IPv4](#ipv4) o [IPv6](#ipv6) a fin de asignar un nombre a la zona. Cuando finalice, seleccione **Crear** para crear la zona.
+1. En el panel **Crear zona DNS** , asígnele un nombre a la zona DNS. El nombre de la zona está diseñado de forma diferente para los prefijos IPv4 e IPv6. Use las instrucciones para [IPv4](#ipv4) o [IPv6](#ipv6) a fin de asignar un nombre a la zona. Cuando finalice, seleccione **Crear** para crear la zona.
 
 ### <a name="ipv4"></a>IPv4
 
@@ -48,7 +48,7 @@ El nombre de una zona de búsqueda inversa IPv4 se basa en el intervalo IP que r
 
 En el ejemplo siguiente se muestra cómo crear una zona DNS inversa de Clase C denominada `2.0.192.in-addr.arpa` en Azure DNS mediante Azure Portal:
 
- ![Panel "Crear zona DNS" con cuadros rellenados](./media/dns-reverse-dns-hosting/figure2.png)
+ ![Captura de pantalla que muestra cómo crear una zona DNS inversa de Clase C denominada 2.0.192.in-addr.arpa en Azure DNS mediante Azure Portal.](./media/dns-reverse-dns-hosting/figure2.png)
 
 **Ubicación del grupo de recursos** define la ubicación del grupo de recursos. No afecta a la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra.
 
@@ -115,15 +115,15 @@ Para las zonas de búsqueda directa, el proceso de delegación de una zona DNS s
 
 En el ejemplo siguiente, se le guiará a través del proceso de creación de un registro PTR en una zona DNS inversa mediante Azure Portal. Para crear otros tipos de registros y modificar los que ya existan, consulte [Administración de registros y conjuntos de registros DNS mediante Azure Portal](dns-operations-recordsets-portal.md).
 
-1. En la parte superior del panel **Zona DNS**, seleccione **+ Conjunto de registros** para abrir el panel **Agregar conjunto de registros**.
+1. En la parte superior del panel **Zona DNS** , seleccione **+ Conjunto de registros** para abrir el panel **Agregar conjunto de registros**.
 
-   ![Botón para crear un conjunto de registros](./media/dns-reverse-dns-hosting/figure4.png)
+   ![Captura de pantalla del panel Zona DNS con una flecha que apunta al botón + Agregar conjunto de registros.](./media/dns-reverse-dns-hosting/figure4.png)
 
 1. El nombre del conjunto de registros para un registro PTR debe ser el resto de la dirección IPv4 en orden inverso. 
 
    En este ejemplo, los tres primeros octetos ya están rellenados como parte del nombre de la zona (.2.0.192). Por lo tanto, solo se proporciona el último octeto en el cuadro de **nombre**. Por ejemplo, podría denominar el conjunto de registros **15** para un recurso cuya dirección IP es 192.0.2.15.  
-1. En **Tipo**, seleccione **PTR**.  
-1. En **NOMBRE DE DOMINIO**, escriba el nombre de dominio completo (FQDN) del recurso que usa la dirección IP.
+1. En **Tipo** , seleccione **PTR**.  
+1. En **NOMBRE DE DOMINIO** , escriba el nombre de dominio completo (FQDN) del recurso que usa la dirección IP.
 1. Seleccione **Aceptar** en la parte inferior del panel para crear el registro DNS.
 
    ![Panel "Agregar conjunto de registros" con cuadros rellenados](./media/dns-reverse-dns-hosting/figure5.png)
@@ -151,18 +151,18 @@ az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.a
 
 En el ejemplo siguiente, se le guiará a través del proceso de creación de un registro PTR. Para crear otros tipos de registros y modificar los que ya existan, consulte [Administración de registros y conjuntos de registros DNS mediante Azure Portal](dns-operations-recordsets-portal.md).
 
-1. En la parte superior del panel **Zona DNS**, seleccione **+ Conjunto de registros** para abrir el panel **Agregar conjunto de registros**.
+1. En la parte superior del panel **Zona DNS** , seleccione **+ Conjunto de registros** para abrir el panel **Agregar conjunto de registros**.
 
    ![Botón para crear un conjunto de registros](./media/dns-reverse-dns-hosting/figure6.png)
 
 2. El nombre del conjunto de registros para un registro PTR debe ser el resto de la dirección IPv6 en orden inverso. No puede contener ninguna compresión de ceros. 
 
    En este ejemplo, los primeros 64 bits de IPv6 se rellenan como parte del nombre de zona (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). Por lo tanto, solo se proporcionan los últimos 64 bits en el cuadro de **nombre**. Los últimos 64 bits de la dirección IP se escriben en orden inverso, con un punto como delimitador entre cada número hexadecimal. Por ejemplo, podría denominar al conjunto de registros **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** para un recurso cuya dirección IP es 2001:0db8:abdc:0000:f524:10bc:1af9:405e.  
-3. En **Tipo**, seleccione **PTR**.  
-4. En **NOMBRE DE DOMINIO**, escriba el nombre de dominio completo del recurso que usa la dirección IP.
+3. En **Tipo** , seleccione **PTR**.  
+4. En **NOMBRE DE DOMINIO** , escriba el nombre de dominio completo del recurso que usa la dirección IP.
 5. Seleccione **Aceptar** en la parte inferior del panel para crear el registro DNS.
 
-![Panel "Agregar conjunto de registros" con cuadros rellenados](./media/dns-reverse-dns-hosting/figure7.png)
+![Captura de pantalla que muestra el panel "Agregar conjunto de registros" con una flecha que apunta al valor en el campo Tipo.](./media/dns-reverse-dns-hosting/figure7.png)
 
 Los ejemplos siguientes muestran cómo completar esta tarea mediante PowerShell y la CLI de Azure.
 
@@ -186,7 +186,7 @@ az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8
 
 ## <a name="view-records"></a>Visualización de los registros
 
-Para ver los registros que creó, vaya a la zona DNS en Azure Portal. En la parte inferior del panel **Zona DNS**, puede consultar los registros correspondientes a la zona DNS. Debería ver los registros NS y SOA predeterminados, además de cualquier registro que se haya creado. Los registros NS y SOA se crean en cada zona. 
+Para ver los registros que creó, vaya a la zona DNS en Azure Portal. En la parte inferior del panel **Zona DNS** , puede consultar los registros correspondientes a la zona DNS. Debería ver los registros NS y SOA predeterminados, además de cualquier registro que se haya creado. Los registros NS y SOA se crean en cada zona. 
 
 ### <a name="ipv4"></a>IPv4
 

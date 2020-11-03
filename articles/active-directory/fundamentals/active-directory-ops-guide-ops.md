@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 74ebd25cb48276f76cdf379eaa596f4ec1f3a2b9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312604"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370957"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referencia de la guía de operaciones generales de Azure Active Directory
 
@@ -49,7 +49,7 @@ A medida que revise la lista, es posible que tenga que asignar un propietario a 
 
 #### <a name="owners-recommended-reading"></a>Lectura recomendada para propietarios
 
-- [Asignación de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Asignación de roles de administrador en Azure Active Directory](../roles/permissions-reference.md)
 - [Gobernanza en Azure](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>Administración híbrida
@@ -154,7 +154,7 @@ Consulte la tabla siguiente para obtener información sobre el tipo de notificac
 
 ### <a name="ad-fs-lockdown"></a>Bloqueo de AD FS
 
-Las organizaciones que configuran aplicaciones para que se autentiquen directamente en Azure AD se benefician del  [bloqueo inteligente de Azure AD](../authentication/concept-sspr-howitworks.md). Si usa AD FS en Windows Server 2012 R2, implemente la  [protección de bloqueo de extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection) de AD FS. Si usa AD FS en Windows Server 2016 o posterior, implemente el  [bloqueo inteligente de extranet](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Como mínimo, se recomienda que habilite el bloqueo de la extranet para poder contener el riesgo de ataques por fuerza bruta contra la instancia local de Active Directory. Sin embargo, si tiene AD FS en Windows 2016 o superior, también debe habilitar el bloqueo inteligente de la extranet que le ayudará a mitigar los ataques de [difusión de contraseñas](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/).
+Las organizaciones que configuran aplicaciones para que se autentiquen directamente en Azure AD se benefician del [bloqueo inteligente de Azure AD ](../authentication/concept-sspr-howitworks.md). Si usa AD FS en Windows Server 2012 R2, implemente la [protección de bloqueo de extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection) de AD FS. Si usa AD FS en Windows Server 2016 o posterior, implemente el [bloqueo inteligente de extranet](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Como mínimo, se recomienda que habilite el bloqueo de la extranet para poder contener el riesgo de ataques por fuerza bruta contra la instancia local de Active Directory. Sin embargo, si tiene AD FS en Windows 2016 o superior, también debe habilitar el bloqueo inteligente de la extranet que le ayudará a mitigar los ataques de [difusión de contraseñas](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/).
 
 Si AD FS solo se usa para la federación de Azure AD, hay algunos puntos de conexión que se pueden desactivar para minimizar el área expuesta a ataques. Por ejemplo, si AD FS solo se usa para Azure AD, debe deshabilitar los distintos puntos de conexión de WS-Trust de aquellos puntos de conexión habilitados para los elementos **usernamemixed** y **windowstransport**.
 
@@ -166,9 +166,9 @@ Este modelo de niveles administrativo de Active Directory se diseñó para prot
 
 El [modelo de niveles](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) se compone de tres niveles y solo incluye las cuentas administrativas, no las cuentas de usuario estándar.
 
-- **Nivel 0** : control directo de las identidades de empresa en el entorno. El nivel 0 incluye cuentas, grupos y otros recursos que tienen control administrativo directo o indirecto de los bosques, dominios o controladores de dominio de Active Directory y todos los recursos que haya en él. La sensibilidad de la seguridad de todos los recursos de nivel 0 es equivalente, ya que todos se controlan de forma efectiva entre sí.
-- **Nivel 1** : control de aplicaciones y servidores empresariales. Los recursos de nivel 1 incluyen sistemas operativos de servidor, servicios en la nube y aplicaciones empresariales. Las cuentas de administrador de nivel 1 tienen el control administrativo de una cantidad considerable de valor empresarial que se hospeda en estos recursos. Una función común de ejemplo son los administradores de servidores que mantienen estos sistemas operativos con la capacidad de afectar a todos los servicios de empresa.
-- **Nivel 2** : control de los dispositivos y estaciones de trabajo de usuarios. Las cuentas de administrador de nivel 2 tienen el control administrativo de una cantidad considerable de valor empresarial que se hospeda en dispositivos y estaciones de trabajo de usuarios. Algunos ejemplos son el departamento de soporte técnico y los administradores de soporte técnico del equipo, porque pueden afectar a la integridad de casi cualquier dato de usuario.
+- **Nivel 0** : control directo de las identidades de empresa en el entorno. El nivel 0 incluye cuentas, grupos y otros recursos que tienen control administrativo directo o indirecto de los bosques, dominios o controladores de dominio de Active Directory y todos los recursos que haya en él. La sensibilidad de la seguridad de todos los recursos de nivel 0 es equivalente, ya que todos se controlan de forma efectiva entre sí.
+- **Nivel 1** : control de aplicaciones y servidores empresariales. Los recursos de nivel 1 incluyen sistemas operativos de servidor, servicios en la nube y aplicaciones empresariales. Las cuentas de administrador de nivel 1 tienen el control administrativo de una cantidad considerable de valor empresarial que se hospeda en estos recursos. Una función común de ejemplo son los administradores de servidores que mantienen estos sistemas operativos con la capacidad de afectar a todos los servicios de empresa.
+- **Nivel 2** : control de los dispositivos y estaciones de trabajo de usuarios. Las cuentas de administrador de nivel 2 tienen el control administrativo de una cantidad considerable de valor empresarial que se hospeda en dispositivos y estaciones de trabajo de usuarios. Algunos ejemplos son el departamento de soporte técnico y los administradores de soporte técnico del equipo, porque pueden afectar a la integridad de casi cualquier dato de usuario.
 
 Bloquee el acceso a componentes de identidad locales tales como Azure AD Connect, AD FS y servicios de SQL, de la misma manera que lo hace en los controladores de dominio.
 

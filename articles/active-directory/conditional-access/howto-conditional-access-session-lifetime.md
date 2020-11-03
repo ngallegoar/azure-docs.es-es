@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/23/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145270"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503817"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
@@ -37,7 +37,7 @@ La frecuencia de inicio de sesión define el período de tiempo antes de que se 
 
 La configuración predeterminada de Azure Active Directory (Azure AD) para la frecuencia de inicio de sesión de usuario es período sucesivo de 90 días. Pedir credenciales a los usuarios a menudo parece algo sensato, pero puede resultar contraproducente: los usuarios que están capacitados para escribir sus credenciales sin pensarlo pueden suministrarlas sin querer a una petición de credenciales malintencionada.
 
-Puede parecer alarmante no pedir a un usuario que vuelva a iniciar sesión; en realidad, cualquier infracción de las directivas de TI revocará la sesión. Algunos ejemplos incluyen, pero sin limitarse, un cambio de contraseña, un dispositivo que no cumple con las normas o la deshabilitación de la cuenta. También puede explícitamente [revocar sesiones de usuarios mediante PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). La configuración predeterminada de Azure AD se reduce a "no pedir a los usuarios que proporcionen sus credenciales si la posición de seguridad de sus sesiones no ha cambiado".
+Puede parecer alarmante no pedir a un usuario que vuelva a iniciar sesión; en realidad, cualquier infracción de las directivas de TI revocará la sesión. Algunos ejemplos incluyen, pero sin limitarse, un cambio de contraseña, un dispositivo que no cumple con las normas o la deshabilitación de la cuenta. También puede explícitamente [revocar sesiones de usuarios mediante PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true). La configuración predeterminada de Azure AD se reduce a "no pedir a los usuarios que proporcionen sus credenciales si la posición de seguridad de sus sesiones no ha cambiado".
 
 La configuración de la frecuencia de inicio de sesión funciona con aplicaciones que han implementado los protocolos OAUTH2 u OIDC de acuerdo con los estándares. La mayoría de aplicaciones nativas de Microsoft para Windows, Mac y dispositivos móviles que incluyen las aplicaciones web siguientes cumplen con la configuración.
 
@@ -88,7 +88,7 @@ El valor predeterminado de Azure AD para la persistencia de la sesión del expl
 El acceso condicional es una funcionalidad de Azure AD Premium y requiere una licencia prémium. Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](overview.md#license-requirements).
 
 > [!WARNING]
-> Si utiliza la característica de [vigencia del token configurable](../develop/active-directory-configurable-token-lifetimes.md) actualmente en versión preliminar pública, tenga en cuenta que no se admite la creación de dos directivas diferentes para el mismo usuario o combinación de aplicaciones: una con esta característica y otra con la característica de vigencia del token configurable. Microsoft piensa retirar la característica de vigencia del token configurable el 1 de mayo de 2020 y reemplazarla por la característica de administración de sesiones de autenticación de acceso condicional.  
+> Si utiliza la característica de [vigencia del token configurable](../develop/active-directory-configurable-token-lifetimes.md) actualmente en versión preliminar pública, tenga en cuenta que no se admite la creación de dos directivas diferentes para el mismo usuario o combinación de aplicaciones: una con esta característica y otra con la característica de vigencia del token configurable. Microsoft piensa retirar la característica de vigencia del token configurable para los tokens de sesión y actualización el 30 de enero de 2021 y reemplazarla por la característica de administración de sesiones de autenticación de acceso condicional.  
 >
 > Antes de habilitar la frecuencia de inicio de sesión, asegúrese de que cualquier otra configuración de reautenticación está deshabilitada en el inquilino. Si está habilitada la opción "Recordar MFA en dispositivos de confianza", asegúrese de deshabilitarla antes de usar la frecuencia de inicio de sesión, ya que el uso conjunto de estas dos configuraciones puede dar lugar a solicitudes inesperadas a los usuarios. Para más información sobre los mensajes de reautenticación y la duración de la sesión, consulte el artículo [Optimice los mensajes de reautenticación y comprenda la duración de la sesión para Azure Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
@@ -100,7 +100,7 @@ El acceso condicional es una funcionalidad de Azure AD Premium y requiere una l
    > [!NOTE]
    > Se recomienda establecer la misma frecuencia de autenticación para las aplicaciones clave de Microsoft Office, como Exchange Online y SharePoint Online, para una mejor experiencia del usuario.
 
-1. Vaya a **Controles de acceso** > **Sesión** y haga clic en **Frecuencia de inicio de sesión** .
+1. Vaya a **Controles de acceso** > **Sesión** y haga clic en **Frecuencia de inicio de sesión**.
 1. Escriba el valor requerido de los días y horas en el primer cuadro de texto.
 1. Seleccione un valor para las **horas** o **días** en la lista desplegable.
 1. Guarde la directiva.
@@ -117,7 +117,7 @@ En los dispositivos de Windows registrados en Azure AD, el inicio de sesión en
    > [!NOTE]
    > Tenga en cuenta que este control requiere elegir "Todas las aplicaciones en la nube" como una condición. La persistencia de la sesión del explorador se controla mediante el token de la sesión de autenticación. Todas las pestañas de una sesión del explorador comparten un único token de sesión y, por tanto, todas ellas deben compartir el estado de persistencia.
 
-1. Vaya a **Controles de acceso** > **Sesión** y haga clic en **Sesión del explorador persistente** .
+1. Vaya a **Controles de acceso** > **Sesión** y haga clic en **Sesión del explorador persistente**.
 1. Seleccione un valor en la lista desplegable.
 1. Guarde la directiva.
 

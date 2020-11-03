@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 8f23f9763d25d5edfebd0e4cff7f3b7772ef1554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3816239798290318404980ded388b726d8134395
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543370"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: Integración de Azure Active Directory con ScreenSteps
 
@@ -27,7 +27,7 @@ Integrar ScreenSteps con Azure AD proporciona las siguientes ventajas:
 * Puede permitir que los usuarios inicien sesión automáticamente en ScreenSteps (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -61,7 +61,7 @@ Para configurar la integración de ScreenSteps en Azure AD, deberá agregarlo de
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **ScreenSteps**, seleccione **ScreenSteps** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **ScreenSteps** , seleccione **ScreenSteps** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![ScreenSteps en la lista de resultados](common/search-new-app.png)
 
@@ -85,28 +85,28 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con ScreenSteps, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **ScreenSteps**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **ScreenSteps** , haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos:
+4. En la sección **Configuración básica de SAML** , siga estos pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ScreenSteps](common/sp-signonurl.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.ScreenSteps.com`
+    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<tenantname>.ScreenSteps.com`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real, que se explica más adelante en este tutorial.
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -130,7 +130,7 @@ Para configurar el inicio de sesión único de Azure AD con ScreenSteps, siga es
 
 1. Haga clic en **Inicio de sesión único**.
 
-    ![Autenticación remota](./media/screensteps-tutorial/ic778524.png "Autenticación remota")
+    ![Captura de pantalla que muestra "Inicio de sesión único" seleccionado.](./media/screensteps-tutorial/ic778524.png "Autenticación remota")
 
 1. Haga clic en **Crear punto de conexión de inicio de sesión único**.
 
@@ -142,7 +142,7 @@ Para configurar el inicio de sesión único de Azure AD con ScreenSteps, siga es
 
     a. En el cuadro de texto **Título** , escriba un título.
 
-    b. En la lista **Modo**, seleccione **SAML**.
+    b. En la lista **Modo** , seleccione **SAML**.
 
     c. Haga clic en **Crear**.
 
@@ -158,11 +158,11 @@ Para configurar el inicio de sesión único de Azure AD con ScreenSteps, siga es
 
     b. Pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal en el cuadro de texto **Dirección URL de inicio de sesión remoto**.
 
-    c. Pegue el valor de **URL de cierre de sesión**, que copió de Azure Portal, en el cuadro de texto de **URL de cierre de sesión**.
+    c. Pegue el valor de **URL de cierre de sesión** , que copió de Azure Portal, en el cuadro de texto de **URL de cierre de sesión**.
 
     d. Seleccione un **Grupo** al que asignar usuarios cuando sean aprovisionados.
 
-    e. Haga clic en **Update**(Actualizar).
+    e. Haga clic en **Update** (Actualizar).
 
     f. Copie la **dirección URL de consumidor de SAML** en el portapapeles y péguela en el cuadro de texto **URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal.
 
@@ -174,7 +174,7 @@ Para configurar el inicio de sesión único de Azure AD con ScreenSteps, siga es
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -186,9 +186,9 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre** , escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario** , escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -199,7 +199,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a ScreenSteps.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **ScreenSteps**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** , **ScreenSteps**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -215,26 +215,26 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
 
 ### <a name="create-screensteps-test-user"></a>Creación de un usuario de prueba en ScreenSteps
 
-En esta sección, creará un usuario llamado Britta Simon en ScreenSteps. Trabaje con el [equipo de soporte técnico de ScreenSteps](https://www.screensteps.com/contact) para agregar los usuarios a la plataforma de ScreenSteps. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en ScreenSteps. Trabaje con el [equipo de soporte técnico de ScreenSteps](https://www.screensteps.com/contact) para agregar los usuarios a la plataforma de ScreenSteps. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de ScreenSteps en el panel de acceso, debería iniciar sesión automáticamente en la versión de ScreenSteps para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de ScreenSteps en el panel de acceso, debería iniciar sesión automáticamente en la versión de ScreenSteps para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

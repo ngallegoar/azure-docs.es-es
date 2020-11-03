@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9b75df9df2e81f01543b407b019c752c77ee6807
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207071"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628837"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -28,7 +28,8 @@ Azure App Service es un sistema distribuido. Los roles que controlan las solicit
 |---------------------|-------------------|
 | Direcciones asignadas a las aplicaciones | conexiones híbridas |
 | Restricciones de acceso | Integración con red virtual con requisito de puerta de enlace |
-| Puntos de conexión de servicio | Integración con red virtual |
+| Puntos de conexión del servicio | Integración con red virtual |
+| Puntos de conexión privados ||
 
 A menos que se indique lo contrario, todas las características se pueden usar conjuntamente. Puede combinar las características para solucionar diversos problemas.
 
@@ -41,7 +42,7 @@ Para un caso de uso determinado, puede haber varias maneras de solucionar el pro
 | Compatibilidad con las necesidades de SSL basado en IP de la aplicación | direcciones asignadas a las aplicaciones |
 | Dirección entrante dedicada y no compartida para la aplicación | direcciones asignadas a las aplicaciones |
 | Restricción del acceso a la aplicación desde un conjunto de direcciones bien definidas | Restricciones de acceso |
-| Restricción del acceso a la aplicación desde los recursos de una red virtual | Puntos de conexión de servicio </br> ASE de ILB </br> Puntos de conexión privados |
+| Restricción del acceso a la aplicación desde los recursos de una red virtual | Puntos de conexión del servicio </br> ASE de ILB </br> Puntos de conexión privados |
 | Exponer la aplicación en una dirección IP privada de mi red virtual | ASE de ILB </br> Puntos de conexión privados </br> Dirección IP privada de entrada en una instancia de Application Gateway con puntos de conexión de servicio |
 | Protección de la aplicación con un firewall de aplicaciones web (WAF) | Application Gateway + ASE de ILB </br> Application Gateway con puntos de conexión privados </br> Application Gateway con puntos de conexión de servicio </br> Azure Front Door con restricciones de acceso |
 | Equilibrar la carga del tráfico a las aplicaciones en diferentes regiones | Azure Front Door con restricciones de acceso | 
@@ -89,20 +90,23 @@ Puede obtener información sobre cómo establecer una dirección en la aplicaci�
 
 ### <a name="access-restrictions"></a>Restricciones de acceso 
 
-La funcionalidad Restricciones de acceso le permite filtrar las solicitudes **entrantes** en función de la dirección IP de origen. La acción de filtrado tiene lugar en los roles de front-end, que están en un nivel superior al de los roles de trabajo en los que se ejecutan las aplicaciones. Puesto que los roles de front-end están en un nivel superior al de los roles de trabajo, la funcionalidad Restricciones de acceso se puede considerar como una protección de nivel de red para las aplicaciones. La característica le permite crear una lista de bloques de direcciones permitidas y denegadas que se evalúan en orden de prioridad. Es similar a la característica Grupo de seguridad de red (NSG) que existe en las redes de Azure.  Puede usar esta característica en un entorno de ASE o en el servicio multiinquilino. Cuando se usa con un ASE de ILB, puede restringir el acceso desde bloques de direcciones privadas.
+La funcionalidad Restricciones de acceso le permite filtrar las solicitudes **entrantes**. La acción de filtrado tiene lugar en los roles de front-end, que están en un nivel superior al de los roles de trabajo en los que se ejecutan las aplicaciones. Puesto que los roles de front-end están en un nivel superior al de los roles de trabajo, la funcionalidad Restricciones de acceso se puede considerar como una protección de nivel de red para las aplicaciones. La característica le permite crear una lista de reglas permitidas y denegadas que se evalúan en orden de prioridad. Es similar a la característica Grupo de seguridad de red (NSG) que existe en las redes de Azure.  Puede usar esta característica en un entorno de ASE o en el servicio multiinquilino. Cuando se usa con un ASE de ILB o punto de conexión privado, puede restringir el acceso desde bloques de direcciones privadas.
+> [!NOTE]
+> Se pueden configurar hasta 512 reglas de restricción de acceso por aplicación. 
 
 ![Restricciones de acceso](media/networking-features/access-restrictions.png)
+#### <a name="ip-based-access-restriction-rules"></a>Reglas de Restricciones de acceso basadas en IP
 
-La característica Restricciones de acceso es de utilidad en escenarios donde se desea restringir las direcciones IP que se pueden usar para llegar a la aplicación. Algunos casos de uso para esta característica son:
+La característica Restricciones de acceso basadas en IP es de utilidad en escenarios donde se desea restringir las direcciones IP que se pueden usar para llegar a la aplicación. Se admiten tanto IPv4 como IPv6. Algunos casos de uso para esta característica son:
 
 * Restricción del acceso a la aplicación desde un conjunto de direcciones bien definidas 
-* Restricción del acceso a las solicitudes que proceden de un servicio de equilibrio de carga, como Azure Front Door. Si desea bloquear el tráfico entrante a Azure Front Door, cree reglas para permitir el tráfico del intervalo entre 147.243.0.0/16 y 2a01:111:2050::/44. 
+* Restricción del acceso a las solicitudes que proceden de un servicio de equilibrio de carga, como Azure Front Door
 
 ![Restricciones de acceso con Front Door](media/networking-features/access-restrictions-afd.png)
 
-Si desea bloquear el acceso a la aplicación para que solo sea accesible desde los recursos de su red virtual de Azure (VNet), necesita una dirección pública estática en aquel que sea el elemento de origen desde dicha red virtual. Si los recursos no tienen una dirección pública, debe usar la característica Puntos de conexión de servicio en su lugar. Obtenga información sobre cómo habilitar esta característica con el tutorial [Configuración de Restricciones de acceso][iprestrictions].
+Obtenga información sobre cómo habilitar esta característica con el tutorial [Configuración de Restricciones de acceso][iprestrictions].
 
-### <a name="service-endpoints"></a>Puntos de conexión del servicio
+#### <a name="service-endpoint-based-access-restriction-rules"></a>Reglas de Restricciones de acceso basadas en puntos de conexión de servicio
 
 Los puntos de conexión de servicio le permiten bloquear el acceso **entrante** a la aplicación de modo que la dirección de origen debe proceder de un conjunto de subredes que haya seleccionado. Esta característica funciona junto con la característica Restricciones de acceso IP. Los puntos de conexión de servicio no son compatibles con la depuración remota. Para usar la depuración remota con la aplicación, el cliente no puede estar en una subred con puntos de conexión de servicio habilitados. Los puntos de conexión de servicio se establecen en la misma experiencia de usuario que las restricciones de acceso IP. Puede crear una lista de reglas de acceso tipo permitir/denegar que incluya direcciones públicas, así como las subredes de sus redes virtuales. Esta característica admite escenarios como:
 
@@ -113,11 +117,11 @@ Los puntos de conexión de servicio le permiten bloquear el acceso **entrante** 
 
 ![puntos de conexión de servicio con Application Gateway](media/networking-features/service-endpoints-appgw.png)
 
-Más información sobre cómo configurar los puntos de conexión de servicio con la aplicación en el tutorial [Configuración de restricciones de acceso del punto de conexión de servicio][serviceendpoints].
+Obtenga más información sobre cómo configurar los puntos de conexión de servicio con la aplicación en el tutorial [Configuración de Restricciones de acceso de puntos de conexión de servicio][serviceendpoints].
 
 ### <a name="private-endpoints"></a>Puntos de conexión privados
 
-Un punto de conexión privado es una interfaz de red que le conecta de forma privada y segura a la aplicación web con Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual y así coloca el la aplicación web de manera eficaz en la red virtual. Esta característica es solo para flujos **entrantes** en la aplicación web.
+Un punto de conexión privado es una interfaz de red que le conecta de forma privada y segura a la aplicación web con Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual y así coloca la aplicación web de manera eficaz en la red virtual. Esta característica es solo para flujos **entrantes** en la aplicación web.
 [Uso de puntos de conexión privados para una aplicación web de Azure][privateendpoints]
 
 Los puntos de conexión privados permiten escenarios como los siguientes:
@@ -250,7 +254,7 @@ Cualquiera de las técnicas funcionará con varias aplicaciones de front-end. A 
 
 ### <a name="line-of-business-applications"></a>Aplicaciones de línea de negocio
 
-Las aplicaciones de línea de negocio (LOB) son aplicaciones internas que normalmente no se exponen para el acceso desde Internet. Estas aplicaciones se invocan desde redes corporativas internas donde el acceso puede estar controlado de forma estricta. Si usa un ASE de ILB, es fácil hospedar las aplicaciones de línea de negocio. Si usa el servicio multiinquilino, puede emplear puntos de conexión privados o puntos de conexión de servicio combinados con una puerta de enlace de aplicación. Hay dos razones para usar una puerta de enlace de aplicación con puntos de conexión de servicio en lugar de puntos de conexión privados:
+Las aplicaciones de línea de negocio (LOB) son aplicaciones internas que normalmente no se exponen para el acceso desde Internet. Estas aplicaciones se invocan desde redes corporativas internas donde el acceso puede estar controlado de forma estricta. Si usa un ASE de ILB, es fácil hospedar las aplicaciones de línea de negocio. Si usa el servicio multiinquilino, puede emplear puntos de conexión privados o puntos de conexión de servicio combinados con una instancia de Application Gateway. Hay dos razones para usar una instancia de Application Gateway con puntos de conexión de servicio en lugar de puntos de conexión privados:
 
 * Necesita la protección de WAF en sus aplicaciones de línea de negocio
 * Quiere equilibrar la carga entre varias instancias de las aplicaciones de línea de negocio

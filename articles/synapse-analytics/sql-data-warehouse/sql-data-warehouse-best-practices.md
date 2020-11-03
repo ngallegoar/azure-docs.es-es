@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 6978855e9b32a3842e76d02ef543d86cf0673019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206655"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489649"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Procedimientos recomendados para el grupo de SQL de Synapse en Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -64,7 +64,7 @@ Consulte también [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/
 
 El grupo de SQL admite la carga y exportación de datos con varias herramientas, como Azure Data Factory, PolyBase y BCP.  Para pequeñas cantidades de datos donde el rendimiento no es clave, cualquier herramienta le sirve.  Sin embargo, para cargar o exportar grandes volúmenes de datos o si se necesita un rendimiento rápido, PolyBase es la mejor opción.  
 
-PolyBase está diseñado para aprovechar la estructura MPP (procesamiento masivo en paralelo) y carga y exporta grandes cantidades de datos más rápido que cualquier otra herramienta.  Lo que haya cargado con PolyBase se ejecuta con la consulta CTAS o de selección.  
+PolyBase está diseñado para aprovechar la naturaleza distribuida del sistema y cargará y exportará grandes cantidades de datos más rápido que cualquier otra herramienta.  Lo que haya cargado con PolyBase se ejecuta con la consulta CTAS o de selección.   
 
 > [!TIP]
 > CTAS reduce el registro de transacciones y es la manera más rápida de cargar datos.

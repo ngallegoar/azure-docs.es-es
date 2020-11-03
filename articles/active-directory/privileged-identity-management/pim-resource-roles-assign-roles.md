@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32b678058e2d24d277eaf56a1aadec3678e25a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 011b50449f0a02b128bc000535f93e1809fd9777
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87128172"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673875"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Asignación de roles de recursos de Azure en Privileged Identity Management
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) puede adm
 
 Siga estos pasos para hacer que un usuario sea elegible para un rol de directorio de Azure AD.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que sea miembro del rol [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con permisos de rol de Administrador de acceso de usuario o Propietario.
 
     Para información sobre cómo conceder acceso a otro administrador para gestionar Privileged Identity Management, consulte [Concesión de acceso a otros administradores para administrar Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
@@ -53,7 +53,7 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de directori
 
 1. Seleccione el recurso que desea administrar para abrir la página de información general de recursos.
 
-1. En **Administrar**, seleccione **Roles** para ver la lista de roles de los recursos de Azure.
+1. En **Administrar** , seleccione **Roles** para ver la lista de roles de los recursos de Azure.
 
     ![Roles de recursos de Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
@@ -71,7 +71,7 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de directori
 
     ![Panel Seleccionar un miembro o grupo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-1. En la pestaña **Configuración**, en la lista **Tipo de asignación**, seleccione **Apto** o **Activo**.
+1. En la pestaña **Configuración** , en la lista **Tipo de asignación** , seleccione **Apto** o **Activo**.
 
     ![Panel Configuración de pertenencia](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -99,7 +99,7 @@ Siga estos pasos para actualizar o quiotar una asignación de roles existente.
 
 1. Seleccione el recurso que desea administrar para abrir su página de información general.
 
-1. En **Administrar**, seleccione **Roles** para ver la lista de roles de los recursos de Azure.
+1. En **Administrar** , seleccione **Roles** para ver la lista de roles de los recursos de Azure.
 
     ![Roles de recursos de Azure: seleccionar rol](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 

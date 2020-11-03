@@ -5,38 +5,41 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102279"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504118"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adición de un conector de API a un flujo de usuario de registro (versión preliminar)
+
+> [!IMPORTANT]
+> Los conectores de API para el registro son una característica en versión preliminar pública de Azure AD B2C. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Para usar un [conector de API](api-connectors-overview.md), primero debe crear el conector de API y, después, habilitarlo en un flujo de usuario.
 
 ## <a name="create-an-api-connector"></a>Creación de un conector de API
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En **Servicios de Azure** , seleccione **Azure AD B2C** .
+2. En **Servicios de Azure** , seleccione **Azure AD B2C**.
 4. Seleccione **API connectors (Preview)** (Conectores de API [versión preliminar]) y, después, seleccione **New API connector** (Nuevo conector de API).
 
    ![Adición de un conector de API nuevo](./media/add-api-connector/api-connector-new.png)
 
-5. Escriba el nombre para mostrar de la llamada. Por ejemplo, **Validar la información de usuario** .
+5. Escriba el nombre para mostrar de la llamada. Por ejemplo, **Validar la información de usuario**.
 6. Proporcione el valor de **Dirección URL del punto de conexión** de la llamada API.
 7. Indique la información de autenticación de la API.
 
    - Actualmente solo se admite la autenticación básica. Si quiere usar una API sin autenticación básica con fines de desarrollo, solo tiene que escribir un **Nombre de usuario** y una **Contraseña** ficticios que la API pueda omitir. Si se utiliza con una función de Azure y una clave de API, puede incluir el código como un parámetro de consulta en **Dirección URL del punto de conexión** (por ejemplo, https []()://contoso.azurewebsites.net/api/endpoint <b>?code=0123456789</b>).
 
    ![Configuración de un conector de API nuevo](./media/add-api-connector/api-connector-config.png)
-8. Seleccione **Guardar** .
+8. Seleccione **Guardar**.
 
 ## <a name="the-request-sent-to-your-api"></a>Solicitud enviada a la API
 Un conector de API se materializa como una solicitud **HTTP POST** y envía los atributos de usuario ("claims") como pares de clave y valor en un cuerpo JSON. Los atributos se serializan de forma similar a las propiedades de usuario de [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties). 
@@ -48,7 +51,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -70,7 +73,7 @@ Content-type: application/json
 }
 ```
 
-Solo se pueden enviar en la solicitud las propiedades de usuario y los atributos personalizados que se enumeran en la experiencia **Azure AD B2C** > **Atributos de usuario** .
+Solo se pueden enviar en la solicitud las propiedades de usuario y los atributos personalizados que se enumeran en la experiencia **Azure AD B2C** > **Atributos de usuario**.
 
 Los atributos personalizados existen en el formato **extension_\<extensions-app-id>_CustomAttribute** en el directorio. La API esperará recibir las notificaciones con este mismo formato serializado. Para obtener más información sobre los atributos personalizados, consulte [Definición de atributos personalizados en Azure Active Directory B2C](user-flow-custom-attributes.md).
 
@@ -80,14 +83,14 @@ Además, en todas las solicitudes se envía de forma predeterminada la notificac
 > Si una notificación no tiene un valor en el momento en que se llama al punto de conexión de la API, la notificación no se enviará a la API. La API debe estar diseñada para comprobar y controlar explícitamente el caso en el que una notificación no está en la solicitud.
 
 > [!TIP] 
-> La API puede utilizar notificaciones de [**identidades ("identities")**](https://docs.microsoft.com/graph/api/resources/objectidentity) y de **dirección de correo electrónico ("email")** para identificar a un usuario antes de que tenga una cuenta en el inquilino. La notificación "identities" se envía cuando un usuario se autentica con un proveedor de identidades como Google o Facebook. Siempre se envía "email".
+> La API puede utilizar notificaciones de [**identidades ("identities")**](https://docs.microsoft.com/graph/api/resources/objectidentity) y de **dirección de correo electrónico ("email")** para identificar a un usuario antes de que tenga una cuenta en el inquilino. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Habilitación del conector de API en un flujo de usuario
 
 Siga estos pasos para agregar el conector de API a un flujo de usuario de registro.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En **Servicios de Azure** , seleccione **Azure AD B2C** .
+2. En **Servicios de Azure** , seleccione **Azure AD B2C**.
 4. Seleccione **Flujos de usuario** y, después, seleccione el flujo de usuario para el que desea habilitar el conector de API.
 5. Seleccione **Conectores de API** y, después, seleccione los puntos de conexión de API que desea invocar en los pasos siguientes del flujo de usuario:
 
@@ -96,11 +99,11 @@ Siga estos pasos para agregar el conector de API a un flujo de usuario de regist
 
    ![Adición de API al flujo de usuario](./media/add-api-connector/api-connectors-user-flow-select.png)
 
-6. Seleccione **Guardar** .
+6. Seleccione **Guardar**.
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Después de iniciar sesión con un proveedor de identidades
 
-Inmediatamente después de que el usuario se autentique con un proveedor de identidades (como Google, Facebook o Azure AD), se invoca un conector de API en este paso del proceso de registro. Este paso precede a la ***página de recopilación de atributos*** , que es el formulario que se muestra al usuario para recopilar los atributos de usuario. Este paso no se invoca si un usuario se registra con una cuenta local.
+Inmediatamente después de que el usuario se autentique con un proveedor de identidades (como Google, Facebook o Azure AD), se invoca un conector de API en este paso del proceso de registro. Este paso precede a la * *_página de recopilación de atributos_* _, que es el formulario que se muestra al usuario para recopilar los atributos de usuario. Este paso no se invoca si un usuario se registra con una cuenta local.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Solicitud de ejemplo enviada a la API en este paso
 ```http
@@ -109,7 +112,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -167,7 +170,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -238,7 +241,7 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sí      | La versión de la API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Sí      | El valor debe ser `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Los valores devueltos pueden sobrescribir los valores recopilados de un usuario. También se pueden devolver en el token si están seleccionados como **Application claim** (Notificación de aplicación).                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Los valores devueltos pueden sobrescribir los valores recopilados de un usuario. También se pueden devolver en el token si están seleccionados como _*Application claim** (Notificación de aplicación).                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | No es necesario que la notificación contenga `_<extensions-app-id>_`. Los valores devueltos pueden sobrescribir los valores recopilados de un usuario. También se pueden devolver en el token si están seleccionados como **Application claim** (Notificación de aplicación).  |
 
 ### <a name="example-of-a-blocking-response"></a>Ejemplo de una respuesta de bloqueo
@@ -288,7 +291,8 @@ Content-type: application/json
 | status      | Entero | Sí      | Debe ser un valor `400` para una respuesta ValidationError.                        |
 | userMessage | String  | Sí      | Mensaje que se va a mostrar al usuario.                                            |
 
-*Nota:* El código de estado HTTP debe ser "400" además del valor de "status" en el cuerpo de la respuesta.
+> [!NOTE]
+> El código de estado HTTP debe ser "400" además del valor de "status" en el cuerpo de la respuesta.
 
 **Experiencia del usuario final con una respuesta de error de validación**
 
@@ -318,4 +322,4 @@ En general, resulta útil usar las herramientas de registro que habilita el serv
 
 ## <a name="next-steps"></a>Pasos siguientes
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-- Introducción a los [ejemplos de inicio rápido de Azure Functions](code-samples.md#api-connectors).
+- Comience a trabajar con nuestros [ejemplos](code-samples.md#api-connectors).

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055943"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637350"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -22,7 +22,7 @@ Una vez configurada la exportación de datos del área de trabajo de Log Analyti
 
 ![Información general sobre la exportación de datos](media/logs-data-export/data-export-overview.png)
 
-Todos los datos de las tablas incluidas se exportan sin ningún filtro. Por ejemplo, al configurar una regla de exportación de datos para la tabla *SecurityEvent*, todos los datos enviados a la tabla *SecurityEvent* se exportan a partir de la hora de configuración.
+Todos los datos de las tablas incluidas se exportan sin ningún filtro. Por ejemplo, al configurar una regla de exportación de datos para la tabla *SecurityEvent* , todos los datos enviados a la tabla *SecurityEvent* se exportan a partir de la hora de configuración.
 
 
 ## <a name="other-export-options"></a>Otras opciones de exportación
@@ -36,7 +36,8 @@ La exportación de datos del área de trabajo de Log Analytics permite exportar 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
 - Actualmente, la configuración solo se puede realizar mediante solicitudes REST o la CLI. No se puede usar Azure Portal ni PowerShell.
-- Las tablas admitidas se limitan actualmente a las específicas de la siguiente sección (#supported-tables). Si la regla de exportación de datos incluye una tabla no admitida, la operación se realizará correctamente, pero no se exportará ningún dato de esa tabla. Si la regla de exportación de datos incluye una tabla que no existe, se producirá un error que indicará que la *tabla <tableName> no existe en el área de trabajo*.
+- La opción ```--export-all-tables``` de la CLI y REST no se admite y se quitará. Debe proporcionar la lista de tablas en las reglas de exportación de manera explícita.
+- Las tablas admitidas se limitan actualmente a las específicas de la sección [Tablas admitidas](#supported-tables) más adelante. Si la regla de exportación de datos incluye una tabla no admitida, la operación se realizará correctamente, pero no se exportará ningún dato de esa tabla. Si la regla de exportación de datos incluye una tabla que no existe, se producirá un error ```Table <tableName> does not exist in the workspace.```.
 - El área de trabajo de Log Analytics puede estar en cualquier región, excepto en las siguientes:
   - Norte de Suiza
   - Oeste de Suiza
@@ -74,7 +75,7 @@ El formato de los datos de la cuenta de almacenamiento es en [líneas JSON](diag
 La exportación de datos de Log Analytics puede escribir blobs en anexos en cuentas de almacenamiento inmutables cuando las directivas de retención con una duración definida tienen habilitada la opción *allowProtectedAppendWrites*. Esto permite escribir nuevos bloques en un blob en anexos al tiempo que se mantienen la protección y el cumplimiento de la inmutabilidad. Consulte [Permitir escrituras de blobs en anexos protegidos](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### <a name="event-hub"></a>Centro de eventos
-Los datos se envían al centro de eventos prácticamente en tiempo real a medida que llegan a Azure Monitor. Se crea un centro de eventos para cada tipo de datos que se exporta con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un centro de eventos denominado *am-SecurityEvent*. Si quiere que los datos exportados lleguen a un centro de eventos específico, o si tiene una tabla con un nombre que supere el límite de 47 caracteres, puede proporcionar el nombre de su propio centro de eventos y exportar todas las tablas en él.
+Los datos se envían al centro de eventos prácticamente en tiempo real a medida que llegan a Azure Monitor. Se crea un centro de eventos para cada tipo de datos que se exporta con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un centro de eventos denominado *am-SecurityEvent*. Si quiere que los datos exportados lleguen a un centro de eventos específico, o si tiene una tabla con un nombre que supere el límite de 47 caracteres, puede proporcionar el nombre de su propio centro de eventos y exportar todos los datos para las tablas definidas en él.
 
 El volumen de los datos exportados suele aumentar con el tiempo, y es necesario aumentar la escala del centro de eventos para administrar velocidades de transferencia mayores, así como para evitar escenarios de limitación y latencia de datos. Debe usar la característica de inflado automático de Event Hubs para escalar verticalmente y aumentar el número de unidades de procesamiento de forma automática y, de este modo, satisfacer las necesidades de uso. Consulte [Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) para obtener más información.
 
@@ -98,7 +99,7 @@ El siguiente proveedor de recursos de Azure debe registrarse en su suscripción 
 
 - Microsoft.Insights
 
-Probablemente, este proveedor de recursos ya esté registrado para la mayoría de los usuarios Azure Monitor. Para comprobarlo, vaya a **Suscripciones** en Azure Portal. Seleccione su suscripción y, luego, haga clic en **Proveedores de recursos**, en la sección **Configuración** del menú. Busque **Microsoft.Insights**. Si su estado es **Registrado**, entonces ya está registrado. Si no es así, haga clic en **Registrar** para registrarlo.
+Probablemente, este proveedor de recursos ya esté registrado para la mayoría de los usuarios Azure Monitor. Para comprobarlo, vaya a **Suscripciones** en Azure Portal. Seleccione su suscripción y, luego, haga clic en **Proveedores de recursos** , en la sección **Configuración** del menú. Busque **Microsoft.Insights**. Si su estado es **Registrado** , entonces ya está registrado. Si no es así, haga clic en **Registrar** para registrarlo.
 
 También puede usar cualquiera de los métodos disponibles para registrar un proveedor de recursos, tal y como se describe en [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/management/resource-providers-and-types.md). El siguiente es un comando de ejemplo con PowerShell:
 
@@ -113,7 +114,12 @@ Si ha configurado la cuenta de almacenamiento para permitir el acceso desde las 
 
 
 ### <a name="create-or-update-data-export-rule"></a>Creación o actualización de una regla de exportación de datos
-Una regla de exportación de datos define los datos que se van a exportar desde todas las tablas o un conjunto determinado de tablas en un único destino. Cree varias reglas si tiene que realizar el envío a varios destinos.
+Una regla de exportación de datos define los datos que se van a exportar para un conjunto de tablas a un único destino. Puede crear una regla para cada destino.
+
+Use el siguiente comando de la CLI para ver las tablas en el área de trabajo. Puede resultar útil copiar las tablas que quiere e incluirlas en la regla de exportación de datos.
+```azurecli
+az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+```
 
 Use el siguiente comando para crear una regla de exportación de datos en una cuenta de almacenamiento mediante la CLI.
 
@@ -142,8 +148,8 @@ El cuerpo de la solicitud especifica el destino de las tablas. El siguiente es u
             "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name"
         },
         "tablenames": [
-"table1",
-    "table2" 
+            "table1",
+            "table2" 
         ],
         "enable": true
     }
@@ -165,9 +171,26 @@ El siguiente es un cuerpo de ejemplo para la solicitud REST para un centro de ev
         "enable": true
     }
 }
-
 ```
 
+El siguiente es un cuerpo de ejemplo para la solicitud REST para un centro de eventos, donde se proporciona el nombre del centro de eventos. En este caso, todos los datos exportados se envían a este centro de eventos.
+
+```json
+{
+    "properties": {
+        "destination": {
+            "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.EventHub/namespaces/eventhub-namespaces-name",
+            "metaData": {
+                "EventHubName": "eventhub-name"
+        },
+        "tablenames": [
+            "table1",
+            "table2"
+        ],
+        "enable": true
+    }
+}
+```
 
 ## <a name="view-data-export-configuration"></a>Consulta de la configuración de la exportación de datos
 Use el siguiente comando para ver la configuración de una regla de exportación de datos mediante la CLI.
@@ -239,7 +262,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>Tablas no admitidas
 Si la regla de exportación de datos incluye una tabla no admitida, la configuración se realizará correctamente, pero no se exportará ningún dato de esa tabla. Si la tabla se admite posteriormente, sus datos se exportarán en ese momento.
 
-Si la regla de exportación de datos incluye una tabla que no existe, se producirá un error que indicará que la *tabla <tableName> no existe en el área de trabajo*.
+Si la regla de exportación de datos incluye una tabla que no existe, se producirá un error ```Table <tableName> does not exist in the workspace.```.
 
 
 ## <a name="supported-tables"></a>Tablas admitidas

@@ -3,12 +3,12 @@ title: Incorporación de un cliente a Azure Lighthouse
 description: Obtenga información sobre cómo incorporar un cliente a Azure Lighthouse, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino mediante la administración de recursos delegados de Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 926e9bc5302403063d536e31fe304d837bca8ec5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109075"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426336"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
@@ -62,7 +62,7 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definir roles y permisos
 
-Como proveedor de servicios, es posible que quiera realizar varias tareas para un solo cliente, lo que requiere un acceso diferente para distintos ámbitos. Puede definir tantas autorizaciones como necesite para asignar los [roles integrados de control de acceso basado en rol (RBAC)](../../role-based-access-control/built-in-roles.md) a los usuarios de su inquilino.
+Como proveedor de servicios, es posible que quiera realizar varias tareas para un solo cliente, lo que requiere un acceso diferente para distintos ámbitos. Puede definir tantas autorizaciones como necesite para asignar los [roles integrados de Azure](../../role-based-access-control/built-in-roles.md) adecuados a los usuarios de su inquilino.
 
 Para facilitar la administración, se recomienda usar grupos de usuarios de Azure AD para cada rol. Esto le ofrece la flexibilidad para agregar o quitar usuarios individuales del grupo que tiene acceso, de modo que no tenga que repetir el proceso de incorporación para realizar cambios en el usuario. Puede asignar roles a una entidad de servicio, lo que puede ser útil para escenarios de automatización.
 
@@ -142,7 +142,7 @@ La plantilla que elija dependerá de si se incorpora una suscripción completa, 
 > [!TIP]
 > Aunque no se puede incorporar un grupo de administración completo en una implementación, es posible [implementar una directiva en el nivel de grupo de administración](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). La directiva comprobará si cada suscripción del grupo de administración se ha delegado en el inquilino de administración especificado y, en caso contrario, creará la asignación en función de los valores proporcionados.
 
-En el ejemplo siguiente se muestra un archivo **delegatedResourceManagement.parameters.json**, que se usará para incorporar una suscripción. Los archivos de parámetros del grupo de recursos (situados en la carpeta [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) son similares, pero también incluyen un parámetro **rgName** para identificar los grupos de recursos específicos que se incorporarán.
+En el ejemplo siguiente se muestra un archivo **delegatedResourceManagement.parameters.json** , que se usará para incorporar una suscripción. Los archivos de parámetros del grupo de recursos (situados en la carpeta [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) son similares, pero también incluyen un parámetro **rgName** para identificar los grupos de recursos específicos que se incorporarán.
 
 ```json
 {
@@ -299,5 +299,5 @@ az account list
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre las [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md).
-- Puede [ver y administrar clientes](view-manage-customers.md) desde **Mis clientes**, en Azure Portal.
+- Puede [ver y administrar clientes](view-manage-customers.md) desde **Mis clientes** , en Azure Portal.
 - Obtenga información sobre cómo [quitar el acceso a una delegación](remove-delegation.md) que se incorporó previamente.

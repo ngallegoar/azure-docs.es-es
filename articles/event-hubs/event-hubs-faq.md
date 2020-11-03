@@ -2,13 +2,13 @@
 title: Preguntas más frecuentes sobre Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona una lista de las preguntas más frecuentes (P+F) acerca de Azure Event Hubs y sus respuestas.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729107"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789376"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -42,13 +42,13 @@ Para más información sobre los planes de tarifa, incluido Event Hubs dedicado,
 
 Azure Event Hubs está disponible en todas las regiones de Azure admitidas. Para obtener una lista, visite la página [Regiones de Azure](https://azure.microsoft.com/regions/).  
 
-### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>¿Se puede usar una sola conexión AMQP para enviar y recibir en varios centros de eventos?
+### <a name="can-i-use-a-single-advanced-message-queuing-protocol-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>¿Se puede usar una sola conexión de Advanced Message Queuing Protocol (AMQP) para enviar y recibir en varios centros de eventos?
 
 Sí, siempre y cuando todos los centros de eventos se encuentren en el mismo espacio de nombres.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>¿Cuál es el período de retención máximo para eventos?
 
-El nivel Event Hubs estándar admite actualmente un período de retención máximo de siete días. Event Hubs no está concebido como un almacén de datos permanente. Los períodos de retención superiores a 24 horas están pensados para escenarios en los que es útil volver a reproducir un flujo de eventos en los mismos sistemas; por ejemplo, para entrenar o comprobar un nuevo modelo de aprendizaje automático con datos existentes. Si necesita conservar los mensajes más de siete días, habilite [Event Hubs Capture](event-hubs-capture-overview.md) en el centro de eventos para extraer los datos de este a la cuenta de almacenamiento o la cuenta del servicio Azure Data Lake que prefiera. Al habilita Capture se le cobrará un cargo en función de las unidades de procesamiento compradas.
+El nivel Event Hubs estándar admite actualmente un período de retención máximo de siete días. Event Hubs no está concebido como un almacén de datos permanente. Los períodos de retención superiores a 24 horas están pensados para escenarios en los que es útil volver a reproducir un flujo de eventos en los mismos sistemas. Por ejemplo, para entrenar o comprobar un nuevo modelo de aprendizaje automático con datos existentes. Si necesita conservar los mensajes más de siete días, habilite [Event Hubs Capture](event-hubs-capture-overview.md) en el centro de eventos para extraer los datos de este a la cuenta de almacenamiento o la cuenta del servicio Azure Data Lake que prefiera. Al habilita Capture se le cobrará un cargo en función de las unidades de procesamiento compradas.
 
 Puede configurar el período de retención de los datos capturados en su cuenta de almacenamiento. La característica de **administración del ciclo de vida** de Azure Storage ofrece una útil directiva basada en reglas para las cuentas de uso general v2 y de Blob Storage. Use la directiva para realizar la transición de los datos a los niveles de acceso adecuados o hacer que expiren al final de su ciclo de vida. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md). 
 
@@ -61,7 +61,7 @@ Azure Event Hubs almacena datos de los clientes. Event Hubs almacena estos datos
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>¿Qué puertos es necesario abrir en el firewall? 
 Puede usar los siguientes protocolos con Azure Service Bus para enviar y recibir mensajes:
 
-- Advanced Message Queuing Protocol (AMQP)
+- AMQP
 - HTTP
 - Apache Kafka
 
@@ -90,7 +90,7 @@ Si usa la **redundancia de zona** para el espacio de nombres, deberá realizar a
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Anote el nombre de la sección **respuesta no autoritativa**, que se encuentra en uno de los siguientes formatos: 
+2. Anote el nombre de la sección **respuesta no autoritativa** , que se encuentra en uno de los siguientes formatos: 
 
     ```
     <name>-s1.cloudapp.net
@@ -128,12 +128,23 @@ Event Hubs proporciona un punto de conexión de Kafka que las aplicaciones basad
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>¿Qué cambios de configuración deben realizarse para que mi aplicación existente se comunique con Event Hubs?
 Para conectarse a un centro de eventos, debe actualizar las configuraciones de cliente de Kafka. Se hace mediante la creación de un espacio de nombres de Event Hubs y la obtención de la [cadena de conexión](event-hubs-get-connection-string.md). Cambie bootstrap.servers para que señale al FQDN de Event Hubs y el puerto, a 9093. Actualice sasl.jaas.config para dirigir el cliente de Kafka al punto de conexión de Event Hubs (que es la cadena de conexión que ha obtenido) con la autenticación correcta, tal y como se muestra aquí:
 
-bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```properties
+bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```
 
 Ejemplo:
 
-bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
-
+```properties
+bootstrap.servers=dummynamespace.servicebus.windows.net:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
+```
 Nota: Si sasl.jaas.config no es una configuración compatible con su marco, busque las configuraciones que se usan para establecer el nombre de usuario y contraseña SASL y úselas en su lugar. Establezca el nombre de usuario para $ConnectionString y la contraseña para la cadena de conexión de Event Hubs.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>¿Cuál es el tamaño de mensaje o evento de Event Hubs?
@@ -173,46 +184,57 @@ Si el rendimiento total de **salida** o la tasa total de eventos de salida en to
 
 Las cuotas de entrada y de salida se aplican por separado, por lo que ningún remitente puede provocar que se ralentice el consumo de eventos ni ningún receptor puede impedir que los eventos se envíen a un centro de eventos.
 
-### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>¿Hay algún límite en el número de unidades de procesamiento (TU) que se pueden reservar o seleccionar?
-En una oferta multiempresa, las unidades de procesamiento pueden aumentar hasta 40 TU (se pueden seleccionar hasta 20 TU en el portal y generar una incidencia de soporte técnico para elevarlas a 40 TU en el mismo espacio de nombres). Más allá de 40 TU, Event Hubs ofrece el modelo basado en recursos o capacidad denominado **clústeres de Event Hubs dedicado**. Los clústeres dedicados se venden en unidades de capacidad (CU).
+### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-reservedselected"></a>¿Hay algún límite en el número de unidades de procesamiento que se pueden reservar o seleccionar?
+
+Al crear un espacio de nombres de nivel Básico o Estándar en Azure Portal, puede seleccionar hasta 20 unidades de procesamiento para el espacio de nombres. Para elevarlo a **exactamente** 40 unidades de procesamiento, envíe una [solicitud de soporte técnico](../azure-portal/supportability/how-to-create-azure-support-request.md).  
+
+1. En la página **Espacio de nombres del bus de eventos** , seleccione **Nueva solicitud de soporte técnico** en el menú de la izquierda. 
+1. En la página **Nueva solicitud de soporte técnico** , siga estos pasos:
+    1. En el campo **Resumen** , describa el problema en pocas palabras. 
+    1. Para **Tipo de problema** , seleccione **Cuota**. 
+    1. En el campo **Subtipo de problema** , seleccione **Solicitud de aumento o disminución de las unidades de procesamiento**. 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Página de solicitud de soporte técnico":::
+
+Más allá de 40 TU, Event Hubs ofrece el modelo basado en recursos o capacidad denominado clústeres de Event Hubs dedicado. Los clústeres dedicados se venden en unidades de capacidad (CU). Para obtener más información, consulte [Introducción a Event Hubs dedicado](event-hubs-dedicated-overview.md).
 
 ## <a name="dedicated-clusters"></a>Clústeres dedicados
 
 ### <a name="what-are-event-hubs-dedicated-clusters"></a>¿Qué son los clústeres de Event Hubs dedicado?
 Los clústeres de Event Hubs dedicado ofrecen implementaciones de un único inquilino para los clientes con los requisitos más exigentes. Esta oferta construye un clúster basado en la capacidad que no está limitado por las unidades de procesamiento. Esto significa que podría utilizar el clúster para la ingesta y transmisión de los datos tal y como indica el uso de CPU y memoria del clúster. Para obtener más información, consulte [Event Hubs Dedicated clusters](event-hubs-dedicated-overview.md) (Clústeres de Event Hubs dedicado).
 
-### <a name="how-much-does-a-single-capacity-unit-let-me-achieve"></a>¿Qué me permite realizar una única unidad de capacidad?
-Para un clúster dedicado, la cantidad que se puede ingerir y transmitir depende de varios factores, como los productores, los consumidores, la velocidad a la que se ingiere y procesa, etc. 
-
-En la tabla siguiente se muestran los resultados del banco de pruebas que hemos obtenido durante nuestras pruebas:
-
-| Forma de la carga | Receptores | Ancho de banda de entrada| Mensajes de entrada | Ancho de banda de salida | Mensajes de salida | TU totales | TU por CU |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Lotes de 100 x 1 KB | 2 | 400 MB/s | 400 000 mensajes/s | 800 MB/s | 800 000 mensajes/s | 400 TU | 100 TU | 
-| Lotes de 10 x 10 KB | 2 | 666 MB/s | 66 600 mensajes/s | 1,33 GB/s | 133 000 mensajes/s | 666 TU | 166 TU |
-| Lotes de 6 x 32 KB | 1 | 1,05 GB/s | 34 000 mensajes/s | 1,05 GB/s | 34 000 mensajes/s | 1000 TU | 250 TU |
-
-En las pruebas, se usaron los siguientes criterios:
-
-- Se usó un clúster de Event Hubs dedicado con cuatro unidades de capacidad (CU). 
-- El centro de eventos usado para la ingesta tenía 200 particiones. 
-- Dos aplicaciones receptoras recibieron los datos ingeridos de todas las particiones.
-
-Los resultados ofrecen una idea de lo que puede lograrse con un clúster de Event Hubs dedicado. Además, un clúster dedicado incluye Event Hubs Capture habilitado para los escenarios de retención a largo plazo y de microlotes.
-
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>¿Cómo puedo crear un clúster de Event Hubs dedicado?
-Un clúster de Event Hubs dedicado se crea mediante el envío de una [solicitud de soporte técnico de aumento de cuota](https://portal.azure.com/#create/Microsoft.Support) o poniéndose en contacto con el [equipo de Event Hubs](mailto:askeventhubs@microsoft.com). Normalmente, se necesitan unas dos semanas para que el clúster esté implementado y entregado, y pueda usarlo. Este proceso es temporal hasta que haya un autoservicio completo disponible a través de Azure Portal.
+Para obtener instrucciones paso a paso y más información sobre la configuración de un clúster de Event Hubs dedicado, consulte la [guía de inicio rápido: Creación de un clúster de Event Hubs dedicado mediante Azure Portal](event-hubs-dedicated-cluster-create-portal.md). 
 
-## <a name="best-practices"></a>Procedimientos recomendados
+
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+
+
+## <a name="partitions"></a>Particiones
 
 ### <a name="how-many-partitions-do-i-need"></a>¿Cuántas particiones necesito?
-El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 2 y 32. El número de particiones no es modificable, por lo que debería tener en cuenta el escalado a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Para más información sobre las particiones, consulte [Particiones](event-hubs-features.md#partitions).
+El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 1 y 32. El número de particiones no es modificable, por lo que debería tener en cuenta el escalado a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Para más información sobre las particiones, consulte [Particiones](event-hubs-features.md#partitions).
 
 Es posible que quiera establecer el valor lo más alto posible, que es 32, en el momento de la creación. Recuerde que, si hay más de una partición, los eventos se enviarán a varias particiones sin conservar el orden, a menos que configure los remitentes para que solo realicen el envío a una única partición de las 32, lo que hará que las 31 restantes sean redundantes. En el primer caso, tendrá que leer eventos en las 32 particiones. En el último caso, no hay ningún costo adicional obvio aparte de la configuración adicional que debe realizar en el host del procesador de eventos.
 
 Event Hubs está diseñado para permitir un lector de partición única por grupo de consumidores. En la mayoría de los casos de uso, el valor predeterminado de cuatro particiones es suficiente. Si desea escalar el procesamiento de eventos, tal vez desee agregar particiones adicionales. No hay ningún límite de procesamiento específico en una partición, pero el número total de unidades de procesamiento limita el procesamiento agregado en el espacio de nombres. A medida que aumenta el número de unidades de procesamiento en el espacio de nombres, puede que necesite particiones adicionales para permitir que los lectores simultáneos logren su propio procesamiento máximo.
 
 Pero si tiene un modelo en el que su aplicación tiene afinidad con una partición determinada, aumentar el número de particiones puede que no suponga ventaja alguna. Para más información, vea [Disponibilidad y coherencia](event-hubs-availability-and-consistency.md).
+
+### <a name="increase-partitions"></a>Aumento de particiones
+Puede enviar una solicitud de soporte técnico para solicitar que el número de particiones aumente a 40 (exacto). 
+
+1. En la página **Espacio de nombres del bus de eventos** , seleccione **Nueva solicitud de soporte técnico** en el menú de la izquierda. 
+1. En la página **Nueva solicitud de soporte técnico** , siga estos pasos:
+    1. En el campo **Resumen** , describa el problema en pocas palabras. 
+    1. Para **Tipo de problema** , seleccione **Cuota**. 
+    1. En el campo **Subtipo de problema** , seleccione **Solicitud de cambio de partición**. 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Aumentar el recuento de particiones":::
+
+El número de particiones se puede aumentar hasta 40 exactamente. En este caso, el número de unidades de procesamiento también debe aumentarse a 40. Si más adelante decide reducir el límite de unidades de procesamiento a un número menor que 20, el límite máximo de particiones también se reducirá a 32. 
+
+La disminución en el número de particiones no afecta a los centros de eventos existentes, ya que las particiones se aplican en el nivel de centro de eventos y son inmutables después de crear el centro. 
 
 ## <a name="pricing"></a>Precios
 
@@ -274,7 +296,7 @@ Para más información sobre nuestro SLA, consulte la página [Acuerdos de nivel
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>¿Cómo se puede establecer como destino una versión específica del SDK de Azure Storage cuando se usa Azure Blob Storage como un almacén de puntos de comprobación?
-Si ejecuta este código en Azure Stack Hub, experimentará errores en tiempo de ejecución a menos que tenga como destino una versión específica de la API de Storage. Esto se debe a que el SDK de Event Hubs usa la API de Azure Storage más reciente disponible en Azure, que puede que no esté disponible en la plataforma de Azure Stack Hub. Azure Stack Hub puede admitir una versión diferente del SDK de Blob Storage que las que suelen estar disponibles en Azure. Si usa Azure Blob Storage como almacén de puntos de control, compruebe la [versión de la API de Azure Storage admitida para la compilación de Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) y establezca esa versión como destino en el código. 
+Si ejecuta este código en Azure Stack Hub, experimentará errores en tiempo de ejecución a menos que tenga como destino una versión específica de la API de Storage. Esto se debe a que el SDK de Event Hubs usa la API de Azure Storage más reciente disponible en Azure, que puede que no esté disponible en la plataforma de Azure Stack Hub. Azure Stack Hub puede admitir una versión diferente del SDK de Storage Blob que las que suelen estar disponibles en Azure. Si usa Azure Blob Storage como almacén de puntos de control, compruebe la [versión de la API de Azure Storage admitida para la compilación de Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) y establezca esa versión como destino en el código. 
 
 Por ejemplo, si trabaja en la versión 2005 de Azure Stack Hub, la versión más reciente disponible para el servicio Storage es la 2019-02-02. De forma predeterminada, la biblioteca de cliente del SDK de Event Hubs usa la versión más reciente disponible en Azure (2019-07-07 en el momento de la versión del SDK). En este caso, además de seguir los pasos de esta sección, también tendrá que agregar código para usar como destino la versión 2019-02-02 de la API del servicio de almacenamiento. Para ver un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea los ejemplos de C#, Java, Python y JavaScript/TypeScript.  
 

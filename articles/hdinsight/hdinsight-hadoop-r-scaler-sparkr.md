@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 28a97edcbe84ae63a3d3d0cad2b9275c672f5664
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12398ceacf8495a05037422a6501dc8138abc10
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082282"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628701"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinación de ScaleR y SparkR en HDInsight
 
@@ -25,7 +25,7 @@ Este ejemplo se presentó originalmente en una charla en Strata 2016 de Mario In
 
 El código se escribió originalmente para ML Server que se ejecuta en Spark en un clúster de HDInsight en Azure. Pero el concepto de mezclar el uso de SparkR y ScaleR en un script también es válido en el contexto de entornos locales.
 
-En los pasos de este documento se presupone que tiene un nivel de conocimiento intermedio de R y la biblioteca [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) de ML Server. También se presentará el uso de [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) al recorrer este escenario.
+En los pasos de este documento se presupone que tiene un nivel de conocimiento intermedio de R y la biblioteca [ScaleR](/machine-learning-server/r/concept-what-is-revoscaler) de ML Server. También se presentará el uso de [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) al recorrer este escenario.
 
 ## <a name="the-airline-and-weather-datasets"></a>Los conjuntos de datos de líneas aéreas y meteorológicos
 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Puntuación en otros lugares
 
-También se puede usar el modelo para puntuar datos en otra plataforma. Para ello, se guardan en un archivo RDS y luego se transfiere e importa dicho archivo a un entorno de puntuación de destino, como Microsoft SQL Server R Services. Es importante asegurarse de que los niveles de factor de los datos que se van a puntuar coincidan con aquellos sobre los que se creó el modelo. Esa coincidencia se puede lograr extrayendo y guardando la información de columna asociada a los datos de modelado mediante la función `rxCreateColInfo()` de ScaleR y luego aplicando esa información de columna al origen de datos de entrada para realizar la predicción. Ahora guardamos algunas filas del conjunto de datos de prueba y extraemos y usamos la información de columna de este ejemplo en el script de predicción:
+También se puede usar el modelo para puntuar datos en otra plataforma. Para ello, se guardan en un archivo RDS y luego se transfiere e importa dicho archivo a un entorno de puntuación de destino, como Microsoft SQL Server R Services. Es importante asegurarse de que los niveles de factor de los datos que se van a puntuar coincidan con aquellos sobre los que se creó el modelo. Esa coincidencia se puede lograr extrayendo y guardando la información de columna asociada a los datos de modelado mediante la función `rxCreateColInfo()` de ScaleR y luego aplicando esa información de columna al origen de datos de entrada para realizar la predicción. En el ejemplo de código siguiente, guardamos algunas filas del conjunto de datos de prueba y extraemos y usamos la información de columna de este ejemplo en el script de predicción:
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +535,7 @@ En este artículo hemos mostrado cómo es posible combinar el uso de SparkR para
 
 ## <a name="next-steps-and-more-information"></a>Pasos siguientes y más información
 
-- Para más información acerca del uso de ML Server en Apache Spark, consulte la [guía de introducción](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- Para más información acerca del uso de ML Server en Apache Spark, consulte la [guía de introducción](/machine-learning-server/r/how-to-revoscaler-spark).
 
 - Para más información sobre ML Services en HDInsight, consulte [Introducción a ML Services en HDInsight](r-server/r-server-overview.md).
 
@@ -543,4 +543,4 @@ Para más información sobre el uso de SparkR, consulte:
 
 - [Documento de Apache SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [SparkR Overview](https://docs.databricks.com/spark/latest/sparkr/overview.html) (Introducción a SparkR) de Databricks.
+- [Introducción a SparkR](/azure/databricks/spark/latest/sparkr/overview)

@@ -6,16 +6,16 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 4b2f819edd875130c57d487536691b4588dcc71f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfc554a57e99fa4ccd66b1bbeec0be46e463988f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772675"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738635"
 ---
 # <a name="monitoring-azure-files"></a>Supervisión de Azure Files
 
@@ -51,20 +51,9 @@ Las métricas y registros de Azure Monitor solo admiten cuentas de almacenamient
 
 ## <a name="collection-and-routing"></a>Recopilación y enrutamiento
 
-Las métricas de la plataforma y el registro de actividad se recopilan automáticamente, pero se pueden enrutar a otras ubicaciones mediante una configuración de diagnóstico. Se debe crear una configuración de diagnóstico para recopilar registros de recursos. 
+Las métricas de la plataforma y el registro de actividad se recopilan automáticamente, pero se pueden enrutar a otras ubicaciones mediante una configuración de diagnóstico. 
 
-> [!NOTE]
-> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Para inscribirse en la versión preliminar, visite [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Esta versión preliminar habilita los registros de blobs (lo que incluye Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no se admiten.
-
-Para crear una configuración de diagnóstico mediante Azure Portal, la CLI de Azure o PowerShell, consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../../azure-monitor/platform/diagnostic-settings.md). 
-
-Para ver una plantilla de Azure Resource Manager que crea una configuración de diagnóstico, consulte [Configuración de diagnóstico para Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
-
-Al crear una configuración de diagnóstico, deberá elegir el tipo de almacenamiento para el que desea habilitar los registros, por ejemplo, blob, cola, tabla, archivo. En Azure Files, elija **Archivo**. 
-
-Si crea la configuración de diagnóstico en Azure Portal, puede seleccionar el recurso de una lista. Si usa PowerShell o la CLI de Azure, debe usar el id. de recurso del punto de conexión de Azure Files. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
-
-También tendrá que especificar una de las categorías de operaciones siguientes para las que quiere recopilar registros. 
+Para recopilar registros de recursos, debe crear una configuración de diagnóstico. Cuando cree la configuración, elija **archivo** como tipo de almacenamiento para habilitar los registros. A continuación, especifique una de las siguientes categorías de operaciones de las que quiera recopilar registros. 
 
 | Category | Descripción |
 |:---|:---|
@@ -73,6 +62,191 @@ También tendrá que especificar una de las categorías de operaciones siguiente
 | StorageDelete | Operaciones de eliminación en objetos. |
 
 Para obtener la lista de operaciones de SMB y de REST que se registran, vea [Operaciones registradas de almacenamiento y mensajes de estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Referencia de datos de supervisión de Azure Files](storage-files-monitoring-reference.md).
+
+## <a name="creating-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
+
+Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure o una plantilla de Azure Resource Manager. 
+
+Para obtener instrucciones generales, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas de la plataforma en Azure](../../azure-monitor/platform/diagnostic-settings.md).
+
+### <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
+
+1. Inicie sesión en Azure Portal.
+
+2. Vaya a la cuenta de almacenamiento.
+
+3. En la sección **Supervisión** , seleccione **Configuración de diagnóstico (versión preliminar)** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Portal: Registros de diagnóstico](media/storage-files-monitoring/diagnostic-logs-settings-pane.png)   
+
+4. Elija **archivo** como tipo de almacenamiento para habilitar los registros.
+
+5. Haga clic en **Agregar configuración de diagnóstico**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Portal: registros de recursos; agregar configuración de diagnóstico](media/storage-files-monitoring/diagnostic-logs-settings-pane-2.png)
+
+   Aparecerá la página de **Configuración de diagnóstico**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Página de registros de recursos](media/storage-files-monitoring/diagnostic-logs-page.png)
+
+6. En el campo **Nombre** de la página, escriba un nombre para la configuración de registro de recursos. A continuación, seleccione qué operaciones quiere registrar (operaciones de lectura, escritura y eliminación) y dónde quiere que se envíen los registros.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archivo de registros en una cuenta de almacenamiento
+
+1. Seleccione la casilla **Archivar en una cuenta de almacenamiento** y, a continuación, haga clic en el botón **Configurar**.
+
+   > [!div class="mx-imgBorder"]   
+   > ![Almacenamiento de archivos en la página de configuración de diagnóstico ](media/storage-files-monitoring/diagnostic-logs-settings-pane-archive-storage.png)
+
+2. En la lista desplegable de la **Cuenta de almacenamiento** , seleccione la cuenta de almacenamiento en la que quiera archivar los registros, haga clic en el botón **Aceptar** y, a continuación, haga clic en el botón **Guardar**.
+
+   > [!NOTE]
+   > Antes de elegir una cuenta de almacenamiento como destino de exportación, consulte [Archivar registros de recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage) para comprender los requisitos previos de la cuenta de almacenamiento.
+
+#### <a name="stream-logs-to-azure-event-hubs"></a>Transmisión de registros a Azure Event Hubs
+
+1. Seleccione la casilla **Transmitir a un centro de eventos** y haga clic en **Configurar**.
+
+2. En el panel para **Seleccionar un centro de eventos** , elija el espacio de nombres, el nombre y el nombre de la directiva del centro de eventos al que quiere transmitir los registros. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Centro de eventos en la página de configuración de diagnóstico](media/storage-files-monitoring/diagnostic-logs-settings-pane-event-hub.png)
+
+3. Haga clic en el botón **Aceptar** y, a continuación, en el botón **Guardar**.
+
+#### <a name="send-logs-to-azure-log-analytics"></a>Envío de registros a Azure Log Analytics
+
+1. Seleccione la casilla **Enviar a Log Analytics** , seleccione un área de trabajo de Log Analytics y, a continuación, haga clic en el botón **Guardar**.
+
+   > [!div class="mx-imgBorder"]   
+   > ![Instancia de Log Analytics de la página de configuración de diagnóstico](media/storage-files-monitoring/diagnostic-logs-settings-pane-log-analytics.png)
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+1. Abra una ventana de comandos de Windows PowerShell e inicie sesión en su suscripción de Azure con el comando `Connect-AzAccount`. A continuación, siga las instrucciones que aparecen en pantalla.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. Establezca la suscripción activa como la suscripción de la cuenta de almacenamiento en la que quiere habilitar el registro.
+
+   ```powershell
+   Set-AzContext -SubscriptionId <subscription-id>
+   ```
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archivo de registros en una cuenta de almacenamiento
+
+Habilite los registros mediante el cmdlet de PowerShell [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) junto con el parámetro `StorageAccountId`.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio de archivos de Azure. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
+
+Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el parámetro **Category**.
+
+Este es un ejemplo:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
+
+Para obtener una descripción de cada parámetro, consulte [Archivo de registros de recursos de Azure mediante Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+
+#### <a name="stream-logs-to-an-event-hub"></a>Transmitir registros a un centro de eventos
+
+Habilite los registros mediante el cmdlet de PowerShell [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) con el parámetro `EventHubAuthorizationRuleId`.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Este es un ejemplo:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
+
+Para obtener una descripción de cada parámetro, consulte [Transmisión de datos a Event Hubs a través de los cmdlets de PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+
+#### <a name="send-logs-to-log-analytics"></a>Envío de registros a Log Analytics
+
+Habilite los registros mediante el cmdlet de PowerShell [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) con el parámetro `WorkspaceId`.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Este es un ejemplo:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
+
+Para obtener más información, consulte [Transmisión de registros de recursos de Azure al área de trabajo de Log Analytics en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+1. En primer lugar, abra [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) o, si ha [instalado](https://docs.microsoft.com/cli/azure/install-azure-cli) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
+
+2. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento en la quera habilitar los registros.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+
+   Reemplace el valor de marcador de posición `<subscription-id>` por el identificador de la suscripción.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archivo de registros en una cuenta de almacenamiento
+
+Habilite los registros mediante el comando [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio de Blob Storage. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
+
+Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el valor del parámetro **category**.
+
+Este es un ejemplo:
+
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+
+Para obtener una descripción de cada parámetro, consulte [Archivo de registros de recursos mediante la CLI de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
+
+#### <a name="stream-logs-to-an-event-hub"></a>Transmitir registros a un centro de eventos
+
+Habilite los registros mediante el comando [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Este es un ejemplo:
+
+`az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
+
+Para obtener una descripción de cada parámetro, consulte [Transmisión de datos a Event Hubs a través de la CLI de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
+
+#### <a name="send-logs-to-log-analytics"></a>Envío de registros a Log Analytics
+
+Habilite los registros mediante el comando [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+```
+
+Este es un ejemplo:
+
+`az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
+
+ Para obtener más información, consulte [Transmisión de registros de recursos de Azure al área de trabajo de Log Analytics en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### <a name="template"></a>[Plantilla](#tab/template)
+
+Para ver una plantilla de Azure Resource Manager que crea una configuración de diagnóstico, consulte [Configuración de diagnóstico para Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+
+---
 
 ## <a name="analyzing-metrics"></a>Análisis de métricas
 
@@ -132,7 +306,7 @@ Puede leer los valores de métricas de la cuenta de almacenamiento o el servicio
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+### <a name="net"></a>[.NET](#tab/azure-portal)
 
 Azure Monitor proporciona el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para leer la definición y los valores de las métricas. El [código de ejemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) muestra cómo utilizar el SDK con parámetros diferentes. Debe usar `0.18.0-preview` o una versión posterior para las métricas de almacenamiento.
  
@@ -272,6 +446,10 @@ En el ejemplo siguiente se muestra cómo leer datos de métricas sobre una métr
 
 ```
 
+# <a name="template"></a>[Plantilla](#tab/template)
+
+N/D
+
 ---
 
 ## <a name="analyzing-logs"></a>Análisis de datos
@@ -283,7 +461,7 @@ Para obtener la lista de operaciones de SMB y de REST que se registran, vea [Ope
 > [!NOTE]
 > Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Para inscribirse en la versión preliminar, visite [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Esta versión preliminar habilita los registros de blobs (lo que incluye Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no se admiten.
 
-Las entradas del registro se crean solo si se presentan solicitudes al punto de conexión de servicio. Por ejemplo, si una cuenta de almacenamiento tiene actividad en el punto de conexión de su archivo, pero no en los puntos de conexión de su tabla o cola, solo se crean los registros correspondientes al servicio del archivo. Los registros de Azure Storage contienen información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción.
+Las entradas del registro se crean solo si se presentan solicitudes al punto de conexión de servicio. Por ejemplo, si una cuenta de almacenamiento tiene actividad en el punto de conexión de su archivo, pero no en los puntos de conexión de su tabla o cola, solo se crean los registros correspondientes al servicio del archivo de Azure. Los registros de Azure Storage contienen información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción.
 
 ### <a name="log-authenticated-requests"></a>Registro de solicitudes autenticadas
 
@@ -292,7 +470,7 @@ Las entradas del registro se crean solo si se presentan solicitudes al punto de 
 - Solicitudes correctas
 - Solicitudes erróneas, incluidos errores de tiempo de espera, de limitación, de red, de autorización y de otro tipo
 - Solicitudes que usan una firma de acceso compartido (SAS) u OAuth, incluidas las solicitudes correctas como con error
-- Solicitudes de datos de análisis (datos de registro clásicos en el contenedor **$logs**, y datos de métricas de clase en las tablas **$metric**)
+- Solicitudes de datos de análisis (datos de registro clásicos en el contenedor **$logs** , y datos de métricas de clase en las tablas **$metric** )
 
 Las solicitudes que realiza el propio servicio Azure Files, como la creación o eliminación de registros, no se registran. Para obtener una lista completa de solicitudes de SMB y de REST que se registran, vea [Operaciones registradas de almacenamiento y mensajes de estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Referencia de datos de supervisión de Azure Files](storage-files-monitoring-reference.md).
 
@@ -397,7 +575,7 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 
 2. Haga clic **Alertas** y, a continuación, haga clic en **Nueva alerta de reglas**.
 
-3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** y luego haga clic en **Listo**. 
+3. Haga clic en **Editar recurso** , seleccione el **tipo de recurso de archivo** y luego haga clic en **Listo**. 
 
 4. Haga clic en **Seleccionar condición** y especifique la siguiente información para la alerta: 
 
@@ -407,7 +585,7 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 
 5. Haga clic en **Seleccionar el grupo de acciones** y agregue un grupo de acciones (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
 
-6. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
+6. Rellene los **detalles de la alerta** , como el **nombre de la regla de alertas** , la **descripción** y la **gravedad**.
 
 7. Haga clic en **Crear regla de alerta** para crear la alerta.
 
@@ -417,15 +595,15 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 ### <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Creación de una alerta si un recurso compartido de archivos se limita
 
 1. Vaya a la **cuenta de almacenamiento** en **Azure Portal**.
-2. En la sección **Supervisión**, haga clic en **Alertas** y, después, haga clic en **+ Nueva regla de alertas**.
-3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es `contoso`, seleccione el recurso `contoso/file`.
+2. En la sección **Supervisión** , haga clic en **Alertas** y, después, haga clic en **+ Nueva regla de alertas**.
+3. Haga clic en **Editar recurso** , seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es `contoso`, seleccione el recurso `contoso/file`.
 4. Haga clic en **Seleccionar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Transacciones**.
-6. En la hoja **Configurar lógica de señal**, haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Tipo de respuesta**.
+6. En la hoja **Configurar lógica de señal** , haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Tipo de respuesta**.
 7. Haga clic en el menú desplegable **Valores de la dimensión** y seleccione **SuccessWithThrottling** (para SMB) o **ClientThrottlingError** (para REST).
 
    > [!NOTE]
-   > Si el valor de la dimensión SuccessWithThrottling o ClientThrottlingError no aparece en la lista, significa que el recurso no se ha limitado. Para agregar el valor de dimensión, haga clic en **Agregar valor personalizado** junto a la lista desplegable **Valores de dimensión**, escriba **SuccessWithThrottling** o **ClientThrottlingError**, haga clic en **Aceptar** y, después, repita el paso 7.
+   > Si el valor de la dimensión SuccessWithThrottling o ClientThrottlingError no aparece en la lista, significa que el recurso no se ha limitado. Para agregar el valor de dimensión, haga clic en **Agregar valor personalizado** junto a la lista desplegable **Valores de dimensión** , escriba **SuccessWithThrottling** o **ClientThrottlingError** , haga clic en **Aceptar** y, después, repita el paso 7.
 
 8. Haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
 9. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
@@ -439,17 +617,17 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
     > Si usa un umbral estático, el gráfico de métricas puede ayudar a determinar un valor de umbral razonable si el recurso compartido de archivos se está limitando actualmente. Si usa un umbral dinámico, el gráfico de métricas mostrará los umbrales calculados según los datos recientes.
 
 11. Haga clic en **Seleccionar el grupo de acciones** para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
-12. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción y la **gravedad**.
+12. Rellene los **detalles de la alerta** , como el **nombre de la regla de alertas** , la **descripción y la **gravedad**.
 13. Haga clic en **Crear regla de alerta** para crear la alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Procedimientos para crear una alerta si el tamaño del recurso compartido de archivos de Azure es del 80 % de la capacidad
 
 1. Vaya a la **cuenta de almacenamiento** en **Azure Portal**.
-2. En la sección **Supervisión**, haga clic en **Alertas** y luego en **+ Nueva regla de alertas**.
-3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es `contoso`, seleccione el recurso `contoso/file`.
+2. En la sección **Supervisión** , haga clic en **Alertas** y luego en **+ Nueva regla de alertas**.
+3. Haga clic en **Editar recurso** , seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es `contoso`, seleccione el recurso `contoso/file`.
 4. Haga clic en **Seleccionar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Capacidad de archivo**.
-6. En la hoja **Configurar lógica de señal**, haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
+6. En la hoja **Configurar lógica de señal** , haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
 7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
 
    > [!NOTE]
@@ -458,27 +636,27 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 8. Escriba el **Valor de umbral** (en bytes). Por ejemplo, si el tamaño del recurso compartido de archivos es 100 TiB y quiere recibir una alerta cuando su tamaño sea el 80 % de la capacidad, el valor de umbral en bytes es 87960930222080.
 9. Defina los demás **parámetros de alerta** (granularidad de agregación y frecuencia de evaluación) y haga clic en **Listo**.
 10. Haga clic en Seleccionar el grupo de acciones para agregar un grupo de acciones (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
-11. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción y la **gravedad**.
+11. Rellene los **detalles de la alerta** , como el **nombre de la regla de alertas** , la **descripción y la **gravedad**.
 12. Haga clic en **Crear regla de alerta** para crear la alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Procedimientos para crear una alerta si la salida del recurso compartido de archivos de Azure ha superado los 500 GiB en un día
 
 1. Vaya a la **cuenta de almacenamiento** en **Azure Portal**.
 2. En la sección Supervisión, haga clic en **Alertas** y, después, haga clic en **+ Nueva regla de alertas**.
-3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
+3. Haga clic en **Editar recurso** , seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
 4. Haga clic en **Seleccionar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Salida**.
-6. En la hoja **Configurar lógica de señal**, haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
+6. En la hoja **Configurar lógica de señal** , haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
 7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
 
    > [!NOTE]
    > Si el recurso compartido de archivos es un recurso compartido de archivos estándar, seleccione **Todos los valores actuales y futuros**. El menú desplegable de valores de dimensión no mostrará los recursos compartidos de archivos porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de recursos compartidos de archivos estándar se basan en todos los recursos compartidos de archivos de la cuenta de almacenamiento. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
 
-8. En el Umbral de valor, escriba **536870912000** bytes. 
+8. En el Umbral de valor, escriba **536870912000**  bytes. 
 9. Haga clic en la lista desplegable **Granularidad de agregación** y seleccione **24 horas**.
 10. Seleccione la **Frecuencia de evaluación** y **haga clic en Listo**.
 11. Haga clic en **Seleccionar el grupo de acciones** para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
-12. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción y la **gravedad**.
+12. Rellene los **detalles de la alerta** , como el **nombre de la regla de alertas** , la **descripción y la **gravedad**.
 13. Haga clic en **Crear regla de alerta** para crear la alerta.
 
 ## <a name="next-steps"></a>Pasos siguientes

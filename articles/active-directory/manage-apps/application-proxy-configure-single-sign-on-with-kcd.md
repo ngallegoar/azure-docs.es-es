@@ -1,29 +1,25 @@
 ---
-title: Inicio de sesión único con el proxy de aplicación | Microsoft Docs
-description: Explica cómo proporcionar el inicio de sesión único mediante el proxy de aplicación de Azure AD.
+title: Inicio de sesión único (SSO) basado en Kerberos en Azure Active Directory con Application Proxy
+description: Explica cómo proporcionar el inicio de sesión único mediante Application Proxy de Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq2
+ms.openlocfilehash: 860d29d3fff2187e770a5ff00b7145fc188a497c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299755"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426501"
 ---
-# <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación
+# <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único (SSO) para las aplicaciones con Application Proxy
 
 Puede proporcionar un inicio de sesión único para las aplicaciones locales publicadas a través de Proxy de aplicación que se protegen con la autenticación integrada de Windows. Estas aplicaciones requieren un vale Kerberos para el acceso. Proxy de aplicación usa la Delegación restringida de Kerberos (KCD) para admitir estas aplicaciones. 
 
@@ -60,7 +56,7 @@ La configuración de Active Directory varía, en función de si el conector de P
 3. Haga clic en el botón derecho y seleccione **Propiedades** > **Delegación**.
 4. Seleccione **Confiar en este equipo para la delegación solo a los servicios especificados**. 
 5. Seleccione **Usar cualquier protocolo de autenticación**.
-6. En **Servicios a los que esta cuenta puede presentar credenciales delegadas**, agregue el valor de la identidad SPN del servidor de aplicaciones. Esto permite al conector del proxy de aplicación suplantar a los usuarios en AD en las aplicaciones definidas en la lista.
+6. En **Servicios a los que esta cuenta puede presentar credenciales delegadas** , agregue el valor de la identidad SPN del servidor de aplicaciones. Esto permite al conector del proxy de aplicación suplantar a los usuarios en AD en las aplicaciones definidas en la lista.
 
    ![Captura de pantalla de ventana Conector-Propiedades SVR](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 

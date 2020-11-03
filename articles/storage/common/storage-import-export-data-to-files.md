@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/08/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a88cf9981d4f3a69a503c9caa56be1b5f35029f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cd1145411fbf4ec4441d612f9552997704f9e5e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105190"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782406"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Uso del servicio Azure Import/Export para importar datos a Azure Files
 
@@ -35,7 +35,7 @@ Antes de crear un trabajo de importación para transferir datos en Azure Files, 
     - Generar un número de seguimiento del trabajo de exportación.
     - Cada trabajo debe tener un número de seguimiento independiente. No se admiten varios trabajos con el mismo número de seguimiento.
     - Si no tiene una cuenta de transportista, vaya a:
-        - [Crear una cuenta de FedEX](https://www.fedex.com/en-us/create-account.html), o
+        - [Crear una cuenta de FedEx](https://www.fedex.com/en-us/create-account.html), o
         - [Crear una cuenta de DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 
@@ -50,14 +50,14 @@ Realice los pasos siguientes para preparar las unidades de disco.
 2. Cree un volumen NTFS único en cada unidad. Asigne una letra de unidad al volumen. No utilice puntos de montaje.
 3. Modifique el archivo *dataset.csv* en el directorio raíz en el que reside la herramienta. Dependiendo de si desea importar un archivo o carpeta o ambos, agregue las entradas en el archivo *dataset.csv* de forma similar a los siguientes ejemplos.  
 
-   - **Para importar un archivo**: en el ejemplo siguiente, los datos que se van a copiar residen en la unidad F: El archivo *MyFile1.txt* se copia en la raíz de *MyAzureFileshare1*. Si *MyAzureFileshare1* no existe, se crea en la cuenta de Azure Storage. Se mantiene la estructura de carpetas.
+   - **Para importar un archivo** : en el ejemplo siguiente, los datos que se van a copiar residen en la unidad F: El archivo *MyFile1.txt* se copia en la raíz de *MyAzureFileshare1*. Si *MyAzureFileshare1* no existe, se crea en la cuenta de Azure Storage. Se mantiene la estructura de carpetas.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
 
        ```
-   - **Para importar una carpeta**: todos los archivos y carpetas bajo *MyFolder2* se copiarán en el recurso compartido de archivos de forma recursiva. Se mantiene la estructura de carpetas.
+   - **Para importar una carpeta** : todos los archivos y carpetas bajo *MyFolder2* se copiarán en el recurso compartido de archivos de forma recursiva. Se mantiene la estructura de carpetas.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
@@ -70,28 +70,28 @@ Realice los pasos siguientes para preparar las unidades de disco.
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
 
        ```
-     Obtenga más información sobre cómo [preparar el archivo CSV de conjunto de datos](storage-import-export-tool-preparing-hard-drives-import.md).
+     Obtenga más información sobre cómo [preparar el archivo CSV de conjunto de datos](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
 
 
 4. Modifique el archivo *driveset.csv* en el directorio raíz en el que reside la herramienta. Agregar entradas en el archivo *driveset.csv* similares a las de los siguientes ejemplos. El archivo driveset tiene la lista de discos y las letras de unidad de disco correspondiente para que la herramienta pueda elegir correctamente la lista de discos que se van a preparar.
 
     En este ejemplo se da por supuesto que están conectados dos discos y que se crean volúmenes NTFS básicos G:\ y H:\. H:\no está cifrado mientras G: ya está cifrado. La herramienta da formato y cifra el disco que hospeda solo H:\ (y no G:\).
 
-   - **Para un disco que no está cifrado**: especificar *Encrypt* para habilitar el cifrado de BitLocker en el disco.
+   - **Para un disco que no está cifrado** : especificar *Encrypt* para habilitar el cifrado de BitLocker en el disco.
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
        H,Format,SilentMode,Encrypt,
        ```
 
-   - **Para un disco que ya está cifrado**: especificar *AlreadyEncrypted* y proporcionar la clave de BitLocker.
+   - **Para un disco que ya está cifrado** : especificar *AlreadyEncrypted* y proporcionar la clave de BitLocker.
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
        ```
 
-     Se pueden realizar varias entradas en el mismo archivo que correspondan a varias unidades de disco. Obtenga más información sobre cómo [preparar el archivo CSV de conjunto de unidades](storage-import-export-tool-preparing-hard-drives-import.md).
+     Se pueden realizar varias entradas en el mismo archivo que correspondan a varias unidades de disco. Obtenga más información sobre cómo [preparar el archivo CSV de conjunto de unidades](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
 
 5. Use la opción `PrepImport` para copiar y preparar los datos para la unidad de disco. Para la primera sesión de copia para copiar directorios o archivos con una nueva sesión de copia, ejecute el siguiente comando:
 
@@ -114,6 +114,8 @@ Para ejemplos adicionales, vaya a [Ejemplos para archivos de diario](#samples-fo
 
 ## <a name="step-2-create-an-import-job"></a>Paso 2: Crear un trabajo de importación
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Siga estos pasos para crear un trabajo de importación en Azure Portal.
 1. Inicie sesión en https://portal.azure.com/.
 2. Vaya a **Todos los servicios > Almacenamiento > Trabajos de importación o exportación**.
@@ -124,7 +126,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
     ![Hacer clic en trabajo de importación o exportación](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. En **Aspectos básicos**:
+4. En **Aspectos básicos** :
 
     - Seleccione **Import into Azure** (Importar en Azure).
     - Escriba un nombre descriptivo para el trabajo de importación. Use este nombre para realizar un seguimiento de sus trabajos mientras estén en curso y una vez que se hayan completado.
@@ -135,7 +137,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
         ![Creación del trabajo de importación: Paso 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-3. En **Detalles del trabajo**:
+3. En **Detalles del trabajo** :
 
     - Cargar los archivos de diario que creó con anterioridad en [Paso 1: Preparación de las unidades de disco](#step-1-prepare-the-drives).
     - Seleccione la cuenta de almacenamiento en la que se importarán los datos.
@@ -143,7 +145,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
        ![Creación del trabajo de importación: Paso 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-4. En **Información de envío de devolución**:
+4. En **Información de envío de devolución** :
 
     - Seleccione el transportista en la lista desplegable. Si desea usar una empresa de mensajería que no sea FedEx o DHL, elija una de las opciones de la lista desplegable. Póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com` con la información relacionada con el transportista que quiere usar.
     - Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación.
@@ -155,12 +157,92 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
        ![Creación del trabajo de importación - Paso 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
 
-5. En el **Resumen**:
+5. En el **Resumen** :
 
     - Proporcione la dirección de envío del centro de datos de Azure para el envío de discos a Azure. Asegúrese de que en la etiqueta de envío se mencione el nombre del trabajo y la dirección completa.
     - Haga clic en **Aceptar** para completar la creación del trabajo de importación.
 
         ![Creación del trabajo de importación: Paso 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Use los pasos siguientes para crear un trabajo de importación en la CLI de Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>Creación de un trabajo
+
+1. Use el comando [az extension add](/cli/azure/extension#az_extension_add) para agregar la extensión [az import-export](/cli/azure/ext/import-export/import-export):
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. Puede usar un grupo de recursos existente o crear uno. Para crear un grupo de recursos, ejecute el comando [az group create](/cli/azure/group#az_group_create):
+
+    ```azurecli
+    az group create --name myierg --location "West US"
+    ```
+
+1. Puede usar una cuenta de almacenamiento existente o crear una. Para crear una cuenta de almacenamiento, ejecute el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create):
+
+    ```azurecli
+    az storage account create -resource-group myierg -name myssdocsstorage --https-only
+    ```
+
+1. Para obtener una lista de las ubicaciones a las que puede enviar discos, use el comando [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list):
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Use el comando [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) para obtener las ubicaciones de su región:
+
+    ```azurecli
+    az import-export location show --location "West US"
+    ```
+
+1. Ejecute el siguiente comando [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) para crear un trabajo de importación:
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name MyIEjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --type Import \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --return-shipping carrier-name=FedEx carrier-account-number=123456789 \
+        --storage-account myssdocsstorage
+    ```
+
+   > [!TIP]
+   > En lugar de especificar una dirección de correo electrónico para un solo usuario, proporcione un correo electrónico de grupo. Esto garantiza que recibirá notificaciones incluso si sale un administrador.
+
+
+1. Use el comando [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) para ver todos los trabajos del grupo de recursos de myierg:
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. Para actualizar o cancelar el trabajo, ejecute el comando [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update):
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 ## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Paso 3: Envío de las unidades de disco al centro de datos de Azure
 
@@ -170,15 +252,15 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>Paso 5: Comprobación de la carga de datos en Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>Paso 5: Verificación de la carga de datos en Azure
 
 Siga el trabajo hasta su finalización. Una vez que se haya finalizado el trabajo, compruebe que los datos se han cargado en Azure. Elimine los datos de forma local después de comprobar que la carga fue correcta.
 
 ## <a name="samples-for-journal-files"></a>Ejemplos para archivos de diario
 
-Para **agregar más unidades**, cree un nuevo archivo de conjunto de unidades y ejecute el comando como se indica a continuación.
+Para **agregar más unidades** , cree un nuevo archivo de conjunto de unidades y ejecute el comando como se indica a continuación.
 
-Para sesiones de copia posteriores en unidades de disco distintas a las especificadas en el archivo *InitialDriveset.csv*, especifique un nuevo archivo *.csv* de conjunto de unidades y proporciónelo como valor para el parámetro `AdditionalDriveSet`. Use el **mismo nombre de archivo de diario** y proporcione un **nuevo identificador de sesión**. El formato del archivo CSV AdditionalDriveset es el mismo que el formato de InitialDriveSet.
+Para sesiones de copia posteriores en unidades de disco distintas a las especificadas en el archivo *InitialDriveset.csv* , especifique un nuevo archivo *.csv* de conjunto de unidades y proporciónelo como valor para el parámetro `AdditionalDriveSet`. Use el **mismo nombre de archivo de diario** y proporcione un **nuevo identificador de sesión**. El formato del archivo CSV AdditionalDriveset es el mismo que el formato de InitialDriveSet.
 
 ```cmd
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
@@ -193,7 +275,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDrive
 
 Para agregar datos adicionales al mismo conjunto de unidades, use el comando PrepImport para sesiones de copia posteriores para copiar archivos o directorios adicionales.
 
-En las sucesivas sesiones de copia en las mismas unidades de disco duro especificadas en el archivo *InitialDriveset.csv*, especifique el mismo nombre **de archivo de diario** e indique un **nuevo identificador de sesión**. No hace falta proporcionar la clave de la cuenta de almacenamiento.
+En las sucesivas sesiones de copia en las mismas unidades de disco duro especificadas en el archivo *InitialDriveset.csv* , especifique el mismo nombre **de archivo de diario** e indique un **nuevo identificador de sesión**. No hace falta proporcionar la clave de la cuenta de almacenamiento.
 
 ```cmd
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>

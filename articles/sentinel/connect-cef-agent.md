@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: a54dfa0f2b072d30cac605937a1b623ef9d4051d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631501"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742839"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Paso 1: Implementación del reenviador de registros
 
 
 En este paso, designará y configurará la máquina Linux que reenviará los registros desde la solución de seguridad al área de trabajo de Azure Sentinel. Esta máquina puede ser una máquina física o virtual del entorno local, una máquina virtual de Azure o una máquina virtual en otra nube. Con el vínculo proporcionado, ejecutará un script en la máquina designada que realiza las tareas siguientes:
+
 - Instala el agente de Log Analytics para Linux (también denominado agente de OMS) y lo configura para los siguientes fines:
     - escucha de mensajes CEF desde el demonio de Syslog de Linux integrado en el puerto TCP 25226
     - envío de mensajes de forma segura a través de TLS a su área de trabajo de Azure Sentinel, donde se analizan y enriquecen
@@ -36,18 +37,25 @@ En este paso, designará y configurará la máquina Linux que reenviará los reg
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Debe tener permisos elevados (sudo) en la máquina Linux designada.
-- Debe tener Python instalado en la máquina Linux.<br>Use el comando `python -version` para comprobarlo.
+
+- Debe tener **Python 2.7** instalado en la máquina Linux.<br>Use el comando `python -version` para comprobarlo.
+
 - La máquina Linux no debe estar conectada a ninguna área de trabajo de Azure antes de instalar el agente de Log Analytics.
+
+- En algún momento del proceso, es posible que necesite el id. del área de trabajo y la clave principal del área de trabajo. Puede encontrarlos en el recurso del área de trabajo, en **Administración de agentes**.
 
 ## <a name="run-the-deployment-script"></a>Ejecutar el script de implementación
  
 1. En el menú de navegación de Azure Sentinel, haga clic en **Conectores de datos**. En la lista de conectores, haga clic en el icono de **Common Event Format (CEF)** y, a continuación, en el botón **Open connector page** (Abrir página del conector) en la parte inferior derecha. 
 
-1. En **1.2 Install the CEF collector on the Linux machine** (1.2 Instalación del recopilador de CEF en la máquina Linux), copie el vínculo proporcionado en **Run the following script to install and apply the CEF collector** (Ejecutar el siguiente script para instalar y aplicar el recopilador de CEF) o en el texto siguiente:
+1. En **1.2 Install the CEF collector on the Linux machine** (1.2 Instalación del recopilador de CEF en la máquina Linux), copie el vínculo proporcionado en **Run the following script to install and apply the CEF collector** (Ejecutar el siguiente script para instalar y aplicar el recopilador de CEF) o en el texto siguiente (debe agregar el id. del área de trabajo y la clave principal en lugar de los marcadores de posición):
 
-     `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```bash
+    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```
 
 1. Mientras se ejecuta el script, asegúrese de que no recibe ningún mensaje de error o de advertencia.
+    - Es posible que reciba un mensaje que le indique que debe ejecutar un comando para corregir un problema con la asignación del campo *Equipo*. Consulte la [explicación en el script de implementación](#mapping-command) para obtener más detalles.
 
 > [!NOTE]
 > **Uso de la misma máquina para reenviar Syslog sin formato *y* mensajes de CEF**
@@ -122,12 +130,15 @@ Elija un demonio de syslog para ver la descripción adecuada.
 
 1. **Comprobación de la asignación del campo *Equipo* según lo esperado:**
 
-    - Garantiza que el campo *Equipo* del origen de syslog se asigne correctamente en el agente de Log Analytics ejecutando este comando y reiniciando el agente.
+    - Se asegura de que el campo *Equipo* del origen de syslog se ha asignado correctamente en el agente de Log Analytics, mediante el siguiente comando: 
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
+        ```
+    - <a name="mapping-command"></a>Si hay un problema con la asignación, el script generará un mensaje de error que le indicará que debe **ejecutar manualmente el siguiente comando** (debe agregar el id. del área de trabajo en lugar del marcador de posición). El comando garantizará que la asignación se realice correctamente y reiniciará el agente.
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
 # <a name="syslog-ng-daemon"></a>[demonio syslog-ng](#tab/syslogng)
@@ -187,15 +198,16 @@ Elija un demonio de syslog para ver la descripción adecuada.
 
 1. **Comprobación de la asignación del campo *Equipo* según lo esperado:**
 
-    - Garantiza que el campo *Equipo* del origen de syslog se asigne correctamente en el agente de Log Analytics ejecutando este comando y reiniciando el agente.
+    - Se asegura de que el campo *Equipo* del origen de syslog se ha asignado correctamente en el agente de Log Analytics, mediante el siguiente comando: 
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
         ```
-
-
+    - <a name="mapping-command"></a>Si hay un problema con la asignación, el script generará un mensaje de error que le indicará que debe **ejecutar manualmente el siguiente comando** (debe agregar el id. del área de trabajo en lugar del marcador de posición). El comando garantizará que la asignación se realice correctamente y reiniciará el agente.
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a implementar el agente de Log Analytics para conectar dispositivos CEF a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:

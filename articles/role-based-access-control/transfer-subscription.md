@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819718"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545351"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
@@ -75,7 +75,8 @@ Varios recursos de Azure tienen una dependencia de una suscripción o un directo
 | Azure Files | Sí | Sí |  | Debe volver a crear las ACL. |
 | Azure File Sync | Sí | Sí |  |  |
 | Azure Managed Disks | Sí | Sí |  |  Si usa conjuntos de cifrado de disco para cifrar instancias de Managed Disks con claves administradas por el cliente, debe deshabilitar y volver a habilitar las identidades asignadas por el sistema asociadas a los conjuntos de cifrado de disco. Además, debe volver a crear las asignaciones de roles, es decir, volver a conceder los permisos necesarios a los conjuntos de cifrado de disco en las instancias de Key Vault. |
-| Azure Container Service para Kubernetes | Sí | Sí |  |  |
+| Azure Kubernetes Service | Sí | Sí |  |  |
+| Azure Policy | Sí | No | Todos los objetos de Azure Policy, incluidas las definiciones personalizadas, las asignaciones, las exenciones y los datos de cumplimiento. | Tendrá que [exportar](../governance/policy/how-to/export-resources.md), importar y volver a asignar las definiciones. Después, cree asignaciones de directiva y las [exenciones de directiva](../governance/policy/concepts/exemption-structure.md) necesarias. |
 | Azure Active Directory Domain Services | Sí | No |  |  |
 | Registros de aplicaciones | Sí | Sí |  |  |
 
@@ -108,9 +109,9 @@ Para completar estos pasos, necesitará lo siguiente:
     az account set --subscription "Marketing"
     ```
 
-### <a name="install-the-resource-graph-extension"></a>Instalación de la extensión resource-graph
+### <a name="install-the-azure-resource-graph-extension"></a>Instalación de la extensión Azure Resource Graph
 
- La extensión resource-graph le permite usar el comando [az graph](/cli/azure/ext/resource-graph/graph) para consultar los recursos que administra Azure Resource Manager. Usará este comando en pasos posteriores.
+ La extensión de la CLI de Azure para [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph* , le permite usar el comando [az graph](/cli/azure/ext/resource-graph/graph) para consultar los recursos que administra Azure Resource Manager. Usará este comando en pasos posteriores.
 
 1. Use [az extension list](/cli/azure/extension#az_extension_list) para ver si tiene instalada la extensión *resource-graph*.
 
@@ -138,7 +139,7 @@ Para completar estos pasos, necesitará lo siguiente:
 
 1. Guarde la lista de asignaciones de roles.
 
-    Cuando se transfiere una suscripción, todas las asignaciones de roles se eliminan **permanentemente**, de modo que es importante guardar una copia.
+    Cuando se transfiere una suscripción, todas las asignaciones de roles se eliminan **permanentemente** , de modo que es importante guardar una copia.
 
 1. Revise la lista de asignaciones de roles. Es posible que haya asignaciones de roles que no necesite en el directorio de destino.
 

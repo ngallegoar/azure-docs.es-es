@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44cfe9bc6cd357cc0c649cecd022d3955bb5a2ce
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756541"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545878"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Copia de seguridad y restauración en el Servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -24,7 +24,7 @@ El Servidor flexible de Azure Database for MySQL crea automáticamente copias de
 
 El Servidor flexible toma copias de seguridad de instantáneas de los archivos de datos y las almacena en un almacenamiento con redundancia local. El servidor también realiza copias de seguridad de registros de transacciones y los almacena en el almacenamiento con redundancia local. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurar la copia de seguridad de base de datos de 1 a 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits para los datos almacenados en reposo.
 
-Estos archivos de copia de seguridad no se pueden exportar. Las copias de seguridad solo se pueden usar para operaciones de restauración en el Servidor flexible. También puede usar [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) de un cliente MySQL para copiar una base de datos.
+Estos archivos de copia de seguridad no se pueden exportar. Las copias de seguridad solo se pueden usar para operaciones de restauración en el Servidor flexible. También puede usar [mysqldump](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) desde un cliente MySQL para copiar una base de datos.
 
 ## <a name="backup-frequency"></a>Frecuencia de copia de seguridad
 
@@ -40,9 +40,9 @@ El período de retención de la copia de seguridad rige durante cuánto tiempo s
 
 ## <a name="backup-storage-cost"></a>Costo del almacenamiento de copia de seguridad
 
-El Servidor flexible proporciona hasta un 100 % del almacenamiento del servidor aprovisionado como almacenamiento de copia de seguridad, sin costos adicionales. El cargo de cualquier almacenamiento de copia de seguridad adicional que se use se realizará por GB/mes. Por ejemplo, si ha aprovisionado un servidor con 250 GB de almacenamiento, tiene 250 GB de almacenamiento disponible para las copias de seguridad del servidor sin ningún cargo adicional. Si la utilización de la copia de seguridad diaria es de 25 GB, puede tener disponible hasta 10 días de almacenamiento de copia de seguridad gratuito. El almacenamiento consumido para copias de seguridad que supere los 250 GB se cobra según el  [modelo de precios](https://azure.microsoft.com/pricing/details/mysql/).
+El Servidor flexible proporciona hasta un 100 % del almacenamiento del servidor aprovisionado como almacenamiento de copia de seguridad, sin costos adicionales. El cargo de cualquier almacenamiento de copia de seguridad adicional que se use se realizará por GB/mes. Por ejemplo, si ha aprovisionado un servidor con 250 GB de almacenamiento, tiene 250 GB de almacenamiento disponible para las copias de seguridad del servidor sin ningún cargo adicional. Si la utilización de la copia de seguridad diaria es de 25 GB, puede tener disponible hasta 10 días de almacenamiento de copia de seguridad gratuito. El almacenamiento consumido para copias de seguridad que supere los 250 GB se cobra según el [modelo de precios](https://azure.microsoft.com/pricing/details/mysql/).
 
-Puede usar la métrica  [Almacenamiento de copia de seguridad utilizado](https://docs.microsoft.com/azure/mysql/concepts-monitoring) en Azure Monitor disponible en Azure Portal para supervisar el almacenamiento de copia de seguridad que consume un servidor. La métrica **Almacenamiento de copia de seguridad utilizado** representa la suma del almacenamiento que consumen todas las copias de seguridad de base de datos y las copias de seguridad de registros, que se conservan en función del período de retención de copia de seguridad establecido para el servidor. Una gran actividad transaccional en el servidor puede hacer que el uso del almacenamiento de copia de seguridad aumente, independientemente del tamaño total de la base de datos.
+Puede usar la métrica [Almacenamiento de copia de seguridad utilizado](../concepts-monitoring.md) en Azure Monitor disponible en Azure Portal para supervisar el almacenamiento de copia de seguridad que usa un servidor. La métrica **Almacenamiento de copia de seguridad utilizado** representa la suma del almacenamiento que consumen todas las copias de seguridad de base de datos y las copias de seguridad de registros, que se conservan en función del período de retención de copia de seguridad establecido para el servidor. Una gran actividad transaccional en el servidor puede hacer que el uso del almacenamiento de copia de seguridad aumente, independientemente del tamaño total de la base de datos.
 
 El medio principal para controlar el costo de almacenamiento de la copia de seguridad es establecer el período de retención de la copia de seguridad adecuado. Puede seleccionar un período de retención de 1 a 35 días.
 
@@ -68,8 +68,8 @@ La restauración a un momento dado es útil en diversos escenarios. Algunos de l
 
 Puede elegir entre el último punto de restauración y un punto de restauración personalizado a través de [Azure Portal](how-to-restore-server-portal.md).
 
--   **Último punto de restauración**: el último punto de restauración ayuda a restaurar el servidor a la última copia de seguridad realizada en el servidor de origen. La marca de tiempo para la restauración también se mostrará en el portal. Esta opción es útil para restaurar rápidamente el servidor al estado más actualizado.
--   **Personalizar el punto de restauración**: esto le permitirá elegir cualquier momento dentro del período de retención definido para este servidor flexible. Esta opción es útil para restaurar el servidor en el momento preciso de recuperación de un error de usuario.
+-   **Último punto de restauración** : el último punto de restauración ayuda a restaurar el servidor a la última copia de seguridad realizada en el servidor de origen. La marca de tiempo para la restauración también se mostrará en el portal. Esta opción es útil para restaurar rápidamente el servidor al estado más actualizado.
+-   **Personalizar el punto de restauración** : esto le permitirá elegir cualquier momento dentro del período de retención definido para este servidor flexible. Esta opción es útil para restaurar el servidor en el momento preciso de recuperación de un error de usuario.
 
 El tiempo estimado de recuperación depende de varios factores, entre los que se incluyen los tamaños de las bases de datos, el tamaño de la copia de seguridad del registro de transacciones, el tamaño de proceso de la SKU y la hora de la restauración. La recuperación del registro de transacciones es la parte más lenta del proceso de restauración. Si el momento de la restauración se elige más próximo a la programación de la copia de seguridad de instantáneas completa o diferencial, las restauraciones son más rápidas, ya que la aplicación del registro de transacciones es mínima. A fin de calcular el tiempo de recuperación preciso para el servidor, es muy recomendable probarla en el entorno, ya que tiene demasiadas variables específicas de entorno.
 
@@ -77,11 +77,11 @@ El tiempo estimado de recuperación depende de varios factores, entre los que se
 > Si va a restaurar un servidor flexible configurado con alta disponibilidad con redundancia de zona, el servidor restaurado se configurará en la misma región y zona que el servidor principal, y se implementará como un único servidor flexible en un modo sin alta disponibilidad. Consulte [alta disponibilidad con redundancia de zona](concepts-high-availability.md) para un servidor flexible.
 
 > [!IMPORTANT]
-> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los  [bloqueos de administración](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="perform-post-restore-tasks"></a>Tareas posteriores a la restauración
 
-Cuando efectúe la restauración con el mecanismo de recuperación **último punto de restauración** o **punto de restauración personalizado**, deberá realizar las tareas siguientes para que los usuarios y las aplicaciones vuelvan a conectarse:
+Cuando efectúe la restauración con el mecanismo de recuperación **último punto de restauración** o **punto de restauración personalizado** , deberá realizar las tareas siguientes para que los usuarios y las aplicaciones vuelvan a conectarse:
 
 -   Si el servidor nuevo está destinado a reemplazar al servidor original, redirija a los clientes y las aplicaciones cliente al servidor nuevo.
 -   Asegúrese de aplicar reglas de red virtual y de firewall de nivel de servidor adecuadas para que se conecten los usuarios.
@@ -91,5 +91,5 @@ Cuando efectúe la restauración con el mecanismo de recuperación **último pun
 ## <a name="next-steps"></a>Pasos siguientes
 
 -   Más información sobre la [continuidad empresarial](./concepts-business-continuity.md)
--   Más información sobre la  [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
+-   Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
 -   Más información sobre [copia de seguridad y recuperación](./concepts-backup-restore.md)

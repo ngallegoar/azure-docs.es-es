@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: eff512c9d050eb293391233848fcece83e845680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fceef1fa9f79ead0ffbbfd7de17b21b750659fc9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654198"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370243"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimización de la máquina virtual Linux en Azure
 Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -22,16 +22,16 @@ Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos
 En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([suscripción de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y ya ha aprovisionado una VM en su suscripción de Azure. Asegúrese de que dispone de la [CLI de Azure](/cli/azure/install-az-cli2) más reciente instalada y de que ha iniciado sesión en su suscripción de Azure con [az login](/cli/azure/reference-index) antes de [crear una máquina virtual](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disco de sistema operativo de Azure
-Al crear la VM Linux en Azure, tiene dos discos asociados a ella. **/dev/sda** es el disco del SO y **/dev/sdb** es el disco temporal.  No utilice el disco del SO principal ( **/dev/sda**) salvo para el mismo sistema operativo, ya que se ha optimizado para un tiempo de arranque rápido de la VM y no proporcionará un buen rendimiento para sus cargas de trabajo. Querrá conectar uno o más discos a la VM con el fin de obtener un almacenamiento optimizado y persistente para sus datos. 
+Al crear la VM Linux en Azure, tiene dos discos asociados a ella. **/dev/sda** es el disco del SO y **/dev/sdb** es el disco temporal.  No utilice el disco del SO principal ( **/dev/sda** ) salvo para el mismo sistema operativo, ya que se ha optimizado para un tiempo de arranque rápido de la VM y no proporcionará un buen rendimiento para sus cargas de trabajo. Querrá conectar uno o más discos a la VM con el fin de obtener un almacenamiento optimizado y persistente para sus datos. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Adición de discos para objetivos de rendimiento y tamaño
 En función del tamaño de la VM, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 32 TB de tamaño. Agregue discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para Standard Storage y de hasta 20 000 IOPS por disco para Premium Storage.
 
-Para alcanzar el máximo valor de IOPS en los discos de Premium Storage con la configuración de caché como **ReadOnly** o **None**, debe deshabilitar las **barreras** al montar el sistema de archivos en Linux. No necesita las barreras porque las escrituras en los discos de Premium Storage de copia de seguridad son duraderas para esta configuración de caché.
+Para alcanzar el máximo valor de IOPS en los discos de Premium Storage con la configuración de caché como **ReadOnly** o **None** , debe deshabilitar las **barreras** al montar el sistema de archivos en Linux. No necesita las barreras porque las escrituras en los discos de Premium Storage de copia de seguridad son duraderas para esta configuración de caché.
 
-* Si utiliza **reiserFS**, deshabilite las barreras mediante la opción de montaje `barrier=none` (para habilitar las barreras, use `barrier=flush`)
-* Si utiliza **ext3/ext4**, deshabilite las barreras mediante la opción de montaje `barrier=0` (para habilitar las barreras, use `barrier=1`)
-* Si utiliza **XFS**, deshabilite las barreras mediante la opción de montaje `nobarrier` (para habilitar las barreras, use la opción `barrier`)
+* Si utiliza **reiserFS** , deshabilite las barreras mediante la opción de montaje `barrier=none` (para habilitar las barreras, use `barrier=flush`)
+* Si utiliza **ext3/ext4** , deshabilite las barreras mediante la opción de montaje `barrier=0` (para habilitar las barreras, use `barrier=1`)
+* Si utiliza **XFS** , deshabilite las barreras mediante la opción de montaje `nobarrier` (para habilitar las barreras, use la opción `barrier`)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Consideraciones de la cuenta de almacenamiento no administrada
 La acción predeterminada al crear una máquina virtual con la CLI de Azure consiste en usar Azure Managed Disks.  Estos discos se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento.  Los discos no administrados requieren una cuenta de almacenamiento y tienen algunas consideraciones de rendimiento adicionales.  Para más información acerca de los discos administrados, consulte [Azure Managed Disks overview](../managed-disks-overview.md) (Introducción a los discos administrados de Azure).  En la siguiente sección se describen consideraciones de rendimiento solo cuando se usan discos no administrados.  Una vez más, la solución de almacenamiento predeterminada y recomendada consiste en utilizar discos administrados.
@@ -42,12 +42,43 @@ Al tratar con cargas de trabajo de IOPS elevadas y de haber elegido Standard Sto
  
 
 ## <a name="your-vm-temporary-drive"></a>Su unidad temporal de máquina virtual
-De forma predeterminada, cuando se crea una VM, Azure proporciona un disco de SO ( **/dev/sda**) y un disco temporal ( **/dev/sdb**).  Todos los discos adicionales que se agreguen se mostrarán como **/dev/sdc**, **/dev/sdd**, **/dev/sde**, etc. Todos los datos del disco temporal ( **/dev/sdb**) no son duraderos y se pueden perder si eventos específicos, como el cambio de tamaño de la VM, la reimplementación o el mantenimiento, fuerzan un reinicio de la VM.  El tamaño y el tipo de disco temporal está relacionado con el tamaño de memoria virtual que seleccionó en el momento de la implementación. En todas las VM de tamaño premium (series DS, G y DS_V2) se realizará una copia de seguridad de la unidad temporal en una unidad SSD local para obtener un rendimiento adicional de hasta 48 000 IOPS. 
+De forma predeterminada, cuando se crea una VM, Azure proporciona un disco de SO ( **/dev/sda** ) y un disco temporal ( **/dev/sdb** ).  Todos los discos adicionales que se agreguen se mostrarán como **/dev/sdc** , **/dev/sdd** , **/dev/sde** , etc. Todos los datos del disco temporal ( **/dev/sdb** ) no son duraderos y se pueden perder si eventos específicos, como el cambio de tamaño de la VM, la reimplementación o el mantenimiento, fuerzan un reinicio de la VM.  El tamaño y el tipo de disco temporal está relacionado con el tamaño de memoria virtual que seleccionó en el momento de la implementación. En todas las VM de tamaño premium (series DS, G y DS_V2) se realizará una copia de seguridad de la unidad temporal en una unidad SSD local para obtener un rendimiento adicional de hasta 48 000 IOPS. 
 
 ## <a name="linux-swap-partition"></a>Partición de intercambio de Linux
 Si la VM de Azure procede de una imagen de Ubuntu o CoreOS, puede usar CustomData para enviar una cloud-config a cloud-init. Si [cargó una imagen personalizada de Linux](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que usa cloud-init, configure también particiones de intercambio mediante cloud-init.
 
-En las imágenes de nube de Ubuntu, debe usar cloud-init para configurar la partición de intercambio. Para más información, consulte [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+No se puede usar el archivo **/etc/waagent.conf** para administrar el intercambio de todas las imágenes aprovisionadas y admitidas por cloud-init. Para obtener la lista completa de imágenes, consulte [Uso de cloud-init](using-cloud-init.md). 
+
+La forma más fácil de administrar el intercambio para estas imágenes es completar estos pasos:
+
+1. En la carpeta **/var/lib/cloud/scripts/per-boot** , cree un archivo denominado **create_swapfile.sh** :
+
+   **$ sudo touch /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+1. Agregue las líneas siguientes al archivo:
+
+   **$ sudo vi /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+   ```
+   #!/bin/sh
+   if [ ! -f '/mnt/swapfile' ]; then
+   fallocate --length 2GiB /mnt/swapfile
+   chmod 600 /mnt/swapfile
+   mkswap /mnt/swapfile
+   swapon /mnt/swapfile
+   swapon -a ; fi
+   ```
+
+   > [!NOTE]
+   > Puede cambiar el valor según sus necesidades y según el espacio disponible en el disco de recursos, que varía en función del tamaño de la VM que se esté usando.
+
+1. Conversión del archivo en ejecutable:
+
+   **$ sudo chmod +x /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+1. Para crear el archivo de intercambio, ejecute el script inmediatamente después del último paso:
+
+   **$ sudo /var/lib/cloud/scripts/per-boot/./create_swapfile.sh**
 
 En el caso de las imágenes sin compatibilidad con cloud-init, las imágenes de máquina virtual implementadas desde Azure Marketplace tienen un agente Linux de máquina virtual integrado con el sistema operativo. Este agente permite que la máquina virtual interactúe con diversos servicios de Azure. Suponiendo que ha implementado una imagen estándar desde Azure Marketplace, deberá hacer lo siguiente para configurar correctamente los valores del archivo de intercambio de Linux:
 
@@ -58,7 +89,7 @@ Para habilitar un disco habilitado correctamente y un archivo de intercambio mon
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={tamaño en MB que satisfaga sus requisitos} 
 
-Una vez haya realizado el cambio, debe reiniciar waagent o la VM Linux con el fin de reflejar dichos cambios.  Sabrá que se han implementado los cambios y que se ha creado un archivo de intercambio cuando use el comando `free` para ver el espacio libre. En el ejemplo siguiente tiene un archivo de intercambio de 512 MB creado como resultado de modificar el archivo **waagent.conf**:
+Una vez haya realizado el cambio, debe reiniciar waagent o la VM Linux con el fin de reflejar dichos cambios.  Sabrá que se han implementado los cambios y que se ha creado un archivo de intercambio cuando use el comando `free` para ver el espacio libre. En el ejemplo siguiente tiene un archivo de intercambio de 512 MB creado como resultado de modificar el archivo **waagent.conf** :
 
 ```bash
 azuseruser@myVM:~$ free

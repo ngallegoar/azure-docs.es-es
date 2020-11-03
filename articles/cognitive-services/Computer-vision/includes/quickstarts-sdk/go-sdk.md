@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: d0e677377037203a6a67150d985efb30e09af86e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e415e0979e7f45531093993b0524a1bb556d339b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321872"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886741"
 ---
 <a name="HOLTop"></a>
 
@@ -43,9 +43,9 @@ cd my-app
 
 El área de trabajo contendrá tres carpetas:
 
-* **src**: este directorio contendrá código fuente y paquetes. Todos los paquetes instalados con el comando `go get` se encontrarán en este directorio.
-* **pkg**: este directorio contendrá objetos de paquete de Go compilados. Todos estos archivos tienen la extensión `.a`.
-* **bin**: este directorio contendrá los archivos ejecutables binarios que se crean al ejecutar `go install`.
+* **src** : este directorio contendrá código fuente y paquetes. Todos los paquetes instalados con el comando `go get` se encontrarán en este directorio.
+* **pkg** : este directorio contendrá objetos de paquete de Go compilados. Todos estos archivos tienen la extensión `.a`.
+* **bin** : este directorio contendrá los archivos ejecutables binarios que se crean al ejecutar `go install`.
 
 > [!TIP]
 > Para más información sobre la estructura de un área de trabajo de Go, consulte la [documentación del lenguaje Go](https://golang.org/doc/code.html#Workspaces). En esta guía se incluye información para establecer `$GOPATH` y `$GOROOT`.
@@ -121,8 +121,8 @@ Guarde primero una referencia a la dirección URL de la imagen que desee analiza
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_url)]
 
-> [!NOTE]
-> También puede analizar una imagen local. Consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) para ver los escenarios que implican imágenes locales.
+> [!TIP]
+> También puede analizar una imagen local. Consulte los métodos [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient), como **DescribeImageInStream**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) para escenarios relacionados con imágenes locales.
 
 ### <a name="specify-visual-features"></a>Especificación de características visuales
 
@@ -210,8 +210,8 @@ Agregue la referencia de imagen de ejemplo y la llamada de función a la funció
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_readinmain)]
 
-> [!NOTE]
-> También puede extraer texto de una imagen local. Consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) para ver los escenarios que implican imágenes locales.
+> [!TIP]
+> También puede extraer texto de una imagen local. Consulte los métodos [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient), como **BatchReadFileInStream**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) para escenarios relacionados con imágenes locales.
 
 ### <a name="call-the-read-api"></a>Llamada a la API Read
 

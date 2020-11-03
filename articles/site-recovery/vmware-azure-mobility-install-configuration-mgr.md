@@ -5,12 +5,12 @@ author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
-ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2159ab8c2639f0f87fd53e8559dad518a3daa663
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77252234"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544824"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatización de la instalación del servicio Mobility
 
@@ -18,9 +18,9 @@ En este artículo se explica cómo automatizar la instalación y las actualizaci
 
 Al implementar Site Recovery para la recuperación ante desastres de máquinas virtuales de VMware locales y servidores físicos en Azure, se instala el agente del servicio Mobility en cada máquina que se quiere replicar. El servicio Mobility captura las escrituras de datos en la máquina y las reenvía al servidor de procesos de Site Recovery para su replicación. Puede implementar el servicio Mobility de varias maneras:
 
-- **Instalación de inserción**: Deje que Site Recovery instale el agente del servicio Mobility cuando habilite la replicación para una máquina en Azure Portal.
-- **Instalación manual**: Instale el servicio Mobility manualmente en cada máquina. [Obtenga más información](vmware-physical-mobility-service-overview.md) acerca de la instalación de inserción y manual.
-- **Implementación automatizada**: Automatice la instalación con herramientas de implementación de software, como Microsoft Endpoint Configuration Manager, o herramientas de terceros, como JetPatch.
+- **Instalación de inserción** : Deje que Site Recovery instale el agente del servicio Mobility cuando habilite la replicación para una máquina en Azure Portal.
+- **Instalación manual** : Instale el servicio Mobility manualmente en cada máquina. [Obtenga más información](vmware-physical-mobility-service-overview.md) acerca de la instalación de inserción y manual.
+- **Implementación automatizada** : Automatice la instalación con herramientas de implementación de software, como Microsoft Endpoint Configuration Manager, o herramientas de terceros, como JetPatch.
 
 La instalación y actualización automatizadas proporcionan una solución si:
 
@@ -78,7 +78,7 @@ En la tabla siguiente se resumen las herramientas y los procesos necesarios para
 1. Copie estos archivos de instalación en el recurso compartido de red:
 
    - En Windows, copie _Microsoft-ASR_UA_version_Windows_GA_date_Release.exe_ en _MobSvcWindows_.
-   - En Linux, copie los siguientes archivos en _MobSvcLinux_:
+   - En Linux, copie los siguientes archivos en _MobSvcLinux_ :
      - _Microsoft-ASR_UARHEL6-64release.tar.gz_
      - _Microsoft-ASR_UARHEL7-64release.tar.gz_
      - _Microsoft-ASR_UASLES11-SP3-64release.tar.gz_
@@ -342,15 +342,15 @@ cd /tmp
 1. Haga clic con el botón derecho en **Paquetes** > **Crear paquete**.
 1. Proporcione los detalles del paquete, incluyendo el nombre, descripción, fabricante, lenguaje y versión.
 1. Seleccione **Este paquete contiene archivos de origen**.
-1. Haga clic en **Examinar** y seleccione el recurso compartido de red y la carpeta que contiene el instalador correspondiente (_MobSvcWindows_ o _MobSvcLinux_). Después, seleccione **Siguiente**.
+1. Haga clic en **Examinar** y seleccione el recurso compartido de red y la carpeta que contiene el instalador correspondiente ( _MobSvcWindows_ o _MobSvcLinux_ ). Después, seleccione **Siguiente**.
 
    ![Captura de pantalla del Asistente para crear paquetes y programas](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-1. En la página **Elija el tipo de programa que desea crear**, seleccione **Programa estándar** > **Siguiente**.
+1. En la página **Elija el tipo de programa que desea crear** , seleccione **Programa estándar** > **Siguiente**.
 
-   ![Captura de pantalla del Asistente para crear paquetes y programas](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Captura de pantalla del Asistente para crear paquetes y programas en la que se muestra la opción Programa estándar.](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
-1. En la página **Especifique la información sobre este programa estándar**, especifique los valores siguientes:
+1. En la página **Especifique la información sobre este programa estándar** , especifique los valores siguientes:
 
     **Parámetro** | **Valor de Windows** | **Valor de Linux**
     --- | --- | ---
@@ -359,9 +359,9 @@ cd /tmp
     **El programa se puede ejecutar** | Tanto si un usuario inició sesión como si no | Tanto si un usuario inició sesión como si no
     **Otros parámetros** | Usar el valor predeterminado | Usar el valor predeterminado
 
-   ![Captura de pantalla del Asistente para crear paquetes y programas](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
+   ![Captura de pantalla en la que se muestra la información que se puede especificar para el programa estándar.](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
-1. En **Especifique los requisitos para este programa estándar**, haga las siguientes tareas:
+1. En **Especifique los requisitos para este programa estándar** , haga las siguientes tareas:
 
    - Para máquinas con Windows, seleccione **Este programa solo puede ejecutarse en las plataformas especificadas**. Luego seleccione los [sistemas operativos Windows compatibles](vmware-physical-azure-support-matrix.md#replicated-machines) y después **Siguiente**.
    - Para máquinas con Linux, seleccione **Este programa puede ejecutarse en cualquier plataforma**. Luego, seleccione **Siguiente**.
@@ -378,20 +378,20 @@ cd /tmp
 1. Finalice el asistente. El paquete comienza a replicarse en los puntos de distribución especificados.
 1. Cuando la distribución del paquete finalice, haga clic con el botón derecho en el paquete > **Implementar**.
 
-   ![Captura de pantalla de la consola de Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
+   ![Captura de pantalla de la consola de Configuration Manager en la que se muestra la opción de menú Implementar.](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 
 1. Seleccione la colección de dispositivos Windows o Linux que creó anteriormente.
-1. En la página **Especifique el destino del contenido**, seleccione **Puntos de distribución**.
-1. En la página **Especificar configuración para controlar cómo se implementará este software**, defina **Propósito** como **Requerido**.
+1. En la página **Especifique el destino del contenido** , seleccione **Puntos de distribución**.
+1. En la página **Especificar configuración para controlar cómo se implementará este software** , defina **Propósito** como **Requerido**.
 
    ![Captura de pantalla del Asistente para implementar software](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-1. En **Especifique la programación de esta implementación**, configure una programación. [Más información](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched).
+1. En **Especifique la programación de esta implementación** , configure una programación. [Más información](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched).
 
    - El servicio Mobility se instala de acuerdo con la programación que especifique.
    - Para evitar los reinicios innecesarios, programe la instalación del paquete durante la ventana de mantenimiento mensual o la ventana de actualizaciones de software.
 
-1. En la página **Puntos de distribución**, configure las opciones y finalice el asistente.
+1. En la página **Puntos de distribución** , configure las opciones y finalice el asistente.
 1. Puede supervisar el progreso de la implementación en la consola de Configuration Manager. Vaya a **Supervisión** > **Implementaciones** >  _\<your package name\>_ .
 
 ### <a name="uninstall-the-mobility-service"></a>Desinstalación del servicio Mobility

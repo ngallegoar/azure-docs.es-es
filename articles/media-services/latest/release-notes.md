@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 87d26e18ff97416ff8cb0eda08f7beb81005c627
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015709"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791603"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -37,6 +37,25 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 > Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) y trabajos de la versión 3, obtener información sobre el acceso a las API y cifrar contenido. Para las tareas de administración restantes (por ejemplo, la administración de transformaciones y trabajos), use la [API REST](/rest/api/media/accountfilters), la [CLI](/cli/azure/ams), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 >
 > Para más detalles, consulte [las limitaciones de Azure Portal para Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
+
+## <a name="october-2020"></a>Octubre de 2020
+
+### <a name="basic-audio-analysis"></a>Análisis de audio básico
+El valor preestablecido del análisis de audio ahora incluye un plan de tarifa de modo básico. El nuevo modo básico del analizador de audio ofrece una opción de bajo costo para extraer transcripciones de voz y dar formato a los subtítulos y CC resultantes. Este modo realiza la transcripción de voz a texto y la generación de un archivo de subtítulos VTT. La salida de este modo incluye un archivo JSON de información, que incluye solo las palabras clave, la transcripción y la información de tiempo. La detección automática de idioma y la diarización de los altavoces no se incluyen en este modo. Consulte la lista de [idiomas admitidos](analyzing-video-audio-files-concept.md#built-in-presets).
+
+Los clientes que usan el indexador v1 y el indexador v2 deben migrar al valor preestablecido de análisis de audio básico.
+
+Para obtener más información acerca del modo básico del analizador de audio, consulte [Análisis de archivos de audio y vídeo](analyzing-video-audio-files-concept.md).  Para aprender a usar el modo básico del analizador de audio con la API REST, consulte [Creación de una transformación de audio básica](how-to-create-basic-audio-transform.md).
+
+## <a name="live-events"></a>Eventos en vivo
+
+Ahora puede actualizar la mayoría de las propiedades cuando se detienen los eventos en directo. Además, los usuarios pueden especificar un prefijo para el nombre de host estático de las direcciones URL de entrada y versión preliminar del evento activo. VanityUrl ahora se llama `useStaticHostName`, para reflejar mejor la intención de la propiedad.
+
+Los eventos en directo ahora tienen un estado StandBy.  Consulte [Eventos en directo y salidas activas en Media Services](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept).
+
+Un evento en directo permite recibir varias relaciones de aspecto de entrada. El modo de ajuste permite a los clientes especificar el comportamiento de ajuste de la salida.
+
+La codificación en directo ahora agrega la capacidad de generar fragmentos de intervalo con fotogramas clave fijos de entre 0,5 y 20 segundos.
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -335,9 +354,9 @@ Se han introducido las siguientes mejoras:
 
 El nuevo objeto **Transform** simplifica el modelo de codificación. El nuevo objeto facilita la creación y el uso compartido de la codificación de plantillas y valores preestablecidos de Resource Manager. 
 
-#### <a name="azure-active-directory-authentication-and-rbac"></a>Autenticación y RBAC de Azure Active Directory
+#### <a name="azure-active-directory-authentication-and-azure-rbac"></a>Autenticación de Azure Active Directory y Azure RBAC
 
-El control de acceso basado en rol (RBAC) y la autenticación de Azure AD habilitan transformaciones seguras, objetos LiveEvent, directivas de clave de contenido o recursos por rol o usuarios en Azure AD.
+El control de acceso basado en rol de Azure (Azure RBAC) y la autenticación de Azure AD habilitan transformaciones seguras, objetos LiveEvent, directivas de clave de contenido o recursos por rol o usuarios en Azure AD.
 
 #### <a name="client-sdks"></a>SDK de cliente  
 

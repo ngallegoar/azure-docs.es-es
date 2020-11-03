@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654266"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785619"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migración a recursos compartidos de archivos de Azure
 
@@ -35,10 +35,10 @@ La clave de cualquier migración es capturar toda la fidelidad aplicable de los 
 Los dos componentes básicos de un archivo son los siguientes:
 
 - **Flujo de datos** El flujo de datos de un archivo almacena el contenido del archivo.
-- **Metadatos del archivo**: Los metadatos del archivo tienen estos subcomponentes:
+- **Metadatos del archivo** : Los metadatos del archivo tienen estos subcomponentes:
    * Atributos de archivo, como solo lectura
    * Permisos del archivo, que se conocen como *permisos NTFS* o *ACL de archivos y carpetas*
-   * Marcas de tiempo, en particular, las marcas de tiempo de creación y última modificación
+   * Marcas de tiempo; en particular, las marcas de tiempo de creación y última modificación
    * Flujo de datos alternativo, que es un espacio para almacenar grandes cantidades de propiedades no estándar.
 
 La fidelidad de los archivos en una migración se puede definir como la capacidad de:
@@ -111,7 +111,7 @@ Existen varias herramientas de copia de archivos disponibles de Microsoft y otra
 
     La primera vez que se ejecuta la herramienta, copia la mayor parte de los datos. Puede que esta primera ejecución tarde un rato. A menudo tarda más tiempo del que le gustaría para dejar sin conexión el origen de datos de sus procesos empresariales.
 
-    Si crea un reflejo de un origen en un destino (por ejemplo, con **robocopy /MIR**), puede volver a ejecutar la herramienta en ese mismo origen y destino. La ejecución es mucho más rápida porque solo necesita transportar los cambios del origen que se producen después de la ejecución anterior. Volver a ejecutar una herramienta de copia de esta manera puede reducir significativamente el tiempo de inactividad.
+    Si crea un reflejo de un origen en un destino (por ejemplo, con **robocopy /MIR** ), puede volver a ejecutar la herramienta en ese mismo origen y destino. La ejecución es mucho más rápida porque solo necesita transportar los cambios del origen que se producen después de la ejecución anterior. Volver a ejecutar una herramienta de copia de esta manera puede reducir significativamente el tiempo de inactividad.
 
 En la tabla siguiente se clasifican las herramientas de Microsoft y su idoneidad actual para los recursos compartidos de archivos de Azure:
 
@@ -121,7 +121,7 @@ En la tabla siguiente se clasifican las herramientas de Microsoft y su idoneidad
 |![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Integrado de forma nativa en recursos compartidos de archivos de Azure. | Fidelidad completa* |
 |![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Servicio de migración de almacenamiento | Indirectamente compatible. Los recursos compartidos de archivos de Azure se pueden montar como unidades de red en servidores de destino de SMS. | Fidelidad completa* |
 |![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, versión 10.4 o posteriores| Compatible. | Fidelidad completa* |
-|![No es totalmente recomendable.](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Compatible. | No copia los metadatos. [Data Box se puede usar con Azure File Sync](storage-sync-offline-data-transfer.md). |
+|![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Compatible. | DataBox ahora es totalmente compatible con los metadatos. [Data Box también se puede usar junto con Azure File Sync](storage-sync-offline-data-transfer.md). |
 |![No es totalmente recomendable.](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Explorador de Azure Storage, versión 1.14 | Compatible. | No copia las ACL. Admite marcas de tiempo.  |
 |![No recomendado](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Compatible. | No copia los metadatos. |
 |||||

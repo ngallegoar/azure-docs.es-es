@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9189be5f2f513cd27fe8783d6a1825aac016522c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987487"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677740"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalación TmaxSoft OpenFrame en Azure
 
@@ -126,7 +126,7 @@ Puede configurar el entorno OpenFrame con diversos patrones de implementación. 
 
     ![Opción para agregar en Azure Portal](media/vm-02.png)
 
-4. A la derecha de **Sistemas operativos**, haga clic en **Más**.
+4. A la derecha de **Sistemas operativos** , haga clic en **Más**.
 
      ![Opción Más en Azure Portal](media/vm-03.png)
 
@@ -134,12 +134,12 @@ Puede configurar el entorno OpenFrame con diversos patrones de implementación. 
 
      ![Opciones de sistema operativo en Azure Portal](media/vm-04.png)
 
-6. En la configuración de **Basics**, rellene los campos **Nombre**, **Nombre de usuario**, **Tipo de autenticación**, **Suscripción** (pago por uso es el tipo de pago de AWS) y **Grupo de recursos** (use uno existente o cree un grupo de TmaxSoft).
+6. En la configuración de **Basics** , rellene los campos **Nombre** , **Nombre de usuario** , **Tipo de autenticación** , **Suscripción** (pago por uso es el tipo de pago de AWS) y **Grupo de recursos** (use uno existente o cree un grupo de TmaxSoft).
 
-7. Cuando haya terminado (incluyendo el par de claves pública y privada para **Tipo de autenticación**), haga clic en **Enviar**.
+7. Cuando haya terminado (incluyendo el par de claves pública y privada para **Tipo de autenticación** ), haga clic en **Enviar**.
 
 > [!NOTE]
-> Si utiliza una clave pública SSH para **Tipo de autenticación**, consulte los pasos descritos en la sección siguiente para generar el par de claves pública y privada y luego reanude los pasos siguientes.
+> Si utiliza una clave pública SSH para **Tipo de autenticación** , consulte los pasos descritos en la sección siguiente para generar el par de claves pública y privada y luego reanude los pasos siguientes.
 
 ### <a name="generate-a-publicprivate-key-pair"></a>Generación de un par de claves públicas y privadas
 
@@ -164,7 +164,7 @@ Al proporcionar acceso a la máquina virtual a nuevos individuos:
 
 3.  Haga clic en **Generar**.
 
-    ![Cuadro de diálogo del generador de claves PuTTY](media/puttygen-02.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo del generador de claves PuTTy y resalta el botón Generar.](media/puttygen-02.png)
 
 4.  Después de la generación, guarde la clave pública y la privada. Pegue el contenido de la clave pública en la sección **SSH public key** (Clave pública SSH) del panel **Create virtual machine \> Basics** (Crear máquina virtual > Aspectos básicos), como se muestra en los pasos 6 y 7 de la sección anterior.
 
@@ -172,7 +172,7 @@ Al proporcionar acceso a la máquina virtual a nuevos individuos:
 
 ### <a name="configure-vm-features"></a>Configuración de características de la máquina virtual
 
-1. En Azure Portal, en la hoja **Elegir un tamaño**, elija la configuración de hardware de la máquina Linux que desee. Los requisitos *mínimos* para instalar Tibero y OpenFrame son 2 CPU y 4 GB de RAM, tal como se muestra en esta instalación de ejemplo:
+1. En Azure Portal, en la hoja **Elegir un tamaño** , elija la configuración de hardware de la máquina Linux que desee. Los requisitos *mínimos* para instalar Tibero y OpenFrame son 2 CPU y 4 GB de RAM, tal como se muestra en esta instalación de ejemplo:
 
     ![Creación de una máquina virtual: aspectos básicos](media/create-vm-01.png)
 
@@ -191,7 +191,7 @@ Al proporcionar acceso a la máquina virtual a nuevos individuos:
 
 7. En **Host name** (Nombre de host), escriba su nombre de usuario y la dirección IP pública que ha copiado. Por ejemplo, **nombreusuario\@ippública**.
 
-    ![Cuadro de diálogo de configuración de PuTTY](media/putty-01.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo de configuración de PuTTy y resalta el campo Nombre de host (o Dirección IP).](media/putty-01.png)
 
 8. En el cuadro **Category** (Categoría), haga clic en **Connection\> SSH \> Auth** (Conexión > SSH > Autenticación). Proporcione la ruta de acceso a su archivo de **clave privada**.
 
@@ -855,7 +855,7 @@ TACF Manager es un módulo de servicio de OpenFrame que controla el acceso de l
      [oframe7\@ofdemo \~]\$ tmadmin
      ```
 
-     En la columna **estado**, aparece RDY:
+     En la columna **estado** , aparece RDY:
 
     ![RDY en la columna de estado](media/tmboot-02.png)
 

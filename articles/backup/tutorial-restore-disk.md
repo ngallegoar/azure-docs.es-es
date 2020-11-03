@@ -3,13 +3,13 @@ title: 'Tutorial: Restauración de una máquina virtual con la CLI de Azure'
 description: Obtenga información acerca de cómo restaurar un disco y crear una máquina virtual recuperada en Azure con Backup and Recovery Services.
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.custom: mvc
-ms.openlocfilehash: 861c911e84c9de02467d443751902e71d2504422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2d8ce7ab6d5a3ab244d0292ffe52847f18ea8795
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325001"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746740"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restauración de una máquina virtual con la CLI de Azure
 
@@ -74,7 +74,7 @@ Si la máquina virtual con copia de seguridad tiene discos administrados y la in
         --sku Standard_LRS
     ```
 
-2. Restaure el disco desde el punto de recuperación con [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Reemplace *mystorageaccount* por el nombre de la cuenta de almacenamiento que creó en el comando anterior. Reemplace *myRecoveryPointName* por el nombre del punto de recuperación que obtuvo en la salida del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) anterior. ***También debe proporcionar el grupo de recursos de destino donde se van a restaurar los discos administrados***.
+2. Restaure el disco desde el punto de recuperación con [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Reemplace *mystorageaccount* por el nombre de la cuenta de almacenamiento que creó en el comando anterior. Reemplace *myRecoveryPointName* por el nombre del punto de recuperación que obtuvo en la salida del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) anterior. ***Proporcione también el grupo de recursos de destino donde se van a restaurar los discos administrados**.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -88,7 +88,7 @@ Si la máquina virtual con copia de seguridad tiene discos administrados y la in
     ```
 
     > [!WARNING]
-    > Si no se proporciona el parámetro **target-resource-group**, los discos administrados se restaurarán como discos no administrados en la cuenta de almacenamiento especificada. Esto tendrá consecuencias significativas en el tiempo de restauración, ya que el tiempo que se tarda en restaurar los discos por completo depende de la cuenta de almacenamiento especificada. Obtendrá la ventaja de la restauración instantánea solo cuando se proporcione el parámetro target-resource-group. Si la intención es restaurar los discos administrados como no administrados, no proporcione el parámetro **target-resource-group** y, en su lugar, use el parámetro **restore-as-unmanaged-disk**, como se muestra a continuación. Este parámetro está disponible desde az 3.4.0 en adelante.
+    > Si no se proporciona el parámetro *target-resource-group* , los discos administrados se restaurarán como discos no administrados en la cuenta de almacenamiento especificada. Esto tendrá consecuencias significativas en el tiempo de restauración, ya que el tiempo que se tarda en restaurar los discos por completo depende de la cuenta de almacenamiento especificada. Obtendrá la ventaja de la restauración instantánea solo cuando se proporcione el parámetro target-resource-group. Si la intención es restaurar los discos administrados como no administrados, no proporcione el parámetro **target-resource-group** y, en su lugar, use el parámetro **restore-as-unmanaged-disk** , como se muestra a continuación. Este parámetro está disponible desde az 3.4.0 en adelante.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -154,7 +154,7 @@ az backup job list \
     --output table
 ```
 
-El resultado es similar al ejemplo siguiente, que muestra que el estado del trabajo de restauración es *InProgress*:
+El resultado es similar al ejemplo siguiente, que muestra que el estado del trabajo de restauración es *InProgress* :
 
 ```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -164,7 +164,7 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Cuando el valor de *Estado* del trabajo de restauración es *Completado*, la información necesaria (configuración de la máquina virtual y la plantilla de implementación) se ha restaurado en la cuenta de almacenamiento.
+Cuando el valor de *Estado* del trabajo de restauración es *Completado* , la información necesaria (configuración de la máquina virtual y la plantilla de implementación) se ha restaurado en la cuenta de almacenamiento.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Crear una máquina virtual a partir del disco restaurado
 

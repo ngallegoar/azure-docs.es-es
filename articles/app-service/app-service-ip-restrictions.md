@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 61ccc0231989589836e00088b9ca03d0cb49baca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168229"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790957"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restricciones de acceso de Azure App Service
 
@@ -24,13 +24,17 @@ Cuando se realiza una solicitud a la aplicación, la dirección de origen se eva
 
 La funcionalidad de restricciones de acceso se implementa en los roles front-end de App Service, que son de nivel superior de los hosts de trabajo donde el código se ejecuta. Por lo tanto, las restricciones de acceso son listas de control de acceso de red de facto.
 
-La capacidad de restringir el acceso a la aplicación web desde una instancia de Azure Virtual Network (red virtual) se denomina [puntos de conexión de servicio][serviceendpoints]. Los puntos de conexión de servicio permiten restringir el acceso de un servicio multiinquilino de las subredes seleccionadas. Se debe habilitar tanto en el lado de la red como en el servicio con el que se está habilitando. No funciona para restringir el tráfico a aplicaciones hospedadas en un App Service Environment. Si está en un App Service Environment, puede controlar el acceso a la aplicación con reglas de direcciones IP.
+La capacidad de restringir el acceso a la aplicación web desde una instancia de Azure Virtual Network (red virtual) se denomina [puntos de conexión de servicio][serviceendpoints]. Los puntos de conexión de servicio permiten restringir el acceso de un servicio multiinquilino de las subredes seleccionadas. No funciona para restringir el tráfico a aplicaciones hospedadas en un App Service Environment. Si está en un App Service Environment, puede controlar el acceso a la aplicación con reglas de direcciones IP.
+
+> [!NOTE]
+> Los puntos de conexión de servicio se deben habilitar tanto en el lado de la red como en el servicio de Azure con el que se están habilitando. Para obtener una lista de los servicios de Azure que admiten puntos de conexión de servicio, consulte [Puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
+>
 
 ![Flujo de restricciones de acceso](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Incorporación y edición de reglas de restricciones de acceso en el portal ##
 
-Para agregar una regla de restricción de acceso a la aplicación, use el menú para abrir **Red**>**Restricciones de acceso** y haga clic en **Configurar restricciones de acceso** .
+Para agregar una regla de restricción de acceso a la aplicación, use el menú para abrir **Red**>**Restricciones de acceso** y haga clic en **Configurar restricciones de acceso**.
 
 ![Opciones de red de App Service](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -61,7 +65,8 @@ Los puntos de conexión de servicio no se pueden usar para restringir el acceso 
 Si se usan puntos de conexión de servicio, la aplicación se puede configurar con Application Gateway u otros dispositivos de WAF. También se pueden configurar aplicaciones de varios niveles con back-ends seguros. Para más información sobre algunas de las posibilidades, lea [Características de redes de App Service](networking-features.md) e [Integración de Application Gateway con puntos de conexión de servicio](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
-> Actualmente no se admiten puntos de conexión de servicio para las aplicaciones web que usan IP virtual (VIP) con SSL de IP. 
+> - Actualmente no se admiten puntos de conexión de servicio para las aplicaciones web que usan IP virtual (VIP) con SSL de IP.
+> - Hay un límite de 512 filas de restricciones de IP o punto de conexión de servicio. Si necesita más de 512 filas de restricciones, se recomienda consultar un producto de seguridad independiente, como Azure Front Door, Azure Application Gateway o una instancia de Web Application Firewall (WAF).
 >
 
 ## <a name="managing-access-restriction-rules"></a>Administración de reglas de restricción de acceso
@@ -74,13 +79,13 @@ Al editar una regla, no se puede cambiar el tipo entre una regla de dirección I
 
 ![Captura de pantalla del cuadro de diálogo para editar restricción de IP en Azure Portal que muestra la configuración de una regla de red virtual.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-Para eliminar una regla, haga clic en los puntos suspensivos **...** en la regla y, a continuación, haga clic en **Quitar** .
+Para eliminar una regla, haga clic en los puntos suspensivos **...** en la regla y, a continuación, haga clic en **Quitar**.
 
 ![Eliminación de una regla de restricción de acceso](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
 ## <a name="blocking-a-single-ip-address"></a>Bloqueo de una única dirección IP ##
 
-Al agregar la primera regla de restricción de IP, el servicio agregará una regla **Denegar todo** explícita con una prioridad de 2147483647. En la práctica, la regla explícita **Denegar todo** será la última regla que se ejecute y bloqueará el acceso a cualquier dirección IP que no esté expresamente permitida mediante una regla **Permitir** .
+Al agregar la primera regla de restricción de IP, el servicio agregará una regla **Denegar todo** explícita con una prioridad de 2147483647. En la práctica, la regla explícita **Denegar todo** será la última regla que se ejecute y bloqueará el acceso a cualquier dirección IP que no esté expresamente permitida mediante una regla **Permitir**.
 
 En situaciones en las que los usuarios quieran bloquear expresamente una única dirección IP o un bloque de direcciones IP, pero permitir el acceso a todo lo demás, será necesario agregar la regla **Permitir todo** explícita.
 

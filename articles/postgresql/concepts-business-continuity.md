@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 5fb82c6098352076307f71eee022074a247e3cd9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939875"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629347"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL con un único servidor
 
@@ -29,9 +29,9 @@ En la tabla siguiente se comparan el RTO y el RPO en un escenario típico:
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Restauración a un momento dado a partir de una copia de seguridad | Cualquier punto de restauración dentro del período de retención | Cualquier punto de restauración dentro del período de retención | Cualquier punto de restauración dentro del período de retención |
 | Restauración geográfica de las copias de seguridad con replicación geográfica | No compatible | RTO: varía <br/>RPO < 1 hora | RTO: varía <br/>RPO < 1 hora |
-| Réplicas de lectura | RTO: minutos <br/>RPO < 5 minutos* | RTO: minutos <br/>RPO < 5 minutos*| RTO: minutos <br/>RPO < 5 minutos*|
+| Réplicas de lectura | RTO: minutos* <br/>RPO < 5 minutos* | RTO: minutos* <br/>RPO < 5 minutos*| RTO: minutos* <br/>RPO < 5 minutos*|
 
-\* El RPO puede ser superior en algunos casos, en función de varios factores, como la carga de trabajo de la base de datos principal y la latencia entre regiones. 
+\* El RTO y el RPO pueden ser muy superiores en algunos casos, en función de varios factores, como la carga de trabajo de la base de datos principal y la latencia entre regiones. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperación de un servidor tras un error del usuario o la aplicación
 

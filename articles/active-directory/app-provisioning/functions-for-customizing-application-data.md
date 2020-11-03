@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 14e3b23b4246f26e1ac59e0b12b043341546d0a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperfq2
+ms.openlocfilehash: 4c37923b0955652a0627808b19762095c18bdedc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018250"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737662"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referencia para la escritura de expresiones para la asignación de atributos en Azure AD
 
@@ -376,7 +377,7 @@ devuelve “Joh”.
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |String |Normalmente el nombre del atributo. |
 | **start** |Obligatorio |integer |Índice de la cadena de **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
-| **length** |Obligatorio |integer |Longitud de la subcadena. Si length acaba fuera de la cadena de **source**, la función devolverá una subcadena desde el índice de **start** hasta el final de la cadena de **source**. |
+| **length** |Obligatorio |integer |Longitud de la subcadena. Si length acaba fuera de la cadena de **source** , la función devolverá una subcadena desde el índice de **start** hasta el final de la cadena de **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -414,7 +415,7 @@ devuelve “Joh”.
 | --- | --- | --- | --- |
 | **value** |Obligatorio | String | Cadena de fecha y hora en el formato admitido. Para conocer los formatos admitidos, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
-**Ejemplo**:
+**Ejemplo** :
 * Ejemplo de Workday. Suponiendo que desee asignar el atributo *ContractEndDate* desde WorkDay, que tiene el formato *2020-12-31-08:00* al campo *accountExpires* en AD, aquí se muestra cómo puede usar esta función y cambiar el desplazamiento de zona horaria para que coincida con la configuración regional. 
   `NumFromDate(Join("", FormatDateTime([ContractEndDate], "yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
 
@@ -441,21 +442,21 @@ devuelve “Joh”.
 ### <a name="replace"></a>Replace
 **Función:** Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
-**Descripción:** Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo de los parámetros proporcionados:
+**Descripción:** Reemplaza los valores de una cadena de manera que distinga entre mayúsculas y minúsculas. La función se comporta de forma diferente según los parámetros proporcionados:
 
-* Cuando se proporcionan **oldValue** y **replacementValue**:
+* Cuando se proporcionan **oldValue** y **replacementValue** :
   
   * Reemplaza todas las ocurrencias de **oldValue** en el **origen** por **replacementValue**
-* Cuando se proporcionan **oldValue** y **template**:
+* Cuando se proporcionan **oldValue** y **template** :
   
   * Reemplaza todas las ocurrencias de **oldValue** en **template** por el valor de **source**
-* Cuando se proporcionan **regexPattern** y **replacementValue**:
+* Cuando se proporcionan **regexPattern** y **replacementValue** :
 
-  * La función aplica **regexPattern** a la cadena de **source**, y usted puede usar los nombres de grupo regex para construir la cadena para **replacementValue**
-* Cuando se proporcionan **regexPattern**, **regexGroupName** y **replacementValue**:
+  * La función aplica **regexPattern** a la cadena de **source** , y usted puede usar los nombres de grupo regex para construir la cadena para **replacementValue**
+* Cuando se proporcionan **regexPattern** , **regexGroupName** y **replacementValue** :
   
   * La función aplica **regexPattern** a la cadena de **source** y reemplaza todos los valores que coinciden con **regexGroupName** por **replacementValue**
-* Cuando se proporcionan **regexPattern**, **regexGroupName** y **replacementAttributeName**:
+* Cuando se proporcionan **regexPattern** , **regexGroupName** y **replacementAttributeName** :
   
   * Si **source** no tiene un valor, se devuelve **source**.
   * Si **source** tiene un valor, la función aplica **regexPattern** a la cadena de **source** y reemplaza todos los valores coincidentes de **regexGroupName** por el valor asociado con **replacementAttributeName**
@@ -466,11 +467,11 @@ devuelve “Joh”.
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto **source**. |
 | **oldValue** |Opcional |String |Valor que se va a reemplazar en **source** o **template**. |
-| **regexPattern** |Opcional |String |Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se usa **replacementPropertyName**, patrón para extraer el valor de la propiedad **replacementPropertyName**. |
-| **regexGroupName** |Opcional |String |Nombre del grupo dentro de **regexPattern**. Solo cuando se usa **replacementPropertyName**, extraeremos el valor de este grupo como **replacementValue** de **replacementPropertyName**. |
+| **regexPattern** |Opcional |String |Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se usa **replacementPropertyName** , patrón para extraer el valor de la propiedad **replacementPropertyName**. |
+| **regexGroupName** |Opcional |String |Nombre del grupo dentro de **regexPattern**. Solo cuando se usa **replacementPropertyName** , extraeremos el valor de este grupo como **replacementValue** de **replacementPropertyName**. |
 | **replacementValue** |Opcional |String |Nuevo valor para  reemplazar uno anterior. |
 | **replacementAttributeName** |Opcional |String |Nombre del atributo que se usará para el valor de reemplazo |
-| **template** |Opcional |String |Cuando se proporcione el valor de **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de **source**. |
+| **template** |Opcional |String |Cuando se proporcione el valor de **template** , buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de **source**. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -533,7 +534,7 @@ devuelve “Joh”.
 ### <a name="switch"></a>Switch
 **Función:**  Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Descripción:** Cuando el valor de **source** coincide con una **key**, devuelve el **value** de dicha **key**. Si el valor de **source** no coincide con ninguna clave, devuelve **defaultValue**.  Los parámetros **key** y **value** siempre deben estar emparejados. La función espera siempre un número par de parámetros. La función no se debe usar para atributos referenciales, como manager. 
+**Descripción:** Cuando el valor de **source** coincide con una **key** , devuelve el **value** de dicha **key**. Si el valor de **source** no coincide con ninguna clave, devuelve **defaultValue**.  Los parámetros **key** y **value** siempre deben estar emparejados. La función espera siempre un número par de parámetros. La función no se debe usar para atributos referenciales, como manager. 
 
 **Parámetros:** 
 
@@ -555,7 +556,7 @@ devuelve “Joh”.
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen |
-| **referencia cultural** |Opcional |String |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
+| **referencia cultural** |Opcional |String |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2* , donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -568,7 +569,7 @@ devuelve “Joh”.
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen. |
-| **referencia cultural** |Opcional |String |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
+| **referencia cultural** |Opcional |String |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2* , donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
 
 ---
 ### <a name="word"></a>Word
@@ -609,7 +610,7 @@ Debe seccionar un nombre de dominio conocido de correo electrónico de un usuari
 **Ejemplo de entrada y salida:** 
 
 * **ENTRADA** (mail): "john.doe@contoso.com"
-* **SALIDA**: "john.doe"
+* **SALIDA** : "john.doe"
 
 ### <a name="append-constant-suffix-to-user-name"></a>Anexar sufijos constantes a nombres de usuario
 Si está utilizando un espacio aislado de Salesforce, deberá anexar un sufijo adicional a los nombres de usuario antes de sincronizarlas.
@@ -619,8 +620,8 @@ Si está utilizando un espacio aislado de Salesforce, deberá anexar un sufijo a
 
 **Entrada/salida de ejemplo:** 
 
-* **ENTRADA**: (userPrincipalName): "John.Doe@contoso.com"
-* **ENTRADA**:  "John.Doe@contoso.com.test"
+* **ENTRADA** : (userPrincipalName): "John.Doe@contoso.com"
+* **ENTRADA** :  "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generar el alias de usuario concatenando partes de nombre y apellidos
 Debe generar un alias de usuario con las tres primeras letras del nombre del usuario y las cinco primeras letras del apellido del usuario.
@@ -632,7 +633,7 @@ Debe generar un alias de usuario con las tres primeras letras del nombre del usu
 
 * **INPUT** (givenName): "John"
 * **INPUT** (surname): "Doe"
-* **OUTPUT**:  "JohnDoe"
+* **OUTPUT** :  "JohnDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Quitar los signos diacríticos de una cadena
 Necesita reemplazar caracteres que contienen acentos por otros equivalentes que no los contienen.
@@ -642,7 +643,7 @@ Necesita reemplazar caracteres que contienen acentos por otros equivalentes que 
 **Entrada/salida de ejemplo:** 
 
 * **INPUT** (givenName): "Zoë"
-* **OUTPUT**:  "Zoe"
+* **OUTPUT** :  "Zoe"
 
 ### <a name="split-a-string-into-a-multi-valued-array"></a>Dividir una cadena en una matriz con varios valores
 Debe tomar una lista de cadenas delimitada con comas y dividir esas cadenas en una matriz que se pueda conectar a un atributo de varios valores, como el atributo PermissionSets de Salesforce. En este ejemplo, una lista de conjuntos de permisos se ha rellenado en extensionAttribute5 en Azure AD.
@@ -652,7 +653,7 @@ Debe tomar una lista de cadenas delimitada con comas y dividir esas cadenas en u
 **Entrada/salida de ejemplo:** 
 
 * **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
-* **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
+* **OUTPUT** :  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Fecha de resultado como una cadena en un formato determinado
 Desea enviar las fechas a una aplicación SaaS con un formato determinado. Por ejemplo, desea dar formato a las fechas de ServiceNow.
@@ -664,7 +665,7 @@ Desea enviar las fechas a una aplicación SaaS con un formato determinado. Por e
 **Entrada/salida de ejemplo:**
 
 * **INPUT** (extensionAttribute1): "20150123105347.1Z"
-* **OUTPUT**:  "2015-01-23"
+* **OUTPUT** :  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Reemplazar un valor basado en un conjunto predefinido de opciones
 
@@ -676,7 +677,7 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 **Entrada/salida de ejemplo:**
 
 * **INPUT** (state): "QLD"
-* **OUTPUT**: "Australia/Brisbane"
+* **OUTPUT** : "Australia/Brisbane"
 
 ### <a name="replace-characters-using-a-regular-expression"></a>Reemplazar los caracteres con una expresión regular
 Debe buscar los caracteres que coincidan con un valor de expresión regular y quitarlos.
@@ -688,7 +689,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 **Entrada/salida de ejemplo:**
 
 * **INPUT** (mailNickname: "john_doe72"
-* **OUTPUT**: "72"
+* **OUTPUT** : "72"
 
 ### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Conversión del valor generado de userPrincipalName (UPN) a minúsculas
 En el ejemplo siguiente, el valor de UPN se genera mediante la concatenación de los campos de origen PreferredFirstName y PreferredLastName, y la función ToLower opera en la cadena generada para convertir todos los caracteres a minúsculas. 
@@ -699,7 +700,7 @@ En el ejemplo siguiente, el valor de UPN se genera mediante la concatenación de
 
 * **INPUT** (PreferredFirstName): "John"
 * **INPUT** (PreferredLastName): "Smith"
-* **OUTPUT**: "john.smith@contoso.com"
+* **OUTPUT** : "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generación de un valor único para el atributo userPrincipalName (UPN)
 Según el nombre del usuario, el segundo nombre y el apellido, deberá generar un valor para el atributo UPN y comprobar su unicidad en el directorio de AD de destino antes de asignar el valor al atributo UPN.
@@ -718,9 +719,9 @@ Según el nombre del usuario, el segundo nombre y el apellido, deberá generar u
 
 * **INPUT** (PreferredFirstName): "John"
 * **INPUT** (PreferredLastName): "Smith"
-* **OUTPUT**: "John.Smith@contoso.com" si el valor de UPN John.Smith@contoso.com no existe aún en el directorio
-* **OUTPUT**: "J.Smith@contoso.com" si el valor de UPN John.Smith@contoso.com ya existe en el directorio
-* **OUTPUT**: "Jo.Smith@contoso.com" si los dos valores de UPN anteriores ya existen en el directorio
+* **OUTPUT** : "John.Smith@contoso.com" si el valor de UPN John.Smith@contoso.com no existe aún en el directorio
+* **OUTPUT** : "J.Smith@contoso.com" si el valor de UPN John.Smith@contoso.com ya existe en el directorio
+* **OUTPUT** : "Jo.Smith@contoso.com" si los dos valores de UPN anteriores ya existen en el directorio
 
 ### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Proporciona el valor de correo si no es NULL; de lo contrario, proporciona userPrincipalName
 Desea proporcionar el atributo de correo si está presente. Si no es así, desea proporcionar el valor de userPrincipalName en su lugar.
@@ -731,8 +732,8 @@ Desea proporcionar el atributo de correo si está presente. Si no es así, desea
 **Entrada/salida de ejemplo:** 
 
 * **ENTRADA** (mail): NULL
-* **ENTRADA**: (userPrincipalName): "John.Doe@contoso.com"
-* **ENTRADA**:  "John.Doe@contoso.com"
+* **ENTRADA** : (userPrincipalName): "John.Doe@contoso.com"
+* **ENTRADA** :  "John.Doe@contoso.com"
 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md)

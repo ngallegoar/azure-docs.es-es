@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448194"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893410"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -39,6 +39,9 @@ Esta extensión funciona con los dos modelos de implementación de Azure.
 ## <a name="installing-the-extension-in-your-vm"></a>Instalación de la extensión en la máquina virtual
 
 Puede habilitar esta extensión mediante cmdlets de Azure PowerShell, scripts de la CLI de Azure, plantillas de ARM o Azure Portal. Para obtener más información, consulte [Funciones de la extensión](features-linux.md).
+
+>[!NOTE]
+>Algunos componentes de la extensión de máquina virtual de Diagnostics también se incluyen en la [extensión de máquina virtual de Log Analytics](./oms-linux.md). Debido a esta arquitectura, se pueden producir conflictos si se crean instancias de las dos extensiones en la misma plantilla de ARM. Para evitar estos conflictos en tiempo de instalación, use la [directiva `dependsOn`](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) para asegurarse de que las extensiones se instalan de forma secuencial. Las extensiones se pueden instalar en cualquier orden.
 
 Mediante estas instrucciones de instalación y una [configuración de ejemplo descargable](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) se configura LAD 3.0 para:
 
@@ -578,7 +581,7 @@ TransfersPerSecond | Operaciones de lectura o escritura por segundo
 
 Los valores agregados de todos los archivos del sistema pueden obtenerse estableciendo `"condition": "IsAggregate=True"`. Los valores para un sistema de archivos montado específico, como "/mnt", pueden obtenerse estableciendo `"condition": 'Name="/mnt"'`. 
 
-**NOTA**: Si usa Azure Portal en lugar de JSON, el formato correcto para el campo de condición es Name="/mnt".
+**NOTA** : Si usa Azure Portal en lugar de JSON, el formato correcto para el campo de condición es Name="/mnt".
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>Métricas builtin para la clase Disk
 

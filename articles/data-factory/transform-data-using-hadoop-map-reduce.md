@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 48afff71d4b5241ede1783a270658e56e4b8c242
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7685c2075b371ce22930b14187c27bcb0879c962
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83849253"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632029"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hadoop MapReduce en Azure Data Factory
 
@@ -69,7 +69,7 @@ Consulte [Pig](transform-data-using-hadoop-pig.md) y [Hive](transform-data-using
 | type              | Para la actividad MapReduce, el tipo de actividad es HDinsightMapReduce. | Sí      |
 | linkedServiceName | Referencia al clúster de HDInsight registrado como servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
 | className         | Nombre de la clase que se va a ejecutar         | Sí      |
-| jarLinkedService  | Referencia a un servicio vinculado de Azure Storage que se usa para almacenar los archivos Jar. En este caso solo se admiten servicios vinculados a **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** y **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** . Si no se especifica este servicio vinculado, se usará el servicio vinculado de Azure Storage definido en el servicio vinculado de HDInsight. | No       |
+| jarLinkedService  | Referencia a un servicio vinculado de Azure Storage que se usa para almacenar los archivos Jar. En este caso solo se admiten servicios vinculados a **[Azure Blob Storage](./connector-azure-blob-storage.md)** y **[ADLS Gen2](./connector-azure-data-lake-storage.md)** . Si no se especifica este servicio vinculado, se usará el servicio vinculado de Azure Storage definido en el servicio vinculado de HDInsight. | No       |
 | jarFilePath       | Proporcione la ruta de acceso a los archivos Jar almacenados en el almacenamiento de Azure Storage al que hace referencia jarLinkedService. El nombre del archivo distingue mayúsculas de minúsculas. | Sí      |
 | jarlibs           | Matriz de cadenas de la ruta de acceso a los archivos de la biblioteca Jar a la que hace referencia el trabajo almacenado en el almacenamiento de Azure Storage definido en jarLinkedService. El nombre del archivo distingue mayúsculas de minúsculas. | No       |
 | getDebugInfo      | Especifica si se copian los archivos de registro en el almacenamiento de Azure Storage que usa el clúster de HDInsight o que está especificado por jarLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | No       |
@@ -123,5 +123,5 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
-* [Actividad de ejecución de Batch de Machine Learning](transform-data-using-machine-learning.md)
+* [Actividad de ejecución de lotes de Estudio de Azure Machine Learning (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

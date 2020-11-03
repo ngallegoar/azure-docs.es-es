@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/06/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: ceb33a747b987898668e315518c3ba7a2b02efcc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aad1be52ae05573d565d960d914dafdf824a4de9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989427"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886745"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -135,11 +135,11 @@ En un nuevo método, cree una instancia de un cliente con la clave y el punto de
 
 ### <a name="declare-helper-fields"></a>Declaración de campos auxiliares
 
-Los siguientes campos son necesarios para algunas de las operaciones de Face que agregará más adelante. En la raíz de la clase **Program**, defina la siguiente cadena de dirección URL. Esta dirección URL señala a una carpeta de imágenes de ejemplo.
+Los siguientes campos son necesarios para algunas de las operaciones de Face que agregará más adelante. En la raíz de la clase **Program** , defina la siguiente cadena de dirección URL. Esta dirección URL señala a una carpeta de imágenes de ejemplo.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_image_url)]
 
-En el método **Main**, defina cadenas que apunten a los diferentes tipos de modelos de reconocimiento. Más adelante, podrá especificar qué modelo de reconocimiento desea usar para la detección de caras. Consulte [Especificación de un modelo de reconocimiento](../../Face-API-How-to-Topics/specify-recognition-model.md) para información sobre estas opciones.
+En el método **Main** , defina cadenas que apunten a los diferentes tipos de modelos de reconocimiento. Más adelante, podrá especificar qué modelo de reconocimiento desea usar para la detección de caras. Consulte [Especificación de un modelo de reconocimiento](../../Face-API-How-to-Topics/specify-recognition-model.md) para información sobre estas opciones.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_models)]
 
@@ -150,6 +150,9 @@ En el método **Main**, defina cadenas que apunten a los diferentes tipos de mod
 Cree un método para detectar caras. El método `DetectFaceExtract` procesa tres de las imágenes en la dirección URL especificada y crea una lista de objetos **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** en la memoria del programa. La lista de valores **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** especifica qué rasgos se van a extraer. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
+
+> [!TIP]
+> También puede detectar caras en una imagen local. Consulte los métodos [IFaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet), como **DetectWithStreamAsync**.
 
 ### <a name="display-detected-face-data"></a>Visualización de los datos faciales detectados
 
@@ -181,7 +184,7 @@ El siguiente código imprime los detalles coincidentes en la consola:
 
 ## <a name="identify-a-face"></a>Identificar una cara
 
-La operación de identificación toma una imagen de una persona (o de varias) y busca la identidad de cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto **PersonGroup**, una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen. Para realizar la operación de identificación, primero debe crear y entrenar un objeto **PersonGroup**.
+La operación de identificación toma una imagen de una persona (o de varias) y busca la identidad de cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto **PersonGroup** , una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen. Para realizar la operación de identificación, primero debe crear y entrenar un objeto **PersonGroup**.
 
 ### <a name="create-a-person-group"></a>Creación de un grupo de personas
 
@@ -200,6 +203,9 @@ Tenga en cuenta que este código define una variable `sourceImageFileName`. Esta
 A continuación, agregue el código siguiente para crear un objeto **Person** para cada persona del diccionario y agregar los datos de la imagen a partir de las imágenes adecuadas. Cada objeto **Person** se asocia con el mismo objeto  **PersonGroup** mediante su cadena de identificador único. Recuerde pasar las variables `client`, `url` y `RECOGNITION_MODEL1` en este método.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
+
+> [!TIP]
+> También puede crear una clase **PersonGroup** a partir de imágenes locales. Consulte los métodos [IPersonGroupPerson](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet), como **AddFaceFromStreamAsync**.
 
 ### <a name="train-the-persongroup"></a>Entrenamiento del elemento PersonGroup
 

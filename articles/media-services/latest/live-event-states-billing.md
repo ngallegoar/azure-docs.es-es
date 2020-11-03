@@ -1,6 +1,6 @@
 ---
-title: Estados y facturación de LiveEvent en Azure Media Services | Microsoft Docs
-description: En este tema se proporciona información general sobre los estados y facturación de LiveEvent en Azure Media Services.
+title: Estados y facturación de eventos en directo en Azure Media Services | Microsoft Docs
+description: En este tema se proporciona información general sobre los estados y facturación de los eventos en directo en Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -11,39 +11,41 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1b058eefe22238b60c3482c55b5ae340f4e597f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d3d3f5c56bd42aeb148c19fefebc0e7d364cd1c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296743"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782372"
 ---
-# <a name="live-event-states-and-billing"></a>Estados y facturación de LiveEvent
+# <a name="live-event-states-and-billing"></a>Estados y facturación de eventos en directo
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-En Azure Media Services, un objeto LiveEvent comienza la facturación tan pronto como su estado realiza la transición a **En ejecución**. Se le facturará incluso si no hay ningún flujo de vídeo a través del servicio. Para detener la facturación del objeto LiveEvent, debe pararlo. El objeto LiveTranscription se factura igual que el objeto LiveEvent.
+En Azure Media Services, un evento en directo comienza la facturación tan pronto como su estado realiza la transición a **En ejecución** o **En espera**. Se le facturará incluso si no hay ningún flujo de vídeo a través del servicio. Para detener la facturación del evento en directo, debe pararlo. La transcripción en directo se factura igual que el evento en directo.
 
-Si **LiveEventEncodingType** en el objeto [LiveEvent](/rest/api/media/liveevents) está establecido en Estándar o Premium1080p, Media Services cerrará automáticamente cualquier objeto LiveEvent que tenga aún el estado **En ejecución** doce horas después de que se pierda la fuente de entrada y si no hay ningún objeto **LiveOutput** en ejecución. Sin embargo, se le facturará por el tiempo que el objeto LiveEvent haya estado en estado **En ejecución**.
+Si **LiveEventEncodingType** en el [evento en directo](/rest/api/media/liveevents) está establecido en Estándar o Premium1080p, Media Services cerrará automáticamente cualquier evento en directo que tenga aún el estado **En ejecución** doce horas después de que se pierda la fuente de entrada y si no hay ninguna **salida en directo** en ejecución. Sin embargo, se le facturará por el tiempo que el evento en directo haya estado en el estado **En ejecución**.
 
 > [!NOTE]
-> Los eventos en directo de paso a través no se cierran automáticamente y se deben detener explícitamente a través de la API para evitar una facturación excesiva. 
+> Los eventos en directo de tránsito no se cierran automáticamente y se deben detener explícitamente a través de la API para evitar una facturación excesiva.
 
 ## <a name="states"></a>States
 
-LiveEvent puede estar en uno de los siguientes estados.
+El evento en directo puede estar en uno de los siguientes estados.
 
 |State|Descripción|
 |---|---|
-|**Stopped**| Este es el estado inicial del objeto LiveEvent después de su creación (a menos que haya establecido el inicio automático en true). No se produce ninguna facturación en este estado. En este estado, se pueden actualizar las propiedades del objeto LiveEvent pero no se permite el streaming.|
-|**Starting** (iniciándose)| Se inicia LiveEvent y se asignan los recursos. No se produce ninguna facturación en este estado. Durante este estado no se permite realizar actualizaciones ni streaming. Si se produce un error, el objeto LiveEvent vuelve al estado Detenido.|
-|**Ejecución**| Se han asignado los recursos de LiveEvent, se han generado las direcciones URL de ingesta y visualización previa y puede recibir transmisiones en vivo. En este momento, la facturación está activa. Debe llamar explícitamente a Stop en el recurso del objeto LiveEvent para evitar que continúe la facturación.|
-|**Stopping** (Deteniéndose)| Se detiene LiveEvent y se desaprovisionan los recursos. No se produce facturación en este estado transitorio. Durante este estado no se permite realizar actualizaciones ni streaming.|
-|**Eliminando**| El objeto LiveEvent se está eliminando. No se produce facturación en este estado transitorio. Durante este estado no se permite realizar actualizaciones ni streaming.|
+|**Stopped**| Este es el estado inicial del evento en directo después de su creación (a menos que haya establecido el inicio automático en true). No se produce ninguna facturación en este estado. El evento en directo no puede recibir ninguna entrada. |
+|**Starting** (iniciándose)| El evento en directo se está iniciando y los recursos se están asignando. No se produce ninguna facturación en este estado.  Si se produce un error, el evento en directo vuelve al estado Detenido.|
+| **Asignando** | Se llamó a la acción de asignación en el evento en directo y los recursos se están aprovisionando para este. Una vez que esta operación se realiza correctamente, el evento en directo cambia al estado En espera.
+|**En espera**| Los recursos de eventos en directo se han aprovisionado y el evento está listo para iniciarse. La facturación comienza en este estado.  La mayoría de las propiedades todavía se pueden actualizar, pero no se permite la ingesta ni la transmisión durante este estado.
+|**Ejecución**| Se han asignado los recursos del evento en directo, se han generado las direcciones URL de ingesta y visualización previa y puede recibir transmisiones en vivo. En este momento, la facturación está activa. Debe llamar explícitamente a Stop en el recurso del evento en directo para evitar que continúe la facturación.|
+|**Stopping** (Deteniéndose)| El evento en directo se detendrá y los recursos se desaprovisionarán. No se produce facturación en este estado transitorio. |
+|**Eliminando**| El evento en directo se eliminará. No se produce facturación en este estado transitorio. |
 
-Al crear el objeto LiveEvent puede elegir habilitar LiveTranscriptions. Si lo hace, se le facturará el objeto LiveTranscriptions cuando el objeto LiveEvent se encuentre en estado **En ejecución**. Tenga en cuenta que se le facturará aunque no haya ningún flujo de audio a través del objeto LiveEvent.
+Al crear el evento en directo puede elegir habilitar las transcripciones en directo. Si lo hace, se le facturarán las transcripciones en directo cuando el evento en directo se encuentre en el estado **En ejecución**. Tenga en cuenta que se le facturará aunque no haya ningún flujo de audio a través del evento en directo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

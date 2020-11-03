@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842876"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744724"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Vista previa: Aplicación de revisiones automáticas a invitados de las máquinas virtuales Windows en Azure
 
@@ -80,17 +80,20 @@ Las máquinas virtuales Windows en Azure admiten ahora los siguientes modos de o
 
 **AutomaticByPlatform:**
 - Este modo habilita la aplicación de revisiones automáticas a invitados de máquina virtual Windows y Azure orquesta la instalación posterior de la revisión.
+- Este modo es necesario para la revisión de la disponibilidad en primer lugar.
 - Al establecer este modo, también se deshabilitan las actualizaciones automáticas nativas en la máquina virtual Windows para evitar la duplicación.
 - Este modo solo se admite para las máquinas virtuales que se crean mediante las imágenes de plataforma de sistema operativo compatibles indicadas antes.
 - Para usar este modo, establezca la propiedad `osProfile.windowsConfiguration.enableAutomaticUpdates=true` y luego la propiedad `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` en la plantilla de máquina virtual.
 
 **AutomaticByOS:**
 - Este modo habilita las actualizaciones automáticas en la máquina virtual Windows y se instalan las revisiones en la máquina virtual a través de actualizaciones automáticas.
+- Este modo no admite la revisión de la disponibilidad en primer lugar.
 - Este modo se establece de forma predeterminada si no se especifica ningún otro modo de revisión.
 - Para usar este modo, establezca la propiedad `osProfile.windowsConfiguration.enableAutomaticUpdates=true` y luego la propiedad `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` en la plantilla de máquina virtual.
 
 **Manual:**
 - Este modo deshabilita las actualizaciones automáticas en la máquina virtual Windows.
+- Este modo no admite la revisión de la disponibilidad en primer lugar.
 - Este modo se debe establecer cuando se usan soluciones personalizadas de aplicación de revisiones.
 - Para usar este modo, establezca la propiedad `osProfile.windowsConfiguration.enableAutomaticUpdates=false` y luego la propiedad `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` en la plantilla de máquina virtual.
 
@@ -196,7 +199,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Use [az vm create](/cli/azure/vm#az-vm-create) para habilitar la aplicación de revisiones automáticas a invitados de máquina virtual al crear una nueva máquina virtual. En el ejemplo siguiente se configura la aplicación de revisiones automáticas a invitados de una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
+Use [az vm create](/cli/azure/vm#az-vm-create) para habilitar la aplicación de revisiones automáticas a invitados de máquina virtual al crear una nueva máquina virtual. En el ejemplo siguiente se configura la aplicación de revisiones automáticas a invitados de una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup* :
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform

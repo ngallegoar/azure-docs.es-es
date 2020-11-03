@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f729828627fdb0be18f220d34227aac756ed4e13
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296930"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: Integración de Azure Active Directory con XaitPorter
 
@@ -27,7 +27,7 @@ La integración de XaitPorter con Azure AD proporciona las siguientes ventajas:
 * Puede permitir que los usuarios inicien sesión automáticamente en XaitPorter (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -61,7 +61,7 @@ Para configurar la integración de XaitPorter en Azure AD, debe agregar XaitPort
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **XaitPorter**, seleccione **XaitPorter** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **XaitPorter** , seleccione **XaitPorter** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![XaitPorter en la lista de resultados](common/search-new-app.png)
 
@@ -85,30 +85,30 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con XaitPorter, realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **XaitPorter**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **XaitPorter** , haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos:
+4. En la sección **Configuración básica de SAML** , siga estos pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de XaitPorter](common/sp-identifier.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.xaitporter.com/saml/login`
+    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<subdomain>.xaitporter.com/saml/login`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<subdomain>.xaitporter.com`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de XaitPorter](https://www.xait.com/support/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
@@ -128,15 +128,15 @@ Para configurar el inicio de sesión único de Azure AD con XaitPorter, realice 
 
 4. Haga clic en **Admin** (Administrador).
 
-    ![Configurar inicio de sesión único](./media/xaitporter-tutorial/user1.png)
+    ![Captura de pantalla que muestra la opción Admin (Administrador) seleccionada en el sitio de XaitPorter.](./media/xaitporter-tutorial/user1.png)
 
 5. Seleccione **Manage Single Sign-On** (Administrar inicio de sesión único) desde la lista desplegable **System Setup** (Configuración del sistema).
 
-    ![Configurar inicio de sesión único](./media/xaitporter-tutorial/user2.png)
+    ![Captura de pantalla que muestra la opción Manage Single Sign-On (Administrar el inicio de sesión único [Single Sign-on, SSO]) seleccionada en System Setup (Configuración del sistema).](./media/xaitporter-tutorial/user2.png)
 
 6. En la sección **MANAGE SINGLE SIGN-ON** (Administrar inicio de sesión único), lleve a cabo los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/xaitporter-tutorial/user3.png)
+    ![Captura de pantalla que muestra la sección MANAGE SINGLE SIGN-ON (ADMINISTRAR EL INICIO DE SESIÓN ÚNICO [SINGE SIGN-ON, SSO]), donde puede realizar estos pasos.](./media/xaitporter-tutorial/user3.png)
 
     a. Seleccione **Enable Single Sign-On Authentication** (Habilitar autenticación de inicio de sesión único).
 
@@ -150,7 +150,7 @@ Para configurar el inicio de sesión único de Azure AD con XaitPorter, realice 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -162,9 +162,9 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre** , escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario** , escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
@@ -174,7 +174,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a XaitPorter.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **XaitPorter**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** , **XaitPorter**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -190,11 +190,11 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
 
 ### <a name="create-xaitporter-test-user"></a>Creación de un usuario de prueba de XaitPorter
 
@@ -204,12 +204,12 @@ En esta sección, creará un usuario llamado Britta Simon en XaitPorter. Trabaje
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de XaitPorter en el panel de acceso y debería iniciar sesión automáticamente en la versión de XaitPorter para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de XaitPorter en el panel de acceso y debería iniciar sesión automáticamente en la versión de XaitPorter para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

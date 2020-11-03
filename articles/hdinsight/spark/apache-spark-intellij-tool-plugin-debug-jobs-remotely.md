@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
-ms.openlocfilehash: 7ec49ee4f07aff6e9b9f9d6fc43e37742d7e163a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afe92351fe82a4e07665789c2ed4d4631be8731f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085130"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547459"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Uso del Kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones de Apache Spark en HDInsight mediante VPN
 
-Se recomienda depurar las aplicaciones de [Apache Spark](https://spark.apache.org/) de forma remota mediante SSH. Para obtener instrucciones, consulte [Depuración de aplicaciones de Apache Spark de forma remota en un clúster de HDInsight con el kit de herramientas de Azure para IntelliJ mediante SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Se recomienda depurar las aplicaciones de [Apache Spark](https://spark.apache.org/) de forma remota mediante SSH. Para obtener instrucciones, consulte [Depuración de aplicaciones de Apache Spark de forma remota en un clúster de HDInsight con el kit de herramientas de Azure para IntelliJ mediante SSH](./apache-spark-intellij-tool-debug-remotely-through-ssh.md).
 
 En este artículo se proporcionan instrucciones paso a paso para usar las herramientas de HDInsight del Kit de herramientas de Azure para IntelliJ para enviar un trabajo de Spark en un clúster de HDInsight Spark y luego depurarlo de forma remota desde el equipo de escritorio. Para llevar a cabo estas tareas, debe realizar los siguientes pasos generales:
 
@@ -31,9 +31,9 @@ En este artículo se proporcionan instrucciones paso a paso para usar las herram
 
 * **Una suscripción de Azure**. Para más información, vea [Obtener una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un clúster de Apache Spark en HDInsight**. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
-* **Kit de desarrollo de Oracle Java**. Puede instalarlo desde el [sitio web de Oracle](https://aka.ms/azure-jdks).
+* **Kit de desarrollo de Oracle Java**. Puede instalarlo desde el [sitio web de Oracle](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * **IntelliJ IDEA**. En este artículo se usa la versión 2017.1. Puede instalarlo desde el [sitio web de JetBrains](https://www.jetbrains.com/idea/download/).
-* **Herramientas de HDInsight del kit de herramientas de Azure para IntelliJ**. Las herramientas de HDInsight para IntelliJ están disponibles como parte del Kit de herramientas de Azure para IntelliJ. Para obtener instrucciones sobre cómo instalar el Kit de herramientas de Azure, vea [Instalación del kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
+* **Herramientas de HDInsight del kit de herramientas de Azure para IntelliJ**. Las herramientas de HDInsight para IntelliJ están disponibles como parte del Kit de herramientas de Azure para IntelliJ. Para obtener instrucciones sobre cómo instalar el Kit de herramientas de Azure, vea [Instalación del kit de herramientas de Azure para IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Inicie sesión en la suscripción de Azure desde IntelliJ IDEA**. Siga las instrucciones de [Uso de Azure Toolkit for IntelliJ con el fin de crear aplicaciones Apache Spark para un clúster de HDInsight](apache-spark-intellij-tool-plugin.md).
 * **Solución alternativa de excepción**. Mientras se ejecuta la aplicación Spark Scala para la depuración remota en un equipo Windows, puede producirse una excepción. Esta excepción se explica en [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) y se produce porque falta el archivo WinUtils.exe en Windows. Para solucionar este error, debe descargar [Winutils.exe](https://github.com/steveloughran/winutils) en una ubicación como **C:\WinUtils\bin**. Agregue una variable de entorno **HADOOP_HOME** y establezca su valor en **C\WinUtils**.
 
@@ -59,19 +59,19 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 
     ![Selección de Hosts en Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
 
-1. Se ve una lista de nodos principales, nodos de trabajo y nodos de Zookeeper. Los nodos principales tienen un prefijo **hn**\*. Seleccione el primer nodo principal.
+1. Se ve una lista de nodos principales, nodos de trabajo y nodos de Zookeeper. Los nodos principales tienen un prefijo **hn** _. Seleccione el primer nodo principal.
 
     ![Búsqueda del nodo principal en Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 
-1. En el panel **Resumen** de la parte inferior de la página que se abre, copie la **Dirección IP** del nodo principal y el **Nombre de host**.
+1. En el panel _ *Resumen* * de la parte inferior de la página que se abre, copie la **Dirección IP** del nodo principal y el **Nombre de host**.
 
     ![Búsqueda de la dirección IP en Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address1.png)
 
 1. Incluya la dirección IP y el nombre de host del nodo principal en el archivo de **hosts** en el equipo en el que quiere ejecutar y depurar de forma remota el trabajo de Spark. Esto le permite comunicarse con el nodo principal mediante la dirección IP, así como el nombre de host.
 
-   a. Abra un archivo de Bloc de notas con permisos elevados. En el menú **Archivo**, seleccione **Abrir** y luego busque la ubicación del archivo de hosts. En un equipo Windows, la ubicación es **C:\Windows\System32\Drivers\etc\hosts**.
+   a. Abra un archivo de Bloc de notas con permisos elevados. En el menú **Archivo** , seleccione **Abrir** y luego busque la ubicación del archivo de hosts. En un equipo Windows, la ubicación es **C:\Windows\System32\Drivers\etc\hosts**.
 
-   b. Agregue la siguiente información al archivo de **hosts**:
+   b. Agregue la siguiente información al archivo de **hosts** :
 
     ```
     # For headnode0
@@ -101,29 +101,29 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
     a. Seleccione **HDInsight** > **Spark en HDInsight (Scala)** .
 
     b. Seleccione **Next** (Siguiente).
-1. En el cuadro de diálogo **Nuevo proyecto**, haga lo siguiente y luego seleccione **Finalizar**:
+1. En el cuadro de diálogo **Nuevo proyecto** , haga lo siguiente y luego seleccione **Finalizar** :
 
     - Escriba un nombre de proyecto y una ubicación.
 
     - En la lista desplegable **Project SDK** (SDK del proyecto), seleccione **Java 1.8** para el clúster de Spark 2.x o **Java 1.7** para el clúster de Spark 1.x.
 
-    - En la lista desplegable **Versión de Spark**, el asistente para la creación de proyectos de Scala integra la versión correcta del SDK de Spark y el SDK de Scala. Si la versión del clúster de Spark es anterior a 2.0, seleccione **Spark 1.x**. De lo contrario, seleccione **Spark2.x**. En este ejemplo se usa **Spark 2.0.2 (Scala 2.11.8)** .
+    - En la lista desplegable **Versión de Spark** , el asistente para la creación de proyectos de Scala integra la versión correcta del SDK de Spark y el SDK de Scala. Si la versión del clúster de Spark es anterior a 2.0, seleccione **Spark 1.x**. De lo contrario, seleccione **Spark2.x**. En este ejemplo se usa **Spark 2.0.2 (Scala 2.11.8)** .
   
    ![Selección del SDK del proyecto y la versión de Spark](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
   
 1. El proyecto de Spark crea automáticamente un artefacto. Para ver el artefacto, haga lo siguiente:
 
-    a. En el menú **Archivo**, seleccione **Estructura del proyecto**.
+    a. En el menú **Archivo** , seleccione **Estructura del proyecto**.
 
-    b. En el cuadro de diálogo **Estructura del proyecto**, seleccione **Artefactos** para ver el artefacto predeterminado que se ha creado. También puede crear su propio artefacto si selecciona el signo más ( **+** ).
+    b. En el cuadro de diálogo **Estructura del proyecto** , seleccione **Artefactos** para ver el artefacto predeterminado que se ha creado. También puede crear su propio artefacto si selecciona el signo más ( **+** ).
 
    ![Creación de artefactos jar en IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png)
 
 1. Agregue bibliotecas al proyecto. Para agregar una biblioteca, haga lo siguiente:
 
-    a. Haga clic con el botón derecho en el nombre del proyecto en el árbol y después seleccione **Open Module Settings**(Abrir configuración de módulo).
+    a. Haga clic con el botón derecho en el nombre del proyecto en el árbol y después seleccione **Open Module Settings** (Abrir configuración de módulo).
 
-    b. En el cuadro de diálogo **Estructura del proyecto**, seleccione **Bibliotecas**, seleccione el símbolo ( **+** ) y luego **Desde Maven**.
+    b. En el cuadro de diálogo **Estructura del proyecto** , seleccione **Bibliotecas** , seleccione el símbolo ( **+** ) y luego **Desde Maven**.
 
     ![Biblioteca de descargas de IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
 
@@ -179,7 +179,7 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 
    c. Guarde el archivo.
 
-1. Agregue la clase Main para la aplicación. En el **Explorador de proyectos**, haga clic con el botón derecho en **src**, elija **Nuevo** y luego seleccione **Scala class** (Clase de Scala).
+1. Agregue la clase Main para la aplicación. En el **Explorador de proyectos** , haga clic con el botón derecho en **src** , elija **Nuevo** y luego seleccione **Scala class** (Clase de Scala).
 
     ![Selección de la clase principal en IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
 
@@ -269,7 +269,7 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 
 ## <a name="step-5-run-the-application-in-debug-mode"></a>Paso 5: Ejecución de la aplicación en modo de depuración.
 
-1. En el proyecto de IntelliJ IDEA, abra `SparkSample.scala` y cree un punto de interrupción junto a `val rdd1`. En el menú emergente **Create Breakpoint for** (Crear punto de interrupción para), seleccione **line in function executeJob**(línea en función executeJob).
+1. En el proyecto de IntelliJ IDEA, abra `SparkSample.scala` y cree un punto de interrupción junto a `val rdd1`. En el menú emergente **Create Breakpoint for** (Crear punto de interrupción para), seleccione **line in function executeJob** (línea en función executeJob).
 
     ![Adición de un punto de interrupción en IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-create-breakpoint.png)
 
@@ -313,18 +313,18 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 * [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
 * [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](./apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 
-* [Crear una aplicación independiente con Scala](../hdinsight-apache-spark-create-standalone-application.md)
+* [Crear una aplicación independiente con Scala](./apache-spark-create-standalone-application.md)
 * [Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 
 * [Uso de Azure Toolkit for IntelliJ con el fin de crear aplicaciones Apache Spark para un clúster de HDInsight](apache-spark-intellij-tool-plugin.md)
 * [Uso de Azure Toolkit for IntelliJ para depurar de forma remota aplicaciones de Apache Spark mediante SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Uso de las herramientas de HDInsight de Azure Toolkit for Eclipse con el fin de crear aplicaciones Apache Spark](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Uso de las herramientas de HDInsight de Azure Toolkit for Eclipse con el fin de crear aplicaciones Apache Spark](./apache-spark-eclipse-tool-plugin.md)
 * [Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels disponibles para Jupyter Notebook en un clúster de Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](apache-spark-jupyter-notebook-use-external-packages.md)

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: bed196d1be101ffa75affc389d390ec0fa764b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931859"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532652"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL: servidor flexible
 
@@ -28,7 +28,7 @@ Si la base de datos se configura con alta disponibilidad, las instantáneas diar
 > [!IMPORTANT]
 >En los servidores detenidos no se realizan copias de seguridad. Sin embargo, las copias de seguridad se reanudan cuando la base de datos se inicia automáticamente transcurridos siete días o cuando lo hace el usuario.
 
-Las copias de seguridad solo se pueden usar para operaciones de restauración en el servidor flexible. Si quiere exportar datos del servidor flexible o importar datos en él, use la metodología de [volcado y restauración](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore).
+Las copias de seguridad solo se pueden usar para operaciones de restauración en el servidor flexible. Si quiere exportar o importar datos al servidor flexible, use la metodología de [volcado y restauración](../howto-migrate-using-dump-and-restore.md).
 
 
 ### <a name="backup-retention"></a>Retención de copia de seguridad
@@ -40,9 +40,9 @@ El período de retención de copia de seguridad rige durante cuánto tiempo se p
 
 ### <a name="backup-storage-cost"></a>Costo del almacenamiento de copia de seguridad
 
-El Servidor flexible proporciona hasta un 100 % del almacenamiento del servidor aprovisionado como almacenamiento de copia de seguridad, sin costos adicionales. El cargo de cualquier almacenamiento de copia de seguridad adicional que se use se realizará por GB/mes. Por ejemplo, si ha aprovisionado un servidor con 250 GiB de almacenamiento, tendrá 250 GiB de capacidad para almacenar copias de seguridad sin costos adicionales. Si el uso de la copia de seguridad diaria es de 25 GiB, puede tener hasta diez días de almacenamiento de copia de seguridad. El consumo de almacenamiento de copia de seguridad que supere los 250 GiB se cobrará siguiendo el [modelo de precios](https://azure.microsoft.com/pricing/details/postgresql/).
+El Servidor flexible proporciona hasta un 100 % del almacenamiento del servidor aprovisionado como almacenamiento de copia de seguridad, sin costos adicionales. El cargo de cualquier almacenamiento de copia de seguridad adicional que se use se realizará por GB/mes. Por ejemplo, si ha aprovisionado un servidor con 250 GiB de almacenamiento, tendrá 250 GiB de capacidad para almacenar copias de seguridad sin costos adicionales. Si el uso de la copia de seguridad diaria es de 25 GiB, puede tener hasta diez días de almacenamiento de copia de seguridad. El consumo de almacenamiento de copia de seguridad que supere los 250 GiB se cobrará según el [modelo de precios](https://azure.microsoft.com/pricing/details/postgresql/).
 
-Puede usar la métrica [Almacenamiento de copia de seguridad utilizado](https://docs.microsoft.com/azure/postgresql/concepts-monitoring) en Azure Portal para supervisar el almacenamiento de copia de seguridad que usa un servidor. La métrica Almacenamiento de copia de seguridad utilizado representa la suma del almacenamiento consumido por todas las copias de seguridad de base de datos y copias de seguridad de registros, que se conservan durante el período de retención de copia de seguridad establecido para el servidor.  Una gran actividad transaccional en el servidor puede hacer que el uso del almacenamiento de copia de seguridad aumente, independientemente del tamaño total de la base de datos.
+Puede usar la métrica [Almacenamiento de copia de seguridad utilizado](../concepts-monitoring.md) en Azure Portal para supervisar el almacenamiento de copia de seguridad que usa un servidor. La métrica Almacenamiento de copia de seguridad utilizado representa la suma del almacenamiento consumido por todas las copias de seguridad de base de datos y copias de seguridad de registros, que se conservan durante el período de retención de copia de seguridad establecido para el servidor.  Una gran actividad transaccional en el servidor puede hacer que el uso del almacenamiento de copia de seguridad aumente, independientemente del tamaño total de la base de datos.
 
 El medio principal para controlar el costo de almacenamiento de copia de seguridad es establecer el período de retención apropiado y elegir las opciones adecuadas de redundancia de copia de seguridad para satisfacer los objetivos de recuperación deseados.
 
@@ -71,15 +71,15 @@ La restauración a un momento dado es útil en diversos escenarios. Por ejemplo,
 
 Puede elegir entre el primer punto de restauración y uno personalizado.
 
--   **Punto de restauración más antiguo**: en función del período de retención, será el registro más antiguo que se pueda restaurar. Se seleccionará automáticamente la hora de la copia de seguridad más antigua y se mostrará en el portal. Esto resulta útil si quiere llevar a cabo investigaciones o pruebas a partir de ese momento.
+-   **Punto de restauración más antiguo** : en función del período de retención, será el registro más antiguo que se pueda restaurar. Se seleccionará automáticamente la hora de la copia de seguridad más antigua y se mostrará en el portal. Esto resulta útil si quiere llevar a cabo investigaciones o pruebas a partir de ese momento.
 
--   **Punto de restauración personalizado**: esta opción le permite elegir cualquier momento dentro del período de retención definido para este servidor flexible. De forma predeterminada, se selecciona automáticamente la última hora UTC, que resulta útil para realizar la restauración a la última transacción confirmada con fines de prueba. También puede elegir otros días y horas. 
+-   **Punto de restauración personalizado** : esta opción le permite elegir cualquier momento dentro del período de retención definido para este servidor flexible. De forma predeterminada, se selecciona automáticamente la última hora UTC, que resulta útil para realizar la restauración a la última transacción confirmada con fines de prueba. También puede elegir otros días y horas. 
 
 El tiempo estimado de recuperación depende de varios factores, como el tamaño de la base de datos, el volumen de los registros de transacciones que se van a procesar, el ancho de banda de red y el número total de bases de datos que se están recuperando en la misma región al mismo tiempo. Normalmente, el tiempo de recuperación general tarda entre unos minutos y unas horas.
 
 
 > [!IMPORTANT]
-> Los servidores eliminados **no** se pueden restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los  [bloqueos de administración](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="perform-post-restore-tasks"></a>Tareas posteriores a la restauración
 
@@ -101,6 +101,5 @@ Después de restaurar la base de datos, puede realizar las siguientes tareas par
 ## <a name="next-steps"></a>Pasos siguientes
 
 -   Más información sobre la [continuidad empresarial](./concepts-business-continuity.md)
--   Obtenga información sobre la [alta disponibilidad con redundancia geográfica](./concepts-high-availability.md).
+-   Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
 -   Obtenga información sobre [cómo llevar a cabo una restauración](./how-to-restore-server-portal.md).
-

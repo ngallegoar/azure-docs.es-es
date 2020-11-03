@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 04/15/2020
-ms.openlocfilehash: 143713649afd7f9e42f517713b6b2365ee1605a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260281"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738191"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Creación de una definición de trabajo de Apache Spark en Synapse Studio
 
@@ -43,11 +43,11 @@ En esta sección, creará una definición de trabajo de Apache Spark para PySpar
 
 1. Abra [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. Puede ir a [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) (Archivos de ejemplo de creación de definiciones de trabajo en Apache Spark) para descargar **archivos de ejemplo para python.zip**; después, descomprima el paquete y extraiga los archivos **wordcount.py** y **shakespeare.txt**. 
+2. Puede ir a [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) (Archivos de ejemplo de creación de definiciones de trabajo en Apache Spark) para descargar **archivos de ejemplo para python.zip** ; después, descomprima el paquete y extraiga los archivos **wordcount.py** y **shakespeare.txt**. 
 
      ![archivos de ejemplo](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Seleccione  **Data** -> **Linked** -> **Azure Data Lake Storage Gen2** (Datos > Vinculados > Azure Data Lake Storage Gen2) y cargue  **wordcount.py** y **shakespeare.txt** en el sistema de archivos de ADLS Gen2. 
+3. Seleccione **Data** -> **Linked** -> **Azure Data Lake Storage Gen2** (Datos > Vinculados > Azure Data Lake Storage Gen2) y cargue **wordcount.py** y **shakespeare.txt** en el sistema de archivos de ADLS Gen2. 
 
      ![Carga del archivo de Python](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -85,15 +85,15 @@ En esta sección, creará una definición de trabajo de Apache Spark para Apache
 
  1. Abra [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Puede ir a [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) (Archivos de ejemplo de creación de definiciones de trabajo en Apache Spark) para descargar **archivos de ejemplo para scala.zip**; después, descomprima el paquete y extraiga los archivos **wordcount.jar** y **shakespeare.txt**. 
+ 2. Puede ir a [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) (Archivos de ejemplo de creación de definiciones de trabajo en Apache Spark) para descargar **archivos de ejemplo para scala.zip** ; después, descomprima el paquete y extraiga los archivos **wordcount.jar** y **shakespeare.txt**. 
  
      ![archivos de ejemplo de scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Seleccione  **Data** -> **Linked** -> **Azure Data Lake Storage Gen2** (Datos > Vinculados > Azure Data Lake Storage Gen2) y cargue  **wordcount.jar** y **shakespeare.txt** en el sistema de archivos de ADLS Gen2.
+ 3. Seleccione **Data** -> **Linked** -> **Azure Data Lake Storage Gen2** (Datos > Vinculados > Azure Data Lake Storage Gen2) y cargue **wordcount.jar** y **shakespeare.txt** en el sistema de archivos de ADLS Gen2.
  
      ![Preparación de la estructura de Scala](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Seleccione el centro de conectividad **Develop** (Desarrollar), elija el icono "+" y seleccione **Spark job definition** (Definición de trabajo de Spark) para crear una definición de trabajo de Spark. (La imagen de ejemplo es la misma que la del paso 4 de **Creación de una definición de trabajo de Apache Spark [Python] para PySpark**).
+ 4. Seleccione el centro de conectividad **Develop** (Desarrollar), elija el icono "+" y seleccione **Spark job definition** (Definición de trabajo de Spark) para crear una definición de trabajo de Spark. (La imagen de ejemplo es la misma que la del paso 4 de **Creación de una definición de trabajo de Apache Spark [Python] para PySpark** ).
 
  5. Seleccione **Spark (Scala)** en la lista desplegable de lenguajes de la ventana principal de definiciones de trabajos de Apache Spark.
 
@@ -125,15 +125,15 @@ En esta sección, creará una definición de trabajo de Apache Spark para Apache
 En esta sección, creará una definición de trabajo de Apache Spark para .NET Spark (C#/F#).
  1. Abra [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Puede ir a [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) (Archivos de ejemplo de creación de definiciones de trabajo en Apache Spark) para descargar **archivos de ejemplo para dotnet.zip**; después, descomprima el paquete y extraiga los archivos **wordcount.zip** y **shakespeare.txt**. 
+ 2. Puede ir a [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) (Archivos de ejemplo de creación de definiciones de trabajo en Apache Spark) para descargar **archivos de ejemplo para dotnet.zip** ; después, descomprima el paquete y extraiga los archivos **wordcount.zip** y **shakespeare.txt**. 
 
      ![dotnet de ejemplo](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Seleccione  **Data** -> **Linked** -> **Azure Data Lake Storage Gen2** (Datos > Vinculados > Azure Data Lake Storage Gen2) y cargue  **wordcount.zip** y **shakespeare.txt** en el sistema de archivos de ADLS Gen2.
+ 3. Seleccione **Data** -> **Linked** -> **Azure Data Lake Storage Gen2** (Datos > Vinculados > Azure Data Lake Storage Gen2) y cargue **wordcount.zip** y **shakespeare.txt** en el sistema de archivos de ADLS Gen2.
  
      ![Preparación de la estructura de dotnet](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Seleccione el centro de conectividad **Develop** (Desarrollar), elija el icono "+" y seleccione **Spark job definition** (Definición de trabajo de Spark) para crear una definición de trabajo de Spark. (La imagen de ejemplo es la misma que la del paso 4 de **Creación de una definición de trabajo de Apache Spark [Python] para PySpark**).
+ 4. Seleccione el centro de conectividad **Develop** (Desarrollar), elija el icono "+" y seleccione **Spark job definition** (Definición de trabajo de Spark) para crear una definición de trabajo de Spark. (La imagen de ejemplo es la misma que la del paso 4 de **Creación de una definición de trabajo de Apache Spark [Python] para PySpark** ).
 
  5. Seleccione **.NET Spark(C#/F#)** en la lista desplegable de lenguajes de la ventana principal de definición de trabajos de Apache Spark.
 

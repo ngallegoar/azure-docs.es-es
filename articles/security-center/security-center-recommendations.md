@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0efb2c26a63418835dd2b7561a1fb9d3a9d5fee8
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: c0952e0f267f9c2511a2e80fa7106958d8dd0ee5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945571"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791892"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendaciones de seguridad en el Centro de seguridad de Azure 
 En este tema se explica cómo ver y entender las recomendaciones de Azure Security Center para ayudar a proteger los recursos de Azure.
@@ -53,14 +53,14 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
     1. Los botones **Aplicar** y **Denegar** en recomendaciones admitidas (vea [Evitar configuraciones inactivas con las recomendaciones Aplicar o Denegar](prevent-misconfigurations.md))
     1. **Indicador de gravedad**
     1. **Intervalo de actualización** (si procede) 
-    1. **Descripción**: una breve descripción del problema
-    1. **Pasos de corrección**: una descripción de los pasos manuales necesarios para corregir el problema de seguridad en los recursos afectados Para obtener recomendaciones con "corrección rápida", puede seleccionar **Ver lógica de corrección** antes de aplicar la corrección sugerida a los recursos. 
-    1. **Recursos afectados**: los recursos se agrupan en pestañas:
-        - **Recursos con estado correcto**: recursos relevantes que no se ven afectados o en los que ya se ha corregido el problema.
-        - **Recursos con estado incorrecto**: recursos que todavía se ven afectados por el problema identificado.
-        - **Recursos no aplicables**: recursos para los que la recomendación no puede dar una respuesta definitiva. La pestaña no aplicable también incluye las razones de cada recurso. 
+    1. **Descripción** : una breve descripción del problema
+    1. **Pasos de corrección** : una descripción de los pasos manuales necesarios para corregir el problema de seguridad en los recursos afectados Para obtener recomendaciones con "corrección rápida", puede seleccionar **Ver lógica de corrección** antes de aplicar la corrección sugerida a los recursos. 
+    1. **Recursos afectados** : los recursos se agrupan en pestañas:
+        - **Recursos con estado correcto** : recursos relevantes que no se ven afectados o en los que ya se ha corregido el problema.
+        - **Recursos con estado incorrecto** : recursos que todavía se ven afectados por el problema identificado.
+        - **Recursos no aplicables** : recursos para los que la recomendación no puede dar una respuesta definitiva. La pestaña no aplicable también incluye las razones de cada recurso. 
 
-            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Página de detalles de recomendación":::.
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Los recursos no aplicables con motivos":::.
     1. Botones de acción para corregir la recomendación o desencadenar una aplicación lógica.
 
 ## <a name="preview-recommendations"></a>Recomendaciones de la versión preliminar
@@ -71,11 +71,14 @@ Aun así, deben corregirse siempre que sea posible, de tal forma que, cuando fin
 
 Un ejemplo de una recomendación en versión preliminar:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Página de detalles de recomendación":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendación con la marca de versión preliminar":::
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, se han presentando las recomendaciones de seguridad del Centro de seguridad. Para obtener información sobre cómo corregir las recomendaciones:
+En este documento, se han presentando las recomendaciones de seguridad del Centro de seguridad. Para obtener información relacionada, visite:
 
 - [Recomendaciones de corrección ](security-center-remediate-recommendations.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 - [Evitar errores de configuración con las recomendaciones Aplicar o Denegar](prevent-misconfigurations.md).
+- [Creación de respuestas automáticas a alertas y recomendaciones con automatización del flujo de trabajo](workflow-automation.md): automatice las respuestas a las recomendaciones
+- [Exclusión de un recurso de una recomendación](exempt-resource.md)
+- [Guía de referencia sobre las recomendaciones de seguridad](recommendations-reference.md)

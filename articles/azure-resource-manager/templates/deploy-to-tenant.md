@@ -2,15 +2,15 @@
 title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372398"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668700"
 ---
-# <a name="create-resources-at-the-tenant-level"></a>Creación de recursos en el nivel de inquilino
+# <a name="tenant-deployments-with-arm-templates"></a>Implementaciones de inquilino con plantillas de Resource Manager
 
 A medida que crece la organización, es posible que necesite definir y asignar [directivas](../../governance/policy/overview.md) o el [control de acceso basado en rol (RBAC de Azure)](../../role-based-access-control/overview.md) en el inquilino de Azure AD. Con las plantillas de nivel de inquilino, puede aplicar directivas y asignar roles a nivel global de forma declarativa.
 
@@ -49,13 +49,19 @@ El esquema que se usa para las implementaciones de nivel de inquilino es diferen
 Para las plantillas, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    ...
+}
 ```
 
 El esquema de un archivo de parámetros es el mismo para todos los ámbitos de implementación. Para los archivos de parámetros, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## <a name="required-access"></a>Acceso necesario
@@ -78,21 +84,11 @@ El administrador global de Azure Active Directory no tiene permiso para asignar
 
 La entidad de seguridad tiene ahora los permisos necesarios para implementar la plantilla.
 
-## <a name="deployment-scopes"></a>Ámbitos de implementación
-
-Durante la implementación en un inquilino, puede tener como destino el inquilino o grupos de administración, suscripciones y grupos de recursos del inquilino. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
-
-Los recursos definidos en la sección de recursos de la plantilla se aplican al inquilino.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
-
-Para establecer como destino un grupo de administración dentro del inquilino, agregue una implementación anidada y especifique la propiedad `scope`.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
-
 ## <a name="deployment-commands"></a>Comandos de implementación
 
 Los comandos para las implementaciones de inquilino son diferentes de los comandos para las implementaciones de grupos de recursos.
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para la CLI de Azure, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
@@ -103,6 +99,8 @@ az deployment tenant create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 En el caso de Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
@@ -112,38 +110,58 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-Para la API REST, use [Implementaciones: Crear o actualizar en el ámbito del inquilino](/rest/api/resources/deployments/createorupdateattenantscope).
+---
+
+Para obtener información más detallada sobre los comandos de implementación y las opciones para implementar plantillas de Resource Manager, consulte:
+
+* [Implementación de recursos con Azure Portal y plantillas de Resource Manager](deploy-portal.md)
+* [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md)
+* [Implementación de recursos con las plantillas de ARM y Azure PowerShell](deploy-powershell.md)
+* [Implementación de recursos con plantillas de Resource Manager y la API de REST de Azure Resource Manager](deploy-rest.md)
+* [Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub](deploy-to-azure-button.md)
+* [Implementación de plantillas de Resource Manager desde Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Ámbitos de implementación
+
+Al implementar en un grupo de administración, puede implementar los recursos en:
+
+* el inquilino
+* grupos de administración dentro del inquilino
+* subscriptions
+* grupos de recursos (a través de dos implementaciones anidadas)
+* se pueden aplicar [recursos de extensión](scope-extension-resources.md) a los recursos
+
+El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
+
+En esta sección se muestra cómo especificar distintos ámbitos. Puede combinar estos distintos ámbitos en una sola plantilla.
+
+### <a name="scope-to-tenant"></a>Ámbito del inquilino
+
+Los recursos definidos en la sección de recursos de la plantilla se aplican al inquilino.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+### <a name="scope-to-management-group"></a>Ámbito del grupo de administración
+
+Para establecer como destino un grupo de administración dentro del inquilino, agregue una implementación anidada y especifique la propiedad `scope`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
+### <a name="scope-to-subscription"></a>Ámbito de la suscripción
+
+También puede dirigirse a las suscripciones dentro del inquilino. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
+
+Para establecer como destino una suscripción dentro del inquilino, use una implementación anidada y la propiedad `subscriptionId`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
 ## <a name="deployment-location-and-name"></a>Ubicación y nombre de la implementación
 
 En el caso de las implementaciones de nivel de inquilino, debe proporcionar una ubicación para la implementación. La ubicación de la implementación es independiente de la ubicación de los recursos que se implementan. La ubicación de implementación especifica dónde se almacenarán los datos de la implementación.
 
-Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json**, se crea un nombre de predeterminado **azuredeploy**.
+Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json** , se crea un nombre de predeterminado **azuredeploy**.
 
 Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
-
-## <a name="use-template-functions"></a>Usar funciones de plantillas
-
-En las implementaciones de nivel de inquilino, hay algunas consideraciones importantes que deben tenerse en cuenta al usar las funciones de plantilla:
-
-* La función [resourceGroup()](template-functions-resource.md#resourcegroup)**no** se admite.
-* La función [subscription()](template-functions-resource.md#subscription)**no** se admite.
-* Se admiten las funciones [reference()](template-functions-resource.md#reference) y [list()](template-functions-resource.md#list).
-* No use [resourceId()](template-functions-resource.md#resourceid) para obtener el identificador de los recursos implementados en el nivel de inquilino.
-
-  En su lugar, use la función [tenantResourceId()](template-functions-resource.md#tenantresourceid).
-
-  Por ejemplo, para obtener el identificador de recurso de una definición de directiva, utilice:
-
-  ```json
-  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
-  ```
-
-  El identificador de recurso devuelto tiene el formato siguiente:
-
-  ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="create-management-group"></a>Creación de un grupo de administración
 

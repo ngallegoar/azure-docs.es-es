@@ -6,16 +6,16 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d0063594309dc7a1c12c61b6dd18fec1d93f1082
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893091"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738751"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse Studio (versión preliminar) en Azure Synapse Analytics
 
@@ -283,7 +283,7 @@ De forma predeterminada, la salida de los comandos magic **%%sql** aparece en la
 
 ### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Visualización de gráficos integrados a partir de un conjunto de datos a gran escala 
 
-De forma predeterminada, la función <code>display(df)</code> solo tomará las primeras 1000 filas de los datos para representar los gráficos. Marque **Agregación de todos los resultados** y seleccione el botón **Aplicar**; el gráfico se creará a partir de todo el conjunto de datos. Un trabajo de Spark se desencadenará cuando se cambie la configuración del gráfico; tardará un tiempo en completar el cálculo y representarlo. 
+De forma predeterminada, la función <code>display(df)</code> solo tomará las primeras 1000 filas de los datos para representar los gráficos. Marque **Agregación de todos los resultados** y seleccione el botón **Aplicar** ; el gráfico se creará a partir de todo el conjunto de datos. Un trabajo de Spark se desencadenará cuando se cambie la configuración del gráfico; tardará un tiempo en completar el cálculo y representarlo. 
     [![builtin-charts-aggregation-all](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
 
 
@@ -294,7 +294,7 @@ Puede usar <code>display(df, summary = True)</code> para comprobar el resumen de
 
 ### <a name="render-html-or-interactive-libraries"></a>Representación de bibliotecas HTML o interactivas
 
-Puede representar código HTML, incluidos Javascript, CSS, D3 o bibliotecas interactivas, como **bokeh**, mediante **displayHTML()** .
+Puede representar código HTML, incluidos Javascript, CSS, D3 o bibliotecas interactivas, como **bokeh** , mediante **displayHTML()** .
 
 La imagen siguiente es un ejemplo del trazado de glifos en un mapa mediante **bokeh**.
 
@@ -357,7 +357,7 @@ Comandos magic de línea disponibles: [%lsmagic](https://ipython.readthedocs.io/
 Comandos magic de celda disponibles: [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
 
-## <a name="orchestrate-notebook"></a>Organización de cuadernos
+## <a name="integrate-a-notebook"></a>Integración de un cuaderno
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>Adición de un cuaderno a una canalización
 

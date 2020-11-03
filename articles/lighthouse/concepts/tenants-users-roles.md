@@ -3,12 +3,12 @@ title: Inquilinos, roles y usuarios en escenarios de Azure Lighthouse
 description: Comprenda los conceptos de los inquilinos, los usuarios y los roles de Azure Active Directory, así como la forma en que se pueden usar en escenarios de Azure Lighthouse.
 ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: c409b45d18504d071ffed3185de20ec5e1147bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399251"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424112"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, roles y usuarios en escenarios de Azure Lighthouse
 
@@ -22,7 +22,7 @@ Sea cual sea el método de incorporación que elija, tendrá que definir las *au
 
 ## <a name="role-support-for-azure-lighthouse"></a>Compatibilidad de roles para Azure Lighthouse
 
-Al definir una autorización, cada cuenta de usuario debe tener asignado uno de los [roles integrados para control de acceso basado en roles (RBAC)](../../role-based-access-control/built-in-roles.md). No se admiten los roles personalizados ni [los roles de administrador de suscripciones clásicas](../../role-based-access-control/classic-administrators.md).
+Al definir una autorización, cada cuenta de usuario debe tener asignado uno de los [roles integrados de Azure](../../role-based-access-control/built-in-roles.md). No se admiten los roles personalizados ni [los roles de administrador de suscripciones clásicas](../../role-based-access-control/classic-administrators.md).
 
 Todos los [roles integrados](../../role-based-access-control/built-in-roles.md) son compatibles actualmente con Azure Lighthouse, con las siguientes excepciones:
 

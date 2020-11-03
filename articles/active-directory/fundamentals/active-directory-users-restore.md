@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/01/2018
+ms.date: 10/23/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55df425367cc8295ef6a3899e2edb47669fe57b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91741183"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514396"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restauración o eliminación de un usuario recientemente eliminado mediante Azure Active Directory
-Después de eliminar a un usuario, la cuenta permanece en estado de suspensión durante 30 días. Durante ese período de 30 días, la cuenta de usuario se puede restaurar, junto con todas sus propiedades. Después de que pase esa ventana de 30 días, el usuario se elimina automáticamente y de forma permanente.
+Después de eliminar a un usuario, la cuenta permanece en estado de suspensión durante 30 días. Durante ese período de 30 días, la cuenta de usuario se puede restaurar, junto con todas sus propiedades. Después de que pase esa ventana de 30 días, el proceso de eliminación se inicia de forma automática.
 
 Puede ver a los usuarios que se pueden restaurar, restaurar un usuario eliminado o eliminar permanentemente a un usuario con Azure Active Directory (Azure AD) en Azure Portal.
 
@@ -45,7 +45,7 @@ Puede ver a todos los usuarios que se eliminaron hace menos de 30 días. Estos u
 ### <a name="to-view-your-restorable-users"></a>Para ver a los usuarios que se pueden restaurar
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador global para la organización.
 
-2. Seleccione **Azure Active Directory**, **Usuarios** y, a continuación, seleccione **Usuarios eliminados**.
+2. Seleccione **Azure Active Directory** , **Usuarios** y, a continuación, seleccione **Usuarios eliminados**.
 
     Revise la lista de usuarios que están disponibles para restaurar.
 
@@ -59,7 +59,7 @@ Al eliminarse una cuenta de usuario de la organización, esta está en estado su
 > Una vez que se restaura un usuario, también se restauran las licencias que se asignaron al usuario en el momento de la eliminación aunque no haya puestos disponibles para esas licencias. Si a partir de ese momento consume más licencias de las que adquirió, su organización podría incumplir temporalmente todo lo relativo al uso de licencias.
 
 ### <a name="to-restore-a-user"></a>Para restaurar a un usuario
-1. En la página **Usuarios - usuarios eliminados**, busque y seleccione uno de los usuarios disponibles. Por ejemplo, _Mary Parker_.
+1. En la página **Usuarios - usuarios eliminados** , busque y seleccione uno de los usuarios disponibles. Por ejemplo, _Mary Parker_.
 
 2. Seleccione **Restaurar usuario**.
 
@@ -73,14 +73,14 @@ Puede eliminar permanentemente un usuario desde la organización sin esperar a q
 
 ### <a name="to-permanently-delete-a-user"></a>Para eliminar un usuario permanentemente
 
-1. En la página **Usuarios - usuarios eliminados**, busque y seleccione uno de los usuarios disponibles. Por ejemplo, _Rae Huff_.
+1. En la página **Usuarios - usuarios eliminados** , busque y seleccione uno de los usuarios disponibles. Por ejemplo, _Rae Huff_.
 
 2. Seleccione **Eliminar permanentemente**.
 
     ![Página Usuarios - usuarios eliminados con la opción Eliminar usuario resaltada](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Después de restaurar o eliminar a los usuarios, puede realizar los siguientes procesos básicos:
+Después de haber restaurado o eliminado los usuarios, puede hacer lo siguiente:
 
 - [Adición o eliminación de usuarios](add-users-azure-active-directory.md)
 
@@ -90,4 +90,4 @@ Después de restaurar o eliminar a los usuarios, puede realizar los siguientes p
 
 - [Adición de usuarios invitados de otra organización](../external-identities/what-is-b2b.md)
 
-Para obtener más información acerca de otras tareas de administración de usuarios disponibles, consulte la [documentación de administración de usuarios en Azure AD](../users-groups-roles/index.yml).
+Para obtener más información acerca de otras tareas de administración de usuarios disponibles, consulte la [documentación de administración de usuarios en Azure AD](../enterprise-users/index.yml).

@@ -1,6 +1,6 @@
 ---
 title: Introducción al protocolo de autenticación y sincronización de Azure Active Directory
-description: Guía arquitectónica para lograr este patrón de autenticación
+description: Guía de arquitectura sobre la integración de Azure AD en protocolos de autenticación y patrones de sincronización heredados
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,20 +13,20 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d881dc3fe3e3caa1058cf97834735910b0de1d9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ab63bc5bd2819a239741da525eebb2404a47bbf9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114036"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441205"
 ---
-# <a name="azure-active-directory-integrations-with-legacy-authentication-and-synchronization-protocols"></a>Integraciones de Azure Active Directory con protocolos de autenticación y sincronización heredados
+# <a name="azure-active-directory-integrations-with-authentication-and-synchronization-protocols"></a>Integraciones de Azure Active Directory en protocolos de autenticación y sincronización
 
 Microsoft Azure Active Directory (Azure AD) permite la integración con muchos protocolos de autenticación y sincronización. Las integraciones de autenticación permiten usar Azure AD y sus características de seguridad y administración con pocos cambios o ninguno en las aplicaciones que usan métodos de autenticación heredados. Las integraciones de sincronización le permiten sincronizar los datos de usuarios y grupos con Azure AD y, a continuación, las capacidades de administración de usuarios de Azure AD. Algunos patrones de sincronización también permiten el aprovisionamiento automatizado.
 
-## <a name="authentication-patterns"></a>Patrones de autenticación
+## <a name="legacy-authentication-protocols"></a>Protocolos de autenticación heredados
 
-En la tabla siguiente se presentan los patrones de autenticación y sus capacidades. Seleccione el nombre de un patrón de autenticación que quiera ver.
+En la tabla siguiente se muestra la integración de Azure AD de autenticación en protocolos de autenticación heredados y sus funcionalidades. Seleccione el nombre de un protocolo de autenticación que quiera ver.
 
 * Descripción detallada
 
@@ -40,7 +40,7 @@ En la tabla siguiente se presentan los patrones de autenticación y sus capacida
 
  
 
-| Patrones de autenticación| Authentication| Authorization| Multi-Factor Authentication| Acceso condicional |
+| Protocolo de autenticación| Authentication| Authorization| Multi-Factor Authentication| Acceso condicional |
 | - |- | - | - | - |
 | [Autenticación basada en encabezados](auth-header-based.md)|![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png) |
 | [Autenticación LDAP](auth-ldap.md)| ![marca de verificación](./media/authentication-patterns/check.png)| | |  |
@@ -49,6 +49,7 @@ En la tabla siguiente se presentan los patrones de autenticación y sus capacida
 | [Autenticación SSO basada en contraseña](auth-password-based-sso.md )| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png) |
 | [Autenticación RADIUS]( auth-radius.md)| ![marca de verificación](./media/authentication-patterns/check.png)| | ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png) |
 | [Servicios de puerta de enlace de Escritorio remoto](auth-remote-desktop-gateway.md)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png) |
+| [Secure Shell (SSH)](auth-ssh.md) |  ![marca de verificación](./media/authentication-patterns/check.png)| | ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png) |
 | [Autenticación SAML](auth-saml.md)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png) |
 | [Autenticación de Windows: delegación restringida de Kerberos](auth-kcd.md)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png)| ![marca de verificación](./media/authentication-patterns/check.png) |
 
@@ -56,7 +57,7 @@ En la tabla siguiente se presentan los patrones de autenticación y sus capacida
  
 ## <a name="synchronization-patterns"></a>Patrones de sincronización
 
-En la tabla siguiente se presentan los patrones de sincronización y sus capacidades. Seleccione el nombre de un patrón que quiera ver.
+En la tabla siguiente se presenta la integración de Azure AD con los patrones de sincronización y sus funcionalidades. Seleccione el nombre de un patrón que quiera ver.
 
 * Descripción detallada
 

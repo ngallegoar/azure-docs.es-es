@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 9f90125edeee453dc9e8b8b80f8eb09d9fc6e84c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49493f47c7178a15e37a54a70dd066690057caba
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971533"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519578"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configuración de una conexión de indexador a Azure SQL Database mediante una identidad administrada
 
@@ -29,11 +29,11 @@ Antes de obtener más información acerca de esta característica, se recomienda
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - Activar la identidad administrada asignada por el sistema
 
-Cuando se habilita una identidad administrada asignada por el sistema, Azure crea una identidad para el servicio de búsqueda que se puede usar para autenticarse en otros servicios de Azure en el mismo inquilino y la misma suscripción. Después, puede usar esta identidad en las asignaciones de control de acceso basado en rol (RBAC) que permiten el acceso a los datos durante la indexación.
+Cuando se habilita una identidad administrada asignada por el sistema, Azure crea una identidad para el servicio de búsqueda que se puede usar para autenticarse en otros servicios de Azure en el mismo inquilino y la misma suscripción. Después, puede usar esta identidad en las asignaciones de control de acceso basado en rol de Azure (RBAC de Azure) que permiten el acceso a los datos durante la indexación.
 
 ![Activar la identidad administrada asignada por el sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activación de la identidad administrada asignada por el sistema")
 
-Después de seleccionar **Guardar**, verá un identificador de objeto que se ha asignado al servicio de búsqueda.
+Después de seleccionar **Guardar** , verá un identificador de objeto que se ha asignado al servicio de búsqueda.
 
 ![Id. de objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "Id. de objeto")
 
@@ -103,7 +103,7 @@ Al crear un origen de datos mediante la [API de REST](/rest/api/searchservice/cr
 * **credentials**
     * Cuando se usa una identidad administrada con fines de autenticación, el formato de **credentials** es diferente a cuando no se usa la identidad administrada. Aquí proporcionará un nombre de catálogo o base de datos original y un ResourceId que no tenga ninguna clave o contraseña de cuenta. ResourceId debe incluir el identificador de suscripción de Azure SQL Database, así como el grupo de recursos de SQL Database y el nombre de la base de datos SQL. 
     * Formato de la cadena de conexión de identidad administrada:
-        * *Initial Catalog|Database=**nombre de la base de datos**;ResourceId=/subscriptions/**Id. de la suscripción**/resourceGroups/**nombre del grupo de recursos**/providers/Microsoft.Sql/servers/**nombre de SQL Server**/Connection Timeout=**duración del tiempo de espera de conexión**;*
+        * *Initial Catalog|Database= **nombre de la base de datos** ;ResourceId=/subscriptions/ **Id. de la suscripción** /resourceGroups/ **nombre del grupo de recursos** /providers/Microsoft.Sql/servers/ **nombre de SQL Server** /Connection Timeout= **duración del tiempo de espera de conexión** ;*
 * **container** indica el nombre de la tabla o la vista que desea indexar.
 
 Ejemplo de cómo crear un objeto de origen de datos de Azure SQL mediante la [API de REST](/rest/api/searchservice/create-data-source):

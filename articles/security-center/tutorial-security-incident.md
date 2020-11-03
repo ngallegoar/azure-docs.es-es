@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359006"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787166"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Evaluación de prioridades, investigación y respuesta a alertas de seguridad
 Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado y la inteligencia sobre amenazas para alertarle de cualquier actividad potencialmente malintencionada en los recursos en la nube. También puede integrar alertas de otros productos y servicios de seguridad en Security Center. Una vez que se genera una alerta, es necesario investigarla y corregir el posible problema de seguridad. 
@@ -49,7 +49,7 @@ Esta página se usa para revisar las alertas de seguridad activas en su entorno 
 Al evaluar la prioridad de las alertas de seguridad, asigne prioridad a las alertas en función de la gravedad de la alerta solucionando en primer lugar las alertas con una mayor gravedad. Obtenga más información sobre la gravedad de las alertas en [¿Cómo se clasifican las alertas?](security-center-alerts-overview.md#how-are-alerts-classified).
 
 > [!TIP]
-> Azure Security Center se puede conectar a las soluciones SIEM más populares, como Azure Sentinel, y consumir las alertas de la herramienta que prefiera. Puede encontrar más información en el artículo sobre [exportación de alertas a una SIEM](continuous-export.md).
+> Azure Security Center se puede conectar a las soluciones SIEM más populares, como Azure Sentinel, y consumir las alertas de la herramienta que prefiera. Puede encontrar más información en [Transmisión de alertas a una solución de administración de servicios de TI, SIEM o SOAR](export-to-siem.md).
 
 
 ## <a name="investigate-a-security-alert"></a>Investigación de una alerta de seguridad
@@ -60,7 +60,7 @@ Cuando haya decidido qué alerta desea investigar primero:
 1. En la página de información general de alertas, seleccione el recurso que desea investigar en primer lugar.
 1. Comience la investigación en el panel izquierdo, que muestra información de alto nivel sobre la alerta de seguridad.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Página Lista de alertas de seguridad":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="El panel izquierdo de la página de detalles de la alerta que resalta la información de alto nivel":::
 
     Este panel muestra:
     - Gravedad de la alerta, estado y tiempo de actividad.
@@ -68,7 +68,7 @@ Cuando haya decidido qué alerta desea investigar primero:
     - Recursos afectados.
     - Intención de la cadena de eliminación de la actividad en la matriz de MITRE ATT & CK
 
-1. Para obtener información más detallada que pueda ayudarle a investigar la actividad sospechosa, examine la pestaña **Detalles de la alerta** .
+1. Para obtener información más detallada que pueda ayudarle a investigar la actividad sospechosa, examine la pestaña **Detalles de la alerta**.
 
 1. Cuando haya repasado la información de esta página, puede que sea suficiente para continuar con una respuesta. Si necesita más detalles:
 
@@ -80,24 +80,24 @@ Después de investigar una alerta y conocer su ámbito, puede responder a la ale
 
 1.  Abra la pestaña **Tomar medidas** para ver las respuestas recomendadas.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Página Lista de alertas de seguridad" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Pestaña Tomar medidas de Alertas de seguridad" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  Consulte la sección **Mitigación de la amenaza** para ver los pasos de investigación manual necesarios para mitigar el problema.
-1.  Para proteger los recursos y evitar futuros ataques de este tipo, lleve a cabo las recomendaciones de seguridad que se indican en la sección **Prevención ante futuros ataques** .
-1.  Para desencadenar una aplicación lógica con pasos de respuesta automatizados, use la sección **Desencadenamiento de respuesta automatizada** .
-1.  Si la actividad detectada *no es* malintencionada, puede suprimir las alertas futuras de este tipo mediante la sección **Supresión de alertas similares** .
+1.  Para proteger los recursos y evitar futuros ataques de este tipo, lleve a cabo las recomendaciones de seguridad que se indican en la sección **Prevención ante futuros ataques**.
+1.  Para desencadenar una aplicación lógica con pasos de respuesta automatizados, use la sección **Desencadenamiento de respuesta automatizada**.
+1.  Si la actividad detectada *no es* malintencionada, puede suprimir las alertas futuras de este tipo mediante la sección **Supresión de alertas similares**.
 
-1.  Cuando haya completado la investigación en la alerta y respondido de la manera adecuada, cambie el estado a **Descartado** .
+1.  Cuando haya completado la investigación en la alerta y respondido de la manera adecuada, cambie el estado a **Descartado**.
 
-    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Página Lista de alertas de seguridad":::
+    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Establecimiento del estado de una alerta":::
 
-    Así se elimina la alerta de la lista de alertas principales. Puede usar el filtro de la página de la lista de alertas para ver todas las alertas con el estado **Descartado** .
+    Así se elimina la alerta de la lista de alertas principales. Puede usar el filtro de la página de la lista de alertas para ver todas las alertas con el estado **Descartado**.
 
 1.  Le recomendamos que proporcione comentarios sobre la alerta a Microsoft:
-    1. Marque la alerta como **Útil** o **No útil** .
+    1. Marque la alerta como **Útil** o **No útil**.
     1. Seleccione un motivo y agregue un comentario.
 
-        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Página Lista de alertas de seguridad":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Proporcionar a Microsoft comentarios sobre la utilidad de una alerta":::
 
     > [!TIP]
     > Examinamos sus comentarios para mejorar nuestros algoritmos y proporcionar mejores alertas de seguridad.
@@ -108,11 +108,11 @@ Otras guías de inicio rápido y tutoriales de esta colección se basan en los v
 
 Si no tiene previsto continuar o desea deshabilitar cualquiera de estas características:
 
-1. Vuelva al menú principal de Security Center y seleccione **Precios y configuración** .
+1. Vuelva al menú principal de Security Center y seleccione **Precios y configuración**.
 1. Seleccione la suscripción correspondiente.
 1. Para cambiar a una versión anterior, seleccione **Azure Defender off** (Azure Defender desactivado).
-1. Para deshabilitar el aprovisionamiento automático, abra la página **Recopilación de datos** y establezca **Aprovisionamiento automático** en **Desactivado** .
-4. Seleccione **Guardar** .
+1. Para deshabilitar el aprovisionamiento automático, abra la página **Recopilación de datos** y establezca **Aprovisionamiento automático** en **Desactivado**.
+4. Seleccione **Guardar**.
 
 >[!NOTE]
 > La deshabilitación del aprovisionamiento automático no quita el agente de Log Analytics de las máquinas virtuales de Azure que ya lo tienen. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.

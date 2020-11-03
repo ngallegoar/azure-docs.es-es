@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: fee1285cfb5faefbcb8f7151186d42725d34af0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88224516"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480741"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Copia de seguridad y restauración en Azure Database for MariaDB
 
@@ -44,12 +44,15 @@ El período de retención de copia de seguridad rige durante cuánto tiempo se p
 - Los servidores con un almacenamiento de hasta 4 TB conservarán hasta 2 copias de seguridad completas de la base de datos, todas las copias de seguridad diferenciales y las copias de seguridad del registro de transacciones realizadas desde la primera copia de seguridad completa de la base de datos.
 -   Los servidores con un almacenamiento de hasta 16 TB conservarán la instantánea de base de datos completa, todas las instantáneas diferenciales y las copias de seguridad del registro de transacciones de los últimos 8 días.
 
+#### <a name="long-term-retention-of-backups"></a>Retención a largo plazo de copias de seguridad
+Actualmente, el servicio todavía no admite de forma nativa la retención a largo plazo de las copias de seguridad de más de 35 días. Tiene la opción de usar mysqldump para realizar copias de seguridad y almacenarlas para la retención a largo plazo. El equipo de soporte técnico ha escrito un [artículo paso a paso](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) para compartir cómo puede lograrlo. 
+
 ### <a name="backup-redundancy-options"></a>Opciones de redundancia de copia de seguridad
 
-Azure Database for MariaDB permite elegir entre almacenamiento de copia de seguridad con redundancia local o con redundancia geográfica en los niveles Uso General y Memoria optimizada. Cuando las copias de seguridad se almacenan en un almacenamiento de copia de seguridad con redundancia geográfica, no solo se almacenan en la región en la que se hospeda el servidor, también se replican en un [centro de datos emparejado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Esto proporciona una mejor protección y capacidad de restaurar el servidor en una región diferente en caso de desastre. El nivel Básico solo ofrece almacenamiento de copia de seguridad con redundancia local.
+Azure Database for MariaDB permite elegir entre almacenamiento de copia de seguridad con redundancia local o con redundancia geográfica en los niveles Uso General y Memoria optimizada. Cuando las copias de seguridad se almacenan en un almacenamiento de copia de seguridad con redundancia geográfica, no solo se almacenan en la región en la que se hospeda el servidor, también se replican en un [centro de datos emparejado](../best-practices-availability-paired-regions.md). Esto proporciona una mejor protección y capacidad de restaurar el servidor en una región diferente en caso de desastre. El nivel Básico solo ofrece almacenamiento de copia de seguridad con redundancia local.
 
-> [!IMPORTANT]
-> La configuración de un almacenamiento con redundancia local o con redundancia geográfica para copia de seguridad solo se puede realizar durante la creación del servidor. Una vez que se ha aprovisionado el servidor, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Cambio de redundancia local a almacenamiento de copia de seguridad con redundancia geográfica
+La configuración de un almacenamiento con redundancia local o con redundancia geográfica para copia de seguridad solo se puede realizar durante la creación del servidor. Una vez que se ha aprovisionado el servidor, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad. Para trasladar el almacenamiento de copia de seguridad del almacenamiento con redundancia local a otro con redundancia geográfica, la única opción que se admite es crear un servidor y migrar los datos mediante [volcado y restauración](howto-migrate-dump-restore.md).
 
 ### <a name="backup-storage-cost"></a>Costo del almacenamiento de copia de seguridad
 
@@ -71,7 +74,7 @@ Hay dos tipos de restauración disponibles:
 El tiempo estimado de recuperación depende de varios factores, como el tamaño de la bases de datos, el tamaño del registro de transacciones, el ancho de banda de red y el número total de bases de datos que se están recuperando en la misma región al mismo tiempo. Normalmente, el tiempo de recuperación es inferior a 12 horas.
 
 > [!IMPORTANT]
-> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
 

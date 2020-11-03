@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: af98811e158b9613e41389e08e19cb36797aa272
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271195"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790600"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Llamada a puntos de conexión REST mediante Azure Logic Apps
 
@@ -27,6 +27,8 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector integ
   Normalmente, el punto de conexión REST debe cumplir estos criterios para que el conector funcione:
 
   * El archivo de Swagger debe hospedarse en una URL HTTPS a la que se pueda acceder públicamente.
+  
+  * El archivo Swagger debe contener un elemento `operationID` para cada operación de la definición. De lo contrario, el conector solo mostrará la última operación en el archivo de Swagger. 
 
   * El archivo de Swagger debe tener la opción [Uso compartido de recursos entre orígenes (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) habilitada.
 
@@ -44,11 +46,11 @@ Este desencadenador integrado envía una solicitud HTTP a una URL de un archivo 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en blanco en el diseñador de aplicación lógica.
 
-1. En el diseñador, escriba "swagger" como filtro en el cuadro de búsqueda. En la lista **Desencadenadores**, seleccione el desencadenador **HTTP + Swagger**.
+1. En el diseñador, escriba "swagger" como filtro en el cuadro de búsqueda. En la lista **Desencadenadores** , seleccione el desencadenador **HTTP + Swagger**.
 
    ![Seleccionar el desencadenador HTTP + Swagger](./media/connectors-native-http-swagger/select-http-swagger-trigger.png)
 
-1. En el cuadro **DIRECCIÓN URL DEL PUNTO DE CONEXIÓN DE SWAGGER**, escriba la URL del archivo de Swagger y seleccione **Siguiente**.
+1. En el cuadro **DIRECCIÓN URL DEL PUNTO DE CONEXIÓN DE SWAGGER** , escriba la URL del archivo de Swagger y seleccione **Siguiente**.
 
    En este ejemplo se usa la URL de Swagger que se encuentra en la región Oeste de EE. UU. de [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
 
@@ -84,11 +86,11 @@ Esta acción integrada crea una solicitud HTTP a la URL del archivo de Swagger q
 
    Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
-1. En el diseñador, escriba "swagger" como filtro en el cuadro de búsqueda. En la lista **Acciones**, seleccione la acción **HTTP + Swagger**.
+1. En el diseñador, escriba "swagger" como filtro en el cuadro de búsqueda. En la lista **Acciones** , seleccione la acción **HTTP + Swagger**.
 
     ![Acción de selección de HTTP + Swagger](./media/connectors-native-http-swagger/select-http-swagger-action.png)
 
-1. En el cuadro **DIRECCIÓN URL DEL PUNTO DE CONEXIÓN DE SWAGGER**, escriba la URL del archivo de Swagger y seleccione **Siguiente**.
+1. En el cuadro **DIRECCIÓN URL DEL PUNTO DE CONEXIÓN DE SWAGGER** , escriba la URL del archivo de Swagger y seleccione **Siguiente**.
 
    En este ejemplo se usa la URL de Swagger que se encuentra en la región Oeste de EE. UU. de [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
 
@@ -120,7 +122,7 @@ Puede hacer referencia a un archivo de Swagger que no está hospedado o que no c
 
 1. [Creación de una cuenta de almacenamiento de Azure](../storage/common/storage-account-create.md).
 
-1. Habilite CORS para el blob. En el menú de la cuenta de almacenamiento, seleccione **CORS**. En la pestaña **Blob service**, especifique estos valores y después seleccione **Guardar**.
+1. Habilite CORS para el blob. En el menú de la cuenta de almacenamiento, seleccione **CORS**. En la pestaña **Blob service** , especifique estos valores y después seleccione **Guardar**.
 
    | Propiedad | Value |
    |----------|-------|
@@ -133,7 +135,7 @@ Puede hacer referencia a un archivo de Swagger que no está hospedado o que no c
 
    Aunque en este ejemplo se usa [Azure Portal](https://portal.azure.com), puede usar una herramienta como [Explorador de Azure Storage](https://storageexplorer.com/), o bien configurar automáticamente este valor mediante este [script de PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1) de ejemplo.
 
-1. [Cree un contenedor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md). En el panel **Introducción** del contenedor, seleccione **Cambiar nivel de acceso**. En la lista **Nivel de acceso público**, seleccione **Blob (acceso de lectura anónimo solo para blobs)** y seleccione **Aceptar**.
+1. [Cree un contenedor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md). En el panel **Introducción** del contenedor, seleccione **Cambiar nivel de acceso**. En la lista **Nivel de acceso público** , seleccione **Blob (acceso de lectura anónimo solo para blobs)** y seleccione **Aceptar**.
 
 1. [Cargue el archivo de Swagger en el contenedor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), ya sea mediante [Azure Portal](https://portal.azure.com) o el [Explorador de Azure Storage](https://storageexplorer.com/).
 
@@ -166,4 +168,3 @@ Aquí tiene más información sobre los resultados de una acción o un desencade
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
-

@@ -2,15 +2,15 @@
 title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 0673ea5260c7312395acde8a62b5d457657b9793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729124"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668879"
 ---
-# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
+# <a name="subscription-deployments-with-arm-templates"></a>Implementaciones de suscripción con plantillas de Resource Manager
 
 Para simplificar la administración de recursos, puede usar una plantilla de Azure Resource Manager (plantilla de ARM) para implementar recursos en el nivel de la suscripción de Azure. Por ejemplo, puede implementar [directivas](../../governance/policy/overview.md) y el [control de acceso basado en rol (RBAC de Azure)](../../role-based-access-control/overview.md) en su suscripción, y se aplicarán a ella en su totalidad. También puede crear grupos de recursos dentro de la suscripción e implementar recursos en grupos de recursos de la suscripción.
 
@@ -71,32 +71,26 @@ El esquema que se usa para las implementaciones de nivel de suscripción es dife
 Para las plantillas, use:
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    ...
+}
 ```
 
 El esquema de un archivo de parámetros es el mismo para todos los ámbitos de implementación. Para los archivos de parámetros, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
-
-## <a name="deployment-scopes"></a>Ámbitos de implementación
-
-Al realizar la implementación en una suscripción, puede dirigirse a una suscripción y a cualquiera de los recursos que contenga. No puede realizar la suscripción en una suscripción diferente de la de destino. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
-
-Los recursos definidos en la sección de recursos de la plantilla se aplican a la suscripción.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
-
-Para establecer como destino un grupo de recursos dentro de la suscripción, agregue una implementación anidada e incluya la propiedad `resourceGroup`. En el ejemplo siguiente, la implementación anidada tiene como destino un grupo de recursos denominado `rg2`.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
-
-En este artículo, puede encontrar plantillas que muestran cómo implementar recursos en distintos ámbitos. Para ver una plantilla que crea un grupo de recursos e implementa en él una cuenta de almacenamiento, consulte [Creación de grupos de recursos y recursos](#create-resource-group-and-resources). Para ver una plantilla que crea un grupo de recursos, le aplica un bloqueo y le asigna un rol, consulte [Control de acceso](#access-control).
 
 ## <a name="deployment-commands"></a>Comandos de implementación
 
-Los comandos para las implementaciones de nivel de suscripción son diferentes de los comandos de las implementaciones de grupo de recursos.
+Para implementar en una suscripción, use los comandos de implementación de nivel de suscripción.
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para la CLI de Azure, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). El ejemplo siguiente implementa una plantilla para crear un grupo de recursos:
 
@@ -107,6 +101,8 @@ az deployment sub create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 En el comando de implementación de PowerShell, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) o **New-AzSubscriptionDeployment**. El ejemplo siguiente implementa una plantilla para crear un grupo de recursos:
 
@@ -119,35 +115,52 @@ New-AzSubscriptionDeployment `
   -rgLocation centralus
 ```
 
-Para la API REST, use [Deployments: Create At Subscription Scope](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+---
+
+Para obtener información más detallada sobre los comandos y las opciones de implementación para la implementación de plantillas de Resource Manager, vea:
+
+* [Implementación de recursos con Azure Portal y plantillas de Resource Manager](deploy-portal.md)
+* [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md)
+* [Implementación de recursos con las plantillas de ARM y Azure PowerShell](deploy-powershell.md)
+* [Implementación de recursos con plantillas de Resource Manager y la API REST de Azure Resource Manager](deploy-rest.md)
+* [Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub](deploy-to-azure-button.md)
+* [Implementación de plantillas de Resource Manager desde Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Ámbitos de implementación
+
+Al implementar en una suscripción, puede implementar los recursos en:
+
+* la suscripción de destino de la operación
+* grupos de recursos de la suscripción
+* se pueden aplicar [recursos de extensión](scope-extension-resources.md) a los recursos
+
+No puede realizar la suscripción en una suscripción diferente de la de destino. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
+
+En esta sección se muestra cómo especificar ámbitos diferentes. Puede combinar estos ámbitos diferentes en una sola plantilla.
+
+### <a name="scope-to-subscription"></a>Ámbito de la suscripción
+
+Para implementar recursos en la suscripción de destino, agregue esos recursos a la sección de recursos de la plantilla.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Para obtener ejemplos de cómo implementar en la suscripción, vea [Creación de grupos de recursos](#create-resource-groups) y [Asignación de definición de directiva](#assign-policy-definition).
+
+### <a name="scope-to-resource-group"></a>Ámbito del grupo de recursos
+
+Para implementar recursos en un grupo de recursos dentro de la suscripción, agregue una implementación anidada e incluya la propiedad `resourceGroup`. En el ejemplo siguiente, la implementación anidada tiene como destino un grupo de recursos denominado `demoResourceGroup`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+Para obtener un ejemplo de cómo implementar en un grupo de recursos, vea [Creación de un grupo de recursos y recursos](#create-resource-group-and-resources).
 
 ## <a name="deployment-location-and-name"></a>Ubicación y nombre de la implementación
 
 En el caso de las implementaciones de nivel de suscripción, debe proporcionar una ubicación para la implementación. La ubicación de la implementación es independiente de la ubicación de los recursos que se implementan. La ubicación de implementación especifica dónde se almacenarán los datos de la implementación.
 
-Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json**, se crea un nombre de predeterminado **azuredeploy**.
+Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json** , se crea un nombre de predeterminado **azuredeploy**.
 
 Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
-
-## <a name="use-template-functions"></a>Usar funciones de plantillas
-
-En las implementaciones de nivel de suscripción, hay algunas consideraciones importantes que deben tenerse en cuenta al usar las funciones de plantilla:
-
-* La función [resourceGroup()](template-functions-resource.md#resourcegroup)**no** se admite.
-* Se admiten las funciones [reference()](template-functions-resource.md#reference) y [list()](template-functions-resource.md#list).
-* No use [resourceId()](template-functions-resource.md#resourceid) para obtener el identificador de los recursos implementados en el nivel de suscripción. En su lugar, use la función [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid).
-
-  Por ejemplo, para obtener el identificador de recurso de una definición de directiva que se implementa en una suscripción, use:
-
-  ```json
-  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
-  ```
-
-  El identificador de recurso devuelto tiene el formato siguiente:
-
-  ```json
-  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="resource-groups"></a>Grupos de recursos
 

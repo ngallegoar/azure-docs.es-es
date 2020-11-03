@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 643b28b2e88f233d2924270511d3c87fa4d9b767
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631637"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744206"
 ---
 # <a name="step-3-validate-connectivity"></a>PASO 3: Validar conectividad
 
@@ -29,8 +29,10 @@ Una vez que haya implementado el reenviador de registros (en el paso 1) y config
 
 - Debe tener permisos elevados (sudo) en la máquina del reenviador de registros.
 
-- Python debe estar instalado en la máquina del reenviador de registros.<br>
+- Debe tener instalado **Python 2.7** en la máquina del reenviador de registros.<br>
 Use el comando `python –version` para comprobarlo.
+
+- En algún momento del proceso, es posible que necesite el id. del área de trabajo y la clave principal del área de trabajo. Puede encontrarlos en el recurso del área de trabajo, en **Administración de agentes**.
 
 ## <a name="how-to-validate-connectivity"></a>Procedimientos para validar la conectividad
 
@@ -39,8 +41,15 @@ Tenga en cuenta que pueden transcurrir unos 20 minutos hasta que los registros 
 
 1. Si no ve ningún resultado de la consulta, compruebe que se generan eventos en la solución de seguridad o intente generar algunos, y compruebe que se reenvían a la máquina del reenviador de Syslog que ha designado. 
 
-1. Ejecute el siguiente script en el reenviador de registros para comprobar la conectividad entre la solución de seguridad, el reenviador de registros y Azure Sentinel. Este script comprueba que el demonio escucha en los puertos correctos, que el reenvío del demonio está configurado correctamente y que nada bloquee la comunicación entre el demonio y el agente de Log Analytics. También envía mensajes ficticios "TestCommonEventFormat" para comprobar la conectividad de un extremo a otro. <br>
- `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
+1. Ejecute el siguiente script en el reenviador de registros (aplicando el id. del área de trabajo en lugar del marcador de posición) para comprobar la conectividad entre la solución de seguridad, el reenviador de registros y Azure Sentinel. Este script comprueba que el demonio escucha en los puertos correctos, que el reenvío del demonio está configurado correctamente y que nada bloquee la comunicación entre el demonio y el agente de Log Analytics. También envía mensajes ficticios "TestCommonEventFormat" para comprobar la conectividad de un extremo a otro. <br>
+
+    ```bash
+    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
+    ```
+
+   - Es posible que reciba un mensaje que le indique que debe ejecutar un comando para corregir un problema con la **asignación del campo *Equipo***. Consulte la [explicación en el script de validación](#mapping-command) para obtener más detalles.
+
+    - Es posible que reciba un mensaje que le indique que debe ejecutar un comando para corregir un problema con el **análisis de los registros de firewall de Cisco ASA**. Consulte la [explicación en el script de validación](#parsing-command) para obtener más detalles.
 
 ## <a name="validation-script-explained"></a>Explicación del script de validación
 
@@ -72,21 +81,31 @@ El script de validación realiza las siguientes comprobaciones:
     </filter>
     ```
 
-1. Comprueba que el análisis de Cisco ASA para eventos de firewall se ha configurado según lo previsto:
+1. Comprueba que el análisis de los eventos del firewall de Cisco ASA esté configurado según lo previsto, con el siguiente comando: 
 
     ```bash
-    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
-        /opt/microsoft/omsagent/plugin/security_lib.rb && 
-        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-1. Comprueba que el campo *Equipo* del origen de syslog se ha asignado correctamente en el agente de Log Analytics:
+    - <a name="parsing-command"></a>Si hay un problema con el análisis, el script generará un mensaje de error que le indicará que debe **ejecutar manualmente el siguiente comando** (debe agregar el id. del área de trabajo en lugar del marcador de posición). El comando garantizará que el análisis se realice correctamente y reiniciará el agente.
+    
+        ```bash
+        # Cisco ASA parsing fix
+        sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. Comprueba que el campo *Equipo* del origen de syslog se haya asignado correctamente en el agente de Log Analytics, mediante el siguiente comando: 
 
     ```bash
-    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
+
+    - <a name="mapping-command"></a>Si hay un problema con la asignación, el script generará un mensaje de error que le indicará que debe **ejecutar manualmente el siguiente comando** (debe agregar el id. del área de trabajo en lugar del marcador de posición). El comando garantizará que la asignación se realice correctamente y reiniciará el agente.
+
+        ```bash
+        # Computer field mapping fix
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 1. Comprueba si hay mejoras de seguridad en el equipo que podrían estar bloqueando el tráfico de red (por ejemplo, un firewall de host).
 
@@ -155,21 +174,31 @@ El script de validación realiza las siguientes comprobaciones:
     </filter>
     ```
 
-1. Comprueba que el análisis de Cisco ASA para eventos de firewall se ha configurado según lo previsto:
+1. Comprueba que el análisis de los eventos del firewall de Cisco ASA esté configurado según lo previsto, con el siguiente comando: 
 
     ```bash
-    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
-        /opt/microsoft/omsagent/plugin/security_lib.rb && 
-        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-1. Comprueba que el campo *Equipo* del origen de syslog se ha asignado correctamente en el agente de Log Analytics:
+    - <a name="parsing-command"></a>Si hay un problema con el análisis, el script generará un mensaje de error que le indicará que debe **ejecutar manualmente el siguiente comando** (debe agregar el id. del área de trabajo en lugar del marcador de posición). El comando garantizará que el análisis se realice correctamente y reiniciará el agente.
+    
+        ```bash
+        # Cisco ASA parsing fix
+        sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. Comprueba que el campo *Equipo* del origen de syslog se haya asignado correctamente en el agente de Log Analytics, mediante el siguiente comando: 
 
     ```bash
-    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
+
+    - <a name="mapping-command"></a>Si hay un problema con la asignación, el script generará un mensaje de error que le indicará que debe **ejecutar manualmente el siguiente comando** (debe agregar el id. del área de trabajo en lugar del marcador de posición). El comando garantizará que la asignación se realice correctamente y reiniciará el agente.
+
+        ```bash
+        # Computer field mapping fix
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 1. Comprueba si hay mejoras de seguridad en el equipo que podrían estar bloqueando el tráfico de red (por ejemplo, un firewall de host).
 

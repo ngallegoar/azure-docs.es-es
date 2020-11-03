@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 635f1e03596d55101b6158353ed8cdc278212ceb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92155385"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516195"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Uso de permisos en Azure Spring Cloud
 En este artículo se muestra cómo crear roles personalizados que delegan permisos en recursos de Azure Spring Cloud. Los roles personalizados amplían los [roles integrados de Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) con varios permisos estándar.
@@ -43,19 +43,19 @@ Siga estos pasos para empezar a definir un rol.
 
 1. En Azure Portal, abra la suscripción y el grupo de recursos donde desee que se pueda asignar el rol personalizado.
 2. Abra **Control de acceso (IAM)** .
-3. Haga clic en **+ Agregar** .
-4. Haga clic en **Agregar rol personalizado** .
-5. Haga clic en **Next** .
+3. Haga clic en **+ Agregar**.
+4. Haga clic en **Agregar rol personalizado**.
+5. Haga clic en **Next**.
 
    ![Creación de un rol personalizado](media/spring-cloud-permissions/create-custom-role.png)
 
-6. Haga clic en **Agregar permisos** .
+6. Haga clic en **Agregar permisos**.
 
    ![Incorporación de permisos: iniciar](media/spring-cloud-permissions/add-permissions.png)
 
 ### <a name="search-for-azure-spring-cloud-permissions"></a>Búsqueda de permisos de Azure Spring Cloud:
-7. En el cuadro de búsqueda, busque *Microsoft.app* .
-Seleccione *Microsoft Azure Spring Cloud* .
+7. En el cuadro de búsqueda, busque *Microsoft.app*.
+Seleccione *Microsoft Azure Spring Cloud*.
 
    ![Seleccione Azure Spring Cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
 
@@ -95,11 +95,11 @@ En **Microsoft.AppPlatform/locations/operationStatus/operationId** , seleccione:
 
     [ ![Crear permisos de desarrollador](media/spring-cloud-permissions/developer-permissions-box.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
-9. Haga clic en **Agregar** .
+9. Haga clic en **Agregar**.
 
 10. Revise los permisos.
 
-11. Haga clic en **Revisar y crear** .
+11. Haga clic en **Revisar y crear**.
 
 ## <a name="define-devops-engineer-role"></a>Definición del rol de ingeniero de DevOps
 Este procedimiento define un rol con permisos para implementar, probar y reiniciar aplicaciones de Azure Spring Cloud.
@@ -153,11 +153,11 @@ En **Microsoft.AppPlatform/skus** , seleccione:
 
    [ ![Permisos de desarrollo y operaciones](media/spring-cloud-permissions/dev-ops-permissions.png) ](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
 
-3. Haga clic en **Agregar** .
+3. Haga clic en **Agregar**.
 
 4. Revise los permisos.
 
-5. Haga clic en **Revisar y crear** .
+5. Haga clic en **Revisar y crear**.
 
 ## <a name="define-ops---site-reliability-engineering-role"></a>Definición del rol de operaciones/ingeniería de confiabilidad de sitios
 Este procedimiento define un rol con permisos para implementar, probar y reiniciar aplicaciones de Azure Spring Cloud.
@@ -187,18 +187,18 @@ En **Microsoft.AppPlatform/locations/operationStatus/operationId** , seleccione:
 
    [ ![Permisos de operaciones/ingeniería de confiabilidad de sitios](media/spring-cloud-permissions/ops-sre-permissions.png) ](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
 
-3. Haga clic en **Agregar** .
+3. Haga clic en **Agregar**.
 
 4. Revise los permisos.
 
-5. Haga clic en **Revisar y crear** .
+5. Haga clic en **Revisar y crear**.
 
 ## <a name="define-azure-pipelinesprovisioning-role"></a>Definición del rol de Azure Pipelines/aprovisionamiento
 Este rol de acciones de Jenkins/GitHub puede crear y configurar todo en Azure Spring Cloud y las aplicaciones con una instancia de servicio. Este rol se usa para liberar o implementar código.
 
 1. Repita el procedimiento para navegar a la suscripción y el grupo de recursos, y vaya a Control de acceso (IAM).
 
-2. Abra las opciones de **Permisos** .
+2. Abra las opciones de **Permisos**.
 
 3. Seleccione los permisos para el rol de Azure Pipelines/aprovisionamiento:
   
@@ -249,11 +249,11 @@ En **Microsoft.AppPlatform/skus** , seleccione:
 
    [ ![Permisos de Pipelines](media/spring-cloud-permissions/pipelines-permissions-box.png) ](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
 
-4. Haga clic en **Agregar** .
+4. Haga clic en **Agregar**.
 
 5. Revise los permisos.
 
-6. Haga clic en **Revisar y crear** .
+6. Haga clic en **Revisar y crear**.
 
 
 ## <a name="see-also"></a>Consulte también

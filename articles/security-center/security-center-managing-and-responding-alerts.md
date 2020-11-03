@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: e17c7d6618d67d66c89875696c5c529af3a85ea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75ca0438336825bf8d4bbdc6e08eca109f430fde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440560"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785925"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a alertas de seguridad en Azure Security Center
 
@@ -52,7 +52,7 @@ Security Center recopila, analiza e integra automáticamente los datos de regist
 
 ## <a name="respond-to-security-alerts"></a>Responder a alertas de seguridad
 
-1. En la lista **Alertas de seguridad**, haga clic en una alerta de seguridad. Se muestran los recursos implicados y los pasos que debe seguir para solucionar las consecuencias de un ataque.
+1. En la lista **Alertas de seguridad** , haga clic en una alerta de seguridad. Se muestran los recursos implicados y los pasos que debe seguir para solucionar las consecuencias de un ataque.
 
     ![Responder a alertas de seguridad](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
 
@@ -80,4 +80,4 @@ Security Center recopila, analiza e integra automáticamente los datos de regist
 En este documento, aprendió cómo ver alertas de seguridad. Vea las páginas siguientes para obtener material relacionado:
 
 - [Configuración de reglas de eliminación de alertas](alerts-suppression-rules.md)
-- [Automatización de respuestas a alertas y recomendaciones con automatización de flujos de trabajo](workflow-automation.md)
+- [Creación de respuestas automáticas a alertas y recomendaciones con automatización del flujo de trabajo](workflow-automation.md)

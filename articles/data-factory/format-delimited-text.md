@@ -9,18 +9,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: jingwang
-ms.openlocfilehash: c491a0b5e4c4fc517368c5947fa6181201a5b5fd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9d4322ff8f9d67ecfd1b55fbee36d5379b987fab
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127274"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636381"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Siga este artículo cuando quiera **analizar los archivos de texto delimitado o escribir los datos en formato de texto delimitado** . 
+Siga este artículo cuando quiera **analizar los archivos de texto delimitado o escribir los datos en formato de texto delimitado**. 
 
 El formato de texto delimitado se admite para los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) y [SFTP](connector-sftp.md).
 
@@ -30,17 +30,17 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 | Propiedad         | Descripción                                                  | Obligatorio |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La propiedad type del conjunto de datos debe establecerse en **DelimitedText** . | Sí      |
+| type             | La propiedad type del conjunto de datos debe establecerse en **DelimitedText**. | Sí      |
 | ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`.  | Sí      |
 | columnDelimiter  | Los caracteres usados para separar las columnas en un archivo. <br>El valor predeterminado es **coma `,`** . Cuando el delimitador de columna se define como cadena vacía (es decir, ningún delimitador), toda la línea se toma como una sola columna.<br>Actualmente, solo se admite el delimitador de columna como cadena vacía o de varios caracteres para el flujo de datos de asignación, pero no para la actividad de copia.  | No       |
 | rowDelimiter     | El carácter único o "\r\n" usado para separar las filas en un archivo. <br>El valor predeterminado es cualquiera de los siguientes valores **en lectura: ["\r\n", "\r", "\n"]** , y **"\n" o "\r\n" en escritura** mediante el flujo de datos de asignación y la actividad de copia, respectivamente. <br>Cuando el delimitador de fila se establece en ningún delimitador (cadena vacía), también debe establecerse el delimitador de columna como ningún delimitador (cadena vacía), lo que significa que se trata todo el contenido como un valor único.<br>Actualmente, solo se admite el delimitador de fila como cadena vacía para el flujo de datos de asignación, pero no para la actividad de copia. | No       |
 | quoteChar        | El carácter único para entrecomillar los valores de columna si contiene el delimitador de columna. <br>El valor predeterminado es **comillas dobles** `"`. <br>Cuando `quoteChar` se define como una cadena vacía, significa que no hay ningún carácter de comillas y el valor de la columna no está entre comillas, y `escapeChar` se usa como carácter de escape para el delimitador de columna y para sí mismo. | No       |
 | escapeChar       | El carácter único para escapar las comillas dentro de un valor entre comillas.<br>El valor predeterminado es **barra diagonal inversa`\`** . <br>Cuando `escapeChar` se define como una cadena vacía, `quoteChar` también debe establecerse como una cadena vacía. En este caso, asegúrese de que ninguno de los valores de columna contenga delimitadores. | No       |
 | firstRowAsHeader | Especifica si se debe tratar o convertir la primera fila como una línea de encabezado con nombres de columnas.<br>Los valores permitidos son **true** y **false** (predeterminado).<br>Si la primera fila como encabezado es falsa, tenga en cuenta que la vista previa de los datos de la interfaz de usuario y la salida de la actividad de búsqueda generan automáticamente los nombres de columna como Prop_ {n} (a partir de 0) y la actividad de copia requiere una [asignación explícita](copy-activity-schema-and-type-mapping.md#explicit-mapping) del origen al receptor y busca las columnas por ordinal (a partir de 1) y flujo de datos de asignación, y busca las columnas con el nombre Column_{n} (a partir de 1).  | No       |
-| nullValue        | Especifica la representación de cadena del valor null. <br>El valor predeterminado es una **cadena vacía** . | No       |
+| nullValue        | Especifica la representación de cadena del valor null. <br>El valor predeterminado es una **cadena vacía**. | No       |
 | encodingName     | El tipo de codificación usado para leer y escribir archivos de prueba. <br>Los valores permitidos son los siguientes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", “UTF-7”, "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258”.<br>Tenga en cuenta que el flujo de datos de asignación no admite la codificación UTF-7. | No       |
-| compressionCodec | El códec de compresión usado para leer y escribir archivos de texto. <br>Los valores permitidos son **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **snappy** y **lz4** . La opción predeterminada no se comprime. <br>**Tenga en cuenta** que actualmente la actividad de copia no admite "snappy" ni "lz4", y que el flujo de datos de asignación no admite "ZipDeflate". <br>**Tenga en cuenta** que, cuando se utiliza la actividad de copia para descomprimir archivos **ZipDeflate**/**TarGzip** y escribir en el almacén de datos receptor basado en archivos, los archivos se extraen de manera predeterminada en la carpeta `<path specified in dataset>/<folder named as source compressed file>/`. Use `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` en el [origen de la actividad de copia](#delimited-text-as-source) para controlar si se debe conservar el nombre de los archivos comprimidos como una estructura de carpetas. | No       |
-| compressionLevel | La razón de compresión. <br>Los valores permitidos son **Optimal** o **Fastest** .<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal** : la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
+| compressionCodec | El códec de compresión usado para leer y escribir archivos de texto. <br>Los valores permitidos son **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **snappy** y **lz4**. La opción predeterminada no se comprime. <br>**Tenga en cuenta** que actualmente la actividad de copia no admite "snappy" ni "lz4", y que el flujo de datos de asignación no admite "ZipDeflate". <br>**Tenga en cuenta** que, cuando se utiliza la actividad de copia para descomprimir archivos **ZipDeflate**/**TarGzip** y escribir en el almacén de datos receptor basado en archivos, los archivos se extraen de manera predeterminada en la carpeta `<path specified in dataset>/<folder named as source compressed file>/`. Use `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` en el [origen de la actividad de copia](#delimited-text-as-source) para controlar si se debe conservar el nombre de los archivos comprimidos como una estructura de carpetas. | No       |
+| compressionLevel | La razón de compresión. <br>Los valores permitidos son **Optimal** o **Fastest**.<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal** : la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](/dotnet/api/system.io.compression.compressionlevel) . | No       |
 
 A continuación encontrará un ejemplo de un conjunto de datos de texto delimitado en Azure Blob Storage:
 
@@ -76,11 +76,11 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="delimited-text-as-source"></a>Texto delimitado como origen 
 
-En la sección ***\*source\**** de la actividad de copia se admiten las siguientes propiedades.
+En la sección **_\_source\*** * de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad       | Descripción                                                  | Obligatorio |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | La propiedad type del origen de la actividad de copia debe establecerse en **DelimitedTextSource** . | Sí      |
+| type           | La propiedad type del origen de la actividad de copia debe establecerse en **DelimitedTextSource**. | Sí      |
 | formatSettings | Un grupo de propiedades. Consulte la tabla **Configuración de lectura de texto delimitado** a continuación. |  No       |
 | storeSettings  | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. | No       |
 
@@ -88,11 +88,11 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La propiedad type de formatSettings debe establecerse en **DelimitedTextReadSettings** . | Sí      |
+| type          | La propiedad type de formatSettings debe establecerse en **DelimitedTextReadSettings**. | Sí      |
 | skipLineCount | Indica el número de filas **no vacías** que se omitirán al leer datos de archivos de entrada. <br>Si se especifican ambos valores skipLineCount y firstRowAsHeader, las líneas se omiten primero y, luego, la información del encabezado se lee a partir del archivo de entrada. | No       |
 | compressionProperties | Un grupo de propiedades sobre cómo descomprimir datos para un códec de compresión determinado. | No       |
-| preserveZipFileNameAsFolder<br>( *en `compressionProperties`->`type` como `ZipDeflateReadSettings`* ) |  Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate** . Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`.<br>- Cuando se establece en **false** , Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en archivos ZIP de origen diferentes para evitar comportamientos acelerados o inesperados.  | No |
-| preserveCompressionFileNameAsFolder<br>( *en `compressionProperties`->`type` como `TarGZipReadSettings`* )  | Se aplica cuando el conjunto de datos de entrada se configura con compresión **TarGzip** . Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false** , Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos de origen comprimidos para evitar comportamientos acelerados o inesperados. | No |
+| preserveZipFileNameAsFolder<br>( *en `compressionProperties`->`type` como `ZipDeflateReadSettings`* ) |  Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`.<br>- Cuando se establece en **false** , Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en archivos ZIP de origen diferentes para evitar comportamientos acelerados o inesperados.  | No |
+| preserveCompressionFileNameAsFolder<br>( *en `compressionProperties`->`type` como `TarGZipReadSettings`* )  | Se aplica cuando el conjunto de datos de entrada se configura con compresión **TarGzip**. Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false** , Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos de origen comprimidos para evitar comportamientos acelerados o inesperados. | No |
 
 ```json
 "activities": [
@@ -124,11 +124,11 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 
 ### <a name="delimited-text-as-sink"></a>Texto delimitado como receptor
 
-En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes propiedades.
+En la sección **_\_sink\*** * de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad       | Descripción                                                  | Obligatorio |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | La propiedad type del origen de la actividad de copia debe establecerse en **DelimitedTextSink** . | Sí      |
+| type           | La propiedad type del origen de la actividad de copia debe establecerse en **DelimitedTextSink**. | Sí      |
 | formatSettings | Un grupo de propiedades. Consulte la tabla **Configuración de escritura de texto delimitado** a continuación. |    No      |
 | storeSettings  | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`.  | No       |
 
@@ -136,7 +136,7 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 
 | Propiedad      | Descripción                                                  | Obligatorio                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | La propiedad type de formatSettings debe establecerse en **DelimitedTextWriteSettings** . | Sí                                                   |
+| type          | La propiedad type de formatSettings debe establecerse en **DelimitedTextWriteSettings**. | Sí                                                   |
 | fileExtension | La extensión de archivo que se usa para denominar los archivos de salida, por ejemplo: `.csv`, `.txt`. Debe especificarse cuando no se especifica `fileName` en el conjunto de datos DelimitedText de salida. Cuando el nombre de archivo se configure en el conjunto de resultados de salida, se usará como nombre de archivo receptor y se omitirá la configuración de la extensión de archivo.  | Sí, cuando no se especifica el nombre de archivo en el conjunto de datos de salida |
 | maxRowsPerFile | Al escribir datos en una carpeta, puede optar por escribir en varios archivos y especificar el número máximo de filas por archivo.  | No |
 | fileNamePrefix | Se aplica cuando se configura `maxRowsPerFile`.<br> Especifique el prefijo de nombre de archivo al escribir datos en varios archivos, lo que da como resultado este patrón: `<fileNamePrefix>_00000.<fileExtension>`. Si no se especifica, el prefijo de nombre de archivo se generará automáticamente. Esta propiedad no se aplica cuando el origen es un almacén basado en archivos o un [almacén de datos habilitado para la opción de partición](copy-activity-performance-features.md).  | No |
@@ -178,7 +178,7 @@ source(
 
 ### <a name="sink-properties"></a>Propiedades del receptor
 
-En la tabla siguiente se enumeran las propiedades que un receptor de texto delimitado admite. Puede editar estas propiedades en la pestaña **Configuración** .
+En la tabla siguiente se enumeran las propiedades que un receptor de texto delimitado admite. Puede editar estas propiedades en la pestaña **Configuración**.
 
 | Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
 | ---- | ----------- | -------- | -------------- | ---------------- |

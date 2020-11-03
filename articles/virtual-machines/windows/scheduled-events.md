@@ -9,12 +9,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 823013de0462d830f065993b1c7c9dbe4256991d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8a0dd7f020c9a8e720aacf34b1719ee2094fa223
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978044"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788815"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Windows
 
@@ -153,6 +153,10 @@ Cada evento se programa una cantidad mínima de tiempo en el futuro en función 
 
 > [!NOTE] 
 > En algunos casos, Azure puede predecir errores en el host debidos a que el hardware está degradado e intentará mitigar la interrupción del servicio mediante la programación de una migración. Las máquinas virtuales afectadas recibirán un evento programado con un valor de `NotBefore` que habitualmente es unos días posteriores. El tiempo real varía en función de la valoración de riesgo de error predicha. Azure intenta avisar con 7 días de antelación siempre que sea posible, pero el tiempo real varía y puede ser menor si la predicción es que sea muy probable que se produzcan errores en el hardware de forma inminente. Para minimizar el riesgo para el servicio si se produce un error en el hardware antes de la migración iniciada por el sistema, se recomienda volver a implementar automáticamente la máquina virtual lo antes posible.
+
+### <a name="polling-frequency"></a>Frecuencia de sondeo
+
+Puede sondear el punto de conexión para obtener las actualizaciones con la frecuencia que quiera. Sin embargo, cuanto más tiempo transcurre entre solicitudes, más tiempo se pierde para reaccionar ante un evento próximo. La mayoría de los eventos tienen un aviso previo de 5 a 15 minutos, aunque en algunos casos el aviso previo podría llegar con muy poca antelación, como 30 segundos. Para asegurarse de que tiene tanto tiempo como sea posible para llevar a cabo acciones de mitigación, se recomienda sondear el servicio una vez por segundo.
 
 ### <a name="start-an-event"></a>Inicio de un evento 
 

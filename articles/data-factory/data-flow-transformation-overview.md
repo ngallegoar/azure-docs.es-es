@@ -6,13 +6,13 @@ ms.author: daperlov
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: 6fe85db6612a16099f61cb52fe9c5864882f35b3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606284"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892934"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Introducción a las transformaciones en el flujo de datos de asignación
 
@@ -33,6 +33,7 @@ A continuación se muestra una lista de las transformaciones admitidas actualmen
 | [Lookup](data-flow-lookup.md) | Varias entradas y salidas | Hace referencia a datos de otro origen. |
 | [Nueva rama](data-flow-new-branch.md) | Varias entradas y salidas | Aplica varios conjuntos de operaciones y transformaciones en el mismo flujo de datos. |
 | [Dinamización](data-flow-pivot.md) | Modificador de esquema | Agregación en la que los valores de fila distintivos de una o más columnas de agrupación se transforman en columnas individuales. |
+| [Rango](data-flow-rank.md) | Modificador de esquema | Genera una clasificación ordenada en función de las condiciones de ordenación. |
 | [Select](data-flow-select.md) | Modificador de esquema | Establece alias de nombres de columnas y flujos, y quita o reordena columnas. |
 | [Sink](data-flow-sink.md) | - | Destino final para los datos. |
 | [Sort](data-flow-sort.md) | Modificador de fila | Ordena las filas entrantes del flujo de datos actual. |

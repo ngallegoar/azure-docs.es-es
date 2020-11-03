@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601371"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371059"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de autenticación de Azure Active Directory
 
@@ -42,13 +42,13 @@ La administración de Azure Active Directory requiere la ejecución continua d
 | Evaluar las propiedades e investigar los usuarios marcados en informes de vulnerabilidades y riesgos desde Azure AD Identity Protection | Equipo de operaciones de InfoSec |
 
 > [!NOTE]
-> Azure AD Identity Protection requiere una licencia de Azure AD Premium P2. Para obtener la licencia correcta para sus requisitos, consulte  [Comparación de las características con disponibilidad general de las ediciones Azure AD Free y Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+> Azure AD Identity Protection requiere una licencia de Azure AD Premium P2. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Azure AD Free y Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
 A medida que revise la lista, es posible que tenga que asignar un propietario a las tareas que no tienen uno o ajustar la propiedad de aquellas tareas cuyos propietarios no se ajustan a las recomendaciones anteriores.
 
 #### <a name="owner-recommended-reading"></a>Lecturas recomendadas para propietarios
 
-- [Asignación de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Asignación de roles de administrador en Azure Active Directory](../roles/permissions-reference.md)
 - [Gobernanza en Azure](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>Administración de credenciales
@@ -119,7 +119,7 @@ La autenticación federada con la Autenticación integrada de Windows (IWA) o la
 
 ### <a name="device-trust-access-policies"></a>Directivas de acceso de confianza de dispositivos
 
-Al igual que un usuario de su organización, un dispositivo es una identidad principal que desea proteger. Puede usar una identidad de dispositivo para proteger los recursos en cualquier momento y ubicación. La autenticación del dispositivo y tener en cuenta su tipo de confianza mejoran la seguridad y facilidad de uso, ya que:
+Al igual que un usuario de su organización, un dispositivo es una identidad principal que desea proteger. Puede usar una identidad de dispositivo para proteger los recursos en cualquier momento y ubicación.  La autenticación del dispositivo y tener en cuenta su tipo de confianza mejoran la seguridad y facilidad de uso, ya que:
 
 - Se evita la fricción, por ejemplo, con MFA, cuando el dispositivo es de confianza.
 - Se bloquea el acceso desde dispositivos que no son de confianza.
@@ -128,7 +128,7 @@ Al igual que un usuario de su organización, un dispositivo es una identidad pri
 Puede llevar a cabo este objetivo mediante la incorporación de identidades de dispositivo, y administrarlas en Azure AD mediante uno de los métodos siguientes:
 
 - Las organizaciones pueden usar [Microsoft Intune](/intune/what-is-intune) para administrar el dispositivo y aplicar las directivas de cumplimiento, atestar el estado del dispositivo y establecer directivas de acceso condicional en función de si el dispositivo es compatible. Microsoft Intune puede administrar dispositivos iOS, dispositivos de escritorio Mac (a través de la integración JAMF), dispositivos de escritorio de Windows (de modo nativo mediante la administración de dispositivos móviles para Windows 10 y la administración conjunta con Microsoft Endpoint Configuration Manager) y dispositivos móviles Android.
-- La [combinación de Azure AD híbrido](../devices/hybrid-azuread-join-managed-domains.md) proporciona la opción de administrar contenido con directivas de grupo o Microsoft Endpoint Configuration Manager en un entorno con equipos unidos a un dominio de Active Directory. Las organizaciones pueden implementar un entorno administrado a través de PHS o PTA con un SSO de conexión directa. Si lleva sus dispositivos a Azure AD, podrá maximizar la productividad de los usuarios a través de SSO en los recursos locales y en la nube, a la vez que protegerá el acceso a los recursos en la nube y locales con la opción de  [acceso condicional](../conditional-access/overview.md) al mismo tiempo.
+- La [combinación de Azure AD híbrido](../devices/hybrid-azuread-join-managed-domains.md) proporciona la opción de administrar contenido con directivas de grupo o Microsoft Endpoint Configuration Manager en un entorno con equipos unidos a un dominio de Active Directory. Las organizaciones pueden implementar un entorno administrado a través de PHS o PTA con un SSO de conexión directa. Si lleva sus dispositivos a Azure AD, podrá maximizar la productividad de los usuarios a través de SSO en los recursos locales y en la nube, a la vez que protegerá el acceso a los recursos en la nube y locales con la opción de [acceso condicional](../conditional-access/overview.md) al mismo tiempo.
 
 Si tiene dispositivos Windows unidos a un dominio que no están registrados en la nube, o dispositivos Windows unidos a un dominio que sí están registrados en la nube, pero sin directivas de acceso condicional, debe registrar los dispositivos no registrados y, en cualquier caso, [usar la combinación de Azure AD híbrido como control](../conditional-access/require-managed-devices.md) de las directivas de acceso condicional.
 
@@ -177,7 +177,7 @@ Por último, si tiene una galería de aplicaciones de Azure AD y usa aplicacion
 
 ### <a name="assign-users-to-applications"></a>Asignar usuarios a aplicaciones
 
-La [asignación de usuarios a las aplicaciones](../manage-apps/assign-user-or-group-access-portal.md) se realiza mejor cuando se usan grupos, porque permiten una gran flexibilidad y la posibilidad de administrarlos a escala. Las ventajas de usar grupos incluyen las opciones de [pertenencia dinámica a grupos basada en atributos](../users-groups-roles/groups-dynamic-membership.md) y de [delegación a los propietarios de las aplicaciones](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Por lo tanto, si ya usa y administra grupos, es recomendable realizar las siguientes acciones para mejorar la administración a escala:
+La [asignación de usuarios a las aplicaciones](../manage-apps/assign-user-or-group-access-portal.md) se realiza mejor cuando se usan grupos, porque permiten una gran flexibilidad y la posibilidad de administrarlos a escala. Las ventajas de usar grupos incluyen las opciones de [pertenencia dinámica a grupos basada en atributos](../enterprise-users/groups-dynamic-membership.md) y de [delegación a los propietarios de las aplicaciones](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Por lo tanto, si ya usa y administra grupos, es recomendable realizar las siguientes acciones para mejorar la administración a escala:
 
 - Delegar la administración y la gobernanza de grupos a los propietarios de la aplicación.
 - Permitir el acceso de autoservicio a la aplicación.
@@ -189,8 +189,8 @@ Por otro lado, si encuentra aplicaciones que tienen una asignación a usuarios i
 #### <a name="assign-users-to-applications-recommended-reading"></a>Lectura recomendada para asignar usuarios a aplicaciones
 
 - [Asignación de usuarios y grupos en una aplicación de Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md)
-- [Delegación de permisos de registro de aplicaciones en Azure Active Directory](../users-groups-roles/roles-delegate-app-roles.md)
-- [Reglas de pertenencia dinámica a grupos de Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
+- [Delegación de permisos de registro de aplicaciones en Azure Active Directory](../roles/delegate-app-roles.md)
+- [Reglas de pertenencia dinámica a grupos de Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>Directivas de acceso
 
@@ -241,14 +241,14 @@ Si los empleados instalan aplicaciones compatibles con MAM en recursos corporati
 El acceso condicional es una herramienta esencial para mejorar la posición de seguridad de su organización. Por lo tanto, es importante que siga estos procedimientos recomendados:
 
 - Asegúrese de que todas las aplicaciones SaaS tienen al menos una directiva aplicada.
-- Evite combinar el filtro **Todas las aplicaciones** con el control de **bloqueo**, para evitar el riesgo de bloqueo.
+- Evite combinar el filtro **Todas las aplicaciones** con el control de **bloqueo** , para evitar el riesgo de bloqueo.
 - Evite usar la opción **Todos los usuarios** como filtro y agregar sin querer **Invitados**.
 - **Migre todas las directivas "heredadas" a Azure Portal**
 - Recopile todos los criterios de los usuarios, los dispositivos y las aplicaciones.
 - Use las directivas de acceso condicional para [implementar MFA](../conditional-access/plan-conditional-access.md), en lugar de usar un **MFA por usuario**.
 - Conserve un pequeño conjunto de directivas básicas que se puedan aplicar a varias aplicaciones.
 - Defina grupos de excepciones vacíos y agréguelos a las directivas para tener una estrategia de excepción.
-- Planifique las cuentas de [emergencia ](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) sin controles MFA.
+- Planifique las cuentas de [emergencia ](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) sin controles MFA.
 - Asegúrese de que proporciona una experiencia coherente entre las aplicaciones cliente de Microsoft 365 (por ejemplo, Teams, OneDrive u Outlook) al implementar el mismo conjunto de controles para servicios como Exchange Online y SharePoint Online.
 - Recuerde que la asignación a directivas debe implementarse a través de grupos, no de personas.
 - Realice revisiones periódicas de los grupos de excepciones que se usan en las directivas para limitar el tiempo que los usuarios no usan la posición de seguridad. Si tiene Azure AD P2, puede usar las revisiones de acceso para automatizar el proceso.
@@ -328,9 +328,9 @@ A continuación, se muestra la configuración de usuario y de grupo que se puede
 
 #### <a name="user-settings"></a>Configuración de usuario
 
-- **Usuarios externos**: la colaboración externa puede producirse de forma orgánica en la empresa mediante servicios como Teams, Power BI, SharePoint Online y Azure Information Protection. Si tiene restricciones explícitas para controlar cualquier colaboración externa que inicie el usuario, es recomendable que habilite usuarios externos mediante la [administración de derechos de Azure AD](../governance/entitlement-management-overview.md) o con una operación controlada como, por ejemplo, a través del departamento de soporte técnico. Si no quiere permitir la colaboración externa orgánica en los servicios, puede [impedir totalmente que los miembros inviten a usuarios externos](../external-identities/delegate-invitations.md). Como alternativa, también puede [permitir o bloquear dominios específicos](../external-identities/allow-deny-list.md) en invitaciones de usuarios externos.
-- **Registros de aplicaciones**: cuando la característica Registros de aplicaciones está habilitada, los usuarios finales pueden incorporar aplicaciones y conceder acceso a sus datos. Un ejemplo típico de la característica Registro de aplicaciones, son los usuarios que habilitan los complementos de Outlook o los asistentes de voz como Alexa y Siri que se usan para leer los correos electrónicos y el calendario, o para enviar correos electrónicos en su nombre. Si el cliente decide desactivar Registro de aplicaciones, los equipos de InfoSec e IAM deben participar en la administración de excepciones (esto es, registros de aplicaciones que son necesarios según los requisitos empresariales), ya que tendrán que registrar las aplicaciones con una cuenta de administrador, y lo más probable es que necesite diseñar un proceso para poner en marcha esta operación.
-- **Portal de administración**: las organizaciones pueden bloquear la hoja de Azure AD en Azure Portal para que los usuarios que no sean administradores no puedan obtener acceso a la administración de Azure AD en Azure Portal y se confundan debido a ello. Vaya a la configuración de usuario en el portal de administración de Azure AD para restringir el acceso:
+- **Usuarios externos** : la colaboración externa puede producirse de forma orgánica en la empresa mediante servicios como Teams, Power BI, SharePoint Online y Azure Information Protection. Si tiene restricciones explícitas para controlar cualquier colaboración externa que inicie el usuario, es recomendable que habilite usuarios externos mediante la [administración de derechos de Azure AD](../governance/entitlement-management-overview.md) o con una operación controlada como, por ejemplo, a través del departamento de soporte técnico. Si no quiere permitir la colaboración externa orgánica en los servicios, puede [impedir totalmente que los miembros inviten a usuarios externos](../external-identities/delegate-invitations.md). Como alternativa, también puede [permitir o bloquear dominios específicos](../external-identities/allow-deny-list.md) en invitaciones de usuarios externos.
+- **Registros de aplicaciones** : cuando la característica Registros de aplicaciones está habilitada, los usuarios finales pueden incorporar aplicaciones y conceder acceso a sus datos. Un ejemplo típico de la característica Registro de aplicaciones, son los usuarios que habilitan los complementos de Outlook o los asistentes de voz como Alexa y Siri que se usan para leer los correos electrónicos y el calendario, o para enviar correos electrónicos en su nombre. Si el cliente decide desactivar Registro de aplicaciones, los equipos de InfoSec e IAM deben participar en la administración de excepciones (esto es, registros de aplicaciones que son necesarios según los requisitos empresariales), ya que tendrán que registrar las aplicaciones con una cuenta de administrador, y lo más probable es que necesite diseñar un proceso para poner en marcha esta operación.
+- **Portal de administración** : las organizaciones pueden bloquear la hoja de Azure AD en Azure Portal para que los usuarios que no sean administradores no puedan obtener acceso a la administración de Azure AD en Azure Portal y se confundan debido a ello. Vaya a la configuración de usuario en el portal de administración de Azure AD para restringir el acceso:
 
 ![Acceso restringido del portal de administración](./media/active-directory-ops-guide/active-directory-ops-img13.png)
 
@@ -347,7 +347,7 @@ A continuación, se muestra la configuración de usuario y de grupo que se puede
 - [Integración de aplicaciones con Azure Active Directory](../develop/quickstart-register-app.md)
 - [Aplicaciones, permisos y consentimiento en Azure Active Directory](../develop/quickstart-register-app.md)
 - [Uso de grupos para administrar el acceso a recursos en Azure Active Directory](./active-directory-manage-groups.md)
-- [Configuración de la administración del acceso a aplicaciones de autoservicio en Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
+- [Configuración de la administración del acceso a aplicaciones de autoservicio en Azure Active Directory](../enterprise-users/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>Tráfico desde ubicaciones inesperadas
 

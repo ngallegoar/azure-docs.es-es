@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8cc59b805cd757edce79a14d124ea244b4652a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267489"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461471"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Escenario: Enrutamiento a redes virtuales de servicios compartidos
 
@@ -24,15 +24,17 @@ Para más información sobre el enrutamiento de centros virtuales, vea [Acerca d
 
 ## <a name="design"></a><a name="design"></a>Diseño
 
-Podemos usar una matriz de conectividad para resumir los requisitos de este escenario. En la matriz, cada celda describe si una conexión de Virtual WAN (el lado de origen o "From" del flujo, los encabezados de fila de la tabla) aprende un prefijo de destino (el lado "To" del flujo, los encabezados de columna en cursiva de la tabla) para un flujo de tráfico concreto. Una "X" significa que la conectividad la proporciona Virtual WAN:
+Podemos usar una matriz de conectividad para resumir los requisitos de este escenario:
 
 **Matriz de conectividad**
 
 | From             | A:   |*Redes virtuales aisladas*|*Red virtual compartida*|*Ramas*|
 |---|---|---|---|---|
-|**Redes virtuales aisladas**|&#8594;|                |        X        |       X      |
-|**Redes virtuales compartidas**  |&#8594;|       X        |        X        |       X      |
-|**Ramas**      |&#8594;|       X        |        X        |       X      |
+|**Redes virtuales aisladas**|&#8594;|        | Directo | Directo |
+|**Redes virtuales compartidas**  |&#8594;| Directo | Directo | Directo |
+|**Ramas**      |&#8594;| Directo | Directo | Directo |
+
+En cada una de las celdas de la tabla anterior se describe si una conexión de Virtual WAN (el lado "De" del flujo, los encabezados de fila) se comunica con un destino (el lado "A" del flujo, los encabezados de columna en cursiva). En este escenario no hay ningún firewall o dispositivo virtual de red, por lo que la comunicación fluye directamente a través de Virtual WAN (de ahí la palabra "Directo" en la tabla).
 
 De forma similar al [escenario de redes virtuales aisladas](scenario-isolate-vnets.md), esta matriz de conectividad nos proporciona dos patrones de filas diferentes, que se traducen en dos tablas de rutas (las redes virtuales de servicios compartidos y las ramas tienen los mismos requisitos de conectividad). Virtual WAN ya tiene una tabla de rutas predeterminada, por lo que se necesitará otra tabla de rutas personalizada, a la que se llamará **RT_SHARED** en este ejemplo.
 
@@ -63,11 +65,11 @@ Para configurar el escenario, tenga en cuenta los siguientes pasos:
 2. Cree una tabla de rutas personalizada. En el ejemplo, hacemos referencia a la tabla de rutas como **RT_SHARED**. Para conocer los pasos para crear una tabla de rutas, consulte [Configuración del enrutamiento de centro virtual](how-to-virtual-hub-routing.md). Use los valores siguientes como guía:
 
    * **Asociación**
-     * Para **Redes virtuales, *excepto* la red virtual de servicios compartidos**, seleccione las redes virtuales que desea aislar. Esto hará que todas estas redes virtuales (excepto la red virtual de servicios compartidos) puedan alcanzar el destino en función de las rutas de la tabla de rutas RT_SHARED.
+     * Para **Redes virtuales, *excepto* la red virtual de servicios compartidos** , seleccione las redes virtuales que desea aislar. Esto hará que todas estas redes virtuales (excepto la red virtual de servicios compartidos) puedan alcanzar el destino en función de las rutas de la tabla de rutas RT_SHARED.
 
    * **Propagación**
-      * En el caso de **Ramas**, propague las rutas a esta tabla de rutas, además de a cualquier otra tabla de rutas que ya haya seleccionado. Debido a este paso, la tabla de rutas RT_SHARED aprenderá las rutas de todas las conexiones de rama (VPN/ER/VPN de usuario).
-      * En **Redes virtuales**, seleccione la **red virtual de servicios compartidos**. Debido a este paso, la tabla de rutas RT_SHARED aprenderá las rutas de la conexión de la red virtual de servicios compartidos.
+      * En el caso de **Ramas** , propague las rutas a esta tabla de rutas, además de a cualquier otra tabla de rutas que ya haya seleccionado. Debido a este paso, la tabla de rutas RT_SHARED aprenderá las rutas de todas las conexiones de rama (VPN/ER/VPN de usuario).
+      * En **Redes virtuales** , seleccione la **red virtual de servicios compartidos**. Debido a este paso, la tabla de rutas RT_SHARED aprenderá las rutas de la conexión de la red virtual de servicios compartidos.
 
 Esto dará lugar a la configuración de enrutamiento que se muestra en la ilustración siguiente:
 

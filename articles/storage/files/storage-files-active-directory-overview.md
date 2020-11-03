@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716074"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486396"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Introducción a las opciones de autenticación basada en la identidad de Azure Files con el acceso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -104,7 +104,7 @@ En el caso de la autenticación de AD DS local, primero debe configurar los cont
 
 En este diagrama se muestra la autenticación de AD DS local en recursos compartidos de archivos de Azure a través de SMB. La instancia de AD DS local se debe sincronizar con Azure AD mediante Azure AD Connect Sync. Solo se pueden autenticar y autorizar a los usuarios híbridos que existen en el AD DS local y en Azure AD para el acceso a recursos compartidos de archivos de Azure. Esto se debe a que el permiso de nivel de recurso compartido se configura con respecto a la identidad representada en Azure AD donde se aplica el permiso de nivel de archivo o directorio con el de AD DS. Asegúrese de configurar los permisos correctamente con el mismo usuario híbrido.
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagrama":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagrama en el que se describe la autenticación de AD DS local en recursos compartidos de archivos de Azure a través de SMB.":::
 
 ### <a name="azure-ad-ds"></a>Azure AD DS
 

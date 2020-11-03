@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5d57a6705973fbd5ee39042404015347d75b49b3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 416fb9fc4ce0622a710f2c119942edc4986ddd06
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019790"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790583"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Desarrollo con las API de Media Services v3
 
@@ -32,10 +32,10 @@ En este artículo se analizan las reglas que se aplican a las entidades y las AP
 
 Para ser autorizado a acceder a recursos de Media Services y a Media Services API, se debe autenticar primero. Media Services admite la[ autenticación basada en Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Dos opciones comunes de autenticación son:
  
-* **Autenticación de la entidad de servicio**: se usa para autenticar un servicio (por ejemplo: aplicaciones web, aplicaciones de funciones, aplicaciones lógicas, API y microservicios). Las aplicaciones que normalmente utilizan este método de autenticación son las que ejecutan servicios de demonio, servicios de nivel intermedio o trabajos programados. Por ejemplo, para las aplicaciones web, siempre debe haber un nivel intermedio que se conecte a Media Services con una entidad de servicio.
-* **Autenticación de usuarios**: se usa para autenticar a una persona que usa la aplicación para interactuar con recursos de Media Services. La aplicación interactiva debe pedir primero al usuario sus credenciales. Un ejemplo es una aplicación de consola de administración que usan los usuarios autorizados para supervisar trabajos de codificación o streaming en vivo.
+* **Autenticación de la entidad de servicio** : se usa para autenticar un servicio (por ejemplo: aplicaciones web, aplicaciones de funciones, aplicaciones lógicas, API y microservicios). Las aplicaciones que normalmente utilizan este método de autenticación son las que ejecutan servicios de demonio, servicios de nivel intermedio o trabajos programados. Por ejemplo, para las aplicaciones web, siempre debe haber un nivel intermedio que se conecte a Media Services con una entidad de servicio.
+* **Autenticación de usuarios** : se usa para autenticar a una persona que usa la aplicación para interactuar con recursos de Media Services. La aplicación interactiva debe pedir primero al usuario sus credenciales. Un ejemplo es una aplicación de consola de administración que usan los usuarios autorizados para supervisar trabajos de codificación o streaming en vivo.
 
-La API de Media Services requiere que el usuario o la aplicación que realiza las solicitudes de API REST tengan acceso al recurso de la cuenta de Media Services y usen un rol de **Colaborador** o **Propietario**. Se puede acceder a la API con la función **Lector** pero solo estarán disponibles las operaciones **Obtener** o **Enumerar**. Para obtener más información, consulte [Role-based access control for Media Services accounts](rbac-overview.md) (Control de acceso basado en roles para las cuentas de Media Services).
+La API de Media Services requiere que el usuario o la aplicación que realiza las solicitudes de API REST tengan acceso al recurso de la cuenta de Media Services y usen un rol de **Colaborador** o **Propietario**. Se puede acceder a la API con el rol **Lector** pero solo estarán disponibles las operaciones **Obtener** o **Enumerar**. Para obtener más información, vea [Control de acceso basado en rol de Azure (RBAC de Azure) para cuentas de Media Services](rbac-overview.md).
 
 En lugar de crear una entidad de servicio, use las identidades administradas de los recursos de Azure para acceder a la API de Media Services a través de Azure Resource Manager. Para obtener más información sobre las identidades administradas para los recursos de Azure, consulte [¿Qué es Managed Identities for Azure Resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -109,11 +109,11 @@ Media Services tiene las siguientes operaciones de larga duración:
 * [Detener StreamingEndpoint](/rest/api/media/streamingendpoints/stop)
 * [Escalar StreamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
-Si se envía correctamente una operación larga, recibirá un mensaje "202 Aceptado" y deberá sondear la finalización de la operación con el identificador de operación devuelto.
+Si se envía correctamente una operación larga, recibirá un mensaje "201 Creado" y tendrá que sondear la finalización de la operación con el identificador de operación devuelto.
 
 En el artículo [Seguimiento de las operaciones asincrónicas de Azure](../../azure-resource-manager/management/async-operations.md) se explica de forma detallada cómo realizar un seguimiento del estado de las operaciones asincrónicas de Azure mediante los valores devueltos en la respuesta.
 
-Solo se admite una operación de larga duración para un LiveEvent determinado o para cualquiera de sus LiveOutput asociados. Una vez iniciada, la operación de larga duración se debe completar antes de iniciar una operación de larga duración posterior en el mismo LiveEvent o en cualquier LiveOutput asociado. En el caso de los LiveEvent con varios LiveOutput, debe esperar a que se complete una operación de larga duración en un LiveOutput antes de desencadenar una operación de larga duración en otro LiveOutput. 
+Solo se admite una operación de larga duración para un LiveEvent determinado o para cualquiera de sus LiveOutput asociados. Una vez iniciada, la operación de larga duración se debe completar antes de iniciar una operación de larga duración posterior en el mismo LiveEvent o en cualquier LiveOutput asociado. En el caso de los LiveEvent con varios LiveOutput, debe esperar a que se complete una operación de larga duración en un LiveOutput antes de desencadenar una operación de larga duración en otro LiveOutput.
 
 ## <a name="sdks"></a>SDK
 

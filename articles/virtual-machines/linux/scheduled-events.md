@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 265b99fb985602604eefee27d722b4dc8d7593a8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 99528d1575056917b68bcb38f41a24d065822827
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970391"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792810"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Linux
 
@@ -80,7 +80,7 @@ El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la
 | 2019-01-01 | Disponibilidad general | All | <li> Compatibilidad agregada con conjuntos de escalado de máquinas virtuales EventType "Terminate" |
 | 01-11-2017 | Disponibilidad general | All | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de Azure Spot EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | All | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
-| 2017-03-01 | Vista previa | All | <li>Versión inicial |
+| 2017-03-01 | Versión preliminar | All | <li>Versión inicial |
 
 
 > [!NOTE] 
@@ -154,6 +154,10 @@ Cada evento se programa una cantidad mínima de tiempo en el futuro en función 
 
 > [!NOTE] 
 > En algunos casos, Azure puede predecir errores en el host debidos a que el hardware está degradado e intentará mitigar la interrupción del servicio mediante la programación de una migración. Las máquinas virtuales afectadas recibirán un evento programado con un valor de `NotBefore` que habitualmente es unos días posteriores. El tiempo real varía en función de la valoración de riesgo de error predicha. Azure intenta avisar con 7 días de antelación siempre que sea posible, pero el tiempo real varía y puede ser menor si la predicción es que sea muy probable que se produzcan errores en el hardware de forma inminente. Para minimizar el riesgo para el servicio si se produce un error en el hardware antes de la migración iniciada por el sistema, se recomienda volver a implementar automáticamente la máquina virtual lo antes posible.
+
+### <a name="polling-frequency"></a>Frecuencia de sondeo
+
+Puede sondear el punto de conexión para obtener las actualizaciones con la frecuencia que quiera. Sin embargo, cuanto más tiempo transcurre entre solicitudes, más tiempo se pierde para reaccionar ante un evento próximo. La mayoría de los eventos tienen un aviso previo de 5 a 15 minutos, aunque en algunos casos el aviso previo podría llegar con muy poca antelación, como 30 segundos. Para asegurarse de que tiene tanto tiempo como sea posible para llevar a cabo acciones de mitigación, se recomienda sondear el servicio una vez por segundo.
 
 ### <a name="start-an-event"></a>Inicio de un evento 
 

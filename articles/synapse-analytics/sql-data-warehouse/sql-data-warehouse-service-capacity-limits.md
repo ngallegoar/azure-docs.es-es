@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204989"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742469"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Límites de capacidad de Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -61,8 +61,8 @@ Valores máximos permitidos para los distintos componentes de Azure Synapse.
 
 | Category | Descripción | Máxima |
 |:--- |:--- |:--- |
-| Cargas de PolyBase |MB por fila |1<br/><br/>Polybase carga las filas que son inferiores a 1 MB. No se admite la carga de tipos de datos LOB en tablas con un índice de almacén de columnas en clúster (CCI).<br/><br/> |
-||||
+| Cargas de PolyBase |MB por fila |1<br/><br/>Polybase carga las filas que son inferiores a 1 MB. No se admite la carga de tipos de datos LOB en tablas con un índice de almacén de columnas en clúster (CCI).<br/> |
+|Cargas de PolyBase|Número total de archivos|1 000 000<br/><br/>Las cargas de polybase no pueden superar más de 1 millón de archivos. Es posible que vea el siguiente error: **No se pudo realizar la operación porque el número dividido supera el límite superior de 1 millón**.|
 
 ## <a name="queries"></a>Consultas
 

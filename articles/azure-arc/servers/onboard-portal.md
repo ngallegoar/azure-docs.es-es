@@ -1,15 +1,14 @@
 ---
 title: Conexión de máquinas híbridas a Azure desde Azure Portal
 description: En este artículo, obtendrá información sobre cómo instalar el agente y conectar máquinas a Azure mediante servidores habilitados para Azure Arc desde Azure Portal.
-ms.date: 09/24/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.custom: references_regions
-ms.openlocfilehash: 2ba834d8c55f53792606fffe65d65794e837e9e3
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 8769a3b76172bc6508b7c52eda359695c01eaa4b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101739"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370158"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conexión de máquinas híbridas a Azure desde Azure Portal
 
@@ -17,7 +16,7 @@ Con el fin de implementar en su entorno servidores habilitados para Azure Arc pa
 
 Este método requiere que tenga permisos de administrador en la máquina para instalar y configurar el agente. En Linux, mediante la cuenta raíz, y en Windows, usted es miembro del grupo local de administradores.
 
-Antes de comenzar, asegúrese de revisar los [requisitos previos](agent-overview.md#prerequisites) y compruebe que su suscripción y sus recursos los cumplen.
+Antes de comenzar, asegúrese de revisar los [requisitos previos](agent-overview.md#prerequisites) y compruebe que su suscripción y sus recursos los cumplen. Para obtener información sobre las regiones admitidas y otras consideraciones relacionadas, consulte [Regiones admitidas de Azure](overview.md#supported-regions).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -25,38 +24,29 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 El script para automatizar la descarga y la instalación, y para establecer la conexión con Azure Arc, está disponible en Azure Portal. Para completar el proceso, haga lo siguiente:
 
-1. En el explorador, vaya a [Azure Portal](https://aka.ms/hybridmachineportal).
+1. En el explorador, vaya a [Azure Portal](https://portal.azure.com).
 
-1. En la página **Servidores: Azure Arc**, seleccione **Agregar** en la parte superior izquierda.
+1. En la página **Servidores: Azure Arc** , seleccione **Agregar** en la parte superior izquierda.
 
-1. En la página **Seleccionar un método**, seleccione el icono **Agregar servidores mediante un script interactivo** y, después, seleccione **Generar script**.
+1. En la página **Seleccionar un método** , seleccione el icono **Agregar servidores mediante un script interactivo** y, después, seleccione **Generar script**.
 
-1. En la página **Generar script**, seleccione la suscripción y el grupo de recursos en el que desea que se administre la máquina en Azure. Seleccione la ubicación de Azure en la que se almacenarán los metadatos de la máquina.
+1. En la página **Generar script** , seleccione la suscripción y el grupo de recursos en el que desea que se administre la máquina en Azure. Seleccione la ubicación de Azure en la que se almacenarán los metadatos de la máquina. Esta ubicación puede ser la misma u otra diferente que la del grupo de recursos.
 
-    >[!NOTE]
-    >Los servidores habilitados para Azure Arc solo admiten las siguientes regiones:
-    >- EastUS
-    >- WestUS2
-    >- Oeste de Europa
-    >- SoutheastAsia
-    >
-    >Revise las consideraciones adicionales que se deben tener en cuenta al seleccionar una región [aquí](overview.md#supported-regions), en el artículo de información general.
+1. En la página **Requisitos previos** , revise la información y, luego, seleccione **Siguiente: Detalles del recurso**.
 
-1. En la página **Requisitos previos**, revise la información y, luego, seleccione **Siguiente: Detalles del recurso**.
+1. En la página **Detalles del recurso** , proporcione lo siguiente:
 
-1. En la página **Detalles del recurso**, proporcione lo siguiente:
-
-    1. En la lista desplegable **Grupo de recursos**, seleccione el grupo de recursos desde el que se administrará la máquina.
-    1. En la lista desplegable **Región**, seleccione la región de Azure en la que se almacenarán los metadatos de los servidores.
-    1. En la lista desplegable **Sistema operativo**, seleccione el sistema operativo en el que se ejecutará el script.
+    1. En la lista desplegable **Grupo de recursos** , seleccione el grupo de recursos desde el que se administrará la máquina.
+    1. En la lista desplegable **Región** , seleccione la región de Azure en la que se almacenarán los metadatos de los servidores.
+    1. En la lista desplegable **Sistema operativo** , seleccione el sistema operativo en el que se ejecutará el script.
     1. Si la máquina se comunica mediante un servidor proxy para conectarse a Internet, especifique la dirección IP del servidor proxy o el nombre y el número de puerto que usará la máquina para comunicarse con el servidor proxy. Escriba el valor con el formato `http://<proxyURL>:<proxyport>`.
     1. Seleccione **Siguiente: Etiquetas**.
 
-1. En la página **Etiquetas**, revise las **etiquetas de ubicación física** predeterminadas sugeridas y escriba un valor, o bien especifique una o varias **etiquetas personalizadas** para que cumplan sus estándares.
+1. En la página **Etiquetas** , revise las **etiquetas de ubicación física** predeterminadas sugeridas y escriba un valor, o bien especifique una o varias **etiquetas personalizadas** para que cumplan sus estándares.
 
 1. Seleccione **Siguiente: Descargar y ejecutar el script**.
 
-1. En la pestaña **Descargar y ejecutar el script**, revise la información del resumen y seleccione **Descargar**. Si todavía necesita realizar cambios, seleccione **Anterior**.
+1. En la pestaña **Descargar y ejecutar el script** , revise la información del resumen y seleccione **Descargar**. Si todavía necesita realizar cambios, seleccione **Anterior**.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Instalación y validación del agente en Windows
 
@@ -84,7 +74,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
     ```
 
-    Si el agente no se inicia una vez completada la instalación, compruebe los registros para obtener información detallada del error. El directorio de registro es *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+    Si el agente no se inicia una vez completada la instalación, compruebe los registros para obtener información detallada del error. El directorio de registro es *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 2. Si la máquina necesita comunicarse a través de un servidor proxy, para establecer la variable de entorno del servidor proxy, ejecute el siguiente comando:
 
@@ -117,7 +107,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
 
 1. Cambie a la carpeta o recurso compartido en el que copió el script y ejecútelo en el servidor mediante el script `./OnboardingScript.ps1`.
 
-Si el agente no se inicia una vez completada la instalación, compruebe los registros para obtener información detallada del error. El directorio de registro es *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+Si el agente no se inicia una vez completada la instalación, compruebe los registros para obtener información detallada del error. El directorio de registro es *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Instalación y validación del agente en Linux
 

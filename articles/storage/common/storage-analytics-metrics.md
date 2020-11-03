@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2f3fa755f61d398ce7f0965fba86262c3e3ec863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1ab2be598a24a2448fed44742733633a8e0fc8f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021160"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787608"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de Azure Storage Analytics (clásicas)
 
@@ -23,11 +23,11 @@ Azure Storage usa la solución Storage Analytics para almacenar métricas, que i
 - Diagnosticar problemas con las solicitudes realizadas al servicio de almacenamiento.
 - Mejorar el rendimiento de las aplicaciones que utilizan un servicio.
 
- Las métricas de Storage Analytics se habilitan de forma predeterminada para las nuevas cuentas de almacenamiento. Puede configurar las métricas en [Azure Portal](https://portal.azure.com/). Para más información, consulte [Supervisión de una cuenta de almacenamiento en Azure Portal](/azure/storage/storage-monitor-storage-account). También puede habilitar Storage Analytics mediante programación a través de la API de REST o la biblioteca de cliente. Use las operaciones Set Service Properties para habilitar Storage Analytics en cada servicio.  
+ Las métricas de Storage Analytics se habilitan de forma predeterminada para las nuevas cuentas de almacenamiento. Puede configurar las métricas en [Azure Portal](https://portal.azure.com/). Para más información, consulte [Supervisión de una cuenta de almacenamiento en Azure Portal](./storage-monitor-storage-account.md). También puede habilitar Storage Analytics mediante programación a través de la API de REST o la biblioteca de cliente. Use las operaciones Set Service Properties para habilitar Storage Analytics en cada servicio.  
 
 > [!NOTE]
 > Las métricas de Storage Analytics están disponibles para Azure Blob Storage, Azure Queue Storage y Azure Table Storage y Azure Files.
-> Ahora, las métricas de Storage Analytics son métricas clásicas. Se recomienda usar [métricas de almacenamiento en Azure Monitor](monitor-storage.md) en lugar de métricas de Storage Analytics.
+> Ahora, las métricas de Storage Analytics son métricas clásicas. Se recomienda usar [métricas de almacenamiento en Azure Monitor](../blobs/monitor-blob-storage.md) en lugar de métricas de Storage Analytics.
 
 ## <a name="transaction-metrics"></a>Métricas de transacciones  
  Se registra un conjunto sólido de datos a intervalos de cada hora o de cada minuto para cada servicio de almacenamiento y operación de API que se ha solicitado, lo que incluye entradas y salidas, disponibilidad, errores y porcentajes de solicitudes por categorías. Para obtener una lista completa de los detalles de transacción, consulte [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
@@ -45,9 +45,9 @@ Azure Storage usa la solución Storage Analytics para almacenar métricas, que i
 
  Los datos de capacidad se registran diariamente para Blob service de una cuenta de almacenamiento, y se escriben dos entidades de tabla. Una entidad proporciona estadísticas para los datos de usuario y la otra proporciona estadísticas sobre el contenedor de blob `$logs` utilizado por Storage Analytics. La tabla *$MetricsCapacityBlob* incluye las estadísticas siguientes:  
 
-- **Capacity**: Cantidad de almacenamiento que ha usado Blob service de la cuenta de almacenamiento, en bytes.  
-- **ContainerCount**: Número de contenedores de blobs en Blob service de la cuenta de almacenamiento.  
-- **ObjectCount**: Número de blobs en bloque o en páginas confirmados y sin confirmar de Blob service de la cuenta de almacenamiento.  
+- **Capacity** : Cantidad de almacenamiento que ha usado Blob service de la cuenta de almacenamiento, en bytes.  
+- **ContainerCount** : Número de contenedores de blobs en Blob service de la cuenta de almacenamiento.  
+- **ObjectCount** : Número de blobs en bloque o en páginas confirmados y sin confirmar de Blob service de la cuenta de almacenamiento.  
 
   Para obtener más información sobre las métricas de capacidad, consulte [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
 
@@ -83,12 +83,12 @@ Puede usar PowerShell en la máquina local para configurar las métricas de alma
 
 Los cmdlets que controlan las métricas de almacenamiento utilizan los siguientes parámetros:  
 
-* **ServiceType**: Los valores posibles son **Blob**, **Queue**, **Table** y **File**.
-* **MetricsType**: Los valores posibles son **Hour** y **Minute**.  
-* **MetricsLevel**: Los valores posibles son:
-   * **Ninguna**: desactiva la supervisión.
-   * **Servicio**: Recopila métricas, como entrada y salida, disponibilidad, latencia y porcentajes de éxito, que se agregan a Blob service, Queue service, Table service y File service.
-   * **ServiceAndApi**: Además de las métricas de servicio, recopila el mismo conjunto de métricas de cada operación de almacenamiento en la API de servicio Azure Storage.
+* **ServiceType** : Los valores posibles son **Blob** , **Queue** , **Table** y **File**.
+* **MetricsType** : Los valores posibles son **Hour** y **Minute**.  
+* **MetricsLevel** : Los valores posibles son:
+   * **Ninguna** : desactiva la supervisión.
+   * **Servicio** : Recopila métricas, como entrada y salida, disponibilidad, latencia y porcentajes de éxito, que se agregan a Blob service, Queue service, Table service y File service.
+   * **ServiceAndApi** : Además de las métricas de servicio, recopila el mismo conjunto de métricas de cada operación de almacenamiento en la API de servicio Azure Storage.
 
 Por ejemplo, el siguiente comando activa las métricas por minuto para Blob service en su cuenta de almacenamiento con un período de retención establecido en cinco días: 
 
@@ -112,12 +112,12 @@ El comando siguiente recupera el nivel de métricas por hora actual y los días 
 Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
-Para obtener información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción a Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, consulte [Instalación y configuración de Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+Para obtener información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción a Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/).  
 
 ## <a name="enable-storage-metrics-programmatically"></a>Habilitación de métricas de almacenamiento mediante programación  
 Aparte de usar Azure Portal o los cmdlets de Azure PowerShell para controlar las métricas de almacenamiento, también se puede recurrir a una de las API de Azure Storage. Por ejemplo, si usa un lenguaje .NET, puede usar la biblioteca cliente de Azure Storage.  
 
-Las clases **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient** y **CloudFileClient** tienen todas métodos como **SetServiceProperties** y **SetServicePropertiesAsync** que toman un objeto **ServiceProperties** como parámetro. El objeto **ServiceProperties** se puede usar para configurar las métricas de almacenamiento. Por ejemplo, el siguiente fragmento de código de C# muestra cómo cambiar el nivel de métricas y los días de retención de las métricas por hora de la cola:  
+Las clases **CloudBlobClient** , **CloudQueueClient** , **CloudTableClient** y **CloudFileClient** tienen todas métodos como **SetServiceProperties** y **SetServicePropertiesAsync** que toman un objeto **ServiceProperties** como parámetro. El objeto **ServiceProperties** se puede usar para configurar las métricas de almacenamiento. Por ejemplo, el siguiente fragmento de código de C# muestra cómo cambiar el nivel de métricas y los días de retención de las métricas por hora de la cola:  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -130,7 +130,7 @@ serviceProperties.HourMetrics.RetentionDays = 10;
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
 
-Para obtener más información sobre cómo usar un lenguaje .NET para configurar métricas de almacenamiento, consulte [Biblioteca de cliente de Azure Storage para .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
+Para obtener más información sobre cómo usar un lenguaje .NET para configurar métricas de almacenamiento, consulte [Biblioteca de cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage).  
 
 Para obtener información general sobre cómo configurar las métricas de almacenamiento con la API de REST, consulte [Habilitación y configuración de Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
@@ -140,11 +140,11 @@ Cuando haya configurado las métricas de Storage Analytics para supervisar su cu
 1. Vaya a la cuenta de almacenamiento en [Azure Portal](https://portal.azure.com).
 1. Seleccione **Métricas (clásicas)** en el panel de menú del servicio cuyas métricas quiere ver.
 1. Seleccione el gráfico que quiera configurar.
-1. En el panel **Editar gráfico**, seleccione el **Intervalo de tiempo**, el **Tipo de gráfico** y las métricas que quiere mostrar en el gráfico.
+1. En el panel **Editar gráfico** , seleccione el **Intervalo de tiempo** , el **Tipo de gráfico** y las métricas que quiere mostrar en el gráfico.
 
 En la sección **Supervisión (clásica)** del panel de menú de la cuenta de almacenamiento en Azure Portal, puede configurar [Reglas de alerta](#metrics-alerts). Por ejemplo, puede enviar alertas por correo electrónico que le notifiquen cuándo una métrica específica alcanza un valor determinado.
 
-Si quiere descargar las métricas para almacenarlas de forma prolongada o para analizarlas localmente, debe usar una herramienta o escribir código para leer las tablas. Debe descargar las métricas por minuto para el análisis. Las tablas no aparecen si enumera todas las tablas en su cuenta de almacenamiento, pero puede acceder a ellas directamente por su nombre. Muchas herramientas de exploración de almacenamiento reconocen estas tablas y le permiten verlas directamente. Para obtener una lista de herramientas disponibles, consulte [Herramientas de cliente de Azure Storage](/azure/storage/storage-explorers).
+Si quiere descargar las métricas para almacenarlas de forma prolongada o para analizarlas localmente, debe usar una herramienta o escribir código para leer las tablas. Debe descargar las métricas por minuto para el análisis. Las tablas no aparecen si enumera todas las tablas en su cuenta de almacenamiento, pero puede acceder a ellas directamente por su nombre. Muchas herramientas de exploración de almacenamiento reconocen estas tablas y le permiten verlas directamente. Para obtener una lista de herramientas disponibles, consulte [Herramientas de cliente de Azure Storage](./storage-explorers.md).
 
 |Métricas|Nombres de tabla|Notas| 
 |-|-|-|  
@@ -163,20 +163,23 @@ Para obtener información completa de los esquemas para estas tablas, consulte [
 
 En este ejemplo de datos de métricas por minuto, la clave de partición usa el tiempo con una resolución de minutos. La clave de fila identifica el tipo de información que se almacena en la fila. La información se compone del tipo de acceso y del tipo de solicitud:  
 
--   El tipo de acceso es **user** o **system**, donde **user** hace referencia a todas las solicitudes de usuario al servicio de almacenamiento, y **system** hace referencia a las solicitudes realizadas por Storage Analytics.  
--   El tipo de solicitud es **all**, en cuyo caso es una línea de resumen, o identifica una API específica como **QueryEntity** o **UpdateEntity**.  
+-   El tipo de acceso es **user** o **system** , donde **user** hace referencia a todas las solicitudes de usuario al servicio de almacenamiento, y **system** hace referencia a las solicitudes realizadas por Storage Analytics.  
+-   El tipo de solicitud es **all** , en cuyo caso es una línea de resumen, o identifica una API específica como **QueryEntity** o **UpdateEntity**.  
 
 Estos datos de ejemplo muestran todos los registros relativos a un único minuto (a partir de las 11:00 a. m.), por lo que el número de solicitudes **QueryEntities** más el número de solicitudes **QueryEntity** más el número de solicitudes **UpdateEntity** suman siete. Este total se muestra en la fila **user:All**. De forma similar, puede derivar la latencia promedio de un extremo a otro 104,4286 en la fila **user:All** calculando ((143,8 x 5) + 3 + 9):7.  
 
 ## <a name="metrics-alerts"></a>Alertas de métricas
-Considere la posibilidad de configurar alertas en [Azure Portal](https://portal.azure.com) para avisarle automáticamente de los cambios importantes en el comportamiento de los servicios de almacenamiento. Si usa una herramienta de Explorador de Storage para descargar estos datos de métricas en un formato delimitado, puede usar Microsoft Excel para analizar los datos. Para ver una lista de las herramientas del Explorador de Storage disponibles, consulte [Herramientas de cliente de Azure Storage](/azure/storage/storage-explorers). Puede configurar alertas en la hoja **Alerta (clásica)** , a la que se accede desde **Supervisión (clásica)** en el panel de menú de la cuenta de almacenamiento.
+Considere la posibilidad de configurar alertas en [Azure Portal](https://portal.azure.com) para avisarle automáticamente de los cambios importantes en el comportamiento de los servicios de almacenamiento. Si usa una herramienta de Explorador de Storage para descargar estos datos de métricas en un formato delimitado, puede usar Microsoft Excel para analizar los datos. Para ver una lista de las herramientas del Explorador de Storage disponibles, consulte [Herramientas de cliente de Azure Storage](./storage-explorers.md). Puede configurar alertas en la hoja **Alerta (clásica)** , a la que se accede desde **Supervisión (clásica)** en el panel de menú de la cuenta de almacenamiento.
 
 > [!IMPORTANT]
 > Puede producirse un retraso entre un evento de almacenamiento y cuándo se registran los datos de métricas por hora o minuto correspondientes. En el caso de las métricas por minuto, es posible que se escriban varios minutos de datos a la vez. Este problema puede conllevar que las transacciones de minutos anteriores se sumen a la transacción del minuto actual. Cuando se presente este problema, es posible que el servicio de alerta carezca de todos los datos de métricas disponibles para el intervalo de alerta configurado, lo que podría provocar que se activaran alertas de forma inesperada.
 >
 
 ## <a name="access-metrics-data-programmatically"></a>Acceso a los datos de métricas mediante programación  
-En la lista siguiente se muestra código C# de ejemplo que accede a las métricas por minuto para un intervalo de minutos y muestra los resultados en una ventana de la consola. En el código de ejemplo se usa la biblioteca de cliente de Azure Storage versión 4.x o posterior, que incluye la clase **CloudAnalyticsClient**, que simplifica el acceso a las tablas de métricas en el almacenamiento.  
+En la lista siguiente se muestra código C# de ejemplo que accede a las métricas por minuto para un intervalo de minutos y muestra los resultados en una ventana de la consola. En el código de ejemplo se usa la biblioteca de cliente de Azure Storage versión 4.x o posterior, que incluye la clase **CloudAnalyticsClient** , que simplifica el acceso a las tablas de métricas en el almacenamiento. 
+
+> [!NOTE]
+> La clase **CloudAnalyticsClient** no se incluye en la biblioteca de cliente de Azure Blob Storage v12 para .NET. El **31 de agosto de 2023** , las métricas de Storage Analytics, también denominadas *métricas clásicas* , se retirarán. Para obtener más información, consulte el [anuncio oficial](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Si usa métricas clásicas, se recomienda realizar la transición a las métricas de Azure Monitor antes de esa fecha. 
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  

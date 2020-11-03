@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 99a038b23eb0978b6e1d8a65b061c2f744852def
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126811"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886754"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -114,11 +114,21 @@ Call groupCall = callAgent.call(participants, startCallOptions);
 > Actualmente, solo se admite una secuencia de vídeo local saliente. Para realizar una llamada con vídeo, debe enumerar las cámaras locales mediante la API `deviceManager` `getCameraList`.
 Una vez que seleccione la cámara deseada, úsela para crear una instancia de `LocalVideoStream` y pásela a `videoOptions` como elemento de la matriz `localVideoStream` a un método `call`.
 Una vez que la llamada se conecta, iniciará automáticamente el envío de una secuencia de vídeo desde la cámara seleccionada hasta los demás participantes.
+
+> [!NOTE]
+> Debido a cuestiones de privacidad, el vídeo no se compartirá con la llamada si no se muestra como una versión preliminar localmente.
+Consulte [Versión preliminar de la cámara local](#local-camera-preview) para obtener más detalles.
 ```java
 Context appContext = this.getApplicationContext();
 VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
 LocalVideoStream currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
 VideoOptions videoOptions = new VideoOptions(currentVideoStream);
+
+// Render a local preview of video so the user knows that their video is being shared
+Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
+View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+// Attach the uiView to a viewable location on the app at this point
+layout.addView(uiView);
 
 CommunicationUser[] participants = new CommunicationUser[]{ new CommunicationUser("<acs user id>") };
 StartCallOptions startCallOptions = new StartCallOptions();
@@ -252,7 +262,7 @@ Agregue la siguiente definición de servicio al archivo `AndroidManifest.xml`, e
         </service>
 ```
 
-- Una vez recuperada la carga, puede pasarse a la biblioteca cliente de *Communication Services* que se va a administrar llamando al método *handlePushNotification* en una instancia de *CallAgent* . Se crea una instancia de `CallAgent` mediante la llamada al método `createCallAgent(...)` en la clase `CallClient`.
+- Una vez recuperada la carga, puede pasarse a la biblioteca cliente de *Communication Services* que se va a administrar llamando al método *handlePushNotification* en una instancia de *CallAgent*. Se crea una instancia de `CallAgent` mediante la llamada al método `createCallAgent(...)` en la clase `CallClient`.
 
 ```java
 try {
@@ -607,9 +617,9 @@ currentVideoStream = new LocalVideoStream(videoDevice, appContext);
 videoOptions = new VideoOptions(currentVideoStream);
 
 Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
-View uiView previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
 
-// Attach the renderingSurface to a viewable location on the app at this point
+// Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 ```
 

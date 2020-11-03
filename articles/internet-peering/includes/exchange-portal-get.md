@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 000971878e24c46892aaef1fa0c65237a4219883
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e139954e6550e33edb75d01ab9dbec0bba543ea6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81678528"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548185"
 ---
 Una vez que el recurso **Peering** se implementa correctamente, puede verlo siguiendo estos pasos.
 
@@ -25,7 +25,7 @@ Una vez que el recurso **Peering** se implementa correctamente, puede verlo sigu
 1. Seleccione el recurso **Peering** que creó.
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de emparejamiento](../media/setup-direct-get-open.png)
+    > ![Captura de pantalla que muestra el recurso de emparejamiento que creó.](../media/setup-direct-get-open.png)
 
 1. En la página **Overview** (Información general) se muestra información de alto nivel, como se ilustra aquí.
 
@@ -47,4 +47,4 @@ Una vez que el recurso **Peering** se implementa correctamente, puede verlo sigu
     * Al seleccionar una fila en la parte superior de la pantalla, la sección **Connection** (Conexión) de la parte inferior muestra los detalles de cada conexión. Seleccione las flechas para expandir las opciones **Configuration** (Configuración), **IPv4 address** (Dirección IPv4) y **IPv6 address** (Dirección IPv6).
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de emparejamiento](../media/setup-exchange-get-connectionsipv4.png)
+    > ![Captura de pantalla donde se resalta una flecha que expande una sección.](../media/setup-exchange-get-connectionsipv4.png)

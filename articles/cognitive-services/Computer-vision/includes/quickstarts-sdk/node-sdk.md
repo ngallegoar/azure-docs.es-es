@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 01/22/2020
+ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: d0e94066c6e8ab60a52761898e49bdf11997a062
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9c0ed50cc0f7ef3580d1441fe2f361065e6f8524
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309833"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886740"
 ---
 <a name="HOLTop"></a>
 
@@ -28,7 +28,7 @@ ms.locfileid: "91309833"
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Creación de un recurso de Computer Vision"  target="_blank">cree un recurso de Computer Vision <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación al servicio Computer Vision. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
-* [Cree las variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) `COMPUTER_VISION_SUBSCRIPTION_KEY` y `COMPUTER_VISION_ENDPOINT` para la clave y la dirección URL del punto de conexión, respectivamente.
+
 
 ## <a name="setting-up"></a>Instalación
 
@@ -56,17 +56,21 @@ npm install @azure/cognitiveservices-computervision
 
 el archivo `package.json` de la aplicación se actualizará con las dependencias.
 
-### <a name="prepare-the-nodejs-script"></a>Preparación del script de Node.js
-
 Cree un archivo, *index.js* y ábralo en un editor de texto. Agregue las siguientes instrucciones import.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imports)]
 
-Luego, defina una función `computerVision` y declare una serie asincrónica con la función principal y la función de devolución de llamada. Se agregará el código de inicio rápido a la función principal y se llamará a `computerVision` en la parte inferior del script.
+> [!TIP]
+> ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js), que contiene los ejemplos de código de este inicio rápido.
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
+Cree variables para el punto de conexión y la clave de Azure del recurso.
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_end)]
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_vars)]
+
+> [!IMPORTANT]
+> Vaya a Azure Portal. Si el recurso de [nombre del producto] que ha creado en la sección **Requisitos previos** se ha implementado correctamente, haga clic en el botón **Ir al recurso** en **Pasos siguientes**. Puede encontrar su clave y punto de conexión en la página de **clave y punto de conexión** del recurso, en **Administración de recursos**. 
+>
+> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Cognitive Services.
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -87,20 +91,23 @@ En estos fragmentos de código se muestra cómo realizar las siguientes tareas c
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Cree variables para el punto de conexión y la clave de Azure del recurso. Si ha creado la variable de entorno después de haber iniciado la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que lo ejecuta para acceder a la variable.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_vars)]
 
 Cree una instancia de un cliente con la clave y el punto de conexión. Cree un objeto [ApiKeyCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.apikeycredentials?view=azure-python) con su clave y punto de conexión y úselo para crear un objeto [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest).
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_client)]
+
+Luego, defina una función `computerVision` y declare una serie asincrónica con la función principal y la función de devolución de llamada. Se agregará el código de inicio rápido a la función principal y se llamará a `computerVision` en la parte inferior del script. El resto del código de este inicio rápido va incluido dentro de la función `computerVision`.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_end)]
 
 ## <a name="analyze-an-image"></a>Análisis de una imagen
 
 El código de esta sección analiza las imágenes remotas para extraer varias características visuales. Puede realizar estas operaciones como parte del método **analyzeImage** del objeto cliente, o puede llamarlas mediante métodos individuales. Para más información, consulte la [documentación de referencia](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest).
 
 > [!NOTE]
-> También puede analizar una imagen local. Consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para ver los escenarios que implican imágenes locales.
+> También puede analizar una imagen local. Consulte los métodos [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest), como **analyzeImageInStream**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para escenarios relacionados con imágenes locales.
 
 ### <a name="get-image-description"></a>Obtención de la descripción de la imagen
 
@@ -212,22 +219,27 @@ Defina la función auxiliar `describeType`:
 
 Computer Vision puede leer texto visible de una imagen y convertirlo en un flujo de caracteres. Este ejemplo utiliza las operaciones de lectura.
 
-> [!NOTE]
-> También puede leer el texto de una imagen local. Consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para ver los escenarios que implican imágenes locales.
-
 ### <a name="set-up-test-images"></a>Configuración de imágenes de prueba
 
 Guarde una referencia de la dirección URL de las imágenes de las que quiere extraer texto.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 
+> [!NOTE]
+> También puede leer el texto de una imagen local. Consulte los métodos [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest), como **readInStream**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para escenarios relacionados con imágenes locales.
+
 ### <a name="call-the-read-api"></a>Llamada a la API Read
 
-Agregue el código siguiente, que llama a las funciones `readTextFromURL` y `readTextFromFile` para las imágenes proporcionadas.
+Defina los campos siguientes en la función para indicar los valores de estado de la llamada a Read.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_statuses)]
+
+
+Agregue el código siguiente, que llama a la función `readTextFromURL` para las imágenes proporcionadas.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-Defina las funciones `readTextFromURL` y `readTextFromFile`. Estas funciones llaman a los métodos **read** y **readInStream** en el objeto de cliente, que devuelven un identificador de operación e inician un proceso asincrónico para leer el contenido de la imagen. A continuación, usan el identificador de operación para comprobar el estado de la operación hasta que se devuelvan los resultados. Después, devuelven los resultados extraídos.
+Defina la función `readTextFromURL`. Esta acción llama al método **read** en el objeto de cliente, que devuelve un identificador de operación e inicia un proceso asincrónico para leer el contenido de la imagen. A continuación, usa el identificador de operación para comprobar el estado de la operación hasta que se devuelvan los resultados. Después, devuelve los resultados extraídos.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 

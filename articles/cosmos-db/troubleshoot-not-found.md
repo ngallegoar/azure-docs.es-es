@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f32a37d5d08e8b20e59455393c70e4e4d288eb11
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 83b28c562dca0c20b6f78058f1c7f7def60416ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802403"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496096"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnóstico y solución de problemas de excepciones recurso de Azure Cosmos DB no encontrado
 El código de estado HTTP 404 representa que el recurso ya no existe.
@@ -28,7 +28,7 @@ Hay varias instancias de cliente de SDK y la lectura se produjo antes de la escr
 
 #### <a name="solution"></a>Solución:
 1. La coherencia de la cuenta predeterminada para Azure Cosmos DB es la coherencia de la sesión. Cuando se crea o se actualiza un elemento, la respuesta devolverá un token de sesión que se puede pasar de una instancia de SDK a otra para garantizar que la solicitud de lectura lea desde una réplica que tiene ese cambio.
-1. Cambie el [nivel de coherencia](consistency-levels-choosing.md) a un [nivel más seguro](consistency-levels-tradeoffs.md).
+1. Cambie el [nivel de coherencia](./consistency-levels.md) a un [nivel más seguro](./consistency-levels.md).
 
 ### <a name="invalid-partition-key-and-id-combination"></a>Combinación no válida de clave de partición e identificador
 La combinación de la clave de partición y el identificador no es válida.
@@ -37,7 +37,7 @@ La combinación de la clave de partición y el identificador no es válida.
 Corrija la lógica de aplicación que provoca la combinación incorrecta. 
 
 ### <a name="invalid-character-in-an-item-id"></a>Carácter no válido en un identificador de elemento
-Se ha insertado un elemento en Cosmos DB con un [carácter no válido](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks) en el identificador de elemento.
+Se ha insertado un elemento en Cosmos DB con un [carácter no válido](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) en el identificador de elemento.
 
 #### <a name="solution"></a>Solución:
 Cambie el identificador a un valor que no contenga el carácter especial. Si cambiar de identificador no es una alternativa, puede codificar el identificador en Base64 para omitir los caracteres especiales.
@@ -79,7 +79,7 @@ while (invalidItemsIterator.HasMoreResults)
 ```
 
 ### <a name="time-to-live-purge"></a>Purga de la propiedad Período de vida
-El elemento tenía definida la propiedad [Período de vida (TTL)](https://docs.microsoft.com/azure/cosmos-db/time-to-live). El elemento se purgó porque la propiedad TTL expiró.
+El elemento tenía definida la propiedad [Período de vida (TTL)](./time-to-live.md). El elemento se purgó porque la propiedad TTL expiró.
 
 #### <a name="solution"></a>Solución:
 Cambie la propiedad TTL para evitar que el elemento se purgue.
@@ -94,11 +94,11 @@ Espere a que la indexación se actualice o cambie la directiva de indexación.
 Se eliminó la base de datos o el contenedor donde se encuentra el elemento.
 
 #### <a name="solution"></a>Solución:
-1. [Restaure](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period) el recurso primario o vuelva a crearlo.
+1. [Restaure](./online-backup-and-restore.md#request-data-restore-from-a-backup) el recurso primario o vuelva a crearlo.
 1. Cree un nuevo recurso para reemplazar el recurso eliminado.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. Los nombres de contenedor o colección distinguen en mayúsculas y minúsculas
-Los nombres de contenedor o colección distinguen en mayúsculas y minúsculas en Cosmos DB.
+En Cosmos DB, los nombres de contenedor o colección distinguen mayúsculas de minúsculas.
 
 #### <a name="solution"></a>Solución:
 Asegúrese de usar el nombre exacto mientras se conecta a Cosmos DB.
