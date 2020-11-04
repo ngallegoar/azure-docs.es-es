@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2c60d2e874e861eebac54e24ba0cb949bfb9a57b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e0625fd257ed9995fb567785ce07dcb0b0422c61
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207689"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311629"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -218,7 +218,7 @@ En el caso la voz XiaoxiaoNeural de chino, la intensidad del estilo de habla se 
 | Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | `style` | Especifica el estilo de habla. Actualmente, los estilos de habla son específicos de la voz. | Se necesita si se ajusta el estilo de habla para una voz neuronal. Si se usa `mstts:express-as`, se debe especificar el estilo. Si se proporciona un valor no válido, se omitirá este elemento. |
-| `styledegree` | Especifica la intensidad del estilo de voz. **Valores aceptados**: 0,01 a 2, inclusivo. El valor predeterminado es 1, que señala la intensidad de estilo predefinida. La unidad mínima es 0,01, que da como resultado una ligera tendencia hacia el estilo de destino. Un valor de 2, como resultado, duplica la intensidad de estilo predeterminada.  | Opcional (en este momento, `styledegree` solo admite XiaoxiaoNeural).|
+| `styledegree` | Especifica la intensidad del estilo de voz. **Valores aceptados** : 0,01 a 2, inclusivo. El valor predeterminado es 1, que señala la intensidad de estilo predefinida. La unidad mínima es 0,01, que da como resultado una ligera tendencia hacia el estilo de destino. Un valor de 2, como resultado, duplica la intensidad de estilo predeterminada.  | Opcional (en este momento, `styledegree` solo admite XiaoxiaoNeural).|
 
 Utilice esta tabla para determinar qué estilos de habla son compatibles para cada voz neuronal.
 
@@ -233,6 +233,7 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 | `en-US-JennyNeural`     | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
 |                         | `style="chat"`            | Expresa un tono casual y relajado                         |
 |                         | `style="assistant"`       | Expresa un tono cálido y relajado para asistentes digitales    |
+|                         | `style="newscast"`        | Expresa un tono versátil e informal para la difusión de noticias generales.   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Expresa un tono formal y profesional para narrar noticias |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresa un tono formal y profesional para narrar noticias |
 |                         | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
@@ -630,7 +631,7 @@ A continuación se muestran los tipos de contenido admitidos para los atributos 
 | `address` | | El texto se pronuncia como una dirección. El motor de síntesis de voz pronuncia:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Como "Estoy en el número 150 de Court North East Redmond, en Washington". |
 | `cardinal`, `number` | | El texto se pronuncia como un número cardinal. El motor de síntesis de voz pronuncia:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Como "Hay tres alternativas". |
 | `characters`, `spell-out` | | El texto se pronuncia como letras individuales (deletreadas). El motor de síntesis de voz pronuncia:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Como "T E S T". |
-| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | El texto se pronuncia como una fecha. El atributo `format` especifica el formato de la fecha (*d=día, m=mes, y=año)* . El motor de síntesis de voz pronuncia:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Como "Hoy es el diecinueve de octubre de 2016". |
+| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | El texto se pronuncia como una fecha. El atributo `format` especifica el formato de la fecha ( *d=día, m=mes, y=año)* . El motor de síntesis de voz pronuncia:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Como "Hoy es el diecinueve de octubre de 2016". |
 | `digits`, `number_digit` | | El texto se pronuncia como una secuencia de dígitos individuales. El motor de síntesis de voz pronuncia:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Como "1 2 3 4 5 6 7 8 9". |
 | `fraction` | | El texto se pronuncia como un número fraccionario. El motor de síntesis de voz pronuncia:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Como "tres octavos de pulgada". |
 | `ordinal` | | El texto se pronuncia como un número ordinal. El motor de síntesis de voz pronuncia:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Como "Seleccionar la tercera opción". |
@@ -716,9 +717,9 @@ Solo se permite un archivo de audio de fondo por cada documento SSML. Sin embarg
 | Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | `src` | Especifica la ubicación o la URL del archivo de audio de fondo. | Es obligatorio si se usa el audio de fondo en el documento SSML. |
-| `volume` | Especifica el volumen del archivo de audio de fondo. **Valores aceptados**: de `0` a `100`, ambos incluidos. El valor predeterminado es `1`. | Opcional |
-| `fadein` | Especifica la duración del "fundido" de entrada del audio de fondo en milisegundos. El valor predeterminado es `0`, que equivale a ningún fundido de entrada. **Valores aceptados**: de `0` a `10000`, ambos incluidos.  | Opcional |
-| `fadeout` | Especifica la duración del fundido de salida del audio de fondo en milisegundos. El valor predeterminado es `0`, que equivale a ningún fundido de salida. **Valores aceptados**: de `0` a `10000`, ambos incluidos.  | Opcional |
+| `volume` | Especifica el volumen del archivo de audio de fondo. **Valores aceptados** : de `0` a `100`, ambos incluidos. El valor predeterminado es `1`. | Opcional |
+| `fadein` | Especifica la duración del "fundido" de entrada del audio de fondo en milisegundos. El valor predeterminado es `0`, que equivale a ningún fundido de entrada. **Valores aceptados** : de `0` a `10000`, ambos incluidos.  | Opcional |
+| `fadeout` | Especifica la duración del fundido de salida del audio de fondo en milisegundos. El valor predeterminado es `0`, que equivale a ningún fundido de salida. **Valores aceptados** : de `0` a `10000`, ambos incluidos.  | Opcional |
 
 **Ejemplo**
 
