@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ffa8e473fb084b2d5f0e7f59a07b3de50e04752e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 94cf54e689f845f77c54d1d3c7710e079594f556
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475866"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098950"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Creación de una aplicación Xamarin.Forms con .NET SDK y la API de Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -163,11 +164,11 @@ Todos los fragmentos de código siguiente se toman de la clase `MongoService`, q
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
-1. En [Azure Portal](https://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Cadena de conexión** y en **Claves de lectura y escritura** . Usará los botones de copia que están en el lado derecho de la pantalla para copiar la cadena de conexión principal en los pasos siguientes.
+1. En [Azure Portal](https://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Cadena de conexión** y en **Claves de lectura y escritura**. Usará los botones de copia que están en el lado derecho de la pantalla para copiar la cadena de conexión principal en los pasos siguientes.
 
-2. Abra el archivo **APIKeys.cs** en el directorio **Helpers** (Aplicaciones auxiliares) del proyecto **TaskList.Core** .
+2. Abra el archivo **APIKeys.cs** en el directorio **Helpers** (Aplicaciones auxiliares) del proyecto **TaskList.Core**.
 
-3. Copie el valor de la **cadena de conexión principal** del portal (con el botón de copia) y conviértalo en el valor del campo **ConnectionString** en el archivo **APIKeys.cs** .
+3. Copie el valor de la **cadena de conexión principal** del portal (con el botón de copia) y conviértalo en el valor del campo **ConnectionString** en el archivo **APIKeys.cs**.
 
 4. Quite `&replicaSet=globaldb` de la cadena de conexión. Obtendrá un error en tiempo de ejecución si no quita ese valor de la cadena de consulta.
 
@@ -180,12 +181,12 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
-1. En Visual Studio, haga clic con el botón derecho en cada proyecto en el **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet** .
+1. En Visual Studio, haga clic con el botón derecho en cada proyecto en el **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet**.
 2. Haga clic en **Restore all NuGet packages** (Restaurar todos los paquetes NuGet).
-3. Haga clic con el botón derecho en **TaskList.Android** y seleccione **Establecer como proyecto de inicio** .
+3. Haga clic con el botón derecho en **TaskList.Android** y seleccione **Establecer como proyecto de inicio**.
 4. Presione F5 para iniciar la depuración de la aplicación.
 5. Si quiere ejecutar en iOS, primero asegúrese de que la máquina esté conectada a un equipo Mac (aquí hay algunas [instrucciones](/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) sobre cómo hacerlo).
-6. Haga clic con el botón derecho en el proyecto **TaskList.iOS** y seleccione **Establecer como proyecto de inicio** .
+6. Haga clic con el botón derecho en el proyecto **TaskList.iOS** y seleccione **Establecer como proyecto de inicio**.
 7. Haga clic en F5 para iniciar la depuración de la aplicación.
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio para Mac

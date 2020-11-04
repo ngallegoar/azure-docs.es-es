@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 67ed8c54e32a301a50fa49b1ebba284b216d8664
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 224a1b67ff0282c216763229593fcfed81d7567b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276309"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090110"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Inicio rápido: Compilación de una aplicación de consola mediante el SDK de .NET V4 para administrar recursos de la cuenta de SQL API de Azure Cosmos DB.
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -49,11 +50,11 @@ En esta sección se le guía por el proceso de creación de una cuenta de Azure 
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Crear una cuenta de Azure Cosmos
 
-Si usa la opción [Prueba gratuita del emulador de Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) para crear una cuenta de Azure Cosmos, debe crear una cuenta de Azure Cosmos DB del tipo de **SQL API** . Ya se ha creado una cuenta de prueba de Azure Cosmos DB. No tiene que crear la cuenta explícitamente, por lo que puede omitir esta sección y pasar a la siguiente.
+Si usa la opción [Prueba gratuita del emulador de Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) para crear una cuenta de Azure Cosmos, debe crear una cuenta de Azure Cosmos DB del tipo de **SQL API**. Ya se ha creado una cuenta de prueba de Azure Cosmos DB. No tiene que crear la cuenta explícitamente, por lo que puede omitir esta sección y pasar a la siguiente.
 
 Si tiene su propia suscripción de Azure o creó una suscripción gratuita, debe crear una cuenta de Azure Cosmos explícitamente. El código siguiente creará una cuenta de Azure Cosmos con coherencia de sesión. La cuenta se replica en `South Central US` y `North Central US`.  
 
-Puede usar Azure Cloud Shell para crear la cuenta de Azure Cosmos. Azure Cloud Shell es un shell interactivo, autenticado y al que se puede acceder desde un explorador para administrar recursos de Azure. Ofrece la flexibilidad de poder elegir la experiencia de shell que mejor se adapte a la forma de trabajar de cada uno, Bash o PowerShell. En esta guía de inicio rápido, elija el modo **Bash** . Azure Cloud Shell también requiere una cuenta de almacenamiento; puede crear una cuando se le solicite.
+Puede usar Azure Cloud Shell para crear la cuenta de Azure Cosmos. Azure Cloud Shell es un shell interactivo, autenticado y al que se puede acceder desde un explorador para administrar recursos de Azure. Ofrece la flexibilidad de poder elegir la experiencia de shell que mejor se adapte a la forma de trabajar de cada uno, Bash o PowerShell. En esta guía de inicio rápido, elija el modo **Bash**. Azure Cloud Shell también requiere una cuenta de almacenamiento; puede crear una cuando se le solicite.
 
 Seleccione el botón **Pruébelo** junto al siguiente código, elija el modo **Bash** , seleccione **Crear una cuenta de almacenamiento** e inicie sesión en Cloud Shell. Después, copie y pegue el código siguiente en Azure Cloud Shell y ejecútelo. El nombre de la cuenta de Azure Cosmos debe ser único globalmente; asegúrese de actualizar el valor de `mysqlapicosmosdb` antes de ejecutar el comando.
 

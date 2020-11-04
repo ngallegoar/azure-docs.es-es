@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792487"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289309"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -149,7 +149,7 @@ Para más información sobre las opciones de conectividad de clústeres, consult
 Tenga en cuenta las limitaciones siguientes de las instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines. 
 
 ### <a name="lightweight-resource-provider"></a>Proveedor de recursos ligeros   
-Actualmente, las instancias del clúster de conmutación por error de SQL Server en las máquinas virtuales de Azure solo se admiten con el modo de administración [ligera](sql-vm-resource-provider-register.md#management-modes) de la [extensión del agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). Para cambiar del modo de extensión total a extensión ligera, elimine el recurso **Máquina virtual con SQL** de las máquinas virtuales correspondientes y regístrelas con el proveedor de recursos VM con SQL en el modo ligero. Cuando elimine el recurso **Máquina virtual con SQL** desde Azure Portal, desactive la casilla de la máquina virtual correcta. 
+Actualmente, las instancias del clúster de conmutación por error de SQL Server en las máquinas virtuales de Azure solo se admiten con el modo de administración [ligera](sql-server-iaas-agent-extension-automate-management.md#management-modes) de la [extensión del agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). Para cambiar del modo de extensión total a extensión ligera, elimine el recurso **Máquina virtual con SQL** de las máquinas virtuales correspondientes y regístrelas con el proveedor de recursos VM con SQL en el modo ligero. Cuando elimine el recurso **Máquina virtual con SQL** desde Azure Portal, desactive la casilla de la máquina virtual correcta. 
 
 La extensión completa admite características como la copia de seguridad automatizada, y la aplicación de revisiones y la administración avanzada del portal. Estas características no funcionarán para las VM con SQL Server después de que el agente se vuelva a instalar en modo de administración ligera.
 

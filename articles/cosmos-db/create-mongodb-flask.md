@@ -9,14 +9,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: a0545ea61879b30349403e019ead69ba14f75cb9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 58f22a335f4c619a6348e9e127e60f5a79f658b2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486504"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099664"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Compilación de una aplicación de Python mediante la API de Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -113,15 +114,15 @@ Si desea probar el código en una cuenta de Azure Cosmos DB en vivo, vaya a Azu
 
 Para probar el código en la cuenta de Azure Cosmos DB en vivo, obtenga la información de la cadena de conexión. A continuación, cópiela en la aplicación.
 
-1. En Azure Portal, en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, seleccione **Cadena de conexión** y, después, seleccione **Claves de lectura y escritura** . Usará los botones de copia del lado derecho de la pantalla para copiar el nombre de usuario, la cadena de conexión y la contraseña. 
+1. En Azure Portal, en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, seleccione **Cadena de conexión** y, después, seleccione **Claves de lectura y escritura**. Usará los botones de copia del lado derecho de la pantalla para copiar el nombre de usuario, la cadena de conexión y la contraseña. 
 
 2. Abra el archivo *app.py* en el directorio raíz.
 
-3. Copie el valor del **nombre de usuario** del portal (con el botón de copia) y conviértalo en el valor del **nombre** en el archivo *app.py* .
+3. Copie el valor del **nombre de usuario** del portal (con el botón de copia) y conviértalo en el valor del **nombre** en el archivo *app.py*.
 
-4. A continuación, copie el valor de la **cadena de conexión** del portal y establézcalo como valor de **MongoClient** en el archivo *app.py* .
+4. A continuación, copie el valor de la **cadena de conexión** del portal y establézcalo como valor de **MongoClient** en el archivo *app.py*.
 
-5. Por último, copie el valor de la **contraseña** del portal y conviértalo en el valor de la **contraseña** en el archivo *app.py* .
+5. Por último, copie el valor de la **contraseña** del portal y conviértalo en el valor de la **contraseña** en el archivo *app.py*.
 
 Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. Puede ejecutarla como antes.
 

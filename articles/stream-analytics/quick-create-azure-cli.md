@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 6ef4d63e30aeceec9cba3ae97f69afa1c299ec65
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 37cbd1b05249c694aaaa4ff5196a3b6328ccda7f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742727"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126302"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics mediante la CLI de Azure
 
@@ -71,19 +71,19 @@ Antes de definir el trabajo de Stream Analytics, prepare los datos que se usan p
 
 Los siguientes bloques de código de la CLI de Azure son comandos que preparan los datos de entrada que requiere el trabajo. Examine las secciones para comprender el código.
 
-1. Para crear un centro de IoT Hub, use el comando [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). En este ejemplo se va a crear un centro de IoT Hub llamado **MyASAIoTHub** . Dado que los nombres de IoT Hub son únicos, tiene que asignarle su propio nombre de IoT Hub. Establezca la SKU en F1 para usar el nivel gratuito si está disponible con su suscripción. Si no es así, elija el siguiente nivel más bajo.
+1. Para crear un centro de IoT Hub, use el comando [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). En este ejemplo se va a crear un centro de IoT Hub llamado **MyASAIoTHub**. Dado que los nombres de IoT Hub son únicos, tiene que asignarle su propio nombre de IoT Hub. Establezca la SKU en F1 para usar el nivel gratuito si está disponible con su suscripción. Si no es así, elija el siguiente nivel más bajo.
 
     ```azurecli
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
     ```
 
-    Una vez creado el centro de IoT Hub, obtenga la cadena de conexión de IoT Hub mediante el comando [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest). Copie la cadena de conexión completa y guárdela para cuando agregue el centro de IoT Hub como entrada para el trabajo de Stream Analytics.
+    Una vez creado el centro de IoT Hub, obtenga la cadena de conexión de IoT Hub mediante el comando [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest). Copie la cadena de conexión completa y guárdela para cuando agregue el centro de IoT Hub como entrada para el trabajo de Stream Analytics.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-2. Agregue un dispositivo a IoT Hub con el comando [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). En este ejemplo se crea un dispositivo denominado **MyASAIoTDevice** .
+2. Agregue un dispositivo a IoT Hub con el comando [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). En este ejemplo se crea un dispositivo denominado **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
@@ -124,7 +124,7 @@ Los siguientes bloques de código de la CLI de Azure crean una cuenta de Blob St
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. Cree un contenedor para almacenar blobs con el comando [az storage container create](/cli/azure/storage/container). Use la clave de la cuenta de almacenamiento para autorizar la operación de creación del contenedor. Para obtener más información sobre la autorización de operaciones de datos con la CLI de Azure, consulte [Autorización del acceso a los datos de blobs o colas con la CLI de Azure](/azure/storage/common/authorize-data-operations-cli).
+3. Cree un contenedor para almacenar blobs con el comando [az storage container create](/cli/azure/storage/container). Use la clave de la cuenta de almacenamiento para autorizar la operación de creación del contenedor. Para obtener más información sobre la autorización de operaciones de datos con la CLI de Azure, consulte [Autorización del acceso a los datos de blobs o colas con la CLI de Azure](../storage/common/authorize-data-operations-cli.md).
 
    ```azurecli
    az storage container create \
@@ -249,7 +249,7 @@ az stream-analytics transformation create
 
 2. Reemplace el marcador de posición de la línea 15 con la cadena de conexión completa del dispositivo de Azure IoT Hub que guardó en la sección anterior.
 
-3. Haga clic en **Ejecutar** . La salida debe mostrar los datos y mensajes del sensor que se envían a la instancia de IoT Hub.
+3. Haga clic en **Ejecutar**. La salida debe mostrar los datos y mensajes del sensor que se envían a la instancia de IoT Hub.
 
     ![Simulador en línea de Raspberry Pi para Azure IoT](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 

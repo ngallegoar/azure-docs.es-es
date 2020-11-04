@@ -9,14 +9,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: a831921ec3b3fa755496c08c02665b1c0fe99557
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2dcd72f9231726d5a2f473dbbfa4d8fd81e64b97
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475964"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098987"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de consola con Java y la API MongoDB en Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -41,7 +42,7 @@ En este inicio rápido, se crea y administra una cuenta de Azure Cosmos DB para
 
 ## <a name="add-a-collection"></a>Agregar una colección
 
-Asigne un nombre a la nueva base de datos **db** y a la nueva colección **coll** .
+Asigne un nombre a la nueva base de datos **db** y a la nueva colección **coll**.
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-mongodb-create-collection.md)] 
 
@@ -73,7 +74,7 @@ Ahora vamos a clonar una aplicación desde GitHub, establecer la cadena de conex
 
 Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). 
 
-Los fragmentos de código siguientes se han tomado del archivo *Program.java* .
+Los fragmentos de código siguientes se han tomado del archivo *Program.java*.
 
 Esta aplicación de consola usa el [controlador Java de MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
 

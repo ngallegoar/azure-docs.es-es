@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a060528d3140203541f6a13064659651c7a4f67d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a4400adeff8907e2d4ff690a83c63d32da8031bd
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488967"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289324"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Inicio rápido: implementación de la primera aplicación de Azure Spring Cloud
 
@@ -242,7 +242,7 @@ El procedimiento siguiente genera e implementa el proyecto que creó anteriormen
 1. Cree una aplicación en la instancia de Azure Spring Cloud con un punto de conexión público asignado. Use el mismo nombre de aplicación "hello-world" que especificó en *appsettings.json*.
 
    ```console
-   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public
+   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public --runtime-version NetCore_31
    ```
 
 1. Implemente el archivo *.zip* en la aplicación.

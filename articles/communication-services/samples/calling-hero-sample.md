@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 799c46ad2715e1edd3d2fba24a8350fd2608d3d8
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461148"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233940"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introducción al ejemplo de elementos principales de una llamada
 
@@ -75,7 +75,7 @@ Para probar el ejemplo localmente, puede abrir varias sesiones del explorador co
 ## <a name="before-running-the-sample-for-the-first-time"></a>Antes de ejecutar el ejemplo por primera vez
 
 1. Abra una instancia de PowerShell, Terminal Windows, símbolo del sistema o equivalente y navegue hasta el directorio donde le gustaría clonar el ejemplo.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
 3. Obtenga `Connection String` de Azure Portal. Para obtener más información sobre las cadenas de conexión, consulte [Creación de un recurso de Azure Communication Services](../quickstarts/create-communication-resource.md).
 4. Una vez que obtenga `Connection String`, agregue la cadena de conexión al archivo **Calling/appsetting.json** que se encuentra en la carpeta de Service .NET. Escriba la cadena de conexión en la variable: `ResourceConnectionString`.
 

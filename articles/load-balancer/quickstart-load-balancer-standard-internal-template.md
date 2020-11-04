@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: aa68dad2f8f018a9f3f70f2f02fd5e989ccbad4e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 41c90bb58e6ece968f8e2bf211a14e4e4e98211f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047767"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910872"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales mediante una plantilla de ARM
 
@@ -21,7 +21,11 @@ En esta guía de inicio rápido se describe cómo usar una plantilla de Azure Re
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-2-vms-internal-load-balancer%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -49,7 +53,7 @@ Para encontrar más plantillas relacionadas con Azure Load Balancer, consulte [P
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
 resourceGroupName="myResourceGroupLB"
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json" 
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json"
 
 az group create \
 --name $resourceGroupName \
@@ -64,11 +68,11 @@ az deployment group create \
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. Seleccione **Grupos de recursos** en el panel izquierdo.
+1. Seleccione **Grupos de recursos** en el panel izquierdo.
 
-3. Seleccione el grupo de recursos que creó en la sección anterior. El nombre predeterminado del grupo de recursos es **myResourceGroupLB**.
+1. Seleccione el grupo de recursos que creó en la sección anterior. El nombre predeterminado del grupo de recursos es **myResourceGroupLB**.
 
-4. Compruebe que los recursos siguientes se han creado en el grupo de recursos:
+1. Compruebe que los recursos siguientes se han creado en el grupo de recursos:
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-template/verify-creation.png" alt-text="Uso de Azure Portal para comprobar la creación de los recursos." border="true":::
 
@@ -76,7 +80,7 @@ az deployment group create \
 
 Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para quitar el grupo de recursos y todos los recursos que contiene.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete \
     --name myResourceGroupLB
 ```
@@ -86,4 +90,4 @@ Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/gro
 Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte:
 
 > [!div class="nextstepaction"]
-> Creación e implementación de su primera plantilla de Resource Manager[
+> [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)

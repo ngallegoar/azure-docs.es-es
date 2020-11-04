@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: d23702a71bababec2e172181c8e75c26241d0460
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7ec7273848b9e8bb5be809b9cf48cdc919d3949
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91348301"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307975"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Inicio rápido: Creación del primer experimento de ciencia de datos en Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -78,7 +78,7 @@ En este conjunto de datos, cada fila representa un automóvil y las variables as
 
 ![Ver los datos de automóviles en la ventana de visualización de datos](./media/create-experiment/visualize-auto-data.png)
 
-Cierre la ventana de visualización haciendo clic en la "**x**" en la esquina superior derecha.
+Cierre la ventana de visualización haciendo clic en la " **x** " en la esquina superior derecha.
 
 ## <a name="prepare-the-data"></a>Preparación de los datos
 
@@ -98,8 +98,8 @@ Primero, se agrega un módulo que quita completamente la columna **normalized-lo
 1. Haga clic en el módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) y haga clic en **Launch column selector** (Iniciar el selector de columnas) en el panel **Propiedades**.
 
    - A la izquierda, haga clic en **Con reglas**
-   - En **Empiezan por**, haga clic en **Todas las columnas**. Estas reglas indican a [Select Columns in Dataset][select-columns] (Seleccionar columnas en conjunto de datos) que pase por todas las columnas (excepto por las que estamos a punto de excluir).
-   - En los menús desplegables, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses**; se agregará al cuadro de texto.
+   - En **Empiezan por** , haga clic en **Todas las columnas**. Estas reglas indican a [Select Columns in Dataset][select-columns] (Seleccionar columnas en conjunto de datos) que pase por todas las columnas (excepto por las que estamos a punto de excluir).
+   - En los menús desplegables, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses** ; se agregará al cuadro de texto.
    - Haga clic en el botón Aceptar con la marca de verificación para cerrar el selector de columnas (en la esquina inferior derecha).
 
      ![Inicio del selector de columnas y excluir la columna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
@@ -113,7 +113,7 @@ Primero, se agrega un módulo que quita completamente la columna **normalized-lo
 
      ![Hacer doble clic en un módulo para agregar un comentario](./media/create-experiment/add-comment.png)
 
-1. Arrastre el módulo [Clean Missing Data][clean-missing-data] al lienzo del experimento y conéctelo con el módulo [Select Columns in Dataset][select-columns]. En el panel **Propiedades**, seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza). Estas opciones indican a [Clean Missing Data][clean-missing-data] (Limpiar los datos que faltan) que limpie los datos quitando las filas con valores que faltan. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
+1. Arrastre el módulo [Clean Missing Data][clean-missing-data] al lienzo del experimento y conéctelo con el módulo [Select Columns in Dataset][select-columns]. En el panel **Propiedades** , seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza). Estas opciones indican a [Clean Missing Data][clean-missing-data] (Limpiar los datos que faltan) que limpie los datos quitando las filas con valores que faltan. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
 
     ![Establecimiento del modo de limpieza en Remove entire row (Quitar la fila entera) para el módulo Clean Missing Data (Limpiar los datos que faltan)](./media/create-experiment/set-remove-entire-row.png)
 
@@ -148,9 +148,9 @@ Creemos un modelo que use un subconjunto de las funciones de nuestro conjunto de
 
 1. Haga clic en **Iniciar el selector de columnas** en el panel **Propiedades**.
 
-1. Haga clic en **With rules**(Con reglas).
+1. Haga clic en **With rules** (Con reglas).
 
-1. En **Empezar por**, haga clic en **No columns** (Ninguna columna). En la fila del filtro, seleccione **Incluir** y **nombres de columna** y seleccione nuestra lista de nombres de columna en el cuadro de texto. Este filtro indica al módulo que no pase por ninguna columna (características), a excepción de las especificadas.
+1. En **Empezar por** , haga clic en **No columns** (Ninguna columna). En la fila del filtro, seleccione **Incluir** y **nombres de columna** y seleccione nuestra lista de nombres de columna en el cuadro de texto. Este filtro indica al módulo que no pase por ninguna columna (características), a excepción de las especificadas.
 
 1. Haga clic en el botón de marca de verificación (Aceptar).
 
@@ -227,11 +227,11 @@ Se muestran las siguientes estadísticas para nuestro modelo:
 
 - **Desviación media** (MAE): la media de errores absolutos (un *error* es la diferencia entre el valor de predicción y el valor real).
 - **Raíz del error cuadrático medio** (RMSE): la raíz cuadrada de la media de errores al cuadrado de las predicciones realizadas sobre el conjunto de datos de prueba.
-- **Error absoluto relativo**: la media de errores absolutos en relación con la diferencia absoluta entre los valores reales y la media de todos los valores reales.
-- **Error al cuadrado relativo**: la media de errores al cuadrado en relación con la diferencia al cuadrado entre los valores reales y la media de todos los valores reales.
-- **Coeficiente de determinación**: conocido también como **valor R cuadrado**, es una métrica estadística que indica en qué medida se ajusta un modelo a los datos.
+- **Error absoluto relativo** : la media de errores absolutos en relación con la diferencia absoluta entre los valores reales y la media de todos los valores reales.
+- **Error al cuadrado relativo** : la media de errores al cuadrado en relación con la diferencia al cuadrado entre los valores reales y la media de todos los valores reales.
+- **Coeficiente de determinación** : conocido también como **valor R cuadrado** , es una métrica estadística que indica en qué medida se ajusta un modelo a los datos.
 
-Para cada una de las estadísticas de errores, cuanto menor sea el valor, mejor. Un valor inferior indica que las predicciones se ajustan más a los valores reales. En **Coeficiente de determinación**, cuanto más cercano sea su valor a uno (1,0), mejores son las predicciones.
+Para cada una de las estadísticas de errores, cuanto menor sea el valor, mejor. Un valor inferior indica que las predicciones se ajustan más a los valores reales. En **Coeficiente de determinación** , cuanto más cercano sea su valor a uno (1,0), mejores son las predicciones.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -245,10 +245,10 @@ En este inicio rápido, ha creado un experimento sencillo con un conjunto de dat
 > [Tutorial: Desarrollo de una solución predictiva en Studio (clásico)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model

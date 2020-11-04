@@ -9,14 +9,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 06e0d3618e96b44eca60f32a0977e7f03d6f5603
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 8a76a37de64733ba3e0126c7885d8690d2d83c1b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824630"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099732"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Cassandra con el SDK para Python y Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -157,11 +158,11 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     Presione CTRL+C para detener la ejecución del programa y cerrar la ventana de la consola. 
 
-    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Visualizar y copiar un punto de contacto, una contraseña y un nombre de usuario de acceso en la hoja de la cadena de conexión de Azure Portal":::
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Visualizar y comprobar el resultado":::
     
 4. En Azure Portal abra **Explorador de datos** para consultar, modificar y trabajar con estos nuevos datos. 
 
-    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Visualizar y copiar un punto de contacto, una contraseña y un nombre de usuario de acceso en la hoja de la cadena de conexión de Azure Portal":::
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Visualizar los datos en el Explorador de datos":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 

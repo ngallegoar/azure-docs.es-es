@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: b0939191a8029ef30f17500bbaaa7eb32b5a6d7e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f31eb0fa6dbb881f7a09b21b9dd4842fdfd291f5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486555"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090297"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Inicio rápido: Creación de una aplicación de Spring Data Azure Cosmos DB v3 para administrar los datos de SQL API de Azure Cosmos DB
-
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -54,7 +54,7 @@ En este inicio rápido se crea y administra una cuenta de Azure Cosmos DB para S
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entidades de cuenta de Azure Cosmos" border="false":::
 
-Puede leer más información sobre las bases de datos, los contenedores y los elementos [aquí](account-databases-containers-items.md). Algunas propiedades importantes se definen en el nivel del contenedor, entre ellas la *capacidad de proceso aprovisionada* y la *clave de partición* . 
+Puede leer más información sobre las bases de datos, los contenedores y los elementos [aquí](account-databases-containers-items.md). Algunas propiedades importantes se definen en el nivel del contenedor, entre ellas la *capacidad de proceso aprovisionada* y la *clave de partición*. 
 
 La capacidad de proceso aprovisionada se mide en unidades de solicitud ( *RU* ) que tienen un precio monetario y son un factor determinante crucial en el costo operativo de la cuenta. La capacidad de proceso aprovisionada se puede seleccionar en una granularidad por contenedor o por base de datos; sin embargo, se suele preferir la especificación de capacidad de proceso a nivel de contenedor. Para más información sobre el aprovisionamiento de capacidad de proceso [aquí](set-throughput.md).
 
@@ -107,7 +107,7 @@ dynamic.collection.name=spel-property-collection
 cosmos.queryMetricsEnabled=true
 ```
 
-Una vez que crea una cuenta, una base de datos y un contenedor de Azure Cosmos DB, solo tiene que rellenar los espacios en blanco en el archivo de configuración y Spring Boot/Spring Data realizarán automáticamente las siguientes operaciones: (1) crear una instancia de `CosmosClient` de SDK de Java subyacente con el identificador URI y la clave, y (2) conectar a la base de datos y al contenedor. Ya está todo establecido: **no hace falta más código de administración de recursos** .
+Una vez que crea una cuenta, una base de datos y un contenedor de Azure Cosmos DB, solo tiene que rellenar los espacios en blanco en el archivo de configuración y Spring Boot/Spring Data realizarán automáticamente las siguientes operaciones: (1) crear una instancia de `CosmosClient` de SDK de Java subyacente con el identificador URI y la clave, y (2) conectar a la base de datos y al contenedor. Ya está todo establecido: **no hace falta más código de administración de recursos**.
 
 ### <a name="java-source"></a>Origen de Java
 

@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: be93df10614e32fb14e5ca7497461f0f2d6fc93e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409398"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099726"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Inicio rápido: Creación, consulta y recorrido de una base de datos de grafos de Azure Cosmos DB en la consola de Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin Console](create-graph-gremlin-console.md)
@@ -39,7 +40,7 @@ Necesita tener una suscripción de Azure para crear una cuenta de Azure Cosmos D
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/downloads.html). Se **recomienda la versión v3.4.3**, o cualquier versión anterior (para usar la consola de Gremlin en Windows, es preciso instalar [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html)).
+También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/downloads.html). Se **recomienda la versión v3.4.3** , o cualquier versión anterior (para usar la consola de Gremlin en Windows, es preciso instalar [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html)).
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
@@ -52,24 +53,24 @@ También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/
 ## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Conectarse a su App Service/Graph
 
 1. Antes de iniciar la consola de Gremlin, cree o modifique el archivo de configuración remote-secure.yaml en el directorio `apache-tinkerpop-gremlin-console-3.2.5/conf`.
-2. Rellene sus configuraciones de *host*, *puerto*, *nombre de usuario*, *contraseña*, *connectionPool* y *serializador* como se define en la siguiente tabla:
+2. Rellene sus configuraciones de *host* , *puerto* , *nombre de usuario* , *contraseña* , *connectionPool* y *serializador* como se define en la siguiente tabla:
 
     Configuración|Valor sugerido|Descripción
     ---|---|---
-    hosts|[*account-name*.**gremlin**.cosmos.azure.com]|Vea la siguiente captura de pantalla. Este es el valor de **URI de Gremlin** de la página Información general de Azure Portal, entre corchetes, sin la terminación :443/. Nota: Asegúrese de usar el valor de Gremlin, **no** el identificador URI que termina en [*account-name*.documents.azure.com], lo que probablemente daría como resultado la excepción "Host did not respond in a timely fashion" (El host no respondió a tiempo) al intentar ejecutar consultas Gremlin después. 
+    hosts|[ *account-name*. **gremlin**.cosmos.azure.com]|Vea la siguiente captura de pantalla. Este es el valor de **URI de Gremlin** de la página Información general de Azure Portal, entre corchetes, sin la terminación :443/. Nota: Asegúrese de usar el valor de Gremlin, **no** el identificador URI que termina en [ *account-name*.documents.azure.com], lo que probablemente daría como resultado la excepción "Host did not respond in a timely fashion" (El host no respondió a tiempo) al intentar ejecutar consultas Gremlin después. 
     port|443|Se establece en 443.
     username|*Su nombre de usuario*|El recurso con la forma `/dbs/<db>/colls/<coll>` donde `<db>` es el nombre de la base de datos y `<coll>` es el nombre de la colección.
     password|*La clave principal*| Ver la segunda captura de pantalla más adelante. Es la clave principal, que puede obtener en la página Claves de Azure Portal, en el cuadro de texto Clave principal. Use el botón Copiar a la izquierda del cuadro de texto para copiar el valor.
     connectionPool|{enableSsl: true}|La configuración del grupo de conexiones para TLS.
     serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Establecer en este valor y eliminar los saltos de línea `\n` cuando se pegue el valor.
 
-   Para obtener el valor de los hosts, copie el valor de **URI de Gremlin** de la página **Introducción**:
+   Para obtener el valor de los hosts, copie el valor de **URI de Gremlin** de la página **Introducción** :
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Cosmos DB desde la consola de Apache Gremlin":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Copie del valor del URI de Gremlin en la página Introducción en Azure Portal ":::
 
-   Para obtener el valor de la contraseña, copie la **Clave principal** de la página **Claves**:
+   Para obtener el valor de la contraseña, copie la **Clave principal** de la página **Claves** :
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Cosmos DB desde la consola de Apache Gremlin":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Visualización y copia de la clave principal en Azure Portal, página Claves":::
 
    El archivo remote-secure.yaml debe tener este aspecto:
 
@@ -108,7 +109,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>Crear vértices y bordes
 
-Comencemos agregando cinco vértices de personas para *Thomas*, *Mary Kay*, *Robin*, *Ben* y *Jack*.
+Comencemos agregando cinco vértices de personas para *Thomas* , *Mary Kay* , *Robin* , *Ben* y *Jack*.
 
 Entrada (Thomas):
 

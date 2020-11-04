@@ -1,18 +1,18 @@
 ---
 title: 'Inicio rápido: Creación de una instancia de Azure SignalR Service: plantilla de Resource Manager'
 description: En este inicio rápido, aprenderá a crear una instancia de Azure SignalR Service mediante una plantilla de Azure Resource Manager.
-author: mgblythe
+author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
+ms.author: zhshang
 ms.date: 10/02/2020
-ms.openlocfilehash: f38bd6ed91788343c028ec5834ba28f4bad3ba43
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a7e8183f21ab49fe4662470d30e52977dd89153a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487830"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289913"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Inicio rápido: Uso de una plantilla de Resource Manager para implementar Azure SignalR Service
 

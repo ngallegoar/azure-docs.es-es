@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495980"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310173"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>¿Qué es Azure Machine Learning Studio?
 
@@ -83,7 +83,7 @@ En la tabla siguiente se resumen las principales diferencias entre Machine Learn
 | Característica | ML Studio (clásico) | Azure Machine Learning |
 |---| --- | --- |
 | Interfaz que permite arrastrar y colocar | Experiencia clásica | Experiencia actualizada: [diseñador de Azure Machine Learning](concept-designer.md)| 
-| SDK de código | No compatible | Completamente integrado con los SDK de [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) y [R](tutorial-1st-r-experiment.md) |
+| SDK de código | No compatible | Completamente integrado con los SDK de [Azure Machine Learning Python](/python/api/overview/azure/ml/) y [R](tutorial-1st-r-experiment.md) |
 | Experimento | Escalable (límite de datos de entrenamiento, 10 GB) | Escalar con destino de proceso |
 | Entrenamiento de destinos de proceso | Destino de proceso propietario, solo admite CPU | Amplia gama de [destinos de proceso de entrenamiento](concept-compute-target.md#train) personalizables. Incluye compatibilidad con GPU y CPU | 
 | Destinos de proceso de implementación | Formato del servicio web propietario, no personalizable | Amplia gama de [destinos de proceso de implementación](concept-compute-target.md#deploy) personalizables. Incluye compatibilidad con GPU y CPU |
@@ -103,4 +103,3 @@ Visite [Studio](https://ml.azure.com) o explore las diferentes opciones de creac
   + [Uso de cuadernos de Jupyter Notebook en una instancia de proceso para entrenar e implementar modelos](tutorial-1st-experiment-sdk-setup.md)
   + [Uso del aprendizaje automático automatizado para entrenar e implementar modelos](tutorial-first-experiment-automated-ml.md)  
   + [Uso del diseñador para entrenar e implementar modelos](tutorial-designer-automobile-price-train-score.md)
-
