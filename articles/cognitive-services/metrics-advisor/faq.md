@@ -10,22 +10,18 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131690"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893584"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Metrics Advisor
 
 ### <a name="what-is-the-cost-of-my-instance"></a>¿Cuál es el costo de mi instancia?
 
 Actualmente, no hay ningún costo por usar su instancia durante la versión preliminar.
-
-### <a name="why-is-the-demo-website-readonly"></a>¿Por qué es de solo lectura el sitio web de demostración?
-
-El [sitio web de demostración](https://anomaly-detector.azurewebsites.net/) está disponible públicamente. Esta instancia se convierte en solo lectura para evitar la carga accidental de cualquier dato.
 
 ### <a name="why-cant-i-create-the-resource-the-pricing-tier-is-unavailable-and-it-says-you-have-already-created-1-s0-for-this-subscription"></a>¿Por qué no puedo crear el recurso? El "plan de tarifa" no está disponible y dice "Ya ha creado 1 S0 para esta suscripción".
 
@@ -92,7 +88,7 @@ Asegúrese de usar la granularidad correcta para la serie temporal. Para una mé
 
 Tenga en cuenta que estas consultas solo devuelven datos en una única marca de tiempo y contienen todas las combinaciones de dimensiones que debe ingerir Metrics Advisor. 
 
-:::image type="content" source="media/query-result.png" alt-text="Mensaje cuando ya existe un recurso F0" lightbox="media/query-result.png":::
+:::image type="content" source="media/query-result.png" alt-text="Resultado de una consulta con una marca de tiempo" lightbox="media/query-result.png":::
 
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>¿Cómo detecto picos y caídas como anomalías?
@@ -131,7 +127,7 @@ A partir del valor total de `Response latency`, se puede explorar en profundidad
 
 En Metric Advisor, los usuarios pueden especificar cualquier ruta que quieran explorar en profundidad o consolidar de un nodo de la topología jerárquica. Más concretamente, la topología jerárquica es un grafo acíclico dirigido en lugar de una estructura de árbol. Hay una topología jerárquica completa que consta de todas las combinaciones posibles de dimensiones, como esta: 
 
-:::image type="content" source="media/dimension-combinations-view.png" alt-text="Mensaje cuando ya existe un recurso F0" lightbox="media/dimension-combinations-view.png":::
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="Diagrama de la topología jerárquica compuesto por varios vértices y bordes interconectados con varias dimensiones etiquetadas como S, DC y M con los números correspondientes comprendidos entre 1 y 6" lightbox="media/dimension-combinations-view.png":::
 
 En teoría, si la dimensión `Service` tiene `Ls` valores distintos, la dimensión `Data center` tiene `Ldc` valores distintos y la dimensión `Machine` tiene `Lm` valores distintos, podría haber entonces combinaciones de las dimensiones `(Ls + 1) * (Ldc + 1) * (Lm + 1)` en la topología jerárquica. 
 
@@ -145,5 +141,4 @@ Por ejemplo, cuando se produce una anomalía en `Service = S2 | Data Center = DC
 
 ## <a name="next-steps"></a>Pasos a seguir
 - [Introducción a Metrics Advisor](overview.md)
-- [Prueba del sitio de demostración](quickstarts/explore-demo.md)
 - [Uso del portal web](quickstarts/web-portal.md)

@@ -7,21 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88003358"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912334"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutorial: Creación de una aplicación de procesamiento de formularios con AI Builder
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview) es una funcionalidad de Power Platform que permite automatizar los procesos y predecir los resultados para mejorar el rendimiento empresarial. Puede usar el procesamiento de formularios de AI Builder para crear modelos de inteligencia artificial que identifiquen y extraigan pares clave-valor y datos de tabla de documentos de formulario.
+[AI Builder](/ai-builder/overview) es una funcionalidad de Power Platform que permite automatizar los procesos y predecir los resultados para mejorar el rendimiento empresarial. Puede usar el procesamiento de formularios de AI Builder para crear modelos de inteligencia artificial que identifiquen y extraigan pares clave-valor y datos de tabla de documentos de formulario.
 
 > [!NOTE]
-> Este proyecto también está disponible como [módulo de Microsoft Learn](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/).
+> Este proyecto también está disponible como [módulo de Microsoft Learn](/learn/modules/get-started-with-form-processing/).
 
 En este tutorial, aprenderá a:
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Un conjunto de al menos cinco formularios del mismo tipo para entrenar y probar los datos. Consulte [Creación de un conjunto de datos de aprendizaje](./build-training-data-set.md) para ver sugerencias y opciones para reunir el conjunto de datos de aprendizaje. En este inicio rápido puede usar los archivos de la carpeta **Entrenar** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2128080).
-* Una licencia de Power Apps o Power Automate (consulte la [guía de licencia](https://go.microsoft.com/fwlink/?linkid=2085130)). La licencia debe incluir [Common Data Service](https://powerplatform.microsoft.com/en-us/common-data-service/).
+* Una licencia de Power Apps o Power Automate (consulte la [guía de licencia](https://go.microsoft.com/fwlink/?linkid=2085130)). La licencia debe incluir [Common Data Service](https://powerplatform.microsoft.com/common-data-service/).
 * Un [complemento o una evaluación gratuita](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409) de AI Builder.
 
 
@@ -47,7 +47,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="upload-and-analyze-documents"></a>Carga y análisis de documentos
 
-En la página **Agregar documentos**, debe proporcionar documentos de ejemplo para entrenar el modelo según el tipo de formulario del que quiera extraer información. Después de cargar los documentos, AI Builder los analiza para comprobar que son suficientes para entrenar un modelo.
+En la página **Agregar documentos** , debe proporcionar documentos de ejemplo para entrenar el modelo según el tipo de formulario del que quiera extraer información. Después de cargar los documentos, AI Builder los analiza para comprobar que son suficientes para entrenar un modelo.
 
 > [!NOTE]
 > AI Builder no admite actualmente los siguientes tipos de datos de entrada de procesamiento de formularios:
@@ -61,7 +61,7 @@ En la página **Agregar documentos**, debe proporcionar documentos de ejemplo pa
 
 ### <a name="upload-your-documents"></a>Carga de los documentos
 
-1. Seleccione **Agregar documentos**, seleccione cinco documentos como mínimo y, luego, elija **Cargar**.
+1. Seleccione **Agregar documentos** , seleccione cinco documentos como mínimo y, luego, elija **Cargar**.
 1. Una vez finalizada la carga, seleccione **Cerrar**.
 1. Luego, seleccione **Analizar**.
 
@@ -69,7 +69,7 @@ En la página **Agregar documentos**, debe proporcionar documentos de ejemplo pa
 > Después de cargar estos documentos, puede quitar algunos de los documentos o cargar otros adicionales.
 
 > [!div class="mx-imgBorder"]
-> ![página Agregar documentos](./media/tutorial-ai-builder/add-documents-page.png)
+> ![Captura de pantalla con el botón Agregar documentos destacado.](./media/tutorial-ai-builder/add-documents-page.png)
 
 ### <a name="analyze-your-documents"></a>Análisis de los documentos
 
@@ -89,11 +89,11 @@ En la página de selección de campos, elija los campos que le interesan:
 
     Al hacer clic en un campo detectado, aparece la siguiente información:
 
-    - **Nombre del campo**: nombre de la etiqueta del campo detectado.
-    - **Valor de campo**: valor del campo detectado.
+    - **Nombre del campo** : nombre de la etiqueta del campo detectado.
+    - **Valor de campo** : valor del campo detectado.
 
 > [!div class="mx-imgBorder"]
-> ![página Agregar documentos](./media/tutorial-ai-builder/select-fields-page.png)
+> ![página de etiquetado](./media/tutorial-ai-builder/select-fields-page.png)
 
 ### <a name="label-undetected-fields"></a>Etiquetado de campos no detectados
 
@@ -104,7 +104,7 @@ Si el modelo no ha detectado automáticamente el campo que quiere etiquetar, pue
 1. Seleccione **Siguiente** para comprobar los campos de formulario seleccionados. Si todo está bien, seleccione **Entrenar** para entrenar el modelo.
 
     > [!div class="mx-imgBorder"]
-    > ![página Agregar documentos](./media/tutorial-ai-builder/summary-train-page.png)
+    > ![página de entrenamiento](./media/tutorial-ai-builder/summary-train-page.png)
 1. Cuando finalice el entrenamiento, seleccione **Ir a la página Detalles** en la pantalla **Entrenamiento finalizado**.
 ## <a name="quick-test-your-model"></a>Prueba rápida del modelo
 
@@ -127,13 +127,13 @@ Si obtiene resultados incorrectos o puntuaciones de confianza baja en determinad
 Si está satisfecho con el modelo, seleccione **Publicar** para publicarlo. Cuando finalice la publicación, el estado del modelo cambiará a **Publicado** y estará listo para usarse.
 
 > [!div class="mx-imgBorder"]
-> ![página Agregar documentos](./media/tutorial-ai-builder/model-page.png)
+> ![página de publicación de modelo](./media/tutorial-ai-builder/model-page.png)
 
-Después de haber publicado el modelo de procesamiento de formularios, puede usarlo en una [aplicación de lienzo de Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) o en [Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
+Después de haber publicado el modelo de procesamiento de formularios, puede usarlo en una [aplicación de lienzo de Power Apps](/ai-builder/form-processor-component-in-powerapps) o en [Power Automate](/ai-builder/form-processing-model-in-flow).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Siga la documentación de AI Builder para usar un modelo de procesamiento de formularios.
 
-* [Usar el componente del procesador de formularios en Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps)
-* [Usar un modelo de procesamiento de formularios en Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)
+* [Usar el componente del procesador de formularios en Power Apps](/ai-builder/form-processor-component-in-powerapps)
+* [Usar un modelo de procesamiento de formularios en Power Automate](/ai-builder/form-processing-model-in-flow)
