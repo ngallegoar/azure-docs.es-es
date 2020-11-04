@@ -78,11 +78,11 @@ La configuración de la normalización de expresiones está desactivada de forma
 * Marcas diacríticas
 * Signos de puntuación
 
-Si activa la configuración de normalización, las puntuaciones del panel **Prueba**, las pruebas por lotes y las consultas de puntos de conexión cambiarán en todas las expresiones que usen esa configuración de normalización.
+Si activa la configuración de normalización, las puntuaciones del panel **Prueba** , las pruebas por lotes y las consultas de puntos de conexión cambiarán en todas las expresiones que usen esa configuración de normalización.
 
 Al clonar una versión en el portal de LUIS, la configuración de la versión continúa con la nueva versión clonada.
 
-Establezca la configuración de la versión a través del portal LUIS, en la sección **Administrar**, en la página **Configuración de la aplicación** o en la [Actualización de la configuración de la versión de la API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). Obtenga más información sobre estos cambios de normalización en la [Referencia](luis-reference-application-settings.md).
+Establezca la configuración de la versión a través del portal LUIS, en la sección **Administrar** , en la página **Configuración de la aplicación** o en la [Actualización de la configuración de la versión de la API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). Obtenga más información sobre estos cambios de normalización en la [Referencia](luis-reference-application-settings.md).
 
 ### <a name="word-forms"></a>Formas de las palabras
 

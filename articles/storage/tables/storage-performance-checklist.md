@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89458339"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316180"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de comprobación de rendimiento y de escalabilidad para Table Storage
 
@@ -153,7 +153,7 @@ Establezca el límite de conexiones antes de abrir cualquier conexión.
 
 En el caso de otros lenguajes de programación, consulte la documentación del lenguaje en cuestión para determinar cómo establecer el límite de conexiones.  
 
-Para obtener más información, vea la entrada de blog [Servicios web: conexiones simultáneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para obtener más información, vea la entrada de blog [Servicios web: conexiones simultáneas](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumento del número mínimo de subprocesos
 
@@ -171,7 +171,7 @@ Aunque el paralelismo puede ser excelente para el rendimiento, tenga cuidado al 
 
 ## <a name="client-libraries-and-tools"></a>Herramientas y bibliotecas cliente
 
-Para obtener el mejor rendimiento posible, utilice siempre las herramientas y bibliotecas de cliente más recientes que proporciona Microsoft. Las bibliotecas de cliente de Azure Storage están disponibles para varios lenguajes. Azure Storage también admite PowerShell y la CLI de Azure. Microsoft desarrolla de forma activa estas herramientas y bibliotecas de cliente pensando en el rendimiento, las mantiene actualizadas con las versiones de servicio más recientes y se asegura de que controlan internamente muchos de los procedimientos de rendimiento de eficacia probada. Para más información, consulte la [documentación de referencia de Azure Storage](/azure/storage/#reference).
+Para obtener el mejor rendimiento posible, utilice siempre las herramientas y bibliotecas de cliente más recientes que proporciona Microsoft. Las bibliotecas de cliente de Azure Storage están disponibles para varios lenguajes. Azure Storage también admite PowerShell y la CLI de Azure. Microsoft desarrolla de forma activa estas herramientas y bibliotecas de cliente pensando en el rendimiento, las mantiene actualizadas con las versiones de servicio más recientes y se asegura de que controlan internamente muchos de los procedimientos de rendimiento de eficacia probada.
 
 ## <a name="handle-service-errors"></a>Control de errores del servicio
 
@@ -197,7 +197,7 @@ En esta sección se enumeran varias configuraciones rápidas que puede usar para
 
 A partir de la versión del 15 de agosto de 2013 del servicio Storage, Table service admite el uso de JSON en lugar del formato AtomPub basado en XML para transferir datos de las tablas. El uso de JSON puede reducir los tamaños de carga hasta en un 75 % y puede mejorar significativamente el rendimiento de la aplicación.
 
-Para más información, consulte la publicación [Tablas de Microsoft Azure: introducción a JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) y [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Formato de carga para las operaciones de Table service).
+Para más información, consulte la publicación [Tablas de Microsoft Azure: introducción a JSON](/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) y [Payload Format for Table Service Operations](/rest/api/storageservices/Payload-Format-for-Table-Service-Operations) (Formato de carga para las operaciones de Table service).
 
 ### <a name="disable-nagle"></a>Deshabilitación de Nagle
 
@@ -273,10 +273,10 @@ Las transacciones por lotes se conocen como transacciones de grupos de entidades
 
 #### <a name="upsert"></a>Upsert
 
-Use operaciones **Upsert** de tabla siempre que sea posible. Hay dos tipos de operaciones **Upsert**; ambos pueden ser más eficientes que las operaciones **Insert** y **Update** tradicionales:  
+Use operaciones **Upsert** de tabla siempre que sea posible. Hay dos tipos de operaciones **Upsert** ; ambos pueden ser más eficientes que las operaciones **Insert** y **Update** tradicionales:  
 
-- **InsertOrMerge**: Use esta operación cuando quiera cargar un subconjunto de propiedades de la entidad, pero no está seguro de si la entidad ya existe. Si la entidad ya existe, esta llamada actualiza las propiedades incluidas en la operación **Upsert** y deja todas las propiedades existentes tal y como están; si la entidad no existe, inserta la nueva entidad. Esto es similar a usar proyección en una consulta, donde solamente necesita actualizar las propiedades que cambian.
-- **InsertOrReplace**: Use esta operación cuando quiera cargar una entidad completamente nueva, pero no está seguro de si ya existe. Use esta operación cuando sepa que la entidad recién cargada es totalmente correcta porque sobrescribe completamente la entidad antigua. Por ejemplo, desea actualizar la entidad que almacena la ubicación actual de un usuario independientemente de si la aplicación ha almacenado los datos de ubicación del usuario anteriormente; la entidad de la nueva ubicación está completa y no necesita información de ninguna otra entidad anterior.
+- **InsertOrMerge** : Use esta operación cuando quiera cargar un subconjunto de propiedades de la entidad, pero no está seguro de si la entidad ya existe. Si la entidad ya existe, esta llamada actualiza las propiedades incluidas en la operación **Upsert** y deja todas las propiedades existentes tal y como están; si la entidad no existe, inserta la nueva entidad. Esto es similar a usar proyección en una consulta, donde solamente necesita actualizar las propiedades que cambian.
+- **InsertOrReplace** : Use esta operación cuando quiera cargar una entidad completamente nueva, pero no está seguro de si ya existe. Use esta operación cuando sepa que la entidad recién cargada es totalmente correcta porque sobrescribe completamente la entidad antigua. Por ejemplo, desea actualizar la entidad que almacena la ubicación actual de un usuario independientemente de si la aplicación ha almacenado los datos de ubicación del usuario anteriormente; la entidad de la nueva ubicación está completa y no necesita información de ninguna otra entidad anterior.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>Almacenamiento de series de datos en una sola entidad
 

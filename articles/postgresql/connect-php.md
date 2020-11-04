@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
-ms.openlocfilehash: 45fa455d00a757e6df87d2a93982f33fe4e64bef
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4e82c8402584f694cb32bb37ae3e6eae9366eaf7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710369"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341440"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de PHP para conectarse y consultar datos en Azure Database for PostgreSQL: servidor único
 
@@ -53,7 +53,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
  :::image type="content" source="./media/connect-php/1-connection-string.png" alt-text="Nombre de servidor de Azure Database for PostgreSQL":::
 
 ## <a name="connect-and-create-a-table"></a>Conexión y creación de una tabla
-Use el código siguiente para conectarse y crear una tabla mediante la instrucción SQL **CREATE TABLE**, seguida de las instrucciones SQL **INSERT INTO** para agregar filas a la tabla.
+Use el código siguiente para conectarse y crear una tabla mediante la instrucción SQL **CREATE TABLE** , seguida de las instrucciones SQL **INSERT INTO** para agregar filas a la tabla.
 
 El código llama al método [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) para conectar con Azure Database for PostgreSQL. A continuación, llama al método [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) varias veces para ejecutar varios comandos y a [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) para consultar los detalles si se produjo un error cada vez. A continuación, llama al método [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) para cerrar la conexión.
 
@@ -214,6 +214,16 @@ Reemplace los parámetros `$host`, `$database`, `$user` y `$password` por sus pr
     // Closing connection
     pg_close($connection);
 ?>
+```
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Para limpiar todos los recursos utilizados durante esta guía de inicio rápido, elimine el grupo de recursos con el siguiente comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

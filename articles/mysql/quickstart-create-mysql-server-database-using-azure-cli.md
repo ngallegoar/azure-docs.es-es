@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 161d1c95507d366ce00f75580a100fd2607675d9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0c43f1ea81bbc29817e6a2509c9967bf3b5782c9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544025"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337309"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Inicio rápido: Creación de una Base de datos de Azure para el servidor MySQL con la CLI de Azure
 
@@ -62,7 +62,7 @@ Estos son los detalles de los argumentos anteriores:
 name | mydemoserver | Escriba un nombre único para el servidor de Azure Database for MySQL. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
 resource-group | myresourcegroup | Especifique el nombre del grupo de recursos de Azure.
 ubicación | westus | La ubicación de Azure para el servidor.
-admin-user | myadmin | El nombre del usuario del inicio de sesión del administrador. No puede ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** o **public** .
+admin-user | myadmin | El nombre del usuario del inicio de sesión del administrador. No puede ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** o **public**.
 admin-password | *contraseña segura* | La contraseña del usuario administrador. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números y caracteres no alfanuméricos.
 sku-name|GP_Gen5_2|Escriba el nombre del plan de tarifa y la configuración del proceso. Sigue la convención {plan de tarifa} _{generación de procesos}_ {núcleos virtuales} en forma abreviada. Para más información, consulte los [planes de tarifa](./concepts-pricing-tiers.md).
 
@@ -91,7 +91,7 @@ Para conectarse al servidor, debe proporcionar las credenciales de acceso y la i
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin** .
+El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -144,5 +144,3 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 
 > [!div class="nextstepaction"]
 >[Compilación de una aplicación PHP en Windows con MySQL](../app-service/tutorial-php-mysql-app.md)
->[Compilación de una aplicación PHP en Linux con MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)
->[Compilación de una aplicación Spring basada en Java con MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)

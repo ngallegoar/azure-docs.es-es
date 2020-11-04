@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 2bfcdfcb01e7908c199054e793d82cdfa1b726c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816344"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322500"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>¿Qué es Azure Data Science Virtual Machine de Azure para Linux y Windows?
 
@@ -28,7 +28,7 @@ El DSVM está disponible en:
 
 ## <a name="comparison-with-azure-machine-learning"></a>Comparación con Azure Machine Learning
 
-DSVM es una imagen de máquina virtual personalizada para la ciencia de datos, en tanto que [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (AzureML) es una plataforma de un extremo a otro que abarca:
+DSVM es una imagen de máquina virtual personalizada para la ciencia de datos, en tanto que [Azure Machine Learning](../overview-what-is-azure-ml.md) (AzureML) es una plataforma de un extremo a otro que abarca:
 
 + Proceso totalmente administrado
   + Compute Instances (Instancias de proceso)
@@ -44,7 +44,7 @@ DSVM es una imagen de máquina virtual personalizada para la ciencia de datos, e
 
 ### <a name="comparison-with-azureml-compute-instances"></a>Comparación con instancias de proceso de AzureML
 
-Las [instancias de Proceso de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance) son una imagen de máquina virtual totalmente configurada y __administrada__, mientras que DSVM es una máquina virtual __no administrada__.
+Las [instancias de Proceso de Azure Machine Learning](../concept-compute-instance.md) son una imagen de máquina virtual totalmente configurada y __administrada__ , mientras que DSVM es una máquina virtual __no administrada__.
 
 A continuación se detallan las diferencias principales entre estas dos ofertas de productos:
 

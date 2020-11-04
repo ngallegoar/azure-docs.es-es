@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.date: 04/23/2018
 ms.subservice: tables
-ms.openlocfilehash: 2670d9ce568195fd97350bf678059ac89610422f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 73813ae06858df62a88a08bb2f4f8f9f49940b1a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88236172"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316173"
 ---
 # <a name="what-is-azure-table-storage-"></a>¿Qué es Azure Table Storage? 
 
@@ -30,10 +30,10 @@ Table Storage se puede usar para almacenar conjuntos de datos flexibles, como da
 
 * El [Explorador de Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
 
-* [Get started with Azure Table Storage in .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) (Introducción a Azure Table Storage en .NET)
+* [Get started with Azure Table Storage in .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) (Introducción a Azure Table Storage en .NET)
 
 * Consulte la documentación de referencia de Table service para obtener información detallada acerca de las API disponibles:
 
-    * [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Referencia de la biblioteca de clientes de almacenamiento para .NET](/dotnet/api/overview/azure/storage)
 
-    * [Referencia de API de REST](https://msdn.microsoft.com/library/azure/dd179355)
+    * [Referencia de API de REST](/rest/api/storageservices/)

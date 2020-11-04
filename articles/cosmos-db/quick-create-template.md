@@ -5,23 +5,25 @@ author: SnehaGunda
 ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: a319e5f3b6aa861feb2d9dfc88d471ff695c2a3c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482326"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339672"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Cosmos DB y un contenedor mediante una plantilla de Resource Manager
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB es la base de datos NoSQL rápida de Microsoft con API abiertas para cualquier escala. Puede usar Azure Cosmos DB para crear y consultar rápidamente las bases de datos de grafos, documentos y de claves y valores. Este inicio rápido se centra en el proceso de implementación de una plantilla de Azure Resource Manager para crear una base de datos de Azure Cosmos y un contenedor en dicha base de datos. Posteriormente, puede almacenar datos en este contenedor.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
@@ -57,13 +59,13 @@ Encontrará más ejemplos de plantillas de Azure Cosmos DB en la [galería de p
 
 2. Seleccione o escriba los siguientes valores.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Implementación en Azure":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Plantilla de Resource Manager, integración de Azure Cosmos DB, portal de implementación":::
 
     A menos que se especifique, utilice el valor predeterminado para crear los recursos de Azure Cosmos.
 
     * **Suscripción** : seleccione una suscripción de Azure.
-    * **Grupo de recursos** : seleccione **Crear nuevo** , escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar** .
-    * **Ubicación** : seleccione una ubicación.  Por ejemplo, **Centro de EE. UU** .
+    * **Grupo de recursos** : seleccione **Crear nuevo** , escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar**.
+    * **Ubicación** : seleccione una ubicación.  Por ejemplo, **Centro de EE. UU**.
     * **Nombre de cuenta** : escriba un nombre para la cuenta de Azure Cosmos. Debe ser único globalmente.
     * **Ubicación** : escriba una ubicación donde desea crear la cuenta de Azure Cosmos. La cuenta de Azure Cosmos puede estar en la misma ubicación que el grupo de recursos.
     * **Región primaria** : la región de la réplica principal de la cuenta de Azure Cosmos.
@@ -76,9 +78,9 @@ Encontrará más ejemplos de plantillas de Azure Cosmos DB en la [galería de p
     * **Rendimiento** :  el rendimiento del contenedor, el valor de rendimiento mínimo es 400 RU/s.
     * **Acepto los términos y condiciones anteriores** : Seleccionar.
 
-3. Seleccione **Comprar** . Cuando la cuenta de Azure Cosmos se haya implementado correctamente, recibirá una notificación:
+3. Seleccione **Comprar**. Cuando la cuenta de Azure Cosmos se haya implementado correctamente, recibirá una notificación:
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Implementación en Azure":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Plantilla de Resource Manager, integración de Cosmos DB, notificación del portal de implementación":::
 
 Azure Portal se usa para implementar la plantilla. Además de Azure Portal, también puede usar Azure PowerShell, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/templates/deploy-powershell.md).
 
