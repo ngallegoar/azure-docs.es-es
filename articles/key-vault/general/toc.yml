@@ -36,7 +36,7 @@
 - name: Ejemplos
   items:
     - name: Códigos de ejemplo de Key Vault
-      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
+      href: /samples/browse/?expanded=azure&products=azure-key-vault
 - name: Conceptos
   items:
     - name: Conceptos básicos
@@ -164,14 +164,14 @@
       href: versions.md
     - name: Azure PowerShell
       href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/keyvault
     - name: .NET
       href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
+      href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/keyvault/management?view=azure-python
     - name: REST
@@ -199,6 +199,6 @@
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=key-vault'
     - name: Blog
-      href: 'https://blogs.technet.com/b/kv/'
+      href: /archive/blogs/kv/
     - name: Comentarios sobre el producto
       href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

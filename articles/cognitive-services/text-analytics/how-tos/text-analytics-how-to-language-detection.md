@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 7214915e28158fe5dbb7b350e175b068afed1244
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5fa895964c30021452b8ce7b070a8b127d65e972
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166206"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305962"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Ejemplo: Detectar idioma con Text Analytics
 
@@ -184,7 +184,7 @@ El servicio tiene ahora contexto adicional para hacer un mejor juicio:
         "documents": [
             {
                 "id": "1",
-                "detectedLanguages": [
+                "detectedLanguage": [
                     {
                         "name": "English",
                         "iso6391Name": "en",
@@ -194,7 +194,7 @@ El servicio tiene ahora contexto adicional para hacer un mejor juicio:
             },
             {
                 "id": "2",
-                "detectedLanguages": [
+                "detectedLanguage": [
                     {
                         "name": "French",
                         "iso6391Name": "fr",
@@ -212,7 +212,7 @@ Si el analizador no puede analizar la entrada, devuelve `(Unknown)`. Un ejemplo 
 ```json
     {
         "id": "5",
-        "detectedLanguages": [
+        "detectedLanguage": [
             {
                 "name": "(Unknown)",
                 "iso6391Name": "(Unknown)",
@@ -248,7 +248,7 @@ La salida resultante est√° formada por el idioma predominante, con una puntuaci√
       "documents": [
         {
           "id": "1",
-          "detectedLanguages": [
+          "detectedLanguage": [
             {
               "name": "Spanish",
               "iso6391Name": "es",

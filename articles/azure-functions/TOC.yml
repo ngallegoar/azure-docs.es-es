@@ -209,7 +209,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Portal de Azure
+                - name: Azure portal
                   href: functions-create-first-azure-function.md
                 - name: Línea de comandos
                   href: ./functions-create-first-azure-function-azure-cli.md
@@ -270,7 +270,7 @@
         - name: Administración de conexiones
           href: manage-connections.md
           displayName: best practice
-        - name: Control de errores
+        - name: Control de errores y reintentos
           href: functions-bindings-error-pages.md
         - name: Ejecución manual de una función no desencadenada por HTTP
           href: functions-manually-run-non-http.md

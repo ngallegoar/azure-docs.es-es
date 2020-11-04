@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6b1f53226b82a5342efda8665b6a366a3a7fd310
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 21188f473cbd5a6fd2a1ee549f47ad9b0e5b8af3
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461420"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279490"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (portal)
 
@@ -22,7 +22,7 @@ En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](how-to-int
 
 Este artículo le guía por el proceso de creación de puntos de conexión y rutas mediante [Azure Portal](https://portal.azure.com).
 
-También puede administrar los puntos de conexión y las rutas con las [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Se puede encontrar una versión de este artículo donde se usan estos mecanismos en lugar del portal en [*Procedimiento: Administración de puntos de conexión y rutas (API y CLI)*](how-to-manage-routes-apis-cli.md).
+También puede administrar los puntos de conexión y las rutas con las [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Se puede encontrar una versión de este artículo donde se usan estos mecanismos en lugar del portal en [*Procedimiento: Administración de puntos de conexión y rutas (API y CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

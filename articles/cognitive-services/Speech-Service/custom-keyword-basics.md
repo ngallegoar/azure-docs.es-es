@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ed5c554e6307b08c412de16d1bb92b458c5f15f
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+zone_pivot_groups: keyword-quickstart
+ms.openlocfilehash: 2d15da55c0bab42571d2a9660156a780c5d27881
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166461"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305862"
 ---
 # <a name="get-started-with-custom-keyword"></a>Introducción a Palabra clave personalizada
 
@@ -36,7 +37,7 @@ Antes de que pueda usar una palabra clave personalizada, deberá crear una palab
 
 1. Vaya a [Speech Studio](https://aka.ms/sdsdk-speechportal) e **inicie sesión** o, si todavía no tiene una suscripción a Voz, elija [**Crear una suscripción**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-1. En la página [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) (Palabra clave personalizada), cree un **Nuevo proyecto** . 
+1. En la página [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) (Palabra clave personalizada), cree un **Nuevo proyecto**. 
 
 1. Escriba un **Nombre** , una **Descripción** opcional y seleccione el idioma. Necesita un proyecto por idioma, y la compatibilidad está limitada actualmente al idioma `en-US`.
 
@@ -46,9 +47,9 @@ Antes de que pueda usar una palabra clave personalizada, deberá crear una palab
 
     ![Selección del proyecto de palabra clave](media/custom-keyword/custom-kws-portal-project-list.png)
 
-1. Para crear un nuevo modelo de palabra clave, haga clic en **Entrenar modelo** .
+1. Para crear un nuevo modelo de palabra clave, haga clic en **Entrenar modelo**.
 
-1. Escriba un **Nombre** para el modelo, una **Descripción** opcional y la **Palabra clave** de su elección y después haga clic en **Siguiente** . Consulte las [directrices](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) sobre cómo elegir una palabra clave eficaz.
+1. Escriba un **Nombre** para el modelo, una **Descripción** opcional y la **Palabra clave** de su elección y después haga clic en **Siguiente**. Consulte las [directrices](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) sobre cómo elegir una palabra clave eficaz.
 
     ![Escriba su palabra clave](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -64,25 +65,17 @@ Antes de que pueda usar una palabra clave personalizada, deberá crear una palab
 
 ## <a name="use-a-keyword-model-with-the-sdk"></a>Uso de un modelo de palabras clave con el SDK
 
-En primer lugar, cargue el archivo del modelo de palabra clave mediante la función estática `FromFile()`, que devuelve un `KeywordRecognitionModel`. Use la ruta de acceso al archivo `.table` que descargó de Speech Studio. Además, debe crear una configuración `AudioConfig` con el micrófono predeterminado y, a continuación, cree una instancia nueva de `KeywordRecognizer` mediante la configuración de audio.
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [C# Basics include](includes/how-to/keyword-recognition/keyword-basics-csharp.md)]
+::: zone-end
 
-```csharp
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Audio;
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python Basics include](includes/how-to/keyword-recognition/keyword-basics-python.md)]
+::: zone-end
 
-var keywordModel = KeywordRecognitionModel.FromFile("your/path/to/Activate_device.table");
-using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-using var keywordRecognizer = new KeywordRecognizer(audioConfig);
-```
-
-A continuación, se ejecuta el reconocimiento de palabras clave mediante una llamada a `RecognizeOnceAsync()` en la que se pasa el objeto de modelo. De este modo, se inicia una sesión de reconocimiento de palabras clave que continúa hasta que se reconoce la palabra clave. Por lo tanto, normalmente se usa este modelo de diseño en aplicaciones multiproceso o en casos de uso en los que puede esperar una palabra de activación indefinidamente.
-
-```csharp
-KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(keywordModel);
-```
-
-> [!NOTE]
-> El ejemplo que se muestra aquí usa el reconocimiento de palabras clave local, ya que no requiere un objeto `SpeechConfig` para el contexto de autenticación y no se comunica con el servidor back-end. Sin embargo, puede ejecutar el reconocimiento de palabras clave y la comprobación [mediante una conexión continua con el servidor back-end](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk#view-the-source-code-that-enables-keyword).
+::: zone pivot="programming-languages-objectivec-swift"
+[!INCLUDE [ObjectiveC/Swift Basics include](includes/how-to/keyword-recognition/keyword-basics-objc.md)]
+::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes
 

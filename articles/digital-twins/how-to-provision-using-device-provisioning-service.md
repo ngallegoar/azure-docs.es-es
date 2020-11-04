@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0a18e6cef568afa8a0092fc06d8f6bb526739b2a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494750"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145810"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Administración automática de dispositivos en Azure Digital Twins mediante Device Provisioning Service (DPS)
 
@@ -52,7 +52,7 @@ Para obtener una explicación más detallada de cada paso de la arquitectura, co
 
 En esta sección, va a conectar Device Provisioning Service a Azure Digital Twins para aprovisionar automáticamente los dispositivos a través de la ruta de acceso siguiente. Este es un extracto de la arquitectura completa que se ha mostrado [anteriormente](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Una vista de un dispositivo y varios servicios de Azure en un escenario completo. Los datos fluyen en ambos sentidos entre un dispositivo termostato y DPS. Los datos también fluyen desde DPS a IoT Hub y a Azure Digital Twins a través de una función de Azure con la etiqueta &quot;Asignación&quot;. Los datos de una acción manual de &quot;Eliminar dispositivo&quot; fluyen a través de IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Flujo de aprovisionamiento: un extracto del diagrama de la arquitectura de la solución, con números que etiquetan las secciones del flujo. Los datos fluyen en ambos sentidos entre un dispositivo de termostato y DPS. (1 para dispositivo > DPS y 5 para DPS > dispositivo). Los datos también fluyen desde DPS a IoT Hub (4) y a Azure Digital Twins (3) a través de una función de Azure con la etiqueta &quot;Asignación&quot;.":::
 
 Esta es una descripción del flujo del proceso:
 1. El dispositivo se pone en contacto con el punto de conexión de DPS y pasa la información de identificación para demostrar su identidad.
@@ -189,7 +189,7 @@ namespace Samples.AdtIothub
             string dtId;
             string query = $"SELECT * FROM DigitalTwins T WHERE $dtId = '{regId}' AND IS_OF_MODEL('{dtmi}')";
             AsyncPageable<string> twins = client.QueryAsync(query);
-            
+
             await foreach (string twinJson in twins)
             {
                 // Get DT ID from the Twin
@@ -214,7 +214,8 @@ namespace Samples.AdtIothub
                 { "$metadata", meta }
             };
             twinProps.Add("Temperature", 0.0);
-            await client.CreateDigitalTwinAsync(dtId, System.Text.Json.JsonSerializer.Serialize<Dictionary<string, object>>(twinProps));
+
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(dtId, twinProps);
             log.LogInformation($"Twin '{dtId}' created in DT");
 
             return dtId;
@@ -243,24 +244,17 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 Asegúrese de que los permisos y la asignación de roles de identidad administrada están configurados correctamente para la aplicación de funciones, como se indica en la sección [*Asignación de permisos a la aplicación de funciones*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) en el tutorial general.
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### <a name="create-device-provisioning-enrollment"></a>Creación de una inscripción de Device Provisioning Service
 
-A continuación, deberá crear una inscripción en Device Provisioning Service mediante una **función de asignación personalizada** . Siga las instrucciones para realizar esta tarea que se encuentran en las secciones [*Creación de la inscripción*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) y [*Derivación de las claves de dispositivo únicas*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) del artículo sobre Device Provisioning Service acerca de las directivas de asignación personalizadas.
+A continuación, deberá crear una inscripción en Device Provisioning Service mediante una **función de asignación personalizada**. Siga las instrucciones para realizar esta tarea que se encuentran en las secciones [*Creación de la inscripción*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) y [*Derivación de las claves de dispositivo únicas*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) del artículo sobre Device Provisioning Service acerca de las directivas de asignación personalizadas.
 
-Mientras pasa por ese flujo, vinculará la inscripción a la función que acaba de crear seleccionando la función durante el paso para **seleccionar cómo desea asignar los dispositivos a los centros** . Después de crear la inscripción, el nombre de la inscripción y la clave SAS principal o secundaria se usarán más adelante para configurar el simulador de dispositivos de este artículo.
+Mientras pasa por ese flujo, vinculará la inscripción a la función que acaba de crear seleccionando la función durante el paso para **seleccionar cómo desea asignar los dispositivos a los centros**. Después de crear la inscripción, el nombre de la inscripción y la clave SAS principal o secundaria se usarán más adelante para configurar el simulador de dispositivos de este artículo.
 
 ### <a name="set-up-the-device-simulator"></a>Configuración del simulador de dispositivos
 
 En este ejemplo se usa un simulador de dispositivos que incluye el aprovisionamiento mediante Device Provisioning Service. El simulador de dispositivos se encuentra aquí: [Ejemplo de integración de Azure Digital Twins e IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Si no ha descargado aún el ejemplo, hágalo ahora. Para ello, vaya al vínculo de ejemplo y seleccione el botón *Descargar archivo ZIP* que aparece debajo del título. Descomprima la carpeta descargada.
 
-Abra una ventana de comandos y vaya a la carpeta descargada y, después, al directorio *device-simulator* . Instale las dependencias del proyecto mediante el siguiente comando:
+Abra una ventana de comandos y vaya a la carpeta descargada y, después, al directorio *device-simulator*. Instale las dependencias del proyecto mediante el siguiente comando:
 
 ```cmd
 npm install
@@ -287,7 +281,7 @@ node .\adt_custom_register.js
 ```
 
 Debería ver que el dispositivo se registra y se conecta a IoT Hub y, a continuación, comienza a enviar mensajes.
-:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="Una vista de un dispositivo y varios servicios de Azure en un escenario completo. Los datos fluyen en ambos sentidos entre un dispositivo termostato y DPS. Los datos también fluyen desde DPS a IoT Hub y a Azure Digital Twins a través de una función de Azure con la etiqueta &quot;Asignación&quot;. Los datos de una acción manual de &quot;Eliminar dispositivo&quot; fluyen a través de IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="Ventana Comandos que muestra el registro de dispositivos y el envío de mensajes":::
 
 ### <a name="validate"></a>Validación
 
@@ -298,13 +292,13 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Debería ver el gemelo del dispositivo que se encuentra en la instancia de Azure Digital Twins.
-:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="Una vista de un dispositivo y varios servicios de Azure en un escenario completo. Los datos fluyen en ambos sentidos entre un dispositivo termostato y DPS. Los datos también fluyen desde DPS a IoT Hub y a Azure Digital Twins a través de una función de Azure con la etiqueta &quot;Asignación&quot;. Los datos de una acción manual de &quot;Eliminar dispositivo&quot; fluyen a través de IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="Ventana Comandos que muestra el gemelo recién creado":::
 
 ## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>Retirada automática del dispositivo mediante eventos de ciclo de vida de IoT Hub
 
 En esta sección, va a asociar los eventos de ciclo de vida de IoT Hub a Azure Digital Twins para retirar automáticamente los dispositivos a través de la ruta de acceso siguiente. Este es un extracto de la arquitectura completa que se ha mostrado [anteriormente](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Una vista de un dispositivo y varios servicios de Azure en un escenario completo. Los datos fluyen en ambos sentidos entre un dispositivo termostato y DPS. Los datos también fluyen desde DPS a IoT Hub y a Azure Digital Twins a través de una función de Azure con la etiqueta &quot;Asignación&quot;. Los datos de una acción manual de &quot;Eliminar dispositivo&quot; fluyen a través de IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Flujo de retirada de dispositivo: un extracto del diagrama de la arquitectura de la solución, con números que etiquetan las secciones del flujo. El dispositivo de termostato aparece sin conexiones con los servicios de Azure en el diagrama. Los datos de una acción manual de &quot;Eliminar dispositivo&quot; fluyen a través de IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digital Twins (3).":::
 
 Esta es una descripción del flujo del proceso:
 1. Un proceso externo o manual desencadena la eliminación de un dispositivo en IoT Hub.
@@ -469,8 +463,8 @@ Las instrucciones para crear una ruta de IoT Hub se detallan en este artículo: 
 
 Los pasos que debe seguir para esta configuración son:
 1. Creación de un punto de conexión personalizado del centro de eventos de IoT Hub. Este punto de conexión debe tener como destino el centro de eventos que creó en la sección [*Creación de un centro de eventos*](#create-an-event-hub).
-2. Agregue una ruta a *Eventos de ciclo de vida del dispositivo* . Use el punto de conexión que creó en el paso anterior. Puede limitar los eventos de ciclo de vida del dispositivo para que envíe solo los eventos de eliminación agregando la consulta de enrutamiento `opType='deleteDeviceIdentity'`.
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Una vista de un dispositivo y varios servicios de Azure en un escenario completo. Los datos fluyen en ambos sentidos entre un dispositivo termostato y DPS. Los datos también fluyen desde DPS a IoT Hub y a Azure Digital Twins a través de una función de Azure con la etiqueta &quot;Asignación&quot;. Los datos de una acción manual de &quot;Eliminar dispositivo&quot; fluyen a través de IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+2. Agregue una ruta a *Eventos de ciclo de vida del dispositivo*. Use el punto de conexión que creó en el paso anterior. Puede limitar los eventos de ciclo de vida del dispositivo para que envíe solo los eventos de eliminación agregando la consulta de enrutamiento `opType='deleteDeviceIdentity'`.
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Agregar una ruta":::
 
 Una vez que haya pasado por este flujo, todo está listo para la completa retirada de los dispositivos.
 
@@ -491,7 +485,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Debería ver que el gemelo del dispositivo ya no se encuentra en la instancia de Azure Digital Twins.
-:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Una vista de un dispositivo y varios servicios de Azure en un escenario completo. Los datos fluyen en ambos sentidos entre un dispositivo termostato y DPS. Los datos también fluyen desde DPS a IoT Hub y a Azure Digital Twins a través de una función de Azure con la etiqueta &quot;Asignación&quot;. Los datos de una acción manual de &quot;Eliminar dispositivo&quot; fluyen a través de IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Ventana de comandos que muestra que no se ha encontrado el dispositivo gemelo":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
