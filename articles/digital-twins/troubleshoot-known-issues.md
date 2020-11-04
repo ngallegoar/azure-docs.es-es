@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 549e1808a3b449f7d29b968cde76ef29391880b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489020"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100623"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conocidos en Azure Digital Twins
 
@@ -32,7 +32,7 @@ Esto puede resolverse si se vuelve a ejecutar el comando `az login` en Cloud She
 
 Como alternativa, puede abrir el panel de Cloud Shell en Azure Portal y completar desde aquí su trabajo de Cloud Shell:
 
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vista del Azure Portal con el icono de &quot;Cloud Shell&quot; resaltado; y Cloud Shell aparece indicado en la parte inferior de la ventana del portal.":::
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vista del Azure Portal con el icono de &quot;Cloud Shell&quot; resaltado; y Cloud Shell aparece indicado en la parte inferior de la ventana del portal." lightbox="media/includes/portal-cloud-shell.png":::
 
 Otra alternativa consiste en [instalar la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) en su máquina para poder ejecutar localmente comandos de la CLI de Azure. La CLI local no experimenta este problema.
 

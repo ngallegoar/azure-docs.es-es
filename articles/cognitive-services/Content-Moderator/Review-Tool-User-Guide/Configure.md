@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8812fd1e6c1efb2aa44c77573bc4b8f1c099834d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689850"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912028"
 ---
 # <a name="configure-the-review-tool"></a>Configuración de la herramienta de revisión
 
@@ -66,7 +66,7 @@ Si es miembro de más de un subequipo, puede cambiar entre esos subequipos y mod
 
 ## <a name="tags"></a>Etiquetas
 
-La pestaña **Tags** (Etiquetas) le permite definir etiquetas de moderación personalizadas, que se suman a las dos etiquetas de moderación predeterminadas&mdash;**isadult** (**a**) y **isracy** (**r**). Cuando se crea una etiqueta personalizada, se vuelve disponible en las revisiones junto con las etiquetas predeterminadas. Puede cambiar qué etiquetas mostrar en las revisiones cambiando su configuración de visibilidad.
+La pestaña **Tags** (Etiquetas) le permite definir etiquetas de moderación personalizadas, que se suman a las dos etiquetas de moderación predeterminadas&mdash;**isadult** ( **a** ) y **isracy** ( **r** ). Cuando se crea una etiqueta personalizada, se vuelve disponible en las revisiones junto con las etiquetas predeterminadas. Puede cambiar qué etiquetas mostrar en las revisiones cambiando su configuración de visibilidad.
 
 ![Vista de etiquetas, que incluye las casillas "Is visible" (Está visible)](images/tags-4-disable.png)
 
@@ -75,7 +75,7 @@ La pestaña **Tags** (Etiquetas) le permite definir etiquetas de moderación per
 Para crear una etiqueta, debe escribir un código corto, el nombre y la descripción en los campos correspondientes.
 
 - **Short code** (Código corto): escriba un código de dos letras para la etiqueta. Por ejemplo, **cb**
-- **Name**: Escriba un nombre de etiqueta corto y descriptivo en minúsculas, sin espacios. Por ejemplo, **isbullying**.
+- **Name** : Escriba un nombre de etiqueta corto y descriptivo en minúsculas, sin espacios. Por ejemplo, **isbullying**.
 - **Description** (Descripción): (opcional) escriba una descripción del tipo de contenido que identifica la etiqueta. Ejemplo: **Representaciones o ejemplos de ciberacoso**.
 
 Haga clic en **Add** (Agregar) para agregar una etiqueta y haga clic en **Save** (Guardar) cuando haya terminado de crear etiquetas.
@@ -90,7 +90,7 @@ Puede eliminar etiquetas personalizadas son solo seleccionar el icono de Papeler
 
 La pestaña **Connectors** (Conectores) le permite administrar los conectores, que son complementos específicos del servicio que pueden procesar contenido de distintas maneras como parte de los [flujos de trabajo](../review-api.md#workflows) de contenido.
 
-El conector predeterminado al crear un flujo de trabajo es el conector de Content Moderator, que puede marcar contenido como **adulto** o **subido de tono**, buscar palabras soeces, etc. Sin embargo, puede usar otros conectores, aquí enumerados, siempre que tenga credenciales para sus respectivos servicios (para usar el conector de Face, por ejemplo, deberá obtener una clave de suscripción de [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview)).
+El conector predeterminado al crear un flujo de trabajo es el conector de Content Moderator, que puede marcar contenido como **adulto** o **subido de tono** , buscar palabras soeces, etc. Sin embargo, puede usar otros conectores, aquí enumerados, siempre que tenga credenciales para sus respectivos servicios (para usar el conector de Face, por ejemplo, deberá obtener una clave de suscripción de [Face](../../face/overview.md)).
 
 La [herramienta de revisión](./human-in-the-loop.md) incluye los conectores siguientes:
 

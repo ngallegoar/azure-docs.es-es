@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893693"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913201"
 ---
 # <a name="receipt-concepts"></a>Conceptos de recepción
 
@@ -86,7 +86,7 @@ Receipt API también devuelve la siguiente información:
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>La operación Get Analyze Receipt Result
 
-El segundo paso consiste en llamar a la operación [Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult). Esta operación toma como entrada el id. de resultado que la operación Analyze Receipt ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto** . Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
+El segundo paso consiste en llamar a la operación [Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult). Esta operación toma como entrada el id. de resultado que la operación Analyze Receipt ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
 
 |Campo| Tipo | Valores posibles |
 |:-----|:----:|:----|
@@ -449,7 +449,7 @@ El resultado de Receipt también es útil para el registro contable general para
 
 Los recibos contienen datos útiles que puede utilizar para analizar el comportamiento del consumidor y las tendencias de compra.
 
-Receipt API también impulsa la [característica de procesamiento de recibos de AI Builder](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing).
+Receipt API también impulsa la [característica de procesamiento de recibos de AI Builder](/ai-builder/prebuilt-receipt-processing).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -459,4 +459,4 @@ Receipt API también impulsa la [característica de procesamiento de recibos de 
 ## <a name="see-also"></a>Consulte también
 
 * [¿Qué es Form Recognizer?](./overview.md)
-* [Documentos de referencia de la API de REST](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)
+* [Documentos de referencia de la API de REST](./index.yml)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3278a1522fe3967dd1de5551e90732e63b7666f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a70b10f7d22c9cc04427bdfbb44243fad457ba0
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88931563"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913490"
 ---
 # <a name="specify-a-face-detection-model"></a>Especificación de un modelo de detección de caras
 
@@ -72,7 +72,7 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
 ```
 
-Este código crea un objeto **PersonGroup** con el identificador `mypersongroupid` y le agrega un objeto **Person**. Después, agrega una cara a este objeto **Person** mediante el modelo `detection_02`. Si no se especifica el parámetro *detectionModel*, la API usará el modelo predeterminado (`detection_01`).
+Este código crea un objeto **PersonGroup** con el identificador `mypersongroupid` y le agrega un objeto **Person**. Después, agrega una cara a este objeto **Person** mediante el modelo `detection_02`. Si no se especifica el parámetro *detectionModel* , la API usará el modelo predeterminado (`detection_01`).
 
 > [!NOTE]
 > No es necesario usar el mismo modelo de detección para todas las caras en un objeto **Person** ni usar el mismo modelo de detección al detectar caras nuevas para compararlas con un objeto **Person** (en la API [Face - Identify], por ejemplo).
@@ -88,7 +88,7 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
 ```
 
-Este código crea un objeto **FaceList** denominado `My face collection` y le agrega una cara con el modelo `detection_02`. Si no se especifica el parámetro *detectionModel*, la API usará el modelo predeterminado (`detection_01`).
+Este código crea un objeto **FaceList** denominado `My face collection` y le agrega una cara con el modelo `detection_02`. Si no se especifica el parámetro *detectionModel* , la API usará el modelo predeterminado (`detection_01`).
 
 > [!NOTE]
 > No es necesario usar el mismo modelo de detección para todas las caras en un objeto **FaceList** ni usar el mismo modelo de detección al detectar caras nuevas para compararlas con un objeto **FaceList**.
@@ -110,9 +110,9 @@ La mejor manera de comparar el rendimiento de los modelos `detection_01` y `dete
 
 En este artículo, ha aprendido a especificar el modelo de detección que se debe usar con diferentes tipos de Face API. A continuación, siga un inicio rápido para empezar a usar la detección de caras.
 
-* [SDK de .NET para Face](../Quickstarts/csharp-sdk.md)
-* [SDK de Python para Face](../Quickstarts/python-sdk.md)
-* [SDK de Go para Face](../Quickstarts/go-sdk.md)
+* [SDK de .NET para Face](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
+* [SDK de Python para Face](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [SDK de Go para Face](../quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go)
 
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

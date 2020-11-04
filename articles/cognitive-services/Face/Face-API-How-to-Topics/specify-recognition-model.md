@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d250fc005c5760a3eecc2793d02b6f2a9161e663
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 016b8bf010f597e963e0901d1ec48486f79bbb35
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283044"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913133"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especificación de un modelo de reconocimiento facial
 
@@ -53,7 +53,7 @@ Al usar la API [Face - Detect], asigne la versión del modelo con el parámetro 
 * recognition_03
 
 
-Opcionalmente, puede especificar el parámetro _returnRecognitionModel_ (valor predeterminado **false**) para indicar si _recognitionModel_ se debe devolver en la respuesta. Por lo tanto, una dirección URL de solicitud para la API REST [Face - Detect] tendrá este aspecto:
+Opcionalmente, puede especificar el parámetro _returnRecognitionModel_ (valor predeterminado **false** ) para indicar si _recognitionModel_ se debe devolver en la respuesta. Por lo tanto, una dirección URL de solicitud para la API REST [Face - Detect] tendrá este aspecto:
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
@@ -68,7 +68,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 El servicio Face puede extraer datos faciales de una imagen y asociarlos con un objeto **Person** (mediante la llamada API [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b), por ejemplo) y varios objetos **Person** se pueden almacenar juntos en un objeto **PersonGroup**. A continuación, se puede comparar una nueva cara con un objeto **PersonGroup** (con la llamada [Face - Identify]), y se puede identificar la persona coincidente dentro de ese grupo.
 
-Un objeto **PersonGroup** debe tener un único modelo de reconocimiento para todos los objetos **Person**, y para especificarlo, debe usar el parámetro `recognitionModel` al crear el grupo ([PersonGroup - Create] o [LargePersonGroup - Create]). Si no especifica este parámetro, se usa el modelo original, `recognition_01`. Un grupo siempre usará el modelo de reconocimiento con el que se creó, y las nuevas caras se asociarán con este modelo cuando se agreguen a él; esta acción no se puede cambiar después de la creación de un grupo. Para ver el modelo con el que está configurado un objeto **PersonGroup**, use la API [PersonGroup - Get] con el parámetro _returnRecognitionModel_ establecido en **true**.
+Un objeto **PersonGroup** debe tener un único modelo de reconocimiento para todos los objetos **Person** , y para especificarlo, debe usar el parámetro `recognitionModel` al crear el grupo ( [PersonGroup - Create] o [LargePersonGroup - Create]). Si no especifica este parámetro, se usa el modelo original, `recognition_01`. Un grupo siempre usará el modelo de reconocimiento con el que se creó, y las nuevas caras se asociarán con este modelo cuando se agreguen a él; esta acción no se puede cambiar después de la creación de un grupo. Para ver el modelo con el que está configurado un objeto **PersonGroup** , use la API [PersonGroup - Get] con el parámetro _returnRecognitionModel_ establecido en **true**.
 
 Consulte el siguiente ejemplo de código de la biblioteca cliente .NET.
 
@@ -80,7 +80,7 @@ await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", 
 
 En este código, se crea un objeto **PersonGroup** con el identificador `mypersongroupid`, y se configura para usar el modelo _recognition_02_ para extraer las características faciales.
 
-En consecuencia, deberá especificar qué modelo usar al detectar caras para comparar con este objeto **PersonGroup** (mediante la API [Face - Detect]). El modelo que use siempre debe ser coherente con la configuración de **PersonGroup**, o la operación generará un error debido a la incompatibilidad de los modelos.
+En consecuencia, deberá especificar qué modelo usar al detectar caras para comparar con este objeto **PersonGroup** (mediante la API [Face - Detect]). El modelo que use siempre debe ser coherente con la configuración de **PersonGroup** , o la operación generará un error debido a la incompatibilidad de los modelos.
 
 No hay cambios en la API [Face - Identify], solo debe especificar la versión del modelo en la detección.
 
@@ -94,7 +94,7 @@ Consulte el siguiente ejemplo de código de la biblioteca cliente .NET.
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
 ```
 
-Este código crea una lista de caras denominada `My face collection`, con el modelo _recognition_03_ para la extracción de características. Al buscar en esta lista de caras algún rostro parecido a una cara recién detectada, dicha cara se debe haber detectado ([Face - Detect]) mediante el modelo _recognition_03_. Al igual que en la sección anterior, el modelo debe ser coherente.
+Este código crea una lista de caras denominada `My face collection`, con el modelo _recognition_03_ para la extracción de características. Al buscar en esta lista de caras algún rostro parecido a una cara recién detectada, dicha cara se debe haber detectado ( [Face - Detect]) mediante el modelo _recognition_03_. Al igual que en la sección anterior, el modelo debe ser coherente.
 
 No hay cambios en la API [Face - Find Similar]; solo se especifica la versión del modelo en la detección.
 
@@ -105,7 +105,7 @@ La API [Face - Verify] comprueba si dos caras pertenecen a la misma persona. Aun
 ## <a name="evaluate-different-models"></a>Evaluación de modelos diferentes
 
 Si quiere comparar el rendimiento de distintos modelos de reconocimiento con sus datos, deberá hacer lo siguiente:
-1. Cree tres elementos PersonGroup mediante _recognition_01_, _recognition_02_ y _recognition_03_, respectivamente.
+1. Cree tres elementos PersonGroup mediante _recognition_01_ , _recognition_02_ y _recognition_03_ , respectivamente.
 1. Use los datos de imagen para detectar caras y registrarlas en elementos **Person** en estos tres **PersonGroup**. 
 1. Entrene los elementos PersonGroup con la Train API de PersonGroup.
 1. Realice una prueba con Face - Identify en los tres elementos **PersonGroup** y comparar los resultados.
@@ -117,9 +117,9 @@ Si normalmente especifica un umbral de confianza (un valor entre cero y uno que 
 
 En este artículo, ha aprendido a especificar el modelo de reconocimiento que se debe usar con diferentes API del servicio Face. A continuación, siga un inicio rápido para empezar a usar la detección de caras.
 
-* [SDK de .NET para Face](../Quickstarts/csharp-sdk.md)
-* [SDK de Python para Face](../Quickstarts/python-sdk.md)
-* [SDK de Go para Face](../Quickstarts/go-sdk.md)
+* [SDK de .NET para Face](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
+* [SDK de Python para Face](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [SDK de Go para Face](../quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go)
 
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

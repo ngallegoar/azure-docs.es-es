@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 82182c24f87a82df5ee040b7853588f74dda449f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334555"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909954"
 ---
 # <a name="business-card-concepts"></a>Conceptos de tarjeta de presentación
 
@@ -66,7 +66,7 @@ El segundo paso consiste en llamar a la operación [Get Analyze Business Card Re
 |:-----|:----:|:----|
 |status | string | notStarted: la operación de análisis no se ha iniciado.<br /><br />running: la operación de análisis está en curso.<br /><br />failed: error en la operación de análisis.<br /><br />succeeded: la operación de análisis se realizó correctamente.|
 
-Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON incluirá los resultados del reconocimiento de texto opcional y la tarjeta de presentación, si es necesario. El resultado de la descripción de la tarjeta de presentación se organiza como un diccionario de valores de campo con nombre, en el que cada valor contiene el texto extraído, el valor normalizado, el cuadro de límite, el nivel de confianza y los elementos de la palabra correspondiente. El resultado del reconocimiento de texto se organiza como una jerarquía de líneas y palabras, con texto, cuadro de límite e información de confianza.
+Cuando el campo **status** tenga el valor **succeeded** , la respuesta JSON incluirá los resultados del reconocimiento de texto opcional y la tarjeta de presentación, si es necesario. El resultado de la descripción de la tarjeta de presentación se organiza como un diccionario de valores de campo con nombre, en el que cada valor contiene el texto extraído, el valor normalizado, el cuadro de límite, el nivel de confianza y los elementos de la palabra correspondiente. El resultado del reconocimiento de texto se organiza como una jerarquía de líneas y palabras, con texto, cuadro de límite e información de confianza.
 
 ![salida de tarjeta de presentación de ejemplo](./media/business-card-results.png)
 
@@ -385,7 +385,7 @@ Los datos extraídos con la API de tarjeta de presentación se pueden usar para 
 * Realizar un seguimiento de los clientes potenciales.  
 * Extraer información de contacto en masa de imágenes de tarjetas de presentación existentes. 
 
-La API de tarjeta de presentación también impulsa la [característica de procesamiento de tarjetas de presentación de AI Builder](https://docs.microsoft.com/ai-builder/prebuilt-business-card).
+La API de tarjeta de presentación también impulsa la [característica de procesamiento de tarjetas de presentación de AI Builder](/ai-builder/prebuilt-business-card).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

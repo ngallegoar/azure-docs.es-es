@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: 59e862fe04e7bf715e6e44c783f2cf9c0ecbc7c3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b05e63dc549fdf1fec4485e27086bb32251b41d8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377242"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135782"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar:
 
@@ -29,7 +29,7 @@ Antes de comenzar:
 Actualice el archivo go.mod con la versión más reciente del SDK agregando esta línea:
 ```sh
 require (
-    github.com/Microsoft/cognitive-services-speech-sdk-go v1.13.0
+    github.com/Microsoft/cognitive-services-speech-sdk-go v1.14.0
 )
 ```
 
@@ -101,7 +101,7 @@ Reemplace los valores `YOUR_SUBSCRIPTION_KEY` y `YOUR_BOT_REGION` por los valore
 - Vaya a Azure Portal y abra el recurso Voz.
 - En **Keys and Endpoint** (Claves y puntos de conexión), a la izquierda, hay dos claves de suscripción disponibles.
     - Use cualquiera de ellas como reemplazo del valor `YOUR_SUBSCRIPTION_KEY`
-- En **Información general**, a la izquierda, anote la región y asígnela al identificador de región.
+- En **Información general** , a la izquierda, anote la región y asígnela al identificador de región.
     - Use el identificador de región como reemplazo del valor `YOUR_BOT_REGION`. Por ejemplo, `"westus"` para **Oeste de EE. UU**.
 
    > [!NOTE]

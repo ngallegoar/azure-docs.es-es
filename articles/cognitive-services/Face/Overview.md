@@ -11,12 +11,12 @@ ms.date: 9/17/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconocimiento facial, software de reconocimiento facial, análisis facial, coincidencia facial, aplicación de reconocimiento facial, búsqueda de caras por imagen, búsqueda de reconocimiento facial
-ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262491"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911450"
 ---
 # <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
 
@@ -34,7 +34,7 @@ El servicio Face proporciona varias funciones de análisis facial distintas, que
 El servicio Face detecta rostros humanos en una imagen y devuelve las coordenadas del rectángulo de sus ubicaciones. Si lo desea, la detección de caras puede extraer una serie de atributos faciales, como la posición de la cabeza, el género, la edad, las emociones, el vello facial y las gafas.
 
 > [!NOTE]
-> La característica de detección de caras también está disponible a través del [servicio Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Sin embargo, si desea realizar más operaciones con datos de caras, debe usar este servicio en su lugar.
+> La característica de detección de caras también está disponible a través del [servicio Computer Vision](../computer-vision/overview.md). Sin embargo, si desea realizar más operaciones con datos de caras, debe usar este servicio en su lugar.
 
 ![Una imagen de una mujer y un hombre, con rectángulos dibujados en torno a sus caras y edad y sexo.](./Images/Face.detection.jpg)
 

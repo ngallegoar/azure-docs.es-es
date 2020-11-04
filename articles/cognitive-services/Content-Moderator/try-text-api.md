@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: ad365c2d4c171105d8dec89d818ef481361d1ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81272600"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912878"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderación de texto desde la consola de API
 
@@ -23,7 +23,7 @@ Use la [API de moderación de texto](https://westus.dev.cognitive.microsoft.com/
 
 ## <a name="get-your-api-key"></a>Obtener la clave de API
 
-Antes de probar la API en la consola en línea, necesita la clave de suscripción. Se encuentra en la pestaña **Configuración**, en el cuadro **Ocp-Apim-Subscription-Key**. Para más información, consulte [Información general](overview.md).
+Antes de probar la API en la consola en línea, necesita la clave de suscripción. Se encuentra en la pestaña **Configuración** , en el cuadro **Ocp-Apim-Subscription-Key**. Para más información, consulte [Información general](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Navegar hasta la referencia de API
 
@@ -48,7 +48,7 @@ Seleccione los parámetros de consulta que quiere usar en la pantalla de texto. 
 > [!NOTE]
 > Para el parámetro **language** (idioma), asigne `eng` o déjelo en blanco para ver la respuesta **classification** (clasificación) asistida por máquina. **Esta característica solo admite inglés**.
 >
-> Para la detección de **palabras soeces**, use el [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) de los idiomas admitidos que se enumeran en este artículo, o deje el campo en blanco.
+> Para la detección de **palabras soeces** , use el [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) de los idiomas admitidos que se enumeran en este artículo, o deje el campo en blanco.
 
 Para **autocorrect** (autocorrección), **PII** (DCP) y **classify (preview)** [clasificar (versión preliminar)], seleccione **true**. Deje el campo **ListId** vacío.
 
@@ -56,7 +56,7 @@ Para **autocorrect** (autocorrección), **PII** (DCP) y **classify (preview)** [
 
 ### <a name="content-type"></a>Tipo de contenido
 
-Para **Content-Type**, seleccione el tipo de contenido que quiera filtrar. Para este ejemplo, use el tipo predeterminado **text/plain** (texto/sin formato). En el cuadro **Ocp-Apim-Subscription-Key**, especifique la clave de suscripción.
+Para **Content-Type** , seleccione el tipo de contenido que quiera filtrar. Para este ejemplo, use el tipo predeterminado **text/plain** (texto/sin formato). En el cuadro **Ocp-Apim-Subscription-Key** , especifique la clave de suscripción.
 
 ### <a name="sample-text-to-scan"></a>Texto de ejemplo que se va a examinar
 
@@ -137,4 +137,4 @@ Para una explicación detallada de todas las secciones de la respuesta JSON, con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use la API REST del código o siga el [inicio rápido del SDK de .NET](dotnet-sdk-quickstart.md) para realizar la integración con la aplicación.
+Use la API REST del código o siga el [inicio rápido del SDK de .NET](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) para realizar la integración con la aplicación.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2d0ddae8a9bd8054c740402b8beb3bb0bccfa9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3f7b877818056fc73f10d54b94a6b6c26c605e8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919223"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911280"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Creación de revisiones de transcripciones de vídeo con .NET
 
@@ -81,7 +81,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Adición de propiedades privadas
 
-Agregue las siguientes propiedades privadas al espacio de nombres **VideoTranscriptReviews**, clase **Program**. Actualice los campos `AzureEndpoint` y `CMSubscriptionKey` con los valores de la dirección URL del punto de conexión y la clave de suscripción. Puede encontrarlos en la pestaña **Inicio rápido** del recurso en Azure Portal.
+Agregue las siguientes propiedades privadas al espacio de nombres **VideoTranscriptReviews** , clase **Program**. Actualice los campos `AzureEndpoint` y `CMSubscriptionKey` con los valores de la dirección URL del punto de conexión y la clave de suscripción. Puede encontrarlos en la pestaña **Inicio rápido** del recurso en Azure Portal.
 
 ```csharp
 namespace VideoReviews
@@ -205,7 +205,7 @@ Para agregar una transcripción a una revisión de vídeo, se utiliza **ContentM
 La transcripción debe tener el formato WebVTT. Para obtener más información, vea [Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/) (Formato de pistas de texto de vídeo web).
 
 > [!NOTE]
-> El programa utiliza una transcripción de ejemplo en formato VTT. En una solución real, utilice el servicio Azure Media Indexer para [generar una transcripción](https://docs.microsoft.com/azure/media-services/media-services-index-content) a partir de un vídeo.
+> El programa utiliza una transcripción de ejemplo en formato VTT. En una solución real, utilice el servicio Azure Media Indexer para [generar una transcripción](../../media-services/previous/media-services-index-content.md) a partir de un vídeo.
 
 Agregue la siguiente definición de método al espacio de nombres VideotranscriptReviews, clase Program.
 
@@ -318,7 +318,7 @@ private static void PublishReview(ContentModeratorClient client, string review_i
 Agregue la definición de método **Main** al espacio de nombres VideoTranscriptReviews, clase Program. Por último, cierre la clase Program y el espacio de nombres VideoTranscriptReviews.
 
 > [!NOTE]
-> El programa utiliza una transcripción de ejemplo en formato VTT. En una solución real, utilice el servicio Azure Media Indexer para [generar una transcripción](https://docs.microsoft.com/azure/media-services/media-services-index-content) a partir de un vídeo.
+> El programa utiliza una transcripción de ejemplo en formato VTT. En una solución real, utilice el servicio Azure Media Indexer para [generar una transcripción](../../media-services/previous/media-services-index-content.md) a partir de un vídeo.
 
 ```csharp
 static void Main(string[] args)

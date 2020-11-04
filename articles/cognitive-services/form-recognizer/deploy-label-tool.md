@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717904"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913116"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementación de la herramienta de etiquetado de ejemplo
 
@@ -102,7 +102,7 @@ Siga estos pasos para crear un recurso mediante Azure Portal:
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Como alternativa al uso de Azure Portal, puede crear un recurso mediante la CLI de Azure. Antes de continuar, deberá instalar la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Si ya está trabajando con la CLI de Azure, puede omitir este paso. 
+Como alternativa al uso de Azure Portal, puede crear un recurso mediante la CLI de Azure. Antes de continuar, deberá instalar la [CLI de Azure](/cli/azure/install-azure-cli). Si ya está trabajando con la CLI de Azure, puede omitir este paso. 
 
 Hay algunas cosas que necesita saber sobre este comando:
 
@@ -149,7 +149,7 @@ az container create \
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Conexión a Azure AD para la autorización
 
-Se recomienda conectar la aplicación web a Azure Active Directory. De esta forma se garantiza que solo los usuarios con credenciales válidas pueden iniciar sesión en la aplicación web y usarla. Siga las instrucciones que se indican en [Configuración de la aplicación de App Service](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) para conectarse a Azure Active Directory.
+Se recomienda conectar la aplicación web a Azure Active Directory. De esta forma se garantiza que solo los usuarios con credenciales válidas pueden iniciar sesión en la aplicación web y usarla. Siga las instrucciones que se indican en [Configuración de la aplicación de App Service](../../app-service/configure-authentication-provider-aad.md) para conectarse a Azure Active Directory.
 
 ## <a name="open-source-on-github"></a>Código fuente en Docker
 

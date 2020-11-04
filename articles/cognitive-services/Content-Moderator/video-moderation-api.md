@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b389841bdba107ba27371387d4a6e5d1f009d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd813c6db9d03b0b7c84497e5b44f6ecdb591437
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919359"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912861"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Análisis de contenido de vídeo para detectar material inapropiado en C#
 
@@ -33,17 +33,17 @@ La funcionalidad de moderación de vídeo de Content Moderator está disponible 
 
 ### <a name="create-an-azure-media-services-account"></a>Creación de una cuenta de Azure Media Services
 
-Para suscribirse a ASM y crear una cuenta de almacenamiento de Azure asociada, siga las instrucciones que se indican en [Creación de una cuenta de Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account). En esa cuenta de almacenamiento, cree un contenedor de almacenamiento de blobs.
+Para suscribirse a ASM y crear una cuenta de almacenamiento de Azure asociada, siga las instrucciones que se indican en [Creación de una cuenta de Azure Media Services](../../media-services/previous/media-services-portal-create-account.md). En esa cuenta de almacenamiento, cree un contenedor de almacenamiento de blobs.
 
 ### <a name="create-an-azure-active-directory-application"></a>Creación de una aplicación de Azure Active Directory
 
-Vaya a la nueva suscripción de AMS en Azure Portal y seleccione **Acceso de API** en el menú lateral. Seleccione **Connect to Azure Media Services with service principal** (Conectarse a Azure Media Services con la entidad de servicio). Anote el valor del campo **Punto de conexión de la API de REST**; la necesitará más adelante.
+Vaya a la nueva suscripción de AMS en Azure Portal y seleccione **Acceso de API** en el menú lateral. Seleccione **Connect to Azure Media Services with service principal** (Conectarse a Azure Media Services con la entidad de servicio). Anote el valor del campo **Punto de conexión de la API de REST** ; la necesitará más adelante.
 
-En la sección **Aplicación de Azure AD**, seleccione **Crear nueva** y asigne un nombre al nuevo registro de aplicación de Azure AD, por ejemplo "VideoModADApp". Haga clic en **Guardar** y espere unos minutos a que se configure la aplicación. A continuación, verá el nuevo registro de aplicación en la sección **Aplicación de Azure AD** de la página.
+En la sección **Aplicación de Azure AD** , seleccione **Crear nueva** y asigne un nombre al nuevo registro de aplicación de Azure AD, por ejemplo "VideoModADApp". Haga clic en **Guardar** y espere unos minutos a que se configure la aplicación. A continuación, verá el nuevo registro de aplicación en la sección **Aplicación de Azure AD** de la página.
 
-Seleccione el registro de aplicación y haga clic en el botón **Administrar aplicación** que hay debajo. Anote el valor del campo **Id. de aplicación**; lo necesitará más adelante. Seleccione **Configuración** > **Claves** y escriba una descripción para una nueva clave (por ejemplo, "VideoModKey"). Haga clic en **Guardar** y, luego, observe el nuevo valor de clave. Copie esta cadena y guárdela en un lugar seguro.
+Seleccione el registro de aplicación y haga clic en el botón **Administrar aplicación** que hay debajo. Anote el valor del campo **Id. de aplicación** ; lo necesitará más adelante. Seleccione **Configuración** > **Claves** y escriba una descripción para una nueva clave (por ejemplo, "VideoModKey"). Haga clic en **Guardar** y, luego, observe el nuevo valor de clave. Copie esta cadena y guárdela en un lugar seguro.
 
-Si desea un tutorial más detallado del proceso anterior, consulte [Introducción a la autenticación de Azure AD](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
+Si desea un tutorial más detallado del proceso anterior, consulte [Introducción a la autenticación de Azure AD](../../media-services/previous/media-services-portal-get-started-with-aad.md).
 
 Una vez hecho esto, puede usar el procesador de multimedia de moderación de vídeo de dos maneras diferentes.
 
@@ -57,7 +57,7 @@ Azure Media Services Explorer es un front-end fácil de usar de AMS. Úselo para
 
 1. En Visual Studio, cree un proyecto de **Aplicación de consola (.NET Framework)** y asígnele el nombre **VideoModeration**. 
 1. Si hay otros proyectos en la solución, seleccione este como proyecto de inicio único.
-1. Obtenga los paquetes NuGet requeridos. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione **Administrar paquetes NuGet**; a continuación, busque e instale los siguientes paquetes:
+1. Obtenga los paquetes NuGet requeridos. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione **Administrar paquetes NuGet** ; a continuación, busque e instale los siguientes paquetes:
     - windowsazure.mediaservices
     - windowsazure.mediaservices.extensions
 
@@ -365,9 +365,9 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 Una vez completado el trabajo de moderación de contenido, analice la respuesta JSON. Esta consta de estos elementos:
 
 - Resumen de información del vídeo
-- **Capturas**  denominadas "**fragmentos**".
-- **Fotogramas clave**  denominados "**eventos**" con una marca **reviewRecommended" (= true o false)"** basada en puntuaciones de tipo **Adultos** e **Inapropiado**.
-- Los valores **start**, **duration** , **totalDuration** y **timestamp** están entrecomillados. Divida con el valor **timescale** para obtener el número en segundos.
+- **Capturas**  denominadas " **fragmentos** ".
+- **Fotogramas clave**  denominados " **eventos** " con una marca **reviewRecommended" (= true o false)"** basada en puntuaciones de tipo **Adultos** e **Inapropiado**.
+- Los valores **start** , **duration** , **totalDuration** y **timestamp** están entrecomillados. Divida con el valor **timescale** para obtener el número en segundos.
  
 > [!NOTE]
 > - `adultScore` representa la posible presencia y la puntuación de predicción de contenido que se pueda considerar sexualmente explícito o para adultos en ciertas situaciones.

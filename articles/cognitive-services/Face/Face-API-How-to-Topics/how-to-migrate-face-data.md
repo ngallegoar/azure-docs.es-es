@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6f6b2ed9357acf4dceeb960b1abdf6813987f657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74861df30ba2854c9299e1f779d0cee59abbc5a8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324899"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911212"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migración de los datos de caras a una suscripción de Face distinta
 
@@ -28,7 +28,7 @@ Esta misma estrategia de migración también se aplica a los objetos LargePerson
 
 Necesita los siguientes elementos:
 
-- Dos claves de suscripción de Face (una con los datos existentes y otra a la cual migrar). Para suscribirse al servicio Face y obtener la clave, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+- Dos claves de suscripción de Face (una con los datos existentes y otra a la cual migrar). Para suscribirse al servicio Face y obtener la clave, siga las instrucciones de [Creación de una cuenta de Cognitive Services](../../cognitive-services-apis-create-account.md).
 - Cadena de identificador de suscripción de Face que se corresponde con la suscripción de destino. Para encontrarla, seleccione **Información general** en Azure Portal. 
 - Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 
@@ -42,7 +42,7 @@ Esta guía utiliza una aplicación de consola sencilla para ejecutar la migraci�
 
 ## <a name="create-face-clients"></a>Creación de clientes de Face
 
-En el método **Main** de *Program.cs*, cree dos instancias de [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) para las suscripciones de origen y destino. En este ejemplo, usamos una suscripción de Face de la región de Este de Asia como origen y una suscripción de Oeste de EE. UU. como destino. Este ejemplo muestra cómo migrar datos de una región de Azure a otra. 
+En el método **Main** de *Program.cs* , cree dos instancias de [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) para las suscripciones de origen y destino. En este ejemplo, usamos una suscripción de Face de la región de Este de Asia como origen y una suscripción de Oeste de EE. UU. como destino. Este ejemplo muestra cómo migrar datos de una región de Azure a otra. 
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -63,7 +63,7 @@ Rellene los valores de las claves de suscripción y las direcciones URL de los p
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Preparación de un objeto PersonGroup para la migración
 
-Necesita el identificador del objeto PersonGroup en la suscripción de origen para migrarlo a la suscripción de destino. Use el método [PersonGroupOperationsExtensions.ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) recuperar una lista de los objetos PersonGroup. Obtenga luego la propiedad [PersonGroup.PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId). Este proceso parecerá distinto en función de los objetos PersonGroup que tenga. En esta guía, el identificador del objeto PersonGroup de origen se almacena en `personGroupId`.
+Necesita el identificador del objeto PersonGroup en la suscripción de origen para migrarlo a la suscripción de destino. Use el método [PersonGroupOperationsExtensions.ListAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) recuperar una lista de los objetos PersonGroup. Obtenga luego la propiedad [PersonGroup.PersonGroupId](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId). Este proceso parecerá distinto en función de los objetos PersonGroup que tenga. En esta guía, el identificador del objeto PersonGroup de origen se almacena en `personGroupId`.
 
 > [!NOTE]
 > El [código de ejemplo](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) crea y entrena un nuevo objeto PersonGroup para migrar. En la mayoría de los casos, ya debe tener un objeto PersonGroup para utilizarlo.
@@ -72,7 +72,7 @@ Necesita el identificador del objeto PersonGroup en la suscripción de origen pa
 
 Una instantánea es el almacenamiento remoto temporal de ciertos tipos de datos de Face. Funciona como una especie de Portapapeles para copiar datos de una suscripción a otra. En primer lugar, tome una instantánea de los datos en la suscripción de origen. Después, la aplica a un nuevo objeto de datos en la suscripción de destino.
 
-Utilice la instancia de FaceClient de la suscripción de origen para tomar una instantánea de PersonGroup. Use [TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) con el identificador de PersonGroup y el identificador de la suscripción de destino. Si tiene varias suscripciones de destino, agréguelas como entradas de matriz en el tercer parámetro.
+Utilice la instancia de FaceClient de la suscripción de origen para tomar una instantánea de PersonGroup. Use [TakeAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) con el identificador de PersonGroup y el identificador de la suscripción de destino. Si tiene varias suscripciones de destino, agréguelas como entradas de matriz en el tercer parámetro.
 
 ```csharp
 var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
@@ -82,7 +82,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> El proceso de tomar y aplicar instantáneas no interrumpe ninguna llamada normal al objeto PersonGroup o FaceList de origen o de destino. No realice llamadas simultáneas que cambien el objeto de origen, como [llamadas de administración de FaceList](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) o la llamada de [entrenamiento de PersonGroup](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet), por ejemplo. La operación de instantánea se puede ejecutar antes o después de esas operaciones o puede provocar errores.
+> El proceso de tomar y aplicar instantáneas no interrumpe ninguna llamada normal al objeto PersonGroup o FaceList de origen o de destino. No realice llamadas simultáneas que cambien el objeto de origen, como [llamadas de administración de FaceList](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) o la llamada de [entrenamiento de PersonGroup](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet), por ejemplo. La operación de instantánea se puede ejecutar antes o después de esas operaciones o puede provocar errores.
 
 ## <a name="retrieve-the-snapshot-id"></a>Recuperación del identificador de la instantánea
 
@@ -233,7 +233,7 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 
 A continuación, consulte la documentación de referencia de la API relevante, explore una aplicación de ejemplo que utilice la característica Instantánea o siga una guía de procedimientos para comenzar a utilizar las otras operaciones de API mencionadas aquí:
 
-- [Documentación de referencia de Instantánea (SDK de .NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
+- [Documentación de referencia de Instantánea (SDK de .NET)](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Ejemplo de instantánea de Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Agregar caras](how-to-add-faces.md)
 - [Detección de caras en una imagen](HowtoDetectFacesinImage.md)

@@ -4,17 +4,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 82c45919892721d689bd90b7480158c4eea16c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 963405f0874e23553a118081b080a0f30e1942eb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374944"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136038"
 ---
 Al desarrollar para macOS, hay tres SDK de voz disponibles.
 
 - El SDK de voz de Objective-C está disponible de forma nativa como un paquete de CocoaPod.
-- El SDK de voz de .NET podría usarse con **Xamarin.Mac**, ya que implementa .NET Standard 2.0.
+- El SDK de voz de .NET podría usarse con **Xamarin.Mac** , ya que implementa .NET Standard 2.0.
 - El SDK de voz de Python está disponible como un módulo de PyPI.
 
 > [!TIP]
@@ -43,7 +43,7 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.13.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.14.0'
 end
 ```
 

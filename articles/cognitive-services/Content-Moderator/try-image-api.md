@@ -10,19 +10,19 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 542fadd5e5ab91be7b7113064bf8c998dae08d12
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75448256"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912946"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderación de imágenes desde la consola de API
 
 Use [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) de Azure Content Moderator para iniciar flujos de trabajo de moderación de examen y revisión de contenido de imágenes. El trabajo de moderación examina el contenido en busca de palabras soeces y lo compara con listas negras personalizadas y compartidas.
 
 ## <a name="use-the-api-console"></a>Uso de la consola de API
-Antes de probar la API en la consola en línea, necesita la clave de suscripción. Se encuentra en la pestaña **Configuración**, en el cuadro **Ocp-Apim-Subscription-Key**. Para más información, consulte [Información general](overview.md).
+Antes de probar la API en la consola en línea, necesita la clave de suscripción. Se encuentra en la pestaña **Configuración** , en el cuadro **Ocp-Apim-Subscription-Key**. Para más información, consulte [Información general](overview.md).
 
 1. Vaya a la [referencia de Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
@@ -34,7 +34,7 @@ Antes de probar la API en la consola en línea, necesita la clave de suscripció
   
    Se abre la consola de API **Image - Evaluate** (Imagen: evaluar).
 
-3. En el cuadro **Ocp-Apim-Subscription-Key**, especifique la clave de suscripción.
+3. En el cuadro **Ocp-Apim-Subscription-Key** , especifique la clave de suscripción.
 
    ![Clave de suscripción de la consola Try Image - Evaluate (Probar imagen: evaluar)](images/try-image-api-1.PNG)
 
@@ -50,7 +50,7 @@ Antes de probar la API en la consola en línea, necesita la clave de suscripció
 
 5. Seleccione **Enviar**.
 
-6. La API devuelve una puntuación de probabilidad para cada clasificación. También devuelve una determinación de si la imagen cumple las condiciones (**true** o **false**). 
+6. La API devuelve una puntuación de probabilidad para cada clasificación. También devuelve una determinación de si la imagen cumple las condiciones ( **true** o **false** ). 
 
    ![Puntuación de probabilidad y determinación de condición de la consola Try Image - Evaluate (Probar imagen: evaluar)](images/try-image-api-3.PNG)
 
@@ -92,7 +92,7 @@ Puede usar la funcionalidad OCR de Content Moderator para detectar el texto de l
 
    Se abre la consola de API **Image - OCR** (Imagen: OCR).
 
-3. En el cuadro **Ocp-Apim-Subscription-Key**, especifique la clave de suscripción.
+3. En el cuadro **Ocp-Apim-Subscription-Key** , especifique la clave de suscripción.
 
 4. En el cuadro **Request body** (Cuerpo de la solicitud), use la imagen de ejemplo predeterminada. Esta es la misma imagen que se usa en la sección anterior.
 
@@ -102,4 +102,4 @@ Puede usar la funcionalidad OCR de Content Moderator para detectar el texto de l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use la API REST del código o siga el [inicio rápido del SDK de .NET](dotnet-sdk-quickstart.md) para agregar moderación de imágenes a la aplicación.
+Use la API REST del código o siga el [inicio rápido del SDK de .NET](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) para agregar moderación de imágenes a la aplicación.
