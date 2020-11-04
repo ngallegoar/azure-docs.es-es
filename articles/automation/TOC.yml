@@ -1,6 +1,6 @@
 - name: Documentación de usuario de Azure Automation
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: ¿Qué es Automation?
       href: automation-intro.md
@@ -128,7 +128,7 @@
               href: graphical-runbook-sdk.md
         - name: Supervisión de runbooks
           items:
-            - name: Supervisión de la salida de runbooks
+            - name: Configuración de la salida del runbook
               href: automation-runbook-output-and-messages.md
             - name: Control de errores en runbooks gráficos
               href: automation-runbook-graphical-error-handling.md

@@ -625,7 +625,7 @@
                       href: database/saas-multitenantdb-tenant-analytics.md
     - name: Ejemplos
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: database/az-cli-script-samples-content-guide.md?tabs=single-database
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=single-database
@@ -938,7 +938,7 @@
           href: managed-instance/user-initiated-failover.md
     - name: Ejemplos
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=managed-instance
@@ -993,6 +993,8 @@
                   href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: Administración
               items:
+                - name: Extensión Agente de IaaS de SQL
+                  href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
                 - name: Host dedicado
                   href: virtual-machines/windows/dedicated-host.md
                 - name: Ampliación de la compatibilidad para SQL 2008 y R2
@@ -1021,12 +1023,14 @@
                   href: virtual-machines/windows/change-sql-server-version.md
                 - name: Storage
                   href: virtual-machines/windows/storage-configuration.md
+                - name: Aplicación de revisiones automatizada
+                  href: virtual-machines/windows/automated-patching.md
                 - name: Integración de Azure Key Vault
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: Migración del almacenamiento a UltraSSD
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: Registro con el proveedor de recursos de máquina virtual de SQL
-                  displayName: 'resource provider, registration'
+                - name: Instalación de la extensión Agente de IaaS de SQL
+                  displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: Registro automático
                       href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
@@ -1034,12 +1038,6 @@
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: Registro en bloque de varias máquinas virtuales
                       href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-                - name: Automatización de las tareas de administración
-                  items:
-                    - name: Uso de la Extensión Agente de IaaS de SQL Server
-                      href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-                    - name: Aplicación de revisiones automatizada
-                      href: virtual-machines/windows/automated-patching.md
             - name: Migrar
               items:
                 - name: Base de datos de SQL Server en la máquina virtual
@@ -1070,7 +1068,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Prerrequisitos
+                            - name: Requisitos previos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

@@ -23,6 +23,9 @@
         - name: Migración con un tiempo de inactividad mínimo con DMS
           href: howto-migrate-online.md
           displayName: 'dms, data migration service'
+    - name: Directiva de control de versiones
+      href: concepts-version-policy.md
+      displayName: 'version, postgresql'
 - name: Servidor único
   expanded: true
   items:
@@ -88,7 +91,7 @@
             - name: Azure portal
               href: tutorial-design-database-using-azure-portal.md
               displayName: design database
-            - name: Azure CLI
+            - name: CLI de Azure
               href: tutorial-design-database-using-azure-cli.md
             - name: Azure PowerShell
               href: tutorial-design-database-using-powershell.md
@@ -219,14 +222,14 @@
             - name: Azure portal
               href: howto-create-manage-server-portal.md
               displayName: 'scale server, reset password'
-            - name: Azure CLI
+            - name: CLI de Azure
               href: how-to-manage-server-cli.md
               displayName: 'scale server, reset password'
         - name: Reinicio del servidor
           items:
             - name: Azure portal
               href: howto-restart-server-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-restart-server-cli.md
             - name: Azure PowerShell
               href: howto-restart-server-powershell.md
@@ -246,7 +249,7 @@
             - name: Azure portal
               href: howto-restore-server-portal.md
               displayName: 'restore, georestore, geo-restore, outage'
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-restore-server-cli.md
               displayName: 'restore, georestore, geo-restore, outage'
             - name: Azure PowerShell
@@ -287,7 +290,7 @@
             - name: Azure portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-configure-server-parameters-using-cli.md
               displayName: 'application development, server parameters'
             - name: Azure PowerShell
@@ -298,7 +301,7 @@
             - name: Azure portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-auto-grow-storage-cli.md
               displayName: 'business continuity, scale , storage'
             - name: Azure PowerShell
@@ -309,7 +312,7 @@
             - name: Azure portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-configure-server-logs-using-cli.md
               displayName: 'access logs, monitor'
         - name: Supervisión
@@ -382,6 +385,8 @@
           items:
             - name: Azure portal
               href: howto-move-regions-portal.md
+        - name: Actualizaciones de versiones principales
+          href: how-to-upgrade-using-dump-and-restore.md
 - name: Servidor flexible (versión preliminar)
   expanded: true
   items:

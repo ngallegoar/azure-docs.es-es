@@ -39,6 +39,8 @@
           href: tutorial-private-endpoint-sql-portal.md
         - name: 'Conexión a un servidor de SQL Server: PowerShell'
           href: tutorial-private-endpoint-sql-powershell.md
+        - name: 'Conexión a un servidor de SQL Server: CLI de Azure'
+          href: tutorial-private-endpoint-sql-cli.md
 - name: Conceptos
   items:
     - name: Punto de conexión privado
@@ -69,7 +71,7 @@
           href: troubleshoot-private-link-connectivity.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network
     - name: Azure PowerShell
       href: /powershell/module/az.network

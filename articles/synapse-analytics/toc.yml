@@ -21,13 +21,13 @@
     - name: 1 Creación de un área de trabajo de Synapse
       href: get-started-create-workspace.md
       displayName: 'get, started'
-    - name: 2 Análisis mediante un grupo de SQL
+    - name: 2 Análisis mediante un grupo de SQL dedicado
       href: get-started-analyze-sql-pool.md
       displayName: 'get, started'
     - name: 3 Análisis mediante Spark
       href: get-started-analyze-spark.md
       displayName: 'get, started'
-    - name: 4 Análisis mediante SQL a petición
+    - name: 4 Análisis mediante un grupo de SQL sin servidor
       href: get-started-analyze-sql-on-demand.md
       displayName: 'get, started'
     - name: 5 Análisis de los datos de una cuenta de almacenamiento
@@ -119,7 +119,7 @@
                   href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Identidad administrada del área de trabajo de Synapse
                   href: ./security/synapse-workspace-managed-identity.md
-                - name: Grupo y a petición
+                - name: Grupos de SQL
                   href: ./sql/access-control.md
                   displayname: 'access, control'
         - name: 'Integración de herramientas (IA, ETL, BI)'
@@ -149,6 +149,8 @@
                   displayname: links
                 - name: Aprovisionamiento y protección de un servicio vinculado con una red virtual administrada
                   href: ./data-integration/linked-service.md
+                - name: Conexión al área de trabajo de Synapse desde una red restringida
+                  href: security/how-to-connect-to-workspace-from-restricted-network.md
 - name: SQL de Synapse
   items:
     - name: Información general
@@ -156,10 +158,10 @@
         - name: Arquitectura de SQL de Synapse
           href: sql/overview-architecture.md
           displayName: overview
-        - name: SQL a petición
+        - name: Grupo de SQL sin servidor
           href: sql/on-demand-workspace-overview.md
           displayname: overview
-        - name: Grupo de SQL
+        - name: Grupo de SQL dedicado
           href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
           displayname: overview
         - name: Architecture
@@ -168,17 +170,17 @@
           href: sql/overview-features.md
         - name: Modelos de consumo de recursos
           href: sql/resource-consumption-models.md
-        - name: Procedimientos recomendados de SQL a petición
+        - name: Procedimientos recomendados para un grupo de SQL sin servidor
           href: sql/best-practices-sql-on-demand.md
-        - name: Procedimientos recomendados de grupos de SQL
+        - name: Procedimientos recomendados para grupos de SQL dedicados
           href: sql/best-practices-sql-pool.md
     - name: Guías de inicio rápido
       items:
-        - name: Creación de un grupo de SQL mediante Synapse Studio
+        - name: Creación de un grupo de SQL dedicado mediante Synapse Studio
           href: quickstart-create-sql-pool-studio.md
-        - name: Creación de un grupo de SQL mediante Azure Portal
+        - name: Creación de un grupo de SQL dedicado mediante Azure Portal
           href: quickstart-create-sql-pool-portal.md
-        - name: Carga de datos con grupos de SQL
+        - name: Carga de datos con grupos de SQL dedicados
           items:
             - name: Instrucción COPY
               href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -189,11 +191,11 @@
             - name: Synapse Studio
               href: quickstart-load-studio-sql-pool.md
               displayname: sql pool
-        - name: Uso de SQL a petición
+        - name: Uso de grupos de SQL sin servidor
           href: quickstart-sql-on-demand.md
     - name: Tutoriales
       items:
-        - name: Uso de SQL a petición para analizar datos
+        - name: Uso de un grupo de SQL sin servidor para analizar datos
           href: ./sql/tutorial-data-analyst.md
         - name: Power BI Desktop
           href: ./sql/tutorial-connect-power-bi-desktop.md
@@ -517,12 +519,16 @@
           href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con Apache Spark"
           href: ./synapse-link/how-to-query-analytical-store-spark.md
-        - name: Copia de datos de Synapse Link a un grupo de SQL mediante Apache Spark
+        - name: Copia de datos de Synapse Link a un grupo de SQL dedicado mediante Apache Spark
           href: ./synapse-link/how-to-copy-to-sql-pool.md
-        - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con SQL a petición"
+        - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con un grupo de SQL sin servidor"
           href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Canalización y flujo de datos
   items:
+    - name: Guías de inicio rápido
+      items:
+        - name: Carga de datos en grupos de SQL mediante la actividad de copia
+          href: quickstart-copy-activity-load-sql-pool.md
     - name: Conceptos
       items:
         - name: Canalización y actividad
@@ -1013,7 +1019,7 @@
       href: ./sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Autoayuda del cliente
       items:
-        - name: SQL a petición
+        - name: Grupo de SQL sin servidor
           href: sql/resources-self-help-sql-on-demand.md
     - name: Asociados
       items:

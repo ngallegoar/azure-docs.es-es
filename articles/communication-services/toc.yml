@@ -98,14 +98,50 @@
       href: samples/web-calling-sample.md
 - name: Referencias
   items:
-    - name: Documentación de la API de REST
+    - name: Introducción a la documentación de referencia
+      href: concepts/reference.md
+    - name: Documentación de la API REST
       href: 'https://docs.microsoft.com/rest/api/communication/'
-    - name: Biblioteca de llamadas (Android/Java)
-      href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
-    - name: Biblioteca de llamadas (JS)
-      href: 'https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js'
-    - name: Biblioteca de llamadas (iOS)
-      href: 'https://docs.microsoft.com/objectivec/communication-services/calling/'
+    - name: Bibliotecas de llamadas
+      items:
+        - name: Llamada (JavaScript)
+          href: 'https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js'
+        - name: Llamada (Android-Java)
+          href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
+        - name: Llamada (iOS)
+          href: 'https://docs.microsoft.com/objectivec/communication-services/calling/'
+    - name: Bibliotecas de chat
+      items:
+        - name: Chat (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-chat'
+        - name: Chat (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat'
+        - name: Chat (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat'
+    - name: Bibliotecas de SMS
+      items:
+        - name: SMS (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-sms'
+        - name: SMS (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms'
+        - name: SMS (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms'
+    - name: Bibliotecas de administración
+      items:
+        - name: Administración (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-administration'
+        - name: Administración (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationadministration'
+        - name: Administración (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-administration'
+    - name: Bibliotecas comunes
+      items:
+        - name: Común (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-common'
+        - name: Común (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon'
+        - name: Común (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common'
 - name: Recursos
   items:
     - name: Notas de la versión

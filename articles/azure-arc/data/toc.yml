@@ -116,6 +116,8 @@
           items:
             - name: Copia de seguridad y restauración
               href: backup-restore-postgresql-hyperscale.md
+            - name: Cambio del puerto de PostgreSQL
+              href: change-postgresql-port.md
             - name: Configuración y escalado
               items:
                 - name: Mostrar configuración

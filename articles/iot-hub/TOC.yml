@@ -74,7 +74,7 @@
           href: tutorial-routing-view-message-routing-results.md
     - name: Enriquecimientos de mensajes
       href: tutorial-message-enrichments.md
-    - name: Uso de métricas y registros de diagnóstico
+    - name: Uso de métricas y registros
       href: tutorial-use-metrics-and-diags.md
     - name: Realización de conmutación por error manual
       href: tutorial-manual-failover.md
@@ -426,7 +426,7 @@
               href: iot-hub-troubleshoot-error-504101-gatewaytimeout.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub
