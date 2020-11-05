@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 0c541c848290988bb1f358f045abb2d0cd221de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96df14fb754578b58fb67ac116ac79cff3ffdcb
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386765"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289840"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Recomendaciones de seguridad para Azure Key Vault
 
@@ -24,7 +24,7 @@ Este artículo contiene recomendaciones de seguridad para Azure Key Vault. La im
 Algunas de las recomendaciones incluidas en este artículo se pueden supervisar automáticamente mediante Azure Security Center. Azure Security Center es la primera línea de defensa en la protección de los recursos de Azure. Se encarga de analizar el estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de seguridad. Después, proporciona recomendaciones sobre cómo abordarlas.
 
 - Para más información sobre las recomendaciones de seguridad de Azure Security Center, consulte [Recomendaciones de seguridad en Azure Security Center](../../security-center/security-center-recommendations.md).
-- Para más información sobre Azure Security Center, consulte [¿Qué es Azure Security Center?](../../security-center/security-center-intro.md)
+- Para más información sobre Azure Security Center, consulte [¿Qué es Azure Security Center?](../../security-center/security-center-introduction.md)
 
 ## <a name="data-protection"></a>Protección de los datos
 
@@ -54,4 +54,4 @@ Algunas de las recomendaciones incluidas en este artículo se pueden supervisar 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Póngase en contacto con el proveedor de la aplicación para ver si hay más requisitos de seguridad. Para obtener más información sobre el desarrollo de aplicaciones seguras, vea [Documentación sobre desarrollo seguro](../../security/fundamentals/abstract-develop-secure-apps.md).
+Póngase en contacto con el proveedor de la aplicación para ver si hay más requisitos de seguridad. Para obtener más información sobre el desarrollo de aplicaciones seguras, vea [Documentación sobre desarrollo seguro](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/).

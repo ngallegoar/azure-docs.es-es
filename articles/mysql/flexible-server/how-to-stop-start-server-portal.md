@@ -1,17 +1,17 @@
 ---
 title: Inicio o detención de un servidor flexible de Azure Database for MySQL mediante Azure Portal
 description: En este artículo se explica cómo iniciar y detener operaciones en Azure Database for MySQL mediante Azure Portal.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: e3e08ae9bbf00e1c9a44e6ba913cac1d842928b7
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 15b08ea67afe0d307470b5a4fb0f7d26e0f4ea82
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91567517"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241929"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Inicio o detención de un servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -30,13 +30,13 @@ Para completar esta guía, necesita:
 
 1.  En [Azure Portal](https://portal.azure.com/), elija el servidor flexible que quiera detener.
 
-2.  En la página **Información general**, haga clic en el botón **Detener** de la barra de herramientas.
+2.  En la página **Información general** , haga clic en el botón **Detener** de la barra de herramientas.
     
     :::image type="content" source="media/how-to-stop-start-server-portal/stop-server.png" alt-text="Detenga el servidor flexible."::: 
 
 3.  Haga clic en **Sí** para confirmar la detención del servidor.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Detenga el servidor flexible."::: 
+    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Confirme la detención del servidor flexible."::: 
 
 > [!NOTE]
 > Una vez detenido el servidor, las restantes operaciones de administración no están disponibles para el servidor flexible.
@@ -45,9 +45,9 @@ Para completar esta guía, necesita:
 
 1.  En [Azure Portal](https://portal.azure.com/), elija el servidor flexible que desea iniciar.
 
-2.  En la página **Información general**, haga clic en el botón **Iniciar** de la barra de herramientas.
+2.  En la página **Información general** , haga clic en el botón **Iniciar** de la barra de herramientas.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Detenga el servidor flexible.":::  
+    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Inicie el servidor flexible.":::  
 
 > [!NOTE]
 > Una vez iniciado el servidor, todas las operaciones de administración están disponibles para el servidor flexible.

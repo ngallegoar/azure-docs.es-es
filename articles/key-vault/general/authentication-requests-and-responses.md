@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f223a55e4a1e4db4ac7057065d67ae64fa0f2c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983266"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288463"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticación, solicitudes y respuestas
 
@@ -39,7 +39,7 @@ Estos son los sufijos de dirección URL que se usan para acceder a cada tipo de 
 
 Azure Key Vault admite solicitudes y respuestas con formato JSON. Las solicitudes a Azure Key Vault se dirigen a una dirección URL válida de Azure Key Vault mediante HTTPS con algunos parámetros de URL y cuerpos de solicitud y respuesta codificados en JSON.
 
-En este tema se tratan los detalles específicos del servicio Azure Key Vault. Para más información acerca del uso de interfaces REST de Azure, incluida la autenticación y autorización, y cómo adquirir un token de acceso, consulte la [referencia de las API de REST de Azure](https://docs.microsoft.com/rest/api/azure).
+En este tema se tratan los detalles específicos del servicio Azure Key Vault. Para más información acerca del uso de interfaces REST de Azure, incluida la autenticación y autorización, y cómo adquirir un token de acceso, consulte la [referencia de las API de REST de Azure](/rest/api/azure).
 
 ## <a name="request-url"></a>URL de la solicitud  
  Las operaciones de administración de claves utilizan HTTP DELETE, GET, PATCH, PUT y HTTP POST y las operaciones criptográficas contra objetos de clave existentes utilizan HTTP POST. Los clientes que no admiten verbos HTTP específicos también pueden usar HTTP POST con el encabezado X-HTTP-REQUEST para especificar el verbo deseado; las solicitudes que normalmente no requieren un cuerpo deben incluir un cuerpo vacío cuando se usa HTTP POST, por ejemplo cuando se usa POST en lugar de DELETE.  
@@ -111,7 +111,7 @@ En este tema se tratan los detalles específicos del servicio Azure Key Vault. P
 ## <a name="authentication"></a>Authentication  
  Todas las solicitudes a Azure Key Vault DEBEN autenticarse. Azure Key Vault admite tokens de acceso a Azure Active Directory que pueden obtenerse mediante OAuth2[[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
- Para más información acerca de cómo registrar la aplicación y autenticarse para usar Azure Key Vault, consulte [Registro de la aplicación cliente con Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
+ Para más información acerca de cómo registrar la aplicación y autenticarse para usar Azure Key Vault, consulte [Registro de la aplicación cliente con Azure AD](/rest/api/azure/index#register-your-client-application-with-azure-ad).
  
  Los tokens de acceso deben enviarse al servicio mediante el encabezado de autorización HTTP:  
 
@@ -133,5 +133,4 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: la dirección del servicio de autorización de OAuth2 que puede utilizarse para obtener un token de acceso para la solicitud.  
 
--   resource: Nombre del recurso (`https://vault.azure.net`) que se va a utilizar en la solicitud de autorización.  
-
+-   resource: Nombre del recurso (`https://vault.azure.net`) que se va a utilizar en la solicitud de autorización.

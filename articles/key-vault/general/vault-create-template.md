@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282325"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285143"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Creación de un almacén de claves de Azure y una directiva de acceso al almacén mediante una plantilla de Resource Manager
 
@@ -84,7 +84,7 @@ En la plantilla siguiente se muestra una forma básica de crear un almacén de c
 
 ```
 
-Para obtener más información sobre la configuración de la plantilla de Key Vault, consulte [Referencia de plantillas de ARM de Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
+Para obtener más información sobre la configuración de la plantilla de Key Vault, consulte [Referencia de plantillas de ARM de Key Vault](/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
 > Si se vuelve a implementar una plantilla, se invalidarán las directivas de acceso existentes en el almacén de claves. Se recomienda rellenar la propiedad `accessPolicies` con las directivas de acceso existentes para evitar perder el acceso al almacén de claves. 
@@ -160,7 +160,7 @@ Puede implementar directivas de acceso en un almacén de claves existente sin te
 }
 
 ```
-Para más información sobre la configuración de la plantilla de Key Vault, consulte [Referencia de la plantilla de Resource Manager para Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+Para más información sobre la configuración de la plantilla de Key Vault, consulte [Referencia de la plantilla de Resource Manager para Key Vault](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Más plantillas de Resource Manager para Key Vault
 
@@ -168,13 +168,13 @@ Existen otras plantillas de Resource Manager disponibles para los objetos de Key
 
 | Secretos | Claves | Certificados |
 |--|--|--|
-|<ul><li>[Guía de inicio rápido](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Referencia](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/D|N/D|
+|<ul><li>[Guía de inicio rápido](../secrets/quick-create-template.md)<li>[Referencia](/azure/templates/microsoft.keyvault/vaults/secrets)|N/D|N/D|
 
-Puede encontrar más plantillas de Key Vault aquí: [Referencia de Resource Manager para Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
+Puede encontrar más plantillas de Key Vault aquí: [Referencia de Resource Manager para Key Vault](/azure/templates/microsoft.keyvault/allversions).
 
 ## <a name="deploy-the-templates"></a>Implementación de las plantillas
 
-Puede usar Azure Portal para implementar las plantillas anteriores con la opción **Build your own template in editor** (Crear su propia plantilla en el editor), como se describe aquí: [Implementación de recursos desde una plantilla personalizada](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
+Puede usar Azure Portal para implementar las plantillas anteriores con la opción **Build your own template in editor** (Crear su propia plantilla en el editor), como se describe aquí: [Implementación de recursos desde una plantilla personalizada](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 También puede guardar las plantillas anteriores en archivos y usar estos comandos:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create):
 

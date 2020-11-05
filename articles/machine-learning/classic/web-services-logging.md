@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: b30cd926f6908c26c6f71c1513a8c68c8a46bf43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 154479be1eae01bcc533b556b751ed24aee3da2b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359756"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308570"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Habilitación del registro para servicios web de Azure Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 En este documento se proporciona información sobre la funcionalidad de registro de los servicios web de Machine Learning Studio (clásico). El registro ofrece información adicional, más allá de un número de error y un mensaje, que puede ayudar a solucionar problemas con las llamadas a las API de Machine Learning Studio (clásico).  
@@ -44,7 +44,7 @@ El registro se habilita en el portal de [Servicios web de Azure Machine Learning
 
    ![Selección del nivel de registro](./media/web-services-logging/enable-logging.png)
 
-6. Haga clic en **Save**(Guardar).
+6. Haga clic en **Save** (Guardar).
 
 7. En servicios web clásicos, cree el contenedor **ml-diagnostics**.
 
@@ -52,9 +52,9 @@ El registro se habilita en el portal de [Servicios web de Azure Machine Learning
 
    1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento asociada con el servicio web.
 
-   2. En **Blob service**, haga clic en **Contenedores**.
+   2. En **Blob service** , haga clic en **Contenedores**.
 
-   3. Si el contenedor **ml-diagnostics** no existe, haga clic en **+Contenedor**, proporcione al contenedor el nombre "ml-diagnostics" y seleccione "Blob" como el **Tipo de acceso**. Haga clic en **OK**.
+   3. Si el contenedor **ml-diagnostics** no existe, haga clic en **+Contenedor** , proporcione al contenedor el nombre "ml-diagnostics" y seleccione "Blob" como el **Tipo de acceso**. Haga clic en **OK**.
 
       ![Creación de un contenedor para almacenar los registros de diagnóstico](./media/web-services-logging/create-ml-diagnostics-container.png)
 
@@ -85,5 +85,4 @@ Donde el _tipo de registro_ es uno de los valores siguientes:
 
 * proceso por lotes  
 * puntuación/solicitudes  
-* puntuación/inic  
-
+* puntuación/inic

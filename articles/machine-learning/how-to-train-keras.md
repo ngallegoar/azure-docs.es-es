@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d7cd452b6d1107f440d952c7db930281f3d86c11
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: c6b65c97fd87d4e3ed84c837d2702395091097fa
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743805"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308063"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de Keras a gran escala con Azure Machine Learning
 
@@ -38,11 +38,11 @@ Ejecute este código en cualquiera de estos entornos:
 - Instancia de Proceso de Azure Machine Learning: no se necesitan descargas ni instalación
 
      - Complete el [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md) para crear un servidor de cuadernos dedicado en el que se habrán cargado previamente el SDK y el repositorio de ejemplos.
-    - En la carpeta de ejemplos del servidor de cuadernos, vaya a este directorio: carpeta **how-to-use-azureml > ml-frameworks > keras > train-hyperparameter-tune-deploy-with-keras**, para encontrar un cuaderno completado y expandido.
+    - En la carpeta de ejemplos del servidor de cuadernos, vaya a este directorio: carpeta **how-to-use-azureml > ml-frameworks > keras > train-hyperparameter-tune-deploy-with-keras** , para encontrar un cuaderno completado y expandido.
 
  - Su propio servidor de Jupyter Notebook
 
-    - [Instale el SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.15.0).
+    - [Instale el SDK de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
     - [Cree un archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
     - [Descarga de los archivos de script de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` y `utils.py`
 
@@ -67,7 +67,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inicialización de un área de trabajo
 
-El [área de trabajo de Azure Machine Learning](concept-workspace.md) es el recurso de nivel superior para el servicio. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree. En el SDK de Python, puede acceder a los artefactos del área de trabajo mediante la creación de un objeto [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true).
+El [área de trabajo de Azure Machine Learning](concept-workspace.md) es el recurso de nivel superior para el servicio. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree. En el SDK de Python, puede acceder a los artefactos del área de trabajo mediante la creación de un objeto [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py).
 
 Cree un objeto de área de trabajo a partir del archivo `config.json` creado en la [sección de requisitos previos](#prerequisites).
 
@@ -77,7 +77,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-file-dataset"></a>Crear un conjunto de datos de archivo
 
-Un objeto `FileDataset` hace referencia a uno o varios archivos del almacén de archivos del área de trabajo o direcciones URL públicas. Los archivos pueden estar en cualquier formato y la clase le permite descargar o montar los archivos en el proceso. Si crea un objeto `FileDataset`, se crea una referencia a la ubicación de los orígenes de datos. Si aplicó alguna transformación al conjunto de datos, también se almacenará en el conjunto de datos. Los datos se mantienen en la ubicación existente, por lo que no se genera ningún costo de almacenamiento adicional. Consulte la [guía de procedimientos](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) sobre el paquete `Dataset` para obtener más información.
+Un objeto `FileDataset` hace referencia a uno o varios archivos del almacén de archivos del área de trabajo o direcciones URL públicas. Los archivos pueden estar en cualquier formato y la clase le permite descargar o montar los archivos en el proceso. Si crea un objeto `FileDataset`, se crea una referencia a la ubicación de los orígenes de datos. Si aplicó alguna transformación al conjunto de datos, también se almacenará en el conjunto de datos. Los datos se mantienen en la ubicación existente, por lo que no se genera ningún costo de almacenamiento adicional. Consulte la [guía de procedimientos](./how-to-create-register-datasets.md) sobre el paquete `Dataset` para obtener más información.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -197,7 +197,7 @@ Para más información sobre la configuración de trabajos con ScriptRunConfig, 
 
 ### <a name="submit-your-run"></a>Envío de la ejecución
 
-El [objeto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) proporciona la interfaz para el historial de ejecución mientras se ejecuta el trabajo y cuando se ha completado.
+El [objeto Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) proporciona la interfaz para el historial de ejecución mientras se ejecuta el trabajo y cuando se ha completado.
 
 ```Python
 run = Experiment(workspace=ws, name='keras-mnist').submit(src)
@@ -207,13 +207,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>¿Qué ocurre mientras se lleva a cabo la ejecución?
 Durante la ejecución del objeto, pasa por las fases siguientes:
 
-- **Preparando**: se crea una imagen de Docker según el entorno definido. La imagen se carga en el registro de contenedor del área de trabajo y se almacena en memoria caché para ejecuciones posteriores. Los registros también se transmiten al historial de ejecución y se pueden consultar para supervisar el progreso. Si se especifica un entorno mantenido en su lugar, se usará la imagen almacenada en caché que respalda el entorno mantenido.
+- **Preparando** : se crea una imagen de Docker según el entorno definido. La imagen se carga en el registro de contenedor del área de trabajo y se almacena en memoria caché para ejecuciones posteriores. Los registros también se transmiten al historial de ejecución y se pueden consultar para supervisar el progreso. Si se especifica un entorno mantenido en su lugar, se usará la imagen almacenada en caché que respalda el entorno mantenido.
 
-- **Escalado**: el clúster intenta escalar verticalmente si el clúster de Batch AI requiere más nodos para realizar la ejecución de los que se encuentran disponibles actualmente.
+- **Escalado** : el clúster intenta escalar verticalmente si el clúster de Batch AI requiere más nodos para realizar la ejecución de los que se encuentran disponibles actualmente.
 
-- **En ejecución**: todos los scripts de la carpeta de scripts se cargan en el destino de proceso, se montan o se copian los almacenes de datos y se ejecuta el `script`. Las salidas de stdout y la carpeta **./logs** se transmiten al historial de ejecución y se pueden usar para supervisar la ejecución.
+- **En ejecución** : todos los scripts de la carpeta de scripts se cargan en el destino de proceso, se montan o se copian los almacenes de datos y se ejecuta el `script`. Las salidas de stdout y la carpeta **./logs** se transmiten al historial de ejecución y se pueden usar para supervisar la ejecución.
 
-- **Posprocesamiento**: la carpeta **./outputs** de la ejecución se copia en el historial de ejecución.
+- **Posprocesamiento** : la carpeta **./outputs** de la ejecución se copia en el historial de ejecución.
 
 ## <a name="register-the-model"></a>Registro del modelo
 

@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 45f63aed410c4d140259808044872cbbecfaa95b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00e75c5fda8a05f4ed0f3a756ba20cca570ba5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355574"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305992"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio (clásico) con API Management
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 ## <a name="overview"></a>Información general
 En esta guía, se explica cómo empezar a usar rápidamente API Management para administrar los servicios web de Azure Machine Learning Studio (clásico).
 
 ## <a name="what-is-azure-api-management"></a>¿Qué es la Azure API Management?
-Azure API Management es un servicio de Azure que le permite administrar los extremos de la API de REST al definir el acceso del usuario, el límite de uso y la supervisión de panel. Consulte el [sitio de Azure API Management](https://azure.microsoft.com/services/api-management/) para más información. Para empezar a trabajar con Azure API Management, consulte [la guía de importación y publicación](/azure/api-management/import-and-publish). Esta otra guía, en la que está basada esta guía, aborda más temas, incluidos las configuraciones de notificación, el nivel de precios, el control de respuestas, la autenticación de los usuarios, la creación de productos, las suscripciones de desarrollador y los paneles de uso.
+Azure API Management es un servicio de Azure que le permite administrar los extremos de la API de REST al definir el acceso del usuario, el límite de uso y la supervisión de panel. Consulte el [sitio de Azure API Management](https://azure.microsoft.com/services/api-management/) para más información. Para empezar a trabajar con Azure API Management, consulte [la guía de importación y publicación](../../api-management/import-and-publish.md). Esta otra guía, en la que está basada esta guía, aborda más temas, incluidos las configuraciones de notificación, el nivel de precios, el control de respuestas, la autenticación de los usuarios, la creación de productos, las suscripciones de desarrollador y los paneles de uso.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar a esta guía, necesita:
@@ -43,9 +43,9 @@ Puede administrar el servicio web Azure Machine Learning con una instancia de AP
 3. En el cuadro Buscar, escriba "API management" y, a continuación, seleccione el recurso "API management".
 4. Haga clic en **Crear**.
 5. El valor de **Nombre** se usará para crear una dirección URL única (en este ejemplo se utiliza "demoazureml").
-6. Seleccione los valores de **Suscripción**, **Grupo de recursos** y **Ubicación** de la instancia de servicio.
+6. Seleccione los valores de **Suscripción** , **Grupo de recursos** y **Ubicación** de la instancia de servicio.
 7. Especifique el valor de **Nombre de organización** (en este ejemplo se utiliza "demoazureml").
-8. Escriba su **correo electrónico de administrador**: esta dirección de correo electrónico se utilizará para las notificaciones desde el sistema de API Management.
+8. Escriba su **correo electrónico de administrador** : esta dirección de correo electrónico se utilizará para las notificaciones desde el sistema de API Management.
 9. Haga clic en **Crear**.
 
 El nuevo servicio puede tardar hasta 30 minutos en crearse.
@@ -65,16 +65,16 @@ Para crear la API:
 
 1. Haga clic en **Agregar API**.
 2. Escriba un **nombre de API web** (en este ejemplo se usa "AzureML Demo API").
-3. En **Dirección URL de servicio web**, escriba "`https://ussouthcentral.services.azureml.net`".
+3. En **Dirección URL de servicio web** , escriba "`https://ussouthcentral.services.azureml.net`".
 4. Especifique un **Sufijo de URL de API web". Esto se convertirá en la última parte de la dirección URL que los clientes usarán para enviar solicitudes a la instancia del servicio (en este ejemplo se utiliza "azureml-demo").
 5. En **Web API URL scheme** (Esquema de URL de API web), seleccione **HTTPS**.
 6. For **Products** (Productos), seleccione **Starter** (Motor de arranque).
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
 
 ## <a name="add-the-operations"></a>Adición de operaciones
 
-Las operaciones se agregan y se configuran para una API en el portal del publicador. Para acceder al portal para editores, haga clic en **Portal para editores** en Azure Portal, en el servicio API Management, seleccione **API**, **Operaciones** y, finalmente, haga clic en **Agregar operación**.
+Las operaciones se agregan y se configuran para una API en el portal del publicador. Para acceder al portal para editores, haga clic en **Portal para editores** en Azure Portal, en el servicio API Management, seleccione **API** , **Operaciones** y, finalmente, haga clic en **Agregar operación**.
 
 ![add-operation](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
@@ -83,8 +83,8 @@ Se mostrará la ventana **Nueva operación** y la pestaña **Firma** se seleccio
 ## <a name="add-rrs-operation"></a>Adición de una operación de registro de recursos
 En primer lugar, cree una operación para el servicio RRS de AzureML:
 
-1. En **Verbo HTTP**, seleccione **POST**.
-2. En **Modelo de URL**, escriba "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`".
+1. En **Verbo HTTP** , seleccione **POST**.
+2. En **Modelo de URL** , escriba "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`".
 3. Escriba un **nombre para mostrar** (en este ejemplo se usa "RRS Execute").
 
    ![Captura de pantalla que muestra la página Firma, donde puede especificar un nombre para mostrar.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
@@ -102,38 +102,38 @@ En primer lugar, cree una operación para el servicio RRS de AzureML:
 ### <a name="submit-but-not-start-a-batch-execution-job"></a>Envío (pero no inicio) de un trabajo de ejecución por lotes
 
 1. Haga clic en **Agregar operación** para agregar la operación BES a la API.
-2. En **Verbo HTTP**, seleccione **POST**.
-3. En **Modelo de URL**, escriba "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`".
+2. En **Verbo HTTP** , seleccione **POST**.
+3. En **Modelo de URL** , escriba "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`".
 4. Escriba un **nombre para mostrar** (en este ejemplo se usa "BES Submit").
 5. Haga clic en **Respuestas** > **AGREGAR** a la izquierda y seleccione **200 Aceptar**.
-6. Haga clic en **Save**(Guardar).
+6. Haga clic en **Save** (Guardar).
 
 ### <a name="start-a-batch-execution-job"></a>Inicio de un trabajo de ejecución por lotes
 
 1. Haga clic en **Agregar operación** para agregar la operación BES a la API.
-2. En **Verbo HTTP**, seleccione **POST**.
-3. En **Verbo HTTP**, escriba "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`".
+2. En **Verbo HTTP** , seleccione **POST**.
+3. En **Verbo HTTP** , escriba "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`".
 4. Escriba un **nombre para mostrar** (en este ejemplo se usa "BES Start").
 6. Haga clic en **Respuestas** > **AGREGAR** a la izquierda y seleccione **200 Aceptar**.
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Obtener el estado o el resultado de un trabajo de ejecución por lotes
 
 1. Haga clic en **Agregar operación** para agregar la operación BES a la API.
-2. En **Verbo HTTP**, seleccione **GET**.
-3. En **Modelo de URL**, escriba "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+2. En **Verbo HTTP** , seleccione **GET**.
+3. En **Modelo de URL** , escriba "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
 4. Escriba un **nombre para mostrar** (en este ejemplo se usa "BES Status").
 6. Haga clic en **Respuestas** > **AGREGAR** a la izquierda y seleccione **200 Aceptar**.
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
 ### <a name="delete-a-batch-execution-job"></a>Eliminación de un trabajo de ejecución por lotes
 
 1. Haga clic en **Agregar operación** para agregar la operación BES a la API.
-2. En **Verbo HTTP**, seleccione **DELETE**.
-3. En **Modelo de URL**, escriba "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+2. En **Verbo HTTP** , seleccione **DELETE**.
+3. En **Modelo de URL** , escriba "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
 4. Escriba un **nombre para mostrar** (en este ejemplo se usa "BES Delete").
 5. Haga clic en **Respuestas** > **AGREGAR** a la izquierda y seleccione **200 Aceptar**.
-6. Haga clic en **Save**(Guardar).
+6. Haga clic en **Save** (Guardar).
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>Llamada a una operación desde el portal para desarrolladores
 
@@ -151,7 +151,7 @@ Se puede llamar a las operaciones directamente desde el portal para desarrollado
 
    ![Captura de pantalla que muestra el cuadro de diálogo AzureML Demo A P I (A P I de demostración de AzureML) con la opción POST R R S Execute (PUBLICAR Ejecución de R R S) y un botón Try it (Probar).](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-4. En **Request parameters** (Parámetros de solicitud), especifique su área de trabajo en **workspace** y **service**, respectivamente, escriba "2.0 en **apiversion** y "true" en **details**. Puede encontrar el **área de trabajo** y el **servicio** en el panel del servicio web AzureML (consulte **Prueba del servicio web** en el apéndice A).
+4. En **Request parameters** (Parámetros de solicitud), especifique su área de trabajo en **workspace** y **service** , respectivamente, escriba "2.0 en **apiversion** y "true" en **details**. Puede encontrar el **área de trabajo** y el **servicio** en el panel del servicio web AzureML (consulte **Prueba del servicio web** en el apéndice A).
 
    En **Request headers** (Encabezados de solicitud), haga clic en **Add header** (Agregar encabezado) y escriba "Content-Type" y "application/json". Haga clic en **Agregar encabezado** y escriba "Autorización" y "Portador *\<your service API-KEY\>* ". La CLAVE de API se puede encontrar en el panel del servicio web de AzureML (consulte **Prueba del servicio web** en el apéndice A).
 
@@ -163,7 +163,7 @@ Se puede llamar a las operaciones directamente desde el portal para desarrollado
 
    ![Captura de pantalla que muestra un botón Send (Enviar).](./media/manage-web-service-endpoints-using-api-management/send.png)
 
-Después de invocar una operación, el portal para desarrolladores mostrará el campo **Dirección URL solicitada** en el servicio de back-end, así como los campos **Estado de respuesta**, **Encabezados de respuesta** y **Contenido de respuesta**.
+Después de invocar una operación, el portal para desarrolladores mostrará el campo **Dirección URL solicitada** en el servicio de back-end, así como los campos **Estado de respuesta** , **Encabezados de respuesta** y **Contenido de respuesta**.
 
 ![Captura de pantalla que muestra el portal para desarrolladores con los campos Response status (Estado de respuesta), Response latency (Latencia de respuesta), Response headers (Encabezados de respuesta) y Response content (Contenido de respuesta).](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
@@ -219,7 +219,7 @@ Haga clic en **Sí** para publicar el experimento.
 ### <a name="test-the-web-service"></a>Prueba del servicio web
 Un servicio web de AzureML consta de los extremos RRS (servicio de solicitud/respuesta) y BES (servicio de ejecución por lotes). RRS sirve para la ejecución sincrónica. BES sirve para la ejecución por lotes asincrónica. Para probar el servicio web con el origen de Python del ejemplo siguiente, puede que necesite descargar e instalar el SDK de Azure para Python (consulte: [Instalación de Python](/azure/developer/python/azure-sdk-install)).
 
-También necesitará el **área de trabajo**, el **servicio** y la **api_key** del experimento para el origen de ejemplo siguiente. Puede encontrar el área de trabajo y el servicio haciendo clic en **Solicitud-respuesta** o en **Ejecución de lotes** del experimento en el panel del servicio web.
+También necesitará el **área de trabajo** , el **servicio** y la **api_key** del experimento para el origen de ejemplo siguiente. Puede encontrar el área de trabajo y el servicio haciendo clic en **Solicitud-respuesta** o en **Ejecución de lotes** del experimento en el panel del servicio web.
 
 ![Captura de pantalla que muestra el panel de solicitud, donde puede encontrar los valores de área de trabajo y servicio.](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
@@ -244,7 +244,7 @@ Verá algo parecido a lo siguiente:
 ##### <a name="sample-code"></a>Código de ejemplo
 Otra forma de probar el RRS es desde el código de cliente. Si hace clic en **Solicitud-respuesta** en el panel y se desplaza hasta la parte inferior, verá el código de ejemplo de C#, Python y R. También verá la sintaxis de la solicitud de RRS, incluidos el URI de solicitud, los encabezados y el cuerpo.
 
-Esta guía muestra un ejemplo de Python en funcionamiento. Necesitará modificarlo con el **área de trabajo**, el **servicio** y la **api_key** del experimento.
+Esta guía muestra un ejemplo de Python en funcionamiento. Necesitará modificarlo con el **área de trabajo** , el **servicio** y la **api_key** del experimento.
 
 ```python
 import urllib2
@@ -278,7 +278,7 @@ try:
 #### <a name="test-bes-endpoint"></a>Prueba de extremo BES
 Haga clic en **Ejecución de lotes** en el panel y desplácese hasta la parte inferior. Verá el código de ejemplo de C#, Python y R. También verá la sintaxis de las solicitudes BES para enviar un trabajo, iniciar un trabajo, obtener el estado o los resultados de un trabajo y eliminar un trabajo.
 
-Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con el **área de trabajo**, el **servicio** y la **api_key** del experimento. Además, deberá modificar el **nombre de la cuenta de almacenamiento**, la **clave de la cuenta de almacenamiento** y el **nombre de contenedor de almacenamiento**. Por último, deberá modificar la ubicación del **archivo de entrada** y la ubicación del **archivo de salida**.
+Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con el **área de trabajo** , el **servicio** y la **api_key** del experimento. Además, deberá modificar el **nombre de la cuenta de almacenamiento** , la **clave de la cuenta de almacenamiento** y el **nombre de contenedor de almacenamiento**. Por último, deberá modificar la ubicación del **archivo de entrada** y la ubicación del **archivo de salida**.
 
 ```python
 import urllib2

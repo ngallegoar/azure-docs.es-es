@@ -4,17 +4,17 @@ description: Creación de instancia administrada de Azure SQL con Azure Data St
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f4c1d4d83ad3c39bab8058ad29662891fe3678a1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 651811384a8e831c41c48ca8c4849e5ee3852054
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320310"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280477"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Creación de instancia administrada de SQL: Azure Arc con Azure Data Studio
 
@@ -47,7 +47,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 - Inicio de Azure Data Studio
 - En la pestaña Conexiones, haga clic en los tres puntos de la parte superior izquierda y elija "Nueva implementación".
-- En las opciones de implementación, seleccione **Instancia administrada de Azure SQL: Azure Arc** . 
+- En las opciones de implementación, seleccione **Instancia administrada de Azure SQL: Azure Arc**. 
   > [!NOTE]
   > Es posible que se le pida que instale [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] si no lo está actualmente.
 - Acepte los términos de privacidad y de licencia, y haga clic en **Seleccionar** en la parte inferior.

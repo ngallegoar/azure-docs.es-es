@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: b272426f865636640e0a2fafde46cbebbe6eb363
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327500"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242215"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referencia del motor de reglas estándar de Azure CDN
 
@@ -20,7 +20,7 @@ En el [motor de reglas estándar](cdn-standard-rules-engine.md) de Azure Content
 
 El motor de reglas está diseñado para ser la autoridad definitiva sobre cómo Azure CDN estándar procesa los tipos específicos de solicitudes.
 
-**Usos comunes de las reglas**:
+**Usos comunes de las reglas** :
 
 - Invalidar o definir una directiva de memoria caché personalizada.
 - Redirigir solicitudes.
@@ -35,6 +35,9 @@ Para definir una regla en el motor de reglas, establezca las [condiciones de coi
 Cada regla puede tener hasta diez condiciones de coincidencia y cinco acciones. Cada punto de conexión de Azure CDN puede tener hasta 25 reglas. 
 
 En este límite se incluye una *regla global* predeterminada. La regla global no tiene condiciones de coincidencia, y las acciones que se definen en una regla global siempre se desencadenan.
+
+   > [!IMPORTANT]
+   > El orden en que se muestran varias reglas afecta a la manera en que se controlan. Las acciones que se especifican en una regla se pueden sobrescribir con una regla subsiguiente.
 
 ## <a name="limits-and-pricing"></a>Límites y precios 
 

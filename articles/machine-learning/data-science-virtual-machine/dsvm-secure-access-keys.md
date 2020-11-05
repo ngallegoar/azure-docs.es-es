@@ -10,20 +10,20 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 1cb0c5094d49eac5a1c8f63406a28d2927d8fa94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5604e42c2c27463e10c136ccd18c3c21846fc5a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79477330"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309156"
 ---
 # <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Almacenamiento seguro de las credenciales de acceso en Azure Data Science Virtual Machine
 
 Es habitual que el código de las aplicaciones en la nube contenga las credenciales de autenticación en los servicios en la nube. La administración y la protección de estas credenciales es un reto conocido para la compilación de aplicaciones en la nube. Lo ideal sería que las credenciales nunca aparecieran en las estaciones de trabajo de los desarrolladores o que se controlaran en el código fuente.
 
-La característica de las [identidades administradas para los recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) facilita la resolución de este problema, al ofrecer a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código.
+La característica de las [identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md) facilita la resolución de este problema, al ofrecer a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código.
 
-Una manera de proteger las credenciales es usar Windows Installer (MSI) en combinación con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), un servicio de Azure administrado para almacenar las claves criptográficas y los secretos de forma segura. Puede acceder a un almacén de claves mediante la identidad administrada y recuperar los secretos autorizados y las claves criptográficas de este.
+Una manera de proteger las credenciales es usar Windows Installer (MSI) en combinación con [Azure Key Vault](../../key-vault/index.yml), un servicio de Azure administrado para almacenar las claves criptográficas y los secretos de forma segura. Puede acceder a un almacén de claves mediante la identidad administrada y recuperar los secretos autorizados y las claves criptográficas de este.
 
 Las documentación sobre las identidades administradas para los recursos de Azure y Key Vault es un recurso integral de información detallada sobre estos servicios. El resto de este artículo ofrece una guía sobre el uso básico de MSI y Key Vault en Data Science Virtual Machine (DSVM) para acceder a los recursos de Azure. 
 

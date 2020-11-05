@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8a975673bec3b3579eaa699f873fe8c4b1481d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744699"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285644"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Habilitación del registro de Key Vault
 
@@ -147,7 +147,7 @@ Esto es lo que se registra:
   * Crear, modificar o eliminar estas claves o secretos.
   * Firmar, comprobar, cifrar, descifrar, encapsular y desencapsular claves, obtener secretos y elaborar listados de claves y secretos (y sus versiones).
 * Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o que tienen un token no válido.  
-* Los eventos de notificación de Event Grid para la expiración cercana, ya expirado y la directiva de acceso al almacén han cambiado (no se registra el evento de la nueva versión). Los eventos se registran independientemente de si hay una suscripción de eventos creada en el almacén de claves. Para más información, consulte [Esquema de eventos de Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault).
+* Los eventos de notificación de Event Grid para la expiración cercana, ya expirado y la directiva de acceso al almacén han cambiado (no se registra el evento de la nueva versión). Los eventos se registran independientemente de si hay una suscripción de eventos creada en el almacén de claves. Para más información, consulte [Esquema de eventos de Event Grid](../../event-grid/event-schema-key-vault.md).
 
 ## <a name="access-your-logs"></a>Acceso a los registros
 

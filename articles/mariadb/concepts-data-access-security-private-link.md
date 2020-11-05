@@ -1,17 +1,17 @@
 ---
 title: 'Private Link: Azure Database for MariaDB'
 description: Obtenga información sobre cómo funciona Private Link para Azure Database for MariaDB.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 80bc77de30073b2872412f907251b1aad7e334d3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ec43fa995fc9772964db399baa0b6f8c2a7db1db
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425629"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241504"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Private Link para Azure Database for MariaDB
 
@@ -49,7 +49,7 @@ Con Private Link, puede habilitar el acceso entre locales al punto de conexión 
 
 > [!NOTE]
 > En algunos casos, Azure Database for MariaDB y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
-> - Asegúrese de que ambas suscripciones tengan registrado el proveedor de recursos **Microsoft.DBforMariaDB** . Para más información, consulte [resource-manager-registration][resource-manager-portal].
+> - Asegúrese de que ambas suscripciones tengan registrado el proveedor de recursos **Microsoft.DBforMariaDB**. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="configure-private-link-for-azure-database-for-mariadb"></a>Configuración de Private Link para Azure Database for MariaDB
 

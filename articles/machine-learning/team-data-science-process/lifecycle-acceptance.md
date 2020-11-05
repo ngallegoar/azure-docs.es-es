@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2294ccb1d958b229a71e45bb502b8134d8d5c7f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720527"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305663"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Fase de aceptación del cliente del ciclo de vida del proceso de ciencia de datos en equipos
 
@@ -34,13 +34,13 @@ Esta es una representación visual del ciclo de vida de TDSP:
 
 
 ## <a name="goal"></a>Objetivo
-**Finalización de los resultados del proyecto**: confirme que la canalización, el modelo y su implementación en un entorno de producción cumplen los objetivos del cliente.
+**Finalización de los resultados del proyecto** : confirme que la canalización, el modelo y su implementación en un entorno de producción cumplen los objetivos del cliente.
 
 ## <a name="how-to-do-it"></a>Modo de hacerlo
 En esta fase se abordan dos tareas principales:
 
-   * **Validación del sistema**: confirme que el modelo implementado y la canalización cumplen las necesidades del cliente.
-   * **Entrega del proyecto**: entregue el proyecto a la entidad que va a ejecutar el sistema en producción.
+   * **Validación del sistema** : confirme que el modelo implementado y la canalización cumplen las necesidades del cliente.
+   * **Entrega del proyecto** : entregue el proyecto a la entidad que va a ejecutar el sistema en producción.
 
 El cliente debe validar que el sistema satisface sus necesidades empresariales y responde a las preguntas con una precisión aceptable para implementarlo en el entorno de producción y usarlo con la aplicación cliente. Se finaliza y revisa toda la documentación. El proyecto se entrega a la entidad responsable de las operaciones. Esta entidad podría ser, por ejemplo, un equipo de ciencia de datos de clientes o de TI o un agente del cliente responsable del funcionamiento del sistema en producción. 
 
@@ -60,4 +60,4 @@ Estos son los vínculos a cada uno de los pasos del ciclo de vida del Proceso de
 
 Proporcionamos tutoriales completos que muestran todos los pasos del proceso en escenarios concretos. El artículo con [tutoriales de ejemplo](walkthroughs.md) proporciona una lista de los escenarios con vínculos y descripciones de miniatura. En los tutoriales se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente. 
 
-Para obtener ejemplos de cómo ejecutar pasos en TDSP que usan Microsoft Azure Machine Learning Studio, consulte [Uso del Proceso de ciencia de los datos en equipos con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Para obtener ejemplos de cómo ejecutar pasos en TDSP que usan Microsoft Azure Machine Learning Studio, consulte [Uso del Proceso de ciencia de los datos en equipos con Azure Machine Learning](./index.yml).

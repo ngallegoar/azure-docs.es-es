@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: dd9b84c379f368e4cb4bcf1b5122e394456cd9e8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789767"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285381"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -151,13 +151,13 @@ Valide el clúster en la interfaz de usuario o con PowerShell.
 
 Para validar el clúster con la interfaz de usuario, realice los pasos siguientes en una de las máquinas virtuales:
 
-1. En **Administrador del servidor** , seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error** .
-1. En **Administrador de clústeres de conmutación por error** , seleccione **Acción** y, a continuación, seleccione **Validar configuración** .
+1. En **Administrador del servidor** , seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error**.
+1. En **Administrador de clústeres de conmutación por error** , seleccione **Acción** y, a continuación, seleccione **Validar configuración**.
 1. Seleccione **Next** (Siguiente).
 1. En **Seleccionar servidores o un clúster** , escriba el nombre de ambas máquinas virtuales.
-1. En **Opciones de pruebas** , seleccione **Ejecutar solo las pruebas que seleccione** . 
+1. En **Opciones de pruebas** , seleccione **Ejecutar solo las pruebas que seleccione**. 
 1. Seleccione **Next** (Siguiente).
-1. En **Selección de pruebas** , elija todas las pruebas, *excepto* **Almacenamiento** .
+1. En **Selección de pruebas** , elija todas las pruebas, *excepto* **Almacenamiento**.
 
 ## <a name="test-cluster-failover"></a>Conmutación por error del clúster de prueba
 
@@ -177,9 +177,9 @@ Después de haber configurado el clúster de conmutación por error y todos los 
 
 1. Seleccione **Setup** (Configuración).
 
-1. En **Centro de instalación de SQL Server** , seleccione **Instalación** .
+1. En **Centro de instalación de SQL Server** , seleccione **Instalación**.
 
-1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server** . Siga las instrucciones del asistente para instalar la FCI de SQL Server.
+1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar la FCI de SQL Server.
 
 Es preciso que los directorios de datos de FCI estén en los discos compartidos de Azure. 
 
@@ -187,9 +187,9 @@ Es preciso que los directorios de datos de FCI estén en los discos compartidos 
 
 1. Una vez que el programa de instalación instale la FCI en el primer nodo, conéctese al segundo nodo con RDP.
 
-1. Abra el **Centro de instalación de SQL Server** y, a continuación, seleccione **Instalación** .
+1. Abra el **Centro de instalación de SQL Server** y, a continuación, seleccione **Instalación**.
 
-1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server** . Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
+1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
 
    >[!NOTE]
    >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó alguna de estas imágenes, instale las herramientas de SQL Server por separado. Para más información, consulte [Descargar SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -217,7 +217,7 @@ Para enrutar el tráfico de forma adecuada al nodo principal actual, configure l
 
 ## <a name="limitations"></a>Limitaciones
 
-- Solo se admite el registro con el proveedor de recursos de máquina virtual con SQL en [modo de administración ligero](sql-vm-resource-provider-register.md#management-modes).
+- Solo se admite el registro con el proveedor de recursos de máquina virtual con SQL en [modo de administración ligero](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

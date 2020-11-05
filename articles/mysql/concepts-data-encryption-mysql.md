@@ -1,17 +1,17 @@
 ---
 title: 'Cifrado de datos con claves administradas por el cliente: Azure Database for MySQL'
 description: El cifrado de datos de Azure Database for MySQL con una clave administrada por el cliente le permite usar el método Bring Your Own Key (BYOK) para la protección de datos en reposo. También permite a las organizaciones implementar la separación de tareas en la administración de claves y datos.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c7b4d4cf61c1d605bd632ac6fe210171b2ebe01b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 23cf8a79c4978ccb3a65ad968b2ed5a01bb3d0ec
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544127"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242337"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos de Azure Database for MySQL con una clave administrada por el cliente
 
@@ -68,7 +68,7 @@ A continuación se indican los requisitos para configurar la clave administrada 
 
 * La clave administrada por el cliente que se va a usar para cifrar las DEK solo puede ser asimétrica, RSA 2048.
 * La fecha de activación de la clave (si se establece) debe ser una fecha y hora del pasado. La fecha de expiración (si se establece) debe ser una fecha y hora del futuro.
-* El estado de la clave debe ser *Habilitada* .
+* El estado de la clave debe ser *Habilitada*.
 * Si va a [importar una clave existente](/rest/api/keyvault/ImportKey/ImportKey) en el almacén de claves, asegúrese de proporcionarla en uno de los formatos de archivo compatibles (`.pfx`, `.byok`, `.backup`).
 
 ## <a name="recommendations"></a>Recomendaciones
@@ -80,7 +80,7 @@ Cuando vaya a usar el cifrado de datos mediante una clave administrada por el cl
 * Asegúrese de que Key Vault y Azure Database for MySQL residen en la misma región, a fin de garantizar un acceso más rápido para las operaciones de encapsulado y desencapsulado de DEK.
 * Bloquee la KeyVault de Azure solo para **punto de conexión privado y las redes seleccionadas** y permita solamente *servicios de Microsoft* de confianza para proteger los recursos.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagrama que muestra información general de Bring Your Own Key":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="servicio de confianza con AKV":::
 
 A continuación se ofrecen recomendaciones para configurar una clave administrada por el cliente:
 
@@ -90,13 +90,13 @@ A continuación se ofrecen recomendaciones para configurar una clave administrad
 
 ## <a name="inaccessible-customer-managed-key-condition"></a>Condición de clave administrada por el cliente inaccesible
 
-Cuando se configura el cifrado de datos con una clave administrada por el cliente en Key Vault, es necesario el acceso continuo a esta clave para que el servidor permanezca en línea. Si el servidor pierde el acceso a la clave administrada por el cliente en Key Vault, comienza a denegar todas las conexiones al cabo de 10 minutos. El servidor emite un mensaje de error correspondiente y cambia su estado a *Inaccesible* . Algunas de las razones por las que el servidor puede alcanzar este estado son:
+Cuando se configura el cifrado de datos con una clave administrada por el cliente en Key Vault, es necesario el acceso continuo a esta clave para que el servidor permanezca en línea. Si el servidor pierde el acceso a la clave administrada por el cliente en Key Vault, comienza a denegar todas las conexiones al cabo de 10 minutos. El servidor emite un mensaje de error correspondiente y cambia su estado a *Inaccesible*. Algunas de las razones por las que el servidor puede alcanzar este estado son:
 
-* Si creamos un servidor de restauración a un momento dado para el Azure Database for MySQL, que tiene habilitado el cifrado de datos, el servidor recién creado estará en estado de *inaccesible* . Puede solucionar este paso a través de [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* Si creamos una réplica de lectura para el Azure Database for MySQL, que tiene habilitado el cifrado de datos, el servidor de réplica estará en estado de *inaccesible* . Puede solucionar este paso a través de [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* Si elimina el KeyVault, el Azure Database for MySQL no podrá tener acceso a la clave y se moverá a estado de *inaccesible* . Recupere el [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) y vuelva a validar el cifrado de datos para que el servidor esté *disponible* .
-* Si elimina la clave del KeyVault, el Azure Database for MySQL no podrá tener acceso a la clave y se moverá a estado de *inaccesible* . Recupere la [clave](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) y vuelva a validar el cifrado de datos para que el servidor esté *disponible* .
-* Si expira la clave almacenada en Azure KeyVault, la clave dejará de ser válida y el Azure Database for MySQL pasará a estado de *inaccesible* . Extienda la fecha de expiración de la clave mediante [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) y, después, vuelva a validar el cifrado de datos para que el servidor esté *disponible* .
+* Si creamos un servidor de restauración a un momento dado para el Azure Database for MySQL, que tiene habilitado el cifrado de datos, el servidor recién creado estará en estado de *inaccesible*. Puede solucionar este paso a través de [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
+* Si creamos una réplica de lectura para el Azure Database for MySQL, que tiene habilitado el cifrado de datos, el servidor de réplica estará en estado de *inaccesible*. Puede solucionar este paso a través de [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
+* Si elimina el KeyVault, el Azure Database for MySQL no podrá tener acceso a la clave y se moverá a estado de *inaccesible*. Recupere el [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) y vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
+* Si elimina la clave del KeyVault, el Azure Database for MySQL no podrá tener acceso a la clave y se moverá a estado de *inaccesible*. Recupere la [clave](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) y vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
+* Si expira la clave almacenada en Azure KeyVault, la clave dejará de ser válida y el Azure Database for MySQL pasará a estado de *inaccesible*. Extienda la fecha de expiración de la clave mediante [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) y, después, vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Revocación accidental del acceso a la clave de Key Vault
 
@@ -131,11 +131,11 @@ Para evitar incidencias al configurar el cifrado de datos administrado por el cl
 
 En el caso de Azure Database for MySQL, la compatibilidad con el cifrado de datos en reposo con la clave administrada de clientes (CMK) tiene algunas limitaciones:
 
-* La compatibilidad con esta funcionalidad se limita a los planes de tarifa para **De uso general** y **Optimizados para memoria** .
+* La compatibilidad con esta funcionalidad se limita a los planes de tarifa para **De uso general** y **Optimizados para memoria**.
 * Esta característica solo se admite en regiones y servidores que admiten almacenamiento de hasta 16 TB. Para ver la lista de regiones de Azure que admiten almacenamiento de hasta 16 TB, consulte [aquí](concepts-pricing-tiers.md#storage) la sección de almacenamiento de la documentación.
 
     > [!NOTE]
-    > - En todos los nuevos servidores MySQL creados en las regiones mencionadas anteriormente, el soporte para el cifrado con claves de administrador de clientes está **disponible** . El servidor de Restauración a un momento dado (PITR) o la réplica de lectura no calificarán aunque en teoría son "nuevos".
+    > - En todos los nuevos servidores MySQL creados en las regiones mencionadas anteriormente, el soporte para el cifrado con claves de administrador de clientes está **disponible**. El servidor de Restauración a un momento dado (PITR) o la réplica de lectura no calificarán aunque en teoría son "nuevos".
     > - Para validar si el servidor aprovisionado admite hasta 16 TB, puede ir a la hoja del plan de tarifa en el portal y ver el tamaño de almacenamiento máximo admitido por el servidor aprovisionado. Si puede subir el control deslizante hasta 4 TB, es posible que el servidor no admita el cifrado con claves administradas por el cliente. Pero los datos se cifran en todo momento con claves administradas por el servicio. Póngase en contacto con AskAzureDBforMySQL@service.microsoft.com si tiene alguna pregunta.
 
 * El cifrado solo se admite con la clave criptográfica RSA 2048.

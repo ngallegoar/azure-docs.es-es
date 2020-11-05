@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 848f3cd2d5719d62e39f46c166d51e09ec89bd4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b90d13d6f4fa5a33bff38aaa66728a5d0f3d70f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792521"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289948"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creación de una FCI con Espacios de almacenamiento directo (SQL Server en Azure VM)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ En el diagrama siguiente se muestra la solución completa, que usa Espacios de a
 
 En el diagrama anterior se muestran los siguientes recursos en el mismo grupo de recursos:
 
-- Dos máquinas virtuales en un clúster de conmutación por error de Windows Server. Cuando una máquina virtual está en un clúster de conmutación por error también se denomina un *nodo de clúster* o *nodos* .
+- Dos máquinas virtuales en un clúster de conmutación por error de Windows Server. Cuando una máquina virtual está en un clúster de conmutación por error también se denomina un *nodo de clúster* o *nodos*.
 - Cada máquina virtual tiene dos, o más, discos de datos.
 - Espacios de almacenamiento directo sincroniza los datos del disco de datos y presenta el almacenamiento sincronizado como grupo de almacenamiento.
 - El grupo de almacenamiento presenta un volumen compartido de clúster (CSV) al clúster de conmutación por error.
@@ -68,10 +68,10 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
 
    Para instalar clústeres de conmutación por error desde la interfaz de usuario, realice los pasos siguientes en las dos máquinas virtuales.
 
-   1. En el **Administrador del servidor** , seleccione **Administrar** y, a continuación, seleccione **Agregar roles y características** .
-   1. En el **Asistente para agregar roles y características** , seleccione **Siguiente** hasta llegar a **Seleccionar características** .
-   1. En **Seleccionar características** , seleccione **Clúster de conmutación por error** . Incluya todas las características y herramientas de administración requeridas. 
-   1. Seleccione **Agregar características** .
+   1. En el **Administrador del servidor** , seleccione **Administrar** y, a continuación, seleccione **Agregar roles y características**.
+   1. En el **Asistente para agregar roles y características** , seleccione **Siguiente** hasta llegar a **Seleccionar características**.
+   1. En **Seleccionar características** , seleccione **Clúster de conmutación por error**. Incluya todas las características y herramientas de administración requeridas. 
+   1. Seleccione **Agregar características**.
    1. Seleccione **Siguiente** y, después, **Finalizar** para instalar las características.
 
    Para instalar clústeres de conmutación por error con PowerShell, ejecute el siguiente script en una sesión de PowerShell de administrador en una de las máquinas virtuales:
@@ -90,18 +90,18 @@ Valide el clúster en la interfaz de usuario o con PowerShell.
 
 Para validar el clúster con la interfaz de usuario, realice los pasos siguientes en una de las máquinas virtuales:
 
-1. En **Administrador del servidor** , seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error** .
-1. En **Administrador de clústeres de conmutación por error** , seleccione **Acción** y, a continuación, seleccione **Validar configuración** .
+1. En **Administrador del servidor** , seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error**.
+1. En **Administrador de clústeres de conmutación por error** , seleccione **Acción** y, a continuación, seleccione **Validar configuración**.
 1. Seleccione **Next** (Siguiente).
 1. En **Seleccionar servidores o un clúster** , escriba el nombre de ambas máquinas virtuales.
-1. En **Opciones de pruebas** , seleccione **Ejecutar solo las pruebas que seleccione** . 
+1. En **Opciones de pruebas** , seleccione **Ejecutar solo las pruebas que seleccione**. 
 1. Seleccione **Next** (Siguiente).
 1. En **Selección de pruebas** , seleccione todas las pruebas excepto **Almacenamiento** , como se muestra aquí:
 
    ![Seleccionar pruebas de validación de clústeres](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
 1. Seleccione **Next** (Siguiente).
-1. En **Confirmación** , seleccione **Siguiente** .
+1. En **Confirmación** , seleccione **Siguiente**.
 
     El **Asistente para validar una configuración** ejecuta las pruebas de validación.
 
@@ -194,9 +194,9 @@ Después de haber configurado el clúster de conmutación por error y todos los 
 
 1. Localice los medios de instalación. Si la máquina virtual usa una de las imágenes de Azure Marketplace, los medios se encuentran en `C:\SQLServer_<version number>_Full`. Seleccione **Setup** (Configuración).
 
-1. En **Centro de instalación de SQL Server** , seleccione **Instalación** .
+1. En **Centro de instalación de SQL Server** , seleccione **Instalación**.
 
-1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server** . Siga las instrucciones del asistente para instalar la FCI de SQL Server.
+1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar la FCI de SQL Server.
 
    Es preciso que los directorios de datos de FCI estén en el almacenamiento en clúster. Con Espacios de almacenamiento directo, no es un disco compartido, sino un punto de montaje para un volumen en cada servidor. Espacios de almacenamiento directo sincroniza el volumen entre ambos nodos. El volumen se presenta al clúster como un CSV. Utilice el punto de montaje de CSV para los directorios de datos.
 
@@ -206,9 +206,9 @@ Después de haber configurado el clúster de conmutación por error y todos los 
 
 1. Una vez que el programa de instalación instale la FCI en el primer nodo, conéctese al segundo nodo con RDP.
 
-1. Abra **Centro de instalación de SQL Server** . Seleccione **Instalación** .
+1. Abra **Centro de instalación de SQL Server**. Seleccione **Instalación**.
 
-1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server** . Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
+1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
 
    >[!NOTE]
    >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó alguna de estas imágenes, instale las herramientas de SQL Server por separado. Para más información, consulte [Descargar SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -239,7 +239,7 @@ Para enrutar el tráfico de forma adecuada al nodo principal actual, configure l
 
 - Azure Virtual Machines admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2019 con almacenamiento en volúmenes compartidos en clúster (CSV) y un [equilibrador de carga estándar](../../../load-balancer/load-balancer-overview.md).
 - Los discos que se han conectado como discos con formato NTFS solo se pueden usar con Espacios de almacenamiento directo si la opción de elegibilidad del disco está deshabilitada o desactivada, cuando se agrega el almacenamiento al clúster. 
-- Solo se admite el registro con el proveedor de recursos de máquina virtual con SQL en [modo de administración ligero](sql-vm-resource-provider-register.md#management-modes).
+- Solo se admite el registro con el proveedor de recursos de máquina virtual con SQL en [modo de administración ligero](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

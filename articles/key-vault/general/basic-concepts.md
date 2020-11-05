@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c1da45115303bb0a67d6ff796a40ef47c24224a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398517"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287437"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceptos básicos de Azure Key Vault
 
@@ -23,29 +23,29 @@ Azure Key Vault es un servicio en la nube para el almacenamiento de los secretos
 
 Estos son otros términos importantes:
 
-- **Tenant**: un inquilino es la organización que posee y administra una instancia específica de los servicios en la nube de Microsoft. Se usa más a menudo para hacer referencia al conjunto de servicios de Azure y Microsoft 365 de una organización.
+- **Tenant** : un inquilino es la organización que posee y administra una instancia específica de los servicios en la nube de Microsoft. Se usa más a menudo para hacer referencia al conjunto de servicios de Azure y Microsoft 365 de una organización.
 
-- **Propietario del almacén**: un propietario del almacén puede crear un almacén de claves y obtener acceso completo y control sobre él. El propietario del almacén también puede configurar una auditoría para registrar quién accede a los secretos y claves. Los administradores pueden controlar el ciclo de vida de la clave. Pueden revertir a una nueva versión de la clave, realizar copias de seguridad de ella y efectuar otras tareas relacionadas.
+- **Propietario del almacén** : un propietario del almacén puede crear un almacén de claves y obtener acceso completo y control sobre él. El propietario del almacén también puede configurar una auditoría para registrar quién accede a los secretos y claves. Los administradores pueden controlar el ciclo de vida de la clave. Pueden revertir a una nueva versión de la clave, realizar copias de seguridad de ella y efectuar otras tareas relacionadas.
 
-- **Consumidor del almacén**: un consumidor del almacén puede realizar acciones en los recursos del almacén de claves si el propietario del almacén le concede acceso de consumidor. Las acciones disponibles dependen de los permisos concedidos.
+- **Consumidor del almacén** : un consumidor del almacén puede realizar acciones en los recursos del almacén de claves si el propietario del almacén le concede acceso de consumidor. Las acciones disponibles dependen de los permisos concedidos.
 
-- **Administradores de HSM administrado**: los usuarios que tienen asignado el rol de administrador tienen un control total sobre los grupos HSM administrados. Pueden crear más asignaciones de roles para delegar el acceso controlado a otros usuarios.
+- **Administradores de HSM administrado** : los usuarios que tienen asignado el rol de administrador tienen un control total sobre los grupos HSM administrados. Pueden crear más asignaciones de roles para delegar el acceso controlado a otros usuarios.
 
-- **Usuario o responsable de criptografía de HSM administrado**: los roles integrados que normalmente se asignan a usuarios o entidades de servicio que realizarán operaciones criptográficas mediante claves en HSM administrado. El usuario criptográfico puede crear claves, pero no puede eliminarlas.
+- **Usuario o responsable de criptografía de HSM administrado** : los roles integrados que normalmente se asignan a usuarios o entidades de servicio que realizarán operaciones criptográficas mediante claves en HSM administrado. El usuario criptográfico puede crear claves, pero no puede eliminarlas.
 
-- **Cifrado del servicio criptográfico de HSM administrado**: rol integrado que normalmente se asigna a una identidad de servicio administrada por las cuentas de servicio (por ejemplo, la cuenta de almacenamiento) para el cifrado de datos en reposo con la clave administrada por el cliente.
+- **Cifrado del servicio criptográfico de HSM administrado** : rol integrado que normalmente se asigna a una identidad de servicio administrada por las cuentas de servicio (por ejemplo, la cuenta de almacenamiento) para el cifrado de datos en reposo con la clave administrada por el cliente.
 
-- **Recursos**: un recurso es un elemento administrable que está disponible a través de Azure. Ejemplos comunes son una máquina virtual, una cuenta de almacenamiento, una aplicación web, una base de datos y una red virtual. Hay muchos más.
+- **Recursos** : un recurso es un elemento administrable que está disponible a través de Azure. Ejemplos comunes son una máquina virtual, una cuenta de almacenamiento, una aplicación web, una base de datos y una red virtual. Hay muchos más.
 
-- **Grupo de recursos**: Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos puede incluir todos los recursos de la solución o solo aquellos que se desean administrar como grupo. Para decidir cómo asignar los recursos a los grupos de recursos, tenga en cuenta lo que más conviene a su organización.
+- **Grupo de recursos** : Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos puede incluir todos los recursos de la solución o solo aquellos que se desean administrar como grupo. Para decidir cómo asignar los recursos a los grupos de recursos, tenga en cuenta lo que más conviene a su organización.
 
-- **Entidad de seguridad**: una entidad de seguridad de Azure es una identidad de seguridad que usan las aplicaciones, los servicios y las herramientas de automatización que ha creado el usuario para acceder a recursos específicos de Azure. Se puede considerar una "identidad de usuario" (nombre de usuario y contraseña o certificado) con un rol específico y permisos estrechamente controlados. A diferencia de una identidad de usuario general, una entidad de seguridad solo necesita poder realizar acciones específicas. Mejora la seguridad si le concede el nivel de permiso mínimo necesario para realizar sus tareas de administración. Una entidad de seguridad que se usa con una aplicación o un servicio se denomina específicamente **entidad de servicio**.
+- **Entidad de seguridad** : una entidad de seguridad de Azure es una identidad de seguridad que usan las aplicaciones, los servicios y las herramientas de automatización que ha creado el usuario para acceder a recursos específicos de Azure. Se puede considerar una "identidad de usuario" (nombre de usuario y contraseña o certificado) con un rol específico y permisos estrechamente controlados. A diferencia de una identidad de usuario general, una entidad de seguridad solo necesita poder realizar acciones específicas. Mejora la seguridad si le concede el nivel de permiso mínimo necesario para realizar sus tareas de administración. Una entidad de seguridad que se usa con una aplicación o un servicio se denomina específicamente **entidad de servicio**.
 
-- [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md): Azure AD es el servicio de Active Directory para un inquilino. Cada directorio tiene uno o varios dominios. Un directorio puede tener varias suscripciones asociadas, pero solo un inquilino.
+- [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md): Azure AD es el servicio de Active Directory para un inquilino. Cada directorio tiene uno o varios dominios. Un directorio puede tener varias suscripciones asociadas, pero solo un inquilino.
 
-- **Identificador de inquilino de Azure**: un identificador de inquilino es una manera única para identificar una instancia de Azure Active Directory dentro de una suscripción de Azure.
+- **Identificador de inquilino de Azure** : un identificador de inquilino es una manera única para identificar una instancia de Azure Active Directory dentro de una suscripción de Azure.
 
-- **Identidades administradas**: Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. El uso de una identidad administrada permite solucionar este problema más fácilmente, al proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Puede usar esta identidad para autenticarse Key Vault o en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. Para obtener más información, consulte la imagen siguiente y la [introducción a las identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+- **Identidades administradas** : Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. El uso de una identidad administrada permite solucionar este problema más fácilmente, al proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Puede usar esta identidad para autenticarse Key Vault o en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. Para obtener más información, consulte la imagen siguiente y la [introducción a las identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
     ![Diagrama sobre cómo funcionan las identidades administradas para los recursos de Azure](../media/key-vault-whatis/msi.png)
 
@@ -53,8 +53,8 @@ Estos son otros términos importantes:
 Para realizar cualquier operación con Key Vault, deberá autenticarse en la solución primero. Hay tres formas de autenticarse en Key Vault:
 
 - [Identidades administradas de recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md): cuando implementa una aplicación en una máquina virtual en Azure, puede asignar una identidad a la máquina virtual que tiene acceso a Key Vault. También puede asignar identidades a [otros recursos de Azure ](../../active-directory/managed-identities-azure-resources/overview.md). La ventaja de este enfoque es que la aplicación o el servicio no administran la rotación del primer secreto. Azure alterna automáticamente la identidad. Este enfoque es un procedimiento recomendado. 
-- **Entidad de servicio y certificado**: puede usar una entidad de servicio y un certificado asociado que tenga acceso a Key Vault. No se recomienda este enfoque porque el propietario o el desarrollador de la aplicación debe girar el certificado.
-- **Entidad de servicio y secreto**: aunque puede usar una entidad de servicio y un secreto para autenticarse en Key Vault, no se recomienda que lo haga. Es difícil girar automáticamente el secreto de arranque que se utiliza para autenticarse en Key Vault.
+- **Entidad de servicio y certificado** : puede usar una entidad de servicio y un certificado asociado que tenga acceso a Key Vault. No se recomienda este enfoque porque el propietario o el desarrollador de la aplicación debe girar el certificado.
+- **Entidad de servicio y secreto** : aunque puede usar una entidad de servicio y un secreto para autenticarse en Key Vault, no se recomienda que lo haga. Es difícil girar automáticamente el secreto de arranque que se utiliza para autenticarse en Key Vault.
 
 
 ## <a name="key-vault-roles"></a>Roles de Key Vault

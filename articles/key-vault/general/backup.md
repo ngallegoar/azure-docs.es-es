@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c55c87cd8ab1b2cd1dbaf2c877eb341744d822ef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440525"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287461"
 ---
 # <a name="azure-key-vault-backup"></a>Copia de seguridad de Azure Key Vault
 
@@ -25,9 +25,9 @@ En este documento se muestra cómo realizar copias de seguridad de secretos, cla
 
 Azure Key Vault proporciona automáticamente características para ayudarle a mantener la disponibilidad y evitar la pérdida de datos. Haga una copia de seguridad de los secretos solo si tiene una justificación empresarial crítica. La copia de seguridad de los secretos del almacén de claves puede plantear desafíos operativos adicionales, como el mantenimiento de varios conjuntos de registros, permisos y copias de seguridad cuando los secretos expiren o roten.
 
-Key Vault mantiene la disponibilidad en escenarios de desastre y realizará automáticamente una conmutación por error de las solicitudes a una región emparejada sin intervención del usuario. Para más información, consulte [Redundancia y disponibilidad de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
+Key Vault mantiene la disponibilidad en escenarios de desastre y realizará automáticamente una conmutación por error de las solicitudes a una región emparejada sin intervención del usuario. Para más información, consulte [Redundancia y disponibilidad de Azure Key Vault](./disaster-recovery-guidance.md).
 
-Si desea protección contra la eliminación accidental o malintencionada de los secretos, configure las características de eliminación temporal y protección de purga en el almacén de claves. Para más información, consulte el artículo [Información general sobre la eliminación temporal de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+Si desea protección contra la eliminación accidental o malintencionada de los secretos, configure las características de eliminación temporal y protección de purga en el almacén de claves. Para más información, consulte el artículo [Información general sobre la eliminación temporal de Azure Key Vault](./soft-delete-overview.md).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -123,4 +123,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Active el [registro y la supervisión](https://docs.microsoft.com/azure/key-vault/general/logging) para Key Vault.
+Active el [registro y la supervisión](./logging.md) para Key Vault.

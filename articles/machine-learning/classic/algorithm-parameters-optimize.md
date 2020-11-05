@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0ed958d24a7ff499c8cf33974648afb0f4e0a81d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b08318d4c12fd2e6ea8055771ca6792b0fb280dd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367998"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307853"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Selección de parámetros para optimizar los algoritmos de Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 En este tema se describe cómo elegir el hiperparámetro adecuado establecido para un algoritmo en Azure Machine Learning Studio (clásico). La mayoría de los algoritmos de aprendizaje automático tienen parámetros para configurar. Cuando entrena un modelo, tiene que especificar valores para esos parámetros. La eficacia del modelo entrenado depende de los parámetros del modelo que elija. El proceso de encontrar el conjunto óptimo de parámetros se conoce como *selección del modelo*.
 
@@ -28,10 +28,10 @@ Existen varias maneras de realizar la selección del modelo. En Machine Learning
 
 Hay cuatro pasos en el proceso de encontrar el mejor conjunto de parámetros:
 
-1. **Definir el espacio de parámetros**: Para el algoritmo, primero decida los valores de parámetro exactos que quiere tener en cuenta.
-2. **Definir la configuración de validación cruzada**: Decida cómo elegir los plegamientos de validación cruzada.
-3. **Definir la métrica**: Decida qué métrica se va a usar para determinar el mejor conjunto de parámetros; por ejemplo, la precisión, el error cuadrático medio, la precisión, la recuperación o la puntuación f.
-4. **Formar, evaluar y comparar**: Para cada combinación única de los valores de parámetro, se lleva a cabo la validación cruzada y se basa en la métrica de error que defina. Después de la evaluación y la comparación, puede elegir el modelo de máximo rendimiento.
+1. **Definir el espacio de parámetros** : Para el algoritmo, primero decida los valores de parámetro exactos que quiere tener en cuenta.
+2. **Definir la configuración de validación cruzada** : Decida cómo elegir los plegamientos de validación cruzada.
+3. **Definir la métrica** : Decida qué métrica se va a usar para determinar el mejor conjunto de parámetros; por ejemplo, la precisión, el error cuadrático medio, la precisión, la recuperación o la puntuación f.
+4. **Formar, evaluar y comparar** : Para cada combinación única de los valores de parámetro, se lleva a cabo la validación cruzada y se basa en la métrica de error que defina. Después de la evaluación y la comparación, puede elegir el modelo de máximo rendimiento.
 
 En la imagen siguiente se muestra cómo lograrlo en Azure Machine Learning Studio (clásico).
 
@@ -66,12 +66,12 @@ El módulo también tiene una entrada de conjunto de datos opcional. Conecte el 
 
 ![Clasificador del árbol de decisión ampliado](./media/algorithm-parameters-optimize/fig6a.png)
 
-Después, el modelo se evalúa en el conjunto de datos de validación. El puerto de salida izquierdo del módulo muestra métricas diferentes como funciones de los valores del parámetro. El puerto de salida derecho proporciona el modelo entrenado correspondiente al modelo de máximo rendimiento según la métrica elegida (**Precisión** en este caso).  
+Después, el modelo se evalúa en el conjunto de datos de validación. El puerto de salida izquierdo del módulo muestra métricas diferentes como funciones de los valores del parámetro. El puerto de salida derecho proporciona el modelo entrenado correspondiente al modelo de máximo rendimiento según la métrica elegida ( **Precisión** en este caso).  
 
 ![Conjunto de datos de validación](./media/algorithm-parameters-optimize/fig6b.png)
 
 Puede ver los parámetros exactos elegidos mediante la visualización del puerto de salida derecho. Este modelo puede utilizarse para determinar la puntuación de un conjunto de pruebas o en un servicio web de operaciones después de guardarlo como un modelo formado.
 
 <!-- Module References -->
-[partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+[partition-and-sample]: /azure/machine-learning/studio-module-reference/partition-and-sample
+[tune-model-hyperparameters]: /azure/machine-learning/studio-module-reference/tune-model-hyperparameters

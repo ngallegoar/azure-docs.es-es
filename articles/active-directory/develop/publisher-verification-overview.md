@@ -12,16 +12,20 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363426"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308779"
 ---
 # <a name="publisher-verification"></a>Verificación del editor
 
-La verificación del editor ayuda a los administradores y a los usuarios finales a reconocer la autenticidad de los desarrolladores de aplicaciones que se integran en la plataforma de identidad de Microsoft. Cuando una aplicación se marca como comprobada por el publicador, significa que el publicador ha comprobado su identidad con una cuenta de [Microsoft Partner Network](https://partner.microsoft.com/membership) que ha completado el proceso de [verificación](/partner-center/verification-responses) y ha asociado esta cuenta de MPN con el registro de aplicación. 
+La verificación del editor ayuda a los administradores y a los usuarios finales a reconocer la autenticidad de los desarrolladores de aplicaciones que se integran en la plataforma de identidad de Microsoft. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+Cuando una aplicación se marca como comprobada por el publicador, significa que el publicador ha comprobado su identidad con una cuenta de [Microsoft Partner Network](https://partner.microsoft.com/membership) que ha completado el proceso de [verificación](/partner-center/verification-responses) y ha asociado esta cuenta de MPN con el registro de aplicación. 
 
 Aparece una notificación "comprobado" de color azul en la petición de consentimiento de Azure AD y en otras pantallas: ![Petición de consentimiento](./media/publisher-verification-overview/consent-prompt.png)
 

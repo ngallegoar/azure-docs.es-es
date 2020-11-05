@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 6bd86dc855e5a312550abe050603aeaf45b075ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 550603b9315c1abaa025aac804afc4fe674159d2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362357"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310012"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportar y eliminar datos de usuario integrados de Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -78,4 +78,4 @@ Use PowerShell para exportar toda la información a un formato portátil desde A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para documentación sobre los servicios web y el plan de compromiso de facturación, consulte [Referencia de la API REST de Azure Machine Learning Studio (clásico)](https://docs.microsoft.com/rest/api/machinelearning/). 
+Para documentación sobre los servicios web y el plan de compromiso de facturación, consulte [Referencia de la API REST de Azure Machine Learning Studio (clásico)](/rest/api/machinelearning/).

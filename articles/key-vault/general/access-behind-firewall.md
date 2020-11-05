@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 1ab5ae7bf9f1d13458e3bbeeec564fe642eb3303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588735"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289175"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acceso a Azure Key Vault desde detrás de un firewall
 
@@ -43,7 +43,7 @@ Será preciso que las aplicaciones cliente de Key Vault accedan a los puntos de 
 | Entidad de seguridad de usuario o de servicio con una cuenta profesional o educativa con Azure AD (por ejemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Gov:**<br> login.microsoftonline.us:443<br><br>**Azure Alemania:**<br> login.microsoftonline.de:443 |
 | Entidad de seguridad de usuario o de servicio con una cuenta profesional o educativa, más Servicios de federación de Active Directory (AD FS) u otro punto de conexión federado (por ejemplo, user@contoso.com) |Todos los puntos de conexión de una cuenta profesional o educativa, más AD FS u otros puntos de conexión federados |
 
-Hay otros escenarios complejos posibles. Para más información, consulte [Escenarios de autenticación para Azure AD](../../active-directory/develop/authentication-scenarios.md), [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) y [Guía del desarrollador de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
+Hay otros escenarios complejos posibles. Para más información, consulte [Escenarios de autenticación para Azure AD](../../active-directory/develop/authentication-vs-authorization.md), [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) y [Guía del desarrollador de Azure Active Directory](/previous-versions/azure/dn151124(v=azure.100)).  
 
 ## <a name="key-vault-management"></a>Administración de Key Vault
 
@@ -56,7 +56,7 @@ Para la administración de Key Vault (CRUD y establecimiento de una directiva de
 
 ## <a name="key-vault-operations"></a>Operaciones de Key Vault
 
-Para todas las operaciones criptográficas y de administración de objetos (claves y secretos) de Key Vault, es preciso que el cliente de Key Vault acceda al punto de conexión de Key Vault. En función de la ubicación del almacén de claves, el sufijo DNS del punto de conexión varía. El punto de conexión de Key Vault tiene el formato *vault-name*.*region-specific-dns-suffix*, como se describe en la tabla siguiente.  
+Para todas las operaciones criptográficas y de administración de objetos (claves y secretos) de Key Vault, es preciso que el cliente de Key Vault acceda al punto de conexión de Key Vault. En función de la ubicación del almacén de claves, el sufijo DNS del punto de conexión varía. El punto de conexión de Key Vault tiene el formato *vault-name*. *region-specific-dns-suffix* , como se describe en la tabla siguiente.  
 
 | Tipo de operación | Punto de conexión:puerto |
 | --- | --- |
@@ -74,4 +74,4 @@ Authentication and Identity (Azure Active Directory) es un servicio global que p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si le queda alguna duda acerca de Key Vault, visite la [página de preguntas más frecuentes de Microsoft para Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).
+Si le queda alguna duda acerca de Key Vault, visite la [página de preguntas más frecuentes de Microsoft para Azure Key Vault](/answers/topics/azure-key-vault.html).

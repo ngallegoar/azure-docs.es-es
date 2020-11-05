@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: c92671028f851a456b3222100e33958c9e26466a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0cd4cad74257dbf83ec8d30405eacca341a8d31
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785330"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289520"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Traslado de Azure Key Vault a otra suscripción
 
@@ -100,9 +100,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Ahora que el almacén está asociado al identificador de inquilino correcto y que se han quitado las entradas de directiva de acceso antiguas, establezca nuevas entradas de directiva de acceso con el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) de Azure PowerShell o el comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) de la CLI de Azure.
 
-Si usa una identidad administrada para los recursos de Azure, tendrá que actualizarla también al nuevo inquilino de Azure Active Directory. Para más información sobre las identidades administradas, consulte [Identidades administradas para recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Si usa una identidad administrada para los recursos de Azure, tendrá que actualizarla también al nuevo inquilino de Azure Active Directory. Para más información sobre las identidades administradas, consulte [Identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Si usa identidad administrada, también tendrá que actualizar la identidad, ya que la anterior ya no estará en el inquilino de Azure Active Directory correcto. Consulte los siguientes documentos para ayudar a resolver este problema. 
 
-* [Actualización de MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
-* [Transferencia de una suscripción a un nuevo directorio](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
+* [Actualización de MSI](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)
+* [Transferencia de una suscripción a un nuevo directorio](../../role-based-access-control/transfer-subscription.md)

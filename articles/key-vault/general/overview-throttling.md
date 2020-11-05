@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7aa33bb062abf748031b27df46d42e8f13aabfc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819973"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289670"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Guía de las limitaciones de Azure Key Vault
 
@@ -47,8 +47,8 @@ Si observa que lo anterior todavía no satisface sus necesidades, rellene la tab
 
 Si se aprueba la capacidad adicional, tenga en cuenta lo siguiente como resultado del aumento de capacidad:
 1. Cambia el modelo de coherencia de datos. Una vez que un almacén se encuentra en la lista de permitidos con capacidad de rendimiento adicional, la garantía de coherencia de datos del servicio Key Vault cambia (es necesario para satisfacer un mayor volumen de RPS, ya que el servicio Azure Storage subyacente no lo alcanza).  En resumen:
-  1. **Sin inclusión en la lista de permitidos**: El servicio Key Vault reflejará los resultados de una operación de escritura (por ejemplo, SecretSet o CreateKey) inmediatamente en llamadas posteriores (por ejemplo, SecretGet o KeySign).
-  1. **Con inclusión en la lista de permitidos**: El servicio Key Vault reflejará los resultados de una operación de escritura (por ejemplo, SecretSet o CreateKey) en 60 segundos en llamadas posteriores (por ejemplo, SecretGet o KeySign).
+  1. **Sin inclusión en la lista de permitidos** : El servicio Key Vault reflejará los resultados de una operación de escritura (por ejemplo, SecretSet o CreateKey) inmediatamente en llamadas posteriores (por ejemplo, SecretGet o KeySign).
+  1. **Con inclusión en la lista de permitidos** : El servicio Key Vault reflejará los resultados de una operación de escritura (por ejemplo, SecretSet o CreateKey) en 60 segundos en llamadas posteriores (por ejemplo, SecretGet o KeySign).
 1. El código de cliente debe respetar la directiva de retroceso para los reintentos de errores 429. El código de cliente que llama al servicio Key Vault no debe reintentar inmediatamente las solicitudes a Key Vault cuando recibe un código de respuesta 429.  La guía de limitación de Azure Key Vault publicada aquí recomienda aplicar el retroceso exponencial al recibir un código de respuesta HTTP 429.
 
 Si tiene un caso empresarial válido para limitaciones superiores, póngase en contacto con nosotros.
@@ -98,5 +98,4 @@ En este momento, se deben no está recibiendo los códigos de respuesta HTTP 429
 
 ## <a name="see-also"></a>Consulte también
 
-Para obtener una orientación más profunda de la limitación en Microsoft Cloud, consulte [Patrón de limitación](https://docs.microsoft.com/azure/architecture/patterns/throttling).
-
+Para obtener una orientación más profunda de la limitación en Microsoft Cloud, consulte [Patrón de limitación](/azure/architecture/patterns/throttling).

@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9c1a08161dafa500e9cab2038621c2329cfe6d27
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124228"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286895"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introducción a los certificados de Key Vault
 En los escenarios siguientes se describen algunos de los usos principales de servicio de administración de certificados de Key Vault, como los pasos adicionales necesarios para crear el primer certificado en el almacén de claves.
@@ -37,7 +37,7 @@ Los certificados se componen de tres recursos interrelacionados vinculados entre
 
 **Paso 1** : emisores de la entidad de certificación  
 -   La incorporación como administrador de TI, administrador de PKI o cualquiera que administre las cuentas con entidades de certificación para una empresa determinada (p. ej. Contoso) es un requisito previo para usar los certificados de Key Vault.  
-    Las siguientes entidades de certificación son los emisores asociados actualmente con Key Vault. Obtenga más información [aquí](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers).   
+    Las siguientes entidades de certificación son los emisores asociados actualmente con Key Vault. Obtenga más información [aquí](./create-certificate.md#partnered-ca-providers).   
     -   DigiCert: Key Vault ofrece certificados TLS/SSL OV con DigiCert.  
     -   GlobalSign: Key Vault ofrece certificados TLS/SSL OV con GlobalSign.  
 
@@ -50,7 +50,7 @@ Los certificados se componen de tres recursos interrelacionados vinculados entre
     -   Proveedor  
     -   Credenciales: credenciales de la cuenta de la entidad de certificación. Cada entidad de certificación tiene sus datos específicos propios.  
 
-    Para más información acerca de la creación de cuentas con proveedores de entidades de certificación, consulte la entrada correspondiente en el [blog de Key Vault](https://aka.ms/kvcertsblog).  
+    Para más información acerca de la creación de cuentas con proveedores de entidades de certificación, consulte la entrada correspondiente en el [blog de Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault).  
 
 **Paso 3.1** : configure [contactos de certificados](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para las notificaciones. Este es el contacto del usuario de Key Vault. Key Vault no aplica este paso.  
 
@@ -82,7 +82,7 @@ Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repeti
       -   Si la creación se retrasa, se puede iniciar una operación de cancelación. Puede que la cancelación se lleve a cabo o no.  
 
 ### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>Directivas de acceso y seguridad de red asociadas a la entidad de certificación integrada
-El servicio Key Vault envía solicitudes a la entidad de certificación (tráfico saliente). Por lo tanto, es totalmente compatible con los almacenes de claves habilitados para el firewall. El almacén Key Vault no comparte las directivas de acceso con la entidad de certificación. La entidad de certificación debe estar configurada para aceptar solicitudes de firma de forma independiente. [Guía sobre la integración de entidad de certificación de confianza](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+El servicio Key Vault envía solicitudes a la entidad de certificación (tráfico saliente). Por lo tanto, es totalmente compatible con los almacenes de claves habilitados para el firewall. El almacén Key Vault no comparte las directivas de acceso con la entidad de certificación. La entidad de certificación debe estar configurada para aceptar solicitudes de firma de forma independiente. [Guía sobre la integración de entidad de certificación de confianza](./how-to-integrate-certificate-authority.md)
 
 ## <a name="import-a-certificate"></a>Importación de un certificado  
  Como alternativa, se puede importar un certificado a Key Vault (PFX o PEM).  

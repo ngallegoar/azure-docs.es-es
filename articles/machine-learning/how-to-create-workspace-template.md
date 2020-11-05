@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631058"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305481"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -30,7 +30,7 @@ Para obtener más información, consulte [Implementación de una aplicación con
 
 * Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar una plantilla desde una CLI, necesita [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Para usar una plantilla desde una CLI, necesita [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) o la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 * Algunos escenarios requieren abrir una incidencia de soporte técnico. Dichos escenarios son:
 
@@ -69,7 +69,7 @@ La plantilla de ejemplo tiene dos parámetros **necesarios** :
 > [!TIP]
 > Aunque la plantilla asociada a este documento crea un nuevo registro de contenedor de Azure, también puede crear una nueva área de trabajo sin necesidad de generar un registro de contenedor. Se creará uno cuando se realice una operación que lo requiera. Por ejemplo, al entrenar o implementar un modelo.
 >
-> También se puede hacer referencia a un registro de contenedor o una cuenta de almacenamiento existentes en la plantilla de Azure Resource Manager, en lugar de crear otros nuevos. Sin embargo, el registro de contenedor que use debe tener la __cuenta de administrador__ habilitada. Para información sobre cómo habilitar la cuenta de administrador, consulte [Cuenta de administrador](/azure/container-registry/container-registry-authentication#admin-account).
+> También se puede hacer referencia a un registro de contenedor o una cuenta de almacenamiento existentes en la plantilla de Azure Resource Manager, en lugar de crear otros nuevos. Sin embargo, el registro de contenedor que use debe tener la __cuenta de administrador__ habilitada. Para información sobre cómo habilitar la cuenta de administrador, consulte [Cuenta de administrador](../container-registry/container-registry-authentication.md#admin-account).
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -77,7 +77,7 @@ Para más información sobre las plantillas, consulte los siguientes artículos:
 
 * [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Implementación de una aplicación con las plantillas de Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
-* [Tipos de recurso de Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Tipos de recurso de Microsoft.MachineLearningServices](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="deploy-template"></a>Implementar plantilla
 
@@ -541,7 +541,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
-1. Siga los pasos que se indican en [Implementación de recursos desde plantilla personalizada](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Cuando llegue a la pantalla __Seleccionar una plantilla__ , elija la plantilla **201-machine-learning-advanced** en la lista desplegable.
+1. Siga los pasos que se indican en [Implementación de recursos desde plantilla personalizada](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Cuando llegue a la pantalla __Seleccionar una plantilla__ , elija la plantilla **201-machine-learning-advanced** en la lista desplegable.
 1. Seleccione __Seleccionar plantilla__ para usar la plantilla. Proporcione la siguiente información necesaria y cualquier otro parámetro en función del escenario de implementación.
 
    * Suscripción: Seleccione la suscripción de Azure que va a usar para estos recursos.
@@ -576,7 +576,7 @@ Para evitar este problema, se recomienda uno de los siguientes enfoques:
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Para más información sobre el uso de la `accessPolicies` sección de la plantilla, consulte la referencia del objeto [AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Para más información sobre el uso de la `accessPolicies` sección de la plantilla, consulte la referencia del objeto [AccessPolicyEntry](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
 * Compruebe si ya existe el recurso de Key Vault. Si es así, no lo vuelva a crear con la plantilla. Por ejemplo, para usar el Key Vault existente en lugar de crear uno nuevo, realice los siguientes cambios en la plantilla:
 

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: cff4704b388594511809d92957cbbce97e948f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca369f8a3e680a4d2aae49df83dda0cdd3dc4075
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362425"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310161"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Evaluación del rendimiento de un modelo en Azure Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 En este artículo, puede obtener información sobre las métricas que puede usar para supervisar el rendimiento de un modelo en Azure Machine Learning Studio (clásico).  La evaluación del rendimiento de un modelo es una de las fases principales en el proceso de ciencia de datos. Indica el nivel de acierto de las puntuaciones (predicciones) de un conjunto de datos mediante un modelo entrenado. Azure Machine Learning Studio (clásico) admite la evaluación de modelos a través de dos de sus módulos principales de aprendizaje automático: 
@@ -47,7 +47,7 @@ De forma alternativa, es posible usar la validación cruzada para realizar autom
 En las siguientes secciones, se crearán modelos de clasificación y regresión simples, y se evaluará su rendimiento con los módulos [Evaluar modelo][evaluate-model] y [Validar modelo de forma cruzada][cross-validate-model].
 
 ## <a name="evaluating-a-regression-model"></a>Evaluación de un modelo de regresión
-Supongamos que quiere predecir el precio de un automóvil mediante características, como sus dimensiones, caballos de potencia, especificaciones del motor, etc. Se trata de un problema de regresión típico, donde la variable objetivo (*price*) es un valor numérico continuo. Podemos generar un modelo de regresión lineal que, dados los valores de las características de un automóvil determinado, pueda predecir el precio de ese automóvil. Este modelo de regresión se puede usar para puntuar el mismo conjunto de datos con que se entrenó. Cuando se tienen los precios predichos del automóvil, se puede evaluar el rendimiento con una comparación de cuánto se desvían en promedio las predicciones de los precios reales. Para ilustrar esto, se usa el conjunto de datos *Información sobre los precios de los automóviles (datos sin procesar)* disponible en la sección **Conjuntos de datos almacenados** en Machine Learning Studio (clásico).
+Supongamos que quiere predecir el precio de un automóvil mediante características, como sus dimensiones, caballos de potencia, especificaciones del motor, etc. Se trata de un problema de regresión típico, donde la variable objetivo ( *price* ) es un valor numérico continuo. Podemos generar un modelo de regresión lineal que, dados los valores de las características de un automóvil determinado, pueda predecir el precio de ese automóvil. Este modelo de regresión se puede usar para puntuar el mismo conjunto de datos con que se entrenó. Cuando se tienen los precios predichos del automóvil, se puede evaluar el rendimiento con una comparación de cuánto se desvían en promedio las predicciones de los precios reales. Para ilustrar esto, se usa el conjunto de datos *Información sobre los precios de los automóviles (datos sin procesar)* disponible en la sección **Conjuntos de datos almacenados** en Machine Learning Studio (clásico).
 
 ### <a name="creating-the-experiment"></a>Creación del experimento
 Agregue los módulos siguientes al área de trabajo en Azure Machine Learning Studio (clásico):
@@ -65,7 +65,7 @@ Conecte los puertos, tal y como se muestra en la Ilustración 1 y establezca la 
 Figura 1. Evaluación de un modelo de regresión.
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspección de los resultados de la evaluación
-Después de ejecutar el experimento, puede hacer clic en el puerto de salida del módulo [Evaluar modelo][evaluate-model] y seleccionar *Visualizar* para ver los resultados de la evaluación. Las métricas de evaluación disponibles para los modelos de regresión son: *Mean Absolute Error*, *Root Mean Absolute Error*, *Relative Absolute Error*, *Relative Squared Error* y *Coefficient of Determination*.
+Después de ejecutar el experimento, puede hacer clic en el puerto de salida del módulo [Evaluar modelo][evaluate-model] y seleccionar *Visualizar* para ver los resultados de la evaluación. Las métricas de evaluación disponibles para los modelos de regresión son: *Mean Absolute Error* , *Root Mean Absolute Error* , *Relative Absolute Error* , *Relative Squared Error* y *Coefficient of Determination*.
 
 El término "error" representa aquí la diferencia entre el valor predicho y el valor verdadero. Normalmente, se calcula el valor absoluto o el cuadrado de esta diferencia para capturar la magnitud total de errores en todas las instancias, dado que la diferencia entre el valor real y el predicho puede ser negativa en algunos casos. Las métricas de error miden el rendimiento de predicción de un modelo de regresión en cuanto a la desviación media de sus predicciones a partir de los valores reales. Los valores de error más bajos implican que el modelo es más preciso a la hora de realizar predicciones. Una métrica de error general de cero significa que el modelo se ajusta a los datos perfectamente.
 
@@ -107,7 +107,7 @@ Conecte los puertos tal y como se muestra en la Ilustración 5 y establezca la c
 Figura 5. Evaluación de un modelo de clasificación binaria.
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspección de los resultados de la evaluación
-Después de ejecutar el experimento, puede hacer clic en el puerto de salida del módulo [Evaluar modelo][evaluate-model] y seleccionar *Visualizar* para ver los resultados de la evaluación (ilustración 7). Las métricas de evaluación disponibles para los modelos de clasificación binaria son: *Accuracy*, *Precision*, *Recall*, *F1 Score* y *AUC*. Además, el módulo genera una matriz de confusión que muestra el número de positivos verdaderos, falsos negativos, falsos positivos y negativos verdaderos, así como curvas *ROC*, *Precision/Recall* y *Lift*.
+Después de ejecutar el experimento, puede hacer clic en el puerto de salida del módulo [Evaluar modelo][evaluate-model] y seleccionar *Visualizar* para ver los resultados de la evaluación (ilustración 7). Las métricas de evaluación disponibles para los modelos de clasificación binaria son: *Accuracy* , *Precision* , *Recall* , *F1 Score* y *AUC*. Además, el módulo genera una matriz de confusión que muestra el número de positivos verdaderos, falsos negativos, falsos positivos y negativos verdaderos, así como curvas *ROC* , *Precision/Recall* y *Lift*.
 
 La precisión es simplemente la proporción de instancias clasificadas correctamente. Suele ser la primera métrica que se comprueba al evaluar un clasificador. Sin embargo, si los datos de prueba están descompensados (en el caso en que la mayoría de las instancias pertenezcan a una de las clases) o está más interesado en el rendimiento de una de las clases, la precisión no captura realmente la eficacia de un clasificador. En el escenario de clasificación del nivel de ingresos, suponga que está realizando pruebas en datos donde el 99 % de las instancias representan personas con un sueldo menor o igual a 50.000 al año. Es posible conseguir una precisión de 0,99 al predecir la clase "<=50 K" para todas las instancias. En este caso, el clasificador parece hacer un buen trabajo global, pero en realidad no clasifica correctamente ninguno de las personas con ingresos elevados (1 %) correctamente.
 
@@ -123,7 +123,7 @@ Volviendo al problema de clasificación de ingresos, existen varias preguntas de
 
 Ilustración 7. Resultados de la evaluación de clasificación binaria.
 
-Otra métrica relacionada que se usa con frecuencia es **F1 Score**, que tiene en cuenta la precisión y la recuperación. Es la media armónica de estas dos métricas y se calcula como tal: F1 = 2 (precisión x recuperación) / (precisión + recuperación). La puntuación de F1 es una buena forma de resumir la evaluación en un número único, pero siempre es recomendable comprobar la precisión y la recuperación juntas para comprender mejor cómo se comporta un clasificador.
+Otra métrica relacionada que se usa con frecuencia es **F1 Score** , que tiene en cuenta la precisión y la recuperación. Es la media armónica de estas dos métricas y se calcula como tal: F1 = 2 (precisión x recuperación) / (precisión + recuperación). La puntuación de F1 es una buena forma de resumir la evaluación en un número único, pero siempre es recomendable comprobar la precisión y la recuperación juntas para comprender mejor cómo se comporta un clasificador.
 
 Además, es posible inspeccionar la tasa de positivos verdaderos frente a la de falsos positivos en la curva **Característica operativa del receptor (ROC)** y el valor del **área bajo la curva (AUC)** correspondiente. Cuanto más se acerque esta curva a la esquina superior izquierda, mejor será el rendimiento del clasificador (es decir, se maximiza la tasa de positivos verdaderos a la vez que se minimiza la de falsos positivos). Las curvas que están cerca de la diagonal del gráfico son el resultado de los clasificadores que tienden a realizar predicciones que se acercan a una estimación aleatoria.
 
@@ -182,12 +182,12 @@ Ilustración 12. Validación cruzada de un modelo de clasificación multiclase.
 Ilustración 13. Resultados de una validación cruzada de un modelo de clasificación multiclase.
 
 <!-- Module References -->
-[cross-validate-model]: https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
+[cross-validate-model]: /azure/machine-learning/studio-module-reference/cross-validate-model
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[multiclass-decision-forest]: /azure/machine-learning/studio-module-reference/multiclass-decision-forest
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-logistic-regression]: /azure/machine-learning/studio-module-reference/two-class-logistic-regression

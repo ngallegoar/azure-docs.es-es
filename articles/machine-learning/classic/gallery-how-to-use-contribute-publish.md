@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc405c56538ab305d6e0b8a22c1095458cb1264e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340356"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309875"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Comparta y descubra recursos en la Galería de Azure AI.
 
-**SE APLICA A:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -31,9 +31,9 @@ La Galería contiene una variedad de recursos que puede usar para desarrollar su
 Azure AI Gallery contiene una serie de diferentes recursos aportados por Microsoft y miembros de la comunidad de ciencia de datos. Entre ellas se incluyen las siguientes:
 
 * **Experimentos** la galería contiene una gran variedad de experimentos que se han desarrollado en Azure Machine Learning Studio (clásico). Estos van desde experimentos rápidos de prueba de concepto que muestran una técnica específica de aprendizaje automático, hasta soluciones totalmente desarrolladas para problemas de aprendizaje automático complejos.
-* **Tutoriales**: hay disponibles tutoriales que le guiarán por los conceptos y las tecnologías del aprendizaje automático, o que describen métodos avanzados para solucionar diversos problemas de aprendizaje automático.
-* **Colecciones**: una colección permite agrupar experimentos, API y otros recursos de la galería que se refieren a una solución o un concepto específico.
-* **Módulos personalizados**: puede descargar módulos personalizados en el área de trabajo de Studio (clásico) para usarlos en sus propios experimentos.
+* **Tutoriales** : hay disponibles tutoriales que le guiarán por los conceptos y las tecnologías del aprendizaje automático, o que describen métodos avanzados para solucionar diversos problemas de aprendizaje automático.
+* **Colecciones** : una colección permite agrupar experimentos, API y otros recursos de la galería que se refieren a una solución o un concepto específico.
+* **Módulos personalizados** : puede descargar módulos personalizados en el área de trabajo de Studio (clásico) para usarlos en sus propios experimentos.
 
 ## <a name="discover-and-contribute"></a>Descubrir y contribuir
 
@@ -49,7 +49,7 @@ Incluso puede compartir un recurso de interés con amigos o compañeros mediante
 En el momento en que inicia sesión se convierten en un miembro de la comunidad de la Galería. Esto le permite descargar recursos o contribuir con sus propios elementos de la galería para que así otros puedan beneficiarse de las soluciones que haya descubierto.
 
 Puede descargar **experimentos** y **módulos personalizados** para usarlos en el desarrollo de sus propias soluciones de análisis.
-Puede aportar **experimentos**, **tutoriales** y **colecciones** a la galería.
+Puede aportar **experimentos** , **tutoriales** y **colecciones** a la galería.
 
 ## <a name="download-experiments-modules"></a>Descarga de experimentos y módulos
 
@@ -91,9 +91,9 @@ Además, puede iniciar sesión con una herramienta de análisis como Disqus para
 
 1. En la galería, escriba un **nombre** y **etiquetas** que sean descriptivos. Destaque las técnicas que ha usado o el problema real que resuelve. Un ejemplo de un título de experimento descriptivo es "Clasificación binaria: análisis de sentimiento de Twitter".
 
-1. En el cuadro **RESUMEN**, escriba un resumen del experimento. Describa brevemente el problema que resuelve el experimento y cómo se ha abordado.
+1. En el cuadro **RESUMEN** , escriba un resumen del experimento. Describa brevemente el problema que resuelve el experimento y cómo se ha abordado.
 
-1. En el cuadro **DESCRIPCIÓN DETALLADA**, describa los pasos de cada parte del experimento. Algunos temas útiles para incluir son:
+1. En el cuadro **DESCRIPCIÓN DETALLADA** , describa los pasos de cada parte del experimento. Algunos temas útiles para incluir son:
    * Captura de pantalla del gráfico del experimento
    * Orígenes de datos y explicación
    * Procesamiento de datos
@@ -106,9 +106,9 @@ Además, puede iniciar sesión con una herramienta de análisis como Disqus para
    > [!TIP]
    > Los cuadros de texto proporcionados para la edición y la vista previa de Markdown son pequeños. Se recomienda escribir la documentación completa del experimento en un editor de Markdown (como [Visual Studio Code](https://aka.ms/vscode)), copiarla y luego pegarla en el cuadro de texto de la galería.
 
-1. En la página **Selección de imagen**, elija una imagen en miniatura para el experimento. La imagen en miniatura aparece en la parte superior de la página de detalles y en el icono del experimento. Los demás usuarios verán la imagen en miniatura cuando examinen la Galería. Puede cargar una imagen de su equipo o seleccionar una imagen de archivo de la Galería.
+1. En la página **Selección de imagen** , elija una imagen en miniatura para el experimento. La imagen en miniatura aparece en la parte superior de la página de detalles y en el icono del experimento. Los demás usuarios verán la imagen en miniatura cuando examinen la Galería. Puede cargar una imagen de su equipo o seleccionar una imagen de archivo de la Galería.
 
-1. En la página **Configuración**, en **Visibilidad**, elija si va a publicar el contenido públicamente (**Público**) o si solo será accesible para las personas con un vínculo a la página (**No enumerado**).
+1. En la página **Configuración** , en **Visibilidad** , elija si va a publicar el contenido públicamente ( **Público** ) o si solo será accesible para las personas con un vínculo a la página ( **No enumerado** ).
 
    > [!TIP]
    > Si quiere asegurarse de que el aspecto de la documentación sea correcto antes de publicarla, puede publicar el experimento primero como **No enumerado**. Más adelante puede cambiar la configuración de visibilidad a **Público** en la página de detalles del experimento. Tenga en cuenta que después de establecer un experimento en **Público** no podrá cambiarlo más adelante a **No enumerado**.
@@ -125,13 +125,13 @@ Puede cambiar cualquiera de la siguiente información del experimento directamen
 * Resumen o descripción
 * Etiquetas
 * Imagen
-* Configuración de visibilidad (**Público** o **No enumerado**)
+* Configuración de visibilidad ( **Público** o **No enumerado** )
 
 También puede eliminar el experimento de la Galería.
 
 Puede realizar estos cambios, o eliminar el experimento, desde la página de detalles del experimento o desde la página de perfil de la Galería.
 
-* En la página de detalles del experimento, seleccione **Editar** para cambiar los detalles del experimento. La página de detalles se pone en modo de edición. Para realizar cambios, seleccione **Editar** junto al nombre, el resumen o las etiquetas del experimento. Cuando haya terminado de realizar cambios, seleccione **Listo**. Para cambiar la configuración de visibilidad del experimento (**Público** o **No enumerado**), o para eliminar el experimento de la Galería, seleccione el icono **Configuración**.
+* En la página de detalles del experimento, seleccione **Editar** para cambiar los detalles del experimento. La página de detalles se pone en modo de edición. Para realizar cambios, seleccione **Editar** junto al nombre, el resumen o las etiquetas del experimento. Cuando haya terminado de realizar cambios, seleccione **Listo**. Para cambiar la configuración de visibilidad del experimento ( **Público** o **No enumerado** ), o para eliminar el experimento de la Galería, seleccione el icono **Configuración**.
 
 * En la página de perfil, seleccione la flecha abajo del experimento y luego **Editar**. Esto le lleva a la página de detalles del experimento, en modo de edición. Cuando haya terminado de realizar cambios, seleccione **Listo**. Para eliminar el experimento desde la Galería, seleccione **Eliminar**.
 
@@ -152,11 +152,11 @@ Puede ayudar a otros usuarios escribiendo un **tutorial** en la galería que exp
 
 1. Seleccione **Nuevo elemento**.
 
-1. En la página **Descripción**, en **TIPO DE ELEMENTO**, seleccione **Tutorial** o **Colección**. Escriba un nombre, un breve resumen, una descripción detallada y las etiquetas que puedan ayudar a otros usuarios a encontrar su contribución. A continuación, haga clic en **Siguiente**.
+1. En la página **Descripción** , en **TIPO DE ELEMENTO** , seleccione **Tutorial** o **Colección**. Escriba un nombre, un breve resumen, una descripción detallada y las etiquetas que puedan ayudar a otros usuarios a encontrar su contribución. A continuación, haga clic en **Siguiente**.
 
-1. En la página **Selección de imagen**, seleccione una imagen que se muestre con su contribución. Puede cargar su propio archivo de imagen o seleccionar una imagen de archivo. Elija una imagen que pueda ayudar a los usuarios a identificar el contenido y la finalidad de su contribución. A continuación, haga clic en **Siguiente**.
+1. En la página **Selección de imagen** , seleccione una imagen que se muestre con su contribución. Puede cargar su propio archivo de imagen o seleccionar una imagen de archivo. Elija una imagen que pueda ayudar a los usuarios a identificar el contenido y la finalidad de su contribución. A continuación, haga clic en **Siguiente**.
 
-1. En la página **Configuración**, en **Visibilidad**, seleccione si su contribución es **Público** (cualquiera puede verla) o **No enumerado** (solo los usuarios con un vínculo directo pueden verla).
+1. En la página **Configuración** , en **Visibilidad** , seleccione si su contribución es **Público** (cualquiera puede verla) o **No enumerado** (solo los usuarios con un vínculo directo pueden verla).
 
    > [!TIP]
    > Si quiere asegurarse de que el aspecto de la documentación sea correcto antes de publicarla, puede publicar el experimento primero como **No enumerado**. Más adelante puede cambiar la configuración de visibilidad a **Público** en la página de detalles del experimento. Tenga en cuenta que después de establecer un experimento en **Público** no podrá cambiarlo más adelante a **No enumerado**.

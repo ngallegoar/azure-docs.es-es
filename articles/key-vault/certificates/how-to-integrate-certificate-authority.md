@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327423"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289534"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integración de Key Vault con la entidad de certificación DigiCert
 
@@ -23,7 +23,7 @@ Azure Key Vault permite aprovisionar, administrar e implementar fácilmente cert
 
 Los usuarios de Azure Key Vault pueden generar certificados DigiCert directamente desde sus instancias de Key Vault. Key Vault garantizará la administración del ciclo de vida de los certificados de un extremo a otro para los certificados emitidos por DigiCert mediante la asociación de confianza de Key Vault con la entidad de certificación de DigiCert.
 
-Para más información general acerca de los certificados, consulte [Certificados de Azure Key Vault](/azure/key-vault/certificates/about-certificates).
+Para más información general acerca de los certificados, consulte [Certificados de Azure Key Vault](./about-certificates.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -51,9 +51,9 @@ Después de recopilar información sobre la cuenta CertCentral de DigiCert, ahor
 ### <a name="azure-portal"></a>Azure portal
 
 1.  Para agregar la entidad de certificación DigiCert, vaya al almacén de claves en el que desea agregar DigiCert. 
-2.  En las páginas de propiedades de Key Vault, seleccione **Certificados** .
-3.  Seleccione la pestaña **Entidades de certificación** . ![Seleccione Entidades de certificación](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
-4.  Seleccione la opción **Agregar** .
+2.  En las páginas de propiedades de Key Vault, seleccione **Certificados**.
+3.  Seleccione la pestaña **Entidades de certificación**. ![Seleccione Entidades de certificación](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+4.  Seleccione la opción **Agregar**.
  ![agregar entidades de certificación](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  En la pantalla **Creación de una entidad de certificación** , elija los siguientes valores:
     -   **Name** : Agregue un nombre de emisor identificable. Example DigicertCA
@@ -61,7 +61,7 @@ Después de recopilar información sobre la cuenta CertCentral de DigiCert, ahor
     -   **Id. de cuenta** : Escriba el identificador de la cuenta CertCentral de DigiCert.
     -   **Contraseña de cuenta** : Escriba la clave de API que generó en la cuenta CertCentral de DigiCert.
     -   **Id. de la organización** : Escriba OrgID recopilado de la cuenta CertCentral de DigiCert. 
-    -   Haga clic en **Crear** .
+    -   Haga clic en **Crear**.
    
 6.  Verá que DigicertCA se ha agregado ahora a la lista de entidades de certificación.
 
@@ -76,7 +76,7 @@ Si decide instalar y usar PowerShell de forma local, en este tutorial necesitar�
 Login-AzAccount
 ```
 
-1.  Cree un **grupo de recursos** .
+1.  Cree un **grupo de recursos**.
 
 Cree un grupo de recursos de Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
@@ -84,7 +84,7 @@ Cree un grupo de recursos de Azure con [New-AzResourceGroup](/powershell/module/
 New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 ```
 
-2. Cree un **almacén de claves** .
+2. Cree un **almacén de claves**.
 
 Tiene que usar un nombre único para el almacén de claves. Aquí "Contoso-Vaultname" es el nombre del almacén de claves a lo largo de esta guía.
 
@@ -98,9 +98,9 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 
 3. Defina las variables para la información recopilada de la cuenta CertCentral de DigiCert.
 
-- Defina la variable **ID. de cuenta** .
+- Defina la variable **ID. de cuenta**.
 - Defina la variable **Id. org.**
-- Defina la variable **Clave de API** .
+- Defina la variable **Clave de API**.
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
@@ -108,7 +108,7 @@ $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCer
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 ```
 
-4. Establezca el **Emisor** . Esto agregará a DigiCert como entidad de certificación en el almacén de claves. Para más información sobre los parámetros, [consulte este artículo](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer).
+4. Establezca el **Emisor**. Esto agregará a DigiCert como entidad de certificación en el almacén de claves. Para más información sobre los parámetros, [consulte este artículo](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer).
 ```azurepowershell-interactive
 Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```

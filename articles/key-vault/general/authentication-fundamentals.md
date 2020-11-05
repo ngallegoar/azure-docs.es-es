@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604136"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286228"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Aspectos básicos de la autenticación de Key Vault
 
@@ -24,8 +24,8 @@ Como administrador, puede controlar estrechamente qué usuarios y aplicaciones p
 
 En este documento se da por supuesto que está familiarizado con los siguientes conceptos. Si no está familiarizado con ninguno de estos conceptos, siga los pasos de los vínculos de ayuda antes de continuar.
 
-* [Vínculo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) de Azure Active Directory
-* [Vínculo](https://docs.microsoft.com/azure/key-vault/general/authentication#app-identity-and-security-principals) de las entidades de seguridad
+* [Vínculo](../../active-directory/fundamentals/active-directory-whatis.md) de Azure Active Directory
+* [Vínculo](./authentication.md#app-identity-and-security-principals) de las entidades de seguridad
 
 ## <a name="key-vault-configuration-steps-summary"></a>Resumen de los pasos de configuración de Key Vault
 
@@ -42,8 +42,8 @@ Cuando un usuario o una aplicación realiza una solicitud al almacén de claves,
 Siga los vínculos de la documentación siguiente para saber cómo registrar un usuario o una aplicación en Azure Active Directory.
 **Asegúrese de crear una contraseña para el registro de usuarios y un secreto de cliente o una credencial de certificado de cliente para las aplicaciones.**
 
-* [Vínculo](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) para registrar un usuario en Azure Active Directory.
-* [Vínculo](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) para registrar una aplicación en Azure Active Directory.
+* [Vínculo](../../active-directory/fundamentals/add-users-azure-active-directory.md) para registrar un usuario en Azure Active Directory.
+* [Vínculo](../../active-directory/develop/quickstart-register-app.md) para registrar una aplicación en Azure Active Directory.
 
 ## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Asignación de un rol a la entidad de seguridad en Azure Active Directory
 
@@ -57,8 +57,8 @@ En el contexto del almacén de claves, estas asignaciones de roles determinan el
 >[!NOTE]
 > Cuando asigna una asignación de roles a un usuario en el nivel de inquilino de Azure Active Directory, este conjunto de permisos se filtrará a todas las suscripciones, grupos de recursos y recursos dentro del ámbito de la asignación. Para seguir el principio de privilegios mínimos, puede realizar esta asignación de roles en un ámbito más granular. Por ejemplo, puede asignar a un usuario un rol de Lector en el nivel de suscripción y un rol de Propietario para un único almacén de claves. Para ello, vaya a la configuración de la Administración de identidad y acceso (IAM) de una suscripción, un grupo de recursos o un almacén de claves para realizar una asignación de roles en un ámbito más granular.
 
-* [Vínculo](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) para obtener más información acerca de los roles de Azure Active Directory.
-* [Vínculo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para obtener más información acerca de cómo asignar o quitar asignaciones de roles.
+* [Vínculo](../../role-based-access-control/built-in-roles.md) para obtener más información acerca de los roles de Azure Active Directory.
+* [Vínculo](../../role-based-access-control/role-assignments-portal.md) para obtener más información acerca de cómo asignar o quitar asignaciones de roles.
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Configuración de directivas de acceso al almacén de claves para la entidad de seguridad
 
@@ -121,8 +121,8 @@ Las asignaciones de roles de Key Vault son un conjunto de asignaciones de roles 
 
 Para obtener más información acerca de Key Vault RBAC, consulte los siguientes documentos:
 
-* [Vínculo](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac) de Azure Key Vault RBAC
-* [Vínculo](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) de los roles de Azure Key Vault RBAC (versión preliminar)
+* [Vínculo](./secure-your-key-vault.md#management-plane-and-azure-rbac) de Azure Key Vault RBAC
+* [Vínculo](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) de los roles de Azure Key Vault RBAC (versión preliminar)
 
 ## <a name="configure-key-vault-firewall"></a>Configuración del firewall de Key Vault
 
@@ -132,9 +132,9 @@ Para habilitar el firewall del almacén de claves, haga clic en la pestaña Rede
 
 * Agregue direcciones IPv4 a la lista de permitidos del firewall del almacén de claves. Esta opción funciona mejor para las aplicaciones que tienen direcciones IP estáticas.
 
-* Agregue una red virtual al firewall del almacén de claves. Esta opción funciona mejor para los recursos de Azure que tienen direcciones IP dinámicas como Virtual Machines. Puede agregar recursos de Azure a una red virtual y agregar la red virtual a la lista de elementos permitidos del firewall del almacén de claves. Esta opción usa un punto de conexión de servicio que es una dirección IP privada dentro de la red virtual. Gracias a ello, tendrá una capa adicional de protección para que no se enrute el tráfico entre el almacén de claves y la red virtual a través de la red pública de Internet. Para obtener más información acerca del punto de conexión de servicio, consulte la documentación siguiente. [vínculo](https://docs.microsoft.com/azure/key-vault/general/network-security)
+* Agregue una red virtual al firewall del almacén de claves. Esta opción funciona mejor para los recursos de Azure que tienen direcciones IP dinámicas como Virtual Machines. Puede agregar recursos de Azure a una red virtual y agregar la red virtual a la lista de elementos permitidos del firewall del almacén de claves. Esta opción usa un punto de conexión de servicio que es una dirección IP privada dentro de la red virtual. Gracias a ello, tendrá una capa adicional de protección para que no se enrute el tráfico entre el almacén de claves y la red virtual a través de la red pública de Internet. Para obtener más información acerca del punto de conexión de servicio, consulte la documentación siguiente. [vínculo](./network-security.md)
 
-* Agregue una conexión de vínculo privado al almacén de claves. Esta opción conecta la red virtual directamente a una instancia determinada del almacén de claves, gracias a la cual el almacén de claves se coloca dentro de la red virtual. Para obtener más información sobre la configuración de una conexión de punto de conexión privado en el almacén de claves, consulte el siguiente [vínculo](https://docs.microsoft.com/azure/key-vault/general/private-link-service).
+* Agregue una conexión de vínculo privado al almacén de claves. Esta opción conecta la red virtual directamente a una instancia determinada del almacén de claves, gracias a la cual el almacén de claves se coloca dentro de la red virtual. Para obtener más información sobre la configuración de una conexión de punto de conexión privado en el almacén de claves, consulte el siguiente [vínculo](./private-link-service.md).
 
 ## <a name="test-your-service-principals-ability-to-access-key-vault"></a>Prueba de la capacidad de la entidad de servicio para acceder al almacén de claves
 
@@ -142,11 +142,11 @@ Una vez que haya seguido todos los pasos anteriores, podrá establecer y recuper
 
 ### <a name="authentication-process-for-users-examples"></a>Proceso de autenticación para usuarios (ejemplos)
 
-* Los usuarios pueden iniciar sesión en Azure Portal para usar el almacén de claves. [Inicio rápido del portal de Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+* Los usuarios pueden iniciar sesión en Azure Portal para usar el almacén de claves. [Inicio rápido del portal de Key Vault](./quick-create-portal.md)
 
-* El usuario puede usar la CLI de Azure para usar el almacén de claves. [Inicio rápido de la CLI de Azure de Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-cli)
+* El usuario puede usar la CLI de Azure para usar el almacén de claves. [Inicio rápido de la CLI de Azure de Key Vault](./quick-create-cli.md)
 
-* El usuario puede usar Azure PowerShell para usar el almacén de claves. [Inicio rápido de Azure PowerShell de Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)
+* El usuario puede usar Azure PowerShell para usar el almacén de claves. [Inicio rápido de Azure PowerShell de Key Vault](./quick-create-powershell.md)
 
 ### <a name="azure-active-directory-authentication-process-for-applications-or-services-examples"></a>Proceso de autenticación de Azure Active Directory para aplicaciones o servicios (ejemplos)
 
@@ -156,7 +156,7 @@ Una vez que haya seguido todos los pasos anteriores, podrá establecer y recuper
 
 * Un recurso de Azure usa la autenticación de MSI para obtener un token de Azure Active Directory. 
 
-* [Vínculo](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para obtener más información sobre la autenticación de MSI
+* [Vínculo](../../active-directory/managed-identities-azure-resources/overview.md) para obtener más información sobre la autenticación de MSI
 
 ### <a name="authentication-process-for-application-python-example"></a>Proceso de autenticación para la aplicación (ejemplo de Python)
 
@@ -196,4 +196,4 @@ if __name__ == "__main__":
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la autenticación del almacén de claves, consulte el siguiente documento. [Autenticación en Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+Para obtener más información sobre la autenticación del almacén de claves, consulte el siguiente documento. [Autenticación en Azure Key Vault](./authentication.md)

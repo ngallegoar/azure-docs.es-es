@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a36f69c9956dd05c5fbd85d7e37b90c0b1e4c21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09eeafa99c14984f74f8807014f646379c7507f0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897649"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314220"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Supervisión y recopilación de datos de los puntos de conexión del servicio web ML
 
@@ -178,11 +178,11 @@ Azure Application Insights almacena los registros del servicio en el mismo grupo
 
     [![Localizar la dirección URL de Application Insights](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. En Application Insights, en la pestaña **Información general** o en la sección __Supervisión__, seleccione __Registros__.
+1. En Application Insights, en la pestaña **Información general** o en la sección __Supervisión__ , seleccione __Registros__.
 
     [![Pestaña Información general de supervisión](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
-1. Para ver la información registrada en el archivo score.py, examine la tabla de __seguimientos__. La siguiente consulta busca registros en los que se registró el valor de __entrada__:
+1. Para ver la información registrada en el archivo score.py, examine la tabla de __seguimientos__. La siguiente consulta busca registros en los que se registró el valor de __entrada__ :
 
     ```kusto
     traces
@@ -204,9 +204,9 @@ Para registrar la información de una solicitud de servicio web, agregue instruc
 ## <a name="export-data-for-retention-and-processing"></a>Exportación de datos para su retención y procesamiento
 
 >[!Important]
-> Azure Application Insights solo admite exportaciones a Blob Storage. Para más información sobre los límites de esta implementación, consulte [Exportación de datos de telemetría desde App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Azure Application Insights solo admite exportaciones a Blob Storage. Para más información sobre los límites de esta implementación, consulte [Exportación de datos de telemetría desde App Insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
 
-Use la opción de [exportación continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) de Application Insights para exportar datos a una cuenta de almacenamiento de blobs donde pueda definir la configuración de retención. Application Insights exporta los datos en formato JSON. 
+Use la opción de [exportación continua](../azure-monitor/app/export-telemetry.md) de Application Insights para exportar datos a una cuenta de almacenamiento de blobs donde pueda definir la configuración de retención. Application Insights exporta los datos en formato JSON. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Exportación continua":::
 
@@ -215,8 +215,8 @@ Use la opción de [exportación continua](https://docs.microsoft.com/azure/azure
 En este artículo, aprendió a habilitar el registro y ver los registros de los puntos de conexión del servicio web. Pruebe estos artículos para conocer los pasos siguientes:
 
 
-* [Implementación de un modelo en un clúster de AKS](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+* [Implementación de un modelo en un clúster de AKS](./how-to-deploy-azure-kubernetes-service.md)
 
-* [Implementación de un modelo en Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+* [Implementación de un modelo en Azure Container Instances](./how-to-deploy-azure-container-instance.md)
 
-* [MLOps: Administración, implementación y supervisión de modelos con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) para más información sobre cómo aprovechar los datos recopilados de los modelos en producción. Estos datos pueden ayudar a mejorar continuamente el proceso de aprendizaje automático.
+* [MLOps: Administración, implementación y supervisión de modelos con Azure Machine Learning](./concept-model-management-and-deployment.md) para más información sobre cómo aprovechar los datos recopilados de los modelos en producción. Estos datos pueden ayudar a mejorar continuamente el proceso de aprendizaje automático.

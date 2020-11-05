@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 7f21d3ed3d5e71c2f87777316e7584011490043a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fad51f5c8ec426792c74b1a14ea80ab47c2d892
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757782"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312295"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creación y exploración de un conjunto de datos de Azure Machine Learning con etiquetas
 
@@ -27,8 +27,8 @@ Los conjuntos de datos de Azure Machine Learning se conocen como conjuntos de da
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
-* [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) o acceso a [Azure Machine Learning Studio](https://ml.azure.com/).
-    * Instalación del paquete [azure-contrib-dataset](https://docs.microsoft.com/python/api/azureml-contrib-dataset/?view=azure-ml-py&preserve-view=true)
+* [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) o acceso a [Azure Machine Learning Studio](https://ml.azure.com/).
+    * Instalación del paquete [azure-contrib-dataset](/python/api/azureml-contrib-dataset/?preserve-view=true&view=azure-ml-py)
 * Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 * Acceda a un proyecto de etiquetado de datos de Azure Machine Learning. Si no tiene un proyecto de etiquetado, siga [estos pasos](how-to-create-labeling-projects.md) para crearlo.
 
@@ -52,7 +52,7 @@ Cargue los conjuntos de datos con etiquetas en una trama de datos de Pandas o un
 
 ### <a name="pandas-dataframe"></a>Dataframe de Pandas
 
-Puede cargar conjuntos de datos con etiqueta en una trama de datos de Pandas con el método [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) de la clase `azureml-contrib-dataset`. Instale la clase con el siguiente comando de shell: 
+Puede cargar conjuntos de datos con etiqueta en una trama de datos de Pandas con el método [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) de la clase `azureml-contrib-dataset`. Instale la clase con el siguiente comando de shell: 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -87,7 +87,7 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Conjuntos de datos de Torchvision
 
-Puede cargar conjuntos de datos con etiquetas en el conjunto de datos de Torchvision con el método [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) también desde la clase `azureml-contrib-dataset`. Para usar este método, debe tener [PyTorch](https://pytorch.org/) instalado. 
+Puede cargar conjuntos de datos con etiquetas en el conjunto de datos de Torchvision con el método [to_torchvision()](/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-torchvision--) también desde la clase `azureml-contrib-dataset`. Para usar este método, debe tener [PyTorch](https://pytorch.org/) instalado. 
 
 En el código siguiente, el conjunto de datos `animal_labels` es la salida de un proyecto de etiquetado guardado anteriormente en el área de trabajo.
 

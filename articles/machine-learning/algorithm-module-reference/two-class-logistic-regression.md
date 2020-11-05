@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bd42b6e9f1498db294b57d0ea1ffdac5245be8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907694"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309986"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo Regresión logística de dos clases
 
@@ -22,7 +22,7 @@ En este artículo se describe un módulo del diseñador de Azure Machine Learnin
 
 Utilice este módulo para crear un modelo de regresión logística que pueda usarse para predecir dos resultados (y solo dos). 
 
-La regresión logística es una técnica estadística conocida que se usa para el modelado de muchos tipos de problemas. Este algoritmo es un método de *aprendizaje supervisado*; por lo tanto, debe proporcionar un conjunto de datos que ya contengan los resultados para entrenar el modelo.  
+La regresión logística es una técnica estadística conocida que se usa para el modelado de muchos tipos de problemas. Este algoritmo es un método de *aprendizaje supervisado* ; por lo tanto, debe proporcionar un conjunto de datos que ya contengan los resultados para entrenar el modelo.  
 
 ### <a name="about-logistic-regression"></a>Acerca de la regresión logística  
 
@@ -58,7 +58,7 @@ Por ejemplo, la columna de etiqueta podría ser [Votado] con los valores posible
      Este algoritmo es compatible con una combinación lineal de los valores de regularización L1 y L2: es decir, si <code>x = L1</code> y <code>y = L2</code>, <code>ax + by = c</code> define el intervalo lineal de los términos de regularización.  
   
     > [!NOTE]
-    >  ¿Desea obtener más información sobre las regularizaciones L1 y L2? En el siguiente artículo se proporciona una explicación de las diferencias entre las regularizaciones L1 y L2 y cómo afectan al ajuste del modelo, con códigos de ejemplo para los modelos de red neuronal y regresión logística:  [Regularización L1 y L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  ¿Desea obtener más información sobre las regularizaciones L1 y L2? En el siguiente artículo se proporciona una explicación de las diferencias entre las regularizaciones L1 y L2 y cómo afectan al ajuste del modelo, con códigos de ejemplo para los modelos de red neuronal y regresión logística:  [Regularización L1 y L2 para Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)  
     >
     > Se han diseñado diferentes combinaciones lineales de los términos de L1 y L2 para los modelos de regresión logística: por ejemplo, [regularización elástica neta](https://wikipedia.org/wiki/Elastic_net_regularization). Se recomienda hacer referencia a estas combinaciones para definir una combinación lineal que sea efectiva en el modelo.
       
@@ -97,4 +97,4 @@ Una vez completado el entrenamiento:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

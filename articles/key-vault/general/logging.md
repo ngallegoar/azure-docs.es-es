@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131180"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286705"
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
 
@@ -26,7 +26,7 @@ Puede acceder a la información de registro 10 minutos (como máximo) después d
 * Utilice los métodos de control de acceso de Azure estándar para proteger los registros mediante la restricción de quién puede tener acceso a ellos.
 * Elimine los registros que ya no desee mantener en la cuenta de almacenamiento.
 
-Para obtener información general sobre Key Vault, consulte [¿Qué es Azure Key Vault?](overview.md) Para obtener información acerca de dónde está disponible Key Vault, consulte la [página de precios](https://azure.microsoft.com/pricing/details/key-vault/). Para obtener información acerca del uso de [Azure Monitor para Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
+Para obtener información general sobre Key Vault, consulte [¿Qué es Azure Key Vault?](overview.md) Para obtener información acerca de dónde está disponible Key Vault, consulte la [página de precios](https://azure.microsoft.com/pricing/details/key-vault/). Para obtener información acerca del uso de [Azure Monitor para Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="interpret-your-key-vault-logs"></a>Interpretación de los registros de Key Vault
 
@@ -75,7 +75,7 @@ En la tabla siguiente se muestran los nombres y las descripciones de los campos:
 | **identity** |Identidad del token que se ha presentado al realizar la solicitud de la API REST. Suele ser un "usuario", una "entidad de servicio" o una combinación de "usuario + appId", como en el caso de una solicitud procedente de un cmdlet de Azure PowerShell. |
 | **properties** |Información que varía en función de la operación ( **operationName** ). En la mayoría de los casos, este campo contiene información del cliente (la cadena del agente de usuario pasada por el cliente), el URI de la solicitud de la API REST exacta y el código de estado HTTP. Además, cuando se devuelve un objeto como resultado de una solicitud (por ejemplo, **KeyCreate** o **VaultGet** ) también contiene el URI de la clave (como `id`), el URI del almacén o el URI del secreto. |
 
-Los valores del campo **operationName** tienen el formato *ObjectVerb* . Por ejemplo:
+Los valores del campo **operationName** tienen el formato *ObjectVerb*. Por ejemplo:
 
 * Todas las operaciones del almacén de claves tienen el formato `Vault<action>`, como `VaultGet` y `VaultCreate`.
 * Todas las operaciones de claves tienen el formato `Key<action>`, como `KeySign` y `KeyList`.
@@ -88,32 +88,32 @@ En la tabla siguiente se muestran los valores **operationName** y los comandos c
 | operationName | Comando de la API REST |
 | --- | --- |
 | **Autenticación** |Autenticar mediante un punto de conexión de Azure Active Directory |
-| **VaultGet** |[Obtener información acerca de un almacén de claves](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| **VaultPut** |[Crear o actualizar un almacén de claves](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultDelete** |[Eliminar un almacén de claves](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| **VaultPatch** |[Crear o actualizar un almacén de claves](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultList** |[Lista de todos los almacenes de claves en un grupo de recursos](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| **KeyCreate** |[Crear una clave](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| **KeyGet** |[Obtener información sobre una clave](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **KeyImport** |[Importar una clave a un almacén](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| **KeyBackup** |[Hacer una copia de seguridad de una clave](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[Eliminar una clave](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **KeyRestore** |[Restauración de una clave](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[Firmar con una clave](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyVerify** |[Comprobar con una clave](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| **KeyWrap** |[Encapsular una clave](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| **KeyUnwrap** |[Desencapsular una clave](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| **KeyEncrypt** |[Cifrar con una clave](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[Descifrado con una clave](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[Actualizar una clave](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **KeyList** |[Enumeración de las claves en un almacén](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **KeyListVersions** |[Enumerar las versiones de una clave](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[Crear un secreto](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[Obtener un secreto](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[Actualizar un secreto](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[Eliminar un secreto](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[Enumerar secretos en un almacén](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[Enumerar versiones de un secreto](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultGet** |[Obtener información acerca de un almacén de claves](/rest/api/keyvault/vaults) |
+| **VaultPut** |[Crear o actualizar un almacén de claves](/rest/api/keyvault/vaults) |
+| **VaultDelete** |[Eliminar un almacén de claves](/rest/api/keyvault/vaults) |
+| **VaultPatch** |[Crear o actualizar un almacén de claves](/rest/api/keyvault/vaults) |
+| **VaultList** |[Lista de todos los almacenes de claves en un grupo de recursos](/rest/api/keyvault/vaults) |
+| **KeyCreate** |[Crear una clave](/rest/api/keyvault/createkey) |
+| **KeyGet** |[Obtener información sobre una clave](/rest/api/keyvault/getkey) |
+| **KeyImport** |[Importar una clave a un almacén](/rest/api/keyvault/vaults) |
+| **KeyBackup** |[Hacer una copia de seguridad de una clave](/rest/api/keyvault/backupkey) |
+| **KeyDelete** |[Eliminar una clave](/rest/api/keyvault/deletekey) |
+| **KeyRestore** |[Restauración de una clave](/rest/api/keyvault/restorekey) |
+| **KeySign** |[Firmar con una clave](/rest/api/keyvault/sign) |
+| **KeyVerify** |[Comprobar con una clave](/rest/api/keyvault/vaults) |
+| **KeyWrap** |[Encapsular una clave](/rest/api/keyvault/wrapkey) |
+| **KeyUnwrap** |[Desencapsular una clave](/rest/api/keyvault/unwrapkey) |
+| **KeyEncrypt** |[Cifrar con una clave](/rest/api/keyvault/encrypt) |
+| **KeyDecrypt** |[Descifrado con una clave](/rest/api/keyvault/decrypt) |
+| **KeyUpdate** |[Actualizar una clave](/rest/api/keyvault/updatekey) |
+| **KeyList** |[Enumeración de las claves en un almacén](/rest/api/keyvault/vaults) |
+| **KeyListVersions** |[Enumerar las versiones de una clave](/rest/api/keyvault/getkeyversions) |
+| **SecretSet** |[Crear un secreto](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[Obtener un secreto](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[Actualizar un secreto](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[Eliminar un secreto](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[Enumerar secretos en un almacén](/rest/api/keyvault/vaults) |
+| **SecretListVersions** |[Enumerar versiones de un secreto](/rest/api/keyvault/getsecretversions) |
 | **VaultAccessPolicyChangedEventGridNotification** | La directiva de acceso del almacén ha cambiado el evento publicado. |
 | **SecretNearExpiryEventGridNotification** |Se ha publicado el evento de expiración cercana del secreto. |
 | **SecretExpiredEventGridNotification** |Se ha publicado el evento de expiración del secreto. |

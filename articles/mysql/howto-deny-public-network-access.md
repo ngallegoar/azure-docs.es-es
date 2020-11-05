@@ -1,17 +1,17 @@
 ---
 title: 'Denegación del acceso a una red pública: Azure portal - Azure Database for MySQL'
 description: Información acerca de cómo configurar la denegación del acceso a una red pública mediante Azure Portal para Azure Database for MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: eb5c4e4c4dfb73b2f7c9dc9f2629296790790885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a98ab9ea347ba4d9ec53c80626f97b429e083cb1
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896135"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242388"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mysql-using-azure-portal"></a>Denegación del acceso a una red pública en Azure Database for MySQL mediante Azure Portal
 
@@ -29,7 +29,7 @@ Siga estos pasos para establecer la denegación del acceso a una red pública de
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione el servidor de Azure Database for MySQL existente.
 
-1. En la página del servidor de MySQL, en **Configuración**, haga clic en **Seguridad de la conexión** para abrir la página de configuración de seguridad de la conexión.
+1. En la página del servidor de MySQL, en **Configuración** , haga clic en **Seguridad de la conexión** para abrir la página de configuración de seguridad de la conexión.
 
 1. En **Deny Public Network Access** (Denegar acceso de red pública), seleccione **Yes** (Sí) para habilitar la denegación del acceso público para el servidor de MySQL.
 
@@ -39,7 +39,7 @@ Siga estos pasos para establecer la denegación del acceso a una red pública de
 
 1. Se enviará una notificación para confirmar la correcta habilitación de la configuración de seguridad de la conexión.
 
-    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png" alt-text="Denegación del acceso de red de Azure Database for MySQL":::
+    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png" alt-text="Denegación correcta del acceso de red de Azure Database for MySQL":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

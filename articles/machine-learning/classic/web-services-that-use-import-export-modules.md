@@ -11,16 +11,16 @@ ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a963a9f10ee23c50f50e66191e92f0839c457d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc348318401c9362636893d70294496c7012408
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362855"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308467"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementación de servicios web de Azure Machine Learning Studio (clásico) que usan módulos de importación y exportación de datos
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Cuando se crea un experimento predictivo, normalmente se agregan una entrada y una salida de servicio web. Al implementar el experimento, los consumidores pueden enviar y recibir datos desde el servicio web a través de las entradas y salidas. En algunas aplicaciones, los datos del consumidor pueden estar disponibles desde una fuente de datos o ya residir en un origen de datos externo, como el Almacenamiento de blobs de Azure. En estos casos, no se requiere que lean y escriban datos mediante entradas y salidas del servicio web. En su lugar, pueden utilizar el servicio de ejecución por lotes (BES) para leer los datos del origen de datos mediante un módulo de importación de datos y escribir los resultados de puntuación en una ubicación de datos diferente mediante un módulo de exportación de datos.
@@ -41,7 +41,7 @@ Para leer los datos de la tabla de SQL de Azure:
 3. En la lista de resultados, agregue un módulo *Importar datos* al lienzo del experimento.
 4. Conecte la salida del módulo *Import Data* (Importar datos) a la entrada del módulo *Clean Missing Data* (Limpiar datos que faltan).
 5. En el panel de propiedades, seleccione **Azure SQL Database** en el menú desplegable **Origen de datos**.
-6. En los campos **Nombre del servidor de base de datos**, **Nombre de base de datos**, **Nombre de usuario** y **Contraseña**, escriba la información apropiada para la base de datos.
+6. En los campos **Nombre del servidor de base de datos** , **Nombre de base de datos** , **Nombre de usuario** y **Contraseña** , escriba la información apropiada para la base de datos.
 7. En el campo Consulta de base de datos, escriba la siguiente consulta.
 
     ```tsql
@@ -73,12 +73,12 @@ A continuación, configure el experimento predictivo desde el que se implementa 
 4. En la lista de resultados, agregue un módulo *Exportar datos* al lienzo del experimento.
 5. Conecte la salida del módulo *Score Model* (Puntuar modelo) a la entrada del módulo *Export Data* (Exportar datos).
 6. En el panel de propiedades, seleccione **Azure SQL Database** en el menú desplegable Origen de datos.
-7. En los campos **Nombre del servidor de base de datos**, **Nombre de base de datos**, **Server user account name** (Nombre de la cuenta de usuario del servidor) y **Server user account password** (Contraseña de la cuenta de usuario del servidor) escriba la información apropiada para la base de datos.
+7. En los campos **Nombre del servidor de base de datos** , **Nombre de base de datos** , **Server user account name** (Nombre de la cuenta de usuario del servidor) y **Server user account password** (Contraseña de la cuenta de usuario del servidor) escriba la información apropiada para la base de datos.
 8. En el campo **Comma separated list of columns to be saved** (Lista de elementos separados por comas de las columnas que guardar) escriba Scored Labels.
-9. En el campo **Data table name**(Nombre de tabla de datos), escriba dbo.ScoredLabels. Si la tabla no existe, se crea cuando se ejecuta el experimento o se llama al servicio web.
+9. En el campo **Data table name** (Nombre de tabla de datos), escriba dbo.ScoredLabels. Si la tabla no existe, se crea cuando se ejecuta el experimento o se llama al servicio web.
 10. En el campo **Comma separated list of datatable columns** (Lista de elementos separados por comas de las columnas de tablas de datos) escriba ScoredLabels.
 
-Cuando se escribe una aplicación que llama al servicio web final, puede especificar una consulta de entrada diferente u otra tabla de destino en tiempo de ejecución. Para configurar estas entradas y salidas, utilice la característica de parámetros del servicio web para establecer la propiedad *Origen de datos* del módulo *Importar datos* y la propiedad de destino de datos del módulo *Exportar datos*.  Para obtener más información sobre los parámetros del servicio web, consulte la entrada [Azure Machine Learning Studio Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) (Parámetros del servicio web de Azure Machine Learning Studio) en el blog de Cortana Intelligence y Machine Learning.
+Cuando se escribe una aplicación que llama al servicio web final, puede especificar una consulta de entrada diferente u otra tabla de destino en tiempo de ejecución. Para configurar estas entradas y salidas, utilice la característica de parámetros del servicio web para establecer la propiedad *Origen de datos* del módulo *Importar datos* y la propiedad de destino de datos del módulo *Exportar datos*.  Para obtener más información sobre los parámetros del servicio web, consulte la entrada [Azure Machine Learning Studio Web Service Parameters](/archive/blogs/machinelearning/azureml-web-service-parameters) (Parámetros del servicio web de Azure Machine Learning Studio) en el blog de Cortana Intelligence y Machine Learning.
 
 Para configurar los parámetros del servicio web para la consulta de importación y la tabla de destino:
 
@@ -132,7 +132,7 @@ Para realizar la implementación como un servicio web nuevo y crear una aplicaci
 1. En la parte inferior del lienzo del experimento, haga clic en **Ejecutar**.
 2. Cuando la ejecución haya terminado, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [New]** (Implementar servicio web [nuevo]).
 3. En la página Deploy Experiment (Implementar experimento), escriba un nombre para el servicio web, seleccione un plan de precios y haga clic en **Implementar**.
-4. En la página **Inicio rápido**, haga clic en **Consume** (Consumir).
+4. En la página **Inicio rápido** , haga clic en **Consume** (Consumir).
 5. En la sección **Sample Code** (Ejemplo de código), haga clic en **Batch**.
 6. En Visual Studio, cree una aplicación de consola en C#: **Nuevo** > **Proyecto** > **Visual C#**  > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)** .
 7. Copie y pegue el ejemplo de código de C# en el archivo Program.cs.
@@ -152,4 +152,3 @@ Para realizar la implementación como un servicio web nuevo y crear una aplicaci
     };
     ```
 10. Ejecute la aplicación.
-

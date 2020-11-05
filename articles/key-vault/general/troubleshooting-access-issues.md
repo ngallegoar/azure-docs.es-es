@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1437ef8675d0ddc96eb7fc641b3663b66c3ea11b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125259"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285232"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Solución de problemas de las directivas de acceso de Azure Key Vault
 
@@ -20,11 +20,11 @@ ms.locfileid: "92125259"
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>¿De qué modo puedo identificar cómo y cuándo se accede a los almacenes de claves?
 
-Después de crear uno o varios almacenes de claves, es probable que desee supervisar cómo y cuándo se accede a los almacenes de claves y quién lo hace. Para ello, puede habilitar el registro para Azure Key Vault. Si quiere consultar la guía paso a paso para habilitar el registro, [lea más información](https://docs.microsoft.com/azure/key-vault/general/logging).
+Después de crear uno o varios almacenes de claves, es probable que desee supervisar cómo y cuándo se accede a los almacenes de claves y quién lo hace. Para ello, puede habilitar el registro para Azure Key Vault. Si quiere consultar la guía paso a paso para habilitar el registro, [lea más información](./logging.md).
 
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>¿Cómo se puede supervisar la disponibilidad del almacén, los períodos de latencia del servicio u otras métricas de rendimiento para el almacén de claves?
 
-Cuando empiece a escalar el servicio, aumentará el número de solicitudes que se envían al almacén de claves. Es probable que dicha demanda aumente la latencia de las solicitudes y, en casos extremos, puede hacer que las solicitudes se limiten, lo cual afectará al rendimiento del servicio. Puede supervisar las métricas de rendimiento del almacén de claves y recibir alertas de umbrales específicos en la guía paso a paso para configurar la supervisión [aquí](https://docs.microsoft.com/azure/key-vault/general/alert).
+Cuando empiece a escalar el servicio, aumentará el número de solicitudes que se envían al almacén de claves. Es probable que dicha demanda aumente la latencia de las solicitudes y, en casos extremos, puede hacer que las solicitudes se limiten, lo cual afectará al rendimiento del servicio. Puede supervisar las métricas de rendimiento del almacén de claves y recibir alertas de umbrales específicos en la guía paso a paso para configurar la supervisión [aquí](./alert.md).
 
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>No puedo modificar la directiva de acceso, ¿cómo se puede habilitar?
 El usuario debe tener permisos de AAD suficientes para modificar la directiva de acceso. En este caso, el usuario debe tener un rol de colaborador o superior.
@@ -53,7 +53,7 @@ La aplicación también necesita al menos un rol de Administración de identidad
 
 Actualmente, al volver a implementar Key Vault, eliminará todas las directivas de acceso en Key Vault y las reemplazará por la directiva de acceso de la plantilla de ARM. No hay ninguna opción incremental para las directivas de acceso de Key Vault. Para conservar las directivas de acceso en Key Vault, necesita leer las directivas de acceso existentes en Key Vault y rellenar la plantilla de ARM con esas directivas a fin de evitar interrupciones en el acceso.
 
-Otra opción que puede ayudarle en esta situación es usar roles de RBAC como alternativa a las directivas de acceso. Con RBAC, puede volver a implementar el almacén de claves sin necesidad de especificar la directiva de nuevo. Para más información acerca de esta solución, vaya [aquí](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
+Otra opción que puede ayudarle en esta situación es usar roles de RBAC como alternativa a las directivas de acceso. Con RBAC, puede volver a implementar el almacén de claves sin necesidad de especificar la directiva de nuevo. Para más información acerca de esta solución, vaya [aquí](./rbac-guide.md).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Pasos de solución de problemas recomendados para los tipos de errores
 

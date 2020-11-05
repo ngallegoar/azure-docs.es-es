@@ -12,18 +12,18 @@ ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ad04566699b2eebb0cbd7a9f242de38bc75e2015
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cf0abdeaf3a7fe71213b6fa4f78f057bf2f92eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986413"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307373"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingesta de datos con Azure Data Factory
 
 En este artículo, aprenderá a crear una canalización de ingesta de datos con Azure Data Factory (ADF). Esta canalización se utiliza para ingerir datos para su uso con Azure Machine Learning. Azure Data Factory permite extraer, transformar y cargar datos fácilmente. Una vez que los datos se han transformado y cargado en el almacenamiento, se pueden usar para entrenar los modelos de aprendizaje automático.
 
-La transformación de datos simple se puede controlar con actividades y instrumentos de ADF nativos, como el [flujo de datos](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity). Cuando se trata de escenarios más complicados, los datos se pueden procesar con código personalizado. Por ejemplo, código de Python o R.
+La transformación de datos simple se puede controlar con actividades y instrumentos de ADF nativos, como el [flujo de datos](../data-factory/control-flow-execute-data-flow-activity.md). Cuando se trata de escenarios más complicados, los datos se pueden procesar con código personalizado. Por ejemplo, código de Python o R.
 
 Hay varias técnicas comunes de uso de Azure Data Factory para transformar datos durante la ingesta. Cada técnica tiene ventajas e inconvenientes que determinan si es una buena opción para un caso de uso específico:
 
@@ -39,11 +39,11 @@ Hay varias técnicas comunes de uso de Azure Data Factory para transformar datos
 
 Azure Functions permite ejecutar pequeños fragmentos de código (denominados "funciones") sin preocuparse por la infraestructura de la aplicación. En esta opción, los datos se procesan con código Python personalizado encapsulado en una función de Azure Functions. 
 
-La función se invoca con la [actividad de las funciones de Azure en ADF](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity). Este enfoque es una buena opción para las transformaciones de datos ligeros. 
+La función se invoca con la [actividad de las funciones de Azure en ADF](../data-factory/control-flow-azure-function-activity.md). Este enfoque es una buena opción para las transformaciones de datos ligeros. 
 
 * Ventajas:
     * Los datos se procesan en un proceso sin servidor con una latencia relativamente baja.
-    * La canalización de ADF puede invocar una [función Durable Functions de Azure](/azure/azure-functions/durable/durable-functions-overview) que puede implementar un flujo de transformación de datos sofisticado. 
+    * La canalización de ADF puede invocar una [función Durable Functions de Azure](../azure-functions/durable/durable-functions-overview.md) que puede implementar un flujo de transformación de datos sofisticado. 
     * Los detalles de la transformación de datos se abstraen mediante la función de Azure que se puede reutilizar e invocar desde otros lugares.
 * Inconvenientes:
     * Las funciones de Azure Functions deben crearse antes de usarse con ADF.
@@ -53,10 +53,10 @@ La función se invoca con la [actividad de las funciones de Azure en ADF](https:
 
 ![En el diagrama se muestra una canalización de Azure Data Factory, con un componente personalizado y la ejecución de la canalización de ML, y una canalización de Azure Machine Learning, con el entrenamiento del modelo, y cómo interactúan con los datos sin procesar y los datos preparados.](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
-En esta opción, los datos se procesan con código Python personalizado encapsulado en un archivo ejecutable. Se invoca con una [actividad de componente personalizado de ADF](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). Este enfoque es más adecuado para los datos de gran tamaño que la técnica anterior.
+En esta opción, los datos se procesan con código Python personalizado encapsulado en un archivo ejecutable. Se invoca con una [actividad de componente personalizado de ADF](../data-factory/transform-data-using-dotnet-custom-activity.md). Este enfoque es más adecuado para los datos de gran tamaño que la técnica anterior.
 
 * Ventajas:
-    * Los datos se procesan en un grupo de [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview), lo que proporciona un procesamiento de alto rendimiento y paralelo a gran escala.
+    * Los datos se procesan en un grupo de [Azure Batch](../batch/batch-technical-overview.md), lo que proporciona un procesamiento de alto rendimiento y paralelo a gran escala.
     * Se puede usar para ejecutar algoritmos pesados y procesar grandes cantidades de datos.
 * Inconvenientes:
     * Se debe crear el grupo de Azure Batch antes de usarse con ADF.
@@ -68,7 +68,7 @@ En esta opción, los datos se procesan con código Python personalizado encapsul
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) es una plataforma de análisis basada en Apache Spark y optimizada para Azure.
 
-En esta técnica, un [cuaderno de Python](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook), que se ejecuta en un clúster de Azure Databricks, realiza la transformación de datos. Probablemente, el enfoque más común que aprovecha toda la eficacia de un servicio de Azure Databricks. Está diseñado para el procesamiento de datos distribuidos a escala.
+En esta técnica, un [cuaderno de Python](../data-factory/transform-data-using-databricks-notebook.md), que se ejecuta en un clúster de Azure Databricks, realiza la transformación de datos. Probablemente, el enfoque más común que aprovecha toda la eficacia de un servicio de Azure Databricks. Está diseñado para el procesamiento de datos distribuidos a escala.
 
 * Ventajas:
     * Los datos se transforman en el servicio de Azure de procesamiento de datos más eficaz, del que se realiza una copia de seguridad en un entorno de Apache Spark.
@@ -84,12 +84,12 @@ En esta técnica, un [cuaderno de Python](https://docs.microsoft.com/azure/data-
 
 ![En el diagrama se muestra una canalización de Azure Data Factory y una canalización de Azure Machine Learning, y cómo interactúan con los datos sin procesar y los datos preparados. La canalización de Data Factory suministra datos a la base de datos preparada, que alimenta un almacén de datos, que a su vez suministra conjuntos de datos al área de trabajo de Machine Learning.](media/how-to-data-ingest-adf/aml-dataset.png)
 
-Los datos transformados de la canalización de ADF se guardan en el almacenamiento de datos (como Azure Blob). Azure Machine Learning puede tener acceso a estos datos mediante [almacenes de datos](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) y [conjuntos de datos](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
+Los datos transformados de la canalización de ADF se guardan en el almacenamiento de datos (como Azure Blob). Azure Machine Learning puede tener acceso a estos datos mediante [almacenes de datos](./how-to-access-data.md#create-and-register-datastores) y [conjuntos de datos](./how-to-create-register-datasets.md).
 
 Cada vez que se ejecuta la canalización de ADF, los datos se guardan en una ubicación diferente en el almacenamiento. Para pasar la ubicación a Azure Machine Learning, la canalización de ADF llama a una canalización Azure Machine Learning. Al llamar a la canalización de ML, la ubicación de los datos y el identificador de ejecución se envían como parámetros. La canalización de ML puede crear un almacén de datos o un conjunto de datos mediante la ubicación de los datos. 
 
 > [!TIP]
-> Los conjuntos de datos [admiten el control de versiones](https://docs.microsoft.com/azure/machine-learning/how-to-version-track-datasets), por lo que la canalización de ML puede registrar una nueva versión del conjunto de datos que apunte a los datos más recientes de la canalización de ADF.
+> Los conjuntos de datos [admiten el control de versiones](./how-to-version-track-datasets.md), por lo que la canalización de ML puede registrar una nueva versión del conjunto de datos que apunte a los datos más recientes de la canalización de ADF.
 
 Una vez que se pueda acceder a los datos a través de un almacén de datos o un conjunto de datos, puede usarlos para entrenar un modelo de ML. El proceso de entrenamiento podría formar parte de la misma canalización de ML a la que se llama desde ADF. También puede ser un proceso independiente como experimentación en un cuaderno de Jupyter Notebook.
 
@@ -97,8 +97,7 @@ Dado que los conjuntos de datos admiten el control de versiones y cada ejecució
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Ejecución de un cuaderno de Databricks en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook)
-* [Acceso a los datos en los servicios de almacenamiento de Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)
-* [Entrenamiento de modelos con conjuntos de datos en Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets)
-* [DevOps para una canalización de ingesta de datos](https://docs.microsoft.com/azure/machine-learning/how-to-cicd-data-ingestion)
-
+* [Ejecución de un cuaderno de Databricks en Azure Data Factory](../data-factory/transform-data-using-databricks-notebook.md)
+* [Acceso a los datos en los servicios de almacenamiento de Azure](./how-to-access-data.md#create-and-register-datastores)
+* [Entrenamiento de modelos con conjuntos de datos en Azure Machine Learning](./how-to-train-with-datasets.md)
+* [DevOps para una canalización de ingesta de datos](./how-to-cicd-data-ingestion.md)

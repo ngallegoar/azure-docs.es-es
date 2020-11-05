@@ -9,16 +9,16 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: a0c99c05701c7f2d64fcfc2f70081f2d7475ce5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339907"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307489"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciencia de datos para principiantes, vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
 
-Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en elaborar ciencia de datos o trabajar con científicos de datos.
+Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes* , con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en elaborar ciencia de datos o trabajar con científicos de datos.
 
 Este primer vídeo trata de los tipos de preguntas a los que puede responder la ciencia de datos. Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 <br>
@@ -45,7 +45,7 @@ En este primer vídeo, hablaremos sobre "Las cinco preguntas a las que responde 
 
 La ciencia de datos utiliza números y nombres (también denominados categorías o etiquetas) y predice respuestas a preguntas.
 
-Puede sorprenderle, pero *solo hay cinco preguntas a las que responde la ciencia de datos*:
+Puede sorprenderle, pero *solo hay cinco preguntas a las que responde la ciencia de datos* :
 
 * ¿Esto es A o B?
 * ¿Es extraño?
@@ -136,4 +136,4 @@ Eso es todo: las cinco preguntas a las que puede responder la ciencia de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio (clásico)](create-experiment.md)
-* [Introducción a Machine Learning en Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Introducción a Machine Learning en Microsoft Azure](../overview-what-is-azure-ml.md)

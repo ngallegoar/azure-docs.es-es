@@ -1,17 +1,17 @@
 ---
 title: Cifrado doble de infraestructura para Azure Database for PostgreSQL
 description: Más información sobre el uso del cifrado doble de infraestructura para agregar una segunda capa de cifrado con claves administradas por el servicio.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: d3a3582891ab3d3e4bfb53cbba0c0b2826cba56b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 03d52611c89012d1132b4a27820f7f47e6cdd512
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123361"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242031"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Cifrado doble de infraestructura de Azure Database for PostgreSQL
 
@@ -58,7 +58,7 @@ Las funcionalidades de cifrado que proporciona Azure Database for PostgreSQL se 
 
 Para Azure Database for PostgreSQL, la compatibilidad con el cifrado doble de infraestructura mediante una clave administrada por el servicio tiene las siguientes limitaciones:
 
-* La compatibilidad con esta funcionalidad se limita a los planes de tarifa **De uso general** y **Optimizados para memoria** .
+* La compatibilidad con esta funcionalidad se limita a los planes de tarifa **De uso general** y **Optimizados para memoria**.
 * Puede crear una instancia de Azure Database for PostgreSQL que tenga habilitado el cifrado doble de la infraestructura en las siguientes regiones:
 
    * Este de EE. UU.

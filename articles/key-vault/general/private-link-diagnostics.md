@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998403"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289371"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnóstico de problemas de configuración de vínculos privados en Azure Key Vault
 
@@ -56,7 +56,7 @@ Si la aplicación, el script o el portal se ejecuta en una red arbitraria conect
 
 Esta guía NO es aplicable a las soluciones que administra Microsoft, donde se tiene acceso al almacén de claves mediante un producto de Azure que existe independientemente de la instancia de Virtual Network de cliente. Algunos ejemplos de estos escenarios son Azure Storage o Azure SQL, los cuales se han configurado para realizar el cifrado en reposo; también se utiliza el Centro de eventos de Azure para cifrar datos con claves proporcionadas por el cliente, Azure Data Factory para acceder a las credenciales de servicio almacenadas en el almacén de claves, Azure Pipelines para recuperar secretos del almacén de claves y otros escenarios similares. En estos casos, *debe comprobar si el producto es admite los almacenes de claves con el firewall habilitado*. Esta compatibilidad se realiza normalmente con la característica [Servicios de confianza](overview-vnet-service-endpoints.md#trusted-services) del firewall de Key Vault. Sin embargo, muchos de otros productos no se incluyen en la lista de servicios de confianza por diversos motivos. En ese caso, póngase en contacto con el soporte técnico específico del producto.
 
-Un pequeño número de productos de Azure admite el concepto de *inyección de redes virtuales*. Esto quiere decir que el producto agrega un dispositivo de red en la instancia de Virtual Network del cliente, lo que le permite enviar solicitudes como si se hubiera implementado en la misma instancia de Virtual Network. Un ejemplo importante es [Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Productos como este pueden realizar solicitudes al almacén de claves mediante los vínculos privados; por ello, esta guía de solución de problemas puede serle útil.
+Un pequeño número de productos de Azure admite el concepto de *inyección de redes virtuales*. Esto quiere decir que el producto agrega un dispositivo de red en la instancia de Virtual Network del cliente, lo que le permite enviar solicitudes como si se hubiera implementado en la misma instancia de Virtual Network. Un ejemplo importante es [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Productos como este pueden realizar solicitudes al almacén de claves mediante los vínculos privados; por ello, esta guía de solución de problemas puede serle útil.
 
 ## <a name="2-confirm-that-the-connection-is-approved-and-succeeded"></a>2. Confirme que la conexión se ha aprobado y realizado correctamente
 
@@ -65,7 +65,7 @@ En los pasos siguientes se confirma que la conexión del punto de conexión priv
 1. Abra Azure Portal y el recurso del almacén de claves.
 2. En el menú de la izquierda, seleccione la opción **Redes**.
 3. Haga clic en la pestaña **Conexiones de punto de conexión privado**. Se mostrarán todas las conexiones del punto de conexión privado y sus estados respectivos. Si no hay ninguna conexión o si falta la conexión de Virtual Network, tendrá que crear un nuevo punto de conexión privado. Este tema se tratará más adelante.
-4. En la misma pestaña **Conexiones de punto de conexión privado**, busque el que está diagnosticando y confirme que el "Estado de conexión" esté **Aprobado** y que el "Estado de aprovisionamiento" esté establecido en **Correcto**.
+4. En la misma pestaña **Conexiones de punto de conexión privado** , busque el que está diagnosticando y confirme que el "Estado de conexión" esté **Aprobado** y que el "Estado de aprovisionamiento" esté establecido en **Correcto**.
     - Si la conexión está en estado "Pendiente", es posible que pueda aprobarla.
     - Si la conexión tiene el estado "Rechazada", "Error", "Desconectada" u otro similar, entonces quiere decir que no funciona y deberá crear un nuevo recurso de punto de conexión privado.
 
@@ -278,7 +278,7 @@ Como puede ver, la resolución de nombres está bajo su control. Las razones de 
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>Consultar el punto de conexión `/healthstatus` del almacén de claves
 
-El almacén de claves proporciona el punto de conexión `/healthstatus`, que se puede usar para realizar el diagnóstico. Los encabezados de respuesta incluyen la dirección IP de origen, tal como la detecta el servicio del almacén de claves. Puede llamar a ese punto de conexión con el siguiente comando (**recuerde usar el nombre de host del almacén de claves**):
+El almacén de claves proporciona el punto de conexión `/healthstatus`, que se puede usar para realizar el diagnóstico. Los encabezados de respuesta incluyen la dirección IP de origen, tal como la detecta el servicio del almacén de claves. Puede llamar a ese punto de conexión con el siguiente comando ( **recuerde usar el nombre de host del almacén de claves** ):
 
 Windows (PowerShell):
 

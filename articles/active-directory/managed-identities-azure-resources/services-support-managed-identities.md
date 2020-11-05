@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37a17105be0b6754bbdfd935c6c17933314114d4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426447"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289591"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -202,8 +202,8 @@ Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilida
 
 | Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | ![Disponible][check] | ![Disponible][check] | No disponible | ![Disponible][check] | 
-| Asignado por el usuario | ![Disponible][check] | ![Disponible][check] | No disponible | ![Disponible][check] |
+| Asignado por el sistema | ![Disponible][check] | ![Disponible][check] | No disponible | No disponible | 
+| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
 
 
 Para obtener más información, consulte [Uso de identidades administradas en Azure Kubernetes Service](../../aks/use-managed-identity.md).
@@ -281,8 +281,8 @@ Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilida
 
 |Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | ![Disponible][check] | Versión preliminar | Versión preliminar | Versión preliminar |
-| Asignado por el usuario | ![Disponible][check] | Vista previa | Vista previa | Versión preliminar |
+| Asignado por el sistema | ![Disponible][check] | ![Disponible][check] | Versión preliminar | Versión preliminar |
+| Asignado por el usuario | ![Disponible][check] | ![Disponible][check] | Vista previa | Versión preliminar |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Virtual Machine Scale Sets (en las regiones donde esté disponible):
 

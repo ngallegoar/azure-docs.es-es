@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed54fda744978ac43bbffc6a70d6b331e85dc5e7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720459"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305603"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>El ciclo de vida del proceso de ciencia de datos en equipo
 
@@ -43,12 +43,12 @@ El ciclo de vida del TDSP se modela como una secuencia de pasos repetidos que le
 
 Para cada fase, damos la siguiente información:
 
-   * **Objetivos**: objetivos específicos.
-   * **Cómo hacerlo**: un esquema de las tareas específicas y orientación sobre cómo realizarlas.
-   * **Artefactos**: las entregas y la asistencia para producirlas.
+   * **Objetivos** : objetivos específicos.
+   * **Cómo hacerlo** : un esquema de las tareas específicas y orientación sobre cómo realizarlas.
+   * **Artefactos** : las entregas y la asistencia para producirlas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Proporcionamos tutoriales completos que muestran todos los pasos del proceso en escenarios concretos. El artículo con [tutoriales de ejemplo](walkthroughs.md) proporciona una lista de los escenarios con vínculos y descripciones de miniatura. En los tutoriales se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente. 
 
-Para obtener ejemplos de cómo ejecutar pasos en TDSP que usan Microsoft Azure Machine Learning Studio, consulte [Uso del Proceso de ciencia de los datos en equipos con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Para obtener ejemplos de cómo ejecutar pasos en TDSP que usan Microsoft Azure Machine Learning Studio, consulte [Uso del Proceso de ciencia de los datos en equipos con Azure Machine Learning](./index.yml).

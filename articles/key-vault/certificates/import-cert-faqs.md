@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7d34b61e584b63c517b6c0f8af4cb4adcc7fefe
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651851"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289504"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Preguntas frecuentes sobre la importación de certificados de Azure Key Vault
 
@@ -25,7 +25,7 @@ En este artículo se responde a las preguntas frecuentes sobre la importación d
 
 ### <a name="how-can-i-import-a-certificate-in-azure-key-vault"></a>¿Cómo importo un certificado en Azure Key Vault?
 
-En la operación de importación de certificados, Azure Key Vault acepta dos formatos de archivo de certificado: PEM y PFX. Aunque hay archivos PEM que contienen solo la parte pública, Key Vault requiere y acepta únicamente un archivo PEM o PFX con una clave privada. Para más información, consulte [Importación de un certificado en Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault).
+En la operación de importación de certificados, Azure Key Vault acepta dos formatos de archivo de certificado: PEM y PFX. Aunque hay archivos PEM que contienen solo la parte pública, Key Vault requiere y acepta únicamente un archivo PEM o PFX con una clave privada. Para más información, consulte [Importación de un certificado en Key Vault](./tutorial-import-certificate.md#import-a-certificate-to-key-vault).
 
 ### <a name="after-i-import-a-password-protected-certificate-to-key-vault-and-then-download-it-why-cant-i-see-the-password-thats-associated-with-it"></a>Después de importar un certificado protegido por contraseña a Key Vault y luego descargarlo, ¿por qué se ve la contraseña que tiene asociada?
     
@@ -35,7 +35,7 @@ Una vez que se ha importado y protegido un certificado en Key Vault, su contrase
 
 Al importar un certificado, debe asegurarse de que la clave esté incluida en el archivo. Si tiene una clave privada almacenada por separado en un formato diferente, debe combinar la clave con el certificado. Algunas entidades de certificación (CA) proporcionan certificados en otros formatos. Por lo tanto, antes de importar el certificado, asegúrese de que se encuentra en formato de archivo PEM o PFX y de que la clave usa el cifrado de Rivest, Shamir y Adleman (RSA) o de criptografía de curva elíptica (ECC). 
 
-Para más información, consulte los [requisitos de certificado](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) y los [requisitos de clave de certificado](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection).
+Para más información, consulte los [requisitos de certificado](./certificate-scenarios.md#formats-of-import-we-support) y los [requisitos de clave de certificado](../keys/about-keys.md).
 
 ###  <a name="can-i-import-a-certificate-by-using-an-arm-template"></a>¿Se puede importar un certificado mediante una plantilla de ARM?
 
@@ -43,20 +43,20 @@ No, no es posible realizar operaciones de certificado mediante una plantilla de 
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Al importar un certificado a través de Azure Portal, aparece el error "Hubo un problema". ¿Cómo puedo investigar más?
     
-Para ver un error más descriptivo, importe el archivo de certificado mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Para ver un error más descriptivo, importe el archivo de certificado mediante la [CLI de Azure](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) o [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>¿Cómo se resuelve el "Tipo de error: Acceso denegado o usuario no autorizado para importar el certificado"?
     
-La operación de importación requiere la concesión de permisos de usuario para importar el certificado en las directivas de acceso. Para ello, vaya al almacén de claves, seleccione **Directivas de acceso** > **Agregar directiva de acceso** > **Select Certificate Permissions** (Seleccionar permisos de certificado)  > **Entidad de seguridad**, busque el usuario y, a continuación, agregue su dirección de correo electrónico. 
+La operación de importación requiere la concesión de permisos de usuario para importar el certificado en las directivas de acceso. Para ello, vaya al almacén de claves, seleccione **Directivas de acceso** > **Agregar directiva de acceso** > **Select Certificate Permissions** (Seleccionar permisos de certificado)  > **Entidad de seguridad** , busque el usuario y, a continuación, agregue su dirección de correo electrónico. 
 
-Para más información sobre las directivas de acceso relacionadas con los certificados, consulte [Acerca de los certificados de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control).
+Para más información sobre las directivas de acceso relacionadas con los certificados, consulte [Acerca de los certificados de Azure Key Vault](./about-certificates.md#certificate-access-control).
 
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>¿Cómo se resuelve el "Tipo de error: Conflicto al crear un certificado"?
     
-El nombre de cada certificado debe ser único. Un certificado con el mismo nombre podría estar en un estado de eliminación temporal. Además, según la [composición de un certificado](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate), cuando se crea un certificado, se crea un secreto direccionable con el mismo nombre, por lo que, si hay otra clave o secreto en el almacén de claves con el mismo nombre que el que intenta especificar para el certificado, no se podrá crear este y deberá quitar esa clave o secreto o usar un nombre diferente para él. 
+El nombre de cada certificado debe ser único. Un certificado con el mismo nombre podría estar en un estado de eliminación temporal. Además, según la [composición de un certificado](./about-certificates.md#composition-of-a-certificate), cuando se crea un certificado, se crea un secreto direccionable con el mismo nombre, por lo que, si hay otra clave o secreto en el almacén de claves con el mismo nombre que el que intenta especificar para el certificado, no se podrá crear este y deberá quitar esa clave o secreto o usar un nombre diferente para él. 
 
-Para más información, consulte [Operación de obtención de certificado eliminado](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
+Para más información, consulte [Operación de obtención de certificado eliminado](/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 
 ### <a name="why-am-i-getting-error-type-char-length-is-too-long"></a>¿Por qué se muestra el mensaje "Tipo de error: Longitud de caracteres demasiado larga"?
 Este error puede deberse a dos razones:    
@@ -83,4 +83,4 @@ Si ha importado el certificado correctamente, debería poder confirmarlo en el p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Certificados de Azure Key Vault](/azure/key-vault/certificates/about-certificates)
+- [Certificados de Azure Key Vault](./about-certificates.md)

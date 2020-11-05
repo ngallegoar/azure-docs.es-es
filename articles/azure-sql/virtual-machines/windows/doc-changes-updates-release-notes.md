@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: 1d6eb4df91ce912832d15835a00bdb287f67e787
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 249e65b5a9440678015598d9969c0d2ed689c626
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789750"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285356"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -88,7 +88,7 @@ Azure permite implementar una máquina virtual (VM) con una imagen de SQL Serve
 | **Migración de VM con SQL Server a una región diferente** | Use Azure Site Recovery para [migrar las máquinas virtuales con SQL Server de una región de Azure a otra](move-sql-vm-different-region.md). |
 |  **Nuevos modos de instalación de IaaS de SQL** | Ahora es posible instalar la extensión IaaS de SQL Server en [modo ligero](sql-server-iaas-agent-extension-automate-management.md) para evitar tener que reiniciar el servicio SQL Server.  |
 | **Modificación de la edición de SQL Server** | Ahora puede cambiar la [propiedad edition](change-sql-server-edition.md) de la VM con SQL Server. |
-| **Cambios con el proveedor de recursos de VM con SQL** | Puede [registrar la máquina virtual con SQL Server con el proveedor de recursos de máquina virtual con SQL](sql-vm-resource-provider-register.md) mediante los nuevos modos de IaaS de SQL. Esta funcionalidad incluye [imágenes de Windows Server 2008](sql-vm-resource-provider-register.md#management-modes).|
+| **Cambios con el proveedor de recursos de VM con SQL** | Puede [registrar la máquina virtual con SQL Server con el proveedor de recursos de máquina virtual con SQL](sql-vm-resource-provider-register.md) mediante los nuevos modos de IaaS de SQL. Esta funcionalidad incluye [imágenes de Windows Server 2008](sql-server-iaas-agent-extension-automate-management.md#management-modes).|
 | **Imágenes del tipo "traiga su propia licencia" mediante la Ventaja híbrida de Azure** | Ahora es posible cambiar al [tipo de licencia de pago por uso](licensing-model-azure-hybrid-benefit-ahb-change.md#remarks) las imágenes del tipo "traiga su propia licencia" implementadas desde Azure Marketplace.| 
 | **Nueva administración de VM con SQL Server en Azure Portal** | Ahora existe una nueva forma de administrar una máquina virtual con SQL Server en Azure Portal. Para más información, consulte [Administración de máquinas virtuales con SQL Server en Azure Portal](manage-sql-vm-portal.md).  | 
 | **Compatibilidad ampliada con SQL Server 2008 y SQL Server 2008 R2** | [Amplíe la compatibilidad](sql-server-2008-extend-end-of-support.md) con SQL Server 2008 y SQL Server 2008 R2 mediante la migración *tal cual* a una máquina virtual de Azure. | 

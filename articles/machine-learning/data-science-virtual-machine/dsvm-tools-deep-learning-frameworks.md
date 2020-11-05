@@ -11,12 +11,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 29f1949cbe9998ac569b0389986023a72e7845b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070923"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309026"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Marcos de aprendizaje profundo e inteligencia artificial para Azure Data Science VM
 La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
@@ -76,7 +76,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 | ¿Cómo se configura/instala en DSVM?  | Keras se instala en Python 3.6 en Windows, y en Python 3.5 en Linux |
 | Cómo ejecutarlo      | Active el entorno correcto en el terminal y, luego, ejecute Python. |
 
-## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/)
 
 | Category | Value |
 | ------------- | ------------- |
@@ -110,7 +110,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 | Ediciones de DSVM admitidas      | Windows Server 2019<br>Ubuntu 18.04<br> Windows 2016<br> Ubuntu 16.04   |
 | ¿Para qué sirven? | Herramienta NVIDIA para consultar la actividad GPU |
 | ¿Cómo se configura/instala en DSVM?  | `nvidia-smi` está en la ruta de acceso del sistema. |
-| Cómo ejecutarlo      | En una máquina virtual **con GPU**, abra un símbolo del sistema (en Windows) o un terminal (en Linux), y ejecute `nvidia-smi`. |
+| Cómo ejecutarlo      | En una máquina virtual **con GPU** , abra un símbolo del sistema (en Windows) o un terminal (en Linux), y ejecute `nvidia-smi`. |
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
@@ -146,5 +146,5 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 | ------------- | ------------- |
 | Versiones compatibles | 1.0.3 |
 | Ediciones de DSVM admitidas      | Ubuntu 16.04 |
-| ¿Cómo se configura/instala en DSVM?  |Theano se instala en el entorno de Python 2.7 (_root_), así como en el entorno de Python 3.5 (_py35_). |
+| ¿Cómo se configura/instala en DSVM?  |Theano se instala en el entorno de Python 2.7 ( _root_ ), así como en el entorno de Python 3.5 ( _py35_ ). |
 | Cómo ejecutarlo      |  Terminal: active la versión de Python que quiera (root o py35), ejecute Python e importe Theano.<br/>*Jupyter: seleccione el kernel de Python 2.7 o 3.5 e importe Theano.  <br/>Para solucionar un error reciente de Math Kernel Library (MKL), primero debe establecer la capa de subprocesos de MKL de la siguiente manera:<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

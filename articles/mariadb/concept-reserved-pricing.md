@@ -1,17 +1,17 @@
 ---
 title: Pago por adelantado de recursos de proceso con capacidad reservada para Azure Database for MariaDB
 description: Pago por adelantado de recursos de proceso de Azure Database for MariaDB con capacidad reservada
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: b91ccb9f11740599ecf060c98f9fcc7a26d5b363
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c28abc882635f7cd0815952fe0ae183bef7138d2
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427807"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241623"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for MariaDB con capacidad reservada
 
@@ -38,7 +38,7 @@ Por ejemplo, supongamos que se está ejecutando una base de datos MariaDB de pro
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Compra de capacidad reservada de Azure Database for MariaDB
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Todos los servicios** > **Reservations** .
+2. Seleccione **Todos los servicios** > **Reservations**.
 3.  Seleccione **Agregar** y, en el panel Comprar reservas, seleccione **Azure Database for MariaDB** para comprar una nueva reserva para las bases de datos de MariaDB.
 4.  Rellene todos los campos obligatorios. Las bases de datos existentes o nuevas que coincidan con los atributos seleccionados serán aptas para el descuento en la capacidad reservada. El número real de servidores de Azure Database for MariaDB que obtienen el descuento depende del ámbito y la cantidad seleccionados.
 
@@ -50,7 +50,7 @@ En la siguiente tabla se describen los campos obligatorios.
 
 | Campo | Descripción |
 | :------------ | :------- |
-| Subscription   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Database for MariaDB. Los costos anticipados por la reserva de capacidad reservada de Azure Database for MariaDB se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
+| Suscripción   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Database for MariaDB. Los costos anticipados por la reserva de capacidad reservada de Azure Database for MariaDB se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
 | Ámbito | El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: </br></br> **Compartido** : el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MariaDB en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br> **Suscripción única** : el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MariaDB de esta suscripción. </br></br> **Grupo de recursos único** : el descuento de reserva se aplica a los servidores de Azure Database for MariaDB de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
 | Region | La región de Azure que abarca la reserva de capacidad reservada de Azure Database for MariaDB.
 | Tipo de implementación | El tipo de recurso de Azure Database for MariaDB para el que quiere comprar la reserva.

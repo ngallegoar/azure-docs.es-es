@@ -10,16 +10,16 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3490e3004e5f5dd99795967f0deb8510200fa50b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440457"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311041"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utilice identidades administradas con Azure Machine Learning (versión preliminar)
 
-Las [identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview) permiten configurar el área de trabajo con los *permisos mínimos necesarios para acceder a los recursos* . 
+Las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) permiten configurar el área de trabajo con los *permisos mínimos necesarios para acceder a los recursos*. 
 
 Al configurar el área de trabajo de Azure Machine Learning de forma confiable, es importante asegurarse de que los distintos servicios asociados al área de trabajo tienen el nivel de acceso correcto. Por ejemplo, durante el flujo de trabajo de Machine Learning, el área de trabajo necesita acceso a Azure Container Registry (ACR) para las imágenes de Docker y a las cuentas de almacenamiento para los datos de entrenamiento. 
 
@@ -37,16 +37,16 @@ En este artículo, aprenderá a usar las identidades administradas para:
 
 - Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 - La [extensión de la CLI de Azure para el servicio Machine Learning](reference-azure-machine-learning-cli.md).
-- El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-- Para asignar roles, el inicio de sesión de la suscripción de Azure debe tener el rol de [operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) u otro rol que conceda las acciones necesarias (como el de __propietario__ ).
-- Debe estar familiarizado con la creación y el uso de [identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).
+- El [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?view=azure-ml-py).
+- Para asignar roles, el inicio de sesión de la suscripción de Azure debe tener el rol de [operador de identidad administrada](../role-based-access-control/built-in-roles.md#managed-identity-operator) u otro rol que conceda las acciones necesarias (como el de __propietario__ ).
+- Debe estar familiarizado con la creación y el uso de [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="configure-managed-identities"></a>Configuración de identidades administradas
 
 En algunas situaciones, es necesario impedir el acceso de usuario administrador a Azure Container Registry. Por ejemplo, es posible que la instancia de ACR sea compartida y deba impedir el acceso de administrador a otros usuarios. O bien, que una directiva de nivel de suscripción impida la creación de ACR con el usuario administrador habilitado.
 
 > [!IMPORTANT]
-> Al usar Azure Machine Learning para la inferencia en Azure Container Instance (ACI), el acceso de usuario administrador en ACR es __obligatorio__ . No lo deshabilite si planea implementar modelos en ACI con fines de inferencia.
+> Al usar Azure Machine Learning para la inferencia en Azure Container Instance (ACI), el acceso de usuario administrador en ACR es __obligatorio__. No lo deshabilite si planea implementar modelos en ACI con fines de inferencia.
 
 Al crear una instancia de ACR sin habilitar el acceso de usuario administrador, las identidades administradas se usan para acceder a ACR con la finalidad de compilar y extraer imágenes de Docker.
 
@@ -56,10 +56,10 @@ Puede traer su propia instancia de ACR con el usuario administrador deshabilitad
 
 Si la directiva de suscripción no permite el usuario administrador de ACR, debe crear primero la instancia de ACR sin el usuario administrador y, a continuación, asociarla al área de trabajo. Además, si tiene una instancia de ACR con el usuario administrador deshabilitado, puede conectarla al área de trabajo.
 
-[Cree una instancia de ACR desde la CLI de Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli) sin establecer el argumento ```--admin-enabled```, o desde Azure Portal sin habilitar el usuario administrador. A continuación, al crear el área de trabajo de Azure Machine Learning, especifique el identificador de recurso de Azure de la instancia de ACR. En el ejemplo siguiente se muestra cómo crear una nueva área de trabajo de Azure Machine Learning que use una instancia de ACR existente:
+[Cree una instancia de ACR desde la CLI de Azure](../container-registry/container-registry-get-started-azure-cli.md) sin establecer el argumento ```--admin-enabled```, o desde Azure Portal sin habilitar el usuario administrador. A continuación, al crear el área de trabajo de Azure Machine Learning, especifique el identificador de recurso de Azure de la instancia de ACR. En el ejemplo siguiente se muestra cómo crear una nueva área de trabajo de Azure Machine Learning que use una instancia de ACR existente:
 
 > [!TIP]
-> Para obtener el valor del parámetro `--container-registry`, use el comando [az acr show](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az_acr_show) para mostrar la información de la instancia de ACR. El campo `id` contiene el identificador de recurso de su instancia de ACR.
+> Para obtener el valor del parámetro `--container-registry`, use el comando [az acr show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) para mostrar la información de la instancia de ACR. El campo `id` contiene el identificador de recurso de su instancia de ACR.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -106,7 +106,7 @@ Para acceder a la instancia de ACR del área de trabajo, cree un clúster de pro
 
 # <a name="python"></a>[Python](#tab/python)
 
-Al crear un clúster de proceso con la clase [AmlComputeProvisioningConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py), use el parámetro `identity_type` para establecer el tipo de identidad administrada.
+Al crear un clúster de proceso con la clase [AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py), use el parámetro `identity_type` para establecer el tipo de identidad administrada.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -173,7 +173,7 @@ env.python.user_managed_dependencies = True
 
 En este escenario, el servicio Azure Machine Learning crea el entorno de entrenamiento o inferencia sobre una imagen base que el usuario suministra desde una instancia de ACR privada. Dado que la tarea de creación de la imagen se lleva a cabo en la instancia de ACR del área de trabajo mediante ACR Tasks, debe realizar pasos adicionales para permitir el acceso.
 
-1. Cree una __identidad administrada asignada por el usuario__ y concédale acceso ACRPull para la __instancia de ACR privada__ .  
+1. Cree una __identidad administrada asignada por el usuario__ y concédale acceso ACRPull para la __instancia de ACR privada__.  
 1. Conceda a la __identidad administrada asignada por el sistema__ del área de trabajo el rol de operador de identidad administrada en la __identidad administrada asignada por el usuario__ del paso anterior. Este rol permite al área de trabajo asignar la identidad administrada asignada por el usuario a la tarea de ACR Tasks para crear el entorno administrado. 
 
     1. Obtenga el identificador de entidad de seguridad de la identidad administrada asignada por el sistema del área de trabajo:
@@ -190,7 +190,7 @@ En este escenario, el servicio Azure Machine Learning crea el entorno de entrena
 
         El identificador de recurso UAI es el identificador de recurso de Azure de la identidad asignada por el usuario, con el formato `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAI name>`.
 
-1. Especifique el id. de cliente y la instancia de ACR externa de la __identidad administrada asignada por el usuario__ en las conexiones del área de trabajo mediante el [método Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-):
+1. Especifique el id. de cliente y la instancia de ACR externa de la __identidad administrada asignada por el usuario__ en las conexiones del área de trabajo mediante el [método Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-):
 
     ```python
     workspace.set_connection(
@@ -210,7 +210,7 @@ env = Environment(name="my-env")
 env.docker.base_image = "<acr url>/my-repo/my-image:latest"
 ```
 
-Opcionalmente, puede especificar la dirección URL del recurso de identidad administrada y el id. de cliente en la propia definición de entorno mediante [RegistryIdentity](https://docs.microsoft.com/python/api/azureml-core/azureml.core.container_registry.registryidentity?view=azure-ml-py). Si usa la identidad del registro explícitamente, invalida las conexiones del área de trabajo especificadas anteriormente:
+Opcionalmente, puede especificar la dirección URL del recurso de identidad administrada y el id. de cliente en la propia definición de entorno mediante [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity?view=azure-ml-py). Si usa la identidad del registro explícitamente, invalida las conexiones del área de trabajo especificadas anteriormente:
 
 ```python
 from azureml.core.container_registry import RegistryIdentity

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: b6e33f32c6adcea12952474e3f09b45834b85c1e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1994cda9dbf22a81216408ee07d51f635e89cff4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164421"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285276"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creación de una FCI con un recurso compartido de archivos Premium (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -69,10 +69,10 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
 1. [Agregue Clústeres de conmutación por error a todas las máquinas virtuales](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
    Para instalar Clústeres de conmutación por error desde la interfaz de usuario, realice lo siguiente en las dos máquinas virtuales:
-   1. En el **Administrador del servidor** , seleccione **Administrar** y, a continuación, seleccione **Agregar roles y características** .
-   1. En el Asistente para **agregar roles y características** , seleccione **Siguiente** hasta llegar a **Seleccionar características** .
-   1. En **Seleccionar características** , seleccione **Clúster de conmutación por error** . Incluya todas las características y herramientas de administración requeridas. 
-   1. Seleccione **Agregar características** .
+   1. En el **Administrador del servidor** , seleccione **Administrar** y, a continuación, seleccione **Agregar roles y características**.
+   1. En el Asistente para **agregar roles y características** , seleccione **Siguiente** hasta llegar a **Seleccionar características**.
+   1. En **Seleccionar características** , seleccione **Clúster de conmutación por error**. Incluya todas las características y herramientas de administración requeridas. 
+   1. Seleccione **Agregar características**.
    1. Seleccione **Siguiente** y, después, **Finalizar** para instalar las características.
 
    Para instalar Clústeres de conmutación por error con PowerShell, ejecute el siguiente script en una sesión de PowerShell de administrador de una de las máquinas virtuales:
@@ -88,15 +88,25 @@ Valide el clúster en la interfaz de usuario o con PowerShell.
 
 Para validar el clúster con la interfaz de usuario, realice lo siguiente en una de las máquinas virtuales:
 
-1. En **Administrador del servidor** , seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error** .
-1. En **Administrador de clústeres de conmutación por error** , seleccione **Acción** y, a continuación, seleccione **Validar configuración** .
+1. En **Administrador del servidor** , seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error**.
+1. En **Administrador de clústeres de conmutación por error** , seleccione **Acción** y, a continuación, seleccione **Validar configuración**.
 1. Seleccione **Next** (Siguiente).
 1. En **Seleccionar servidores o un clúster** , escriba el nombre de ambas máquinas virtuales.
-1. En **Opciones de pruebas** , seleccione **Ejecutar solo las pruebas que seleccione** . 
+1. En **Opciones de pruebas** , seleccione **Ejecutar solo las pruebas que seleccione**. 
 1. Seleccione **Next** (Siguiente).
 1. En **Selección de pruebas** , seleccione todas las pruebas excepto **Almacenamiento** y **Espacios de almacenamiento directo** como se muestra aquí:
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Copia de ambos comandos de PowerShell desde el portal de conexión del recurso compartido de archivos"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Seleccionar pruebas de validación de clústeres":::
+
+1. Seleccione **Next** (Siguiente).
+1. En **Confirmación** , seleccione **Siguiente**.
+
+El Asistente para **validar una configuración** ejecuta las pruebas de validación.
+
+Para validar el clúster con PowerShell, ejecute el siguiente script en una sesión de PowerShell de administrador de una de las máquinas virtuales:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
    ```
 
 Después de validar el clúster, cree el clúster de conmutación por error.
@@ -141,7 +151,7 @@ Configure la solución del cuórum que mejor se adapte a sus necesidades empresa
 
 Pruebe la conmutación por error del clúster. En **Administrador de clústeres de conmutación por error** , haga clic con el botón derecho en el clúster, seleccione **Más acciones** > **Mover recurso del clúster del recurso principal** > **Seleccionar nodo** , y después, seleccione el otro nodo del clúster. Mueva el recurso de clúster principal a cada nodo del clúster y, después, devuélvalo al nodo principal. Si puede mover correctamente el clúster a cada nodo, está listo para instalar SQL Server.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Copia de ambos comandos de PowerShell desde el portal de conexión del recurso compartido de archivos":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Prueba de la conmutación por error del clúster moviendo el recurso principal a los demás nodos":::
 
 
 ## <a name="create-sql-server-fci"></a>Crear la FCI de SQL Server
@@ -156,21 +166,21 @@ Después de haber configurado el clúster de conmutación por error, puede crear
 
 1. Seleccione **Setup** (Configuración).
 
-1. En el **Centro de instalación de SQL Server** , seleccione **Instalación** .
+1. En el **Centro de instalación de SQL Server** , seleccione **Instalación**.
 
 1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server** y, a continuación, siga las instrucciones del asistente para instalar la FCI de SQL Server.
 
    Es preciso que los directorios de datos de FCI estén en el recurso compartido de archivos premium. Escriba la ruta de acceso completa del recurso compartido,con este formato: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Aparecerá una advertencia que le notificará que ha especificado un servidor de archivos como directorio de datos. Se espera esta advertencia. Para evitar posibles errores, asegúrese de que la cuenta de usuario que usó para tener acceso a la máquina virtual mediante RDP cuando conservó el recurso compartido de archivos sea la misma que usa el servicio SQL Server.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Copia de ambos comandos de PowerShell desde el portal de conexión del recurso compartido de archivos":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Uso del recurso compartido de archivos como directorios de datos SQL":::
 
 1. Después de completar los pasos del asistente, el programa de instalación instalará una FCI de SQL Server en el primer nodo.
 
 1. Una vez que el programa de instalación instale la FCI en el primer nodo, conéctese al segundo nodo con RDP.
 
-1. Abra el **Centro de instalación de SQL Server** y, a continuación, seleccione **Instalación** .
+1. Abra el **Centro de instalación de SQL Server** y, a continuación, seleccione **Instalación**.
 
-1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server** . Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
+1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
 
    >[!NOTE]
    >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó alguna de estas imágenes, instale las herramientas de SQL Server por separado. Para más información, consulte [Descargar SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -200,7 +210,7 @@ Para enrutar el tráfico de forma adecuada al nodo principal actual, configure l
 
 - No se admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2016 y versiones anteriores. 
 - La secuencia de archivos no se admite en los clústeres de conmutación por error con un recurso compartido de archivos Premium. Para usar la secuencia de archivos, implemente el clúster con [Espacios de almacenamiento directo](failover-cluster-instance-storage-spaces-direct-manually-configure.md) o [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) en su lugar.
-- Solo se admite el registro con el proveedor de recursos de máquina virtual con SQL en [modo de administración ligera](sql-vm-resource-provider-register.md#management-modes). 
+- Solo se admite el registro con el proveedor de recursos de máquina virtual con SQL en [modo de administración ligera](sql-server-iaas-agent-extension-automate-management.md#management-modes). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

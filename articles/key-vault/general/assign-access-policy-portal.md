@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d16d14ff51cb9a7e71193d93c6755a8e4cb93ed0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9277d100eb6744adfc20fbba9f96b822654e64a3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481416"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287703"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Asignación de una directiva de acceso de Key Vault mediante Azure Portal
 
@@ -23,31 +23,31 @@ Las directivas de acceso de Key Vault determinan si una entidad de servicio dete
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-Para más información sobre cómo crear grupos en Azure Active Directory mediante Azure Portal, consulte [Creación de un grupo básico e incorporación de miembros](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+Para más información sobre cómo crear grupos en Azure Active Directory mediante Azure Portal, consulte [Creación de un grupo básico e incorporación de miembros](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="assign-an-access-policy"></a>Asignación de directivas de acceso
 
 1.  En [Azure Portal](https://portal.azure.com), vaya al recurso Key Vault. 
 
-1.  En **Configuración**, seleccione **Directivas de acceso** y, después, **Agregar directiva de acceso**:
+1.  En **Configuración** , seleccione **Directivas de acceso** y, después, **Agregar directiva de acceso** :
 
     ![Seleccionar directivas de acceso mediante la elección de Agregar asignación de roles](../media/authentication/assign-policy-portal-01.png)
 
-1.  Seleccione los permisos que desee en **Permisos de los certificados**, **Permisos de las claves** y **Permisos de los secretos**. También puede seleccionar una plantilla que contenga combinaciones comunes de permisos:
+1.  Seleccione los permisos que desee en **Permisos de los certificados** , **Permisos de las claves** y **Permisos de los secretos**. También puede seleccionar una plantilla que contenga combinaciones comunes de permisos:
 
     ![Especificación de permisos de la directiva de acceso](../media/authentication/assign-policy-portal-02.png)
 
-1. En **Seleccionar la entidad de seguridad**, elija el vínculo **Ninguna seleccionada** para abrir el panel de selección **Entidad de seguridad**. Escriba el nombre de la aplicación o entidad de servicio en el campo de búsqueda, seleccione el resultado adecuado y elija **Seleccionar**.
+1. En **Seleccionar la entidad de seguridad** , elija el vínculo **Ninguna seleccionada** para abrir el panel de selección **Entidad de seguridad**. Escriba el nombre de la aplicación o entidad de servicio en el campo de búsqueda, seleccione el resultado adecuado y elija **Seleccionar**.
 
     ![Selección de la entidad de servicio para la directiva de acceso](../media/authentication/assign-policy-portal-03.png)
 
     Si usa una identidad administrada para la aplicación, busque y seleccione el nombre de la propia aplicación (para más información sobre la identidad administrada y las entidades de servicio, consulte [Autenticación en Key Vault:Identidad de la aplicación y entidades de servicio](authentication.md#app-identity-and-security-principals)).
  
-1.  En el panel **Agregar directivas de acceso**, seleccione **Agregar** para guardar la directiva de acceso.
+1.  En el panel **Agregar directivas de acceso** , seleccione **Agregar** para guardar la directiva de acceso.
 
     ![Adición de la directiva de acceso con la entidad de servicio asignada](../media/authentication/assign-policy-portal-04.png)
 
-1. En la página **Directivas de acceso**, compruebe que la directiva de acceso aparece en **Directivas de acceso actuales** y seleccione **Guardar**. Las directivas de acceso no se aplican hasta que se guardan.
+1. En la página **Directivas de acceso** , compruebe que la directiva de acceso aparece en **Directivas de acceso actuales** y seleccione **Guardar**. Las directivas de acceso no se aplican hasta que se guardan.
 
     ![Almacenamiento de los cambios en las directivas de acceso](../media/authentication/assign-policy-portal-05.png)
 

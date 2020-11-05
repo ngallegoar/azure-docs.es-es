@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090304"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312694"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Prueba del código de ciencia de datos en Azure con el proceso de ciencia de datos en equipo y Azure DevOps Services
 En este artículo se proporcionan instrucciones preliminares para probar el código en un flujo de trabajo de ciencia de datos. Estas pruebas ofrecen a los científicos de datos una manera sistemática y eficiente de comprobar la calidad y el resultado esperado de su código. Se utiliza el [proyecto de proceso de ciencia de datos en equipo (TDSP), que utiliza el conjunto de datos de ingresos de adultos UCI,](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos con anterioridad para mostrar cómo se pueden realizar pruebas de código. 
@@ -89,7 +89,7 @@ Siga estos pasos para configurar y ejecutar pruebas de código y una compilació
 
       ![Código para comprobar los valores de predicción](./media/code-test/check_prediction_values.PNG)
 
-1. Coloque todas las funciones de prueba juntas en un script de Python denominado **test_funcs.py**:
+1. Coloque todas las funciones de prueba juntas en un script de Python denominado **test_funcs.py** :
 
     ![Script de Python para las funciones de prueba](./media/code-test/create_file_test_func.PNG)
 
@@ -124,7 +124,7 @@ Siga estos pasos para configurar y ejecutar pruebas de código y una compilació
 
     ![Lista de plantillas y botón "Proceso vacío"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Asigne un nombre a la compilación y seleccione el agente. Puede elegir aquí el valor predeterminado si desea utilizar una DSVM para completar el proceso de compilación. Para más información acerca de los agentes de configuración, consulte [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts) (Agentes de compilación y lanzamiento).
+    d. Asigne un nombre a la compilación y seleccione el agente. Puede elegir aquí el valor predeterminado si desea utilizar una DSVM para completar el proceso de compilación. Para más información acerca de los agentes de configuración, consulte [Build and release agents](/azure/devops/pipelines/agents/agents?view=vsts) (Agentes de compilación y lanzamiento).
     
     ![Selecciones de compilación y agentes](./media/code-test/select_agent.PNG)
 
@@ -134,7 +134,7 @@ Siga estos pasos para configurar y ejecutar pruebas de código y una compilació
 
     f. En los detalles de PowerShell, rellene la información necesaria, como el nombre y la versión de PowerShell. Elija **Script en línea** como el tipo. 
     
-    En el cuadro **Script en línea**, puede escribir **python test1.py**. Asegúrese de que la variable de entorno está configurada correctamente para Python. Si necesita un kernel o una versión diferente de Python, puede especificar explícitamente la ruta de acceso, tal como se muestra en la figura: 
+    En el cuadro **Script en línea** , puede escribir **python test1.py**. Asegúrese de que la variable de entorno está configurada correctamente para Python. Si necesita un kernel o una versión diferente de Python, puede especificar explícitamente la ruta de acceso, tal como se muestra en la figura: 
     
     ![Detalles de PowerShell](./media/code-test/powershell_scripts.PNG)
 
@@ -155,7 +155,7 @@ Si las alertas están configuradas correctamente, se le notificará por correo e
 * Siga el esquema y los ejemplos anteriores del escenario de predicción de ingresos UCI en sus propios proyectos de ciencia de datos.
 
 ## <a name="references"></a>Referencias
-* [Proceso de ciencia de datos en equipo (TDSP)](https://aka.ms/tdsp)
+* [Proceso de ciencia de datos en equipo (TDSP)](./index.yml)
 * [Herramientas de pruebas de Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Recursos de pruebas de Azure DevOps](https://www.visualstudio.com/team-services/)
 * [Máquinas virtuales de ciencia de datos](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

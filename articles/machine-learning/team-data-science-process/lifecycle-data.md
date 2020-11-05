@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195065"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311862"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Fase de adquisición y comprensión de los datos del proceso de ciencia de datos en equipos
 
@@ -67,8 +67,8 @@ En esta fase, desarrolla una arquitectura de solución de la canalización de da
 Estos son los resultados de esta fase:
 
    * [Informe de la calidad de los datos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): este informe contiene resúmenes de los datos, las relaciones entre cada atributo y objetivo, la clasificación de las variables, etc. La herramienta [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) que se incluye como parte del TDSP permite generar rápidamente este informe sobre cualquier conjunto de datos tabular, como un archivo CSV o una tabla relacional. 
-   * **Arquitectura de la solución**: la arquitectura de la solución puede ser un diagrama o una descripción de la canalización de datos que utiliza para llevar a cabo la tarea de puntuación o las predicciones con los nuevos datos una vez que se ha compilado un modelo. También contiene la canalización para volver a entrenar el modelo basándose en los nuevos datos. Almacene el documento en el directorio [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) cuando se usa la plantilla de estructura de directorios de TDSP.
-   * **Decisión de punto de control**: antes de comenzar con el proceso completo de diseño de características y con la compilación del modelo, puede volver a evaluar el proyecto para determinar si el valor que está previsto que aporte es suficiente para seguir adelante con él. Por ejemplo, podría estar preparado para continuar, requerir más datos o abandonar el proyecto si no existen datos que respondan a la pregunta.
+   * **Arquitectura de la solución** : la arquitectura de la solución puede ser un diagrama o una descripción de la canalización de datos que utiliza para llevar a cabo la tarea de puntuación o las predicciones con los nuevos datos una vez que se ha compilado un modelo. También contiene la canalización para volver a entrenar el modelo basándose en los nuevos datos. Almacene el documento en el directorio [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) cuando se usa la plantilla de estructura de directorios de TDSP.
+   * **Decisión de punto de control** : antes de comenzar con el proceso completo de diseño de características y con la compilación del modelo, puede volver a evaluar el proyecto para determinar si el valor que está previsto que aporte es suficiente para seguir adelante con él. Por ejemplo, podría estar preparado para continuar, requerir más datos o abandonar el proyecto si no existen datos que respondan a la pregunta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -82,4 +82,4 @@ Estos son los vínculos a cada uno de los pasos del ciclo de vida del Proceso de
 
 Proporcionamos tutoriales completos que muestran todos los pasos del proceso en escenarios concretos. El artículo con [tutoriales de ejemplo](walkthroughs.md) proporciona una lista de los escenarios con vínculos y descripciones de miniatura. En los tutoriales se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente. 
 
-Para obtener ejemplos de cómo ejecutar pasos en TDSP que usan Microsoft Azure Machine Learning Studio, consulte [Uso del Proceso de ciencia de los datos en equipos con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data).
+Para obtener ejemplos de cómo ejecutar pasos en TDSP que usan Microsoft Azure Machine Learning Studio, consulte [Uso del Proceso de ciencia de los datos en equipos con Azure Machine Learning]().

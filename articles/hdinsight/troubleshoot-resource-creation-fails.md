@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: a47781bcdf60d863d6dcf77d70bc0ee496a51388
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2e9f6898dba559f557f49cc0ee9ff39644da243f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538806"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287340"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Solución de problemas de creación de recursos en Azure HDInsight
 
@@ -33,24 +33,18 @@ La suscripción puede configurarse para limitar el número de núcleos para una 
 
 Para solicitar un aumento de la cuota, siga estos pasos:
 
-1. Vaya a [Azure Portal](https://portal.azure.com) y seleccione **Ayuda y soporte técnico** .
+1. Vaya a [Azure Portal](https://portal.azure.com) y seleccione **Ayuda y soporte técnico**.
 
-1. Seleccione **Nueva solicitud de soporte técnico** .
+1. Seleccione **Nueva solicitud de soporte técnico**.
 
 1. En la página **Nueva solicitud de soporte técnico** , en la pestaña **Datos básicos** , proporcione la información siguiente:
 
    * **Tipo de problema** : Seleccione **Límites de servicio y suscripción (cuotas)** .
    * **Subscription** (Suscripción): Seleccione la suscripción que desea modificar.
-   * **Tipo de cuota** : Seleccione **HDInsight** .
+   * **Tipo de cuota** : Seleccione **HDInsight**.
 
 Para más información, consulte [Creación de una incidencia de soporte técnico para aumentar el núcleo](hdinsight-capacity-planning.md#quotas).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
-
-* Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
-
-* Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
-
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico** . Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

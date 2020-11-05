@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 84224172dbfd63fee51b3a7b80f5990b04e5e228
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535032"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288985"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN de Apache Hadoop con Azure HDInsight.
 
@@ -35,7 +35,7 @@ En este ejemplo, se cambia la capacidad de las dos colas existentes ( **default*
 1. Seleccione el icono **Ambari Views** (Vistas de Ambari) y, a continuación, seleccione el patrón de cuadrícula. A continuación, seleccione **YARN Queue Manager** (Administrador de colas de YARN).
 
     ![Administrador de colas de YARN del panel de Apache Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
-2. Seleccione la cola **default** .
+2. Seleccione la cola **default**.
 
     ![YARN de Apache Ambari: seleccionar cola predeterminada](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. Para la cola **default** , cambie la **capacidad** del 50% al 25%. Para la cola **thriftsvr** , cambie la **capacidad** al 25%.
@@ -74,7 +74,7 @@ Estos cambios están visibles inmediatamente en la interfaz de usuario de YARN S
     yarn top
     ```
 
-    Los identificadores aparecen en la columna **APPLICATIONID** . Puede descargar los registros desde la columna **APPLICATIONID** .
+    Los identificadores aparecen en la columna **APPLICATIONID**. Puede descargar los registros desde la columna **APPLICATIONID**.
 
     ```apache
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -136,10 +136,4 @@ Estos cambios están visibles inmediatamente en la interfaz de usuario de YARN S
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
-
-- Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
-
-- Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
-
-- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico** . Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

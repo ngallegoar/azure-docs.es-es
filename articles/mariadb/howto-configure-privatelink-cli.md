@@ -1,18 +1,18 @@
 ---
 title: 'Private Link: CLI de Azure - Azure Database for MariaDB'
 description: Aprenda a configurar una instancia de Private Link para Azure Database for MariaDB desde la CLI de Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb3ed4e41125131538957addce5bf935b897b581
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c7f95b2009521b054958be48e444a129b0a59ed3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537225"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242898"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Creación y administración de Private Link en Azure Database for MariaDB mediante la CLI
 
@@ -85,7 +85,7 @@ az mariadb server create \
 
 > [!NOTE]
 > En algunos casos, Azure Database for MariaDB y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
-> - Asegúrese de que ambas suscripciones tengan registrado el proveedor de recursos **Microsoft.DBforMariaDB** . Para más información, consulte [resource-manager-registration][resource-manager-portal].
+> - Asegúrese de que ambas suscripciones tengan registrado el proveedor de recursos **Microsoft.DBforMariaDB**. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="create-the-private-endpoint"></a>Creación del punto de conexión privado 
 Cree un punto de conexión privado para el servidor MariaDB en la instancia de Virtual Network: 
@@ -133,24 +133,24 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
-1. En la barra de búsqueda del portal, escriba *myVm* .
+1. En la barra de búsqueda del portal, escriba *myVm*.
 
-1. Seleccione el botón **Conectar** . Después de seleccionar el botón **Conectar** , se abre **Conectar a máquina virtual** .
+1. Seleccione el botón **Conectar**. Después de seleccionar el botón **Conectar** , se abre **Conectar a máquina virtual**.
 
-1. Seleccione **Descargar archivo RDP** . Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp* ) y lo descarga en su equipo.
+1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp* ) y lo descarga en su equipo.
 
-1. Abra el archivo *downloaded.rdp* .
+1. Abra el archivo *downloaded.rdp*.
 
-    1. Cuando se le pida, seleccione **Conectar** .
+    1. Cuando se le pida, seleccione **Conectar**.
 
     1. Escriba el nombre de usuario y la contraseña que especificó al crear la VM.
 
         > [!NOTE]
         > Es posible que tenga que seleccionar **Más opciones** > **Usar otra cuenta** para especificar las credenciales que escribió al crear la máquina virtual.
 
-1. Seleccione **Aceptar** .
+1. Seleccione **Aceptar**.
 
-1. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe una advertencia de certificado, seleccione **Sí** o **Continuar** .
+1. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe una advertencia de certificado, seleccione **Sí** o **Continuar**.
 
 1. Una vez que aparezca el escritorio de la máquina virtual, minimícelo para volver a su escritorio local.  
 
@@ -176,12 +176,12 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
     | Configuración | Value |
     | ------- | ----- |
     | Nombre de la conexión| Seleccione el nombre de la conexión que prefiera.|
-    | Hostname | Seleccione *mydemoserver.privatelink.mariadb.database.azure.com* . |
+    | Hostname | Seleccione *mydemoserver.privatelink.mariadb.database.azure.com*. |
     | Nombre de usuario | Escriba el nombre de usuario como *username@servername* , que se proporciona durante la creación del servidor de MariaDB. |
     | Contraseña | Escriba una contraseña proporcionada durante la creación del servidor MariaDB. |
     ||
 
-5. Seleccione **Probar conexión** o **Aceptar** .
+5. Seleccione **Probar conexión** o **Aceptar**.
 
 6. (Opcional) Examine las bases de datos del menú izquierdo y cree o consulte información de la base de datos MariaDB
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: a62f8aee0bd0a0d2b7009a48e9d5f00ea3c5155f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1bf5dd070ac12878c608f744ff450395de84c48
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883215"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310026"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Módulos Web Service Input y Web Service Output
 
@@ -26,7 +26,7 @@ El módulo Web Service Input (Entrada del servicio web) indica en dónde entran 
 
 ## <a name="how-to-use-web-service-input-and-output"></a>Procedimientos para el uso de los módulos de entrada y salida del servicio web
 
-Al [crear una canalización de inferencia en tiempo real](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline) a partir de la canalización de entrenamiento, los módulos Web Service Input (Entrada de servicio web) y Web Service Output (Salida de servicio web) se agregarán automáticamente para mostrar el lugar en donde los datos del usuario entran en la canalización y aquel a donde se devuelven. 
+Al [crear una canalización de inferencia en tiempo real](../tutorial-designer-automobile-price-deploy.md#create-a-real-time-inference-pipeline) a partir de la canalización de entrenamiento, los módulos Web Service Input (Entrada de servicio web) y Web Service Output (Salida de servicio web) se agregarán automáticamente para mostrar el lugar en donde los datos del usuario entran en la canalización y aquel a donde se devuelven. 
 
 > [!NOTE]
 > La generación automática de una canalización de inferencia en tiempo real es un proceso de la mejor opción basado en reglas. No hay ninguna garantía de corrección. 
@@ -48,6 +48,6 @@ Después de enviar la canalización y de que la ejecución se complete correctam
 >  En el ejemplo anterior, el módulo **Enter Data Manually** (Introducción manual de datos) proporciona el esquema de datos para la entrada del servicio web y es necesario para implementar el punto de conexión en tiempo real. En general, debe conectar siempre un módulo o un conjunto de datos al puerto al que está conectado **Web Service Input** (Entrada de servicio web) para proporcionar el esquema de datos.
    
 ## <a name="next-steps"></a>Pasos siguientes
-Más información sobre la [implementación del punto de conexión en tiempo real](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
+Más información sobre la [implementación del punto de conexión en tiempo real](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
 
 Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

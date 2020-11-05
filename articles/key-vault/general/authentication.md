@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fdc9a9f99b239f68022067a5aedbc7e6e0d12a4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481382"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287498"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autenticación en Azure Key Vault
 
@@ -20,7 +20,7 @@ Azure Key Vault le permite almacenar secretos y controlar su distribución en un
 
 ## <a name="app-identity-and-security-principals"></a>Identidad de la aplicación y entidades de seguridad
 
-La autenticación con Key Vault funciona junto con [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), que es responsable de autenticar la identidad de cualquier **entidad de seguridad**.
+La autenticación con Key Vault funciona junto con [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), que es responsable de autenticar la identidad de cualquier **entidad de seguridad**.
 
 Una entidad de seguridad es un objeto que representa un usuario, un grupo o una entidad de servicio que solicita acceso a recursos de Azure. Azure asigna un **identificador de objeto** único a cada entidad de seguridad.
 
@@ -36,9 +36,9 @@ En el caso de las aplicaciones, hay dos maneras de obtener una entidad de servic
 
     Con la identidad administrada, Azure administra internamente la entidad de servicio de la aplicación y autentica la aplicación automáticamente con otros servicios de Azure. La identidad administrada está disponible para las aplicaciones implementadas en diversos servicios.
 
-    Para obtener más información, consulte [Introducción a las identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview). Consulte también [Servicios que admiten identidades administradas para recursos de Azure](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities), que contiene vínculos a artículos que describen cómo habilitar identidades administradas para servicios específicos (como App Service, Azure Functions, Virtual Machines, etc.).
+    Para obtener más información, consulte [Introducción a las identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md). Consulte también [Servicios que admiten identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), que contiene vínculos a artículos que describen cómo habilitar identidades administradas para servicios específicos (como App Service, Azure Functions, Virtual Machines, etc.).
 
-* Si no puede usar la identidad administrada, en su lugar **registre** la aplicación con el inquilino de Azure D, como se describe en [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](/azure/active-directory/develop/quickstart-register-app). El registro también crea un segundo objeto de aplicación que identifica la aplicación en todos los inquilinos.
+* Si no puede usar la identidad administrada, en su lugar **registre** la aplicación con el inquilino de Azure D, como se describe en [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](../../active-directory/develop/quickstart-register-app.md). El registro también crea un segundo objeto de aplicación que identifica la aplicación en todos los inquilinos.
 
 ## <a name="authorize-a-security-principal-to-access-key-vault"></a>Autorización de una entidad de seguridad para tener acceso a Key Vault
 
@@ -56,13 +56,13 @@ Key Vault funciona con dos niveles de autorización independientes:
  
     Para asignar y administrar roles, consulte los siguientes artículos:
 
-    - [Azure Portal](/azure/role-based-access-control/role-assignments-portal)
-    - [CLI de Azure](/azure/role-based-access-control/role-assignments-cli)
-    - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+    - [Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+    - [CLI de Azure](../../role-based-access-control/role-assignments-cli.md)
+    - [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
-    Key Vault admite actualmente el rol de [colaborador](/azure/role-based-access-control/built-in-roles#key-vault-contributor), que permite operaciones de administración en recursos de Key Vault. Una serie de otros roles están actualmente en versión preliminar. También puede crear roles personalizados, como se describe en [Roles personalizados de Azure](/azure/role-based-access-control/custom-roles).
+    Key Vault admite actualmente el rol de [colaborador](../../role-based-access-control/built-in-roles.md#key-vault-contributor), que permite operaciones de administración en recursos de Key Vault. Una serie de otros roles están actualmente en versión preliminar. También puede crear roles personalizados, como se describe en [Roles personalizados de Azure](../../role-based-access-control/custom-roles.md).
 
-    Para obtener información general sobre roles, consulte [¿Qué es el control de acceso basado en rol (RBAC)?](/azure/role-based-access-control/overview).
+    Para obtener información general sobre roles, consulte [¿Qué es el control de acceso basado en rol (RBAC)?](../../role-based-access-control/overview.md).
 
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ Key Vault funciona con dos niveles de autorización independientes:
 
 De manera predeterminada, Key Vault permite el acceso a los recursos a través de direcciones IP públicas. Para mayor seguridad, también puede restringir el acceso a intervalos de direcciones IP, puntos de conexión de servicio, redes virtuales o puntos de conexión privados específicos.
 
-Para más información, consulte [Acceso a Azure Key Vault desde detrás de un firewall](/azure/key-vault/general/access-behind-firewall).
+Para más información, consulte [Acceso a Azure Key Vault desde detrás de un firewall](./access-behind-firewall.md).
 
 
 ## <a name="the-key-vault-authentication-flow"></a>Flujo de autenticación de Key Vault
@@ -80,7 +80,7 @@ Para más información, consulte [Acceso a Azure Key Vault desde detrás de un f
 1. Una entidad de servicio solicita que se autentique con Azure AD, por ejemplo:
     * Un usuario que inicia sesión en Azure Portal mediante un nombre de usuario y una contraseña.
     * Una aplicación que invoca una API REST de Azure,que debe presentar un id. de cliente y un secreto o un certificado de cliente.
-    * Un recurso de Azure, como una máquina virtual con una identidad administrada, que contacta con el punto de conexión REST de [Instance Metadata Service de Azure (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) para obtener un token de acceso.
+    * Un recurso de Azure, como una máquina virtual con una identidad administrada, que contacta con el punto de conexión REST de [Instance Metadata Service de Azure (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) para obtener un token de acceso.
 
 1. Si la autenticación con Azure AD se realiza correctamente, se le concede un token de OAuth a la entidad de servicio.
 
@@ -89,7 +89,7 @@ Para más información, consulte [Acceso a Azure Key Vault desde detrás de un f
 1. El firewall de Key Vault comprueba los siguientes criterios. Si se cumple algún criterio, se permite la llamada. En caso contrario, se bloquea la llamada y se devuelve una respuesta prohibida.
 
     * El firewall está deshabilitado y el punto de conexión público de Key Vault es accesible desde la red pública de Internet.
-    * El autor de la llamada es un [servicio de confianza de Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services), lo que le permite omitir el firewall.
+    * El autor de la llamada es un [servicio de confianza de Key Vault](./overview-vnet-service-endpoints.md#trusted-services), lo que le permite omitir el firewall.
     * El autor de la llamada aparece listado en el firewall por su dirección IP, red virtual o punto de conexión de servicio.
     * El autor de la llamada puede conectar con Key Vault mediante una conexión de vínculo privado configurada.    
 
@@ -109,20 +109,20 @@ En la tabla siguiente se incluyen vínculos a artículos diferentes que muestran
 
 | Secretos de Key Vault | Claves de Key Vault | Certificados en Key Vault |
 |  --- | --- | --- |
-| [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
-| [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
-| [.NET (SDK v3)](/azure/key-vault/secrets/quick-create-net-v3) | -- | -- |
-| [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
-| [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
+| [Python](../secrets/quick-create-python.md) | [Python](../keys/quick-create-python.md) | [Python](../certificates/quick-create-python.md) | 
+| [.NET (SDK v4)](../secrets/quick-create-net.md) | -- | -- |
+| [.NET (SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
+| [Java](../secrets/quick-create-java.md) | -- | -- |
+| [JavaScript](../secrets/quick-create-node.md) | -- | -- | 
 | | | |
-| [Azure Portal](/azure/key-vault/secrets/quick-create-portal) | [Azure Portal](/azure/key-vault/keys/quick-create-portal) | [Azure Portal](/azure/key-vault/certificates/quick-create-portal) |
-| [CLI de Azure](/azure/key-vault/secrets/quick-create-cli) | [CLI de Azure](/azure/key-vault/keys/quick-create-cli) | [CLI de Azure](/azure/key-vault/certificates/quick-create-cli) |
-| [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
-| [Plantilla ARM](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [Azure Portal](../secrets/quick-create-portal.md) | [Azure Portal](../keys/quick-create-portal.md) | [Azure Portal](../certificates/quick-create-portal.md) |
+| [CLI de Azure](../secrets/quick-create-cli.md) | [CLI de Azure](../keys/quick-create-cli.md) | [CLI de Azure](../certificates/quick-create-cli.md) |
+| [Azure PowerShell](../secrets/quick-create-powershell.md) | [Azure PowerShell](../keys/quick-create-powershell.md) | [Azure PowerShell](../certificates/quick-create-powershell.md) |
+| [Plantilla ARM](../secrets/quick-create-net.md) | -- | -- |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Solución de problemas de las directivas de acceso de Azure Key Vault](troubleshooting-access-issues.md)
 - [Códigos de error de la API REST de Azure Key Vault](rest-error-codes.md)
 - [Guía del desarrollador de Key Vault](developers-guide.md)
-- [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](/azure/role-based-access-control/overview)
+- [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md)

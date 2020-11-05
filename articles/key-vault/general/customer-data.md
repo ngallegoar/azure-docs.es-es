@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7155e1517ba5ff203f11ee834af3c0d1dd1fa065
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983241"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289471"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Características de datos del cliente de Azure Key Vault
 
@@ -56,10 +56,10 @@ Los registros de diagnóstico de Azure Key Vault que contienen datos personales 
 
 - [Información general sobre la eliminación temporal de Azure Key Vault](soft-delete-cli.md)
 
-- [Operaciones con claves de Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/key-operations)
+- [Operaciones con claves de Azure Key Vault](/rest/api/keyvault/key-operations)
 
-- [Operaciones con secretos de Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
+- [Operaciones con secretos de Azure Key Vault](/rest/api/keyvault/secret-operations)
 
-- [Certificados y directivas de Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
+- [Certificados y directivas de Azure Key Vault](/rest/api/keyvault/certificates-and-policies)
 
-- [Operaciones con cuentas de almacenamiento de Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
+- [Operaciones con cuentas de almacenamiento de Azure Key Vault](/rest/api/keyvault/storage-account-key-operations)

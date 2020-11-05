@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 69eefce50cefe9f54ed931c96ccbe94b2057cae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb87afcc6edc02d241dca763aff9ecdd594e4711
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362374"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310088"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Complemento de Excel para servicios web de Azure Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Excel facilita la llamada a servicios web directamente sin necesidad de escribir ningún código.
@@ -38,7 +38,7 @@ Excel facilita la llamada a servicios web directamente sin necesidad de escribir
     ![Seleccionar un servicio web](./media/excel-add-in-for-web-services/image1.png)
 3. Esto le lleva a la sección **Predicción**.  Este libro ya contiene datos de ejemplo, pero para un libro en blanco también puede seleccionar una celda en Excel y hacer clic en **Usar datos de ejemplo**.
 4. Seleccione los datos con encabezados y haga clic en el icono del intervalo de datos de entrada.  Asegúrese de que está activada la casilla "Mis datos tienen encabezados".
-5. En **Resultado**, escriba el número de la celda donde desea que se muestre el resultado, por ejemplo, "H1" aquí.
+5. En **Resultado** , escriba el número de la celda donde desea que se muestre el resultado, por ejemplo, "H1" aquí.
 6. Haga clic en **Predicción**. Si selecciona la casilla "predicción automática", cualquier cambio en las áreas seleccionadas (las especificadas como entradas) desencadenará una solicitud y una actualización de las celdas de salida sin necesidad de presionar el botón de predicción.
    
     ![Sección Predicción](./media/excel-add-in-for-web-services/image1.png)
@@ -66,19 +66,19 @@ Obtenga la clave de API del servicio web. Realizará esta acción en un sitio u 
 **Uso de un servicio web nuevo**
 
 1. En el portal [Servicios web Azure Machine Learning](https://services.azureml.net), haga clic en **Servicios web** y seleccione su servicio web. 
-2. Haga clic en **Consume**(Consumo).
+2. Haga clic en **Consume** (Consumo).
 3. Busque la sección **Basic consumption info** (Información básica de consumo). Copie y guarde la **clave principal** y la URL de **solicitud-respuesta**.
 
 ## <a name="steps-to-add-a-new-web-service"></a>Pasos para agregar un nuevo servicio web
 
 1. Implemente un servicio web o use uno existente. Para más información sobre la implementación de un servicio web, consulte el [Tutorial 3: Implementación del modelo de riesgo crediticio](tutorial-part3-credit-risk-deploy.md).
-2. Haga clic en **Consume**(Consumo).
+2. Haga clic en **Consume** (Consumo).
 3. Busque la sección **Basic consumption info** (Información básica de consumo). Copie y guarde la **clave principal** y la URL de **solicitud-respuesta**.
-4. En Excel, vaya a la sección **Servicios web** (si se encuentra en la sección **Predicción**, haga clic en la flecha Atrás para ir a la lista de servicios web).
+4. En Excel, vaya a la sección **Servicios web** (si se encuentra en la sección **Predicción** , haga clic en la flecha Atrás para ir a la lista de servicios web).
    
     ![Ir a la selección de servicios web](./media/excel-add-in-for-web-services/image3.png)
 5. Haga clic en **Agregar servicio web**.
-6. Pegue la URL en el cuadro de texto de complemento de Excel denominado " **URL**".
+6. Pegue la URL en el cuadro de texto de complemento de Excel denominado " **URL** ".
 7. Pegue la clave principal o de API en el cuadro de texto denominado **Clave de API**.
 8. Haga clic en **Agregar**.
    
@@ -88,4 +88,4 @@ Obtenga la clave de API del servicio web. Realizará esta acción en un sitio u 
 ## <a name="sharing-your-workbook"></a>Compartir el libro
 Si guarda el libro, también se guardarán la clave principal o de API de los servicios web que también ha guardado. Esto significa que solo debe compartir el libro con personas de confianza.
 
-Plantee cualquier pregunta que le surja en la sección de comentarios a continuación o en nuestro [foro](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).
+Plantee cualquier pregunta que le surja en la sección de comentarios a continuación o en nuestro [foro](/answers/topics/azure-machine-learning.html).
