@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c024b12210d408fe2a9987cba56a08e4b660ae1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027552"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321331"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Exploración y modelado avanzados de datos con Spark
 
-En este tutorial se usa Spark en HDInsight para realizar exploración de datos y entrenar modelos de regresión y clasificación binaria. Para ello, se usan la validación cruzada y la optimización de hiperparámetros en una muestra del conjunto de datos de carreras y tarifas de taxi de 2013 en la ciudad de Nueva York. Lo guía por los pasos del [proceso de la ciencia de los datos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), de principio a fin, usando un clúster de Spark en HDInsight para el procesamiento y blobs de Azure para almacenar los datos y los modelos. El proceso analiza y visualiza los datos extraídos de un Blob de Azure Storage y, después, los prepara para crear modelos predictivos. Se ha usado Python para codificar la solución y mostrar los trazados relevantes. Estos modelos se crean usando el kit de herramientas MLlib de Spark para realizar las tareas de clasificación binaria y modelado por regresión. 
+En este tutorial se usa Spark en HDInsight para realizar exploración de datos y entrenar modelos de regresión y clasificación binaria. Para ello, se usan la validación cruzada y la optimización de hiperparámetros en una muestra del conjunto de datos de carreras y tarifas de taxi de 2013 en la ciudad de Nueva York. Lo guía por los pasos del [proceso de la ciencia de los datos](./index.yml), de principio a fin, usando un clúster de Spark en HDInsight para el procesamiento y blobs de Azure para almacenar los datos y los modelos. El proceso analiza y visualiza los datos extraídos de un Blob de Azure Storage y, después, los prepara para crear modelos predictivos. Se ha usado Python para codificar la solución y mostrar los trazados relevantes. Estos modelos se crean usando el kit de herramientas MLlib de Spark para realizar las tareas de clasificación binaria y modelado por regresión. 
 
 * La tarea de **clasificación binaria** consiste en predecir si se dará propina por la carrera o no. 
 * La tarea de **regresión** consiste en predecir el importe de la propina en función de otras características de la propina. 
@@ -118,7 +118,7 @@ Los kernels de PySpark que se proporcionan con cuadernos de Jupyter Notebook tie
 
 El kernel PySpark proporciona algunas “instrucciones mágicas” predefinidas, que son comandos especiales que se pueden llamar con %%. Hay dos comandos de este tipo que se utilizan en estos ejemplos de código.
 
-* **%%local**: especifica que el código de las líneas siguientes se ejecutará localmente. El código debe ser un código de Python válido.
+* **%%local** : especifica que el código de las líneas siguientes se ejecutará localmente. El código debe ser un código de Python válido.
 * **%%sql -o \<variable name>** Ejecuta una consulta de Hive en sqlContext. Si se pasa el parámetro -o, el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos de Pandas.
 
 Para obtener más información sobre los kernels de cuadernos de Jupyter Notebook y las instrucciones mágicas predefinidas llamadas con %% (por ejemplo, %%local) que proporcionan, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres de Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -764,7 +764,7 @@ Tiempo empleado en ejecutar la celda anterior: 2,67 segundos
 
 **Trazado de la curva ROC.**
 
-*predictionAndLabelsDF* está registrado como una tabla, *tmp_results*, en la celda anterior. *tmp_results* puede utilizarse para hacer consultas y mostrar los resultados en la trama de datos de sqlResults para el trazado. Este es el código.
+*predictionAndLabelsDF* está registrado como una tabla, *tmp_results* , en la celda anterior. *tmp_results* puede utilizarse para hacer consultas y mostrar los resultados en la trama de datos de sqlResults para el trazado. Este es el código.
 
 ```python
 # QUERY RESULTS                              
@@ -895,7 +895,7 @@ Tiempo empleado en ejecutar la celda anterior: 107,98 segundos
 
 **Trazado de la curva ROC.**
 
-*predictionAndLabelsDF* está registrado como una tabla, *tmp_results*, en la celda anterior. *tmp_results* puede utilizarse para hacer consultas y mostrar los resultados en la trama de datos de sqlResults para el trazado. Este es el código.
+*predictionAndLabelsDF* está registrado como una tabla, *tmp_results* , en la celda anterior. *tmp_results* puede utilizarse para hacer consultas y mostrar los resultados en la trama de datos de sqlResults para el trazado. Este es el código.
 
 ```python
 # QUERY RESULTS
@@ -1508,4 +1508,3 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 Ahora que ha creado los modelos de clasificación y regresión con Spark MlLib, está listo para aprender a puntuar y evaluar estos modelos.
 
 **Consumo de modelos:** Para saber cómo puntuar y evaluar los modelos de clasificación y regresión creados en este tema, consulte [Puntuación y evaluación de modelos de aprendizaje automático creados con Spark](spark-model-consumption.md).
-

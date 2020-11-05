@@ -3,18 +3,20 @@ title: Migración de contenedores de Azure Cosmos sin particiones a contenedores
 description: Obtenga información sobre cómo migrar todos los contenedores sin particiones existentes en contenedores con particiones.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 01e61abacac63d698456c3ab25826f9799d2837e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: edb6114406922d55c439ae7426a2be933bba4aee
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482288"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334096"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contenedores sin particiones a contenedores con particiones
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB admite la creación de contenedores sin una clave de partición. Actualmente puede crear contenedores sin particiones utilizando la CLI de Azure y los SDK de Azure Cosmos DB (.NET, Java, NodeJs) que tienen una versión inferior o igual a 2.x. No se pueden crear contenedores sin particiones con Azure Portal. Sin embargo, dichos contenedores sin particiones no son elásticos y tienen una capacidad de almacenamiento fija de 20 GB y un límite de rendimiento de 10K RU/s.
 

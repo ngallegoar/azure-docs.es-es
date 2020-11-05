@@ -3,26 +3,28 @@ title: Migración de los datos de Oracle a Cassandra API de Azure Cosmos DB med
 description: Aprenda a migrar datos de la base de datos de Oracle a Cassandra API de Azure Cosmos DB mediante Blitzz.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 882ba7f0b8f896c51e340fe921e53b27dd07ff8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15bcd0c54fc5f6614f4d1925759704309048acae
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262470"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336449"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migración de los datos de Oracle a una cuenta de Cassandra API de Azure Cosmos DB mediante Blitzz
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cassandra API en Azure Cosmos DB se ha convertido en una excelente opción para cargas de trabajo empresariales que se ejecutan en Oracle por diversos motivos como, por ejemplo:
 
-* **Mejor escalabilidad y disponibilidad**: Evita los puntos únicos de error, lo que supone una mejor escalabilidad y disponibilidad para las aplicaciones.
+* **Mejor escalabilidad y disponibilidad** : Evita los puntos únicos de error, lo que supone una mejor escalabilidad y disponibilidad para las aplicaciones.
 
-* **Importante ahorro de costos**: puede ahorrar costos con Azure Cosmos DB, como en el costo de las máquinas virtuales, del ancho de banda y de las licencias de Oracle aplicables. Además, no tiene que administrar los centros de datos, los servidores, el almacenamiento en SSD, las redes y los costos de electricidad.
+* **Importante ahorro de costos** : puede ahorrar costos con Azure Cosmos DB, como en el costo de las máquinas virtuales, del ancho de banda y de las licencias de Oracle aplicables. Además, no tiene que administrar los centros de datos, los servidores, el almacenamiento en SSD, las redes y los costos de electricidad.
 
-* **No hay sobrecarga de administración y supervisión**: como servicio en la nube totalmente administrado, Azure Cosmos DB evita la sobrecarga de administrar y supervisar innumerables configuraciones.
+* **No hay sobrecarga de administración y supervisión** : como servicio en la nube totalmente administrado, Azure Cosmos DB evita la sobrecarga de administrar y supervisar innumerables configuraciones.
 
 Existen varias maneras de migrar las cargas de trabajo de base de datos de una plataforma a otra. [Blitzz](https://www.blitzz.io) es una herramienta que ofrece una forma segura y confiable de realizar una migración sin tiempo de inactividad desde una variedad de bases de datos a Azure Cosmos DB. En este artículo se describen los pasos necesarios para migrar datos de la base de datos de Oracle a Cassandra API de Azure Cosmos DB mediante Blitzz.
 
@@ -56,7 +58,7 @@ En esta sección se describen los pasos necesarios para configurar Blitzz y migr
 
    :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/blitzz-replicant-download.png" alt-text="Descarga de la herramienta de replicante de Blitzz":::
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Descarga de la herramienta de replicante de Blitzz":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Archivos de replicante de Blitzz":::
 
 1. En el terminal de la CLI, configure las opciones de la base de datos de origen. Abra el archivo de configuración con el comando **`vi conf/conn/oracle.yml`** y agregue una lista separada por comas de las direcciones IP de los nodos de Oracle, el número de puerto, el nombre de usuario, la contraseña y cualquier otro detalle necesario. El código siguiente muestra un archivo de configuración de ejemplo:
 
@@ -75,9 +77,9 @@ En esta sección se describen los pasos necesarios para configurar Blitzz y migr
    use-ssl: false
    ```
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/open-connection-editor-oracle.png" alt-text="Descarga de la herramienta de replicante de Blitzz":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/open-connection-editor-oracle.png" alt-text="Apertura de editor de conexiones de Oracle":::
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-connection-configuration.png" alt-text="Descarga de la herramienta de replicante de Blitzz":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-connection-configuration.png" alt-text="Configuración de la conexión de Oracle":::
 
    Después de rellenar los detalles de configuración, guarde y cierre el archivo.
 
@@ -96,7 +98,7 @@ En esta sección se describen los pasos necesarios para configurar Blitzz y migr
 
 1. Antes de migrar los datos, aumente el rendimiento del contenedor hasta el valor necesario para que la aplicación se migre rápidamente. Por ejemplo, puede aumentar el rendimiento a 100 000 RU. El escalado del rendimiento antes de iniciar la migración le ayudará a reducir el tiempo de migración. 
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Descarga de la herramienta de replicante de Blitzz":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Escalado del rendimiento del contenedor de Azure Cosmos":::
 
    Debe reducir el rendimiento una vez completada la migración. En función de la cantidad de datos almacenados y de las unidades de solicitud (RU) necesarias para cada operación, puede calcular el rendimiento necesario después de la migración de datos. Para más información sobre cómo calcular las unidades de solicitud necesarias, consulte los artículos [Aprovisionar rendimiento en contenedores y bases de datos](set-throughput.md) y [Estimación de RU/s mediante Capacity Planner de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 
@@ -117,11 +119,11 @@ En esta sección se describen los pasos necesarios para configurar Blitzz y migr
    use-ssl: false
    ```
 
-1. A continuación, migre los datos mediante Blitzz. Puede ejecutar el replicante de Blizz en modo **completo** o **de instantánea**:
+1. A continuación, migre los datos mediante Blitzz. Puede ejecutar el replicante de Blizz en modo **completo** o **de instantánea** :
 
-   * **Modo completo**: en este modo, el replicante continúa ejecutándose después de la migración y escucha los cambios en el sistema Oracle de origen. Si detecta cambios, se replican en la cuenta de Azure Cosmos de destino en tiempo real.
+   * **Modo completo** : en este modo, el replicante continúa ejecutándose después de la migración y escucha los cambios en el sistema Oracle de origen. Si detecta cambios, se replican en la cuenta de Azure Cosmos de destino en tiempo real.
 
-   * **Modo de instantánea**: en este modo, puede realizar la migración de esquemas y una única replicación de datos. Esta opción no admite la replicación en tiempo real.
+   * **Modo de instantánea** : en este modo, puede realizar la migración de esquemas y una única replicación de datos. Esta opción no admite la replicación en tiempo real.
 
 
    Mediante el uso de los dos modos anteriores, la migración se puede realizar sin tiempo de inactividad.
@@ -134,7 +136,7 @@ En esta sección se describen los pasos necesarios para configurar Blitzz y migr
 
    La interfaz de usuario del replicante muestra el progreso de la replicación. Una vez realizada la migración del esquema y la operación de instantánea, se muestra un progreso del 100 %. Una vez completada la migración, puede validar los datos en la base de datos de Azure Cosmos de destino.
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-data-migration-output.png" alt-text="Descarga de la herramienta de replicante de Blitzz":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-data-migration-output.png" alt-text="Salida de la migración de datos de Oracle":::
 
 1. Dado que ha usado el modo completo para la migración, puede realizar operaciones como insertar, actualizar o eliminar datos en la base de datos de Oracle de origen. Más adelante puede asegurarse de que se replican en tiempo real en la base de datos de Azure Cosmos de destino. Tras la migración, asegúrese de reducir el rendimiento configurado para el contenedor de Azure Cosmos.
 

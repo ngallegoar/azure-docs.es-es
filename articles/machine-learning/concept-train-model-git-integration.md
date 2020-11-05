@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 71ac7793fe5226215c5d4eab98f84dba356b114c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f13773a8e3e78451dfb587e55c40a20d1b4b385c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275972"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324763"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integración de Git con Azure Machine Learning
 
@@ -39,7 +39,7 @@ Para más información sobre la clonación, consulte la guía sobre [cómo usar 
 
 ## <a name="authenticate-your-git-account-with-ssh"></a>Autenticación de la cuenta de Git con SSH
 ### <a name="generate-a-new-ssh-key"></a>Generación de una nueva clave SSH
-1) [Abra la ventana de terminal](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) en la pestaña Notebook de Azure Machine Learning.
+1) [Abra la ventana de terminal](./how-to-run-jupyter-notebooks.md#terminal) en la pestaña Notebook de Azure Machine Learning.
 
 2) Pegue el texto siguiente y sustituya la dirección de correo electrónico.
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs) Comience en el **paso 2**.
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs) Comience en el **paso 2**.
 
 + [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Comience en el **paso 4**.
 
@@ -115,7 +115,7 @@ Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of know
 
 Puede que SSH muestre la huella digital de SSH del servidor y le pida que la verifique. Deberá comprobar que la huella digital mostrada coincida con una de las huellas digitales de la página de claves públicas de SSH.
 
-SSH muestra esta huella digital cuando se conecta a un host desconocido para protegerle de [ataques de tipo "Man in the Middle"](https://technet.microsoft.com/library/cc959354.aspx). Una vez que acepte la huella digital del host, SSH no volverá a pedírsela a menos que la cambie.
+SSH muestra esta huella digital cuando se conecta a un host desconocido para protegerle de [ataques de tipo "Man in the Middle"](/previous-versions/windows/it-pro/windows-2000-server/cc959354(v=technet.10)). Una vez que acepte la huella digital del host, SSH no volverá a pedírsela a menos que la cambie.
 
 3) Cuando se le pregunte si quiere continuar con la conexión, escriba `yes`. Git clonará el repositorio y configurará el origen remoto para conectarse con SSH en futuros comandos de Git.
 
@@ -178,7 +178,7 @@ La información registrada contiene texto similar al siguiente JSON:
 
 ### <a name="python-sdk"></a>SDK de Python
 
-Después de enviar una ejecución de entrenamiento, se devuelve un objeto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true). El atributo `properties` de este objeto contiene la información de Git registrada. Por ejemplo, el código siguiente recupera el hash de confirmación:
+Después de enviar una ejecución de entrenamiento, se devuelve un objeto [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py). El atributo `properties` de este objeto contiene la información de Git registrada. Por ejemplo, el código siguiente recupera el hash de confirmación:
 
 ```python
 run.properties['azureml.git.commit']
@@ -192,7 +192,7 @@ El comando de la CLI `az ml run` se puede usar para recuperar las propiedades de
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Para más información, consulte la documentación de referencia de [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true).
+Para más información, consulte la documentación de referencia de [az ml run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

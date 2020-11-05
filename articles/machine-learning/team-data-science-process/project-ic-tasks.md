@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ecb5fef9c9b14bde72de29a45e29d7e16131bd1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76721258"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321911"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tareas para un colaborador individual en el proceso de ciencia de datos en equipos
 
 En este tema se describen las tareas que realiza un *colaborador individual* para configurar un proyecto en el [proceso de ciencia de datos en equipo](overview.md) (TDSP). El objetivo es trabajar en un entorno de colaboración en equipo que se estandariza en el proceso de ciencia de datos en equipo (TDSP). Este proceso está diseñado para ayudar a mejorar la colaboración y el aprendizaje en equipo. En [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md) dispone de un esquema de los roles profesionales y las tareas asociadas de las que se ocupa un equipo de ciencia de datos que sigue el TDSP como estándar.
 
-En el diagrama siguiente se muestran las tareas que los colaboradores individuales del proyecto (científicos de datos) realizan para configurar su entorno de equipo. Para obtener instrucciones sobre cómo ejecutar un proyecto de ciencia de datos en el proceso de ciencia de datos en equipo, consulte [Ejecución de proyectos de ciencia de datos](project-execution.md). 
+En el diagrama siguiente se muestran las tareas que los colaboradores individuales del proyecto (científicos de datos) realizan para configurar su entorno de equipo. Para obtener instrucciones sobre cómo ejecutar un proyecto de ciencia de datos en el proceso de ciencia de datos en equipo, consulte [Ejecución de proyectos de ciencia de datos](./agile-development.md). 
 
 ![Tareas de colaborador individual](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
 
@@ -46,8 +46,8 @@ Para clonar los repositorios y modificar su contenido en la máquina local o en 
 
 - Suscripción a Azure.
 - Git instalado en la máquina. Si usa una DSVM, GIT está preinstalado. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).
-- Si desea usar la DSVM, la DSVM de Windows o Linux creada y configurada en Azure. Para más información e instrucciones, consulte la [documentación de Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
-- Para una DSVM de Windows, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en la máquina. En el archivo *README.md*, desplácese a la sección **Descargar e instalar** y haga clic en el **instalador más reciente**. Descargue el instalador *.exe* desde la página del instalador y ejecútelo. 
+- Si desea usar la DSVM, la DSVM de Windows o Linux creada y configurada en Azure. Para más información e instrucciones, consulte la [documentación de Data Science Virtual Machine](../data-science-virtual-machine/index.yml).
+- Para una DSVM de Windows, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en la máquina. En el archivo *README.md* , desplácese a la sección **Descargar e instalar** y haga clic en el **instalador más reciente**. Descargue el instalador *.exe* desde la página del instalador y ejecútelo. 
 - En el caso de una DSVM de Linux, se configura una clave pública SSH en la DSVM y se agrega en Azure DevOps. Para más información e instrucciones, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
 - La información de Azure Files Storage para cualquier almacenamiento de archivos de Azure que necesite montar en la DSVM. 
 
@@ -61,7 +61,7 @@ Para trabajar con repositorios de forma local e insertar los cambios en los repo
    
 1. En la página de repositorios, seleccione **Clonar** en la esquina superior derecha.
    
-1. En el cuadro de diálogo **Clonar repositorio**, seleccione **HTTPS** para una conexión HTTP o **SSH** para una conexión SSH y copie la dirección URL de clonación en la **Línea de comandos** del Portapapeles.
+1. En el cuadro de diálogo **Clonar repositorio** , seleccione **HTTPS** para una conexión HTTP o **SSH** para una conexión SSH y copie la dirección URL de clonación en la **Línea de comandos** del Portapapeles.
    
    ![Clonación de repositorio](./media/project-ic-tasks/clone.png)
    
@@ -103,4 +103,3 @@ Estos son vínculos a descripciones detalladas de los roles y tareas definidas p
 - [Tareas del administrador de grupo en un equipo de ciencia de datos](group-manager-tasks.md)
 - [Tareas del responsable de equipo en un equipo de ciencia de datos](team-lead-tasks.md)
 - [Tareas del responsable de proyecto en un equipo de ciencia de datos](project-lead-tasks.md)
-

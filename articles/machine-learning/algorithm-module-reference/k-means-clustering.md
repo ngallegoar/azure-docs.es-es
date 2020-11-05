@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
-ms.openlocfilehash: 97cadfb8f5004cfd2701335172d4416c64f05259
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e0b61c1ca6ae30044e4c9d4705bdce01eac1942
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907872"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323698"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: Agrupación en clústeres K-Means
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo usar el módulo *Agrupación en clústeres K
  
 K-means es uno de los algoritmos de aprendizaje *supervisados* más sencillos y el más conocido. Puede usar el algoritmo para diversas tareas de aprendizaje automático, como son: 
 
-* [Detección de datos anormales](https://msdn.microsoft.com/magazine/jj891054.aspx).
+* [Detección de datos anormales](/archive/msdn-magazine/2013/february/data-clustering-detecting-abnormal-data-using-k-means-clustering).
 * Agrupación en clústeres de documentos de texto.
 * Análisis de conjuntos de datos antes de utilizar otros métodos de clasificación o regresión. 
 
@@ -145,4 +145,4 @@ En general, con los modelos de clústeres, es posible que una determinada config
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e387d5f7ee0b1926457717b30b03bbfeb8d70a1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8be878cf40967356d68e9be0765e898c81b5ba0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027433"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314624"
 ---
 # <a name="process-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>Proceso de datos en una máquina virtual de SQL Server en Azure
 En este documento se aborda cómo explorar datos y generar características para los datos almacenados en una VM de SQL Server en Azure. Este objetivo puede alcanzarse mediante la administración de datos usando SQL o mediante un lenguaje de programación, como Python.
@@ -98,7 +98,7 @@ Aquí se incluye un breve manual sobre los datos de ubicación de latitud y long
 * La quinta posición decimal tiene un valor de hasta 1,1 m: puede distinguir entre distintos árboles. Solo es posible conseguir una precisión de este nivel con unidades GPS comerciales con corrección diferencial.
 * La sexta posición decimal tiene un valor de hasta 0,11 m: puede usarse para diseñar estructuras en detalle, para el diseño de paisajes o la construcción de carreteras. Debería ser más que suficiente para realizar el seguimiento de los movimientos de glaciares y ríos. Esto se consigue al tomar medidas meticulosas con GPS, como GPS corregido de forma diferencial.
 
-La información de ubicación se puede caracterizar como sigue, con diferencias entre la información de región, ubicación y ciudad. También es posible llamar a un punto de conexión de REST, como la API de mapas de Bing disponible en [Encontrar una ubicación por punto](https://msdn.microsoft.com/library/ff701710.aspx) para obtener la información de la región o el distrito.
+La información de ubicación se puede caracterizar como sigue, con diferencias entre la información de región, ubicación y ciudad. También es posible llamar a un punto de conexión de REST, como la API de mapas de Bing disponible en [Encontrar una ubicación por punto](/bingmaps/rest-services/locations/find-a-location-by-point) para obtener la información de la región o el distrito.
 
 ```sql
 select 
@@ -116,7 +116,7 @@ from <tablename>
 Estas características basadas en ubicación se pueden usar aún más para generar características de recuento adicionales, tal y como se describió anteriormente. 
 
 > [!TIP]
-> Puede insertar mediante programación los registros con el lenguaje que prefiera. Es posible que deba insertar los datos en fragmentos para mejorar el rendimiento de escritura (para obtener un ejemplo de cómo obtener esto mediante pyodbc, consulte [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)(Un ejemplo Hola a todos para acceder a SQLServer con python)). Otra alternativa consiste en insertar datos en la base de datos mediante la [utilidad BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> Puede insertar mediante programación los registros con el lenguaje que prefiera. Es posible que deba insertar los datos en fragmentos para mejorar el rendimiento de escritura (para obtener un ejemplo de cómo obtener esto mediante pyodbc, consulte [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)(Un ejemplo Hola a todos para acceder a SQLServer con python)). Otra alternativa consiste en insertar datos en la base de datos mediante la [utilidad BCP](/sql/tools/bcp-utility).
 > 
 > 
 
@@ -152,5 +152,4 @@ Para obtener un ejemplo de tutorial completo del Proceso de ciencia de datos de 
 
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

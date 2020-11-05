@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 06/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: acaab8aaa12a107f4d0f8a8aac0baf7d5ebb8e4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7b818de12a968869d655a80917572ddf5f2c210
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012765"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322999"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX y Azure Machine Learning: Crear y acelerar modelos de ML
 
@@ -29,9 +29,9 @@ Microsoft y una comunidad de asociados crearon ONNX como un estándar abierto pa
 [ONNX Runtime](https://onnxruntime.ai) es un motor de inferencia de alto rendimiento que sirve para implementar modelos ONNX en la producción. Está optimizado tanto para la nube como para Edge y funciona en Linux, Windows y Mac. Se escribió en C++, también tiene las API de C, Python, C#, Java y JavaScript (Node.js) para usarse en varios entornos. ONNX Runtime admite los modelos de DNN y Machine Learning tradicionales y se integra con los aceleradores en entornos de hardware diferentes, como TensorRT en GPU de NVidia, OpenVINO en procesadores de Intel, DirectML en Windows, etc. Al utilizar ONNX Runtime, puede beneficiarse de las amplias optimizaciones, pruebas y mejoras de producción.
 
 ONNX Runtime se usa en servicios de Microsoft a gran escala, como Bing, Office y Azure Cognitive Services. Las mejoras en el rendimiento dependen de una serie de factores, pero estos servicios de Microsoft han __mejorado el doble el rendimiento de la CPU__. Además de Azure Machine Learning Services, ONNX Runtime también se ejecuta en otros productos que admiten cargas de trabajo de aprendizaje automático, como:
-+ Windows: El entorno de ejecución está integrado en Windows como parte de [Windows Machine Learning](https://docs.microsoft.com/windows/ai/windows-ml/) y se ejecuta en cientos de millones de dispositivos. 
-+ Familia de productos de Azure SQL: Ejecute una puntuación nativa en los datos de [Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/onnx-overview) y [Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview).
-+ ML.NET: [Ejecute los modelos ONNX en ML.NET](https://docs.microsoft.com/dotnet/machine-learning/tutorials/object-detection-onnx).
++ Windows: El entorno de ejecución está integrado en Windows como parte de [Windows Machine Learning](/windows/ai/windows-ml/) y se ejecuta en cientos de millones de dispositivos. 
++ Familia de productos de Azure SQL: Ejecute una puntuación nativa en los datos de [Azure SQL Edge](../azure-sql-edge/onnx-overview.md) y [Azure SQL Managed Instance](../azure-sql/managed-instance/machine-learning-services-overview.md).
++ ML.NET: [Ejecute los modelos ONNX en ML.NET](/dotnet/machine-learning/tutorials/object-detection-onnx).
 
 
 [![Diagrama de flujo de ONNX que muestra el entrenamiento, los convertidores y la implementación](./media/concept-onnx/onnx.png)](././media/concept-onnx/onnx.png#lightbox)
@@ -42,7 +42,7 @@ Puede obtener modelos de ONNX de varias maneras:
 + Entrene un nuevo modelo ONNX en Azure Machine Learning (consulte el ejemplo al final de este artículo) o mediante las [funcionalidades de aprendizaje automático automatizado](concept-automated-ml.md#automl--onnx).
 + Convierta el modelo existente de otro formato a ONNX (consulte los [tutoriales](https://github.com/onnx/tutorials)). 
 + Obtenga un modelo de ONNX entrenado previamente desde [ONNX Model Zoo](https://github.com/onnx/models).
-+ Genere un modelo de ONNX personalizado desde [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/). 
++ Genere un modelo de ONNX personalizado desde [Azure Custom Vision Service](../cognitive-services/custom-vision-service/index.yml). 
 
 Muchos modelos, incluidos la clasificación de imágenes, la detección de objetos y el procesamiento de texto, se pueden representar como modelos de ONNX. Si experimenta algún problema con un modelo que no se puede convertir de forma correcta, registre un problema en el repositorio de GitHub del convertidor correspondiente que usó. Puede continuar usando su modelo de formato existente hasta que se resuelva el problema.
 
@@ -98,5 +98,3 @@ Obtenga más información sobre **ONNX** o contribuya al proyecto:
 Obtenga más información sobre **ONNX Runtime** o contribuya al proyecto:
 + [Sitio web del proyecto de ONNX Runtime](https://onnxruntime.ai)
 + [Repositorio de ONNX Runtime en GitHub](https://github.com/Microsoft/onnxruntime)
-
-

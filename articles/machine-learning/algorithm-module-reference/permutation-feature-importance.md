@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bddd9a6825899f646a86ae274c539b54156667c5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905263"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319394"
 ---
 # <a name="permutation-feature-importance"></a>Importancia de la característica de permutación
 
@@ -24,7 +24,7 @@ En este módulo, los valores de las características se ordenan aleatoriamente, 
 
 Las puntuaciones que devuelve el módulo representan el *cambio* en el rendimiento de un modelo formado, después de la permutación. Las características importantes suelen ser más sensibles al proceso orden aleatorio y, por tanto, se obtendrán mayores puntuaciones de importancia. 
 
-En este artículo se proporciona información general sobre la característica de permutación, su base teórica y sus aplicaciones en aprendizaje automático: [Permutation Feature Importance](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx) (Importancia de la característica de permutación).  
+En este artículo se proporciona información general sobre la característica de permutación, su base teórica y sus aplicaciones en aprendizaje automático: [Permutation Feature Importance](/archive/blogs/machinelearning/permutation-feature-importance) (Importancia de la característica de permutación).  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>Cómo usar la Importancia de la característica de permutación
 
@@ -36,7 +36,7 @@ Para generar un conjunto de puntuaciones de características, es necesario tener
 
 3.  En la entrada derecha, conecte un conjunto de datos. Preferiblemente, elija una que sea diferente del conjunto de datos que usó para entrenar el modelo. Este conjunto de datos se usa para puntuar en base al modelo entrenado. También se usa para evaluar el modelo después de que los valores de características hayan cambiado.  
 
-4.  Para **Valor de inicialización aleatorio**, escriba un valor que se usará como valor de inicialización para la selección aleatoria. Si especifica 0 (el valor predeterminado), se genera un número basado en el reloj del sistema.
+4.  Para **Valor de inicialización aleatorio** , escriba un valor que se usará como valor de inicialización para la selección aleatoria. Si especifica 0 (el valor predeterminado), se genera un número basado en el reloj del sistema.
 
      Un valor de inicialización es opcional, pero debe proporcionar un valor si desea la reproducibilidad en ejecuciones de la misma canalización.  
 
@@ -69,4 +69,4 @@ La razón de la diferencia es que Permutation Feature Importance (Importancia de
   
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

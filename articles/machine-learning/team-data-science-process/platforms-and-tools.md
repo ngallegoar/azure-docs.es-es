@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3f6a48815519499ddc39dcc12cafe0fe95e70e0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440004"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320238"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas y herramientas para proyectos de ciencia de datos
 
@@ -45,7 +45,7 @@ La máquina virtual de ciencia de datos que Microsoft ofrece tanto con Windows c
 - Power BI Desktop para Windows
 - SQL Server 2016 Developer Edition en Windows/Postgres en Linux
 
-También incluye **herramientas de ML e IA**, como xgboost, mxnet y Vowpal Wabbit.
+También incluye **herramientas de ML e IA** , como xgboost, mxnet y Vowpal Wabbit.
 
 Actualmente, la máquina virtual de ciencia de datos está disponible con los sistemas operativos **Windows** y **CentOS Linux**. Elija el tamaño de la máquina virtual de ciencia de datos (número de núcleos de CPU y cantidad de memoria) en función de los proyectos de ciencia de datos que se vayan a ejecutar en ella. 
 
@@ -60,7 +60,7 @@ Apache Spark es una plataforma de procesamiento paralelo de código abierto que 
 
 Cuando crea un clúster Spark en HDInsight, aprovisiona recursos de proceso de Azure con Spark instalado y configurado. Se tardan unos diez minutos en crear un clúster Spark en HDInsight. Almacene los datos que se van procesar en Azure Blob Storage. Para más información sobre cómo usar Azure Blob Storage con HDInsight, consulte [Uso de Azure Storage con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-El equipo de proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos sobre el uso de clústeres de Azure HDInsight Spark para crear soluciones de ciencia de datos, en Python y en Scala. Para más información sobre **clústeres de Azure HDInsight Spark**, consulte [Introducción a Apache Spark en HDInsight para Linux](../../hdinsight/spark/apache-spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Python** en un clúster de Azure HDInsight Spark, consulte [Información general sobre la ciencia de datos con Azure HDInsight Spark](spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Scala** en un clúster de Azure HDInsight Spark, consulte [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md). 
+El equipo de proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos sobre el uso de clústeres de Azure HDInsight Spark para crear soluciones de ciencia de datos, en Python y en Scala. Para más información sobre **clústeres de Azure HDInsight Spark** , consulte [Introducción a Apache Spark en HDInsight para Linux](../../hdinsight/spark/apache-spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Python** en un clúster de Azure HDInsight Spark, consulte [Información general sobre la ciencia de datos con Azure HDInsight Spark](spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Scala** en un clúster de Azure HDInsight Spark, consulte [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
@@ -92,23 +92,23 @@ Para más información sobre los clústeres de Azure HDInsight Hive, consulte [U
 
 Azure File Storage es un servicio que ofrece recursos compartidos de archivos en la nube mediante el protocolo Bloque de mensajes del servidor (SMB) estándar. Se admiten SMB 2.1 y SMB 3.0. Con Almacenamiento de archivos de Azure puede migrar aplicaciones heredadas basadas en recursos compartidos de archivos a Azure con rapidez y sin necesidad de costosas reescrituras. Las aplicaciones que se ejecutan en máquinas virtuales de Azure o en servicios en la nube o desde clientes locales pueden montar un recurso compartido de archivos en la nube, igual que una aplicación de escritorio monta un recurso compartido SMB típico. Cualquier número de componentes de aplicación puede montar y acceder simultáneamente al recurso compartido de Almacenamiento de archivos.
 
-Especialmente útil para los proyectos de ciencia de datos es la capacidad para crear un almacén de archivos de Azure como el lugar para compartir datos del proyecto con los miembros del equipo de proyecto. Cada uno de ellos tiene acceso entonces a la misma copia de los datos en el almacenamiento de archivos de Azure. También puede utilizar este almacenamiento de archivos para compartir conjuntos de características generados durante la ejecución del proyecto. Si el proyecto es una interacción con los clientes, estos pueden crear un almacenamiento de archivos de Azure en su propia suscripción de Azure para compartir los datos de proyecto y las características con el usuario. De esta manera, el cliente tiene control total sobre los recursos de datos del proyecto. Para más información sobre Azure File Storage, consulte [Introducción a Azure File Storage en Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) o [Uso de Azure File Storage con Linux](../../storage/files/storage-how-to-use-files-linux.md).
+Especialmente útil para los proyectos de ciencia de datos es la capacidad para crear un almacén de archivos de Azure como el lugar para compartir datos del proyecto con los miembros del equipo de proyecto. Cada uno de ellos tiene acceso entonces a la misma copia de los datos en el almacenamiento de archivos de Azure. También puede utilizar este almacenamiento de archivos para compartir conjuntos de características generados durante la ejecución del proyecto. Si el proyecto es una interacción con los clientes, estos pueden crear un almacenamiento de archivos de Azure en su propia suscripción de Azure para compartir los datos de proyecto y las características con el usuario. De esta manera, el cliente tiene control total sobre los recursos de datos del proyecto. Para más información sobre Azure File Storage, consulte [Introducción a Azure File Storage en Windows](../../storage/files/storage-dotnet-how-to-use-files.md) o [Uso de Azure File Storage con Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
 ## <a name="sql-server-2019-r-and-python-services"></a>Servicios R y Python para SQL Server 2019
 
 R Services (En base de datos) proporciona una plataforma para desarrollar e implementar aplicaciones inteligentes que pueden destapar nueva información. Puede usar el completo y eficaz lenguaje R, incluidos los numerosos paquetes proporcionados por la comunidad R, para crear modelos y generar predicciones con sus datos de SQL Server. Dado que R Services (En base de datos) integra el lenguaje R con SQL Server, los análisis se mantienen cerca de los datos, lo que elimina los costos y los riesgos de seguridad asociados al movimiento de datos.
 
-R Services (En base de datos) admite el lenguaje R de código abierto con un completo conjunto de tecnologías y herramientas de SQL Server. Ofrece un rendimiento superior, seguridad, confiabilidad y facilidad de uso. Puede implementar soluciones en R con herramientas conocidas y convenientes. Las aplicaciones de producción pueden llamar al entorno en tiempo de ejecución de R y recuperar las predicciones y los objetos visuales mediante Transact-SQL. También puede usar las bibliotecas de ScaleR para mejorar la escalabilidad y el rendimiento de las soluciones de R. Para más información, consulte [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+R Services (En base de datos) admite el lenguaje R de código abierto con un completo conjunto de tecnologías y herramientas de SQL Server. Ofrece un rendimiento superior, seguridad, confiabilidad y facilidad de uso. Puede implementar soluciones en R con herramientas conocidas y convenientes. Las aplicaciones de producción pueden llamar al entorno en tiempo de ejecución de R y recuperar las predicciones y los objetos visuales mediante Transact-SQL. También puede usar las bibliotecas de ScaleR para mejorar la escalabilidad y el rendimiento de las soluciones de R. Para más información, consulte [SQL Server R Services](/sql/advanced-analytics/r/sql-server-r-services).
 
-El equipo del proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos que muestran cómo crear soluciones de ciencia de datos en SQL Server 2016 R Services, uno para los programadores de R y otro para desarrolladores de SQL. Para los **programadores de R**, consulte el [tutorial completo de ciencia de datos](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para los **desarrolladores de SQL**, consulte [Análisis de R en bases de datos para desarrolladores de SQL (tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
+El equipo del proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos que muestran cómo crear soluciones de ciencia de datos en SQL Server 2016 R Services, uno para los programadores de R y otro para desarrolladores de SQL. Para los **programadores de R** , consulte el [tutorial completo de ciencia de datos](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para los **desarrolladores de SQL** , consulte [Análisis de R en bases de datos para desarrolladores de SQL (tutorial)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
 ## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Apéndice: Herramientas para configurar los proyectos de ciencia de datos
 
 ### <a name="install-git-credential-manager-on-windows"></a>Instalación del administrador de credenciales de Git en Windows
 
-Si está siguiendo el proceso de ciencia de datos en equipo en **Windows**, debe instalar la **el Administrador de credenciales (GCM), Git** para comunicarse con los repositorios de Git. Para instalar GCM, primero debe instalar **Chocolaty**. Para instalar Chocolaty y GCM, ejecute los siguientes comandos en Windows PowerShell como **administrador**:  
+Si está siguiendo el proceso de ciencia de datos en equipo en **Windows** , debe instalar la **el Administrador de credenciales (GCM), Git** para comunicarse con los repositorios de Git. Para instalar GCM, primero debe instalar **Chocolaty**. Para instalar Chocolaty y GCM, ejecute los siguientes comandos en Windows PowerShell como **administrador** :  
 
 ```powershell
 iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
@@ -153,4 +153,4 @@ Si se usan máquinas Linux (CentOS) para ejecutar los comandos de GIT, tendrá q
 
 También se proporcionan tutoriales completos que muestran todos los pasos del proceso en **escenarios concretos** . Se enumeran y enlazan con descripciones en miniatura en los [tutoriales de ejemplos](walkthroughs.md). En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo o canalización para crear una aplicación inteligente. 
 
-Para ver ejemplos que muestran cómo ejecutar los pasos en el proceso de ciencia de datos en equipo mediante Azure Machine Learning Studio (clásico), consulte la ruta de aprendizaje [con Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Para ver ejemplos que muestran cómo ejecutar los pasos en el proceso de ciencia de datos en equipo mediante Azure Machine Learning Studio (clásico), consulte la ruta de aprendizaje [con Azure ML](./index.yml).

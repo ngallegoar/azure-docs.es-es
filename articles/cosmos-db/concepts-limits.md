@@ -6,14 +6,15 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489292"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319828"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 En este artículo se proporciona una introducción a las cuotas predeterminadas que se ofrecen a distintos recursos en Azure Cosmos DB.
 
@@ -132,7 +133,6 @@ En función de la API que use, un elemento de Azure Cosmos puede representar un 
 | Longitud máxima del valor de la clave de partición | 2048 bytes |
 | Longitud máxima del valor de id. | 1023 bytes |
 | Número máximo de propiedades por elemento | Ningún límite práctico |
-| Máxima profundidad de anidamiento | Ningún límite práctico |
 | Longitud máxima del nombre de la propiedad | Ningún límite práctico |
 | Longitud máxima del nombre de la propiedad | Ningún límite práctico |
 | Longitud máxima del valor de propiedad de la cadena | Ningún límite práctico |

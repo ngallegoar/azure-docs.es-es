@@ -10,18 +10,18 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6708214eadb2f5d0d66d72f5db5cb4a195d206
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330135"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324871"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático en Azure Machine Learning
 
 En este artículo se explica el aprendizaje profundo frente al aprendizaje automático y cómo encajan en la categoría más amplia de inteligencia artificial. Aprenda sobre las soluciones de aprendizaje profundo que puede crear en Azure Machine Learning, como la detección de fraudes, el reconocimiento facial y de voz, el análisis de opiniones y la previsión de series temporales.
 
-Puede encontrar instrucciones sobre cómo elegir algoritmos para las soluciones en la [hoja de referencia rápida de Machine Learning](algorithm-cheat-sheet.md).
+Puede encontrar instrucciones sobre cómo elegir algoritmos para las soluciones en la [hoja de referencia rápida de Machine Learning](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Aprendizaje profundo, Machine Learning e inteligencia artificial
 
@@ -73,7 +73,7 @@ El aprendizaje profundo se ha aplicado en muchos casos de uso de detección de o
 
 La detección de objetos ya se está usando en sectores como los videojuegos, los comercios minoristas, el turismo y los vehículos autónomos.
 
-Aprenda a usar un modelo de clasificación de imágenes de un marco de código abierto en Azure Machine Learning: [Clasificación de imágenes mediante un modelo Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+Aprenda a usar un modelo de clasificación de imágenes de un marco de código abierto en Azure Machine Learning: [Clasificación de imágenes mediante un modelo Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generación de subtítulos para imágenes
 
@@ -93,7 +93,7 @@ El análisis de texto basado en métodos de aprendizaje profundo implica el aná
 
 Las empresas usan el aprendizaje profundo para realizar análisis de texto con el fin de detectar negociaciones en el mercado de valores y el cumplimiento normativo gubernamental. Otro ejemplo común es el fraude en los seguros: el análisis de texto se ha usado a menudo para analizar grandes cantidades de documentos y reconocer las posibilidades de reclamaciones de seguros fraudulentas. 
 
-Aprenda a usar un modelo de TensorFlow en Azure Machine Learning: [Clasificación de dígitos manuscritos mediante un modelo TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+Aprenda a usar un modelo de TensorFlow en Azure Machine Learning: [Clasificación de dígitos manuscritos mediante un modelo TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>Redes neuronales artificiales
 
@@ -117,8 +117,8 @@ Las redes neuronales circunvolucionadas se han usado en áreas como el reconocim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En los artículos siguientes se muestran más opciones para usar modelos de aprendizaje profundo de código abierto en [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
+En los artículos siguientes se muestran más opciones para usar modelos de aprendizaje profundo de código abierto en [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
 
-- [Clasificación de dígitos manuscritos mediante un estimador de TensorFlow y Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [Clasificación de dígitos manuscritos mediante un estimador de TensorFlow y Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [Clasificación de dígitos manuscritos mediante un modelo Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
+- [Clasificación de dígitos manuscritos mediante un modelo Chainer](./how-to-set-up-training-targets.md)

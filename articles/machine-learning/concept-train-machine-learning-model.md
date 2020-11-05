@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d34748a2b9f46bde187b4f003e210ffdaecd93e2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675691"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324815"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -41,13 +41,13 @@ Cada uno de estos métodos de entrenamiento puede usar distintos tipos de recurs
 
 El SDK de Azure Machine Learning para Python permite compilar y ejecutar flujos de trabajo de aprendizaje automático con Azure Machine Learning. Puede interactuar con el servicio desde una sesión de Python interactiva, instancias de Jupyter Notebook, Visual Studio Code u otro IDE.
 
-* [¿Qué es el SDK de Azure Machine Learning para Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
-* [Instalación o actualización del SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* [¿Qué es el SDK de Azure Machine Learning para Python?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+* [Instalación o actualización del SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 * [Configuración de un entorno de desarrollo para Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Configuración de ejecución
 
-Se puede definir un trabajo de entrenamiento genérico con Azure Machine Learning mediante [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true). A continuación, se usa la configuración de ejecución del script junto con los scripts de entrenamiento para entrenar un modelo en un destino de proceso.
+Se puede definir un trabajo de entrenamiento genérico con Azure Machine Learning mediante [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). A continuación, se usa la configuración de ejecución del script junto con los scripts de entrenamiento para entrenar un modelo en un destino de proceso.
 
 Puede empezar con una configuración de ejecución para el equipo local y, a continuación, cambiar a una para un destino de proceso basado en la nube según sea necesario. Al cambiar el destino de proceso, solo se cambia la configuración de ejecución que se usa. Una ejecución también registra información sobre el trabajo de entrenamiento, como las entradas, las salidas y los registros.
 
@@ -90,8 +90,8 @@ El ciclo de vida de entrenamiento de Azure consta de los pasos siguientes:
 1. Compilar o descargar el Dockerfile en el nodo de proceso 
     1. El sistema calcula un valor de hash de: 
         - La imagen base 
-        - Pasos personalizados de Docker (consulte [Implementación de un modelo con una imagen base de Docker personalizada](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - El archivo YAML de definición de Conda (consulte [Creación y uso de entornos de software en Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+        - Pasos personalizados de Docker (consulte [Implementación de un modelo con una imagen base de Docker personalizada](./how-to-deploy-custom-docker-image.md))
+        - El archivo YAML de definición de Conda (consulte [Creación y uso de entornos de software en Azure Machine Learning](./how-to-use-environments.md))
     1. El sistema utiliza este valor de hash como clave en una búsqueda de la instancia de Azure Container Registry (ACR) del área de trabajo.
     1. Si no la encuentra, busca una coincidencia en la instancia de ACR global.
     1. Si no existe, el sistema genera una imagen (que se almacenará en la memoria caché y se registrará en la instancia de ACR del área de trabajo).
@@ -101,7 +101,7 @@ El ciclo de vida de entrenamiento de Azure consta de los pasos siguientes:
 1. Guardar registros, archivos de modelo y otros archivos escritos en `./outputs` en la cuenta de almacenamiento asociada con el área de trabajo.
 1. Reducir verticalmente el proceso, incluida la eliminación del almacenamiento temporal. 
 
-Si elige entrenar en la máquina local ("configurar como ejecución local"), no es necesario usar Docker. Si lo prefiere, puede usar Docker localmente (consulte [Configurar de la canalización de ML](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) para ver un ejemplo).
+Si elige entrenar en la máquina local ("configurar como ejecución local"), no es necesario usar Docker. Si lo prefiere, puede usar Docker localmente (consulte [Configurar de la canalización de ML](./how-to-debug-pipelines.md) para ver un ejemplo).
 
 ## <a name="r-sdk-preview"></a>SDK de R (versión preliminar)
 

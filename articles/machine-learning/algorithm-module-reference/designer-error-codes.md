@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05926f7ce25714fb76415802876db0640eb30aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908096"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323777"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Excepciones y códigos de error para el diseñador
 
@@ -187,7 +187,7 @@ Compruebe también si se ha eliminado la cuenta, el contenedor o el blob. Utilic
 
 Azure Machine Learning no admite algunos nuevos tipos de cuenta. Por ejemplo, los nuevos tipos de almacenamiento "en frío" o "de acceso frecuente" no se pueden usar para el aprendizaje automático. Las cuentas de almacenamiento clásicas y las creadas como "de uso general" funcionan correctamente.
 
-Si se especificó la ruta de acceso completa a un blob, compruebe que la ruta de acceso se especificó con el formato **contenedor/nombredeblob**, y que tanto el contenedor como el blob existen en la cuenta.  
+Si se especificó la ruta de acceso completa a un blob, compruebe que la ruta de acceso se especificó con el formato **contenedor/nombredeblob** , y que tanto el contenedor como el blob existen en la cuenta.  
 
  La ruta de acceso no debe contener una barra inicial. Por ejemplo **/contenedor/blob** no es correcto y debe especificarse como **contenedor/blob**.  
 
@@ -713,7 +713,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **Resolución:** Este error se produce por muchos motivos y no hay ninguna solución específica.  
  La tabla siguiente contiene los mensajes genéricos para este error, que van seguidos de una descripción específica del motivo. 
 
- Si no hay detalles disponibles, [envíenos sus comentarios a la página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) y proporcione información sobre los módulos que han generado el error y las condiciones relacionadas.
+ Si no hay detalles disponibles, [envíenos sus comentarios a la página de preguntas y respuestas de Microsoft](/answers/topics/azure-machine-learning-studio-classic.html) y proporcione información sobre los módulos que han generado el error y las condiciones relacionadas.
 
 |Mensajes de excepción|
 |------------------------|
@@ -862,7 +862,7 @@ Otro motivo por el que puede encontrarse con este error es si intenta utilizar c
 
  Este error de Azure Machine Learning se produce si la clave utilizada acceder a la cuenta de almacenamiento de Azure es incorrecta. Por ejemplo, es posible que vea este error si la clave de almacenamiento de Azure se ha truncado al copiarla y pegarla, o si se usó una clave incorrecta.  
 
- Para obtener más información acerca de cómo obtener la clave de una cuenta de almacenamiento de Azure, consulte [Visualización, copia y regeneración de claves de acceso de almacenamiento](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
+ Para obtener más información acerca de cómo obtener la clave de una cuenta de almacenamiento de Azure, consulte [Visualización, copia y regeneración de claves de acceso de almacenamiento](../../storage/common/storage-account-create.md).  
 
 **Resolución:** Vuelva a consultar el módulo y compruebe que la clave de almacenamiento de Azure es correcta para la cuenta; copie la clave de nuevo desde el portal clásico de Azure si es necesario.  
 
@@ -1083,9 +1083,9 @@ El mensaje de error de Hive normalmente se incluye en el registro de errores par
 
 Consulte los siguientes artículos para obtener ayuda con las consultas de Hive para el aprendizaje automático:
 
-+ [Creación de tablas de Hive y carga de datos desde Azure Blob Storage](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Exploración de los datos de las tablas de Hive con consultas de Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Creación de características para los datos en un clúster de Hadoop mediante consultas de Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Creación de tablas de Hive y carga de datos desde Azure Blob Storage](../team-data-science-process/move-hive-tables.md)
++ [Exploración de los datos de las tablas de Hive con consultas de Hive](../team-data-science-process/explore-data-hive-tables.md)
++ [Creación de características para los datos en un clúster de Hadoop mediante consultas de Hive](../team-data-science-process/create-features-hive.md)
 + [Hive for SQL Users Cheat Sheet (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) (hoja de referencia rápida de Hive para usuarios de SQL [PDF])
 
   
@@ -1106,7 +1106,7 @@ Consulte los siguientes artículos para obtener ayuda con las consultas de Hive 
  Compruebe que la consulta funciona correctamente fuera de Azure Machine Learning al iniciar sesión directamente en el servidor de la base de datos y ejecutar la consulta.  
 
  Si la excepción del módulo le informa de un mensaje generado por SQL, tome medidas según el error notificado. Por ejemplo, los mensajes de error a veces incluyen instrucciones específicas sobre el posible error:
-+ *La columna no existe o falta la base de datos*, que indica que tal vez escribió de forma incorrecta el nombre de una columna. Si está seguro de que nombre de columna es correcto, intente usar corchetes o comillas para delimitar el identificador de columna.
++ *La columna no existe o falta la base de datos* , que indica que tal vez escribió de forma incorrecta el nombre de una columna. Si está seguro de que nombre de columna es correcto, intente usar corchetes o comillas para delimitar el identificador de columna.
 + *Error lógico de SQL cerca de \<SQL keyword\>* , lo que indica que es posible que haya un error de sintaxis antes de la palabra clave especificada.
 
   
@@ -1164,7 +1164,7 @@ Este error de Azure Machine Learning se produce cuando intenta cuantificar datos
 
 Se introdujo un control de errores para este evento en una versión anterior de Azure Machine Learning que permitía más personalización de los métodos de cuantificación. Actualmente todos los métodos de cuantificación se basan en la selección de una lista desplegable por lo que, técnicamente, ya no debería ser posible obtener este error.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Mensajes de excepción|
 |------------------------|
@@ -1516,11 +1516,10 @@ Excepción interna de biblioteca.
 
 Este error se proporciona para capturar los errores de motor interno que no se controlan de otra forma. Por lo tanto, la causa de este error puede variar según el módulo que generó el error.  
 
-Para obtener más ayuda, se recomienda que publique el mensaje detallado que acompaña al error en el [foro de Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), junto con una descripción del escenario. Incluya los datos que se usaron como entradas. Estos comentarios nos ayudarán a dar prioridad a los errores e identificar los problemas más importantes para operaciones futuras.  
+Para obtener más ayuda, se recomienda que publique el mensaje detallado que acompaña al error en el [foro de Azure Machine Learning](/answers/topics/azure-machine-learning.html), junto con una descripción del escenario. Incluya los datos que se usaron como entradas. Estos comentarios nos ayudarán a dar prioridad a los errores e identificar los problemas más importantes para operaciones futuras.  
 
 |Mensajes de excepción|
 |------------------------|
 |Excepción de biblioteca.|
 |Excepción de biblioteca: {exception}.|
 |Excepción de biblioteca desconocida: {exception}. {customer_support_guidance}.|
-

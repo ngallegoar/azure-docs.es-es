@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5a04e5a7136ac1a33766bf543a27ff7794498c26
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: be2afad7e7cb08d9c677e589846f3d67cf43e708
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996358"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314240"
 ---
 # <a name="collect-data-from-models-in-production"></a>Recopilación de datos de modelos en producción
 
@@ -67,11 +67,11 @@ La ruta de acceso a los datos de salida en el blob sigue esta sintaxis:
 
 - Necesita un clúster de AKS. Para información sobre cómo crear uno e implementarlo, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
-- [Configure el entorno](how-to-configure-environment.md) e instale el [SDK de supervisión de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+- [Configure el entorno](how-to-configure-environment.md) e instale el [SDK de supervisión de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 ## <a name="enable-data-collection"></a>Habilitación de recolección de datos
 
-Puede habilitar la [recopilación de datos](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) independientemente del modelo que implemente mediante Azure Machine Learning u otras herramientas.
+Puede habilitar la [recopilación de datos](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py) independientemente del modelo que implemente mediante Azure Machine Learning u otras herramientas.
 
 Para habilitar la recopilación de datos, debe hacer lo siguiente:
 
@@ -153,7 +153,7 @@ Puede elegir la herramienta que prefiera para analizar los datos recopilados en 
 
 1. Descargue y abra [Power BI Desktop](https://www.powerbi.com).
 
-1. Seleccione **Obtener datos** y, luego, [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
+1. Seleccione **Obtener datos** y, luego, [**Azure Blob Storage**](/power-bi/desktop-data-sources).
 
     [![Configuración de blobs en Power BI](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
@@ -187,7 +187,7 @@ Puede elegir la herramienta que prefiera para analizar los datos recopilados en 
 
 ### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> Análisis de datos del modelo mediante Azure Databricks
 
-1. Cree un [área de trabajo de Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+1. Cree un [área de trabajo de Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
 1. Acceda al área de trabajo de Databricks.
 

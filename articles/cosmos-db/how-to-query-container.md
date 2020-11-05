@@ -3,17 +3,19 @@ title: Consulta de contenedores en Azure Cosmos DB
 description: Más información sobre cómo consultar contenedores en Azure Cosmos DB mediante consultas en particiones y entre particiones
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276112"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335898"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consulta de un contenedor de Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se explica cómo consultar un contenedor (colección, grafo, tabla) en Azure Cosmos DB. En concreto, se explica cómo funcionan las consultas en particiones y entre particiones en Azure Cosmos DB.
 
@@ -57,9 +59,9 @@ Los SDK 1.9.0 y posteriores de Azure Cosmos DB admiten opciones de ejecución de
 
 Puede administrar la ejecución de consultas en paralelo ajustando los parámetros siguientes:
 
-- **MaxConcurrency**: establece el número máximo de conexiones de red simultáneas a las particiones del contenedor. Si establece esta propiedad en `-1`, el SDK administra el grado de paralelismo. Si  `MaxConcurrency` se establece en `0`, hay una única conexión de red a las particiones del contenedor.
+- **MaxConcurrency** : establece el número máximo de conexiones de red simultáneas a las particiones del contenedor. Si establece esta propiedad en `-1`, el SDK administra el grado de paralelismo. Si  `MaxConcurrency` se establece en `0`, hay una única conexión de red a las particiones del contenedor.
 
-- **MaxBufferedItemCount**: equilibra la latencia de las consultas frente al uso de memoria del lado cliente. Si se omite esta opción o se establece en -1, el SDK administra el número de elementos almacenados en búfer durante la ejecución de consultas en paralelo.
+- **MaxBufferedItemCount** : equilibra la latencia de las consultas frente al uso de memoria del lado cliente. Si se omite esta opción o se establece en -1, el SDK administra el número de elementos almacenados en búfer durante la ejecución de consultas en paralelo.
 
 Debido a la capacidad de Azure Cosmos DB de paralelizar las consultas entre particiones, la latencia de las consultas normalmente se escalará correctamente, ya que el sistema agrega [particiones físicas](partitioning-overview.md#physical-partitions). Sin embargo, el cargo RU aumenta significativamente a medida que aumenta el número total de particiones físicas.
 

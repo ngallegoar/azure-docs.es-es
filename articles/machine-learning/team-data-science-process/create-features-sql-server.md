@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0be75b3b0a7b9b5aaec0da1d9f41f67a7108e77a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c20bf1c5856276c4c7ee0e37ed4ef2120d1d93d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085317"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322032"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creación de características para datos de SQL Server con SQL y Python
 En este documento se muestra cómo generar características para los datos almacenados en una VM de SQL Server en Azure que ayudan a los algoritmos a aprender de forma eficaz de los datos. Puede utilizar SQL o un lenguaje de programación como Python para realizar esta tarea. Ambos enfoques se muestran aquí.
 
-Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](./index.yml).
 
 > [!NOTE]
 > Para obtener un ejemplo práctico, puede usar el [conjunto de datos de los taxis de la Ciudad de Nueva York](https://www.andresmh.com/nyctaxitrips/) y consultar el IPNB llamado [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Tratamiento de datos de la Ciudad de Nueva York mediante un Bloc de notas de IPython y SQL Server), un tutorial completo.
@@ -99,12 +99,12 @@ Estas características basadas en ubicación se pueden usar aún más para gener
 
 > [!TIP]
 > Puede insertar mediante programación los registros con el lenguaje que prefiera. Debe insertar los datos en fragmentos para mejorar la eficacia de la escritura. [Este es un ejemplo de cómo realizar esa tarea con los pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
-> Otra alternativa consiste en insertar datos en la base de datos mediante la [utilidad BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> Otra alternativa consiste en insertar datos en la base de datos mediante la [utilidad BCP](/sql/tools/bcp-utility).
 > 
 > 
 
 ### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conexión con Azure Machine Learning
-La característica recién generada se puede agregar como una columna a una tabla existente o se puede almacenar en una tabla nueva y combinar con la tabla original para el aprendizaje automático. Es posible generar o acceder a las características si ya se han creado, mediante el módulo [Importar datos](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) en Aprendizaje automático de Azure, como se muestra a continuación:
+La característica recién generada se puede agregar como una columna a una tabla existente o se puede almacenar en una tabla nueva y combinar con la tabla original para el aprendizaje automático. Es posible generar o acceder a las características si ya se han creado, mediante el módulo [Importar datos](/azure/machine-learning/studio-module-reference/import-data) en Aprendizaje automático de Azure, como se muestra a continuación:
 
 ![Lectores de Azure Machine Learning](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
@@ -126,5 +126,4 @@ La [biblioteca Pandas](https://pandas.pydata.org/) en Python ofrece un amplio co
 data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 ```
 
-Ya puede trabajar con la trama de datos de Pandas como se explica en los temas [Creación de características para los datos de Azure Blob Storage mediante Panda](create-features-blob.md).
-
+Ya puede trabajar con la trama de datos de Pandas como se explica en los temas [Creación de características para los datos de Azure Blob Storage mediante Panda](./explore-data-blob.md).

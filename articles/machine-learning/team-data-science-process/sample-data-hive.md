@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a015da77cb7c0ba54be1dd5e729a9ee8a848c9d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026056"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321891"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Muestreo de datos en tablas de HDInsight Hive de Azure
 En este artículo, se describe cómo reducir el tamaño de los datos almacenados en tablas de Azure HDInsight Hive mediante consultas de Hive para reducirlos a un tamaño más manejable para el análisis. En él se tratan tres métodos de muestreo que se utilizan normalmente:
@@ -28,7 +28,7 @@ En este artículo, se describe cómo reducir el tamaño de los datos almacenados
 **¿Por qué realizar un muestreo de los datos?**
 Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. La reducción de tamaño facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el proceso de ciencia de datos en equipos es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
-Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](./index.yml).
 
 ## <a name="how-to-submit-hive-queries"></a>Cómo enviar consultas de Hive
 Las consultas de Hive se pueden enviar desde la consola de línea de comandos de Hadoop del nodo principal del clúster de Hadoop.  Inicie sesión en el nodo principal del clúster de Hadoop, abra la consola de la línea de comandos de Hadoop y envíe las consultas de Hive desde allí. Para obtener instrucciones sobre el envío de consultas de Hive en la consola de línea de comandos de Hadoop, consulte [Envío de consultas de Hive](move-hive-tables.md#submit).
@@ -54,7 +54,7 @@ where samplekey<='${hiveconf:sampleRate}'
 En este caso, `<sample rate, 0-1>` especifica la proporción de registros que los usuarios quieren usar como muestra.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a> Muestreo aleatorio por grupos
-Cuando se realiza un muestreo de datos de categoría, podría querer incluir o excluir todas las instancias de algún valor de la variable de categoría. Este tipo de muestreo se denomina "muestreo por grupos". Por ejemplo, si tiene una variable de categoría "*Estado*", que tiene valores como NY, MA, CA, NJ y PA, querrá que los registros de cada estado estén juntos, ya estén muestreados o no.
+Cuando se realiza un muestreo de datos de categoría, podría querer incluir o excluir todas las instancias de algún valor de la variable de categoría. Este tipo de muestreo se denomina "muestreo por grupos". Por ejemplo, si tiene una variable de categoría " *Estado* ", que tiene valores como NY, MA, CA, NJ y PA, querrá que los registros de cada estado estén juntos, ya estén muestreados o no.
 
 Aquí se muestra una consulta de ejemplo que realiza un muestreo por grupo:
 
@@ -105,4 +105,3 @@ where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 ```
 
 Para obtener información sobre los métodos de muestreo más avanzados que están disponibles en Hive, consulte [Manual de lenguaje: muestreo](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
-

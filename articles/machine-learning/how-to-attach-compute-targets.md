@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: cc4256ae0591e9fc82dcdce7c66514710fad3f57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44f6d700ff25f0c2f2cb8bedc5c2d15ad2adcb83
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711076"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320827"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configuración de destinos de proceso para el entrenamiento y la implementación de modelos
 
@@ -43,7 +43,7 @@ Para usar destinos de proceso administrados por Azure Machine Learning, consulte
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
-* La [extensión de la CLI de Azure para Machine Learning Service](reference-azure-machine-learning-cli.md), el [SDK de Python para Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) o la [extensión de Visual Studio Code para Azure Machine Learning](tutorial-setup-vscode-extension.md).
+* La [extensión de la CLI de Azure para Machine Learning Service](reference-azure-machine-learning-cli.md), el [SDK de Python para Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) o la [extensión de Visual Studio Code para Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -58,9 +58,9 @@ Con Azure Machine Learning, puede entrenar el modelo en una variedad de recursos
 
 ## <a name="local-computer"></a><a id="local"></a>Equipo local
 
-Cuando se usa el equipo local para el **entrenamiento**, no es necesario crear un destino de proceso.  Simplemente [envíe la ejecución de entrenamiento](how-to-set-up-training-targets.md) desde la máquina local.
+Cuando se usa el equipo local para el **entrenamiento** , no es necesario crear un destino de proceso.  Simplemente [envíe la ejecución de entrenamiento](how-to-set-up-training-targets.md) desde la máquina local.
 
-Cuando se usa el equipo local para la **inferencia**, debe tener instalado Docker. Para realizar la implementación, utilice [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-port-none-) para definir el puerto que utilizará el servicio web. A continuación, use el proceso de implementación normal como se describe en [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
+Cuando se usa el equipo local para la **inferencia** , debe tener instalado Docker. Para realizar la implementación, utilice [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-port-none-) para definir el puerto que utilizará el servicio web. A continuación, use el proceso de implementación normal como se describe en [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Máquinas virtuales remotas
 
@@ -68,16 +68,16 @@ Azure Machine Learning también admite la posibilidad de que traiga su propio re
 
 Puede usar un entorno de Conda integrado en el sistema, un entorno de Python existente o un contenedor de Docker. Para realizar la ejecución en un contenedor de Docker, el motor de Docker debe estar en ejecución en la máquina virtual. Esta funcionalidad es especialmente útil cuando se desea un entorno de desarrollo o experimentación basado en la nube más flexible que un equipo local.
 
-Use Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure preferida en este escenario. Esta máquina virtual es un entorno de desarrollo de IA y de ciencia de datos preconfigurados de Azure. La máquina virtual ofrece una selección de herramientas y plataformas mantenidas para el desarrollo del aprendizaje automático a lo largo de todo el ciclo de vida. Para obtener más información sobre cómo usar la DSVM con Azure Machine Learning, consulte [Configuración del entorno de desarrollo](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#dsvm).
+Use Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure preferida en este escenario. Esta máquina virtual es un entorno de desarrollo de IA y de ciencia de datos preconfigurados de Azure. La máquina virtual ofrece una selección de herramientas y plataformas mantenidas para el desarrollo del aprendizaje automático a lo largo de todo el ciclo de vida. Para obtener más información sobre cómo usar la DSVM con Azure Machine Learning, consulte [Configuración del entorno de desarrollo](./how-to-configure-environment.md#dsvm).
 
-1. **Crear**: Cree una instancia de DSVM antes de usarla para entrenar el modelo. Para crear este recurso, consulte [Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **Crear** : Cree una instancia de DSVM antes de usarla para entrenar el modelo. Para crear este recurso, consulte [Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
 
     > [!WARNING]
     > Azure Machine Learning solo admite máquinas virtuales que ejecuten **Ubuntu**. Al crear una máquina virtual o elegir una máquina virtual existente, debe seleccionar una máquina virtual que use Ubuntu.
     > 
     > Azure Machine Learning también requiere que la máquina virtual tenga una __dirección IP pública__.
 
-1. **Adjuntar**: para asociar una máquina virtual existente como destino de proceso, debe proporcionar el identificador de recurso, el nombre de usuario y la contraseña de la máquina virtual. El identificador de recurso de la máquina virtual se puede construir con el identificador de la suscripción, el nombre del grupo de recursos y el nombre de la máquina virtual con el siguiente formato de cadena: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
+1. **Adjuntar** : para asociar una máquina virtual existente como destino de proceso, debe proporcionar el identificador de recurso, el nombre de usuario y la contraseña de la máquina virtual. El identificador de recurso de la máquina virtual se puede construir con el identificador de la suscripción, el nombre del grupo de recursos y el nombre de la máquina virtual con el siguiente formato de cadena: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
 
  
    ```python
@@ -102,7 +102,7 @@ Use Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure pre
     > [!WARNING]
     > No cree varios datos adjuntos simultáneos en el mismo DSVM desde su área de trabajo. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
 
-1. **Configurar**: Cree una configuración de ejecución para el destino de proceso de Data Science Virtual Machine. Docker y Conda se utilizan para crear y configurar el entorno de entrenamiento en la DSVM.
+1. **Configurar** : Cree una configuración de ejecución para el destino de proceso de Data Science Virtual Machine. Docker y Conda se utilizan para crear y configurar el entorno de entrenamiento en la DSVM.
 
    ```python
    from azureml.core import ScriptRunConfig
@@ -128,7 +128,7 @@ Use Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure pre
 
 Azure HDInsight es una plataforma popular para el análisis de macrodatos. La plataforma proporciona Apache Spark, que se puede usar para entrenar el modelo.
 
-1. **Crear**:  Cree el clúster de HDInsight antes de usarlo para entrenar el modelo. Para crear un clúster de Spark en HDInsight, consulte [Creación de un clúster de Spark en HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
+1. **Crear** :  Cree el clúster de HDInsight antes de usarlo para entrenar el modelo. Para crear un clúster de Spark en HDInsight, consulte [Creación de un clúster de Spark en HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
     > [!WARNING]
     > Azure Machine Learning requiere que el clúster de HDInsight tenga una __dirección IP pública__.
@@ -137,7 +137,7 @@ Azure HDInsight es una plataforma popular para el análisis de macrodatos. La pl
     
     Cuando se haya creado el clúster, conéctelo al nombre de host \<clustername>-ssh.azurehdinsight.net, donde \<clustername> es el nombre designado al clúster. 
 
-1. **Adjuntar**: para asociar un clúster de HDInsight como destino de proceso, debe proporcionar el nombre de host, el nombre de usuario y la contraseña del clúster de HDInsight. El identificador de recurso del clúster de HDInsight se puede construir con el identificador de la suscripción, el nombre del grupo de recursos y el nombre del clúster de HDInsight con el siguiente formato de cadena: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
+1. **Adjuntar** : para asociar un clúster de HDInsight como destino de proceso, debe proporcionar el nombre de host, el nombre de usuario y la contraseña del clúster de HDInsight. El identificador de recurso del clúster de HDInsight se puede construir con el identificador de la suscripción, el nombre del grupo de recursos y el nombre del clúster de HDInsight con el siguiente formato de cadena: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
 
     ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -165,7 +165,7 @@ Azure HDInsight es una plataforma popular para el análisis de macrodatos. La pl
     > [!WARNING]
     > No cree varios datos adjuntos simultáneos en el mismo HDInsight desde su área de trabajo. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
 
-1. **Configurar**: Cree una configuración de ejecución para el destino de proceso de HDI. 
+1. **Configurar** : Cree una configuración de ejecución para el destino de proceso de HDI. 
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
@@ -178,9 +178,9 @@ Azure Batch se usa para ejecutar aplicaciones de informática de alto rendimient
 
 Para adjuntar Azure Batch como destino de proceso, debe usar el SDK de Azure Machine Learning y proporcionar la siguiente información:
 
--    **Nombre de proceso de Azure Batch**: nombre descriptivo que se usará para el proceso en el área de trabajo.
--    **Nombre de cuenta de Azure Batch**: nombre de la cuenta de Azure Batch.
--    **Grupo de recursos**: grupo de recursos que contiene la cuenta de Azure Batch.
+-    **Nombre de proceso de Azure Batch** : nombre descriptivo que se usará para el proceso en el área de trabajo.
+-    **Nombre de cuenta de Azure Batch** : nombre de la cuenta de Azure Batch.
+-    **Grupo de recursos** : grupo de recursos que contiene la cuenta de Azure Batch.
 
 El código siguiente muestra cómo asociar Azure Batch como destino de proceso:
 
@@ -219,15 +219,15 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 
 Azure Databricks es un entorno basado en Apache Spark de la nube de Azure. Se puede usar como destino de proceso con una canalización de Azure Machine Learning.
 
-Cree un área de trabajo de Azure Databricks antes de usarlo. Para crear un recurso de área de trabajo, consulte el documento [Ejecución de un trabajo de Spark en Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+Cree un área de trabajo de Azure Databricks antes de usarlo. Para crear un recurso de área de trabajo, consulte el documento [Ejecución de un trabajo de Spark en Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
 Para adjuntar Azure Databricks como destino de proceso, proporcione la información siguiente:
 
-* __Nombre del proceso de Databricks__: el nombre que desea asignar a este recurso de proceso.
-* __Nombre de área de trabajo de Databricks__: el nombre del área de trabajo de Azure Databricks.
-* __Token de acceso de Databricks__: el token de acceso usado para autenticarse en Azure Databricks. Para generar un token de acceso, consulte el documento [Autenticación](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html).
+* __Nombre del proceso de Databricks__ : el nombre que desea asignar a este recurso de proceso.
+* __Nombre de área de trabajo de Databricks__ : el nombre del área de trabajo de Azure Databricks.
+* __Token de acceso de Databricks__ : el token de acceso usado para autenticarse en Azure Databricks. Para generar un token de acceso, consulte el documento [Autenticación](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html).
 
-En el código siguiente se muestra cómo adjuntar Azure Databricks como un destino de proceso con el SDK de Azure Machine Learning (__el área de trabajo de Databricks debe estar presente en la misma suscripción que el área de trabajo de AML__):
+En el código siguiente se muestra cómo adjuntar Azure Databricks como un destino de proceso con el SDK de Azure Machine Learning ( __el área de trabajo de Databricks debe estar presente en la misma suscripción que el área de trabajo de AML__ ):
 
 ```python
 import os
@@ -275,13 +275,13 @@ Para consultar un ejemplo más detallado, vea un [cuaderno de ejemplo](https://a
 
 Azure Data Lake Analytics es una plataforma de análisis de macrodatos de la nube de Azure. Se puede usar como destino de proceso con una canalización de Azure Machine Learning.
 
-Cree una cuenta de Azure Data Lake Analytics antes de usarlo. Para crear este recurso, consulte la [Introducción a Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) documento.
+Cree una cuenta de Azure Data Lake Analytics antes de usarlo. Para crear este recurso, consulte la [Introducción a Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) documento.
 
 Para asociar Data Lake Analytics como destino de proceso, debe usar el SDK de Azure Machine Learning y proporcionar la siguiente información:
 
-* __Nombre de proceso__: el nombre que desea asignar a este recurso de proceso.
-* __Grupo de recursos__: el grupo de recursos que contiene la cuenta de Data Lake Analytics.
-* __Nombre de cuenta__: El nombre de la cuenta de Data Lake Analytics.
+* __Nombre de proceso__ : el nombre que desea asignar a este recurso de proceso.
+* __Grupo de recursos__ : el grupo de recursos que contiene la cuenta de Data Lake Analytics.
+* __Nombre de cuenta__ : El nombre de la cuenta de Data Lake Analytics.
 
 El código siguiente muestra cómo asociar Data Lake Analytics como destino de proceso:
 
@@ -325,7 +325,7 @@ Para consultar un ejemplo más detallado, vea un [cuaderno de ejemplo](https://a
 > No cree varios datos adjuntos simultáneos en el mismo ADLA desde su área de trabajo. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
 
 > [!TIP]
-> Las canalizaciones de Azure Machine Learning solo pueden trabajar con datos almacenados en el almacén de datos predeterminado de la cuenta de Data Lake Analytics. Si los datos con los que necesita trabajar están en un almacén no predeterminado, puede usar [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) para copiar los datos antes del entrenamiento.
+> Las canalizaciones de Azure Machine Learning solo pueden trabajar con datos almacenados en el almacén de datos predeterminado de la cuenta de Data Lake Analytics. Si los datos con los que necesita trabajar están en un almacén no predeterminado, puede usar [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?preserve-view=true&view=azure-ml-py) para copiar los datos antes del entrenamiento.
 
 ## <a name="azure-container-instance"></a><a id="aci"></a>Azure Container Instances
 
@@ -350,4 +350,4 @@ Consulte estos cuadernos para ver ejemplos de entrenamiento con varios destinos 
 * [Tutorial: Entrenamiento de un modelo](tutorial-train-models-with-aml.md) utiliza un destino de proceso administrado para entrenar un modelo.
 * Obtenga información sobre cómo [ajustar los hiperparámetros eficazmente](how-to-tune-hyperparameters.md) para crear modelos mejores.
 * Cuando tenga un modelo entrenado, aprenda [cómo y dónde implementar los modelos](how-to-deploy-and-where.md).
-* [Uso de Azure Machine Learning con Azure Virtual Networks](how-to-enable-virtual-network.md)
+* [Uso de Azure Machine Learning con Azure Virtual Networks](./how-to-network-security-overview.md)

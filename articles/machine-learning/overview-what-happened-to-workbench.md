@@ -11,18 +11,18 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
-ms.openlocfilehash: 62351f341d03873afc59ff7748fa03da0a202d35
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 2a9111e40b207cadd27365cb4f1c199931c40638
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495575"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323970"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>¿Qué ha ocurrido con Azure Machine Learning Workbench?
 
 La aplicación Azure Machine Learning Workbench y algunas otras de las características iniciales han quedado en desuso y se han reemplazado en la versión de **septiembre de 2018** para dar paso a una [arquitectura](concept-azure-machine-learning-architecture.md) mejorada.
 
-Para mejorar la experiencia, la versión contiene muchas actualizaciones importantes solicitadas por los comentarios de los clientes. La funcionalidad básica de ejecuciones de experimento hasta la implementación de modelos no ha cambiado, pero ahora puede usar el sólido<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK de Python</a>, el SDK de R y la [CLI de Azure](reference-azure-machine-learning-cli.md) para realizar sus tareas y canalizaciones de aprendizaje automático.
+Para mejorar la experiencia, la versión contiene muchas actualizaciones importantes solicitadas por los comentarios de los clientes. La funcionalidad básica de ejecuciones de experimento hasta la implementación de modelos no ha cambiado, pero ahora puede usar el sólido<a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK de Python</a>, el SDK de R y la [CLI de Azure](reference-azure-machine-learning-cli.md) para realizar sus tareas y canalizaciones de aprendizaje automático.
 
 La mayoría de los artefactos creados en la versión anterior de Azure Machine Learning se almacenan en su propio almacenamiento local o en la nube. Estos artefactos nunca desaparecerán.
 
@@ -37,7 +37,7 @@ En este artículo obtendrá información sobre qué ha cambiado y cómo ello afe
 La versión más reciente de Azure Machine Learning incluye las características siguientes:
 + Un [modelo simplificado de los recursos de Azure](concept-azure-machine-learning-architecture.md).
 + Una [nueva interfaz de usuario del portal](how-to-track-experiments.md) para administrar sus experimentos y destinos de proceso.
-+ Un <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> nuevo y más completo de Python.
++ Un <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> nuevo y más completo de Python.
 + La nueva [extensión de la CLI de Azure](reference-azure-machine-learning-cli.md) expandida para el aprendizaje automático.
 
 La [arquitectura](concept-azure-machine-learning-architecture.md) se rediseñó para facilitar el uso. En lugar de varias cuentas y recursos de Azure, solo necesita un [área de trabajo de Azure Machine Learning](concept-workspace.md). Puede crear áreas de trabajo rápidamente en [Azure Portal](how-to-manage-workspace.md). Al usar un área de trabajo, varios usuarios pueden almacenar destinos de proceso de entrenamiento e implementación, experimentos de modelos, imágenes de Docker, modelos implementados, etc.
@@ -50,7 +50,7 @@ Aunque hay nuevos clientes mejorados de CLI y SDK en la versión actual, se ha r
 
 El 9 de enero de 2019 finalizó la compatibilidad con las cuentas de Machine Learning Workbench, Experimentación de Azure Machine Learning y Administración de modelos, y con sus SDK y CLI asociados.
 
-Todas las funcionalidades más recientes están disponibles si se usa el <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>, la [CLI](reference-azure-machine-learning-cli.md) y el [portal](how-to-manage-workspace.md).
+Todas las funcionalidades más recientes están disponibles si se usa el <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>, la [CLI](reference-azure-machine-learning-cli.md) y el [portal](how-to-manage-workspace.md).
 
 ## <a name="what-about-run-histories"></a>¿Qué sucede con los historiales de ejecución?
 
@@ -68,7 +68,7 @@ Empiece a entrenar los modelos y a seguir los historiales de ejecución con la n
 
 No perderá ningún código ni trabajo. En la versión anterior, los proyectos son entidades en la nube con un directorio local. En la versión más reciente, los directorios locales se asocian al área de trabajo de Azure Machine Learning mediante un archivo de configuración local. Consulte un [diagrama de la arquitectura más reciente](concept-azure-machine-learning-architecture.md).
 
-Gran parte del contenido del proyecto ya estaba en la máquina local, por lo tanto, solo necesita crear un archivo de configuración en ese directorio y hacer referencia a él en el código para conectarse al área de trabajo. Para continuar usando el directorio local que contiene los archivos y scripts, especifique el nombre del directorio en el comando de Python ["experiment.submit"](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) o con el comando de la CLI `az ml project attach`.  Por ejemplo:
+Gran parte del contenido del proyecto ya estaba en la máquina local, por lo tanto, solo necesita crear un archivo de configuración en ese directorio y hacer referencia a él en el código para conectarse al área de trabajo. Para continuar usando el directorio local que contiene los archivos y scripts, especifique el nombre del directorio en el comando de Python ["experiment.submit"](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) o con el comando de la CLI `az ml project attach`.  Por ejemplo:
 ```python
 run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)

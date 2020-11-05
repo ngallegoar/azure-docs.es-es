@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f432b417140440584bf4dfd01ed45814a746953
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440361"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320911"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de datos admitidas en Data Science Virtual Machine
 
@@ -103,5 +103,4 @@ Las bibliotecas para acceder a datos de Azure Blob Storage o Azure Data Lake Sto
 
 Para que la instancia de Spark en DSVM acceda a los datos almacenados en Blob Storage o Azure Data Lake Storage, debe crear y configurar el archivo `core-site.xml` basado en la plantilla que se encuentra en $SPARK_HOME/conf/core-site.xml.template. También debe tener las credenciales adecuadas para tener acceso a Blob Storage y Azure Data Lake Storage. (Tenga en cuenta que los archivos de plantilla usan marcadores de posición para las configuraciones de Blob Storage y Azure Data Lake Storage).
 
-Para obtener información más detallada sobre cómo crear credenciales para el servicio Azure Data Lake Storage, consulte el artículo sobre [la autenticación entre servicios con Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Una vez que las credenciales para Blob Storage o Azure Data Lake Storage se escriban en el archivo core-site.xml, puede hacer referencia a los datos almacenados en esos orígenes con el prefijo URI de wasb:// o adl://.
-
+Para obtener información más detallada sobre cómo crear credenciales para el servicio Azure Data Lake Storage, consulte el artículo sobre [la autenticación entre servicios con Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Una vez que las credenciales para Blob Storage o Azure Data Lake Storage se escriban en el archivo core-site.xml, puede hacer referencia a los datos almacenados en esos orígenes con el prefijo URI de wasb:// o adl://.

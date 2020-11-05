@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91d6d15fc8855b49bece3a7ed903074e716b7ac4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905250"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319417"
 ---
 # <a name="poisson-regression"></a>Regresión de Poisson
 
@@ -29,7 +29,7 @@ Utilice este módulo para crear un modelo de regresión de Poisson en una canali
 - Una distribución de Poisson es una distribución discreta; por lo tanto, no tiene sentido usar este método con números no enteros.
 
 > [!TIP]
-> Si el destino no es un recuento, la regresión de Poisson probablemente no sea un método adecuado. Pruebe [otros módulos de regresión en el diseñador](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms). 
+> Si el destino no es un recuento, la regresión de Poisson probablemente no sea un método adecuado. Pruebe [otros módulos de regresión en el diseñador](./module-reference.md#machine-learning-algorithms). 
 
 Después de haber configurado el método de regresión, debe entrenar el modelo mediante un conjunto de datos que contenga ejemplos del valor que desea predecir. A continuación, el modelo entrenado podrá usarse para realizar predicciones.
 
@@ -55,13 +55,13 @@ Dado que la variable de respuesta tiene una distribución de Poisson, el modelo 
 
     Se recomienda usar [Normalize Data](normalize-data.md) (Normalizar datos) para normalizar el conjunto de datos de entrada antes de usarlo para entrenar el regresor.
 
-3. En el panel derecho del módulo **Regresión de Poisson**, especifique cómo quiere que se entrene el modelo. Para ello, establezca la opción **Create trainer mode** (Crear modo entrenador).  
+3. En el panel derecho del módulo **Regresión de Poisson** , especifique cómo quiere que se entrene el modelo. Para ello, establezca la opción **Create trainer mode** (Crear modo entrenador).  
   
     - **Single Parameter** (Parámetro único): Si sabe cómo quiere configurar el modelo, proporcione un conjunto específico de valores como argumentos.
   
     - **Parameter Range** (Intervalo de parámetros): Si no está seguro de los mejores parámetros, puede realizar un barrido de parámetros mediante el módulo [Optimizar los hiperparámetros del modelo](tune-model-hyperparameters.md). El instructor recorre en iteración varios valores que usted especifica para encontrar la configuración óptima.
   
-4. **Tolerancia de optimización**: Escriba un valor que defina el intervalo de tolerancia durante la optimización. Cuanto menor sea el valor, más lento y más preciso será el ajuste.
+4. **Tolerancia de optimización** : Escriba un valor que defina el intervalo de tolerancia durante la optimización. Cuanto menor sea el valor, más lento y más preciso será el ajuste.
 
 5. **L1 regularization weight** (Ponderación de regularización L1), **L2 regularization weight** (Ponderación de regularización L2): Escriba valores para la regularización L1 y L2. La *regularización* agrega restricciones al algoritmo sobre aspectos del modelo que son independientes de los datos de entrenamiento. La regularización se utiliza habitualmente para evitar el sobreajuste. 
 
@@ -73,9 +73,9 @@ Dado que la variable de respuesta tiene una distribución de Poisson, el modelo 
 
     En este módulo, puede aplicar una combinación de regularizaciones L1 y L2. Si combina regularizaciones L1 y L2, puede imponer una penalización en la magnitud de los valores de parámetro. El aprendiz intenta minimizar la penalización, buscando el equilibrio con la minimización de la pérdida.
 
-    Para obtener una buena explicación de las regularizaciones L1 y L2, consulte [Regularización L1 y L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx).
+    Para obtener una buena explicación de las regularizaciones L1 y L2, consulte [Regularización L1 y L2 para Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning).
 
-6. **Tamaño de memoria para L-BFGS**: Especifique la cantidad de memoria que se reservará para la optimización y el ajuste del modelo.
+6. **Tamaño de memoria para L-BFGS** : Especifique la cantidad de memoria que se reservará para la optimización y el ajuste del modelo.
 
      L-BFGS es un método específico para la optimización, basado en el algoritmo Broyden-Fletcher-Goldfarb-Shanno (BFGS). El método utiliza una cantidad limitada de memoria (L) para calcular la dirección del siguiente paso.
 
@@ -105,4 +105,4 @@ Una vez completado el entrenamiento:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

@@ -3,18 +3,20 @@ title: Definición de claves únicas para un contenedor de Azure Cosmos
 description: Aprenda a definir claves únicas para un contenedor de Azure Cosmos mediante Azure Portal, PowerShell, .NET, Java y otros SDK.
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279555"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336629"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definición de claves únicas para un contenedor de Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se presentan las distintas formas de definir [claves únicas](unique-keys.md) al crear un contenedor de Azure Cosmos. Actualmente, es posible realizar esta operación mediante Azure Portal o uno de los SDK.
 
@@ -26,7 +28,7 @@ En este artículo se presentan las distintas formas de definir [claves únicas](
 
 1. Abra el panel **Data Explorer** y seleccione el contenedor en el que quiere trabajar.
 
-1. Haga clic en **Nuevo contenedor** .
+1. Haga clic en **Nuevo contenedor**.
 
 1. En el cuadro de diálogo **Agregar contenedor** , haga clic en **+ Add unique key** (+ Agregar clave única) para agregar una única entrada de clave.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6261e31fd84b9471fa4ea5d30e1d6a4afbac9115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c0a02c2cbc11002f8e0bf0295dab91de5d0365
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085385"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323665"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Creación de características para los datos en un clúster de Hadoop mediante consultas de Hive
 Este documento muestra cómo crear características para los datos almacenados en un clúster de Hadoop para HDInsight de Azure mediante consultas de Hive. Estas consultas de Hive usan funciones definidas por el usuario (UDF) insertadas, cuyos scripts se proporcionan.
@@ -25,15 +25,15 @@ Las operaciones necesarias para crear características pueden consumir mucha mem
 
 También se ofrecen ejemplos de las consultas que son específicos de escenarios de [NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/) en el [repositorio de GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución. En la última sección, también se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de Hive.
 
-Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](./index.yml).
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ha:
 
 * Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-account-create.md)
-* Aprovisionado un clúster de Hadoop personalizado con el servicio HDInsight.  Si necesita instrucciones, consulte [Personalización de clústeres de Hadoop de HDInsight de Azure para análisis avanzado](customize-hadoop-cluster.md).
+* Aprovisionado un clúster de Hadoop personalizado con el servicio HDInsight.  Si necesita instrucciones, consulte [Personalización de clústeres de Hadoop de HDInsight de Azure para análisis avanzado](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Se han cargado los datos en tablas de subárbol en clústeres de Hadoop de HDInsight de Azure. De no ser así, siga [Crear y cargar datos en tablas de Hive](move-hive-tables.md) para empezar cargando los datos en tablas de Hive.
-* Habilitado el acceso remoto al clúster. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster Hadoop](customize-hadoop-cluster.md).
+* Habilitado el acceso remoto al clúster. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster Hadoop](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 ## <a name="feature-generation"></a><a name="hive-featureengineering"></a>Generación de características
 En esta sección se describen varios ejemplos de las maneras en que se pueden generar características mediante consultas de Hive. Una vez que haya generado características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar a continuación con la tabla original. Estos son los ejemplos presentados:
@@ -104,7 +104,7 @@ select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime f
 from <databasename>.<tablename>;
 ```
 
-En esta consulta, si *\<datetime field>* tiene el patrón *26/03/2015 12:04:39*, el *\<pattern of the datetime field>'* debe ser `'MM/dd/yyyy HH:mm:ss'`. Para probarlo, los usuarios pueden ejecutar
+En esta consulta, si *\<datetime field>* tiene el patrón *26/03/2015 12:04:39* , el *\<pattern of the datetime field>'* debe ser `'MM/dd/yyyy HH:mm:ss'`. Para probarlo, los usuarios pueden ejecutar
 
 ```hiveql
 select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
@@ -124,7 +124,7 @@ from <databasename>.<tablename>;
 ### <a name="calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Cálculo de la distancia entre conjuntos de coordenadas de GPS
 La consulta proporcionada en esta sección puede aplicarse directamente a los datos de carreras de taxi de Nueva York. El propósito de esta consulta es mostrar cómo se aplica una función matemática incrustada en Hive para generar características.
 
-Los campos que se usan en esta consulta son las coordenadas GPS de ubicaciones de recogida y entrega, denominadas *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* y *dropoff\_latitude*. Las consultas que calculan la distancia directa entre las coordenadas de recogida y entrega son:
+Los campos que se usan en esta consulta son las coordenadas GPS de ubicaciones de recogida y entrega, denominadas *pickup\_longitude* , *pickup\_latitude* , *dropoff\_longitude* y *dropoff\_latitude*. Las consultas que calculan la distancia directa entre las coordenadas de recogida y entrega son:
 
 ```hiveql
 set R=3959;
@@ -144,7 +144,7 @@ and dropoff_latitude between 30 and 90
 limit 10;
 ```
 
-Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS pueden encontrarse en el sitio <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (Scripts de tipo movibles), creado por Peter Lapisu. En este JavaScript, la función `toRad()` es simplemente *lat_or_lon*pi/180, que convierte grados a radianes. Aquí, *lat_or_lon* es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí la función `atan`, la función `atan2` se implementa en la función `atan` en la consulta de Hive anterior mediante la definición incluida en <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS pueden encontrarse en el sitio <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (Scripts de tipo movibles), creado por Peter Lapisu. En este JavaScript, la función `toRad()` es simplemente *lat_or_lon* pi/180, que convierte grados a radianes. Aquí, *lat_or_lon* es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí la función `atan`, la función `atan2` se implementa en la función `atan` en la consulta de Hive anterior mediante la definición incluida en <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Creación del espacio de trabajo](./media/create-features-hive/atan2new.png)
 
@@ -153,7 +153,7 @@ Se puede encontrar una lista completa de las UDF incrustadas de Hive en la secci
 ## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Temas avanzados: Ajustar parámetros de Hive para mejorar la velocidad de consulta
 La configuración de parámetros predeterminados del clúster de subárbol podría no ser adecuada para las consultas de subárbol y los datos que estas consultas procesan. En esta sección se describen algunos parámetros que los usuarios pueden ajustar para mejorar el rendimiento de las consultas de Hive. Los usuarios necesitan agregar el parámetro que optimiza las consultas antes de las consultas de procesamiento de datos.
 
-1. **Espacio de montón de Java**: Para las consultas que implican la combinación de grandes conjuntos de datos o el procesamiento de largos registros, un error habitual es **quedarse sin espacio en el montón**. Este error se puede evitar estableciendo los parámetros *mapreduce.map.java.opts* y *mapreduce.task.io.sort.mb* en los valores deseados. Este es un ejemplo:
+1. **Espacio de montón de Java** : Para las consultas que implican la combinación de grandes conjuntos de datos o el procesamiento de largos registros, un error habitual es **quedarse sin espacio en el montón**. Este error se puede evitar estableciendo los parámetros *mapreduce.map.java.opts* y *mapreduce.task.io.sort.mb* en los valores deseados. Este es un ejemplo:
    
     ```hiveql
     set mapreduce.map.java.opts=-Xmx4096m;
@@ -162,20 +162,20 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
     Este parámetro no solo asigna 4 GB de memoria al espacio en el montón de Java, sino que también aumenta la eficacia de la ordenación, ya que le asigna más memoria. Es buena idea jugar con estas asignaciones si no hay ningún error de trabajo relacionado con el espacio en el montón.
 
-1. **Tamaño de bloque de DFS**: Este parámetro establece la unidad más pequeña de datos que el sistema de archivos almacena. Por ejemplo, si el tamaño de bloque DFS es 128 MB, los datos que tengan un tamaño de 128 MB o inferior se almacenarán en un solo bloque. Asimismo, se asignarán bloques adicionales para los datos que tengan más de 128 MB. 
+1. **Tamaño de bloque de DFS** : Este parámetro establece la unidad más pequeña de datos que el sistema de archivos almacena. Por ejemplo, si el tamaño de bloque DFS es 128 MB, los datos que tengan un tamaño de 128 MB o inferior se almacenarán en un solo bloque. Asimismo, se asignarán bloques adicionales para los datos que tengan más de 128 MB. 
 2. Si elige un tamaño de bloque pequeño, se producirán grandes sobrecargas en Hadoop, puesto que el nodo de nombre tiene que procesar muchas más solicitudes para buscar el bloque pertinente relacionado con el archivo. Una configuración recomendada al tratar con datos de gigabytes (o mayores) es:
 
     ```hiveql
     set dfs.block.size=128m;
     ```
 
-2. **Optimización de la operación de unión en Hive**: Aunque las operaciones de unión en el marco de asignación/reducción suelen tener lugar en la fase de reducción, en ocasiones se pueden obtener ganancias enormes mediante la programación de uniones en la fase de asignación (también denominada "mapjoins"). Establezca esta opción:
+2. **Optimización de la operación de unión en Hive** : Aunque las operaciones de unión en el marco de asignación/reducción suelen tener lugar en la fase de reducción, en ocasiones se pueden obtener ganancias enormes mediante la programación de uniones en la fase de asignación (también denominada "mapjoins"). Establezca esta opción:
    
     ```hiveql
     set hive.auto.convert.join=true;
     ```
 
-3. **Especificación del número de asignadores a Hive**: Si bien Hadoop permite al usuario establecer el número de reductores, normalmente el usuario no será quien establezca es el número de asignadores. Un truco que permite cierto grado de control sobre este número es elegir las variables de Hadoop, *mapred.min.split.size* y *mapred.max.split.size*, puesto que el tamaño de cada tarea de asignación se determina mediante:
+3. **Especificación del número de asignadores a Hive** : Si bien Hadoop permite al usuario establecer el número de reductores, normalmente el usuario no será quien establezca es el número de asignadores. Un truco que permite cierto grado de control sobre este número es elegir las variables de Hadoop, *mapred.min.split.size* y *mapred.max.split.size* , puesto que el tamaño de cada tarea de asignación se determina mediante:
    
     ```hiveql
     num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
@@ -198,4 +198,3 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
     set mapred.reduce.tasks=128;
     set mapred.tasktracker.reduce.tasks.maximum=128;
     ```
-

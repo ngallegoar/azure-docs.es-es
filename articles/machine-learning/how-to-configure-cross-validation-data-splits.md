@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 3e2711243d7c093d3ab8aa5f0e7ebac0a5ec95f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed11a1b772acb31268f3d0a61fba10301ad62e18
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886201"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320471"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configuración de las divisiones de datos y la validación cruzada en aprendizaje automático automatizado
 
@@ -24,7 +24,7 @@ En este artículo, obtendrá información sobre las distintas opciones para conf
 
 En Azure Machine Learning, cuando se usa AutoML para crear varios modelos de aprendizaje automático, cada ejecución secundaria debe validar el modelo relacionado al calcular las métricas de calidad para ese modelo, como la precisión o la AUC ponderada. Estas métricas se calculan al comparar las predicciones realizadas con cada modelo con las etiquetas reales de observaciones anteriores en los datos de validación. 
 
-Los experimentos de AutoML realizan la validación de modelos de forma automática. En las secciones siguientes se describe cómo puede personalizar aún más la configuración de validación con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
+Los experimentos de AutoML realizan la validación de modelos de forma automática. En las secciones siguientes se describe cómo puede personalizar aún más la configuración de validación con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
 Para obtener una experiencia sin código o con poco código, consulte [Creación de experimentos de aprendizaje automático automatizados en Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
@@ -47,7 +47,7 @@ Para realizar este artículo, necesitará lo siguiente
 
 ## <a name="default--data-splits-and-cross-validation"></a>Divisiones de datos y validación cruzada predeterminadas
 
-Use el objeto [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) para definir la configuración del experimento y el entrenamiento. En el siguiente fragmento de código, observe que solo se han definido los parámetros necesarios; es decir, los parámetros de `n_cross_validation` o `validation_ data` **no** están incluidos.
+Use el objeto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) para definir la configuración del experimento y el entrenamiento. En el siguiente fragmento de código, observe que solo se han definido los parámetros necesarios; es decir, los parámetros de `n_cross_validation` o `validation_ data` **no** están incluidos.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -67,7 +67,7 @@ Si no especifica explícitamente un parámetro `validation_data` o `n_cross_vali
 |Tamaño&nbsp;de datos de&nbsp;entrenamiento| Técnica de validación |
 |---|-----|
 |**Mayor&nbsp;que&nbsp;20 000&nbsp;filas**| Se aplica la división de datos de entrenamiento o validación. El valor predeterminado consiste en usar el 10 % del conjunto de datos de entrenamiento inicial como conjunto de validación. A su vez, ese conjunto de validación se usa para calcular las métricas.
-|**Menor&nbsp;que&nbsp;20 000&nbsp;filas**| Se aplica el enfoque de validación cruzada. El número predeterminado de iteraciones depende del número de filas. <br> **Si el conjunto de datos tiene menos de 1000 filas**, se usan diez iteraciones. <br> **Si hay entre 1000 y 20 000 filas**, se usan tres iteraciones.
+|**Menor&nbsp;que&nbsp;20 000&nbsp;filas**| Se aplica el enfoque de validación cruzada. El número predeterminado de iteraciones depende del número de filas. <br> **Si el conjunto de datos tiene menos de 1000 filas** , se usan diez iteraciones. <br> **Si hay entre 1000 y 20 000 filas** , se usan tres iteraciones.
 
 ## <a name="provide-validation-data"></a>Especificación de datos de validación
 

@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446699"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322244"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acceso seguro a datos en Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning facilita la conexión con los datos en la nube.  Proporci
     
 ## <a name="data-workflow"></a>Flujo de trabajo de datos
 
-Cuando esté listo para usar los datos de la solución de almacenamiento basada en la nube, se recomienda el siguiente flujo de trabajo de entrega de datos. En este flujo de trabajo se supone que tiene una [cuenta de Azure Storage ](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) y datos en un servicio de almacenamiento basado en la nube en Azure. 
+Cuando esté listo para usar los datos de la solución de almacenamiento basada en la nube, se recomienda el siguiente flujo de trabajo de entrega de datos. En este flujo de trabajo se supone que tiene una [cuenta de Azure Storage ](../storage/common/storage-account-create.md?tabs=azure-portal) y datos en un servicio de almacenamiento basado en la nube en Azure. 
 
 1. Cree un [almacén de datos de Azure Machine Learning](#datastores) para almacenar la información de conexión en Azure Storage.
 
@@ -81,9 +81,9 @@ Los conjuntos de datos se pueden crear a partir de archivos locales, direcciones
 
 Hay 2 tipos de conjuntos de datos: 
 
-+ [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) hace referencia a uno o varios archivos de los almacenes de datos o direcciones URL públicas. Si los datos ya están limpios y listos para su uso en experimentos de entrenamiento, puede [descargar o montar archivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a los que hacen referencia los objetos FileDataset en el destino de proceso.
++ [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) hace referencia a uno o varios archivos de los almacenes de datos o direcciones URL públicas. Si los datos ya están limpios y listos para su uso en experimentos de entrenamiento, puede [descargar o montar archivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a los que hacen referencia los objetos FileDataset en el destino de proceso.
 
-+ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Puede cargar un objeto TabularDataset en un dataframe de Pandas o Spark para manipularlo o limpiarlo mejor. Para obtener una lista completa de formatos de datos a partir de los cuales se pueden crear objetos TabularDataset, consulte la [clase TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
++ [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Puede cargar un objeto TabularDataset en un dataframe de Pandas o Spark para manipularlo o limpiarlo mejor. Para obtener una lista completa de formatos de datos a partir de los cuales se pueden crear objetos TabularDataset, consulte la [clase TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 En la siguiente documentación se pueden encontrar funcionalidades adicionales de los conjuntos de datos:
 
@@ -100,7 +100,7 @@ Con los conjuntos de datos puede realizar una serie de tareas de aprendizaje aut
      + el [diseñador](tutorial-designer-automobile-price-train-score.md#import-data)
      + [notebooks](how-to-train-with-datasets.md)
      + [Canalizaciones de Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ Acceder a los conjuntos de datos para la puntuación con la [inferencia por lotes](how-to-use-parallel-run-step.md) en [canalizaciones de aprendizaje automático](how-to-create-your-first-pipeline.md).
++ Acceder a los conjuntos de datos para la puntuación con la [inferencia por lotes](./tutorial-pipeline-batch-scoring-classification.md) en [canalizaciones de aprendizaje automático](how-to-create-your-first-pipeline.md).
 + Configurar un monitor de conjunto de datos para la detección de [desfase de datos](#drift).
 
 <a name="label"></a>

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521074"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317084"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Administración de runbooks en Azure Automation
 
@@ -28,7 +28,7 @@ Cree un runbook nuevo en Azure Automation mediante Azure Portal o Windows Power
 
 1. En Azure Portal, abra su cuenta de Automation.
 2. Desde el centro de conectividad, seleccione **Runbooks** en **Automatización de procesos** para abrir la lista de runbooks.
-3. Haga clic en **Crear un runbook** .
+3. Haga clic en **Crear un runbook**.
 4. Escriba un nombre para el runbook y seleccione su [tipo](automation-runbook-types.md). El nombre del runbook debe empezar por una letra y puede tener letras, números, guiones bajos y guiones.
 5. Haga clic en **Crear** para crear el runbook y abra el editor.
 
@@ -64,11 +64,11 @@ Puede usar el siguiente procedimiento para importar un archivo de script en Azur
 
 1. En Azure Portal, abra su cuenta de Automation.
 2. En **Automatización de procesos** , haga clic en **Runbooks** para abrir la lista de runbooks.
-3. Haga clic en **Importar un runbook** .
+3. Haga clic en **Importar un runbook**.
 4. Haga clic en **Archivo de runbook** y seleccione el archivo que se va a importar.
 5. Si el campo **Nombre** está habilitado, tiene la opción de cambiar el nombre del runbook. El nombre debe empezar por una letra y puede tener letras, números, guiones bajos y guiones.
 6. El [tipo de runbook](automation-runbook-types.md) se seleccionará automáticamente, pero puede cambiarlo después de tomar en cuenta las restricciones aplicables.
-7. Haga clic en **Crear** . El runbook nuevo aparece en la lista de runbooks de la cuenta de Automation.
+7. Haga clic en **Crear**. El runbook nuevo aparece en la lista de runbooks de la cuenta de Automation.
 8. Debe [publicar el runbook](#publish-a-runbook) para poder ejecutarlo.
 
 > [!NOTE]
@@ -228,7 +228,7 @@ Para utilizar un script personalizado, haga lo siguiente:
 
 ## <a name="test-a-runbook"></a>Prueba de un runbook
 
-Cuando se prueba un runbook, se ejecuta la [versión de borrador](#publish-a-runbook) y se completan todas las acciones que realiza. No se crea ningún historial de trabajos, pero los flujos [salida](automation-runbook-output-and-messages.md#use-the-output-stream) y [advertencia y error](automation-runbook-output-and-messages.md#monitor-message-streams) se muestran en el panel de salida de la prueba. Los mensajes del [flujo detallado](automation-runbook-output-and-messages.md#monitor-message-streams) solo se muestran en el panel de salida si la variable [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) está establecida en `Continue`.
+Cuando se prueba un runbook, se ejecuta la [versión de borrador](#publish-a-runbook) y se completan todas las acciones que realiza. No se crea ningún historial de trabajos, pero los flujos [salida](automation-runbook-output-and-messages.md#use-the-output-stream) y [advertencia y error](automation-runbook-output-and-messages.md#working-with-message-streams) se muestran en el panel de salida de la prueba. Los mensajes del [flujo detallado](automation-runbook-output-and-messages.md#write-output-to-verbose-stream) solo se muestran en el panel de salida si la variable [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) está establecida en `Continue`.
 
 Aun cuando se ejecuta la versión de borrador, el runbook se ejecuta con normalidad y realiza las acciones correspondientes en los recursos del entorno. Por este motivo, solo debe probar runbooks en recursos no pertenecientes a entornos de producción.
 
@@ -249,7 +249,7 @@ Cuando cree o importe un runbook nuevo, debe publicarlo para poder ejecutarlo. C
 ### <a name="publish-a-runbook-in-the-azure-portal"></a>Publicación de un runbook en Azure Portal
 
 1. Abra el runbook en Azure Portal.
-2. Haga clic en **Editar** .
+2. Haga clic en **Editar**.
 3. Haga clic en el botón **Publicar** y, a continuación, en **Sí** en el mensaje de comprobación.
 
 ### <a name="publish-a-runbook-using-powershell"></a>Publicación de un runbook mediante PowerShell
@@ -270,19 +270,19 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 Una vez publicado el runbook, puede programarlo para que funcione:
 
 1. Abra el runbook en Azure Portal.
-2. Seleccione **Programas** en **Recursos** .
-3. Seleccione **Agregar una programación** .
-4. En el panel Programación de un runbook, seleccione **Vincular una programación a su runbook** .
-5. En el panel Programación, seleccione **Crear una nueva programación** .
+2. Seleccione **Programas** en **Recursos**.
+3. Seleccione **Agregar una programación**.
+4. En el panel Programación de un runbook, seleccione **Vincular una programación a su runbook**.
+5. En el panel Programación, seleccione **Crear una nueva programación**.
 6. Escriba un nombre, una descripción y otros parámetros en el panel Nueva programación.
-7. Una vez creada la programación, resáltela y haga clic en **Aceptar** . Ahora debería estar vinculada a su runbook.
+7. Una vez creada la programación, resáltela y haga clic en **Aceptar**. Ahora debería estar vinculada a su runbook.
 8. Busque un correo electrónico en el buzón que le informa sobre el estado del runbook.
 
 ## <a name="obtain-job-statuses"></a>Obtención de estados del trabajo
 
 ### <a name="view-statuses-in-the-azure-portal"></a>Visualización de los estados en Azure Portal
 
-En Azure Automation, los detalles del control de trabajos se proporcionan en [Trabajos](automation-runbook-execution.md#jobs). Cuando esté listo para ver los trabajos de runbook, use Azure Portal y acceda a su cuenta de Automation. A la derecha, se puede ver un resumen de todos los trabajos de runbook en **Estadísticas de trabajo** .
+En Azure Automation, los detalles del control de trabajos se proporcionan en [Trabajos](automation-runbook-execution.md#jobs). Cuando esté listo para ver los trabajos de runbook, use Azure Portal y acceda a su cuenta de Automation. A la derecha, se puede ver un resumen de todos los trabajos de runbook en **Estadísticas de trabajo**.
 
 ![Icono Estadísticas de trabajo](./media/manage-runbooks/automation-account-job-status-summary.png)
 
@@ -292,13 +292,13 @@ Al hacer clic en el icono aparece la página Trabajos, que incluye una lista res
 
 :::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Captura de pantalla de la página Trabajos.":::
 
-Para filtrar la lista de trabajos, puede seleccionar **Filtrar trabajos** . Filtre por un runbook específico, estado de trabajo o una opción de la lista desplegable y proporcione el intervalo de tiempo para la búsqueda.
+Para filtrar la lista de trabajos, puede seleccionar **Filtrar trabajos**. Filtre por un runbook específico, estado de trabajo o una opción de la lista desplegable y proporcione el intervalo de tiempo para la búsqueda.
 
 ![Filtrado por estado del trabajo](./media/manage-runbooks/automation-account-jobs-filter.png)
 
-Como alternativa, puede ver los detalles resumidos de los trabajos de un runbook concreto; para ello, selecciónelo en la página Runbooks de la cuenta de Automation y, después, seleccione **Trabajos** . Esta acción presenta la página Trabajos. Desde aquí, puede hacer clic en un registro del trabajo para ver sus detalles y resultados.
+Como alternativa, puede ver los detalles resumidos de los trabajos de un runbook concreto; para ello, selecciónelo en la página Runbooks de la cuenta de Automation y, después, seleccione **Trabajos**. Esta acción presenta la página Trabajos. Desde aquí, puede hacer clic en un registro del trabajo para ver sus detalles y resultados.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Captura de pantalla de la página Trabajos.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Captura de pantalla de la página Trabajos con el botón Errores resaltado.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperación de los estados del trabajo con PowerShell
 

@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8082694b9f08023653d47e1f7fb442219cf8b475
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672855"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316705"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Protección de un área de trabajo de Azure Machine Learning con redes virtuales
 
@@ -48,7 +48,7 @@ En este artículo aprenderá a habilitar los siguientes recursos de áreas de tr
     - "Microsoft.Network/virtualNetworks/join/action" en el recurso de red virtual.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" en el recurso de subred.
 
-    Para obtener más información sobre Azure RBAC con redes, consulte los [roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
+    Para obtener más información sobre Azure RBAC con redes, consulte los [roles integrados de redes](../role-based-access-control/built-in-roles.md#networking).
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>Protección del área de trabajo con punto de conexión privado
@@ -66,7 +66,7 @@ Azure Machine Learning admite cuentas de almacenamiento configuradas para usar p
 >
 > La cuenta de almacenamiento predeterminada se aprovisiona automáticamente al crear un área de trabajo.
 >
-> En las cuentas de almacenamiento no predeterminadas, el parámetro `storage_account` de la [función `Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) permite especificar una cuenta de almacenamiento personalizada mediante el identificador de recursos de Azure.
+> En las cuentas de almacenamiento no predeterminadas, el parámetro `storage_account` de la [función `Workspace.create()`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) permite especificar una cuenta de almacenamiento personalizada mediante el identificador de recursos de Azure.
 
 Para usar una cuenta de Azure Storage para el área de trabajo en una red virtual, siga estos pasos:
 
@@ -188,7 +188,7 @@ Para usar las funcionalidades de experimentación de Azure Machine Learning con 
 
 Para usar Azure Container Registry en una red virtual, debe cumplir los siguientes requisitos:
 
-* La instancia de Azure Container Registry debe tener la versión Prémium. Para más información sobre la actualización, vea [Cambio de SKU](/azure/container-registry/container-registry-skus#changing-skus).
+* La instancia de Azure Container Registry debe tener la versión Prémium. Para más información sobre la actualización, vea [Cambio de SKU](../container-registry/container-registry-skus.md#changing-tiers).
 
 * La instancia de Azure Container Registry debe estar en la misma red virtual y subred que la cuenta de almacenamiento y los destinos de proceso utilizados para entrenamiento o inferencia.
 
@@ -233,7 +233,7 @@ Una vez cumplidos estos requisitos, siga los pasos que se indican a continuació
     > [!IMPORTANT]
     > La cuenta de almacenamiento, el clúster de proceso y Azure Container Registry deben estar en la misma subred de la red virtual.
     
-    Para más información, vea la referencia del método [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true).
+    Para más información, vea la referencia del método [update()](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true).
 
 1. Aplique la siguiente plantilla de Azure Resource Manager. Esta plantilla permite que el área de trabajo se comunique con ACR.
 

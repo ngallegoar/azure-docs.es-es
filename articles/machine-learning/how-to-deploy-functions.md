@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5e5ab4e3c9332d0daa1acf32edeeba2423c97ac3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736555"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324592"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementación de un modelo de Machine Learning en Azure Functions (versión preliminar)
 
@@ -26,12 +26,12 @@ Obtenga información sobre cómo implementar un modelo de Azure Machine Learnin
 > [!IMPORTANT]
 > Aunque tanto Azure Machine Learning como Azure Functions están disponibles con carácter general, la posibilidad de empaquetar un modelo desde Machine Learning Service en Functions está en versión preliminar.
 
-Con Azure Machine Learning, puede crear una imagen de Docker a partir de modelos de aprendizaje automático entrenados. Ahora, Azure Machine Learning tiene la funcionalidad en versión preliminar para crear estos modelos de Machine Learning en las aplicaciones de funciones, que se pueden implementar en [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
+Con Azure Machine Learning, puede crear una imagen de Docker a partir de modelos de aprendizaje automático entrenados. Ahora, Azure Machine Learning tiene la funcionalidad en versión preliminar para crear estos modelos de Machine Learning en las aplicaciones de funciones, que se pueden implementar en [Azure Functions](../azure-functions/functions-deployment-technologies.md#docker-container).
 
 ## <a name="prerequisites"></a>Prerequisites
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
-* La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* La[CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * Un modelo de aprendizaje automático entrenado registrado en el área de trabajo. Si no tiene un modelo, use el [Tutorial: Entrenamiento de modelos de clasificación de imágenes](tutorial-train-models-with-aml.md) para entrenar y registrar uno.
 
     > [!IMPORTANT]
@@ -47,23 +47,23 @@ Con Azure Machine Learning, puede crear una imagen de Docker a partir de modelos
 
 Antes de realizar la implementación, debe definir qué necesita para ejecutar el modelo como un servicio web. En la lista siguiente se describen los principales elementos necesarios para una implementación:
 
-* Un __script de entrada__ . Este script acepta solicitudes, puntúa la solicitud mediante el modelo y devuelve los resultados.
+* Un __script de entrada__. Este script acepta solicitudes, puntúa la solicitud mediante el modelo y devuelve los resultados.
 
     > [!IMPORTANT]
     > El script de entrada es específico del modelo; debe comprender el formato de los datos de la solicitud entrante, el formato de los datos que espera el modelo y el formato de los datos que se devuelven a los clientes.
     >
     > Si los datos de la solicitud están en un formato que el modelo no puede usar, el script puede transformarlos a un formato aceptable. También puede transformar la respuesta antes de devolverla al cliente.
     >
-    > Cuando se empaqueta para Functions, la entrada se trata de forma predeterminada como texto. Si está interesado en consumir los bytes sin formato de la entrada (por ejemplo, con desencadenadores de blobs), conviene usar [AMLRequest para aceptar datos sin procesar](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
+    > Cuando se empaqueta para Functions, la entrada se trata de forma predeterminada como texto. Si está interesado en consumir los bytes sin formato de la entrada (por ejemplo, con desencadenadores de blobs), conviene usar [AMLRequest para aceptar datos sin procesar](./how-to-deploy-advanced-entry-script.md#binary-data).
 
-Para más información sobre el script de entrada, consulte [Definición del código de puntuación](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script).
+Para más información sobre el script de entrada, consulte [Definición del código de puntuación](./how-to-deploy-and-where.md#define-an-entry-script).
 
 * **Dependencias** , como scripts de asistente o paquetes de Python/Conda, necesarias para ejecutar el modelo o el script de entrada.
 
-Estas entidades se encapsulan en una __configuración de inferencia__ . La configuración de inferencia hace referencia al script de entrada y a otras dependencias.
+Estas entidades se encapsulan en una __configuración de inferencia__. La configuración de inferencia hace referencia al script de entrada y a otras dependencias.
 
 > [!IMPORTANT]
-> Al crear una configuración de inferencia para su uso con Azure Functions, debe usar un objeto [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true). Tenga en cuenta que si va a definir su propio entorno personalizado, debe enumerar azureml-defaults con la versión >= 1.0.45 como dependencia de PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web. En el ejemplo siguiente se muestra cómo crear un objeto de entorno y cómo usarlo con una configuración de inferencia:
+> Al crear una configuración de inferencia para su uso con Azure Functions, debe usar un objeto [Environment](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py). Tenga en cuenta que si va a definir su propio entorno personalizado, debe enumerar azureml-defaults con la versión >= 1.0.45 como dependencia de PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web. En el ejemplo siguiente se muestra cómo crear un objeto de entorno y cómo usarlo con una configuración de inferencia:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -84,7 +84,7 @@ Para obtener más información sobre los entornos, consulte el tema sobre la [cr
 Para más información sobre la configuración de inferencia, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Al realizar la implementación en Functions, no es necesario crear una __configuración de implementación__ .
+> Al realizar la implementación en Functions, no es necesario crear una __configuración de implementación__.
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Instalación del paquete de versión preliminar de SDK para la compatibilidad con Functions
 
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Crear la imagen
 
-Para crear la imagen de Docker que se implementa en Azure Functions, use [azureml.comtrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) o la función de paquete específica del desencadenador que le interese usar. El siguiente fragmento de código muestra cómo crear un paquete con un desencadenador de blobs a partir del modelo y la configuración de inferencia:
+Para crear la imagen de Docker que se implementa en Azure Functions, use [azureml.comtrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) o la función de paquete específica del desencadenador que le interese usar. El siguiente fragmento de código muestra cómo crear un paquete con un desencadenador de blobs a partir del modelo y la configuración de inferencia:
 
 > [!NOTE]
 > En el fragmento de código se da por supuesto que `model` contiene un modelo registrado y que `inference_config` contiene la configuración del entorno de inferencia. Para más información, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
@@ -113,7 +113,7 @@ print(blob.location)
 Si `show_output=True`, se muestra la salida del proceso de compilación de Docker. Una vez finalizado el proceso, la imagen se ha creado en Azure Container Registry para su área de trabajo. Una vez creada la imagen, se muestra la ubicación en Azure Container Registry. La ubicación devuelta tiene el formato `<acrinstance>.azurecr.io/package@sha256:<imagename>`.
 
 > [!NOTE]
-> Actualmente, el empaquetado para Functions admite desencadenadores HTTP, desencadenadores de blobs y desencadenadores de Service Bus. Para más información sobre los desencadenadores, vea [Enlaces de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
+> Actualmente, el empaquetado para Functions admite desencadenadores HTTP, desencadenadores de blobs y desencadenadores de Service Bus. Para más información sobre los desencadenadores, vea [Enlaces de Azure Functions](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
 
 > [!IMPORTANT]
 > Guarde la información de la ubicación, ya que se usa al implementar la imagen.
@@ -144,7 +144,7 @@ Si `show_output=True`, se muestra la salida del proceso de compilación de Docke
     }
     ```
 
-    Guarde el valor de __username__ y uno de los dos de __passwords__ .
+    Guarde el valor de __username__ y uno de los dos de __passwords__.
 
 1. Si aún no tiene un grupo de recursos o un plan de App Service para implementar el servicio, los siguientes comandos muestran cómo crear ambos:
 
@@ -293,12 +293,12 @@ Una vez que la imagen se ha cargado y la aplicación está disponible, siga esto
 
     Una vez completado el comando, abra el archivo. Contiene los datos devueltos por el modelo.
 
-Para más información sobre el uso de desencadenadores de blobs, consulte el artículo [Creación de una función desencadenada por Azure Blob Storage](/azure/azure-functions/functions-create-storage-blob-triggered-function).
+Para más información sobre el uso de desencadenadores de blobs, consulte el artículo [Creación de una función desencadenada por Azure Blob Storage](../azure-functions/functions-create-storage-blob-triggered-function.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo configurar la aplicación de Functions en la documentación de [Functions](/azure/azure-functions/functions-create-function-linux-custom-image).
-* Obtenga más información sobre los desencadenadores de Blob Storage en [Enlaces de Azure Blob Storage](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+* Obtenga información sobre cómo configurar la aplicación de Functions en la documentación de [Functions](../azure-functions/functions-create-function-linux-custom-image.md).
+* Obtenga más información sobre los desencadenadores de Blob Storage en [Enlaces de Azure Blob Storage](../azure-functions/functions-bindings-storage-blob.md).
 * [Implementación del modelo en Azure App Service](how-to-deploy-app-service.md).
 * [Consumir un modelo de ML que está implementado como un servicio web](how-to-consume-web-service.md)
-* [Referencia de API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)
+* [Referencia de API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py)

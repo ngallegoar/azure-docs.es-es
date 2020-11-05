@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e43c343b27dfe2dc0c364e58ed7305bdcec37215
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ac1fc5688dad3406041f36ff858e6fd27c7272f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026073"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321874"
 ---
 # <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Muestreo de datos en SQL Server en Azure
 
@@ -30,9 +30,9 @@ El muestreo de Python usa la biblioteca ODBC [pyodbc](https://code.google.com/p/
 > 
 
 **¿Por qué realizar un muestreo de los datos?**
-Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. El muestreo facilita el reconocimiento y la exploración de los datos, así como el diseño de características. Su rol en el [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
+Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. El muestreo facilita el reconocimiento y la exploración de los datos, así como el diseño de características. Su rol en el [proceso de ciencia de datos en equipos (TDSP)](./index.yml) es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
-Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](./index.yml).
 
 ## <a name="using-sql"></a><a name="SQL"></a>Uso de SQL
 En esta sección se describen varios métodos con SQL para realizar un muestreo aleatorio simple con los datos de la base de datos. Elija un método basado en el tamaño de los datos y su distribución.
@@ -134,4 +134,4 @@ Para ver un ejemplo del proceso de ciencia de datos en equipos mediante un conju
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png
 
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

@@ -9,23 +9,23 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 0064509c1158d8b016413046cb528bfd125b5f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 158541d34568b7ea02ea82dbfe90f5801824716f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362323"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325789"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Repetición del entrenamiento e implementación de un servicio web de Studio (clásico)
 
-**SE APLICA A:**  ![Marca de verificación verde.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![La X indica "no".](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Marca de verificación verde.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![La X indica "no". ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Una forma de garantizar que los modelos de Machine Learning siguen siendo precisos y se basan en los datos más adecuados disponibles, es volver a entrenarlos. En este artículo se muestra cómo volver a entrenar un servicio web de Studio clásico. Para más información acerca de cómo volver a entrenar un nuevo servicio web de Studio (clásico), [consulte este artículo de procedimientos](retrain-machine-learning-model.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se asume que tiene un experimento de reciclaje y un experimento de predicción. Estos pasos se explican en [Reciclaje de un modelo de Azure Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model). Sin embargo, en lugar de implementar el modelo de Machine Learning como un servicio web nuevo, implementará el experimento de predicción como un servicio web clásico.
+En este artículo se asume que tiene un experimento de reciclaje y un experimento de predicción. Estos pasos se explican en [Reciclaje de un modelo de Azure Machine Learning Studio](./retrain-machine-learning-model.md). Sin embargo, en lugar de implementar el modelo de Machine Learning como un servicio web nuevo, implementará el experimento de predicción como un servicio web clásico.
      
 ## <a name="add-a-new-endpoint"></a>Adición de un punto de conexión nuevo
 
@@ -47,7 +47,7 @@ También puede agregar puntos de conexión de puntuación mediante el código de
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Uso del portal de Azure Web Services para agregar un punto de conexión
 
 1. En Machine Learning Studio (clásico), en la columna de navegación izquierda, haga clic en Servicios web.
-1. En la parte inferior del panel de servicios web, haga clic en **Manage endpoints preview**(Administrar versión preliminar de puntos de conexión).
+1. En la parte inferior del panel de servicios web, haga clic en **Manage endpoints preview** (Administrar versión preliminar de puntos de conexión).
 1. Haga clic en **Agregar**.
 1. Escriba un nombre y una descripción para el nuevo punto de conexión. Seleccione el nivel de registro y si los datos de ejemplo están habilitados. Para más información sobre los registros, vea [Habilitar el registro para los servicios web de Machine Learning](web-services-logging.md).
 
@@ -62,7 +62,7 @@ Para obtener el valor correcto de URL de PATCH mediante el portal web, siga esto
 1. Haga clic en el servicio web de puntuación con el que trabaja (si no ha modificado el nombre predeterminado del servicio web, terminará en "[Scoring Exp.]").
 1. Haga clic en **+ NUEVO**.
 1. Una vez agregado el punto de conexión, haga clic en su nombre.
-1. En la dirección URL de **Revisión**, haga clic en **API Help** (Ayuda de API) para abrir la página de ayuda de la aplicación de revisiones.
+1. En la dirección URL de **Revisión** , haga clic en **API Help** (Ayuda de API) para abrir la página de ayuda de la aplicación de revisiones.
 
 > [!NOTE]
 > Si ha agregado el punto de conexión al servicio web de entrenamiento en lugar de al de predicción, verá el siguiente mensaje de error al hacer clic en el vínculo **Update Resource** (Actualizar recurso): "Sorry, but this feature is not supported or available in this context." (Lo sentimos, pero esta característica no se admite ni está disponible en este contexto). Este servicio web no tiene ningún recurso actualizable. Sentimos las molestias. Estamos trabajando en mejorar este flujo de trabajo."
@@ -76,7 +76,7 @@ La página de ayuda sobre PATCH contiene el valor de PATCH URL que debe usar y p
 
 Ahora puede usar el modelo entrenado para actualizar el punto de conexión de puntuación que creó anteriormente.
 
-El código de ejemplo siguiente muestra cómo utilizar *BaseLocation*, *RelativeLocation*, *SasBlobToken* y el valor de PATCH URL para actualizar el punto de conexión.
+El código de ejemplo siguiente muestra cómo utilizar *BaseLocation* , *RelativeLocation* , *SasBlobToken* y el valor de PATCH URL para actualizar el punto de conexión.
 
 ```csharp
 private async Task OverwriteModel()
@@ -123,7 +123,7 @@ Se puede obtener *apiKey* y *endpointUrl* para la llamada desde el panel del pun
 El valor del parámetro *Name* de *Resources* debe coincidir con el nombre del recurso del modelo entrenado guardado en el experimento predictivo. Para obtener el nombre del recurso:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Haga clic en **Machine Learning**en el menú izquierdo.
+1. Haga clic en **Machine Learning** en el menú izquierdo.
 1. En Nombre, haga clic en el área de trabajo y, a continuación, haga clic en **Servicios web**.
 1. En Nombre, haga clic en **Census Model [predictive exp.]** (Modelo de censo [exp. predictivo]).
 1. Haga clic en el nuevo punto de conexión que ha agregado.

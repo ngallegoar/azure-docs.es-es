@@ -3,17 +3,19 @@ title: Traducción de LINQ a SQL en Azure Cosmos DB
 description: Obtenga información sobre los operadores de LINQ admitidos y cómo se asignan las consultas LINQ a consultas SQL en Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: 4f5e88e7201c4097e2f8d654b8780ea12816b15d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 38d37d03c99bd3a39b00276da110ea0ef6bb962e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485110"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332379"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ para traducción de lenguaje SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 El proveedor de consulta de Azure Cosmos DB realiza una mejor opción de asignación desde una consulta de LINQ a una consulta SQL de Cosmos DB. Si quiere obtener la consulta SQL que se traduce a LINQ, use el método `ToString()` en el objeto `IQueryable` generado. En la descripción siguiente se da por supuesto un conocimiento básico de [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
@@ -83,7 +85,7 @@ El proveedor LINQ incluido con el SDK de .NET para SQL admite los operadores sig
 - **Where** : los filtros se traducen a la instrucción [WHERE](sql-query-where.md) y admiten la traducción entre `&&`, `||` y `!` a los operadores de SQL.
 - **SelectMany** : permite desenredar las matrices a la cláusula [JOIN](sql-query-join.md). Úselo para encadenar o anidar expresiones para filtrar los elementos de la matriz.
 - **OrderBy** y **OrderByDescending** : se traducen a [ORDER BY](sql-query-order-by.md) con ASC o DESC.
-- Los operadores **Count** , **Sum** , **Min** , **Max** y **Average** para la [agregación](sql-query-aggregates.md) y sus equivalentes asincrónicos **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** y **AverageAsync** .
+- Los operadores **Count** , **Sum** , **Min** , **Max** y **Average** para la [agregación](sql-query-aggregates.md) y sus equivalentes asincrónicos **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** y **AverageAsync**.
 - **CompareTo** : Se traduce a las comparaciones de intervalos. Se usa frecuentemente en las cadenas, ya que no es comparable en .NET.
 - **Skip** y **Take** : se traducen en [OFFSET y LIMIT](sql-query-offset-limit.md) para limitar los resultados de una consulta y realizar la paginación.
 - **Funciones matemáticas** : Admite la traducción de .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan` y `Truncate` en las [funciones matemáticas integradas](sql-query-mathematical-functions.md) equivalentes.

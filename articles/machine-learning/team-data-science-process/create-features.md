@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250664"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322014"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingeniería de características en ciencia de datos
 
 En este artículo, obtendrá información sobre la ingeniería de características y su rol en la mejora de los datos en el aprendizaje automático. Obtenga información de los ejemplos ilustrativos extraídos de los experimentos de [Azure Machine Learning Studio (clásico)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 
-* **Diseño de características**: El proceso de crear nuevas características a partir de datos sin procesar para aumentar la eficacia predictiva del algoritmo de aprendizaje. La ingeniería de características debe capturar información adicional que no se pueda obviar fácilmente en el conjunto de características originales.
-* **Selección de características**: El proceso de seleccionar el subconjunto de claves de las características en un intento por reducir la dimensionalidad del problema de entrenamiento.
+* **Diseño de características** : El proceso de crear nuevas características a partir de datos sin procesar para aumentar la eficacia predictiva del algoritmo de aprendizaje. La ingeniería de características debe capturar información adicional que no se pueda obviar fácilmente en el conjunto de características originales.
+* **Selección de características** : El proceso de seleccionar el subconjunto de claves de las características en un intento por reducir la dimensionalidad del problema de entrenamiento.
 
 Normalmente, la **ingeniería de características** se aplica primero para generar características adicionales y, a continuación, se realiza **selección de características** para eliminar aquellas que son irrelevantes, redundantes o altamente correlacionadas.
 
@@ -60,7 +60,7 @@ Aparte del conjunto de funciones A, que ya existe en los datos sin procesar orig
 
 ### <a name="feature-engineering-using-studio-classic"></a>Ingeniería de características con Studio (clásico)
 
-En el experimento de Studio (clásico), estos cuatro conjuntos de datos de entrenamiento se forman a través de cuatro ramas del conjunto de datos de entrada procesado previamente. A excepción de la rama que se encuentra más a la izquierda, cada una de estas ramas contiene un módulo [Ejecutar script R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/), en el que las características derivadas (conjuntos de características B, C y D) se construyen y anexan al conjunto de datos importado.
+En el experimento de Studio (clásico), estos cuatro conjuntos de datos de entrenamiento se forman a través de cuatro ramas del conjunto de datos de entrada procesado previamente. A excepción de la rama que se encuentra más a la izquierda, cada una de estas ramas contiene un módulo [Ejecutar script R](/azure/machine-learning/studio-module-reference/execute-r-script), en el que las características derivadas (conjuntos de características B, C y D) se construyen y anexan al conjunto de datos importado.
 
 En la siguiente figura se muestra el script de R que se usa para crear el conjunto de características B en la segunda rama a la izquierda.
 
@@ -80,9 +80,9 @@ El diseño de características se aplica ampliamente en las tareas relacionadas 
 
 ### <a name="feature-hashing"></a>Hash de características
 
-Para llevar a cabo esta tarea, se aplica una técnica llamada [hash de características](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) que permite convertir eficazmente las características arbitrarias de texto en índices. En lugar de asociar cada característica de texto (palabras/frases) a un índice determinado, este método aplica una función de hash a las características y el uso de sus valores de hash como índices directamente.
+Para llevar a cabo esta tarea, se aplica una técnica llamada [hash de características](/azure/machine-learning/studio-module-reference/feature-hashing) que permite convertir eficazmente las características arbitrarias de texto en índices. En lugar de asociar cada característica de texto (palabras/frases) a un índice determinado, este método aplica una función de hash a las características y el uso de sus valores de hash como índices directamente.
 
-En Studio (clásico), existe un módulo llamado [Hash de características](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) que crea oportunamente las características de palabras y frases. La figura siguiente muestra un ejemplo del uso de este módulo. El conjunto de datos de entrada contiene dos columnas: la clasificación de libro, que va de 1 a 5, y el contenido mismo de la reseña. El objetivo de este módulo es recuperar una gran cantidad de características nuevas que muestran la frecuencia de repetición de las palabras/frases correspondientes dentro de la reseña de ese libro en especial. Para usar este módulo, complete los siguientes pasos:
+En Studio (clásico), existe un módulo llamado [Hash de características](/azure/machine-learning/studio-module-reference/feature-hashing) que crea oportunamente las características de palabras y frases. La figura siguiente muestra un ejemplo del uso de este módulo. El conjunto de datos de entrada contiene dos columnas: la clasificación de libro, que va de 1 a 5, y el contenido mismo de la reseña. El objetivo de este módulo es recuperar una gran cantidad de características nuevas que muestran la frecuencia de repetición de las palabras/frases correspondientes dentro de la reseña de ese libro en especial. Para usar este módulo, complete los siguientes pasos:
 
 * Primero, seleccione la columna que contiene el texto de entrada ("Col2" en este ejemplo).
 * Segundo, defina el "Tamaño de bits de hash" en 8,lo que significa que se crearán 2^8=256 características. La palabra/frase en todo el texto tendrá hash en 256 índices. El parámetro "Tamaño de bits de hash" va de 1 a 31. Es menos probable que las palabras/frases tengan hash en el mismo índice si este valor se define para que sea un número mayor.

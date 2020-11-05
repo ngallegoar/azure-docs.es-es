@@ -3,18 +3,21 @@ title: ABS en el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información sobre cómo la función del sistema SQL Absolute(ABS) en Azure Cosmos DB devuelve el valor positivo de la expresión numérica especificada
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6d173827f2695cc20fa208d390731acf0edb3848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3047c395ce6ef55a4cad8083e98ccfc7105c7a2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78301104"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332872"
 ---
 # <a name="abs-azure-cosmos-db"></a>ABS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devuelve el valor absoluto (positivo) de la expresión numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxis

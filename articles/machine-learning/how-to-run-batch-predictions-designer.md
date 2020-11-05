@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883081"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325438"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning
 
@@ -29,7 +29,7 @@ En esta guía paso a paso aprenderá a realizar las tareas siguientes:
 > * Consumir un punto de conexión de canalización
 > * Administrar las versiones del punto de conexión
 
-Para aprender a configurar los servicios de puntuación por lotes mediante el SDK, consulte las [instrucciones](how-to-run-batch-predictions.md) adjuntas.
+Para aprender a configurar los servicios de puntuación por lotes mediante el SDK, consulte las [instrucciones](./tutorial-pipeline-batch-scoring-classification.md) adjuntas.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

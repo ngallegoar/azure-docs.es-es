@@ -3,17 +3,19 @@ title: Creación y administración de Azure Cosmos DB con plantillas de Resourc
 description: Uso de plantillas de Azure Resource Manager para crear y configurar Azure Cosmos DB para Core (SQL) API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 380cd174e1e71ed4bd63e168503ced7888b5b34f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 32c79360606a67cc7e85a43a226bb34c105d5b7a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482390"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333399"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Administración de recursos de Core (SQL) API de Azure Cosmos DB con plantillas de Azure Resource Manager
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo, aprenderá a usar plantillas de Azure Resource Manager para ayudarle a implementar y administrar las cuentas, bases de datos y contenedores de Azure Cosmos DB.
 

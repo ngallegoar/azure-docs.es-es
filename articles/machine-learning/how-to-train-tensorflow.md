@@ -10,12 +10,12 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 21a0672db5a7038fbcdeb01e4cf07bcd760cf7ef
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: deedfacc4ff9caa7a8d8e4559cb29b8c34c2868a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743002"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314479"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de TensorFlow a gran escala con Azure Machine Learning
 
@@ -32,11 +32,11 @@ Ejecute este código en cualquiera de estos entornos:
  - Instancia de Proceso de Azure Machine Learning: no se necesitan descargas ni instalación
 
      - Complete el [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md) para crear un servidor de cuadernos dedicado en el que se habrán cargado previamente el SDK y el repositorio de ejemplos.
-    - En la carpeta de aprendizaje profundo de ejemplos en el servidor de cuadernos, vaya a este directorio: carpeta **how-to-use-azureml > ml-frameworks > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow**,en donde encontrará un cuaderno completado y expandido. 
+    - En la carpeta de aprendizaje profundo de ejemplos en el servidor de cuadernos, vaya a este directorio: carpeta **how-to-use-azureml > ml-frameworks > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow** ,en donde encontrará un cuaderno completado y expandido. 
  
  - Su propio servidor de Jupyter Notebook
 
-    - [Instale el SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.15.0).
+    - [Instale el SDK de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
     - [Cree un archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
     - [Descarga de los archivos de script de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow) `tf_mnist.py` y `utils.py`
      
@@ -65,7 +65,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inicialización de un área de trabajo
 
-El [área de trabajo de Azure Machine Learning](concept-workspace.md) es el recurso de nivel superior para el servicio. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree. En el SDK de Python, puede acceder a los artefactos del área de trabajo mediante la creación de un objeto [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true).
+El [área de trabajo de Azure Machine Learning](concept-workspace.md) es el recurso de nivel superior para el servicio. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree. En el SDK de Python, puede acceder a los artefactos del área de trabajo mediante la creación de un objeto [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py).
 
 Cree un objeto de área de trabajo a partir del archivo `config.json` creado en la [sección de requisitos previos](#prerequisites).
 
@@ -75,7 +75,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-file-dataset"></a>Crear un conjunto de datos de archivo
 
-Un objeto `FileDataset` hace referencia a uno o varios archivos del almacén de archivos del área de trabajo o direcciones URL públicas. Los archivos pueden estar en cualquier formato y la clase le permite descargar o montar los archivos en el proceso. Si crea un objeto `FileDataset`, se crea una referencia a la ubicación de los orígenes de datos. Si aplicó alguna transformación al conjunto de datos, también se almacenará en el conjunto de datos. Los datos se mantienen en la ubicación existente, por lo que no se genera ningún costo de almacenamiento adicional. Consulte la [guía de procedimientos](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) sobre el paquete `Dataset` para obtener más información.
+Un objeto `FileDataset` hace referencia a uno o varios archivos del almacén de archivos del área de trabajo o direcciones URL públicas. Los archivos pueden estar en cualquier formato y la clase le permite descargar o montar los archivos en el proceso. Si crea un objeto `FileDataset`, se crea una referencia a la ubicación de los orígenes de datos. Si aplicó alguna transformación al conjunto de datos, también se almacenará en el conjunto de datos. Los datos se mantienen en la ubicación existente, por lo que no se genera ningún costo de almacenamiento adicional. Consulte la [guía de procedimientos](./how-to-create-register-datasets.md) sobre el paquete `Dataset` para obtener más información.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -193,7 +193,7 @@ Para más información sobre la creación y el uso de los entornos, consulte [Cr
 
 ### <a name="create-a-scriptrunconfig"></a>Creación de ScriptRunConfig
 
-Cree un objeto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para especificar los detalles de configuración del trabajo de entrenamiento, incluido el script de entrenamiento, el entorno que se va a usar y el destino de proceso en el que se ejecutará. Cualquier argumento del script de entrenamiento se pasará mediante la línea de comandos si se especifica en el parámetro `arguments`.
+Cree un objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para especificar los detalles de configuración del trabajo de entrenamiento, incluido el script de entrenamiento, el entorno que se va a usar y el destino de proceso en el que se ejecutará. Cualquier argumento del script de entrenamiento se pasará mediante la línea de comandos si se especifica en el parámetro `arguments`.
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -221,7 +221,7 @@ Para más información sobre la configuración de trabajos con ScriptRunConfig, 
 
 ### <a name="submit-a-run"></a>Envío de una ejecución
 
-El [objeto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) proporciona la interfaz para el historial de ejecución mientras se ejecuta el trabajo y cuando se ha completado.
+El [objeto Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) proporciona la interfaz para el historial de ejecución mientras se ejecuta el trabajo y cuando se ha completado.
 
 ```Python
 run = Experiment(workspace=ws, name='tf-mnist').submit(src)
@@ -230,13 +230,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>¿Qué ocurre mientras se lleva a cabo la ejecución?
 Durante la ejecución del objeto, pasa por las fases siguientes:
 
-- **Preparando**: se crea una imagen de Docker según el entorno definido. La imagen se carga en el registro de contenedor del área de trabajo y se almacena en memoria caché para ejecuciones posteriores. Los registros también se transmiten al historial de ejecución y se pueden consultar para supervisar el progreso. Si se especifica un entorno mantenido en su lugar, se usará la imagen almacenada en caché que respalda el entorno mantenido.
+- **Preparando** : se crea una imagen de Docker según el entorno definido. La imagen se carga en el registro de contenedor del área de trabajo y se almacena en memoria caché para ejecuciones posteriores. Los registros también se transmiten al historial de ejecución y se pueden consultar para supervisar el progreso. Si se especifica un entorno mantenido en su lugar, se usará la imagen almacenada en caché que respalda el entorno mantenido.
 
-- **Escalado**: el clúster intenta escalar verticalmente si el clúster de Batch AI requiere más nodos para realizar la ejecución de los que se encuentran disponibles actualmente.
+- **Escalado** : el clúster intenta escalar verticalmente si el clúster de Batch AI requiere más nodos para realizar la ejecución de los que se encuentran disponibles actualmente.
 
-- **En ejecución**: todos los scripts de la carpeta de scripts se cargan en el destino de proceso, se montan o se copian los almacenes de datos y se ejecuta el `script`. Las salidas de stdout y la carpeta **./logs** se transmiten al historial de ejecución y se pueden usar para supervisar la ejecución.
+- **En ejecución** : todos los scripts de la carpeta de scripts se cargan en el destino de proceso, se montan o se copian los almacenes de datos y se ejecuta el `script`. Las salidas de stdout y la carpeta **./logs** se transmiten al historial de ejecución y se pueden usar para supervisar la ejecución.
 
-- **Posprocesamiento**: la carpeta **./outputs** de la ejecución se copia en el historial de ejecución.
+- **Posprocesamiento** : la carpeta **./outputs** de la ejecución se copia en el historial de ejecución.
 
 ## <a name="register-or-download-a-model"></a>Registro o descarga de un modelo
 
@@ -290,7 +290,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-Para ejecutar un trabajo distribuido mediante MPI y Horovod en Azure ML, debe especificar un objeto [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) en el parámetro `distributed_job_config` del constructor de ScriptRunConfig. El código siguiente configurará un trabajo distribuido de 2 nodos que ejecuta un proceso por nodo. Si también desea ejecutar varios procesos por nodo (por ejemplo, si la SKU del clúster tiene varias GPU), especifique también el parámetro `process_count_per_node` en MpiConfiguration (el valor predeterminado es `1`).
+Para ejecutar un trabajo distribuido mediante MPI y Horovod en Azure ML, debe especificar un objeto [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) en el parámetro `distributed_job_config` del constructor de ScriptRunConfig. El código siguiente configurará un trabajo distribuido de 2 nodos que ejecuta un proceso por nodo. Si también desea ejecutar varios procesos por nodo (por ejemplo, si la SKU del clúster tiene varias GPU), especifique también el parámetro `process_count_per_node` en MpiConfiguration (el valor predeterminado es `1`).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -310,7 +310,7 @@ Para ver un tutorial completo sobre la ejecución distribuida de TensorFlow con 
 
 Si usa [TensorFlow distribuido nativo](https://www.tensorflow.org/guide/distributed_training) en el código de entrenamiento, por ejemplo, la API `tf.distribute.Strategy` de TensorFlow 2.x, también puede iniciar el trabajo distribuido mediante Azure ML. 
 
-Para ello, especifique un elemento [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) en el parámetro `distributed_job_config` del constructor de ScriptRunConfig. Si utiliza `tf.distribute.experimental.MultiWorkerMirroredStrategy`, especifique el elemento `worker_count` en el archivo TensorflowConfiguration correspondiente al número de nodos del trabajo de entrenamiento.
+Para ello, especifique un elemento [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py) en el parámetro `distributed_job_config` del constructor de ScriptRunConfig. Si utiliza `tf.distribute.experimental.MultiWorkerMirroredStrategy`, especifique el elemento `worker_count` en el archivo TensorflowConfiguration correspondiente al número de nodos del trabajo de entrenamiento.
 
 ```python
 import os

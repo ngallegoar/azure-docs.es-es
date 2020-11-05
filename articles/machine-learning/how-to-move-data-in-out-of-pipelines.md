@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 195c334500c8c540d819e949353b34bea65b3d4f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d96f5c0b6b1bb4a38724f53de68c9aad6608b258
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741894"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316588"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 
@@ -33,7 +33,7 @@ Este artículo le mostrará cómo realizar los siguientes procedimientos:
 - Crear nuevos objetos `Dataset` a partir de los objetos `PipelineData` que desea conservar
 
 > [!TIP]
-> Una experiencia mejorada para pasar datos temporales entre los pasos de la canalización y conservar los datos tras ejecutarse esta se encuentra disponible en las clases de versión preliminar pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) y [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true).  Las clases son características en versión preliminar [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=truestable-vs-experimental) y pueden cambiar en cualquier momento.
+> Una experiencia mejorada para pasar datos temporales entre los pasos de la canalización y conservar los datos tras ejecutarse esta se encuentra disponible en las clases de versión preliminar pública, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) y [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?preserve-view=true&view=azure-ml-py).  Las clases son características en versión preliminar [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) y pueden cambiar en cualquier momento.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -42,7 +42,7 @@ Necesitará:
 
 - Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-- [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) o acceso a [Azure Machine Learning Studio](https://ml.azure.com/).
+- [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) o acceso a [Azure Machine Learning Studio](https://ml.azure.com/).
 
 - Un área de trabajo de Azure Machine Learning.
   
@@ -55,13 +55,13 @@ Necesitará:
    ws = Workspace.from_config()
    ```
 
-- Algunos datos ya existentes. En este artículo se muestra brevemente el uso de un [contenedor de blobs de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+- Algunos datos ya existentes. En este artículo se muestra brevemente el uso de un [contenedor de blobs de Azure](../storage/blobs/storage-blobs-overview.md).
 
 - Opcional: Una canalización de aprendizaje automático existente, como la descrita en [Creación y ejecución de canalizaciones de aprendizaje automático con el SDK de Azure Machine Learning](how-to-create-your-first-pipeline.md).
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>Uso de objetos `Dataset` para los datos ya existentes 
 
-La mejor manera de ingerir datos en una canalización es utilizar un objeto [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true). Los objetos `Dataset` representan datos persistentes disponibles en todo el área de trabajo.
+La mejor manera de ingerir datos en una canalización es utilizar un objeto [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py). Los objetos `Dataset` representan datos persistentes disponibles en todo el área de trabajo.
 
 Hay muchas maneras de crear y registrar objetos `Dataset`. Los conjuntos de datos tabulares son para los datos delimitados disponibles en uno o varios archivos. Los conjuntos de datos de archivos son para datos binarios (como imágenes) o para datos que se van a analizar. Las formas más sencillas de crear objetos `Dataset` mediante programación consisten en usar los blobs existentes en el almacenamiento del área de trabajo o en direcciones URL públicas:
 
@@ -81,7 +81,7 @@ Para más opciones sobre cómo crear conjuntos de datos con distintas opciones y
 
 Para pasar la ruta de acceso del conjunto de datos al script, use el método `as_named_input()` del objeto `Dataset`. Puede pasar el objeto `DatasetConsumptionConfig` resultante al script como argumento o, mediante el uso del argumento `inputs` en el script de la canalización, puede recuperar el conjunto de resultados mediante `Run.get_context().input_datasets[]`.
 
-Una vez que haya creado una entrada con nombre, puede elegir su modo de acceso: `as_mount()` o `as_download()`. Si el script procesa todos los archivos del conjunto de datos y el disco del recurso de proceso es lo suficientemente grande para el conjunto de datos, el modo de acceso de descarga es la mejor opción. El modo de acceso de descarga evitará la sobrecarga de transmitir los datos en tiempo de ejecución. Si el script accede a un subconjunto del conjunto de datos o es demasiado grande para el recurso de proceso, use el modo de acceso de montaje. Para más información, consulte [Montaje frente a descarga](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets#mount-vs-download)
+Una vez que haya creado una entrada con nombre, puede elegir su modo de acceso: `as_mount()` o `as_download()`. Si el script procesa todos los archivos del conjunto de datos y el disco del recurso de proceso es lo suficientemente grande para el conjunto de datos, el modo de acceso de descarga es la mejor opción. El modo de acceso de descarga evitará la sobrecarga de transmitir los datos en tiempo de ejecución. Si el script accede a un subconjunto del conjunto de datos o es demasiado grande para el recurso de proceso, use el modo de acceso de montaje. Para más información, consulte [Montaje frente a descarga](./how-to-train-with-datasets.md#mount-vs-download)
 
 Para pasar un conjunto de datos al paso de la canalización:
 
@@ -158,7 +158,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-pipelinedata-for-intermediate-data"></a>Uso de `PipelineData` para los datos intermedios
 
-Mientras que los objetos `Dataset` representan datos persistentes, los objetos [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) se utilizan para los datos temporales que son la salida de los pasos de la canalización. Dado que la duración de un objeto `PipelineData` es mayor que un solo paso de la canalización, los definirá en el script de definición de la canalización. Al crear un objeto `PipelineData`, debe proporcionar un nombre y un almacén de datos en el que vayan a residir los datos. Pase los objetos `PipelineData` al elemento `PythonScriptStep` mediante _ambos_ argumentos, `arguments` y `outputs`:
+Mientras que los objetos `Dataset` representan datos persistentes, los objetos [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) se utilizan para los datos temporales que son la salida de los pasos de la canalización. Dado que la duración de un objeto `PipelineData` es mayor que un solo paso de la canalización, los definirá en el script de definición de la canalización. Al crear un objeto `PipelineData`, debe proporcionar un nombre y un almacén de datos en el que vayan a residir los datos. Pase los objetos `PipelineData` al elemento `PythonScriptStep` mediante _ambos_ argumentos, `arguments` y `outputs`:
 
 ```python
 
@@ -186,7 +186,7 @@ PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", outpu
 > Los fragmentos de código anteriores muestran el formulario de las llamadas y no forman parte de un ejemplo de Microsoft. Debe reemplazar los distintos argumentos con valores de su propio proyecto.
 
 > [!TIP]
-> Una experiencia mejorada para pasar datos intermedios entre los pasos de la canalización se encuentra disponible con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Para obtener un ejemplo de código con `OutputFileDatasetConfig`, obtenga información sobre cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+> Una experiencia mejorada para pasar datos intermedios entre los pasos de la canalización se encuentra disponible con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Para obtener un ejemplo de código con `OutputFileDatasetConfig`, obtenga información sobre cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 
 ### <a name="use-pipelinedata-as-outputs-of-a-training-step"></a>Uso de `PipelineData` como salidas de un paso de entrenamiento
@@ -202,7 +202,7 @@ with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
 ```
 
-Si ha creado el objeto `PipelineData` con el argumento `is_directory` establecido en `True`, bastará con realizar la llamada a `os.makedirs()` y, a continuación, podrá escribir los archivos que desee en la ruta de acceso. Para más información, consulte la documentación de referencia de [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true).
+Si ha creado el objeto `PipelineData` con el argumento `is_directory` establecido en `True`, bastará con realizar la llamada a `os.makedirs()` y, a continuación, podrá escribir los archivos que desee en la ruta de acceso. Para más información, consulte la documentación de referencia de [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py).
 
 
 ### <a name="read-pipelinedata-as-inputs-to-non-initial-steps"></a>Lectura de `PipelineData` como entradas en pasos no iniciales
@@ -240,7 +240,7 @@ El valor de una entrada `PipelineData` es la ruta de acceso a la salida anterior
 > Los fragmentos de código anteriores muestran el formulario de las llamadas y no forman parte de un ejemplo de Microsoft. Debe reemplazar los distintos argumentos con valores de su propio proyecto.
 
 > [!TIP]
-> Una experiencia mejorada para pasar datos intermedios entre los pasos de la canalización se encuentra disponible con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Para obtener un ejemplo de código con `OutputFileDatasetConfig`, obtenga información sobre cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+> Una experiencia mejorada para pasar datos intermedios entre los pasos de la canalización se encuentra disponible con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Para obtener un ejemplo de código con `OutputFileDatasetConfig`, obtenga información sobre cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 Si, como se mostró anteriormente, el primer paso escribió un único archivo, consumirlo podría ser algo similar a: 
 
@@ -262,7 +262,7 @@ step1_output_ds.register(name="processed_data", create_new_version=True)
 
 ```
 > [!TIP]
-> Una experiencia mejorada para conservar los datos intermedios fuera de las ejecuciones de la canalización se encuentra disponible con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Para obtener un ejemplo de código con `OutputFileDatasetConfig`, obtenga información sobre cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+> Una experiencia mejorada para conservar los datos intermedios fuera de las ejecuciones de la canalización se encuentra disponible con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Para obtener un ejemplo de código con `OutputFileDatasetConfig`, obtenga información sobre cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

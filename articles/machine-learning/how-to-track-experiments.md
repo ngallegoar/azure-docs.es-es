@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7eaa2fbe6033f801a252f6f2c7afa5eb726bce2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6680bdc525c6f07b8330277056413f886412551b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318252"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318424"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Habilitación del registro en ejecuciones de entrenamiento de Azure ML
 
@@ -37,17 +37,17 @@ Los registros pueden ayudarle a diagnosticar errores y advertencias, o a realiza
 
 ## <a name="data-types"></a>Tipos de datos
 
-Puede registrar varios tipos de datos, como valores escalares, listas, tablas, imágenes, directorios, etc. Para más información y ver ejemplos de código de Python para diferentes tipos de datos, consulte la [página de referencia de la clase Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).
+Puede registrar varios tipos de datos, como valores escalares, listas, tablas, imágenes, directorios, etc. Para más información y ver ejemplos de código de Python para diferentes tipos de datos, consulte la [página de referencia de la clase Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py).
 
 ## <a name="interactive-logging-session"></a>Sesión de registro interactivo
 
-Las sesiones de registro interactivo se utilizan normalmente en entornos de cuaderno. El método [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) comienza con una sesión de registro interactivo. Todas las métricas que se registran durante la sesión se agregan al registro de ejecución del experimento. El método [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) finaliza las sesiones y marca la ejecución como completada.
+Las sesiones de registro interactivo se utilizan normalmente en entornos de cuaderno. El método [Experiment.start_logging()](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) comienza con una sesión de registro interactivo. Todas las métricas que se registran durante la sesión se agregan al registro de ejecución del experimento. El método [run.complete()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) finaliza las sesiones y marca la ejecución como completada.
 
 ## <a name="scriptrun-logs"></a>Registros de ScriptRun
 
-En esta sección, aprenderá a agregar código de registro dentro de las ejecuciones creadas cuando se configuraron con ScriptRunConfig. Puede usar la clase [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para encapsular los scripts y entornos y permitir así ejecuciones repetibles. También puede usar esta opción para mostrar un widget visual de instancias de Jupyter Notebook para la supervisión.
+En esta sección, aprenderá a agregar código de registro dentro de las ejecuciones creadas cuando se configuraron con ScriptRunConfig. Puede usar la clase [**ScriptRunConfig**](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para encapsular los scripts y entornos y permitir así ejecuciones repetibles. También puede usar esta opción para mostrar un widget visual de instancias de Jupyter Notebook para la supervisión.
 
-En este ejemplo se realiza un barrido de parámetros sobre valores alfa y se capturan los resultados mediante el método [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truelog-name--value--description----).
+En este ejemplo se realiza un barrido de parámetros sobre valores alfa y se capturan los resultados mediante el método [run.log()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truelog-name--value--description----).
 
 1. Cree un script de entrenamiento que incluya la lógica de registro `train.py`.
 

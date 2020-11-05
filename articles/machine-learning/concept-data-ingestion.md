@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 401398da4d71f32973f720dd0ca5cc9b550892e8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890174"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323042"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opciones de ingesta de datos para flujos de trabajo de Azure Machine Learning
 
@@ -33,7 +33,7 @@ La ingesta de datos es el proceso en el que los datos no estructurados se extrae
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) ofrece compatibilidad nativa para la supervisión de orígenes de datos y desencadenadores para las canalizaciones de ingesta de datos.  
+[Azure Data Factory](../data-factory/introduction.md) ofrece compatibilidad nativa para la supervisión de orígenes de datos y desencadenadores para las canalizaciones de ingesta de datos.  
 
 En la tabla siguiente se resumen las ventajas y desventajas del uso de Azure Data Factory para los flujos de trabajo de ingesta de datos.
 
@@ -41,11 +41,11 @@ En la tabla siguiente se resumen las ventajas y desventajas del uso de Azure Dat
 ---|---
 Diseñado específicamente para extraer, cargar y transformar datos.|Actualmente ofrece un conjunto limitado de tareas de canalización de Azure Data Factory. 
 Le permite crear flujos de trabajo controlados por datos para orquestar el movimiento y la transformación de los datos a gran escala.|Su construcción y mantenimiento son costosos. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) de Azure Data Factory para obtener más información.
-Se integra con varias herramientas de Azure, como [Azure Databricks](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook) y [Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity). | No ejecuta scripts de forma nativa; en su lugar, se basa en procesos independientes para la ejecución de scripts. 
+Se integra con varias herramientas de Azure, como [Azure Databricks](../data-factory/transform-data-using-databricks-notebook.md) y [Azure Functions](../data-factory/control-flow-azure-function-activity.md). | No ejecuta scripts de forma nativa; en su lugar, se basa en procesos independientes para la ejecución de scripts. 
 Admite de forma nativa la ingesta de datos desencadena por orígenes de datos.| 
 Los procesos de preparación de datos y entrenamiento del modelo son independientes.|
 Capacidad de linaje de datos integrada para flujo de datos de Azure Data Factory.|
-Proporciona una [interfaz de usuario](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) de experiencia de código bajo para enfoques que no son de scripting. |
+Proporciona una [interfaz de usuario](../data-factory/quickstart-create-data-factory-portal.md) de experiencia de código bajo para enfoques que no son de scripting. |
 
 Estos pasos y el siguiente diagrama sirven para ilustrar el flujo de trabajo de la ingesta de datos de Azure Data Factory.
 
@@ -60,7 +60,7 @@ Aprenda a crear una canalización de ingesta de datos para Machine Learning con 
 
 ## <a name="azure-machine-learning-python-sdk"></a>SDK de Python de Azure Machine Learning 
 
-Con el [SDK de Python](https://docs.microsoft.com/python/api/overview/azure/ml), puede incorporar las tareas de ingesta de datos en un paso de [canalización de Azure Machine Learning](how-to-create-your-first-pipeline.md).
+Con el [SDK de Python](/python/api/overview/azure/ml), puede incorporar las tareas de ingesta de datos en un paso de [canalización de Azure Machine Learning](how-to-create-your-first-pipeline.md).
 
 En la siguiente tabla se resumen las ventajas y desventajas del uso del SDK y un paso de canalizaciones de ML para las tareas de ingesta de datos.
 

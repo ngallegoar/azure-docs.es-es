@@ -3,18 +3,20 @@ title: DateTimeToTicks en el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información acerca de la función del sistema de SQL DateTimeToTicks en Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 2e2c9e8f2bf0d4760bf030fb19a90737cdb54525
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab81e2b6ef19e7a5dacb80186c5364a5848077f6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605146"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336340"
 ---
 # <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Convierte el valor de DateTime especificado en tics. Un solo tic representa cien nanosegundos o una diezmillonésima parte de un segundo. 
 

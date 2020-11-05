@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 04528d28e9f54710cd0a63372e32b099c2e07fb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026175"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321910"
 ---
 # <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
 
@@ -25,7 +25,7 @@ En este artículo se tratan los datos de muestreo almacenados en el almacenamien
 **¿Por qué realizar un muestreo de los datos?**
 Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. El muestreo facilita el reconocimiento y la exploración de los datos, así como el diseño de características. Su rol en el proceso de análisis de Cortana es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
-Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](./index.yml).
 
 ## <a name="download-and-down-sample-data"></a>Descarga y muestreado de datos
 1. Descargue los datos del almacenamiento de blobs de Azure con Blob Service con el código de Python de ejemplo siguiente: 
@@ -102,7 +102,6 @@ Puede usar el ejemplo de código siguiente para muestrear los datos y usarlos di
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
     ```
 
-3. Lea los datos del blob de Azure con el módulo [Importar datos](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) de Azure Machine Learning, como se muestra en la imagen siguiente:
+3. Lea los datos del blob de Azure con el módulo [Importar datos](/azure/machine-learning/studio-module-reference/import-data) de Azure Machine Learning, como se muestra en la imagen siguiente:
 
 ![lector de blobs](./media/sample-data-blob/reader_blob.png)
-

@@ -3,17 +3,19 @@ title: Consulta de datos geoespaciales con Azure Cosmos DB
 description: Consulta de datos espaciales con Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb9a0351b6f1de47f3687995c65060a23bdb2874
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764985"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336136"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Consulta de datos geoespaciales con Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se explica cómo consultar datos geoespaciales de Azure Cosmos DB con SQL y LINQ. Actualmente, solo las cuentas de SQL API de Azure Cosmos DB admiten almacenamiento y acceso a datos geoespaciales. Azure Cosmos DB admite las siguientes funciones integradas de Open Geospatial Consortium (OGC) para realizar consultas geoespaciales. Para más información sobre el conjunto completo de funciones integradas en el lenguaje SQL, consulte [Consulta de funciones del sistema de Azure Cosmos DB](sql-query-system-functions.md).
 

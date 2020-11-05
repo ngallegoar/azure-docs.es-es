@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276091"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322302"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -53,9 +53,9 @@ Puede compartir un área de trabajo con otros usuarios.
 
 Azure Machine Learning presenta dos máquinas virtuales (VM) basadas en la nube totalmente administrada que se configuran para tareas de aprendizaje automático:
 
-* <a name="compute-instance"></a> **Instancia de proceso**: una instancia de proceso es una máquina virtual que incluye varias herramientas y entornos instalados para el aprendizaje automático. El uso principal de una instancia de proceso es para la estación de trabajo de desarrollo.  Puede empezar a ejecutar cuadernos de ejemplo sin necesidad de una configuración. Una instancia de proceso también se puede usar como destino de proceso para los trabajos de entrenamiento e inferencia.
+* <a name="compute-instance"></a> **Instancia de proceso** : una instancia de proceso es una máquina virtual que incluye varias herramientas y entornos instalados para el aprendizaje automático. El uso principal de una instancia de proceso es para la estación de trabajo de desarrollo.  Puede empezar a ejecutar cuadernos de ejemplo sin necesidad de una configuración. Una instancia de proceso también se puede usar como destino de proceso para los trabajos de entrenamiento e inferencia.
 
-* **Clústeres de proceso**: los clústeres de proceso son un clúster de máquinas virtuales con funcionalidades de escalado de varios nodos. Los clústeres de proceso son más prácticos para los destinos de proceso de producción y trabajos grandes.  El clúster se escala verticalmente de manera automática cuando se envía un trabajo.  Úselo como destino de proceso de entrenamiento o para la implementación de desarrollo/pruebas.
+* **Clústeres de proceso** : los clústeres de proceso son un clúster de máquinas virtuales con funcionalidades de escalado de varios nodos. Los clústeres de proceso son más prácticos para los destinos de proceso de producción y trabajos grandes.  El clúster se escala verticalmente de manera automática cuando se envía un trabajo.  Úselo como destino de proceso de entrenamiento o para la implementación de desarrollo/pruebas.
 
 Para más información sobre los destinos de proceso de entrenamiento, vea [Entrenamiento de destinos de proceso](concept-compute-target.md#train).  Para más información sobre los destinos de proceso de implementación, vea [Destinos de implementación](concept-compute-target.md#deploy).
 
@@ -102,7 +102,7 @@ Una ejecución se produce cuando se envía un script para entrenar un modelo. Un
 
 [Área de trabajo](#workspace) > [Experimentos](#experiments) > [Ejecutar](#runs) > **Configuración de ejecución**
 
-Una configuración de ejecución define cómo se debe ejecutar un script en un destino de proceso especificado. La configuración se usa para especificar el script, el destino de proceso y el entorno de aprendizaje automático de Azure en el que se ejecutará, cualquier configuración específica del trabajo distribuido y algunas propiedades adicionales. Para más información sobre el conjunto completo de opciones configurables para las ejecuciones, consulte [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
+Una configuración de ejecución define cómo se debe ejecutar un script en un destino de proceso especificado. La configuración se usa para especificar el script, el destino de proceso y el entorno de aprendizaje automático de Azure en el que se ejecutará, cualquier configuración específica del trabajo distribuido y algunas propiedades adicionales. Para más información sobre el conjunto completo de opciones configurables para las ejecuciones, consulte [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
 
 Una configuración de ejecución puede conservarse en un archivo dentro del directorio que contiene el script de entrenamiento.   O bien, se puede crear como un objeto en memoria y usarse para enviar una ejecución.
 
@@ -233,10 +233,10 @@ Studio también es el lugar desde el que se puede acceder a las herramientas int
 > Las herramientas marcadas (versión preliminar) a continuación se encuentran actualmente en versión preliminar pública.
 > Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interactúe con el servicio en cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
++  Interactúe con el servicio en cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 + Interactúe con el servicio en cualquier entorno de R con el [SDK de Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (versión preliminar).
 + Use el [diseñador de Azure Machine Learning](concept-designer.md) para seguir los pasos del flujo de trabajo sin escribir código. 
-+ Use la [CLI de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) para la automatización.
++ Use la [CLI de Azure Machine Learning](./reference-azure-machine-learning-cli.md) para la automatización.
 + El [Acelerador de soluciones Many Models](https://aka.ms/many-models) (versión preliminar) se basa en Azure Machine Learning y permite entrenar, usar y administrar cientos o incluso miles de modelos de Machine Learning.
 
 ## <a name="next-steps"></a>Pasos siguientes

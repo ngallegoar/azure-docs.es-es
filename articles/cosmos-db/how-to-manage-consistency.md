@@ -3,18 +3,20 @@ title: Administración de la coherencia en Azure Cosmos DB
 description: Aprenda a configurar y administrar los niveles de coherencia en Azure Cosmos DB mediante Azure Portal, el SDK de .NET, el SDK de Java y otros SDK
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2b3433d969611fabe1b12a8dcabfe6e50066a8c1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491196"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333485"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Administración de los niveles de coherencia en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artículo explica cómo administrar los niveles de coherencia en Azure Cosmos DB. Aprenderá a configurar el nivel de coherencia predeterminado, invalidar la coherencia predeterminada, administrar manualmente tokens de sesión y comprender la métrica de obsolescencia limitada por probabilidades (PBS).
 
@@ -26,7 +28,7 @@ El [nivel de coherencia predeterminado](consistency-levels.md) es el que los cli
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Para ver o modificar el nivel de coherencia predeterminado, inicie sesión en Azure Portal. Busque la cuenta de Azure Cosmos y abra el panel **Coherencia predeterminada** . Seleccione el nivel de coherencia que desee como el nuevo valor predeterminado y, a continuación, seleccione **Guardar** . Azure Portal también proporciona una visualización de los diferentes niveles de coherencia con notas musicales. 
+Para ver o modificar el nivel de coherencia predeterminado, inicie sesión en Azure Portal. Busque la cuenta de Azure Cosmos y abra el panel **Coherencia predeterminada**. Seleccione el nivel de coherencia que desee como el nuevo valor predeterminado y, a continuación, seleccione **Guardar**. Azure Portal también proporciona una visualización de los diferentes niveles de coherencia con notas musicales. 
 
 :::image type="content" source="./media/how-to-manage-consistency/consistency-settings.png" alt-text="Menú de coherencia en Azure Portal":::
 
@@ -162,7 +164,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 
 ## <a name="utilize-session-tokens"></a>Uso de tokens de sesión
 
-Uno de los niveles de coherencia de Azure Cosmos DB es *Sesión* . Este es el nivel predeterminado que se aplica a las cuentas de Cosmos de forma predeterminada. Al trabajar con la coherencia de *Sesión* , el cliente usa un token de sesión internamente con cada solicitud de lectura/consulta para garantizar que se mantiene el nivel de coherencia establecido.
+Uno de los niveles de coherencia de Azure Cosmos DB es *Sesión*. Este es el nivel predeterminado que se aplica a las cuentas de Cosmos de forma predeterminada. Al trabajar con la coherencia de *Sesión* , el cliente usa un token de sesión internamente con cada solicitud de lectura/consulta para garantizar que se mantiene el nivel de coherencia establecido.
 
 Para administrar los tokens de sesión manualmente, obtenga el token de sesión de la respuesta y establézcalos por cada solicitud. Si no tiene la necesidad de administrar manualmente los tokens de sesión, no es necesario que utilice estos ejemplos. El SDK realiza el seguimiento de los tokens de sesión automáticamente. Si no establece el token de sesión manualmente, el SDK usa el token de sesión más reciente de forma predeterminada.
 
@@ -279,9 +281,9 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Supervisión de la métrica de obsolescencia limitada de manera probabilística (PBS)
 
-¿Cómo de eventual es la coherencia eventual? Por término medio, se puede ofrecer obsolescencia limitada con respecto al historial de versiones y la hora. La métrica [**Obsolescencia limitada de manera probabilística (PBS)**](https://pbs.cs.berkeley.edu/) intenta cuantificar la probabilidad de obsolescencia y la muestra como una métrica. Para ver la métrica de PBS, vaya a la cuenta de Azure Cosmos en Azure Portal. Abra el panel **Métricas** y seleccione la pestaña **Coherencia** . Examine el gráfico llamado **Probabilidad de lecturas con coherencia fuerte según la carga de trabajo (consultar PBS)** .
+¿Cómo de eventual es la coherencia eventual? Por término medio, se puede ofrecer obsolescencia limitada con respecto al historial de versiones y la hora. La métrica [**Obsolescencia limitada de manera probabilística (PBS)**](https://pbs.cs.berkeley.edu/) intenta cuantificar la probabilidad de obsolescencia y la muestra como una métrica. Para ver la métrica de PBS, vaya a la cuenta de Azure Cosmos en Azure Portal. Abra el panel **Métricas** y seleccione la pestaña **Coherencia**. Examine el gráfico llamado **Probabilidad de lecturas con coherencia fuerte según la carga de trabajo (consultar PBS)** .
 
-:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Menú de coherencia en Azure Portal":::
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Gráfico de PBS en Azure Portal":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

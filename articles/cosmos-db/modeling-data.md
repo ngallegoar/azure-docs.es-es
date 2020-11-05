@@ -5,16 +5,18 @@ description: Obtenga información sobre el modelado de datos en bases de datos N
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: ae0bf6836fd08e20d97f1cfd85627b25e31bf380
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278412"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333263"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelado de datos en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Mientras que las bases de datos sin esquemas, como Azure Cosmos DB, facilitan notablemente almacenar y consultar datos no estructurados y semiestructurados, debe dedicar algún tiempo a reflexionar sobre qué modelos de datos usar para sacar el máximo partido al servicio en cuanto a rendimiento, escalabilidad y menor costo.
 
@@ -116,7 +118,7 @@ Seleccione este fragmento JSON.
 }
 ```
 
-Este podría el aspecto de una entidad de publicación con comentarios incrustados si se ha modelado un sistema, CMS o blog normales. El problema con este ejemplo es que la matriz de comentarios **no está limitada**, lo que significa que no hay ningún límite (práctico) para el número de comentarios que puede tener cualquier publicación única. Esto puede constituir un problema, ya que el tamaño del elemento podría crecer hasta el infinito.
+Este podría el aspecto de una entidad de publicación con comentarios incrustados si se ha modelado un sistema, CMS o blog normales. El problema con este ejemplo es que la matriz de comentarios **no está limitada** , lo que significa que no hay ningún límite (práctico) para el número de comentarios que puede tener cualquier publicación única. Esto puede constituir un problema, ya que el tamaño del elemento podría crecer hasta el infinito.
 
 Puesto que el tamaño del elemento aumenta la capacidad de transmisión de los datos a través de la conexión, así como la lectura y actualización del elemento, a escala, se producirá un impacto en ellos.
 
@@ -242,7 +244,7 @@ Por lo general, se deben utilizar modelos de datos normalizados cuando:
 * Se realiza una representación de relaciones de **uno a varios** .
 * Se realiza una representación de las relaciones de **muchos a muchos** .
 * Los datos relacionados **cambian con frecuencia**.
-* Puede **cancelarse el límite**de los datos de referencia.
+* Puede **cancelarse el límite** de los datos de referencia.
 
 > [!NOTE]
 > Normalmente, la normalización proporciona un mejor rendimiento de **escritura** .
@@ -299,7 +301,7 @@ En el ejemplo anterior, hemos eliminado la colección ilimitada en el documento 
 En una base de datos relacional, las relaciones *varios a varios* modelan con frecuencia con tablas de unión, que simplemente unen registros de otras tablas.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Modelo de base de datos relacional" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Combinar tablas" border="false":::
 
 Podría verse tentado a replicar lo mismo con documentos y producir un modelo de datos que tenga un aspecto similar al siguiente.
 

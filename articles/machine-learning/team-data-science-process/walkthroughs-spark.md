@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1662af6cd3499fdf851d4e1bd8a0db48da7635b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864152"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320128"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Tutoriales de ciencia de datos de HDInsight Spark con PySpark y Scala en Azure
 
@@ -40,12 +40,11 @@ Consulte [Exploración y modelado avanzados de datos con Spark](spark-advanced-d
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Predicción de propinas para taxis mediante Scala en Azure Spark
 
-En el tutorial sobre el [uso de Scala con Spark en Azure](scala-walkthrough.md) se predice si se da una propina y el intervalo de importes de pago esperado. Se muestra cómo usar Scala para realizar tareas supervisadas de aprendizaje automático con la biblioteca de aprendizaje automático de Spark (MLlib) y los paquetes de SparkML en un clúster Azure HDInsight Spark. Además, explicaremos cuáles son las tareas que constituyen el [proceso de ciencia de datos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): exploración e ingesta de datos, visualización, ingeniería de características, modelado y consumo de modelos. Los modelos creados incluyen regresión logística y lineal, bosques aleatorios y árboles impulsados por gradiente:
+En el tutorial sobre el [uso de Scala con Spark en Azure](scala-walkthrough.md) se predice si se da una propina y el intervalo de importes de pago esperado. Se muestra cómo usar Scala para realizar tareas supervisadas de aprendizaje automático con la biblioteca de aprendizaje automático de Spark (MLlib) y los paquetes de SparkML en un clúster Azure HDInsight Spark. Además, explicaremos cuáles son las tareas que constituyen el [proceso de ciencia de datos](./index.yml): exploración e ingesta de datos, visualización, ingeniería de características, modelado y consumo de modelos. Los modelos creados incluyen regresión logística y lineal, bosques aleatorios y árboles impulsados por gradiente:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para información general sobre el proceso de ciencia de datos en equipo, consulte la [información general sobre el proceso de ciencia de datos en equipo](overview.md).
 
-Para obtener una explicación del ciclo de vida del proceso de ciencia de datos en equipo, consulte [Ciclo de vida del proceso de ciencia de datos en equipo](lifecycle.md). Este ciclo de vida describe el proceso, de principio a fin, que suelen seguir los proyectos al ejecutarlos. 
-
+Para obtener una explicación del ciclo de vida del proceso de ciencia de datos en equipo, consulte [Ciclo de vida del proceso de ciencia de datos en equipo](lifecycle.md). Este ciclo de vida describe el proceso, de principio a fin, que suelen seguir los proyectos al ejecutarlos.

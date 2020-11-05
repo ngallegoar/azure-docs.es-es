@@ -3,18 +3,20 @@ title: Escritura de procedimientos almacenados y desencadenadores con la API de 
 description: Aprenda a escribir procedimientos almacenados y desencadenadores con la API de consulta de Javascript en Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 4251a9ec0766f6e1956e4885b58dc874e01b0960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 449af63ef3409b8c8173edef7a5d77074cca02b9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253078"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335847"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Escritura de procedimientos almacenados y desencadenadores en Azure Cosmos DB con la API de consulta de Javascript
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB permite realizar consultas optimizadas mediante una interfaz fluida de JavaScript sin ningún conocimiento del lenguaje de SQL que puede usarse para escribir procedimientos almacenados o desencadenadores. Para más información sobre la compatibilidad con la API de consulta de JavaScript en Azure Cosmos DB, consulte el artículo [Working with JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) (Trabajo con la API de consulta integrada de lenguaje de JavaScript en Azure Cosmos DB).
 

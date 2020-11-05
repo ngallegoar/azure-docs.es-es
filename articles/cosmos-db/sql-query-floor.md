@@ -3,18 +3,21 @@ title: FLOOR en el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información sobre la función del sistema SQL FLOOR en Azure Cosmos DB que devuelve el mayor entero menor o igual que la expresión numérica especificada
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 04dfa6a028cf7c44bf99c665b396d51d8a0f3cef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4696b90531b63a01fd4bd9260b24b9af5c6bbd93
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303195"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335637"
 ---
 # <a name="floor-azure-cosmos-db"></a>FLOOR (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devuelve el entero más grande que sea menor o igual que la expresión numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxis

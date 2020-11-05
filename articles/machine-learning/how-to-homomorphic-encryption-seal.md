@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 21c57257f9ce5a33585f151d38c16736f94a166c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3509530994b07a16fb1f2780fffc6fd27cf8aa7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998706"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325517"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Implementación de un servicio web de inferencia cifrada (versión preliminar)
 
-Obtenga información sobre cómo implementar un modelo de clasificación de imágenes como un servicio web de inferencia cifrada en [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). El servicio web es una imagen de contenedor de Docker que contiene el modelo y la lógica de puntuación.
+Obtenga información sobre cómo implementar un modelo de clasificación de imágenes como un servicio web de inferencia cifrada en [Azure Container Instances](../container-instances/index.yml) (ACI). El servicio web es una imagen de contenedor de Docker que contiene el modelo y la lógica de puntuación.
 
 En esta guía, se usa Azure Machine Learning Service para:
 
@@ -30,7 +30,7 @@ En esta guía, se usa Azure Machine Learning Service para:
 > * Realizar predicciones cifradas.
 > * Limpieza de recursos
 
-ACI es una excelente solución para probar y conocer el flujo de trabajo de implementación de modelo. Para implementaciones de producción escalables, considere la posibilidad de usar Azure Kubernetes Service. Para más información, consulte [cómo y dónde realizar la implementación](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+ACI es una excelente solución para probar y conocer el flujo de trabajo de implementación de modelo. Para implementaciones de producción escalables, considere la posibilidad de usar Azure Kubernetes Service. Para más información, consulte [cómo y dónde realizar la implementación](./how-to-deploy-and-where.md).
 
 El método de cifrado que se usa en este ejemplo es el [cifrado homomórfico](https://github.com/Microsoft/SEAL#homomorphic-encryption). El cifrado homomórfico permite realizar cálculos en datos cifrados sin necesidad de tener acceso a una clave secreta (descifrado). Los resultados de los cálculos están cifrados y solo los puede revelar el propietario de la clave secreta. 
 

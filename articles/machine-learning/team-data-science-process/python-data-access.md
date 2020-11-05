@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6c8e6fee2b9f01b8d7ab48990760aa4c4d6e11b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 497b8f5598cf7aa7720f47863d465f5e29789b07
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361507"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321946"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Azure Machine Learning
 La versión preliminar de la biblioteca de cliente de Python de Microsoft Azure Machine Learning puede permitir un acceso seguro a los conjuntos de datos de Azure Machine Learning desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
@@ -73,7 +73,7 @@ Por motivos de seguridad, la funcionalidad de fragmento de código solo está di
 
 ![Captura de pantalla que muestra la configuración de la página USERS (USUARIOS) de Azure Machine Learning Studio.][security]
 
-Si su rol no está establecido como **Propietario**, puede solicitar que se le vuelva a invitar como propietario o pedir al propietario del área de trabajo que le proporcione el fragmento de código.
+Si su rol no está establecido como **Propietario** , puede solicitar que se le vuelva a invitar como propietario o pedir al propietario del área de trabajo que le proporcione el fragmento de código.
 
 Para obtener el token de autorización, puede elegir una de estas opciones:
 
@@ -85,12 +85,12 @@ Para obtener el token de autorización, puede elegir una de estas opciones:
 
 Cuando los desarrolladores hayan obtenido el identificador de área de trabajo y el token de autorización, podrán acceder al área de trabajo con el fragmento de código independientemente de su rol.
 
-Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACIÓN**, en **CONFIGURACIÓN**. Puede volver a generarlos, pero este procedimiento revoca el acceso al token anterior.
+Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACIÓN** , en **CONFIGURACIÓN**. Puede volver a generarlos, pero este procedimiento revoca el acceso al token anterior.
 
 ### <a name="access-datasets-from-a-local-python-application"></a><a name="accessingDatasets"></a>Obtener acceso a los conjuntos de datos desde una aplicación local de Python
 1. En Machine Learning Studio (clásico), haga clic en la opción **DATASETS** (CONJUNTOS DE DATOS) en la barra de navegación izquierda.
 2. Seleccione el conjunto de datos al que le gustaría tener acceso. Puede seleccionar cualquiera de los conjuntos de datos de las listas **MIS CONJUNTOS DE DATOS** o **EJEMPLOS**.
-3. En la barra de herramientas de la parte inferior, haga clic en **Generate Data Access Code**(Generar código de acceso a datos). Este botón se deshabilitará si los datos están en un formato no compatible con la biblioteca cliente de Python.
+3. En la barra de herramientas de la parte inferior, haga clic en **Generate Data Access Code** (Generar código de acceso a datos). Este botón se deshabilitará si los datos están en un formato no compatible con la biblioteca cliente de Python.
    
     ![Captura de pantalla que muestra los conjuntos de datos con GENERATE DATA ACCESS CODE (GENERAR CÓDIGO DE ACCESO A DATOS).][datasets]
 4. Seleccione el fragmento de código de la ventana que aparece y cópielo al Portapapeles.
@@ -364,6 +364,5 @@ Si sus datos ya están serializados, puede utilizar`update_from_raw_data` en lug
 
 
 <!-- Module References -->
-[convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
+[convert-to-csv]: /azure/machine-learning/studio-module-reference/convert-to-csv
+[split]: /azure/machine-learning/studio-module-reference/split-data

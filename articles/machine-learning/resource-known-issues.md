@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
 ms.date: 10/02/2020
-ms.openlocfilehash: d214a746a4eb5035e007136da80f4c69ae1dd1c8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b49e7ab7f3412177ee9eafad8d1a68525e054421
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204475"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314766"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conocidos y solución de problemas en Azure Machine Learning
 
@@ -31,10 +31,10 @@ Para obtener más información sobre la solución de problemas, vea [Pasos sigui
 
 A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda. Para ver algunos registros: 
 1. Visite [Azure Machine Learning Studio](https://ml.azure.com). 
-1. En el lado izquierdo, seleccione **Experimento** . 
+1. En el lado izquierdo, seleccione **Experimento**. 
 1. Seleccione un experimento.
 1. Seleccione una ejecución.
-1. En la parte superior, seleccione **Resultados y registros** .
+1. En la parte superior, seleccione **Resultados y registros**.
 
 > [!NOTE]
 > Azure Machine Learning registra información de varios orígenes durante el entrenamiento, como AutoML o el contenedor de Docker que ejecuta el trabajo de entrenamiento. Muchos de estos registros no están documentados. Si encuentra problemas y se pone en contacto con el Soporte técnico de Microsoft, es posible que puedan usar estos registros durante la resolución de problemas.
@@ -219,7 +219,7 @@ Si usa un recurso compartido de archivos para otras cargas de trabajo, como la t
 |---------|---------|
 |Solo se pueden usar los conjuntos de datos creados en almacenes de datos de blobs.     |  Se trata de una limitación conocida de la versión actual.       |
 |Después de la creación, el proyecto muestra el mensaje "Initializing" (Inicializando) durante mucho tiempo.     | Actualice manualmente la página. La inicialización debería continuar aproximadamente en 20 puntos de datos por segundo. La falta de actualización automática es un problema conocido.         |
-|Al revisar imágenes, no se muestran las imágenes recién etiquetadas.     |   Para cargar todas las imágenes etiquetadas, elija el botón **Primera** . El botón **Primera** le llevará al principio de la lista, pero carga todos los datos etiquetados.      |
+|Al revisar imágenes, no se muestran las imágenes recién etiquetadas.     |   Para cargar todas las imágenes etiquetadas, elija el botón **Primera**. El botón **Primera** le llevará al principio de la lista, pero carga todos los datos etiquetados.      |
 |Al presionar la tecla ESC mientras se etiqueta para la detección de objetos, se crea una etiqueta de tamaño cero en la esquina superior izquierda. El envío de etiquetas en este estado produce un error.     |   Haga clic en la cruz junto a la etiqueta para eliminarla.  |
 
 ### <a name="data-drift-monitors"></a><a name="data-drift"></a> Monitores de desfase de datos
@@ -244,7 +244,7 @@ Limitaciones y problemas conocidos de los monitores de desfase de datos:
     1. En la pestaña **Monitores de conjuntos de datos** , seleccione el vínculo de experimento para comprobar el estado de la ejecución.  El vínculo se encuentra en el extremo derecho de la tabla.
     1. Si la ejecución se completó correctamente, compruebe los registros del controlador para ver el número de métricas que se han generado o si hay algún mensaje de advertencia.  Busque registros de controladores en la pestaña **Output + logs** (Salida y registros) después de hacer clic en un experimento.
 
-* Si la función `backfill()` del SDK no genera la salida esperada, puede deberse a un problema de autenticación.  Cuando cree el proceso para pasar esta función, no utilice `Run.get_context().experiment.workspace.compute_targets`.  En su lugar, use una [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) como la siguiente para crear el proceso que se pasa en esa función `backfill()`: 
+* Si la función `backfill()` del SDK no genera la salida esperada, puede deberse a un problema de autenticación.  Cuando cree el proceso para pasar esta función, no utilice `Run.get_context().experiment.workspace.compute_targets`.  En su lugar, use una [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) como la siguiente para crear el proceso que se pasa en esa función `backfill()`: 
 
   ```python
    auth = ServicePrincipalAuthentication(
@@ -273,7 +273,7 @@ time.sleep(600)
 
 los registros de puntos de conexión en tiempo real son datos de cliente. Para solucionar problemas de puntos de conexión en tiempo real, puede usar el código siguiente a fin de habilitar los registros. 
 
-Vea más detalles sobre la supervisión de puntos de conexión de servicio web en [este artículo](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+Vea más detalles sobre la supervisión de puntos de conexión de servicio web en [este artículo](./how-to-enable-app-insights.md#query-logs-for-deployed-models).
 
 ```python
 from azureml.core import Workspace
@@ -299,7 +299,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     Azure ML también proporciona estimadores específicos de la plataforma para TensorFlow, PyTorch, Chainer y SKLearn. El uso de estos estimadores asegurará que las principales dependencias del marco se instalen en su nombre en el entorno utilizado para el entrenamiento. Tiene la opción de especificar dependencias adicionales como se describe anteriormente. 
  
     Azure ML mantuvo las imágenes acopladas y su contenido se puede ver en [Contenedores AzureML](https://github.com/Azure/AzureML-Containers).
-    Las dependencias específicas del marco se enumeran en la documentación del marco respectivo: [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks).
+    Las dependencias específicas del marco se enumeran en la documentación del marco respectivo: [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks), [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks).
 
     > [!Note]
     > Si cree que un paquete en particular es lo suficientemente común como para agregarlo en imágenes y entornos mantenidos por Azure ML, cree una incidencia de GitHub en [Contenedores de AzureML](https://github.com/Azure/AzureML-Containers). 
@@ -308,7 +308,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod se apagó** : En la mayoría de los casos, si se muestra "AbortedError: Horovod has been shut down" (AbortedError: Horovod se cerró), esta excepción significa que hubo una excepción subyacente en uno de los procesos, y esto causó el apagado de Horovod. Cada clasificación en el trabajo MPI obtiene su propio archivo de registro dedicado en Azure ML. Estos registros son nombrados `70_driver_logs`. En caso de entrenamiento distribuido, los nombres de registro tienen el sufijo `_rank` para facilitar la diferenciación de los registros. Para encontrar el error exacto que provocó el apagado de Horovod, revise todos los archivos de registro y busque `Traceback` al final de los archivos driver_log. Uno de estos archivos le dará la excepción subyacente real. 
 
-* **Eliminación de ejecuciones o experimentos** :  Los experimentos se pueden archivar con el método [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) o desde la vista de la pestaña Experimento en el cliente de Azure Machine Learning Studio a través del botón "Archive experiment" (Archivar experimento). Esta acción oculta el experimento de listas de consultas y vistas, pero no lo elimina.
+* **Eliminación de ejecuciones o experimentos** :  Los experimentos se pueden archivar con el método [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) o desde la vista de la pestaña Experimento en el cliente de Azure Machine Learning Studio a través del botón "Archive experiment" (Archivar experimento). Esta acción oculta el experimento de listas de consultas y vistas, pero no lo elimina.
 
     Actualmente no se admite la eliminación permanente de experimentos ni ejecuciones individuales. Para obtener más información sobre cómo eliminar recursos del área de trabajo, consulte [Exportación o eliminación de los datos del área de trabajo de Machine Learning Service](how-to-export-delete-data.md).
 
@@ -452,7 +452,7 @@ kubectl get secret/azuremlfessl -o yaml
 
 ### <a name="detaching-azure-kubernetes-service"></a>Desasociación de Azure Kubernetes Service
 
-El uso de Azure Machine Learning Studio, el SDK o la extensión de la CLI de Azure con aprendizaje automático para desasociar un clúster de AKS no elimina el clúster de AKS. Para eliminarlo, consulte [Uso de la CLI de Azure con AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+El uso de Azure Machine Learning Studio, el SDK o la extensión de la CLI de Azure con aprendizaje automático para desasociar un clúster de AKS no elimina el clúster de AKS. Para eliminarlo, consulte [Uso de la CLI de Azure con AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster).
 
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>Servicios web en errores de Azure Kubernetes Service
 
@@ -496,4 +496,4 @@ Vea más artículos de solución de problemas para Azure Machine Learning:
 * [Depuración de canalizaciones de aprendizaje automático](how-to-debug-pipelines.md)
 * [Depuración de la clase ParallelRunStep desde el SDK de Azure Machine Learning](how-to-debug-parallel-run-step.md)
 * [Depuración interactiva de una instancia de proceso de aprendizaje automático con VS Code](how-to-debug-visual-studio-code.md)
-* [Uso de Application Insights para depurar canalizaciones de aprendizaje automático](how-to-debug-pipelines-application-insights.md)
+* [Uso de Application Insights para depurar canalizaciones de aprendizaje automático](./how-to-log-pipelines-application-insights.md)

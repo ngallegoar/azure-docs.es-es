@@ -3,18 +3,20 @@ title: Datos de ubicación geoespaciales y GeoJSON en Azure Cosmos DB
 description: Aprenda a crear objetos espaciales con Azure Cosmos DB y SQL API.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: b874ad4ce566cfca3b0dbd28bdfe48bf30272121
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a2e4e14927932575c9da42392329eea279f922fe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482832"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336201"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Datos de ubicación geoespaciales y GeoJSON en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artículo es una introducción a la funcionalidad geoespacial de Azure Cosmos DB. Actualmente, solo las cuentas de SQL API de Azure Cosmos DB admiten almacenamiento y acceso a datos geoespaciales. Después de leer la documentación sobre la indexación geoespacial, podrá responder a las siguientes preguntas:
 
@@ -36,7 +38,7 @@ Los datos geoespaciales suelen implicar las consultas de búsqueda por proximida
 
 Los datos espaciales describen la posición y la forma de los objetos en el espacio. En la mayoría de las aplicaciones, estos se refieren a objetos situados en la tierra y datos geoespaciales. Los datos espaciales pueden usarse para representar la ubicación de una persona, un lugar de interés o el límite de una ciudad o un lago.
 
-SQL API de Azure Cosmos DB admite dos tipos de datos espaciales: el tipo de datos **geométricos** y el tipo de datos **geográficos** .
+SQL API de Azure Cosmos DB admite dos tipos de datos espaciales: el tipo de datos **geométricos** y el tipo de datos **geográficos**.
 
 - El tipo **geométrico** representa los datos en un sistema de coordenadas euclidiano (plano).
 - El tipo **geography** representa los datos en un sistema de coordenadas de tierra redonda.

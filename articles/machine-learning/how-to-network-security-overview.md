@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: 7ec62e4a6a864ca37011014341a2d059615873d5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fdfaef554e4e641656abd3fd2b4a5d3bbc519ccd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131945"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325425"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Información general sobre la privacidad y el aislamiento de la red virtual
 
@@ -31,10 +31,10 @@ Los demás artículos de esta serie son:
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por hecho que está familiarizado con los siguientes temas:
-+ [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-+ [Redes de IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
++ [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
++ [Redes de IP](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
-+ [Grupos de seguridad de red (NSG)](../virtual-network/security-overview.md)
++ [Grupos de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Firewalls de red](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>Escenario de ejemplo

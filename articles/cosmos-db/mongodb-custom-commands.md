@@ -3,18 +3,20 @@ title: Comandos de la extensión de MongoDB para administrar los datos en la API
 description: En este artículo se describen los comandos de la extensión de MongoDB para administrar los datos almacenados en la API de Azure Cosmos DB para MongoDB.
 author: jasonwhowell
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: 39f116139d68f2382085dbbab5e862d0c621ad2e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: db230dc0bd1d5cdddf9446b22d8ae682c019c438
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282459"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333017"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usa comandos de la extensión de MongoDB para administrar los datos almacenados en la API de Azure Cosmos DB para MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 El siguiente documento contiene los comandos de acción personalizada que son específicos de la API de Azure Cosmos DB para MongoDB. Estos comandos se pueden usar para crear y obtener recursos de base de datos específicos del [modelo de capacidad de Azure Cosmos DB](account-databases-containers-items.md).
 

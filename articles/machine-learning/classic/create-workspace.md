@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 700cc461563f145f58e02f7ed9a09b2899a4eb5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fc7fd1f3f7615c0622b684e3da4020c7da601f5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339987"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322876"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Creación y uso compartido de un área de trabajo de Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico) ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico) ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Para usar Azure Machine Learning Studio (clásico), debe tener un área de trabajo de Machine Learning Studio. Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.
 
@@ -72,8 +72,8 @@ Si tiene algún problema al crear el área de trabajo, consulte [Guía de soluci
 ## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Uso compartido de un área de trabajo de Azure Machine Learning Studio (clásico)
 Tras crear un área de trabajo de Machine Learning Studio (clásico), puede invitar a usuarios y compartir el acceso a dicha área y a todos sus experimentos, conjuntos de datos, etc. Puede agregar usuarios en uno de estos roles:
 
-* **Usuario**: los usuarios de un área de trabajo pueden crear, abrir, modificar y eliminar experimentos, conjuntos de datos y otros elementos en el área de trabajo.
-* **Propietario**: un propietario puede invitar y quitar usuarios en el área de trabajo, además de lo que pueden hacer los usuarios.
+* **Usuario** : los usuarios de un área de trabajo pueden crear, abrir, modificar y eliminar experimentos, conjuntos de datos y otros elementos en el área de trabajo.
+* **Propietario** : un propietario puede invitar y quitar usuarios en el área de trabajo, además de lo que pueden hacer los usuarios.
 
 > [!NOTE]
 > La cuenta de administrador que crea el área de trabajo se agrega automáticamente al área de trabajo como propietario de dicha área. No obstante, a los otros administradores o usuarios de dicha suscripción no se les concede acceso automáticamente al área de trabajo; debe invitarlos de manera explícita.
@@ -118,11 +118,11 @@ Tras crear la nueva área de trabajo de Machine Learning Studio (clásico), pued
 
    ![Opciones de Internet](media/troubleshooting-creating-ml-workspace/screen4.png)
 
-2. En la pestaña **General**, haga clic en **Eliminar…**
+2. En la pestaña **General** , haga clic en **Eliminar…**
 
    ![Pestaña General](media/troubleshooting-creating-ml-workspace/screen5.png)
 
-3. En el cuadro de diálogo **Eliminar el historial de exploración**, asegúrese de que **Cookies y datos del sitio web** está seleccionado y haga clic en **Eliminar**.
+3. En el cuadro de diálogo **Eliminar el historial de exploración** , asegúrese de que **Cookies y datos del sitio web** está seleccionado y haga clic en **Eliminar**.
 
    ![Eliminación de cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
 

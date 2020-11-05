@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac6055029b8fc7bbba11a8e3b789df3b6b1622e2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864237"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322748"
 ---
 # <a name="team-data-science-process-project-planning"></a>Plantilla de planeamiento del proyecto del proceso de ciencia de datos en equipo
 
@@ -30,7 +30,7 @@ El ciclo de vida describe las fases principales por las que pasan normalmente lo
 - Implementación
 - Aceptación del cliente
 
-Para obtener descripciones de cada una de estas fases, consulte [El ciclo de vida del proceso de ciencia de datos en equipo](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
+Para obtener descripciones de cada una de estas fases, consulte [El ciclo de vida del proceso de ciencia de datos en equipo](./lifecycle.md).
 
  
 ## <a name="microsoft-project-template"></a>Plantilla de Microsoft Project
@@ -60,5 +60,4 @@ Utilice este [repositorio de plantillas de proyecto](https://github.com/Azure/Az
 
 [Desarrollo ágil de proyectos de ciencia de datos](agile-development.md): en este documento se describe un proyecto de ciencia de datos de forma sistemática, con control de versiones y de manera colaborativa mediante el proceso de ciencia de datos en equipo.
 
-También se proporcionan tutoriales que muestran todos los pasos del proceso en **escenarios concretos**. Se enumeran y enlazan con descripciones en miniatura en los [tutoriales de ejemplo](walkthroughs.md). En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo o canalización para crear una aplicación inteligente. 
-
+También se proporcionan tutoriales que muestran todos los pasos del proceso en **escenarios concretos**. Se enumeran y enlazan con descripciones en miniatura en los [tutoriales de ejemplo](walkthroughs.md). En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo o canalización para crear una aplicación inteligente.

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907915"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323730"
 ---
 # <a name="feature-hashing-module-reference"></a>Referencia del módulo Feature Hashing
 
@@ -22,7 +22,7 @@ En este artículo se describe un módulo incluido en el diseñador de Azure Mach
 
 Use el módulo Feature Hashing para transformar un flujo de texto en inglés en un conjunto de características de enteros. Después, puede pasar este conjunto de características con hash a un algoritmo de aprendizaje automático para entrenar un modelo de análisis de texto.
 
-La función de hash de características que se proporciona en este módulo se basa en la plataforma nimbusml. Para más información, consulte [Clase NgramHash](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+La función de hash de características que se proporciona en este módulo se basa en la plataforma nimbusml. Para más información, consulte [Clase NgramHash](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
 
 ## <a name="what-is-feature-hashing"></a>¿Qué es Feature Hashing?
 
@@ -131,4 +131,4 @@ El conjunto óptimo de métodos de preprocesamiento que se aplican en cualquier 
 
 ## <a name="next-steps"></a>Pasos siguientes
             
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

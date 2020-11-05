@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b40ce0951e2d9c8933d4f0ea9d24b1673e254d6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1076b49a101d5657397ef12b8fac672d37e477b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495719"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324801"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
@@ -52,9 +52,9 @@ Puede interactuar con el área de trabajo de las siguientes formas:
 + En la Web:
     + [Azure Machine Learning Studio](https://ml.azure.com) 
     + [Diseñador de Azure Machine Learning](concept-designer.md) 
-+ En cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
++ En cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 + En cualquier entorno de R con el [SDK de Azure Machine Learning para R (versión preliminar)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ En la línea de comandos con la [extensión de la CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) de Azure Machine Learning
++ En la línea de comandos con la [extensión de la CLI](./reference-azure-machine-learning-cli.md) de Azure Machine Learning
 + [Extensión Azure Machine Learning para VS Code](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -103,7 +103,7 @@ Al crear una nueva área de trabajo, se crean automáticamente varios recursos d
 + [Cuenta de Azure Storage](https://azure.microsoft.com/services/storage/): se usa como almacén de datos predeterminado para el área de trabajo.  Las instancias de Jupyter Notebook que se usan con las instancias de proceso de Azure Machine Learning también se almacenan aquí. 
   
   > [!IMPORTANT]
-  > De manera predeterminada, la cuenta de almacenamiento es una cuenta de uso general v1. Puede [actualizarla a una de uso general v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) una vez creada el área de trabajo. No habilite el espacio de nombres jerárquico en la cuenta de almacenamiento después de actualizar a la versión v2 de uso general.
+  > De manera predeterminada, la cuenta de almacenamiento es una cuenta de uso general v1. Puede [actualizarla a una de uso general v2](../storage/common/storage-account-upgrade.md) una vez creada el área de trabajo. No habilite el espacio de nombres jerárquico en la cuenta de almacenamiento después de actualizar a la versión v2 de uso general.
 
   Para usar una cuenta de Azure Storage existente, no puede ser una cuenta Premium (Premium_LRS o Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (se usa con Azure Data Lake Storage Gen2). No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento _predeterminada_ del área de trabajo. Puede usar Premium Storage o el espacio de nombres jerárquico con cuentas de almacenamiento _no predeterminadas_.
   

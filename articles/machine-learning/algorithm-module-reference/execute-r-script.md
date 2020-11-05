@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330400"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323747"
 ---
 # <a name="execute-r-script-module"></a>Módulo Execute R Script
 
@@ -121,7 +121,7 @@ Una vez que termina la ejecución de la canalización, se puede obtener una vist
 
 ## <a name="access-to-registered-dataset"></a>Acceso al conjunto de datos registrado
 
-Puede consultar el siguiente código de ejemplo para [acceder a los conjuntos de datos registrados](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) en el área de trabajo:
+Puede consultar el siguiente código de ejemplo para [acceder a los conjuntos de datos registrados](../how-to-create-register-datasets.md) en el área de trabajo:
 
 ```R
         azureml_main <- function(dataframe1, dataframe2){
@@ -194,12 +194,12 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
     > [!NOTE]
     > Puede que el código R existente necesite pequeños cambios para ejecutarse en una canalización de diseñador. Por ejemplo, los datos de entrada que se proporcionan en formato CSV deben convertirse explícitamente en un conjunto de datos para que pueda usarlos en su código. Los tipos de datos y columnas que se usan en el lenguaje R también difieren en algunos aspectos de los tipos de columnas y datos que se usan en el diseñador.
 
-1. Si el script tiene más de 16 KB, use el puerto **Agrupación de scripts** para evitar errores parecidos a *CommandLine supera el límite de 16 597 caracteres* . 
+1. Si el script tiene más de 16 KB, use el puerto **Agrupación de scripts** para evitar errores parecidos a *CommandLine supera el límite de 16 597 caracteres*. 
     
     1. Agrupe el script y otros recursos personalizados en un archivo zip.
     1. Cargue el archivo zip como un **Conjunto de datos de archivo** en Studio. 
     1. Arrastre el módulo del conjunto de datos de la lista de *Conjunto de datos* del panel de módulos de la izquierda a la página de creación del diseñador. 
-    1. Conecte el módulo de conjunto de datos al puerto **Conjunto de scripts** del módulo **Ejecutar script R** .
+    1. Conecte el módulo de conjunto de datos al puerto **Conjunto de scripts** del módulo **Ejecutar script R**.
     
     A continuación, se muestra el código de ejemplo para consumir el script en el conjunto de scripts:
 
@@ -241,7 +241,7 @@ El módulo Execute R Script (Ejecutar script R) admite archivos de script de�
 
 1. Compruebe que el archivo zip aparece en la lista **My Datasets** (Mis conjuntos de datos) de la categoría **Datasets** (Conjuntos de datos) del árbol de módulos de la izquierda.
 
-1.  Conecte el conjunto de datos al puerto de entrada del **conjunto de scripts** .
+1.  Conecte el conjunto de datos al puerto de entrada del **conjunto de scripts**.
 
 1. Todos los archivos del archivo ZIP están disponibles durante el tiempo de ejecución de la canalización. 
 
@@ -289,10 +289,10 @@ azureml_main <- function(dataframe1, dataframe2){
 
 En este ejemplo se muestra cómo usar un conjunto de datos en un archivo ZIP como entrada para el módulo Execute R Script (Ejecutar script R).
 
-1. Cree el archivo de datos en formato CSV y asígnele el nombre **mydatafile.csv** .
+1. Cree el archivo de datos en formato CSV y asígnele el nombre **mydatafile.csv**.
 1. Cree un archivo ZIP y agregue el archivo CSV al archivo.
 1. Cargue el archivo comprimido en su área de trabajo de Azure Machine Learning. 
-1. Conecte el conjunto de datos resultante en la entrada **ScriptBundle** del módulo **Ejecutar script R** .
+1. Conecte el conjunto de datos resultante en la entrada **ScriptBundle** del módulo **Ejecutar script R**.
 1. Use el código siguiente para leer los datos en formato CSV del archivo comprimido.
 
 ```R
@@ -505,4 +505,4 @@ Los siguientes paquetes preinstalados de R están disponibles actualmente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

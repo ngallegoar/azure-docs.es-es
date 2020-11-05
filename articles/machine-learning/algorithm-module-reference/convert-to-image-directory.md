@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/09/2020
-ms.openlocfilehash: 2e597299c9b157d79a5317c97550fc30820636d6
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940379"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324897"
 ---
 # <a name="convert-to-image-directory"></a>Conversión al directorio de imagen
 
-En este artículo se describe cómo usar el módulo Conversión al directorio de imagen para ayudar a convertir el conjunto de datos de imagen al tipo de datos *Directorio de imagen*, que es el formato de datos estandarizado en tareas relacionadas con imágenes como la clasificación de imágenes en el diseñador de Azure Machine Learning.
+En este artículo se describe cómo usar el módulo Conversión al directorio de imagen para ayudar a convertir el conjunto de datos de imagen al tipo de datos *Directorio de imagen* , que es el formato de datos estandarizado en tareas relacionadas con imágenes como la clasificación de imágenes en el diseñador de Azure Machine Learning.
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Cómo usar Conversión al directorio de imagen  
 
@@ -49,7 +49,7 @@ En este artículo se describe cómo usar el módulo Conversión al directorio de
 
     Para puntuar, la carpeta de conjunto de datos de imágenes solo debe contener imágenes sin clasificar.
 
-1. [Registre el conjunto de datos de imágenes como un conjunto de datos de archivos](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) en el área de trabajo, ya que la entrada del módulo Convertir en directorio de imagen debe ser un **conjunto de datos de archivos**.
+1. [Registre el conjunto de datos de imágenes como un conjunto de datos de archivos](../how-to-create-register-datasets.md) en el área de trabajo, ya que la entrada del módulo Convertir en directorio de imagen debe ser un **conjunto de datos de archivos**.
 
 1. Agregue el conjunto de datos de imágenes registradas al lienzo. Puede encontrar el conjunto de datos registrados en la categoría **Conjuntos de datos** en la lista de módulos a la izquierda del lienzo. Actualmente, el diseñador no admite la visualización del conjunto de datos de imágenes.
 
@@ -82,4 +82,4 @@ La salida del módulo **Conversión al directorio de imagen** está en formato d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

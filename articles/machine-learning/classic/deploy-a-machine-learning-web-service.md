@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339676"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322840"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implementación de un servicio web de Azure Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (clásico) permite compilar y probar una solución de análisis predictivo. Luego, puede implementar la solución como un servicio web.
@@ -34,9 +34,9 @@ La entrada de BES es similar a la entrada de datos que se emplea en RRS. La dife
 
 Desde un punto de vista general, implementará el modelo en tres pasos:
 
-* **[Crear un experimento de entrenamiento]**: en Studio (clásico), puede entrenar y probar un modelo de análisis predictivo con datos de entrenamiento que suministre, mediante un gran conjunto de algoritmos de aprendizaje automático integrados.
-* **[Convertirlo en un experimento predictivo]**: una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
-* **Implementarlo** como un **[nuevo servicio web]** o un **[servicio web clásico]**: al implementar el experimento predictivo como un servicio web de Azure, los usuarios pueden enviar datos al modelo y recibir las predicciones de este.
+* **[Crear un experimento de entrenamiento]** : en Studio (clásico), puede entrenar y probar un modelo de análisis predictivo con datos de entrenamiento que suministre, mediante un gran conjunto de algoritmos de aprendizaje automático integrados.
+* **[Convertirlo en un experimento predictivo]** : una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
+* **Implementarlo** como un **[nuevo servicio web]** o un **[servicio web clásico]** : al implementar el experimento predictivo como un servicio web de Azure, los usuarios pueden enviar datos al modelo y recibir las predicciones de este.
 
 ## <a name="create-a-training-experiment"></a>Crear un experimento de entrenamiento
 
@@ -67,7 +67,7 @@ El proceso de convertir un experimento de entrenamiento en un experimento predic
 ![Convertir en experimento de puntuación](./media/publish-a-machine-learning-web-service/figure-1.png)
 
 ### <a name="set-up-web-service-button"></a>Botón Configurar servicio web
-Después de ejecutar el experimento, tras hacer clic en **Ejecutar** en la parte inferior del lienzo de experimento, haga clic en el botón **Configurar servicio web**, para lo que debe seleccionar la opción **Servicio web predictivo**. **Configurar servicio web** realiza automáticamente los tres pasos de conversión del experimento de entrenamiento en un experimento predictivo:
+Después de ejecutar el experimento, tras hacer clic en **Ejecutar** en la parte inferior del lienzo de experimento, haga clic en el botón **Configurar servicio web** , para lo que debe seleccionar la opción **Servicio web predictivo**. **Configurar servicio web** realiza automáticamente los tres pasos de conversión del experimento de entrenamiento en un experimento predictivo:
 
 1. Guarda el modelo entrenado en la sección **Modelos entrenados** de la paleta de módulo (a la izquierda del lienzo de experimento). Después reemplaza el algoritmo de aprendizaje automático y los módulos [Entrenar modelo][train-model] con el modelo entrenado guardado.
 2. Analiza el experimento y quita los módulos que ya se han usado solo para entrenamiento y que ya no son necesarios.
@@ -85,15 +85,15 @@ Al convertir este experimento de entrenamiento en un experimento predictivo, alg
 
 * **Datos** : los datos de este conjunto de datos de ejemplo no se usan durante la puntuación (el usuario del servicio web proporcionará los datos que se van a puntuar). Sin embargo, los metadatos de este conjunto de datos, como los tipos de datos, son utilizados por el modelo formado. Por ello, necesita mantener el conjunto de datos en el experimento predictivo para que pueda ofrecer estos metadatos.
 
-* **Preparación**: en función de los datos de usuario que se vayan a enviar para puntuar, estos módulos pueden ser necesarios, o no, para procesar los datos entrantes. El botón **Configurar servicio web** no les afecta; debe decidir cómo administrarlos.
+* **Preparación** : en función de los datos de usuario que se vayan a enviar para puntuar, estos módulos pueden ser necesarios, o no, para procesar los datos entrantes. El botón **Configurar servicio web** no les afecta; debe decidir cómo administrarlos.
   
     En este ejemplo, en el conjunto de datos de muestra pueden faltar valores, por lo que se ha incluido un módulo [Limpiar datos que faltan][clean-missing-data] para administrarlos. Además, el conjunto de datos de muestra incluye columnas que no son necesarias para entrenar el modelo. Por tanto, se ha incluido el módulo [Seleccionar columnas de conjunto de datos][select-columns] para excluir esas columnas adicionales del flujo de datos. Si sabe que a los datos que se van a enviar para puntuar a través del servicio web no les van a faltar valores, puede quitar el módulo [Limpiar datos que faltan][clean-missing-data]. Sin embargo, dado que el módulo [Seleccionar columnas de conjunto de datos][select-columns] ayuda a definir las columnas de datos que el modelo entrenado espera, es necesario mantener ese módulo.
 
-* **Entrenar**: estos módulos se usan para entrenar el modelo. Cuando hace clic en **Configurar servicio web**, estos módulos se reemplazan por un único módulo que contiene el modelo entrenado. Este módulo nuevo se guarda en la sección **Modelos entrenados** de la paleta de módulos.
+* **Entrenar** : estos módulos se usan para entrenar el modelo. Cuando hace clic en **Configurar servicio web** , estos módulos se reemplazan por un único módulo que contiene el modelo entrenado. Este módulo nuevo se guarda en la sección **Modelos entrenados** de la paleta de módulos.
 
-* **Puntuación**: en este ejemplo, el módulo [Dividir datos][split] se usa para dividir el flujo de datos en datos de prueba y datos de entrenamiento. En el experimento predictivo, ya no se entrena, por lo que [Dividir datos][split] se puede eliminar. De forma similar, el segundo módulo [Puntuar modelo][score-model] y el módulo [Evaluar modelo][evaluate-model] se usan para comparar los resultados de los datos de prueba, por lo que estos módulos no son necesarios en el experimento predictivo. No obstante, el módulo [Puntuar modelo][score-model] restante es necesario para devolver un resultado de puntuación a través del servicio web.
+* **Puntuación** : en este ejemplo, el módulo [Dividir datos][split] se usa para dividir el flujo de datos en datos de prueba y datos de entrenamiento. En el experimento predictivo, ya no se entrena, por lo que [Dividir datos][split] se puede eliminar. De forma similar, el segundo módulo [Puntuar modelo][score-model] y el módulo [Evaluar modelo][evaluate-model] se usan para comparar los resultados de los datos de prueba, por lo que estos módulos no son necesarios en el experimento predictivo. No obstante, el módulo [Puntuar modelo][score-model] restante es necesario para devolver un resultado de puntuación a través del servicio web.
 
-Este es el aspecto de nuestro ejemplo después de hacer clic en **Configurar servicio web**:
+Este es el aspecto de nuestro ejemplo después de hacer clic en **Configurar servicio web** :
 
 ![Experimento predictivo convertido](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
@@ -149,7 +149,7 @@ En la página de implementación de experimentos, escriba un nombre para el serv
 Seleccione un plan de tarifa. Si ya tiene uno, puede seleccionarlo; si no, debe crear uno nuevo para el servicio.
 
 1. En el menú desplegable **Price Plan** (Plan de precios), seleccione un plan existente o elija la opción **Select new plan** (Seleccionar nuevo plan).
-2. En **Nombre del plan**, escriba un nombre que identifique el plan en la factura.
+2. En **Nombre del plan** , escriba un nombre que identifique el plan en la factura.
 3. Seleccione uno de los **niveles de planes mensuales**. Los niveles de los planes predeterminados son los de la región predeterminada, y el servicio web se implementa en dicha región.
 
 Haga clic en las páginas **Implementar** e **Inicio rápido** del servicio web que se abre.
@@ -164,7 +164,7 @@ Para probar el nuevo servicio web, haga clic en la opción **Test web service** 
 
 En la página de pruebas RRS se muestran las entradas, las salidas y los parámetros globales definidos para el experimento. Para probar el servicio web, puede escribir manualmente los valores adecuados de las entradas o bien introducir un archivo con formato de valores separados por comas (CSV) que contenga los valores de prueba.
 
-Para realizar pruebas RRS, en el modo de vista de lista, escriba los valores adecuados de las entradas y haga clic en **Test Request-Response**(Probar solicitud-respuesta). Los resultados de predicción se mostrarán en la columna de salida de la izquierda.
+Para realizar pruebas RRS, en el modo de vista de lista, escriba los valores adecuados de las entradas y haga clic en **Test Request-Response** (Probar solicitud-respuesta). Los resultados de predicción se mostrarán en la columna de salida de la izquierda.
 
 ![Escritura de los valores adecuados para probar el servicio web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
@@ -180,7 +180,7 @@ Haga clic en **Probar**. El estado del trabajo de ejecución por lotes se muestr
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
-En la página **CONFIGURACIÓN**, puede cambiar la descripción y el título, actualizar la clave de la cuenta de almacenamiento y habilitar los datos de ejemplo para el servicio web.
+En la página **CONFIGURACIÓN** , puede cambiar la descripción y el título, actualizar la clave de la cuenta de almacenamiento y habilitar los datos de ejemplo para el servicio web.
 
 ![Configuración del servicio web](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
@@ -194,7 +194,7 @@ Para más información sobre el acceso a un servicio web de Machine Learning Stu
 
 ### <a name="manage-your-new-web-service"></a>Administración del servicio web nuevo
 
-Puede administrar los nuevos servicios web mediante el portal de servicios web de Machine Learning Studio (clásico). En la [página principal del portal](https://services.azureml.net/), haga clic en **Servicios web**. En la página de servicios web, puede eliminar o copiar servicios. Para supervisar un servicio concreto, haga clic en el servicio y, después, haga clic en **Panel**. Para supervisar los trabajos por lotes asociados con el servicio web, haga clic en **Batch Request Log**(Registro de solicitudes por lotes).
+Puede administrar los nuevos servicios web mediante el portal de servicios web de Machine Learning Studio (clásico). En la [página principal del portal](https://services.azureml.net/), haga clic en **Servicios web**. En la página de servicios web, puede eliminar o copiar servicios. Para supervisar un servicio concreto, haga clic en el servicio y, después, haga clic en **Panel**. Para supervisar los trabajos por lotes asociados con el servicio web, haga clic en **Batch Request Log** (Registro de solicitudes por lotes).
 
 ### <a name="deploy-your-new-web-service-to-multiple-regions"></a><a id="multi-region"></a> Implementación del nuevo servicio web en varias regiones
 
@@ -211,7 +211,7 @@ Los precios dependen de la región, así que debe definir un plan de facturació
 5. En el menú desplegable **Región** , seleccione una región para el nuevo plan. Las opciones de planes de la región seleccionada se mostrarán en la sección de la página **Plan Options** (Opciones de planes).
 6. En el menú desplegable **Grupo de recursos** , seleccione un grupo de recursos para el plan. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. En **Nombre del plan** , escriba el nombre del plan.
-8. En **Plan Options**(Opciones de planes), haga clic en el nivel de facturación del nuevo plan.
+8. En **Plan Options** (Opciones de planes), haga clic en el nivel de facturación del nuevo plan.
 9. Haga clic en **Crear**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Implementación del servicio web en otra región
@@ -219,8 +219,8 @@ Los precios dependen de la región, así que debe definir un plan de facturació
 1. En la página de servicios web de Microsoft Azure Machine Learning, haga clic en la opción de menú **Web Services** (Servicios web).
 2. Seleccione el servicio web que se va a implementar en una nueva región.
 3. Haga clic en **Copiar**.
-4. En **Nombre de servicio web**, escriba un nombre nuevo del servicio web.
-5. En **Descripción del servicio web**, escriba una descripción del servicio web.
+4. En **Nombre de servicio web** , escriba un nombre nuevo del servicio web.
+5. En **Descripción del servicio web** , escriba una descripción del servicio web.
 6. En el menú desplegable **Suscripción** , seleccione la suscripción en que residirá el servicio web nuevo.
 7. En el menú desplegable **Grupo de recursos** , seleccione un grupo de recursos para el servicio web. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 8. En el menú desplegable **Región** , seleccione la región en la que se va a implementar el servicio web.
@@ -277,12 +277,12 @@ Puede realizar cambios en el servicio web, como actualizar el modelo con datos d
 
 Para actualizar el servicio web, abra el experimento predictivo original que usó para implementar el servicio web y haga una copia modificable haciendo clic en **GUARDAR COMO**. Realice los cambios y haga clic en **Publicar servicio web**.
 
-Como ya ha implementado este experimento antes, se le preguntará si quiere sobrescribir (servicio web clásico) o actualizar (servicio web nuevo) el servicio existente. Al hacer clic en **SÍ** o **Actualizar**, el servicio web existente se detendrá y, en su lugar, se implementará el nuevo experimento predictivo.
+Como ya ha implementado este experimento antes, se le preguntará si quiere sobrescribir (servicio web clásico) o actualizar (servicio web nuevo) el servicio existente. Al hacer clic en **SÍ** o **Actualizar** , el servicio web existente se detendrá y, en su lugar, se implementará el nuevo experimento predictivo.
 
 > [!NOTE]
 > Si ha realizado cambios de configuración en el servicio web original, como, por ejemplo, escribir un nuevo nombre para mostrar o una descripción, necesitará escribir esos valores de nuevo.
 
-Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para más información, consulte [Nuevo entrenamiento de modelos de Machine Learning Studio (clásico) mediante programación](/azure/machine-learning/studio/retrain-machine-learning-model).
+Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para más información, consulte [Nuevo entrenamiento de modelos de Machine Learning Studio (clásico) mediante programación](./retrain-machine-learning-model.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -305,11 +305,11 @@ Una opción para actualizar el servicio web es volver a entrenar el modelo media
 
 [webserviceparameters]: web-service-parameters.md
 [deploy]: deploy-a-machine-learning-web-service.md
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[export-data]: /azure/machine-learning/studio-module-reference/export-data

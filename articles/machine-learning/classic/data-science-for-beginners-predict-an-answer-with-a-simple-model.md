@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c02abf095beefdd131a5835d015175d56a63de47
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340163"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322814"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Predicción de respuestas con un modelo sencillo
 
@@ -98,7 +98,7 @@ Para responder a la pregunta, calculamos la posición de 1,35 quilates y dibujam
 ![Encontrar la respuesta en el modelo](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Creación de un intervalo de confianza
-Es natural preguntarse si es muy precisa esta predicción. Resulta útil saber si el precio del diamante de 1,35 quilates estará muy cerca de los 10 000 USD, o será mucho mayor o menor. Para averiguarlo, marcaremos una zona alrededor de la línea de regresión que incluya la mayoría de los puntos. Esta zona es nuestro *intervalo de confianza*: estamos bastante seguros de que los precios estarán dentro de esta zona, porque en el pasado, la mayoría de ellos lo han estado. Podemos dibujar dos líneas horizontales más donde la línea de 1,35 quilates cruza la parte superior e inferior de dicha zona.
+Es natural preguntarse si es muy precisa esta predicción. Resulta útil saber si el precio del diamante de 1,35 quilates estará muy cerca de los 10 000 USD, o será mucho mayor o menor. Para averiguarlo, marcaremos una zona alrededor de la línea de regresión que incluya la mayoría de los puntos. Esta zona es nuestro *intervalo de confianza* : estamos bastante seguros de que los precios estarán dentro de esta zona, porque en el pasado, la mayoría de ellos lo han estado. Podemos dibujar dos líneas horizontales más donde la línea de 1,35 quilates cruza la parte superior e inferior de dicha zona.
 
 ![intervalo de confianza](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
@@ -129,4 +129,4 @@ Asegúrese de consultar los demás vídeos de la serie "Ciencia de datos para pr
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio (clásico)](create-experiment.md)
-* [Introducción a Machine Learning en Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Introducción a Machine Learning en Microsoft Azure](../overview-what-is-azure-ml.md)

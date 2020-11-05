@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e48261c4c6aeb75556663e1bf77c675557bcd1b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b638cb2b33f24220e7ceb852402862c707cc7bc6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315497"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316009"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Proceso de ciencia de datos en equipos en acción: uso de Azure Synapse Analytics
 En este tutorial le guiaremos a través de la creación e implementación de un modelo de aprendizaje automático mediante Azure Synapse Analytics para un conjunto de datos disponible públicamente: el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). El modelo de clasificación binaria construido predice si se dará propina por la carrera o no.  Los modelos incluyen la clasificación multiclase (si hay una propina o si no la hay) y la regresión (la distribución de los importes de propinas pagadas).
 
-El procedimiento sigue el flujo de trabajo del [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Se muestra cómo configurar un entorno de ciencia de datos, cómo cargar los datos en Azure Synapse Analytics y cómo usar Azure Synapse Analytics o un IPython Notebook para explorar las características de datos y de diseño para modelar. Luego se muestra cómo compilar e implementar un modelo con Azure Machine Learning.
+El procedimiento sigue el flujo de trabajo del [proceso de ciencia de datos en equipos (TDSP)](./index.yml) . Se muestra cómo configurar un entorno de ciencia de datos, cómo cargar los datos en Azure Synapse Analytics y cómo usar Azure Synapse Analytics o un IPython Notebook para explorar las características de datos y de diseño para modelar. Luego se muestra cómo compilar e implementar un modelo con Azure Machine Learning.
 
 ## <a name="the-nyc-taxi-trips-dataset"></a><a name="dataset"></a>Conjunto de datos NYC Taxi Trips
 El conjunto de datos NYC Taxi Trip consta de aproximadamente 20 GB de archivos CSV comprimidos (aproximadamente, 48 GB sin comprimir), que registran más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y la ubicación de recogida y llegada, el número de licencia del taxista anonimizado y el número de placa (id. único del taxi). Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
@@ -63,8 +63,8 @@ La **clave única** para unir trip\_data y trip\_fare se compone de los tres cam
 ## <a name="address-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Realicemos tres tipos de tareas de predicción
 Se formulan tres problemas de predicción basados en el valor *tip\_amount* para mostrar tres tipos de tareas de modelado:
 
-1. **Clasificación binaria**: Permite predecir si se pagó o no una propina tras una carrera; es decir, un valor de *tip\_amount* mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
-2. **Clasificación multiclase**: permite predecir el intervalo de la propina de la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
+1. **Clasificación binaria** : Permite predecir si se pagó o no una propina tras una carrera; es decir, un valor de *tip\_amount* mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
+2. **Clasificación multiclase** : permite predecir el intervalo de la propina de la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
 
 `Class 0 : tip_amount = $0`
 
@@ -76,7 +76,7 @@ Se formulan tres problemas de predicción basados en el valor *tip\_amount* para
 
 `Class 4 : tip_amount > $20`
 
-3. **Tarea de regresión**: Permite predecir el importe de la propina pagada por una carrera.
+3. **Tarea de regresión** : Permite predecir el importe de la propina pagada por una carrera.
 
 ## <a name="set-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Configuración del entorno de ciencia de datos de Azure para análisis avanzado
 Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
@@ -84,7 +84,7 @@ Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
 **Cree su propia cuenta de Almacenamiento de blobs de Azure.**
 
 * Cuando aprovisione su propia instancia de Azure Blob Storage, elija una ubicación geográfica para esta en la región **centro-sur de EE.UU.** , o lo más cerca posible de esta región, ya que es donde se almacenan los datos de NYC Taxi. Los datos se copian con AzCopy desde el contenedor de Almacenamiento de blobs público a un contenedor de su propia cuenta de almacenamiento. Cuanto más se acerque el Almacenamiento de blobs de Azure a la región centro-sur de EE. UU., más rápida se completará esta tarea (paso 4).
-* Para crear una cuenta propia de Azure Storage, siga los pasos descritos en [Acerca de las cuentas de Azure Storage](../../storage/common/storage-create-storage-account.md). Asegúrese de hacer anotaciones en los valores de las credenciales de la cuenta de almacenamiento siguientes, que necesitará más adelante en este tutorial.
+* Para crear una cuenta propia de Azure Storage, siga los pasos descritos en [Acerca de las cuentas de Azure Storage](../../storage/common/storage-account-create.md). Asegúrese de hacer anotaciones en los valores de las credenciales de la cuenta de almacenamiento siguientes, que necesitará más adelante en este tutorial.
 
   * **Nombre de cuenta de almacenamiento**
   * **Clave de cuenta de almacenamiento**
@@ -93,7 +93,7 @@ Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
 **Aprovisione su instancia de Azure Synapse Analytics.**
 Siga la documentación de [Creación de una instancia de Azure Synapse Analytics en Azure Portal y realización de consultas](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) para aprovisionar una instancia de Azure Synapse Analytics. Asegúrese de que hacer anotaciones en las credenciales de Azure Synapse Analytics siguientes que se usarán en los pasos posteriores.
 
-* **Nombre del servidor**: \<server Name>.database.windows.net
+* **Nombre del servidor** : \<server Name>.database.windows.net
 * **Nombre de SQLDW (base de datos)**
 * **Nombre de usuario**
 * **Contraseña**
@@ -139,7 +139,7 @@ Cuando se haya ejecutado correctamente, el directorio de trabajo actual cambia a
 
 ![El directorio de trabajo actual cambia][19]
 
-En su *-DestDir*, ejecute el siguiente script de PowerShell en modo de administrador:
+En su *-DestDir* , ejecute el siguiente script de PowerShell en modo de administrador:
 
 ```azurepowershell
 ./SQLDW_Data_Import.ps1
@@ -154,7 +154,7 @@ Cuando se ejecuta el script de PowerShell por primera vez, se le pedirá que int
 
 Este archivo de **script de PowerShell** realiza las tareas siguientes:
 
-* **Descarga e instala AzCopy**, si AzCopy no se ha instalado aún
+* **Descarga e instala AzCopy** , si AzCopy no se ha instalado aún
 
   ```azurepowershell
   $AzCopy_path = SearchAzCopy
@@ -369,7 +369,7 @@ Tendrá que decidir qué hacer si tiene archivos de origen y de destino duplicad
 
 ![Salida de AzCopy][21]
 
-Puede usar sus propios datos. Si los datos están en la máquina local en la aplicación de la vida real, todavía puede usar AzCopy para cargar los datos locales a su área privada de Azure Blob Storage. Solo tiene que cambiar la ubicación de **origen**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, en el comando de AzCopy del archivo de scripts de PowerShell por un directorio local que contiene los datos.
+Puede usar sus propios datos. Si los datos están en la máquina local en la aplicación de la vida real, todavía puede usar AzCopy para cargar los datos locales a su área privada de Azure Blob Storage. Solo tiene que cambiar la ubicación de **origen** , `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, en el comando de AzCopy del archivo de scripts de PowerShell por un directorio local que contiene los datos.
 
 > [!TIP]
 > Si los datos ya están en el Almacenamiento de blobs de Azure privado en la aplicación de la vida real, puede omitir el paso de AzCopy en el script de PowerShell y cargar directamente los datos en Azure Synapse Analytics. Esto requerirá modificaciones adicionales del script para adaptarlo al formato de los datos.
@@ -609,7 +609,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 | 3 |40,761456 |-73,999886 |40,766544 |-73,988228 |0,7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Preparar datos para la generación de modelos
-La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped**, una etiqueta de clasificación multiclase **tip\_class** y extrae una muestra aleatoria del conjunto de datos combinado completo. El muestreo se realiza mediante la recuperación de un subconjunto de los viajes en función de la hora de recogida.  Esta consulta se puede copiar y pegar directamente en el módulo [Import Data](https://studio.azureml.net) (Importar datos) [import-data] de [Azure Machine Learning Studio (clásico)] para la ingesta directa de datos desde la instancia de SQL Database de Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
+La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare** , genera una etiqueta de clasificación binaria **tipped** , una etiqueta de clasificación multiclase **tip\_class** y extrae una muestra aleatoria del conjunto de datos combinado completo. El muestreo se realiza mediante la recuperación de un subconjunto de los viajes en función de la hora de recogida.  Esta consulta se puede copiar y pegar directamente en el módulo [Import Data](https://studio.azureml.net) (Importar datos) [import-data] de [Azure Machine Learning Studio (clásico)] para la ingesta directa de datos desde la instancia de SQL Database de Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -937,9 +937,9 @@ pd.read_sql(query,conn)
 ## <a name="build-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Creación de modelos en Azure Machine Learning
 Ya está todo listo para pasar a la creación del modelo y la implementación del mismo en [Azure Machine Learning](https://studio.azureml.net). Los datos están listos para usarse en cualquiera de los problemas de predicción identificados anteriormente, a saber:
 
-1. **Clasificación binaria**: permite predecir si se dio propina en una carrera o no.
-2. **Clasificación multiclase**: permite predecir el rango de la propina dada, según las clases definidas anteriormente.
-3. **Tarea de regresión**: Permite predecir el importe de la propina pagada por una carrera.
+1. **Clasificación binaria** : permite predecir si se dio propina en una carrera o no.
+2. **Clasificación multiclase** : permite predecir el rango de la propina dada, según las clases definidas anteriormente.
+3. **Tarea de regresión** : Permite predecir el importe de la propina pagada por una carrera.
 
 Para comenzar el ejercicio de modelado, inicie sesión en el área de trabajo de **Azure Machine Learning (clásico)** . Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación de un área de trabajo de Azure Machine Learning Studio (clásico)](../classic/create-workspace.md).
 
@@ -969,14 +969,14 @@ En este ejercicio, ya se han explorado y diseñado los datos en Azure Synapse An
 3. Escribir el nombre DNS de la base de datos en el campo **Nombre del servidor de la base de datos** . Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Escribir el **nombre de la base de datos** en el campo correspondiente.
 5. Escribir el *nombre de usuario de SQL* en **Nombre de la cuenta de usuario del servidor** y la *contraseña* en **Contraseña de la cuenta de usuario del servidor**.
-7. En el área de texto editable **Consulta de base de datos**, pegar la consulta que extrae los campos de la base de datos necesarios (incluidos los campos calculados, como las etiquetas) y reducir la muestra al tamaño de muestra deseado.
+7. En el área de texto editable **Consulta de base de datos** , pegar la consulta que extrae los campos de la base de datos necesarios (incluidos los campos calculados, como las etiquetas) y reducir la muestra al tamaño de muestra deseado.
 
 En la ilustración siguiente se muestra un ejemplo de un experimento de clasificación binaria que lee datos directamente desde la base de datos de Azure Synapse Analytics (no olvide reemplazar los nombres de tabla nyctaxi_trip y nyctaxi_fare por el nombre de esquema y los nombres de tabla que utilizó en el tutorial). Se pueden construir experimentos similares para problemas de clasificación multiclase y de regresión.
 
 ![Entrenamiento de Aprendizaje automático de Azure][10]
 
 > [!IMPORTANT]
-> En los ejemplos de consultas de extracción y muestreo de datos de modelado de las secciones anteriores, **las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (requerido) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los otros dos problemas y cualquier otra **fuga de destino**. Por ejemplo, cuando use clasificación binaria, utilice la etiqueta **tipped** y excluya los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
+> En los ejemplos de consultas de extracción y muestreo de datos de modelado de las secciones anteriores, **las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (requerido) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los otros dos problemas y cualquier otra **fuga de destino**. Por ejemplo, cuando use clasificación binaria, utilice la etiqueta **tipped** y excluya los campos **tip\_class** , **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
 >
 > Para excluir cualquier columna innecesaria o fugas de destino, puede usar el módulo [Seleccionar columnas de conjunto de datos][select-columns] o [Editar metadatos][edit-metadata]. Para obtener más información, consulte las páginas de referencia de [Seleccionar columnas de conjunto de datos][select-columns] y [Editar metadatos][edit-metadata].
 >
@@ -990,7 +990,7 @@ Para implementar un nuevo servicio web, deberá:
 1. Crear un experimento de puntuación.
 2. Implemente el servicio web.
 
-Para crear un experimento de puntuación a partir de un experimento de entrenamiento **Finalizado**, haga clic en **CREAR EXPERIMENTO DE PUNTUACIÓN** en la barra de acciones inferior.
+Para crear un experimento de puntuación a partir de un experimento de entrenamiento **Finalizado** , haga clic en **CREAR EXPERIMENTO DE PUNTUACIÓN** en la barra de acciones inferior.
 
 ![Puntuación de Azure][18]
 
@@ -1046,6 +1046,6 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 
 
 <!-- Module References -->
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

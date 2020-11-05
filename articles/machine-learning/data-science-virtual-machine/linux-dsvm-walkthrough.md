@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: 65a627cc009699660de0897ce853acaa78381f6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275989"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315798"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Ubuntu en Azure
 
@@ -28,8 +28,8 @@ Antes de usar una instancia de DSVM de Linux, debe cumplir los siguientes requis
 
 * **Suscripción de Azure**. Para obtener una suscripción a Azure, consulte [Cree su cuenta gratuita de Azure hoy mismo](https://azure.microsoft.com/free/).
 
-* [**Data Science Virtual Machine para Ubuntu**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Para más información sobre el aprovisionamiento de la máquina virtual, consulte [Aprovisionamiento de una instancia de Data Science Virtual Machine de Ubuntu](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) instalado en su equipo con una sesión abierta de XFCE. Para más información, consulte [Instalación y configuración del cliente X2Go](linux-dsvm-intro.md#x2go).
+* [**Data Science Virtual Machine para Ubuntu**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Para más información sobre el aprovisionamiento de la máquina virtual, consulte [Aprovisionamiento de una instancia de Data Science Virtual Machine de Ubuntu](./release-notes.md).
+* [**X2Go**](https://wiki.x2go.org/doku.php) instalado en su equipo con una sesión abierta de XFCE. Para más información, consulte [Instalación y configuración del cliente X2Go](dsvm-ubuntu-intro.md#x2go).
 * Para obtener una experiencia de desplazamiento más fluida, en el explorador web de Firefox de DSVM, alterne la marca `gfx.xrender.enabled` en `about:config`. [Más información](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere también la posibilidad de establecer `mousewheel.enable_pixel_scrolling` en `False`. [Más información](https://support.mozilla.org/questions/981140).
 
 ## <a name="download-the-spambase-dataset"></a>Descarga del conjunto de datos spambase
@@ -62,7 +62,7 @@ mv headers spambaseHeaders.data
 
 El conjunto de datos tiene varios tipos de estadísticas para cada correo electrónico:
 
-* Las columnas, como **word\_freq\__WORD_** indican el porcentaje de palabras en el correo electrónico que coinciden con *WORD*. Por ejemplo, si **word\_freq\_make** es **1**, el 1 % de todas las palabras en el correo electrónico son *make*.
+* Las columnas, como **word\_freq\__WORD_** indican el porcentaje de palabras en el correo electrónico que coinciden con *WORD*. Por ejemplo, si **word\_freq\_make** es **1** , el 1 % de todas las palabras en el correo electrónico son *make*.
 * Las columnas, como **char\_freq\__CHAR_** indican el porcentaje de todos los caracteres en el correo electrónico que son *CHAR*.
 * **capital\_run\_length\_longest** es la mayor longitud de una secuencia de letras mayúsculas.
 * **capital\_run\_length\_average** es la longitud media de todas las secuencias de letras mayúsculas.
@@ -213,7 +213,7 @@ Además de los ejemplos basados en marcos, también se proporciona un conjunto d
 
 - [Una guía paso a paso para compilar una solución integral que detecte productos dentro de las imágenes](https://github.com/Azure/cortana-intelligence-product-detection-from-images): la detección de imágenes es una técnica que puede localizar y clasificar objetos dentro de las imágenes. La tecnología tiene el potencial de aportar grandes ventajas a muchos ámbitos comerciales de uso real. Por ejemplo, los minoristas pueden aplicar esta técnica para determinar qué producto ha seleccionado un cliente de una estantería. A su vez, esta información permite que las tiendas administren el inventario de productos. 
 
-- [Aprendizaje profundo para audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): en este tutorial se muestra cómo entrenar un modelo de aprendizaje profundo para detectar eventos de audio en el [conjunto de datos de sonidos urbanos](https://urbansounddataset.weebly.com/). El tutorial proporciona información general sobre cómo trabajar con datos de audio.
+- [Aprendizaje profundo para audio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): en este tutorial se muestra cómo entrenar un modelo de aprendizaje profundo para detectar eventos de audio en el [conjunto de datos de sonidos urbanos](https://urbansounddataset.weebly.com/). El tutorial proporciona información general sobre cómo trabajar con datos de audio.
 
 - [Clasificación de documentos de texto](https://github.com/anargyri/lstm_han): en este tutorial se demuestra cómo crear y entrenar dos arquitecturas de redes neuronales distintas: red de atención jerárquica y memoria a corto y largo plazo (LSTM). Estas redes neurales usan la API de Keras de aprendizaje profundo para clasificar documentos de texto. Keras es un front-end para tres de los marcos de aprendizaje profundo más populares: Microsoft Cognitive Toolkit, TensorFlow y Theano.
 
@@ -315,7 +315,7 @@ Hay varios cuadernos de muestra ya instalados en DSVM:
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily) es una herramienta gráfica de R para la minería de datos. Rattle presenta una interfaz intuitiva que permite cargar, explorar y transformar los datos y compilar y evaluar modelos de forma fácil. En [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: una GUI de minería de datos para R), se proporciona un tutorial que muestra sus características.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) ( *R* *A* nalytical *T* ool *T* o *L* earn *E* asily) es una herramienta gráfica de R para la minería de datos. Rattle presenta una interfaz intuitiva que permite cargar, explorar y transformar los datos y compilar y evaluar modelos de forma fácil. En [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: una GUI de minería de datos para R), se proporciona un tutorial que muestra sus características.
 
 Ejecute estos comandos para instalar e iniciar Rattle:
 
@@ -328,7 +328,7 @@ rattle()
 > [!NOTE]
 > No es necesario instalar Rattle en DSVM. Sin embargo, es posible que se le pida que instale paquetes adicionales cuando se abra Rattle.
 
-Rattle usa una interfaz de usuario basada en pestañas. La mayoría de las pestañas corresponden a pasos del [Proceso de ciencia de datos en equipo](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), como cargar los datos o explorarlos. El proceso de ciencia de los datos fluye de izquierda a derecha por las pestañas. La última pestaña contiene un registro de los comandos de R ejecutados por Rattle.
+Rattle usa una interfaz de usuario basada en pestañas. La mayoría de las pestañas corresponden a pasos del [Proceso de ciencia de datos en equipo](../team-data-science-process/index.yml), como cargar los datos o explorarlos. El proceso de ciencia de los datos fluye de izquierda a derecha por las pestañas. La última pestaña contiene un registro de los comandos de R ejecutados por Rattle.
 
 Para cargar y configurar el conjunto de datos:
 
@@ -345,23 +345,23 @@ Para explorar los datos:
 
 También puede usar la pestaña **Explorar** para generar trazados detallados. Para trazar un histograma de los datos:
 
-1. Seleccione **Distributions**(Distribuciones).
+1. Seleccione **Distributions** (Distribuciones).
 1. Busque **word_freq_remove** y **word_freq_you** y seleccione **Histograma**.
-1. Seleccione **Execute**(Ejecutar). Verá ambos trazados de densidad en una sola ventana gráfica, donde está claro que la palabra _you_ aparece con mucha más frecuencia en los correos electrónicos que _remove_.
+1. Seleccione **Execute** (Ejecutar). Verá ambos trazados de densidad en una sola ventana gráfica, donde está claro que la palabra _you_ aparece con mucha más frecuencia en los correos electrónicos que _remove_.
 
 Los trazados de **correlación** también son interesantes. Para crear un trazado:
 
-1. En **Tipo**, seleccione **Correlación**.
-1. Seleccione **Execute**(Ejecutar).
+1. En **Tipo** , seleccione **Correlación**.
+1. Seleccione **Execute** (Ejecutar).
 1. Rattle le avisa de que recomienda 40 variables como máximo. Seleccione **Yes** (Sí) para ver la trazado.
 
-Surgen algunas correlaciones interesantes: por ejemplo, _technology_ está estrechamente relacionado con _HP_ y _labs_. También está estrechamente correlacionado con _650_, porque el código de área de los donantes del conjunto de datos es 650.
+Surgen algunas correlaciones interesantes: por ejemplo, _technology_ está estrechamente relacionado con _HP_ y _labs_. También está estrechamente correlacionado con _650_ , porque el código de área de los donantes del conjunto de datos es 650.
 
 Los valores numéricos de las correlaciones entre palabras están disponibles en la ventana de **exploración**. Es interesante advertir, por ejemplo, que _technology_ está correlacionada negativamente con _your_ y _money_.
 
 Rattle puede transformar el conjunto de datos para tratar algunos problemas comunes. Por ejemplo, puede volver a escalar características, imputar valores que faltan, administrar los valores atípicos y quitar variables u observaciones con datos que faltan. Rattle también puede identificar reglas de asociación entre observaciones y variables. Estas pestañas no se cubren este tutorial de introducción.
 
-Rattle también puede ejecutar el análisis de clústeres. Vamos a excluir algunas características para que la salida sea más fácil de leer. En la pestaña **Datos**, seleccione **Ignorar** junto a cada una de las variables, excepto estos diez elementos:
+Rattle también puede ejecutar el análisis de clústeres. Vamos a excluir algunas características para que la salida sea más fácil de leer. En la pestaña **Datos** , seleccione **Ignorar** junto a cada una de las variables, excepto estos diez elementos:
 
 * word_freq_hp
 * word_freq_technology
@@ -374,20 +374,20 @@ Rattle también puede ejecutar el análisis de clústeres. Vamos a excluir algun
 * word_freq_business
 * spam
 
-Vuelva a la pestaña **Clúster**. Seleccione **KMeans** y, a continuación, establezca el **número de clústeres** en **4**. Seleccione **Execute**(Ejecutar). Los resultados se muestran en la ventana de salida. Un clúster tiene alta frecuencia de _george_ y _hp_ y es probablemente un correo electrónico comercial legítimo.
+Vuelva a la pestaña **Clúster**. Seleccione **KMeans** y, a continuación, establezca el **número de clústeres** en **4**. Seleccione **Execute** (Ejecutar). Los resultados se muestran en la ventana de salida. Un clúster tiene alta frecuencia de _george_ y _hp_ y es probablemente un correo electrónico comercial legítimo.
 
 Para crear un modelo de aprendizaje automático de árbol de decisiones básico:
 
 1. Seleccione la pestaña **Model** (Modelo).
-1. En **Tipo**, seleccione **Árbol**.
+1. En **Tipo** , seleccione **Árbol**.
 1. Seleccione **Execute** (Ejecutar) para mostrar el árbol en forma de texto en la ventana de salida.
 1. Seleccione el botón **Draw** (Dibujar) para ver una versión gráfica. El árbol de decisión se parece al árbol que obtuvimos anteriormente mediante rpart.
 
 Una característica útil de Rattle es la posibilidad de ejecutar varios métodos de aprendizaje automático y evaluarlos rápidamente. Estos son los pasos que se deben seguir:
 
-1. En **Tipo**, seleccione **Todos**.
-1. Seleccione **Execute**(Ejecutar).
-1. Cuando Rattle termine de ejecutarse, puede seleccionar cualquier valor de **Tipo**, como **SVM**, y ver los resultados.
+1. En **Tipo** , seleccione **Todos**.
+1. Seleccione **Execute** (Ejecutar).
+1. Cuando Rattle termine de ejecutarse, puede seleccionar cualquier valor de **Tipo** , como **SVM** , y ver los resultados.
 1. También puede comparar el rendimiento de los modelos en el conjunto de validación mediante la pestaña **Evaluar**. Por ejemplo, la selección **Error Matrix** (Matriz de errores) muestra la matriz de confusiones, los errores generales y la media de errores de clase de cada modelo en el conjunto de validación. También puede trazar curvas ROC, ejecutar análisis de sensibilidad y llevar a cabo otros tipos de evaluaciones de modelos.
 
 Cuando haya terminado de crear modelos, seleccione la pestaña **Registrar** para ver el código R ejecutado por Rattle durante la sesión. Puede seleccionar el botón **Export** (Exportar) para guardarlo.
@@ -416,7 +416,7 @@ host    all             all             127.0.0.1/32            ident
 host    all             all             ::1/128                 ident
 ```
 
-Cambie la línea **IPv4 local connections** para usar **md5** en lugar de **ident**, así podremos iniciar sesión con un nombre de usuario y una contraseña:
+Cambie la línea **IPv4 local connections** para usar **md5** en lugar de **ident** , así podremos iniciar sesión con un nombre de usuario y una contraseña:
 
 ```
 # IPv4 local connections:
@@ -467,15 +467,15 @@ Para comenzar, abra SQuirreL SQL desde el menú de **Aplicaciones**. Para config
 1. Seleccione **Windows** > **View Drivers** (Ver controladores).
 1. Haga clic con el botón derecho en **PostgreSQL** y seleccione **Modify Driver** (Modificar controlador).
 1. Seleccione **Extra Class Path** (Ruta de clase adicional) > **Agregar**.
-1. En **Nombre de archivo**, escriba **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
-1. seleccione **Open**(Abrir).
-1. Seleccione **Mostrar controladores**. En **Nombre de clase**, seleccione **org.postgresql.Driver** y, luego, **Aceptar**.
+1. En **Nombre de archivo** , escriba **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
+1. seleccione **Open** (Abrir).
+1. Seleccione **Mostrar controladores**. En **Nombre de clase** , seleccione **org.postgresql.Driver** y, luego, **Aceptar**.
 
 Para configurar la conexión al servidor local:
 
 1. Seleccione **Windows** > **View Aliases** (Ver alias).
 1. Seleccione el botón **+** para crear un nuevo alias. En el nuevo nombre de alias, escriba **base de datos de correo no deseado**. 
-1. En **controlador**, seleccione **PostgreSQL**.
+1. En **controlador** , seleccione **PostgreSQL**.
 1. Establezca la dirección URL en **jdbc:postgresql://localhost/spam**.
 1. Escriba su nombre de usuario y contraseña.
 1. Seleccione **Aceptar**.
@@ -485,7 +485,7 @@ Para configurar la conexión al servidor local:
 Para ejecutar algunas consultas:
 
 1. Seleccione la pestaña **SQL** .
-1. En el cuadro de consulta de la parte superior de la pestaña **SQL**, escriba una consulta básica, como `SELECT * from data;`.
+1. En el cuadro de consulta de la parte superior de la pestaña **SQL** , escriba una consulta básica, como `SELECT * from data;`.
 1. Presione CTRL + ENTRAR para ejecutar la consulta. SQuirreL SQL devuelve de manera predeterminada las 100 primeras filas de la consulta.
 
 Hay muchas más consultas que se pueden ejecutar para explorar estos datos. Por ejemplo, ¿de qué modo la frecuencia de la palabra *make* es diferente en es correo no deseado y no es correo no deseado?
@@ -494,7 +494,7 @@ Hay muchas más consultas que se pueden ejecutar para explorar estos datos. Por 
 SELECT avg(word_freq_make), spam from data group by spam;
 ```
 
-O, ¿cuáles son las características del correo electrónico que con frecuencia contiene *3d*?
+O, ¿cuáles son las características del correo electrónico que con frecuencia contiene *3d* ?
 
 ```SQL
 SELECT * from data order by word_freq_3d desc;
@@ -538,5 +538,3 @@ GO
 ```
 
 También puede consultar mediante SQuirreL SQL. Siga los pasos similares a PostgreSQL mediante el uso del controlador JDBC de SQL Server. El controlador JDBC está en la carpeta /usr/share/java/jdbcdrivers/sqljdbc42.jar.
-
-

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5a0804ae5ee2dbffaa57fc967fda29701562ab44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ee92a9eaf9316cbd453ea1ec4def58bb543a5a6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085708"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321137"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Exploración de datos en el almacenamiento de blobs de Azure con Pandas
 
@@ -28,7 +28,7 @@ Esta tarea constituye un paso del [proceso de ciencia de datos en equipos](overv
 En este artículo se supone que ha:
 
 * Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-account-create.md)
-* Almacenó los datos en una cuenta de almacenamiento de blobs de Azure. Si necesita instrucciones, consulte [mover con Azure Storage como origen y destino](../../storage/common/storage-moving-data.md)
+* Almacenó los datos en una cuenta de almacenamiento de blobs de Azure. Si necesita instrucciones, consulte [mover con Azure Storage como origen y destino](../../storage/common/storage-choose-data-transfer-solution.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Carga de los datos en DataFraim de Pandas
 Para explorar y manipular un conjunto de datos, primero se debe descargar desde el origen de blob en un archivo local que, a continuación, se pueda cargar en un elemento DataFrame de Pandas. Estos son los pasos a seguir para realizar este procedimiento:

@@ -2,13 +2,13 @@
 title: Implementación de una especificación de plantilla como una plantilla vinculada
 description: Obtenga información sobre cómo implementar una especificación de plantilla existente en una implementación vinculada.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 4469e793a7da407f793bfe2885f7bb039e29d736
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: 9755774f79ee4901c8aa691054da749f37756742
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369117"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321571"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: Implementación de una especificación de plantilla como una plantilla vinculada (versión preliminar)
 
@@ -27,7 +27,7 @@ Consulte [Inicio rápido: Creación e implementación de la especificación de p
 
 ## <a name="create-the-main-template"></a>Creación de la plantilla principal
 
-Para crear una especificación de plantilla en una plantilla de ARM, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad `templateLink`, especifique el identificador de recurso de una especificación de plantilla. Cree una plantilla con el siguiente código JSON denominado **azuredeploy.json**. En este tutorial se da por supuesto que se ha guardado en la ruta de acceso **c:\Templates\deployTS\azuredeploy.json**, pero puede usar cualquier ruta de acceso.
+Para crear una especificación de plantilla en una plantilla de ARM, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad `templateLink`, especifique el identificador de recurso de una especificación de plantilla. Cree una plantilla con el siguiente código JSON denominado **azuredeploy.json**. En este tutorial se da por supuesto que se ha guardado en la ruta de acceso **c:\Templates\deployTS\azuredeploy.json** , pero puede usar cualquier ruta de acceso.
 
 ```json
 {
@@ -160,7 +160,10 @@ New-AzResourceGroup `
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
-  -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\deployTS\azuredeploy.json" `
+  -tsResourceGroup templateSpecRg `
+  -tsName storageSpec `
+  -tsVersion 1.0
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -172,8 +175,8 @@ az group create \
 
 az deployment group create \
   --resource-group webRG \
-  --template-file "c:\Templates\deployTS\azuredeploy.json"
-
+  --template-file "c:\Templates\deployTS\azuredeploy.json" \
+  --parameters tsResourceGroup=templateSpecRG tsName=storageSpec tsVersion=1.0
 ```
 
 ---

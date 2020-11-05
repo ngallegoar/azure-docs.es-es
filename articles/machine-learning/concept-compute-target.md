@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841970"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322293"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning?
 
@@ -54,7 +54,7 @@ Al realizar la inferencia, Azure Machine Learning crea un contenedor de Docker q
 
 * Como punto de conexión de _inferencia de lotes_ que se usa para procesar periódicamente lotes de datos. Las inferencias de lotes usan [clústeres de proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md).
 
-* A un _dispositivo IoT_ (versión preliminar). La implementación en un dispositivo IoT solo usa Azure Machine Learning para compilar el contenedor de Docker. Desde allí, se implementa mediante Azure IoT Edge. Para más información, consulte [Implementación del módulo IoT Edge (versión preliminar)](/azure/iot-edge/tutorial-deploy-machine-learning).
+* A un _dispositivo IoT_ (versión preliminar). La implementación en un dispositivo IoT solo usa Azure Machine Learning para compilar el contenedor de Docker. Desde allí, se implementa mediante Azure IoT Edge. Para más información, consulte [Implementación del módulo IoT Edge (versión preliminar)](../iot-edge/tutorial-deploy-machine-learning.md).
 
 Aprenda [dónde y cómo implementar el modelo en un destino de proceso](how-to-deploy-and-where.md).
 
@@ -89,7 +89,7 @@ Cuando se crean, estos recursos de proceso forman parte automáticamente del ár
 
 ### <a name="supported-vm-series-and-sizes"></a>Series y tamaños de maquina virtual compatibles
 
-Al seleccionar un tamaño de nodo para un recurso de proceso administrado en Azure Machine Learning, puede elegir entre varios tamaños de máquina virtual disponibles en Azure. Azure ofrece una variedad de tamaños para Windows y Linux para diferentes cargas de trabajo. Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Al seleccionar un tamaño de nodo para un recurso de proceso administrado en Azure Machine Learning, puede elegir entre varios tamaños de máquina virtual disponibles en Azure. Azure ofrece una variedad de tamaños para Windows y Linux para diferentes cargas de trabajo. Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/sizes.md).
 
 Hay algunas excepciones y limitaciones a la hora de elegir un tamaño de máquina virtual:
 
@@ -133,11 +133,11 @@ Las ofertas de máquinas virtuales aisladas actuales incluyen:
 
 *Compatible con RDMA
 
-Para más información sobre el aislamiento, consulte [Aislamiento en la nube pública de Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
+Para más información sobre el aislamiento, consulte [Aislamiento en la nube pública de Azure](../security/fundamentals/isolation-choices.md).
 
 ## <a name="unmanaged-compute"></a>Proceso no administrado
 
-Azure Machine Learning *no*administra un destino de proceso no administrado. Cree este tipo de destino de proceso fuera de Azure Machine Learning y luego adjúntelo al área de trabajo. Estos recursos de proceso no administrados pueden requerir pasos adicionales para mantener o mejorar el rendimiento de las cargas de trabajo de Machine Learning.
+Azure Machine Learning *no* administra un destino de proceso no administrado. Cree este tipo de destino de proceso fuera de Azure Machine Learning y luego adjúntelo al área de trabajo. Estos recursos de proceso no administrados pueden requerir pasos adicionales para mantener o mejorar el rendimiento de las cargas de trabajo de Machine Learning.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

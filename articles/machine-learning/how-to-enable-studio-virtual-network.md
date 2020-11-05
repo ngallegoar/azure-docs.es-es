@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792028"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325529"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Habilitación de Azure Machine Learning Studio en una Azure Virtual Network
 
@@ -119,7 +119,7 @@ Azure Data Lake Storage Gen1 solo admite listas de control de acceso de estilo P
 
 Para acceder a los datos almacenados en una instancia de Azure SQL Database mediante la identidad administrada, debe crear un usuario independiente de SQL que se asigne a la identidad administrada. Para obtener más información sobre cómo crear un usuario desde un proveedor externo, vea [Creación de usuarios independientes asignados a identidades de Azure AD](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 
-Después de crear un usuario independiente de SQL, utilice el [comando GRANT de T-SQL](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql) para concederle permisos.
+Después de crear un usuario independiente de SQL, utilice el [comando GRANT de T-SQL](/sql/t-sql/statements/grant-object-permissions-transact-sql) para concederle permisos.
 
 ### <a name="azure-machine-learning-designer-default-datastore"></a>Almacén de datos predeterminado del diseñador de Azure Machine Learning
 

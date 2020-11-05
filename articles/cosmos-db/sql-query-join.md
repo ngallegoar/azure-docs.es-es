@@ -3,17 +3,19 @@ title: Consultas JOIN de SQL para Azure Cosmos DB
 description: Obtenga información sobre cómo combinar (JOIN) varias tablas en Azure Cosmos DB para consultar los datos.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3fad0c7eed2b42a9ac340a091f17b90e22b000a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74871149"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333858"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Combinaciones en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En una base de datos relacional, las combinaciones entre tablas son la consecuencia lógica de diseñar esquemas normalizados. En cambio, la API de SQL usa el modelo de datos desnormalizado de los elementos sin esquemas, que es el equivalente lógico de una *autocombinación*.
 
@@ -27,7 +29,7 @@ Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN
   
  Los orígenes definirán `input_alias1, input_alias2, …, input_aliasN`. Esta cláusula FROM devuelve un conjunto de N tuplas (tupla con N valores). Cada tupla tiene valores generados mediante la iteración de todos los alias de contenedor en los conjuntos correspondientes.  
   
-**Ejemplo 1**: 2 orígenes  
+**Ejemplo 1** : 2 orígenes  
   
 - `<from_source1>` tendrá ámbito de contenedor y representa el conjunto {A, B, C}.  
   
@@ -45,7 +47,7 @@ Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
-**Ejemplo 2**: 3 orígenes  
+**Ejemplo 2** : 3 orígenes  
   
 - `<from_source1>` tendrá ámbito de contenedor y representa el conjunto {A, B, C}.  
   
@@ -72,7 +74,7 @@ Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN
   > [!NOTE]
   > Faltan tuplas para otros valores de `input_alias1` y `input_alias2`, para los cuales `<from_source3>` no devolvió ningún valor.  
   
-**Ejemplo 3**: 3 orígenes  
+**Ejemplo 3** : 3 orígenes  
   
 - <from_source1> tendrá ámbito de contenedor y representa el conjunto {A, B, C}.  
   

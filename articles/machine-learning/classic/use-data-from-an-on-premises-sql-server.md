@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 695539e4739002480b3622eb217ef920d4cb34e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 279c07ff892cb261c8bda1937c6e9f8f1b6c6793
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357495"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325709"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Análisis mediante Azure Machine Learning Studio (clásico) con una base de datos de SQL Server
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Con frecuencia, a las compañías que trabajan con datos locales les gustaría aprovechar la escala y la agilidad de la nube para su cargas de trabajo de aprendizaje de automático. Sin embargo, no desean interrumpir los flujos de trabajo y los procesos de negocio actuales por mover sus datos locales a la nube. Ahora, Azure Machine Learning Studio (clásico) admite la lectura de los datos de una base de datos de SQL Server, seguida del entrenamiento y la puntuación de un modelo con estos datos. Ya no tendrá que copiar y sincronizar de forma manual los datos entre la nube y el servidor local. En su lugar, el módulo de **importación de datos** de Azure Machine Learning Studio (clásico) ahora puede leer directamente los trabajos de entrenamiento y puntuación en la base de datos de SQL Server.
@@ -89,9 +89,9 @@ El primer paso consiste en crear y configurar la puerta de enlace para acceder a
 5. En el diálogo Download and register data gateway (Descargar y registrar puerta de enlace), copie el valor de GATEWAY REGISTRATION KEY (Clave de registro de la puerta de enlace) en el Portapapeles.
 
     ![Descarga y registro de la puerta de enlace de datos](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
-6. <span id="note-1" class="anchor"></span>Si aún no ha descargado ni instalado Microsoft Data Management Gateway, haga clic en **Download data management gateway**(Descargar Data Management Gateway). Esto lo lleva al Centro de descarga de Microsoft, donde puede seleccionar la versión de puerta de enlace que necesita, descargarla e instalarla. Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en las secciones del principio del artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
+6. <span id="note-1" class="anchor"></span>Si aún no ha descargado ni instalado Microsoft Data Management Gateway, haga clic en **Download data management gateway** (Descargar Data Management Gateway). Esto lo lleva al Centro de descarga de Microsoft, donde puede seleccionar la versión de puerta de enlace que necesita, descargarla e instalarla. Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en las secciones del principio del artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 7. Una vez instalada la puerta de enlace, se abre el Administrador de configuración de Data Management Gateway y se muestra el cuadro de diálogo **Registrar puerta de enlace** . Pegue la **clave de registro de puerta de enlace** que copió en el portapapeles y haga clic en **Registrar**.
-8. Si ya tiene una puerta de enlace instalada, ejecute el Administrador de configuración de Data Management Gateway. Haga clic en **Cambiar clave**, pegue la **clave de registro de puerta de enlace** que ha copiado en el Portapapeles en el paso anterior y haga clic en **Aceptar**.
+8. Si ya tiene una puerta de enlace instalada, ejecute el Administrador de configuración de Data Management Gateway. Haga clic en **Cambiar clave** , pegue la **clave de registro de puerta de enlace** que ha copiado en el Portapapeles en el paso anterior y haga clic en **Aceptar**.
 9. Cuando la instalación haya finalizado, se muestra el cuadro de diálogo **Registrar puerta de enlace** para el Administrador de configuración de Data Management Gateway. Pegue la CLAVE DE REGISTRO DE PUERTA DE ENLACE que copió en el Portapapeles en el paso anterior y haga clic en **Registrar**.
 
     ![Registro de la puerta de enlace](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
@@ -125,7 +125,7 @@ Puede crear y configurar varias puertas de enlace en Estudio (clásico) para cad
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Paso 2: Uso de la puerta de enlace para leer datos de un origen de datos local
 Después de configurar la puerta de enlace, puede agregar un módulo **Importar datos** a un experimento que introduce los datos de la base de datos de SQL Server.
 
-1. En Machine Learning Studio (clásico), seleccione la pestaña **EXPERIMENTOS**, haga clic en la pestaña **+ NUEVO** de la esquina inferior izquierda y seleccione **Blank Experiment** (Experimento en blanco). También puede seleccionar uno de los varios experimentos de ejemplo disponibles.
+1. En Machine Learning Studio (clásico), seleccione la pestaña **EXPERIMENTOS** , haga clic en la pestaña **+ NUEVO** de la esquina inferior izquierda y seleccione **Blank Experiment** (Experimento en blanco). También puede seleccionar uno de los varios experimentos de ejemplo disponibles.
 2. Busque y arrastre el módulo **Importar datos** al lienzo del experimento.
 3. Haga clic en **Save as** (Guardar como) bajo el lienzo. Escriba "Tutorial de SQL Server local en Azure Machine Learning Studio (clásico)" como nombre del experimento, seleccione el área de trabajo y haga clic en la marca de verificación de **Aceptar**.
 
@@ -146,4 +146,4 @@ Después de configurar la puerta de enlace, puede agregar un módulo **Importar 
 
 Una vez finalizado el experimento, puede visualizar los datos importados desde la base de datos si hace clic en el puerto de salida del módulo **Importar datos** y selecciona **Visualizar**.
 
-Una vez que haya terminado de desarrollar el experimento, puede implementar el modelo y ponerlo en operación. Mediante el servicio de ejecución por lotes, se leerán los datos de la base de datos de SQL Server configurada en el módulo **Importar datos** y se usarán para la puntuación. Aunque puede usar el servicio de solicitud-respuesta para puntuar datos locales, Microsoft recomienda usar el [complemento de Excel](excel-add-in-for-web-services.md) en su lugar. Actualmente, no se admite la escritura en una base de datos de SQL Server mediante **Exportar datos**, ni en experimentos ni en servicios web publicados.
+Una vez que haya terminado de desarrollar el experimento, puede implementar el modelo y ponerlo en operación. Mediante el servicio de ejecución por lotes, se leerán los datos de la base de datos de SQL Server configurada en el módulo **Importar datos** y se usarán para la puntuación. Aunque puede usar el servicio de solicitud-respuesta para puntuar datos locales, Microsoft recomienda usar el [complemento de Excel](excel-add-in-for-web-services.md) en su lugar. Actualmente, no se admite la escritura en una base de datos de SQL Server mediante **Exportar datos** , ni en experimentos ni en servicios web publicados.

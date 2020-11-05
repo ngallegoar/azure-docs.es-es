@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789c6c36def21bfe1c2acc8797c1847455a5c86c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708975"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324400"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Crear un grupo compartido de máquinas virtuales de Data Science Virtual Machine
 
@@ -27,7 +27,7 @@ Puede utilizar muchos métodos y tecnologías para crear un grupo de DSVM. Este 
 
 Un grupo de máquinas virtuales interactivas que comparte todo el equipo de AI o ciencia de datos permite a los usuarios iniciar sesión en una instancia disponible de DSVM en lugar de tener una instancia específica para cada conjunto de usuarios. Esta configuración permite una mejor disponibilidad y un uso de recursos más efectivo.
 
-Para crear un grupo de máquinas virtuales interactivo, usará [conjuntos de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). Los conjuntos de escalado se pueden usar para crear y administrar un grupo de máquinas virtuales idénticas, con equilibrio de carga y escalado automático.
+Para crear un grupo de máquinas virtuales interactivo, usará [conjuntos de escalado de máquinas virtuales de Azure](../../virtual-machine-scale-sets/index.yml). Los conjuntos de escalado se pueden usar para crear y administrar un grupo de máquinas virtuales idénticas, con equilibrio de carga y escalado automático.
 
 El usuario inicia sesión en la dirección IP o DNS del grupo principal. El conjunto de escalado enruta automáticamente la sesión a una de sus máquinas virtuales DSVM. Dado que los usuarios quieren un entorno coherente y familiar con independencia de la máquina virtual donde inicien sesión, todas las instancias de la máquina virtual del conjunto de escalado montan una unidad de red compartida, como un recurso compartido de Azure Files o del Sistema de archivos de red (NFS). El área de trabajo compartida del usuario se suele conservar en el almacén de archivos compartidos montado en todas las instancias.
 
@@ -53,7 +53,7 @@ La plantilla anterior habilita el puerto SSH y JupyterHub del conjunto de escala
 
 El [script que monta el recurso compartido de Azure Files](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) también está disponible en el repositorio Azure DataScienceVM en Github. El script monta el recurso compartido de Azure Files en el punto de montaje especificado en el archivo de parámetros. El script también crea vínculos simbólicos a la unidad montada en el directorio principal del usuario inicial. Se establece un vínculo simbólico de un directorio de bloc de notas específico del usuario en el recurso compartido de archivos de Azure al directorio `$HOME/notebooks/remote` para que los usuarios pueden acceder a sus blocs de notas de Jupyter, así como ejecutarlos y guardarlos. La misma convención puede usarse al crear usuarios adicionales en la máquina virtual para dirigir el área de trabajo de Jupyter de cada usuario al recurso compartido de Azure Files.
 
-Virtual Machine Scale Sets es compatible con el escalado automático. Puede establecer reglas sobre cuándo crear instancias adicionales y cuándo reducir verticalmente las instancias. Por ejemplo, puede reducir verticalmente las instancias a cero para ahorrar en costos de uso de hardware de nube si nunca se utilizan máquinas virtuales. Las páginas de documentación de Virtual Machine Scale Sets proporcionan pasos detallados para realizar el [escalado automático](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
+Virtual Machine Scale Sets es compatible con el escalado automático. Puede establecer reglas sobre cuándo crear instancias adicionales y cuándo reducir verticalmente las instancias. Por ejemplo, puede reducir verticalmente las instancias a cero para ahorrar en costos de uso de hardware de nube si nunca se utilizan máquinas virtuales. Las páginas de documentación de Virtual Machine Scale Sets proporcionan pasos detallados para realizar el [escalado automático](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791331"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325007"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Uso de reglas y puntos de conexión de servicio de red virtual para servidores de Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -83,7 +83,7 @@ Para Azure SQL Database, la característica de regla de red virtual tiene las si
 
 - En el firewall, los intervalos de direcciones IP se aplican a los siguientes elementos de red, pero no las reglas de red virtual:
   - [Red privada virtual (VPN) de sitio a sitio (S2S)][vpn-gateway-indexmd-608y]
-  - Entorno local a través de [ExpressRoute][expressroute-indexmd-744v]
+  - Entorno local a través de [ExpressRoute](../../expressroute/index.yml)
 
 ### <a name="considerations-when-using-service-endpoints"></a>Consideraciones al usar los puntos de conexión de servicio
 
@@ -136,7 +136,7 @@ PolyBase y la instrucción COPY se suelen usar para cargar datos en Azure Synaps
    > - Si tiene una cuenta de uso general v1 o de Blob Storage, **primero debe actualizar a Uso general v2** mediante esta [guía](../../storage/common/storage-account-upgrade.md).
    > - Para saber los problemas conocidos con Azure Data Lake Storage Gen2, consulte esta [guía](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y seleccione **Agregar asignación de roles** . Asigne el rol de Azure de **Colaborador de datos de blobs de almacenamiento** al servidor que hospede la instancia de Azure Synapse Analytics que haya registrado con Azure Active Directory (AAD) en el paso 1.
+1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y seleccione **Agregar asignación de roles**. Asigne el rol de Azure de **Colaborador de datos de blobs de almacenamiento** al servidor que hospede la instancia de Azure Synapse Analytics que haya registrado con Azure Active Directory (AAD) en el paso 1.
 
    > [!NOTE]
    > Solo los miembros con el privilegio Propietario sobre la cuenta de almacenamiento pueden realizar este paso. Para conocer los distintos roles integrados de Azure, consulte esta [guía](../../role-based-access-control/built-in-roles.md).
@@ -180,7 +180,7 @@ La auditoría de blobs inserta los registros de auditoría en su propia cuenta d
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Agregar una regla de firewall de red virtual al servidor sin tener que activar los puntos de conexión de servicio
 
-Mucho antes de mejorar esta característica, era necesario activar los puntos de conexión de servicio de VNET para poder implementar una regla dinámica de VNET en el firewall. Los puntos de conexión relacionaban una subred de VNET determinada con una base de datos de Azure SQL Database. Pero a partir de enero de 2018, puede evitar este requisito si establece la marca **IgnoreMissingVNetServiceEndpoint** .
+Mucho antes de mejorar esta característica, era necesario activar los puntos de conexión de servicio de VNET para poder implementar una regla dinámica de VNET en el firewall. Los puntos de conexión relacionaban una subred de VNET determinada con una base de datos de Azure SQL Database. Pero a partir de enero de 2018, puede evitar este requisito si establece la marca **IgnoreMissingVNetServiceEndpoint**.
 
 Si solo establece una regla de firewall, no tendrá el servidor protegido. Por lo tanto, también debe activar los puntos de conexión de servicio de VNET para que la seguridad surta efecto. Al activar los puntos de conexión de servicio, la subred de VNET experimenta cierto tiempo de inactividad hasta que estos puntos se activan totalmente. Esto sucede especialmente en redes virtuales de gran tamaño. Puede usar la marca **IgnoreMissingVNetServiceEndpoint** para reducir o eliminar el tiempo de inactividad durante la activación.
 
@@ -210,7 +210,7 @@ El error de conexión 40914 se relaciona con *reglas de red virtual* , tal y com
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Se puede crear una regla de red virtual en el portal
 
-En esta sección se muestra cómo se puede usar [Azure Portal][http-azure-portal-link-ref-477t] para crear una *regla de red virtual* en la base de datos de Azure SQL Database. La regla indica a la base de datos que acepte la comunicación procedente de una subred concreta que se ha etiquetado como *punto de conexión de servicio de red virtual* .
+En esta sección se muestra cómo se puede usar [Azure Portal][http-azure-portal-link-ref-477t] para crear una *regla de red virtual* en la base de datos de Azure SQL Database. La regla indica a la base de datos que acepte la comunicación procedente de una subred concreta que se ha etiquetado como *punto de conexión de servicio de red virtual*.
 
 > [!NOTE]
 > Asegúrese de que los puntos de conexión de servicio están activados para la subred si piensa quiere agregar un punto de conexión de servicio a las reglas de firewall de red virtual de su servidor.
@@ -231,7 +231,7 @@ Internamente, los cmdlets de PowerShell para acciones de red virtual SQL llaman 
 
 Ya debe tener una subred que esté etiquetada con el punto de conexión de servicio de red virtual *nombre de tipo* correspondiente a Azure SQL Database.
 
-- El nombre de tipo de punto de conexión pertinente es **Microsoft.Sql** .
+- El nombre de tipo de punto de conexión pertinente es **Microsoft.Sql**.
 - Si es posible que su subred no se pueda etiquetar con el nombre de tipo, consulte [Comprobar que su subred es un punto de conexión][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
@@ -240,14 +240,14 @@ Ya debe tener una subred que esté etiquetada con el punto de conexión de servi
 
 1. Inicie sesión en [Azure Portal][http-azure-portal-link-ref-477t].
 
-2. Busque y seleccione **Servidores SQL Server** y, después, seleccione el servidor. En **Seguridad** , seleccione **Firewalls y redes virtuales** .
+2. Busque y seleccione **Servidores SQL Server** y, después, seleccione el servidor. En **Seguridad** , seleccione **Firewalls y redes virtuales**.
 
 3. Establezca el control **Permitir el acceso a los servicios de Azure** en Desactivado.
 
     > [!IMPORTANT]
     > Si deja el control establecido en Activado, el servidor aceptará la comunicación desde cualquier subred dentro del límite de Azure, es decir, que se origine en una de las direcciones IP que se reconocen como las que se encuentran dentro de los intervalos definidos para los centros de datos de Azure. Si deja el control establecido en Activado, el número de accesos podría ser excesivo desde un punto de vista de seguridad. La característica de punto de conexión de servicio de red virtual de Microsoft Azure, junto con la característica de regla de red virtual de SQL Database, pueden reducir el área expuesta de seguridad.
 
-4. Haga clic en el control **+ Agregar existente** , en la sección **Redes virtuales** .
+4. Haga clic en el control **+ Agregar existente** , en la sección **Redes virtuales**.
 
     ![Haga clic en Agregar existente (punto de conexión de subred, como una regla SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
@@ -255,7 +255,7 @@ Ya debe tener una subred que esté etiquetada con el punto de conexión de servi
 
     > [!TIP]
     > Debe incluir el **prefijo de dirección** correcto de la subred. Puede encontrar el valor en el portal.
-    > Vaya a **Todos los recursos** &gt; **Todos los tipos** &gt; **Redes virtuales** . El filtro muestra sus redes virtuales. Haga clic en su red virtual y, a continuación, haga clic en **Subredes** . La columna **INTERVALO DE DIRECCIONES** tiene el prefijo de dirección que necesita.
+    > Vaya a **Todos los recursos** &gt; **Todos los tipos** &gt; **Redes virtuales**. El filtro muestra sus redes virtuales. Haga clic en su red virtual y, a continuación, haga clic en **Subredes**. La columna **INTERVALO DE DIRECCIONES** tiene el prefijo de dirección que necesita.
 
     ![Rellene los campos de la nueva regla.][image-portal-firewall-create-update-vnet-rule-20-png]
 

@@ -11,18 +11,18 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c6bcf6f228049c4f5c4d1cd0d22cb69fb9677c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e72784dbdcf08d672a8498609ca3a5bbd11e632d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340423"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319026"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Seguimiento de experimentos de aprendizaje automático de Azure Databricks con MLflow y Azure Machine Learning (versión preliminar)
 
 En este artículo, aprenderá a habilitar el identificador URI de seguimiento y la API de registro de MLflow, conocidos en conjunto como [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), para conectar los experimentos de Azure Databricks (ADB), MLflow y Azure Machine Learning.
 
-[MLflow](https://www.mlflow.org) es una biblioteca de código abierto para administrar el ciclo de vida de los experimentos de aprendizaje automático. MLFlow Tracking es un componente de MLflow que registra las métricas de ejecución de entrenamiento y los artefactos de modelo y realiza un seguimiento de ellos. Más información sobre [Azure Databricks y MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/). 
+[MLflow](https://www.mlflow.org) es una biblioteca de código abierto para administrar el ciclo de vida de los experimentos de aprendizaje automático. MLFlow Tracking es un componente de MLflow que registra las métricas de ejecución de entrenamiento y los artefactos de modelo y realiza un seguimiento de ellos. Más información sobre [Azure Databricks y MLflow](/azure/databricks/applications/mlflow/). 
 
 Consulte [Seguimiento de ejecuciones de experimentos y creación de puntos de conexión con MLflow y Azure Machine Learning (versión preliminar)](how-to-use-mlflow.md) para conocer otras integraciones de la funcionalidad de MLflow y Azure Machine Learning.
 
@@ -35,8 +35,8 @@ Consulte [Seguimiento de ejecuciones de experimentos y creación de puntos de co
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Instale el paquete `azureml-mlflow`. 
-    * Este paquete incorpora automáticamente `azureml-core` del [SDK de Azure Machine Learning de Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), que proporciona la conectividad de MLflow para acceder al área de trabajo.
-* Un [área de trabajo y un clúster de Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+    * Este paquete incorpora automáticamente `azureml-core` del [SDK de Azure Machine Learning de Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), que proporciona la conectividad de MLflow para acceder al área de trabajo.
+* Un [área de trabajo y un clúster de Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 * [Cree un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="track-azure-databricks-runs"></a>Seguimiento de las ejecuciones de Azure Databricks
@@ -156,9 +156,9 @@ Una vez entrenado el modelo, puede registrarlo en el servidor de seguimiento de 
 
 De forma predeterminada, el servidor de seguimiento de back-end es el área de trabajo de Azure Databricks, a menos que decida [establecer MLflow Tracking para que solo realice el seguimiento en el área de trabajo de Azure Machine Learning](#set-mlflow-tracking-to-only-track-in-your-azure-machine-learning-workspace), en cuyo caso, el servidor de seguimiento será dicha área de trabajo.   
 
-* **Si no existe un modelo registrado con el nombre**, el método registra un modelo nuevo, crea la versión 1 y devuelve un objeto MLflow ModelVersion. 
+* **Si no existe un modelo registrado con el nombre** , el método registra un modelo nuevo, crea la versión 1 y devuelve un objeto MLflow ModelVersion. 
 
-* **Si ya existe un modelo registrado con el nombre**, el método crea una versión del modelo y devuelve el objeto de versión. 
+* **Si ya existe un modelo registrado con el nombre** , el método crea una versión del modelo y devuelve el objeto de versión. 
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model", 
@@ -234,4 +234,4 @@ En [MLflow con cuadernos de Azure Machine Learning](https://github.com/Azure/Mac
 
 * [Administra sus modelos](concept-model-management-and-deployment.md).
 * [Realice un seguimiento de las ejecuciones de experimentos y cree puntos de conexión con MLflow y Azure Machine Learning](how-to-use-mlflow.md). 
-* Más información sobre [Azure Databricks y MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/).
+* Más información sobre [Azure Databricks y MLflow](/azure/databricks/applications/mlflow/).

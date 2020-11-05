@@ -3,17 +3,19 @@ title: Cláusula FROM en Azure Cosmos DB
 description: Obtenga información sobre la sintaxis de SQL y un ejemplo de la cláusula FROM para Azure Cosmos DB. En este artículo también se muestran ejemplos para determinar el ámbito de los resultados y para obtener subelementos mediante la cláusula FROM.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3844a628a8e3773821736324bfdaab3f64ff9da5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005871"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336289"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Cláusula FROM en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La cláusula FROM (`FROM <from_specification>`) es opcional, a menos que el origen se filtre o se proyecte posteriormente en la consulta. Una consulta como `SELECT * FROM Families` se enumera en todo el contenedor `Families`. También puede usar el identificador especial ROOT para el contenedor en lugar de usar el nombre del contenedor.
 

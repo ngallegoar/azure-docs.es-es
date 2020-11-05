@@ -3,19 +3,21 @@ title: Procedimiento para usar una identidad administrad asignada por el sistema
 description: Aprenda a configurar una identidad administrada de Azure Active Directory (Azure AD) asignada por el sistema (identidad de servicio administrada) para acceder a claves desde Azure Cosmos DB.
 author: j-patrick
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07bfaabf051a016ca9617245ba8628ef6c7e80c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3bd6a71898576ac23cdd10c1eb52e1ef3a39b95
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566625"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336595"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Uso de identidades administradas asignadas por el sistema para acceder a datos de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo, configurará una solución *sólida e independiente de la rotación de claves* para acceder a las claves de Azure Cosmos DB mediante [identidades administradas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). En el ejemplo de este artículo se usa Azure Functions, pero puede usar cualquier servicio que admita identidades administradas. 
 
@@ -29,13 +31,13 @@ En este paso, asignará una identidad administrada asignada por el sistema a la 
 
 1. En [Azure Portal](https://portal.azure.com/), abra el panel **Función de Azure** y vaya a la aplicación de funciones. 
 
-1. Abra la pestaña **Características de la plataforma** > **Identidad**: 
+1. Abra la pestaña **Características de la plataforma** > **Identidad** : 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Captura de pantalla que muestra las características de Plataforma y las opciones de Identidad de la aplicación de funciones.":::
 
-1. En la pestaña **Identidad**, **active** el **Estado** de identidad del sistema y seleccione **Guardar**. El panel **Identidad** debe tener este aspecto:  
+1. En la pestaña **Identidad** , **active** el **Estado** de identidad del sistema y seleccione **Guardar**. El panel **Identidad** debe tener este aspecto:  
 
-   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Captura de pantalla que muestra las características de Plataforma y las opciones de Identidad de la aplicación de funciones.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Captura de pantalla que muestra el estado de identidad del sistema activado.":::
 
 ## <a name="grant-access-to-your-azure-cosmos-account"></a>Concesión de acceso a la cuenta de Azure Cosmos
 
@@ -56,21 +58,21 @@ En este escenario, la aplicación de funciones leerá la temperatura del acuario
 
 ### <a name="assign-the-role-using-azure-portal"></a>Asignación del rol mediante Azure Portal
 
-1. Inicie sesión en Azure Portal y vaya a la cuenta de Azure Cosmos DB. Abra el panel **Control de acceso (IAM)** y, después, la pestaña **Asignaciones de roles**:
+1. Inicie sesión en Azure Portal y vaya a la cuenta de Azure Cosmos DB. Abra el panel **Control de acceso (IAM)** y, después, la pestaña **Asignaciones de roles** :
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Captura de pantalla que muestra las características de Plataforma y las opciones de Identidad de la aplicación de funciones.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Captura de pantalla que muestra el panel Control de acceso y la pestaña Asignaciones de roles.":::
 
 1. Seleccione **Agregar** > **Agregar asignación de roles**.
 
 1. El panel **Agregar asignación de roles** se abre a la derecha:
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Captura de pantalla que muestra las características de Plataforma y las opciones de Identidad de la aplicación de funciones.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Captura de pantalla que muestra el panel Agregar asignación de roles.":::
 
-   * **Rol**: seleccione **Colaborador de cuenta de DocumentDB**.
-   * **Asignar acceso a**: en la subsección **Select system-assigned managed identity** (Seleccionar identidad administrada asignada por el sistema), seleccione **Aplicación de funciones**.
-   * **Select**: el panel se rellenará con todas las aplicaciones de funciones de la suscripción que tengan una **Identidad del sistema administrada**. En este caso, seleccione la aplicación de funciones **FishTankTemperatureService**: 
+   * **Rol** : seleccione **Colaborador de cuenta de DocumentDB**.
+   * **Asignar acceso a** : en la subsección **Select system-assigned managed identity** (Seleccionar identidad administrada asignada por el sistema), seleccione **Aplicación de funciones**.
+   * **Select** : el panel se rellenará con todas las aplicaciones de funciones de la suscripción que tengan una **Identidad del sistema administrada**. En este caso, seleccione la aplicación de funciones **FishTankTemperatureService** : 
 
-      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Captura de pantalla que muestra las características de Plataforma y las opciones de Identidad de la aplicación de funciones.":::
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Captura de pantalla que muestra el panel Agregar asignación de roles con ejemplos.":::
 
 1. Tras seleccionar la aplicación de funciones, seleccione **Guardar**.
 
