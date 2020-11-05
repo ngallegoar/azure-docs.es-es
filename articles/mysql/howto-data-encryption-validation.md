@@ -1,17 +1,17 @@
 ---
 title: Garantía de validación del cifrado de datos de Azure Database for MySQL
 description: Aprenda a validar el cifrado de datos de Azure Database for MySQL mediante la clave administrada por los clientes.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f47b3d5679b70461eaba64b5815770162cb6fda
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905803"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241079"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Validación del cifrado de datos de Azure Database for MySQL
 
@@ -27,9 +27,9 @@ La información de este artículo le ayuda a validar que el cifrado de datos con
     * Seleccione la clave que se usa para el cifrado del servidor.
     * Establezca el estado de la clave **Habilitado** en **No**.
   
-       Al cabo de un tiempo (**unos 15 minutos**), el **estado** del servidor de Azure Database for MySQL debe ser **Inaccesible**. Cualquier operación de E/S realizada en el servidor generará un error, lo que confirma que el servidor está cifrado realmente con la clave del cliente y que la clave no es válida actualmente.
+       Al cabo de un tiempo ( **unos 15 minutos** ), el **estado** del servidor de Azure Database for MySQL debe ser **Inaccesible**. Cualquier operación de E/S realizada en el servidor generará un error, lo que confirma que el servidor está cifrado realmente con la clave del cliente y que la clave no es válida actualmente.
     
-       Para que el estado del servidor sea **Disponible**, puede volver a validar la clave. 
+       Para que el estado del servidor sea **Disponible** , puede volver a validar la clave. 
     
     * Establezca el estado de la clave en Key Vault en **Sí**.
     * En el campo **Cifrado de datos** del servidor, seleccione **Volver a validar la clave**.

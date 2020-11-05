@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: a6855a1c730c33a835e5033041ee7978be28fc6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4caf43cb972b44dd1482b9e6e467e41cae294708
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278690"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100106"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Aprovisionamiento del rendimiento estándar (manual) de un contenedor de Azure Cosmos - API de SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se explica cómo aprovisionar el rendimiento estándar (manual) en un contenedor de la API de SQL de Azure Cosmos DB. Puede aprovisionar el rendimiento de un único contenedor o [aprovisionar el de una base de datos](how-to-provision-database-throughput.md) y compartirlo entre los contenedores incluidos en ella. Para aprovisionar el rendimiento de un contenedor, use Azure Portal, la CLI de Azure o los SDK de Azure Cosmos DB.
 
@@ -27,13 +28,13 @@ Si va a usar otra API, vea los artículos [MongoDB API](how-to-provision-through
 
 1. [Cree una cuenta de Azure Cosmos](create-sql-api-dotnet.md#create-account) o seleccione una ya existente.
 
-1. Abra el panel **Data Explorer** y seleccione **Nuevo contenedor** . Después, proporcione los detalles siguientes:
+1. Abra el panel **Data Explorer** y seleccione **Nuevo contenedor**. Después, proporcione los detalles siguientes:
 
    * Indique si va a crear una nueva base de datos o a usar una existente.
    * Escriba un identificador de contenedor.
    * Escriba un valor de la clave de partición (por ejemplo, `/ItemID`).
    * Escriba un rendimiento que quiera aprovisionar (por ejemplo, 1000 RU).
-   * Seleccione **Aceptar** .
+   * Seleccione **Aceptar**.
 
     :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Captura de pantalla de Data Explorer, con la Nueva colección resaltada":::
 

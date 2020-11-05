@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 416e6cb29ab2816d53cb837f72233a9fe098f659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072006"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131384"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Errores de datos de Azure Stream Analytics
 
@@ -168,7 +168,7 @@ Para ver el esquema de los registros de recursos, consulte [Solución de problem
 * Causa: La diferencia entre el tiempo de aplicación y la hora de llegada es mayor que la ventana de tolerancia de llegada tardía.
 * Notificación del portal proporcionada: No
 * Nivel de registro de recursos: Información
-* Impacto:  Los eventos de entrada con retardo se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impacto:  Los eventos de entrada con retardo se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Tiempo de aplicación y hora de llegada. 
    * Carga útil real hasta algunos kilobytes.
@@ -184,7 +184,7 @@ Para ver el esquema de los registros de recursos, consulte [Solución de problem
 * Causa: La diferencia entre el tiempo de aplicación y la hora de llegada es mayor que 5 minutos.
 * Notificación del portal proporcionada: No
 * Nivel de registro de recursos: Información
-* Impacto:  Los eventos de entrada tempranos se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impacto:  Los eventos de entrada tempranos se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Tiempo de aplicación y hora de llegada. 
    * Carga útil real hasta algunos kilobytes.
@@ -200,7 +200,7 @@ Para ver el esquema de los registros de recursos, consulte [Solución de problem
 * Causa: Se considera que el evento está desorganizado según la ventana de tolerancia de desorganización definida.
 * Notificación del portal proporcionada: No
 * Nivel de registro de recursos: Información
-* Impacto:  Los eventos de entrada fuera de secuencia se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impacto:  Los eventos de entrada fuera de secuencia se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Carga útil real hasta algunos kilobytes.
 
@@ -221,7 +221,7 @@ Hay varios errores de datos que solo se pueden detectar después de realizar una
 * Causa: La columna necesaria para la salida no existe. Por ejemplo, no existe ninguna columna definida como Azure Table PartitionKey.
 * Notificación del portal proporcionada: Sí
 * Nivel de registro de recursos: Advertencia
-* Impacto:  Todos los errores de conversión de datos de salida que incluyen la falta de una columna obligatoria se controlan según la opción [Directiva de salida de datos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
+* Impacto:  Todos los errores de conversión de datos de salida que incluyen la falta de una columna obligatoria se controlan según la opción [Directiva de salida de datos](./stream-analytics-output-error-policy.md).
 * Detalles del registro
    * Nombre de la columna y el identificador de registro o parte del registro.
 
@@ -236,7 +236,7 @@ Hay varios errores de datos que solo se pueden detectar después de realizar una
 * Causa: El valor de la columna no se ajusta a la salida. Por ejemplo, el nombre de la columna no es una columna de tabla de Azure válida.
 * Notificación del portal proporcionada: Sí
 * Nivel de registro de recursos: Advertencia
-* Impacto:  Todos los errores de conversión de datos de salida que incluyen un nombre de columna no válido se controlan según la opción [Directiva de salida de datos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
+* Impacto:  Todos los errores de conversión de datos de salida que incluyen un nombre de columna no válido se controlan según la opción [Directiva de salida de datos](./stream-analytics-output-error-policy.md).
 * Detalles del registro
    * Nombre de la columna y el identificador del registro o parte del registro.
 
@@ -251,7 +251,7 @@ Hay varios errores de datos que solo se pueden detectar después de realizar una
 * Causa: No se puede convertir una columna a un tipo válido en la salida. Por ejemplo, el valor de la columna no es compatible con las restricciones o el tipo definido en la tabla de SQL.
 * Notificación del portal proporcionada: Sí
 * Nivel de registro de recursos: Advertencia
-* Impacto:  Todos los errores de conversión de datos de salida que incluyen un error de conversión de tipo se controlan según la opción [Directiva de salida de datos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
+* Impacto:  Todos los errores de conversión de datos de salida que incluyen un error de conversión de tipo se controlan según la opción [Directiva de salida de datos](./stream-analytics-output-error-policy.md).
 * Detalles del registro
    * Nombre de la columna.
    * Identificador del registro o parte del registro.
@@ -267,7 +267,7 @@ Hay varios errores de datos que solo se pueden detectar después de realizar una
 * Causa: El valor del mensaje es mayor que el tamaño de salida admitido. Por ejemplo, un registro es mayor que 1 MB para la salida de un centro de eventos.
 * Notificación del portal proporcionada: Sí
 * Nivel de registro de recursos: Advertencia
-* Impacto:  Todos los errores de conversión de datos de salida que incluyen un límite de tamaño de registro superado se controlan según la opción [Directiva de salida de datos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
+* Impacto:  Todos los errores de conversión de datos de salida que incluyen un límite de tamaño de registro superado se controlan según la opción [Directiva de salida de datos](./stream-analytics-output-error-policy.md).
 * Detalles del registro
    * Identificador del registro o parte del registro.
 
@@ -282,7 +282,7 @@ Hay varios errores de datos que solo se pueden detectar después de realizar una
 * Causa: Un registro ya contiene una columna con el mismo nombre que una columna del sistema. Por ejemplo, una salida de CosmosDB con un identificador con nombre de columna cuando la columna del identificador es una columna diferente.
 * Notificación del portal proporcionada: Sí
 * Nivel de registro de recursos: Advertencia
-* Impacto:  Todos los errores de conversión de datos de salida que incluyen una clave duplicada se controlan según la opción [Directiva de salida de datos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
+* Impacto:  Todos los errores de conversión de datos de salida que incluyen una clave duplicada se controlan según la opción [Directiva de salida de datos](./stream-analytics-output-error-policy.md).
 * Detalles del registro
    * Nombre de la columna.
    * Identificador del registro o parte del registro.

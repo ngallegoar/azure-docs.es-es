@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d18cf248aa94e23abfa6e2b9467bb1167a32a6f1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2bbdbc7a0ed71634522bd68dbf0807264a409525
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490533"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101738"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Configuración del acceso a Azure Cosmos DB desde redes virtuales (VNet)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Puede configurar la cuenta de Azure Cosmos para permitir el acceso solo desde una subred específica de la red virtual (VNET). Si habilita el [punto de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) para acceder a Azure Cosmos DB en la subred de una red virtual, el tráfico de esa subred se envía a Azure Cosmos DB con la identidad de la subred y la red virtual. Una vez habilitado el punto de conexión de servicio de Azure Cosmos DB, puede limitar el acceso a la subred agregándola a la cuenta de Azure Cosmos.
 
@@ -39,17 +40,17 @@ En las secciones siguientes se describe cómo configurar un punto de conexión d
 
 1. En la hoja **Todos los recursos** , busque la cuenta de Azure Cosmos DB que desea proteger.
 
-1. Seleccione **Firewalls y redes virtuales** en el menú de configuración y elija Permitir el acceso en **Redes seleccionadas** .
+1. Seleccione **Firewalls y redes virtuales** en el menú de configuración y elija Permitir el acceso en **Redes seleccionadas**.
 
 1. Para conceder acceso a la subred de una red virtual existente, en **Redes virtuales** , seleccione **Add existing Azure virtual network** (Agregar red virtual de Azure existente).
 
-1. Seleccione la **suscripción** en la que quiere agregar una red virtual de Azure. Seleccione las **redes virtuales** y las **subredes** de Azure a las que desea conceder acceso a la cuenta de Azure Cosmos DB. A continuación, seleccione **Habilitar** para habilitar las redes seleccionadas con los puntos de conexión de servicio para "Microsoft.AzureCosmosDB". Cuando haya finalizado, seleccione **Agregar** .
+1. Seleccione la **suscripción** en la que quiere agregar una red virtual de Azure. Seleccione las **redes virtuales** y las **subredes** de Azure a las que desea conceder acceso a la cuenta de Azure Cosmos DB. A continuación, seleccione **Habilitar** para habilitar las redes seleccionadas con los puntos de conexión de servicio para "Microsoft.AzureCosmosDB". Cuando haya finalizado, seleccione **Agregar**.
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Selección de la red virtual y la subred":::
 
 1. Después de que la cuenta de Azure Cosmos DB esté habilitada para obtener acceso desde una red virtual, solo permitirá el tráfico desde esta subred seleccionada. La red virtual y subred que agregó deben aparecer como se muestra en la captura de pantalla siguiente:
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Selección de la red virtual y la subred":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Red virtual y subred configuradas correctamente":::
 
 > [!NOTE]
 > Para habilitar los puntos de conexión de servicio de red virtual, necesitará los siguientes permisos de suscripción:
@@ -63,13 +64,13 @@ Estas son las instrucciones para registrar la suscripción con el proveedor de r
 
 1. En la hoja **Todos los recursos** , busque la cuenta de Azure Cosmos DB que desea proteger.  
 
-1. Seleccione **Firewalls y redes virtuales de Azure** en el menú de configuración y elija Permitir el acceso en **Redes seleccionadas** .  
+1. Seleccione **Firewalls y redes virtuales de Azure** en el menú de configuración y elija Permitir el acceso en **Redes seleccionadas**.  
 
-1. Para conceder acceso a una red virtual de Azure nueva, en **Redes virtuales** , seleccione **Agregar nueva red virtual** .  
+1. Para conceder acceso a una red virtual de Azure nueva, en **Redes virtuales** , seleccione **Agregar nueva red virtual**.  
 
-1. Proporcione los detalles necesarios para crear una red virtual y, a continuación, seleccione **Crear** . La subred se creará con un punto de conexión de servicio para "Microsoft.AzureCosmosDB" habilitado.
+1. Proporcione los detalles necesarios para crear una red virtual y, a continuación, seleccione **Crear**. La subred se creará con un punto de conexión de servicio para "Microsoft.AzureCosmosDB" habilitado.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Selección de la red virtual y la subred":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Selección de la red virtual y la subred para una red virtual nueva":::
 
 Si otros servicios de Azure, como Azure Cognitive Search, usan la cuenta de Azure Cosmos DB, o si se accede a ella desde Stream Analytics o Power BI, permita el acceso al seleccionar **Accept connections from within global Azure datacenters** (Aceptar conexiones desde centros de datos globales de Azure).
 
@@ -81,9 +82,9 @@ Para garantizar el acceso a las métricas de Azure Cosmos DB desde el portal, de
 
 1. Seleccione **Firewalls y redes virtuales** en el menú de configuración.  
 
-1. Para eliminar una regla de subred o red virtual, seleccione **...** junto a la red virtual o subred y luego **Eliminar** .
+1. Para eliminar una regla de subred o red virtual, seleccione **...** junto a la red virtual o subred y luego **Eliminar**.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Selección de la red virtual y la subred":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Eliminación de una red virtual":::
 
 1. Seleccione **Guardar** para aplicar los cambios.
 

@@ -3,12 +3,12 @@ title: Temas de asociados de Auth0 con Azure Event Grid
 description: Envíe eventos desde Auth0 a servicios de Azure con Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 411d8f8eb53e4bc3fa8c8dda04bdcf12c74db768
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 340403111c094540ba7e66faf71ebf3cfe24fe7d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103354"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101296"
 ---
 # <a name="auth0-partner-topics"></a>Temas de asociados de Auth0
 ![Logotipo de Auth0](./media/auth0-overview/auth0-logo.png)
@@ -43,7 +43,7 @@ La combinación de procedimientos de supervisión de seguridad y respuesta a inc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a los temas de asociados](partner-topics-overview.md)
+- [Introducción a los temas de asociados](partner-events-overview.md)
 - [Procedimientos para usar el tema de asociado de Auth0](auth0-how-to.md)
 - [Documentación de Auth0](https://auth0.com/docs/azure-tutorial)
 - [Convertirse en asociado de Event Grid](partner-onboarding-overview.md)

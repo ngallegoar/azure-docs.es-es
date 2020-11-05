@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
-ms.openlocfilehash: 07cbb28b98fcbac1932424c1c72f388813ec2400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e5bcdaeaf1ec99387a708199f4353736b6bc60f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86037569"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129854"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Escalabilidad automática de trabajos de Stream Analytics mediante Azure Automation
 
@@ -22,8 +22,8 @@ Puede optimizar el costo de los trabajos de Stream Analytics mediante la configu
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar a configurar la escalabilidad automática para el trabajo, realice los pasos siguientes.
-1. El trabajo debe estar optimizado para tener una [topología paralela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). Si puede cambiar la escala del trabajo mientras se está ejecutando, el trabajo tiene una topología paralela y se puede configurar para la escalabilidad automática.
-2. [Cree una cuenta de Azure Automation](https://docs.microsoft.com/azure/automation/automation-create-standalone-account) con la opción "RunAsAccount" habilitada. Esta cuenta debe tener permisos para administrar los trabajos de Stream Analytics.
+1. El trabajo debe estar optimizado para tener una [topología paralela](./stream-analytics-parallelization.md). Si puede cambiar la escala del trabajo mientras se está ejecutando, el trabajo tiene una topología paralela y se puede configurar para la escalabilidad automática.
+2. [Cree una cuenta de Azure Automation](../automation/automation-create-standalone-account.md) con la opción "RunAsAccount" habilitada. Esta cuenta debe tener permisos para administrar los trabajos de Stream Analytics.
 
 ## <a name="set-up-azure-automation"></a>Configuración de Azure Automation
 ### <a name="configure-variables"></a>Configuración de variables
@@ -73,7 +73,7 @@ Puede haber casos en los que no se pueda predecir la carga de entrada. En tales 
 5. Rellene los campos obligatorios. Elija **Runbook de Automation** al seleccionar el **Tipo de acción**. Seleccione el runbook que quiere desencadenar cuando se active la alerta. A continuación, cree el grupo de acciones.
 
    ![Creación de un grupo de acciones](./media/autoscale/create-actiongroup.png)
-6. Cree una [**Nueva regla de alertas**](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#set-up-alerts-in-the-azure-portal) en el trabajo. Especifique una condición basada en una métrica de su elección. [*Eventos de entrada*, *SU % Utilización* o *Backlogged Input Events*](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics) (Eventos de entrada pendientes) son métricas recomendadas que se usarán para definir la lógica de escalabilidad automática. También se recomienda usar un valor de *Aggregation granularity* (Granularidad de agregación) y *Frequency of evaluation* (Frecuencia de evaluación) de 1 minuto al desencadenar operaciones de escala vertical. De este modo, se garantiza que el trabajo tiene amplios recursos para hacer frente a picos grandes en el volumen de entrada.
+6. Cree una [**Nueva regla de alertas**](./stream-analytics-set-up-alerts.md#set-up-alerts-in-the-azure-portal) en el trabajo. Especifique una condición basada en una métrica de su elección. [*Eventos de entrada* , *SU % Utilización* o *Backlogged Input Events*](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics) (Eventos de entrada pendientes) son métricas recomendadas que se usarán para definir la lógica de escalabilidad automática. También se recomienda usar un valor de *Aggregation granularity* (Granularidad de agregación) y *Frequency of evaluation* (Frecuencia de evaluación) de 1 minuto al desencadenar operaciones de escala vertical. De este modo, se garantiza que el trabajo tiene amplios recursos para hacer frente a picos grandes en el volumen de entrada.
 7. Seleccione el grupo de acciones creado en el último paso y cree la alerta.
 8. Repita los pasos del 2 al 4 para las operaciones de escalado adicionales que quiera desencadenar en función de la condición de las métricas de trabajo.
 

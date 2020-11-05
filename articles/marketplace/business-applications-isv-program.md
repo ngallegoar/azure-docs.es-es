@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 7/14/2020
-ms.openlocfilehash: 4c4455d62f32acb1cfebde8f5e4d97de5bda17c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 345b9447daa9fcb5f97ec5d8d00bcf5ea76d958c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463351"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126743"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guía de incorporación del programa Connect para fabricantes de software independientes (ISV) de Microsoft Business Applications
 
@@ -25,7 +25,7 @@ Con el fin de inscribirse y aprovechar todas las ventajas técnicas, de marketin
 
 ## <a name="set-up-your-microsoft-partner-center-account"></a>Configurar su cuenta del Centro de partners de Microsoft
 
-Para configurar y administrar su cuenta para el programa Connect para ISV, complete los pasos del artículo: [Creación de una cuenta de Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). En este artículo se proporcionan todos los pasos necesarios para crear una cuenta, así como información sobre cómo agregar nuevos publicadores al programa de Marketplace comercial.
+Para configurar y administrar su cuenta para el programa Connect para ISV, complete los pasos del artículo: [Creación de una cuenta de Marketplace comercial en el Centro de partners](./partner-center-portal/create-account.md). En este artículo se proporcionan todos los pasos necesarios para crear una cuenta, así como información sobre cómo agregar nuevos publicadores al programa de Marketplace comercial.
 
 > [!NOTE]
 > Este paso requiere un rol de *Propietario* o *Administrador* en el Centro de partners.
@@ -38,10 +38,10 @@ La participación en este programa requiere que revise y acepte el [anexo de Bus
 > Este paso requiere un rol de *Propietario* o *Administrador* en el Centro de partners para poder firmar contratos legales con su cuenta.
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
-1. Seleccione **Configuración** (icono de engranaje) y, a continuación, **Configuración de desarrollador** .
-1. Seleccione **Acuerdos** .
+1. Seleccione **Configuración** (icono de engranaje) y, a continuación, **Configuración de desarrollador**.
+1. Seleccione **Acuerdos**.
 1. Seleccione el vínculo de la versión y consulte el contrato.
-1. Para aceptar el acuerdo, seleccione **Aceptar el Contrato** .
+1. Para aceptar el acuerdo, seleccione **Aceptar el Contrato**.
 
 ## <a name="set-up-your-billing-information"></a>Configurar su información de facturación
 
@@ -51,11 +51,11 @@ Configure la información de facturación para el programa Connect para ISV de B
 > Este paso requiere un rol de *Propietario* o *Administrador* en el Centro de partners para poder actualizar la información de facturación con su cuenta.
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
-1. Seleccione **Configuración** (icono de engranaje) y, a continuación, **Configuración de desarrollador** .
-1. En **Cuenta** , seleccione **Perfil de facturación** .
+1. Seleccione **Configuración** (icono de engranaje) y, a continuación, **Configuración de desarrollador**.
+1. En **Cuenta** , seleccione **Perfil de facturación**.
 1. Revise la información del contacto principal y la de facturación completadas desde la entidad legal y realice las actualizaciones necesarias.
 1. Si procede, proporcione la configuración del código o número de identificación fiscal.
-1. Para guardar los cambios, haga clic en **Guardar** .
+1. Para guardar los cambios, haga clic en **Guardar**.
 
 > [!NOTE]
 > Puede actualizar el perfil de facturación en cualquier momento. Sin embargo, el *Nombre de la empresa* y el *País* de la dirección de facturación no se pueden cambiar más adelante.
@@ -66,11 +66,11 @@ Una vez completados los pasos anteriores, las aplicaciones existentes de Dynamic
 
 El último paso para la inscripción en el programa Connect para ISV de Business Applications consiste en publicar y certificar las aplicaciones existentes. Para publicar y certificar su aplicación en AppSource, siga el vínculo correspondiente:
 
-- [Para Dynamics 365 Customer Engagement](https://docs.microsoft.com/powerapps/developer/common-data-service/publish-app-appsource) 
-- [Para Dynamics 365 for Finance and Operations](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+- [Para Dynamics 365 Customer Engagement](/powerapps/developer/common-data-service/publish-app-appsource) 
+- [Para Dynamics 365 for Finance and Operations](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
-> Debe volver a certificar las aplicaciones cada seis meses para mantenerlas en AppSource. Para más información, vea las [Directivas de certificación de Marketplace comercial](https://docs.microsoft.com/legal/marketplace/certification-policies).
+> Debe volver a certificar las aplicaciones cada seis meses para mantenerlas en AppSource. Para más información, vea las [Directivas de certificación de Marketplace comercial](/legal/marketplace/certification-policies).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

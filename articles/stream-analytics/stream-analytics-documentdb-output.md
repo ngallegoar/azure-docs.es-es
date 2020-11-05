@@ -8,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5b28d75e6526f27fd0076244ec32848dbf20e91e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e8b8c89b94b2fbb191eee0ea57e957802a54204e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424778"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126981"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Salida de Azure Stream Analytics a Azure Cosmos DB  
 Azure Stream Analytics puede tener como destino [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para la salida JSON, lo que permite el archivo de datos y las consultas de latencia baja en datos JSON no estructurados. En este documento tratan algunas prácticas recomendadas para implementar esta configuración. Se recomienda establecer el trabajo en el nivel de compatibilidad 1.2 al usar Azure Cosmos DB como salida.
 
-Si no está familiarizado con Azure Cosmos DB, consulte la [documentación de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) para comenzar. 
+Si no está familiarizado con Azure Cosmos DB, consulte la [documentación de Azure Cosmos DB](../cosmos-db/index.yml) para comenzar. 
 
 > [!Note]
 > En este momento, Stream Analytics solo admite la conexión a Azure Cosmos DB mediante la *API de SQL*.
@@ -27,7 +27,7 @@ Si no está familiarizado con Azure Cosmos DB, consulte la [documentación de Az
 ## <a name="basics-of-azure-cosmos-db-as-an-output-target"></a>Aspectos básicos de Azure Cosmos DB como destino de salida
 La salida de Azure Cosmos DB de Stream Analytics permite escribir los resultados del procesamiento de secuencias como una salida JSON en los contenedores de Azure Cosmos DB. 
 
-Stream Analytics no crea contenedores en la base de datos. En su lugar, le exige que los cree por adelantado. A continuación, puede controlar los costos de facturación de los contenedores de Azure Cosmos DB. También puede ajustar el rendimiento, la coherencia y la capacidad de los contenedores directamente mediante las [API de Azure Cosmos DB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Stream Analytics no crea contenedores en la base de datos. En su lugar, le exige que los cree por adelantado. A continuación, puede controlar los costos de facturación de los contenedores de Azure Cosmos DB. También puede ajustar el rendimiento, la coherencia y la capacidad de los contenedores directamente mediante las [API de Azure Cosmos DB](/rest/api/cosmos-db/).
 
 > [!Note]
 > Debe agregar 0.0.0.0 a la lista de direcciones IP que permite el firewall de Azure Cosmos DB.
@@ -61,7 +61,7 @@ Si el documento JSON entrante tiene un campo de id. existente, ese campo se util
 Si quiere guardar *todos* los documentos, incluidos los que tienen un identificador duplicado, cambie el nombre del campo Id. en la consulta (mediante la palabra clave **AS** ). Permita que Azure Cosmos DB cree el campo Id. o reemplace el identificador por el valor de otra columna (mediante la palabra clave **AS** o la opción **Id. de documento** ).
 
 ## <a name="data-partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
-Azure Cosmos DB escala automáticamente las particiones según la carga de trabajo. Por lo tanto, se recomiendan [contenedores](../cosmos-db/partition-data.md) ilimitados como método para crear particiones de los datos. Al escribir en contenedores ilimitados, Stream Analytics usa tantos escritores paralelos como el esquema de partición de entrada o el paso de consulta anterior.
+Azure Cosmos DB escala automáticamente las particiones según la carga de trabajo. Por lo tanto, se recomiendan [contenedores](../cosmos-db/partitioning-overview.md) ilimitados como método para crear particiones de los datos. Al escribir en contenedores ilimitados, Stream Analytics usa tantos escritores paralelos como el esquema de partición de entrada o el paso de consulta anterior.
 
 > [!NOTE]
 > Azure Stream Analytics solo admite contenedores ilimitados con claves de partición en el nivel superior. Por ejemplo, se admite `/region`. No se admiten las claves de partición anidadas (por ejemplo, `/region/name`). 
@@ -72,7 +72,7 @@ Según la clave de partición que elija, es posible que reciba esta _advertencia
 
 Es importante que elija una propiedad de clave de partición que tenga varios valores distintos y le permita distribuir la carga de trabajo uniformemente entre estos valores. Como artefacto natural de creación de particiones, las solicitudes relacionadas con la misma clave de partición están limitadas por el rendimiento máximo de una sola partición. 
 
-El tamaño de almacenamiento para los documentos que pertenecen al mismo valor de clave de partición está limitado a 20 GB (el [límite del tamaño de la partición física](../cosmos-db/partition-data.md) es de 50 GB). Una [clave de partición idónea](../cosmos-db/partitioning-overview.md#choose-partitionkey) es la que aparece con frecuencia como filtro en sus consultas y que tiene suficiente cardinalidad para asegurar que la solución es escalable.
+El tamaño de almacenamiento para los documentos que pertenecen al mismo valor de clave de partición está limitado a 20 GB (el [límite del tamaño de la partición física](../cosmos-db/partitioning-overview.md) es de 50 GB). Una [clave de partición idónea](../cosmos-db/partitioning-overview.md#choose-partitionkey) es la que aparece con frecuencia como filtro en sus consultas y que tiene suficiente cardinalidad para asegurar que la solución es escalable.
 
 No es necesario que las claves de partición empleadas para las consultas de Stream Analytics y Cosmos DB sean idénticas. Las topologías totalmente paralelas recomiendan el uso de la *clave de partición de entrada* (`PartitionId`) como la clave de partición de la consulta de Stream Analytics, pero es posible que no sea la opción recomendada para la clave de partición de un contenedor de Cosmos DB.
 
@@ -89,7 +89,7 @@ El mecanismo de escritura mejorado está disponible en un nuevo nivel de compati
 
 En los niveles anteriores a 1.2, Stream Analytics utiliza un procedimiento almacenado personalizado para realizar el upsert masivo de los documentos por clave de partición en Azure Cosmos DB. Allí, un lote se escribe como una transacción. Incluso si se produce un error transitorio (limitación) en un único registro, se debe reintentar todo el lote. Esto provoca que incluso los escenarios con una limitación razonable sean relativamente lentos.
 
-El siguiente ejemplo muestra dos trabajos de Stream Analytics idénticos que leen la misma entrada de Azure Event Hubs. Ambos trabajos de Stream Analytics están [completamente particionados](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) con una consulta de paso y escriben en contenedores de Azure Cosmos DB idénticos. Las métricas de la izquierda corresponden al trabajo configurado con el nivel de compatibilidad 1.0. Las métricas de la derecha corresponden al configurado con el nivel 1.2. La clave de partición de un contenedor de Azure Cosmos DB es un GUID único que procede del evento de entrada.
+El siguiente ejemplo muestra dos trabajos de Stream Analytics idénticos que leen la misma entrada de Azure Event Hubs. Ambos trabajos de Stream Analytics están [completamente particionados](./stream-analytics-parallelization.md#embarrassingly-parallel-jobs) con una consulta de paso y escriben en contenedores de Azure Cosmos DB idénticos. Las métricas de la izquierda corresponden al trabajo configurado con el nivel de compatibilidad 1.0. Las métricas de la derecha corresponden al configurado con el nivel 1.2. La clave de partición de un contenedor de Azure Cosmos DB es un GUID único que procede del evento de entrada.
 
 ![Comparación de las métricas de Stream Analytics](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-3.png)
 
@@ -117,9 +117,9 @@ El uso de Azure Cosmos DB como una salida en Stream Analytics genera la solicitu
 |Nombre del contenedor | Nombre del contenedor, como `MyContainer`. Debe existir un contenedor denominado `MyContainer`.  |
 |Id. de documento     | Opcional. El nombre de la columna en los eventos de salida que se usa como clave única en la que deben basarse las operaciones de inserción o actualización. Si se deja vacío, se insertarán todos los eventos, sin ninguna opción de actualización.|
 
-Una vez configurada la salida de Azure Cosmos DB, puede usarla en la consulta como destino de una [instrucción INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Cuando se usa una salida de Azure Cosmos DB como tal, [se debe establecer una clave de partición explícitamente](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). 
+Una vez configurada la salida de Azure Cosmos DB, puede usarla en la consulta como destino de una [instrucción INTO](/stream-analytics-query/into-azure-stream-analytics). Cuando se usa una salida de Azure Cosmos DB como tal, [se debe establecer una clave de partición explícitamente](./stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). 
 
-El registro de salida debe contener una columna con distinción de mayúsculas y minúsculas con un nombre asignado después de la clave de partición en Azure Cosmos DB. Para lograr una mayor paralelización, la instrucción puede requerir que una [cláusula PARTITION BY](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) que utilice la misma columna.
+El registro de salida debe contener una columna con distinción de mayúsculas y minúsculas con un nombre asignado después de la clave de partición en Azure Cosmos DB. Para lograr una mayor paralelización, la instrucción puede requerir que una [cláusula PARTITION BY](./stream-analytics-parallelization.md#embarrassingly-parallel-jobs) que utilice la misma columna.
 
 Esta es una consulta de ejemplo:
 

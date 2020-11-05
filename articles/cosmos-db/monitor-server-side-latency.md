@@ -6,14 +6,15 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 9c266e42804a12403e446bf024e93fe879497570
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: ec6a9db63504958640137fcd0fcfc904eb01afa5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803269"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074736"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Cómo supervisar la latencia del servidor para las operaciones en una cuenta o en un contenedor de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Monitor para Azure Cosmos DB proporciona una vista de métricas para supervisar la cuenta y crear paneles. Las métricas de Azure Cosmos DB se recopilan de forma predeterminada, esta característica no requiere que habilite ni configure nada explícitamente. La métrica de latencia del servidor se usa para ver la latencia del servidor de una operación. Azure Cosmos DB proporciona un acuerdo de nivel de servicio de menos de 10 ms para operaciones de lectura y escritura puntuales con conectividad directa. En el caso de las operaciones de lectura y escritura puntuales, los acuerdos de nivel de servicio se calculan como se detalla en el documento [SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
@@ -33,23 +34,23 @@ Puede realizar búsquedas en el registro de diagnóstico para ver el tamaño de 
 
    :::image type="content" source="./media/monitor-server-side-latency/monitor-metrics-blade.png" alt-text="Panel Métricas en Azure Monitor":::
 
-1. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción**, y el **grupo de recursos** requeridos. En **Tipo de recurso**, seleccione **Cuentas de Azure Cosmos DB**, elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
+1. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción** , y el **grupo de recursos** requeridos. En **Tipo de recurso** , seleccione **Cuentas de Azure Cosmos DB** , elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
    
-   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Panel Métricas en Azure Monitor":::
+   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Elección de la cuenta de Azure Cosmos DB para ver las métricas":::
 
 1. A continuación, seleccione la métrica **Latencia del servidor** en la lista de métricas disponibles. Para conocer los detalles de todas las métricas disponibles en esta lista, consulte el artículo [Métricas por categoría](monitor-cosmos-db-reference.md). En este ejemplo, vamos a seleccionar **Latencia de servidor** y **Prom** como valor de agregación. Además de estos detalles, también puede seleccionar los valores de **Intervalo de tiempo** y **Granularidad de tiempo** de las métricas. Como máximo, puede ver las métricas de los últimos 30 días.  Después de aplicar el filtro, se muestra un gráfico basado en dicho filtro. Puede ver la latencia del servidor por minuto para el período seleccionado.  
 
-   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Panel Métricas en Azure Monitor":::
+   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Elección de la métrica de latencia del servidor en Azure Portal":::
 
 ## <a name="filters-for-server-side-latency"></a>Filtros para la latencia del servidor
 
-También puede filtrar las métricas y hacer que el gráfico se muestre por una propiedad específica, como **CollectionName**, **ConnectionMode**, **DatabaseName**, **OperationType**, **Region** o **PublicAPIType**. 
+También puede filtrar las métricas y hacer que el gráfico se muestre por una propiedad específica, como **CollectionName** , **ConnectionMode** , **DatabaseName** , **OperationType** , **Region** o **PublicAPIType**. 
 
 Para filtrar las métricas, seleccione **Agregar filtro** y elija la propiedad necesaria, como por ejemplo **PublicAPIType** y seleccione el valor **sql**. Agregue otro filtro para **OperationType**. A continuación, el gráfico muestra la latencia del servidor para distintas operaciones durante el período seleccionado. Las operaciones ejecutadas a través del procedimiento almacenado no se registran, por lo que no están disponibles en la métrica OperationType.
 
 La métrica **Latencia del servidor** de cada operación se muestra en la siguiente imagen:
 
-:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Panel Métricas en Azure Monitor":::
+:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Filtros para las métricas de latencia del servidor":::
 
 Para agrupar las métricas, también puede usar la opción **Apply splitting** (Aplicar división).  
 

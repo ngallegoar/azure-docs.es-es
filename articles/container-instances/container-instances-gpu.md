@@ -3,12 +3,12 @@ title: Implementación de una instancia de contenedor habilitada para GPU
 description: Aprenda a implementar instancias de contenedor de Azure para ejecutar aplicaciones de contenedor de uso intensivo de proceso utilizando recursos de GPU.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d645d1fce24d1324e485d74e20bcf492d4444a7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387103"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127015"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementación de instancias de contenedor que usan recursos de GPU
 
@@ -27,9 +27,9 @@ En la versión preliminar, las siguientes limitaciones se aplican al uso de recu
 
 Con el tiempo se admitirán más regiones.
 
-**Tipos de sistemas operativos compatibles**: solo Linux.
+**Tipos de sistemas operativos compatibles** : solo Linux.
 
-**Limitaciones adicionales**: no se pueden usar los recursos de GPU al implementar un grupo de contenedores en una [red virtual](container-instances-vnet.md).
+**Limitaciones adicionales** : no se pueden usar los recursos de GPU al implementar un grupo de contenedores en una [red virtual](container-instances-vnet.md).
 
 ## <a name="about-gpu-resources"></a>Acerca de los recursos de GPU
 
@@ -37,8 +37,8 @@ Con el tiempo se admitirán más regiones.
 
 Para usar GPU en una instancia de contenedor, especifique un *recurso de GPU* con la siguiente información:
 
-* **Recuento**: el número de GPU: **1**, **2** o **4**.
-* **SKU**: SKU de GPU: **K80**, **P100** o **V100**. Cada SKU asigna la GPU NVIDIA Tesla a una de las siguientes familias de máquinas virtuales habilitadas para GPU de Azure:
+* **Recuento** : el número de GPU: **1** , **2** o **4**.
+* **SKU** : SKU de GPU: **K80** , **P100** o **V100**. Cada SKU asigna la GPU NVIDIA Tesla a una de las siguientes familias de máquinas virtuales habilitadas para GPU de Azure:
 
   | SKU | Familia de VM |
   | --- | --- |
@@ -55,13 +55,13 @@ Al implementar recursos de GPU, establezca los recursos de CPU y memoria apropia
 
 ### <a name="things-to-know"></a>Cosas que debe saber
 
-* **Tiempo de implementación**: la creación de un grupo de contenedores que contienen recursos de GPU tarda hasta **8-10 minutos**. Esto se debe al tiempo adicional para aprovisionar y configurar una VM de GPU en Azure. 
+* **Tiempo de implementación** : la creación de un grupo de contenedores que contienen recursos de GPU tarda hasta **8-10 minutos**. Esto se debe al tiempo adicional para aprovisionar y configurar una VM de GPU en Azure. 
 
-* **Precios**: igual que en los grupos de contenedores sin recursos de GPU, Azure factura por los recursos consumidos a lo largo de la *duración* de un grupo de contenedores con recursos GPU. La duración se calcula desde el momento en que se extrae la imagen del primer contenedor hasta que el grupo de contenedores finaliza. No incluye el tiempo de implementación del grupo de contenedores.
+* **Precios** : igual que en los grupos de contenedores sin recursos de GPU, Azure factura por los recursos consumidos a lo largo de la *duración* de un grupo de contenedores con recursos GPU. La duración se calcula desde el momento en que se extrae la imagen del primer contenedor hasta que el grupo de contenedores finaliza. No incluye el tiempo de implementación del grupo de contenedores.
 
   Consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/container-instances/).
 
-* **Controladores de CUDA**: las instancias de contenedor con los recursos de GPU se aprovisionan previamente con controladores de NVIDIA CUDA y tiempos de ejecución de contenedor, por lo que puede usar imágenes de contenedor desarrolladas para cargas de trabajo de CUDA.
+* **Controladores de CUDA** : las instancias de contenedor con los recursos de GPU se aprovisionan previamente con controladores de NVIDIA CUDA y tiempos de ejecución de contenedor, por lo que puede usar imágenes de contenedor desarrolladas para cargas de trabajo de CUDA.
 
   Solo se admite CUDA 9.0 en esta fase. Por ejemplo, puede usar las imágenes base siguientes para su archivo de Docker:
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
@@ -133,7 +133,7 @@ Otra manera de implementar un grupo de contenedores con recursos de GPU es usar 
     },
     "variables": {
       "containername": "gpucontainer",
-      "containerimage": "microsoft/samples-tf-mnist-demo:gpu"
+      "containerimage": "mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu"
     },
     "resources": [
       {

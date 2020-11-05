@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 122de64e33778966d563cc8e94b46515e54769f7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8bedecd4a050c445af0ab0ae0250197369b9173b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331216"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131418"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -88,14 +88,14 @@ En el caso de los tipos de oferta admitidos en el Centro de partners, todas las 
 | Contenedor | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de contenedor de Azure](partner-center-portal/create-azure-container-offer.md). |
 | Servicio de consultoría | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de servicios de consultoría](partner-center-portal/create-consulting-service-offer.md). |
 | Servicio administrado | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de servicio administrado](partner-center-portal/create-new-managed-service-offer.md). |
-| Servicio administrado de Dynamics NAV | No | Microsoft ha evolucionado el Servicio administrado de Dynamics NAV a [Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), por lo que sus ofertas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en AppSource, puede adaptarlas a ofertas de Dynamics 365 Business Central y enviarlas al [Centro de partners](https://partner.microsoft.com/). Más información en [Creación de una oferta de Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
-| Cortana Intelligence | No | Microsoft ha evolucionado la hoja de ruta del producto para Cortana Intelligence, por lo que sus ofertas activas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en el marketplace comercial, adáptelas a ofertas de software como servicio (SaaS) y envíelas al [Centro de partners](https://partner.microsoft.com/). Más información en [Lista de comprobación de creación de ofertas de SaaS](partner-center-portal/offer-creation-checklist.md). |
+| Servicio administrado de Dynamics NAV | No | Microsoft ha evolucionado el Servicio administrado de Dynamics NAV a [Dynamics 365 Business Central](/dynamics365/business-central/), por lo que sus ofertas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en AppSource, puede adaptarlas a ofertas de Dynamics 365 Business Central y enviarlas al [Centro de partners](https://partner.microsoft.com/). Más información en [Creación de una oferta de Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
+| Cortana Intelligence | No | Microsoft ha evolucionado la hoja de ruta del producto para Cortana Intelligence, por lo que sus ofertas activas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en el marketplace comercial, adáptelas a ofertas de software como servicio (SaaS) y envíelas al [Centro de partners](https://partner.microsoft.com/). Más información en [Lista de comprobación de creación de ofertas de SaaS](./plan-saas-offer.md). |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>No encuentro mis ofertas de Cloud Partner Portal en el Centro de partners
 
 Lo que ve en el Centro de partners depende de los programas en los que esté inscrito, las cuentas a las que pertenezca y los roles de usuario y permisos que se le hayan asignado. Hay muchos programas del Centro de partners disponibles y puede inscribirse en varios de ellos. También puede acceder a varias cuentas con las mismas credenciales de usuario.
 
-Las ofertas que haya creado en Cloud Partner Portal están disponibles en el Centro de partners, en el programa **Marketplace comercial** y en la cuenta utilizada para crearlas. Para asegurarse de que está viendo el programa y la cuenta correctos, siga los pasos que se indican a continuación. Para obtener otras sugerencias de solución de problemas, vea [Administración de la cuenta del Centro de partners](https://docs.microsoft.com/partner-center/partner-center-account-setup).
+Las ofertas que haya creado en Cloud Partner Portal están disponibles en el Centro de partners, en el programa **Marketplace comercial** y en la cuenta utilizada para crearlas. Para asegurarse de que está viendo el programa y la cuenta correctos, siga los pasos que se indican a continuación. Para obtener otras sugerencias de solución de problemas, vea [Administración de la cuenta del Centro de partners](/partner-center/partner-center-account-setup).
 
 ### <a name="access-the-right-program-in-partner-center"></a>Acceso al programa correcto en el Centro de partners
 
@@ -117,7 +117,7 @@ Si forma parte de varias cuentas, en el Centro de partners verá un botón de se
 
 ## <a name="how-do-i-create-new-offers"></a>¿Cómo se crean las ofertas?
 
-Para crear ofertas, acceda al programa Marketplace comercial en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). En la página Información general, seleccione **+ Nueva oferta** .
+Para crear ofertas, acceda al programa Marketplace comercial en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). En la página Información general, seleccione **+ Nueva oferta**.
 
 [![Captura de pantalla que muestra el menú Información general del Centro de partners](media/cpp-pc-faq/new-offer.png "Se muestra el menú Información general del Centro de partners")](media/cpp-pc-faq/new-offer.png#lightbox)
 
@@ -127,7 +127,7 @@ Si no puede iniciar sesión en la cuenta, aquí puede abrir una [incidencia de s
 
 ## <a name="where-are-instructions-for-using-partner-center"></a>¿Dónde están las instrucciones para usa el Centro de partners?
 
-Vaya a la [documentación de marketplace comercial](index.yml) y, después, expanda la seción sobre el **portal de Marketplace comercial en el Centro de partners** . Para ver artículos de ayuda sobre la creación de ofertas en el Centro de partners, expanda **Creación de una nueva oferta** .
+Vaya a la [documentación de marketplace comercial](index.yml) y, después, expanda la seción sobre el **portal de Marketplace comercial en el Centro de partners**. Para ver artículos de ayuda sobre la creación de ofertas en el Centro de partners, expanda **Creación de una nueva oferta**.
 
 ## <a name="what-are-the-publishing-and-offer-management-differences"></a>¿Cuáles son las diferencias de administración de publicación y ofertas?
 
@@ -135,7 +135,7 @@ Estas son algunas de las diferencias entre Cloud Partner Portal y el Centro de p
 
 ### <a name="modular-publishing-capabilities"></a>Funcionalidades de publicación modular
 
-El Centro de partners proporciona una opción de publicación modular que le permite seleccionar los cambios que desea publicar en lugar de publicar siempre todas las actualizaciones a la vez. Por ejemplo, en la pantalla siguiente se muestra que los únicos cambios seleccionados para publicar son los cambios en las **propiedades** y la **descripción de la oferta** . Los cambios que realice en la página de vista previa no se publicarán.
+El Centro de partners proporciona una opción de publicación modular que le permite seleccionar los cambios que desea publicar en lugar de publicar siempre todas las actualizaciones a la vez. Por ejemplo, en la pantalla siguiente se muestra que los únicos cambios seleccionados para publicar son los cambios en las **propiedades** y la **descripción de la oferta**. Los cambios que realice en la página de vista previa no se publicarán.
 
 [![Captura de pantalla que muestra la página de revisión y publicación del Centro de partners](media/cpp-pc-faq/review-page.png "Se muestra la página Revisar y publicar del Centro de partners")](media/cpp-pc-faq/review-page.png#lightbox)
 
@@ -143,7 +143,7 @@ Las actualizaciones que no publique se guardan como borradores. Siga usando la v
 
 ### <a name="enhanced-preview-options"></a>Opciones de vista previa mejoradas
 
-El Centro de partners incluye una [característica de comparación](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers) con opciones de filtrado mejoradas. Esto le ofrece la posibilidad de comparar con la versión preliminar y las versiones publicadas de la oferta.
+El Centro de partners incluye una [característica de comparación](partner-center-portal/update-existing-offer.md#compare-changes-to-your-offer) con opciones de filtrado mejoradas. Esto le ofrece la posibilidad de comparar con la versión preliminar y las versiones publicadas de la oferta.
 
 [![Captura de pantalla que muestra la característica de comparación del Centro de partners](media/cpp-pc-faq/compare.png "Se muestra la característica Comparar del Centro de partners")](media/cpp-pc-faq/compare.png#lightbox)
 

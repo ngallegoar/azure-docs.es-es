@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: e0214cb9515a5974f1de9a27760dc037f7593f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892293"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129463"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copia o copia de seguridad de trabajos de Azure Stream Analytics
 
-Puede copiar o hacer una copia de seguridad de los trabajos de Azure Stream Analytics implementados mediante Visual Studio Code o Visual Studio. Al copiar un trabajo en otra región, no se copia la hora de la última salida. Por lo tanto, no se puede usar la opción [**Última detención**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) al iniciar el trabajo copiado.
+Puede copiar o hacer una copia de seguridad de los trabajos de Azure Stream Analytics implementados mediante Visual Studio Code o Visual Studio. Al copiar un trabajo en otra región, no se copia la hora de la última salida. Por lo tanto, no se puede usar la opción [**Última detención**](./start-job.md#start-options) al iniciar el trabajo copiado.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
@@ -45,7 +45,7 @@ Puede copiar o hacer una copia de seguridad de los trabajos de Azure Stream Anal
 
 ## <a name="visual-studio"></a>Visual Studio
 
-1. Siga las [instrucciones para exportar a un proyecto un trabajo de Azure Stream Analytics implementado](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project).
+1. Siga las [instrucciones para exportar a un proyecto un trabajo de Azure Stream Analytics implementado](./stream-analytics-vs-tools.md#export-jobs-to-a-project).
 
 2. Abra el archivo \*.asaql en el editor de consultas, seleccione **Enviar a Azure** en el editor de scripts y siga las instrucciones para publicar el trabajo en otra región o copia de seguridad con un nombre nuevo.
 

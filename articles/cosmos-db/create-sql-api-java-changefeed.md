@@ -9,14 +9,15 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 86fcdde72145cf25ee289ef3869976fecd628707
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 765fd3afc7fe688d3e6b0e3394e7dc8c39af69b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362051"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096859"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Cómo crear una aplicación de Java que utiliza SQL API de Azure Cosmos DB y el procesador de fuente de cambios
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Esta guía de procedimientos le orienta por una sencilla aplicación de Java que utiliza SQL API de Azure Cosmos DB para insertar documentos en un contenedor de Azure Cosmos DB, mientras mantiene una vista materializada del contenedor mediante la fuente de cambios y el procesador de fuente de cambios. La aplicación de Java se comunica con SQL API de Azure Cosmos DB mediante el SDK de Azure Cosmos DB para Java v4.
 
@@ -74,11 +75,11 @@ mvn clean package
 
     A continuación, vuelva al Explorador de datos de Azure Portal en el explorador. Verá que se ha agregado la base de datos **GroceryStoreDatabase** con tres contenedores vacíos: 
 
-    * **InventoryContainer**: el registro de inventario de nuestra tienda de comestibles de ejemplo, con particiones en el elemento ```id```, que es un UUID.
-    * **InventoryContainer-pktype**: una vista materializada del registro de inventario, optimizada para consultas sobre el elemento ```type```.
-    * **InventoryContainer-leases**: un contenedor de concesiones siempre es necesario para la fuente de cambios; las concesiones realizan un seguimiento del progreso de la aplicación en la lectura de la fuente de cambios.
+    * **InventoryContainer** : el registro de inventario de nuestra tienda de comestibles de ejemplo, con particiones en el elemento ```id```, que es un UUID.
+    * **InventoryContainer-pktype** : una vista materializada del registro de inventario, optimizada para consultas sobre el elemento ```type```.
+    * **InventoryContainer-leases** : un contenedor de concesiones siempre es necesario para la fuente de cambios; las concesiones realizan un seguimiento del progreso de la aplicación en la lectura de la fuente de cambios.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Cuenta de Azure Cosmos DB":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Contenedores vacíos":::
 
 1. En el terminal, ahora debería aparecer un mensaje:
 
@@ -94,9 +95,9 @@ mvn clean package
 
     ```"SampleHost_1"``` es el nombre del trabajo del procesador de fuente de cambios. ```changeFeedProcessorInstance.start()``` es lo que realmente inicia el procesador de fuente de cambios.
 
-    Vuelva al Explorador de datos de Azure Portal en el explorador. En el contenedor **InventoryContainer-leases**, haga clic en **Elementos** para ver su contenido. Verá que el procesador de fuente de cambios ha rellenado el contenedor de concesiones; es decir, el procesador ha asignado una concesión al trabajo ```SampleHost_1``` en algunas particiones del contenedor **InventoryContainer**.
+    Vuelva al Explorador de datos de Azure Portal en el explorador. En el contenedor **InventoryContainer-leases** , haga clic en **Elementos** para ver su contenido. Verá que el procesador de fuente de cambios ha rellenado el contenedor de concesiones; es decir, el procesador ha asignado una concesión al trabajo ```SampleHost_1``` en algunas particiones del contenedor **InventoryContainer**.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Cuenta de Azure Cosmos DB":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Concesiones":::
 
 1. Presione Entrar de nuevo en el terminal. Esto desencadenará 10 documentos que se insertarán en **InventoryContainer**. Cada inserción de documento aparece en la fuente de cambios como JSON; el siguiente código de devolución de llamada controla estos eventos mediante el reflejo los documentos JSON en una vista materializada:
 
@@ -106,15 +107,15 @@ mvn clean package
 
 1. Deje que el código se ejecute entre 5 y 10 segundos. A continuación, vuelva al Explorador de datos de Azure Portal y vaya a **InventoryContainer > Elementos**. Debería ver que los elementos se insertan en el contenedor de inventario. Anote la clave de partición (```id```).
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Cuenta de Azure Cosmos DB":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Contenedor de la fuente":::
 
 1. Ahora, en el Explorador de datos, vaya a **InventoryContainer-pktype > Elementos**. Esta es la vista materializada: los elementos de este contenedor reflejan el contenedor **InventoryContainer** porque se han insertado mediante programación con la fuente de cambios. Anote la clave de partición (```type```). Esta vista materializada está optimizada para el filtrado de consultas por ```type```, lo que sería ineficaz en **InventoryContainer** porque está particionado en ```id```.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Cuenta de Azure Cosmos DB":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Captura de pantalla que muestra la página Explorador de datos de una cuenta de Azure Cosmos DB con la opción Elementos seleccionada.":::
 
 1. Vamos a eliminar un documento de **InventoryContainer** y de **InventoryContainer-pktype** usando simplemente una única llamada de ```upsertItem()```. En primer lugar, observe el Explorador de datos de Azure Portal. Eliminaremos el documento para el que ```/type == "plums"``` aparece en un recuadro rojo a continuación
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Cuenta de Azure Cosmos DB":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Captura de pantalla que muestra la página Explorador de datos de una cuenta de Azure Cosmos DB con un id. de elemento específico seleccionado.":::
 
     Presione Entrar de nuevo para llamar a la función ```deleteDocument()``` en el código de ejemplo. Esta función, que se muestra a continuación, actualiza o inserta una nueva versión del documento con ```/ttl == 5```, que establece el período de vida (TTL) del documento en 5 segundos. 
     

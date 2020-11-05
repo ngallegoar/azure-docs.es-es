@@ -1,17 +1,17 @@
 ---
 title: Inicio o detención de un servidor de Azure Database for MySQL mediante Azure Portal
 description: En este artículo se explica cómo iniciar y detener operaciones en Azure Database for MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 95be6aa576d9d059ce419443f8c7e32af5ff397a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 047a24133dfdf68e2176b20cf31a871d11f0d4f9
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826200"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241164"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Inicio o detención de una instancia de Azure Database for MySQL
 
@@ -35,7 +35,7 @@ Para completar esta guía, necesita:
 
 1.  En [Azure Portal](https://portal.azure.com/), elija el servidor único que quiera detener.
 
-2.  En la página **Información general**, haga clic en el botón **Detener** de la barra de herramientas.
+2.  En la página **Información general** , haga clic en el botón **Detener** de la barra de herramientas.
 
     :::image type="content" source="./media/howto-stop-start-server/mysql-stop-server.png" alt-text="Detener el servidor de Azure Database for MySQL":::
 
@@ -46,9 +46,9 @@ Para completar esta guía, necesita:
 
 1.  En [Azure Portal](https://portal.azure.com/), elija el servidor único que quiere iniciar.
 
-2.  En la página **Información general**, haga clic en el botón **Iniciar** de la barra de herramientas.
+2.  En la página **Información general** , haga clic en el botón **Iniciar** de la barra de herramientas.
 
-    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Detener el servidor de Azure Database for MySQL":::
+    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Iniciar el servidor de Azure Database for MySQL":::
 
     > [!NOTE]
     > Una vez iniciado el servidor, todas las operaciones de administración estarán disponibles para el servidor único.
@@ -59,7 +59,7 @@ Para completar esta guía, necesita:
 
 1.  En [Azure Portal](https://portal.azure.com/), elija el servidor único que quiera detener.
 
-2.  En la página **Información general**, haga clic en el botón **Detener** de la barra de herramientas.
+2.  En la página **Información general** , haga clic en el botón **Detener** de la barra de herramientas.
 
     ```azurecli-interactive
     az mysql server stop --name <server-name> -g <resource-group-name>
@@ -71,7 +71,7 @@ Para completar esta guía, necesita:
 
 1.  En [Azure Portal](https://portal.azure.com/), elija el servidor único que quiere iniciar.
 
-2.  En la página **Información general**, haga clic en el botón **Iniciar** de la barra de herramientas.
+2.  En la página **Información general** , haga clic en el botón **Iniciar** de la barra de herramientas.
 
     ```azurecli-interactive
     az mysql server start --name <server-name> -g <resource-group-name>

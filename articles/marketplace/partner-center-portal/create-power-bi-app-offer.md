@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710658"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131503"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creación de una oferta de aplicación de Power BI
 
@@ -32,14 +32,14 @@ Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de par
 > Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en las tiendas en línea cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
 
 > [!IMPORTANT]
-> Si no se muestra ni está habilitada la opción **Aplicación de servicio Power BI Service App**, la cuenta no tiene permiso para crear este tipo de oferta. Compruebe que cumple todos los [requisitos](create-power-bi-app-overview.md) para este tipo de oferta, incluido el registro para una cuenta de desarrollador.
+> Si no se muestra ni está habilitada la opción **Aplicación de servicio Power BI Service App** , la cuenta no tiene permiso para crear este tipo de oferta. Compruebe que cumple todos los [requisitos](create-power-bi-app-overview.md) para este tipo de oferta, incluido el registro para una cuenta de desarrollador.
 
 ## <a name="new-offer"></a>Nueva oferta
 
 Escriba un **Identificador de oferta**. Se trata de un identificador único para cada oferta de su cuenta.
 
 - Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
-- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1**, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1** , la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
 
 Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
@@ -55,10 +55,10 @@ Esta página se muestra una representación visual de los pasos necesarios para 
 
 Se incluyen vínculos para realizar operaciones en esta oferta en función de la selección que realice. Por ejemplo:
 
-- Si la oferta es un borrador: [Eliminación de una oferta borrador](update-existing-offer.md#delete-a-draft-offer)
+- Si la oferta es un borrador: Eliminación de una oferta borrador
 - Si la oferta está activa: [Detención de la venta de una oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Si la oferta está en versión preliminar: [publicar](publishing-status.md#publisher-approval)
-- Si no ha completado la publicación: [Cancelación de la publicación](update-existing-offer.md#cancel-publishing)
+- Si la oferta está en versión preliminar: [publicar](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación.](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuración de la oferta
 
@@ -192,7 +192,7 @@ Debe proporcionar el nombre, el correo electrónico y el número de teléfono de
 - Contacto de ingeniería (se requiere): Para preguntas técnicas y problemas de certificación.
 - Contacto del programa CSP (opcional): Para preguntas de revendedores relacionadas con el programa CSP.
 
-En la sección **Contacto de soporte técnico**, proporcione la dirección web del **sitio web de soporte técnico** en el que los asociados pueden encontrar soporte técnico para la oferta.
+En la sección **Contacto de soporte técnico** , proporcione la dirección web del **sitio web de soporte técnico** en el que los asociados pueden encontrar soporte técnico para la oferta.
 
 ### <a name="supporting-documents"></a>Documentos relacionados
 
@@ -234,7 +234,7 @@ Para más información sobre la creación de listas de ofertas, vea [Procedimien
 
 ## <a name="technical-configuration"></a>Configuración técnica
 
-Promocione su aplicación del servicio Power BI en producción y proporcione el vínculo del instalador de la aplicación de Power BI que permite a los clientes instalar la aplicación. Para más información, consulte [Publicación de aplicaciones con paneles e informes en Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).
+Promocione su aplicación del servicio Power BI en producción y proporcione el vínculo del instalador de la aplicación de Power BI que permite a los clientes instalar la aplicación. Para más información, consulte [Publicación de aplicaciones con paneles e informes en Power BI](/power-bi/service-create-distribute-apps).
 
 ## <a name="supplemental-content"></a>Contenido complementario
 
@@ -253,9 +253,9 @@ En la esquina superior derecha del portal, seleccione **Revisar y publicar**.
 En la página de revisión, puede:
 
 - Ver el estado de finalización de cada sección de la oferta. No puede realizar la publicación hasta que todas las secciones de la oferta estén marcadas como completas.
-  - **No iniciada**: significa que la sección no se ha iniciado y se debe completar.
-  - **Incompleta**: significa que la sección tiene errores que deben corregirse o que requiere más información. Vea las secciones anteriores de este documento para obtener instrucciones.
-  - **Completa**: la sección tiene todos los datos necesarios y no contiene errores. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+  - **No iniciada** : significa que la sección no se ha iniciado y se debe completar.
+  - **Incompleta** : significa que la sección tiene errores que deben corregirse o que requiere más información. Vea las secciones anteriores de este documento para obtener instrucciones.
+  - **Completa** : la sección tiene todos los datos necesarios y no contiene errores. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 - Proporcione instrucciones de prueba al equipo de certificación para asegurarse de que la aplicación se ha probado correctamente. Además, proporcione cualquier nota complementaria que resulte útil para entender su oferta.
 
 Para enviar la oferta para su publicación, seleccione **Publicar**.

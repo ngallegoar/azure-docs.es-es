@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 51f226443e6f21b6c333cacf6c88f0d00208f5f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75bf1e3d81b466098884a354826019aa94a94174
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484279"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126114"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instrucciones de descripción de Azure Marketplace
 
@@ -40,7 +40,7 @@ En este artículo se explican los requisitos y las directrices para anunciar nue
 
 | No. | Elemento de descripción | Requisito base | Requisito óptimo | 
 |:--- |:--- |:--- |:--- |
-|  | Estado de la lista (opción de lista) | El vínculo debe llevar a una experiencia de *prueba* dirigida por el usuario. | También están disponibles otras opciones de lista (por ejemplo, *Comprar ahora*). | 
+|  | Estado de la lista (opción de lista) | El vínculo debe llevar a una experiencia de *prueba* dirigida por el usuario. | También están disponibles otras opciones de lista (por ejemplo, *Comprar ahora* ). | 
 |||
 
 ## <a name="saas-application-requirements"></a>Requisitos de la aplicación SaaS
@@ -48,7 +48,7 @@ En este artículo se explican los requisitos y las directrices para anunciar nue
 | No. | Elemento de descripción | Requisito base | Requisito óptimo | 
 |:--- |:--- |:--- |:--- |
 | 1 | Título de la oferta |<ul><li>Debe constar únicamente de letras en minúscula, guiones o caracteres de subrayado. El título no se puede modificar una vez publicado.</li><li>Describe la oferta de la solución.</li><li>Se corresponde con la promoción en línea de la solución en el sitio web del asociado. | Contiene palabras clave de búsqueda. |
-| 2 | Información técnica: Configuración |<ul><li>En aplicaciones de software como servicio (SaaS), elija si solo quiere publicar su aplicación o permitir que los clientes la compren mediante Azure.</li><li>Seleccione el texto que quiera en el botón de adquisición de la oferta: *Gratis*, *Prueba gratuita* o *Ponerse en contacto conmigo*.</li><li>En la ventana emergente, seleccione solo un producto aplicables si la aplicación usa la tecnología: Cortana Intelligence, plantillas de solución de Power BI, Power Apps. |  |
+| 2 | Información técnica: Configuración |<ul><li>En aplicaciones de software como servicio (SaaS), elija si solo quiere publicar su aplicación o permitir que los clientes la compren mediante Azure.</li><li>Seleccione el texto que quiera en el botón de adquisición de la oferta: *Gratis* , *Prueba gratuita* o *Ponerse en contacto conmigo*.</li><li>En la ventana emergente, seleccione solo un producto aplicables si la aplicación usa la tecnología: Cortana Intelligence, plantillas de solución de Power BI, Power Apps. |  |
 | 3 | Versión de prueba | Seleccione *Sí* o *No*. | El cliente puede entender fácilmente cuáles son los próximos pasos: <ol><li>Evaluar la versión de prueba.</li><li>Comprar ahora.</li><li>Ponerse en contacto por correo electrónico o teléfono para acordar una prueba de concepto, evaluación o sesión informativa.</li></ol> |
 | 4 | Detalles de la tienda en línea: Resumen de la oferta | Aparece en la página de búsqueda de la aplicación y tiene un máximo de 100 caracteres. | |
 | 5 | Detalles de la tienda en línea: Industrias | Sectores (2 como máximo): seleccione los correspondientes sectores a los que se adapta mejor la aplicación. | |
@@ -91,7 +91,7 @@ En este artículo se explican los requisitos y las directrices para anunciar nue
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre los distintos tipos de ofertas de Azure Marketplace:
-  * [Aplicaciones SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)
-  * [Contenedores](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
-  * [Servicios de consultoría](https://docs.microsoft.com/azure/marketplace/consulting-services)
-* [Determinación de la opción de publicación](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+  * [Aplicaciones SaaS](./plan-saas-offer.md)
+  * [Contenedores](./marketplace-containers.md)
+  * [Servicios de consultoría](./consulting-services.md)
+* [Determinación de la opción de publicación](./determine-your-listing-type.md)

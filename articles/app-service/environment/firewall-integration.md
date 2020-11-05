@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/24/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 8acd0a6992c26266f20aaf46dd225a9fff9d6974
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e5f9cd361d4f130d725f608614159d67fb7b56d1
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172023"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026367"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueo de una instancia de App Service Environment
 
@@ -61,11 +61,11 @@ A continuación, se indican los pasos para bloquear la salida de la instancia ex
    
    ![Adición de regla de aplicación][1]
    
-1. En la interfaz de usuario de Azure Firewall, vaya a Reglas > Recopilación de reglas de aplicación y seleccione Agregar una colección de reglas de aplicación. Proporcione un nombre y una prioridad y establezca Permitir. En la sección de reglas, en Direcciones IP, especifique un nombre, seleccione un protocolo **Cualquiera**, especifique * para las direcciones de origen y destino, y defina los puertos en 123. Esta regla permite que el sistema realice la sincronización del reloj mediante NTP. Cree otra regla de la misma manera para el puerto 12000 para ayudar a evaluar los problemas del sistema. 
+1. En la interfaz de usuario de Azure Firewall, vaya a Reglas > Recopilación de reglas de aplicación y seleccione Agregar una colección de reglas de aplicación. Proporcione un nombre y una prioridad y establezca Permitir. En la sección de reglas, en Direcciones IP, especifique un nombre, seleccione un protocolo **Cualquiera** , especifique * para las direcciones de origen y destino, y defina los puertos en 123. Esta regla permite que el sistema realice la sincronización del reloj mediante NTP. Cree otra regla de la misma manera para el puerto 12000 para ayudar a evaluar los problemas del sistema. 
 
    ![Adición de regla de red NTP][3]
    
-1. En la interfaz de usuario de Azure Firewall, vaya a Reglas > Recopilación de reglas de aplicación y seleccione Agregar una colección de reglas de aplicación. Proporcione un nombre y una prioridad y establezca Permitir. En la sección Reglas de Etiquetas de servicio, proporcione un nombre, seleccione un protocolo **Cualquiera**, establezca * como las direcciones de origen, seleccione una etiqueta de servicio de AzureMonitor y configure los puertos como 80 y 443. Esta regla permite que el sistema suministre a Azure Monitor información de estado y métricas.
+1. En la interfaz de usuario de Azure Firewall, vaya a Reglas > Recopilación de reglas de aplicación y seleccione Agregar una colección de reglas de aplicación. Proporcione un nombre y una prioridad y establezca Permitir. En la sección Reglas de Etiquetas de servicio, proporcione un nombre, seleccione un protocolo **Cualquiera** , establezca * como las direcciones de origen, seleccione una etiqueta de servicio de AzureMonitor y configure los puertos como 80 y 443. Esta regla permite que el sistema suministre a Azure Monitor información de estado y métricas.
 
    ![Adición de una regla de red de etiqueta de servicio NTP][6]
    
@@ -255,6 +255,7 @@ Con una instancia de Azure Firewall, se configurará automáticamente todo lo si
 |security.ubuntu.com:80 |
 |oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
+| \*.data.mcr.microsoft.com:443 |
 |mcr.microsoft.com:443 |
 |\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |

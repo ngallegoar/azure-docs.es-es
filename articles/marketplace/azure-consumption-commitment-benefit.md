@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperfq2
-ms.openlocfilehash: f7c08172f3a60487ae6e15260a0cd5fc5e4a712c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740747"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129548"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Ventaja del compromiso de consumo de Azure
 
@@ -45,10 +45,10 @@ Si no está seguro de si su organización tiene un contrato de aptitud, inicie s
  
 3. Las ofertas tendrán el distintivo **Azure benefit eligible** (Válido para las ventajas de Azure) para indicar que los costos de software/IP asociados con la oferta contribuirán al compromiso de consumo de Azure de su organización sobre los servicios de Azure facturados a su organización.
 
-    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Notificación Azure benefit eligible (Válido para las ventajas de Azure)&quot;:::.
+    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Notificación Azure benefit eligible (Válido para las ventajas de Azure)":::.
 
    > [!NOTE]
-   > Los servicios de Microsoft Azure que se facturan a su organización a través de una implementación de Azure Marketplace contribuirán de forma inherente al compromiso de su organización. La ventaja agregada a las ofertas de &quot;Azure benefit eligible" es que los costos de software/IP en que incurra el proveedor también contribuirán al 100 % de la factura de Azure Marketplace.
+   > Los servicios de Microsoft Azure que se facturan a su organización a través de una implementación de Azure Marketplace contribuirán de forma inherente al compromiso de su organización. La ventaja agregada a las ofertas de "Azure benefit eligible" es que los costos de software/IP en que incurra el proveedor también contribuirán al 100 % de la factura de Azure Marketplace.
 
 4. Compre o cree la oferta directamente a través de Azure Marketplace. Microsoft aportará el 100 % de las compras de ofertas aptas para el compromiso de consumo de Azure de su organización en cada período de factura, incluidos los costos de software/IP.
 
@@ -57,4 +57,4 @@ Si no está seguro de si su organización tiene un contrato de aptitud, inicie s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre la forma en que una organización puede aprovechar Azure Marketplace, complete el módulo de Microsoft Learn: [Simplificación de la adquisición y la gobernanza en la nube con Azure Marketplace](https://aka.ms/cm.marketplaceprocurement).
+- Para más información sobre la forma en que una organización puede aprovechar Azure Marketplace, complete el módulo de Microsoft Learn: [Simplificación de la adquisición y la gobernanza en la nube con Azure Marketplace](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/).

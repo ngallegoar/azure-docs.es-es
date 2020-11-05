@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbedb20d9e5c75fd49c08950bbf5d459130206ce
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495155"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125876"
 ---
 # <a name="http-application-routing"></a>Enrutamiento de aplicación HTTP
 
@@ -26,8 +26,8 @@ Cuando se habilita el complemento, crea una zona DNS en su suscripción. Para m�
 
 El complemento implementa dos componentes, un [controlador de entrada de Kubernetes][ingress] y un controlador [DNS externo][external-dns].
 
-- **Controlador de entrada**: el controlador de entrada está expuesto a Internet a través de un servicio de Kubernetes de tipo equilibrador de carga. El controlador de entrada supervisa e implementa [recursos de entrada de Kubernetes][ingress-resource], lo que crea rutas a los puntos de conexión de aplicación.
-- **Controlador DNS externo**: inspecciona los recursos de entrada de Kubernetes y crea registros A de DNS en la zona DNS específica del clúster.
+- **Controlador de entrada** : el controlador de entrada está expuesto a Internet a través de un servicio de Kubernetes de tipo equilibrador de carga. El controlador de entrada supervisa e implementa [recursos de entrada de Kubernetes][ingress-resource], lo que crea rutas a los puntos de conexión de aplicación.
+- **Controlador DNS externo** : inspecciona los recursos de entrada de Kubernetes y crea registros A de DNS en la zona DNS específica del clúster.
 
 ## <a name="deploy-http-routing-cli"></a>Implementación del enrutamiento HTTP: CLI
 
@@ -78,7 +78,7 @@ Si usa Azure Cloud Shell, `kubectl` ya está instalado. También lo puede instal
 az aks install-cli
 ```
 
-Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials][]. En el ejemplo siguiente se obtienen las credenciales del clúster de AKS llamado *MyAKSCluster* en el grupo de recursos *MyResourceGroup*:
+Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials][]. En el ejemplo siguiente se obtienen las credenciales del clúster de AKS llamado *MyAKSCluster* en el grupo de recursos *MyResourceGroup* :
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
@@ -112,7 +112,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:

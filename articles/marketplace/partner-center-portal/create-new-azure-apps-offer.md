@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9ae770a21e93a0c8ab3827e91f15e163d7a875b4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428218"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130211"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
@@ -34,25 +34,25 @@ Para diseñar, compilar y probar ofertas de aplicaciones de Azure, se necesitan 
 
 Revise los siguientes recursos mientras prepara su oferta de aplicación de Azure para Marketplace comercial.
 
-* [Nociones sobre las plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Nociones sobre las plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 
 * Guías de inicio rápido:
 
     * [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/)
     * [Guía de procedimientos recomendados para plantillas de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
-    * [Publicación de definición de aplicación](../../managed-applications/publish-service-catalog-app.md)
-    * [Implementación de la aplicación de catálogo de servicios](../../managed-applications/deploy-service-catalog-quickstart.md)
+    * [Publicación de definición de aplicación](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Implementación de la aplicación de catálogo de servicios](../../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
 
 * Tutoriales:
 
-    * [Creación de archivos de definición](../../managed-applications/publish-service-catalog-app.md)
-    * [Publicación de la aplicación Marketplace](../../managed-applications/publish-marketplace-app.md)
+    * [Creación de archivos de definición](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Publicación de la aplicación Marketplace]()
 
 * Ejemplos:
 
-    * [CLI de Azure](../../managed-applications/cli-samples.md)
-    * [Azure PowerShell](../../managed-applications/powershell-samples.md)
-    * [Soluciones para aplicaciones administradas](../../managed-applications/sample-projects.md)
+    * [CLI de Azure](../../azure-resource-manager/managed-applications/cli-samples.md)
+    * [Azure PowerShell](../../azure-resource-manager/managed-applications/powershell-samples.md)
+    * [Soluciones para aplicaciones administradas](../../azure-resource-manager/managed-applications/sample-projects.md)
 
 En el vídeo [Creación de plantillas de soluciones y aplicaciones administradas para Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) se proporciona una completa introducción al tipo de oferta de aplicación de Azure:
 
@@ -67,8 +67,8 @@ En el vídeo [Creación de plantillas de soluciones y aplicaciones administradas
 
 Elija uno o ambos de los entornos de scripting siguientes para ayudar a administrar la aplicación de Azure:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
-* [CLI de Azure](https://docs.microsoft.com/cli/azure)
+* [Azure PowerShell](/powershell/azure/)
+* [CLI de Azure](/cli/azure)
 
 Se recomienda agregar las herramientas siguientes al entorno de desarrollo:
 
@@ -84,17 +84,17 @@ Puede revisar las herramientas disponibles en la página [Herramientas de desarr
 
 Hay dos tipos de planes de la aplicación de Azure: plantillas de solución y aplicaciones administradas.
 
-* La **plantilla de solución** es uno de los principales mecanismos para publicar una solución en Marketplace. Use este tipo de plan cuando la solución requiera automatizar además la implementación y la configuración para más de una sola máquina virtual. Con una plantilla de solución, puede automatizar el suministro de más de un recurso, incluyendo las máquinas virtuales, las redes y los recursos de almacenamiento para proporcionar soluciones IaaS complejas.  Para más información sobre la creación de plantillas de solución, consulte [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+* La **plantilla de solución** es uno de los principales mecanismos para publicar una solución en Marketplace. Use este tipo de plan cuando la solución requiera automatizar además la implementación y la configuración para más de una sola máquina virtual. Con una plantilla de solución, puede automatizar el suministro de más de un recurso, incluyendo las máquinas virtuales, las redes y los recursos de almacenamiento para proporcionar soluciones IaaS complejas.  Para más información sobre la creación de plantillas de solución, consulte [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
-* La **aplicación administrada** es similar a las plantillas de solución, aunque hay una diferencia importante. En una aplicación administrada, los recursos se implementan en un grupo de recursos que está administrado por el editor de la aplicación. El grupo de recursos está presente en la suscripción del consumidor, pero una identidad en el inquilino del editor tiene acceso al grupo de recursos. Como editor, puede especificar el costo del soporte técnico continuado de la solución. Use aplicaciones administradas para crear y entregar con facilidad a los clientes aplicaciones llave en mano totalmente administradas.  Para más información sobre las ventajas y los tipos de aplicaciones administradas, consulte [Introducción a las aplicaciones administradas de Azure](../../managed-applications/overview.md).
+* La **aplicación administrada** es similar a las plantillas de solución, aunque hay una diferencia importante. En una aplicación administrada, los recursos se implementan en un grupo de recursos que está administrado por el editor de la aplicación. El grupo de recursos está presente en la suscripción del consumidor, pero una identidad en el inquilino del editor tiene acceso al grupo de recursos. Como editor, puede especificar el costo del soporte técnico continuado de la solución. Use aplicaciones administradas para crear y entregar con facilidad a los clientes aplicaciones llave en mano totalmente administradas.  Para más información sobre las ventajas y los tipos de aplicaciones administradas, consulte [Introducción a las aplicaciones administradas de Azure](../../azure-resource-manager/managed-applications/overview.md).
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
 Todas las aplicaciones de Azure incluyen al menos dos archivos en la carpeta raíz de un archivo `.zip`:
 
-* Un archivo de plantilla de Resource Manager llamado [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md).  Esta plantilla define los recursos que se van a implementar en la suscripción de Azure del cliente. Para ver ejemplos de plantillas de Resource Manager, consulte la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) o el repositorio [GitHub: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondiente.
+* Un archivo de plantilla de Resource Manager llamado [mainTemplate.json](../../azure-resource-manager/management/overview.md).  Esta plantilla define los recursos que se van a implementar en la suscripción de Azure del cliente. Para ver ejemplos de plantillas de Resource Manager, consulte la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) o el repositorio [GitHub: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondiente.
 
-* Una definición de interfaz de usuario para la experiencia de creación de aplicaciones de Azure llamada [createUiDefinition.json](../../managed-applications/create-uidefinition-overview.md).  En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
+* Una definición de interfaz de usuario para la experiencia de creación de aplicaciones de Azure llamada [createUiDefinition.json](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).  En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
 
 Todas las nuevas ofertas de la aplicación de Azure deben incluir un [GUID de atribución de uso del cliente para asociados de Azure](../azure-partner-customer-usage-attribution.md). 
 
@@ -136,7 +136,7 @@ Una versión de prueba es una excelente manera de presentar la oferta a clientes
 
 Para habilitar una versión de prueba durante un período de tiempo determinado, seleccione la casilla **Habilitar una versión de prueba**. Para eliminar la versión de prueba de la oferta, desactive esta casilla. Configure el entorno de la versión de prueba en la sección [Configuración técnica de la versión de prueba](#test-drive-technical-configuration) más adelante en este tema.
 
-Para más información, consulte [Versión de prueba de la oferta en Marketplace comercial](test-drive.md). También puede leer sobre los [procedimientos recomendados de la versión de prueba](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) y descargar el [PDF de información general de las versiones de prueba ](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (asegúrese de que el bloqueador de elementos emergentes está desactivado).
+Para más información, consulte [Versión de prueba de la oferta en Marketplace comercial](../what-is-test-drive.md). También puede leer sobre los [procedimientos recomendados de la versión de prueba](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) y descargar el [PDF de información general de las versiones de prueba ](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (asegúrese de que el bloqueador de elementos emergentes está desactivado).
 
 >[!Note]
 >Dado que todas las aplicaciones de Azure se implementan mediante una plantilla de Azure Resource Manager, el único tipo de versión de prueba disponible para una aplicación de Azure es una [versión de prueba basada en Azure Resource Manager](../azure-resource-manager-test-drive.md).
@@ -465,8 +465,8 @@ Esta pestaña le permite editar la versión de borrador de la configuración té
 
 Todos los paquetes del plan de la aplicación de Azure deben incluir estos dos archivos en la carpeta raíz de un archivo `.zip`:
 
-* Un archivo de plantilla de Resource Manager llamado [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md). Esta plantilla automatiza la implementación de recursos en la suscripción de Azure de clientes.  Para ver ejemplos de plantillas de Resource Manager, consulte la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) o el repositorio [GitHub: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondiente.
-* Una definición de interfaz de usuario para la experiencia de creación de aplicaciones de Azure llamada [createUiDefinition.json](../../azure-resource-manager/managed-application-createuidefinition-overview.md).
+* Un archivo de plantilla de Resource Manager llamado [mainTemplate.json](../../azure-resource-manager/management/overview.md). Esta plantilla automatiza la implementación de recursos en la suscripción de Azure de clientes.  Para ver ejemplos de plantillas de Resource Manager, consulte la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) o el repositorio [GitHub: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondiente.
+* Una definición de interfaz de usuario para la experiencia de creación de aplicaciones de Azure llamada [createUiDefinition.json](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).
 
 Los tamaños de archivo máximos admitidos son:
 
@@ -486,7 +486,7 @@ La subpestaña **Paquetes publicados anteriormente** permite ver todas las versi
 
 #### <a name="enable-just-in-time-jit-access"></a>Habilitar acceso Just-In-Time (JIT)
 
-Seleccione esta opción para habilitar acceso Just-In-Time (JIT) para este plan.  El acceso JIT permite solicitar acceso con privilegios elevados a recursos de la aplicación administrada con fines de solución de problemas o mantenimiento. Siempre tendrá acceso de solo lectura a los recursos, pero puede tener mayor acceso durante un período de tiempo específico.  Para obtener más información, consulte [Habilitación y solicitud de acceso Just-In-Time para Azure Managed Applications](../../managed-applications/request-just-in-time-access.md).  Para exigir que los consumidores de la aplicación administrada concedan el acceso permanente a la cuenta, deje esta opción desactivada.
+Seleccione esta opción para habilitar acceso Just-In-Time (JIT) para este plan.  El acceso JIT permite solicitar acceso con privilegios elevados a recursos de la aplicación administrada con fines de solución de problemas o mantenimiento. Siempre tendrá acceso de solo lectura a los recursos, pero puede tener mayor acceso durante un período de tiempo específico.  Para obtener más información, consulte [Habilitación y solicitud de acceso Just-In-Time para Azure Managed Applications](../../azure-resource-manager/managed-applications/request-just-in-time-access.md).  Para exigir que los consumidores de la aplicación administrada concedan el acceso permanente a la cuenta, deje esta opción desactivada.
 
 >[!Note]
 >Asegúrese de actualizar su archivo `createUiDefinition.json` para admitir esta característica.  
@@ -498,7 +498,7 @@ Seleccione si desea configurar el **modo de implementación incremental** o **co
 * En el **modo completo** , una reimplementación de la aplicación del cliente provocará la eliminación de recursos en el grupo de recursos administrados si los recursos no se definen en `mainTemplate.json`. 
 * En el **modo incremental** , una reimplementación de la aplicación deja los recursos existentes sin cambios.
 
-Para obtener más información sobre los modos de implementación, consulte [Modos de implementación de Azure Resource Manager](../../azure-resource-manager/deployment-modes.md).
+Para obtener más información sobre los modos de implementación, consulte [Modos de implementación de Azure Resource Manager](../../azure-resource-manager/templates/deployment-modes.md).
 
 #### <a name="notification-endpoint-url"></a>Dirección URL del punto de conexión de notificaciones
 
@@ -543,7 +543,7 @@ Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="test-drive"></a>Versión de prueba
 
-Configure una demostración (versión de prueba) que permita a los clientes probar la oferta antes de adquirirla. Para crear un entorno de demostración que permita a los clientes probar la oferta durante un período de tiempo determinado, consulte [Permitir a los clientes probar una versión de la oferta](test-drive.md).
+Configure una demostración (versión de prueba) que permita a los clientes probar la oferta antes de adquirirla. Para crear un entorno de demostración que permita a los clientes probar la oferta durante un período de tiempo determinado, consulte [Permitir a los clientes probar una versión de la oferta](../what-is-test-drive.md).
 
 Para habilitar una versión de prueba, seleccione la casilla **Habilitación de una versión de prueba** en la pestaña [Offer setup](#test-drive) (Configuración de la oferta). Para eliminar la versión de prueba de la oferta, desactive esta casilla.
 
@@ -555,7 +555,7 @@ Para habilitar una versión de prueba, seleccione la casilla **Habilitación de 
 
 Para implementar la versión de prueba en su nombre, cree y proporcione una suscripción de Azure independiente y única (no se requiere para las versiones de prueba de Power BI).
 
-* **Id. de suscripción de Azure** (obligatorio para Azure Resource Manager y aplicaciones lógicas): escriba el identificador de la suscripción para conceder acceso a los servicios de la cuenta de Azure para la generación de informes y la facturación del uso de recursos. Se recomienda considerar la posibilidad de [crear una suscripción de Azure independiente](../../billing/billing-create-subscription.md) que se use para las versiones de prueba, en caso de que no se tenga ninguna. Para buscar su identificador de la suscripción de Azure inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a la pestaña **Suscripciones** del menú izquierdo. Al seleccionar la pestaña se mostrará el identificador de la suscripción (como, por ejemplo, "a83645ac-1234-5ab6-6789-1h234g764ghty").
+* **Id. de suscripción de Azure** (obligatorio para Azure Resource Manager y aplicaciones lógicas): escriba el identificador de la suscripción para conceder acceso a los servicios de la cuenta de Azure para la generación de informes y la facturación del uso de recursos. Se recomienda considerar la posibilidad de [crear una suscripción de Azure independiente](../../cost-management-billing/manage/create-subscription.md) que se use para las versiones de prueba, en caso de que no se tenga ninguna. Para buscar su identificador de la suscripción de Azure inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a la pestaña **Suscripciones** del menú izquierdo. Al seleccionar la pestaña se mostrará el identificador de la suscripción (como, por ejemplo, "a83645ac-1234-5ab6-6789-1h234g764ghty").
 * **Id. de inquilino de Azure AD** (obligatorio): escriba el [identificador de inquilino](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) de Azure Active Directory (AD). Para encontrarlo, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory en el menú de la izquierda, seleccione **Propiedades** y busque el número de **Id. de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). El id. de inquilino de su organización también lo puede buscar mediante la dirección URL de su nombre de dominio en: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Nombre del inquilino de Azure AD** (obligatorio para Dynamic 365): escriba su nombre en Azure Active Directory (AD). Para buscar este nombre, inicie sesión en [Azure Portal](https://portal.azure.com/) y en la esquina superior derecha se mostrará su nombre del inquilino, debajo de su nombre de cuenta.
 * **Identificador de aplicación de Azure AD** (obligatorio): escriba el [identificador de la aplicación](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) de Azure Active Directory (AD). Para encontrarlo, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory en el menú de la izquierda, seleccione **Registros de aplicaciones** y busque el número de **Id. de aplicación** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e).

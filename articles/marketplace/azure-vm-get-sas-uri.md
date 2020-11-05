@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 10/19/2020
-ms.openlocfilehash: b927e90c60110d6922649b75b6549528a2a9a40f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283366"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129123"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Generación de un URI de SAS para una imagen de máquina virtual
 
@@ -34,12 +34,12 @@ Hay dos herramientas comunes que se usan para crear una dirección de SAS (URL):
 
 ### <a name="using-tool-1-azure-storage-explorer"></a>Uso de la herramienta 1: Explorador de Azure Storage
 
-1. Vaya a la **cuenta de almacenamiento** .
-1. Abra el **Explorador de Storage** .
+1. Vaya a la **cuenta de almacenamiento**.
+1. Abra el **Explorador de Storage**.
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Ventana de la cuenta de almacenamiento.":::
 
-3. En el **contenedor** , haga clic con el botón derecho en el archivo VHD y seleccione **Obtener firma de acceso compartido** .
+3. En el **contenedor** , haga clic con el botón derecho en el archivo VHD y seleccione **Obtener firma de acceso compartido**.
 4. En el cuadro de diálogo **Firma de acceso compartido** , complete los campos siguientes:
 
     1. Fecha de inicio: fecha de inicio del permiso para acceder al disco duro virtual. Proporcione una fecha que sea un día antes de la fecha actual.
@@ -59,7 +59,7 @@ Hay dos herramientas comunes que se usan para crear una dirección de SAS (URL):
 
 ### <a name="using-tool-2-azure-cli"></a>Uso de la herramienta 2: Azure CLI
 
-1. Descargue e instale la [CLI de Microsoft Azure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Hay versiones disponibles para Windows, macOS y varias distribuciones de Linux.
+1. Descargue e instale la [CLI de Microsoft Azure](/cli/azure/install-azure-cli). Hay versiones disponibles para Windows, macOS y varias distribuciones de Linux.
 2. Cree un archivo de PowerShell (con la extensión de archivo .ps1), copie el código siguiente y luego guárdelo localmente.
 
     ```JSON
@@ -81,8 +81,8 @@ Hay dos herramientas comunes que se usan para crear una dirección de SAS (URL):
 1. Guarde los cambios.
 2. Use uno de los siguientes métodos para ejecutar este script con privilegios administrativos para crear una cadena de conexión de SAS para el acceso de nivel de contenedor:
 
-    - Ejecutar el script desde la consola. En Windows, haga clic con el botón derecho en el script y seleccione **Ejecutar como administrador** .
-    - Ejecutar el script desde un editor de scripts de PowerShell, como [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). En esta pantalla se muestra la creación de una cadena de conexión de SAS en este editor:
+    - Ejecutar el script desde la consola. En Windows, haga clic con el botón derecho en el script y seleccione **Ejecutar como administrador**.
+    - Ejecutar el script desde un editor de scripts de PowerShell, como [Windows PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). En esta pantalla se muestra la creación de una cadena de conexión de SAS en este editor:
 
     [![creación de una cadena de conexión de SAS en el editor de PowerShell](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 

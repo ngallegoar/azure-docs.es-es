@@ -1,17 +1,17 @@
 ---
 title: Denegación del acceso a una red pública para el servidor único de Azure Database for PostgreSQL con Azure Portal
 description: Información acerca de cómo configurar la denegación del acceso a una red pública mediante el servidor único de Azure Database for PostgreSQL con Azure Portal
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 1dfc8d473d0cfe663569d2508404bf190f2da841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd777fe42dc8fa3ec4643fa9607f5ca8b7aac795
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901580"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240331"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Denegación del acceso a una red pública en el servidor único de Azure Database for PostgreSQL con Azure Portal
 
@@ -29,9 +29,9 @@ Siga estos pasos para establecer la denegación del acceso a una red pública de
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione un servidor único existente de Azure Database for PostgreSQL.
 
-1. En la página del servidor único de PostgreSQL, en **Configuración**, haga clic en **Seguridad de la conexión** para abrir la página de configuración de seguridad de la conexión.
+1. En la página del servidor único de PostgreSQL, en **Configuración** , haga clic en **Seguridad de la conexión** para abrir la página de configuración de seguridad de la conexión.
 
-1. En **Denegar acceso de red pública**, seleccione **Sí** para habilitar la denegación del acceso público para el servidor único de PostgreSQL.
+1. En **Denegar acceso de red pública** , seleccione **Sí** para habilitar la denegación del acceso público para el servidor único de PostgreSQL.
 
     :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access.PNG" alt-text="Denegación de acceso de red del servidor único de Azure Database for PostgreSQL":::
 
@@ -39,7 +39,7 @@ Siga estos pasos para establecer la denegación del acceso a una red pública de
 
 1. Se enviará una notificación para confirmar la correcta habilitación de la configuración de seguridad de la conexión.
 
-    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Denegación de acceso de red del servidor único de Azure Database for PostgreSQL":::
+    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Denegación de acceso de red correcta para el servidor único de Azure Database for PostgreSQL":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

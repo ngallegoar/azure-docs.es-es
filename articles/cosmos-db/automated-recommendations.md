@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8fa2fdf23a0d71b854e043b66c0aed7e944c5f39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87449832"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087832"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Recomendaciones automatizadas para Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Todos los servicios en la nube, incluido Azure Cosmos DB, obtienen actualizaciones frecuentes con nuevas características, funcionalidades y mejoras. Es importante que la aplicación se mantenga al día con las actualizaciones de rendimiento y seguridad más recientes. Azure Portal ofrece recomendaciones personalizadas que permiten maximizar el rendimiento de la aplicación. El motor de consulta de Azure Cosmos DB analiza continuamente el historial de uso de los recursos de Azure Cosmos DB y proporciona recomendaciones basadas en los patrones de carga de trabajo. Estas recomendaciones se corresponden con áreas como la creación de particiones, la indexación, la red, la seguridad, etc. Estas recomendaciones personalizadas le ayudan a mejorar el rendimiento de la aplicación.
 
@@ -28,7 +29,7 @@ Puede ver las recomendaciones para Azure Cosmos DB de las siguientes maneras:
 
 - También puede encontrar las recomendaciones a través de [Azure Advisor](../advisor/advisor-overview.md) categorizadas por cubos diferentes, como el costo, la seguridad, la fiabilidad, el rendimiento y la excelencia operativa. Puede seleccionar suscripciones específicas y filtrar por el tipo de recurso, que es **Cuentas de Azure Cosmos DB**.  Cuando selecciona una recomendación específica, se muestran las acciones que se pueden realizar para beneficiar las cargas de trabajo.
 
-   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Ver recomendaciones desde el panel de Azure Cosmos DB":::
+   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Visualización de recomendaciones desde el panel de Azure Advisor":::
 
 No todas las recomendaciones que se muestran en el panel de Azure Cosmos DB están disponibles en Azure Advisor y viceversa. Esto se debe a que, según el tipo de recomendación, encajan en el panel de Azure Advisor, en el panel de Azure Cosmos DB o en ambos.
 

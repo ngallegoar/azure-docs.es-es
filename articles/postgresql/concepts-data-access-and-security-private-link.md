@@ -1,17 +1,17 @@
 ---
 title: 'Private Link en Azure Database for PostgreSQL: servidor único'
 description: 'Obtenga información sobre cómo funciona Private Link para Azure Database for PostgreSQL: servidor único.'
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 9b93e3f42c6b635ced7fdca61cb2ffe4f74d19bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a864ce42888aace385cf60a4122f204c8f76831d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489513"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240433"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Private Link en Azure Database for PostgreSQL: servidor único
 
@@ -72,21 +72,21 @@ Una vez que el administrador de red crea el punto de conexión privado (PE), el 
 
 * Seleccione una conexión del punto de conexión privado en la lista.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Selección del portal del punto de conexión privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="selección del punto de conexión privado pendiente de aprobación":::
 
 * El administrador de servidor de PostgreSQL puede optar por aprobar o rechazar un punto de conexión privado y, además, tiene la opción de agregar una respuesta con un texto breve.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Selección del portal del punto de conexión privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="selección del mensaje del punto de conexión privado":::
 
 * Después de la aprobación o el rechazo, la lista reflejará el estado apropiado, junto con el texto de respuesta.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Selección del portal del punto de conexión privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="selección del estado final del punto de conexión privado":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Casos de uso de Private Link para Azure Database for PostgreSQL
 
 Los clientes se pueden conectar al punto de conexión privado desde la misma red virtual, desde una red virtual emparejada de la misma región o a través de una conexión entre redes virtuales de distintas regiones. Además, los clientes pueden conectarse de forma local mediante ExpressRoute, emparejamiento privado o tunelización de VPN. A continuación, puede ver un diagrama simplificado que muestra los casos de uso habituales.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selección del portal del punto de conexión privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Información general sobre la selección del punto de conexión privado":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Conexión desde una máquina virtual de Azure en una red virtual emparejada (VNet)
 Configure el [Emparejamiento de VNET](../virtual-network/tutorial-connect-virtual-networks-powershell.md) para establecer la conectividad con Azure Database for PostgreSQL: servidor único desde una máquina virtual de Azure en una red virtual emparejada.

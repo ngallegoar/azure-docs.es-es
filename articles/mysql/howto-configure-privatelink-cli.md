@@ -1,18 +1,18 @@
 ---
 title: 'Private Link: CLI de Azure - Azure Database for MySQL'
 description: Aprenda a configurar una instancia de Private Link para Azure Database for MySQL desde la CLI de Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b6c26c99d68e5b92477a4d7f2c6734190d112aba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a2ec1c609fc0562c6c8181a934e742daa9a5a4f9
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538772"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241572"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Creación y administración de Private Link para Azure Database for MySQL mediante la CLI
 
@@ -128,24 +128,24 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
-1. En la barra de búsqueda del portal, escriba *myVm* .
+1. En la barra de búsqueda del portal, escriba *myVm*.
 
-1. Seleccione el botón **Conectar** . Después de seleccionar el botón **Conectar** , se abre **Conectar a máquina virtual** .
+1. Seleccione el botón **Conectar**. Después de seleccionar el botón **Conectar** , se abre **Conectar a máquina virtual**.
 
-1. Seleccione **Descargar archivo RDP** . Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp* ) y lo descarga en su equipo.
+1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp* ) y lo descarga en su equipo.
 
-1. Abra el archivo *downloaded.rdp* .
+1. Abra el archivo *downloaded.rdp*.
 
-    1. Cuando se le pida, seleccione **Conectar** .
+    1. Cuando se le pida, seleccione **Conectar**.
 
     1. Escriba el nombre de usuario y la contraseña que especificó al crear la VM.
 
         > [!NOTE]
         > Es posible que tenga que seleccionar **Más opciones** > **Usar otra cuenta** para especificar las credenciales que escribió al crear la máquina virtual.
 
-1. Seleccione **Aceptar** .
+1. Seleccione **Aceptar**.
 
-1. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe una advertencia de certificado, seleccione **Sí** o **Continuar** .
+1. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe una advertencia de certificado, seleccione **Sí** o **Continuar**.
 
 1. Una vez que aparezca el escritorio de la máquina virtual, minimícelo para volver a su escritorio local.  
 

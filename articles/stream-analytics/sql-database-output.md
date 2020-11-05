@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 4310bd94edd5ebe14eab40b6d19e2bacbdd1b03c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906224"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129837"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Salida de Azure SQL Database desde Azure Stream Analytics
 
 Puede usar [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) como salida de datos que son relacionales por naturaleza o de aplicaciones que dependen del contenido hospedado en una base de datos relacional. Los trabajos de Azure Stream Analytics se escriben en una tabla existente en SQL Database. El esquema de tabla debe coincidir exactamente con los campos y los tipos en la salida del trabajo. También puede especificar [Azure Synapse Analytics](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) como salida mediante la opción de salida de SQL Database. Para obtener más información sobre cómo mejorar el rendimiento de escritura, consulte el artículo [Stream Analytics con Azure SQL Database como salida](stream-analytics-sql-output-perf.md).
 
-También puede usar [Instancia administrada de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como salida. Debe [configurar un punto de conexión público en Instancia administrada de SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) y, luego, configurar manualmente las siguientes opciones en Azure Stream Analytics. También es posible configurar manualmente los valores siguientes para una máquina virtual de Azure que ejecute SQL Server con una base de datos adjunta.
+También puede usar [Instancia administrada de Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) como salida. Debe [configurar un punto de conexión público en Instancia administrada de SQL](../azure-sql/managed-instance/public-endpoint-configure.md) y, luego, configurar manualmente las siguientes opciones en Azure Stream Analytics. También es posible configurar manualmente los valores siguientes para una máquina virtual de Azure que ejecute SQL Server con una base de datos adjunta.
 
 ## <a name="output-configuration"></a>Configuración de salida
 
@@ -37,9 +37,9 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 
 Hay dos adaptadores que permiten la salida de Azure Stream Analytics a Azure Synapse Analytics (anteriormente SQL Data Warehouse): SQL Database y Azure Synapse. Se recomienda elegir el adaptador de Azure Synapse Analytics en lugar del adaptador de SQL Database si alguna de las condiciones siguientes es verdadera:
 
-* **Rendimiento**: Si el rendimiento esperado ahora o en el futuro es superior a 10 MB/s, use la opción de salida de Azure Synapse para mejorar el rendimiento.
+* **Rendimiento** : Si el rendimiento esperado ahora o en el futuro es superior a 10 MB/s, use la opción de salida de Azure Synapse para mejorar el rendimiento.
 
-* **Particiones de entrada**: Si tiene ocho o más particiones de entrada, use la opción de salida de Azure Synapse para mejorar la escalabilidad horizontal.
+* **Particiones de entrada** : Si tiene ocho o más particiones de entrada, use la opción de salida de Azure Synapse para mejorar la escalabilidad horizontal.
 
 ## <a name="partitioning"></a>Creación de particiones
 
@@ -47,7 +47,7 @@ La creación de particiones debe estar habilitada y se basa en la cláusula PART
 
 ## <a name="output-batch-size"></a>Tamaño de lote de salida
 
-Puede configurar el tamaño máximo del mensaje mediante **Número máximo de lotes**. El valor máximo predeterminado es 10 000 y el mínimo predeterminado es 100 filas por inserción masiva única. Para más información, consulte los [límites de SQL de Azure](../sql-database/sql-database-resource-limits.md). Inicialmente, todos los lotes se insertan de forma masiva con el número máximo de lotes. El lote se divide por la mitad (hasta alcanzar el número mínimo de lotes) según los errores con posibilidad de reintento de SQL.
+Puede configurar el tamaño máximo del mensaje mediante **Número máximo de lotes**. El valor máximo predeterminado es 10 000 y el mínimo predeterminado es 100 filas por inserción masiva única. Para más información, consulte los [límites de SQL de Azure](../azure-sql/database/resource-limits-logical-server.md). Inicialmente, todos los lotes se insertan de forma masiva con el número máximo de lotes. El lote se divide por la mitad (hasta alcanzar el número mínimo de lotes) según los errores con posibilidad de reintento de SQL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 358fccec56f81ee41acc2898751b8848beaeb168
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: fc60ca462a2891cc022847e056e32239f2675f70
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92904998"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094581"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Inicio rápido: Creación y configuración de Azure DDoS Protection Estándar
 
@@ -84,8 +84,6 @@ En primer lugar, compruebe los detalles del plan de protección contra DDoS:
 3. Seleccione el plan de protección contra DDoS en la lista.
 
 Se debe mostrar la red virtual _MyVnet_. 
-
-Pruebas mediante simulaciones
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

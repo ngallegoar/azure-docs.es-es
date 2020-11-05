@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 1772a61f45d88e0b63346c41d557cfddf35ab4a7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892628"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125689"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuración técnica de la versión de prueba
 
@@ -50,7 +50,7 @@ Microsoft no hospeda este tipo de versión de prueba. Úselo para conectarse con
 
 - **Duración de la versión de prueba** (obligatorio): Especifique la duración en que la versión de prueba permanecerá activa, en número de horas. La versión de prueba termina automáticamente al finalizar este período.
 
-- **Nombre del grupo de recursos de Azure:** (obligatorio): escriba el nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md#resource-groups) en el que se guarda la versión de prueba de la aplicación lógica.
+- **Nombre del grupo de recursos de Azure:** (obligatorio): escriba el nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md#resource-groups) en el que se guarda la versión de prueba de la aplicación lógica.
 
 - **Asignar nombre de aplicación lógica** (obligatorio): escriba el nombre de la aplicación lógica que asigna la versión de prueba al usuario. Dicha aplicación lógica debe guardarse en el grupo de recursos de Azure anterior.
 
@@ -60,7 +60,7 @@ Microsoft no hospeda este tipo de versión de prueba. Úselo para conectarse con
 
 Los productos que desean demostrar que un objeto visual interactivo de Power BI puede usar un vínculo insertado para compartir un panel personalizado como versión de prueba, no se necesita ninguna configuración técnica. Todo lo que debe hacer aquí es cargar la dirección URL insertada de Power BI.
 
-Para obtener más información sobre cómo configurar aplicaciones de Power BI, consulte [¿Qué son las aplicaciones de plantilla de Power BI?](https://docs.microsoft.com/power-bi/service-template-apps-overview)
+Para obtener más información sobre cómo configurar aplicaciones de Power BI, consulte [¿Qué son las aplicaciones de plantilla de Power BI?](/power-bi/service-template-apps-overview)
 
 ## <a name="deployment-subscription-details"></a>Detalles de suscripción de implementación
 

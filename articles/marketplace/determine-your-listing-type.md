@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4941d326359a51ff6a75385a74a8bcdabfa075
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032391"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129004"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 
@@ -49,7 +49,7 @@ En la tabla siguiente se muestran las opciones de publicación de los tipos de o
 
 ## <a name="choose-a-listing-option"></a>Selección de una opción de publicación
 
-Las opciones de publicación disponibles ofrecen distintos compromisos para los clientes y proporcionan acceso al uso compartido de clientes potenciales y a las [ventajas del marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Tenga en cuenta las opciones de oferta que se corresponden con la opción de publicación:
+Las opciones de publicación disponibles ofrecen distintos compromisos para los clientes y proporcionan acceso al uso compartido de clientes potenciales y a las [ventajas del marketplace comercial](./gtm-your-marketplace-benefits.md). Tenga en cuenta las opciones de oferta que se corresponden con la opción de publicación:
 
 | **Opción de publicación**    | **Descripción**  |
 | :------------------- | :-------------------|

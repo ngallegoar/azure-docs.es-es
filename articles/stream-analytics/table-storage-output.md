@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 3e5b747e55c8f246167bcf8bbde3542146e69706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea775ef472687485dbd2f30c4f60adc33c0eaa73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891955"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127355"
 ---
 # <a name="table-storage-output-from-azure-stream-analytics"></a>Salida de Table Storage desde Azure Stream Analytics
 
@@ -28,7 +28,7 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 | Nombre de la tabla |Nombre de la tabla. Se crea la tabla si no existe. |
 | Clave de partición |Nombre de la columna de salida que contiene la clave de partición. La clave de partición es un identificador único de la partición dentro de una tabla que constituye la primera parte de la clave principal de la entidad. Es un valor de cadena que puede tener un tamaño de hasta 1 KB. |
 | Clave de fila |Nombre de la columna de salida que contiene la clave de fila. La clave de fila es un identificador único de una entidad dentro de una partición. Forma la segunda parte de la clave principal de la entidad. La clave de fila es un valor de cadena que puede tener un tamaño de hasta 1 KB. |
-| Tamaño de lote |El número de registros para una operación por lotes. El valor predeterminado (100) es suficiente para la mayoría de los trabajos. Para obtener más información sobre la modificación de esta configuración, consulte [Especificaciones de la operación por lotes de tablas](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation). |
+| Tamaño de lote |El número de registros para una operación por lotes. El valor predeterminado (100) es suficiente para la mayoría de los trabajos. Para obtener más información sobre la modificación de esta configuración, consulte [Especificaciones de la operación por lotes de tablas](/java/api/com.microsoft.azure.storage.table.tablebatchoperation). |
 
 ## <a name="partitioning"></a>Creación de particiones
 

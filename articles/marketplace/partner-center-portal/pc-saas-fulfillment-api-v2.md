@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 06a2a5bbe637cd2366dbdf218c0278cd683635df
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275537"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130041"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de cumplimiento de SaaS versión 2 en el marketplace comercial
 
@@ -28,7 +28,7 @@ Se muestran los estados de una suscripción de SaaS y las acciones aplicables.
 
 ![Ciclo de vida de una suscripción de SaaS en Marketplace](./media/saas-subscription-lifecycle-api-v2.png)
 
-#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Comprada pero todavía no activada (*PendingFulfillmentStart*)
+#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Comprada pero todavía no activada ( *PendingFulfillmentStart* )
 
 Una vez que un cliente final (o CSP) compra una oferta de SaaS en Marketplace, se debe notificar la compra al editor para que se cree y se configure una nueva cuenta de SaaS para el cliente final en el lado del editor.
 
@@ -51,7 +51,7 @@ En la página de aterrizaje, el cliente debe haber iniciado sesión en la cuenta
 El editor debe implementar el inicio de sesión único para proporcionar la experiencia de usuario que Microsoft necesita para este flujo.  Asegúrese de usar la aplicación de Azure AD multiinquilino y de permitir tanto cuentas profesionales y educativas como cuentas personales de Microsoft al configurar el SSO.  Este requisito solo se aplica a la página de aterrizaje y a los usuarios a los que se redirige al servicio de SaaS cuando ya han iniciado sesión con las credenciales de Microsoft. No se aplica a todos los inicios de sesión en el servicio de SaaS.
 
 > [!NOTE]
->Si el inicio de sesión único requiere que un administrador conceda permiso a una aplicación, la descripción de la oferta en el Centro de partners debe indicar que se requiere acceso de nivel de administrador. Esto está pensado para cumplir con las [directivas de certificación del marketplace comercial](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
+>Si el inicio de sesión único requiere que un administrador conceda permiso a una aplicación, la descripción de la oferta en el Centro de partners debe indicar que se requiere acceso de nivel de administrador. Esto está pensado para cumplir con las [directivas de certificación del marketplace comercial](/legal/marketplace/certification-policies#10003-authentication-options).
 
 Después de iniciar sesión, el cliente debe completar la configuración de SaaS en el lado del editor. Luego, el editor debe llamar a la [API Activate Subscription](#activate-a-subscription) para enviar una señal a Marketplace que indique que el aprovisionamiento de la cuenta de SaaS se ha completado.
 Esto dará comienzo al ciclo de facturación del cliente. Si la llamada a la API Activate Subscription no se realiza correctamente, no se facturará la compra al cliente.
@@ -63,7 +63,7 @@ Esto dará comienzo al ciclo de facturación del cliente. Si la llamada a la API
 
 Es el estado estable de una suscripción de SaaS aprovisionada. Una vez que se ha procesado la llamada a la [API Activate Subscription](#activate-a-subscription) en el lado de Microsoft, la suscripción de SaaS se marca como Suscrita. El servicio de SaaS ya está listo para que lo use el cliente en el lado del editor y se facturará al cliente.
 
-Cuando la suscripción de SaaS ya esté activa y el cliente opte por iniciar la experiencia de SaaS de **Administración** desde Azure Portal o el Centro de administración de M365, se llamará de nuevo a la **dirección URL de la página de aterrizaje** de Microsoft con el parámetro de *token*, igual que en el flujo de activación.  El editor debe distinguir entre las nuevas compras y la administración de las cuentas de SaaS existentes y controlar en consecuencia la llamada a la dirección URL de la página de aterrizaje.
+Cuando la suscripción de SaaS ya esté activa y el cliente opte por iniciar la experiencia de SaaS de **Administración** desde Azure Portal o el Centro de administración de M365, se llamará de nuevo a la **dirección URL de la página de aterrizaje** de Microsoft con el parámetro de *token* , igual que en el flujo de activación.  El editor debe distinguir entre las nuevas compras y la administración de las cuentas de SaaS existentes y controlar en consecuencia la llamada a la dirección URL de la página de aterrizaje.
 
 #### <a name="being-updated-subscribed"></a>Actualizando (Suscrito)
 
@@ -106,7 +106,7 @@ Esta es la secuencia de llamadas a API para el escenario de actualización inici
 
 ![Llamadas a API para una actualización iniciada desde el lado del editor](./media/saas-update-status-api-v2-calls-publisher-side.png)
 
-#### <a name="suspended-suspended"></a>Suspendido (*Suspendido*)
+#### <a name="suspended-suspended"></a>Suspendido ( *Suspendido* )
 
 Este estado indica que no se ha recibido el pago de un cliente por el servicio de SaaS. Microsoft le notificará este cambio al editor en el estado de suscripción de SaaS. La notificación se realiza a través de una llamada al webhook con el parámetro *action* establecido en *Suspended*.
 
@@ -119,7 +119,7 @@ Microsoft ofrece al cliente un período de gracia de 30 días antes de cancelar
 
 El estado de la suscripción se cambia a Suspendido en el lado de Microsoft antes de que el editor realice alguna acción. Solo se pueden suspender las suscripciones activas.
 
-#### <a name="reinstated-suspended"></a>Restablecido (*Suspendido*)
+#### <a name="reinstated-suspended"></a>Restablecido ( *Suspendido* )
 
 La suscripción se restablece.
 
@@ -135,7 +135,7 @@ Si se envía la revisión con un estado de error, el proceso de restablecimiento
 
 Solo se puede restablecer una suscripción suspendida.  Mientras se esté restableciendo una suscripción de SaaS, su estado permanecerá suspendido.  Una vez completada esta operación, el estado de la suscripción pasará a ser activo.
 
-#### <a name="renewed-subscribed"></a>Renovado (*Suscrito*)
+#### <a name="renewed-subscribed"></a>Renovado ( *Suscrito* )
 
 Al final del período de suscripción (después de un mes o de un año), Microsoft renovará automáticamente la suscripción de SaaS.  El valor predeterminado para la opción de renovación automática es *true* para todas las suscripciones de SaaS. Las suscripciones de SaaS activas seguirán renovándose periódicamente. Microsoft no notifica al editor cuando se renueva una suscripción. Un cliente puede desactivar la renovación automática de una suscripción de SaaS a través del Centro de administración de M365 o de Azure Portal.  En este caso, la suscripción de SaaS se cancelará automáticamente al final del período de facturación actual.  Los clientes también pueden cancelar la suscripción de SaaS en cualquier momento.
 
@@ -143,7 +143,7 @@ Solo se renuevan automáticamente las suscripciones activas.  Las suscripciones 
 
 Si se produce un error en una renovación automática debido a un problema con el pago, la suscripción se suspenderá.  Se enviará una notificación al editor.
 
-#### <a name="canceled-unsubscribed"></a>Cancelado (*Suscripción cancelada*) 
+#### <a name="canceled-unsubscribed"></a>Cancelado ( *Suscripción cancelada* ) 
 
 Las suscripciones alcanzan este estado como respuesta a una acción explícita del cliente o del CSP para la cancelación de una suscripción desde el sitio del editor, Azure Portal o el Centro de administración de M365.  Una suscripción también puede cancelarse implícitamente, debido al impago de importes pendientes, después de mantenerse en el estado suspendido durante 30 días.
 
@@ -180,13 +180,13 @@ Al llamar a la API Resolve, se devolverán los detalles y el estado de la suscri
 
 ##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Post`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
-*Parámetros de consulta*:
+*Parámetros de consulta* :
 
 |  Parámetro         | Value            |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Use 2018-08-31.   |
 
-*Encabezados de la solicitud*:
+*Encabezados de la solicitud* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -197,7 +197,7 @@ Al llamar a la API Resolve, se devolverán los detalles y el estado de la suscri
 |  `x-ms-marketplace-token`  | Parámetro *token* de identificación de la compra de Marketplace que se va a resolver.  El token se pasa en la llamada a la dirección URL de la página de aterrizaje cuando se redirige al cliente al sitio web del partner de SaaS (por ejemplo, `https://contoso.com/signup?token=<token><authorization_token>`). <br> <br>  *Nota:* El valor de *token* que se está codificando forma parte de la dirección URL de la página de aterrizaje y, por tanto, debe descodificarse antes de usarse como un parámetro en esta llamada API.  <br> <br> Un ejemplo de una cadena codificada en la dirección URL tiene el siguiente aspecto: `contoso.com/signup?token=ab%2Bcd%2Fef`, donde el token es `ab%2Bcd%2Fef`.  El mismo token descodificado será `Ab+cd/ef`. |
 | | |
 
-*Códigos de respuesta*:
+*Códigos de respuesta* :
 
 Código: 200 Devuelve identificadores de suscripción de SaaS únicos basados en el `x-ms-marketplace-token` proporcionado.
 
@@ -258,7 +258,7 @@ Una vez que se ha configurado la cuenta de SaaS para un cliente final, el editor
 
 ##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Post`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
-*Parámetros de consulta*:
+*Parámetros de consulta* :
 
 |  Parámetro         | Value             |
 |  --------   |  ---------------  |
@@ -266,7 +266,7 @@ Una vez que se ha configurado la cuenta de SaaS para un cliente final, el editor
 | `subscriptionId` | Identificador único de la suscripción de SaaS comprada.  Este identificador se obtiene después de resolver el token de autorización de Marketplace mediante la [API Resolve](#resolve-a-purchased-subscription).
  |
 
-*Encabezados de la solicitud*:
+*Encabezados de la solicitud* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -284,7 +284,7 @@ Una vez que se ha configurado la cuenta de SaaS para un cliente final, el editor
 }
 ```
 
-*Códigos de respuesta*:
+*Códigos de respuesta* :
 
 Código: 200 La suscripción se marcó como Suscrita en el lado de Microsoft.
 
@@ -313,14 +313,14 @@ Esta API devuelve resultados paginados. El tamaño de la página es de 100.
 
 ##### <a name="gethttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Get`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
 
-*Parámetros de consulta*:
+*Parámetros de consulta* :
 
 |  Parámetro         | Value             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Use 2018-08-31.  |
 | `continuationToken`  | Parámetro opcional. Para recuperar la primera página de resultados, déjelo vacío.  Use el valor devuelto en el parámetro `@nextLink` para recuperar la página siguiente. |
 
-*Encabezados de la solicitud*:
+*Encabezados de la solicitud* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -329,7 +329,7 @@ Esta API devuelve resultados paginados. El tamaño de la página es de 100.
 | `x-ms-correlationid` |  Valor de cadena único para la operación en el cliente.  Este parámetro pone en correlación todos los eventos de la operación del cliente con los eventos del servidor.  Si este valor no se proporciona, se generará uno y se proporcionará en los encabezados de respuesta. |
 | `authorization`      |  Token de acceso único que identifica al editor que realiza esta llamada API.  El formato es `"Bearer <access_token>"` cuando el editor recupera el valor del token, tal como se explica en [Obtención de un token basado en la aplicación de Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post). |
 
-*Códigos de respuesta*:
+*Códigos de respuesta* :
 
 Código: 200 Devuelve la lista de todas las suscripciones existentes para todas las ofertas de este editor, en función del token de autorización del editor.
 
@@ -420,14 +420,14 @@ Recupera una determinada suscripción de SaaS comprada para una oferta de SaaS q
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
-*Parámetros de consulta*:
+*Parámetros de consulta* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
 | `ApiVersion`        |   Use 2018-08-31. |
 | `subscriptionId`     |  Identificador único de la suscripción de SaaS comprada.  Este identificador se obtiene después de resolver el token de autorización de Marketplace mediante la API Resolve. |
 
-*Encabezados de la solicitud*:
+*Encabezados de la solicitud* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -436,7 +436,7 @@ Recupera una determinada suscripción de SaaS comprada para una oferta de SaaS q
 |  `x-ms-correlationid` |  Valor de cadena único para la operación en el cliente.  Este parámetro pone en correlación todos los eventos de la operación del cliente con los eventos del servidor.  Si este valor no se proporciona, se generará uno y se proporcionará en los encabezados de respuesta. |
 |  `authorization`     | Token de acceso único que identifica al editor que realiza esta llamada API. El formato es `"Bearer <access_token>"` cuando el editor recupera el valor del token, tal como se explica en [Obtención de un token basado en la aplicación de Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
 
-*Códigos de respuesta*:
+*Códigos de respuesta* :
 
 Código: 200 Devuelve los detalles de una suscripción de SaaS en función del valor de `subscriptionId` proporcionado.
 
@@ -492,14 +492,14 @@ Esta llamada devuelve una lista de los planes disponibles para ese cliente, adem
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
-*Parámetros de consulta*:
+*Parámetros de consulta* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Use 2018-08-31.  |
 |  `subscriptionId`    |  Identificador único de la suscripción de SaaS comprada.  Este identificador se obtiene después de resolver el token de autorización de Marketplace mediante la API Resolve. |
 
-*Encabezados de la solicitud*:
+*Encabezados de la solicitud* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -508,7 +508,7 @@ Esta llamada devuelve una lista de los planes disponibles para ese cliente, adem
 |  `x-ms-correlationid`  |  Valor de cadena único para la operación en el cliente.  Este parámetro pone en correlación todos los eventos de la operación del cliente con los eventos del servidor.  Si este valor no se proporciona, se generará uno y se proporcionará en los encabezados de respuesta. |
 |  `authorization`     |  Token de acceso único que identifica al editor que realiza esta llamada API.  El formato es `"Bearer <access_token>"` cuando el editor recupera el valor del token, tal como se explica en [Obtención de un token basado en la aplicación de Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
 
-*Códigos de respuesta*:
+*Códigos de respuesta* :
 
 Código: 200 Devuelve una lista de todos los planes disponibles para una suscripción de SaaS existente, incluido el que se ha comprado.
 
@@ -547,14 +547,14 @@ Solo se puede llamar a esta API para suscripciones activas.  Un plan se puede ca
 
 ##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
-*Parámetros de consulta*:
+*Parámetros de consulta* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Use 2018-08-31.  |
 | `subscriptionId`     | Identificador único de la suscripción de SaaS comprada.  Este identificador se obtiene después de resolver el token de autorización de Marketplace mediante la API Resolve. |
 
-*Encabezados de la solicitud*:
+*Encabezados de la solicitud* :
  
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -571,7 +571,7 @@ Solo se puede llamar a esta API para suscripciones activas.  Un plan se puede ca
 }
 ```
 
-*Códigos de respuesta*:
+*Códigos de respuesta* :
 
 Código: 202 Se ha aceptado la solicitud para cambiar el plan y se ha administrado de manera asincrónica.  Se espera que el partner sondee la **dirección URL de Operation-Location** para determinar si la solicitud de cambio de plan se ha realizado correctamente o no.  El sondeo debe realizarse cada pocos segundos hasta que se reciba el estado final de Error, Correcto o Conflicto para la operación.  El estado de la operación final debe devolverse rápidamente, pero en algunos casos puede tardar varios minutos.
 
@@ -612,14 +612,14 @@ La cantidad de puestos no puede ser superior al número permitido en el plan act
 
 ##### <a name="patchhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
-*Parámetros de consulta*:
+*Parámetros de consulta* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Use 2018-08-31.  |
 |  `subscriptionId`     | Identificador único de la suscripción de SaaS comprada.  Este identificador se obtiene después de resolver el token de autorización de Marketplace mediante la API Resolve.  |
 
-*Encabezados de la solicitud*:
+*Encabezados de la solicitud* :
  
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -636,7 +636,7 @@ La cantidad de puestos no puede ser superior al número permitido en el plan act
 }
 ```
 
-*Códigos de respuesta*:
+*Códigos de respuesta* :
 
 Código: 202 Se ha aceptado la solicitud para cambiar la cantidad y se ha administrado de manera asincrónica. Se espera que el partner sondee la **dirección URL de Operation-Location** para determinar si la solicitud de cambio de cantidad se ha realizado correctamente o no.  El sondeo debe realizarse cada pocos segundos hasta que se reciba el estado final de Error, Correcto o Conflicto para la operación.  El estado de la operación final debe devolverse rápidamente, pero en algunos casos puede tardar varios minutos.
 
@@ -685,14 +685,14 @@ Se facturará al cliente si la suscripción se cancela tras los períodos de gra
 
 ##### <a name="deletehttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Delete`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
-*Parámetros de consulta*:
+*Parámetros de consulta* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Use 2018-08-31.  |
 |  `subscriptionId`     | Identificador único de la suscripción de SaaS comprada.  Este identificador se obtiene después de resolver el token de autorización de Marketplace mediante la API Resolve.  |
 
-*Encabezados de la solicitud*:
+*Encabezados de la solicitud* :
  
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -701,7 +701,7 @@ Se facturará al cliente si la suscripción se cancela tras los períodos de gra
 |  `x-ms-correlationid`  | Valor de cadena único para la operación en el cliente.  Este parámetro pone en correlación todos los eventos de la operación del cliente con los eventos del servidor.  Si este valor no se proporciona, se generará uno y se proporcionará en los encabezados de respuesta.  |
 |  `authorization`     |  Token de acceso único que identifica al editor que realiza esta llamada API.  El formato es `"Bearer <access_token>"` cuando el editor recupera el valor del token, tal como se explica en [Obtención de un token basado en la aplicación de Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post). |
 
-*Códigos de respuesta*:
+*Códigos de respuesta* :
 
 Código: 202 Se ha aceptado la solicitud para cancelar la suscripción y se ha administrado de manera asincrónica.  Se espera que el partner sondee la **dirección URL de Operation-Location** para determinar si la solicitud se ha realizado correctamente o no.  El sondeo debe realizarse cada pocos segundos hasta que se reciba el estado final de Error, Correcto o Conflicto para la operación.  El estado de la operación final debe devolverse rápidamente, pero en algunos casos puede tardar varios minutos.
 
@@ -733,14 +733,14 @@ Actualmente, solo se devuelven las **operaciones de restablecimiento** como resp
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
-*Parámetros de consulta*:
+*Parámetros de consulta* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
 |    `ApiVersion`    |  Use 2018-08-31.         |
 |    `subscriptionId` | Identificador único de la suscripción de SaaS comprada.  Este identificador se obtiene después de resolver el token de autorización de Marketplace mediante la API Resolve.  |
 
-*Encabezados de la solicitud*:
+*Encabezados de la solicitud* :
  
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -749,7 +749,7 @@ Actualmente, solo se devuelven las **operaciones de restablecimiento** como resp
 |  `x-ms-correlationid` |  Valor de cadena único para la operación en el cliente.  Este parámetro pone en correlación todos los eventos de la operación del cliente con los eventos del servidor.  Si este valor no se proporciona, se generará uno y se proporcionará en los encabezados de respuesta.  |
 |  `authorization`     |  El formato es `"Bearer <access_token>"` cuando el editor recupera el valor del token, tal como se explica en [Obtención de un token basado en la aplicación de Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
 
-*Códigos de respuesta*:
+*Códigos de respuesta* :
 
 Código: 200 Devuelve una operación de restablecimiento pendiente en la suscripción de SaaS especificada.
 
@@ -788,13 +788,13 @@ Código: 500 Error interno del servidor. Vuelva a intentar la llamada API.  Si e
 
 #### <a name="get-operation-status"></a>Obtener el estado de la operación
 
-Permite al editor hacer un seguimiento del estado de la operación asincrónica especificada:  **Unsubscribe**, **ChangePlan** o **ChangeQuantity**.
+Permite al editor hacer un seguimiento del estado de la operación asincrónica especificada:  **Unsubscribe** , **ChangePlan** o **ChangeQuantity**.
 
-El valor de `operationId` para esta llamada API se puede recuperar a partir del valor devuelto por **Operation-Location**, la llamada API para obtener operaciones pendientes o el valor del parámetro `<id>` recibido en una llamada de webhook.
+El valor de `operationId` para esta llamada API se puede recuperar a partir del valor devuelto por **Operation-Location** , la llamada API para obtener operaciones pendientes o el valor del parámetro `<id>` recibido en una llamada de webhook.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
-*Parámetros de consulta*:
+*Parámetros de consulta* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -802,7 +802,7 @@ El valor de `operationId` para esta llamada API se puede recuperar a partir del 
 |  `subscriptionId`    |  Identificador único de la suscripción de SaaS comprada.  Este identificador se obtiene después de resolver el token de autorización de Marketplace mediante la API Resolve. |
 |  `operationId`       |  Identificador único de la operación que se va a recuperar. |
 
-*Encabezados de la solicitud*:
+*Encabezados de la solicitud* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -811,7 +811,7 @@ El valor de `operationId` para esta llamada API se puede recuperar a partir del 
 |  `x-ms-correlationid` |  Valor de cadena único para la operación en el cliente.  Este parámetro pone en correlación todos los eventos de la operación del cliente con los eventos del servidor.  Si este valor no se proporciona, se generará uno y se proporcionará en los encabezados de respuesta.  |
 |  `authorization`     |  Token de acceso único que identifica al editor que realiza esta llamada API.  El formato es `"Bearer <access_token>"` cuando el editor recupera el valor del token, tal como se explica en [Obtención de un token basado en la aplicación de Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
 
-*Códigos de respuesta*:
+*Códigos de respuesta* :
 
 Código: 200 Obtiene los detalles de la operación de SaaS especificada. 
 
@@ -850,11 +850,11 @@ Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si 
 
 Actualice el estado de una operación pendiente para indicar si se ha realizado correctamente o no en el lado del editor.
 
-El valor de `operationId` para esta llamada API se puede recuperar a partir del valor devuelto por **Operation-Location**, la llamada API para obtener operaciones pendientes o el valor del parámetro `<id>` recibido en una llamada de webhook.
+El valor de `operationId` para esta llamada API se puede recuperar a partir del valor devuelto por **Operation-Location** , la llamada API para obtener operaciones pendientes o el valor del parámetro `<id>` recibido en una llamada de webhook.
 
 ##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Patch `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
-*Parámetros de consulta*:
+*Parámetros de consulta* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -862,7 +862,7 @@ El valor de `operationId` para esta llamada API se puede recuperar a partir del 
 |   `subscriptionId`   |  Identificador único de la suscripción de SaaS comprada.  Este identificador se obtiene después de resolver el token de autorización de Marketplace mediante la API Resolve.  |
 |   `operationId`      |  Identificador único de la operación que se va a completar. |
 
-*Encabezados de la solicitud*:
+*Encabezados de la solicitud* :
 
 |  Parámetro         | Value             |
 |  ---------------   |  ---------------  |
@@ -879,7 +879,7 @@ El valor de `operationId` para esta llamada API se puede recuperar a partir del 
 }
 ```
 
-*Códigos de respuesta*:
+*Códigos de respuesta* :
 
 Código: 200 Llamada para informar de la finalización de una operación por parte del partner.  Por ejemplo, esta respuesta podría la finalización del cambio de puestos o planes en el lado del editor.
 
@@ -962,7 +962,7 @@ Cuando el editor esté listo para las pruebas de un extremo a otro:
 
 Se puede desencadenar un flujo de compra desde Azure Portal o sitios de Microsoft AppSource, en función de dónde se publique la oferta.
 
-Las acciones de *cambiar plan*, *cambiar cantidad* y *cancelar suscripción* se prueban desde el lado del editor.  En el lado de Microsoft, se pueden desencadenar la acción de *cancelar suscripción* desde Azure Portal y el Centro de administración (el portal donde se administran las compras de Microsoft AppSource).  Las acciones de *cambiar cantidad y plan* solo se pueden desencadenar desde el Centro de administración.
+Las acciones de *cambiar plan* , *cambiar cantidad* y *cancelar suscripción* se prueban desde el lado del editor.  En el lado de Microsoft, se pueden desencadenar la acción de *cancelar suscripción* desde Azure Portal y el Centro de administración (el portal donde se administran las compras de Microsoft AppSource).  Las acciones de *cambiar cantidad y plan* solo se pueden desencadenar desde el Centro de administración.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

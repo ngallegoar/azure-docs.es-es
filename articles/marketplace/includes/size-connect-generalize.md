@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 24adbfe38a3d43a83307fb8726849f7c73def3f3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ecbafe0d3f39b1bd6f7c494695ea17e067f0c79e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283378"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129305"
 ---
 ## <a name="generalize-the-image"></a>Generalizar la imagen
 
@@ -20,7 +20,7 @@ Todas las imágenes de Azure Marketplace deben ser reutilizables de forma genér
 
 ### <a name="for-windows"></a>Para Windows
 
-Los discos de sistema operativo Windows se generalizan con la herramienta [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Si más adelante actualiza o vuelve a configurar el sistema operativo, debe ejecutar sysprep de nuevo.
+Los discos de sistema operativo Windows se generalizan con la herramienta [sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Si más adelante actualiza o vuelve a configurar el sistema operativo, debe ejecutar sysprep de nuevo.
 
 > [!WARNING]
 > Después de ejecutar sysprep, desactive la máquina virtual hasta que se implemente, ya que las actualizaciones pueden ejecutarse automáticamente. Este apagado evita que las actualizaciones posteriores realicen cambios específicos de la instancia en el sistema operativo o los servicios instalados. Para más información sobre la ejecución de sysprep, vea [Pasos para generalizar un disco duro virtual](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
@@ -41,13 +41,13 @@ El siguiente proceso generaliza una máquina virtual Linux y la vuelve a impleme
 ### <a name="take-a-snapshot-of-the-vm-disk"></a>Toma de una instantánea del disco de máquina virtual
 
 1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com/).
-2. En el menú superior izquierdo, seleccione **Crear un recurso** y, a continuación, busque y seleccione **Instantánea** .
-3. En la hoja Instantánea, seleccione **Crear** .
+2. En el menú superior izquierdo, seleccione **Crear un recurso** y, a continuación, busque y seleccione **Instantánea**.
+3. En la hoja Instantánea, seleccione **Crear**.
 4. Escriba un **nombre** para la instantánea.
 5. Seleccione un grupo de recursos existente o escriba el nombre de uno nuevo.
 6. Como **disco de origen** , seleccione el disco administrado para la instantánea.
 7. Seleccione el **tipo de cuenta** que se usará para almacenar la instantánea. Use **HDD estándar** , a menos que necesite almacenarla en un disco SSD de alto rendimiento.
-8. Seleccione **Crear** .
+8. Seleccione **Crear**.
 
 #### <a name="extract-the-vhd"></a>Extracción del disco duro
 

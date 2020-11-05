@@ -1,17 +1,17 @@
 ---
 title: Pago por adelantado de recursos de proceso con capacidad reservada para Azure Database for MySQL
 description: Pago por adelantado de recursos de proceso de Azure Database for MySQL con capacidad reservada
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 27cd1c9085771bd9ac2b18c37b73235d7f18ad5a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 33c2617a22945ecb11586bc282e7f9f61b6e49ca
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538092"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240909"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for MySQL con capacidad reservada
 
@@ -38,7 +38,7 @@ Por ejemplo, imagine que ejecuta una base de datos MySQL de propósito general G
 ## <a name="buy-azure-database-for-mysql-reserved-capacity"></a>Capacidad reservada de Azure Database for MySQL
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Todos los servicios** > **Reservations** .
+2. Seleccione **Todos los servicios** > **Reservations**.
 3. Seleccione **Agregar** y, en el panel Comprar reservas, seleccione **Azure Database for MySQL** para comprar una nueva reserva para las bases de datos de MySQL.
 4. Rellene todos los campos obligatorios. Las bases de datos existentes o nuevas que coincidan con los atributos seleccionados serán aptas para el descuento en la capacidad reservada. El número real de servidores de Azure Database for MySQL que obtienen el descuento depende del ámbito y la cantidad seleccionados.
 
@@ -50,7 +50,7 @@ En la siguiente tabla se describen los campos obligatorios.
 
 | Campo | Descripción |
 | :------------ | :------- |
-| Subscription   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Database for MySQL. Los costos anticipados por la reserva de capacidad reservada de Azure Database for MySQL se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
+| Suscripción   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Database for MySQL. Los costos anticipados por la reserva de capacidad reservada de Azure Database for MySQL se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
 | Ámbito | El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: </br></br> **Compartido** : el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MySQL en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br> **Suscripción única** : el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MySQL de esta suscripción. </br></br> **Grupo de recursos único** : el descuento de reserva se aplica a los servidores de Azure Database for MySQL de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
 | Region | La región de Azure que abarca la reserva de capacidad reservada de Azure Database for MySQL.
 | Tipo de implementación | El tipo de recurso de Azure Database for MySQL para el que quiere comprar la reserva.

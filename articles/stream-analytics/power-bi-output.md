@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91822999"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129786"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Salida de Power BI desde Azure Stream Analytics
 
@@ -51,7 +51,7 @@ Power BI utiliza la directiva de retención primero en entrar, primero en salir 
 
 Azure Stream Analytics actualiza el modelo de datos dinámicamente en tiempo de ejecución si cambia el esquema de salida. Se realiza un seguimiento de los cambios de nombre de columna, los cambios de tipo de columna y la adición o eliminación de columnas.
 
-Esta tabla cubre las conversiones de tipos de datos de [tipos de datos de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) a [tipos de Entity Data Model (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) de Power BI si no existen una tabla y un conjunto de datos de Power BI.
+Esta tabla cubre las conversiones de tipos de datos de [tipos de datos de Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics) a [tipos de Entity Data Model (EDM)](/dotnet/framework/data/adonet/entity-data-model) de Power BI si no existen una tabla y un conjunto de datos de Power BI.
 
 De Stream Analytics | A Power BI
 -----|-----
@@ -76,7 +76,7 @@ Datetime | String | String |  Datetime | String
 
 ## <a name="output-batch-size"></a>Tamaño de lote de salida
 
-Para ver el tamaño del lote de salida, consulte los [límites de la API REST de Power BI](https://msdn.microsoft.com/library/dn950053.aspx).
+Para ver el tamaño del lote de salida, consulte los [límites de la API REST de Power BI](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

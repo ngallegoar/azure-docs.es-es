@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 55dabccf5a5ab9e81ff0644056002f3beb644fa9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f7e9de1f23ec46af08fe96b5db3170fac9a7eb2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491162"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101636"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-gremlin-api"></a>Creación de un contenedor en Gremlin API de Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 En este artículo se explican las distintas formas de crear un contenedor en Gremlin API de Azure Cosmos DB. Muestra cómo crear un contenedor mediante Azure Portal, CLI de Azure, PowerShell o los SDK admitidos. En este artículo se muestra cómo crear un contenedor, especificar la clave de partición y aprovisionar el rendimiento.
 
@@ -34,10 +35,10 @@ En este artículo se explican las distintas formas de crear un contenedor en Gre
 
    * Indique si va a crear una nueva base de datos o a usar una existente.
    * Escriba un identificador de grafo.
-   * Seleccione la capacidad de almacenamiento **Sin límite** .
+   * Seleccione la capacidad de almacenamiento **Sin límite**.
    * Escriba una clave de partición para los vértices.
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
-   * Seleccione **Aceptar** .
+   * Seleccione **Aceptar**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Captura de pantalla del cuadro de diálogo Agregar grafo de la API Gremlin":::
 

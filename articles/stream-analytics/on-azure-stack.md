@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1fe035d99f8a5962406d5aae3f093d71d432b310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21cf432576829b575d70a94227f28df373a4d899
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88860470"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126165"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Ejecución de Azure Stream Analytics en Azure Stack (versión preliminar)
 
@@ -34,9 +34,9 @@ Si no está familiarizado con Azure Stack Hub o IoT Edge, siga las instrucciones
 
 ### <a name="prepare-the-azure-stack-hub-environment"></a>Preparación del entorno de Azure Stack Hub
 
-Cree una suscripción a Azure Stack Hub. Para más información, consulte el [tutorial para crear una suscripción a Azure Stack Hub.](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services/)
+Cree una suscripción a Azure Stack Hub. Para más información, consulte el [tutorial para crear una suscripción a Azure Stack Hub.](/azure-stack/user/azure-stack-subscribe-services/)
 
-Si quiere evaluar Azure Stack Hub en su propio servidor, puede usar el Kit de desarrollo de Azure Stack (ASDK).  Para más información sobre ASDK, consulte la [información general sobre ASDK](https://docs.microsoft.com/azure-stack/asdk/).
+Si quiere evaluar Azure Stack Hub en su propio servidor, puede usar el Kit de desarrollo de Azure Stack (ASDK).  Para más información sobre ASDK, consulte la [información general sobre ASDK](/azure-stack/asdk/).
 
 ### <a name="install-the-iot-edge-runtime"></a>Instalación del entorno de ejecución de IoT Edge
 
@@ -46,8 +46,8 @@ Además de tener acceso de red para los recursos de Azure Stack Hub, el disposit
 
 En las guías siguientes se muestra cómo configurar el entorno de ejecución de IoT Edge en el dispositivo o máquina virtual:
 
-* [Instalación del entorno de ejecución de Azure IoT Edge en Windows](../iot-edge/how-to-install-iot-edge-windows.md)
-* [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../iot-edge/how-to-install-iot-edge-linux.md)
+* [Instalación del entorno de ejecución de Azure IoT Edge en Windows](../iot-edge/how-to-install-iot-edge.md)
+* [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../iot-edge/how-to-install-iot-edge.md)
 
 
 ## <a name="create-an-azure-stream-analytics-edge-job"></a>Creación de un trabajo perimetral de Azure Stream Analytics
@@ -59,7 +59,7 @@ Los trabajos de ASA en Edge se ejecutan en contenedores implementados en disposi
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
 Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispositivo de IoT Edge, se debe almacenar de forma que se pueda llamar desde el dispositivo. Puede usar una cuenta de Azure Storage o crear una nueva ahora.
-1. En Azure Portal, vaya a **Crear un recurso > Almacenamiento > Cuenta de almacenamiento: blob, archivo, tabla, cola** .
+1. En Azure Portal, vaya a **Crear un recurso > Almacenamiento > Cuenta de almacenamiento: blob, archivo, tabla, cola**.
 2. Especifique los siguientes valores para crear una cuenta de almacenamiento:
 
    | Campo | Value |
@@ -67,9 +67,9 @@ Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispos
    | Nombre | Especifique un nombre único para la cuenta de almacenamiento. |
    | Location | Elija una ubicación cercana a usted.|
    | Suscripción | Elija la misma suscripción que IoT Hub.|
-   | Grupo de recursos | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba que se crean en las guías de [inicio rápido de IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) y los tutoriales. Por ejemplo, **IoTEdgeResources** . |
+   | Grupo de recursos | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba que se crean en las guías de [inicio rápido de IoT Edge](../iot-edge/quickstart.md) y los tutoriales. Por ejemplo, **IoTEdgeResources**. |
 
-3. Mantenga los valores predeterminados en los restantes campos y seleccione **Crear** .
+3. Mantenga los valores predeterminados en los restantes campos y seleccione **Crear**.
 
 
 ### <a name="create-a-new-job"></a>Crear un trabajo
@@ -81,11 +81,11 @@ Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispos
    | --- | --- |
    | Nombre del trabajo | Especifique el nombre del trabajo. Por ejemplo, **IoTEdgeJob** |
    | Suscripción | Elija la misma suscripción que IoT Hub.|
-   | Grupo de recursos | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba que se crean en las [guías de inicio rápido de IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) y los tutoriales. Por ejemplo, **IoTEdgeResources** . |
+   | Grupo de recursos | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba que se crean en las [guías de inicio rápido de IoT Edge](../iot-edge/quickstart.md) y los tutoriales. Por ejemplo, **IoTEdgeResources**. |
    | Location | Elija una ubicación cercana a usted. |
-   | Entorno de hospedaje | Seleccionar **Edge** . |
+   | Entorno de hospedaje | Seleccionar **Edge**. |
 
-3. Seleccione **Crear** .
+3. Seleccione **Crear**.
 
 ### <a name="configure-your-job"></a>Configuración del trabajo
 
@@ -95,7 +95,7 @@ Una vez que se ha creado el trabajo de Stream Analytics en Azure Portal, puede c
 2. En **Configurar** , seleccione **Configuración de cuenta de almacenamiento** y elija la cuenta de almacenamiento que creó en el paso anterior.
    > [!div class="mx-imgBorder"]
    > [ ![Configuración de la cuenta de almacenamiento del trabajo](media/on-azure-stack/storage-account-settings.png) ](media/on-azure-stack/storage-account-settings.png#lightbox)
-3. En **Topología de trabajo** , seleccione **Entradas** y, después, **Agregar entrada de flujo** .
+3. En **Topología de trabajo** , seleccione **Entradas** y, después, **Agregar entrada de flujo**.
 4. Elija **IoT Hub** , **Centro de eventos** o **Centro de Microsoft Edge** en la lista desplegable. 
 5. Si la entrada es un centro de eventos o IoT Hub en una suscripción de Azure Stack Hub, proporcione información manualmente como se muestra a continuación.
 
@@ -161,14 +161,14 @@ Una vez que se ha creado el trabajo de Stream Analytics en Azure Portal, puede c
 ## <a name="deploy-stream-analytics-on-a-vm-or-device-connected-to-azure-stack"></a>Implementación de Stream Analytics en una máquina virtual o un dispositivo conectado a Azure Stack
 
 1. En Azure Portal, abra IoT Hub. Vaya a **IoT Edge** y haga clic en el dispositivo (máquina virtual) que va a ser el destino de esta implementación.
-2. Seleccione **Set modules** (Establecer módulos). A continuación, seleccione **+ Agregar** y, elija **Módulo de Azure Stream Analytics** . 
-3. Seleccione la suscripción y el trabajo perimetral de Stream Analytics que creó. Haga clic en **Guardar** y seleccione **Siguiente: Rutas** .
+2. Seleccione **Set modules** (Establecer módulos). A continuación, seleccione **+ Agregar** y, elija **Módulo de Azure Stream Analytics**. 
+3. Seleccione la suscripción y el trabajo perimetral de Stream Analytics que creó. Haga clic en **Guardar** y seleccione **Siguiente: Rutas**.
 
    > [!div class="mx-imgBorder"]
    > [ ![Adición de módulos](media/on-azure-stack/edge-modules.png) ](media/on-azure-stack/edge-modules.png#lightbox)
 
 4. Haga clic en **Revisar y crear >** .
-5. En la pestaña **Revisar + crear** , seleccione **Crear** . 
+5. En la pestaña **Revisar + crear** , seleccione **Crear**. 
    > [!div class="mx-imgBorder"]
    > [ ![Manifiesto](media/on-azure-stack/module-content.png) ](media/on-azure-stack/module-content.png#lightbox)
 6. Confirme que el módulo se agrega a la lista.
@@ -176,5 +176,5 @@ Una vez que se ha creado el trabajo de Stream Analytics en Azure Portal, puede c
    > [ ![Página de implementación](media/on-azure-stack/edge-deployment.png) ](media/on-azure-stack/edge-deployment.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Azure Stream Analytics en IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge)
-- [Desarrollo de trabajos perimetrales de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+- [Azure Stream Analytics en IoT Edge](./stream-analytics-edge.md)
+- [Desarrollo de trabajos perimetrales de Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

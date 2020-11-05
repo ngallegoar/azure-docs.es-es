@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: eb9e8caff81e86b7db732c970eee1e1a08be5241
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 302c5d6e8e523a11b8773f10bb6089e3bea09bdd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491111"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101568"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Creación de un contenedor en la API de SQL de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se explican las distintas formas de crear un contenedor en la API de SQL de Azure Cosmos DB. Muestra cómo crear un contenedor mediante Azure Portal, la CLI de Azure, PowerShell o los SDK admitidos. En este artículo se muestra cómo crear un contenedor, especificar la clave de partición y aprovisionar el rendimiento.
 
@@ -30,13 +31,13 @@ En este artículo se explican las distintas formas de crear un contenedor en la 
 
 1. [Cree una cuenta de Azure Cosmos](create-sql-api-dotnet.md#create-account) o seleccione una ya existente.
 
-1. Abra el panel **Data Explorer** y seleccione **Nuevo contenedor** . Después, proporcione los detalles siguientes:
+1. Abra el panel **Data Explorer** y seleccione **Nuevo contenedor**. Después, proporcione los detalles siguientes:
 
    * Indique si va a crear una nueva base de datos o a usar una existente.
    * Escriba un identificador de contenedor.
    * Escriba la clave de partición.
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
-   * Seleccione **Aceptar** .
+   * Seleccione **Aceptar**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Captura de pantalla del panel de Data Explorer con la opción Contenedor nuevo resaltada":::
 

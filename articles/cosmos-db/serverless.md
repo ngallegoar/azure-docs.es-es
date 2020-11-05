@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88757904"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098763"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sin servidor (versión preliminar)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB sin servidor está actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -32,9 +33,9 @@ Cuando se usa Azure Cosmos DB, cada operación de base de datos tiene un costo e
 
 Azure Cosmos DB sin servidor se adapta mejor a los escenarios en los que se espera:
 
-- **Tráfico ligero**: dado que la capacidad de aprovisionamiento en estas situaciones no es necesaria y puede ser prohibitiva
-- **Capacidad moderada de ráfaga**: dado que los contenedores sin servidor pueden proporcionar hasta 5000 unidades de solicitud por segundo
-- **Rendimiento moderado**: dado que los contenedores sin servidor tienen [características de rendimiento específicas](#performance)
+- **Tráfico ligero** : dado que la capacidad de aprovisionamiento en estas situaciones no es necesaria y puede ser prohibitiva
+- **Capacidad moderada de ráfaga** : dado que los contenedores sin servidor pueden proporcionar hasta 5000 unidades de solicitud por segundo
+- **Rendimiento moderado** : dado que los contenedores sin servidor tienen [características de rendimiento específicas](#performance)
 
 Por estos motivos, se debe tener en cuenta Azure Cosmos DB sin servidor para los siguientes tipos de carga de trabajo:
 
@@ -81,9 +82,9 @@ Puede encontrar el mismo gráfico al usar Azure Monitor, tal y como se describe 
 
 Los recursos sin servidor brindan características de rendimiento específicas que son diferentes de las que ofrecen los recursos de rendimiento aprovisionados:
 
-- **Disponibilidad**: una vez que la oferta sin servidor esté disponible con carácter general, la disponibilidad de los contenedores sin servidor se incluirá en un Acuerdo de Nivel de Servicio (SLA) del 99,9 % cuando no se use Availability Zones (redundancia de zona). El Acuerdo de Nivel de Servicio es del 99,99 % cuando se usa Availability Zones.
-- **Latencia**: una vez que la oferta sin servidor esté disponible con carácter general, la latencia de los contenedores sin servidor se incluirá en un objetivo de nivel de servicio (SLO) de 10 milisegundos o menos para las lecturas de punto y de 30 milisegundos o menos para las escrituras. Una operación de lectura de punto consiste en capturar un solo elemento por su identificador y el valor de clave de partición.
-- **Capacidad de ráfaga**: una vez que la oferta sin servidor esté disponible con carácter general, la capacidad de ráfaga de los contenedores sin servidor se incluirá en un objetivo de nivel de servicio (SLO) del 95 %. Esto significa que la capacidad máxima de ráfaga se puede alcanzar al menos el 95 % del tiempo.
+- **Disponibilidad** : una vez que la oferta sin servidor esté disponible con carácter general, la disponibilidad de los contenedores sin servidor se incluirá en un Acuerdo de Nivel de Servicio (SLA) del 99,9 % cuando no se use Availability Zones (redundancia de zona). El Acuerdo de Nivel de Servicio es del 99,99 % cuando se usa Availability Zones.
+- **Latencia** : una vez que la oferta sin servidor esté disponible con carácter general, la latencia de los contenedores sin servidor se incluirá en un objetivo de nivel de servicio (SLO) de 10 milisegundos o menos para las lecturas de punto y de 30 milisegundos o menos para las escrituras. Una operación de lectura de punto consiste en capturar un solo elemento por su identificador y el valor de clave de partición.
+- **Capacidad de ráfaga** : una vez que la oferta sin servidor esté disponible con carácter general, la capacidad de ráfaga de los contenedores sin servidor se incluirá en un objetivo de nivel de servicio (SLO) del 95 %. Esto significa que la capacidad máxima de ráfaga se puede alcanzar al menos el 95 % del tiempo.
 
 > [!NOTE]
 > Como cualquier versión preliminar de Azure, Azure Cosmos DB sin servidor se excluye de los Acuerdos de Nivel de Servicio (SLA). Las características de rendimiento mencionadas anteriormente se proporcionan como versión preliminar de lo que esta oferta proporcionará cuando esté disponible con carácter general.

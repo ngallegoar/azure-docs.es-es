@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670737"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130347"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
@@ -93,7 +93,7 @@ Para realizar el seguimiento de los cambios en los archivos de Windows y Linux, 
 
 ## <a name="tracking-file-content-changes"></a>Seguimiento de cambios en el contenido de los archivos
 
-Change Tracking e Inventario le permite ver el contenido de un archivo de Windows o Linux. Para cada cambio en un archivo, Change Tracking e Inventario almacena el contenido del archivo en una [cuenta de Azure Storage](/storage/common/storage-account-create). Cuando realiza el seguimiento de un archivo, puede ver su contenido antes o después de un cambio. El contenido del archivo se puede ver en línea o en paralelo.
+Change Tracking e Inventario le permite ver el contenido de un archivo de Windows o Linux. Para cada cambio en un archivo, Change Tracking e Inventario almacena el contenido del archivo en una [cuenta de Azure Storage](../../storage/common/storage-account-create.md). Cuando realiza el seguimiento de un archivo, puede ver su contenido antes o después de un cambio. El contenido del archivo se puede ver en línea o en paralelo.
 
 ![Visualización de los cambios en un archivo](./media/overview/view-file-changes.png)
 
@@ -158,7 +158,7 @@ En la siguiente tabla se muestran los límites de elementos sometidos a seguimie
 |Servicios|250|
 |Demonios|250|
 
-El uso medio de datos de Log Analytics para una máquina con Change Tracking e Inventario es aproximadamente de 40 MB al mes, según su entorno. Con la característica Uso y costos estimados del área de trabajo de Log Analytics, puede ver los datos ingeridos por Change Tracking e Inventario en un gráfico de uso. Use esta vista de datos para evaluar el uso de los datos y determinar cómo afecta a su factura. Consulte [Información útil del uso y los costos estimados](/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+El uso medio de datos de Log Analytics para una máquina con Change Tracking e Inventario es aproximadamente de 40 MB al mes, según su entorno. Con la característica Uso y costos estimados del área de trabajo de Log Analytics, puede ver los datos ingeridos por Change Tracking e Inventario en un gráfico de uso. Use esta vista de datos para evaluar el uso de los datos y determinar cómo afecta a su factura. Consulte [Información útil del uso y los costos estimados](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Datos de servicio de Microsoft
 

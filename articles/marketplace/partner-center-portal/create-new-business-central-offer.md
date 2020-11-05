@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71cbc09f21e21c325665809953f209615d835124
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91774585"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130160"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creación de una oferta de Dynamics 365 Business Central
 
@@ -37,7 +37,7 @@ Escriba un **Identificador de oferta**. Se trata de un identificador único para
 
 - Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
 - El identificador de oferta en combinación con el del editor debe tener una longitud de menos de 40 caracteres.
-- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios. Por ejemplo, si el identificador del editor es testpublisherid y escribe **test-offer-1**, la dirección web de la oferta es `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
+- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios. Por ejemplo, si el identificador del editor es testpublisherid y escribe **test-offer-1** , la dirección web de la oferta es `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
 - El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
 
 Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
@@ -173,7 +173,7 @@ Escriba la dirección URL a la directiva de privacidad de su organización. Uste
 
 En esta sección, debe proporcionar el nombre, el correo electrónico y el número de teléfono de un **contacto de soporte técnico** y un **contacto de ingeniería**. Esta información no se muestra a los clientes, pero estará disponible para Microsoft y puede proporcionarse a los asociados de CSP.
 
-En la sección **Contacto de soporte técnico**, también debe proporcionar la **dirección URL de soporte técnico** en la que los asociados de CSP pueden encontrar soporte técnico para la oferta. La dirección URL de soporte técnico no puede ser la misma que el **vínculo de ayuda**.
+En la sección **Contacto de soporte técnico** , también debe proporcionar la **dirección URL de soporte técnico** en la que los asociados de CSP pueden encontrar soporte técnico para la oferta. La dirección URL de soporte técnico no puede ser la misma que el **vínculo de ayuda**.
 
 ### <a name="supporting-documents"></a>Documentos relacionados
 
@@ -215,7 +215,7 @@ Esta página le proporciona opciones sobre dónde y cómo hacer que la oferta es
 
 ### <a name="markets"></a>Mercados
 
-Esta sección le permite especificar los mercados en los que la oferta debe estar disponible. Para ello, seleccione **Editar mercados**, que mostrará la ventana emergente **Selección de mercado**.
+Esta sección le permite especificar los mercados en los que la oferta debe estar disponible. Para ello, seleccione **Editar mercados** , que mostrará la ventana emergente **Selección de mercado**.
 
 Seleccione al menos un mercado para publicar la oferta. Elija **Seleccionar todo** para que su oferta esté disponible en cada mercado posible o seleccione los mercados específicos que quiera agregar.
 
@@ -242,8 +242,8 @@ Esta página especifica los detalles técnicos usados para conectarse a la ofert
 
 Seleccione la opción que se aplica a su oferta:
 
-* **Complemento**: una aplicación de complemento amplía la experiencia y la funcionalidad existente de Dynamics 365 Business Central. Para obtener más información, consulte [Aplicaciones de complemento](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
-* **Connect**: se puede usar una aplicación de Connect en el escenario en el que debe establecerse una conexión punto a punto entre Dynamics 365 Business Central y una solución o servicio de terceros. Para obtener más información, consulte [Aplicaciones de Connect](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
+* **Complemento** : una aplicación de complemento amplía la experiencia y la funcionalidad existente de Dynamics 365 Business Central. Para obtener más información, consulte [Aplicaciones de complemento](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
+* **Connect** : se puede usar una aplicación de Connect en el escenario en el que debe establecerse una conexión punto a punto entre Dynamics 365 Business Central y una solución o servicio de terceros. Para obtener más información, consulte [Aplicaciones de Connect](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
 ### <a name="file-upload"></a>Carga de archivos
 
@@ -270,7 +270,7 @@ Seleccione **Guardar borrador** antes de continuar.
 
 Esta página permite configurar una demostración («versión de prueba») que permite a los clientes probar la oferta antes de adquirirla. Más información en [Qué es la versión de prueba](../what-is-test-drive.md).
 
-Para habilitar una versión de prueba, seleccione la pestaña**Habilitar una versión de prueba** y marque la casilla[Configuración de la oferta](#test-drive). Para eliminar la versión de prueba de la oferta, desactive esta casilla.
+Para habilitar una versión de prueba, seleccione la pestaña **Habilitar una versión de prueba** y marque la casilla [Configuración de la oferta](#test-drive). Para eliminar la versión de prueba de la oferta, desactive esta casilla.
 
 Cuando haya terminado de configurar la versión de prueba, seleccione **Guardar borrador** antes de continuar.
 
@@ -280,7 +280,7 @@ Esta página le permite proporcionar información adicional sobre su oferta, lo 
 
 ### <a name="target-release"></a>Versión de destino
 
-Indique qué versión de Microsoft Dynamics Business Central tiene como destino su solución: **Actual**, **Siguiente mayor** o **Siguiente menor**. Esta información nos permite probar la solución correctamente.
+Indique qué versión de Microsoft Dynamics Business Central tiene como destino su solución: **Actual** , **Siguiente mayor** o **Siguiente menor**. Esta información nos permite probar la solución correctamente.
 
 ### <a name="supported-editions"></a>Ediciones compatibles
 
@@ -307,10 +307,10 @@ Una vez que haya completado todas las secciones necesarias de la oferta, selecci
 Si es la primera vez que publica esta oferta, puede:
 
 - Ver el estado de finalización de cada sección de la oferta.
-    - *No iniciada*: significa que la sección no se ha modificado y se debe completar.
-    - *Incompleta*: significa que la sección tiene errores que deben corregirse o que requiere más información. Vuelva a las secciones y actualícelas.
-    - *Completa*: significa que la sección está completa, que se han proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
-- En la sección **Notas para la certificación**, envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
+    - *No iniciada* : significa que la sección no se ha modificado y se debe completar.
+    - *Incompleta* : significa que la sección tiene errores que deben corregirse o que requiere más información. Vuelva a las secciones y actualícelas.
+    - *Completa* : significa que la sección está completa, que se han proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+- En la sección **Notas para la certificación** , envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
 - Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Vuelva al Centro de partners y seleccione **Publicar** para ofrecer la oferta al público.
 
 ## <a name="next-steps"></a>Pasos siguientes

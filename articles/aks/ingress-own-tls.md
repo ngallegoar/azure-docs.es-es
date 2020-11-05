@@ -5,12 +5,12 @@ description: Aprenda a instalar y configurar un controlador de entrada NGINX que
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 42e9f2128063caa13cf3fca1a28ec7e6465ba74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8ea245444fa5e8e042644bd3f7a34ed021ccd1d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855692"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131044"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada HTTPS y uso de sus propios certificados TLS en Azure Kubernetes Service (AKS)
 
@@ -85,7 +85,7 @@ En este artículo, vamos a generar un certificado autofirmado con `openssl`. Par
 
 En el ejemplo siguiente, se genera un certificado X509 RSA de 2048 bits válido durante 365 días denominado *aks-ingress-tls.crt*. El archivo de clave privada se denomina *aks-ingress-tls.key*. Un secreto de Kubernetes TLS requiere ambos archivos.
 
-Este artículo utiliza el nombre común del asunto *demo.azure.com*, que no es necesario cambiar. Para su uso en producción, especifique los valores de su propia organización para el parámetro `-subj`:
+Este artículo utiliza el nombre común del asunto *demo.azure.com* , que no es necesario cambiar. Para su uso en producción, especifique los valores de su propia organización para el parámetro `-subj`:
 
 ```console
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
@@ -98,7 +98,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 Para permitir que Kubernetes use el certificado TLS y la clave privada para el controlador de entrada, debe crear y usar un secreto. El secreto se define una vez y usa el certificado y el archivo de clave que creó en el paso anterior. A continuación, hará referencia a este secreto al definir las rutas de entrada.
 
-En el ejemplo siguiente se crea un secreto llamado *aks-ingress-tls*:
+En el ejemplo siguiente se crea un secreto llamado *aks-ingress-tls* :
 
 ```console
 kubectl create secret tls aks-ingress-tls \
@@ -132,7 +132,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -170,7 +170,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:

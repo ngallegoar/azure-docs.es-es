@@ -1,17 +1,17 @@
 ---
 title: Configuración de TLS de Azure Database for MySQL en Azure Portal
 description: Obtenga información sobre cómo configurar los valores de TLS mediante Azure Portal para Azure Database for MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: d94e589a19b29e68883c0217b62b883f9d026789
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 290752c0e577e6c2cd58d83f77fea8a5406388e4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902733"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240637"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mysql-using-azure-portal"></a>Configuración de los valores de TLS en Azure Database for MySQL mediante Azure Portal
 
@@ -31,9 +31,9 @@ Siga estos pasos para establecer la versión de TLS mínima del servidor de MySQ
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione el servidor de Azure Database for MySQL existente.
 
-1. En la página del servidor de MySQL, en **Configuración**, haga clic en **Seguridad de la conexión** para abrir la página de configuración de seguridad de la conexión.
+1. En la página del servidor de MySQL, en **Configuración** , haga clic en **Seguridad de la conexión** para abrir la página de configuración de seguridad de la conexión.
 
-1. En **Versión de TLS mínima**, seleccione **1.2** para denegar las conexiones con una versión de TLS inferior a TLS 1.2 para el servidor de MySQL.
+1. En **Versión de TLS mínima** , seleccione **1.2** para denegar las conexiones con una versión de TLS inferior a TLS 1.2 para el servidor de MySQL.
 
     :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Configuración de TLS para Azure Database for MySQL":::
 
@@ -41,7 +41,7 @@ Siga estos pasos para establecer la versión de TLS mínima del servidor de MySQ
 
 1. Se enviará una notificación para confirmar la correcta habilitación de la configuración de seguridad de la conexión.
 
-    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Configuración de TLS para Azure Database for MySQL":::
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Configuración correcta de TLS para Azure Database for MySQL":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

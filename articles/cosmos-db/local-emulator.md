@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b1a0382b6bb650b6761897f4a16f988e5ce00c1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482628"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088750"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Instalación y uso del emulador de Azure Cosmos para desarrollo y pruebas locales
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 El emulador de Azure Cosmos proporciona un entorno local que emula el servicio Azure Cosmos DB con fines de desarrollo. Mediante este emulador, puede desarrollar y probar una aplicación localmente, sin necesidad de crear una suscripción a Azure ni incurrir en costos. Cuando esté satisfecho con el funcionamiento de la aplicación en el emulador, puede cambiar a una cuenta de Azure Cosmos en la nube. En este artículo se describe cómo instalar y usar el emulador en entornos Windows, Linux, macOS y Docker para Windows.
 
@@ -86,13 +87,13 @@ El emulador de Azure Cosmos se instala de forma predeterminada en `C:\Program Fi
 
 Cuando el emulador se ha iniciado, aparece un icono en el área de notificación de la barra de tareas de Windows. El explorador de datos de Azure Cosmos se abre automáticamente en el explorador web, en la dirección URL `https://localhost:8081/_explorer/index.html`.
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Seleccionar el botón Inicio o presionar la tecla Windows, comenzar a escribir Azure Cosmos emulator y seleccionar el emulador en la lista de aplicaciones":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Notificación en la barra de tareas del emulador local de Azure Cosmos DB":::
 
 También puede iniciar y detener el emulador desde la línea de comandos o mediante comandos de PowerShell. Para más información, consulte el artículo de [referencia de la herramienta de la línea de comandos](emulator-command-line-parameters.md).
 
 El emulador de Azure Cosmos se ejecuta de forma predeterminada en la máquina local ("localhost") que escucha en el puerto 8081. La dirección aparece como `https://localhost:8081/_explorer/index.html`. Si cierra el explorador y desea volver a abrirlo más adelante, puede abrir la dirección URL en el explorador web o iniciarlo desde el icono del emulador de Azure Cosmos de la bandeja de Windows, tal como se muestra a continuación.
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Seleccionar el botón Inicio o presionar la tecla Windows, comenzar a escribir Azure Cosmos emulator y seleccionar el emulador en la lista de aplicaciones":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Iniciador del explorador de datos del emulador local de Azure Cosmos":::
 
 ## <a name="use-the-emulator-on-docker-for-windows"></a><a id="run-on-windows-docker"></a>Uso del emulador en Docker para Windows
 
@@ -295,7 +296,7 @@ Siga estos pasos si trabaja en Mac:
 
 1. Abra el menú contextual de ese elemento, seleccione *Get Item* (Obtener elemento) y en la opción *Trust* > *When using this certificate* (Confiar > Al usar este certificado), seleccione *Always Trust* (Confiar siempre). 
 
-   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Seleccionar el botón Inicio o presionar la tecla Windows, comenzar a escribir Azure Cosmos emulator y seleccionar el emulador en la lista de aplicaciones":::
+   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Abrir el menú contextual de ese elemento, seleccionar Get Item (Obtener elemento) y en la opción Trust > When using this certificate (Confiar > Al usar este certificado), seleccionar Always Trust (Confiar siempre)":::
   
 ### <a name="option-2-disable-the-ssl-validation-in-the-application"></a><a id="disable-ssl-validation"></a>Opción 2: Deshabilitar la validación SSL en la aplicación
 
@@ -328,7 +329,7 @@ Supongamos que tiene varias máquinas con una sola red, configura el emulador en
 
 Puede ejecutar el emulador en una red local. Para habilitar el acceso de red, especifique la opción `/AllowNetworkAccess` en la [línea de comandos](emulator-command-line-parameters.md), que también requiere que especifique `/Key=key_string` o `/KeyFile=file_name`. Puede usar `/GenKeyFile=file_name` para generar un archivo con una clave aleatoria por adelantado. Después, puede pasarlo a `/KeyFile=file_name` o `/Key=contents_of_file`.
 
-La primera vez que se habilita el acceso de red, el usuario debe apagar el emulador y eliminar su directorio de datos *%LOCALAPPDATA%\CosmosDBEmulator* .
+La primera vez que se habilita el acceso de red, el usuario debe apagar el emulador y eliminar su directorio de datos *%LOCALAPPDATA%\CosmosDBEmulator*.
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Autenticación de conexiones cuando se usa el emulador
 
@@ -458,7 +459,7 @@ Inicie el emulador desde un [símbolo del sistema](emulator-command-line-paramet
 
 Utilice los pasos siguientes para desinstalar el emulador:
 
-1. Cierre todas las instancias abiertas del emulador local; para ello, haga clic con el botón derecho en el icono del **emulador de Azure Cosmos** en la bandeja del sistema y seleccione **Salir** . Todas las instancias pueden tardar un minuto en salir.
+1. Cierre todas las instancias abiertas del emulador local; para ello, haga clic con el botón derecho en el icono del **emulador de Azure Cosmos** en la bandeja del sistema y seleccione **Salir**. Todas las instancias pueden tardar un minuto en salir.
 
 1. En el cuadro de búsqueda de Windows, escriba **Aplicaciones y características** y seleccione **Aplicaciones y características (configuración del sistema)** .
 

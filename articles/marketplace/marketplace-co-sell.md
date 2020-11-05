@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 10/19/2020
-ms.openlocfilehash: 343a6c92c9d77b5ef589477802015c6346a95ea9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 819b0401b8516538c6fdd12b47e57f79ec45ae09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521003"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131095"
 ---
 # <a name="co-sell-partner-engagement"></a>Participación de asociados de venta conjunta
 
@@ -40,15 +40,15 @@ Las ofertas con el estado de **venta conjunta con incentivos IP de Azure** obtie
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Pasos y requisitos de publicación de ventas conjuntas
 
-En la tabla siguiente se enumeran los pasos y requisitos necesarios para hacer que su oferta de marketplace esté lista para la venta conjunta o tenga incentivos para la venta conjunta. No todos los tipos de ofertas del marketplace comercial se pueden configurar todavía para la venta conjunta en el Centro de partners. Puede consultar [Opción de venta conjunta en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) para la información más reciente. 
+En la tabla siguiente se enumeran los pasos y requisitos necesarios para hacer que su oferta de marketplace esté lista para la venta conjunta o tenga incentivos para la venta conjunta. No todos los tipos de ofertas del marketplace comercial se pueden configurar todavía para la venta conjunta en el Centro de partners. Puede consultar [Opción de venta conjunta en el Centro de partners](./partner-center-portal/commercial-marketplace-co-sell.md) para la información más reciente. 
 
 |Paso    |Tipo de oferta    |Requisitos    |Estado de la venta conjunta    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li> Cree una cuenta en el Centro de partners y publique la oferta en el marketplace comercial.</li>|Todo|<li>La oferta cumple los requisitos de publicación del marketplace comercial.</li><li>Tiene un perfil de negocio completo en el Centro de partners.</li>|No está listo|
-|<ol start=2><li>Envíe los materiales de venta conjunta necesarios.</li>|Ofertas IP *con la* [opción de venta conjunta en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Carga de los materiales necesarios en el Centro de partners](#how-to-submit-co-sell-materials-in-partner-center)|Listo para la venta conjunta|
-||Ofertas IP *sin la* [opción de venta conjunta en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Solicitud de [trabajar con un especialista en la nube](https://partner.microsoft.com/campaigns/ced-nomination-form/) para proporcionar la documentación de venta conjunta necesaria.|Listo para la venta conjunta|
+|<ol start=2><li>Envíe los materiales de venta conjunta necesarios.</li>|Ofertas IP *con la* [opción de venta conjunta en el Centro de partners](./partner-center-portal/commercial-marketplace-co-sell.md)|[Carga de los materiales necesarios en el Centro de partners](#how-to-submit-co-sell-materials-in-partner-center)|Listo para la venta conjunta|
+||Ofertas IP *sin la* [opción de venta conjunta en el Centro de partners](./partner-center-portal/commercial-marketplace-co-sell.md)|<li>Solicitud de [trabajar con un especialista en la nube](https://partner.microsoft.com/campaigns/ced-nomination-form/) para proporcionar la documentación de venta conjunta necesaria.|Listo para la venta conjunta|
 ||Servicios de consultoría|<li>Solicitud de [trabajar con un especialista en la nube](https://partner.microsoft.com/campaigns/ced-nomination-form/) para proporcionar la documentación de venta conjunta necesaria.</li><li>Competencia Gold activa.</li>|Listo para la venta conjunta|
-|<ol start=3><li>Cualificación para los incentivos de venta conjunta IP</li>|Aplicaciones de Azure, contenedores de Azure, módulos de IoT Edge, SaaS, máquinas virtuales|Una vez que esté listo para la venta conjunta, existen dos requisitos adicionales: <ul> Requisito 1: conseguir:<ul><li>*En el nivel de organización:* debe alcanzar o superar los 100 000 USD de Ingresos por consumo de Azure durante los últimos 12 meses.</li><li>*En el nivel de oferta:* unos ingresos facturados acumulados de marketplace de 100 000 USD.</li></ul><br>Requisito 2: más del 50 % de la infraestructura de la oferta debe ejecutarse en Azure:<ul><li>Ofertas de IP *con la* [opción de venta conjunta en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): debe cargar un diagrama de arquitectura con los documentos de la venta conjunta en el Centro de partners para su revisión.</li><li>Ofertas de IP *sin la* [opción de venta conjunta en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): debe cargar un diagrama de arquitectura en OCP GTM.|Venta conjunta con incentivos de IP de Azure|
+|<ol start=3><li>Cualificación para los incentivos de venta conjunta IP</li>|Aplicaciones de Azure, contenedores de Azure, módulos de IoT Edge, SaaS, máquinas virtuales|Una vez que esté listo para la venta conjunta, existen dos requisitos adicionales: <ul> Requisito 1: conseguir:<ul><li>*En el nivel de organización:* debe alcanzar o superar los 100 000 USD de Ingresos por consumo de Azure durante los últimos 12 meses.</li><li>*En el nivel de oferta:* unos ingresos facturados acumulados de marketplace de 100 000 USD.</li></ul><br>Requisito 2: más del 50 % de la infraestructura de la oferta debe ejecutarse en Azure:<ul><li>Ofertas de IP *con la* [opción de venta conjunta en el Centro de partners](./partner-center-portal/commercial-marketplace-co-sell.md): debe cargar un diagrama de arquitectura con los documentos de la venta conjunta en el Centro de partners para su revisión.</li><li>Ofertas de IP *sin la* [opción de venta conjunta en el Centro de partners](./partner-center-portal/commercial-marketplace-co-sell.md): debe cargar un diagrama de arquitectura en OCP GTM.|Venta conjunta con incentivos de IP de Azure|
 ||Dynamics|<li>Tiene una inscripción activa en el nivel Premium de ISV Connect.</li>|Venta conjunta con incentivos de Business Applications|
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Envío de materiales de venta conjunta en el Centro de partners

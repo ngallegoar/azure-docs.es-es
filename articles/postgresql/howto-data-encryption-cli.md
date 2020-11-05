@@ -1,18 +1,18 @@
 ---
 title: 'Cifrado de datos mediante la CLI de Azure para Azure Database for PostgreSQL: servidor único'
 description: 'Aprenda a configurar y administrar el cifrado de datos para Azure Database for PostgreSQL: servidor único mediante la CLI de Azure.'
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7494135cd4912ec8e59a32592ebcca0e0a6813b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797821"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240620"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Cifrado de datos para Azure Database for PostgreSQL: servidor único mediante la CLI de Azure
 
@@ -49,7 +49,7 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
 * La clave debe tener los siguientes atributos para que se pueda usar como clave administrada por el cliente:
   * Sin fecha de expiración
   * No deshabilitado
-  * Realización de operaciones **get**, **wrap** y **unwrap**
+  * Realización de operaciones **get** , **wrap** y **unwrap**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Establecer los permisos adecuados para las operaciones de clave
 
@@ -67,7 +67,7 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. Establezca el valor de **Permisos de claves** (**Get** [Obtener], **Wrap** [Encapsular], **Unwrap** [Desencapsular]) de **Entidad de seguridad**, que es el nombre del servidor único de PostgreSQL.
+2. Establezca el valor de **Permisos de claves** ( **Get** [Obtener], **Wrap** [Encapsular], **Unwrap** [Desencapsular]) de **Entidad de seguridad** , que es el nombre del servidor único de PostgreSQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

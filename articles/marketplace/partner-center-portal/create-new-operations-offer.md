@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: a7a77cc18ddc1ab8664d49aa3c2ac049a683ed3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c28b4edab1e1033bf9ac7df6b1249b549bb4fe1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710641"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131520"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creación de una oferta de Dynamics 365 for Operations
 
@@ -177,7 +177,7 @@ Escriba la dirección URL a la directiva de privacidad de su organización. Uste
 
 En esta sección, va a proporcionar el nombre, el correo electrónico y el número de teléfono de un **contacto de soporte técnico** y un **contacto de ingeniería**. Esta información no se muestra a los clientes, pero estará disponible para Microsoft y puede proporcionarse a los asociados de CSP.
 
-En la sección **Contacto de soporte técnico**, proporcione la **dirección URL de soporte técnico** en la que los asociados de CSP pueden encontrar soporte técnico para la oferta.
+En la sección **Contacto de soporte técnico** , proporcione la **dirección URL de soporte técnico** en la que los asociados de CSP pueden encontrar soporte técnico para la oferta.
 
 ### <a name="supporting-documents"></a>Documentos relacionados
 
@@ -225,7 +225,7 @@ Esta página proporciona opciones sobre dónde y cómo hacer que la oferta esté
 
 ### <a name="markets"></a>Mercados
 
-Esta sección le permite especificar los mercados en los que la oferta debe estar disponible. Para ello, seleccione **Editar mercados**, que mostrará la ventana emergente **Selección de mercado**.
+Esta sección le permite especificar los mercados en los que la oferta debe estar disponible. Para ello, seleccione **Editar mercados** , que mostrará la ventana emergente **Selección de mercado**.
 
 De forma predeterminada, no se selecciona ningún mercado. Seleccione al menos un mercado para publicar la oferta. Haga clic en **Seleccionar todo** para que su oferta esté disponible en cada mercado posible o seleccione los mercados específicos que quiera agregar. Al acabar, seleccione **Guardar**.
 
@@ -255,7 +255,7 @@ Proporcione el identificador de la solución (GUID) para la solución.
 Para encontrar el identificador de la solución:
 
 1. En Microsoft Dynamics Lifecycle Services (LCS), seleccione **Administración de soluciones**.
-2. Seleccione la solución y, a continuación, busque el **identificador de la solución** en la **información general del paquete**. Si el identificador está en blanco, seleccione **Editar**, vuelva a publicar el paquete e inténtelo de nuevo.
+2. Seleccione la solución y, a continuación, busque el **identificador de la solución** en la **información general del paquete**. Si el identificador está en blanco, seleccione **Editar** , vuelva a publicar el paquete e inténtelo de nuevo.
 
 ### <a name="release-version"></a>Versión de lanzamiento
 
@@ -267,7 +267,7 @@ Seleccione **Guardar borrador** antes de continuar.
 
 Esta página permite configurar una demostración («versión de prueba») que permite a los clientes probar la oferta antes de adquirirla. Más información en [Qué es la versión de prueba](../what-is-test-drive.md).
 
-Para habilitar una versión de prueba, seleccione la pestaña**Habilitar una versión de prueba** y marque la casilla[Configuración de la oferta](#test-drive). Para eliminar la versión de prueba de la oferta, desactive esta casilla.
+Para habilitar una versión de prueba, seleccione la pestaña **Habilitar una versión de prueba** y marque la casilla [Configuración de la oferta](#test-drive). Para eliminar la versión de prueba de la oferta, desactive esta casilla.
 
 Cuando haya terminado de configurar la versión de prueba, seleccione **Guardar borrador** antes de continuar.
 
@@ -277,7 +277,7 @@ Esta página le permite proporcionar información adicional sobre su oferta, lo 
 
 ### <a name="validation-assets"></a>Recursos de validación
 
-Debe cargar un [informe de análisis de personalización (CAR)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) en esta sección. Este informe se genera mediante el análisis de los modelos de personalización y extensión, en función de un conjunto predefinido de reglas de procedimientos recomendados.
+Debe cargar un [informe de análisis de personalización (CAR)](/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) en esta sección. Este informe se genera mediante el análisis de los modelos de personalización y extensión, en función de un conjunto predefinido de reglas de procedimientos recomendados.
 
 Este archivo debe estar en formato .xls o .xlsx. Si tiene más de un informe, puede cargar un archivo ZIP que contenga todos los informes.
 
@@ -300,10 +300,10 @@ Una vez que haya completado todas las secciones necesarias de la oferta, selecci
 Si es la primera vez que publica esta oferta, puede:
 
 - Ver el estado de finalización de cada sección de la oferta.
-    - **No iniciada**: Significa que la sección no se ha modificado y se debe completar.
-    - **Incompleta**: Significa que la sección tiene errores que deben corregirse o que requiere más información. Vuelva a las secciones y actualícelas.
-    - **Completa**: Significa que la sección está completa, que se han proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
-- En la sección **Notas para la certificación**, envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación. Para obtener más información sobre las instrucciones de prueba y la finalización de una primera publicación, vea [Validación funcional de Dynamics 365 Finance and Operations de AppSource](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
+    - **No iniciada** : Significa que la sección no se ha modificado y se debe completar.
+    - **Incompleta** : Significa que la sección tiene errores que deben corregirse o que requiere más información. Vuelva a las secciones y actualícelas.
+    - **Completa** : Significa que la sección está completa, que se han proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+- En la sección **Notas para la certificación** , envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación. Para obtener más información sobre las instrucciones de prueba y la finalización de una primera publicación, vea [Validación funcional de Dynamics 365 Finance and Operations de AppSource](../dynamics-365-finance-operations-functional-validation.md).
 - Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico que le avise cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Vuelva al Centro de partners y seleccione **Publicar** para ofrecer la oferta al público.
 
 ## <a name="next-step"></a>Paso siguiente

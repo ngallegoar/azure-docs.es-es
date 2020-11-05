@@ -1,17 +1,17 @@
 ---
 title: 'Precio de procesos reservados en Azure Database for PostgreSQL: servidor único'
 description: Pago por adelantado de recursos de proceso de Azure Database for PostgreSQL con capacidad reservada
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: ca2e988067add1513036e2f314e84a7ba6908cdd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: dcc6cc40c936876c856326e330b67ef465f90cde
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488068"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240450"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso servidor único de Azure Database for PostgreSQL con capacidad reservada
 
@@ -41,7 +41,7 @@ Por ejemplo, imagine que ejecuta una base de datos PostgreSQL de propósito gene
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Compra de capacidad reservada de Azure Database for PostgreSQL
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Todos los servicios** > **Reservations** .
+2. Seleccione **Todos los servicios** > **Reservations**.
 3. Seleccione **Agregar** y, en el panel Comprar reservas, seleccione **Azure Database for PostgreSQL** para comprar una nueva reserva para las bases de datos de PostgreSQL.
 4. Rellene todos los campos obligatorios. Las bases de datos existentes o nuevas que coincidan con los atributos seleccionados serán aptas para el descuento en la capacidad reservada. El número real de servidores de Azure Database for PostgreSQL que obtienen el descuento depende del ámbito y la cantidad seleccionados.
 

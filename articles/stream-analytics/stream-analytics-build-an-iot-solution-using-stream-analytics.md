@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044590"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130806"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilación de una solución de IoT con Stream Analytics
 
@@ -163,7 +163,7 @@ Existen varios recursos que se pueden implementar fácilmente en un grupo de rec
 
    Parafraseando la intención de la consulta, supongamos que necesita contar el número de vehículos que entran en una cabina de peaje. Como la cabina de peaje de una autopista tiene un flujo continuo de vehículos que ingresan, esos eventos de entrada son análogos a un flujo que nunca se detiene. Para cuantificar el flujo, debe definir un "período de tiempo" durante el cual realizar la medición. Vamos a restringir aún más la pregunta a "¿Cuántos vehículos entran en una cabina de peaje cada tres minutos?" Esto se conoce comúnmente como "tumbling count".
 
-   Como puede ver, Azure Stream Analytics usa un lenguaje de consulta que es similar a SQL y agrega algunas extensiones para especificar aspectos de la consulta relacionados con el tiempo.  Para más información, lea sobre las construcciones de [Administración del tiempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) y [Ventanas](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) que se usan en la consulta.
+   Como puede ver, Azure Stream Analytics usa un lenguaje de consulta que es similar a SQL y agrega algunas extensiones para especificar aspectos de la consulta relacionados con el tiempo.  Para más información, lea sobre las construcciones de [Administración del tiempo](/stream-analytics-query/time-management-azure-stream-analytics) y [Ventanas](/stream-analytics-query/windowing-azure-stream-analytics) que se usan en la consulta.
 
 3. Examine las entradas del trabajo de TollApp de ejemplo. Solo se usa la entrada EntryStream en la consulta actual.
    - La entrada **EntryStream** es una conexión del Centro de eventos que pone en cola los datos que representan cada vez que un automóvil entra a una cabina de peaje en la autopista. Los eventos los crea una aplicación web que forma parte del ejemplo y esos datos se ponen en cola en este Centro de eventos. Observe que se consulta esta entrada en la cláusula FROM de la consulta de streaming.
@@ -178,7 +178,7 @@ Siga estos pasos para iniciar el trabajo de streaming:
 
 1. En la página de **información general** del trabajo, seleccione **Iniciar**.
 
-2. En el panel **Iniciar trabajo**, seleccione **Ahora**.
+2. En el panel **Iniciar trabajo** , seleccione **Ahora**.
 
 3. Después de unos momentos, una vez que el trabajo esté en ejecución, en la página de **información general** del trabajo de streaming, consulte el gráfico de **supervisión**. El gráfico debería mostrar varios miles de eventos de entrada y decenas de eventos de salida.
 
@@ -226,7 +226,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 6. En la página de **información general** del trabajo, seleccione **Iniciar**.
 
-7. En el panel **Iniciar trabajo**, seleccione **Ahora**.
+7. En el panel **Iniciar trabajo** , seleccione **Ahora**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Revisión del tiempo total en la salida
 Repita los pasos de la sección anterior para revisar los datos de salida de CosmosDB del trabajo de streaming. Revise los documentos JSON más recientes.

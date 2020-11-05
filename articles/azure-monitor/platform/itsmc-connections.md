@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 69c8f9f01241100a81ddd1707dbd226e6bf56c2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677105"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089022"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](./itsmc-overview.md).
@@ -36,7 +36,7 @@ En las secciones siguientes se proporcionan detalles sobre cómo conectar su pro
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
-- ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](./itsmc-overview.md#add-it-service-management-connector).
 - Se implementa y se configura la aplicación web de Service Manager (aplicación web). [Aquí](#create-and-deploy-service-manager-web-app-service) se puede obtener información sobre la aplicación web.
 - Conexión híbrida creada y configurada Más información: [Configuración de la conexión híbrida](#configure-the-hybrid-connection).
 - Versiones admitidas de Service Manager:  2012 R2 o 2016.
@@ -184,7 +184,7 @@ En las secciones siguientes se proporcionan detalles sobre cómo conectar su pro
 
 ### <a name="prerequisites"></a>Prerrequisitos
 Asegúrese de que se cumplen los siguientes requisitos previos:
-- ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](./itsmc-overview.md#add-it-service-management-connector).
 - Versiones compatibles con ServiceNow: Orlando, Nueva York, Madrid, Londres, Kingston, Yakarta, Estambul, Helsinki, Ginebra.
 > [!NOTE]
 > ITSMC admite solo la oferta de SaaS oficial de ServiceNow. No se admiten implementaciones privadas de ServiceNow. 
@@ -316,7 +316,7 @@ En las secciones siguientes se proporcionan detalles sobre cómo conectar su pro
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
 
-- ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](./itsmc-overview.md#add-it-service-management-connector).
 - La aplicación Provance debe registrarse con Azure AD y estará disponible el identificador de cliente. Para una información detallada, consulte el tema sobre [cómo configurar la autenticación de Active Directory](../../app-service/configure-authentication-provider-aad.md).
 
 - Rol de usuario:  Administrador.
@@ -373,7 +373,7 @@ En las secciones siguientes se proporcionan detalles sobre cómo conectar su pro
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
-- ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](./itsmc-overview.md#add-it-service-management-connector).
 - Identificador de cliente generado. Más información: [Generación del identificador de cliente para Cherwell](#generate-client-id-for-cherwell).
 - Rol de usuario:  Administrador.
 

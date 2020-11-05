@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 02fd0a4c7d931f439ab85af8d90de323105e21f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480928"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096706"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migre cientos de terabytes de datos a Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB puede almacenar terabytes de datos. Puede realizar una migración de datos a gran escala para trasladar la carga de trabajo de producción a Azure Cosmos DB. En este artículo se describen los desafíos relacionados con la transferencia de datos a gran escala a Azure Cosmos DB y se presenta la herramienta que ayuda con los desafíos y migra datos a Azure Cosmos DB. En este caso práctico, el cliente usó Cosmos DB SQL API.  
 
@@ -145,7 +146,7 @@ Una vez completada la migración, puede validar que el número de documentos en 
 ## <a name="contact-the-azure-cosmos-db-team"></a>Ponerse en contacto con el equipo de Azure Cosmos DB
 Aunque puede seguir esta guía para migrar correctamente grandes conjuntos de datos a Azure Cosmos DB, para migraciones a gran escala, se recomienda ponerse en contacto con el equipo de producto de Azure Cosmos DB para validar el modelado de datos y una revisión de arquitectura general. En función del conjunto de datos y la carga de trabajo, el equipo de producto también puede sugerir otras optimizaciones de rendimiento y de costos que podrían ser aplicables a usted. Para ponerse en contacto con el equipo de Azure Cosmos DB para obtener ayuda con las migraciones a gran escala, puede abrir una incidencia de soporte técnico en el tipo de problema "Asesoramiento general" y el subtipo de problema "Grandes migraciones (TB+) como se indica a continuación.
 
-:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Configuración de la herramienta de migración":::
+:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Tema sobre la compatibilidad con la migración":::
 
 
 ## <a name="next-steps"></a>Pasos siguientes

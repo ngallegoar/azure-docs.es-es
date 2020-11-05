@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 10f0079f47e5d2fd99b358fcc5cfb4c80aa9bd91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de416277de34e1c3717d581697f05c98c48d1959
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84508903"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146014"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -57,7 +57,7 @@ En esta sección se muestra cómo crear un desencadenador de eventos dentro de l
     * **Blob path begins with:** la ruta de acceso del blob debe comenzar con una ruta de acceso de carpeta. Entre los valores válidos se incluyen `2018/` y `2018/april/shoes.csv`. No se puede seleccionar este campo si no se ha seleccionado un contenedor.
     * **Blob path ends with:** la ruta de acceso del blob debe terminar con un nombre de archivo o una extensión. Entre los valores válidos se incluyen `shoes.csv` y `.csv`. El nombre de contenedor y carpeta es opcional, pero, cuando se especifica, deben estar separados por un segmento `/blobs/`. Por ejemplo, un contenedor denominado "Orders" puede tener un valor de `/orders/blobs/2018/april/shoes.csv`. Para especificar una carpeta en cualquier contenedor, omita el carácter "/" inicial. Por ejemplo, `april/shoes.csv` desencadenará un evento en cualquier archivo denominado `shoes.csv` en la carpeta a denominada "April" en cualquier contenedor. 
 
-1. Seleccione si el desencadenador responderá a un evento **Blob creado**, **Blob eliminado** o a ambos. En la ubicación de almacenamiento especificada, cada evento desencadenará las canalizaciones Data Factory asociadas al desencadenador.
+1. Seleccione si el desencadenador responderá a un evento **Blob creado** , **Blob eliminado** o a ambos. En la ubicación de almacenamiento especificada, cada evento desencadenará las canalizaciones Data Factory asociadas al desencadenador.
 
     ![Configuración del desencadenador de eventos](media/how-to-create-event-trigger/event-based-trigger-image2.png)
 
@@ -69,11 +69,11 @@ En esta sección se muestra cómo crear un desencadenador de eventos dentro de l
 
 1. Para adjuntar una canalización a este desencadenador, vaya al lienzo de canalización, haga clic en **Agregar desencadenador** y seleccione **Nuevo/editar**. Cuando aparezca la barra de navegación lateral, haga clic en el desplegable **Choose trigger** (Elegir desencadenador...) y seleccione el desencadenador que creó. Haga clic en **Siguiente: Vista previa de los datos** para confirmar que la configuración es correcta y, después, **Siguiente** para validar que la vista previa de los datos es correcta.
 
-1. Si la canalización tiene parámetros, puede especificarlos en el parámetro de ejecución del desencadenador. El desencadenador de eventos captura el nombre de archivo y la ruta de acceso del blob en las propiedades `@trigger().outputs.body.folderPath` y `@trigger().outputs.body.fileName`. Para usar los valores de estas propiedades en una canalización, debe asignar las propiedades a los parámetros de la canalización. Después de asignar las propiedades a los parámetros, puede tener acceso a los valores capturados por el desencadenador mediante la expresión `@pipeline().parameters.parameterName` en toda la canalización. Cuando haya terminado, haga clic en **Finalizar**.
+1. Si la canalización tiene parámetros, puede especificarlos en el parámetro de ejecución del desencadenador. El desencadenador de eventos captura el nombre de archivo y la ruta de acceso del blob en las propiedades `@triggerBody().folderPath` y `@triggerBody().fileName`. Para usar los valores de estas propiedades en una canalización, debe asignar las propiedades a los parámetros de la canalización. Después de asignar las propiedades a los parámetros, puede tener acceso a los valores capturados por el desencadenador mediante la expresión `@pipeline().parameters.parameterName` en toda la canalización. Cuando haya terminado, haga clic en **Finalizar**.
 
     ![Asignación de propiedades a los parámetros de la canalización](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-En el ejemplo anterior, el desencadenador está configurado para activarse cuando se crea una ruta de acceso de blob que termina en .csv en la carpeta prueba-de-eventos en el contenedor datos-de-ejemplo. Las propiedades **folderPath** y **fileName** capturan la ubicación del nuevo blob. Por ejemplo, cuando se agrega MoviesDB.csv a la ruta de acceso datos-de-ejemplo/prueba-de-eventos, `@trigger().outputs.body.folderPath` tiene un valor de `sample-data/event-testing` y `@trigger().outputs.body.fileName` tiene un valor de `moviesDB.csv`. Estos valores se asignan en el ejemplo a los parámetros de canalización `sourceFolder` y `sourceFile`, que se pueden utilizar en toda la canalización como `@pipeline().parameters.sourceFolder` y `@pipeline().parameters.sourceFile` respectivamente.
+En el ejemplo anterior, el desencadenador está configurado para activarse cuando se crea una ruta de acceso de blob que termina en .csv en la carpeta prueba-de-eventos en el contenedor datos-de-ejemplo. Las propiedades **folderPath** y **fileName** capturan la ubicación del nuevo blob. Por ejemplo, cuando se agrega MoviesDB.csv a la ruta de acceso datos-de-ejemplo/prueba-de-eventos, `@triggerBody().folderPath` tiene un valor de `sample-data/event-testing` y `@triggerBody().fileName` tiene un valor de `moviesDB.csv`. Estos valores se asignan en el ejemplo a los parámetros de canalización `sourceFolder` y `sourceFile`, que se pueden utilizar en toda la canalización como `@pipeline().parameters.sourceFolder` y `@pipeline().parameters.sourceFile` respectivamente.
 
 ## <a name="json-schema"></a>Esquema JSON
 
@@ -92,7 +92,7 @@ En la tabla siguiente se proporciona información general acerca de los elemento
 En esta sección encontrará ejemplos de configuración de desencadenadores basados en eventos.
 
 > [!IMPORTANT]
-> Debe incluir el segmento `/blobs/` de la ruta de acceso, tal como se muestra en los siguientes ejemplos, siempre que especifique el contenedor y la carpeta, el contenedor y el archivo, o el contenedor, la carpeta y el archivo. En el caso de **blobPathBeginsWith**, la interfaz de usuario de Data Factory agregará automáticamente `/blobs/` entre la carpeta y el nombre del contenedor en el JSON del desencadenador.
+> Debe incluir el segmento `/blobs/` de la ruta de acceso, tal como se muestra en los siguientes ejemplos, siempre que especifique el contenedor y la carpeta, el contenedor y el archivo, o el contenedor, la carpeta y el archivo. En el caso de **blobPathBeginsWith** , la interfaz de usuario de Data Factory agregará automáticamente `/blobs/` entre la carpeta y el nombre del contenedor en el JSON del desencadenador.
 
 | Propiedad | Ejemplo | Descripción |
 |---|---|---|

@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 0fa7f122c5a9957db0800d2ccf4e5c1f8effd574
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a5669b15c041f663605a62ef8d02b206928d0c14
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491179"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101602"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>Creación de un contenedor en MongoDB API de Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 En este artículo se explican las distintas formas de crear un contenedor en MongoDB API de Azure Cosmos DB. Se muestra cómo crear un contenedor mediante Azure Portal, la CLI de Azure, PowerShell o los SDK admitidos. En este artículo se muestra cómo crear un contenedor, especificar la clave de partición y aprovisionar el rendimiento.
 
@@ -30,13 +31,13 @@ En este artículo se explican las distintas formas de crear un contenedor en Mon
 
 1. [Cree una cuenta de Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) o seleccione una ya existente.
 
-1. Abra el panel **Data Explorer** y seleccione **Nuevo contenedor** . Después, proporcione los detalles siguientes:
+1. Abra el panel **Data Explorer** y seleccione **Nuevo contenedor**. Después, proporcione los detalles siguientes:
 
    * Indique si va a crear una nueva base de datos o a usar una existente.
    * Escriba un identificador de contenedor.
    * Escriba una clave de partición.
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
-   * Seleccione **Aceptar** .
+   * Seleccione **Aceptar**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Captura de pantalla del cuadro de diálogo Agregar contenedor de Azure Cosmos DB API para MongoDB":::
 

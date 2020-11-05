@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 4c8d2143d2b6e18de2669a6b45961e601cc394bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4ddffa5f9e9ff4b313f05c9cedb3cb207695225
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707564"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129710"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introducción a las funciones de ventana de Stream Analytics
 
 En los escenarios de streaming en tiempo real, realizar operaciones en los datos contenidos en ventanas temporales es un patrón común. Stream Analytics ofrece compatibilidad nativa para las funciones de ventana, lo que permite a los desarrolladores crear trabajos de procesamiento de flujo complejos con un mínimo esfuerzo.
 
-Hay cinco tipos de ventanas temporales para elegir: ventanas de [**saltos de tamaño constante**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), de [**salto**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**deslizantes**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), de [**sesión**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) y de [**instantánea**](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics).  Utilice las funciones de ventana en la cláusula [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) de la sintaxis de consulta en los trabajos de Stream Analytics. También puede agregar eventos a través de varias ventanas mediante la función [**Windows()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+Hay cinco tipos de ventanas temporales para elegir: ventanas de [**saltos de tamaño constante**](/stream-analytics-query/tumbling-window-azure-stream-analytics), de [**salto**](/stream-analytics-query/hopping-window-azure-stream-analytics), [**deslizantes**](/stream-analytics-query/sliding-window-azure-stream-analytics), de [**sesión**](/stream-analytics-query/session-window-azure-stream-analytics) y de [**instantánea**](/stream-analytics-query/snapshot-window-azure-stream-analytics).  Utilice las funciones de ventana en la cláusula [**GROUP BY**](/stream-analytics-query/group-by-azure-stream-analytics) de la sintaxis de consulta en los trabajos de Stream Analytics. También puede agregar eventos a través de varias ventanas mediante la función [**Windows()**](/stream-analytics-query/windows-azure-stream-analytics).
 
-Todas las operaciones de [ventana](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) generan resultados al **final** de la ventana. Tenga en cuenta que al iniciar un trabajo de Stream Analytics puede especificar la *Hora de inicio de salida del trabajo* para que el sistema capture automáticamente los eventos anteriores de los flujos entrantes para generar la primera ventana a la hora especificada; por ejemplo, al empezar con la opción *Ahora*, comienza a emitir datos inmediatamente. La salida de la ventana será un solo evento basado en la función agregada que se usa. El evento de salida tendrá la marca de tiempo del final de la ventana y todas las funciones de ventana están definidas con una longitud fija. 
+Todas las operaciones de [ventana](/stream-analytics-query/windowing-azure-stream-analytics) generan resultados al **final** de la ventana. Tenga en cuenta que al iniciar un trabajo de Stream Analytics puede especificar la *Hora de inicio de salida del trabajo* para que el sistema capture automáticamente los eventos anteriores de los flujos entrantes para generar la primera ventana a la hora especificada; por ejemplo, al empezar con la opción *Ahora* , comienza a emitir datos inmediatamente. La salida de la ventana será un solo evento basado en la función agregada que se usa. El evento de salida tendrá la marca de tiempo del final de la ventana y todas las funciones de ventana están definidas con una longitud fija. 
 
 ![Conceptos de las funciones de ventana de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -53,7 +53,7 @@ Cuando se proporciona una clave de partición, los eventos se agrupan por clave,
 
 ## <a name="snapshot-window"></a>Ventana de instantánea
 
-Las ventanas de instantánea agrupan los eventos que tienen la misma marca de tiempo. A diferencia de otros tipos de ventanas, que requieren una función de ventana específica (como [SessionWindow()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), puede aplicar una ventana de instantánea si agrega System.Timestamp() a la cláusula GROUP BY.
+Las ventanas de instantánea agrupan los eventos que tienen la misma marca de tiempo. A diferencia de otros tipos de ventanas, que requieren una función de ventana específica (como [SessionWindow()](/stream-analytics-query/session-window-azure-stream-analytics), puede aplicar una ventana de instantánea si agrega System.Timestamp() a la cláusula GROUP BY.
 
 ![Ventana de instantánea de Stream Analytics](media/stream-analytics-window-functions/snapshot.png)
 
@@ -61,6 +61,5 @@ Las ventanas de instantánea agrupan los eventos que tienen la misma marca de ti
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referencia de API de REST de administración de Azure Stream Analytics](/rest/api/streamanalytics/)

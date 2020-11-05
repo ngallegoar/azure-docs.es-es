@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 19e441334395f600c3adaa867660345164537f96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a9e4c8f3dd9e4cf291388bc102ae9a73d8de6dd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799458"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131571"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inicio de sesión en sus cuentas mediante la aplicación Microsoft Authenticator
 
@@ -51,15 +51,15 @@ El inicio de sesión en el teléfono solo está disponible en dispositivos iOS y
 
 Abra la aplicación Microsoft Authenticator, vaya a la cuenta profesional o educativa y active el inicio de sesión en el teléfono.
 
-- **Al pulsar el icono de la cuenta**, se ve una vista de pantalla completa de la cuenta. Si ve **Inicio de sesión en el teléfono habilitado**, significa que se ha configurado para iniciar sesión sin contraseña. Si ve la opción **Habilitar inicio de sesión en el teléfono**, púlsela para activar el inicio de sesión en el teléfono.
-- **Si ya ha usado la aplicación para la verificación de dos fases**, puede pulsar el icono de la cuenta para ver una vista de pantalla completa de la cuenta. A continuación, pulse **Habilitar inicio de sesión en el teléfono**, para activar el inicio de sesión en el teléfono.
+- **Al pulsar el icono de la cuenta** , se ve una vista de pantalla completa de la cuenta. Si ve **Inicio de sesión en el teléfono habilitado** , significa que se ha configurado para iniciar sesión sin contraseña. Si ve la opción **Habilitar inicio de sesión en el teléfono** , púlsela para activar el inicio de sesión en el teléfono.
+- **Si ya ha usado la aplicación para la verificación de dos fases** , puede pulsar el icono de la cuenta para ver una vista de pantalla completa de la cuenta. A continuación, pulse **Habilitar inicio de sesión en el teléfono** , para activar el inicio de sesión en el teléfono.
 - **Si no encuentra su cuenta profesional o educativa** en la pantalla **Cuentas** de la aplicación, significa que aún no la ha agregado a la aplicación. Agregue su cuenta profesional o educativa siguiendo los pasos descritos en la ayuda [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md).
 
 Después de activar el inicio de sesión en el teléfono, puede iniciar sesión solo con la aplicación Microsoft Authenticator. A continuación, se indica cómo puede hacerlo.
 
 1. Inicie sesión en su cuenta profesional o educativa.
 
-    Después de escribir el nombre de usuario, aparece la pantalla **Aprobar el inicio de sesión**, en la que se muestra un número de dos dígitos y en el que se le pide que inicie sesión con la aplicación Microsoft Authenticator. Si no desea usar este inicio de sesión en el método, puede seleccionar **Use su contraseña en su lugar** e inicie sesión con su contraseña.
+    Después de escribir el nombre de usuario, aparece la pantalla **Aprobar el inicio de sesión** , en la que se muestra un número de dos dígitos y en el que se le pide que inicie sesión con la aplicación Microsoft Authenticator. Si no desea usar este inicio de sesión en el método, puede seleccionar **Use su contraseña en su lugar** e inicie sesión con su contraseña.
 
     ![Cuadro Aprobar el inicio de sesión en el equipo](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
 
@@ -82,8 +82,8 @@ Puede activar el inicio de sesión con teléfono para su cuenta Microsoft person
 
 Abra la aplicación Microsoft Authenticator, vaya a la cuenta profesional o educativa y active el inicio de sesión en el teléfono.
 
-- **Al pulsar el icono de la cuenta**, se ve una vista de pantalla completa de la cuenta. Si ve **Inicio de sesión en el teléfono habilitado**, significa que se ha configurado para iniciar sesión sin contraseña. Si ve la opción **Habilitar inicio de sesión en el teléfono**, púlsela para activar el inicio de sesión en el teléfono.
-- **Si ya usa la aplicación para la verificación de dos fases**, puede pulsar el icono de la cuenta para ver una vista de pantalla completa de la cuenta. A continuación, pulse **Habilitar inicio de sesión en el teléfono**, para activar el inicio de sesión en el teléfono.
+- **Al pulsar el icono de la cuenta** , se ve una vista de pantalla completa de la cuenta. Si ve **Inicio de sesión en el teléfono habilitado** , significa que se ha configurado para iniciar sesión sin contraseña. Si ve la opción **Habilitar inicio de sesión en el teléfono** , púlsela para activar el inicio de sesión en el teléfono.
+- **Si ya usa la aplicación para la verificación de dos fases** , puede pulsar el icono de la cuenta para ver una vista de pantalla completa de la cuenta. A continuación, pulse **Habilitar inicio de sesión en el teléfono** , para activar el inicio de sesión en el teléfono.
 - **Si no encuentra su cuenta** en la pantalla **Cuentas** de la aplicación, significa que aún no la ha agregado a la aplicación. Agregue su cuenta personal de Microsoft, para lo que debe seguir los pasos que se describen en el artículo [Incorporación de cuentas personales Microsoft](user-help-auth-app-add-personal-ms-account.md).
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Inicio de sesión en su cuenta con ayuda del teléfono
@@ -111,7 +111,7 @@ Para conocer los pasos necesarios para iniciar sesión en su cuenta profesional 
 | ¿Cómo reemplaza el inicio de sesión en el teléfono a la verificación en dos pasos? ¿Debo apagarla? | El inicio de sesión en el teléfono es un tipo de verificación en dos pasos en el que ambos pasos se realizan en el dispositivo móvil. Debe mantener la verificación en dos pasos activada para ayudar a proporcionar más seguridad a su cuenta. |
 | Si mantengo activa la verificación en dos pasos para mi cuenta, ¿tendré que aprobar dos notificaciones? | No. El inicio de sesión en su cuenta Microsoft con el teléfono también cuenta como verificación en dos pasos, así que no se requiere ninguna segunda aprobación. |
 | ¿Qué ocurre si pierdo mi teléfono o no lo tengo conmigo? ¿Cómo puedo acceder a mi cuenta? | Siempre puede seleccionar el uso de una contraseña en lugar del vínculo en la página de inicio de sesión para volver a utilizar la contraseña. Sin embargo, si usa la verificación en dos pasos, seguirá siendo necesario un segundo método para verificar la identidad.<br><br>**Importante**<br>Es muy recomendable que tenga más de un método de verificación asociado con su cuenta y que dicho método esté actualizado.<br><br>Puede administrar sus métodos de verificación para las cuentas personales de la página [Configuración de seguridad](https://account.live.com/proofs/manage). Para cuentas profesionales o educativas, puede ir a la página [Comprobación de seguridad adicional](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) de su organización o a la página **Garantizar la seguridad de la cuenta** si el administrador ha activado la información de seguridad. Para más información sobre seguridad, consulte [Introducción a la información de seguridad (versión preliminar)](./security-info-setup-signin.md).<br><br>Si no puede administrar sus métodos de verificación, debe ponerse en contacto con su administrador. |
-| ¿Cómo dejo de usar esta característica y vuelvo a usar mi contraseña? | Para las cuentas personales, seleccione el vínculo **Use su contraseña en su lugar** durante el inicio de sesión. Su elección más reciente se recuerda y se ofrece de forma predeterminada la próxima vez que inicie sesión. Si desea volver a usar el inicio de sesión con el teléfono, seleccione el vínculo **Use una aplicación en su lugar** durante el inicio de sesión.<br><br>Si la cuenta es profesional o educativa, debe anular el registro del dispositivo desde la página **Settings** (Configuración) de la aplicación Microsoft Authenticator o deshabilitar el dispositivo desde el área **Devices & activity** (Dispositivos y actividad) del perfil. Para más información sobre cómo deshabilitar el dispositivo de su perfil, consulte [Actualización de la información del perfil y de la cuente desde el portal Mis aplicaciones](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
+| ¿Cómo dejo de usar esta característica y vuelvo a usar mi contraseña? | Para las cuentas personales, seleccione el vínculo **Use su contraseña en su lugar** durante el inicio de sesión. Su elección más reciente se recuerda y se ofrece de forma predeterminada la próxima vez que inicie sesión. Si desea volver a usar el inicio de sesión con el teléfono, seleccione el vínculo **Use una aplicación en su lugar** durante el inicio de sesión.<br><br>Si la cuenta es profesional o educativa, debe anular el registro del dispositivo desde la página **Settings** (Configuración) de la aplicación Microsoft Authenticator o deshabilitar el dispositivo desde el área **Devices & activity** (Dispositivos y actividad) del perfil. Para más información sobre cómo deshabilitar el dispositivo de su perfil, consulte [Actualización de la información del perfil y de la cuente desde el portal Mis aplicaciones](./my-account-portal-devices-page.md#disable-a-device). |
 | ¿Por qué no puedo usar más de una cuenta profesional o educativa para el inicio de sesión con el teléfono? | Debe registrarse un teléfono en una única cuenta profesional o educativa. Si desea activar el inicio de sesión con el teléfono para una cuenta profesional o educativa diferente, debe anular el registro de la cuenta en el dispositivo desde la página **Configuración**. |
 | ¿Puedo iniciar sesión en mi equipo con mi teléfono? | En el caso de su equipo, se recomienda iniciar sesión mediante Windows Hello en Windows 10. Windows Hello le permite usar su cara, la huella digital o el PIN para iniciar sesión. |
 

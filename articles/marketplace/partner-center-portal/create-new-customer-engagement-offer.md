@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: bcb14c786ab652b1c51a3d3bf487e39fd0ebfdb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96bdfc513023cafb2d94a68c06f1065cf20c3ba8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710692"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130177"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps
 
@@ -37,7 +37,7 @@ Escriba un **Identificador de oferta**. Se trata de un identificador único para
 
 - Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
 - El identificador de oferta en combinación con el del editor debe tener una longitud de menos de 40 caracteres.
-- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios. Por ejemplo, si el identificador del editor es testpublisherid y escribe **test-offer-1**, la dirección web de la oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
+- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios. Por ejemplo, si el identificador del editor es testpublisherid y escribe **test-offer-1** , la dirección web de la oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
 - El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
 
 Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
@@ -181,7 +181,7 @@ Escriba la dirección de la directiva de privacidad de su organización. Usted e
 
 Indique el nombre, el correo electrónico y el número de teléfono de un **contacto de soporte técnico** y un **contacto de ingeniería**. Esta información no se muestra a los clientes, pero estará disponible para Microsoft y puede proporcionarse a los asociados de CSP.
 
-En la sección **Contacto de soporte técnico**, también debe proporcionar la **dirección URL de soporte técnico** en la que los asociados de CSP pueden encontrar soporte técnico para la oferta.
+En la sección **Contacto de soporte técnico** , también debe proporcionar la **dirección URL de soporte técnico** en la que los asociados de CSP pueden encontrar soporte técnico para la oferta.
 
 ### <a name="supporting-documents"></a>Documentos relacionados
 
@@ -229,7 +229,7 @@ Esta página le permite definir dónde y cómo hacer que la oferta esté disponi
 
 ### <a name="markets"></a>Mercados
 
-Aquí especifica los mercados en los que la oferta debe estar disponible. Para ello, seleccione **Editar mercados**, que mostrará la ventana emergente **Selección de mercado**.
+Aquí especifica los mercados en los que la oferta debe estar disponible. Para ello, seleccione **Editar mercados** , que mostrará la ventana emergente **Selección de mercado**.
 
 De manera predeterminada, no hay ningún mercado seleccionado, pero debe seleccionar al menos uno para publicar la oferta. Elija **Seleccionar todo** para que su oferta esté disponible en cada mercado posible o seleccione los mercados específicos que quiera agregar.
 
@@ -264,14 +264,14 @@ Proporcione la dirección URL de la página web de configuración que permite al
 
 ### <a name="crm-package"></a>Paquete de CRM
 
-En el campo**Dirección URL de la ubicación del paquete**, escriba la dirección URL de una cuenta de Azure Blob Storage que contenga el archivo .zip del paquete de CRM cargado. Incluya una clave SAS de solo lectura para permitir que Microsoft pueda recoger el paquete para su comprobación.
+En el campo **Dirección URL de la ubicación del paquete** , escriba la dirección URL de una cuenta de Azure Blob Storage que contenga el archivo .zip del paquete de CRM cargado. Incluya una clave SAS de solo lectura para permitir que Microsoft pueda recoger el paquete para su comprobación.
 
 > [!IMPORTANT]
 > Para evitar un bloque de publicación, asegúrese de que la fecha de expiración de la dirección URL del almacenamiento de blobs no haya expirado. Se puede revisar la fecha accediendo a la directiva. Se recomienda que el **Tiempo de expiración** sea al menos dentro de un mes.
 
-Seleccione la casilla etiquetada **Hay más de un paquete de CRM en el archivo de paquete**, si procede. Si es así, asegúrese de incluir todos los paquetes en el archivo ZIP.
+Seleccione la casilla etiquetada **Hay más de un paquete de CRM en el archivo de paquete** , si procede. Si es así, asegúrese de incluir todos los paquetes en el archivo ZIP.
 
-Para obtener información detallada sobre cómo compilar el paquete y actualizar su estructura, consulte [Paso 3: Crear un paquete AppSource para la aplicación](https://docs.microsoft.com/powerapps/developer/common-data-service/create-package-app-appsource).
+Para obtener información detallada sobre cómo compilar el paquete y actualizar su estructura, consulte [Paso 3: Crear un paquete AppSource para la aplicación](/powerapps/developer/common-data-service/create-package-app-appsource).
 
 ### <a name="crm-package-availability"></a>Disponibilidad del paquete de CRM
 
@@ -285,7 +285,7 @@ Seleccione **Guardar borrador** antes de continuar.
 
 Esta página permite configurar una demostración («versión de prueba») que permite a los clientes probar la oferta antes de adquirirla. Más información en [Qué es la versión de prueba](../what-is-test-drive.md).
 
-Para habilitar una versión de prueba, seleccione la pestaña**Habilitar una versión de prueba** y marque la casilla[Configuración de la oferta](#test-drive). Para eliminar la versión de prueba de la oferta, desactive esta casilla.
+Para habilitar una versión de prueba, seleccione la pestaña **Habilitar una versión de prueba** y marque la casilla [Configuración de la oferta](#test-drive). Para eliminar la versión de prueba de la oferta, desactive esta casilla.
 
 Cuando haya terminado de configurar la versión de prueba, seleccione **Guardar borrador** antes de continuar.
 
@@ -308,10 +308,10 @@ Una vez que haya completado todas las secciones necesarias de la oferta, selecci
 Si es la primera vez que publica esta oferta, puede:
 
 - Ver el estado de finalización de cada sección de la oferta.
-    - **No iniciada**: la sección no se ha modificado y se debe completar.
-    - **Incompleta**: la sección tiene errores que deben corregirse o se requiere más información. Vuelva a las secciones y actualícelas.
-    - **Completa**: la sección está completa, se han proporcionado todos los datos necesarios y no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
-- En la sección **Notas para la certificación**, envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
+    - **No iniciada** : la sección no se ha modificado y se debe completar.
+    - **Incompleta** : la sección tiene errores que deben corregirse o se requiere más información. Vuelva a las secciones y actualícelas.
+    - **Completa** : la sección está completa, se han proporcionado todos los datos necesarios y no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+- En la sección **Notas para la certificación** , envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
 - Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico que le avise cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Vuelva al Centro de partners y seleccione **Publicar** para la oferta que desea ofrecer al público.
 
 ## <a name="next-step"></a>Paso siguiente

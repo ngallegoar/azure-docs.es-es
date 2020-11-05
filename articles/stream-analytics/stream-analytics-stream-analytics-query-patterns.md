@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 84e3ced20b828087cd3f2b9e7534826debf1706a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0c5363cfec42ba78ee6c41a1970211518b74a71
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279984"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127542"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Patrones de consulta comunes en Azure Stream Analytics
 
@@ -34,7 +34,7 @@ Tanto JSON como Avro pueden contener tipos complejos como objetos anidados (regi
 
 Se pueden usar varias instrucciones **SELECT** para generar datos en distintos receptores de salida. Por ejemplo, una instrucción **SELECT** puede generar una alerta basada en umbral, mientras que otra puede generar eventos en el almacenamiento de blobs.
 
-**Entrada**:
+**Entrada** :
 
 | Asegúrese | Time |
 | --- | --- |
@@ -44,7 +44,7 @@ Se pueden usar varias instrucciones **SELECT** para generar datos en distintos r
 | Make2 |2015-01-01T00:00:02.0000000Z |
 | Make2 |2015-01-01T00:00:03.0000000Z |
 
-**Salida ArchiveOutput**:
+**Salida ArchiveOutput** :
 
 | Asegúrese | Time |
 | --- | --- |
@@ -54,7 +54,7 @@ Se pueden usar varias instrucciones **SELECT** para generar datos en distintos r
 | Make2 |2015-01-01T00:00:02.0000000Z |
 | Make2 |2015-01-01T00:00:03.0000000Z |
 
-**Salida AlertOutput**:
+**Salida AlertOutput** :
 
 | Asegúrese | Time | Count |
 | --- | --- | --- |
@@ -113,20 +113,20 @@ GROUP BY
 HAVING [Count] >= 3
 ```
 
-Para más información, consulte la [cláusula**WITH**](/stream-analytics-query/with-azure-stream-analytics).
+Para más información, consulte la [cláusula **WITH**](/stream-analytics-query/with-azure-stream-analytics).
 
 ## <a name="simple-pass-through-query"></a>Consulta de paso a través simple
 
 Se puede usar una consulta de paso a través simple para copiar los datos del flujo de entrada en la salida. Por ejemplo, si un flujo de datos que contiene información sobre vehículos en tiempo real debe guardarse en una base de datos SQL para un análisis de letras, una consulta de paso a través simple podrá encargarse de la tareas.
 
-**Entrada**:
+**Entrada** :
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000Z |"2000" |
 
-**Salida**:
+**Salida** :
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
@@ -144,7 +144,7 @@ FROM Input
 
 Una consulta **SELECT** * proyecta todos los campos de un evento entrante y los envía a la salida. Del mismo modo, **SELECT** también puede usarse para proyectar solo los campos obligatorios de la entrada. En este ejemplo, si *Make* y *Time* del vehículo son los únicos campos obligatorios que se van a guardar, esos campos se pueden especificar en la instrucción **SELECT**.
 
-**Entrada**:
+**Entrada** :
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
@@ -152,7 +152,7 @@ Una consulta **SELECT** * proyecta todos los campos de un evento entrante y los 
 | Make1 |2015-01-01T00:00:02.0000000Z |2000 |
 | Make2 |2015-01-01T00:00:04.0000000Z |1\.500 |
 
-**Salida**:
+**Salida** :
 
 | Asegúrese | Time |
 | --- | --- |
@@ -173,7 +173,7 @@ FROM Input
 
 **LIKE** y **NOT LIKE** se pueden usar para verificar si un campo coincide con un patrón determinado. Por ejemplo, se puede crear un filtro para devolver solo las matrículas que comienzan con la letra "A" y terminan con el número 9.
 
-**Entrada**:
+**Entrada** :
 
 | Asegúrese | License_plate | Time |
 | --- | --- | --- |
@@ -181,7 +181,7 @@ FROM Input
 | Make2 |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Make3 |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
-**Salida**:
+**Salida** :
 
 | Asegúrese | License_plate | Time |
 | --- | --- | --- |
@@ -205,14 +205,14 @@ Use la instrucción **LIKE** para comprobar el valor del campo **License_plate**
 
 La función **LAG** se puede usar para ver los eventos pasados dentro de una ventana de tiempo y compararlos con el evento actual. Por ejemplo, se puede obtener la marca del vehículo actual si difiere de la del último automóvil que pasó por el peaje.
 
-**Entrada**:
+**Entrada** :
 
 | Asegúrese | Time |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |
 | Make2 |2015-01-01T00:00:02.0000000Z |
 
-**Salida**:
+**Salida** :
 
 | Asegúrese | Time |
 | --- | --- |
@@ -238,7 +238,7 @@ Para obtener más información, consulte [**LAG**](/stream-analytics-query/lag-a
 
 Dado que el sistema consume los eventos en tiempo real, no hay ninguna función que pueda determinar si un evento será el último en llegar para ese período de tiempo. Para ello, el flujo de entrada debe unirse con otro, donde el tiempo de un evento sea el tiempo máximo para todos los eventos de esa ventana.
 
-**Entrada**:
+**Entrada** :
 
 | License_plate | Asegúrese | Time |
 | --- | --- | --- |
@@ -250,7 +250,7 @@ Dado que el sistema consume los eventos en tiempo real, no hay ninguna función 
 | QYF 9358 |Make1 |2015-07-27T00:12:02.0000000Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000Z |
 
-**Salida**:
+**Salida** :
 
 | License_plate | Asegúrese | Time |
 | --- | --- | --- |
@@ -283,7 +283,7 @@ FROM
 
 El primer paso de la consulta encuentra la marca de tiempo máxima en ventanas de 10 minutos, que es la marca de tiempo del último evento para esa ventana. El segundo paso combina los resultados de la primera consulta con el flujo original para buscar el evento que coincide con las últimas marcas de tiempo en cada ventana. 
 
-**DATEDIFF** es una función específica de fecha que compara y devuelve la diferencia temporal entre dos campos DateTime. Para obtener más información, consulte las [funciones de fecha](https://docs.microsoft.com/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
+**DATEDIFF** es una función específica de fecha que compara y devuelve la diferencia temporal entre dos campos DateTime. Para obtener más información, consulte las [funciones de fecha](/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
 
 Para obtener más información sobre cómo combinar flujos, consulte [**JOIN**](/stream-analytics-query/join-azure-stream-analytics).
 
@@ -291,7 +291,7 @@ Para obtener más información sobre cómo combinar flujos, consulte [**JOIN**](
 
 Para procesar información en un período de tiempo, los datos se pueden agregar juntos. En este ejemplo, un recuento se calcula en los últimos 10 segundos de tiempo por cada marca de coche específica.
 
-**Entrada**:
+**Entrada** :
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ Para procesar información en un período de tiempo, los datos se pueden agregar
 | Make1 |2015-01-01T00:00:02.0000000Z |2000 |
 | Make2 |2015-01-01T00:00:04.0000000Z |1\.500 |
 
-**Salida**:
+**Salida** :
 
 | Asegúrese | Count |
 | --- | --- |
@@ -329,7 +329,7 @@ Para más información sobre la agregación, consulte [funciones de agregado](/s
 
 En caso de eventos irregulares o ausentes, se puede generar una salida de intervalo periódico a partir de una entrada de datos más dispersa. Por ejemplo, genere un evento cada cinco segundos que notifique el punto de datos visto más recientemente.
 
-**Entrada**:
+**Entrada** :
 
 | Time | Value |
 | --- | --- |
@@ -375,7 +375,7 @@ Para más información, consulte [Ventana de salto](/stream-analytics-query/hopp
 
 La correlación de eventos en el mismo flujo se puede realizar observando los eventos pasados con la función **LAG**. Por ejemplo, se puede generar una salida cada vez que dos automóviles consecutivos con el mismo valor de *Make* pasan por el peaje durante los últimos 90 segundos.
 
-**Entrada**:
+**Entrada** :
 
 | Asegúrese | License_plate | Time |
 | --- | --- | --- |
@@ -384,7 +384,7 @@ La correlación de eventos en el mismo flujo se puede realizar observando los ev
 | Make2 |DEF-987 |2015-01-01T00:00:03.0000000Z |
 | Make1 |GHI-345 |2015-01-01T00:00:04.0000000Z |
 
-**Salida**:
+**Salida** :
 
 | Asegúrese | Time | Current_car_license_plate | First_car_license_plate | First_car_time |
 | --- | --- | --- | --- | --- |
@@ -405,7 +405,7 @@ WHERE
     LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 ```
 
-La función **LAG** puede observar el flujo de entrada del evento anterior y recuperar el valor de *Make*, y compararlo con el valor de *Make* del evento actual.  Una vez que se cumple la condición, se pueden proyectar los datos del evento anterior mediante **LAG** en la instrucción **SELECT**.
+La función **LAG** puede observar el flujo de entrada del evento anterior y recuperar el valor de *Make* , y compararlo con el valor de *Make* del evento actual.  Una vez que se cumple la condición, se pueden proyectar los datos del evento anterior mediante **LAG** en la instrucción **SELECT**.
 
 Para obtener más información, consulte [LAG](/stream-analytics-query/lag-azure-stream-analytics).
 
@@ -413,14 +413,14 @@ Para obtener más información, consulte [LAG](/stream-analytics-query/lag-azure
 
 La duración de un evento se puede calcular examinando el último evento Start una vez que se recibe un evento End. Esta consulta puede resultar útil para determinar el tiempo que un usuario emplea en una página o una característica.
 
-**Entrada**:  
+**Entrada** :  
 
 | Usuario | Característica | Evento | Time |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
-**Salida**:  
+**Salida** :  
 
 | Usuario | Característica | Duration |
 | --- | --- | --- |
@@ -447,7 +447,7 @@ La función **LAST** se puede usar para recuperar el último evento dentro de un
 
 **COUNT** y **DISTINCT** pueden usarse para contar el número de valores de campo únicos que aparecen en la transmisión durante un período de tiempo determinado. Puede crearse una consulta para calcular cuántas *marcas* de vehículos únicas pasan por la cabina de peaje en una ventana de 2 segundos.
 
-**Entrada**:
+**Entrada** :
 
 | Asegúrese | Time |
 | --- | --- |
@@ -476,13 +476,13 @@ GROUP BY
 ```
 
 **COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
-Para más información, consulte la [función de agregado**COUNT**](/stream-analytics-query/count-azure-stream-analytics).
+Para más información, consulte la [función de agregado **COUNT**](/stream-analytics-query/count-azure-stream-analytics).
 
 ## <a name="retrieve-the-first-event-in-a-window"></a>Recuperación del primer evento en una ventana
 
 Se puede usar **IsFirst** para recuperar el primer evento en una ventana de tiempo. Por ejemplo, para emitir la información del primer automóvil en cada intervalo de 10 minutos.
 
-**Entrada**:
+**Entrada** :
 
 | License_plate | Asegúrese | Time |
 | --- | --- | --- |
@@ -494,7 +494,7 @@ Se puede usar **IsFirst** para recuperar el primer evento en una ventana de tiem
 | QYF 9358 |Make1 |2015-07-27T00:12:02.0000000Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000Z |
 
-**Salida**:
+**Salida** :
 
 | License_plate | Asegúrese | Time |
 | --- | --- | --- |
@@ -516,7 +516,7 @@ WHERE
 
 Además, **IsFirst** puede particionar los datos y calcular el primer evento para cada *Make* de automóvil específico que encuentre en cada intervalo de 10 minutos.
 
-**Salida**:
+**Salida** :
 
 | License_plate | Asegúrese | Time |
 | --- | --- | --- |
@@ -545,7 +545,7 @@ Para obtener más información, consulte [**IsFirst**](/stream-analytics-query/i
 
 Al realizar una operación, como calcular promedios de eventos en un período de tiempo determinado, se deben filtrar los eventos duplicados. En el ejemplo siguiente, el segundo evento es un duplicado del primero.
 
-**Entrada**:  
+**Entrada** :  
 
 | deviceId | Time | Atributo | Value |
 | --- | --- | --- | --- |
@@ -556,7 +556,7 @@ Al realizar una operación, como calcular promedios de eventos en un período de
 | 2 |2018-07-27T00:00:05.0000000Z |Temperatura |50 |
 | 1 |2018-07-27T00:00:10.0000000Z |Temperatura |100 |
 
-**Salida**:  
+**Salida** :  
 
 | AverageValue | deviceId |
 | --- | --- |
@@ -594,7 +594,7 @@ Para más información, consulte [COUNT(DISTINCT Time)](/stream-analytics-query/
 
 Las instrucciones **CASE** pueden proporcionar diferentes cálculos para distintos campos, en función de un criterio determinado. Por ejemplo, asigne el carril "A" a los automóviles de *Make1* y el carril "B" a cualquier otra marca.
 
-**Entrada**:
+**Entrada** :
 
 | Asegúrese | Time |
 | --- | --- |
@@ -602,14 +602,14 @@ Las instrucciones **CASE** pueden proporcionar diferentes cálculos para distint
 | Make2 |2015-01-01T00:00:02.0000000Z |
 | Make2 |2015-01-01T00:00:03.0000000Z |
 
-**Salida**:
+**Salida** :
 
 | Asegúrese |Dispatch_to_lane | Time |
 | --- | --- | --- |
 | Make1 |"A" |2015-01-01T00:00:01.0000000Z |
 | Make2 |"B" |2015-01-01T00:00:02.0000000Z |
 
-**Solución**:
+**Solución** :
 
 ```SQL
 SELECT
@@ -631,14 +631,14 @@ Para más información, consulte la [expresión CASE](/stream-analytics-query/ca
 
 Los datos se pueden convertir en tiempo real mediante el método **CAST**. Por ejemplo, el peso del automóvil se puede convertir del tipo **nvarchar(max)** al tipo **bigint** y usarse en un cálculo numérico.
 
-**Entrada**:
+**Entrada** :
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000Z |"2000" |
 
-**Salida**:
+**Salida** :
 
 | Asegúrese | Peso |
 | --- | --- |
@@ -665,7 +665,7 @@ Para más información, consulte las [funciones de conversión de tipos](/stream
 
 En el caso de las condiciones que abarcan varios eventos, se puede usar la función **LAG** para identificar la duración de esa condición. Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorrecto (por encima de 20 000 libras), y debe calcularse la duración del error.
 
-**Entrada**:
+**Entrada** :
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
@@ -678,7 +678,7 @@ En el caso de las condiciones que abarcan varios eventos, se puede usar la funci
 | Make1 |2015-01-01T00:00:07.0000000Z |26000 |
 | Make2 |2015-01-01T00:00:08.0000000Z |2000 |
 
-**Salida**:
+**Salida** :
 
 | Start_fault | End_fault |
 | --- | --- |
@@ -713,7 +713,7 @@ End_fault es el evento actual sin errores donde el evento anterior presentaba er
 Los eventos pueden llegar tarde o desordenados debido a sesgos de reloj entre los productores de eventos, a sesgos de reloj entre particiones o a la latencia de red.
 Por ejemplo, el reloj del dispositivo para *TollID* 2 va cinco segundos atrasado respecto a *TollID* 1, y el reloj del dispositivo para *TollID* 3 va diez segundos atrasado respecto a *TollID* 1. Se puede generar un cálculo de forma independiente para cada peaje, teniendo en cuenta solo sus propios datos de reloj como marca de tiempo.
 
-**Entrada**:
+**Entrada** :
 
 | LicensePlate | Asegúrese | Time | TollId |
 | --- | --- | --- | --- |
@@ -726,7 +726,7 @@ Por ejemplo, el reloj del dispositivo para *TollID* 2 va cinco segundos atrasado
 | MDR 6128 |Make3 |2015-07-27T00:00:11.0000000Z | 2 |
 | YZK 5704 |Make4 |2015-07-27T00:00:07.0000000Z | 3 |
 
-**Salida**:
+**Salida** :
 
 | TollId | Count |
 | --- | --- |
@@ -748,7 +748,7 @@ FROM input
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ```
 
-La cláusula **TIMESTAMP BY OVER** examina la escala de tiempo de cada dispositivo de manera independiente mediante subflujos. Los eventos de salida para cada *TollID* se generan a medida que se calculan, lo que significa que los eventos están en orden con respecto a cada *TollID*, en lugar de que se vuelvan a ordenar como si todos los dispositivos estuvieran en el mismo reloj.
+La cláusula **TIMESTAMP BY OVER** examina la escala de tiempo de cada dispositivo de manera independiente mediante subflujos. Los eventos de salida para cada *TollID* se generan a medida que se calculan, lo que significa que los eventos están en orden con respecto a cada *TollID* , en lugar de que se vuelvan a ordenar como si todos los dispositivos estuvieran en el mismo reloj.
 
 Para más información, consulte este [TIMESTAMP BY OVER](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering).
 
@@ -758,7 +758,7 @@ Una ventana de sesión es una ventana que se expande a medida que se producen ev
 Esta ventana resulta especialmente útil al calcular datos de interacción de un usuario. Una ventana se inicia cuando un usuario empieza a interactuar con el sistema y se cierra cuando no se observan más eventos; es decir, que el usuario ha dejado de interactuar.
 Por ejemplo, un usuario interactúa con una página web donde se registra el número de clics; se puede usar una ventana de sesión para averiguar cuánto tiempo ha interactuado el usuario con el sitio.
 
-**Entrada**:
+**Entrada** :
 
 | User_id | Time | URL |
 | --- | --- | --- |
@@ -768,7 +768,7 @@ Por ejemplo, un usuario interactúa con una página web donde se registra el nú
 | 0 | 2017-01-26T00:01:10.0000000Z | "www.ejemplo.com/d.html" |
 | 1 | 2017-01-26T00:01:15.0000000Z | "www.ejemplo.com/e.html" |
 
-**Salida**:
+**Salida** :
 
 | User_id | StartTime | EndTime | Duration_in_seconds |
 | --- | --- | --- | --- |
@@ -791,13 +791,13 @@ GROUP BY
 
 **SELECT** proyecta los datos pertinentes a la interacción del usuario, junto con la duración de la interacción. Agrupa los datos por usuario y una **SessionWindow** que se cierra si no se produce ninguna interacción en 1 minuto, con un tamaño máximo de la ventana de 60 minutos.
 
-Para obtener más información sobre **SessionWindow**, consulte [Ventana de sesión](/stream-analytics-query/session-window-azure-stream-analytics).
+Para obtener más información sobre **SessionWindow** , consulte [Ventana de sesión](/stream-analytics-query/session-window-azure-stream-analytics).
 
 ## <a name="language-extensibility-with-user-defined-function-in-javascript-and-c"></a>Extensibilidad del lenguaje con la función definida por el usuario en JavaScript y C#
 
 El lenguaje de consultas de Azure Stream Analytics se puede ampliar con funciones personalizadas escritas en los lenguajes JavaScript o C#. Las funciones definidas por el usuario (UDF) son cálculos personalizados o complejos que no se pueden expresar fácilmente mediante el lenguaje **SQL**. Estas UDF se pueden definir una vez y usarse varias veces dentro de una consulta. Por ejemplo, se puede usar una UDF para convertir un valor hexadecimal *nvarchar(max)* en un valor *bigint*.
 
-**Entrada**:
+**Entrada** :
 
 | Device_id | HexValue |
 | --- | --- |
@@ -805,7 +805,7 @@ El lenguaje de consultas de Azure Stream Analytics se puede ampliar con funcione
 | 2 | "11B" |
 | 3 | "121" |
 
-**Salida**:
+**Salida** :
 
 | Device_id | Decimal |
 | --- | --- |
@@ -837,14 +837,14 @@ From
 
 La función definida por el usuario calculará el valor *bigint* de HexValue en cada evento consumido.
 
-Para más información, consulte [JavaScript](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) y [C#](/azure/stream-analytics/stream-analytics-edge-csharp-udf).
+Para más información, consulte [JavaScript](./stream-analytics-javascript-user-defined-functions.md) y [C#](./stream-analytics-edge-csharp-udf.md).
 
 ## <a name="advanced-pattern-matching-with-match_recognize"></a>Coincidencia de patrones avanzada con MATCH_RECOGNIZE
 
 **MATCH_RECOGNIZE** es un mecanismo de coincidencia de patrones avanzada que se puede usar para hacer coincidir una secuencia de eventos con un patrón de expresión regular bien definido.
 Por ejemplo, se supervisa un cajero automático en tiempo real en busca de errores, durante el funcionamiento del cajero, si hay dos mensajes de advertencia consecutivos, debe darse aviso al administrador.
 
-**Entrada**:
+**Entrada** :
 
 | ATM_id | Operation_id | Return_Code | Time |
 | --- | --- | --- | --- |
@@ -855,7 +855,7 @@ Por ejemplo, se supervisa un cajero automático en tiempo real en busca de error
 | 1 | "Apertura del dispensador de dinero" | "Warning" | 2017-01-26T00:10:14.0000000Z |
 | 1 | "Impresión del saldo bancario" | "Warning" | 2017-01-26T00:10:19.0000000Z |
 
-**Salida**:
+**Salida** :
 
 | ATM_id | First_Warning_Operation_id | Warning_Time |
 | --- | --- | --- |
@@ -881,7 +881,7 @@ MATCH_RECOGNIZE (
 
 Esta consulta coincide al menos con dos eventos de error consecutivos y genera una alarma cuando se cumplen las condiciones.
 **PATTERN** define la expresión regular que se utilizará en la búsqueda de coincidencias, en este caso, cualquier número de operaciones correctas seguidas de al menos dos errores consecutivos.
-Success y Failure se definen mediante el valor Return_Code y, una vez que se cumple la condición, **MEASURES** se proyectan con *ATM_id*, la primera operación de advertencia y la primera hora de advertencia.
+Success y Failure se definen mediante el valor Return_Code y, una vez que se cumple la condición, **MEASURES** se proyectan con *ATM_id* , la primera operación de advertencia y la primera hora de advertencia.
 
 Para obtener más información, consulte [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 
@@ -892,7 +892,7 @@ Los datos geoespaciales se pueden ingerir en formato GeoJSON o WKT como parte de
 Por ejemplo, una empresa especializada en la fabricación de máquinas para imprimir pasaportes, alquila sus equipos a Gobiernos y consulados. La ubicación de esas máquinas está muy controlada a fin de evitar su extravío y el uso posible para la falsificación de pasaportes. Cada máquina está equipada con un rastreador GPS, cuya información se retransmite a un trabajo de Azure Stream Analytics.
 El fabricante quiere realizar un seguimiento de la ubicación de esas máquinas y recibir una alerta si una de ellas abandona un área autorizada, de manera que puedan deshabilitarla de forma remota, alertar a las autoridades y recuperar el equipo.
 
-**Entrada**:
+**Entrada** :
 
 | Equipment_id | Equipment_current_location | Time |
 | --- | --- | --- |
@@ -901,13 +901,13 @@ El fabricante quiere realizar un seguimiento de la ubicación de esas máquinas 
 | 1 | "POINT(-122.13308862313283 47.6406508603241)" | 2017-01-26T00:12:00.0000000Z |
 | 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000Z |
 
-**Entrada de datos de referencia**:
+**Entrada de datos de referencia** :
 
 | Equipment_id | Equipment_lease_location |
 | --- | --- |
 | 1 | "POLYGON((-122.13326028450979 47.6409833866794,-122.13261655434621 47.6409833866794,-122.13261655434621 47.64061471602751,-122.13326028450979 47.64061471602751,-122.13326028450979 47.6409833866794))" |
 
-**Salida**:
+**Salida** :
 
 | Equipment_id | Equipment_alert_location | Time |
 | --- | --- | --- |
@@ -932,11 +932,11 @@ Para más información, consulte el artículo [Escenarios de agregación geoespa
 
 ## <a name="get-help"></a>Obtener ayuda
 
-Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referencia de API de REST de administración de Azure Stream Analytics](/rest/api/streamanalytics/)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
-ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 925bc79d54def3f2aec4657196b8cea53704396f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030804"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130653"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Uso de Azure Table Storage para administrar clientes potenciales de marketplace comercial
 
@@ -26,7 +26,7 @@ Si el sistema de administración de relaciones con clientes (CRM) no es una opci
 
     1. En la barra de menús de la izquierda, seleccione **+ Crear un recurso**. Aparece el panel **Nuevo** a la derecha.
     1. Seleccione **Almacenamiento** en el panel **Nuevo**. Aparece una lista **Destacados** a la derecha.
-    1. Seleccione **Cuenta de almacenamiento** para comenzar a crear la cuenta. Siga las instrucciones que se indican en [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    1. Seleccione **Cuenta de almacenamiento** para comenzar a crear la cuenta. Siga las instrucciones que se indican en [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
         :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Pasos para crear una cuenta de Azure Storage.":::
 
@@ -38,7 +38,7 @@ Si el sistema de administración de relaciones con clientes (CRM) no es una opci
 
 1. En la página **Inicio** de Azure Portal, seleccione **Ver todos los recursos** para obtener acceso a la cuenta de almacenamiento. También puede seleccionar **Todos los recursos** en la barra de menús izquierda de Azure Portal.
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Pasos para crear una cuenta de Azure Storage.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Acceso a la cuenta de Azure Storage.":::
 
 1. En el panel de la cuenta de almacenamiento, seleccione **Claves de acceso** y copie el valor de la **Cadena de conexión** de la clave. Guarde este valor, ya que es el valor de **Cadena de conexión de cuenta de almacenamiento** que tendrá que proporcionar en el portal de publicación para recibir clientes potenciales de su oferta de Marketplace.
 
@@ -48,7 +48,7 @@ Si el sistema de administración de relaciones con clientes (CRM) no es una opci
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Pasos para crear una cuenta de Azure Storage.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Clave de Azure Storage.":::
 
 
 1. En el panel de la cuenta de almacenamiento, seleccione **Tablas** y **+Tabla** para crear una tabla. Escriba el nombre de la tabla y seleccione **Aceptar**. Guarde este valor, ya que lo necesitará si quiere configurar un flujo para recibir notificaciones por correo electrónico cuando reciba clientes potenciales.
@@ -59,7 +59,7 @@ Si el sistema de administración de relaciones con clientes (CRM) no es una opci
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Opcional) Uso de Power Automate para recibir notificaciones de clientes potenciales
 
-Puede usar [Power Automate](https://docs.microsoft.com/flow/) para automatizar las notificaciones cada vez que un cliente potencial se agregue a la tabla de Azure Storage. Si aún no tiene una cuenta, puede [registrarse para obtener una gratuita](https://flow.microsoft.com/).
+Puede usar [Power Automate](/flow/) para automatizar las notificaciones cada vez que un cliente potencial se agregue a la tabla de Azure Storage. Si aún no tiene una cuenta, puede [registrarse para obtener una gratuita](https://flow.microsoft.com/).
 
 ### <a name="lead-notification-example"></a>Ejemplo de notificación de cliente potencial
 
@@ -79,12 +79,12 @@ En este ejemplo se crea un flujo que envía automáticamente una notificación p
 
    ![Creación de un flujo programado](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
-1. Seleccione **+ New step**(+ Nuevo paso).
-1. En la ventana **Elegir una acción**, busque **Obtener la hora pasada**. A continuación, en **Acciones**, seleccione **Obtener la hora pasada**.
+1. Seleccione **+ New step** (+ Nuevo paso).
+1. En la ventana **Elegir una acción** , busque **Obtener la hora pasada**. A continuación, en **Acciones** , seleccione **Obtener la hora pasada**.
 
    ![Elegir una acción](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
-1. En la ventana **Obtener la hora pasada**, establezca el valor de **Intervalo** en **1**. En la lista desplegable **Unidad de tiempo**, seleccione **Hora**.
+1. En la ventana **Obtener la hora pasada** , establezca el valor de **Intervalo** en **1**. En la lista desplegable **Unidad de tiempo** , seleccione **Hora**.
 
     >[!IMPORTANT]
     >Asegúrese de que el intervalo y la unidad de tiempo que ha enviado en el paso 8 coincidan con el intervalo y la frecuencia que ha configurado para la periodicidad en el paso 5.
@@ -96,33 +96,33 @@ En este ejemplo se crea un flujo que envía automáticamente una notificación p
 
    En el siguiente conjunto de pasos, se conectará a la tabla y configurará la lógica de procesamiento para controlar nuevos clientes potenciales.
 
-1. Seleccione **+ New step**(+ Nuevo paso). En la ventana **Elegir una acción**, busque **Obtener entidades**.
-1. En **Acciones**,seleccione **Obtener entidades (Almacenamiento de tablas de Azure)** .
-1. En la ventana **Azure Table Storage**, proporcione información en los cuadros siguientes y seleccione **Crear**:
+1. Seleccione **+ New step** (+ Nuevo paso). En la ventana **Elegir una acción** , busque **Obtener entidades**.
+1. En **Acciones** ,seleccione **Obtener entidades (Almacenamiento de tablas de Azure)** .
+1. En la ventana **Azure Table Storage** , proporcione información en los cuadros siguientes y seleccione **Crear** :
 
-    * **Nombre de la conexión**: proporcione un nombre descriptivo para la conexión que va a establecer entre este flujo y la tabla.
-    * **Nombre de cuenta de almacenamiento**: proporcione el nombre de la cuenta de almacenamiento para la tabla. Puede encontrarlo en la página **Claves de acceso** de la cuenta de almacenamiento.
-    * **Clave de almacenamiento compartida**: proporcione el valor de clave de la cuenta de almacenamiento de la tabla. Puede encontrar este valor en la página **Claves de acceso** de la cuenta de almacenamiento.
+    * **Nombre de la conexión** : proporcione un nombre descriptivo para la conexión que va a establecer entre este flujo y la tabla.
+    * **Nombre de cuenta de almacenamiento** : proporcione el nombre de la cuenta de almacenamiento para la tabla. Puede encontrarlo en la página **Claves de acceso** de la cuenta de almacenamiento.
+    * **Clave de almacenamiento compartida** : proporcione el valor de clave de la cuenta de almacenamiento de la tabla. Puede encontrar este valor en la página **Claves de acceso** de la cuenta de almacenamiento.
 
       ![Ventana de Azure Table Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-   Después de seleccionar **Crear**, aparece la ventana **Obtener entidades**. Aquí, seleccione **Mostrar opciones avanzadas** y proporcione información en los cuadros siguientes:
+   Después de seleccionar **Crear** , aparece la ventana **Obtener entidades**. Aquí, seleccione **Mostrar opciones avanzadas** y proporcione información en los cuadros siguientes:
 
-   * **Tabla**: seleccione el nombre de la tabla (desde [Crear una tabla](#create-a-table-in-your-storage-account)). En la captura de pantalla siguiente se muestra el símbolo del sistema cuando se selecciona la tabla `marketplaceleads` en este ejemplo.
+   * **Tabla** : seleccione el nombre de la tabla (desde [Crear una tabla](#create-a-table-in-your-storage-account)). En la captura de pantalla siguiente se muestra el símbolo del sistema cuando se selecciona la tabla `marketplaceleads` en este ejemplo.
 
      ![Ventana Obtener entidades](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-   * **Consulta de filtro**: seleccione este cuadro y pegue esta función en el cuadro: `Timestamp gt datetime'@{body('Get_past_time')}'`.
+   * **Consulta de filtro** : seleccione este cuadro y pegue esta función en el cuadro: `Timestamp gt datetime'@{body('Get_past_time')}'`.
 
      ![Obtener entidades, cuadro Consulta de filtro](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 1. Ahora que ha completado la configuración de la conexión a la tabla de Azure, seleccione **Nuevo paso** para agregar una condición para examinar la tabla de Azure para los nuevos clientes potenciales.
 
-1. En la ventana **Elegir una acción**, seleccione **Acciones**. Luego, elija **Control de condiciones**.
+1. En la ventana **Elegir una acción** , seleccione **Acciones**. Luego, elija **Control de condiciones**.
 
     ![Ventana Elegir una acción](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
 
-1. En la ventana **Condición**, seleccione **Elegir un valor**. Luego, seleccione **Expresión** en la ventana emergente.
+1. En la ventana **Condición** , seleccione **Elegir un valor**. Luego, seleccione **Expresión** en la ventana emergente.
 
 1. Pegue `length(body('Get_entities')?['value'])` en el cuadro **fx**. Seleccione **Aceptar** para agregar esta función.
 
@@ -134,8 +134,8 @@ En este ejemplo se crea un flujo que envía automáticamente una notificación p
 
    En los pasos siguientes, va a configurar la acción que se realizará según el resultado de la condición:
 
-   * Si la condición se resuelve como **En caso negativo**, no haga nada.
-   * Si la condición se resuelve como **En caso positivo**, desencadene una acción asociada a la cuenta profesional o educativa para enviar un correo electrónico. 
+   * Si la condición se resuelve como **En caso negativo** , no haga nada.
+   * Si la condición se resuelve como **En caso positivo** , desencadene una acción asociada a la cuenta profesional o educativa para enviar un correo electrónico. 
 
 1. Seleccione **Agregar una acción** en **En caso positivo**.
 
@@ -150,9 +150,9 @@ En este ejemplo se crea un flujo que envía automáticamente una notificación p
 
 1. En la ventana de Office 365 Outlook, proporcione información en los cuadros siguientes:
 
-    1. **Para**: escriba una dirección de correo electrónico para todos los usuarios que reciban esta notificación.
-    1. **Firmante**: proporcione un asunto para el correo electrónico. Por ejemplo, **Nuevos clientes potenciales**.
-    1. **Cuerpo**: agregue el texto que quiera incluir en cada correo electrónico (opcional) y, luego, péguelo en `body('Get_entities')?['value']`.
+    1. **Para** : escriba una dirección de correo electrónico para todos los usuarios que reciban esta notificación.
+    1. **Firmante** : proporcione un asunto para el correo electrónico. Por ejemplo, **Nuevos clientes potenciales**.
+    1. **Cuerpo** : agregue el texto que quiera incluir en cada correo electrónico (opcional) y, luego, péguelo en `body('Get_entities')?['value']`.
 
     >[!NOTE]
     >Puede insertar puntos de datos estáticos o dinámicos adicionales en el cuerpo de este correo electrónico.
@@ -183,17 +183,17 @@ Cuando esté listo para configurar la información de administración de cliente
 
 1. Vaya a la página **Configuración de la oferta** de su oferta.
 
-1. En la sección **Clientes potenciales**, seleccione **Conectar**.
+1. En la sección **Clientes potenciales** , seleccione **Conectar**.
 
-    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Pasos para crear una cuenta de Azure Storage.":::
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Clientes potenciales":::
 
-1. En la ventana emergente **Detalles de la conexión**, seleccione **Azure Table** como **destino de clientes potenciales**. 
+1. En la ventana emergente **Detalles de la conexión** , seleccione **Azure Table** como **destino de clientes potenciales**. 
      ![Administración de clientes potenciales, detalles de la conexión](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
 
-1. En el cuadro **Cadena de conexión de cuenta de almacenamiento**, pegue la cadena de conexión de la cuenta de almacenamiento de Azure que creó siguiendo los pasos anteriores.
+1. En el cuadro **Cadena de conexión de cuenta de almacenamiento** , pegue la cadena de conexión de la cuenta de almacenamiento de Azure que creó siguiendo los pasos anteriores.
      ![Administración de clientes potenciales, cuenta de almacenamiento de detalles de conexión](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
 
-1. **Dirección de correo electrónico de contacto**: proporcione los correos electrónicos de las personas de su empresa que deban recibir notificaciones por correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con punto y coma.
+1. **Dirección de correo electrónico de contacto** : proporcione los correos electrónicos de las personas de su empresa que deban recibir notificaciones por correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con punto y coma.
 
 1. Seleccione **Aceptar**.
 

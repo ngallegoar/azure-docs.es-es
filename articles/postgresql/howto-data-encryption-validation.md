@@ -1,17 +1,17 @@
 ---
 title: 'Cómo garantizar la validación de Azure Database for PostgreSQL: cifrado de datos'
 description: Obtenga información acerca de cómo validar el cifrado de datos de Azure Database for PostgreSQL mediante la clave administrada de los clientes.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 0a1b8eaee0a483fb4ce09a33d3c7ca9fe6f980e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ec27cc4f28151214ca97ffb5113607d6b60ee36
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884336"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240586"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Validación del cifrado de datos Azure Database for PostgreSQL
 
@@ -27,9 +27,9 @@ Este artículo le ayuda a validar que el cifrado de datos mediante la clave admi
     * Seleccione la clave que se usa para el cifrado del servidor.
     * Establezca el estado de la clave **Habilitado** en **No**.
   
-       Después de cierto tiempo (**unos 15 minutos**), el valor de **Estado** del servidor de Azure Database for PostgreSQL debería ser **Inaccesible**. Cualquier operación de E/S realizada en el servidor generará un error, lo que confirma que el servidor está cifrado realmente con la clave del cliente y que la clave no es válida actualmente.
+       Después de cierto tiempo ( **unos 15 minutos** ), el valor de **Estado** del servidor de Azure Database for PostgreSQL debería ser **Inaccesible**. Cualquier operación de E/S realizada en el servidor generará un error, lo que confirma que el servidor está cifrado realmente con la clave del cliente y que la clave no es válida actualmente.
     
-        Para que el estado del servidor sea **Disponible**, puede volver a validar la clave. 
+        Para que el estado del servidor sea **Disponible** , puede volver a validar la clave. 
     
     * Establezca el estado de la clave en Key Vault en **Sí**.
     * En el campo **Cifrado de datos** del servidor, seleccione **Volver a validar la clave**.

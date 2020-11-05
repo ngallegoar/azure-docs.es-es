@@ -8,18 +8,18 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329039"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129599"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Planeación de una oferta de máquina virtual
 
 En este artículo se explican los distintos requisitos y opciones para publicar una oferta de máquina virtual en el marketplace comercial. Las ofertas de máquinas virtuales son ofertas de transacciones que se implementan y facturan mediante Azure Marketplace.
 
-Antes de empezar, [cree una cuenta de marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) y asegúrese de que su cuenta esté inscrita en el programa de Marketplace comercial.
+Antes de empezar, [cree una cuenta de marketplace comercial en el Centro de partners](./partner-center-portal/create-account.md) y asegúrese de que su cuenta esté inscrita en el programa de Marketplace comercial.
 
 ### <a name="technical-fundamentals"></a>Aspectos fundamentales técnicos
 
@@ -70,7 +70,7 @@ Puede enviar invitaciones a direcciones de correo electrónico de cuentas de Mic
 
 Las ofertas de VM requieren al menos un plan. Un plan define el ámbito y los límites de la solución, así como los precios asociados. Puede crear varios planes para que su oferta brinde a sus clientes diferentes opciones técnicas y de licencias, así como evaluaciones gratuitas. Consulte [Planes y precios de ofertas de marketplace comercial](plans-pricing.md) para obtener instrucciones generales sobre los planes, incluidos los modelos de precios, las evaluaciones gratuitas y los planes privados. 
 
-Las VM se pueden comercializar íntegramente con los modelos de licencia de pago por uso o BYOL (traiga su propia licencia). Microsoft hospeda la transacción comercial y factura al cliente en su nombre. Usted obtiene la ventaja de usar la relación de pago preferida entre el cliente y Microsoft, incluidos los contratos empresariales existentes. Para obtener más información, consulte [Capacidades de transacción de marketplace comercial](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
+Las VM se pueden comercializar íntegramente con los modelos de licencia de pago por uso o BYOL (traiga su propia licencia). Microsoft hospeda la transacción comercial y factura al cliente en su nombre. Usted obtiene la ventaja de usar la relación de pago preferida entre el cliente y Microsoft, incluidos los contratos empresariales existentes. Para obtener más información, consulte [Capacidades de transacción de marketplace comercial](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
 > Los compromisos monetarios asociados con un Contrato Enterprise se pueden aplicar al uso que Azure hace de su VM, pero no a las tarifas de licencias de software.
@@ -84,7 +84,7 @@ Estas son las opciones de licencia disponibles para las ofertas de máquina virt
 | Opción de obtención de licencias | Proceso de transacción |
 | --- | --- |
 | Evaluación gratuita | Ofrezca a sus clientes una evaluación gratuita de uno, tres o seis meses. |
-| Versión de prueba | Esta opción permite a los clientes evaluar las VM sin ningún costo adicional. No tienen que ser un cliente existente de Azure para poder participar en la experiencia de prueba. Para obtener más información, vea [¿Qué es una versión de prueba?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
+| Versión de prueba | Esta opción permite a los clientes evaluar las VM sin ningún costo adicional. No tienen que ser un cliente existente de Azure para poder participar en la experiencia de prueba. Para obtener más información, vea [¿Qué es una versión de prueba?](./what-is-test-drive.md) |
 | BYOL | La opción de incorporación de licencias propias permite a los clientes aportar licencias de software existentes a Azure.\* |
 | Basado en uso | También conocida como pago por uso, esta opción permite a los clientes pagar por hora. |
 | Demostración interactiva  | Proporcione a los clientes una experiencia guiada de su solución mediante una demostración interactiva. La ventaja es que puede ofrecer una experiencia de prueba sin tener que proporcionar una configuración complicada de la solución compleja. |
@@ -119,17 +119,17 @@ Puede agregar o modificar una conexión CRM en cualquier momento durante o despu
 
 Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece un contrato estándar que se puede usar con las ofertas del marketplace comercial. Al ofrecer el software bajo el contrato estándar, los clientes solo tienen que leerlo y aceptarlo, sin necesidad de crear términos y condiciones personalizados.
 
-Si decide usar el contrato estándar, tiene la opción de agregarle términos de modificación universales y hasta 10 modificaciones personalizadas. También puede usar sus propios términos y condiciones en lugar del contrato estándar. Estos detalles se administrarán en la página **Propiedades** . Para más información, consulte [Contrato estándar para el marketplace comercial de Microsoft](standard-contract.md).
+Si decide usar el contrato estándar, tiene la opción de agregarle términos de modificación universales y hasta 10 modificaciones personalizadas. También puede usar sus propios términos y condiciones en lugar del contrato estándar. Estos detalles se administrarán en la página **Propiedades**. Para más información, consulte [Contrato estándar para el marketplace comercial de Microsoft](standard-contract.md).
 
 > [!NOTE]
 > Después de publicar una oferta con el contrato estándar en el marketplace comercial, no puede usar sus propios términos y condiciones personalizados. Solo puede elegir una de las dos opciones. O bien ofrecer su solución bajo el contrato estándar o según sus propios términos y condiciones. Si quiere modificar los términos del contrato estándar, puede hacerlo a través de las modificaciones al contrato estándar.
 
 ## <a name="cloud-solution-providers"></a>Proveedores de soluciones en la nube
 
-Al crear la oferta en el Centro de partners, verá la pestaña **Revender mediante los CSP** . Esta opción permite que los asociados que forman parte del programa de proveedores de soluciones en la nube (CSP) de Microsoft revendan la VM como parte de una oferta agrupada. Todos los planes Traiga su propia licencia (BYOL) se incorporan automáticamente al programa. También puede optar por participar en los planes que no sean BYOL. Para más información, consulte [Programa del Proveedor de soluciones en la nube](cloud-solution-providers.md). 
+Al crear la oferta en el Centro de partners, verá la pestaña **Revender mediante los CSP**. Esta opción permite que los asociados que forman parte del programa de proveedores de soluciones en la nube (CSP) de Microsoft revendan la VM como parte de una oferta agrupada. Todos los planes Traiga su propia licencia (BYOL) se incorporan automáticamente al programa. También puede optar por participar en los planes que no sean BYOL. Para más información, consulte [Programa del Proveedor de soluciones en la nube](cloud-solution-providers.md). 
 
 > [!NOTE]
-> La participación en el canal de asociados de Proveedores de soluciones en la nube (CSP) ya está disponible. Para más información sobre cómo comercializar su oferta mediante los canales de asociados de CSP de Microsoft, consulte [**Proveedores de soluciones en la nube**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+> La participación en el canal de asociados de Proveedores de soluciones en la nube (CSP) ya está disponible. Para más información sobre cómo comercializar su oferta mediante los canales de asociados de CSP de Microsoft, consulte [**Proveedores de soluciones en la nube**](./cloud-solution-providers.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
