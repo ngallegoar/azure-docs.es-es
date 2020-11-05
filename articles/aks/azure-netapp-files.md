@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo integrar Azure NetApp Files con Az
 services: container-service
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 78119d3d7ff83ca237c1e668785439d943dcfd14
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: bc65c3dfad4c27c1650054c6836fbbbf07a7dbf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900416"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126260"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integración de Azure NetApp Files con Azure Kubernetes Service
 
@@ -29,7 +29,6 @@ Las siguientes limitaciones se aplican al usar Azure NetApp Files:
 
 * Azure NetApp Files solo está disponible [en regiones de Azure seleccionadas][anf-regions].
 * Para poder usar Azure NetApp Files, debe tener acceso concedido al servicio Azure NetApp Files. Para solicitar acceso, puede usar el [formulario de envío de listas de espera de Azure NetApp Files][anf-waitlist]. No puede tener acceso al servicio Azure NetApp Files hasta que reciba el correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
-* Su servicio Azure NetApp Files debe crearse en la misma red virtual que su clúster de AKS.
 * Después de la implementación inicial de un clúster de AKS, solo se admite el aprovisionamiento estático para Azure NetApp Files.
 * Para usar el aprovisionamiento dinámico con Azure NetApp Files, instale y configure [NetApp Trident](https://netapp-trident.readthedocs.io/) versión 19.07 o posterior.
 
@@ -47,7 +46,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > Esta operación puede tardar un tiempo en finalizar.
 
-Cuando crea una cuenta de Azure NetApp para usarla con AKS, debe crearla en el grupo de recursos del **nodo** . En primer lugar, obtenga el nombre del grupo de recursos con el comando [az aks show][az-aks-show] y agregue el parámetro de consulta `--query nodeResourceGroup`. En este ejemplo se obtiene el grupo de recursos del nodo para el clúster de AKS denominado *myAKSCluster* en el nombre del grupo de recursos *myResourceGroup* :
+Cuando crea una cuenta de Azure NetApp para usarla con AKS, debe crearla en el grupo de recursos del **nodo**. En primer lugar, obtenga el nombre del grupo de recursos con el comando [az aks show][az-aks-show] y agregue el parámetro de consulta `--query nodeResourceGroup`. En este ejemplo se obtiene el grupo de recursos del nodo para el clúster de AKS denominado *myAKSCluster* en el nombre del grupo de recursos *myResourceGroup* :
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv

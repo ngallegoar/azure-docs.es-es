@@ -558,7 +558,7 @@
     - name: Seguridad de máquinas virtuales
       items:
         - name: Recomendaciones
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Acceso Just-In-Time
           href: ../../security-center/security-center-just-in-time.md
         - name: Uso de Bastion
@@ -666,7 +666,7 @@
         - name: Agente de máquina virtual de Azure
           href: ../extensions/agent-windows.md
         - name: Mitigación de ejecución especulativa
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: Supervisión de metadatos
           href: instance-metadata-service.md
         - name: Habilitar virtualización anidada
@@ -959,7 +959,7 @@
         - name: Uso de redes aceleradas
           href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Asignación de nombres DNS públicos
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: Resolución DNS
           href: ../../dns/dns-for-azure-services.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Configuración de identidades administradas
@@ -1055,7 +1055,7 @@
   href: ../troubleshooting/index.yml
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/vm
     - name: Azure PowerShell
       href: /powershell/azure/

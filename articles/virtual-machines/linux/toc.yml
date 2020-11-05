@@ -582,7 +582,7 @@
     - name: Seguridad de máquinas virtuales
       items:
         - name: Recomendaciones
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Acceso Just-In-Time
           href: ../../security-center/security-center-just-in-time.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Uso de Bastion
@@ -717,7 +717,7 @@
             - name: Actualización del agente
               href: ../extensions/update-linux-agent.md
         - name: Mitigación de ejecución especulativa
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: Supervisión de metadatos
           href: instance-metadata-service.md
         - name: Obtención de métricas de uso con REST
@@ -1045,7 +1045,7 @@
         - name: Uso de redes aceleradas
           href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Asignación de nombres DNS públicos
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: Búsqueda y eliminación de NIC no conectadas
           href: find-unattached-nics.md
         - name: Resolución DNS
@@ -1140,7 +1140,7 @@
               href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/vm
     - name: PowerShell
       href: /powershell/azure/

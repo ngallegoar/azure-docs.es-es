@@ -529,6 +529,8 @@
       items:
         - name: Carga de datos en grupos de SQL mediante la actividad de copia
           href: quickstart-copy-activity-load-sql-pool.md
+        - name: Transformación de datos mediante flujos de datos de asignación
+          href: quickstart-data-flow.md
     - name: Conceptos
       items:
         - name: Canalización y actividad

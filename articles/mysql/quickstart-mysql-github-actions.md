@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: ce045da7d21c2af0dfde5ee896b4f7f343ce6545
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 57e740e6c47d9518c12a49473e103d0abe772618
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541271"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337020"
 ---
-# <a name="use-github-actions-to-connect-to-azure-mysql"></a>Uso de Acciones de GitHub para conectarse a Azure MySQL
+# <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Inicio rápido: Uso de Acciones de GitHub para conectarse a Azure MySQL
 
 Comience a trabajar con [Acciones de GitHub](https://docs.github.com/en/actions) usando un flujo de trabajo para implementar actualizaciones de base de datos en [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/). 
 
@@ -39,7 +39,7 @@ El archivo tiene dos secciones:
 
 ## <a name="generate-deployment-credentials"></a>Genere las credenciales de implementación.
 
-Puede crear una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar** .
+Puede crear una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
 
 Reemplace los marcadores de posición `server-name` por el nombre del servidor MySQL hospedado en Azure. Reemplace `subscription-id` y `resource-group` por el identificador de suscripción y el grupo de recursos conectado a su servidor MySQL.  
 
@@ -66,7 +66,7 @@ La salida es un objeto JSON con las credenciales de asignación de roles que pro
 
 ## <a name="copy-the-mysql-connection-string"></a>Copia de la cadena de conexión de MySQL 
 
-En Azure Portal, vaya al servidor de Azure Database for MySQL y abra **Configuración** > **Cadenas de conexión** . Copie la cadena de conexión de **ADO.NET** . Reemplace los valores de marcador de posición `your_database` y `your_password`. La cadena de conexión tendrá un aspecto similar al siguiente. 
+En Azure Portal, vaya al servidor de Azure Database for MySQL y abra **Configuración** > **Cadenas de conexión**. Copie la cadena de conexión de **ADO.NET**. Reemplace los valores de marcador de posición `your_database` y `your_password`. La cadena de conexión tendrá un aspecto similar al siguiente. 
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;
@@ -89,7 +89,7 @@ Usará la cadena de conexión como secreto de GitHub.
         creds: ${{ secrets.AZURE_CREDENTIALS }}
    ```
 
-1. Vuelva a seleccionar **Nuevo secreto** . 
+1. Vuelva a seleccionar **Nuevo secreto**. 
 
 1. Pegue el valor de la cadena de conexión en el campo de valor del secreto. Asigne al secreto el nombre `AZURE_MYSQL_CONNECTION_STRING`.
 

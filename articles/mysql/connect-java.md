@@ -1,5 +1,5 @@
 ---
-title: Uso de Java y JDBC con Azure Database for MySQL
+title: 'Inicio rápido: Uso de Java y JDBC con Azure Database for MySQL'
 description: Aprenda a usar Java y JDBC con una instancia de Azure Database for MySQL.
 author: jdubois
 ms.author: judubois
@@ -8,14 +8,14 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: b7db124f8f5ba56f760dc054491990889e4e738f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 457f7e07391c647d2ab0e7d78197086f6f5e2cf7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745268"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337446"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-mysql"></a>Uso de Java y JDBC con Azure Database for MySQL
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>Inicio rápido: Uso de Java y JDBC con Azure Database for MySQL
 
 En este tema se muestra cómo crear una aplicación de ejemplo que utiliza Java y [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para almacenar y recuperar información de [Azure Database for MySQL](./index.yml).
 
@@ -237,7 +237,7 @@ Este código Java usará los archivos *application.properties* y *schema.sql* qu
 En este archivo, puede ver que hemos comentado los métodos para insertar, leer, actualizar y eliminar datos: codificaremos esos métodos en el resto de este artículo y podrá quitar los comentarios uno tras otro.
 
 > [!NOTE]
-> Las credenciales de la base de datos se almacenan en las propiedades *user* (usuario) y *password* (contraseña) del archivo *application.properties* . Estas credenciales se usan al ejecutar `DriverManager.getConnection(properties.getProperty("url"), properties);`, ya que el archivo de propiedades se pasa como argumento.
+> Las credenciales de la base de datos se almacenan en las propiedades *user* (usuario) y *password* (contraseña) del archivo *application.properties*. Estas credenciales se usan al ejecutar `DriverManager.getConnection(properties.getProperty("url"), properties);`, ya que el archivo de propiedades se pasa como argumento.
 
 > [!NOTE]
 > La línea `AbandonedConnectionCleanupThread.uncheckedShutdown();` del final es un comando específico del controlador de MySQL para destruir un subproceso interno al cerrar la aplicación.
@@ -326,7 +326,7 @@ public class Todo {
 }
 ```
 
-Esta clase es un modelo de dominio asignado a la tabla `todo` que creó al ejecutar el script *schema.sql* .
+Esta clase es un modelo de dominio asignado a la tabla `todo` que creó al ejecutar el script *schema.sql*.
 
 ### <a name="insert-data-into-azure-database-for-mysql"></a>Inserción de datos en Azure Database for MySQL
 
@@ -493,7 +493,7 @@ La ejecución de la clase main debería generar ahora la siguiente salida:
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>Conclusión y limpieza de recursos
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Felicidades. Ha creado una aplicación de Java que usa JDBC para almacenar y recuperar datos de Azure Database for MySQL.
 
