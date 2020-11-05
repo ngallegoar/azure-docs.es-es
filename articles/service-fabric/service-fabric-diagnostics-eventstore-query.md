@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 614c8e5f76475c7e7af35db37334eb645ad553a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 286c59938413a912c005181fca12f6698a7bc55e
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018610"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042885"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Consulta de las API del servicio EventStore para obtener eventos de clúster
 
@@ -192,7 +192,7 @@ Además de ver solo los eventos de ciclo de vida de las aplicaciones, también p
 
 *Estado histórico para todos los servicios de "myApp":*
 
-Actualmente, los eventos de informe de estado para los servicios se muestran como eventos `DeployedServicePackageNewHealthReport` debajo de la entidad de aplicación correspondiente. Para ver cómo ha sido el comportamiento de los servicios para "App1", utilice la siguiente consulta: `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+Actualmente, los eventos de informe de estado para los servicios se muestran como eventos `DeployedServicePackageNewHealthReport` debajo de la entidad de aplicación correspondiente. Para ver cómo ha sido el comportamiento de los servicios para "App1", utilice la siguiente consulta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *Reconfiguración de particiones:*
 

@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c57a3920dac3e18e248109fafdf61fdfa871c54d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044386"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123717"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detección de anomalías en Azure Stream Analytics
 
-Disponible tanto en la nube como en Azure IoT Edge, Azure Stream Analytics ofrece funcionalidades de detección de anomalías integradas basadas en aprendizaje automático, que se pueden usar para supervisar las dos anomalías que se producen con más frecuencia: temporales y persistentes. Con las funciones **AnomalyDetection_SpikeAndDip** y **AnomalyDetection_ChangePoint**, puede realizar la detección de anomalías directamente en el trabajo de Stream Analytics.
+Disponible tanto en la nube como en Azure IoT Edge, Azure Stream Analytics ofrece funcionalidades de detección de anomalías integradas basadas en aprendizaje automático, que se pueden usar para supervisar las dos anomalías que se producen con más frecuencia: temporales y persistentes. Con las funciones **AnomalyDetection_SpikeAndDip** y **AnomalyDetection_ChangePoint** , puede realizar la detección de anomalías directamente en el trabajo de Stream Analytics.
 
 Los modelos de aprendizaje automático asumen una serie temporal muestreada uniformemente. Si la serie temporal no es uniforme, puede insertar un paso de agregación con una ventana de saltos de tamaño constante antes de llamar a la detección de anomalías.
 
@@ -42,7 +42,7 @@ Puede usarse el generador de anomalías que está disponible [aquí](https://aka
 
 ## <a name="spike-and-dip"></a>Picos e interrupciones
 
-A las anomalías temporales de un flujo de eventos de serie temporal se les conocen como picos e interrupciones. Los picos y las interrupciones pueden supervisarse mediante el operador basado en Machine Learning, [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+A las anomalías temporales de un flujo de eventos de serie temporal se les conocen como picos e interrupciones. Los picos y las interrupciones pueden supervisarse mediante el operador basado en Machine Learning, [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
 ).
 
 ![Ejemplo de anomalías de picos e interrupciones](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
@@ -74,7 +74,7 @@ FROM AnomalyDetectionStep
 
 ## <a name="change-point"></a>Cambio de puntos
 
-Las anomalías persistentes en un flujo de eventos de serie temporal son los cambios en la distribución de valores del flujo de eventos, como los cambios de nivel y tendencias. En Stream Analytics, estas anomalías se detectan mediante el operador [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) basado en Machine Learning.
+Las anomalías persistentes en un flujo de eventos de serie temporal son los cambios en la distribución de valores del flujo de eventos, como los cambios de nivel y tendencias. En Stream Analytics, estas anomalías se detectan mediante el operador [AnomalyDetection_ChangePoint](/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) basado en Machine Learning.
 
 Los cambios persistentes duran mucho más que los picos y las interrupciones, y podrían indicar eventos catastróficos. Los cambios persistentes normalmente no son visibles a simple vista, pero se pueden detectar con el operador **AnomalyDetection_ChangePoint**.
 
@@ -114,9 +114,9 @@ FROM AnomalyDetectionStep
 
 El rendimiento de estos modelos depende del tamaño del historial, la duración de la ventana, la carga de eventos y de si se utiliza la partición del nivel de función. En esta sección se describen estas configuraciones y se proporcionan ejemplos de cómo mantener las tasas de ingesta de mil, cinco mil y diez mil eventos por segundo.
 
-* **Tamaño del historial**: estos modelos se ejecutan linealmente con el **tamaño historial**. Cuanto mayor sea, más tiempo tardarán los modelos en puntuar un nuevo evento. Esto es porque los modelos comparan el nuevo evento con cada uno de los eventos anteriores en el búfer del historial.
-* **Duración de la ventana**: la **duración de la ventana** debe reflejar cuánto tarda en recibir todos los eventos según lo especificado por el tamaño del historial. Si no hay muchos eventos en la ventana, Azure Stream Analytics imputará los valores que falten. Por lo tanto, el consumo de CPU es una función del tamaño del historial.
-* **Carga de eventos**: cuanto mayor sea la **carga de eventos**, más trabajo realizarán los modelos, lo cual afecta al consumo de CPU. El trabajo se puede escalar horizontalmente de manera vergonzosamente paralela, dando por hecho que tiene sentido según la lógica de negocios usar más particiones de entrada.
+* **Tamaño del historial** : estos modelos se ejecutan linealmente con el **tamaño historial**. Cuanto mayor sea, más tiempo tardarán los modelos en puntuar un nuevo evento. Esto es porque los modelos comparan el nuevo evento con cada uno de los eventos anteriores en el búfer del historial.
+* **Duración de la ventana** : la **duración de la ventana** debe reflejar cuánto tarda en recibir todos los eventos según lo especificado por el tamaño del historial. Si no hay muchos eventos en la ventana, Azure Stream Analytics imputará los valores que falten. Por lo tanto, el consumo de CPU es una función del tamaño del historial.
+* **Carga de eventos** : cuanto mayor sea la **carga de eventos** , más trabajo realizarán los modelos, lo cual afecta al consumo de CPU. El trabajo se puede escalar horizontalmente de manera vergonzosamente paralela, dando por hecho que tiene sentido según la lógica de negocios usar más particiones de entrada.
 * **Partición del nivel de función** -  la **partición del nivel de función** se realiza mediante ```PARTITION BY``` dentro de la llamada de la función de detección de anomalías. Este tipo de partición agrega una sobrecarga, ya que el estado debe mantenerse para varios modelos al mismo tiempo. La partición del nivel de función se usa en escenarios como la partición del nivel de dispositivo.
 
 ### <a name="relationship"></a>Relación
@@ -159,6 +159,5 @@ Utilice el panel Métricas del trabajo de Azure Stream Analytics para identifica
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referencia de API de REST de administración de Azure Stream Analytics](/rest/api/streamanalytics/)

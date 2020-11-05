@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f12919cd35441c6c198269e2f79c705c1d304acd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ba615d3e41393afe007238a0fe1e694732ad123e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278820"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087645"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Creación de particiones en Cassandra API de Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 En este artículo se describe cómo funciona la creación de particiones en Cassandra API de Azure Cosmos DB. 
 
@@ -83,11 +84,11 @@ insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 
 Cuando se devuelven datos, se ordenan por la clave de agrupación en clústeres, tal y como se espera en Apache Cassandra:
 
-:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="particiones":::
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Captura de pantalla que muestra los datos devueltos ordenados por la clave de agrupación en clústeres.":::
 
 Con los datos modelados de esta manera, se pueden asignar varios registros a cada partición, agrupados por usuario. Por tanto, se puede emitir una consulta que se enrute de forma eficaz mediante el elemento `partition key` (en este caso, `user`) para obtener todos los mensajes de un usuario determinado. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="particiones" border="false":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Diagrama que muestra cómo se pueden asignar varios registros a cada partición, agrupados por usuario." border="false":::
 
 
 ## <a name="composite-partition-key"></a>Clave de partición compuesta

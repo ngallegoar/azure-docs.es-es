@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: how-to
-ms.openlocfilehash: 944c1a8cc4606c5e614f17cd0590331826527a7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd4966ee75e9dc0ff401823e4291f8d299c8893c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892071"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122901"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Prueba de las consultas de Stream Analytics localmente en una entrada de streaming en vivo con Visual Studio Code
 
@@ -73,4 +73,4 @@ La hora predeterminada para que el trabajo empiece a crear la salida se establec
 
 * [Exploración de trabajos de Azure Stream Analytics con Visual Studio Code (versión preliminar)](visual-studio-code-explore-jobs.md)
 
-* [Configuración de canalizaciones de CI/CD mediante el paquete npm](setup-cicd-vs-code.md)
+* [Configuración de canalizaciones de CI/CD mediante el paquete npm](./cicd-overview.md)

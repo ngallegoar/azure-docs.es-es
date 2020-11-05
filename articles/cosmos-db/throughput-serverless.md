@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0adb346a693beaa905438cfdc1249c1646c28811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d16343864d9602d644b31d34a2b66e39211b6ece
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88608670"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079346"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Elección entre el rendimiento aprovisionado y sin servidor
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB admite dos tipos de modos de capacidad: [rendimiento aprovisionado](set-throughput.md) y [sin servidor](serverless.md). Puede realizar las mismas operaciones de base de datos exactas en ambos modos, pero la forma de facturar estas operaciones es radicalmente diferente. En el vídeo siguiente se explican las diferencias principales entre estos modos y cómo se ajustan a los diferentes tipos de cargas de trabajo:
 
@@ -41,21 +42,21 @@ Azure Cosmos DB admite dos tipos de modos de capacidad: [rendimiento aprovision
 
 En algunas situaciones, puede que no esté claro si se debe elegir el rendimiento aprovisionado o sin servidor para una carga de trabajo determinada. Para ayudarle en esta decisión, puede calcular:
 
-- Las exigencias de **capacidad de ráfaga**, que es la cantidad máxima de RU que puede necesitar consumir en un segundo.
-- El consumo **esperado en general**, que es el número total de RU que puede consumir durante un mes (puede calcular esto con ayuda de la tabla que se muestra [aquí](plan-manage-costs.md#estimating-serverless-costs)).
+- Las exigencias de **capacidad de ráfaga** , que es la cantidad máxima de RU que puede necesitar consumir en un segundo.
+- El consumo **esperado en general** , que es el número total de RU que puede consumir durante un mes (puede calcular esto con ayuda de la tabla que se muestra [aquí](plan-manage-costs.md#estimating-serverless-costs)).
 
 Si la carga de trabajo requiere ráfagas por encima de 5 000 RU por segundo, se debe elegir el rendimiento aprovisionado porque los contenedores sin servidor no pueden aumentar por encima de este límite. Si no, puede comparar el costo de ambos modos en función del consumo esperado.
 
-**Ejemplo 1**: se espera que una carga de trabajo llegue a una ráfaga con un máximo de 10 000 RU/s y consuma un total de 20 millones de RU durante un mes.
+**Ejemplo 1** : se espera que una carga de trabajo llegue a una ráfaga con un máximo de 10 000 RU/s y consuma un total de 20 millones de RU durante un mes.
 
 - Solo el modo de rendimiento aprovisionado puede proporcionar un rendimiento de 10 000 RU/s
 
-**Ejemplo 2**: se espera que una carga de trabajo llegue a una ráfaga con un máximo de 500 RU/s y consuma un total de 20 millones de RU durante un mes.
+**Ejemplo 2** : se espera que una carga de trabajo llegue a una ráfaga con un máximo de 500 RU/s y consuma un total de 20 millones de RU durante un mes.
 
 - En el modo de rendimiento aprovisionado, aprovisionaría un contenedor con 500 RU/s por un costo mensual de: 0,008 USD * 5 * 730 = **29,20 USD**
 - En el modo sin servidor, pagaría por los RU consumidos: 0,25 USD * 20 = **5,00 USD**
 
-**Ejemplo 3**: se espera que una carga de trabajo llegue a una ráfaga con un máximo de 500 RU/s y consuma un total de 250 millones de RU durante un mes.
+**Ejemplo 3** : se espera que una carga de trabajo llegue a una ráfaga con un máximo de 500 RU/s y consuma un total de 250 millones de RU durante un mes.
 
 - En el modo de rendimiento aprovisionado, aprovisionaría un contenedor con 500 RU/s por un costo mensual de: 0,008 USD * 5 * 730 = **29,20 USD**
 - En el modo sin servidor, pagaría por los RU consumidos: 0,25 USD * 250 = **62,50 USD**

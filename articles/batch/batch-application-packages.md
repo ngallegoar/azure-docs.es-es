@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91277706"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
@@ -69,7 +69,7 @@ Si aún no ha configurado ninguna cuenta de almacenamiento, Azure Portal muestra
 Una vez que haya vinculado las dos cuentas, Batch puede implementar automáticamente los paquetes almacenados en la cuenta de Almacenamiento vinculada en los nodos de proceso.
 
 > [!IMPORTANT]
-> No puede usar paquetes de aplicación con cuentas de Azure Storage configuradas con [reglas de firewall](../storage/common/storage-network-security.md) o con **Espacio de nombres jerárquico** establecido en **Habilitado** .
+> No puede usar paquetes de aplicación con cuentas de Azure Storage configuradas con [reglas de firewall](../storage/common/storage-network-security.md) o con **Espacio de nombres jerárquico** establecido en **Habilitado**.
 
 El servicio Batch utiliza Azure Storage para almacenar los paquetes de aplicación como blobs en bloques. Los datos de blob en bloques se [cobran al precio habitual](https://azure.microsoft.com/pricing/details/storage/) y el tamaño de cada paquete no puede superar el tamaño máximo del blob en bloques. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage para las cuentas de almacenamiento](../storage/blobs/scalability-targets.md). Para minimizar los costos, asegúrese de tener en cuenta el tamaño y número de los paquetes de aplicación y elimine periódicamente los paquetes en desuso.
 
@@ -77,21 +77,21 @@ El servicio Batch utiliza Azure Storage para almacenar los paquetes de aplicaci�
 
 Para ver las aplicaciones de la cuenta de Batch, seleccione **Aplicaciones** en el menú de navegación izquierdo.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Diagrama que muestra una vista de alto nivel de aplicaciones y paquetes de aplicación.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Captura de pantalla del elemento de menú Aplicaciones en Azure Portal.":::
 
-Al seleccionar esta opción de menú se abre la ventana **Aplicaciones** . Esta ventana muestra el identificador de cada aplicación en su cuenta y las propiedades siguientes:
+Al seleccionar esta opción de menú se abre la ventana **Aplicaciones**. Esta ventana muestra el identificador de cada aplicación en su cuenta y las propiedades siguientes:
 
 - **Paquetes** : el número de versiones asociadas a la aplicación.
 - **Versión predeterminada** : si procede, versión de la aplicación que se instalará si no se especifica ninguna versión al implementar la aplicación.
 - **Permitir actualizaciones** : especifica si se permiten las actualizaciones y eliminaciones de paquetes.
 
-Si quiere ver la [estructura de archivos](files-and-directories.md) del paquete de aplicación en un nodo de proceso, vaya a su cuenta de Batch en Azure Portal. Seleccione **Grupos** . Seleccione el grupo que contiene los nodos de proceso. Seleccione el nodo de proceso en el que está instalado el paquete de aplicación y abra la carpeta **applications** .
+Si quiere ver la [estructura de archivos](files-and-directories.md) del paquete de aplicación en un nodo de proceso, vaya a su cuenta de Batch en Azure Portal. Seleccione **Grupos**. Seleccione el grupo que contiene los nodos de proceso. Seleccione el nodo de proceso en el que está instalado el paquete de aplicación y abra la carpeta **applications**.
 
 ### <a name="view-application-details"></a>Visualización de los detalles de una aplicación
 
-Para consultar los detalles de una aplicación, selecciónela en la ventana **Aplicaciones** . Puede configurar los siguientes valores para la aplicación.
+Para consultar los detalles de una aplicación, selecciónela en la ventana **Aplicaciones**. Puede configurar los siguientes valores para la aplicación.
 
-- **Permitir actualizaciones** : indica si sus paquetes de aplicación se pueden [actualizar o eliminar](#update-or-delete-an-application-package). El valor predeterminado es **Sí** . Si se establece en **No** , los paquetes de aplicación existentes no se pueden actualizar ni eliminar, pero todavía se pueden agregar nuevas versiones de paquetes de aplicación.
+- **Permitir actualizaciones** : indica si sus paquetes de aplicación se pueden [actualizar o eliminar](#update-or-delete-an-application-package). El valor predeterminado es **Sí**. Si se establece en **No** , los paquetes de aplicación existentes no se pueden actualizar ni eliminar, pero todavía se pueden agregar nuevas versiones de paquetes de aplicación.
 - **Versión predeterminada** : paquete de aplicación predeterminado que se utilizará cuando se implemente la aplicación si no se especifica ninguna versión.
 - **Nombre para mostrar** : nombre descriptivo que la solución de Batch puede usar cuando muestra información sobre la aplicación. Por ejemplo, este nombre se puede usar en la interfaz de usuario de un servicio que se proporciona a los clientes a través de Batch.
 
@@ -99,9 +99,9 @@ Para consultar los detalles de una aplicación, selecciónela en la ventana **Ap
 
 Para crear una aplicación, agregue un paquete de aplicación y especifique un identificador de aplicación único.
 
-En la cuenta de Batch, seleccione **Aplicaciones** y luego elija **Agregar** .
+En la cuenta de Batch, seleccione **Aplicaciones** y luego elija **Agregar**.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagrama que muestra una vista de alto nivel de aplicaciones y paquetes de aplicación.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Captura de pantalla del proceso de creación Nueva aplicación en Azure Portal.":::
 
 Escriba la siguiente información:
 
@@ -116,19 +116,19 @@ Los valores que escriba en **Id. de la aplicación** y **Versión** deben seguir
 - Deben ser único en la cuenta de Batch.
 - Los identificadores conservan las mayúsculas y minúsculas, aunque no las distinguen.
 
-Cuando esté listo, seleccione **Enviar** . Después de cargar el archivo. zip en la cuenta de Azure Storage, el portal muestra una notificación. En función del tamaño del archivo que se va a cargar y de la velocidad de la conexión de red, esta operación puede tardar cierto tiempo.
+Cuando esté listo, seleccione **Enviar**. Después de cargar el archivo. zip en la cuenta de Azure Storage, el portal muestra una notificación. En función del tamaño del archivo que se va a cargar y de la velocidad de la conexión de red, esta operación puede tardar cierto tiempo.
 
 ### <a name="add-a-new-application-package"></a>Adición de un nuevo paquete de aplicación
 
-Para agregar una versión del paquete de aplicación para una aplicación existente, seleccione la aplicación en la sección **Aplicaciones** de la cuenta de Batch y luego elija **Agregar** .
+Para agregar una versión del paquete de aplicación para una aplicación existente, seleccione la aplicación en la sección **Aplicaciones** de la cuenta de Batch y luego elija **Agregar**.
 
-Como hizo con la nueva aplicación, especifique la **versión** del nuevo paquete, cargue el archivo. zip en el campo **Paquete de aplicación** y seleccione **Enviar** .
+Como hizo con la nueva aplicación, especifique la **versión** del nuevo paquete, cargue el archivo. zip en el campo **Paquete de aplicación** y seleccione **Enviar**.
 
 ### <a name="update-or-delete-an-application-package"></a>Actualización o eliminación de un paquete de aplicación
 
 Para actualizar o eliminar un paquete de aplicación existente, seleccione la aplicación en la sección **Aplicaciones** de la cuenta de Batch. Seleccione el botón de puntos suspensivos de la fila del paquete de aplicación que quiere modificar y luego elija la acción que quiere realizar.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagrama que muestra una vista de alto nivel de aplicaciones y paquetes de aplicación.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Captura de pantalla que muestra las opciones Actualizar y Eliminar para los paquetes de aplicación en Azure Portal.":::
 
 Si selecciona **Actualizar** , podrá cargar un nuevo archivo .zip. Con ello reemplazará el archivo .zip anterior que cargó para esa versión.
 

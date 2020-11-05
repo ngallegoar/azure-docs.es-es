@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482237"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080658"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Uso de Azure Policy para implementar la gobernanza y los controles de recursos de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 [Azure Policy](../governance/policy/overview.md) ayuda a aplicar estándares de gobernanza de la organización, a valorar el cumplimiento de los recursos y a implementar correcciones automáticas. Algunos casos de uso comunes son la seguridad, la administración de costos y la coherencia de la configuración.
 
@@ -126,7 +127,7 @@ En la captura de pantalla se muestran los siguientes resultados de la evaluació
 - Cero de dos cuentas cumple con una directiva que requiere que la cuenta esté configurada para varias ubicaciones de escritura.
 - Cero de dos cuentas cumple con una directiva por la que los recursos deben estar implementados en regiones de Azure permitidas.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Búsqueda de definiciones de directivas integradas de Azure Cosmos DB":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Resultados de cumplimiento de las asignaciones de Azure Policy enumeradas":::
 
 Para corregir los recursos no compatibles, consulte [Corregir los recursos no conformes con Azure Policy](../governance/policy/how-to/remediate-resources.md).
 

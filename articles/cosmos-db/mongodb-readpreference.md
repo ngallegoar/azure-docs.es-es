@@ -9,14 +9,15 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: e86c48695c732b27f5032c1e3780cc24c8d3dc39
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3d21aadd8174bf933e55320c8596c57274140582
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482271"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096400"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Cómo distribuir las lecturas globalmente con la API de Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 En este artículo se muestra cómo distribuir globalmente las operaciones de lectura usando la configuración de las [preferencias de lectura de MongoDB](https://docs.mongodb.com/manual/core/read-preference/) con la API de Azure Cosmos DB para MongoDB.
 
@@ -86,8 +87,8 @@ Consulte la documentación detallada sobre el [comportamiento de las preferencia
 
 Basándose en los escenarios más comunes, se recomienda usar las siguientes opciones:
 
-1. Si son necesarias **lecturas de baja latencia** , use el modo de preferencias de lectura **NEAREST** . Esta opción dirige las operaciones de lectura a la región más cercana disponible. Tenga en cuenta que si la región más cercana es la región de escritura, estas operaciones se dirigen a dicha región.
-2. Si necesita **alta disponibilidad y distribución geográfica de las lecturas** (la latencia no es una restricción), use el modo de preferencias de lectura **PRIMARY PREFERRED** o **SECONDARY PREFERRED** . Esta opción dirige las operaciones de lectura a una región de escritura o lectura disponible, respectivamente. Si la región no está disponible, las solicitudes se dirigen a la siguiente región disponible según el comportamiento de las preferencias de lectura.
+1. Si son necesarias **lecturas de baja latencia** , use el modo de preferencias de lectura **NEAREST**. Esta opción dirige las operaciones de lectura a la región más cercana disponible. Tenga en cuenta que si la región más cercana es la región de escritura, estas operaciones se dirigen a dicha región.
+2. Si necesita **alta disponibilidad y distribución geográfica de las lecturas** (la latencia no es una restricción), use el modo de preferencias de lectura **PRIMARY PREFERRED** o **SECONDARY PREFERRED**. Esta opción dirige las operaciones de lectura a una región de escritura o lectura disponible, respectivamente. Si la región no está disponible, las solicitudes se dirigen a la siguiente región disponible según el comportamiento de las preferencias de lectura.
 
 El siguiente fragmento de código de la aplicación de ejemplo muestra cómo configurar el modo de preferencias de lectura NEAREST en NodeJS:
 
@@ -167,7 +168,7 @@ En este artículo ha aprendido cómo distribuir globalmente las operaciones de l
 Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en este artículo en Azure Portal:
 
 1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
-2. En la página del grupo de recursos, haga clic en **Eliminar** , escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar** .
+2. En la página del grupo de recursos, haga clic en **Eliminar** , escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

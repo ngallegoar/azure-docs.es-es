@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 7b96bc456d2dc0e3f1a1110f36b61be4accfbd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12c4b9f4a3757a3974e4aff7699d0265bfd7840
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488514"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124380"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalado de un trabajo de Azure Stream Analytics para incrementar el rendimiento
 En este artículo se muestra cómo ajustar una consulta de Stream Analytics para aumentar la capacidad de procesamiento de trabajos de Stream Analytics. Puede usar la guía siguiente para escalar un trabajo para administrar una carga más elevada y aprovecha más recursos del sistema, como más ancho de banda, más recursos de CPU y más memoria.
@@ -24,7 +24,7 @@ Como requisito previo, es posible que tenga que leer los artículos siguientes:
 Si la consulta se puede paralelizar completamente de manera inherente en distintas particiones de entrada, puede seguir estos pasos:
 1.  Cree una consulta que sea embarazosamente paralela mediante la palabra clave **PARTITION BY**. Consulte más detalles en la sección de trabajos embarazosamente paralelos [en esta página](stream-analytics-parallelization.md).
 2.  En función de los tipos de salida que se usan en la consulta, es posible que algunas salidas no se puedan paralelizar o que necesiten una configuración adicional para ser embarazosamente paralelas. Por ejemplo, la salida de Power BI no se puede paralelizar. Las salidas siempre se combinan antes de enviarlas al receptor de salida. Blobs, Tables, ADLS, Service Bus y Azure Function se pueden paralelizar de manera automática. Las salidas de SQL y Azure Synapse Analytics tienen una opción de paralelización. Event Hub debe tener la configuración PartitionKey establecida de forma que coincida con el campo **PARTITION BY** (habitualmente, PartitionId). Para Event Hub, también debe poner atención en que el número de particiones de todas las entradas coincida con el de todas las salidas para evitar el intercambio entre las particiones. 
-3.  Ejecute la consulta con **6 SU** (que es la capacidad total de un solo nodo de ejecución) para medir el rendimiento máximo posible y si usa **GROUP BY**, mida cuántos grupos (cardinalidad) puede controlar el trabajo. Los síntomas generales de que el trabajo alcanza los límites de los recursos del sistema son los siguientes.
+3.  Ejecute la consulta con **6 SU** (que es la capacidad total de un solo nodo de ejecución) para medir el rendimiento máximo posible y si usa **GROUP BY** , mida cuántos grupos (cardinalidad) puede controlar el trabajo. Los síntomas generales de que el trabajo alcanza los límites de los recursos del sistema son los siguientes.
     - La métrica del porcentaje de uso de SU supera el 80 %. Esto indica que el uso de la memoria es alto. [Aquí](stream-analytics-streaming-unit-consumption.md) se describen los factores que contribuyen al incremento de esta métrica. 
     -   La marca de tiempo de salida se queda atrás con respecto al tiempo de reloj. En función de la lógica de la consulta, la marca de tiempo de salida puede tener un desplazamiento lógico del tiempo de reloj. Sin embargo, debería avanzar aproximadamente a la misma velocidad. Si la marca de tiempo de salida se queda cada vez más atrás, es un indicador de que el sistema está trabajando demasiado. Esto puede ser resultado de una limitación de receptor de salida de bajada o de un alto uso de CPU. En este momento, no proporcionamos una métrica de uso de CPU, por lo que puede resultar difícil diferenciar ambas opciones.
         - Si el problema se debe a la limitación de receptor, es posible que tenga que aumentar el número de particiones de salida (y también de las particiones de entrada para que el trabajo siga siendo posible de paralelizar completamente) o aumentar la cantidad de recursos del receptor (por ejemplo, el número de Unidades de solicitud para CosmosDB).
@@ -78,13 +78,13 @@ Para ciertos casos de uso de ISV, donde resulta más rentable procesar los datos
 
 
 ## <a name="get-help"></a>Obtener ayuda
-Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referencia de API de REST de administración de Azure Stream Analytics](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -97,10 +97,9 @@ Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft 
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 0365238fd70e2e098e5a228ee71d5b9e0e584c71
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279793"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089647"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Cómo elegir entre el rendimiento aprovisionado estándar (manual) y el de escalabilidad automática 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB admite dos tipos u ofertas de rendimiento aprovisionado: estándar (manual) y de escalabilidad automática. Ambos tipos de rendimiento son adecuados para cargas de trabajo críticas que requieren un alto rendimiento y escalado, y están respaldados por los mismos SLA de Azure Cosmos DB en términos de rendimiento, disponibilidad, latencia y coherencia.
 
@@ -83,7 +84,7 @@ Ahora, analicemos el historial. Supongamos que el uso es el descrito en la tabla
 
 Tenga en cuenta que durante la hora 1, cuando el uso es de un 6 %, la escalabilidad automática facturará RU/s para el 10 % del máximo de RU/s, que es el mínimo por hora. Aunque el costo de la escalabilidad automática puede ser mayor que el del rendimiento manual en determinadas horas, siempre y cuando el uso promedio sea inferior al 66 % durante todas las horas, la escalabilidad automática será más barata por lo general.
 
-|  | Utilización |RU/s de escalabilidad automática facturadas  |Opción 1: manual con 30 000 RU/s  | Opción 2: escalabilidad automática entre 3000 y 30 000 RU/s |
+|Período de tiempo  | Utilización |RU/s de escalabilidad automática facturadas  |Opción 1: manual con 30 000 RU/s  | Opción 2: escalabilidad automática entre 3000 y 30 000 RU/s |
 |---------|---------|---------|---------|---------|
 |Hora 1  | 6 %  |     3000  |  30 000 * 0,008/100 = 2,40 USD        |   3000 * 0,012/100 = 0,36 USD      |
 |Hora 2  | 100%  |     30,000    |  30 000 * 0,008/100 = 2,40 USD       |  30 000 * 0,012/100 = 3,60 USD      |
@@ -94,7 +95,7 @@ Tenga en cuenta que durante la hora 1, cuando el uso es de un 6 %, la escalabil
 
 Esta carga de trabajo tiene tráfico estable, con un consumo normalizado de RU que oscila entre el 72 % y el 100 %. Con 30 000 RU/s aprovisionadas, significa que estamos consumiendo entre 21 600 y 30 000 RU/s.
 
-:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Carga de trabajo con tráfico variable: consumo de RU normalizado entre el 6 % y el 100 % durante todo el tiempo":::
+:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Carga de trabajo con tráfico estable: consumo de RU normalizado entre el 72 % y el 100 % durante todo el tiempo":::
 
 Comparemos el costo de aprovisionar un rendimiento manual de 30 000 RU/s frente a establecer un máximo de escalabilidad automática de RU/s en 30 000 (escala entre 3000 y 30 000 RU/s).
 
@@ -102,7 +103,7 @@ Supongamos que el historial de uso es el descrito en la tabla. Nuestro uso prome
 
 En general, si el uso promedio durante las 730 horas de un mes es superior al 66 %, ahorraremos si usamos el rendimiento manual. 
 
-|  | Utilización |RU/s de escalabilidad automática facturadas  |Opción 1: manual con 30 000 RU/s  | Opción 2: escalabilidad automática entre 3000 y 30 000 RU/s |
+| Período de tiempo | Utilización |RU/s de escalabilidad automática facturadas  |Opción 1: manual con 30 000 RU/s  | Opción 2: escalabilidad automática entre 3000 y 30 000 RU/s |
 |---------|---------|---------|---------|---------|
 |Hora 1  | 72 %  |     21 600   |  30 000 * 0,008/100 = 2,40 USD        |   21 600 * 0,012/100 = 2,59 USD      |
 |Hora 2  | 93 %  |     28 000    |  30 000 * 0,008/100 = 2,40 USD       |  28 000 * 0,012/100 = 3,36 USD       |
@@ -117,19 +118,19 @@ En la escalabilidad automática se factura por la RU/s más alta a la que se ha 
 
 Para calcular el promedio del uso normalizado más alto durante todas las horas:
 1. Establezca **Agregación** en la métrica de consumo de normalizado de RU en **Máx.**
-1. Seleccione 1 hora para la **Granularidad de tiempo** .
-1. Vaya a **Opciones de gráfico** .
+1. Seleccione 1 hora para la **Granularidad de tiempo**.
+1. Vaya a **Opciones de gráfico**.
 1. Seleccione la opción de gráfico de barras. 
 1. En **Compartir** , seleccione la opción **Download to Excel** (Descargar en Excel). En la hoja de cálculo generada, calcule el uso promedio durante todas las horas. 
 
-:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Carga de trabajo con tráfico variable: consumo de RU normalizado entre el 6 % y el 100 % durante todo el tiempo":::
+:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Para ver el consumo normalizado de RU por hora, 1) Seleccione una granularidad de tiempo de 1 hora; 2) Edite la configuración del gráfico; 3) Seleccione la opción de gráfico de barras; 4) En Compartir, seleccione la opción descargar en Excel para calcular el promedio durante todas las horas. ":::
 
 ## <a name="measure-and-monitor-your-usage"></a>Medición y supervisión del uso
 Con el tiempo, después de elegir el tipo de rendimiento, debe supervisar la aplicación y realizar los ajustes necesarios. 
 
 Si usa la escalabilidad automática, use Azure Monitor para ver el máximo de RU/s de escalabilidad automática aprovisionado ( **rendimiento máximo de escalabilidad automática** ) y el valor de RU/s al que el sistema está escalado actualmente ( **rendimiento aprovisionado** ). A continuación se muestra un ejemplo de una carga de trabajo variable o imprevisible que usa la escalabilidad automática. Tenga en cuenta que, cuando no hay tráfico, el sistema escala las RU/s al mínimo del 10 % de la cantidad máxima de RU/s, que, en este caso, es de 5000 RU/s y 50 000 RU/s, respectivamente. 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Carga de trabajo con tráfico variable: consumo de RU normalizado entre el 6 % y el 100 % durante todo el tiempo":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Ejemplo de carga de trabajo con escalabilidad automática, con un máximo de escalabilidad automática de RU/s de 50 000 RU/s y un rendimiento que va desde 5000 a 50 000 RU/s":::
 
 > [!NOTE]
 > Cuando se usa el rendimiento aprovisionado estándar (manual), la métrica de **rendimiento aprovisionado** hace referencia al valor que ha definido como usuario. Cuando se usa el rendimiento de escalabilidad automática, esta métrica se refiere a las RU/s a que se escala el sistema actualmente.

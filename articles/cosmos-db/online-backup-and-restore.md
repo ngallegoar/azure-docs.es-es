@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7c506d66c101c2770cffb8cc8d105b2f841c539a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 43625a80df76ff35b8bb1804df5f5fd1524326c5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279496"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097539"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Copias de seguridad en línea y restauración de datos a petición en Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB crea automáticamente copias de seguridad de los datos a intervalos regulares. Las copias de seguridad automáticas se crean sin afectar al rendimiento o a la disponibilidad de las operaciones de las bases de datos. Todas las copias de seguridad se almacenan por separado en un servicio de almacenamiento y se replican globalmente para lograr resistencia frente a desastres regionales. Las copias de seguridad automáticas son útiles en escenarios en los se elimina accidentalmente o se actualiza su cuenta, base de datos o contenedor de Azure Cosmos y más tarde se requiere la recuperación de datos.
 
@@ -43,7 +44,7 @@ Si eliminó o dañó accidentalmente los datos, **antes de crear una solicitud d
 Siga estos pasos para cambiar las opciones de copia de seguridad predeterminadas para una cuenta de Azure Cosmos existente:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Vaya a la cuenta de Azure Cosmos y abra el panel **Copia de seguridad y restauración** . Actualice el intervalo de copia de seguridad y el período de retención de copia de seguridad según sea necesario.
+1. Vaya a la cuenta de Azure Cosmos y abra el panel **Copia de seguridad y restauración**. Actualice el intervalo de copia de seguridad y el período de retención de copia de seguridad según sea necesario.
 
    * **Intervalo de copia de seguridad** : es el intervalo en el que Azure Cosmos DB intenta realizar una copia de seguridad de los datos. La copia de seguridad tarda una cantidad de tiempo distinta de cero y, en algunos casos, podría producir un error debido a las dependencias de nivel inferior. Azure Cosmos DB intenta realizar una copia de seguridad en el intervalo configurado; sin embargo, no garantiza que la copia de seguridad se complete dentro de ese intervalo de tiempo. Este valor se puede configurar en horas o minutos. El intervalo de copia de seguridad no puede ser menor que 1 hora ni mayor que 24 horas. Al cambiar este intervalo, el nuevo intervalo entra en vigor a partir de la hora en que se realizó la última copia de seguridad.
 
@@ -51,15 +52,15 @@ Siga estos pasos para cambiar las opciones de copia de seguridad predeterminadas
 
    * **Copias de los datos conservadas** : de manera predeterminada, se ofrecen dos copias de seguridad de los datos de forma gratuita. Si necesita más de dos copias, se aplica un cargo adicional. Consulte la sección Almacenamiento consumido en la [página de precios ](https://azure.microsoft.com/pricing/details/cosmos-db/) para conocer el precio exacto de las copias adicionales.
 
-   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Copias de seguridad completas y periódicas de todas las entidades de Cosmos DB en Azure Storage de GRS" border="true":::
+   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configuración del intervalo de copia de seguridad y la retención de una cuenta de Azure Cosmos existente" border="true":::
 
-Si configura las opciones de copia de seguridad durante la creación de la cuenta, puede configurar la **directiva de copia de seguridad** , que puede ser **periódica** o **continua** . La directiva periódica le permite configurar el intervalo y la retención de las copias de seguridad. La directiva continua está actualmente disponible solo bajo registro. El equipo de Azure Cosmos DB evaluará la carga de trabajo y aprobará la solicitud.
+Si configura las opciones de copia de seguridad durante la creación de la cuenta, puede configurar la **directiva de copia de seguridad** , que puede ser **periódica** o **continua**. La directiva periódica le permite configurar el intervalo y la retención de las copias de seguridad. La directiva continua está actualmente disponible solo bajo registro. El equipo de Azure Cosmos DB evaluará la carga de trabajo y aprobará la solicitud.
 
-:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Copias de seguridad completas y periódicas de todas las entidades de Cosmos DB en Azure Storage de GRS" border="true":::
+:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Configuración de una directiva de copia de seguridad periódica o continua para nuevas cuentas de Azure Cosmos" border="true":::
 
 ## <a name="request-data-restore-from-a-backup"></a>Solicitud de una restauración de datos a partir de una copia de seguridad
 
-En caso de que elimine accidentalmente la base de datos o un contenedor, puede [presentar una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [llamar al servicio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) para restaurar los datos a partir de copias de seguridad en línea automáticas. El Soporte técnico de Azure está disponible solo para algunos planes, por ejemplo, **Estándar** o **Desarrollador** , y planes superiores. El soporte técnico de Azure no está disponible con el plan **Básico** . Para más información sobre los diferentes planes de soporte técnico, consulte la página de [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+En caso de que elimine accidentalmente la base de datos o un contenedor, puede [presentar una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [llamar al servicio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) para restaurar los datos a partir de copias de seguridad en línea automáticas. El Soporte técnico de Azure está disponible solo para algunos planes, por ejemplo, **Estándar** o **Desarrollador** , y planes superiores. El soporte técnico de Azure no está disponible con el plan **Básico**. Para más información sobre los diferentes planes de soporte técnico, consulte la página de [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
 
 Para restaurar una instantánea específica de la copia de seguridad, Azure Cosmos DB requiere que los datos estén disponibles durante el ciclo de copia de seguridad de esa instantánea.
 Antes de solicitar una restauración, debe tener los siguientes detalles:
@@ -80,7 +81,7 @@ Además del nombre de la cuenta de Azure Cosmos, los nombres de las bases de dat
 
 En la captura de pantalla siguiente se muestra cómo crear una solicitud de soporte técnico para un contenedor (colección/grafo/tabla) para restaurar los datos mediante Azure Portal. Proporcione detalles adicionales, como el tipo de datos, el propósito de la restauración, la hora a la que se eliminaron los datos para ayudarnos a dar prioridad a la solicitud.
 
-:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Copias de seguridad completas y periódicas de todas las entidades de Cosmos DB en Azure Storage de GRS":::
+:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Creación de una solicitud de soporte técnico de copia de seguridad con Azure Portal":::
 
 ## <a name="considerations-for-restoring-the-data-from-a-backup"></a>Consideraciones para restaurar los datos a partir de una copia de seguridad
 

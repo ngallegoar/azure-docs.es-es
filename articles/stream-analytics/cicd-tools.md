@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: e772701396f172eaab906f99463bd9019728b531
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa75a553ffc131f4827aa045849f1317d894ddc5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932021"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123157"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatización de compilaciones, pruebas e implementaciones de un trabajo de Azure Stream Analytics mediante herramientas de CI/CD
 
@@ -25,7 +25,7 @@ Puede [descargar el paquete](https://www.npmjs.com/package/azure-streamanalytics
 
 ## <a name="build-the-project"></a>Compilar el proyecto
 
-El paquete npm **asa-streamanalytics-cicd** proporciona las herramientas para generar plantillas de Azure Resource Manager de [proyectos de Visual Studio Code](quick-create-vs-code.md) o [proyectos de Visual Studio](stream-analytics-quick-create-vs.md) de Stream Analytics. También puede usar el paquete npm en Windows, macOS y Linux sin instalar Visual Studio Code ni Visual Studio.
+El paquete npm **asa-streamanalytics-cicd** proporciona las herramientas para generar plantillas de Azure Resource Manager de [proyectos de Visual Studio Code](./quick-create-visual-studio-code.md) o [proyectos de Visual Studio](stream-analytics-quick-create-vs.md) de Stream Analytics. También puede usar el paquete npm en Windows, macOS y Linux sin instalar Visual Studio Code ni Visual Studio.
 
 Una vez instalado el paquete, use el siguiente comando para compilar los proyectos de Stream Analytics.
 
@@ -122,7 +122,7 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 | Parámetro | Descripción |
 |---|---|
 | `-project` | La ruta del archivo **asaproj.json** en el caso del proyecto de Visual Studio Code o **[Nombre del proyecto].asaproj** en el caso del proyecto de Visual Studio. |
-| `-testConfigPath` | La ruta del archivo de configuración de prueba. Si no se especifica, el archivo se busca en **\test** en el directorio actual del archivo **asaproj.json**, con el nombre de archivo predeterminado **testConfig.json**. Se crea un nuevo archivo si no existe. |
+| `-testConfigPath` | La ruta del archivo de configuración de prueba. Si no se especifica, el archivo se busca en **\test** en el directorio actual del archivo **asaproj.json** , con el nombre de archivo predeterminado **testConfig.json**. Se crea un nuevo archivo si no existe. |
 
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -179,7 +179,7 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 | Parámetro | Descripción |
 |---|---|
 | `-project` | La ruta del archivo **asaproj.json** en el caso del proyecto de Visual Studio Code o **[Nombre del proyecto].asaproj** en el caso del proyecto de Visual Studio. |
-| `-testConfigPath` | La ruta del archivo de configuración de prueba. Si no se especifica, el archivo se busca en **\test** en el directorio actual del archivo **asaproj.json**, con el nombre de archivo predeterminado **testConfig.json**.
+| `-testConfigPath` | La ruta del archivo de configuración de prueba. Si no se especifica, el archivo se busca en **\test** en el directorio actual del archivo **asaproj.json** , con el nombre de archivo predeterminado **testConfig.json**.
 | `-outputPath` | La ruta de la carpeta de salida del resultado de la prueba. Si no se especifica, los archivos de resultados de salida se colocan en el directorio actual. |
 | `-customCodeZipFilePath` | La ruta del archivo zip en el caso del código personalizado, como una UDF o un deserializador, si se usan. |
 

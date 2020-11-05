@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447370"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911399"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar las entradas DNS pendientes y la adquisición de subdominios
 
@@ -51,7 +51,7 @@ El siguiente es un escenario común de adquisición de subdominio:
 
     1. Este actor aprovisiona un recurso de Azure con el mismo FQDN del recurso que se ha controlado previamente. En este ejemplo, `app-contogreat-dev-001.azurewebsites.net`.
 
-    1. El tráfico que se envía al subdominio `myapp.contoso.com` ahora se enruta al recurso del actor malintencionado en el que se controla el contenido.
+    1. El tráfico que se envía al subdominio `greatapp.contoso.com` ahora se enruta al recurso del actor malintencionado en el que se controla el contenido.
 
 
 
@@ -65,13 +65,13 @@ Cuando un registro DNS apunta a un recurso que no está disponible, el propio re
 
 Las entradas DNS pendientes permiten a los actores de amenazas tomar el control del nombre DNS asociado para hospedar un servicio o un sitio web malintencionado. Las páginas y los servicios malintencionados del subdominio de una organización pueden dar lugar a:
 
-- **Pérdida de control sobre el contenido del subdominio**: prensa negativa sobre la incapacidad de la organización para proteger su contenido, así como perjuicios para la marca y pérdida de confianza.
+- **Pérdida de control sobre el contenido del subdominio** : prensa negativa sobre la incapacidad de la organización para proteger su contenido, así como perjuicios para la marca y pérdida de confianza.
 
-- **Recopilación de cookies de visitantes confiados**: es habitual que las aplicaciones web expongan cookies de sesión a subdominios (*.contoso.com), de modo que cualquier subdominio puede acceder a estas. Los actores de amenazas pueden usar la adquisición de subdominios para crear una página de aspecto auténtico, engañar a los usuarios confiados para que la visiten y recopilar sus cookies (incluso las cookies seguras). Una idea equivocada habitual es que el uso de certificados SSL protege su sitio y las cookies de los usuarios de una adquisición. Sin embargo, un actor de amenaza puede usar el subdominio secuestrado para solicitar y recibir un certificado SSL válido. Los certificados SSL válidos les conceden acceso a las cookies seguras y pueden aumentar aún más la legitimidad aparente del sitio malintencionado.
+- **Recopilación de cookies de visitantes confiados** : es habitual que las aplicaciones web expongan cookies de sesión a subdominios (*.contoso.com), de modo que cualquier subdominio puede acceder a estas. Los actores de amenazas pueden usar la adquisición de subdominios para crear una página de aspecto auténtico, engañar a los usuarios confiados para que la visiten y recopilar sus cookies (incluso las cookies seguras). Una idea equivocada habitual es que el uso de certificados SSL protege su sitio y las cookies de los usuarios de una adquisición. Sin embargo, un actor de amenaza puede usar el subdominio secuestrado para solicitar y recibir un certificado SSL válido. Los certificados SSL válidos les conceden acceso a las cookies seguras y pueden aumentar aún más la legitimidad aparente del sitio malintencionado.
 
 - **Campañas de suplantación de identidad (phishing)** : los subdominios de aspecto auténtico se pueden usar en campañas de suplantación de identidad. Esto se aplica a los sitios malintencionados y a los registros MX, que permitirían que el actor de amenaza recibiera correos electrónicos dirigidos a un subdominio legítimo de una marca segura.
 
-- **Más riesgos**: los sitios malintencionados se pueden usar para escalar a otros ataques clásicos, como XSS, CSRF, omisión de CORS, etc.
+- **Más riesgos** : los sitios malintencionados se pueden usar para escalar a otros ataques clásicos, como XSS, CSRF, omisión de CORS, etc.
 
 
 
@@ -119,7 +119,7 @@ Si es un administrador global del inquilino de su organización, eleve los privi
 
 ### <a name="run-the-script"></a>Ejecute el script.
 
-Obtenga más información sobre el script de PowerShell, **Get-DanglingDnsRecords.ps1**y descárguelo desde GitHub: https://aka.ms/DanglingDNSDomains.
+Obtenga más información sobre el script de PowerShell, **Get-DanglingDnsRecords.ps1** y descárguelo desde GitHub: https://aka.ms/DanglingDNSDomains.
 
 ## <a name="remediate-dangling-dns-entries"></a>Corrección de las entradas DNS pendientes 
 

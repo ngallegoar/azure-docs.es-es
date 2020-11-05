@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: 1c45999dbb354e8c2d550be82cdf37a6694d2dbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825685"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091362"
 ---
 # <a name="encrypt-deployment-data"></a>Cifrado de datos de implementación
 
@@ -33,7 +33,7 @@ Puede confiar en las claves administradas por Microsoft para el cifrado de los d
 
 En el resto del documento se describen los pasos necesarios para cifrar los datos de implementación de ACI con su clave (clave administrada por el cliente). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="encrypt-data-with-a-customer-managed-key"></a>Cifrado de datos con una clave administrada por el cliente
 
@@ -84,7 +84,7 @@ Cree una nueva directiva de acceso para permitir que el servicio ACI tenga acces
 * Una vez generada la clave, en la hoja de recursos del almacén de claves, en Configuración, haga clic en **Directivas de acceso**.
 * En la página "Directivas de acceso" del almacén de claves, haga clic en **Agregar directiva de acceso**.
 * Establezca los *Permisos de las claves* para incluir las opciones **Obtener** y **Desencapsular clave**. ![Establecer los permisos de las claves](./media/container-instances-encrypt-data/set-key-permissions.png)
-* En *Seleccionar la entidad de seguridad*, seleccione **Servicio Azure Container Instance**.
+* En *Seleccionar la entidad de seguridad* , seleccione **Servicio Azure Container Instance**.
 * Haga clic en **Agregar** en la parte inferior. 
 
 La directiva de acceso debe mostrarse ahora en las directivas de acceso del almacén de claves.

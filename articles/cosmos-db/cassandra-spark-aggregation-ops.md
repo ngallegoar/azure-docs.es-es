@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 5db5cc515e2fbecfaeb58b9e1c02dd0bc6eda375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5939690d3f2c0bb9affa3e2fb425b909b96cf002
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86503360"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087628"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Operaciones de agregado en tablas de Cassandra API de Azure Cosmos DB de Spark 
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 En este artículo se describen operaciones de agregación básicas en tablas de Cassandra API de Azure Cosmos DB de Spark. 
 

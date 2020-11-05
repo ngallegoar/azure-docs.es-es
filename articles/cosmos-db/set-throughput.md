@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367132"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098780"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB le permite establecer el rendimiento aprovisionado en las bases de datos y contenedores. Hay dos tipos de rendimiento aprovisionado, estándar (manual) o de escalabilidad automática. En este artículo se proporciona información general sobre cómo funciona el rendimiento aprovisionado. 
 
@@ -72,7 +73,7 @@ Si la cuenta de Azure Cosmos DB ya contiene una base de datos de rendimiento co
 
 Si las cargas de trabajo implican eliminar y volver a crear todas las colecciones de una base de datos, se recomienda quitar la base de datos vacía y volver a crear una nueva base de datos antes de la creación de la colección. En la siguiente imagen se muestra cómo una partición física puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partición física que hospeda una o varias particiones lógicas de un contenedor" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partición física que hospeda una o más particiones lógicas que pertenecen a distintos contenedores" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Establecimiento del rendimiento en un contenedor y una base de datos
 
@@ -81,9 +82,9 @@ Puede combinar los dos modelos. Se permite el aprovisionamiento del rendimiento 
 * Puede crear una base de datos de Azure Cosmos llamada *Z* con rendimiento aprovisionado estándar (manual) de *"K"*  RU. 
 * Después, cree cinco contenedores llamados *A* , *B* , *C* , *D* y *E* en la base de datos. Al crear el contenedor B, asegúrese de habilitar la opción **Provision dedicated throughput for this container** (Aprovisionar el rendimiento dedicado para este contenedor) y configurar de forma explícita las Unidades de solicitud *"P"* del rendimiento aprovisionado en este contenedor. Puede configurar el rendimiento compartido y dedicado solamente al crear la base de datos y el contenedor. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partición física que hospeda una o varias particiones lógicas de un contenedor":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Configuración del rendimiento en el nivel de contenedor":::
 
-* El rendimiento de las Unidades de solicitud *"K"* se comparte entre los cuatro contenedores *A* , *C* , *D* y *E* . La cantidad exacta de rendimiento disponible en *A* , *C* , *D* o *E* varía. No hay ningún acuerdo de nivel de servicio para el rendimiento de cada contenedor individual.
+* El rendimiento de las Unidades de solicitud *"K"* se comparte entre los cuatro contenedores *A* , *C* , *D* y *E*. La cantidad exacta de rendimiento disponible en *A* , *C* , *D* o *E* varía. No hay ningún acuerdo de nivel de servicio para el rendimiento de cada contenedor individual.
 * Se garantiza que el contenedor llamado *B* obtendrá el rendimiento de las Unidades de solicitud de *"P"* todo el tiempo. Estará respaldado por los Acuerdos de Nivel de Servicio.
 
 > [!NOTE]

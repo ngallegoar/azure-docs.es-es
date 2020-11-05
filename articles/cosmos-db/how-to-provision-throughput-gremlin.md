@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 70eecc7843867a5832d962b7efaecda1b6ab4ae4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3c2af7f33135a8c6621db233451231ffa89c2d64
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283253"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086166"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-gremlin-api-resources"></a>Aprovisionamiento el rendimiento de la base de datos, el contenedor o la escalabilidad automática en los recursos de Gremlin API de Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 En este artículo se explica cómo aprovisionar el rendimiento de Gremlin API de Azure Cosmos DB. Puede aprovisionar el rendimiento estándar (manual) o de escalabilidad automática de un contenedor, o de una base de datos y compartirlo entre los contenedores incluidos en ella. Para aprovisionar el rendimiento, use Azure Portal, la CLI de Azure o los SDK de Azure Cosmos DB.
 
@@ -33,7 +34,7 @@ Si usa una API diferente, consulte los artículos [API de SQL](how-to-provision-
    * Escriba un identificador de grafo.
    * Escriba un valor de la clave de partición (por ejemplo, `/ItemID`).
    * Escriba un rendimiento que quiera aprovisionar (por ejemplo, 1000 RU).
-   * Seleccione **Aceptar** .
+   * Seleccione **Aceptar**.
 
     :::image type="content" source="./media/how-to-provision-throughput-gremlin/provision-database-throughput-portal-gremlin-api.png" alt-text="Captura de pantalla del Explorador de datos al crear un nuevo grafo con el rendimiento de nivel de base de datos":::
 

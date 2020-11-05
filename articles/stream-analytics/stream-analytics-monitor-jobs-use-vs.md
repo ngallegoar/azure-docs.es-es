@@ -8,16 +8,16 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79d677caf0c57fb36d211333b28be0eaa6528948
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a151d4ce5a2f9860c3b7919496a2edd25cc58ede
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044131"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123632"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Supervisión y administración de trabajos de Stream Analytics con Visual Studio
 
-En este artículo se muestra cómo supervisar el trabajo de Stream Analytics en Visual Studio. Las herramientas de Azure Stream Analytics para Visual Studio proporcionan una experiencia de supervisión similar a Azure Portal sin tener que salir del IDE. Puede empezar a supervisar un trabajo tan pronto haga clic en **Enviar a Azure** desde su **Script.asaql**, o puede supervisar los trabajos existentes con independencia de cómo se hayan creado. 
+En este artículo se muestra cómo supervisar el trabajo de Stream Analytics en Visual Studio. Las herramientas de Azure Stream Analytics para Visual Studio proporcionan una experiencia de supervisión similar a Azure Portal sin tener que salir del IDE. Puede empezar a supervisar un trabajo tan pronto haga clic en **Enviar a Azure** desde su **Script.asaql** , o puede supervisar los trabajos existentes con independencia de cómo se hayan creado. 
 
 ## <a name="job-summary"></a>Resumen de trabajos
 
@@ -41,11 +41,9 @@ También puede hacer clic en la pestaña **Errores** para supervisar los errores
 
 
 ## <a name="get-support"></a>Obtención de soporte técnico
-Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
+Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Creación de un trabajo de Azure Stream Analytics con Visual Studio](stream-analytics-quick-create-vs.md)
-* [Instalación de las herramientas de Azure Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 
-
-
+* [Instalación de las herramientas de Azure Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md)

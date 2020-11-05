@@ -4,12 +4,12 @@ description: Cree la primera aplicación contenedora en Windows en Azure Service
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: e8c3a0d60e10b1cf1f8a827cec8fcc25f3d33b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96a9eda23268bc06029292c3c5f10502216e3658
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564328"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087067"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 
@@ -38,8 +38,8 @@ Para ejecutar una aplicación que existe en un contenedor de Windows en un clús
   
 Para determinar la versión de Windows Server con Containers que necesita para el clúster, ejecute el comando `ver` desde un símbolo del sistema de Windows en la máquina de desarrollo:
 
-* Si la versión contiene *x.x.14323.x*, seleccione *WindowsServer 2016-Datacenter-with-Containers* como sistema operativo al [crear un clúster](service-fabric-cluster-creation-via-portal.md).
-  * Si la versión contiene *x.x.16299.x*, seleccione *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* como sistema operativo al [crear un cluster](service-fabric-cluster-creation-via-portal.md).
+* Si la versión contiene *x.x.14323.x* , seleccione *WindowsServer 2016-Datacenter-with-Containers* como sistema operativo al [crear un clúster](service-fabric-cluster-creation-via-portal.md).
+  * Si la versión contiene *x.x.16299.x* , seleccione *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* como sistema operativo al [crear un cluster](service-fabric-cluster-creation-via-portal.md).
 
 * Un registro de Azure Container Registry: [cree un registro de contenedor](../container-registry/container-registry-get-started-portal.md) en la suscripción de Azure.
 
@@ -143,7 +143,7 @@ Una vez que el contenedor se inicia, busque su dirección IP para que pueda cone
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Si este comando no devuelve nada, ejecute el siguiente e inspeccione la dirección IP del elemento **NetworkSettings**->**Networks**:
+Si este comando no devuelve nada, ejecute el siguiente e inspeccione la dirección IP del elemento **NetworkSettings**->**Networks** :
 ```
 docker inspect my-web-site
 ```
@@ -191,7 +191,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 Las herramientas y el SDK de Service Fabric proporcionan una plantilla de servicio que le ayuda a crear una aplicación en contenedor.
 
 1. Inicie Visual Studio. Seleccione **File (Archivo)**  > **New (Nuevo)**  > **Project (Proyecto)** .
-2. Seleccione **Aplicación de Service Fabric**, asígnele el nombre "MyFirstContainer" y haga clic en **Aceptar**.
+2. Seleccione **Aplicación de Service Fabric** , asígnele el nombre "MyFirstContainer" y haga clic en **Aceptar**.
 3. Seleccione **Contenedor** en la lista de **plantillas del servicio**.
 4. En **Nombre de la imagen** escriba "myregistry.azurecr.io/samples/helloworldapp", la imagen que insertó en el repositorio de contenedor.
 5. Asigne un nombre a su servicio y haga clic en **Aceptar**.
@@ -284,7 +284,7 @@ La [gobernanza de recursos](service-fabric-resource-governance.md) restringe los
 ```
 ## <a name="configure-docker-healthcheck"></a>Configuración de la instrucción HEALTHCHECK de Docker 
 
-A partir de la versión 6.1, Service Fabric integra automáticamente eventos de la [instrucción HEALTHCHECK de Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) en su informe de mantenimiento del sistema. Esto significa que si el contenedor tiene habilitada la instrucción **HEALTHCHECK**, Service Fabric informará acerca del mantenimiento siempre que el estado de mantenimiento del contenedor cambie tal y como lo indique Docker. Aparecerá un informe de mantenimiento **correcto** en [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) siempre que *health_status* sea *correcto* y aparecerá **ADVERTENCIA** si *health_status* es *incorrecto*. 
+A partir de la versión 6.1, Service Fabric integra automáticamente eventos de la [instrucción HEALTHCHECK de Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) en su informe de mantenimiento del sistema. Esto significa que si el contenedor tiene habilitada la instrucción **HEALTHCHECK** , Service Fabric informará acerca del mantenimiento siempre que el estado de mantenimiento del contenedor cambie tal y como lo indique Docker. Aparecerá un informe de mantenimiento **correcto** en [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) siempre que *health_status* sea *correcto* y aparecerá **ADVERTENCIA** si *health_status* es *incorrecto*. 
 
 A partir de la última versión de actualización, v6.4, tiene la opción de especificar que las evaluaciones de HEALTHCHECK de Docker deben notificarse como un error. Si se habilita esta opción, aparecerá un informe de estado **OK** cuando *health_status* sea *healthy* (correcto) y **ERROR** aparecerá cuando *health_status* sea *unhealthy* (incorrecto).
 
@@ -310,18 +310,18 @@ Puede configurar el comportamiento **HEALTHCHECK** en cada contenedor mediante l
     </Policies>
 </ServiceManifestImport>
 ```
-De forma predeterminada, se establece *IncludeDockerHealthStatusInSystemHealthReport* en **true**, *RestartContainerOnUnhealthyDockerHealthStatus* en **false** y *TreatContainerUnhealthyStatusAsError* en **false**. 
+De forma predeterminada, se establece *IncludeDockerHealthStatusInSystemHealthReport* en **true** , *RestartContainerOnUnhealthyDockerHealthStatus* en **false** y *TreatContainerUnhealthyStatusAsError* en **false**. 
 
-Si se establece *RestartContainerOnUnhealthyDockerHealthStatus* en **true**, se reiniciará un contenedor que constantemente informa de un error de mantenimiento (posiblemente en otros nodos).
+Si se establece *RestartContainerOnUnhealthyDockerHealthStatus* en **true** , se reiniciará un contenedor que constantemente informa de un error de mantenimiento (posiblemente en otros nodos).
 
-Si *TreatContainerUnhealthyStatusAsError* se establece en **true**, el informe de mantenimiento con **ERROR** aparecerá cuando el elemento *health_status* del contenedor sea *unhealthy*.
+Si *TreatContainerUnhealthyStatusAsError* se establece en **true** , el informe de mantenimiento con **ERROR** aparecerá cuando el elemento *health_status* del contenedor sea *unhealthy*.
 
 Si quiere deshabilitar la integración de la instrucción **HEALTHCHECK** para todo el clúster de Service Fabric, deberá establecer [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) en **false**.
 
 ## <a name="deploy-the-container-application"></a>Implementación de la aplicación contenedora
 Guarde todos los cambios y compile la aplicación. Para publicar la aplicación, haga clic con el botón derecho en **MyFirstContainer** en el Explorador de soluciones y seleccione **Publicar**.
 
-En **Punto de conexión de la conexión**, escriba el punto de conexión de administración del clúster. Por ejemplo, `containercluster.westus2.cloudapp.azure.com:19000`. El punto de conexión del cliente se puede encontrar en la pestaña Información general del clúster en [Azure Portal](https://portal.azure.com).
+En **Punto de conexión de la conexión** , escriba el punto de conexión de administración del clúster. Por ejemplo, `containercluster.westus2.cloudapp.azure.com:19000`. El punto de conexión del cliente se puede encontrar en la pestaña Información general del clúster en [Azure Portal](https://portal.azure.com).
 
 Haga clic en **Publicar**.
 
@@ -369,7 +369,7 @@ Le recomendamos que aplique las prácticas siguientes para asegurarse de que los
  
 ## <a name="specify-os-build-specific-container-images"></a>Especificación de las imágenes de contenedores de compilación específica del sistema operativo 
 
-Es posible que los contenedores Windows Server no sean compatibles con las distintas versiones del sistema operativo. Por ejemplo, los contenedores de Windows Server creados con Windows Server 2016 no funcionan con la versión 1709 de Windows Server en el modo de aislamiento de proceso. Por tanto, si los nodos de clúster se actualizan a la versión más reciente, pueden producirse errores en los servicios de contenedor compilados con versiones anteriores del sistema operativo. Para evitar esto en la versión 6.1 y posteriores del runtime, Service Fabric permite especificar varias imágenes del sistema operativo en cada contenedor y etiquetarlas con las versiones de compilación del sistema operativo en el manifiesto de aplicación. Puede obtener la versión de compilación del sistema operativo ejecutando `winver` en un símbolo del sistema de Windows. Actualice primero los manifiestos de aplicación y especifique los reemplazos de imágenes por versión del sistema operativo antes de actualizar este en los nodos. El fragmento de código siguiente muestra cómo especificar varias imágenes de contenedor en el manifiesto de aplicación, **ApplicationManifest.xml**:
+Es posible que los contenedores Windows Server no sean compatibles con las distintas versiones del sistema operativo. Por ejemplo, los contenedores de Windows Server creados con Windows Server 2016 no funcionan con la versión 1709 de Windows Server en el modo de aislamiento de proceso. Por tanto, si los nodos de clúster se actualizan a la versión más reciente, pueden producirse errores en los servicios de contenedor compilados con versiones anteriores del sistema operativo. Para evitar esto en la versión 6.1 y posteriores del runtime, Service Fabric permite especificar varias imágenes del sistema operativo en cada contenedor y etiquetarlas con las versiones de compilación del sistema operativo en el manifiesto de aplicación. Puede obtener la versión de compilación del sistema operativo ejecutando `winver` en un símbolo del sistema de Windows. Actualice primero los manifiestos de aplicación y especifique los reemplazos de imágenes por versión del sistema operativo antes de actualizar este en los nodos. El fragmento de código siguiente muestra cómo especificar varias imágenes de contenedor en el manifiesto de aplicación, **ApplicationManifest.xml** :
 
 
 ```xml
@@ -534,7 +534,7 @@ Puede configurar el clúster de Service Fabric para quitar del nodo las imágene
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }
@@ -574,7 +574,7 @@ Para ayudar a diagnosticar los errores de inicio del contenedor, Service Fabric 
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-El valor **ContainersRetentionCount** especifica el número de contenedores que se conservarán cuando se produzca un error en ellos. Si se especifica un valor negativo, se conservarán todos los contenedores con errores. Si no se especifica el atributo **ContainersRetentionCount**, no se conservará ningún contenedor. El atributo **ContainersRetentionCount** también admite parámetros de aplicación, por lo que los usuarios pueden especificar valores diferentes para los clústeres de prueba y de producción. Utilice restricciones de colocación para seleccionar un destino para el servicio de contenedor en un nodo concreto al usar estas características, para impedir que este se mueva a otros nodos. Los contenedores que se conserven mediante esta característica deben quitarse manualmente.
+El valor **ContainersRetentionCount** especifica el número de contenedores que se conservarán cuando se produzca un error en ellos. Si se especifica un valor negativo, se conservarán todos los contenedores con errores. Si no se especifica el atributo **ContainersRetentionCount** , no se conservará ningún contenedor. El atributo **ContainersRetentionCount** también admite parámetros de aplicación, por lo que los usuarios pueden especificar valores diferentes para los clústeres de prueba y de producción. Utilice restricciones de colocación para seleccionar un destino para el servicio de contenedor en un nodo concreto al usar estas características, para impedir que este se mueva a otros nodos. Los contenedores que se conserven mediante esta característica deben quitarse manualmente.
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>Inicio del demonio de Docker con argumentos personalizados
 

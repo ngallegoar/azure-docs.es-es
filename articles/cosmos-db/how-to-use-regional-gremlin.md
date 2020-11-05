@@ -8,19 +8,21 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9350682f7c636979df4dcde0c43a3b4941ad6ebb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570610"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085777"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Puntos de conexión regionales para la cuenta de grafos de Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 La base de datos de grafos de Azure Cosmos DB se [distribuye globalmente](distribute-data-globally.md), por lo que las aplicaciones pueden usar varios puntos de conexión de lectura. Las aplicaciones que necesitan acceso de escritura en varias ubicaciones deben habilitar la funcionalidad de [escritura en varias regiones](how-to-multi-master.md).
 
 Razones para elegir más de una región:
-1. **Escalabilidad de lectura horizontal**: a medida que aumenta la carga de la aplicación, puede ser prudente enrutar el tráfico de lectura a diferentes regiones de Azure.
-2. **Menor latencia**: puede reducir la sobrecarga de latencia de red de los distintos recorridos mediante el enrutamiento del tráfico de lectura y escritura a la región de Azure más cercana.
+1. **Escalabilidad de lectura horizontal** : a medida que aumenta la carga de la aplicación, puede ser prudente enrutar el tráfico de lectura a diferentes regiones de Azure.
+2. **Menor latencia** : puede reducir la sobrecarga de latencia de red de los distintos recorridos mediante el enrutamiento del tráfico de lectura y escritura a la región de Azure más cercana.
 
 El requisito de **residencia de datos** se consigue estableciendo la directiva de Azure Resource Manager en la cuenta de Cosmos DB. El cliente puede limitar las regiones en las que Cosmos DB replica los datos.
 

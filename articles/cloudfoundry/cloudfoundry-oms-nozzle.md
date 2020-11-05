@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277358"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040770"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar el inyector de Azure Log Analytics para la supervisión del sistema Cloud Foundry
 
@@ -61,13 +61,13 @@ Puede crear el área de trabajo de Log Analytics manualmente o con una plantilla
 1. En Azure Portal, busque la lista de servicios en Azure Marketplace y, después, seleccione áreas de trabajo de Log Analytics.
 2. Seleccione **Crear** y, después, seleccione opciones para los elementos siguientes:
 
-   * **Área de trabajo de Log Analytics**: escriba un nombre para el área de trabajo.
-   * **Suscripción**: si tiene varias suscripciones, elija la misma que la de la implementación de CF.
-   * **Grupo de recursos**: puede crear un grupo de recursos o seleccionar el mismo que el de la implementación de CF.
-   * **Ubicación**: escriba la ubicación.
-   * **Plan de tarifa**: seleccione **Aceptar** para completar.
+   * **Área de trabajo de Log Analytics** : escriba un nombre para el área de trabajo.
+   * **Suscripción** : si tiene varias suscripciones, elija la misma que la de la implementación de CF.
+   * **Grupo de recursos** : puede crear un grupo de recursos o seleccionar el mismo que el de la implementación de CF.
+   * **Ubicación** : escriba la ubicación.
+   * **Plan de tarifa** : seleccione **Aceptar** para completar.
 
-Para más información, consulte [Introducción a Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Para más información, consulte [Introducción a Azure Monitor](../azure-monitor/overview.md).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Para crear el área de trabajo de Log Analytics a través de la plantilla de supervisión desde Azure Marketplace:
 
@@ -76,13 +76,13 @@ Para más información, consulte [Introducción a Azure Monitor](https://docs.mi
 1. Escriba "Cloud Foundry" en la ventana Buscar y seleccione "Solución de supervisión Cloud Foundry".
 1. Al cargarse la página inicial de la plantilla de la solución de supervisión Cloud Foundry, haga clic en "Crear" para iniciar la hoja de la plantilla.
 1. Escriba los parámetros obligatorios:
-    * **Suscripción**: seleccione una suscripción de Azure para el área de trabajo de Log Analytics, normalmente la misma que la de la implementación de Cloud Foundry.
-    * **Grupo de recursos**: seleccione un grupo de recursos existente o cree uno nuevo para el área de trabajo de Log Analytics.
-    * **Ubicación del grupo de recursos**: seleccione la ubicación del grupo de recursos.
-    * **OMS_Workspace_Name**: escriba un nombre de área de trabajo; si el área de trabajo no existe, la plantilla creará una.
-    * **OMS_Workspace_Region**: seleccione la ubicación del área de trabajo.
-    * **OMS_Workspace_Pricing_Tier**: seleccione la SKU del área de trabajo de Log Analytics. Vea la [Guía de precios](https://azure.microsoft.com/pricing/details/log-analytics/) como referencia.
-    * **Términos legales**: haga clic en Términos legales y, después, en "Crear" para aceptar los términos legales.
+    * **Suscripción** : seleccione una suscripción de Azure para el área de trabajo de Log Analytics, normalmente la misma que la de la implementación de Cloud Foundry.
+    * **Grupo de recursos** : seleccione un grupo de recursos existente o cree uno nuevo para el área de trabajo de Log Analytics.
+    * **Ubicación del grupo de recursos** : seleccione la ubicación del grupo de recursos.
+    * **OMS_Workspace_Name** : escriba un nombre de área de trabajo; si el área de trabajo no existe, la plantilla creará una.
+    * **OMS_Workspace_Region** : seleccione la ubicación del área de trabajo.
+    * **OMS_Workspace_Pricing_Tier** : seleccione la SKU del área de trabajo de Log Analytics. Vea la [Guía de precios](https://azure.microsoft.com/pricing/details/log-analytics/) como referencia.
+    * **Términos legales** : haga clic en Términos legales y, después, en "Crear" para aceptar los términos legales.
 1. Después de haber especificado todos los parámetros, haga clic en "Crear" para implementar la plantilla. Una vez completada la implementación, el estado se mostrará en la pestaña Notificaciones.
 
 
@@ -191,7 +191,7 @@ Puede personalizar estas vistas o crearlas a través del **Diseñador de vistas*
 
 ### <a name="2-create-alert-rules"></a>2. Creación de reglas de alerta
 
-Puede [crear las alertas](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts) y personalizar las consultas y los valores de umbral según sea necesario. Estas son las alertas recomendadas:
+Puede [crear las alertas](../azure-monitor/platform/alerts-overview.md) y personalizar las consultas y los valores de umbral según sea necesario. Estas son las alertas recomendadas:
 
 | Consulta de búsqueda                                                                  | Generación de alerta según | Descripción                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |

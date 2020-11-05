@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ea9ab661fce1cd88bf1bdc065c2b26ccad73c30d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8393fb431c5148d3f4885135c90fe4d0b8970d52
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490720"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082018"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-gremlin-api"></a>Búsqueda del cargo de la unidad de solicitud en las operaciones que se ejecutan en la API de Gremlin de Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB admite varias API, como SQL, MongoDB, Cassandra, Gremlin y Table. Cada API tiene su propio conjunto de operaciones de base de datos. Estas abarcan desde sencillas lecturas y escrituras de punto hasta consultas complejas. Cada operación de base de datos consume recursos del sistema en función de la complejidad de la operación.
 
@@ -33,7 +34,7 @@ A los encabezados devueltos por la API de Gremlin se les asignan atributos de es
 
 1. Vaya al panel **Data Explorer** y seleccione el contenedor en el que quiere trabajar.
 
-1. Escriba una consulta válida y, a continuación, seleccione **Ejecutar consulta de Gremlin** .
+1. Escriba una consulta válida y, a continuación, seleccione **Ejecutar consulta de Gremlin**.
 
 1. Seleccione **Query Stats** (Estadísticas de consulta) para mostrar el cargo de solicitud real correspondiente a la solicitud que ha ejecutado.
 

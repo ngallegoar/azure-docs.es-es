@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: fe1caca11ec0a3d89ddae140d00cd3556b9d3d89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0788d8b4f659364fcedc690185c9159a24434125
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044471"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123921"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Prueba local de datos activos mediante herramientas de Azure Stream Analytics para Visual Studio (versión preliminar)
 
@@ -59,7 +59,7 @@ Se admiten las siguientes opciones de pruebas locales:
 
 * Power BI y Azure Data Lake Storage no son receptores de salida admitidos debido a las limitaciones del modelo de autenticación.
 
-* Solo las opciones de entrada de nube tienen compatibilidad con [directivas de tiempo](stream-analytics-out-of-order-and-late-events.md), lo que no ocurre con las opciones de entrada locales.
+* Solo las opciones de entrada de nube tienen compatibilidad con [directivas de tiempo](./stream-analytics-time-handling.md), lo que no ocurre con las opciones de entrada locales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

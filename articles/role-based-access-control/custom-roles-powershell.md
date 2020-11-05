@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd518828668ed20a4fa7be0cd6c9798a013055a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790218"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909597"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Creación o actualización de roles personalizados de Azure mediante Azure PowerShell
 
@@ -63,7 +63,7 @@ API Management Service Contributor                   False
 En el ejemplo siguiente se enumeran solo los roles personalizados disponibles para la asignación en la suscripción seleccionada.
 
 ```azurepowershell
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name, IsCustom
 ```
 
 ```Example
@@ -163,7 +163,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 Al usar PowerShell para crear un rol personalizado, puede usar uno de los [roles integrados](built-in-roles.md) como punto de partida o puede empezar desde cero. El primer ejemplo de esta sección empieza con un rol integrado y, luego, se personaliza con más permisos. Edite los atributos para agregar cualquier elemento `Actions`, `NotActions` o `AssignableScopes` que quiera y guarde los cambios como un nuevo rol.
 
-El ejemplo siguiente se inicia con el rol integrado [Colaborador de la máquina virtual](built-in-roles.md#virtual-machine-contributor) para crear un rol personalizado denominado *Operador de máquina virtual*. El nuevo rol concede acceso a todas las operaciones de lectura de los proveedores de recursos *Microsoft.Compute*, *Microsoft.Storage* y *Microsoft.Network*, y concede acceso para iniciar, reiniciar y supervisar las máquinas virtuales. El rol personalizado se puede usar en dos suscripciones.
+El ejemplo siguiente se inicia con el rol integrado [Colaborador de la máquina virtual](built-in-roles.md#virtual-machine-contributor) para crear un rol personalizado denominado *Operador de máquina virtual*. El nuevo rol concede acceso a todas las operaciones de lectura de los proveedores de recursos *Microsoft.Compute* , *Microsoft.Storage* y *Microsoft.Network* , y concede acceso para iniciar, reiniciar y supervisar las máquinas virtuales. El rol personalizado se puede usar en dos suscripciones.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Contributor"

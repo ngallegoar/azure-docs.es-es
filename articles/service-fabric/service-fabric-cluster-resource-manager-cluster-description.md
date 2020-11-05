@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71629ebf1397c00face500f0bfd9c8e92deacc5e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173042"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911773"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descripción de un clúster de Service Fabric con Cluster Resource Manager
 
@@ -47,9 +47,7 @@ En el entorno de Azure, Service Fabric aprovecha la información sobre dominios 
 
 En el siguiente gráfico, se muestran coloreadas todas las entidades que contribuyen a la generación de dominios de error y todos los que se crean. En este ejemplo, tenemos centros de datos (DC), bastidores (R) y servidores blade (B). Si cada servidor blade contiene más de una máquina virtual, podría haber otra capa en la jerarquía de dominios de error.
 
-<center>
 ![Nodos organizados a través de dominios de error][Image1]
-</center>
 
 Durante el tiempo de ejecución, la utilidad Cluster Resource Manager de Service Fabric tiene en cuenta los dominios de error del clúster y planea diseños. Las réplicas con estado o las instancias sin estado de un servicio se distribuyen de manera que estén en dominios de error independientes. La distribución del servicio en dominios de errores garantiza que la disponibilidad del servicio no se ve comprometida cuando se produce un fallo del dominio de error en cualquier nivel de la jerarquía.
 
@@ -62,9 +60,7 @@ Es mejor si hay el mismo número de nodos en cada nivel de profundidad de la jer
 
 ¿Qué aspecto tienen los dominios desequilibrados? En el siguiente diagrama se muestran dos diseños diferentes de clúster. En el primero, los nodos se distribuyen uniformemente entre los dominios de error. En el segundo ejemplo, un dominio de error tiene muchos más nodos que los demás dominios de error.
 
-<center>
 ![Dos diseños de clúster distintos][Image2]
-</center>
 
 En Azure, será su responsabilidad elegir qué dominio de error contendrá un nodo. Sin embargo, dependiendo del número de nodos que se aprovisionen, puede seguir obteniendo dominios de error con más nodos que otros.
 
@@ -78,9 +74,7 @@ Los dominios de actualización son muy similares a los dominios de error, pero c
 
 En el siguiente diagrama se muestran tres dominios de actualización divididos en tres dominios de error. También se muestra una posible selección de ubicación de tres réplicas diferentes de un servicio con estado, donde cada una de ellas terminan con diferentes dominios de error y de actualización. Esta selección de ubicación permite perder un dominio de error en el transcurso de una actualización de servicio y seguir teniendo una copia del código y los datos.  
 
-<center>
 ![Selección de ubicación con dominios de error y de actualización][Image3]
-</center>
 
 Tener un gran número de dominios de actualización tiene ventajas y desventajas. Disponer de más dominios de actualización implica que cada paso de la actualización sea más granular y afecte a un número menor de nodos o servicios. Como consecuencia, hay que mover menos servicios a la vez, lo que reduce la actividad en el sistema. Esto suele mejorar la confiabilidad general, ya que los problemas afectarán a una proporción menor del servicio durante la actualización. Si tiene más dominios de actualización, también necesitará menos búfer disponible en otros nodos para controlar el impacto de la actualización.
 
@@ -98,9 +92,7 @@ No existe ningún límite real en el número total de dominios de error o de act
 * Un dominio de actualización por nodo (instancia del sistema operativo física o virtual)
 * Un modelo "seccionado" o "de matriz", donde los dominios de error y de actualización forman una matriz con máquinas que se ejecutan abajo de las diagonales.
 
-<center>
 ![Diseños de dominios de error y de actualización][Image4]
-</center>
 
 No hay una respuesta perfecta sobre qué diseño elegir. Cada una tiene ventajas y desventajas. Por ejemplo, el modelo 1FD:1UD es fácil de configurar. El modelo de un dominio de actualización por nodo es el más utilizado por los usuarios. Durante las actualizaciones, cada nodo se actualiza de forma independiente. Esto es similar a cómo se actualizaban manualmente los conjuntos pequeños de máquinas en el pasado.
 
@@ -187,7 +179,7 @@ Cluster Resource Manager admite otra versión de la restricción de dominios de 
 > [!NOTE]
 > Para un servicio con estado, definimos *pérdida de cuórum* en una situación en que la mayoría de las réplicas de la partición están inactivas al mismo tiempo. Por ejemplo, si el valor de **TargetReplicaSetSize** es cinco, un conjunto de tres réplicas cualesquiera representará el cuórum. De forma similar, si el valor de **TargetReplicaSetSize** es seis, se necesitarán cuatro réplicas para el cuórum. En ambos casos, no pueden estar inactivas más de dos réplicas al mismo tiempo si quiere que la partición continúe funcionando con normalidad.
 >
-> En un servicio sin estado, no hay nada parecido a *pérdida de quórum* . Los servicios sin estado continúan funcionando con normalidad incluso si una mayoría de instancias dejan de funcionar al mismo tiempo. Por lo tanto, nos centraremos en los servicios con estado en el resto del artículo.
+> En un servicio sin estado, no hay nada parecido a *pérdida de quórum*. Los servicios sin estado continúan funcionando con normalidad incluso si una mayoría de instancias dejan de funcionar al mismo tiempo. Por lo tanto, nos centraremos en los servicios con estado en el resto del artículo.
 >
 
 Volvamos al ejemplo anterior Con la versión de "seguridad de cuórum" de la restricción, los tres diseños serían válidos. Incluso si no se pudo usar FD0 en el segundo diseño o UD1 no se pudo usar en el tercer diseño, la partición seguiría teniendo cuórum. (La mayoría de las réplicas seguirán funcionando.) Con esta versión de la restricción, N6 puede usarse casi siempre.
@@ -357,21 +349,17 @@ Service Fabric espera que haya casos en que se deban ejecutar cargas de trabajo 
 * se debe ejecutar una carga de trabajo en un hardware específico por motivos de rendimiento, escala o aislamiento de seguridad.
 * Una carga de trabajo debe estar aislada de otras por una directiva o a causa del consumo de recursos.
 
-Para admitir estos tipos de configuraciones, Service Fabric incluye etiquetas que se pueden aplicar a los nodos. Estas etiquetas se denominan *propiedades del nodo* . Las *restricciones de ubicación* son las instrucciones adjuntas a los servicios individuales que se seleccionan para una o más propiedades de nodo. Las restricciones de posición definen dónde deben ejecutarse los servicios. El conjunto de restricciones es extensible. Puede funcionar cualquier par clave/valor.
+Para admitir estos tipos de configuraciones, Service Fabric incluye etiquetas que se pueden aplicar a los nodos. Estas etiquetas se denominan *propiedades del nodo*. Las *restricciones de ubicación* son las instrucciones adjuntas a los servicios individuales que se seleccionan para una o más propiedades de nodo. Las restricciones de posición definen dónde deben ejecutarse los servicios. El conjunto de restricciones es extensible. Puede funcionar cualquier par clave/valor.
 
-<center>
 ![Diferentes cargas de trabajo por diseño de clúster][Image5]
-</center>
 
 ### <a name="built-in-node-properties"></a>Propiedades del nodo integradas
 
-Además, Service Fabric define algunas propiedades del nodo predeterminadas que se pueden usar automáticamente sin que el usuario tenga que definirlas. Las propiedades predeterminadas definidas en cada nodo son **NodeType** y **NodeName** .
+Además, Service Fabric define algunas propiedades del nodo predeterminadas que se pueden usar automáticamente sin que el usuario tenga que definirlas. Las propiedades predeterminadas definidas en cada nodo son **NodeType** y **NodeName**.
 
 Por ejemplo, podría escribir una restricción de ubicación como `"(NodeType == NodeType03)"`. **NodeType** es una propiedad frecuente. Es útil, ya que corresponde a 1:1 con un tipo de una máquina. Cada tipo de máquina corresponde a un tipo de carga de trabajo en una aplicación de n niveles tradicional.
 
-<center>
-![Restricciones de ubicación y propiedades de nodo][Image6]
-</center>
+![Restricciones de colocación y propiedades de nodo][Image6]
 
 ## <a name="placement-constraints-and-node-property-syntax"></a>Restricciones de ubicación y sintaxis de propiedades de nodo
 
@@ -477,7 +465,7 @@ En primer lugar, hay es asegurarse de que las máquinas no estén sobrecargadas.
 
 En segundo lugar, hay equilibrio y optimización, que son esenciales para que la ejecución funcione de forma eficaz. Las ofertas de servicios que tienen en cuenta en rendimiento o la rentabilidad no pueden permitir que algunos nodos se activen cuando otros estén inactivos. Los nodos activos provocan la contención de recursos y un rendimiento deficiente. Por otro lado, los nodos inactivos representan recursos desperdiciados y mayores costos.
 
-Service Fabric representa los recursos como *Métricas* . Las métricas son cualquier recurso físico o lógico que desee describir a Service Fabric. Algunos ejemplos de métricas son elementos como "WorkQueueDepth" o "MemoryInMb". Para obtener información acerca de los recursos físicos que puede administrar Service Fabric en los nodos, vea la [gobernanza de recursos](service-fabric-resource-governance.md). Para información sobre las métricas predeterminadas que se usan en Cluster Resource Manager y cómo configurar las métricas personalizadas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric representa los recursos como *Métricas*. Las métricas son cualquier recurso físico o lógico que desee describir a Service Fabric. Algunos ejemplos de métricas son elementos como "WorkQueueDepth" o "MemoryInMb". Para obtener información acerca de los recursos físicos que puede administrar Service Fabric en los nodos, vea la [gobernanza de recursos](service-fabric-resource-governance.md). Para información sobre las métricas predeterminadas que se usan en Cluster Resource Manager y cómo configurar las métricas personalizadas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
 
 Las métricas se diferencian de las restricciones de ubicación y de las propiedades de nodo. Las propiedades de nodo son descriptores estáticos de los nodos por sí mismos. Las métricas describen recursos que tienen nodos y que los servicios usan cuando se ejecutan en un nodo. Una propiedad de nodo podría ser **HasSSD** y tener un valor de True o False. La cantidad de espacio disponible en ese SSD y la cantidad consumida por los servicios sería una métrica como "DriveSpaceInMb".
 
@@ -491,9 +479,7 @@ Tanto la capacidad como el consumo en el nivel de servicio se expresan con métr
 
 Durante el tiempo de ejecución, Cluster Resource Manager realiza un seguimiento de capacidad restante del clúster y en los nodos. Para realizar un seguimiento de la capacidad, Cluster Resource Manager resta el uso de cada servicio de la capacidad del nodo donde se ejecuta el servicio. Con esta información, la utilidad Cluster Resource Manager puede averiguar dónde colocar o mover las réplicas para que los nodos no superen su capacidad.
 
-<center>
 ![Nodos del clúster y capacidad][Image7]
-</center>
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();

@@ -9,14 +9,15 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 84d96344f20c56c9fab9eb5b3affcca3a437c096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eab24c317513382afdd452843bc09e845ca90452
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324559"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096502"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conexión de una aplicación Mongoose de Node.js a Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 En este tutorial se muestra cómo usar el [marco Mongoose](https://mongoosejs.com/) al almacenar datos en Cosmos DB. En este tutorial usaremos la API de Azure Cosmos DB para MongoDB. Si no le resulta familiar, Mongoose es un marco de modelado de objetos de MongoDB en Node.js que proporciona una solución sencilla y basada en esquemas para dar forma a los datos de la aplicación.
 
@@ -38,11 +39,11 @@ Cree una cuenta de Cosmos. Si ya tiene una cuenta que desea usar, puede ir direc
 
 ### <a name="create-a-database"></a>Crear una base de datos 
 En esta aplicación se tratarán dos maneras de crear colecciones en Azure Cosmos DB: 
-- **Almacenar cada modelo de objetos en una colección independiente**: Se recomienda [crear una base de datos con rendimiento dedicado](set-throughput.md#set-throughput-on-a-database). El uso de este modelo de capacidad le proporcionará una mayor rentabilidad.
+- **Almacenar cada modelo de objetos en una colección independiente** : Se recomienda [crear una base de datos con rendimiento dedicado](set-throughput.md#set-throughput-on-a-database). El uso de este modelo de capacidad le proporcionará una mayor rentabilidad.
 
     :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Tutorial de Node.js: captura de pantalla de Azure Portal en la que se muestra cómo crear una base de datos en el Explorador de datos de una cuenta de Azure Cosmos DB, para usarla con el módulo de nodo de Mongoose":::
 
-- **Almacenar todos los modelos de objetos en una sola colección de Cosmos DB**: Si prefiere almacenar todos los modelos en una sola colección, solo tiene que crear una base de datos sin seleccionar la opción Aprovisionar rendimiento. El uso de este modelo de capacidad creará una colección con su propia capacidad de rendimiento para cada modelo de objetos.
+- **Almacenar todos los modelos de objetos en una sola colección de Cosmos DB** : Si prefiere almacenar todos los modelos en una sola colección, solo tiene que crear una base de datos sin seleccionar la opción Aprovisionar rendimiento. El uso de este modelo de capacidad creará una colección con su propia capacidad de rendimiento para cada modelo de objetos.
 
 Después de crear la base de datos, deberá usar el nombre en la variable de entorno `COSMOSDB_DBNAME` a continuación.
 
@@ -197,7 +198,7 @@ En esta sección le indicaremos cómo puede lograrlo gracias a la API de Azure C
 
 1. A continuación, vaya a Azure Portal y verá dos colecciones que se crearon en Cosmos DB.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Tutorial de Node.js: captura de pantalla de Azure Portal en la que se muestra cómo crear una base de datos en el Explorador de datos de una cuenta de Azure Cosmos DB, para usarla con el módulo de nodo de Mongoose":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Tutorial de Node.js: captura de pantalla de Azure Portal, donde se muestra una cuenta de Azure Cosmos DB con varios nombres de colección resaltados: base de datos de Node":::
 
 1. Por último, lea los datos de Cosmos DB. Puesto que vamos a usar el modelo de funcionamiento predeterminado de Mongoose, las lecturas son las mismas que cualquier otra en Mongoose.
 
@@ -302,7 +303,7 @@ En este caso, crearemos un modelo de objeto base, definiremos una clave diferenc
 
 1. Si vuelve a Azure Portal, verá que solo tiene una colección denominada ```alldata``` con los datos de "Family" y "VacationDestinations".
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Tutorial de Node.js: captura de pantalla de Azure Portal en la que se muestra cómo crear una base de datos en el Explorador de datos de una cuenta de Azure Cosmos DB, para usarla con el módulo de nodo de Mongoose":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Tutorial de Node.js: captura de pantalla de Azure Portal, que muestra una cuenta de Azure Cosmos DB con el nombre de la colección resaltado: base de datos de Node":::
 
 1. Además, tenga en cuenta que cada objeto tiene otro atributo denominado "```__type```", que le ayudará a diferenciar entre los dos modelos de objetos diferentes.
 

@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277964"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092694"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre el rendimiento aprovisionado por Escalabilidad automática en Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Con el rendimiento aprovisionado de escalabilidad automática, Azure Cosmos DB administrará y escalará automáticamente las RU/s de la base de datos o el contenedor en función del uso. En este artículo se responden las preguntas más frecuentes sobre la escalabilidad automática.
 
@@ -108,9 +109,9 @@ Cuando se envía una solicitud para aumentar el número máximo de RU/s, `Tmax`,
 #### <a name="lowering-the-max-rus"></a>Reducción del número máximo de RU/s
 Al reducir el número máximo de RU/s, el valor mínimo que se puede establecer es: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, redondeado en miles de RU/s. 
 
-Ejemplo 1: Supongamos que tiene un contenedor con escalabilidad automática con un máximo de 20 000 RU/s (que se escalan entre 2000 y 20 000 RU/s) y 50 GB de almacenamiento. El valor mínimo más bajo que puede establecer como número máximo de RU/s es: MAX(4000, 20 000 / 10, **50 * 100**) = 5000 RU/s (que se escalan entre 500 y 5000 RU/s).
+Ejemplo 1: Supongamos que tiene un contenedor con escalabilidad automática con un máximo de 20 000 RU/s (que se escalan entre 2000 y 20 000 RU/s) y 50 GB de almacenamiento. El valor mínimo más bajo que puede establecer como número máximo de RU/s es: MAX(4000, 20 000 / 10, **50 * 100** ) = 5000 RU/s (que se escalan entre 500 y 5000 RU/s).
 
-Ejemplo 2: Supongamos que tiene un contenedor con escalabilidad automática con un máximo de 100 000 RU/s y 100 GB de almacenamiento. Ahora, escale el número máximo de RU/s hasta 150 000 RU/s (que se escalan entre 15 000 y 150 000 RU/s). El valor mínimo más bajo que puede establecer ahora como número máximo RU/s es: MAX(4 000, **150 000 / 10**, 100 * 100) = 15 000 RU/s (que se escalan entre 1500 y 15 000 RU/s). 
+Ejemplo 2: Supongamos que tiene un contenedor con escalabilidad automática con un máximo de 100 000 RU/s y 100 GB de almacenamiento. Ahora, escale el número máximo de RU/s hasta 150 000 RU/s (que se escalan entre 15 000 y 150 000 RU/s). El valor mínimo más bajo que puede establecer ahora como número máximo RU/s es: MAX(4 000, **150 000 / 10** , 100 * 100) = 15 000 RU/s (que se escalan entre 1500 y 15 000 RU/s). 
 
 En el caso de una base de datos de rendimiento compartido, al reducir el número máximo de RU/s, el valor mínimo que se puede establecer es: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, redondeado en miles de RU/s.  
 

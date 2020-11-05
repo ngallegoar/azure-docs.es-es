@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "87088400"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicación de una aplicación web ASP.NET en una máquina virtual de Azure desde Visual Studio
@@ -33,11 +33,11 @@ En la siguiente sección se describe cómo publicar una aplicación web ASP.NET 
 
 1. Abra la solución de la aplicación web en Visual Studio 2019.
 2. Haga clic con el botón derecho en el Explorador de soluciones y elija **Publicar...**
-3. Con la flecha situada a la derecha de la página, desplácese por las opciones de publicación hasta que encuentre **Microsoft Azure Virtual Machines** .  
+3. Con la flecha situada a la derecha de la página, desplácese por las opciones de publicación hasta que encuentre **Microsoft Azure Virtual Machines**.  
 
    ![Página de publicación: flecha derecha]
 
-4. Seleccione el icono **Microsoft Azure Virtual Machines** y luego **Publicar** .
+4. Seleccione el icono **Microsoft Azure Virtual Machines** y luego **Publicar**.
 
    ![Página de publicación: icono de Microsoft Azure Virtual Machine]
 
@@ -96,12 +96,12 @@ La configuración debería ser similar a la que se muestra a continuación:
 ![Configuración de publicación: página de conexión]
 
 #### <a name="save-user-name-and-password"></a>Guardado de nombre de usuario y contraseña
-- Evite proporcionar información de autenticación cada vez que publique. Para ello, rellene los campos **Nombre de usuario** y **Contraseña** y seleccione la casilla **Guardar contraseña** .
+- Evite proporcionar información de autenticación cada vez que publique. Para ello, rellene los campos **Nombre de usuario** y **Contraseña** y seleccione la casilla **Guardar contraseña**.
 - Use el botón **Validar conexión** para confirmar que ha escrito la información correcta.
 
 #### <a name="deploy-to-clean-web-server"></a>Implementación en servidor web limpio
 
-- Si desea asegurarse de que el servidor web tiene una copia limpia de la aplicación web después de cada carga y que no quedan otros archivos de una implementación anterior, puede activar la casilla **Eliminar archivos adicionales en el destino** en la pestaña **Configuración** .
+- Si desea asegurarse de que el servidor web tiene una copia limpia de la aplicación web después de cada carga y que no quedan otros archivos de una implementación anterior, puede activar la casilla **Eliminar archivos adicionales en el destino** en la pestaña **Configuración**.
 
 - Advertencia: la publicación con este parámetro elimina todos los archivos existentes en el servidor web (directorio wwwroot). Asegúrese de que conoce el estado de la máquina antes de publicar con esta opción habilitada. 
 

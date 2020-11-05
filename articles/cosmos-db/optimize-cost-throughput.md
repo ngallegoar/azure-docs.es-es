@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475471"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097471"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Al ofrecer un modelo de rendimiento aprovisionado, Azure Cosmos DB ofrece un rendimiento predecible a cualquier escala. Reservar o aprovisionar el rendimiento antes de tiempo elimina el "efecto de vecino ruidoso" en el rendimiento. Especifique la cantidad exacta de rendimiento que necesita, y Azure Cosmos DB garantiza el rendimiento configurado, respaldado por un SLA.
 

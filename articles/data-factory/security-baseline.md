@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a917ade5da6938487076b983bd42ce9b27672c49
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 09c35ff8c045fa7d912324886fb31b02e606d2f8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637010"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089090"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Línea de referencia de seguridad de Azure para Azure Data Factory
 
@@ -688,9 +688,9 @@ Si ejecuta Integration Runtime en una máquina virtual (VM) de Azure, siga las r
 
 En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
 
-* [Solución Update Management de Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Solución Update Management de Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 * [Descripción de la protección de datos de los clientes en Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -702,9 +702,9 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 **Guía** : Si ejecuta Integration Runtime en una máquina virtual (VM) de Azure, puede usar una solución de administración de revisiones de terceros. Puede usar la solución Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas de Windows compatibles. Herramientas como System Center Updates Publisher (Updates Publisher) le permiten publicar actualizaciones personalizadas en Windows Server Update Services (WSUS). Este escenario permite que Update Management aplique revisiones a las máquinas que usan Configuration Manager como repositorio de actualizaciones con software de terceros.
 
-* [Solución Update Management de Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Solución Update Management de Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 **Supervisión de Azure Security Center** : no disponible actualmente
 

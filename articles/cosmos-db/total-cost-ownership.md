@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb06d101170685bea5ff231612e9ffbf8df467da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477001"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079298"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Costo total de propiedad (TCO) con Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB está diseñado con la gobernanza de recursos y multiempresa específico. Este diseño permite que Azure Cosmos DB funcione con un costo significativamente menor y ayuda a los usuarios a ahorrar. Actualmente, Azure Cosmos DB admite más de 280 cargas de trabajo de cliente en un solo equipo con la densidad continuamente en aumento, y miles de cargas de trabajo del cliente dentro de un clúster. Equilibra la carga de las réplicas de las cargas de trabajo de los clientes en las distintas máquinas en un clúster y en varios clústeres dentro de un centro de datos. Para más información, consulte [Azure Cosmos DB: ampliación de la frontera de las bases de datos distribuidas globalmente](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Debido a la regulación de recursos, la multiempresa y la integración nativa con el resto de la infraestructura de Azure, Azure Cosmos DB es de 4 a 6 veces más económico que MongoDB, Cassandra u otra instancia de NoSQL de OSS que se ejecuta en IaaS, y hasta 10 veces más económico que los motores de base de datos que se ejecutan localmente. Consulte el documento [The total cost of (non) ownership of a NoSQL database cloud service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf) (Costo total de [no] propiedad de un servicio en la nube de bases de datos NoSQL).
 

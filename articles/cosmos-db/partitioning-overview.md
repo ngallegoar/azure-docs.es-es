@@ -6,16 +6,17 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 353abe5ac55e49e01f6a99f72307b8525a72fc00
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281096"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080839"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Creación de particiones y escalado horizontal en Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB usa la creación de particiones con el fin de escalar contenedores individuales en una base de datos para satisfacer las necesidades de rendimiento de la aplicación. En la creación de particiones, los elementos de un contenedor se dividen en distintos subconjuntos, que se llaman *particiones lógicas* . Las particiones lógicas se crean en función del valor de una *clave de partición* que está asociada con cada elemento de un contenedor. Todos los elementos de una partición lógica tienen el mismo valor de clave de partición.
+Azure Cosmos DB usa la creación de particiones con el fin de escalar contenedores individuales en una base de datos para satisfacer las necesidades de rendimiento de la aplicación. En la creación de particiones, los elementos de un contenedor se dividen en distintos subconjuntos, que se llaman *particiones lógicas*. Las particiones lógicas se crean en función del valor de una *clave de partición* que está asociada con cada elemento de un contenedor. Todos los elementos de una partición lógica tienen el mismo valor de clave de partición.
 
 Por ejemplo, un contenedor contiene elementos. Cada elemento tiene un valor único para la propiedad `UserID`. Si `UserID` actúa como la partición de clave para los elementos de un contenedor y hay 1000 valores `UserID` exclusivos, se crearán 1000 particiones lógicas del contenedor.
 
@@ -73,11 +74,11 @@ Normalmente, los contenedores más pequeños solo necesitan una partición físi
 
 La siguiente imagen muestra cómo se asignan particiones lógicas a particiones físicas distribuidas globalmente:
 
-:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Consulta del número de particiones físicas" border="false":::
+:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Una imagen que muestra las particiones de Azure Cosmos DB" border="false":::
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Elegir una clave de partición
 
-Una clave de partición tiene dos componentes: **ruta de acceso de la clave de partición** y **valor de la clave de partición** . Por ejemplo, considere un elemento { "userId" : "Andrew", "worksFor": "Microsoft" }, si elige "userId" como clave de partición, los siguientes serán los dos componentes de la clave de partición:
+Una clave de partición tiene dos componentes: **ruta de acceso de la clave de partición** y **valor de la clave de partición**. Por ejemplo, considere un elemento { "userId" : "Andrew", "worksFor": "Microsoft" }, si elige "userId" como clave de partición, los siguientes serán los dos componentes de la clave de partición:
 
 * La ruta de acceso de la clave de partición (por ejemplo: "/userId"). La ruta de acceso de la clave de partición acepta caracteres alfanuméricos y guiones bajos (_). También puede usar objetos anidados mediante la notación de ruta de acceso estándar (/).
 
@@ -113,20 +114,20 @@ Si el contenedor puede aumentar a unas cuantas particiones físicas, debe asegur
 
 ## <a name="using-item-id-as-the-partition-key"></a>Uso del id. de elemento como clave de partición
 
-Si el contenedor tiene una propiedad con una amplia gama de posibles valores, probablemente sea una buena elección de clave de partición. Un posible ejemplo de una propiedad de este tipo, es el *id. de elemento* . En el caso de contenedores pequeños de lectura o escritura frecuente de cualquier tamaño, el *id. de elemento* es naturalmente una excelente opción de clave de partición.
+Si el contenedor tiene una propiedad con una amplia gama de posibles valores, probablemente sea una buena elección de clave de partición. Un posible ejemplo de una propiedad de este tipo, es el *id. de elemento*. En el caso de contenedores pequeños de lectura o escritura frecuente de cualquier tamaño, el *id. de elemento* es naturalmente una excelente opción de clave de partición.
 
-La propiedad del sistema *id. de elemento* existe en todos los elementos del contenedor. Es posible que tenga otras propiedades que representen un identificador lógico para el elemento. En muchos casos, también son excelentes claves de partición por los mismos motivos que el *id. de elemento* .
+La propiedad del sistema *id. de elemento* existe en todos los elementos del contenedor. Es posible que tenga otras propiedades que representen un identificador lógico para el elemento. En muchos casos, también son excelentes claves de partición por los mismos motivos que el *id. de elemento*.
 
 El *id. de elemento* es una excelente opción de clave de partición por los siguientes motivos:
 
 * Hay una amplia gama de valores posibles (un *id. de elemento* único por elemento).
 * Dado que cada elemento tiene un *id.* único, este *id. de elemento* realiza un trabajo excelente para equilibrar de manera uniforme el consumo de RU y el almacenamiento de datos.
-* Puede realizar fácilmente lecturas puntuales, ya que siempre conocerá la clave de partición de un elemento si conoce su *identificador* .
+* Puede realizar fácilmente lecturas puntuales, ya que siempre conocerá la clave de partición de un elemento si conoce su *identificador*.
 
 Algunos aspectos que se deben tener en cuenta al seleccionar el *id. de elemento* como clave de partición son:
 
 * Si el *id. de elemento* es la clave de partición, se convertirá en un identificador único en todo el contenedor. No podrá tener elementos con *id. de elemento* duplicados.
-* Si tiene un contenedor con lecturas frecuentes que tiene muchas [particiones físicas](partitioning-overview.md#physical-partitions), las consultas serán más eficaces si tienen un filtro de igualdad con el *id. de elemento* .
+* Si tiene un contenedor con lecturas frecuentes que tiene muchas [particiones físicas](partitioning-overview.md#physical-partitions), las consultas serán más eficaces si tienen un filtro de igualdad con el *id. de elemento*.
 * No se pueden ejecutar procedimientos almacenados ni desencadenadores en varias particiones lógicas.
 
 ## <a name="next-steps"></a>Pasos siguientes

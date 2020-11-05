@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: b4d5b3682114d44ceaadc73252f355e4cdc9cc66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 03941c3abe833deb218844cc60e2f04556fccc22
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548446"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078210"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Supervisión de la referencia a datos de Azure IoT Hub
 
@@ -60,9 +60,9 @@ Con la mayoría de las métricas, todos los tipos de agregación son válidos; s
 |Nombre de métrica para mostrar|Métrica|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
 |C2D Messages Expired (preview) [Mensajes de C2D expirados (versión preliminar)]|C2DMessagesExpired|Count|Total|Número de mensajes de la nube al dispositivo expirados|None|
-|C2D message deliveries completed (Entregas de mensajes de C2D completadas)|c2d.commands.egress.<br>complete.success|Count|Total|Número de entregas de mensajes de la nube al dispositivo que el dispositivo ha completado correctamente.|None|
-|C2D messages abandoned (Mensajes de C2D abandonados)|c2d.commands.egress.<br>abandon.success|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha abandonado.|None|
-|C2D messages rejected (Mensajes de C2D rechazados)|c2d.commands.egress.<br>reject.success|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha rechazado.|None|
+|C2D message deliveries completed (Entregas de mensajes de C2D completadas)|c2d.commands.egress.complete.success|Count|Total|Número de entregas de mensajes de la nube al dispositivo que el dispositivo ha completado correctamente.|None|
+|C2D messages abandoned (Mensajes de C2D abandonados)|c2d.commands.egress.abandon.success|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha abandonado.|None|
+|C2D messages rejected (Mensajes de C2D rechazados)|c2d.commands.egress.reject.success|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha rechazado.|None|
 
 En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
@@ -113,7 +113,7 @@ En *Total number of messages used* (Número total de mensajes utilizados), solo 
 |Nombre de métrica para mostrar|Métrica|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
 |Total de dispositivos (en desuso)|devices.totalDevices|Count|Total|Número de dispositivos registrados en IoT Hub|None|
-|Dispositivos conectados (en desuso) |devices.connectedDevices.<br>allProtocol|Count|Total|Número de dispositivos conectados a IoT Hub|None|
+|Dispositivos conectados (en desuso) |devices.connectedDevices.allProtocol|Count|Total|Número de dispositivos conectados a IoT Hub|None|
 |Total de dispositivos (versión preliminar)|totalDeviceCount|Count|Average|Número de dispositivos registrados en IoT Hub|None|
 |Dispositivos conectados (versión preliminar)|connectedDeviceCount|Count|Average|Número de dispositivos conectados a IoT Hub|None|
 
@@ -127,9 +127,9 @@ Las métricas *Connected devices (preview)* (Dispositivos conectados [versión p
 
 |Nombre de métrica para mostrar|Métrica|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
-|Número de errores de limitación|d2c.telemetry.ingress.<br>sendThrottle|Count|Total|Número de errores de limitación debido a las limitaciones de rendimiento del dispositivo|None|
-|Intentos de envío de mensajes de telemetría|d2c.telemetry.ingress.<br>allProtocol|Count|Total|Número de mensajes de telemetría de dispositivo a la nube para enviar a IoT Hub|None|
-|Mensajes de telemetría enviados|d2c.telemetry.ingress.<br>success|Count|Total|Número de mensajes de telemetría de dispositivo a la nube enviados correctamente a IoT Hub|None|
+|Número de errores de limitación|d2c.telemetry.ingress.sendThrottle|Count|Total|Número de errores de limitación debido a las limitaciones de rendimiento del dispositivo|None|
+|Intentos de envío de mensajes de telemetría|d2c.telemetry.ingress.allProtocol|Count|Total|Número de mensajes de telemetría de dispositivo a la nube para enviar a IoT Hub|None|
+|Mensajes de telemetría enviados|d2c.telemetry.ingress.success|Count|Total|Número de mensajes de telemetría de dispositivo a la nube enviados correctamente a IoT Hub|None|
 
 En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
@@ -150,7 +150,7 @@ En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la
 
 |Nombre de métrica para mostrar|Métrica|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
-|Event Grid deliveries(preview) [Entregas de Event Grid (versión preliminar)]|EventGridDeliveries|Count|Total|El número de eventos de IoT Hub publicados en Event Grid. Use la dimensión de resultado para ver el número de solicitudes correctas e incorrectas. La dimensión EventType muestra el tipo de evento (https://aka.ms/ioteventgrid).|Result,<br/>EventType<br>*Para más información, consulte [Dimensiones de métricas](#metric-dimensions)* .|
+|Entregas de Event Grid (versión preliminar)|EventGridDeliveries|Count|Total|El número de eventos de IoT Hub publicados en Event Grid. Use la dimensión de resultado para ver el número de solicitudes correctas e incorrectas. La dimensión EventType muestra el tipo de evento (https://aka.ms/ioteventgrid).|Result,<br/>EventType<br>*Para más información, consulte [Dimensiones de métricas](#metric-dimensions)* .|
 |Latencia de Event Grid (versión preliminar)|EventGridLatency|Milisegundos|Average|La latencia media (milisegundos) desde el momento en que se generó el evento de IoT Hub hasta el momento en que se publicó el evento en Event Grid. Este número es un promedio entre todos los tipos de evento. Use la dimensión EventType para ver la latencia de un tipo específico de evento.|EventType<br>*Para más información, consulte [Dimensiones de métricas](#metric-dimensions)* .|
 
 En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
@@ -161,13 +161,13 @@ En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la
 |---|---|---|---|---|---|
 |Trabajos completados|jobs.completed|Count|Total|El recuento de todos los trabajos completados.|None|
 |Llamadas con error para enumerar trabajos|jobs.listJobs.failure|Count|Total|El recuento de todas las llamadas con error para enumerar trabajos.|None|
-|Creaciones con error de trabajos de invocación de método|jobs.createDirectMethodJob.<br>failure|Count|Total|El recuento de todas las creaciones con error de los trabajos de invocación de método directos.|None|
-|Creaciones con error de trabajos de actualización gemelos|jobs.createTwinUpdateJob.<br>failure|Count|Total|El recuento de todas las creaciones con error de trabajos de actualización gemelos.|None|
+|Creaciones con error de trabajos de invocación de método|jobs.createDirectMethodJob.failure|Count|Total|El recuento de todas las creaciones con error de los trabajos de invocación de método directos.|None|
+|Creaciones con error de trabajos de actualización gemelos|jobs.createTwinUpdateJob.failure|Count|Total|El recuento de todas las creaciones con error de trabajos de actualización gemelos.|None|
 |Cancelaciones de trabajos con error|jobs.cancelJob.failure|Count|Total|El recuento de todas las llamadas con error para cancelar un trabajo.|None|
 |Consultas de trabajo con error|jobs.queryJobs.failure|Count|Total|El recuento de todas las llamadas con error para consultar trabajos.|None|
 |Trabajos con error|jobs.failed|Count|Total|El recuento de todos los trabajos con error.|None|
 |Llamadas correctas para enumerar trabajos|jobs.listJobs.success|Count|Total|El recuento de todas las llamadas correctas para enumerar trabajos.|None|
-|Creaciones correctas de trabajos de invocación de método|jobs.createDirectMethodJob.<br>success|Count|Total|El recuento de todas las creaciones correctas de los trabajos de invocación de método directos.|None|
+|Creaciones correctas de trabajos de invocación de método|jobs.createDirectMethodJob.success|Count|Total|El recuento de todas las creaciones correctas de los trabajos de invocación de método directos.|None|
 |Creaciones correctas de trabajos de actualización gemelos|jobs.createTwinUpdateJob.<br>success|Count|Total|El recuento de todas las creaciones correctas de trabajos de actualización gemelos.|None|
 |Cancelaciones de trabajos correctas|jobs.cancelJob.success|Count|Total|El recuento de todas las llamadas correctas para cancelar un trabajo.|None|
 |Consultas de trabajo correctas|jobs.queryJobs.success|Count|Total|El recuento de todas las llamadas correctas para consultar trabajos.|None|
@@ -181,23 +181,23 @@ En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la
 | Intentos de entrega de enrutamiento (versión preliminar) |RoutingDeliveries | Count | Total |Esta es la métrica de entrega de enrutamiento. Use las dimensiones para identificar el estado de entrega para un punto de conexión específico o para un origen de enrutamiento específico.| Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*Para más información, consulte [Dimensiones de métricas](#metric-dimensions)* . |
 | Tamaño de los datos de entrega de enrutamiento en bytes (versión preliminar)|RoutingDataSizeInBytesDelivered| Bytes | Total |Número total de bytes que IoT Hub enruta al punto de conexión personalizado y al punto de conexión integrado. Use las dimensiones para identificar el tamaño de los datos enrutados a un punto de conexión específico o para un origen de enrutamiento específico.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Para más información, consulte [Dimensiones de métricas](#metric-dimensions)* .|
 | Latencia de enrutamiento (versión preliminar) |RoutingDeliveryLatency| Milisegundos | Average |Esta es la métrica de latencia de entrega de enrutamiento. Use las dimensiones para identificar la latencia para un punto de conexión específico o para un origen de enrutamiento específico.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*Para más información, consulte [Dimensiones de métricas](#metric-dimensions)* .|
-|Enrutamiento: blobs entregados al almacenamiento|d2c.endpoints.egress.<br>storage.blobs|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado blobs a los puntos de conexión de almacenamiento.|None|
-|Enrutamiento: datos entregados al almacenamiento|d2c.endpoints.egress.<br>storage.bytes|Bytes|Total|Cantidad de datos (bytes) que el enrutamiento de IoT Hub ha entregado a los punto de conexión de almacenamiento.|None|
-|Enrutamiento: latencia de mensajes para el centro de eventos|d2c.endpoints.latency.<br>eventHubs|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes a puntos de conexión personalizados de tipo Centro de eventos. Esto no incluye las rutas de mensajes a un punto de conexión integrado (eventos).|None|
-|Enrutamiento: latencia de mensajes de la cola de Service Bus|d2c.endpoints.latency.<br>serviceBusQueues|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes a un punto de conexión de la cola de Service Bus.|None|
-|Enrutamiento: latencia de mensajes del tema de Service Bus|d2c.endpoints.latency.<br>serviceBusTopics|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes a un punto de conexión del tema de Service Bus.|None|
-|Enrutamiento: latencia de mensajes para mensajes/eventos|d2c.endpoints.latency.<br>builtIn.events|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes al punto de conexión integrado (mensajes/eventos) y a la ruta de reserva.|None|
-|Enrutamiento: latencia de mensajes para almacenamiento|d2c.endpoints.latency.<br>storage|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes a un punto de conexión de almacenamiento.|None|
-|Enrutamiento: mensajes entregados al centro de eventos|d2c.endpoints.egress.<br>eventHubs|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión personalizados de tipo Centro de eventos. Esto no incluye las rutas de mensajes a un punto de conexión integrado (eventos).|None|
-|Enrutamiento: mensajes entregados a la cola de Service Bus|d2c.endpoints.egress.<br>serviceBusQueues|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión de la cola de Service Bus.|None|
-|Enrutamiento: mensajes entregados al tema de Service Bus|d2c.endpoints.egress.<br>serviceBusTopics|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión del tema de Service Bus.|None|
-|Enrutamiento: mensajes entregados a la reserva|d2c.telemetry.egress.<br>fallback|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes al punto de conexión asociado con la ruta de reserva.|None|
-|Enrutamiento: mensajes entregados a mensajes/eventos|d2c.endpoints.egress.<br>builtIn.events|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente al punto de conexión integrado (mensajes/eventos) y a la ruta de reserva.|None|
-|Enrutamiento: mensajes entregados al almacenamiento|d2c.endpoints.egress.<br>storage|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión de almacenamiento.|None|
-|Enrutamiento: mensajes de telemetría entregados|d2c.telemetry.egress.<br>success|Count|Total|Número de veces que los mensajes se han entregado correctamente a todos los puntos de conexión mediante el enrutamiento de IoT Hub. Si un mensaje se enruta a varios puntos de conexión, este valor aumenta en uno por cada entrega correcta. Si un mensaje se enruta al mismo punto de conexión varias veces, este valor aumenta en uno por cada entrega correcta.|None|
-|Enrutamiento: mensajes de telemetría quitados |d2c.telemetry.egress.<br>dropped|Count|Total|Número de veces que se han quitado los mensajes con el enrutamiento de IoT Hub a causa de puntos de conexión inactivos. Este valor no cuenta los mensajes entregados a la ruta de reserva porque los mensajes quitados no se entregan allí.|None|
-|Enrutamiento: mensajes de telemetría incompatibles|d2c.telemetry.egress.<br>no válido|Count|Total|Número de veces que el enrutamiento de IoT Hub no ha podido entregar mensajes debido a una incompatibilidad con el punto de conexión. Un mensaje es incompatible con un punto de conexión cuando IoT Hub intenta entregar el mensaje a un punto de conexión y se produce un error no transitorio. Los mensajes no válidos no se vuelven a intentar. Este valor no incluye los reintentos.|None|
-|Enrutamiento: mensajes de telemetría huérfanos |d2c.telemetry.egress.<br>orphaned|Count|Total|Número de veces que los mensajes eran huérfanos a causa del enrutamiento de IoT Hub porque no coincidían con ninguna consulta de enrutamiento, cuando la ruta de reserva está deshabilitada.|None|
+|Enrutamiento: blobs entregados al almacenamiento|d2c.endpoints.egress.storage.blobs|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado blobs a los puntos de conexión de almacenamiento.|None|
+|Enrutamiento: datos entregados al almacenamiento|d2c.endpoints.egress.storage.bytes|Bytes|Total|Cantidad de datos (bytes) que el enrutamiento de IoT Hub ha entregado a los punto de conexión de almacenamiento.|None|
+|Enrutamiento: latencia de mensajes para el centro de eventos|d2c.endpoints.latency.eventHubs|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes a puntos de conexión personalizados de tipo Centro de eventos. Esto no incluye las rutas de mensajes a un punto de conexión integrado (eventos).|None|
+|Enrutamiento: latencia de mensajes de la cola de Service Bus|d2c.endpoints.latency.serviceBusQueues|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes a un punto de conexión de la cola de Service Bus.|None|
+|Enrutamiento: latencia de mensajes del tema de Service Bus|d2c.endpoints.latency.serviceBusTopics|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes a un punto de conexión del tema de Service Bus.|None|
+|Enrutamiento: latencia de mensajes para mensajes/eventos|d2c.endpoints.latency.builtIn.events|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes al punto de conexión integrado (mensajes/eventos) y a la ruta de reserva.|None|
+|Enrutamiento: latencia de mensajes para almacenamiento|d2c.endpoints.latency.storage|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes a un punto de conexión de almacenamiento.|None|
+|Enrutamiento: mensajes entregados al centro de eventos|d2c.endpoints.egress.eventHubs|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión personalizados de tipo Centro de eventos. Esto no incluye las rutas de mensajes a un punto de conexión integrado (eventos).|None|
+|Enrutamiento: mensajes entregados a la cola de Service Bus|d2c.endpoints.egress.serviceBusQueues|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión de la cola de Service Bus.|None|
+|Enrutamiento: mensajes entregados al tema de Service Bus|d2c.endpoints.egress.serviceBusTopics|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión del tema de Service Bus.|None|
+|Enrutamiento: mensajes entregados a la reserva|d2c.telemetry.egress.fallback|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes al punto de conexión asociado con la ruta de reserva.|None|
+|Enrutamiento: mensajes entregados a mensajes/eventos|d2c.endpoints.egress.builtIn.events|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente al punto de conexión integrado (mensajes/eventos) y a la ruta de reserva.|None|
+|Enrutamiento: mensajes entregados al almacenamiento|d2c.endpoints.egress.storage|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión de almacenamiento.|None|
+|Enrutamiento: mensajes de telemetría entregados|d2c.telemetry.egress.success|Count|Total|Número de veces que los mensajes se han entregado correctamente a todos los puntos de conexión mediante el enrutamiento de IoT Hub. Si un mensaje se enruta a varios puntos de conexión, este valor aumenta en uno por cada entrega correcta. Si un mensaje se enruta al mismo punto de conexión varias veces, este valor aumenta en uno por cada entrega correcta.|None|
+|Enrutamiento: mensajes de telemetría quitados |d2c.telemetry.egress.dropped|Count|Total|Número de veces que se han quitado los mensajes con el enrutamiento de IoT Hub a causa de puntos de conexión inactivos. Este valor no cuenta los mensajes entregados a la ruta de reserva porque los mensajes quitados no se entregan allí.|None|
+|Enrutamiento: mensajes de telemetría incompatibles|d2c.telemetry.egress.invalid|Count|Total|Número de veces que el enrutamiento de IoT Hub no ha podido entregar mensajes debido a una incompatibilidad con el punto de conexión. Un mensaje es incompatible con un punto de conexión cuando IoT Hub intenta entregar el mensaje a un punto de conexión y se produce un error no transitorio. Los mensajes no válidos no se vuelven a intentar. Este valor no incluye los reintentos.|None|
+|Enrutamiento: mensajes de telemetría huérfanos |d2c.telemetry.egress.orphaned|Count|Total|Número de veces que los mensajes eran huérfanos a causa del enrutamiento de IoT Hub porque no coincidían con ninguna consulta de enrutamiento, cuando la ruta de reserva está deshabilitada.|None|
 
 En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
@@ -689,4 +689,4 @@ Puede encontrar una referencia de todas las tablas de registros de Azure Monitor
 ## <a name="see-also"></a>Consulte también
 
 * Consulte [Supervisión de Azure IoT Hub](monitor-iot-hub.md) para ver una descripción de la supervisión de Azure IoT Hub.
-* Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources).
+* Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource).

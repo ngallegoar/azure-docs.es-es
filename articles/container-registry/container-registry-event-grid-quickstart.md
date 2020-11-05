@@ -4,12 +4,12 @@ description: En este tutorial, habilita eventos de Event Grid para el registro d
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3e9e9a7d6016f53225c1b2f31fb8eef91e202c7a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6058fceb873e2b26da2d30dadba456e2a625f3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736866"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074223"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Inicio rápido: Envío de eventos de registro de contenedor privado a Event Grid
 
@@ -19,15 +19,15 @@ Después de completar los pasos descritos en este artículo, los eventos enviado
 
 ![Explorador web que representa la aplicación web de ejemplo con tres eventos recibidos][sample-app-01]
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita][azure-account] antes de empezar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Los comandos de la CLI de Azure que aparecen en este artículo tienen un formato para la shell de **Bash** . Si usa un shell diferente, como PowerShell o el símbolo del sistema, puede que tenga que ajustar los caracteres de continuación de línea o las líneas de asignación de variable según corresponda. En este artículo se usan variables para minimizar la edición de comandos necesaria.
+- Los comandos de la CLI de Azure que aparecen en este artículo tienen un formato para la shell de **Bash**. Si usa un shell diferente, como PowerShell o el símbolo del sistema, puede que tenga que ajustar los caracteres de continuación de línea o las líneas de asignación de variable según corresponda. En este artículo se usan variables para minimizar la edición de comandos necesaria.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. El comando [az group create][az-group-create] siguiente crea un grupo de recursos denominado *myResourceGroup* en la región *eastus* . Si desea usar otro nombre para el grupo de recursos, establezca `RESOURCE_GROUP_NAME` en otro valor.
+Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. El comando [az group create][az-group-create] siguiente crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*. Si desea usar otro nombre para el grupo de recursos, establezca `RESOURCE_GROUP_NAME` en otro valor.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup

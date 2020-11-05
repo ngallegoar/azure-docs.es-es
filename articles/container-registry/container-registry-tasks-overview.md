@@ -3,12 +3,12 @@ title: Introducción a ACR Tasks
 description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488650"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027673"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -23,7 +23,7 @@ Los contenedores proporcionan nuevos niveles de virtualización, que aíslan las
 ACR Tasks admite varios escenarios para compilar y mantener imágenes de contenedor y otros artefactos. Para obtener más información, consulte las siguientes secciones de este artículo.
 
 * **[Tarea rápida](#quick-task)** : compile e inserte una sola imagen de contenedor en un registro de contenedor a petición en Azure, sin tener que realizar una instalación local del motor de Docker. Considere que `docker build`, es `docker push` en la nube.
-* **Tareas desencadenadas automáticamente**: habilite uno o varios *desencadenadores* para compilar una imagen:
+* **Tareas desencadenadas automáticamente** : habilite uno o varios *desencadenadores* para compilar una imagen:
   * **[Desencadenar al actualizar el código fuente](#trigger-task-on-source-code-update)** 
   * **[Desencadenar al actualizar la imagen base](#automate-os-and-framework-patching)** 
   * **[Desencadenar de acuerdo con una programación](#schedule-a-task)** 
@@ -138,10 +138,6 @@ Cuando esté listo para automatizar las compilaciones y el mantenimiento de imá
 Opcionalmente, instale la [extensión de Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) y la extensión de la [cuenta de Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) para trabajar con los registros de contenedor de Azure. Extraiga e inserte imágenes en un registro de contenedor de Azure o ejecute ACR Tasks y, todo ello, en Visual Studio Code.
 
 <!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

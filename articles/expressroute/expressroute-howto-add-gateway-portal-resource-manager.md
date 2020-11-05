@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91761839"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
@@ -60,11 +60,11 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
 
 1. El **nombre** de la subred se rellena automáticamente con el valor "GatewaySubnet". Este valor es necesario para que Azure reconozca que se trata de subred de puerta de enlace. Modifique los valores de **Intervalo de direcciones** rellenados automáticamente para ajustarlos a sus requisitos de configuración. Se recomienda crear una subred de puerta de enlace con un /27 o superior (/ 26, / 25, etc.). A continuación, seleccione **Aceptar** para guardar los valores y crear la subred de puerta de enlace.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Agregue la subred de puerta de enlace":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adición de la subred":::
 
 ## <a name="create-the-virtual-network-gateway"></a>Creación de la puerta de enlace de red virtual
 
-1. En el portal, a la izquierda, seleccione **Crear un recurso** y escriba "Virtual Network Gateway" en la búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y seleccione la entrada. En la página **Puerta de enlace de red virtual** , seleccione **Crear** .
+1. En el portal, a la izquierda, seleccione **Crear un recurso** y escriba "Virtual Network Gateway" en la búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y seleccione la entrada. En la página **Puerta de enlace de red virtual** , seleccione **Crear**.
 1. En la página **Crear puerta de enlace de red virtual** , escriba o seleccione estos valores:
 
     | Parámetro | Value |
@@ -73,21 +73,21 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
     | Grupo de recursos | El grupo de recursos se elegirá automáticamente una vez seleccionada la red virtual. | 
     | Nombre | Asigne un nombre a la puerta de enlace. Esta acción no es igual a la de asignación de un nombre a una subred de puerta de enlace. Este es el nombre del objeto de puerta de enlace que va a crear.|
     | Region | Cambie el campo **Región** para que apunte a la ubicación en la que se encuentra la red virtual. Si la ubicación no apunta a la región en que está la red virtual, esta no aparece en la lista desplegable "Elegir una red virtual". |
-    | Tipo de puerta de enlace | Seleccione **ExpressRoute** .|
+    | Tipo de puerta de enlace | Seleccione **ExpressRoute**.|
     | SKU | seleccione la SKU de puerta de enlace en la lista desplegable. |
-    | Virtual network | Seleccione *TestVNet* . |
-    | Dirección IP pública | Seleccione **Crear nuevo** .|
+    | Virtual network | Seleccione *TestVNet*. |
+    | Dirección IP pública | Seleccione **Crear nuevo**.|
     | Nombre de la dirección IP pública | Proporcione un nombre para la dirección IP pública. |
 
 1. Seleccione **Revisar y crear** y, después, **Crear** para empezar a crear la puerta de enlace. Se valida la configuración y se implementa la puerta de enlace. La creación de una puerta de enlace de red virtual puede tardar en completarse hasta 45 minutos.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Agregue la subred de puerta de enlace":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Campos de la página Crear puerta de enlace de red virtual":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya no necesita la puerta de enlace de ExpressRoute, localice la puerta de enlace en el grupo de recursos de la red virtual y seleccione **Eliminar** . Asegúrese de que la puerta de enlace no tiene ninguna conexión con un circuito.
+Si ya no necesita la puerta de enlace de ExpressRoute, localice la puerta de enlace en el grupo de recursos de la red virtual y seleccione **Eliminar**. Asegúrese de que la puerta de enlace no tiene ninguna conexión con un circuito.
 
-:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Agregue la subred de puerta de enlace":::
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Eliminar puerta de enlace de red virtual":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de crear la puerta de enlace de red virtual, puede vincular la red virtual a un circuito ExpressRoute. 

@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
-ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb12fc909b5165cbc759bbb7c531864cde16bb88
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409670"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096315"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Actualización de la versión del protocolo de conexión de MongoDB de la cuenta de API de Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 En este artículo se describe cómo actualizar la versión del protocolo de conexión de la cuenta de API de Azure Cosmos DB para MongoDB. Después de actualizar la versión del protocolo de conexión, puede usar la funcionalidad más reciente de la API de Azure Cosmos DB para MongoDB. El proceso de actualización no interrumpe la disponibilidad de la cuenta y no consume RU/s ni reduce la capacidad de la base de datos en ningún momento. Este proceso no afectará a los índices o datos existentes.
 
@@ -62,27 +63,27 @@ Tendrá que reemplazar el punto de conexión existente en las aplicaciones y los
 
 2. En las opciones de la izquierda, seleccione la hoja `Features`. Esto revelará las características de nivel de cuenta que están disponibles para la cuenta de base de datos.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure Portal con la información general de la cuenta de MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure Portal con la información general de la cuenta de MongoDB con la hoja Características resaltada" border="false":::
 
 3. Haga clic en la fila `Upgrade to Mongo server version 3.6`. Si no ve esta opción, es posible que la cuenta no sea válida para esta actualización. En ese caso, abra una [incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Azure Portal con la información general de la cuenta de MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Hoja Características con opciones." border="false":::
 
 4. Revise la información que se muestra sobre esta actualización específica. Tenga en cuenta que la actualización solo se completará hasta que las aplicaciones usen el punto de conexión actualizado, como se destaca en esta sección. Haga clic en `Enable` cuando esté listo para iniciar el proceso.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Azure Portal con la información general de la cuenta de MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Instrucciones de actualización ampliadas." border="false":::
 
 5. Después de iniciar el proceso, en el menú `Features` se mostrará el estado de la actualización. El estado pasará de `Pending` a `In Progress` y luego a `Upgraded`. Este proceso no afectará a la funcionalidad u operaciones existentes de la cuenta de base de datos.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Azure Portal con la información general de la cuenta de MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Estado de actualización después del inicio." border="false":::
 
 6. Una vez que se haya completado la actualización, el estado se mostrará como `Upgraded`. Haga clic para obtener más información sobre los pasos y las acciones que debe realizar para finalizar el proceso. Póngase en contacto con el [soporte técnico](https://azure.microsoft.com/en-us/support/create-ticket/) si se produce alguna incidencia al procesar la solicitud.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Azure Portal con la información general de la cuenta de MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Estado de la cuenta actualizada." border="false":::
 
-7. **Para empezar a usar la versión actualizada de la cuenta de base de datos**, vuelva a la hoja `Overview` y copie la nueva cadena de conexión para usarla en la aplicación. Las aplicaciones comenzarán a usar la versión actualizada en cuanto se conecten al nuevo punto de conexión. Las conexiones existentes no se interrumpirán y se pueden actualizar como prefiera. Para garantizar una experiencia coherente, todas las aplicaciones deben usar el nuevo punto de conexión.
+7. **Para empezar a usar la versión actualizada de la cuenta de base de datos** , vuelva a la hoja `Overview` y copie la nueva cadena de conexión para usarla en la aplicación. Las aplicaciones comenzarán a usar la versión actualizada en cuanto se conecten al nuevo punto de conexión. Las conexiones existentes no se interrumpirán y se pueden actualizar como prefiera. Para garantizar una experiencia coherente, todas las aplicaciones deben usar el nuevo punto de conexión.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Azure Portal con la información general de la cuenta de MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Nueva hoja de información general." border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

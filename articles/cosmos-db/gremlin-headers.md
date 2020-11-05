@@ -7,14 +7,16 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00394e60ad1cf86bfd75a86a0b6630505c7d7356
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490584"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100395"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Encabezados de respuesta del servidor Gremlin en Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 En este artículo, se describen los encabezados que el servidor Gremlin de Cosmos DB devuelve al autor de la llamada al ejecutar una solicitud. Estos encabezados son útiles para solucionar problemas de rendimiento de las solicitudes, crear aplicaciones que se integren de forma nativa con el servicio Cosmos DB y simplificar el servicio de soporte al cliente.
 
 Tenga en cuenta que, si depende de estos encabezados, estará limitando la portabilidad de la aplicación a otras implementaciones de Gremlin. A cambio, disfrutará de una integración más estrecha de Gremlin en Cosmos DB. Estos encabezados no son un estándar de TinkerPop.
@@ -43,7 +45,7 @@ A continuación se indican los códigos de estado más comunes devueltos por el 
 | **408** | `"Server timeout"` indica que el recorrido tardó más de **30 segundos** y fue cancelado por el servidor. Optimice los recorridos para que se ejecuten rápidamente filtrando vértices o bordes en cada salto del recorrido para reducir el ámbito de búsqueda.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` Esto suele ocurrir cuando ya existe un vértice o un borde con un identificador en el grafo.| 
 | **412** | El código de estado va acompañado de un mensaje de error `"PreconditionFailedException": One of the specified pre-condition is not met`. Esto error indica una infracción del control de simultaneidad optimista entre la lectura de un borde o vértice y su escritura en el almacén después de realizar una modificación. Por lo general, esto suele producirse cuando se modifica una propiedad; por ejemplo, `g.V('identifier').property('name','value')`. El motor de Gremlin leerá el vértice, lo modificará y lo escribirá de nuevo. Si hay otro recorrido ejecutándose en paralelo y se intenta escribir el mismo vértice o borde, uno de ellos registrará este error. La aplicación deberá ejecutar de nuevo el recorrido en el servidor.| 
-| **429** | La solicitud se limitó y se debe reintentar después del valor especificado en **x-ms-retry-after-ms** .| 
+| **429** | La solicitud se limitó y se debe reintentar después del valor especificado en **x-ms-retry-after-ms**.| 
 | **500** | Un mensaje de error que contiene `"NotFoundException: Entity with the specified id does not exist in the system."` indica que se ha vuelto a crear una base de datos o una colección con el mismo nombre. Este error desaparecerá en 5 minutos a medida que el cambio se propague e invalide las memorias caché en los diferentes componentes de Cosmos DB. Para evitar este problema, use nombres de base de datos y de colección únicos cada vez.| 
 | **1000** | Este código de estado se devuelve cuando el servidor analiza correctamente un mensaje pero no puede ejecutarlo. Normalmente, suelen tratarse de problemas con las consultas.| 
 | **1001** | Este código se devuelve cuando el servidor completa la ejecución transversal pero no puede serializar la respuesta de vuelta al cliente. Este error puede producirse cuando el recorrido genera un resultado complejo que es demasiado grande o no se ajusta a la especificación del protocolo TinkerPop. Si se encuentra con este error, la aplicación debería simplificar el recorrido. | 

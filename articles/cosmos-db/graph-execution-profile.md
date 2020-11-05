@@ -2,21 +2,21 @@
 title: Use el perfil de ejecución para evaluar consultas en la API Gremlin de Azure Cosmos DB
 description: Aprenda a solucionar problemas y mejorar sus consultas de Gremlin con el paso de perfil de ejecución.
 services: cosmos-db
-author: jasonwhowell
-manager: kfile
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
-ms.author: jasonh
-ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.author: chrande
+ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490601"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087492"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Uso del paso de perfil de ejecución para evaluar las consultas de Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 En este artículo se proporciona información general sobre cómo usar el paso de perfil de ejecución para las bases de datos de grafos de Gremlin API de Azure Cosmos DB. Este paso proporciona información importante de solución de problemas y optimizaciones de consultas, y es compatible con cualquier consulta de Gremlin que se puede ejecutar en una cuenta de Gremlin API de Cosmos DB.
 
@@ -220,7 +220,7 @@ Suponga la siguiente respuesta del perfil de ejecución desde un **grafo con par
 
 Se pueden extraer de ella las siguientes conclusiones:
 - La consulta es una búsqueda única de identificador, ya que la instrucción de Gremlin sigue el patrón `g.V('id')`.
-- Por la métrica `time`, la latencia de esta consulta parece ser alta, ya que [una sola operación de lectura de puntos tarda más de 10 ms](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide).
+- Por la métrica `time`, la latencia de esta consulta parece ser alta, ya que [una sola operación de lectura de puntos tarda más de 10 ms](./introduction.md#guaranteed-speed-at-any-scale).
 - Si observamos el objeto `storeOps`, podemos ver que `fanoutFactor` es `5`, lo que significa que esta operación tuvo acceso a [5 particiones](./partitioning-overview.md).
 
 La conclusión de este análisis es que podemos determinar que la primera consulta accede a particiones de las necesarias. Para solucionar esto, se puede especificar la clave de creación de particiones como un predicado. El resultado será una menor latencia y un costo más reducido por consulta. Más información sobre la [creación de particiones de grafos](graph-partitioning.md). Una consulta más óptima sería `g.V('tt0093640').has('partitionKey', 't1001')`.

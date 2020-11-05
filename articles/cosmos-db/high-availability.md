@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0bbb0da0ce39aab9fba843dda99b45ea59881ce2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2fb8b24d5d44ced8f9e363008354acf5bc2fde40
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490550"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081882"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>¿Cómo proporciona Azure Cosmos DB la alta disponibilidad?
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB proporciona la alta disponibilidad de dos maneras principales. En primer lugar, Azure Cosmos DB replica los datos entre las regiones configuradas dentro de una cuenta de Cosmos. En segundo lugar, Azure Cosmos DB mantiene 4 réplicas de datos dentro de una región.
 
@@ -73,7 +74,7 @@ En los infrecuentes casos en que se produce una interrupción regional, Azure Co
 * Una vez que se recupera la región de escritura previamente afectada, se convierte en disponible automáticamente como una región de lectura. Puede volver a la región recuperada como la región de escritura. Puede cambiar las regiones con [PowerShell, la CLI de Azure o Azure Portal](how-to-manage-database-account.md#manual-failover). No se produce **ninguna pérdida de datos ni de disponibilidad** antes, durante ni después de cambiar la región de escritura, y la aplicación sigue siendo de alta disponibilidad.
 
 > [!IMPORTANT]
-> Se recomienda encarecidamente configurar las cuentas de Azure Cosmos usadas para que las cargas de trabajo de producción **habiliten la conmutación por error automática** . La conmutación por error manual requiere conectividad entre las regiones de escritura secundaria y primaria para completar una comprobación de coherencia a fin de garantizar que no haya pérdida de datos durante la conmutación por error. Si la región primaria no está disponible, no se puede completar esta comprobación de coherencia y la conmutación por error manual no se realizará correctamente, lo que provocará la pérdida de disponibilidad de escritura durante toda la interrupción regional.
+> Se recomienda encarecidamente configurar las cuentas de Azure Cosmos usadas para que las cargas de trabajo de producción **habiliten la conmutación por error automática**. La conmutación por error manual requiere conectividad entre las regiones de escritura secundaria y primaria para completar una comprobación de coherencia a fin de garantizar que no haya pérdida de datos durante la conmutación por error. Si la región primaria no está disponible, no se puede completar esta comprobación de coherencia y la conmutación por error manual no se realizará correctamente, lo que provocará la pérdida de disponibilidad de escritura durante toda la interrupción regional.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Cuentas de varias regiones con una sola región de escritura (interrupción de la región de lectura)
 
@@ -89,7 +90,7 @@ En los infrecuentes casos en que se produce una interrupción regional, Azure Co
 
 * Las siguientes lecturas se redirigen a la región recuperada sin necesidad de realizar cambios en el código de la aplicación. Durante la conmutación por error y cuando se vuelva a unir una región previamente errónea, Azure Cosmos DB seguirá cumpliendo las garantías de coherencia de lectura.
 
-* Incluso en un caso poco frecuente y desafortunado en que la región de Azure sea irrecuperable de forma permanente, no se produce pérdida de datos si se configura la cuenta de Azure Cosmos de varias regiones con coherencia *fuerte* . En el caso de una región de escritura irrecuperable de forma permanente, una cuenta de Azure Cosmos de varias regiones configurada con coherencia de obsolescencia limitada, la posible ventana de pérdida de datos se restringe a la ventana de obsolescencia ( *K* o *T* ) donde K = 100 000 actualizaciones y T = 5 minutos. En cuanto a los niveles de posible coherencia y prefijo coherente por sesión, el período de pérdida potencial de datos se restringe a un máximo de 15 minutos. Para obtener más información sobre los objetivos de RPO y RTO de Azure Cosmos DB, consulte [Durabilidad de datos y los niveles de coherencia](./consistency-levels.md#rto).
+* Incluso en un caso poco frecuente y desafortunado en que la región de Azure sea irrecuperable de forma permanente, no se produce pérdida de datos si se configura la cuenta de Azure Cosmos de varias regiones con coherencia *fuerte*. En el caso de una región de escritura irrecuperable de forma permanente, una cuenta de Azure Cosmos de varias regiones configurada con coherencia de obsolescencia limitada, la posible ventana de pérdida de datos se restringe a la ventana de obsolescencia ( *K* o *T* ) donde K = 100 000 actualizaciones y T = 5 minutos. En cuanto a los niveles de posible coherencia y prefijo coherente por sesión, el período de pérdida potencial de datos se restringe a un máximo de 15 minutos. Para obtener más información sobre los objetivos de RPO y RTO de Azure Cosmos DB, consulte [Durabilidad de datos y los niveles de coherencia](./consistency-levels.md#rto).
 
 ## <a name="availability-zone-support"></a>Compatibilidad de zonas de disponibilidad
 
@@ -101,7 +102,7 @@ La redundancia de zona es una *funcionalidad complementaria* de la característi
 
 Al configurar las escrituras en varias regiones para la cuenta de Azure Cosmos, puede optar por recibir la redundancia de zona sin ningún costo adicional. En caso contrario, consulte la nota siguiente sobre los precios de la compatibilidad de la redundancia de zona. Puede habilitar la redundancia de zona en una región existente de su cuenta de Azure Cosmos si quita la región y la vuelve a agregar con la redundancia de zona habilitada.
 
-Esta característica está disponible en: regiones del *Sur de Reino Unido, Sudeste Asiático, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de Europa, Oeste de EE. UU. 2, Este de Japón, Norte de Europa, Centro de Francia, Este de Australia y Este de EE. UU. 2 EUAP* .
+Esta característica está disponible en: regiones del *Sur de Reino Unido, Sudeste Asiático, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de Europa, Oeste de EE. UU. 2, Este de Japón, Norte de Europa, Centro de Francia, Este de Australia y Este de EE. UU. 2 EUAP*.
 
 En la tabla siguiente se resume la funcionalidad de alta disponibilidad de varias configuraciones de cuenta:
 

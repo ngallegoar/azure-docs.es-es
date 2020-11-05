@@ -3,21 +3,22 @@ title: Búsqueda de ubicaciones con los servicios Search de Azure Maps
 description: Obtenga información sobre el servicio Search de Azure Maps. Vea cómo usar este conjunto de API para la geocodificación, la geocodificación inversa, las búsquedas parciales y las búsquedas de calles transversales.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/21/2020
+ms.date: 10/05/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9628ecada2e427f6220ae2a5154cebb8e4958bd0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 00ddb53276c052d538d658f2c40384e86cf72aee
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895705"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910991"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Búsqueda de ubicaciones con los servicios Search de Azure Maps
 
 El [servicio Search de Azure Maps](/rest/api/maps/search) es un conjunto de API RESTful diseñadas para que los desarrolladores busquen direcciones, lugares y listados de empresas por nombre y categoría u otra información geográfica. Además de permitir la geocodificación tradicional, los servicios pueden realizar también la geocodificación inversa de direcciones y calles transversales en función de la longitud y la latitud. Los valores de latitud y longitud devueltos por la búsqueda se pueden usar como parámetros en otros servicios de Azure Maps, como los servicios de [ruta](/rest/api/maps/route) y [tiempo](/rest/api/maps/weather).
+
 
 En este artículo, aprenderá a:
 
@@ -35,7 +36,7 @@ En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero
 
 ## <a name="request-latitude-and-longitude-for-an-address-geocoding"></a>Solicitud de la latitud y longitud de una dirección (geocodificación)
 
-En este ejemplo, usaremos [Get Search Address API](/rest/api/maps/search/getsearchaddress) de Azure Maps para convertir una dirección en coordenadas de latitud y longitud. Este proceso también se denomina *geocodificación* . Además de devolver las coordenadas, la respuesta también devolverá propiedades de dirección detalladas como la calle, el código postal, el municipio y la información de país o región.
+En este ejemplo, usaremos [Get Search Address API](/rest/api/maps/search/getsearchaddress) de Azure Maps para convertir una dirección en coordenadas de latitud y longitud. Este proceso también se denomina *geocodificación*. Además de devolver las coordenadas, la respuesta también devolverá propiedades de dirección detalladas como la calle, el código postal, el municipio y la información de país o región.
 
 >[!TIP]
 >Si tiene un conjunto de direcciones para la geocodificación, puede usar [Post Search Address Batch API](/rest/api/maps/search/postsearchaddressbatch) para enviar un lote de consultas en una única llamada API.
@@ -44,23 +45,21 @@ En este ejemplo, usaremos [Get Search Address API](/rest/api/maps/search/getsear
 
 2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior y haga clic en **Save** (Guardar).
 
-3. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. En esta solicitud, estamos buscando una dirección específica: `400 Braod St, Seattle, WA 98109`.
-
-    Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+3. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. En esta solicitud, estamos buscando una dirección específica: `400 Braod St, Seattle, WA 98109`. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
     ```
 
-4. Haga clic en el botón azul **Enviar** . El cuerpo de la respuesta contendrá datos para una sola ubicación.
+4. Haga clic en el botón azul **Enviar**. El cuerpo de la respuesta contendrá datos para una sola ubicación.
 
-5. Ahora buscaremos una dirección que tenga más de una posible ubicación. En la sección **Params** (Parámetros), cambie la clave `query` a `400 Broad, Seattle`. Haga clic en el botón azul **Enviar** .
+5. Ahora buscaremos una dirección que tenga más de una posible ubicación. En la sección **Params** (Parámetros), cambie la clave `query` a `400 Broad, Seattle`. Haga clic en el botón azul **Enviar**.
 
     :::image type="content" source="./media/how-to-search-for-address/search-address.png" alt-text="Búsqueda de dirección":::
 
 6. Luego, intente establecer la clave `query` en `400 Broa`.
 
-7. Haga clic en el botón **Enviar** .  Ahora puede ver que la respuesta incluye respuestas de varios países. Para sesgar geográficamente los resultados al área pertinente para el usuario, agregue siempre a la solicitud tantos detalles como sea posible.
+7. Haga clic en el botón **Enviar**. Ahora puede ver que la respuesta incluye respuestas de varios países. Para sesgar geográficamente los resultados al área pertinente para el usuario, agregue siempre a la solicitud tantos detalles como sea posible.
 
 ## <a name="using-fuzzy-search-api"></a>Uso de Fuzzy Search API
 
@@ -78,7 +77,7 @@ En este ejemplo, usaremos la búsqueda aproximada para buscar `pizza` en todo el
 
 1. Abra la aplicación Postman, haga clic en **New** (Nuevo) y seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en la sección anterior o cree una nueva y, a continuación, seleccione **Save** (Guardar).
 
-2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```http
    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza
@@ -95,7 +94,7 @@ En este ejemplo, usaremos la búsqueda aproximada para buscar `pizza` en todo el
 
 4. El comportamiento predeterminado es buscar en todo el mundo, lo que puede devolver resultados innecesarios. A continuación, buscaremos pizza solo en los Estados Unidos. Agregue la clave `countrySet` a la sección **Params** (Parámetros) y establezca su valor en `US`. Al establecer la clave `countrySet` en `US`, los resultados se enlazarán a los Estados Unidos.
 
-    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Búsqueda de dirección":::
+    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Búsqueda de pizza en los Estados Unidos":::
 
     Ahora los resultados están limitados por el código de país y la consulta devuelve pizzerías de los Estados Unidos.
 
@@ -110,7 +109,7 @@ En este ejemplo, usaremos la búsqueda aproximada para buscar `pizza` en todo el
     | radio | 400 |
     | limit | 5|
 
-6. Haga clic en **Enviar** . La respuesta incluye los resultados de restaurantes de pizza cerca de la Space Needle de Seattle.
+6. Haga clic en **Enviar**. La respuesta incluye los resultados de restaurantes de pizza cerca de la Space Needle de Seattle.
 
 ## <a name="search-for-a-street-address-using-reverse-address-search"></a>Buscar una dirección mediante la búsqueda de direcciones inversa
 
@@ -143,15 +142,15 @@ En este ejemplo vamos a realizar búsquedas inversas con algunos de los parámet
     | returnRoadUse | true | Devuelve los tipos de uso de carretera en la dirección. Para ver todos los tipos de uso de carretera posibles, consulte la sección [Tipos de uso de carretera](/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
     | returnMatchType | true| Devuelve el tipo de coincidencia. Para ver todos los valores posibles, consulte la sección [Resultados de la búsqueda de direcciones inversa](/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult).
 
-   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Búsqueda de dirección":::
+   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Búsqueda inversa.":::
 
 5. Haga clic en **Enviar** y revise el cuerpo de la respuesta.
 
 6. A continuación, agregaremos la clave `entityType` y estableceremos su valor en `Municipality`. La clave `entityType` reemplazará la clave `returnMatchType` del paso anterior. También tendremos que quitar `returnSpeedLimit` y `returnRoadUse`, puesto que estamos solicitando información sobre el municipio.  Para ver todos los tipos de entidad posibles, consulte [Tipos de entidad](/rest/api/maps/search/getsearchaddressreverse#entitytype).
 
-    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Búsqueda de dirección":::
+    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Tipo de entidad de búsqueda inversa.":::
 
-7. Haga clic en **Enviar** . Compare los resultados con los resultados devueltos en el paso 5.  Como el tipo de entidad solicitado ahora es `municipality`, la respuesta no incluye información de dirección postal. Además, el valor de `geometryId` devuelto se puede usar para solicitar un límite poligonal a través de Get [Search Polygon API](/rest/api/maps/search/getsearchpolygon) de Azure Maps.
+7. Haga clic en **Enviar**. Compare los resultados con los resultados devueltos en el paso 5.  Como el tipo de entidad solicitado ahora es `municipality`, la respuesta no incluye información de dirección postal. Además, el valor de `geometryId` devuelto se puede usar para solicitar un límite poligonal a través de Get [Search Polygon API](/rest/api/maps/search/getsearchpolygon) de Azure Maps.
 
 >[!TIP]
 >Para más información sobre estos parámetros, así como aprender sobre otros, consulte la sección [Parámetros de búsqueda inversa](/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
@@ -168,7 +167,7 @@ En este ejemplo, buscaremos una calle transversal en función de las coordenadas
    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
-    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Búsqueda de dirección":::
+    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Búsqueda de calle transversal.":::
   
 3. Haga clic en **Enviar** y revise el cuerpo de la respuesta. Verá que la respuesta contiene un valor `crossStreet` de `Occidental Avenue South`.
 

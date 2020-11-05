@@ -8,14 +8,15 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7aace0b1ee6963aa220a60a11d02c370bf4d822a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2b74198f83ef972540038269d83048bfd1adda62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476559"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073900"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configuración de una canalización de CI/CD con la tarea de compilación del emulador de Azure Cosmos DB en Azure DevOps
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 El emulador de Azure Cosmos DB proporciona un entorno local que emula el servicio Azure Cosmos DB con fines de desarrollo. Dicho emulador permite desarrollar y probar aplicaciones localmente sin necesidad de crear una suscripción a Azure ni incurrir en gastos. 
 
@@ -34,7 +35,7 @@ A continuación, elija la organización en la que desea instalar la extensión.
 > [!NOTE]
 > Para instalar una extensión en una organización de Azure DevOps, es preciso ser propietario de una cuenta o administrador de una colección de proyectos. Si no tiene permisos, pero es miembro de una cuenta, puede solicitar extensiones en su lugar. [Más información.](/azure/devops/marketplace/faq-extensions?preserve-view=true&view=vsts)
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Busque e instale la tarea de compilación del emulador de Azure Cosmos DB en el Marketplace de Azure DevOps":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Elija la organización de Azure DevOps en la que instalar una extensión":::
 
 ## <a name="create-a-build-definition"></a>Creación de una definición de compilación
 
@@ -42,13 +43,13 @@ Ahora que la extensión está instalada, inicie sesión en la organización de A
 
 1. Para crear una definición de compilación, vaya a la pestaña **Compilaciones** de Azure DevOps. Seleccione **+Nuevo.** \> **Nueva canalización de compilación**
 
-   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Busque e instale la tarea de compilación del emulador de Azure Cosmos DB en el Marketplace de Azure DevOps":::
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Crear una canalización de compilación":::
 
-2. Seleccione el elemento **origen** que desee, el **Proyecto de equipo** , el **Repositorio** y la **Rama predeterminada para compilaciones manuales y programadas** . Después de elegir las opciones necesarias, seleccione **Continuar** .
+2. Seleccione el elemento **origen** que desee, el **Proyecto de equipo** , el **Repositorio** y la **Rama predeterminada para compilaciones manuales y programadas**. Después de elegir las opciones necesarias, seleccione **Continuar**.
 
-   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Busque e instale la tarea de compilación del emulador de Azure Cosmos DB en el Marketplace de Azure DevOps":::
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Seleccionar el proyecto de equipo, el repositorio y la rama de la canalización de compilación":::
 
-3. Por último, seleccione la plantilla que desee para la canalización de compilación. En este tutorial se seleccionará la plantilla **ASP.NET** . Ya hay una canalización de compilación que se puede configurar para usar la tarea de compilación del emulador de Azure Cosmos DB. 
+3. Por último, seleccione la plantilla que desee para la canalización de compilación. En este tutorial se seleccionará la plantilla **ASP.NET**. Ya hay una canalización de compilación que se puede configurar para usar la tarea de compilación del emulador de Azure Cosmos DB. 
 
 > [!NOTE]
 > El grupo de agentes que se va a seleccionar para la CI debe tener instalado Docker para Windows, a menos que la instalación se haga manualmente en una tarea anterior como parte de la CI. Consulte el artículo sobre los [agentes hospedados de Microsoft](/azure/devops/pipelines/agents/hosted?preserve-view=true&tabs=yaml&view=azure-devops) para ver una selección de los grupos de agentes. Se recomienda empezar con `Hosted VS2017`.
@@ -62,11 +63,11 @@ Start-CosmosDbEmulator
 
 ## <a name="add-the-task-to-a-build-pipeline"></a><a name="addEmulatorBuildTaskToBuildDefinition"></a>Incorporación de la tarea a una canalización de compilación
 
-1. Antes de agregar una tarea a la canalización de compilación, debe agregar un trabajo de agente. Vaya a la canalización de compilación, seleccione **...** y elija **Agregar un trabajo de agente** .
+1. Antes de agregar una tarea a la canalización de compilación, debe agregar un trabajo de agente. Vaya a la canalización de compilación, seleccione **...** y elija **Agregar un trabajo de agente**.
 
 1. A continuación, seleccione el símbolo **+** junto el trabajo de agente para agregar la tarea de compilación del emulador. Busque **cosmos** en el cuadro de búsqueda, seleccione el **Emulador de Azure Cosmos DB** y agréguelo al trabajo de agente. La tarea de compilación iniciará un contenedor con una instancia del emulador de Cosmos DB que ya se ejecuta en él. La tarea de emulador de Azure Cosmos DB debe colocarse antes de cualquier otra tarea que espere que el emulador esté en estado de ejecución.
 
-   :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="Busque e instale la tarea de compilación del emulador de Azure Cosmos DB en el Marketplace de Azure DevOps":::
+   :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="Incorporar la tarea de compilación del emulador a la definición de compilación":::
 
 En este tutorial se agregará la tarea al principio para garantizar que el emulador está disponible antes de que se ejecuten las pruebas.
 
@@ -92,9 +93,9 @@ Este paso es opcional y solo es necesario si está configurando la canalización
 
 Ahora, se van a configurar las pruebas para usar el emulador. La tarea de compilación del emulador exporta una variable de entorno, 'CosmosDbEmulator.Endpoint', a la que las tareas posteriores de la canalización de compilación pueden realizar solicitudes. 
 
-En este tutorial, se va a usar la tarea [Visual Studio Test](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para ejecutar pruebas unitarias configuradas mediante un archivo **.runsettings** . Para más información acerca de la configuración de pruebas unitarias, visite la [documentación](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017). El ejemplo de código de aplicación de lista de tareas completo que usa en este documento está disponible en [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app).
+En este tutorial, se va a usar la tarea [Visual Studio Test](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para ejecutar pruebas unitarias configuradas mediante un archivo **.runsettings**. Para más información acerca de la configuración de pruebas unitarias, visite la [documentación](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017). El ejemplo de código de aplicación de lista de tareas completo que usa en este documento está disponible en [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app).
 
-A continuación encontrará un ejemplo de un archivo **.runsettings** que define los parámetros que se van a pasan a las pruebas unitarias de una aplicación. Tenga en cuenta que la variable `authKey` que se usa es la [clave conocida](./local-emulator.md#authenticate-requests) del emulador. `authKey` es la clave que espera la tarea de compilación del emulador y debe estar definida en el archivo **.runsettings** .
+A continuación encontrará un ejemplo de un archivo **.runsettings** que define los parámetros que se van a pasan a las pruebas unitarias de una aplicación. Tenga en cuenta que la variable `authKey` que se usa es la [clave conocida](./local-emulator.md#authenticate-requests) del emulador. `authKey` es la clave que espera la tarea de compilación del emulador y debe estar definida en el archivo **.runsettings**.
 
 ```csharp
 <RunSettings>
@@ -157,23 +158,23 @@ namespace todo.Tests
 }
 ```
 
-Vaya a las opciones de ejecución de la tarea Visual Studio Test. En la opción **Archivo de configuración** , especifique que las pruebas se configuran mediante el archivo **.runsettings** . En la opción **Reemplazar parámetros de serie de pruebas** , agregue `-endpoint $(CosmosDbEmulator.Endpoint)`. Al hacerlo, configurará la tarea para hacer referencia al punto de conexión de la tarea de compilación del emulador, en lugar de al definido en el archivo **.runsettings** .  
+Vaya a las opciones de ejecución de la tarea Visual Studio Test. En la opción **Archivo de configuración** , especifique que las pruebas se configuran mediante el archivo **.runsettings**. En la opción **Reemplazar parámetros de serie de pruebas** , agregue `-endpoint $(CosmosDbEmulator.Endpoint)`. Al hacerlo, configurará la tarea para hacer referencia al punto de conexión de la tarea de compilación del emulador, en lugar de al definido en el archivo **.runsettings**.  
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Busque e instale la tarea de compilación del emulador de Azure Cosmos DB en el Marketplace de Azure DevOps":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Reemplazar la variable del punto de conexión por el punto de conexión de la tarea de compilación del emulador":::
 
 ## <a name="run-the-build"></a>Ejecute la compilación
 
 Ahora, seleccione **Guardar y poner en cola** la compilación. 
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="Busque e instale la tarea de compilación del emulador de Azure Cosmos DB en el Marketplace de Azure DevOps":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="Captura de pantalla que muestra una compilación con la opción de &quot;Guardar y poner en cola&quot; seleccionada.":::
 
 Una vez que se ha iniciado la compilación, observe que la tarea del emulador de Cosmos DB ha comenzado a extraer la imagen de Docker con el emulador instalado. 
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="Busque e instale la tarea de compilación del emulador de Azure Cosmos DB en el Marketplace de Azure DevOps":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="Captura de pantalla que muestra la tarea del emulador de Cosmos DB que se va a extraer.":::
 
 Cuando se complete la compilación, observe que pasa las pruebas; todas ellas se ejecutan en el emulador de Cosmos DB desde la tarea de compilación.
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Busque e instale la tarea de compilación del emulador de Azure Cosmos DB en el Marketplace de Azure DevOps":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Captura de pantalla que muestra el valor de progresión en la pestaña de resumen.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

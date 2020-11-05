@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 6b8b145c919a1f4e2ea9129a032da69bd30e6b71
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 63b633ed67c03a006a154bc69a1aafb4cb4aa6d0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283301"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086285"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-cassandra-api-resources"></a>Aprovisionamiento el rendimiento de la base de datos, el contenedor o la escalabilidad automática en los recursos de Cassandra API de Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 En este artículo se explica cómo aprovisionar el rendimiento de Cassandra API de Azure Cosmos DB. Puede aprovisionar el rendimiento estándar (manual) o de escalabilidad automática de un contenedor, o de una base de datos y compartirlo entre los contenedores incluidos en ella. Para aprovisionar el rendimiento, use Azure Portal, la CLI de Azure o los SDK de Azure Cosmos DB.
 
@@ -27,13 +28,13 @@ Si usa una API diferente, consulte los artículos [API de SQL](how-to-provision-
 
 1. [Cree una cuenta de Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) o seleccione una ya existente.
 
-1. Abra el panel **Data Explorer** y seleccione **Nueva tabla** . Después, proporcione los detalles siguientes:
+1. Abra el panel **Data Explorer** y seleccione **Nueva tabla**. Después, proporcione los detalles siguientes:
 
    * Indique si va a crear un nuevo espacio de claves o a usar uno existente. Seleccione la opción **Aprovisionamiento del rendimiento de la base de datos** si desea aprovisionar el rendimiento en el nivel de base de datos.
    * Escriba el identificador de tabla en el comando CQL.
    * Escriba un valor de clave principal (por ejemplo, `/userrID`).
    * Escriba un rendimiento que quiera aprovisionar (por ejemplo, 1000 RU).
-   * Seleccione **Aceptar** .
+   * Seleccione **Aceptar**.
 
     :::image type="content" source="./media/how-to-provision-throughput-cassandra/provision-table-throughput-portal-cassandra-api.png" alt-text="Captura de pantalla del Explorador de datos al crear una nueva recopilación con el rendimiento de nivel de base de datos":::
 

@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 6b1e2d6e9d5d06410596a40f16869d7c1a0f094e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7d880183ac5f920bbed1a85d7660db6a8f21462
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490703"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078482"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Búsqueda del cargo de la unidad de solicitud en las operaciones que se ejecutan en la API de Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB admite varias API, como SQL, MongoDB, Cassandra, Gremlin y Table. Cada API tiene su propio conjunto de operaciones de base de datos. Estas abarcan desde sencillas lecturas y escrituras de punto hasta consultas complejas. Cada operación de base de datos consume recursos del sistema en función de la complejidad de la operación.
 
@@ -33,9 +34,9 @@ El cargo de RU se expone mediante un [comando de base de datos](https://docs.mon
 
 1. Vaya al panel **Data Explorer** y seleccione el contenedor en el que quiere trabajar.
 
-1. Seleccione **Nueva consulta** .
+1. Seleccione **Nueva consulta**.
 
-1. Escriba una consulta válida y, luego, seleccione **Ejecutar consulta** .
+1. Escriba una consulta válida y, luego, seleccione **Ejecutar consulta**.
 
 1. Seleccione **Query Stats** (Estadísticas de consulta) para mostrar el cargo de solicitud real correspondiente a la solicitud que ha ejecutado.
 

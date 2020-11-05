@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743903"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092813"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Auditoría de operaciones de plano de control de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 El plano de control en Azure Cosmos DB es un servicio RESTful que le permite realizar un conjunto diverso de operaciones en la cuenta de Azure Cosmos. Expone un modelo de recursos público (por ejemplo: base de datos, cuenta) y varias operaciones a los usuarios finales para realizar acciones en el modelo de recursos. Las operaciones del plano de control incluyen cambios en la cuenta o el contenedor de Azure Cosmos. Por ejemplo, las operaciones como crear una cuenta de Azure Cosmos, agregar una región, actualizar el rendimiento, conmutar por error regiones o agregar una red virtual son algunas de las operaciones del plano de control. En este artículo se explica cómo auditar las operaciones de plano de control en Azure Cosmos DB. Puede ejecutar las operaciones del plano de control en las cuentas de Azure Cosmos mediante la CLI de Azure, PowerShell o Azure Portal, mientras que, para los contenedores, use la CLI de Azure o PowerShell.
 
@@ -69,17 +70,17 @@ Después de activar el registro, siga estos pasos para realizar un seguimiento d
 
 Las capturas de pantalla siguientes capturan registros cuando se cambia un nivel de coherencia para una cuenta de Azure Cosmos:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Habilitación del registro de solicitudes del plano de control":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Registros del plano de control cuando se agrega una red virtual":::
 
 Las capturas de pantalla siguientes capturan los registros cuando se crea el espacio de claves o una tabla de una cuenta de Cassandra, y cuando se actualiza el rendimiento. Los registros del plano de control para las operaciones de creación y actualización en la base de datos y en el contenedor se registran por separado, tal como se muestra en la siguiente captura de pantalla:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Habilitación del registro de solicitudes del plano de control":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Registros de plano de control cuando se actualiza el rendimiento":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identificar la identidad asociada con una operación específica
 
 Si quiere depurar más, puedes identificar una operación específica en el **Registro de actividad** mediante el identificador de actividad o la marca de tiempo de la operación. La marca de tiempo se usa para algunos clientes de Resource Manager cuando el identificador de actividad no se pasa explícitamente. El registro de actividad proporciona detalles sobre la identidad con la que se inició la operación. En la captura de pantalla siguiente se muestra cómo usar el identificador de la actividad y buscar las operaciones asociadas con él en el registro de actividad:
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Habilitación del registro de solicitudes del plano de control":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Uso del identificador de actividad y búsqueda de las operaciones":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Operaciones del plano de control para la cuenta de Azure Cosmos
 
@@ -170,29 +171,29 @@ La propiedad *ResourceDetails* contiene el cuerpo del recurso completo como una 
 A continuación se muestran algunos ejemplos para obtener registros de diagnóstico de las operaciones del plano de control:
 
 ```kusto
-AzureDiagnostics 
-| where Category startswith "ControlPlane"
+AzureDiagnostics 
+| where Category startswith "ControlPlane"
 | where OperationName contains "Update"
-| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
 | where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
-| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 Realice una consulta para obtener el parámetro activityId y el autor de la llamada que inició la operación de eliminación del contenedor:

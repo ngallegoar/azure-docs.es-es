@@ -7,14 +7,15 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 278603887fe7d47b4be52b04f9f0864be1a1b75b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3a1bb36910b09d24c3328c8fc8ae94e1e3321642
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482254"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080709"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planeamiento y administración de los costos de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 En este artículo se describe cómo puede planear y administrar los costos de Azure Cosmos DB:
 
@@ -66,12 +67,12 @@ Una vez que haya calculado el número total de unidades de solicitud y los GB de
 Al comenzar a usar los recursos de Azure Cosmos DB desde Azure Portal, puede ver los costos estimados. Siga estos pasos para revisar la estimación de costos:
 
 1. Inicie sesión en Azure Portal y vaya a la cuenta de Azure Cosmos.
-1. Vaya a la sección de **información general** .
+1. Vaya a la sección de **información general**.
 1. Compruebe el gráfico de **costos** en la parte inferior. En este gráfico se muestra una estimación del costo actual durante un período de tiempo configurable:
 1. Cree un nuevo contenedor; por ejemplo, un contenedor de gráficos.
 1. Especifique el rendimiento necesario para la carga de trabajo; por ejemplo, 400 RU/s. Después de especificar el valor del rendimiento, puede ver la estimación de precios, tal como se muestra en la siguiente captura de pantalla:
 
-   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Estimación de costos en la calculadora de capacidad de Azure Cosmos DB":::
+   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Estimación de costos en Azure Portal":::
 
 ## <a name="use-budgets-and-cost-alerts"></a>Uso de presupuestos y alertas de costos
 
@@ -87,13 +88,13 @@ Al usar el análisis de costos, puede ver los costos de Azure Cosmos DB en grá
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-1. Abra la ventana **Administración de costos y facturación** , seleccione **Administración de costos** en el menú y, a continuación, seleccione **Análisis de costos** . A continuación, puede cambiar el ámbito a una suscripción específica en la lista desplegable **Ámbito** .
+1. Abra la ventana **Administración de costos y facturación** , seleccione **Administración de costos** en el menú y, a continuación, seleccione **Análisis de costos**. A continuación, puede cambiar el ámbito a una suscripción específica en la lista desplegable **Ámbito**.
 
 1. De forma predeterminada, el costo de todos los servicios se muestra en el primer gráfico de anillos. Seleccione el área del gráfico con la etiqueta "Azure Cosmos DB".
 
-1. Para restringir los costos de un único servicio, como Azure Cosmos DB, seleccione **Agregar filtro** y, a continuación, seleccione **Nombre del servicio** . A continuación, elija **Azure Cosmos DB** en la lista. Este es un ejemplo que muestra solo los costos de Azure Cosmos DB:
+1. Para restringir los costos de un único servicio, como Azure Cosmos DB, seleccione **Agregar filtro** y, a continuación, seleccione **Nombre del servicio**. A continuación, elija **Azure Cosmos DB** en la lista. Este es un ejemplo que muestra solo los costos de Azure Cosmos DB:
  
-   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Estimación de costos en la calculadora de capacidad de Azure Cosmos DB":::
+   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Supervisión de costos con el panel Análisis de costos":::
 
 En el ejemplo anterior, hemos visto el costo actual de Azure Cosmos DB del mes de febrero. Los gráficos también contienen los costos de Azure Cosmos DB por ubicación y por grupo de recursos.
 

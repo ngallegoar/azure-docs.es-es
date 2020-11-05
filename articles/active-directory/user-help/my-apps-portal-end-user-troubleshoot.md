@@ -12,16 +12,16 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c148e673b8ada549a6543f8f35634aaf29abff0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798013"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123955"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solución de problemas relacionados con el portal Mis aplicaciones
 
-Si tiene problemas de inicio de sesión o de uso en el portal **Mis aplicaciones**, pruebe estas sugerencias de solución de problemas antes de pedir ayuda al soporte técnico o al administrador.
+Si tiene problemas de inicio de sesión o de uso en el portal **Mis aplicaciones** , pruebe estas sugerencias de solución de problemas antes de pedir ayuda al soporte técnico o al administrador.
 
 ## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Tengo problemas para instalar la Extensión de inicio de sesión seguro de mis aplicaciones
 
@@ -45,7 +45,7 @@ Si tiene problemas para instalar la Extensión de inicio de sesión seguro de mi
 
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>No puedo iniciar sesión en el portal **Mis aplicaciones**
 
-Si tiene problemas para iniciar sesión en el portal **Mis aplicaciones**, puede intentar el siguiente procedimiento:
+Si tiene problemas para iniciar sesión en el portal **Mis aplicaciones** , puede intentar el siguiente procedimiento:
 
 - Asegúrese de que está utilizando la dirección URL correcta. Debe ser https://myapps.microsoft.com o una página personalizada para su organización, como https://myapps.microsoft.com/contoso.com.
 
@@ -67,7 +67,7 @@ Para poder restablecer su contraseña, el administrador debe activar primero la 
 
 ## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>Obtengo un mensaje de acceso denegado al iniciar una aplicación
 
-Si recibe un mensaje de **acceso denegado** mensaje después de iniciar una aplicación desde el portal **Mis aplicaciones**, puede intentar realizar el siguiente procedimiento:
+Si recibe un mensaje de **acceso denegado** mensaje después de iniciar una aplicación desde el portal **Mis aplicaciones** , puede intentar realizar el siguiente procedimiento:
 
 - Asegúrese de que ha instalado la [Extensión de inicio de sesión seguro de Mis aplicaciones](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) y que esté usando un [explorador compatible](my-apps-portal-end-user-access.md#supported-browsers).
 
@@ -83,11 +83,11 @@ Si después de probar todo esto no puede acceder a la aplicación, debe ponerse 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de iniciar sesión en el portal **Mis aplicaciones**, también puede actualizar su perfil e información de cuenta, la información del grupo y la información de revisión de acceso (si tiene permiso).
+Después de iniciar sesión en el portal **Mis aplicaciones** , también puede actualizar su perfil e información de cuenta, la información del grupo y la información de revisión de acceso (si tiene permiso).
 
 - [Acceder y usar las aplicaciones del portal Aplicaciones](my-apps-portal-end-user-access.md).
 
-- [Modificación de información de perfil](my-apps-portal-end-user-update-profile.md).
+- [Modificación de información de perfil](./my-account-portal-settings.md).
 
 - [Ver y actualizar la información relacionada con grupos](my-apps-portal-end-user-groups.md).
 

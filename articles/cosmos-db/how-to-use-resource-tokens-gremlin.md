@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df25ab4b0f5593ab21336d002ad2f9f10795bdcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570565"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085741"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Uso de tokens de recursos de Azure Cosmos DB con el SDK de Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 En este artículo se explica cómo usar los [tokens de recursos de Azure Cosmos DB](secure-access-to-data.md) para acceder a la base de datos de grafos mediante el SDK de Gremlin.
 
@@ -25,11 +26,11 @@ El SDK de Apache TinkerPop no tiene una API para crear tokens de recursos. El t�
 
 La jerarquía del modelo de objetos sobre los tokens de recursos se muestra en el esquema siguiente:
 
-- **Cuenta de Azure Cosmos DB**: entidad de nivel superior con DNS asociado con él (por ejemplo, `contoso.gremlin.cosmos.azure.com`)
+- **Cuenta de Azure Cosmos DB** : entidad de nivel superior con DNS asociado con él (por ejemplo, `contoso.gremlin.cosmos.azure.com`)
   - **Base de datos de Azure Cosmos DB**
     - **User**
       - **Permiso**
-        - **Token**: una propiedad del objeto Permission que denota las acciones se permiten o se deniegan
+        - **Token** : una propiedad del objeto Permission que denota las acciones se permiten o se deniegan
 
 Un token de recursos utiliza el formato siguiente: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Esta cadena es opaca para los clientes y debe usarse tal cual, sin modificación ni interpretación.
 

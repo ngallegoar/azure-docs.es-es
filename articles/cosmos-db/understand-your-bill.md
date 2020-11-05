@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476406"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073832"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Como servicio de bases de datos nativo de la nube totalmente administrado, Azure Cosmos DB simplifica la facturación al cobrar solo las operaciones de la base de datos y el almacenamiento consumido. No existen tarifas de licencia adicionales, costos de hardware, de utilidades ni de instalaciones en comparación con las alternativas locales u hospedadas en IaaS. Al considerar las funcionalidades de varias regiones de Azure Cosmos DB, el servicio de base de datos proporciona una considerable reducción de costos en comparación con soluciones locales o IaaS.
 
@@ -102,7 +103,7 @@ Si aumenta el rendimiento aprovisionado para un contenedor o un conjunto de cont
 
 * En un mes de 720 horas, si para 300 horas el rendimiento aprovisionado fue de 120 000 RU/s y para las 420 horas restantes el rendimiento aprovisionado fue de 155 000 RU/s, la factura del mes indicaría: 300 x 9,60 USD/hora + 420 x 12,40 USD/hora = 2,880 USD + 5,208 USD/mes = 8,088 USD/mes. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Ejemplo de factura de rendimiento dedicado":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Ejemplo de factura de rendimiento compartido":::
 
 ## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Ejemplos de facturación con replicación geográfica y escrituras en varias regiones  
 
@@ -192,7 +193,7 @@ Piense en el ejemplo siguiente, donde se tiene una cuenta de Azure Cosmos de var
 
 Los cambios en el rendimiento aprovisionado total durante las 720 horas del mes se muestran visualmente en la ilustración siguiente: 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Ejemplo de factura de rendimiento dedicado":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Ejemplo de la vida real":::
 
 La factura mensual total (suponiendo 30 días o 720 horas en un mes) se calculará como sigue:
 

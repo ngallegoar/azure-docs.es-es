@@ -3,12 +3,12 @@ title: 'Visualización de registros de ejecución de tareas: Tasks'
 description: Cómo ver y administrar registros de ejecución generados por ACR Tasks.
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871939"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027183"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Visualización de registros de ejecución de tareas
 
@@ -65,14 +65,14 @@ Si una tarea se desencadena automáticamente, por ejemplo, mediante una actualiz
 Para ver registros de ejecución en el portal:
 
 1. Vaya al registro de contenedor.
-1. En **Servicios**, seleccione **Tareas** > **Ejecuciones**.
+1. En **Servicios** , seleccione **Tareas** > **Ejecuciones**.
 1. Seleccione un **Identificador de ejecución** para ver el estado de la ejecución y los registros de ejecución. El registro contiene la misma información que un registro transmitido, si se genera uno.
 
 ![Portal de inicio de sesión para visualización de ejecución de tareas](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
 Para ver un registro mediante la CLI de Azure, ejecute [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) y especifique un identificador de ejecución, un nombre de tarea o una imagen específica creada por una tarea de compilación. Si se especifica un nombre de tarea, el comando muestra el registro de la última ejecución creada.
 
-En el ejemplo siguiente se genera el registro de la ejecución con el identificador *cf4*:
+En el ejemplo siguiente se genera el registro de la ejecución con el identificador *cf4* :
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
@@ -94,18 +94,10 @@ az acr task logs --registry mycontainerregistry1220 \
 
 También puede guardar archivos de registro locales en Azure Storage. Por ejemplo, use la [CLI de Azure](../storage/blobs/storage-quickstart-blobs-cli.md), [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) u otros métodos para cargar archivos en una cuenta de almacenamiento.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información acerca de [Azure Container Registry Tasks](container-registry-tasks-overview.md).
 
-<!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
-[sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

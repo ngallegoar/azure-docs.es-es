@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: jasonh
-ms.openlocfilehash: 6733e0f6447d055da8d349940bc7c7665e003e33
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3b0c291f942cd970f7996f0b9fa599ee8cabfdab
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475607"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096451"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Pasos de optimización posteriores a la migración cuando se usa la API de Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Después de migrar los datos almacenados en la base de datos de MongoDB a la API de Azure Cosmos DB para MongoDB, puede conectarse a Azure Cosmos DB y administrar los datos. En esta guía se proporcionan los pasos que se deben tener en cuenta después de la migración. Para seguir los pasos de migración, consulte [Tutorial de migración de MongoDB a la API de Azure Cosmos DB para MongoDB](../dms/tutorial-mongodb-cosmos-db.md).
 
@@ -33,7 +34,7 @@ En esta guía, aprenderá a:
 
 1. En una nueva ventana, inicie sesión en [Azure Portal](https://www.portal.azure.com/).
 2. En [Azure Portal](https://www.portal.azure.com/), en el panel izquierdo abra el menú **Todos los recursos** y busque la cuenta de Azure Cosmos DB a la que se han migrado los datos.
-3. Abra la hoja **Cadena de conexión** . El panel derecho contiene toda la información que necesita para conectarse correctamente a la cuenta.
+3. Abra la hoja **Cadena de conexión**. El panel derecho contiene toda la información que necesita para conectarse correctamente a la cuenta.
 4. Use la información de conexión en la configuración de la aplicación (o en otros lugares pertinentes) para reflejar la API de Azure Cosmos DB para la conexión de MongoDB en la aplicación.
 :::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Captura de pantalla que muestra la configuración de una cadena de conexión.":::
 
@@ -55,7 +56,7 @@ Para distribuir globalmente los datos, consulte [Distribución de datos de forma
 
 Azure Cosmos DB ofrece 5 [niveles de coherencia](consistency-levels.md) bien definidos. Para obtener más información sobre la asignación entre MongoDB y los niveles de coherencia de Azure Cosmos DB, consulte [Niveles de coherencia y API de Cosmos DB](./consistency-levels.md). El nivel de coherencia predeterminado es el de la sesión. Cambiar el nivel de coherencia es opcional y se puede optimizar para la aplicación. Para cambiar el nivel de coherencia mediante Azure Portal:
 
-1. En Configuración, vaya a la hoja **Coherencia predeterminada** .
+1. En Configuración, vaya a la hoja **Coherencia predeterminada**.
 2. Seleccione el [nivel de coherencia](consistency-levels.md).
 
 La mayoría de usuarios dejan el nivel de coherencia en el valor predeterminado de coherencia de la sesión. Sin embargo, hay [compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia](./consistency-levels.md).

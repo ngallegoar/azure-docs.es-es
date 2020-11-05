@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 8/6/2020
-ms.openlocfilehash: 4c6d1d3877629150493ee2a57a04573760d2772a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a130345a755644874b4547a5906101b593664a6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870024"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123479"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos
 
@@ -42,7 +42,7 @@ En el tutorial de detección de fraudes en tiempo real, la salida se envía a Az
 3. Seleccione **+ Agregar** > **Power BI**. A continuación, rellene el formulario con los detalles siguientes y seleccione **Autorizar** para usar su propia identidad de usuario para conectarse a Power BI (el token es válido durante 90 días). 
 
 >[!NOTE]
->Para trabajos de producción, le recomendamos que se conecte a [Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
+>Para trabajos de producción, le recomendamos que se conecte a [Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI](./powerbi-output-managed-identity.md).
 
    |**Configuración**  |**Valor sugerido**  |
    |---------|---------|
@@ -57,18 +57,18 @@ En el tutorial de detección de fraudes en tiempo real, la salida se envía a Az
    > Se recomienda no crear explícitamente este conjunto de datos y la tabla en la cuenta de Power BI. Se crearán automáticamente cuando inicie el trabajo de Stream Analytics y este empiece a enviar salida a Power BI. Si la consulta de trabajo no genera ningún resultado, el conjunto de datos y la tabla no se crean.
    >
 
-4. Después de seleccionar **Autorizar**, se abre una ventana emergente y se le pide que escriba las credenciales para autenticarse en su cuenta de Power BI. Una vez que la autorización se realice correctamente, **guarde** la configuración.
+4. Después de seleccionar **Autorizar** , se abre una ventana emergente y se le pide que escriba las credenciales para autenticarse en su cuenta de Power BI. Una vez que la autorización se realice correctamente, **guarde** la configuración.
 
 8. Haga clic en **Crear**.
 
 El conjunto de datos se crea con la siguiente configuración:
 
-* **defaultRetentionPolicy: BasicFIFO**: los datos son FIFO y el máximo de filas son 200 000 filas.
-* **defaultMode: pushStreaming**: el conjunto de datos admite iconos de streaming y objetos visuales tradicionales basados en informes (lo que también se conoce como inserción).
+* **defaultRetentionPolicy: BasicFIFO** : los datos son FIFO y el máximo de filas son 200 000 filas.
+* **defaultMode: pushStreaming** : el conjunto de datos admite iconos de streaming y objetos visuales tradicionales basados en informes (lo que también se conoce como inserción).
 
 Actualmente, no se pueden crear conjuntos de datos con otras marcas.
 
-Para más información sobre conjuntos de datos de Power BI, consulte la referencia de la [API de REST de Power BI](https://msdn.microsoft.com/library/mt203562.aspx).
+Para más información sobre conjuntos de datos de Power BI, consulte la referencia de la [API de REST de Power BI](/rest/api/power-bi/).
 
 
 ## <a name="write-the-query"></a>Escritura de la consulta
@@ -102,7 +102,7 @@ Para más información sobre conjuntos de datos de Power BI, consulte la referen
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Haga clic en **Save**(Guardar).
+4. Haga clic en **Save** (Guardar).
 
 
 ## <a name="test-the-query"></a>Prueba de la consulta
@@ -148,7 +148,7 @@ El trabajo de Stream Analytics empieza a buscar llamadas fraudulentas en el fluj
 
     ![Creación de un panel y asignación de un nombre en el área de trabajo de Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
 
-4. En la parte superior de la ventana, haga clic en **Agregar icono**, seleccione **DATOS DE TRANSMISIÓN PERSONALIZADOS** y luego haga clic en **Siguiente**.
+4. En la parte superior de la ventana, haga clic en **Agregar icono** , seleccione **DATOS DE TRANSMISIÓN PERSONALIZADOS** y luego haga clic en **Siguiente**.
 
     ![Icono de conjunto de datos de streaming personalizado en Power BI](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
@@ -156,7 +156,7 @@ El trabajo de Stream Analytics empieza a buscar llamadas fraudulentas en el fluj
 
     ![Conjunto de datos de streaming en Power BI](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
-6. En **Tipo de visualización**, seleccione **Tarjeta** y luego, en la lista **Campos**, seleccione **fraudulentcalls**.
+6. En **Tipo de visualización** , seleccione **Tarjeta** y luego, en la lista **Campos** , seleccione **fraudulentcalls**.
 
     ![Detalles de visualización del nuevo icono](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
@@ -174,14 +174,14 @@ El trabajo de Stream Analytics empieza a buscar llamadas fraudulentas en el fluj
 
 8. Siga de nuevo los pasos para agregar un icono (a partir del paso 4). Esta vez, haga lo siguiente:
 
-    * Cuando obtenga el **Tipo de visualización**, seleccione **Gráfico de líneas**. 
+    * Cuando obtenga el **Tipo de visualización** , seleccione **Gráfico de líneas**. 
     * Agregue un eje y seleccione **windowend**. 
     * Agregue un valor y seleccione **fraudulentcalls**.
-    * En **Período de tiempo para mostrar**, seleccione los últimos 10 minutos.
+    * En **Período de tiempo para mostrar** , seleccione los últimos 10 minutos.
 
       ![Creación de un icono de gráfico de líneas en Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
-9. Haga clic en **Siguiente**, agregue el título y el subtítulo y haga clic en **Aplicar**.
+9. Haga clic en **Siguiente** , agregue el título y el subtítulo y haga clic en **Aplicar**.
 
      El panel de Power BI le ofrece ahora dos vistas de datos sobre las llamadas fraudulentas detectadas en los datos de streaming.
 
@@ -231,6 +231,6 @@ Después de que la autorización se haya actualizado con Power BI, se mostrará 
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Salidas de Stream Analytics](stream-analytics-define-outputs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-* [Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referencia de API de REST de administración de Azure Stream Analytics](/rest/api/streamanalytics/)
+* [Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI](./powerbi-output-managed-identity.md)

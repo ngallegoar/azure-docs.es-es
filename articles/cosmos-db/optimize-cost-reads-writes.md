@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 58b57bd592ec0b302724f9339c0e0d48fed42d15
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3f4c33a88d9a8fbf2c3d64135d93da54cf75fab3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281188"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097517"
 ---
 # <a name="optimize-request-cost-in-azure-cosmos-db"></a>Optimización del costo de las solicitudes en Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 En este artículo se describe cómo se traducen las solicitudes de lectura y escritura en [unidades de solicitud](request-units.md) y cómo optimizar el costo de estas solicitudes. Las operaciones de lectura incluyen lecturas y consultas puntuales. Las operaciones de escritura incluyen la inserción, el reemplazo, la eliminación y la inserción de elementos.
 

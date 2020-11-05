@@ -12,18 +12,18 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: fbea4ef39b970f667c5dddec52f56a428d401f65
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8da9e97aaa2c6d99990df4221d8b6e99ab18ac83
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277462"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124819"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Realización de una revisión de acceso desde el portal Aplicaciones
 
 Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para realizar revisiones de acceso para sus aplicaciones y grupos. Las revisiones de acceso le ayudan a administrar el acceso obsoleto o a cambiar los requisitos de acceso y a asegurarse de que se revisan y actualizan.
 
-Si no tiene acceso al portal **Aplicaciones**, póngase en contacto con su departamento de soporte técnico para obtener permiso.
+Si no tiene acceso al portal **Aplicaciones** , póngase en contacto con su departamento de soporte técnico para obtener permiso.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -43,7 +43,7 @@ Si el administrador le ha dado permiso para realizar sus propias revisiones de a
 
 2. Abra el explorador web y vaya a https://myapps.microsoft.com o use el vínculo proporcionado por su organización. Por ejemplo, quizá se le redirija a una página personalizada para la organización, como https://myapps.microsoft.com/contoso.com.
 
-    Aparecerá la página **Aplicaciones**, que muestra todas las aplicaciones basadas en la nube disponibles para su uso y propiedad de su organización.
+    Aparecerá la página **Aplicaciones** , que muestra todas las aplicaciones basadas en la nube disponibles para su uso y propiedad de su organización.
 
     ![Página de aplicaciones en el portal Mis aplicaciones](media/my-apps-portal/my-apps-home.png)
 
@@ -62,7 +62,7 @@ Si el administrador le ha dado permiso para realizar sus propias revisiones de a
 
 6. Seleccione **Sí** para mantener el acceso o **No** para quitarlo.
 
-    Si selecciona **Sí**, es posible que necesite especificar una justificación en el cuadro **Motivo**.
+    Si selecciona **Sí** , es posible que necesite especificar una justificación en el cuadro **Motivo**.
 
     ![Página Revisión de acceso que se muestra el cuadro Motivo con texto de ejemplo](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
@@ -76,5 +76,5 @@ Si el administrador le ha dado permiso para realizar sus propias revisiones de a
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Acceder y usar las aplicaciones del portal Aplicaciones](my-apps-portal-end-user-access.md)
-- [Cambiar la información de perfil](my-apps-portal-end-user-update-profile.md)
+- [Cambiar la información de perfil](./my-account-portal-settings.md)
 - [Ver y actualizar la información relacionada con grupos](my-apps-portal-end-user-groups.md)

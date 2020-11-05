@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5af62cd8c110e38ffd2a72ef2441a8e548e1ece
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 92bd3ff925080def4b2f074d07e662dfdbdbee01
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475488"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080857"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimización de los costos de almacenamiento de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB ofrece almacenamiento y rendimiento ilimitados. A diferencia del rendimiento, que tiene que aprovisionar o configurar en los contenedores o bases de datos de Azure Cosmos, el almacenamiento se factura en base al consumo. Solo se le cobrará por el almacenamiento lógico que consume y no tiene que reservar ningún almacenamiento por adelantado. El almacenamiento se escala vertical y horizontalmente de manera automática en función de los datos que se agregan o eliminan en un contenedor de Azure Cosmos.
 

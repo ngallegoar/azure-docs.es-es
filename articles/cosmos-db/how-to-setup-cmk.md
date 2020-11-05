@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: f3a5106fcc7f1b55db22ee13ced34328cc38096d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 21bb594f4e374d41cfc4184f3a72aea1717c85d8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486215"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086149"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos con Azure Key Vault
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Los datos almacenados en su cuenta de Azure Cosmos se cifran de forma automática y sin problemas con claves administradas por Microsoft ( **claves administradas por el servicio** ). También puede optar por agregar una segunda capa de cifrado con las claves administradas ( **claves administradas por el cliente** ).
 
@@ -28,19 +29,21 @@ Debe almacenar las claves administradas por el cliente en [Azure Key Vault](../
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/), vaya a la suscripción de Azure y seleccione **Proveedores de recursos** en la pestaña **Configuración** :
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Entrada Proveedores de recursos en el menú izquierdo":::
 
-1. Busque el proveedor de recursos **Microsoft.DocumentDB** . Compruebe si el proveedor de recursos ya está marcado como registrado. Si no es así, elija el proveedor de recursos y seleccione **Registrar** :
+1. Busque el proveedor de recursos **Microsoft.DocumentDB**. Compruebe si el proveedor de recursos ya está marcado como registrado. Si no es así, elija el proveedor de recursos y seleccione **Registrar** :
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Registro del proveedor de recursos Microsoft.DocumentDB":::
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Configuración de la instancia de Azure Key Vault
 
-El uso de claves administradas por el cliente con Azure Cosmos DB requiere que establezca dos propiedades en la instancia de Azure Key Vault que planea usar para hospedar las claves de cifrado: **Eliminación temporal** y **Protección de purga** .
+El uso de claves administradas por el cliente con Azure Cosmos DB requiere que establezca dos propiedades en la instancia de Azure Key Vault que planea usar para hospedar las claves de cifrado: **Eliminación temporal** y **Protección de purga**.
 
 Si crea una nueva instancia de Azure Key Vault, habilite estas propiedades durante la creación:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="Capas de cifrado en torno a los datos de clientes" en cualquiera de los siguientes artículos:
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="Habilitación de la eliminación temporal y la protección de purga para una nueva instancia de Azure Key Vault":::
+
+Si usa una instancia de Azure Key Vault existente y desea verificar si estas propiedades estén habilitadas, puede consultar la sección **Propiedades** en Azure Portal. Si alguna de estas propiedades no está habilitada, consulte las secciones "Habilitar la eliminación temporal" y "Habilitación de la protección de purgas" en cualquiera de los siguientes artículos:
 
 - [Uso de la eliminación temporal con PowerShell](../key-vault/general/soft-delete-powershell.md)
 - [Uso de la eliminación temporal con la CLI de Azure](../key-vault/general/soft-delete-cli.md)
@@ -49,17 +52,17 @@ Si crea una nueva instancia de Azure Key Vault, habilite estas propiedades duran
 
 1. En Azure Portal, vaya a la instancia de Azure Key Vault que planea usar para hospedar las claves de cifrado. Seleccione **Directivas de acceso** en el menú izquierdo:
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Directivas de acceso en el menú izquierdo":::
 
-1. Seleccione **+ Agregar directiva de acceso** .
+1. Seleccione **+ Agregar directiva de acceso**.
 
 1. En el menú desplegable **Permisos de claves** , seleccione los permisos **Obtener** , **Desencapsular clave** y **Encapsular clave** :
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Selección de los permisos correctos":::
 
-1. En **Seleccionar entidad de seguridad** , seleccione **Ninguna seleccionada** . A continuación, busque la entidad de seguridad de **Azure Cosmos DB** y selecciónela (para que sea más fácil de encontrar, también puede buscar por el identificador de la entidad de seguridad: `a232010e-820c-4083-83bb-3ace5fc29d0b` en cualquier región de Azure, excepto en las regiones de Azure Government donde el identificador de la entidad de seguridad es `57506a73-e302-42a9-b869-6f12d9ec29e9`). Por último, elija **Seleccionar** en la parte inferior. Si la entidad de seguridad **Azure Cosmos DB** no está en la lista, es posible que tenga que volver a registrar el proveedor de recursos **Microsoft.DocumentDB** como se describe en la sección [Registro del proveedor de recursos](#register-resource-provider) de este artículo.
+1. En **Seleccionar entidad de seguridad** , seleccione **Ninguna seleccionada**. A continuación, busque la entidad de seguridad de **Azure Cosmos DB** y selecciónela (para que sea más fácil de encontrar, también puede buscar por el identificador de la entidad de seguridad: `a232010e-820c-4083-83bb-3ace5fc29d0b` en cualquier región de Azure, excepto en las regiones de Azure Government donde el identificador de la entidad de seguridad es `57506a73-e302-42a9-b869-6f12d9ec29e9`). Por último, elija **Seleccionar** en la parte inferior. Si la entidad de seguridad **Azure Cosmos DB** no está en la lista, es posible que tenga que volver a registrar el proveedor de recursos **Microsoft.DocumentDB** como se describe en la sección [Registro del proveedor de recursos](#register-resource-provider) de este artículo.
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Selección de la entidad de seguridad de Azure Cosmos DB":::
 
 1. Seleccione **Agregar** para agregar la nueva directiva de acceso.
 
@@ -69,31 +72,31 @@ Si crea una nueva instancia de Azure Key Vault, habilite estas propiedades duran
 
 1. En Azure Portal, vaya a la instancia de Azure Key Vault que planea usar para hospedar las claves de cifrado. A continuación, seleccione **Claves** en el menú izquierdo:
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Entrada Claves en el menú izquierdo":::
 
 1. Seleccione **Generar/Importar** , proporcione un nombre para la nueva clave y seleccione un tamaño de clave RSA. Para mejorar la seguridad, se recomienda un mínimo de 3072. A continuación, seleccione **Crear** :
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="Creación de una nueva clave":::
 
 1. Una vez creada la clave, seleccione la clave que se acaba de crear y, a continuación, su versión actual.
 
 1. Copie el **Identificador de clave** de la clave, excepto la parte que se encuentra después de la última barra diagonal:
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Copia del identificador de clave de la clave":::
 
 ## <a name="create-a-new-azure-cosmos-account"></a>Creación de una cuenta de Azure Cosmos
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
-Al crear una nueva cuenta de Azure Cosmos DB desde Azure Portal, elija **Clave administrada por el cliente** en el paso **Cifrado** . En el campo **URI de clave** , pegue el URI o identificador de clave de la clave de Azure Key Vault que copió del paso anterior:
+Al crear una nueva cuenta de Azure Cosmos DB desde Azure Portal, elija **Clave administrada por el cliente** en el paso **Cifrado**. En el campo **URI de clave** , pegue el URI o identificador de clave de la clave de Azure Key Vault que copió del paso anterior:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-cosmos-enc.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-cosmos-enc.png" alt-text="Configuración de los parámetros de CMK en Azure Portal":::
 
 ### <a name="using-azure-powershell"></a><a id="using-powershell"></a> Con Azure PowerShell
 
 Al crear una nueva cuenta de Azure Cosmos DB mediante PowerShell:
 
-- Pase el identificador URI de la clave de Azure Key Vault que copió anteriormente de la propiedad **keyVaultKeyUri** en **PropertyObject** .
+- Pase el identificador URI de la clave de Azure Key Vault que copió anteriormente de la propiedad **keyVaultKeyUri** en **PropertyObject**.
 
 - Use **2019-12-12** o posterior como versión de la API.
 
@@ -133,7 +136,7 @@ Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
 
 Al crear una nueva cuenta de Azure Cosmos con una plantilla de Azure Resource Manager:
 
-- Pase el URI de la clave de Azure Key Vault que copió anteriormente en la propiedad **keyVaultKeyUri** en el objeto **properties** .
+- Pase el URI de la clave de Azure Key Vault que copió anteriormente en la propiedad **keyVaultKeyUri** en el objeto **properties**.
 
 - Use **2019-12-12** o posterior como versión de la API.
 
@@ -226,15 +229,15 @@ La rotación de la clave administrada por el cliente que usa la cuenta de Azure�
 
 - Cree una nueva versión de la clave que se usa actualmente en Azure Key Vault:
 
-  :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+  :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Creación de una nueva versión de la clave":::
 
 - Intercambie la clave que se usa en este momento con una totalmente diferente mediante la actualización del URI de la clave en la cuenta. En Azure Portal, vaya a su cuenta de Azure Cosmos y seleccione **Cifrado de datos** en el menú de la izquierda:
 
-    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Entrada de menú de cifrado de datos":::
 
     A continuación, reemplace el **URI de clave** por la nueva clave que desee usar y seleccione **Guardar** :
 
-    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Actualización del URI de la clave":::
 
     Aquí se muestra cómo lograr el mismo resultado en PowerShell:
 
@@ -297,7 +300,7 @@ Actualmente, no. Sin embargo, se está analizando la posibilidad de incluir clav
 
 En Azure Portal, vaya a su cuenta de Azure Cosmos y observe la entrada de **Cifrado de datos** del menú de la izquierda. Si esta entrada existe, las claves administradas por el cliente estarán habilitadas en su cuenta:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Entrada de menú de cifrado de datos":::
 
 También puede recuperar los detalles de la cuenta de Azure Cosmos mediante programación y buscar la presencia de la propiedad `keyVaultKeyUri`. Consulte anteriormente para conocer formas de hacerlo [en PowerShell](#using-powershell) y [mediante la CLI de Azure](#using-azure-cli).
 
@@ -309,11 +312,11 @@ Azure Cosmos DB realiza [copias de seguridad periódicas y automáticas](./onlin
 
 Para revocar una clave, se debe deshabilitar la versión más reciente de la clave:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev2.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev2.png" alt-text="Deshabilitación de la versión de una clave":::
 
 Como alternativa, para revocar todas las claves de una instancia de Azure Key Vault, puede eliminar la directiva de acceso concedida a la entidad de seguridad de Azure Cosmos DB:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev.png" alt-text="Eliminación de la directiva de acceso para la entidad de seguridad de Azure Cosmos DB":::
 
 ### <a name="what-operations-are-available-after-a-customer-managed-key-is-revoked"></a>¿Qué operaciones hay disponibles después de la revocación de una clave administrada por el cliente?
 

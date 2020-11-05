@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: 657f3cf204411bd51541437f05ff13a3f9b929c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e096de5eea9bf5bbd47b976976192e62eb6aa33e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263048"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096418"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Uso de Robo 3T con la API de Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Para conectar a una cuenta de Cosmos con Robo 3T, debe:
 
@@ -33,18 +34,18 @@ Para agregar la cuenta de Cosmos DB al administrador de conexiones de Robo 3T,
     :::image type="content" source="./media/mongodb-robomongo/connectionstringblade.png" alt-text="Captura de pantalla de la hoja de cadena de conexión":::
 2. Ejecute la aplicación *Robomongo*.
 
-3. Haga clic en el botón de conexión, que está bajo **File** (Archivo), para administrar las conexiones. Después, haga clic en la opción **Create** (Create) de la ventana **MongoDB Connections**; se abrirá **Connection Settings** (Configuración de conexiones).
+3. Haga clic en el botón de conexión, que está bajo **File** (Archivo), para administrar las conexiones. Después, haga clic en la opción **Create** (Create) de la ventana **MongoDB Connections** ; se abrirá **Connection Settings** (Configuración de conexiones).
 
 4. En la ventana **Connection Settings** (Configuración de conexiones), elija un nombre. Después, busque el **host** y **puerto** en la información de conexión del paso 1 y escríbalos en **Address** (Dirección) y **Port** (Puerto) respectivamente.
 
-    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Captura de pantalla de la hoja de cadena de conexión":::
-5. En la pestaña **Authentication** (Autenticación), haga clic en **Perform authentication** (Realizar autenticación). Después, escriba la base de datos (el valor predeterminado es *Admin*), el **nombre de usuario** y la **contraseña**.
+    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Captura de pantalla de la funcionalidad de administración de conexiones de Robomongo":::
+5. En la pestaña **Authentication** (Autenticación), haga clic en **Perform authentication** (Realizar autenticación). Después, escriba la base de datos (el valor predeterminado es *Admin* ), el **nombre de usuario** y la **contraseña**.
 Tanto el **nombre de usuario** como la **contraseña** están en la información de conexión del paso 1.
 
-    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Captura de pantalla de la hoja de cadena de conexión":::
-6. En la pestaña **SSL**, marque **Use SSL protocol** (Usar protocolo SSL) y, luego, cambie el **método de autenticación** a **Self-signed Certificate** (Certificado autofirmado).
+    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Captura de pantalla de la pestaña de autenticación de Robomongo":::
+6. En la pestaña **SSL** , marque **Use SSL protocol** (Usar protocolo SSL) y, luego, cambie el **método de autenticación** a **Self-signed Certificate** (Certificado autofirmado).
 
-    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Captura de pantalla de la hoja de cadena de conexión":::
+    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Captura de pantalla de la pestaña SSL de Robomongo":::
 7. Por último, haga clic en **Test** (Probar) para comprobar que puede conectarse. Después, seleccione **Save** (Guardar).
 
 ## <a name="next-steps"></a>Pasos siguientes

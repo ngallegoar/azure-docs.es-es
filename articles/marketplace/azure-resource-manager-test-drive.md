@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1af2793bc32c1f3cdbdcd016562b761e05427073
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735617"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125145"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
 Use este tipo si tiene una oferta en Azure Marketplace o AppSource, pero quiere crear una versión de prueba solo con recursos de Azure. Una plantilla de Azure Resource Manager (ARM) consiste en un contenedor codificado de recursos de Azure que el usuario diseña para que represente mejor su solución. La versión de prueba utiliza la plantilla de ARM proporcionada e implementa todos los recursos necesarios en un grupo de recursos. Es la única opción de versión de prueba para las ofertas de máquina virtual o de aplicación de Azure.
 
-Si no está familiarizado con el concepto de plantilla de ARM, lea [¿Qué es Azure Resource Manager?](../azure-resource-manager/resource-group-overview.md) y [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para comprender mejor cómo compilar y probar sus propias plantillas.
+Si no está familiarizado con el concepto de plantilla de ARM, lea [¿Qué es Azure Resource Manager?](../azure-resource-manager/management/overview.md) y [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) para comprender mejor cómo compilar y probar sus propias plantillas.
 
 Para obtener información sobre una versión de prueba **hospedada** o de **aplicación lógica** , vea [¿Qué es una versión de prueba?](what-is-test-drive.md)
 
@@ -34,7 +34,7 @@ Una plantilla de implementación contiene todos los recursos de Azure que compon
 
   - **Inactiva** : Este tipo de instancia representa el número total de instancias que se pueden implementar por región. Las instancias inactivas requieren que se implemente toda la plantilla de la versión de prueba de Resource Manager en el momento en que el cliente solicita la versión de prueba, por lo que las instancias *inactivas* tardan mucho más tiempo en cargarse que las *activas*. A cambio solo tiene que pagar por la duración de la versión de prueba, *no* se ejecuta de forma ininterrumpida en su suscripción de Azure como las instancias *activas*.
 
-- **Versión de prueba de la plantilla de Azure Resource Manager** : Cargue el archivo. zip que contiene la plantilla de Azure Resource Manager. Para más información acerca de cómo crear una plantilla de Azure Resource Manager, consulte el artículo del tutorial de inicio rápido [Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+- **Versión de prueba de la plantilla de Azure Resource Manager** : Cargue el archivo. zip que contiene la plantilla de Azure Resource Manager. Para más información acerca de cómo crear una plantilla de Azure Resource Manager, consulte el artículo del tutorial de inicio rápido [Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
     > Para publicar correctamente, es importante validar el formato de la plantilla de Resource Manager. Dos maneras de hacerlo son (1) mediante una [herramienta de API en línea](https://docs.microsoft.com/rest/api/resources/deployments/validate) o (2) con una [implementación de pruebas](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
