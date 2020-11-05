@@ -13,7 +13,7 @@
       href: quickstart-powershell.md
 - name: Tutoriales
   items:
-    - name: Creación y firma una directiva de atestación
+    - name: Creación de una directiva de atestación
       href: author-sign-policy.md
     - name: Ejemplos de código de atestación de SGX
       href: /samples/browse/?expanded=azure&terms=attestation
@@ -47,5 +47,7 @@
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Biblioteca de Azure DCAP para Linux
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
+    - name: Solución de problemas
+      href: troubleshoot-guide.md
     - name: Protocolo de atestación de VBS
       href: virtualization-based-security-protocol.md

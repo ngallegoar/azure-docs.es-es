@@ -223,7 +223,8 @@
         - name: Configuración de Azure defender para SQL en máquinas virtuales de Azure
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc'
-        - name: Personalización de la directiva de protección de la información
+        - name: Personalización de la directiva de protección de la información de SQL
+          displayName: 'sql, database, data discovery'
           href: security-center-info-protection-policy.md
     - name: Uso de Azure Defender para registros de contenedor
       items:
