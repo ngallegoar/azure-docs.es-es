@@ -3,18 +3,21 @@ title: RTRIM en el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información acerca de la función del sistema de SQL RTRIM en Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b740d14315f6d9ba2f1788c56d6b1fcd8945c83e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0765269fb085c8d4fd8485790772a91c9f2e6373
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302090"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341542"
 ---
 # <a name="rtrim-azure-cosmos-db"></a>RTRIM (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devuelve una expresión de cadena después de quitar los espacios en blanco finales.  
   
 ## <a name="syntax"></a>Sintaxis

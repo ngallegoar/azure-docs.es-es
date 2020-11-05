@@ -4,17 +4,19 @@ description: Aprenda a definir y usar claves únicas para una base de datos de A
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: dac2ed3888dcf1d38fc5e2c21611edf8008a07f6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c3c42146ba93115e257924c23dc34785c8258533
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476372"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340461"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restricciones de clave únicas de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Las claves únicas agregan una capa de integridad de datos a un contenedor de Azure Cosmos. Cree una directiva de clave única cuando cree un contenedor de Azure Cosmos. Con las claves únicas, se garantiza que uno o varios valores dentro de una partición lógica son únicos. También puede garantizar la exclusividad por [clave de partición](partitioning-overview.md).
 

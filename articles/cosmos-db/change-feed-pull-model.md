@@ -4,18 +4,20 @@ description: Obtenga información sobre cómo usar el modelo de extracción de l
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa0586ab2a0ff21e3187bba070dd4be7ef325288
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b3f7a8fbe2afcf9b5603f288fe6e3bc429b14532
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784684"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340201"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Modelo de extracción de la fuente de cambios de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Con el modelo de extracción de fuente de cambios, puede consumir la fuente de cambios de Azure Cosmos DB a su propio ritmo. Al igual que con el [procesador de fuente de cambios](change-feed-processor.md), puede usar el modelo de extracción de la fuente de cambios para ejecutar en paralelo el procesamiento de los cambios en varios consumidores de fuentes de cambios.
 

@@ -3,17 +3,19 @@ title: Preguntas más frecuentes acerca de Table API en Azure Cosmos DB
 description: Obtenga respuestas a las preguntas más frecuentes sobre Table API para Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c5404c026385f9ebf06c4f0289a4db0bf944d172
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485008"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341247"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Preguntas más frecuentes acerca de Table API en Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Table API de Azure Cosmos DB está disponible en [Azure Portal](https://portal.azure.com). Antes, debe registrarse para obtener una suscripción de Azure. Una vez registrado, puede agregar una cuenta de Table API de Azure Cosmos DB a la suscripción de Azure y luego agregar tablas a la cuenta. Puede encontrar los lenguajes admitidos y las guías de inicio rápido asociadas en la [Introducción a Table API de Azure Cosmos](table-introduction.md).
 
@@ -195,7 +197,7 @@ Sí, Table API de Azure Cosmos DB ofrece indexación automática de todos los at
 
 Sí, puede cambiar la directiva de indexación especificando la definición del índice. Esta configuración se tiene que codificar adecuadamente e incluir secuencias de escape.
 
-Para los SDK que no son de .NET, la directiva de indexación solo se puede establecer en el portal en el **Explorador de datos** ; vaya a la tabla concreta que quiera cambiar y, después, vaya a **Scale & Settings** (Escala y configuración)-> Directiva de indexación, realice el cambio deseado y, a continuación, haga clic en **Guardar** .
+Para los SDK que no son de .NET, la directiva de indexación solo se puede establecer en el portal en el **Explorador de datos** ; vaya a la tabla concreta que quiera cambiar y, después, vaya a **Scale & Settings** (Escala y configuración)-> Directiva de indexación, realice el cambio deseado y, a continuación, haga clic en **Guardar**.
 
 Desde el SDK para .NET pueden enviarse en el archivo app.config:
 

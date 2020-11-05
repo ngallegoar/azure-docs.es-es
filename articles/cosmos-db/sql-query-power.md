@@ -3,18 +3,21 @@ title: POWER en el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información acerca de la función del sistema de SQL POWER en Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 683c53c369f136ad4b917b93e9a92a71072d05e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39db52223feea63a4e3afbd4775f884acbbca548
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71349642"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341695"
 ---
 # <a name="power-azure-cosmos-db"></a>POWER (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devuelve el valor de la expresión especificada a la potencia especificada.  
   
 ## <a name="syntax"></a>Sintaxis

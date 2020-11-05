@@ -3,17 +3,19 @@ title: Escalado de Azure Cosmos DB según una programación mediante el tempori
 description: Aprenda a escalar los cambios de rendimiento en Azure Cosmos DB con PowerShell y Azure Functions.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 56fa87cfec7f50253dfce7d7c296ff7cb980aebe
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c60f3fc6b4ce4a1aead273fedb81e39de697f576
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482016"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339264"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Escalado del rendimiento de Azure Cosmos DB mediante el desencadenador de temporizador de Azure Functions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 El rendimiento de una cuenta de Azure Cosmos se basa en la cantidad de rendimiento aprovisionado expresado en las unidades de solicitud por segundo (RU/s). El aprovisionamiento se realiza a una granularidad de un segundo y se factura en función de los mayores RU/s por hora. Este modelo de capacidad aprovisionada permite que el servicio proporcione un rendimiento predecible y coherente, baja latencia garantizada y alta disponibilidad. La mayor parte de la producción realiza cargas de trabajo de estas características. Sin embargo, en entornos de desarrollo y pruebas en los que Azure Cosmos DB solo se usa durante las horas de trabajo, se puede escalar verticalmente el rendimiento de la mañana y reducirse verticalmente por la tarde después del horario de trabajo.
 

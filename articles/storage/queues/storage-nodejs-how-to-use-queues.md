@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 77c35ae4b9e845cd3c0f638407c0d71c36fcf9f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a9fb1a179164d24c84213762ee7e2332a1aa25
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289691"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345948"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Uso de Azure Queue Storage desde Node.js
 
@@ -44,13 +44,13 @@ La [biblioteca cliente de Azure Storage para JavaScript][Azure Storage client li
 
 1. Escriba **npm install\@azure/storage-queue** en la ventana de comandos.
 
-1. Compruebe que se ha creado una carpeta **node\_modules**. Dentro de dicha carpeta, encontrará el paquete **\@azure/storage-queue**, que contiene la biblioteca cliente necesaria para acceder al almacenamiento.
+1. Compruebe que se ha creado una carpeta **node\_modules**. Dentro de dicha carpeta, encontrará el paquete **\@azure/storage-queue** , que contiene la biblioteca cliente necesaria para acceder al almacenamiento.
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
 1. Escriba **npm install azure-storage** en la ventana de comandos.
 
-1. Compruebe que se ha creado una carpeta **node\_modules**. Dentro de dicha carpeta, encontrará el paquete **azure-storage**, que contiene las bibliotecas necesarias para acceder al almacenamiento.
+1. Compruebe que se ha creado una carpeta **node\_modules**. Dentro de dicha carpeta, encontrará el paquete **azure-storage** , que contiene las bibliotecas necesarias para acceder al almacenamiento.
 
 ---
 
@@ -160,13 +160,13 @@ En el ejemplo siguiente se actualiza el texto de un mensaje.
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-Cambie el contenido de un mensaje local en la cola mediante una llamada a [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
+Cambie el contenido de un mensaje local en la cola mediante una llamada a [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Cambie el contenido de un mensaje local en la cola mediante una llamada a **updateMessage**. 
+Cambie el contenido de un mensaje local en la cola mediante una llamada a **updateMessage**.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -234,8 +234,8 @@ Si usa **getMessages** cuando no hay ningún mensaje en la cola, no se devolver�
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola:
 
-* [options.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages): Recupera un lote de mensajes (hasta 32).
-* [options.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout): Establece un tiempo de espera de invisibilidad más largo o más corto.
+- [options.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages): Recupera un lote de mensajes (hasta 32).
+- [options.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout): Establece un tiempo de espera de invisibilidad más largo o más corto.
 
 El siguiente ejemplo utiliza el método **receiveMessages** para obtener cinco mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `for`. También se establece el tiempo de espera de invisibilidad en cinco minutos para todos los mensajes que devuelve este método.
 
@@ -245,8 +245,8 @@ El siguiente ejemplo utiliza el método **receiveMessages** para obtener cinco m
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola:
 
-* `options.numOfMessages` - Recuperar un lote de mensajes (hasta 32).
-* `options.visibilityTimeout` - Establecer un tiempo de espera de invisibilidad más largo o más corto.
+- `options.numOfMessages` - Recuperar un lote de mensajes (hasta 32).
+- `options.visibilityTimeout` - Establecer un tiempo de espera de invisibilidad más largo o más corto.
 
 En el siguiente ejemplo se usa el método **getMessages** para obtener 15 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `for`. También se establece el tiempo de espera de invisibilidad en cinco minutos para todos los mensajes que devuelve este método.
 
@@ -347,8 +347,8 @@ Para borrar todos los mensajes de una cola sin eliminarla, llame a **clearMessag
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-* Visite el [blog del equipo de Azure Storage][Azure Storage Team Blog] para conocer las novedades.
-* Visite el repositorio [Biblioteca cliente de Azure Storage para JavaScript][Azure Storage client library for JavaScript] en GitHub
+- Visite el [blog del equipo de Azure Storage][Azure Storage Team Blog] para conocer las novedades.
+- Visite el repositorio [Biblioteca cliente de Azure Storage para JavaScript][Azure Storage client library for JavaScript] en GitHub
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

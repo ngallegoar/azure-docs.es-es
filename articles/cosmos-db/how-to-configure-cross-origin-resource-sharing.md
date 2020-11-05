@@ -3,17 +3,19 @@ title: Uso compartido de recursos entre orígenes (CORS) en Azure Cosmos DB
 description: En este artículo se describe cómo configurar el uso compartido de recursos entre orígenes (CORS) en Azure Cosmos DB mediante Azure Portal y las plantillas de Azure Resource Manager.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: eb1cbed7b974b6f0015591df01674e40aac2d8c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eba49ff45ba9ab1f5cfaa1d75973d656ac32ca6a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390880"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339910"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configuración del uso compartido de recursos entre orígenes (CORS)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 El uso compartido de recursos entre orígenes (CORS) es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Los exploradores web implementan una restricción de seguridad que se conoce como directiva de mismo origen que impide que una página web realice llamadas API en un dominio diferente. Sin embargo, CORS aporta un modo seguro de permitir que el dominio de origen llame a las API de otro dominio. Ahora Core (SQL) API, en Azure Cosmos DB, admite el encabezado "allowedOrigins" de uso compartido de recursos entre orígenes (CORS). Después de habilitar la compatibilidad con CORS para la cuenta de Azure Cosmos, solo se evalúan las solicitudes autenticadas para determinar si se admiten según las reglas especificadas.
 

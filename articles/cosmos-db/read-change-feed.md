@@ -4,17 +4,19 @@ description: En este artículo se describen las diferentes opciones disponibles 
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0252af90a6afb5b2a59620afaa61702f208991e7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7021367e1230573343ddf57ccd399d998ad5280e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785262"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339281"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lectura de la fuente de cambios de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Puede trabajar con la fuente de cambios de Azure Cosmos DB mediante un modelo de inserción o un modelo de extracción. Con un modelo de inserción, el procesador de fuente de cambios envía el trabajo a un cliente que tiene la lógica de negocios para procesarlo. Sin embargo, el procesador de fuente de cambios se encarga de la complejidad de comprobar el trabajo y almacenar el estado del último trabajo procesado.
 

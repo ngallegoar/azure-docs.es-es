@@ -3,17 +3,19 @@ title: Cláusula ORDER BY en Azure Cosmos DB
 description: Obtenga información sobre la cláusula ORDER BY de SQL para Azure Cosmos DB. Use SQL como lenguaje de consulta de JSON para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 887dc13eb5e351688718d2a221e69499557b23e5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84484338"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338312"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La cláusula opcional `ORDER BY` especifica el criterio de ordenación para los resultados que devuelve la consulta.
 

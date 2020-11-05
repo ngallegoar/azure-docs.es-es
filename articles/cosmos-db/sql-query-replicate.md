@@ -3,18 +3,21 @@ title: REPLICATE en el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información acerca de la función del sistema de SQL REPLICATE en Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: aea29cfff6b3827cfb9169722e48120e3a5a3709
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c0f1673c620ceadeb5ccca2a15cc9b7ce8d7685
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88794316"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341610"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICATE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Repite un valor de cadena un número especificado de veces.
   
 ## <a name="syntax"></a>Sintaxis
@@ -37,7 +40,7 @@ REPLICATE(<str_expr>, <num_expr>)
   
 ## <a name="remarks"></a>Observaciones
 
-  La longitud máxima del resultado es de 10 000 caracteres, es decir, (length(*str_expr*)  *  *num_expr*) <= 10 000. Esta función del sistema no usará el índice.
+  La longitud máxima del resultado es de 10 000 caracteres, es decir, (length( *str_expr* )  *  *num_expr* ) <= 10 000. Esta función del sistema no usará el índice.
 
 ## <a name="examples"></a>Ejemplos
   

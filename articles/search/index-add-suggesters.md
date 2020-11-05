@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e439f7d2b0232a2e1c36517f24723e4e16f7e6bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8959bf84e2b5629e03c2571fa494b96cec4f8e9
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537606"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347648"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creación de un proveedor de sugerencias para habilitar la función autocompletar y los resultados sugeridos en una consulta
 
-En Azure Cognitive Search, la función de "búsqueda al escribir" se habilita mediante una construcción de **proveedor de sugerencias** que se agrega a un [índice de búsqueda](search-what-is-an-index.md). Un proveedor de sugerencias admite dos experiencias: *autocompletar*, que completa una entrada parcial para una consulta de un término completo, y *sugerencias*, que invita a hacer clic en una coincidencia concretar. Autocompletar genera una consulta. Las sugerencias producen un documento coincidente.
+En Azure Cognitive Search, la función de "búsqueda al escribir" se habilita mediante una construcción de **proveedor de sugerencias** que se agrega a un [índice de búsqueda](search-what-is-an-index.md). Un proveedor de sugerencias admite dos experiencias: *autocompletar* , que completa una entrada parcial para una consulta de un término completo, y *sugerencias* , que invita a hacer clic en una coincidencia concretar. Autocompletar genera una consulta. Las sugerencias producen un documento coincidente.
 
 En la siguiente captura de pantalla del artículo [Creación de la primera aplicación en C#](tutorial-csharp-type-ahead-and-suggestions.md), se muestran ambas experiencias. Autocompletar anticipa un posible término, agregando a "met" la terminación "ro" por ejemplo. Las sugerencias son resultados de búsquedas en miniatura, donde un campo como el nombre de un hotel representa un documento de búsqueda de hoteles coincidentes del índice. Para obtener sugerencias, puede mostrar cualquier campo que proporcione información descriptiva.
 
@@ -52,7 +52,7 @@ La ventaja de autocompletar es que tiene un grupo de campos mayor, ya que el con
 
 Por su parte, las sugerencias generan mejores resultados cuando la elección de campo es selectiva. Recuerde que la sugerencia es un proxy para un documento de búsqueda, por lo que deseará los campos que mejor se representen como un resultado individual. Los nombres, títulos u otros campos únicos que distinguen entre varias coincidencias son los que mejor funcionan. Si los campos se componen de valores repetitivos, las sugerencias consistirán en resultados idénticos y el usuario no sabrá en cuál hacer clic.
 
-Para satisfacer las experiencias de buscar mientras se escribe, agregue todos los campos que necesita para autocompletar y, después, use **$select**, **$top**, **$filter** y **searchFields** para controlar los resultados de las sugerencias.
+Para satisfacer las experiencias de buscar mientras se escribe, agregue todos los campos que necesita para autocompletar y, después, use **$select** , **$top** , **$filter** y **searchFields** para controlar los resultados de las sugerencias.
 
 ### <a name="choose-analyzers"></a>Elección de analizadores
 
@@ -146,14 +146,14 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 El proveedor de sugerencias se utiliza en una consulta. Después de que se crea un proveedor de sugerencias, llame a una de los siguientes API para una experiencia de buscar mientras se escribe:
 
-+ [API REST de sugerencias](/rest/api/searchservice/suggestions) 
-+ [API REST de autocompletar](/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?
++ [API REST de sugerencias](/rest/api/searchservice/suggestions)
++ [API REST de autocompletar](/rest/api/searchservice/autocomplete)
++ [Método SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
 + [Método AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
 
 En una aplicación de búsqueda, el código de cliente debería aprovechar una biblioteca como [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) para recopilar la consulta parcial y ofrecer la coincidencia. Para más información acerca de esta tarea, consulte [Incorporación de sugerencias o de la función de autocompletar al código de cliente](search-autocomplete-tutorial.md).
 
-El uso de la API se ilustra en la siguiente llamada a la API REST de autocompletar. De este ejemplo se pueden extraer dos conclusiones: En primer lugar, al igual que en todas las consultas, la operación se realiza con una colección de documentos de un índice y la consulta incluye un parámetro **search**, que en este caso proporciona la consulta parcial. En segundo lugar, debe agregar **suggesterName** a la solicitud. Si no se define un proveedor de sugerencias en el índice, se producirá un error en la llamada a autocompletar o sugerencias.
+El uso de la API se ilustra en la siguiente llamada a la API REST de autocompletar. De este ejemplo se pueden extraer dos conclusiones: En primer lugar, al igual que en todas las consultas, la operación se realiza con una colección de documentos de un índice y la consulta incluye un parámetro **search** , que en este caso proporciona la consulta parcial. En segundo lugar, debe agregar **suggesterName** a la solicitud. Si no se define un proveedor de sugerencias en el índice, se producirá un error en la llamada a autocompletar o sugerencias.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
@@ -166,8 +166,6 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 ## <a name="sample-code"></a>Código de ejemplo
 
 + En el ejemplo de [Creación de la primera aplicación en C# (lección 3: Incorporación de buscar mientras se escribe)](tutorial-csharp-type-ahead-and-suggestions.md) se muestra una construcción de proveedor de sugerencias, consultas sugeridas, autocompletar y navegación por facetas. Este ejemplo de código se ejecuta en un servicio de espacio aislado de Azure Cognitive Search y usa un índice de hoteles cargado previamente, por lo que todo lo que tiene que hacer es presionar F5 para ejecutar la aplicación. No se necesita ninguna suscripción o inicio de sesión.
-
-+ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) es otro ejemplo más antiguo que contiene tanto código de C# como de Java. También se muestra una construcción de proveedor de sugerencias, consultas sugeridas, autocompletar y navegación por facetas. Este ejemplo de código usa los datos de ejemplo [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) hospedados. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

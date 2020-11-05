@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2020
 ms.author: kumud
-ms.openlocfilehash: a13a2a081815f2a3b668caf9b4e78c2208601cb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3a30d13aeef2ffd8e03a5a5d7ddf8b58a336ee5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84703016"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348328"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Implementación de una aplicación de pila doble IPv6 en Azure - PowerShell
 
@@ -39,7 +39,7 @@ Para poder generar la red virtual de doble pila, debe crear primero un grupo de 
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses"></a>Creación de direcciones IP públicas IPv4 e IPv6
-Para obtener acceso a las máquinas virtuales desde Internet, necesita direcciones IP públicas IPv4 e IPv6 para el equilibrador de carga. Cree las direcciones IP públicas con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). En el ejemplo siguiente, se crean unas direcciones IP públicas IPv4 e IPv6 denominadas *dsPublicIP_v4* y *dsPublicIP_v6* en el grupo de recursos *dsRG1*:
+Para obtener acceso a las máquinas virtuales desde Internet, necesita direcciones IP públicas IPv4 e IPv6 para el equilibrador de carga. Cree las direcciones IP públicas con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). En el ejemplo siguiente, se crean unas direcciones IP públicas IPv4 e IPv6 denominadas *dsPublicIP_v4* y *dsPublicIP_v6* en el grupo de recursos *dsRG1* :
 
 ```azurepowershell-interactive
 $PublicIP_v4 = New-AzPublicIpAddress `
@@ -84,7 +84,7 @@ En esta sección, configurará la dirección IP de front-end doble (IPv4 e IPv6)
 
 ### <a name="create-front-end-ip"></a>Creación de una dirección IP de front-end
 
-Cree una dirección IP de front-end con [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). En el ejemplo siguiente, se crean unas configuraciones de IP de front-end IPv4 e IPv6 llamadas *dsLbFrontEnd_v4* y *dsLbFrontEnd_v6*:
+Cree una dirección IP de front-end con [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). En el ejemplo siguiente, se crean unas configuraciones de IP de front-end IPv4 e IPv6 llamadas *dsLbFrontEnd_v4* y *dsLbFrontEnd_v6* :
 
 ```azurepowershell-interactive
 $frontendIPv4 = New-AzLoadBalancerFrontendIpConfig `
@@ -99,7 +99,7 @@ $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
 
 ### <a name="configure-back-end-address-pool"></a>Configuración del grupo de direcciones de back-end
 
-Cree un grupo de direcciones de back-end con [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). En el resto de los pasos, las máquinas virtuales se conectan a este grupo back-end. En el ejemplo siguiente, se crean los grupos de direcciones de back-end *dsLbBackEndPool_v4* y *dsLbBackEndPool_v6*, que van a incluir máquinas virtuales con configuraciones de NIC IPV4 e IPv6:
+Cree un grupo de direcciones de back-end con [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). En el resto de los pasos, las máquinas virtuales se conectan a este grupo back-end. En el ejemplo siguiente, se crean los grupos de direcciones de back-end *dsLbBackEndPool_v4* y *dsLbBackEndPool_v6* , que van a incluir máquinas virtuales con configuraciones de NIC IPV4 e IPv6:
 
 ```azurepowershell-interactive
 $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
@@ -117,7 +117,7 @@ $probe = New-AzLoadBalancerProbeConfig -Name MyProbe -Protocol tcp -Port 3389 -I
 
 Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Defina la configuración de la IP de front-end para el tráfico entrante y el grupo de IP de back-end para el tráfico entrante, junto con los puertos de origen y destino requeridos. Para tener la seguridad de que solo reciben tráfico las máquinas virtuales correctas, también puede definir un sondeo de estado. Los equilibradores de carga básicos usan un sondeo de IPv4 para evaluar el estado de los puntos de conexión IPv4 e IPv6 de las máquinas virtuales. Los equilibradores de carga estándar permiten realizar explícitamente sondeos de estado de IPv6.
 
-Cree una regla del equilibrador de carga con [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). En el ejemplo siguiente, se crean reglas del equilibrador de carga llamadas *dsLBrule_v4* y *dsLBrule_v6*, y se equilibra el tráfico del puerto *TCP* *80* dirigido a las configuraciones de IP de front-end IPv4 e IPv6:
+Cree una regla del equilibrador de carga con [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). En el ejemplo siguiente, se crean reglas del equilibrador de carga llamadas *dsLBrule_v4* y *dsLBrule_v6* , y se equilibra el tráfico del puerto *TCP* *80* dirigido a las configuraciones de IP de front-end IPv4 e IPv6:
 
 ```azurepowershell-interactive
 $lbrule_v4 = New-AzLoadBalancerRuleConfig `
@@ -151,8 +151,8 @@ $lb = New-AzLoadBalancer `
 -Sku "Standard" `
 -FrontendIpConfiguration $frontendIPv4,$frontendIPv6 `
 -BackendAddressPool $backendPoolv4,$backendPoolv6 `
--LoadBalancingRule $lbrule_v4,$lbrule_v6
-
+-LoadBalancingRule $lbrule_v4,$lbrule_v6 `
+-probe $probe
 ```
 
 ## <a name="create-network-resources"></a>Crear recursos de red
@@ -160,7 +160,7 @@ Para poder implementar algunas máquinas virtuales y probar el equilibrador, deb
 ### <a name="create-an-availability-set"></a>Crear un conjunto de disponibilidad
 Para mejorar la alta disponibilidad de la aplicación, coloque las máquinas virtuales en un conjunto de disponibilidad.
 
-Cree un conjunto de disponibilidad con [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado *myAvailabilitySet*:
+Cree un conjunto de disponibilidad con [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado *myAvailabilitySet* :
 
 ```azurepowershell-interactive
 $avset = New-AzAvailabilitySet `
@@ -223,7 +223,7 @@ $nsg = New-AzNetworkSecurityGroup `
 ```
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Cree una red virtual con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). En el ejemplo siguiente se crea una red virtual denominada con una subred llamada *dsVnet* con *mySubnet*:
+Cree una red virtual con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). En el ejemplo siguiente se crea una red virtual denominada con una subred llamada *dsVnet* con *mySubnet* :
 
 ```azurepowershell-interactive
 # Create dual stack subnet
@@ -245,17 +245,17 @@ $vnet = New-AzVirtualNetwork `
 Cree NIC virtuales con [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). En el ejemplo siguiente, se crean dos NIC virtuales, ambas con las configuraciones IPv4 e IPv6. (Una NIC virtual para cada máquina virtual que cree para la aplicación en los pasos siguientes).
 
 ```azurepowershell-interactive
-  $Ip4Config=New-AzNetworkInterfaceIpConfig `
-    -Name dsIp4Config `
+  $Ip4Config=New-AzNetworkInterfaceIpConfig `
+    -Name dsIp4Config `
     -Subnet $vnet.subnets[0] `
-    -PrivateIpAddressVersion IPv4 `
+    -PrivateIpAddressVersion IPv4 `
     -LoadBalancerBackendAddressPool $backendPoolv4 `
     -PublicIpAddress  $RdpPublicIP_1
       
-  $Ip6Config=New-AzNetworkInterfaceIpConfig `
-    -Name dsIp6Config `
+  $Ip6Config=New-AzNetworkInterfaceIpConfig `
+    -Name dsIp6Config `
     -Subnet $vnet.subnets[0] `
-    -PrivateIpAddressVersion IPv6 `
+    -PrivateIpAddressVersion IPv6 `
     -LoadBalancerBackendAddressPool $backendPoolv6
     
   $NIC_1 = New-AzNetworkInterface `
@@ -265,10 +265,10 @@ Cree NIC virtuales con [New-AzNetworkInterface](/powershell/module/az.network/ne
     -NetworkSecurityGroupId $nsg.Id `
     -IpConfiguration $Ip4Config,$Ip6Config 
     
-  $Ip4Config=New-AzNetworkInterfaceIpConfig `
-    -Name dsIp4Config `
+  $Ip4Config=New-AzNetworkInterfaceIpConfig `
+    -Name dsIp4Config `
     -Subnet $vnet.subnets[0] `
-    -PrivateIpAddressVersion IPv4 `
+    -PrivateIpAddressVersion IPv4 `
     -LoadBalancerBackendAddressPool $backendPoolv4 `
     -PublicIpAddress  $RdpPublicIP_2  
 

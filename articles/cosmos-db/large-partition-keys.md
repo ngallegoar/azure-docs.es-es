@@ -3,18 +3,20 @@ title: Creación de contenedores de Azure Cosmos con una clave de partición de 
 description: Aprenda a crear un contenedor en Azure Cosmos DB con una clave de partición de gran tamaño mediante Azure Portal y distintos SDK.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1de6aa5450a42bbc8fe35b220e810726f7dd2cda
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4ad26d63ca06f5a46a4a1f77d329d04896e96c52
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488442"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339311"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Creación de contenedores con una clave de partición de gran tamaño
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB usa el esquema de partición basado en hash para lograr el escalado horizontal de los datos. Todos los contenedores de Azure Cosmos creados antes del 3 de mayo de 2019 usan una función hash que calcula el hash en función de los primeros 100 bytes de la clave de partición. Si hay varias claves de partición con los mismos 100 primeros bytes, el servicio considera que esas particiones lógicas son la misma partición lógica. Esto puede causar problemas, como que la cuota del tamaño de la partición no sea correcta y que se apliquen índices únicos en las distintas claves de partición. Para solucionar este problema, aparecieron las claves de partición de gran tamaño. Azure Cosmos DB ahora admite claves de partición de gran tamaño con valores hasta 2 KB.
 

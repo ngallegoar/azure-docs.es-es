@@ -3,18 +3,20 @@ title: 'Uso del calculador de la fuente de cambios: Azure Cosmos DB'
 description: Obtenga información acerca de cómo usar el calculador de la fuente de cambios para analizar el progreso del procesador de la fuente de cambios
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 40a909b111d5e667f7554cf727ab26bf9bc39650
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a44557d15f437317c2b5fa659ab8d4ca3c208edf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485858"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339849"
 ---
 # <a name="use-the-change-feed-estimator"></a>Uso del calculador de la fuente de cambios
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se describe cómo puede supervisar el progreso de las instancias del [procesador de la fuente de cambios](./change-feed-processor.md) a medida que leen la fuente de cambios.
 

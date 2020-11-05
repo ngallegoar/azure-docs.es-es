@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc6c4e57d0e04cc85bd83c11ba583b3f0b24fa82
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715506"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345999"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Elección de la forma de autorizar el acceso a los datos de cola en Azure Portal
 
-Cuando se accede a los datos de cola desde [Azure Portal](https://portal.azure.com), este realiza ciertas solicitudes a Azure Storage en segundo plano. Una solicitud a Azure Storage se puede autorizar mediante la cuenta de Azure AD o la clave de acceso a la cuenta de almacenamiento. El portal indica qué método está usando, y le permite alternar entre ambos si tiene los permisos adecuados.  
+Cuando se accede a los datos de cola desde [Azure Portal](https://portal.azure.com), este realiza ciertas solicitudes a Azure Storage en segundo plano. Una solicitud a Azure Storage se puede autorizar mediante la cuenta de Azure AD o la clave de acceso a la cuenta de almacenamiento. El portal indica qué método está usando, y le permite alternar entre ambos si tiene los permisos adecuados.
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Permisos necesarios para acceder a datos de cola
 
@@ -37,7 +37,7 @@ Para acceder a los datos de cola con la clave de acceso a la cuenta, debe tener 
 Al intentar acceder a los datos de cola en Azure Portal, este comprueba primero si tiene asignado un rol con **Microsoft.Storage/storageAccounts/listkeys/action**. Si se le ha asignado un rol con esta acción, Azure Portal usa la clave de cuenta para tener acceso a los datos de cola. Si no tiene un rol asignado con esta acción, Portal intenta obtener acceso a los datos mediante su cuenta de Azure AD.
 
 > [!NOTE]
-> Los roles clásicos de administrador de suscripciones Administrador del servicio y Coadministrador equivalen al rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. El rol **Propietario** engloba todas las acciones (incluida **Microsoft.Storage/storageAccounts/listkeys/action**), por lo que un usuario con uno de estos roles administrativos también puede acceder a datos de cola con la clave de cuenta. Para obtener más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> Los roles clásicos de administrador de suscripciones Administrador del servicio y Coadministrador equivalen al rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. El rol **Propietario** engloba todas las acciones (incluida **Microsoft.Storage/storageAccounts/listkeys/action** ), por lo que un usuario con uno de estos roles administrativos también puede acceder a datos de cola con la clave de cuenta. Para obtener más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Uso de la cuenta de Azure AD
 
@@ -55,7 +55,7 @@ Estos son los roles integrados que admiten el acceso a los datos de cola:
 
 Los roles personalizados pueden admitir diferentes combinaciones de los mismos permisos que proporcionan los roles integrados. Para obtener más información sobre cómo crear roles RBAC de Azure personalizados, consulte el artículo sobre [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) y la [descripción de las definiciones de roles de recursos de Azure](../../role-based-access-control/role-definitions.md).
 
-No se pueden obtener listas de colas con un rol de administrador de suscripciones clásico. Para obtener una lista de colas, el usuario debe tener asignado los roles **Lector**, **Lector de datos de la cola de Storage Blob** o **Colaborador de datos de la cola de Storage Blob** de Azure Resource Manager.
+No se pueden obtener listas de colas con un rol de administrador de suscripciones clásico. Para obtener una lista de colas, el usuario debe tener asignado los roles **Lector** , **Lector de datos de la cola de Storage Blob** o **Colaborador de datos de la cola de Storage Blob** de Azure Resource Manager.
 
 > [!IMPORTANT]
 > La versión preliminar del Explorador de Storage en Azure Portal no admite el uso de credenciales de Azure AD para ver y modificar datos de cola. Explorador de Storage en Azure Portal usa siempre las claves de cuenta para acceder a los datos. Para usar Explorador de Storage en Azure Portal, debe tener asignado un rol que incluya **Microsoft.Storage/storageAccounts/listkeys/action**.
@@ -74,11 +74,11 @@ Al ir a una cola, Azure Portal indica si lo que se usa actualmente para autentic
 
 Si se autentica mediante la clave de acceso a la cuenta, verá **Clave de acceso** especificado como método de autenticación en Portal:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Captura de pantalla que muestra cómo ir a los datos de cola en Azure Portal":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Captura de pantalla que muestra el usuario que accede actualmente a las colas con la clave de cuenta":::
 
 Para cambiar y usar la cuenta de Azure AD, haga clic en el vínculo que aparece resaltado en la imagen. Si posee los permisos adecuados a través de los roles de Azure que tiene asignados, podrá continuar. Pero, si no los tiene, verá un mensaje de error como el siguiente:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Captura de pantalla que muestra cómo ir a los datos de cola en Azure Portal":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Error que aparece si la cuenta de Azure AD no admite el acceso":::
 
 Tenga en cuenta que la lista no contendrá ninguna cola si su cuenta de Azure AD no tiene permisos para verlas. Haga clic en el vínculo **Cambiar a la clave de acceso** para usar la clave de acceso para intentar autenticarse de nuevo.
 
@@ -86,7 +86,7 @@ Tenga en cuenta que la lista no contendrá ninguna cola si su cuenta de Azure A
 
 Si se autentica utilizando la cuenta de Azure AD, verá **Cuenta de usuario de Azure AD** especificado como método de autenticación en Portal:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Captura de pantalla que muestra cómo ir a los datos de cola en Azure Portal":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Captura de pantalla que muestra el usuario que accede actualmente a las colas con una cuenta de Azure AD":::
 
 Para cambiar y usar la clave de acceso a la cuenta, haga clic en el vínculo que aparece resaltado en la imagen. Si tiene acceso a la clave de cuenta, podrá continuar. Sin embargo, si no tiene acceso a la clave de cuenta, aparecerá un mensaje de error en Azure Portal.
 

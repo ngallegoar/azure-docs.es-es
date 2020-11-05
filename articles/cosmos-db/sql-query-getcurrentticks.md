@@ -3,18 +3,20 @@ title: GetCurrentTicks en lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información sobre la función del sistema SQL GetCurrentTicks en Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 2ca76d75edba6688dbe93f11a51a0ad67942677a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 610c545bf25822d27e0a641a1b2631f899502420
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606942"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340165"
 ---
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Devuelve el número de tics de 100 nanosegundos que han transcurrido desde las 00:00:00 del jueves, 1 de enero de 1970.
   

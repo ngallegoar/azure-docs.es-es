@@ -3,18 +3,20 @@ title: Solución de problemas al usar el desencadenador de Azure Functions para 
 description: Problemas comunes, soluciones alternativas y pasos de diagnóstico al usar el desencadenador de Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fc5da214a50cb000d2154d08bb9b6f6f98ac5ec
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365515"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340539"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnóstico y solución de problemas al usar el desencadenador de Azure Functions para Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se abordan los problemas comunes, las soluciones alternativas y los pasos de diagnóstico al usar el [desencadenador de Azure Functions para Cosmos DB](change-feed-functions.md).
 
@@ -41,7 +43,7 @@ Además, si va a crear manualmente su propia instancia del [cliente del SDK de A
 
 La función de Azure emite un mensaje de error similar a "O la colección de origen "nombre de la colección" (en la base de datos "nombre de la base de datos") o la colección de concesión"colección2-name"(en la base de datos "nombre de la base de datos2") no existen. Ambas colecciones deben existir antes de que se inicia el agente de escucha. Para crear automáticamente la colección de concesión, establezca "CreateLeaseCollectionIfNotExists" en "true"
 
-Esto significa que uno de los contenedores de Azure Cosmos o ambos necesarios para que funcione el desencadenador de trabajo no existen o no son accesibles para la función de Azure. **El propio error le indicará qué base de datos y qué contenedores de Azure Cosmos son el desencadenador que se busca**, según la configuración.
+Esto significa que uno de los contenedores de Azure Cosmos o ambos necesarios para que funcione el desencadenador de trabajo no existen o no son accesibles para la función de Azure. **El propio error le indicará qué base de datos y qué contenedores de Azure Cosmos son el desencadenador que se busca** , según la configuración.
 
 1. Compruebe el `ConnectionStringSetting` atributo y que **hace referencia a una configuración que existe en la aplicación de la función de Azure**. El valor de este atributo no debe ser la propia cadena de conexión, sino el nombre de la opción de configuración.
 2. Compruebe que `databaseName` y `collectionName` existen en su cuenta de Azure Cosmos. Si usa el reemplazo de valor automático (mediante los patrones `%settingName%`), asegúrese de que el nombre de la configuración existe en la aplicación de la función de Azure.

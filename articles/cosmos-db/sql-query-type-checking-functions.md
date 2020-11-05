@@ -3,18 +3,20 @@ title: Funciones de comprobación de tipos en el lenguaje de consulta de Azure 
 description: Obtenga información sobre las funciones de comprobación de tipos del sistema SQL en Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3ffe8fa9286c8594dc72d78582f8c7b0a3d05c78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96fea7cb53c89c02583a6dba8434cd33641d6a09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85563331"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341508"
 ---
 # <a name="type-checking-functions-azure-cosmos-db"></a>Funciones de comprobación de tipos (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Las funciones de comprobación de tipos permiten comprobar el tipo de una expresión dentro de una consulta SQL. Puede usar las funciones de comprobación de tipos para determinar los tipos de propiedades dentro de los elementos sobre la marcha, cuando son variables o desconocidos. 
 

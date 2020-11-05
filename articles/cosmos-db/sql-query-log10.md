@@ -3,18 +3,21 @@ title: LOG10 en el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información sobre la función del sistema SQL LOG10 en Azure Cosmos DB para devolver el logaritmo en base 10 de la expresión numérica especificada.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6869abb3040feb6431d60799536c9986c6ccb954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27f7d916c1a3f84f26674fea6b04597fd9e546bc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798251"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338445"
 ---
 # <a name="log10-azure-cosmos-db"></a>LOG10 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devuelve el logaritmo de base 10 de la expresión numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxis

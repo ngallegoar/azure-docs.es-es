@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c578febf088148e9e0496d87b715c953c5bd9d36
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261071"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348379"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Salida de temas de Service Bus desde Azure Stream Analytics
 
-Las colas de Service Bus proporcionan un método de comunicación uno a uno del emisor al receptor. Los [temas de Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) proporcionan una forma de comunicación de uno a varios.
+Las colas de Service Bus proporcionan un método de comunicación uno a uno del emisor al receptor. Los [temas de Service Bus](/previous-versions/azure/hh367516(v=azure.100)) proporcionan una forma de comunicación de uno a varios.
 
 En la siguiente tabla se enumeran los nombres de propiedad y su descripción para crear una salida de tema de Service Bus.
 
@@ -61,11 +61,11 @@ En el ejemplo siguiente, los campos `DeviceId` y `DeviceStatus` se agregan a los
 
 En la siguiente imagen se muestran las propiedades esperadas del mensaje de salida inspeccionadas en EventHub mediante [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Columnas de propiedades":::
+:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Propiedades de evento personalizadas":::
 
 ## <a name="system-properties"></a>Propiedades del sistema
 
-Puede adjuntar columnas de consulta como [propiedades del sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) a los mensajes salientes de cola y tema de Service Bus. Estas columnas no entran en la carga; en su lugar, la [propiedad del sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage correspondiente se rellena con los valores de la columna de consulta.
+Puede adjuntar columnas de consulta como [propiedades del sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) a los mensajes salientes de cola y tema de Service Bus. Estas columnas no entran en la carga; en su lugar, la [propiedad del sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) BrokeredMessage correspondiente se rellena con los valores de la columna de consulta.
 Se admiten estas propiedades del sistema: `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 Los valores de cadena de estas columnas se analizan como el tipo de valor de propiedad del sistema correspondiente y los errores de análisis se tratan como errores de datos.

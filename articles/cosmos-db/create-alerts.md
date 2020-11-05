@@ -4,26 +4,26 @@ description: Aprenda a configurar alertas para Azure Cosmos DB mediante Azure 
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e29db7e31438bc7f6ac609384d0d9b92c275e813
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87095589"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339553"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Creación de alertas para Azure Cosmos DB mediante Azure Monitor
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Las alertas se utilizan para configurar pruebas periódicas con el fin de supervisar la disponibilidad y la capacidad de respuesta de los recursos de Azure Cosmos DB. Las alertas pueden enviarle una notificación en forma de un correo electrónico o ejecutar una función de Azure cuando una de las métricas alcance el umbral o si se registra un evento específico en el registro de actividad.
 
 Se pueden recibir alertas en función de las métricas o de los eventos del registro de actividad de la su cuenta de Azure Cosmos:
 
-* **Métricas**: la alerta se desencadena cuando el valor de una métrica especificada cruza el umbral que se ha asignado. Por ejemplo, cuando el número total de unidades de solicitud consumidas supera las 1000 RU/s. La alerta se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición deja de cumplirse. Consulte el artículo [Referencia de datos de supervisión](monitor-cosmos-db-reference.md#metrics) para ver las diferentes métricas disponibles en Azure Cosmos DB.
+* **Métricas** : la alerta se desencadena cuando el valor de una métrica especificada cruza el umbral que se ha asignado. Por ejemplo, cuando el número total de unidades de solicitud consumidas supera las 1000 RU/s. La alerta se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición deja de cumplirse. Consulte el artículo [Referencia de datos de supervisión](monitor-cosmos-db-reference.md#metrics) para ver las diferentes métricas disponibles en Azure Cosmos DB.
 
-* **Eventos del registro de actividad**: esta alerta se desencadena cuando se produce un evento determinado. Por ejemplo, cuando se accede a las claves de la cuenta de Azure Cosmos o estas se actualizan.
+* **Eventos del registro de actividad** : esta alerta se desencadena cuando se produce un evento determinado. Por ejemplo, cuando se accede a las claves de la cuenta de Azure Cosmos o estas se actualizan.
 
 Puede configurar alertas en el panel de Azure Cosmos DB o en el servicio Azure Monitor en Azure Portal. Ambas interfaces ofrecen las mismas opciones. En este artículo se muestra cómo configurar alertas para Azure Cosmos DB mediante Azure Monitor.
 
@@ -37,7 +37,7 @@ En esta sección se muestra cómo crear una alerta cuando se recibe un código d
 
 1. Seleccione el botón Nueva regla de alertas para abrir el panel Crear regla de alertas.  
 
-1. Rellene la sección **Ámbito**:
+1. Rellene la sección **Ámbito** :
 
    * Abra el panel **Seleccionar recurso** y configure lo siguiente:
 
@@ -49,7 +49,7 @@ En esta sección se muestra cómo crear una alerta cuando se recibe un código d
 
    * Después de rellenar los detalles, se muestra una lista de cuentas de Azure Cosmos en el ámbito seleccionado. Elija aquella para la que quiere configurar alertas y seleccione **Listo**.
 
-1. Rellene la sección **Condición**:
+1. Rellene la sección **Condición** :
 
    * Abra el panel **Seleccionar condición** para abrir la página **Configure signal logic** (Configurar lógica de señal) y configure la siguiente información:
 
@@ -63,27 +63,27 @@ En esta sección se muestra cómo crear una alerta cuando se recibe un código d
 
    * Elija **StatusCode** como **nombre de dimensión**. Seleccione **Agregar valor personalizado** y establezca el código de estado en 429.
 
-   * En **Lógica de alerta**, establezca **Umbral** en **Estático**. El umbral estático usa un valor de umbral definido por el usuario para evaluar la regla, mientras que los umbrales dinámicos usan algoritmos de aprendizaje automático integrados para aprender continuamente el patrón de comportamiento de la métrica y calcular los umbrales automáticamente.
+   * En **Lógica de alerta** , establezca **Umbral** en **Estático**. El umbral estático usa un valor de umbral definido por el usuario para evaluar la regla, mientras que los umbrales dinámicos usan algoritmos de aprendizaje automático integrados para aprender continuamente el patrón de comportamiento de la métrica y calcular los umbrales automáticamente.
 
-   * Establezca el **operador** en **Mayor que**, **Tipo de agregación** en **Total** y **Valor del umbral** en **100**. Con esta lógica, si el cliente ve más de 100 solicitudes con un código de estado 429, se desencadena la alerta. También puede configurar el tipo de agregación, la granularidad de la agregación y la frecuencia de evaluación en función de sus requisitos.
+   * Establezca el **operador** en **Mayor que** , **Tipo de agregación** en **Total** y **Valor del umbral** en **100**. Con esta lógica, si el cliente ve más de 100 solicitudes con un código de estado 429, se desencadena la alerta. También puede configurar el tipo de agregación, la granularidad de la agregación y la frecuencia de evaluación en función de sus requisitos.
 
    * Después de rellenar el formulario, seleccione **Listo**. En la captura de pantalla siguiente se muestran los detalles de la lógica de la alerta:
 
      :::image type="content" source="./media/create-alerts/configure-alert-logic.png" alt-text="Configuración de la lógica para recibir alertas correspondientes a solicitudes 429 con tasa limitada":::
 
-1. Rellene la sección **Grupo de acciones**:
+1. Rellene la sección **Grupo de acciones** :
 
-   * En el panel **Crear regla**, seleccione un grupo de acciones existente o cree uno. Un grupo de acciones le permite definir la acción que se va a realizar cuando se produce una condición de alerta. En este ejemplo, cree un grupo de acciones para recibir una notificación por correo electrónico cuando se desencadene la alerta. Abra el panel **Add action group** (Agregar grupo de acciones) y rellene los detalles siguientes:
+   * En el panel **Crear regla** , seleccione un grupo de acciones existente o cree uno. Un grupo de acciones le permite definir la acción que se va a realizar cuando se produce una condición de alerta. En este ejemplo, cree un grupo de acciones para recibir una notificación por correo electrónico cuando se desencadene la alerta. Abra el panel **Add action group** (Agregar grupo de acciones) y rellene los detalles siguientes:
 
-   * **Nombre del grupo de acciones**: el nombre del grupo de acciones debe ser único dentro de un grupo de recursos.
+   * **Nombre del grupo de acciones** : el nombre del grupo de acciones debe ser único dentro de un grupo de recursos.
 
-   * **Nombre corto**: el nombre corto del grupo de acciones; este valor se incluye en las notificaciones por correo electrónico y SMS para identificar qué grupo de acciones fue el origen de la notificación.
+   * **Nombre corto** : el nombre corto del grupo de acciones; este valor se incluye en las notificaciones por correo electrónico y SMS para identificar qué grupo de acciones fue el origen de la notificación.
 
    * Elija la suscripción y el grupo de recursos en el que se creará este grupo de acciones.  
 
    * Proporcione un nombre para la acción y seleccione **Email/SMS message/Push/Voice** (Correo electrónico, SMS, mensaje de inserción o voz) en **Tipo de acción**. En la captura de pantalla siguiente se muestran los detalles del tipo de acción:
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configuración de la lógica para recibir alertas correspondientes a solicitudes 429 con tasa limitada":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configuración del tipo de acción, por ejemplo, una notificación por correo electrónico para recibir la alerta":::
 
 1. Rellene la sección **Alert rule details** (Detalles de la regla de alertas):
 

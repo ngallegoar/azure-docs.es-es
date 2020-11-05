@@ -10,12 +10,12 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 6937f3aa136ee4d5b906492c3f8cffc86acbc2e5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785670"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346033"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de cola
 
@@ -27,7 +27,7 @@ Puede asignar permisos en los datos de cola a una entidad de seguridad de Azure�
 
 Las extensiones de Azure Storage se admiten para las operaciones en datos de cola. Las operaciones a las que podrá llamar dependerán de los permisos que se concedan a la entidad de seguridad de Azure AD con la que inicie sesión en PowerShell. Los permisos para las colas de Azure Storage se asignan mediante Azure RBAC. Por ejemplo, si se le asigna el rol de **lector de datos de cola** , puede ejecutar comandos de scripting que lean datos de una cola. Si se le asigna el rol de **colaborador de datos de cola** , podrá ejecutar comandos de scripting que lean, escriban o eliminen una cola, o los datos que contiene.
 
-Para más información sobre los permisos requeridos para cada operación de Azure Storage en una cola, consulte la sección [Llamadas a operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+Para más información sobre los permisos requeridos para cada operación de Azure Storage en una cola, consulte la sección [Llamadas a operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Llamada a comandos de PowerShell mediante credenciales de Azure AD
 
@@ -45,7 +45,7 @@ En el ejemplo siguiente se muestra cómo crear una cola en una nueva cuenta de a
 
     Para obtener más información sobre cómo iniciar sesión en Azure con PowerShell, consulte [Inicio de sesión con Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Cree un grupo de recursos de Azure mediante una llamada a [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+1. Cree un grupo de recursos de Azure mediante una llamada a [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
     ```powershell
     $resourceGroup = "sample-resource-group-ps"

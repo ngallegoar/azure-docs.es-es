@@ -4,13 +4,12 @@ description: Aprenda a proteger pods con Azure Policy en Azure Kubernetes Servic
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-author: jluk
-ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900130"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348532"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Protección de pods con Azure Policy
 
@@ -61,7 +60,7 @@ Las siguientes limitaciones generales se aplican al complemento de Azure Policy 
 Las siguientes limitaciones solo se aplican al complemento de Azure Policy para AKS:
 
 - La [directiva de seguridad de pod de AKS (versión preliminar)](use-pod-security-policies.md) y el complemento de Azure Policy para AKS no se pueden habilitar simultáneamente. 
-- El complemento de Azure Policy excluye automáticamente los siguientes espacios de nombres de la evaluación: _kube-system_ , _gatekeeper-system_ y _aks-periscope_ .
+- El complemento de Azure Policy excluye automáticamente los siguientes espacios de nombres de la evaluación: _kube-system_ , _gatekeeper-system_ y _aks-periscope_.
 
 ### <a name="recommendations"></a>Recomendaciones
 
@@ -150,7 +149,7 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > Los pods de los espacios de nombres administrativos como kube-system deben ejecutarse para que un clúster siga con un funcionamiento correcto. Si se elimina un espacio de nombres necesario de la lista de espacios de nombres excluidos predeterminados, se pueden desencadenar infracciones de directivas debido a un pod del sistema necesario.
 
-AKS requiere que los pods del sistema se ejecuten en un clúster para proporcionar servicios críticos, como la resolución DNS. Las directivas que limitan la funcionalidad del pod pueden afectar a la estabilidad del pod del sistema. Como resultado, los siguientes espacios de nombres se **excluyen de la evaluación de directivas en las solicitudes de admisión durante la creación, actualización y auditoría de directivas** . Esto fuerza la exclusión de las directivas de Azure de las nuevas implementaciones en estos espacios de nombres.
+AKS requiere que los pods del sistema se ejecuten en un clúster para proporcionar servicios críticos, como la resolución DNS. Las directivas que limitan la funcionalidad del pod pueden afectar a la estabilidad del pod del sistema. Como resultado, los siguientes espacios de nombres se **excluyen de la evaluación de directivas en las solicitudes de admisión durante la creación, actualización y auditoría de directivas**. Esto fuerza la exclusión de las directivas de Azure de las nuevas implementaciones en estos espacios de nombres.
 
 1. kube-system
 1. gatekeeper-system

@@ -6,14 +6,15 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: f6a348ceb30806259035cb71bb4165b736949272
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0791ed6882feedeab47b75eff6a69bf0a49ab7ee
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480078"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341300"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Synapse Link para Azure Cosmos DB crea una integración sin contratiempos entre Azure Cosmos DB y Azure Synapse Analytics. Permite a los clientes ejecutar análisis casi en tiempo real de sus datos operativos junto con aislamiento de rendimiento completo de sus cargas de trabajo transaccionales y sin necesidad de una canalización de ETL. En este artículo se responden las preguntas más frecuentes sobre Synapse Link para Azure Cosmos DB.
 
@@ -156,7 +157,7 @@ Un contenedor de Azure Cosmos DB habilitado con el almacén analítico tiene el
 
 Un contenedor de almacén transaccional se representará con el siguiente icono:
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Icono: contenedor de Azure Cosmos DB habilitado con el almacén analítico":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Icono: contenedor de Azure Cosmos DB habilitado con el almacén transaccional":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-azure-synapse-studio"></a>¿Cómo se pasan las credenciales de Azure Cosmos DB desde Azure Synapse Studio?
 

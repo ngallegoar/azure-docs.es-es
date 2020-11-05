@@ -3,17 +3,19 @@ title: Constantes de SQL en Azure Cosmos DB
 description: Obtenga información sobre cómo se usan las constantes de consulta SQL en Azure Cosmos DB para representar un valor de datos específico.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74873427"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339213"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Constantes de consulta SQL de Azure Cosmos DB  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Una constante, también conocida como valor literal o escalar, es un símbolo que representa un valor de datos específico. El formato de las constantes depende del tipo de datos del valor que representan.  
   
@@ -23,7 +25,7 @@ ms.locfileid: "74873427"
 |-|-|  
 |**Undefined**|Valor único: **undefined**|  
 |**Null**|Valor único: **null**|  
-|**Boolean**|Valores: **false**, **true**.|  
+|**Boolean**|Valores: **false** , **true**.|  
 |**Number**|Número de punto flotante de precisión doble, estándar IEEE 754.|  
 |**String**|Secuencia de cero o más caracteres Unicode. Las cadenas deben ir entre comillas sencillas o dobles.|  
 |**Array**|Secuencia de cero o más elementos. Cada elemento puede ser un valor de cualquier tipo de datos escalar, excepto **Undefined**.|  

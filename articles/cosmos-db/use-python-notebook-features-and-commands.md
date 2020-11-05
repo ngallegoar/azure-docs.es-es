@@ -3,17 +3,19 @@ title: Uso de los comandos y las características de cuadernos integrados en cua
 description: Aprenda a usar los comandos y las características integrados para realizar operaciones comunes con los cuadernos de Python integrados de Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 596d34ef0544f4160c18210f05f68b488ec114d3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476287"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340420"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Uso de los comandos y las características de cuadernos integrados en cuadernos de Python de Azure Cosmos DB (versión preliminar)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Los cuadernos de Jupyter integrados en Azure Cosmos DB permiten analizar y visualizar los datos desde Azure Portal. En este artículo se describe cómo usar los comandos y las características de cuadernos integrados para realizar operaciones comunes en cuadernos de Python.
 
@@ -200,7 +202,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Restablecer el área de trabajo de los cuadernos
 Para restablecer la configuración predeterminada del área de trabajo de los cuadernos, seleccione **Reset Workspace** (Restablecer el área de trabajo) en la barra de comandos. Se quitarán todos los paquetes instalados personalizados y se reiniciará el servidor de Jupyter. Los cuadernos, los archivos y los recursos de Azure Cosmos no se verán afectados.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Explorador de datos nteract":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Restablecer el área de trabajo de los cuadernos":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,18 +4,18 @@ description: En este artículo se describe el modelo de recursos de Azure Cosmos
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1178a5e2850279820925c9bd02554ec7d5adf9e6
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283289"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341372"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Modelo de recursos de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB es una plataforma como servicio (PaaS) totalmente administrada. Para empezar a usar Azure Cosmos DB, debe crear primero una cuenta de Azure Cosmos en su suscripción de Azure que contenga bases de datos, contenedores y elementos. En este artículo se describe el modelo de recursos de Azure Cosmos DB y las distintas entidades de la jerarquía del modelo de recursos.
 
@@ -33,7 +33,7 @@ Después de crear una cuenta en su suscripción a Azure, puede administrar los d
 
 En la siguiente imagen se muestra la jerarquía de diferentes entidades en una cuenta de Azure Cosmos DB:
 
-:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Jerarquía de una cuenta de Azure Cosmos" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entidades de cuenta de Azure Cosmos" border="false":::
 
 ## <a name="azure-cosmos-databases"></a>Bases de datos de Azure Cosmos
 
@@ -72,7 +72,7 @@ Al crear un contenedor, debe configurar el rendimiento de uno de los siguientes 
 
 Un contenedor de Azure Cosmos puede escalarse elásticamente, sin importar si crea contenedores mediante modos de rendimiento aprovisionado compartido o dedicado.
 
-Un contenedor es un contenedor de elementos sin esquemas. Los elementos de un contenedor pueden tener esquemas arbitrarios. Por ejemplo, un elemento que representa a una persona y otro elemento que representa un automóvil se pueden colocar en el *mismo contenedor* . De forma predeterminada, todos los elementos que agregue a un contenedor se indexan automáticamente sin requerir ningún índice explícito ni administración de esquema. Puede personalizar el comportamiento de la indexación configurando la [directiva de indexación](index-overview.md) en un contenedor. 
+Un contenedor es un contenedor de elementos sin esquemas. Los elementos de un contenedor pueden tener esquemas arbitrarios. Por ejemplo, un elemento que representa a una persona y otro elemento que representa un automóvil se pueden colocar en el *mismo contenedor*. De forma predeterminada, todos los elementos que agregue a un contenedor se indexan automáticamente sin requerir ningún índice explícito ni administración de esquema. Puede personalizar el comportamiento de la indexación configurando la [directiva de indexación](index-overview.md) en un contenedor. 
 
 Asimismo, puede configurar [Período de vida (TTL)](time-to-live.md) en los elementos seleccionados en un contenedor o para que todo el contenedor elimine esos elementos del sistema sin problemas. Azure Cosmos DB elimina automáticamente los elementos cuando estos expiran. También garantiza que una consulta realizada en el contenedor no devuelva los elementos que expiraron en un límite fijado. Para más información, consulte [Configure TTL on your container](how-to-time-to-live.md) (Configuración de TTL en el contenedor).
 

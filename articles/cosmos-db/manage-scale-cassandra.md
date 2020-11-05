@@ -3,17 +3,19 @@ title: Escalado elástico con Cassandra API en Azure Cosmos DB
 description: Conozca las opciones disponibles para escalar una cuenta de Cassandra API de Azure Cosmos DB y sus ventajas y desventajas
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: cbd5dbd81cf8cda117447a15d4a73ae8a546f181
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: aad2e80598146be7b45a8a7b8a02cfe050163102
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482526"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340964"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Escalado elástico de una cuenta de Cassandra API de Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Hay varias opciones para explorar la naturaleza elástica de la API de Azure Cosmos DB para Cassandra. Para comprender cómo realizar un escalado eficaz en Azure Cosmos DB, es importante comprender cómo aprovisionar la cantidad correcta de unidades de solicitud (RU/s) para tener en cuenta las demandas de rendimiento del sistema. Para más información sobre las unidades de solicitud, consulte el artículo [Unidades de solicitud](request-units.md). 
 
@@ -62,7 +64,7 @@ La ventaja de este enfoque es que permite responder a las necesidades de escalad
 
 Además de aprovisionar el rendimiento de forma estándar (manual) o mediante programación, puede configurar contenedores de Azure Cosmos en el rendimiento aprovisionado de escalabilidad automática. La escalabilidad automática escalará el sistema de forma automática e instantánea en función de las necesidades de consumo dentro de los intervalos de RU especificados sin poner en peligro los Acuerdos de Nivel de Servicio. Para más información, consulte este artículo sobre la [creación de contenedores y bases de datos de Azure Cosmos en escalabilidad automática](provision-throughput-autoscale.md).
 
-La ventaja de este enfoque es que es la forma más fácil de administrar las necesidades de escalado del sistema. No se aplicará la limitación de velocidad **dentro de los intervalos de RU configurados** . El inconveniente es que, si las necesidades de escalado del sistema son predecibles, la escalabilidad automática puede resultar menos rentable a la hora de administrar las necesidades de escalado que el uso del plano de control o el nivel de SDK mencionados anteriormente.
+La ventaja de este enfoque es que es la forma más fácil de administrar las necesidades de escalado del sistema. No se aplicará la limitación de velocidad **dentro de los intervalos de RU configurados**. El inconveniente es que, si las necesidades de escalado del sistema son predecibles, la escalabilidad automática puede resultar menos rentable a la hora de administrar las necesidades de escalado que el uso del plano de control o el nivel de SDK mencionados anteriormente.
 
 Para establecer o modificar el rendimiento máximo (RU) para el escalado automático con CQL, use lo siguiente (reemplazando el nombre de Keyspace o tabla según corresponda):
 

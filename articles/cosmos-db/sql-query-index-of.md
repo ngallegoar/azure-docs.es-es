@@ -3,18 +3,21 @@ title: INDEX_OF en el lenguaje de consulta de Azure Cosmos DB
 description: Aprenda sobre la función del sistema SQL INDEX_OF en Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 50e489fdf57398d486b07944782ecbb3fd1d6a43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 228e23cd94f6d903af63e59ba0333d78bd5eacfd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71350993"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341729"
 ---
 # <a name="index_of-azure-cosmos-db"></a>INDEX_OF (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devuelve la posición inicial de la primera aparición de la expresión de la segunda cadena dentro de la primera expresión de cadena especificada, o -1 si no se encuentra la cadena.  
   
 ## <a name="syntax"></a>Sintaxis

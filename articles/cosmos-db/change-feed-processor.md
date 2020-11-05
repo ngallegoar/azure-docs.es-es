@@ -4,19 +4,21 @@ description: Aprenda a usar el procesador de fuente de cambios de Azure Cosmos 
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475811"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340233"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 El procesador de fuente de cambios es parte del [SDK V3 de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3). Simplifica el proceso de lectura de la fuente de cambios y distribuye el procesamiento de eventos entre varios consumidores de manera eficaz.
 
@@ -112,7 +114,7 @@ El procesador de fuente de cambios se inicializará para esa fecha y hora espec�
 
 ### <a name="reading-from-the-beginning"></a>Lectura desde el principio
 
-En otros escenarios, como las migraciones de datos o el análisis de todo el historial de un contenedor, es necesario leer la fuente de cambios desde **el principio de la vigencia de ese contenedor** . Para ello, podemos usar `WithStartTime` en la extensión del generador, pero pasando `DateTime.MinValue.ToUniversalTime()`, de forma que se genere la representación UTC del valor `DateTime` mínimo, de la siguiente manera:
+En otros escenarios, como las migraciones de datos o el análisis de todo el historial de un contenedor, es necesario leer la fuente de cambios desde **el principio de la vigencia de ese contenedor**. Para ello, podemos usar `WithStartTime` en la extensión del generador, pero pasando `DateTime.MinValue.ToUniversalTime()`, de forma que se genere la representación UTC del valor `DateTime` mínimo, de la siguiente manera:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 

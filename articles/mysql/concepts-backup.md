@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: ef53fc3de87eeaa41d3859fd8b10dd3cc942afc7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 00cd5a76a52e1b58bc2f01315dd3a1a859074a58
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547221"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348464"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Copia de seguridad y restauración en Azure Database for MySQL
 
@@ -38,13 +38,13 @@ Las copias de seguridad del registro de transacciones tienen lugar cada cinco mi
 El almacenamiento de uso general es el almacenamiento de back-end que admite el servidor [De uso general](concepts-pricing-tiers.md) y el servidor de [nivel Optimizado para memoria](concepts-pricing-tiers.md). En el caso de los servidores con almacenamiento de uso general de hasta 4 TB, las copias de seguridad completas se realizan cada semana. Las copias de seguridad diferenciales se realizan dos veces al día. Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos. Las copias de seguridad del almacenamiento de uso general de hasta 4 TB no se basan en instantáneas y consumen ancho de banda de E/S en el momento de la copia de seguridad. En el caso de las bases de datos de gran tamaño (> 1 TB) en el almacenamiento de 4 TB, se recomienda considerar lo siguiente:
 
 - Aprovisionamiento de más IOPS para asegurar E/S de copia de seguridad, O
-- También puede migrar a un almacenamiento de uso general que admite hasta 16 TB si la infraestructura de almacenamiento subyacente está disponible en las [regiones de Azure](./concepts-pricing-tiers.md#storage) de su preferencia. No hay ningún costo adicional para el almacenamiento de uso general que admite hasta 16 TB. Si necesita ayuda para migrar a un almacenamiento de 16 TB, abra una incidencia de soporte técnico en Azure Portal.
+- También puede migrar a un almacenamiento de uso general que admite hasta 16 TB si la infraestructura de almacenamiento subyacente está disponible en las [regiones de Azure](/azure/mysql/concepts-pricing-tiers#storage) de su preferencia. No hay ningún costo adicional para el almacenamiento de uso general que admite hasta 16 TB. Si necesita ayuda para migrar a un almacenamiento de 16 TB, abra una incidencia de soporte técnico en Azure Portal.
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de almacenamiento de uso general con hasta 16 TB
 
-En un subconjunto de [regiones de Azure](./concepts-pricing-tiers.md#storage), todos los servidores recién aprovisionados pueden admitir un almacenamiento de uso general de hasta 16 TB. En otras palabras, el almacenamiento de hasta 16 TB es el almacenamiento de uso general predeterminado para todas las [regiones](./concepts-pricing-tiers.md#storage) donde se admite. Las copias de seguridad de estos servidores con 16 TB almacenamiento se basan en instantáneas. La primera copia de seguridad de instantáneas completa, se programa inmediatamente después de la creación del servidor. Esa primera copia se conserva como la copia de seguridad base del servidor. Las copias de seguridad de instantáneas posteriores son solo copias de seguridad diferenciales.
+En un subconjunto de [regiones de Azure](/azure/mysql/concepts-pricing-tiers#storage), todos los servidores recién aprovisionados pueden admitir un almacenamiento de uso general de hasta 16 TB. En otras palabras, el almacenamiento de hasta 16 TB es el almacenamiento de uso general predeterminado para todas las [regiones](concepts-pricing-tiers.md#storage) donde se admite. Las copias de seguridad de estos servidores con 16 TB almacenamiento se basan en instantáneas. La primera copia de seguridad de instantáneas completa, se programa inmediatamente después de la creación del servidor. Esa primera copia se conserva como la copia de seguridad base del servidor. Las copias de seguridad de instantáneas posteriores son solo copias de seguridad diferenciales.
 
-En un subconjunto de [regiones de Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), todos los servidores recién aprovisionados pueden admitir un almacenamiento de uso general de hasta 16 TB. En otras palabras, el almacenamiento de hasta 16 TB es el almacenamiento de uso general predeterminado para todas las [regiones](/concepts-pricing-tiers.md#storage) donde se admite. Las copias de seguridad de estos servidores con 16 TB almacenamiento se basan en instantáneas. La primera copia de seguridad de instantáneas completa, se programa inmediatamente después de la creación del servidor. Esa primera copia se conserva como la copia de seguridad base del servidor. Las copias de seguridad de instantáneas posteriores son solo copias de seguridad diferenciales.
+En un subconjunto de [regiones de Azure](concepts-pricing-tiers.md#storage), todos los servidores recién aprovisionados pueden admitir un almacenamiento de uso general de hasta 16 TB. En otras palabras, el almacenamiento de hasta 16 TB es el almacenamiento de uso general predeterminado para todas las [regiones](concepts-pricing-tiers.md#storage) donde se admite. Las copias de seguridad de estos servidores con 16 TB almacenamiento se basan en instantáneas. La primera copia de seguridad de instantáneas completa, se programa inmediatamente después de la creación del servidor. Esa primera copia se conserva como la copia de seguridad base del servidor. Las copias de seguridad de instantáneas posteriores son solo copias de seguridad diferenciales.
 
 Las copias de seguridad de instantáneas diferenciales se producen al menos una vez al día. Las copias de seguridad de instantáneas diferenciales no se realizan según una programación fija. Las copias de seguridad de instantáneas diferenciales se producen cada 24 horas, a menos que el registro de transacciones (binlog en MySQL) supere los 50 GB desde la última copia de seguridad diferencial. En un día, se permite un máximo de seis instantáneas diferenciales.
 

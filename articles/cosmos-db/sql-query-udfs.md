@@ -3,18 +3,20 @@ title: Funciones definidas por el usuario (UDF) en Azure Cosmos DB
 description: Obtenga información sobre las funciones definidas por el usuario en Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c17fcbb7f6cd2d7f4948defad49e8319a013eb86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c7050042d59156e1203b5830d710e61bd8eb382
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262066"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341899"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funciones definidas por el usuario (UDF) en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La API de SQL proporciona compatibilidad con las funciones definidas por el usuario (UDF). Con las funciones definidas por el usuario escalares, puede pasar ningún argumento o muchos, y devolver un resultado con un único argumento. La API comprueba que cada argumento sea un valor JSON válido.  
 

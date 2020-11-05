@@ -3,18 +3,20 @@ title: StringEquals en el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información sobre cómo la función del sistema SQL StringEquals en Azure Cosmos DB devuelve un valor booleano que indica si la primera expresión de cadena contiene la segunda
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 57d124421082e1c38fab4d982687a8e6c970505e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47d899534de535b5cd6a7c3fb2df78cdadbe11f2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83853697"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338057"
 ---
 # <a name="stringequals-azure-cosmos-db"></a>STRINGEQUALS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Devuelve un valor booleano que indica si la primera expresión de cadena coincide con la segunda.  
   

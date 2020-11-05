@@ -3,17 +3,19 @@ title: Hojas de referencia rápida en PDF de consultas Azure Cosmos DB
 description: Hojas de referencia rápida de consultas en PDF imprimibles que le ayudan a usar SQL de Azure Cosmos DB, MongoDB, Graph y Table API para consultar sus datos
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: d5683fb64c9b5df027ff8b0f50cec49e9bce5808
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ef8aed7243e8956ad9ca62b630cda0efbd2deb9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475131"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339655"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Hojas de referencia rápida de consultas Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Las **Hojas de referencia rápida de consultas Azure Cosmos DB** ayudan a escribir rápidamente consultas para datos ya que se muestran las consultas de base de datos comunes, las operaciones, las funciones integradas y los operadores en una hoja de referencia rápida PDF fácil de imprimir. Las hojas de referencia rápida incluyen información de referencia de las API de SQL, MongoDB, Table y Gremlin. 
 
@@ -28,7 +30,7 @@ Descargue las [hojas de referencia rápida de consultas Azure Cosmos DB con tama
 ## <a name="oversized-cheat-sheets"></a>Hojas de referencia rápida de tamaño grande
 Descargue las [hojas de referencia rápida de consultas Azure Cosmos DB con tamaño A3](https://go.microsoft.com/fwlink/?linkid=870413) si va a imprimir con un trazador o una impresora a gran escala en papel de tamaño A3 (297 x 420 mm).
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Hojas de referencia rápida de las consultas de Azure Cosmos DB: tamaño carta, con consultas y funciones de la API de SQL, JavaScript, MongoDB, Gremlin y Table API" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Hojas de referencia rápida de las consultas de Azure Cosmos DB: tamaño A3, con consultas y funciones de la API de SQL, JavaScript, MongoDB, Gremlin y Table API" border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más ayuda para escribir consultas, vea los artículos siguientes:

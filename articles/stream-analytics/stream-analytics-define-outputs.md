@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/2/2020
-ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 022e2e25c96473f49468f2bd48e5ee997933baea
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708442"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348719"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Salidas de Azure Stream Analytics
 
-Un trabajo de Azure Stream Analytics consta de una entrada, una consulta y una salida. Hay varios tipos de salida a los que puede enviar datos transformados. En este artículo se enumeran las salidas de Stream Analytics admitidas. Al diseñar la consulta de Stream Analytics, haga referencia al nombre de la salida mediante la [cláusula INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Puede usar una única salida por trabajo, o varias salidas por trabajo de streaming (si las necesita); para ello, agregue varias cláusulas INTO en la consulta.
+Un trabajo de Azure Stream Analytics consta de una entrada, una consulta y una salida. Hay varios tipos de salida a los que puede enviar datos transformados. En este artículo se enumeran las salidas de Stream Analytics admitidas. Al diseñar la consulta de Stream Analytics, haga referencia al nombre de la salida mediante la [cláusula INTO](/stream-analytics-query/into-azure-stream-analytics). Puede usar una única salida por trabajo, o varias salidas por trabajo de streaming (si las necesita); para ello, agregue varias cláusulas INTO en la consulta.
 
-Para crear, editar y probar las salidas de trabajos de Stream Analytics, puede usar [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), la [API de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), la [API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) y [Visual Studio](stream-analytics-quick-create-vs.md).
+Para crear, editar y probar las salidas de trabajos de Stream Analytics, puede usar [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), la [API de .NET](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations), la [API REST](/rest/api/streamanalytics/) y [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Algunos tipos de salida admiten la [creación de particiones](#partitioning), y los [tamaños de los lotes de salida](#output-batch-size) varían para optimizar el rendimiento. En la siguiente tabla se muestran las características que se admiten para cada tipo de salida:
 
@@ -41,7 +41,7 @@ Algunos tipos de salida admiten la [creación de particiones](#partitioning), y 
 
 Stream Analytics admite particiones para todas las salidas, excepto para Power BI. Para más información sobre las claves de partición y el número de escritores de salida, consulte el artículo sobre el tipo de salida específico que le interesa. Todos los artículos de salidas están vinculados en la sección anterior.  
 
-Además, para un ajuste de las particiones más avanzado, se puede controlar el número de escritores de salida mediante una cláusula `INTO <partition count>` (consulte [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) de la consulta, lo cual puede ser útil para lograr la topología de trabajo deseada. Si el adaptador de salida no tiene particiones, la falta de datos de una partición de entrada provocará un retraso hasta la cantidad de tiempo de llegada tardía. En tales casos, la salida se combina en un único sistema de escritura, lo que puede provocar cuellos de botella en la canalización. Para obtener más información sobre la directiva de llegadas tardías, consulte [Puntos a tener en cuenta sobre el orden de eventos de Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
+Además, para un ajuste de las particiones más avanzado, se puede controlar el número de escritores de salida mediante una cláusula `INTO <partition count>` (consulte [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) de la consulta, lo cual puede ser útil para lograr la topología de trabajo deseada. Si el adaptador de salida no tiene particiones, la falta de datos de una partición de entrada provocará un retraso hasta la cantidad de tiempo de llegada tardía. En tales casos, la salida se combina en un único sistema de escritura, lo que puede provocar cuellos de botella en la canalización. Para obtener más información sobre la directiva de llegadas tardías, consulte [Puntos a tener en cuenta sobre el orden de eventos de Azure Stream Analytics](./stream-analytics-time-handling.md).
 
 ## <a name="output-batch-size"></a>Tamaño de lote de salida
 
@@ -91,5 +91,5 @@ Estas propiedades de ventana de procesamiento por lotes solo se admiten en la ve
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

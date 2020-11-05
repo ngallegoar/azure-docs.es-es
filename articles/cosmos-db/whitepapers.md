@@ -2,19 +2,21 @@
 title: Notas del producto que describen conceptos de Azure Cosmos DB
 description: Obtenga la lista de notas del producto de Azure Cosmos DB, estas notas del producto describen los conceptos en profundidad.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: adbbdf39875e67552de2f797b94eae89e0aba409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ad69114dedfdec151480b97ceccc279bcbd683
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74869789"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340403"
 ---
 # <a name="azure-cosmos-db-whitepapers"></a>Notas del producto de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Las notas del producto permiten explorar los conceptos de Azure Cosmos DB en un nivel más profundo. En este artículo se proporciona una lista de las notas del producto disponibles para Azure Cosmos DB.
 

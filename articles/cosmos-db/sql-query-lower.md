@@ -3,18 +3,21 @@ title: LOWER en el lenguaje de consulta de Azure Cosmos DB
 description: Más información sobre la función del sistema SQL LOWER en Azure Cosmos DB para devolver una expresión de cadena después de convertir los datos de caracteres en mayúsculas a minúsculas.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 80dba57d4fe05630eb5ae4f8fc96bd0aa214c6d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd1d9ddefd67cadb92632fd6db7a1fbd5a34f35a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302277"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338465"
 ---
 # <a name="lower-azure-cosmos-db"></a>LOWER (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devuelve una expresión de cadena después de convertir los datos de caracteres en mayúsculas a minúsculas.  
 
 La función del sistema LOWER no emplea el índice. Si planea realizar con frecuencia comparaciones que no distingan mayúsculas de minúsculas, la función del sistema LOWER puede consumir una cantidad significativa de RU. Si este es el caso, en lugar de usar la función del sistema LOWER para normalizar los datos cada vez que realice comparaciones, puede normalizar el uso de mayúsculas y minúsculas durante la inserción. Al hacerlo, una consulta como SELECT * FROM c WHERE LOWER(c.name) = 'bob' simply se convertirá en SELECT * FROM c WHERE c.name = 'bob'.

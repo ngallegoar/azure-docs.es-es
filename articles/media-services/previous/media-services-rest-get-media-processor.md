@@ -3,7 +3,7 @@ title: Obtención de un procesador de multimedia mediante REST | Microsoft Docs
 description: Aprenda a crear un componente de procesador de multimedia para codificar, cifrar, descifrar o convertir el formato de contenido multimedia para Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: ba625aa048360a4c201b91b4a5a4a7ca4dd6277b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: e1ac2a2408e16c3f8057c49c69c354ebb1e377c7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269512"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348498"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Obtención de una instancia del procesador de multimedia
 
@@ -28,18 +28,18 @@ ms.locfileid: "89269512"
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
-> 
-> 
+
 
 ## <a name="overview"></a>Información general
-Los procesadores multimedia son un componente que controla una tarea de procesamiento de vídeo o audio específica como codificación, conversión de formato, cifrado o descifrado de contenido multimedia. Todas las tareas que se envían a Media Services requieren un procesador multimedia para codificar, cifrar o convertir el contenido de audio o vídeo. 
 
-## <a name="azure-media-processors"></a>Procesadores de multimedia de Azure 
+Los procesadores multimedia son un componente que controla una tarea de procesamiento de vídeo o audio específica como codificación, conversión de formato, cifrado o descifrado de contenido multimedia. Todas las tareas que se envían a Media Services requieren un procesador multimedia para codificar, cifrar o convertir el contenido de audio o vídeo.
+
+## <a name="azure-media-processors"></a>Procesadores de multimedia de Azure
 
 En el siguiente tema se proporcionan listas de procesadores de multimedia:
 
-* [Codificación de procesadores de multimedia](scenarios-and-availability.md#encoding-media-processors)
-* [Procesadores de multimedia de Analytics](scenarios-and-availability.md#analytics-media-processors)
+* [Codificación de procesadores de multimedia](scenarios-and-availability.md)
+* [Procesadores de multimedia de Analytics](scenarios-and-availability.md)
 
 >[!NOTE]
 >Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
@@ -51,7 +51,7 @@ Para obtener más información sobre cómo conectarse a la API de Azure Media Se
 
 ## <a name="get-a-media-processor"></a>Obtención de un procesador multimedia
 
-La siguiente llamada REST muestra cómo obtener una instancia de procesador multimedia por nombre (en este caso, **Codificador multimedia estándar**). 
+La siguiente llamada REST muestra cómo obtener una instancia de procesador multimedia por nombre (en este caso, **Codificador multimedia estándar** ). 
 
 Solicitud:
 

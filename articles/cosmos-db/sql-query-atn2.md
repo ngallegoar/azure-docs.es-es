@@ -3,18 +3,21 @@ title: ATN2 en el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información sobre cómo la función del sistema SQL ATN2 en Azure Cosmos DB devuelve el valor principal del arco tangente de y/x, expresado en radianes
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 696e14e75998ead04c99fab2b84fc4c742d5f54a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6db42713ec6f0eac64e0f1123825c21a4206fa99
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302668"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341950"
 ---
 # <a name="atn2-azure-cosmos-db"></a>ATN2 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devuelve el valor principal de la arcotangente de y/x, expresado en radianes.  
   
 ## <a name="syntax"></a>Sintaxis

@@ -3,18 +3,20 @@ title: Registro y uso de procedimientos almacenados, desencadenadores y funcione
 description: Aprenda a registrar y llamar a procedimientos almacenados, desencadenadores y funciones definidas por el usuario con los SDK de Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3744029b72a12cee1543a17bf1dee67a080904c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 022a45199cfc2d467b1d0d408e86cb5d621070d9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253061"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339859"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Registro y uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La API de SQL en Azure Cosmos DB admite el registro e invocación de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) escritas en JavaScript. Puede usar los SDK de [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md) o [Python](sql-api-sdk-python.md) de SQL API para registrar e invocar los procedimientos almacenados. Una vez que haya definido uno o varios procedimientos, desencadenadores y funciones definidas por el usuario, puede cargarlos y verlos en [Azure Portal](https://portal.azure.com/) mediante el Explorador de datos.
 

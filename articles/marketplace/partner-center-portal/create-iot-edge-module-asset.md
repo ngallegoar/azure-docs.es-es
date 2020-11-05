@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324648"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346781"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparar los recursos técnicos del módulo IoT Edge
 
@@ -107,10 +107,10 @@ Los módulos que usan el SDK de módulo IoT deben establecer el identificador de
 
 Use uno de los métodos siguientes de los SDK de módulo IoT para establecer ProductInfo en este identificador:
 
-- [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
+- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
 - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-- [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
+- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo)
 
 En cuanto a los módulos que no usan el SDK de módulo IoT, puede encontrar detalles menos precisos en el Centro de partners, por ejemplo el número de descargas.
 

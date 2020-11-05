@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 76b82d3c008ede99e69f3a19a56911fbfecd5642
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 54193c9333c75fd8b973ebe33470fca3617e2f2d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148758"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341848"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
 
@@ -37,14 +37,14 @@ El flujo de trabajo final será el siguiente:
 3. Como respuesta, el punto de conexión de delegación se redirige a la interfaz de usuario o la presenta para pedir al usuario que inicie sesión o se suscriba.
 4. Una vez conseguido, se redirige de nuevo al usuario a la página del portal para desarrolladores de API Management de la que partió.
 
-Para empezar, configuremos primero Administración de API para que dirija las solicitudes a través del extremo de delegación. En Azure Portal, busque **Seguridad** en el recurso de API Management y, luego, haga clic en el elemento de **Delegación** . Haga clic en la casilla para activar "Delegar inicio de sesión y suscripción".
+Para empezar, configuremos primero Administración de API para que dirija las solicitudes a través del extremo de delegación. En Azure Portal, busque **Seguridad** en el recurso de API Management y, luego, haga clic en el elemento de **Delegación**. Haga clic en la casilla para activar "Delegar inicio de sesión y suscripción".
 
 ![Delegation page][api-management-delegation-signin-up]
 
 * Determine cuál será la dirección URL del extremo especial de delegación y escríbala en el campo **Dirección URL del extremo de delegación** . 
 * En el campo Clave de autenticación de delegación, escriba el secreto que se usará para procesar una firma suministrada para su comprobación con objeto de garantizar que la solicitud procede efectivamente de Azure API Management. Puede hacer clic en el botón **generar** para que API Management genere de forma aleatoria una clave en su lugar.
 
-Ahora debe crear el **extremo de delegación** . Este tiene que realizar varias acciones:
+Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias acciones:
 
 1. Recibir una solicitud de la forma siguiente:
    
@@ -71,7 +71,7 @@ Ahora debe crear el **extremo de delegación** . Este tiene que realizar varias 
    * [Solicite un token de acceso compartido] a través de la API de REST de API Management.
    * Anexe un parámetro de consulta returnUrl a la URL de SSO que se recibió de la llamada de API anterior:
      
-     > por ejemplo, `https://customer.portal.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     > por ejemplo, `https://<developer portal domain, for example: contoso.developer.azure-api.net>/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
      
    * Redirija al usuario a la URL producida anteriormente.
 
@@ -97,7 +97,7 @@ La delegación de una suscripción a productos funciona de forma similar a la de
 2. El explorador se redirige al extremo de delegación.
 3. El extremo de delegación realiza los pasos necesarios para la suscripción al producto. Usted es el encargado de diseñar estos pasos. Pueden implicar la redirección a otra página para solicitar información de facturación, la formulación de otras preguntas o simplemente el almacenamiento de la información sin que se requiera ninguna acción del usuario.
 
-Para habilitar la funcionalidad, en la página **Delegación** , haga clic en **Delegar suscripción de productos** .
+Para habilitar la funcionalidad, en la página **Delegación** , haga clic en **Delegar suscripción de productos**.
 
 A continuación, asegúrese de que el extremo de delegación realiza las siguientes acciones:
 

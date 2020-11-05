@@ -3,18 +3,20 @@ title: Traslado de una cuenta de Azure Cosmos DB a otra región
 description: Obtenga información sobre cómo trasladar una cuenta de Azure Cosmos DB a otra región.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: b34bc81f48b806b1016fbbd19d3ebc8bfef908c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29b5c5d3cf55cd11fe505c0d9ab9b894dc2ad267
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090540"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342035"
 ---
 # <a name="move-an-azure-cosmos-db-account-to-another-region"></a>Traslado de una cuenta de Azure Cosmos DB a otra región
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se describe cómo:
 

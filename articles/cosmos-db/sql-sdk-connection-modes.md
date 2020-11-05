@@ -3,18 +3,20 @@ title: Modos de conectividad de SDK de SQL de Azure Cosmos DB
 description: Obtenga información sobre los diferentes modos de conectividad disponibles en los SDK de SQL de Azure Cosmos DB.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: d88d52f67274d14836520494580e9208ce4eecbe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: 892d73c2b23a9806cd38b188f594f129fda9303d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283250"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340726"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Modos de conectividad de SDK de SQL de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La forma en que un cliente se conecta a Azure Cosmos DB tiene importantes implicaciones de rendimiento, especialmente para la latencia observada en el cliente. Azure Cosmos DB ofrece un modelo de programación RESTful sencillo y abierto sobre HTTPS denominado modo de puerta de enlace. Además, ofrece un protocolo TCP eficaz, que también es RESTful en su modelo de comunicación y usa TLS para la autenticación inicial y el cifrado del tráfico, denominado modo directo.
 

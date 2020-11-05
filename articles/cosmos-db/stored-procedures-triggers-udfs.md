@@ -3,18 +3,20 @@ title: Trabajo con procedimientos almacenados, desencadenadores y funciones defi
 description: En este artículo se introducen conceptos como procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: e12bae14ede90a3b93a69d963981f097818e65ab
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480231"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340709"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB proporciona la ejecución transaccional integrada en lenguaje JavaScript. Cuando se usa la API de SQL en Azure Cosmos DB, puede escribir los **procedimientos almacenados** , los **desencadenadores** y las **funciones definidas por el usuario (UDF)** en el lenguaje JavaScript. Puede escribir su lógica en JavaScript, que se ejecuta dentro del motor de base de datos. Puede crear y ejecutar desencadenadores, procedimientos almacenados y UDF mediante [Azure Portal](https://portal.azure.com/), la [API de consulta integrada del lenguaje JavaScript en Azure Cosmos DB](javascript-query-api.md) o los [SDK del cliente de la API de SQL de Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
@@ -41,7 +43,7 @@ La escritura de procedimientos almacenados, desencadenadores y funciones definid
 
 ## <a name="transactions"></a>Transacciones
 
-Una transacción en una base de datos típica se puede definir como una secuencia de operaciones realizadas como una única unidad lógica de trabajo. Cada transacción proporciona **garantías de propiedad ACID** . ACID es un acrónimo conocido que hacer referencia a: **A** tomicidad, **C** oherencia, a **I** slamiento y **D** urabilidad. 
+Una transacción en una base de datos típica se puede definir como una secuencia de operaciones realizadas como una única unidad lógica de trabajo. Cada transacción proporciona **garantías de propiedad ACID**. ACID es un acrónimo conocido que hacer referencia a: **A** tomicidad, **C** oherencia, a **I** slamiento y **D** urabilidad. 
 
 * La atomicidad garantiza que todas las operaciones realizadas dentro de una transacción se lean como una única unidad donde se confirman todas o ninguna. 
 

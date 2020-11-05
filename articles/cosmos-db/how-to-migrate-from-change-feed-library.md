@@ -3,18 +3,20 @@ title: Migración desde la biblioteca de procesadores de fuente de cambios al SD
 description: Obtenga información sobre cómo migrar la aplicación desde el uso de la biblioteca de procesadores de fuente de cambios al SDK de Azure Cosmos DB V3.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: b1c54c2e486f935b3c3ba1b13207caaa67099459
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ce2d4d3ad3ae349718f01584ec077b18e11e4f8d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490992"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341270"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migración desde la biblioteca de procesadores de fuente de cambios al SDK de Azure Cosmos DB para .NET V3
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se describen los pasos necesarios para migrar el código de una aplicación existente que usa la [biblioteca de procesadores de fuente de cambios](https://github.com/Azure/azure-documentdb-changefeedprocessor-dotnet) a la característica de [fuente de cambios](change-feed.md) en la versión más reciente del SDK de .NET (que también se conoce como el SDK de .NET V3).
 

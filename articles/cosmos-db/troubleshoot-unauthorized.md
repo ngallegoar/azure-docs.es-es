@@ -3,18 +3,20 @@ title: Solución de problemas de excepciones de servicio no autorizado de Azure�
 description: Descubra cómo diagnosticar y corregir excepciones de servicio no autorizado.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: a4f51b641ca38b2b6f74bb77928537270d12f1e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dce956b932274a44e98a28b4c6567a5e98771613
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870857"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340012"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-unauthorized-exceptions"></a>Diagnóstico y solución de problemas de la excepción de servicio no autorizado de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 HTTP 401: La firma MAC de la solicitud HTTP no es la misma que la firma calculada.
 Si recibe el mensaje de error 401 ("La firma MAC de la solicitud HTTP no es la misma que la firma calculada"), puede deberse a los siguientes escenarios.

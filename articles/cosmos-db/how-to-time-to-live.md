@@ -3,18 +3,20 @@ title: Configurar y administrar el período de vida en Azure Cosmos DB
 description: Aprenda a configurar y administrar el período de vida en un contenedor y un elemento de Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 340ec7c16c5ed3e477cc2c4505c8b018d2d39a06
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ddba95f9ccc25d536638dbc68c41027d26e71c7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486011"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341015"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configuración del período de vida en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En Azure Cosmos DB, puede elegir configurar el período de vida (TTL) en el nivel de contenedor, o puede invalidarlo en un nivel de elemento después de configurarlo para el contenedor. Puede configurar el período de vida de un contenedor mediante Azure Portal o los SDK específicos del lenguaje. Las invalidaciones del período de vida en el nivel de elemento se pueden configurar mediante los SDK.
 
@@ -28,12 +30,12 @@ Siga estos pasos para habilitar el período de vida de un contenedor para que no
 
 2. Cree una cuenta de Azure Cosmos DB o seleccione una ya existente.
 
-3. Abra el panel **Explorador de datos** .
+3. Abra el panel **Explorador de datos**.
 
 4. Seleccione un contenedor existente, expándalo y modifique los valores siguientes:
 
-   * Abra la ventana **Escala y configuración** .
-   * En **Configuración** busque, **Período de vida** .
+   * Abra la ventana **Escala y configuración**.
+   * En **Configuración** busque, **Período de vida**.
    * Seleccione **Activado (valor no predeterminado)** o seleccione **Activado** y establezca un valor para el período de vida
    * Haga clic en **Guardar** para guardar los cambios.
 
@@ -212,16 +214,16 @@ Use estos pasos para habilitar el período de vida en un elemento:
 
 2. Cree una cuenta de Azure Cosmos DB o seleccione una ya existente.
 
-3. Abra el panel **Explorador de datos** .
+3. Abra el panel **Explorador de datos**.
 
 4. Seleccione un contenedor existente, expándalo y modifique los valores siguientes:
 
-   * Abra la ventana **Escala y configuración** .
-   * En **Configuración** busque, **Período de vida** .
+   * Abra la ventana **Escala y configuración**.
+   * En **Configuración** busque, **Período de vida**.
    * Seleccione **Activado (valor no predeterminado)** o seleccione **Activado** y establezca un valor para el período de vida. 
    * Haga clic en **Guardar** para guardar los cambios.
 
-5. A continuación, vaya al elemento para el que quiere establecer el período de vida, agregue la propiedad `ttl` y seleccione **Actualizar** . 
+5. A continuación, vaya al elemento para el que quiere establecer el período de vida, agregue la propiedad `ttl` y seleccione **Actualizar**. 
 
    ```json
    {

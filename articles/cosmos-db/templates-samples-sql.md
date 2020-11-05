@@ -3,17 +3,19 @@ title: Plantillas de Azure Resource Manager para Azure Cosmos DB Core (API de S
 description: Use las plantillas de Azure Resource Manager para crear y configurar Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 3247f35fec8615b9c5e277b7453c340caaf56ffd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 52fa5957cdbc3ae73ebc4b36e04582741199414a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283461"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340607"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Plantillas de Azure Resource Manager para Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo solo se muestran ejemplos de plantillas de Azure Resource Manager para cuentas de Core (SQL) API. También puede encontrar ejemplos de plantillas para [Cassandra API](templates-samples-cassandra.md), [Gremlin API](templates-samples-gremlin.md), [MongoDB API](templates-samples-mongodb.md) y [Table API](templates-samples-table.md).
 

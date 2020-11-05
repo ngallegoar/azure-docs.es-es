@@ -2,19 +2,21 @@
 title: Migración de CouchBase a API de SQL de Azure Cosmos DB
 description: Guía paso a paso para migrar desde CouchBase a API de SQL de Azure Cosmos DB
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 73d6fe0233eccea9ebf1d82beb509c56fb45f4da
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282475"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339519"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migración de CouchBase a API de SQL de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB es una base de datos totalmente administrada, escalable y distribuida globalmente. Proporciona acceso de baja latencia garantizado a los datos. Para obtener más información sobre Azure Cosmos DB, vea el artículo de [información general](introduction.md). En este artículo se proporcionan instrucciones para migrar aplicaciones de Java conectadas a Couchbase a una cuenta de API de SQL de Azure Cosmos DB.
 
@@ -37,7 +39,7 @@ A continuación se indican las principales características que funcionan de man
 
 * En Azure Cosmos DB no es necesario que la jerarquía de nivel superior indique la colección, porque ya existe el nombre de la colección. Esta característica simplifica la estructura JSON. A continuación se proporciona un ejemplo en el que se muestran las diferencias en cuanto al modelo de datos entre Couchbase y Azure Cosmos DB:
 
-   **Couchbase**: Id. de documento = "99FF4444"
+   **Couchbase** : Id. de documento = "99FF4444"
 
     ```json
     {
@@ -67,7 +69,7 @@ A continuación se indican las principales características que funcionan de man
     }
    ```
 
-   **Azure Cosmos DB**: Vea "id." en el documento, como se muestra a continuación
+   **Azure Cosmos DB** : Vea "id." en el documento, como se muestra a continuación
 
     ```json
     {
@@ -311,7 +313,7 @@ Se trata de un tipo simple de carga de trabajo en el que se pueden realizar bús
 
 1. Considere convertir "/ID" en la clave principal, con lo que se aseguraría de poder realizar operaciones de búsqueda directamente en la partición específica. Cree una colección y especifique "/ID" como clave de partición.
 
-1. Desactive la indexación por completo. Dado que va a ejecutar operaciones de búsqueda, no hay motivo para agregar sobrecarga de indexación. Para desactivar la indexación, inicie sesión en Azure Portal y vaya a Cuenta de Azure Cosmos DB. Abra el **Explorador de datos**, seleccione la **Base de datos** y el **Contenedor**. Abra la pestaña **Escala y configuración** y seleccione la **Directiva de indexación**. En este momento, la directiva de indexación tiene esta aspecto:
+1. Desactive la indexación por completo. Dado que va a ejecutar operaciones de búsqueda, no hay motivo para agregar sobrecarga de indexación. Para desactivar la indexación, inicie sesión en Azure Portal y vaya a Cuenta de Azure Cosmos DB. Abra el **Explorador de datos** , seleccione la **Base de datos** y el **Contenedor**. Abra la pestaña **Escala y configuración** y seleccione la **Directiva de indexación**. En este momento, la directiva de indexación tiene esta aspecto:
     
    ```json
    {

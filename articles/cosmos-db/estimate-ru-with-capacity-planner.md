@@ -3,17 +3,19 @@ title: Estimación de los costos mediante Capacity Planner de Azure Cosmos DB
 description: Capacity Planner de Azure Cosmos DB permite estimar el rendimiento (RU/s) necesario y el costo de la carga de trabajo. En este artículo se describe cómo usar la nueva versión de Capacity Planner para calcular el rendimiento y los costos necesarios.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: 5b1edb5bbd3ac6fa415f24670c98cd99ffb74fc6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 017aeaaa24e8ac2d493d0de81a7abb655bae5611
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488510"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342086"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Estimación de RU/s mediante Capacity Planner de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La configuración de las bases de datos y los contenedores de Azure Cosmos con la cantidad adecuada de rendimiento aprovisionado, o [unidades de solicitud (RU/s)](request-units.md), para la carga de trabajo es esencial para optimizar el costo y el rendimiento. En este artículo se describe cómo usar [Capacity Planner](https://cosmos.azure.com/capacitycalculator/) de Azure Cosmos DB para obtener una estimación de las RU/s necesarias y el costo de la carga de trabajo. 
 
@@ -39,7 +41,7 @@ Para obtener una estimación rápida de la carga de trabajo mediante el modo bá
 |Lecturas/s por región|Número de lecturas esperadas por segundo. |
 |Escrituras/s por región|Número de escrituras esperadas por segundo. |
 
-Después de rellenar los detalles necesarios, seleccione **Calcular** . La pestaña **Cost Estimate** (Estimación del costo) muestra el costo total del almacenamiento y el rendimiento aprovisionado. Puede expandir el vínculo **Mostrar detalles** de esta pestaña para obtener el desglose del rendimiento necesario para las solicitudes de lectura y escritura. Cada vez que cambie el valor de cualquier campo, seleccione **Calcular** para volver a calcular el costo estimado. 
+Después de rellenar los detalles necesarios, seleccione **Calcular**. La pestaña **Cost Estimate** (Estimación del costo) muestra el costo total del almacenamiento y el rendimiento aprovisionado. Puede expandir el vínculo **Mostrar detalles** de esta pestaña para obtener el desglose del rendimiento necesario para las solicitudes de lectura y escritura. Cada vez que cambie el valor de cualquier campo, seleccione **Calcular** para volver a calcular el costo estimado. 
 
 :::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Modo básico de Capacity Planner":::
 
@@ -62,7 +64,7 @@ Después de iniciar sesión, puede ver campos adicionales en comparación con lo
 
 También puede usar el botón **Guardar estimación** para descargar un archivo CSV que contenga la estimación actual. 
 
-:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Modo básico de Capacity Planner":::
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Modo avanzado de Capacity Planner":::
 
 Los precios que se muestran en Capacity Planner de Azure Cosmos DB son estimaciones en función de las tarifas de precios públicas para el rendimiento y el almacenamiento. Todos los precios se muestran en dólares estadounidenses. Consulte la [página de precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para ver todas las tarifas por región.  
 

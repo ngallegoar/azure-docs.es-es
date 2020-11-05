@@ -3,18 +3,21 @@ title: Solución de problemas de las excepciones de tasa de solicitudes demasiad
 description: Aprenda a diagnosticar y corregir las excepciones de tasa de solicitudes demasiado grande.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 905560094afa9338d44ba73120d316b3c81b5580
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c985cea24ea772fe9e0c9bcad59f63a66b2489cc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277148"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340114"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-exceptions"></a>Diagnóstico y solución de problemas de las excepciones de tasa de solicitud demasiado grande en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 El mensaje "Tasa de solicitudes demasiado grande" o el código de error 429 indican que las solicitudes están siendo limitadas.
 
 ## <a name="troubleshooting-steps"></a>Pasos para solucionar problemas

@@ -3,17 +3,19 @@ title: Cláusula WHERE en Azure Cosmos DB
 description: Obtenga información sobre la cláusula WHERE de SQL para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5620a9fb95fb52a487095afd75d5f30c82a8bce1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523509"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341476"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Cláusula WHERE en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La cláusula WHERE opcional (`WHERE <filter_condition>`) especifica las condiciones que deben cumplir los elementos JSON de origen para que la consulta los incluya en los resultados. Un elemento JSON debe evaluar que las condiciones especificadas sean `true` para que se le tenga en cuenta para el resultado. La capa de índice usa la cláusula WHERE para determinar el subconjunto menor de documentos de origen que puede formar parte del resultado.
   

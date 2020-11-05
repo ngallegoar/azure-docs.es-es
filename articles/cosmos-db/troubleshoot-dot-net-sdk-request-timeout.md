@@ -3,19 +3,22 @@ title: Solución de los problemas de error HTTP 408 o de tiempo de espera de la
 description: Aprenda a diagnosticar y corregir las excepciones de tiempo de espera de solicitud del SDK de .NET.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 211121e21502e9cd4929169053a8ad58a9d7b21b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476933"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340505"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnóstico y solución de problemas de tiempo de espera de la solicitud del SDK de .NET en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 El error HTTP 408 se produce si el SDK no puede completar la solicitud antes de que se agote el límite de tiempo de espera.
 
 ## <a name="customize-the-timeout-on-the-azure-cosmos-db-net-sdk"></a>Personalización del tiempo de espera en el SDK de.NET para Azure Cosmos DB

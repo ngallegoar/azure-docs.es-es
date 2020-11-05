@@ -3,18 +3,20 @@ title: Pruebas de escala y rendimiento con Azure Cosmos DB
 description: Aprenda a realizar pruebas de escala y rendimiento con Azure Cosmos DB. Luego puede evaluar la funcionalidad de Azure Cosmos DB para escenarios de aplicaciones de alto rendimiento.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6ddc428a1b2228c7e6e15093c12deb25ddd65c27
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f27e4f9f8e9f027233db89838614b523c5d0fe1f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281029"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341780"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Pruebas de escala y rendimiento con Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Las pruebas de escala y rendimiento representan un paso clave en el desarrollo de aplicaciones. Para muchas aplicaciones, el nivel de base de datos tiene un impacto significativo en el rendimiento y la escalabilidad general. Por tanto, es un componente esencial de las pruebas de rendimiento. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) está diseñado específicamente para el escalado elástico y un rendimiento predecible. Estas funcionalidades hacen que resulte una opción ideal para las aplicaciones que necesitan un nivel de base de datos con un alto rendimiento. 
 

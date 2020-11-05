@@ -3,18 +3,20 @@ title: Cargos de unidades de solicitud para Azure Cosmos DB como almacén de par
 description: Obtenga información sobre los cargos de unidades de solicitud de Azure Cosmos DB para operaciones simples de escritura y lectura cuando se utiliza como un almacén de pares de clave y valor.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9354ae0a22ef2e8ab4ee6a57563d3f3c4c8e4547
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488459"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339314"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como almacén de pares valor-clave: Información general de costos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB es un servicio de base de datos multimodelo globalmente distribuido para crear aplicaciones de alta disponibilidad y a gran escala fácilmente. De forma predeterminada, Azure Cosmos DB indexa automática y eficazmente todos los datos que ingiere. Esto permite consultas [SQL](./sql-query-getting-started.md) (y [JavaScript](stored-procedures-triggers-udfs.md)) rápidas y coherentes en los datos. 
 
@@ -22,7 +24,7 @@ En este artículo se describe el costo de Azure Cosmos DB para operaciones simpl
 
 ## <a name="why-we-use-request-units-rus"></a>¿Por qué usamos unidades de solicitud (RU)?
 
-El rendimiento de Azure Cosmos DB se basa en la cantidad de rendimiento aprovisionado expresado en las [unidades de solicitud](request-units.md) (RU/s). El aprovisionamiento tiene una granularidad de un segundo y se adquiere en RU/s ([no se debe confundir con la facturación horaria](https://azure.microsoft.com/pricing/details/cosmos-db/)). Las RU deben considerarse una abstracción lógica (una moneda) que simplifica el aprovisionamiento de rendimiento necesario para la aplicación. Los usuarios no tienen que pensar en diferenciar entre rendimiento de lectura y escritura. El modelo de moneda única de RU crea eficiencias para compartir la capacidad aprovisionada entre lecturas y escrituras. Este modelo de capacidad aprovisionada permite que el servicio proporcione un **rendimiento predecible y coherente, baja latencia garantizada y alta disponibilidad** . Por último, mientras que el modelo de RU se usa para representar el rendimiento, cada RU aprovisionada también tiene una cantidad definida de recursos (p. ej., memoria, núcleos/CPU e IOPS).
+El rendimiento de Azure Cosmos DB se basa en la cantidad de rendimiento aprovisionado expresado en las [unidades de solicitud](request-units.md) (RU/s). El aprovisionamiento tiene una granularidad de un segundo y se adquiere en RU/s ([no se debe confundir con la facturación horaria](https://azure.microsoft.com/pricing/details/cosmos-db/)). Las RU deben considerarse una abstracción lógica (una moneda) que simplifica el aprovisionamiento de rendimiento necesario para la aplicación. Los usuarios no tienen que pensar en diferenciar entre rendimiento de lectura y escritura. El modelo de moneda única de RU crea eficiencias para compartir la capacidad aprovisionada entre lecturas y escrituras. Este modelo de capacidad aprovisionada permite que el servicio proporcione un **rendimiento predecible y coherente, baja latencia garantizada y alta disponibilidad**. Por último, mientras que el modelo de RU se usa para representar el rendimiento, cada RU aprovisionada también tiene una cantidad definida de recursos (p. ej., memoria, núcleos/CPU e IOPS).
 
 Como un sistema de base de datos distribuido globalmente, Cosmos DB es el único servicio de Azure que proporciona un Acuerdo de Nivel de Servicio completo que abarca la latencia, el rendimiento, la coherencia y la alta disponibilidad. El rendimiento que se aprovisiona se aplica a cada una de las regiones asociadas a su cuenta de Cosmos. Para lecturas, Cosmos DB ofrece varios [niveles de coherencia](consistency-levels.md) bien definidos entre los que elegir. 
 

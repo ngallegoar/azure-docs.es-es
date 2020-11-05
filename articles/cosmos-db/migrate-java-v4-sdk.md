@@ -5,17 +5,19 @@ author: anfeldma-ms
 ms.custom: devx-track-java
 ms.author: anfeldma
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33524acd09cbf565127dc81ef2b5bfa16b4504d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327861"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339774"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migración de la aplicación para usar el SDK de Azure Cosmos DB para Java v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]  
 > Para más información acerca de este SKD, consulte las [notas de la versión](sql-api-sdk-java-v4.md) del SDK de Azure Cosmos DB para Java v4, el [repositorio de Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), las [sugerencias de rendimiento](performance-tips-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4 y la [guía de solución de problemas](troubleshoot-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4.
@@ -62,11 +64,11 @@ A continuación se muestran los cambios de nivel de API en el SDK de Azure Cosmo
 
 * El SDK de Azure Cosmos DB para Java 3.x.x y 4.0 ofrecen API de sincronización y asincrónica.
 
-  * **SDK de Java 4.0**: Todas las clases pertenecen a la API de sincronización a menos que el nombre de clase se anexe con `Async` después de `Cosmos`.
+  * **SDK de Java 4.0** : Todas las clases pertenecen a la API de sincronización a menos que el nombre de clase se anexe con `Async` después de `Cosmos`.
 
-  * **SDK de Java 3.x.x**: Todas las clases pertenecen a la API asincrónica a menos que el nombre de clase se anexe con `Async` después de `Cosmos`.
+  * **SDK de Java 3.x.x** : Todas las clases pertenecen a la API asincrónica a menos que el nombre de clase se anexe con `Async` después de `Cosmos`.
 
-  * **SDK de Java 2.x.x asincrónico**: Los nombres de clase son similares a SDK de Java 2.x.x sincrónico, aunque el nombre comienza con *Asincrónico*.
+  * **SDK de Java 2.x.x asincrónico** : Los nombres de clase son similares a SDK de Java 2.x.x sincrónico, aunque el nombre comienza con *Asincrónico*.
 
 ### <a name="hierarchical-api-structure"></a>Estructura jerárquica de la API
 

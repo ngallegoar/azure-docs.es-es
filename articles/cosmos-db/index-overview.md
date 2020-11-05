@@ -3,17 +3,19 @@ title: Indexación en Azure Cosmos DB
 description: Conozca el funcionamiento de la indexación en Azure Cosmos DB, y cómo se admiten los diferentes tipos de índices como los compuestos, espaciales o de intervalo.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: fcb6e004c86289e2efa89a988b362e76145a9538
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490431"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339765"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB es una base de datos independiente del esquema que le permite iterar en la aplicación sin tener que tratar con la administración de esquemas o índices. De forma predeterminada, Azure Cosmos DB indexa automáticamente todas las propiedades de todos los elementos de su [contenedor](account-databases-containers-items.md#azure-cosmos-containers) sin tener que definir ningún esquema ni configurar índices secundarios.
 
@@ -180,7 +182,7 @@ Las rutas de acceso extraídas al indexar datos facilitan la tarea de buscar el 
 
 Por ejemplo, considere la consulta siguiente: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. El predicado de consulta (filtrado por elementos, donde cualquier ubicación tiene "France" como su país) coincidiría con la ruta de acceso resaltada en rojo a continuación:
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="El elemento anterior representado como árbol" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Coincidencia con una ruta de acceso específica dentro de un árbol" border="false":::
 
 > [!NOTE]
 > Una cláusula `ORDER BY` que ordena por una sola propiedad *siempre* necesita un índice de rango y dará error si la ruta de acceso a la que hace referencia no tiene uno. Del mismo modo, una consulta `ORDER BY` que se ordena por varias propiedades *siempre* necesita un índice compuesto.

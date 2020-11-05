@@ -3,19 +3,21 @@ title: Uso de la API de consulta integrada de JavaScript en procedimientos almac
 description: En este artículo se presentan los conceptos de la API de consulta integrada en lenguaje JavaScript para crear desencadenadores y procedimientos almacenados en Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: f16498f0661ba918acd42b7964b649d0bbdf5841
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: b2563a9af0e0ca6943059698e29d139143780d93
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495893"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340998"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>API de consulta de JavaScript en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Además de emitir consultas con la API de SQL en Azure Cosmos DB, el [SDK del lado servidor de Cosmos DB](https://github.com/Azure/azure-cosmosdb-js-server/) proporciona una interfaz de JavaScript para realizar consultas optimizadas en procedimientos almacenados y desencadenadores de Cosmos DB. No es necesario conocer el lenguaje SQL para utilizar esta interfaz JavaScript. JavaScript Query API permite crear mediante programación consultas pasando las funciones de predicado a una secuencia de llamadas de función, con una sintaxis familiar para los elementos integrados de matriz de ECMAScript5 y conocidas bibliotecas de JavaScript, como Lodash. Las consultas se analizan con el entorno de ejecución de JavaScript para que se ejecuten eficazmente mediante índices de Azure Cosmos DB.
 

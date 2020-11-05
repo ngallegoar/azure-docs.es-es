@@ -3,17 +3,19 @@ title: Aprenda a administrar cuentas de base de datos en Azure Cosmos DB
 description: Aprenda a administrar recursos de Azure Cosmos DB mediante Azure Portal, PowerShell, la CLI y plantillas de Azure Resource Manager.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5a8351b8c74f9219cf14575cc326fa8049264ed7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d8763a794d2fb96d0c464fb1249b9eb400fd23e7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491128"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339876"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Administración de una cuenta de Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se describe cómo administrar varias tareas en una cuenta de Azure Cosmos mediante Azure Portal, Azure PowerShell, la CLI de Azure y plantillas de Azure Resource Manager.
 
@@ -41,7 +43,7 @@ Consulte [Creación y administración de Azure Cosmos DB con plantillas de Azure
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
-1. Vaya a la cuenta de Azure Cosmos y abra el menú **Replicar datos globalmente** .
+1. Vaya a la cuenta de Azure Cosmos y abra el menú **Replicar datos globalmente**.
 
 1. Para agregar regiones, seleccione los hexágonos del mapa con la etiqueta **+** correspondiente a la región (o regiones) deseada. Otra forma de agregar una región es seleccionar la opción **+ Agregar región** y elegir una región en el menú desplegable.
 
@@ -69,7 +71,7 @@ Consulte [Agregar o quitar regiones con PowerShell](manage-with-powershell.md#up
 
 Abra la pestaña **Replicar datos globalmente** y seleccione **Habilitar** para habilitar las escrituras en varias regiones. Después de habilitar las escrituras en varias regiones, todas las regiones de lectura que actualmente tiene en la cuenta se convertirán en regiones de lectura y escritura.
 
-:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Menú Agregar o eliminar regiones":::
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Captura de pantalla de la cuenta de Azure Cosmos que configura las escrituras en varias regiones":::
 
 ### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -145,17 +147,17 @@ La opción de conmutación automática por error permite que Azure Cosmos DB c
 
 ### <a name="azure-portal"></a><a id="enable-automatic-failover-via-portal"></a>Azure Portal
 
-1. En la cuenta de Azure Cosmos, abra el panel **Replicar datos globalmente** .
+1. En la cuenta de Azure Cosmos, abra el panel **Replicar datos globalmente**.
 
-2. En la parte superior del panel, seleccione **Conmutación automática por error** .
+2. En la parte superior del panel, seleccione **Conmutación automática por error**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Agregar o eliminar regiones":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Replicar datos globalmente":::
 
-3. En el panel **Conmutación automática por error** , asegúrese de que **Habilitar la conmutación automática por error** está establecido en **Activado** . 
+3. En el panel **Conmutación automática por error** , asegúrese de que **Habilitar la conmutación automática por error** está establecido en **Activado**. 
 
-4. Seleccione **Guardar** .
+4. Seleccione **Guardar**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menú Agregar o eliminar regiones":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menú Conmutación por error automática del portal":::
 
 ### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
@@ -174,19 +176,19 @@ Una vez que una cuenta de Cosmos se configura para la conmutación automática p
 
 ### <a name="azure-portal"></a><a id="set-failover-priorities-via-portal"></a>Azure Portal
 
-1. En la cuenta de Azure Cosmos, abra el panel **Replicar datos globalmente** .
+1. En la cuenta de Azure Cosmos, abra el panel **Replicar datos globalmente**.
 
-2. En la parte superior del panel, seleccione **Conmutación automática por error** .
+2. En la parte superior del panel, seleccione **Conmutación automática por error**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Agregar o eliminar regiones":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Replicar datos globalmente":::
 
-3. En el panel **Conmutación automática por error** , asegúrese de que **Habilitar la conmutación automática por error** está establecido en **Activado** .
+3. En el panel **Conmutación automática por error** , asegúrese de que **Habilitar la conmutación automática por error** está establecido en **Activado**.
 
 4. Para modificar la prioridad de la conmutación por error, arrastre las regiones de lectura mediante los tres puntos del lado izquierdo de la fila que aparecen al mantener el puntero sobre ellos.
 
-5. Seleccione **Guardar** .
+5. Seleccione **Guardar**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menú Agregar o eliminar regiones":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menú Conmutación por error automática del portal":::
 
 ### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Azure CLI
 
@@ -208,17 +210,17 @@ El proceso para realizar una conmutación por error manual implica cambiar la re
 
 ### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Azure Portal
 
-1. Vaya a la cuenta de Azure Cosmos y abra el menú **Replicar datos globalmente** .
+1. Vaya a la cuenta de Azure Cosmos y abra el menú **Replicar datos globalmente**.
 
-2. En la parte superior del menú, seleccione **Conmutación por error manual** .
+2. En la parte superior del menú, seleccione **Conmutación por error manual**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Agregar o eliminar regiones":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Replicar datos globalmente":::
 
 3. En el menú **Conmutación por error manual** , seleccione la nueva región de escritura. Active la casilla de verificación para indicar que comprende que esta opción cambia la región de escritura.
 
-4. Para desencadenar la conmutación por error, seleccione **Aceptar** .
+4. Para desencadenar la conmutación por error, seleccione **Aceptar**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menú Agregar o eliminar regiones":::
+   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menú Conmutación por error del portal":::
 
 ### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Azure CLI
 

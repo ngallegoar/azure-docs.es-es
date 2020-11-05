@@ -3,18 +3,20 @@ title: Funciones del sistema en el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información acerca de las funciones del sistema de SQL integradas y definidas por el usuario en Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18fdab8f4aa90e993f6802508c13a78565b9fa6e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b8883d7040ad5c73a376838f7cb1aaa1b558bfbd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279923"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340842"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Funciones del sistema (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Cosmos DB proporciona muchas funciones de SQL integradas. Las categorías de las funciones integradas aparecen a continuación.  
   

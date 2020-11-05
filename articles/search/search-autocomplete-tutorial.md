@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951407"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348617"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Incorporación de sugerencias y de la función de autocompletar a las aplicaciones cliente
 
-La búsqueda mientras se escribe es una técnica común para mejorar la productividad de las consultas iniciadas por el usuario. En Azure Cognitive Search, esta experiencia se admite a través de la función de *autocompletar*, que finaliza un término o frase según la entrada parcial (completa "micro" con "Microsoft"). Otra forma son las *sugerencias*: una breve lista de documentos coincidentes (se devuelven los títulos de libros con un id. que son vínculos a una página de detalles). Tanto la función de autocompletar como las sugerencias se declaran en una coincidencia en el índice. El servicio no ofrecerá consultas que devuelvan cero resultados.
+La búsqueda mientras se escribe es una técnica común para mejorar la productividad de las consultas iniciadas por el usuario. En Azure Cognitive Search, esta experiencia se admite a través de la función de *autocompletar* , que finaliza un término o frase según la entrada parcial (completa "micro" con "Microsoft"). Otra forma son las *sugerencias* : una breve lista de documentos coincidentes (se devuelven los títulos de libros con un id. que son vínculos a una página de detalles). Tanto la función de autocompletar como las sugerencias se declaran en una coincidencia en el índice. El servicio no ofrecerá consultas que devuelvan cero resultados.
 
 Para implementar estas experiencias en Azure Cognitive Search, necesitará lo siguiente:
 
@@ -117,7 +117,7 @@ $(function () {
 });
 ```
 
-En `source` se indica a la función de autocompletar de la interfaz de usuario de jQuery dónde obtener la lista de elementos para mostrar debajo del cuadro de búsqueda. Puesto que este es un proyecto de MVC, llama a la función **Suggest** en **HomeController.cs**, que contiene la lógica para devolver las sugerencias de consulta. Esta función también pasa algunos parámetros para controlar aspectos destacados, una coincidencia aproximada o un término. La API de JavaScript de la función Autocompletar agrega el parámetro de término.
+En `source` se indica a la función de autocompletar de la interfaz de usuario de jQuery dónde obtener la lista de elementos para mostrar debajo del cuadro de búsqueda. Puesto que este es un proyecto de MVC, llama a la función **Suggest** en **HomeController.cs** , que contiene la lógica para devolver las sugerencias de consulta. Esta función también pasa algunos parámetros para controlar aspectos destacados, una coincidencia aproximada o un término. La API de JavaScript de la función Autocompletar agrega el parámetro de término.
 
 `minLength: 3` garantiza que la recomendación solo se mostrará cuando haya al menos tres caracteres en el cuadro de búsqueda.
 
@@ -131,7 +131,7 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ### <a name="enable-highlighting"></a>Habilitación del resaltado
 
-El resaltado aplica el estilo de fuente a los caracteres del resultado que corresponden a la entrada. Por ejemplo, si la entrada parcial es "micro", el resultado aparecería como **micro**soft, **micro**ámbito, etc. El resaltado se basa en los parámetros HighlightPreTag y HighlightPostTag, definidos en línea con la función de sugerencias.
+El resaltado aplica el estilo de fuente a los caracteres del resultado que corresponden a la entrada. Por ejemplo, si la entrada parcial es "micro", el resultado aparecería como **micro** soft, **micro** ámbito, etc. El resaltado se basa en los parámetros HighlightPreTag y HighlightPostTag, definidos en línea con la función de sugerencias.
 
 ```javascript
 source: "/home/suggest?highlights=true&fuzzy=true&",
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Función de sugerencias
 
-Si usa C# y una aplicación MVC, el archivo **HomeController.cs** del directorio Controllers es el lugar donde puede crear una clase para los resultados sugeridos. En .NET, una función de sugerencias se basa en el [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Para más información sobre el SDK de .NET, consulte [Cómo usar Azure Cognitive Search desde una aplicación .NET](./search-howto-dotnet-sdk.md).
+Si usa C# y una aplicación MVC, el archivo **HomeController.cs** del directorio Controllers es el lugar donde puede crear una clase para los resultados sugeridos. En .NET, una función de sugerencias se basa en el [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Para más información sobre el SDK de .NET, consulte [Cómo usar Azure Cognitive Search desde una aplicación .NET](search-howto-dotnet-sdk.md).
 
 El método `InitSearch` crea un cliente del índice HTTP autenticado en el servicio Azure Cognitive Search. Las propiedades de la clase [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) determinan en qué campos se busca y cuáles se devuelven en los resultados, el número de coincidencias y si se usa la coincidencia aproximada. 
 
@@ -253,4 +253,3 @@ Siga estos vínculos para obtener instrucciones completas o código que muestra 
 
 + [Tutorial: cree su primera aplicación en C# (lección 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [Ejemplo de código C#: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# y JavaScript con código de ejemplo de REST en paralelo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

@@ -3,18 +3,21 @@ title: IS_PRIMITIVE en el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información acerca de la función del sistema de SQL IS_PRIMITIVE en Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 04c8e41f1a431b329f2093851e4430e69ab6aee3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6006a56fd9a8ed6bcb323aebb4e075fa42a2966e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303790"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341886"
 ---
 # <a name="is_primitive-azure-cosmos-db"></a>IS_PRIMITIVE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devuelve un valor booleano que indica si el tipo de la expresión especificada es primitivo (cadena, booleano, numérico o NULL).  
   
 ## <a name="syntax"></a>Sintaxis

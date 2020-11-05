@@ -2,19 +2,21 @@
 title: Conexión de Qlik Sense a Azure Cosmos DB y visualización de los datos
 description: En este artículo se describen los pasos necesarios para conectar Azure Cosmos DB a Qlik Sense y para visualizar los datos.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2401786a82b6a3e5bf6c6a893a8e7cd3656f3402
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263354"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340437"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Conexión de Qlik Sense a Azure Cosmos DB y visualización de los datos
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Qlik Sense es una herramienta de visualización de datos que combina datos de orígenes diferentes en una sola vista. Qlik Sense indexa todas las posibles relaciones de los datos para poder obtener conocimiento inmediato de los datos. Puede visualizar los datos de Azure Cosmos DB con el uso de Qlik Sense. En este artículo se describen los pasos necesarios para conectar Azure Cosmos DB a Qlik Sense y para visualizar los datos. 
 
@@ -62,15 +64,15 @@ Antes de seguir las instrucciones del presente artículo, asegúrese de tener lo
 
 4. Cambie a **DSN de usuario** y elija la conexión de ODBC que creó anteriormente. Proporcione un nombre para la conexión y seleccione **Crear**. 
 
-   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Crear una aplicación de Qlik Sense":::
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Crear una conexión":::
 
 5. Una vez creada la conexión, puede elegir la base de datos, la colección donde se encuentran los datos del videojuego y después obtener la vista previa.
 
-   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Crear una aplicación de Qlik Sense"::: 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Elegir la base de datos y la colección"::: 
 
 6. A continuación, seleccione **Agregar datos** para cargar los datos a Qlik Sense. Después de cargar los datos a Qlik Sense, puede generar información y realizar análisis de los datos. Puede usar esta información o crear su propia aplicación de exploración de las ventas de videojuegos. En la imagen siguiente se muestra: 
 
-   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Crear una aplicación de Qlik Sense":::
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Visualizar datos":::
 
 ### <a name="limitations-when-connecting-with-odbc"></a>Limitaciones al conectarse con ODBC 
 

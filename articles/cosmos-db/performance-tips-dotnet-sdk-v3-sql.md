@@ -3,18 +3,20 @@ title: Sugerencias de rendimiento de Azure Cosmos DB para el SDK de .NET v3
 description: Obtenga información sobre las opciones de configuración de cliente para ayudar a mejorar el rendimiento de la versión 3 del SDK de Azure Cosmos DB para .NET.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 05fe22ed0dc7d03148f66fd02aa648e1b63ab319
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: ab9fc4f08b96fc10a20125c30af2d6b8050c7606
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475335"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341746"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugerencias de rendimiento para Azure Cosmos DB y .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -39,16 +41,16 @@ En el caso de Linux y otras plataformas no compatibles en las que ServiceInterop
 
 Los cuatro tipos de aplicaciones que se enumeran aquí usan el procesamiento de host de 32 bits de forma predeterminada. Para cambiar el procesamiento de host al procesamiento de 64 bits para el tipo de aplicación, haga lo siguiente:
 
-- **Para aplicaciones ejecutables** : en la ventana **Propiedades del proyecto** , en el panel **Compilación** , establezca la [plataforma de destino](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) en **x64** .
+- **Para aplicaciones ejecutables** : en la ventana **Propiedades del proyecto** , en el panel **Compilación** , establezca la [plataforma de destino](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) en **x64**.
 
-- **Para proyectos de prueba basados en VSTest** : en el menú **Prueba** de Visual Studio, seleccione **Probar** > **Configuración de pruebas** y, a continuación, establezca **Arquitectura de procesador predeterminada** en **x64** .
+- **Para proyectos de prueba basados en VSTest** : en el menú **Prueba** de Visual Studio, seleccione **Probar** > **Configuración de pruebas** y, a continuación, establezca **Arquitectura de procesador predeterminada** en **x64**.
 
-- **Para aplicaciones web de ASP.NET implementadas localmente** : seleccione **Herramientas** > **Opciones** > **Proyectos y soluciones** > **Proyectos web** y, a continuación, seleccione **Usar la versión de 64 bits de IIS Express para proyectos y sitios web** .
+- **Para aplicaciones web de ASP.NET implementadas localmente** : seleccione **Herramientas** > **Opciones** > **Proyectos y soluciones** > **Proyectos web** y, a continuación, seleccione **Usar la versión de 64 bits de IIS Express para proyectos y sitios web**.
 
-- **Para aplicaciones web de ASP.NET implementadas en Azure** : en Azure Portal, en **Configuración de la aplicación** , seleccione la plataforma **64 bits** .
+- **Para aplicaciones web de ASP.NET implementadas en Azure** : en Azure Portal, en **Configuración de la aplicación** , seleccione la plataforma **64 bits**.
 
 > [!NOTE] 
-> De forma predeterminada, los nuevos proyectos de Visual Studio se establecen en **cualquier CPU** . Se recomienda establecer el proyecto en **x64** para que no cambie a **x86** . Un proyecto establecido en **Cualquier CPU** puede cambiar fácilmente a **x86** si se agrega una dependencia solo para x86.<br/>
+> De forma predeterminada, los nuevos proyectos de Visual Studio se establecen en **cualquier CPU**. Se recomienda establecer el proyecto en **x64** para que no cambie a **x86**. Un proyecto establecido en **Cualquier CPU** puede cambiar fácilmente a **x86** si se agrega una dependencia solo para x86.<br/>
 > El archivo ServiceInterop.dll debe estar en la carpeta desde la que se ejecuta la DLL del SDK. Esto solo debe ser un problema si se copian manualmente los archivos DLL o tiene sistemas de compilación o implementación personalizados.
     
 **Activación de la recolección de elementos no utilizados del lado servidor**

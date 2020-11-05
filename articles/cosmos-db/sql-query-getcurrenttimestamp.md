@@ -3,18 +3,20 @@ title: GetCurrentTimestamp en lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información sobre la función del sistema SQL GetCurrentTimestamp en Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c1e0a8d69edab0c01005268ee49c23625236f03a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6720b0e5d13f2baaaf063fef2244b0c1f1863571
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606921"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341933"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Devuelve el número de milisegundos que han transcurrido desde las 00:00:00 del jueves, 1 de enero de 1970.
   

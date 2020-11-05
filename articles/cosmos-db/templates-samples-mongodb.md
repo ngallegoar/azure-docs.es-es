@@ -3,17 +3,19 @@ title: Plantillas de Resource Manager para la API de Azure Cosmos DB para Mongo
 description: Use las plantillas de Azure Resource Manager para crear y configurar la API de Azure Cosmos DB para MongoDB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 974ddf4e5e6353eeb53ad90a16740909466016cf
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7664d48bad153b34e7557e9faaf4c8aa0d4215ad
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477069"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340637"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de la API de MongoDB de Azure Cosmos DB con plantillas de Azure Resource Manager
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 En este artículo, aprenderá a usar plantillas de Azure Resource Manager para ayudarle a implementar y administrar las cuentas de Azure Cosmos DB para la API de MongoDB, bases de datos y colecciones.
 

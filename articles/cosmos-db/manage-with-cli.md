@@ -3,17 +3,19 @@ title: Administración de recursos de API de Azure Cosmos DB Core (SQL) mediant
 description: Administre recursos de API de Azure Cosmos DB Core (SQL) mediante la CLI de Azure.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0b19d7681925296936fee5823f7df32e131f8bb8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e4b112b93a552ff62b08c102e710cd914265ba5c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482662"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339332"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Administración de recursos de API de Azure Cosmos Core (SQL) mediante la CLI de Azure
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En la siguiente guía, se describen los comandos comunes para automatizar la administración de las cuentas, las bases de datos y los contenedores de Azure Cosmos DB mediante la CLI de Azure. Hay páginas de referencia para todos los comandos de CLI de Azure Cosmos DB disponibles en la [referencia de la CLI de Azure](/cli/azure/cosmosdb). Para ver más ejemplos, consulte [Ejemplos de la CLI de Azure para Azure Cosmos DB](cli-samples.md), incluidos ejemplos sobre cómo crear y administrar cuentas, bases de datos y contenedores de Cosmos DB para MongoDB, Gremlin, Cassandra y Table API.
 

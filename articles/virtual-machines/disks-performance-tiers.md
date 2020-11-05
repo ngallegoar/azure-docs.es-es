@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359686"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348702"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Niveles de rendimiento de discos administrados (versión preliminar)
 
@@ -55,10 +55,6 @@ Para obtener información de facturación, consulte los [Precios de Managed Disk
 - Debe desasignar la máquina virtual o desconectar el disco de una máquina virtual en ejecución antes de que pueda cambiar el nivel del disco.
 - El uso de los niveles de rendimiento P60, P70 y P80 está restringido a los discos de 4096 GiB o más.
 - El nivel de rendimiento de un disco solo se puede cambiar a un nivel inferior una vez cada 24 horas.
-
-## <a name="regional-availability"></a>Disponibilidad regional
-
-La capacidad de ajustar el nivel de rendimiento de un disco administrado solo está disponible en las SSD Premium en las regiones del este de EE. UU. 2, centro-sur de EE. UU., centro-oeste de EE. UU. y sudeste de Australia.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Creación de un disco de datos vacío con un nivel superior al nivel de línea de base
 

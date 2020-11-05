@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708346"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347489"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creación de una oferta de módulo de IoT Edge
 
@@ -34,7 +34,7 @@ En este artículo se explica cómo crear y publicar una entrada de oferta de mó
 Escriba un **Identificador de oferta**. Se trata de un identificador único para cada oferta de su cuenta.
 
 - Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
-- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1**, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1** , la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
 
 Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
@@ -50,10 +50,10 @@ La página **Información general de la oferta** muestra una representación vis
 
 En esta página se incluyen vínculos para realizar operaciones en esta oferta en función de la selección que realice. Por ejemplo:
 
-- Si la oferta es un borrador: [Eliminación de una oferta borrador](update-existing-offer.md#delete-a-draft-offer)
+- Si la oferta es un borrador: Eliminación de una oferta borrador
 - Si la oferta está activa: [Detención de la venta de una oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Si la oferta está en versión preliminar: [Publicación](publishing-status.md#publisher-approval)
-- Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación.](update-existing-offer.md#cancel-publishing)
+- Si la oferta está en versión preliminar: [Publicación](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación.](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuración de la oferta
 
@@ -169,7 +169,7 @@ Escriba la dirección web de la directiva de privacidad de su organización. Ust
 
 Proporcione documentos en línea complementarios sobre su oferta. Puede agregar hasta 25 vínculos. Para agregar un vínculo, seleccione **+ Agregar un vínculo** y, a continuación, rellene los campos siguientes:
 
-- **Título**: los clientes verán el título en la página de detalles de la oferta.
+- **Título** : los clientes verán el título en la página de detalles de la oferta.
 - **Vínculo (URL)** : escriba un vínculo para que los clientes vean el documento en línea. El vínculo debe comenzar con `http://` o `https://`.
 
 Asegúrese de agregar al menos un vínculo a la documentación y un vínculo a los dispositivos IoT Edge compatibles desde el  [catálogo de dispositivos IoT de Azure](https://catalog.azureiotsolutions.com/).
@@ -182,9 +182,9 @@ Debe proporcionar el nombre, el correo electrónico y el número de teléfono de
 - Contacto de ingeniería (se requiere): Para preguntas técnicas y problemas de certificación.
 - Contacto del programa CSP (opcional): Para preguntas de revendedores relacionadas con el programa CSP.
 
-En la sección **Contacto de soporte técnico**, proporcione la dirección web del **Sitio web de soporte técnico**, donde los asociados pueden encontrar soporte técnico para su oferta, esté disponible en Azure global, Azure Government o ambos.
+En la sección **Contacto de soporte técnico** , proporcione la dirección web del **Sitio web de soporte técnico** , donde los asociados pueden encontrar soporte técnico para su oferta, esté disponible en Azure global, Azure Government o ambos.
 
-En la sección **Contacto del programa CSP**, proporcione el vínculo (**Materiales de marketing del programa CSP**), donde los asociados del programa CSP pueden encontrar materiales de marketing para su oferta.
+En la sección **Contacto del programa CSP** , proporcione el vínculo ( **Materiales de marketing del programa CSP** ), donde los asociados del programa CSP pueden encontrar materiales de marketing para su oferta.
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionales de la descripción de Marketplace
 
@@ -242,7 +242,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Este es un ejemplo de cómo aparece la información de la oferta en los resultados de la búsqueda de Azure Marketplace:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en los resultados de la búsqueda de Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -252,7 +252,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Este es un ejemplo de cómo aparece la información de la oferta en Azure Portal:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Portal.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -263,7 +263,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Este es un ejemplo de cómo aparece la información de la oferta en los resultados de la búsqueda de Azure Portal:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en los resultados de la búsqueda de Azure Portal.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -305,16 +305,16 @@ Después de crear sus planes, la pestaña **Información general del plan** mues
 
 Las acciones disponibles en Información general del plan varían en función del estado actual del plan del plan. Incluyen:
 
-- **Eliminar borrador**: si el estado del plan es un borrador.
-- **Detener el plan de venta**: si el estado el plan es publicado.
+- **Eliminar borrador** : si el estado del plan es un borrador.
+- **Detener el plan de venta** : si el estado el plan es publicado.
 
 ### <a name="create-new-plan"></a>Creación de un nuevo plan
 
 Seleccione **Crear nuevo plan**. Aparece el cuadro de diálogo **Nuevo plan**.
 
-En el cuadro **Id. de plan**, cree un identificador de plan único para cada plan de esta oferta. Este identificador será visible para los clientes en la dirección web del producto. Use solo letras minúsculas y números, guiones o caracteres de subrayado, y un máximo de 50 caracteres.
+En el cuadro **Id. de plan** , cree un identificador de plan único para cada plan de esta oferta. Este identificador será visible para los clientes en la dirección web del producto. Use solo letras minúsculas y números, guiones o caracteres de subrayado, y un máximo de 50 caracteres.
 
-En el cuadro **Nombre del plan**, escriba un nombre para este plan. Los clientes verán este nombre al decidir que plan van a seleccionar en su oferta. Cree un nombre único para cada plan de esta oferta. Por ejemplo, puede usar el nombre de oferta **Windows Server** con los planes **Windows Server 2016** y **Windows Server 2019**.
+En el cuadro **Nombre del plan** , escriba un nombre para este plan. Los clientes verán este nombre al decidir que plan van a seleccionar en su oferta. Cree un nombre único para cada plan de esta oferta. Por ejemplo, puede usar el nombre de oferta **Windows Server** con los planes **Windows Server 2016** y **Windows Server 2019**.
 
 > [!NOTE]
 > El id. de oferta no se puede cambiar después de seleccionar **Crear**.
@@ -362,7 +362,7 @@ Después de completar estos campos seleccione **Guardar borrador**.
 
 A continuación se muestra un ejemplo de los detalles del plan de Azure Marketplace (los precios mostrados son meramente ilustrativos y no pretenden reflejar los costos reales):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustración de los detalles del plan de Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -372,7 +372,7 @@ A continuación se muestra un ejemplo de los detalles del plan de Azure Marketpl
 
 <br>A continuación se muestra un ejemplo de los detalles del plan en Azure Portal (los precios mostrados son meramente ilustrativos y no pretenden reflejar los costos reales):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustración de los detalles del plan en Azure Portal.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -393,7 +393,7 @@ Este campo se utiliza normalmente cuando:
 
 ## <a name="technical-configuration"></a>Configuración técnica
 
-El tipo de oferta **Módulo IoT Edge** es un tipo específico de contenedor que se ejecuta en un dispositivo IoT Edge. En la pestaña **Configuración técnica**, proporcionará información de referencia para el repositorio de imágenes de contenedor en [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), junto con los valores de configuración que permiten a los clientes usar el módulo fácilmente.
+El tipo de oferta **Módulo IoT Edge** es un tipo específico de contenedor que se ejecuta en un dispositivo IoT Edge. En la pestaña **Configuración técnica** , proporcionará información de referencia para el repositorio de imágenes de contenedor en [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), junto con los valores de configuración que permiten a los clientes usar el módulo fácilmente.
 
 Una vez publicada la oferta, la imagen de contenedor de IoT Edge se copia en Azure Marketplace en un registro de contenedor público específico. Todas las solicitudes de los usuarios de Azure que usan su módulo se atienden desde el registro de contenedor público de Azure Marketplace, no desde su registro de contenedor privado.
 
@@ -403,25 +403,25 @@ Puede elegir como destino varias plataformas y proporcionar varias versiones a l
 
 Proporcionará la siguiente información en la pestaña **Detalles del repositorio de imágenes**.
 
-**Seleccionar el origen de la imagen**: seleccione la opción **Registro de Azure Container Registry**.
+**Seleccionar el origen de la imagen** : seleccione la opción **Registro de Azure Container Registry**.
 
-**Id. de suscripción a Azure**: proporcione el identificador de suscripción en el que se indica el uso de recursos y los servicios se facturan por la instancia de Azure Container Registry que incluye la imagen de contenedor. Puede encontrar este identificador en la [página Suscripciones](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) de Azure Portal.
+**Id. de suscripción a Azure** : proporcione el identificador de suscripción en el que se indica el uso de recursos y los servicios se facturan por la instancia de Azure Container Registry que incluye la imagen de contenedor. Puede encontrar este identificador en la [página Suscripciones](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) de Azure Portal.
 
-**Nombre del grupo de recursos de Azure**: proporcione el nombre del [grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md) que contiene la instancia de Azure Container Registry con la imagen de contenedor. El grupo de recursos debe ser accesible en el identificador de suscripción (anterior). Puede encontrar el nombre en la página [Grupos de recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) en Azure Portal.
+**Nombre del grupo de recursos de Azure** : proporcione el nombre del [grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md) que contiene la instancia de Azure Container Registry con la imagen de contenedor. El grupo de recursos debe ser accesible en el identificador de suscripción (anterior). Puede encontrar el nombre en la página [Grupos de recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) en Azure Portal.
 
-**Nombre de Azure Container Registry**: proporcione el nombre de la instancia de [Azure Container Registry](../../container-registry/container-registry-intro.md) que tiene su imagen de contenedor. El registro de contenedor debe estar presente en el grupo de recursos de Azure que proporcionó anteriormente. Proporcione solo el nombre del registro, no el nombre completo del servidor de inicio de sesión. Asegúrese de omitir la parte **azurecr.io** del nombre. Puede encontrar el nombre del registro en la [página Registros de contenedor](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) en Azure Portal.
+**Nombre de Azure Container Registry** : proporcione el nombre de la instancia de [Azure Container Registry](../../container-registry/container-registry-intro.md) que tiene su imagen de contenedor. El registro de contenedor debe estar presente en el grupo de recursos de Azure que proporcionó anteriormente. Proporcione solo el nombre del registro, no el nombre completo del servidor de inicio de sesión. Asegúrese de omitir la parte **azurecr.io** del nombre. Puede encontrar el nombre del registro en la [página Registros de contenedor](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) en Azure Portal.
 
-**Nombre de usuario de administrador de Azure Container Registry**: proporcione el [nombre de usuario de administrador](../../container-registry/container-registry-authentication.md#admin-account) asociado a la instancia de Azure Container Registry que tiene su imagen de contenedor. El nombre de usuario y la contraseña son necesarios para asegurarse de que la empresa tiene acceso al registro. Para obtener el nombre de usuario y la contraseña de administrador, establezca la propiedad **admin-enabled** en **True** mediante la Interfaz de la línea de comandos (CLI) de Azure. Opcionalmente, puede establecer **Usuario administrador** en **Habilitar** en Azure Portal.
+**Nombre de usuario de administrador de Azure Container Registry** : proporcione el [nombre de usuario de administrador](../../container-registry/container-registry-authentication.md#admin-account) asociado a la instancia de Azure Container Registry que tiene su imagen de contenedor. El nombre de usuario y la contraseña son necesarios para asegurarse de que la empresa tiene acceso al registro. Para obtener el nombre de usuario y la contraseña de administrador, establezca la propiedad **admin-enabled** en **True** mediante la Interfaz de la línea de comandos (CLI) de Azure. Opcionalmente, puede establecer **Usuario administrador** en **Habilitar** en Azure Portal.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Muestra el cuadro de diálogo Actualizar registro de contenedor.":::
 
 #### <a name="call-out-description"></a>Descripción destacada
 
 1. Usuario administrador
 
-<br>**Contraseña de Azure Container Registry**: proporcione la contraseña del nombre de usuario administrador asociado a la instancia de Azure Container Registry que tiene su imagen de contenedor. El nombre de usuario y la contraseña son necesarios para asegurarse de que la empresa tiene acceso al registro. Puede obtener la contraseña de Azure Portal a través de **Container Registry** > **Claves de acceso**, o bien de la CLI de Azure con el [comando show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+<br>**Contraseña de Azure Container Registry** : proporcione la contraseña del nombre de usuario administrador asociado a la instancia de Azure Container Registry que tiene su imagen de contenedor. El nombre de usuario y la contraseña son necesarios para asegurarse de que la empresa tiene acceso al registro. Puede obtener la contraseña de Azure Portal a través de **Container Registry** > **Claves de acceso** , o bien de la CLI de Azure con el [comando show.](/cli/azure/acr/credential#az-acr-credential-show)
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Muestra la pantalla de la clave de acceso en Azure Portal.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -481,9 +481,9 @@ En la esquina superior derecha del portal, seleccione **Revisar y publicar**.
 En la página de revisión puede ver el estado de publicación:
 
 - Ver el estado de finalización de cada sección de la oferta. No puede realizar la publicación hasta que todas las secciones de la oferta estén marcadas como completas.
-    - **No iniciada**: significa que la sección no se ha iniciado y se debe completar.
-    - **Incompleta**: significa que la sección tiene errores que deben corregirse o que requiere más información. Vea las secciones anteriores de este documento para obtener instrucciones.
-    - **Completa**: la sección tiene todos los datos necesarios y no contiene errores. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+    - **No iniciada** : significa que la sección no se ha iniciado y se debe completar.
+    - **Incompleta** : significa que la sección tiene errores que deben corregirse o que requiere más información. Vea las secciones anteriores de este documento para obtener instrucciones.
+    - **Completa** : la sección tiene todos los datos necesarios y no contiene errores. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 - Proporcione instrucciones de prueba al equipo de certificación para asegurarse de que la oferta se ha probado correctamente. Además, proporcione cualquier nota complementaria que resulte útil para entender su oferta.
 
 Para enviar la oferta para su publicación, seleccione **Publicar**.
@@ -492,4 +492,4 @@ Le enviaremos un correo electrónico para avisarle cuando haya una versión prel
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Actualización de una oferta existente en Marketplace comercial](https://docs.microsoft.com//azure/marketplace/partner-center-portal/update-existing-offer)
+- [Actualización de una oferta existente en Marketplace comercial](update-existing-offer.md)

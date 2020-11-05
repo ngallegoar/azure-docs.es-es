@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e5b7ed75f22659a9a38ac761cc61c841102a067
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809204"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345846"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Uso del almacenamiento de colas de PHP
 
@@ -38,7 +38,7 @@ En esta guía, usará funciones del servicio Queue Storage a las que se puede ll
 ### <a name="install-via-composer"></a>Instalación mediante el compositor
 
 1. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
-   
+
     ```json
     {
       "require": {
@@ -46,9 +46,10 @@ En esta guía, usará funciones del servicio Queue Storage a las que se puede ll
       }
     }
     ```
+
 2. Descargue **[composer.phar][composer-phar]** en la raíz del proyecto.
 3. Abra un símbolo del sistema y ejecute el siguiente comando en la raíz del proyecto
-   
+
     ```
     php composer.phar install
     ```
@@ -89,8 +90,9 @@ UseDevelopmentStorage=true
 
 Para crear un cliente del servicio Azure Queue, debe usar la clase **QueueRestProxy**. Puede usar cualquiera de las técnicas siguientes:
 
-* pasarle directamente la cadena de conexión, o bien
-* usar variables de entorno en la aplicación web para almacenar la cadena de conexión. Consulte el documento sobre la [configuración de aplicaciones web en Azure](../../app-service/configure-common.md) para configurar cadenas de conexión.
+- pasarle directamente la cadena de conexión, o bien
+- usar variables de entorno en la aplicación web para almacenar la cadena de conexión. Consulte el documento sobre la [configuración de aplicaciones web en Azure](../../app-service/configure-common.md) para configurar cadenas de conexión.
+
 En los ejemplos descritos aquí, la cadena de conexión se pasa directamente.
 
 ```php
@@ -139,8 +141,6 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > No debe confiar en la distinción entre minúsculas y mayúsculas para las claves de metadatos. Todas las claves se leen en el servicio en minúsculas.
-> 
-> 
 
 ## <a name="add-a-message-to-a-queue"></a>un mensaje a una cola
 
@@ -223,7 +223,7 @@ else{
 
 ## <a name="de-queue-the-next-message"></a>siguiente mensaje de la cola
 
-El código borra un mensaje de una cola en dos pasos. Primero llama a **QueueRestProxy->listMessages**, que hace que el mensaje sea invisible a cualquier otro código que esté leyendo de la cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. (Si el mensaje no se elimina en este período, volverá a estar visible de nuevo en la cola). Para terminar de quitar el mensaje de la cola, debe llamar a **QueueRestProxy->deleteMessage**. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
+El código borra un mensaje de una cola en dos pasos. Primero llama a **QueueRestProxy->listMessages** , que hace que el mensaje sea invisible a cualquier otro código que esté leyendo de la cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. (Si el mensaje no se elimina en este período, volverá a estar visible de nuevo en la cola). Para terminar de quitar el mensaje de la cola, debe llamar a **QueueRestProxy->deleteMessage**. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -425,8 +425,8 @@ catch(ServiceException $e){
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola de Azure, use estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-* Consulte la [referencia de API para la biblioteca de cliente de Azure Storage para PHP](https://azure.github.io/azure-storage-php/).
-* Consulte el [ejemplo de cola avanzada](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
+- Consulte la [referencia de API para la biblioteca de cliente de Azure Storage para PHP](https://azure.github.io/azure-storage-php/).
+- Consulte el [ejemplo de cola avanzada](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
 Para obtener más información, consulte también el [Centro para desarrolladores de PHP](https://azure.microsoft.com/develop/php/).
 
