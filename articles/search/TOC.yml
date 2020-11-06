@@ -34,7 +34,7 @@
       href: search-get-started-java.md
     - name: JavaScript
       href: search-get-started-javascript.md
-    - name: postman
+    - name: REST
       href: search-get-started-postman.md
     - name: PowerShell
       href: search-get-started-powershell.md
@@ -94,6 +94,8 @@
   items:
     - name: Búsqueda de texto completo
       href: search-lucene-query-architecture.md
+    - name: Puntuación de relevancia
+      href: index-similarity-and-scoring.md
     - name: Indexadores
       href: search-indexer-overview.md
     - name: Enriquecimiento con inteligencia artificial
@@ -174,7 +176,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: "Azure Cosmos\_DB"
+            - name: Azure Cosmos DB
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
@@ -200,7 +202,7 @@
               href: search-howto-index-encrypted-blobs.md
         - name: Azure Tables
           href: search-howto-indexing-azure-tables.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           href: search-howto-index-cosmosdb.md
         - name: Azure Data Lake Storage Gen2
           href: search-howto-index-azure-data-lake-storage.md
@@ -294,8 +296,6 @@
       items:
         - name: Trabajo con resultados
           href: search-pagination-page-layout.md
-        - name: Puntuación de relevancia
-          href: index-similarity-and-scoring.md
         - name: Perfiles de puntuación
           href: index-add-scoring-profiles.md
         - name: Algoritmo de similitud

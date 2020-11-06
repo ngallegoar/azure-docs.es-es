@@ -14,6 +14,7 @@
     - name: Notas de la versión
       href: release-notes.md
 - name: Guías de inicio rápido
+  expanded: true
   items:
     - name: Introducción
       href: get-started.md
@@ -170,7 +171,9 @@
           href: sql/overview-features.md
         - name: Modelos de consumo de recursos
           href: sql/resource-consumption-models.md
-        - name: Procedimientos recomendados para un grupo de SQL sin servidor
+        - name: Datos procesados
+          href: sql/data-processed.md
+        - name: Procedimientos recomendados de SQL a petición
           href: sql/best-practices-sql-on-demand.md
         - name: Procedimientos recomendados para grupos de SQL dedicados
           href: sql/best-practices-sql-pool.md
@@ -607,7 +610,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL Database
+            - name: "Azure\_SQL\_Database"
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

@@ -4,6 +4,10 @@
   items:
     - name: Azure Lab Services
       href: lab-services-overview.md
+- name: Guías de inicio rápido
+  items:
+    - name: Introducción
+      href: get-started-manage-labs.md
 - name: Tutoriales
   items:
     - name: Configuración de una cuenta de laboratorio

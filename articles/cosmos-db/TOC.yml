@@ -123,7 +123,7 @@
         - name: Recursos de Cosmos DB
           expanded: true
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -662,6 +662,8 @@
               href: how-to-time-to-live.md
             - name: Definición de claves únicas
               href: how-to-define-unique-keys.md
+            - name: Realización de operaciones transaccionales por lotes
+              href: transactional-batch.md
         - name: Rendimiento
           items:
             - name: Consultar
@@ -753,8 +755,6 @@
               href: create-sql-api-java-changefeed.md
         - name: Programación en el lado servidor
           items:
-            - name: Realización de operaciones transaccionales por lotes
-              href: transactional-batch.md
             - name: 'Escritura de procedimientos almacenados, desencadenadores y UDF'
               href: how-to-write-stored-procedures-triggers-udfs.md
             - name: Escritura de procedimientos almacenados y desencadenadores con la API de consulta de JavaScript

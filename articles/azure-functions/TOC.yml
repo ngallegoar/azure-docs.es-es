@@ -13,15 +13,41 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Crear función
+    - name: Crear su primera función
       expanded: true
       items:
         - name: Visual Studio Code
-          href: ./functions-create-first-function-vs-code.md
+          expanded: true
+          items:
+            - name: C#
+              href: create-first-function-vs-code-csharp.md
+            - name: Java
+              href: create-first-function-vs-code-java.md
+            - name: JavaScript
+              href: create-first-function-vs-code-node.md
+            - name: PowerShell
+              href: create-first-function-vs-code-powershell.md
+            - name: Python
+              href: create-first-function-vs-code-python.md
+            - name: TypeScript
+              href: create-first-function-vs-code-typescript.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: Línea de comandos
-          href: functions-create-first-azure-function-azure-cli.md
+          expanded: false
+          items:
+            - name: C#
+              href: create-first-function-cli-csharp.md
+            - name: Java
+              href: create-first-function-cli-java.md
+            - name: JavaScript
+              href: create-first-function-cli-node.md
+            - name: PowerShell
+              href: create-first-function-cli-powershell.md
+            - name: Python
+              href: create-first-function-cli-python.md
+            - name: TypeScript
+              href: create-first-function-cli-typescript.md
         - name: Plantilla ARM
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
@@ -209,14 +235,14 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: functions-create-first-azure-function.md
                 - name: Línea de comandos
-                  href: ./functions-create-first-azure-function-azure-cli.md
+                  href: ./create-first-function-cli-csharp.md
                 - name: Visual Studio
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
-                  href: ./functions-create-first-function-vs-code.md
+                  href: ./create-first-function-vs-code-csharp.md
                 - name: Java con Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java con Eclipse
@@ -230,7 +256,7 @@
                 - name: Plan de App Service de Linux
                   href: create-function-app-linux-app-service-plan.md
                 - name: Plan de Consumo para Linux
-                  href: ./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python
+                  href: create-first-function-cli-python.md
                 - name: Paquete de inicio de Azure for Students
                   href: functions-create-student-starter.md
             - name: Desencadenador de Azure Cosmos DB
@@ -417,7 +443,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md

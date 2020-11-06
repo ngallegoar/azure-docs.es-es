@@ -179,7 +179,5 @@
       href: ../../virtual-machines/windows/security-baseline.md
     - name: Línea de base de seguridad de Virtual Network
       href: ../../virtual-network/security-baseline.md
-    - name: Línea de base de seguridad de Virtual WAN
-      href: ../../virtual-wan/security-baseline.md
     - name: Línea de base de seguridad de VPN Gateway
       href: ../../vpn-gateway/security-baseline.md
