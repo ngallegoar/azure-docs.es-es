@@ -40,6 +40,8 @@
           displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
         - name: Uso de instancias de contenedores
           href: how-to/deploy-anomaly-detection-on-container-instances.md
+        - name: Documentación de contenedores de Cognitive Services
+          href: ../containers/index.yml
 - name: Conceptos
   items:
     - name: Procedimientos recomendados de Anomaly Detection API

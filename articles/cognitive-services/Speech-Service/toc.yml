@@ -39,8 +39,6 @@
           href: how-to-automatic-language-detection.md
         - name: Uso de la API de transcripciones de Azure Batch
           href: batch-transcription.md
-        - name: Evaluación de la pronunciación
-          href: how-to-pronunciation-assessment.md
     - name: Tutoriales
       items:
         - name: Reconocimiento de voz almacenada en Blob Storage
@@ -530,6 +528,8 @@
           href: deploy-speech-on-container-instances.md
         - name: Preguntas frecuentes sobre Containers
           href: speech-container-faq.md
+        - name: Documentación de contenedores de Cognitive Services
+          href: ../containers/index.yml
 - name: Dispositivos
   items:
     - name: Documentación de dispositivos de voz

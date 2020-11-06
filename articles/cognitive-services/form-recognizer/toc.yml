@@ -70,6 +70,8 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Uso de instancias de contenedores
           href: deploy-form-recognizer-on-container-instances.md
+        - name: Documentación de contenedores de Cognitive Services
+          href: ../containers/index.yml
     - name: Copia de seguridad y recuperación de modelos
       href: disaster-recovery.md
 - name: Referencia

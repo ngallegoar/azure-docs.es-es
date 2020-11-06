@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 10/30/2020
 ms.author: aahi
-ms.openlocfilehash: aa1cb6e9fdd504622b2f444d511a8dd0e5fc1ca8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 277a3c1c53564d7c5dff6a87381680a7f41606de
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82608392"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131605"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Uso de contenedores del servicio de voz con Kubernetes y Helm
 
@@ -46,47 +46,6 @@ Vea los detalles del [equipo host del contenedor del servicio de voz][speech-con
 
 Se espera que el equipo host tenga un clúster de Kubernetes disponible. Vea este tutorial sobre la [implementación de un clúster de Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) para lograr un reconocimiento conceptual de cómo implementar un clúster de Kubernetes en un equipo host.
 
-### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Uso compartido de credenciales de Docker con el clúster de Kubernetes
-
-Para permitir que el clúster de Kubernetes `docker pull` las imágenes configuradas del registro de contenedor `containerpreview.azurecr.io`, debe transferir las credenciales de Docker al clúster. Ejecute el comando [`kubectl create`][kubectl-create] siguiente para crear un *secreto de registro de Docker* basado en las credenciales proporcionadas en el requisito previo de acceso al registro de contenedor.
-
-Ejecute el siguiente comando desde la interfaz de la línea de comandos que prefiera. Asegúrese de reemplazar `<username>`, `<password>` y `<email-address>` por las credenciales del registro de contenedor.
-
-```console
-kubectl create secret docker-registry mcr \
-    --docker-server=containerpreview.azurecr.io \
-    --docker-username=<username> \
-    --docker-password=<password> \
-    --docker-email=<email-address>
-```
-
-> [!NOTE]
-> Si ya tiene acceso al registro de contenedor `containerpreview.azurecr.io`, puede crear un secreto de Kubernetes con la marca genérica en su lugar. Tenga en cuenta el siguiente comando que se ejecuta en el JSON de configuración de Docker.
-> ```console
->  kubectl create secret generic mcr \
->      --from-file=.dockerconfigjson=~/.docker/config.json \
->      --type=kubernetes.io/dockerconfigjson
-> ```
-
-El siguiente resultado se imprime en la consola una vez que el secreto se ha creado correctamente.
-
-```console
-secret "mcr" created
-```
-
-Para comprobar que el secreto se ha creado, ejecute [`kubectl get`][kubectl-get] con la marca `secrets`.
-
-```console
-kubectl get secrets
-```
-
-Al ejecutar `kubectl get secrets`, se imprimen todos los secretos configurados.
-
-```console
-NAME    TYPE                              DATA    AGE
-mcr     kubernetes.io/dockerconfigjson    1       30s
-```
-
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configuración de los valores del gráfico de Helm para la implementación
 
 Visite [Microsoft Helm Hub][ms-helm-hub] para ver todos los gráficos de Helm disponibles públicamente que ofrece Microsoft. En Microsoft Helm Hub se encuentra el **gráfico Cognitive Services Speech On-Premises**. **Cognitive Services Speech On-Premises** es el gráfico que se va a instalar, aunque primero se debe crear un archivo `config-values.yaml` con configuraciones explícitas. Vamos a comenzar por agregar el repositorio de Microsoft a la instancia de Helm.
@@ -95,19 +54,18 @@ Visite [Microsoft Helm Hub][ms-helm-hub] para ver todos los gráficos de Helm di
 helm repo add microsoft https://microsoft.github.io/charts/repo
 ```
 
-Luego vamos a configurar los valores del gráfico de Helm. Copie y pegue el siguiente YAML en un archivo denominado `config-values.yaml`. Para obtener más información sobre la personalización del **gráfico de Helm Cognitive Services Speech On-Premises**, vea [Personalizar gráficos de Helm](#customize-helm-charts). Reemplace los comentarios `# {ENDPOINT_URI}` y `# {API_KEY}` por sus propios valores.
+Luego vamos a configurar los valores del gráfico de Helm. Copie y pegue el siguiente YAML en un archivo denominado `config-values.yaml`. Para obtener más información sobre la personalización del **gráfico de Helm Cognitive Services Speech On-Premises** , vea [Personalizar gráficos de Helm](#customize-helm-charts). Reemplace los comentarios `# {ENDPOINT_URI}` y `# {API_KEY}` por sus propios valores.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
-
 # speech-to-text configurations
 speechToText:
   enabled: true
   numberOfConcurrentRequest: 3
   optimizeForAudioFile: true
   image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-speech-to-text
+    registry: mcr.microsoft.com
+    repository: azure-cognitive-services/speechservices/speech-to-text
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -122,8 +80,8 @@ textToSpeech:
   numberOfConcurrentRequest: 3
   optimizeForTurboMode: true
   image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-text-to-speech
+    registry: mcr.microsoft.com
+    repository: azure-cognitive-services/speechservices/speech-to-text
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -138,15 +96,15 @@ textToSpeech:
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Paquete de Kubernetes (gráfico de Helm)
 
-El *gráfico de Helm* contiene la configuración de las imágenes de Docker que se van a extraer del registro de contenedor `containerpreview.azurecr.io`.
+El *gráfico de Helm* contiene la configuración de las imágenes de Docker que se van a extraer del registro de contenedor `mcr.microsoft.com`.
 
 > Un [gráfico de Helm][helm-charts] es una colección de archivos que describen un conjunto relacionado de recursos de Kubernetes. Un solo gráfico se podría usar para implementar algo sencillo, como un pod almacenado en memoria, o complejo, como una pila de aplicación web completa con servidores HTTP, bases de datos, memorias caché, etc.
 
-Los *gráficos de Helm* proporcionados extraen las imágenes de Docker del servicio de voz, los servicios de conversión de texto en voz y de voz en texto desde el registro de contenedor `containerpreview.azurecr.io`.
+Los *gráficos de Helm* proporcionados extraen las imágenes de Docker del servicio de voz, los servicios de conversión de texto en voz y de voz en texto desde el registro de contenedor `mcr.microsoft.com`.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instalación del gráfico de Helm en el clúster de Kubernetes
 
-Para instalar el *gráfico de Helm*, se debe ejecutar el comando [`helm install`][helm-install-cmd], reemplazando `<config-values.yaml>` por el argumento de ruta de acceso y nombre de archivo adecuado. El gráfico de Helm `microsoft/cognitive-services-speech-onpremise` al que se hace referencia a continuación está disponible en [Microsoft Helm Hub aquí][ms-helm-hub-speech-chart].
+Para instalar el *gráfico de Helm* , se debe ejecutar el comando [`helm install`][helm-install-cmd], reemplazando `<config-values.yaml>` por el argumento de ruta de acceso y nombre de archivo adecuado. El gráfico de Helm `microsoft/cognitive-services-speech-onpremise` al que se hace referencia a continuación está disponible en [Microsoft Helm Hub aquí][ms-helm-hub-speech-chart].
 
 ```console
 helm install onprem-speech microsoft/cognitive-services-speech-onpremise \
@@ -231,7 +189,7 @@ horizontalpodautoscaler.autoscaling/text-to-speech-autoscaler   Deployment/text-
 
 ### <a name="verify-helm-deployment-with-helm-tests"></a>Comprobación de la implementación de Helm con pruebas de Helm
 
-Los gráficos de Helm instalados definen *pruebas de Helm*, que resultan cómodas para la comprobación. Estas pruebas validan la disponibilidad del servicio. Para comprobar los servicios de conversión de **voz en texto** y de **texto en voz**, se ejecuta el comando [Helm test][helm-test].
+Los gráficos de Helm instalados definen *pruebas de Helm* , que resultan cómodas para la comprobación. Estas pruebas validan la disponibilidad del servicio. Para comprobar los servicios de conversión de **voz en texto** y de **texto en voz** , se ejecuta el comando [Helm test][helm-test].
 
 ```console
 helm test onprem-speech
@@ -249,7 +207,7 @@ RUNNING: text-to-speech-readiness-test
 PASSED: text-to-speech-readiness-test
 ```
 
-Como alternativa a la ejecución de *pruebas de Helm*, puede recopilar las direcciones *IP externas* y los puertos correspondientes desde el comando `kubectl get all`. Con la dirección IP y el puerto, abra un explorador web y vaya a `http://<external-ip>:<port>:/swagger/index.html` para ver las páginas de Swagger de API.
+Como alternativa a la ejecución de *pruebas de Helm* , puede recopilar las direcciones *IP externas* y los puertos correspondientes desde el comando `kubectl get all`. Con la dirección IP y el puerto, abra un explorador web y vaya a `http://<external-ip>:<port>:/swagger/index.html` para ver las páginas de Swagger de API.
 
 ## <a name="customize-helm-charts"></a>Personalizar gráficos de Helm
 
