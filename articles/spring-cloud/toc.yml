@@ -31,14 +31,10 @@
       href: spring-cloud-tutorial-setup-autoscale.md
     - name: Alertas y grupos de acciones
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Uso de IntelliJ para implementar aplicaciones
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Panel de disyuntores
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Nombre DNS personalizado
       href: spring-cloud-tutorial-custom-domain.md
-    - name: Aprovisione una instancia de Azure Spring Cloud con Terraform
-      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Uso de una identidad administrada para conectar Key Vault a una aplicación de Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Implementación de Azure Spring Cloud en una red virtual
@@ -71,12 +67,14 @@
           href: spring-cloud-tutorial-config-server.md
         - name: Habilitación del registro del servicio
           href: spring-cloud-service-registration.md
-    - name: Implementación
+    - name: Implementar
       items:
         - name: Configuración de un entorno de ensayo
           href: spring-cloud-howto-staging-environment.md
         - name: Inicio de una aplicación Java desde el código fuente
           href: spring-cloud-howto-launch-from-source.md
+        - name: Uso de IntelliJ para implementar aplicaciones
+          href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Configuración
       items:
         - name: 'Inicio, detención y eliminación de una aplicación'
@@ -115,13 +113,15 @@
           href: spring-cloud-howto-github-actions.md
         - name: Autenticación con Key Vault en Acciones de GitHub
           href: spring-cloud-github-actions-key-vault.md
+        - name: Aprovisione una instancia de Azure Spring Cloud con Terraform
+          href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Solución de problemas
       items:
         - name: Diagnóstico automático y solución de problemas
           href: spring-cloud-howto-self-diagnose-solve.md
         - name: Guía de solución de problemas
           href: spring-cloud-troubleshoot.md
-    - name: Migrate
+    - name: Migrar
       items:
         - name: Spring Cloud
           href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud'
