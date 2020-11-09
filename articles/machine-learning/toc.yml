@@ -399,6 +399,9 @@
         - name: Uso de destinos de proceso remoto
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
+        - name: Uso de aprendizaje automático automatizado con Databricks
+          displayName: automl
+          href: how-to-configure-databricks-automl-environment.md
         - name: Entrenamiento automático de un modelo de previsión
           displayName: time series
           href: how-to-auto-train-forecast.md

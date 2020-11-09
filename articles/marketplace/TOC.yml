@@ -81,12 +81,36 @@
       href: publisher-guide-by-offer-type.md
     - name: Ofertas de la aplicación de Azure
       items:
-        - name: Planificación de una oferta de plantilla de solución
-          href: marketplace-solution-templates.md
-        - name: Planificación de una oferta de aplicación administrada
-          href: marketplace-managed-apps.md
+        - name: Planeamiento de ofertas de aplicaciones de Azure
+          items:
+            - name: Planeamiento de una oferta de aplicación de Azure
+              href: plan-azure-application-offer.md
+            - name: Planeamiento de una plantilla de soluciones
+              href: plan-azure-app-solution-template.md
+            - name: Planeamiento de una aplicación administrada
+              href: plan-azure-app-managed-app.md
         - name: Creación y publicación de una oferta de aplicación de Azure
-          href: partner-center-portal/create-new-azure-apps-offer.md
+          items:
+            - name: Creación de una oferta de aplicación de Azure
+              href: create-new-azure-apps-offer.md
+            - name: Configuración de las propiedades de las ofertas de aplicaciones de Azure
+              href: create-new-azure-apps-offer-properties.md
+            - name: Configuración de la lista de ofertas de aplicaciones de Azure
+              href: create-new-azure-apps-offer-listing.md
+            - name: Adición de un público en la versión preliminar
+              href: create-new-azure-apps-offer-preview.md
+            - name: Adición de detalles técnicos
+              href: create-new-azure-apps-offer-technical.md
+            - name: Creación de planes
+              href: create-new-azure-apps-offer-plans.md
+            - name: Creación de un plan de un plantilla de solución
+              href: create-new-azure-apps-offer-solution.md
+            - name: Creación de un plan de una aplicación administrada
+              href: create-new-azure-apps-offer-managed.md
+            - name: Prueba y publicación de una oferta de aplicación de Azure
+              href: create-new-azure-apps-offer-test-publish.md
+        - name: Comercialización de una oferta de aplicación de Azure
+          href: create-new-azure-apps-offer-marketing.md
         - name: Facturación medida de la aplicación de Azure
           href: partner-center-portal/azure-app-metered-billing.md
         - name: Administración de los comentarios de revisión

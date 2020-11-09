@@ -16,7 +16,7 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Introducción
+    - name: Primeros pasos
       href: get-started.md
       displayName: 'get, started, quickstart'
     - name: 1 Creación de un área de trabajo de Synapse
@@ -50,13 +50,13 @@
   items:
     - name: Guías de inicio rápido
       items:
-        - name: Creación de un área de trabajo de Synapse mediante Azure Portal
+        - name: Creación de un área de trabajo mediante Azure Portal
           href: quickstart-create-workspace.md
           displayName: quickstart
-        - name: Creación de un área de trabajo de Synapse mediante la CLI de Azure
+        - name: Creación de un área de trabajo mediante la CLI de Azure
           href: quickstart-create-workspace-cli.md
           displayName: quickstart
-        - name: Creación de un área de trabajo de Synapse mediante Azure PowerShell
+        - name: Creación de un área de trabajo mediante Azure PowerShell
           href: quickstart-create-workspace-powershell.md
           displayName: quickstart
         - name: Implementación con una plantilla
@@ -338,6 +338,12 @@
               displayname: 'workload, management'
     - name: Guías paso a paso
       items:
+        - name: Copia de seguridad y restauración
+          items:
+            - name: Creación de puntos de restauración
+              href: ./backuprestore/sqlpool-create-restore-point.md
+            - name: Restauración de un grupo de Synapse SQL
+              href: ./backuprestore/restore-sql-pool.md
         - name: Administración y supervisión
           items:
             - name: Supervisión de la memoria caché de Gen2
@@ -610,7 +616,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: "Azure\_SQL\_Database"
+            - name: Azure SQL Database
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
