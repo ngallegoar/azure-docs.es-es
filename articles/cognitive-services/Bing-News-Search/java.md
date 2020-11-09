@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-java
-ms.openlocfilehash: a1347364066f4b36256782dd8891390a47bae020
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4d1e178d5ed8ea00c277a6c15c63746c66a0a298
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87326773"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100174"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Inicio rápido: Realizar una búsqueda de noticias mediante Java y la API de REST Bing News Search
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para realizar la primera llamada a la API Bing News Search. Esta sencilla aplicación de Java envía una consulta de búsqueda de noticias a la API y muestra la respuesta JSON.
 
@@ -26,7 +31,7 @@ Aunque esta aplicación está escrita en Java, la API es un servicio web RESTful
 
 El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * El [kit de desarrollo de Java (JDK) 7 u 8](https://aka.ms/azure-jdks).
 * La [biblioteca Gson](https://github.com/google/gson).

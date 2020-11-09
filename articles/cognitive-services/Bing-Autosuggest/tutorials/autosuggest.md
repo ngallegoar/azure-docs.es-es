@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 9a5749d115a4d5d9ce1e0ac454609c7b639c2f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1b666e8929309778fc7b72e034a425c841fc2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309778"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095924"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutorial: Obtención de sugerencias de búsqueda en una página web
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 En este tutorial, crearemos una página web que permita a los usuarios consultar Bing Autosuggest API.
 
@@ -119,7 +124,7 @@ En primer lugar, la función auxiliar getSubscriptionKeyLocalStorage intenta rec
     }
 ```
 
-La función auxiliar getSubscriptionKey toma un parámetro, **invalidate**. Si **invalidate** es **true**, getSubscriptionKey elimina la cookie que contiene la clave de Bing Autosuggest API. Si **invalidate** es **false**, getSubscriptionKey devuelve el valor de la clave de Bing Autosuggest API.
+La función auxiliar getSubscriptionKey toma un parámetro, **invalidate**. Si **invalidate** es **true** , getSubscriptionKey elimina la cookie que contiene la clave de Bing Autosuggest API. Si **invalidate** es **false** , getSubscriptionKey devuelve el valor de la clave de Bing Autosuggest API.
 
 ```html
     function getSubscriptionKey(invalidate) {

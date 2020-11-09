@@ -11,18 +11,23 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: bbb6acd4e976d345daa99cde7635febc3755963f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b917f6bece52b43cfd0db49d6a28456021645d11
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83873821"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076578"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Inicio rápido: Uso de PHP para llamar a Bing Web Search API  
 
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 Use este inicio rápido para realizar la primera llamada a la API Bing Web Search. Esta aplicación de Node.js envía una solicitud de búsqueda a la API y muestra la respuesta JSON. Aunque esta aplicación está escrita en JavaScript, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
 

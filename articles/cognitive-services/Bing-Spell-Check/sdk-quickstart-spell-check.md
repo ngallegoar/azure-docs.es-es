@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1e05ca9b63bda3373afb8a090118953d89ad8f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3304cc36c37a548eabd3aa6ddc32255f3d09dffb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88934232"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083735"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Inicio rápido: Revisión ortográfica con el SDK de Bing Spell Check para C#
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para empezar la revisión ortográfica con el SDK de Bing Spell Check para C#. Aunque Bing Spell Check tiene una API REST compatible con la mayoría de los lenguajes de programación, el SDK proporciona una forma sencilla de integrar el servicio en sus aplicaciones. El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/SpellCheck).
 
@@ -102,7 +107,7 @@ Compile y ejecute el proyecto. Si usa Visual Studio, pulse **F5** para depurar e
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de una aplicación web de una sola página](tutorials/spellcheck.md)
+> [Creación de una aplicación web de página única](tutorials/spellcheck.md)
 
 - [¿Qué es Bing Spell Check API?](overview.md)
 - [Guía de referencia del SDK en C# para Bing Spell Check](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)

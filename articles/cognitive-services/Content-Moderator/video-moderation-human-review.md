@@ -1,5 +1,5 @@
 ---
-title: 'Moderación de vídeo con revisión humana: Content Moderator'
+title: 'Moderación de vídeo con la herramienta de revisión: Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: Uso de la moderación de vídeo asistida por máquina y la herramienta de revisión para moderar contenido inapropiado
 services: cognitive-services
@@ -8,97 +8,95 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81404251"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143764"
 ---
-# <a name="video-moderation-with-human-review"></a>Moderación de vídeo con revisión humana
+# <a name="video-moderation-with-the-review-tool"></a>Moderación de vídeo con la herramienta de revisión
 
 Utilice la [moderación de vídeo](video-moderation-api.md) asistida por máquina de Content Moderator y la [herramienta de revisión](Review-Tool-User-Guide/human-in-the-loop.md) para moderar vídeos y transcripciones de contenido para adultos (explícito) y subido de tono (sugerente) a fin de obtener los mejores resultados para su negocio.
 
-## <a name="video-trained-classifier-preview"></a>Clasificador entrenado con vídeo (vista previa)
+## <a name="view-videos-under-review"></a>Visualización de vídeos en revisión
 
-La clasificación de vídeo asistido automáticamente se logra con modelos entrenados de imagen y modelos entrenados de vídeo. A diferencia de los clasificadores de vídeo entrenados con imágenes, el clasificador de vídeos con contenido para adultos y explícito de Microsoft se entrena con vídeos. Este método da como resultado una mejor calidad de las coincidencias.
+En el panel, seleccione cualquiera de las colas de revisión en el tipo de contenido de vídeo. Se iniciará una revisión y se abrirá la página de moderación de contenido de vídeo.
 
-## <a name="shot-detection"></a>Detección de cortes
+> [!div class="mx-imgBorder"]
+> ![Vista detallada de la moderación de vídeo en la herramienta de revisión](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
-Cuando se generan los detalles de clasificación, la inteligencia adicional de vídeo contribuye con una mayor flexibilidad al análisis de los vídeos. En lugar de generar simplemente los fotogramas, el servicio de moderación de vídeo de Microsoft proporciona también información de los cortes. Ahora tiene la opción de analizar los vídeos en los niveles de corte y fotograma.
+### <a name="review-count"></a>Recuento de revisiones
 
-## <a name="key-frame-detection"></a>Detección de fotogramas principales
+Use el control deslizante de la esquina superior derecha para establecer el número de revisiones que le gustaría mostrar en la página.
 
-En lugar de generar fotogramas a intervalos regulares, el servicio de moderación de vídeo identifica y genera solo los fotogramas que es probable que estén completos (los buenos). La característica permite la generación eficaz de fotogramas para análisis de contenido para adultos y explícito en el nivel de fotograma.
+### <a name="view-type"></a>Tipo de vista
 
-El extracto siguiente muestra una respuesta parcial con cortes posibles, fotogramas principales y puntuaciones de contenido para adultos y explícito:
+Puede ver las distintas entradas de contenido como iconos o en una vista detallada. La vista **Detail** (Detalle) le permitirá ver fotogramas clave y otra información acerca del vídeo seleccionado. 
 
-```json
-"fragments":[  
-  {  
-    "start":0,
-    "duration":18000
-  },
-  {  
-    "start":18000,
-    "duration":3600,
-    "interval":3600,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":false,
-          "adultScore":0.00001,
-          "racyScore":0.03077,
-          "index":5,
-          "timestamp":18000,
-          "shotIndex":0
-        }
-      ]
-    ]
-  },
-  {  
-    "start":18386372,
-    "duration":119149,
-    "interval":119149,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":true,
-          "adultScore":0.00000,
-          "racyScore":0.91902,
-          "index":5085,
-          "timestamp":18386372,
-          "shotIndex":62
-        }
-      ]
-    ]
-```
+> [!NOTE]
+> En lugar de generar fotogramas a intervalos regulares, el servicio de moderación de vídeo identifica y genera solo los fotogramas que es probable que estén completos (los buenos). Esta característica permite la generación eficaz de fotogramas para analizar el contenido para adultos y explícito de cada uno.
 
-## <a name="visualization-for-human-reviews"></a>Visualización para revisiones humanas
+En la vista **Tiled** (En mosaico) se mostrará cada vídeo como un icono. Seleccione el botón de expansión situado encima de un fotograma de vídeo para ampliar ese vídeo y ocultar los demás.
 
-En casos más matizados, las empresas necesitan una solución de revisión humana para presentar el vídeo, sus fotogramas y las etiquetas asignadas automáticamente. Los moderadores humanos que revisan los vídeos y fotogramas obtienen una perspectiva completa de la información, cambian las etiquetas y envían sus decisiones.
+### <a name="content-obscuring-effects"></a>Efectos de ocultación del contenido
 
-![vista predeterminada de herramienta de revisión de vídeo](images/video-review-default-view.png)
+Use los botones de conmutación **Blur all** (Desenfocar todo) y **Black and white** (Blanco y negro) para establecer estos efectos de ocultación del contenido. Estos botones están activados de forma predeterminada. En la vista **Tiled** (En mosaico), puede alternar los efectos de forma individual en cada vídeo.
 
-## <a name="player-view-for-video-level-review"></a>Vista del reproductor para revisión de nivel de vídeo
+## <a name="check-video-details"></a>Comprobación de los detalles del vídeo
 
-Las decisiones binarias de nivel de vídeo son posibles gracias a una vista de reproductor de vídeo que muestra los fotogramas de contenido para adultos y explícito. Los revisores humanos se desplazan por el vídeo con varias opciones de velocidad para examinar las escenas. Para confirmar sus decisiones alternan las etiquetas.
+En la vista **Detail** (Detalle), el panel derecho mostrará varias pestañas que le proporcionan detalles sobre el vídeo.
 
-![vista de reproductor de herramienta de revisión de vídeo](images/video-review-player-view.PNG)
+* Seleccione la pestaña **Notes** (Notas) para agregar notas personalizadas a los vídeos.
+* Seleccione la pestaña **Transcript** (Transcripción) para ver la transcripción del vídeo; el servicio extrae automáticamente una transcripción de la voz del vídeo. Al seleccionar una sección de texto, el reproductor de vídeo saltará a esa parte del vídeo.
+* Seleccione la pestaña **Meta-data** (Metadatos) para ver los metadatos del archivo de vídeo.
+* Seleccione la pestaña **History** (Historial) para ver el historial de la revisión, por ejemplo, cuándo se creó y cómo se modificó.
 
-## <a name="frames-view-for-detailed-reviews"></a>Vista de fotogramas para revisiones detalladas
+> [!div class="mx-imgBorder"]
+> ![Botón de etiquetas en masa de moderación de vídeo](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
-Una revisión de vídeo detallada para un análisis fotograma a fotograma es posible con una vista basada en fotogramas. Los revisores humanos revisan y seleccionan uno o varios fotogramas y alternan etiquetas para confirmar sus decisiones. Un siguiente paso opcional es la redacción de fotogramas o contenido ofensivos.
+## <a name="apply-moderation-tags"></a>Aplicación de etiquetas de moderación
 
-![vista de fotogramas de herramienta de revisión de vídeo](images/video-review-frames-view-apply-tags.PNG)
+La tarea principal de una revisión de vídeo es aplicar o quitar etiquetas de moderación de los vídeos o de alguna de sus partes.
 
-## <a name="transcript-moderation"></a>Moderación de transcripciones
+### <a name="bulk-tagging"></a>Etiquetado en masa
 
-Los vídeos tienen normalmente voz de narración o habla ofensiva que necesitan moderación. Use el servicio Azure Media Indexer para convertir voz a texto y la API de revisión de Content Moderator para enviar la transcripción para la moderación de texto dentro de la herramienta de revisión.
+La barra de herramientas **Bulk Tags** (Etiquetas en masa) le permite agregar etiquetas a varios vídeos seleccionados a la vez. Seleccione uno o varios vídeos y, luego, elija las etiquetas que quiere aplicar y haga clic en **Submit** (Enviar). 
 
-![vista de transcripción de herramienta de revisión de vídeo](images/video-review-transcript-view.png)
+> [!div class="mx-imgBorder"]
+> ![Botón de etiquetas en masa de moderación de vídeo](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+
+
+### <a name="key-frame-tagging"></a>Etiquetado de fotogramas clave
+
+También puede agregar etiquetas de moderación a fotogramas clave específicos. Seleccione los fotogramas en el panel de iconos de fotogramas clave y, luego, elija **Keyframe tags +** (Etiquetas de fotogramas clave +) para aplicar las etiquetas deseadas.
+
+> [!NOTE]
+> Si el servicio no puede extraer fotogramas clave, en el panel de iconos de fotogramas clave se muestra **No frames available** (No hay fotogramas disponibles) y la opción para seleccionarlos estará atenuada. En este caso, solo puede aplicar etiquetas al vídeo en su conjunto mediante el botón **Video tags +** (Etiquetas de vídeo +).
+
+> [!div class="mx-imgBorder"]
+> ![Vista detallada de la moderación de vídeo en la herramienta de revisión](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+
+## <a name="put-a-review-on-hold"></a>Puesta en espera de una revisión
+
+El botón **Hold** (En espera) situado en la parte inferior del panel de vídeo le permite poner en espera una revisión para que pueda recuperarla y completarla más adelante. Podría poner en espera una revisión, en caso de que precise alguna consulta a otro miembro del equipo o a otro responsable que en ese momento no se encuentre disponible. 
+
+Para ver los vídeos en espera, haga clic en el botón **Hold** (En espera) en la parte superior de la pantalla. El panel Hold (En espera) aparece a la derecha. Aquí, puede seleccionar varias revisiones en espera y liberarlas de nuevo a la cola, o bien establecer su fecha de expiración. Transcurrida la cantidad de tiempo preconfigurada, las revisiones en espera se liberan de nuevo a la cola. Seleccione **Save** (Guardar) para empezar a contar desde la fecha de expiración actualmente seleccionada.
+
+> [!div class="mx-imgBorder"]
+> ![Vista detallada de la moderación de vídeo en la herramienta de revisión](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+
+## <a name="submit-a-review"></a>Envío de una revisión
+
+Después de aplicar las etiquetas, seleccione el botón **Submit** (Enviar) en la parte inferior del panel de vídeo. Si ha etiquetado varios vídeos, puede enviarlos en una única revisión o como revisiones independientes.
+
+## <a name="limbo-state"></a>Estado de limbo
+
+Una vez que se ha enviado una revisión, el vídeo se mueve al estado **Limbo** , que puede ver seleccionando el botón **Limbo** en la parte superior de la pantalla. Los vídeos permanecen en el estado de limbo durante una cantidad de tiempo preconfigurada (que puede cambiar en el menú de la parte inferior) o hasta que se revisan de nuevo o se envían manualmente.
+
+Una vez que expira el estado de limbo de los vídeos, sus revisiones se marcan como completas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

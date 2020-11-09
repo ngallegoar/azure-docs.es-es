@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: ea6f79bf6c305ecc07b3e684ede15ad439039e7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8232af6cb409628a1066a044a196777ddc46348f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68500612"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098974"
 ---
 # <a name="get-trending-videos-with-the-bing-video-search-api"></a>Obtención de vídeos populares con Bing Video Search API 
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Video Search API permite buscar vídeos populares de hoy en la Web y en distintas categorías. 
 

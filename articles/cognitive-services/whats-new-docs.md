@@ -1,103 +1,86 @@
 ---
-title: 'Documentación de Cognitive Services: Novedades del 1 al 30 de septiembre de 2020'
-description: Novedades de la documentación de Cognitive Services del 1 al 30 de septiembre de 2020.
+title: 'Cognitive Services: Novedades de la documentación'
+description: 'Novedades en la documentación de Cognitive Services en el período del 1 al 31 de octubre de 2020. '
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 10/02/2020
-ms.openlocfilehash: a49a51886f921c9d37a33229b6db78479d7198bc
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.date: 11/03/2020
+ms.openlocfilehash: 715b02eec7b499afdcffa5e1f31d388e8bc930e7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938328"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305233"
 ---
-# <a name="cognitive-services-docs-whats-new-for-september-1-2020---september-30-2020"></a>Documentación de Cognitive Services: Novedades del 1 al 30 de septiembre de 2020
+# <a name="cognitive-services-whats-new-in-docs-for-october-1-2020---october-31-2020"></a>Cognitive Services: Novedades en la documentación en el período del 1 al 31 de octubre de 2020
 
-Le damos la bienvenida a las novedades de la documentación de Cognitive Services del 1 al 30 de septiembre de 2020. En este artículo se enumeran algunos de los cambios más importantes de documentación que se han producido durante este período.
+Estas son las novedades en la documentación de Cognitive Services en el período del 1 al 31 de octubre de 2020. En este artículo se enumeran algunos de los cambios más importantes de documentación que se han producido durante este período.
 
 ## <a name="cognitive-services"></a>Cognitive Services
 
-### <a name="updated-articles"></a>Artículos actualizados
-
-- [Inicio rápido: Creación de un recurso de Cognitive Services mediante la interfaz de la línea de comandos (CLI) de Azure](cognitive-services-apis-create-account-cli.md)
-- [Inicio rápido: Creación de un recurso de Cognitive Services mediante la biblioteca cliente de Administración de Azure](cognitive-services-apis-create-account-client-library.md)
-- [Inicio rápido: Creación de un recurso de Cognitive Services con Azure Portal](cognitive-services-apis-create-account.md)
-- [Inicio rápido: Creación de un recurso de Cognitive Services mediante una plantilla de Resource Manager](create-account-resource-manager-template.md)
-
-## <a name="computer-vision"></a>Computer Vision
-
 ### <a name="new-articles"></a>Artículos nuevos
 
-- [Introducción al análisis espacial de Computer Vision](https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context)
-- [Uso responsable en la implementación de IA del análisis espacial de Computer Vision](https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context)
-- [Investigación detallada del análisis espacial de Computer Vision](https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context)
-- [Directrices de diseño de divulgación de información para el análisis espacial de Computer Vision](https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context)
-- [Cumplimiento, privacidad y seguridad para el análisis espacial de Computer Vision](https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context)
-- [Características y limitaciones para el análisis espacial de Computer Vision](https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context)
-
-## <a name="containers"></a>Containers
-
-### <a name="new-articles"></a>Artículos nuevos
-
-- [Instalación y ejecución del contenedor de análisis espacial (versión preliminar)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container?tabs=azure-stack-edge)
+- [Opciones de desarrollo de Cognitive Services](cognitive-services-development-options.md)
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
-- [Etiquetas de imágenes de contenedor de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/containers/container-image-tags)
+- [¿Qué es Azure Cognitive Services?](what-are-cognitive-services.md)
+- [Opciones de ayuda y de soporte técnico de Azure Cognitive Services](cognitive-services-support-options.md)
+- [Configuración de redes virtuales de Azure Cognitive Services](cognitive-services-virtual-networks.md)
+
+## <a name="containers"></a>Contenedores
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Uso de Docker Compose para implementar varios contenedores](/azure/cognitive-services/containers/docker-compose-recipe.md)
 
 ## <a name="form-recognizer"></a>Form Recognizer
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
-- [Compatibilidad de idiomas con Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/language-support)
-- [Creación de un conjunto de datos de aprendizaje para un modelo personalizado](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/build-training-data-set)
-- [Conceptos de recepción](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-receipts)
-- [Cifrado de datos en reposo de Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)
-- [Novedades en Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/whats-new)
-- [Conceptos de tarjeta de presentación](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-business-cards)
-- [¿Qué es Form Recognizer?](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/overview)
-- [Inicio rápido: Uso de la biblioteca cliente de Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/client-library)
+- [Novedades en Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new.md)
 
 ## <a name="immersive-reader"></a>Lector inmersivo
 
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Notas de la versión del SDK de JavaScript para el Lector inmersivo](/azure/cognitive-services/immersive-reader/release-notes.md)
+
 ### <a name="updated-articles"></a>Artículos actualizados
 
-- [Compatibilidad de idiomas con el Lector inmersivo](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/language-support)
-- [Referencia del SDK de JavaScript de Lector inmersivo (v 1.1)](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference)
-- [Inicio rápido: Introducción a Lector inmersivo](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/quickstarts/client-libraries)
-- [Tutorial: Inicio del Lector inmersivo con el proyecto de ejemplo de Python](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/tutorial-python)
-- [Creación de un recurso del Lector inmersivo y configuración de la autenticación de Azure Active Directory](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader)
+- [Procedimiento: Almacenamiento de las preferencias del usuario](/azure/cognitive-services/immersive-reader/how-to-store-user-preferences.md)
+- [Referencia del SDK de JavaScript de Lector inmersivo (v 1.1)](/azure/cognitive-services/immersive-reader/reference.md)
 
 ## <a name="metrics-advisor"></a>Metrics Advisor
 
-### <a name="new-articles"></a>Artículos nuevos
+### <a name="updated-articles"></a>Artículos actualizados
 
-- [Procedimientos: Configuración de métricas y ajuste de la configuración de la detección](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics)
-- [Incorporación de fuentes de datos de diferentes orígenes de datos a Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources)
-- [Inicio rápido: Uso de las API de REST para personalizar una solución](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/rest-api)
-- [Procedimiento: Configuración de alertas y obtención de notificaciones mediante enlaces](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/alerts)
+- [Incorporación de fuentes de datos de diferentes orígenes de datos a Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
+- [Preguntas más frecuentes sobre Metrics Advisor](/azure/cognitive-services/metrics-advisor/faq.md)
 
 ## <a name="text-analytics"></a>Text Analytics
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
-- [Uso del reconocimiento de entidades con nombre en Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
-- [Control de versiones de modelos en Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/model-versioning)
-- [Inicio rápido: Uso de la biblioteca cliente de Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk)
+- [Migración a la versión 3.x de la API Text Analytics](/azure/cognitive-services/text-analytics/migration-guide.md)
+- [Uso del reconocimiento de entidades con nombre en Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [Procedimientos: Detección de opiniones mediante la API Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
 
 ## <a name="community-contributors"></a>Colaboradores de la comunidad
 
-Las siguientes personas han contribuido a la documentación de Cognitive Services durante este período. Gracias. Para obtener información sobre cómo colaborar, siga los vínculos que se indican en la sección "Contribución" de la [página de aterrizaje de novedades](index.yml).
+Las siguientes personas han contribuido a la documentación de Cognitive Services durante este período. Gracias. 
 
-- [AzureMentor](https://github.com/AzureMentor) (1)
-- [BeigeBadger](https://github.com/BeigeBadger): Matt Stannett (1)
-- [Gurry](https://github.com/gurry): Gurinder Singh (1)
-- [hyoshioka0128](https://github.com/hyoshioka0128): Hiroshi Yoshioka (1)
+- [hyoshioka0128](https://github.com/hyoshioka0128): Hiroshi Yoshioka (2)
+- [jarrad-obrien](https://github.com/jarrad-obrien): Jarrad O'Brien (2)
+- [nkgami](https://github.com/nkgami): Hiroki Nakagami (2)
+- [changeworld](https://github.com/changeworld) - Takashi Takebayashi (1)
+- [dem108](https://github.com/dem108): SeokJin Han (1)
 - [iAmBipinPaul](https://github.com/iAmBipinPaul): Bipin Paul (1)
-- [rexwan](https://github.com/rexwan): Rex Wang (1)
-- [rglidden](https://github.com/rglidden): Richard Glidden (1)
+- [JinyuID](https://github.com/JinyuID): Jinyu (1)
+- [joelhulen](https://github.com/joelhulen): Joel Hulen (1)
+- [jptarqu](https://github.com/jptarqu) (1)
+- [neibla](https://github.com/neibla): Neil Blake (1)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

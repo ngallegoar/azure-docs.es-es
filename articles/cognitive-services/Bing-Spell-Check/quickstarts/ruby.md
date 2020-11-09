@@ -10,14 +10,19 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 0b29ba1b09123784bfbac6fda4f5a1c6953f4e49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1b57968b0f9283a8ad2b07f82b7f30e60e8660e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327398"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083769"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y Ruby
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check mediante Ruby. Esta sencilla aplicación de envía una solicitud a la API y devuelve una lista de sugerencias de corrección. 
 

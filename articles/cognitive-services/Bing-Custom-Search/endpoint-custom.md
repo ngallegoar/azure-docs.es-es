@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 03ec22caedd4e317b9e1fe781dc3d983febc7a6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7aa2b75a6f6e95bdeff4176ee2ad852de3d7169
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072783"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090705"
 ---
 # <a name="custom-search"></a>Búsqueda personalizada
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 Bing Custom Search le permite crear experiencias de búsqueda a medida de los temas que le interesan. Los usuarios ven los resultados de búsqueda a la medida del contenido que les interesa en lugar de recorrer las páginas de los resultados de búsqueda que pueden contener contenido carente de interés.
 
 ## <a name="custom-search-endpoint"></a>Punto de conexión de Custom Search
@@ -58,7 +63,7 @@ https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 Para obtener información acerca de cómo configurar una instancia de Custom Search, consulte [Configure your custom search experience](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view) (Configuración de la experiencia de búsqueda personalizada).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Las API de **Bing** admiten acciones de búsqueda que devuelven resultados según su tipo. Todos los puntos de conexión de búsqueda devuelven resultados como objetos de respuesta JSON.  Todos los puntos de conexión admiten consultas que devuelven un idioma o una ubicación en concreto por longitud, latitud y radio de búsqueda.
+Las API de **Bing** admiten acciones de búsqueda que devuelven resultados según su tipo.  Todos los puntos de conexión de búsqueda devuelven resultados como objetos de respuesta JSON.  Todos los puntos de conexión admiten consultas que devuelven un idioma o una ubicación en concreto por longitud, latitud y radio de búsqueda.
 
 Para una información completa acerca de los parámetros admitidos por cada punto de conexión, consulte las páginas de referencia de cada tipo.
 Para obtener ejemplos de solicitudes básicas mediante Custom Search API, consulte los [inicios rápidos de Custom Search](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/).

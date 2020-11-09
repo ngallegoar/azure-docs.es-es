@@ -10,14 +10,19 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: dc7b929aa139e6d51af25d4689166d2596dda70b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cdb4a174ee5d33270b89e34ce9b80d997486978a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262899"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101806"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Inicio rápido: Sugerencia de consultas de búsqueda con la API REST Bing Autosuggest y Ruby
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Siga este inicio rápido para aprender a realizar llamadas a la API Bing Autosuggest y a leer la respuesta JSON. Esta sencilla aplicación de Ruby envía una consulta de búsqueda parcial a la API y devuelve sugerencias para búsquedas. Si bien esta aplicación está escrita en Ruby, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 

@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: d5dc762499342f0004073fb6c240c98c4ac2bc09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334572"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102211"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutorial: Carga de imágenes en Bing Visual Search API
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Visual Search API le permite buscar en Web imágenes similares a las que carga. Use este tutorial para crear una aplicación web que pueda enviar una imagen a la API y mostrar las conclusiones que devuelve dentro de la página web. Tenga en cuenta que esta aplicación no cumple todos los [requisitos de visualización y uso de Bing](../bing-web-search/use-display-requirements.md) para la utilización de la API.
 

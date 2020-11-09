@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: aahi
-ms.openlocfilehash: b27aa1409d543c157069d2701c49ef54a097e552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2907cb568076ef4de199c5227e03db652414464
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075224"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077224"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Envío de solicitudes de búsqueda a Bing Video Search API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 En este artículo se describen los parámetros y atributos de las solicitudes enviadas a Bing Video Search API, así como el objeto de respuesta JSON que devuelve. 
 
@@ -27,7 +32,7 @@ En este artículo se describen los parámetros y atributos de las solicitudes en
 
 Si proporciona un cuadro de búsqueda donde el usuario escribe su término de búsqueda, use [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) para mejorar la experiencia. La API devuelve cadenas consulta sugeridas basadas en términos de búsqueda parciales a medida que el usuario escribe.
 
-Una vez que el usuario escriba el término de búsqueda, codifíquelo como URL antes de establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query). Por ejemplo, si el usuario escribe *sailing dinghies*, establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
+Una vez que el usuario escriba el término de búsqueda, codifíquelo como URL antes de establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query). Por ejemplo, si el usuario escribe *sailing dinghies* , establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
 
 ## <a name="sending-a-request"></a>Envío de una solicitud
 

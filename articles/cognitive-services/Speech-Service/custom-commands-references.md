@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 83725a3839d36fc753bb43803e67acaca7571a6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 052418924e73252a780689aea33e84d5bfdbc3f6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851835"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927658"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Conceptos y definiciones de Comandos personalizados
 
@@ -80,8 +80,8 @@ Una regla de Comandos personalizados se define mediante un conjunto de *condicio
 ### <a name="types"></a>Tipos
 Comandos personalizados admite las siguientes categorías de reglas:
 
-* **Reglas de finalización**: estas reglas se deben ejecutar cuando se completa un comando. Se ejecutarán todas las reglas configuradas en esta sección cuyas condiciones se cumplan. 
-* **Reglas de interacción**: estas reglas se pueden usar para configurar validaciones personalizadas adicionales, confirmaciones o correcciones de un paso, así como para aplicar cualquier otra lógica de diálogo personalizada. Las reglas de interacción se evalúan durante el procesamiento de cada turno y se pueden usar para desencadenar reglas de finalización.
+* **Reglas de finalización** : estas reglas se deben ejecutar cuando se completa un comando. Se ejecutarán todas las reglas configuradas en esta sección cuyas condiciones se cumplan. 
+* **Reglas de interacción** : estas reglas se pueden usar para configurar validaciones personalizadas adicionales, confirmaciones o correcciones de un paso, así como para aplicar cualquier otra lógica de diálogo personalizada. Las reglas de interacción se evalúan durante el procesamiento de cada turno y se pueden usar para desencadenar reglas de finalización.
 
 Las distintas acciones configuradas como parte de una regla se ejecutan en el orden en el que aparecen en el portal de creación.
 
@@ -90,7 +90,7 @@ Las condiciones son los requisitos que deben cumplirse para que se ejecute una r
 
 * **Parameter value equals** (El valor del parámetro es igual a): el valor del parámetro configurado es igual a un valor específico.
 * **No parameter value**  (Sin valor de parámetro): los parámetros configurados no deben tener ningún valor.
-* **Parámetros obligatorios**: el parámetro configurado tiene un valor.
+* **Parámetros obligatorios** : el parámetro configurado tiene un valor.
 * **All required parameters** (Todos los parámetros obligatorios): todos los parámetros marcados como obligatorios tienen un valor.
 * **Updated parameters** (Parámetros actualizados): uno o varios valores de parámetro se actualizaron como resultado de procesar la entrada actual (expresión o actividad).
 * **Confirmation was successful** (Confirmación correcta): la expresión o actividad de entrada tuvo una confirmación correcta (sí).
@@ -113,9 +113,12 @@ Las expectativas se usan para configurar sugerencias para el procesamiento de la
 ### <a name="post-execution-state"></a>Estado posterior a la ejecución
 El estado posterior a la ejecución es el estado del diálogo después de procesar la entrada actual (expresión o actividad). Es uno de los siguientes tipos:
 
-* **Comando finalizado**: finaliza el comando y no se procesará ninguna regla adicional del comando.
+* **Keep current state** (Mantener estado actual): se mantiene solo el estado actual.
+* **Complete the command** (Completar el comando): finaliza el comando y no se procesará ninguna regla adicional del comando.
 * **Expecting parameter(s) input from user** (A la espera de la entrada de parámetros del usuario): ejecuta todas las reglas de finalización válidas.
-* **Esperar la entrada del usuario**: espere a la siguiente entrada del usuario.
+* **Esperar la entrada del usuario** : espere a la siguiente entrada del usuario.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

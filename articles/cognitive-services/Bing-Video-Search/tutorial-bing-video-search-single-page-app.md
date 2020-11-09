@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 2bdd51218c098dcd778d9a72a98fe42b96357b4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b750554ec231cddd0403c89a33f2af4349ff188
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328724"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099004"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicación de Video Search de página única
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 Bing Video Search API permite buscar en la Web y obtener resultados de vídeo correspondientes a la consulta de búsqueda. En este tutorial, crearemos una aplicación web de una sola página que usa Bing Video Search API para mostrar los resultados de la búsqueda en la página. La aplicación incluye componentes HTML, CSS y JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.

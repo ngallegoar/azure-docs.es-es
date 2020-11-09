@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 84cb7e7e98e81e242ec1cac554fe073370e45645
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: bf7b829d70af27850affe619d47ed4a4f5ec1bea
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495782"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279918"
 ---
 # <a name="write-client-app-authentication-code"></a>Escritura de código de autenticación de aplicación cliente
 
@@ -20,23 +20,25 @@ Después de [configurar una instancia y la autenticación de Azure Digital Twins
 
 Azure Digital Twins realiza la autenticación mediante [tokens de seguridad de Azure AD basados en OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims). Para autenticar el SDK, deberá obtener un token de portador con los permisos correctos para Azure Digital Twins y pasarlo junto con las llamadas de API. 
 
-En este artículo se describe cómo obtener credenciales mediante la biblioteca de cliente `Azure.Identity`. Aunque en este artículo se muestran ejemplos de código en C#, como lo que escribiría para el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), puede usar una versión de `Azure.Identity` independientemente del SDK que use (para obtener más información sobre los SDKs disponibles para Azure Digital Twins, consulte [*Procedimiento: uso de las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md)).
+En este artículo se describe cómo obtener credenciales mediante la biblioteca de cliente `Azure.Identity`. Aunque en este artículo se muestran ejemplos de código en C#, como lo que escribiría para el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), puede usar una versión de `Azure.Identity` independientemente del SDK que use (para obtener más información sobre los SDKs disponibles para Azure Digital Twins, consulte [*Procedimiento: uso de las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md)).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En primer lugar, realice los pasos de configuración de [*Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md). Así se asegura de tener una instancia de Azure Digital Twins, de que el usuario tiene permisos de acceso y de que ha configurado permisos para las aplicaciones cliente. Después de toda esta configuración, está listo para escribir el código de la aplicación cliente.
+En primer lugar, realice los pasos de configuración de [*Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md). Esto garantiza que tiene una instancia de Azure Digital Twins y que el usuario tiene permisos de acceso. Después de toda esta configuración, está listo para escribir código de aplicación cliente.
 
 Para continuar, necesita un proyecto de aplicación cliente en el que escribir el código. Si aún no tiene un proyecto de aplicación cliente configurado, cree un proyecto básico en el lenguaje que prefiera para usarlo con este tutorial.
 
 ## <a name="common-authentication-methods-with-azureidentity"></a>Métodos de autenticación comunes con Azure.Identity
 
 `Azure.Identity` es una biblioteca de cliente que proporciona varios métodos para obtener credenciales que puede usar para obtener un token de portador y autenticarse con el SDK. Aunque en este artículo se proporcionan ejemplos en C# , puede ver `Azure.Identity` para varios idiomas, incluido...
+
 * [.NET (C#)](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)
 * [Java](/java/api/overview/azure/identity-readme?preserve-view=true&view=azure-java-stable)
 * [JavaScript](/javascript/api/overview/azure/identity-readme?preserve-view=true&view=azure-node-latest)
 * [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 Tres métodos comunes de obtención de credenciales en `Azure.Identity` son:
+
 * [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) proporciona un flujo de autenticación `TokenCredential` predeterminado para las aplicaciones que se implementarán en Azure y es **la opción recomendada para el desarrollo local**. También se puede habilitar para probar los otros dos métodos recomendados en este artículo: contiene `ManagedIdentityCredential` y puede tener acceso a `InteractiveBrowserCredential` con una variable de configuración.
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) funciona bien en los casos en los que necesita [identidades administradas (MSI)](../active-directory/managed-identities-azure-resources/overview.md) y es un buen candidato para trabajar con Azure Functions y realizar implementaciones en servicios de Azure.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) está diseñado para aplicaciones interactivas y se puede usar para crear un cliente de SDK autenticado.

@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495899"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091810"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Error en la solicitud del servicio. Estado: 403 (Prohibido)
 
@@ -54,7 +54,7 @@ Tenga en cuenta que este rol es diferente del...
 
 Si no tiene esta asignación de roles, alguien con el rol de propietario en la **suscripción de Azure** debe ejecutar el siguiente comando para proporcionar al usuario de Azure el rol *Propietario de datos de Azure Digital Twins* en la **instancia de Azure Digital Twins**. 
 
-Si es propietario de la suscripción, puede ejecutar este comando usted mismo. Si no es así, póngase en contacto con un propietario para que ejecute este comando por usted.
+Si es propietario de la suscripción, puede ejecutar este comando por su cuenta. Si no, póngase en contacto con un propietario para que ejecute este comando en su nombre.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"

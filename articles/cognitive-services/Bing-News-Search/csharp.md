@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-csharp
-ms.openlocfilehash: 36e4889100a1902b77791f5a437b539bee1ea84f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 238c8076ef0327dd83819d0f239e28f3200be9f7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88922181"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098389"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Inicio rápido: Búsqueda de noticias mediante C# y Bing News Search REST API
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para realizar la primera llamada a la API Bing News Search. Esta sencilla aplicación de C# envía una consulta de búsqueda de noticias a la API y muestra la respuesta JSON. 
 
@@ -26,7 +31,7 @@ Aunque esta aplicación está escrita en C#, la API es un servicio web RESTful c
 
 El código completo de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://www.visualstudio.com/downloads/).
 * El marco [Json.NET](https://www.newtonsoft.com/json), disponible como un paquete NuGet.

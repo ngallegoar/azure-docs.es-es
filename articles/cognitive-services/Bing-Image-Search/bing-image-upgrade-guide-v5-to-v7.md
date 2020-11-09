@@ -11,14 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: c4c6b95996206cfb38ea3f77b89c3ebe3c2c0026
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d233273ced4891c9987ff8ba50e5491ae6071c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68883503"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084466"
 ---
 # <a name="bing-image-search-api-v7-upgrade-guide"></a>Guía de actualización de Bing Image Search API v7
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de Bing Image Search API. Utilice esta guía para identificar las partes de la aplicación que se deben actualizar para usar la versión 7.
 

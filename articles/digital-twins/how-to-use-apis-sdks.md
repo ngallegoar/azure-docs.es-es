@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 52ecc1f7de2afb83d3f37ddae6b1b618a8a8e34d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ed4bc60fbffbfbc553d41d7f7d44709551b620dc
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636024"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280342"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Uso de las API y los SDK de Azure Digital Twins
 
@@ -26,13 +26,13 @@ En este artículo se proporciona información general sobre las API disponibles 
 
 Las API del plano de control son las API de [ARM](../azure-resource-manager/management/overview.md) que se usan para administrar la instancia de Azure Digital Twins como un todo, por lo que cubren operaciones como la creación o eliminación de toda la instancia. También se usarán para crear y eliminar puntos de conexión.
 
-La versión más reciente de la API de plano de control para la versión preliminar pública es _**2020-10-31**_.
+La versión más reciente de la API de plano de control es _**2020-10-31**_.
 
 Para usar las API de plano de control:
 * Para llamar a las API directamente, haga referencia al Swagger más reciente en la [carpeta Swagger del plano de control](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Este repositorio también incluye una carpeta de ejemplos que muestran el uso.
 * Actualmente puede acceder a los SDK para las API de control en...
-  - [.NET ( C# )](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([código fuente](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referencia [generada automáticamente]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview))
-  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([código fuente](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31)) ([referencia [generada automáticamente]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))
+  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([referencia [generada automáticamente]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([origen](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
+  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([referencia [generada automáticamente]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview)) ([origen](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
   - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([código fuente](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([código fuente](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([código fuente](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
@@ -47,7 +47,7 @@ Las API de plano de datos son las API de Azure Digital Twins que se usan para ad
 * **Query** : la categoría Query permite a los desarrolladores [buscar conjuntos de gemelos digitales en el grafo de gemelos](how-to-query-graph.md) entre las relaciones.
 * **Event Routes** : la categoría Event Routes contiene las API para [enrutar datos](concepts-route-events.md), en el sistema y a los servicios de bajada.
 
-La versión más reciente de la API de plano de datos para la versión preliminar pública es _**2020-10-31**_.
+La versión más actual de la API de plano de datos es _**2020-10-31**_.
 
 Para usar las API de plano de datos:
 * Para llamar directamente a las API...
@@ -55,18 +55,20 @@ Para usar las API de plano de datos:
    - consulte la [documentación de referencia de la API](/rest/api/azure-digitaltwins/).
 * Puede usar el SDK de **.NET (C#)** . Para usar el SDK de .NET...
    - puede ver y agregar el paquete desde NuGet: [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
+   - puede ver la [documentación de referencia del SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
    - puede encontrar el código fuente del SDK, incluida una carpeta de ejemplos, en GitHub: [Biblioteca de cliente de Digital Twins de Azure IoT para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - puede ver la [documentación de referencia del SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
    - puede ver información detallada y ejemplos de uso si continúa con la sección [SDK de .NET (C#) (plano de datos)](#net-c-sdk-data-plane) de este artículo.
 * Puede usar el SDK de **Java**. Para usar el SDK de Java…
-   - puede ver e instalar el paquete desde Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
-   - puede encontrar el código fuente del SDK en GitHub: [Biblioteca cliente de Digital Twins de Azure IoT para Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
+   - puede ver e instalar el paquete desde Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
    - puede ver la [documentación de referencia del SDK](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
+   - puede encontrar el código fuente del SDK en GitHub: [Biblioteca cliente de Digital Twins de Azure IoT para Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * Puede usar el SDK de **JavaScript**. Para usar el SDK de JavaScript...
-   - puede ver e instalar el paquete desde npm: [Biblioteca de cliente de Azure Digital Twins para JavaScript](https://www.npmjs.com/package/@azure/digital-twins).
+   - puede ver e instalar el paquete desde npm: [Biblioteca de cliente de Azure Digital Twins para JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
    - puede ver la [documentación de referencia del SDK](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
+   - puede encontrar el código fuente del SDK en GitHub: [Biblioteca cliente de Azure Digital Twins Core para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core).
 * Puede usar el SDK para **Python**. Para usar el SDK para Python...
    - puede ver e instalar el paquete: [Biblioteca cliente de Azure Digital Twins Core para Python](https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/).
+   - puede encontrar el código fuente del SDK en GitHub: [Biblioteca cliente de Azure Digital Twins Core para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * Puede generar un SDK para otro lenguaje mediante el uso de REST. Siga las instrucciones de [*Procedimiento: SDK personalizados para Azure Digital Twins con AutoRest*](how-to-create-custom-sdks.md).
 
 También puede probar las API de plano de fecha interactuando con Azure Digital Twins a través de la [CLI](how-to-use-cli.md).
@@ -118,8 +120,8 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 // Read a list of models back from the service
-AsyncPageable<ModelData> modelDataList = client.GetModelsAsync();
-await foreach (ModelData md in modelDataList)
+AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
+await foreach (DigitalTwinsModelData md in modelDataList)
 {
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }
@@ -129,13 +131,13 @@ Creación y consulta de gemelos:
 
 ```csharp
 // Initialize twin metadata
-BasicDigitalTwin twinData = new BasicDigitalTwin();
+BasicDigitalTwin updateTwinData = new BasicDigitalTwin();
 
 twinData.Id = $"firstTwin";
 twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
-twinData.CustomProperties.Add("data", "Hello World!");
+twinData.Contents.Add("data", "Hello World!");
 try {
-    await client.CreateDigitalTwinAsync("firstTwin", JsonSerializer.Serialize(twinData));
+    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("firstTwin", updateTwinData);
 } catch(RequestFailedException rex) {
     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
 }
@@ -172,20 +174,18 @@ Las clases de asistente disponibles son:
 Siempre puede deserializar los datos gemelos mediante la biblioteca JSON que prefiera, como `System.Test.Json` o `Newtonsoft.Json`. Para el acceso básico a un gemelo, las clases de asistentes lo hacen un poco más conveniente.
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_id);
-BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_id);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
 ```
 
 La clase de asistente de `BasicDigitalTwin` también proporciona acceso a las propiedades definidas en el gemelo, a través de un `Dictionary<string, object>`. Para enumerar las propiedades del gemelo, puede usar:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_id);
-BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_id);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.CustomProperties.Keys)
+foreach (string prop in twin.Contents.Keys)
 {
-    if (twin.CustomProperties.TryGetValue(prop, out object value))
+    if (twin.Contents.TryGetValue(prop, out object value))
         Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -201,9 +201,9 @@ twin.Metadata.ModelId = "dtmi:example:Room;1";
 // Initialize properties
 Dictionary<string, object> props = new Dictionary<string, object>();
 props.Add("Temperature", 25.0);
-twin.CustomProperties = props;
+twin.Contents = props;
 
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myNewRoomID", twin);
 ```
 
 El código anterior es equivalente a la siguiente variante "manual":
@@ -218,28 +218,26 @@ Dictionary<string, object> twin = new Dictionary<string, object>()
     { "$metadata", meta },
     { "Temperature", 25.0 }
 };
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
+client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myNewRoomID", twin);
 ```
 
 ##### <a name="deserialize-a-relationship"></a>Deserialización de una relación
 
-Siempre puede deserializar los datos de la relación con la biblioteca JSON que prefiera, como `System.Test.Json` o `Newtonsoft.Json`. Para el acceso básico a una relación, las clases de asistentes lo hacen un poco más conveniente.
+Siempre puede deserializar los datos de la relación en un tipo de su elección. Para obtener acceso básico a una relación, utilice el tipo `BasicRelationship`.
 
 ```csharp
-Response<string> res = client.GetRelationship(twin_id, rel_id);
-BasicRelationship rel = JsonSerializer.Deserialize<BasicRelationship>(res.Value);
+BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
 Console.WriteLine($"Relationship Name: {rel.Name}");
 ```
 
-La clase de asistente de `BasicRelationship` también proporciona acceso a las propiedades definidas en la relación, a través de un `Dictionary<string, object>`. Para enumerar las propiedades, puede usar:
+La clase de asistente `BasicRelationship` también proporciona acceso a las propiedades definidas en la relación, mediante un elemento `IDictionary<string, object>`. Para enumerar las propiedades, puede usar:
 
 ```csharp
-Response<string> res = client.GetRelationship(twin_id, rel_id);
-BasicRelationship rel = JsonSerializer.Deserialize<BasicRelationship>(res.Value);
+BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
 Console.WriteLine($"Relationship Name: {rel.Name}");
-foreach (string prop in rel.CustomProperties.Keys)
+foreach (string prop in rel.Contents.Keys)
 {
-    if (twin.CustomProperties.TryGetValue(prop, out object value))
+    if (twin.Contents.TryGetValue(prop, out object value))
         Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -255,21 +253,22 @@ rel.Name = "contains"; // a relationship with this name must be defined in the m
 // Initialize properties
 Dictionary<string, object> props = new Dictionary<string, object>();
 props.Add("active", true);
-rel.CustomProperties = props;
-client.CreateRelationship("mySourceTwin", "rel001", JsonSerializer.Serialize<BasicRelationship>(rel));
+rel.Properties = props;
+client.CreateOrReplaceRelationshipAsync("mySourceTwin", "rel001", rel);
 ```
 
 ##### <a name="create-a-patch-for-twin-update"></a>Creación de una revisión para la actualización gemela
 
-Las llamadas de actualización de los gemelos y las relaciones usan la estructura de [revisión de JSON](http://jsonpatch.com/). Para crear listas de operaciones de revisión de JSON, puede usar la clase `UpdateOperationsUtility`, tal como se muestra a continuación.
+Las llamadas de actualización de los gemelos y las relaciones usan la estructura de [revisión de JSON](http://jsonpatch.com/). Para crear listas de operaciones de revisión de JSON, puede usar `JsonPatchDocument`, tal como se muestra a continuación.
 
 ```csharp
-UpdateOperationsUtility uou = new UpdateOperationsUtility();
-uou.AppendAddOp("/Temperature", 25.0);
-uou.AppendAddOp("/myComponent/Property", "Hello");
+var updateTwinData = new JsonPatchDocument();
+updateTwinData.AppendAddOp("/Temperature", 25.0);
+updateTwinData.AppendAddOp("/myComponent/Property", "Hello");
 // Un-set a property
-uou.AppendRemoveOp("/Humidity");
-client.UpdateDigitalTwin("myTwin", uou.Serialize());
+updateTwinData.AppendRemoveOp("/Humidity");
+
+client.UpdateDigitalTwin("myTwin", updateTwinData);
 ```
 
 ## <a name="general-apisdk-usage-notes"></a>Notas generales sobre el uso de la API o del SDK
@@ -304,7 +303,7 @@ Desde aquí, puede ver las métricas de la instancia y crear vistas personalizad
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea cómo usar las API para configurar una instancia de Azure Digital Twins y realizar la autenticación:
-* [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md)
+* [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-cli.md)
 
 O bien, siga los pasos para crear una aplicación cliente como la que se usa en este tutorial:
 * [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)

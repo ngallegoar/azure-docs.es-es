@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c03800696897dc6cbb4cd793879e734366829b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acb32e2fe3dae45cc4a95cea1b9fa4ea01d576c0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88925120"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102186"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Tutorial: Búsqueda de imágenes similares de búsquedas anteriores mediante un token de información de imágenes
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 La biblioteca cliente de Visual Search le permite buscar imágenes en línea de una búsqueda anterior que devuelve un token `ImageInsightsToken`. En esta aplicación se obtiene un token `ImageInsightsToken` que se usa en una búsqueda posterior. Después, la aplicación envía el token `ImageInsightsToken` a Bing y devuelve los resultados que incluyen direcciones URL de Bing Search y las direcciones URL de imágenes similares que se encuentran en línea.
 

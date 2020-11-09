@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: a11bf408f06b5c4e621f0af1f71f23c335dc2069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5df94f95ea486f069ece264b8d09de1d9fc8607
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512646"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095023"
 ---
 # <a name="default-insights-tag"></a>Etiqueta de conclusiones predeterminada
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 La etiqueta de conclusiones predeterminada es la que tiene el campo `displayName` establecido en una cadena vacía. En el ejemplo siguiente se muestra la lista posibles conclusiones predeterminadas (acciones). La lista de acciones que incluye la respuesta depende de la imagen. Y para cada acción, la lista de propiedades puede variar según la imagen, así que compruebe si la propiedad existe antes de intentar usarla.
 

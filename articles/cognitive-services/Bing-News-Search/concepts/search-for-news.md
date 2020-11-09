@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e14f13d0e9fba407a983fb182d25c77593e4d3c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710599"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098406"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Búsqueda de noticias con Bing News Search API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Image Search API facilita la integración de las funcionalidades cognitivas de búsqueda de noticias de Bing en tus aplicaciones.
 
@@ -27,7 +32,7 @@ Aunque Bing News Search API principalmente busca y devuelve los artículos de no
 
 Si proporciona un cuadro de búsqueda donde el usuario escribe su término de búsqueda, use [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) para mejorar la experiencia. La API devuelve cadenas consulta sugeridas basadas en términos de búsqueda parciales a medida que el usuario escribe.
 
-Una vez que el usuario escriba el término de búsqueda, codifíquelo en formato de URL antes de establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Por ejemplo, si el usuario escribe *sailing dinghies*, establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
+Una vez que el usuario escriba el término de búsqueda, codifíquelo en formato de URL antes de establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Por ejemplo, si el usuario escribe *sailing dinghies* , establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
 
 ## <a name="get-general-news"></a>Obtención de noticias generales
 

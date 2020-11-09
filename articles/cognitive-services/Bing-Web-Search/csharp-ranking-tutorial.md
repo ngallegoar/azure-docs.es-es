@@ -12,14 +12,19 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8bfd7b6e5c9a2a7e3d9ed750e544036f3874271f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9131dbff9b732ecfc7f6edb62b42959abcc17da8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933229"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078686"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilación de un cliente de búsqueda de aplicación de consola en C#
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 En este tutorial se muestra cómo compilar una aplicación de consola .NET Core sencilla que permite a los usuarios consultar Bing Web Search API y mostrar los resultados en orden de clasificación.
 
@@ -40,7 +45,7 @@ Para seguir el tutorial, necesitará:
 
 Cree un proyecto en Visual Studio con `Ctrl`+`Shift`+`N`.
 
-En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C# > Escritorio clásico de Windows > Aplicación de consola (.NET Framework)** .
+En el cuadro de diálogo **Nuevo proyecto** , haga clic en **Visual C# > Escritorio clásico de Windows > Aplicación de consola (.NET Framework)** .
 
 Asigne a la aplicación el nombre **MyConsoleSearchApp** y haga clic en **Aceptar**.
 
@@ -48,8 +53,8 @@ Asigne a la aplicación el nombre **MyConsoleSearchApp** y haga clic en **Acepta
 
 JSON.net permite trabajar con las respuestas JSON devueltas por la API. Agregue el paquete NuGet al proyecto:
 
-- En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet…**
-- En la pestaña **Examinar**, busque `Newtonsoft.Json`. Seleccione la versión más reciente y haga clic en **Instalar**.
+- En el **Explorador de soluciones** , haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet…**
+- En la pestaña **Examinar** , busque `Newtonsoft.Json`. Seleccione la versión más reciente y haga clic en **Instalar**.
 - Haga clic en el botón **Aceptar** situado en la ventana **Revisar cambios**.
 - Cierre la pestaña de Visual Studio denominada **NuGet: MyConsoleSearchApp**.
 
@@ -57,13 +62,13 @@ JSON.net permite trabajar con las respuestas JSON devueltas por la API. Agregue 
 
 Este tutorial se basa en el ensamblado `System.Web`. Agregue al proyecto una referencia a este ensamblado:
 
-- En el **Explorador de soluciones**, haga clic con el botón derecho en **Referencias** y seleccione **Agregar referencia…**
-- Seleccione **Ensamblados > Marco**, a continuación, desplácese hacia abajo y marque **System.Web**
+- En el **Explorador de soluciones** , haga clic con el botón derecho en **Referencias** y seleccione **Agregar referencia…**
+- Seleccione **Ensamblados > Marco** , a continuación, desplácese hacia abajo y marque **System.Web**
 - Seleccione **Aceptar**.
 
 ## <a name="add-some-necessary-using-statements"></a>Adición de algunas instrucciones using necesarias
 
-El código de este tutorial requiere tres instrucciones using adicionales. Agregue estas instrucciones a continuación de las instrucciones `using` existentes, arriba de **Program.cs**:
+El código de este tutorial requiere tres instrucciones using adicionales. Agregue estas instrucciones a continuación de las instrucciones `using` existentes, arriba de **Program.cs** :
 
 ```csharp
 using System.Web;
@@ -72,7 +77,7 @@ using System.Net.Http;
 
 ## <a name="ask-the-user-for-a-query"></a>Pedido de una consulta al usuario
 
-En el **Explorador de soluciones**, abra **Program.cs**. Actualice el método `Main()`:
+En el **Explorador de soluciones** , abra **Program.cs**. Actualice el método `Main()`:
 
 ```csharp
 static void Main()
@@ -231,7 +236,7 @@ El objeto JSON `rankingResponse` ([documentación](https://docs.microsoft.com/re
 
 El código JSON de respuesta de clasificación puede incluir uno o varios de los grupos.
 
-En **Program.cs**, agregue el método siguiente para mostrar los resultados en el orden de clasificación correcto:
+En **Program.cs** , agregue el método siguiente para mostrar los resultados en el orden de clasificación correcto:
 
 ```csharp
 static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects)
@@ -278,7 +283,7 @@ Este método:
 - Recorre los grupos `rankingResponse` que contiene la respuesta
 - Muestra los elementos de cada grupo mediante una llamada a `DisplaySpecificResults(...)`
 
-En **Program.cs**, agregue los dos métodos siguientes:
+En **Program.cs** , agregue los dos métodos siguientes:
 
 ```csharp
 static void DisplaySpecificResults(Newtonsoft.Json.Linq.JToken resultIndex, Newtonsoft.Json.Linq.JToken items, string title, params string[] fields)

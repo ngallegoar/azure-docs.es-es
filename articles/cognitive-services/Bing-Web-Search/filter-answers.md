@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad021b4d219353a6037988c164bb34cac6761682
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696718"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078635"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrado de los resultados incluidos en la respuesta de búsqueda  
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Al consultar la web, Bing devuelve todo el contenido relevante para la búsqueda. Por ejemplo, si la consulta de búsqueda es "navegar+barco", la respuesta podría contener los resultados siguientes:
 
@@ -111,7 +116,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 > [!NOTE]
 > En función de la consulta, si usa el operador de consulta `site:`, existe la posibilidad de que la respuesta incluya contenido para adultos sin tener en cuenta la configuración de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) (búsqueda segura). Debería usar `site:` solo si es consciente del contenido del sitio y el escenario admite la posibilidad de contenido para adultos.
 
-### <a name="freshness"></a>Freshness
+### <a name="freshness"></a>Actualización
 
 Para limitar los resultados de la respuesta web a las páginas web que Bing ha detectado durante un período específico, establezca el parámetro de consulta [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) en uno de los siguientes valores que no distinguen mayúsculas de minúsculas:
 

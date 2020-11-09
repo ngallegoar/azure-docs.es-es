@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: b87a2cd3e6edc6a47de77f475c40d30ce1606e01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316620"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099868"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilación de un cliente de revisión ortográfica de página web
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 En este tutorial, vamos a compilar una página web que permita a los usuarios consultar Bing Spell Check API. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -123,7 +128,7 @@ La función auxiliar getSubscriptionKeyLocalStorage primero intenta recuperar la
     }
 ```
 
-La función auxiliar getSubscriptionKey toma un parámetro, **invalidate**. Si **invalidate** es **true**, getSubscriptionKey elimina la cookie que contiene la clave de Bing Spell Check API. Si **invalidate** es **false**, getSubscriptionKey devuelve el valor de la clave de Bing Spell Check API.
+La función auxiliar getSubscriptionKey toma un parámetro, **invalidate**. Si **invalidate** es **true** , getSubscriptionKey elimina la cookie que contiene la clave de Bing Spell Check API. Si **invalidate** es **false** , getSubscriptionKey devuelve el valor de la clave de Bing Spell Check API.
 
 ```html
     function getSubscriptionKey(invalidate) {

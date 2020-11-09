@@ -11,14 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b414711f5589a141d59fbe2f14d0a8ae992f5acf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67542757"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084449"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Obtención de imágenes desde la web con Bing Image Search API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Cuando use la API REST de Bing Image Search, puede enviar la solicitud GET siguiente para obtener de la web imágenes relacionadas con el término de búsqueda:
 
@@ -31,7 +36,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Use el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) para el término de búsqueda con codificación URL. Por ejemplo, si escribe *sailing dinghies*, establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
+Use el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) para el término de búsqueda con codificación URL. Por ejemplo, si escribe *sailing dinghies* , establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
 
 > [!IMPORTANT]
 > * Todas las solicitudes se deben realizar desde un servidor y no desde un cliente.

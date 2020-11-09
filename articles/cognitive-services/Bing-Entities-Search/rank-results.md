@@ -10,21 +10,26 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5fbecd9c2fd6e3a9f1be29598bad50da4b77bbb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68423921"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084619"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Uso de la clasificación para mostrar resultados de Entity Search  
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Cada respuesta de Entity Search incluye una respuesta [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) que especifica cómo debe mostrar los resultados de la búsqueda que devuelve Bing Entity Search API. La respuesta de clasificación agrupa los resultados en contenido de polo, línea principal y como barra lateral. El resultado de polo es el resultado más importante o destacado y debe mostrarse primero. Si no muestra los resultados restantes en un formato tradicional de línea principal y barra lateral, debe dar mayor visibilidad al contenido de la línea principal que al contenido de la barra lateral. 
   
 Dentro de cada grupo, la matriz [Elementos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) identifica el orden en que debe aparecer el contenido. Cada elemento ofrece dos formas de identificar el resultado dentro de una respuesta.  
  
 
-|Campo | Descripción  |
+|Campo | Description  |
 |---------|---------|
 |`answerType` y `resultIndex` | `answerType` identifica la respuesta (como Entidad o Lugar) y `resultIndex` identifica un resultado dentro de una respuesta (por ejemplo, una entidad). El índice comienza en 0.|
 |`value`    | `value` contiene un identificador que coincide con el identificador de una respuesta o de un resultado dentro de una respuesta. La respuesta o los resultados contienen el identificador, pero no ambos. |

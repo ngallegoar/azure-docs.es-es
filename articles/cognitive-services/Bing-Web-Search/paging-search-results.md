@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7613f4b6bb301c603ae5ded98f271f3cb98b340
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73481727"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074104"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Cómo navegar por los resultados desde Bing Search API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Cuando se envía una llamada a las API Bing Web Search, Bing Custom Search, Bing Image Search, Bing News Search o Bing Video Search, Bing devuelve un subconjunto del número total de resultados que pueden ser pertinentes para la consulta. Para obtener el número total estimado de resultados disponibles, acceda al campo `totalEstimatedMatches` del objeto de respuesta. 
 
@@ -44,7 +49,7 @@ Para navegar por los resultados disponibles, use los parámetros de consulta `co
 > * La paginación con las API Bing Video Search, Bing Image Search y Bing News Search solo se aplica a las búsquedas generales en vídeos (`/video/search`), noticias (`/news/search`) e imágenes (`/image/search`). No se admite la navegación por temas populares y categorías.  
 > * El campo `TotalEstimatedMatches` es una estimación del número total de resultados de búsqueda de la consulta actual. Al establecer los parámetros `count` y `offset`, esta estimación puede cambiar.
 
-| Parámetro | Descripción                                                                                                                                                                |
+| Parámetro | Description                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `count`   | Especifica el número de resultados que se devolverán en la respuesta. Tenga en cuenta que el valor predeterminado de `count` y el número máximo de resultados que puede solicitar varía en función de la API. Estos valores se pueden encontrar en la documentación de referencia en [Pasos siguientes](#next-steps). |
 | `offset`  | Especifica el número de resultados que se van a omitir. `offset` está basado en cero y debe ser menor que (`totalEstimatedMatches` - `count`).                                           |

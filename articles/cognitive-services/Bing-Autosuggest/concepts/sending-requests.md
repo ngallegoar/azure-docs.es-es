@@ -10,14 +10,19 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 3aa8d691eb62b94c5784d8a6efc35b53a3762d7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad00d60c5a1b75e200b49b0cdcf0d396012a5f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294125"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101959"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Envío de solicitudes a Bing Autosuggest API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Si una aplicación envía consultas a cualquier Bing Search API, puede usar Bing Autosuggest API para mejorar su experiencia de búsqueda. Bing Autosuggest API devuelve una lista de consultas sugeridas según la cadena de consulta parcial del cuadro de búsqueda. A medida que se escriben caracteres en el cuadro de búsqueda, puede mostrar sugerencias en una lista desplegable. Use este artículo para aprender sobre el envío de solicitudes a esta API. 
 
@@ -35,7 +40,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
 Para obtener más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc., consulte la referencia [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference).
 
-Las API de **Bing** admiten acciones de búsqueda que devuelven resultados según su tipo. Todos los puntos de conexión de búsqueda devuelven resultados como objetos de respuesta JSON.
+Las API de **Bing** admiten acciones de búsqueda que devuelven resultados según su tipo.  Todos los puntos de conexión de búsqueda devuelven resultados como objetos de respuesta JSON.
 Todos los puntos de conexión admiten consultas que devuelven un idioma o una ubicación en concreto por longitud, latitud y radio de búsqueda.
 
 Para una información completa acerca de los parámetros admitidos por cada punto de conexión, consulte las páginas de referencia de cada tipo.

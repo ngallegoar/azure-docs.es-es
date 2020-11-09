@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f124eb24dcdc9e6437c803d1066d6ca86d5c32ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d085d59dc1dbe09c014dcaf5aa239805824354f0
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440814"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279965"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Enrutar eventos dentro y fuera de Azure Digital Twins
 
 Azure Digital Twins usa **rutas de eventos** para enviar datos a los consumidores fuera del servicio. 
 
-Durante la versión preliminar, hay dos casos principales para el envío de datos de Azure Digital Twins:
+Hay dos casos principales para el envío de datos de Azure Digital Twins:
 * El envío de datos desde un gemelo del grafo de Azure Digital Twins a otro. Por ejemplo, cuando cambia una propiedad de un gemelo digital, puede que desee notificar y actualizar otro gemelo digital en consecuencia.
 * El envío de datos a servicios de datos descendentes, para almacenamiento o procesamiento adicional (también conocido como *salida de datos* ). Por ejemplo,
   - Un hospital puede querer enviar datos de eventos de Azure Digital Twins a [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), para registrar los datos de series temporales de eventos relacionados con el lavado de manos para análisis masivo.
@@ -38,7 +38,7 @@ Los destinos descendentes típicos para las rutas de eventos son recursos como T
 
 ### <a name="event-routes-for-internal-digital-twin-events"></a>Rutas de eventos para eventos de gemelos digitales internos
 
-Durante la versión preliminar actual, las rutas de eventos también se usan para controlar los eventos dentro del grafo de gemelos y enviar datos de un gemelo digital a otro. Esto se hace mediante la conexión de las rutas de eventos a través de Event Grid para calcular los recursos, como [Azure Functions](../azure-functions/functions-overview.md). A continuación, estas funciones definen el modo en que los gemelos deben recibir y responder a los eventos. 
+Las rutas de eventos también se usan para controlar los eventos dentro del grafo de gemelos y enviar datos de un gemelo digital a otro. Esto se hace mediante la conexión de las rutas de eventos a través de Event Grid para calcular los recursos, como [Azure Functions](../azure-functions/functions-overview.md). A continuación, estas funciones definen el modo en que los gemelos deben recibir y responder a los eventos. 
 
 Cuando un recurso de proceso quiere modificar el grafo de gemelos en función de un evento recibido a través de la ruta de eventos, es útil que sepa con anterioridad qué gemelo quiere modificar. 
 
@@ -50,7 +50,7 @@ Para recorrer el proceso de configuración de una función de Azure para procesa
 
 ## <a name="create-an-endpoint"></a>Crear un punto de conexión
 
-Para definir una ruta de eventos, los desarrolladores deben definir primero los puntos de conexión. Un **punto de conexión** es un destino fuera de Azure Digital Twins que admite una conexión de ruta. Los destinos admitidos en la versión preliminar actual son:
+Para definir una ruta de eventos, los desarrolladores deben definir primero los puntos de conexión. Un **punto de conexión** es un destino fuera de Azure Digital Twins que admite una conexión de ruta. Destinos admitidos:
 * Temas personalizados de Event Grid
 * Centro de eventos
 * Azure Service Bus
@@ -73,19 +73,19 @@ Las API del punto de conexión que están disponibles en el plano de control son
  
 Para crear una ruta de eventos, puede usar [**API del plano de datos**](how-to-manage-routes-apis-cli.md#create-an-event-route) de Azure Digital Twins, [**comandos de la CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli) o [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Este es un ejemplo de cómo crear una ruta de eventos dentro de una aplicación cliente mediante una llamada al [SDK de .NET (C# )](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview) `CreateEventRoute`: 
+Este es un ejemplo de cómo crear una ruta de eventos dentro de una aplicación cliente mediante una llamada al [SDK de .NET (C# )](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) `CreateOrReplaceEventRouteAsync`: 
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("endpointName", eventFilter);
+await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ```
 
-1. En primer lugar, se crea un objeto `EventRoute` y el constructor toma el nombre de un extremo. Este campo `endpointName` identifica un punto de conexión, como un centro de eventos, Event Grid o Service Bus. Estos puntos de conexión deben crearse en la suscripción y conectarse a Azure Digital Twins mediante las API de plano de control antes de realizar esta llamada de registro.
+1. En primer lugar, se crea un objeto `DigitalTwinsEventRoute` y el constructor toma el nombre de un punto de conexión. Este campo `endpointName` identifica un punto de conexión, como un centro de eventos, Event Grid o Service Bus. Estos puntos de conexión deben crearse en la suscripción y conectarse a Azure Digital Twins mediante las API de plano de control antes de realizar esta llamada de registro.
 
 2. El objeto de ruta de eventos también tiene un campo [**Filtro**](how-to-manage-routes-apis-cli.md#filter-events), que se puede usar para restringir los tipos de eventos que siguen esta ruta. Un filtro de `true` habilita la ruta sin filtrado adicional (un filtro de `false` deshabilita la ruta). 
 
-3. A continuación, este objeto de ruta de eventos se pasa a `CreateEventRoute`, junto con un nombre para la ruta.
+3. A continuación, este objeto de ruta de eventos se pasa a `CreateOrReplaceEventRouteAsync`, junto con un nombre para la ruta.
 
 > [!TIP]
 > Todas las funciones del SDK cuentan con versiones sincrónicas y asincrónicas.
@@ -94,7 +94,7 @@ Las rutas también se pueden crear con la [CLI de Azure Digital Twins](how-to-us
 
 ## <a name="dead-letter-events"></a>Eventos fallidos
 
-Cuando un punto de conexión no puede entregar un evento en un período de tiempo determinado o después de haber intentado entregarlo un número determinado de veces, podrá enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos** . Azure Digital Twins incluirá en la cola de mensajes fallidos un evento cuando se cumpla **una de las siguientes condiciones** . 
+Cuando un punto de conexión no puede entregar un evento en un período de tiempo determinado o después de haber intentado entregarlo un número determinado de veces, podrá enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos**. Azure Digital Twins incluirá en la cola de mensajes fallidos un evento cuando se cumpla **una de las siguientes condiciones**. 
 
 * El evento no se entrega en el período de tiempo de vida
 * El número de intentos de entrega del evento ha superado el límite

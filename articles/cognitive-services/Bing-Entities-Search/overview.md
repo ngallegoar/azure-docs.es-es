@@ -10,14 +10,19 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: e0402b1695e1d5f5c9f29d128f4cd405f219e724
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f6f816f6fb4d422a97c98994996967e71f6a1e07
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532501"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084908"
 ---
 # <a name="what-is-bing-entity-search-api"></a>¿Qué es Bing Entity Search API?
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Entity Search API envía una consulta de búsqueda a Bing y obtiene resultados que incluyen entidades y lugares. Los resultados de lugares incluyen restaurantes, hoteles u otros negocios locales. Bing devuelve lugares si en la consulta se especifica el nombre de la empresa local o si se solicita un tipo de negocio (por ejemplo, restaurantes cercanos). Bing devuelve entidades si en la consulta se especifican personas, lugares o incluso cosas famosas (puntos turísticos, estados, países o regiones, etc.).
 

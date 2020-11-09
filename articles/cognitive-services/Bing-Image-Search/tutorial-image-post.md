@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d455751dcabd67213566d605e83fda297e187d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76670c6a061ce3f257d9df8cfe61b1cc020194c6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316688"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100225"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: Extracción de detalles de imágenes con Bing Image Search API y C#
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Hay varios [puntos de conexión](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint) disponibles mediante Bing Image Search API. El punto de conexión `/details` acepta una solicitud POST con una imagen y puede devolver una variedad de detalles sobre la imagen. Esta aplicación de C# envía una imagen mediante esta API y muestra los detalles devueltos por Bing, que son objetos JSON, como los siguientes:
 
@@ -35,7 +40,7 @@ Este tutorial explica cómo realizar lo siguiente:
 
 El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Cualquier edición de [Visual Studio 2017 o posterior](https://visualstudio.microsoft.com/downloads/).
 

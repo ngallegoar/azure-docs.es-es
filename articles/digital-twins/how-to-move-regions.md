@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4c2900ed5ebe0df3ed827acc1a16caff3beaf4d4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047393"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241096"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Migración de una instancia de Azure Digital Twins a otra región de Azure
 
@@ -40,7 +40,7 @@ Estas son algunas preguntas que puede plantearse:
 * ¿Cuál es la forma general del **grafo** en mi instancia? ¿Cuántas relaciones hay?
 * ¿Qué **puntos de conexión** tengo en mi instancia?
 * ¿Qué **rutas** tengo en mi instancia? ¿Tienen filtros?
-* ¿Dónde la instancia se **conecta a otros servicios de Azure**? Algunos puntos de integración comunes incluyen...
+* ¿Dónde la instancia se **conecta a otros servicios de Azure** ? Algunos puntos de integración comunes incluyen...
     - Event Grid, Event Hub o Service Bus
     - Azure Functions
     - Logic Apps
@@ -62,7 +62,7 @@ En esta sección, se preparará para volver a crear la instancia mediante la **d
 
 El [ejemplo de Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) es un ejemplo de aplicación cliente que admite una representación visual del grafo y proporciona interacción visual con la instancia. En este artículo se muestra cómo usarlo para descargar y volver a cargar los modelos, gemelos y grafos.
 
-Sin embargo, tenga en cuenta que se trata de un **ejemplo**, no de una herramienta completa. No se ha realizado una prueba de esfuerzo y no se ha creado para administrar grafos de gran tamaño. Por tanto, tenga en cuenta las siguientes limitaciones del ejemplo desde el principio:
+Sin embargo, tenga en cuenta que se trata de un **ejemplo** , no de una herramienta completa. No se ha realizado una prueba de esfuerzo y no se ha creado para administrar grafos de gran tamaño. Por tanto, tenga en cuenta las siguientes limitaciones del ejemplo desde el principio:
 * Actualmente, el ejemplo solo se ha probado en tamaños de grafo de hasta 1000 nodos y 2000 relaciones
 * El ejemplo no admite reintentos en caso de que se produzcan errores intermitentes
 * El ejemplo no necesariamente notificará al usuario si los datos cargados están incompletos
@@ -76,11 +76,12 @@ Si el ejemplo no puede controlar el tamaño del grafo, puede exportarlo e import
 
 Para continuar con ADT Explorer, descargue el código de aplicación de ejemplo y prepárelo para ejecutarlo en su máquina. 
 
-Vaya al ejemplo este: [Explorador de Azure Digital Twins (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Presione el botón *Descargar archivo ZIP* para descargar el archivo *.ZIP* de este código de ejemplo en la máquina como _**ADT_Explorer.zip**_. Descomprima el archivo.
+Vaya al ejemplo este: [Explorador de Azure Digital Twins (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Presione el botón *Descargar archivo ZIP* para descargar un archivo *.ZIP* de este código de ejemplo en la máquina como _**Azure_Digital_Twins_ADT_explorer.zip**_. Descomprima el archivo.
 
-A continuación, configure los permisos para que el Explorador de ADT se ejecute en la máquina. Para ello, siga los pasos descritos en la sección [*Establecimiento de los permisos de Explorador de ADT*](quickstart-adt-explorer.md#set-adt-explorer-permissions) del inicio rápido de Azure Digital Twins.
-
-Por último, ejecute y configure el Explorador de ADT para conectarse a la instancia original de Azure Digital Twins. Siga los pasos de la sección [*Ejecución y configuración de Explorador de ADT*](quickstart-adt-explorer.md#run-and-configure-adt-explorer) del inicio rápido.
+A continuación, instale y configure los permisos para ADT Explorer. Para ello, siga las instrucciones de la sección [*Configuración de Azure Digital Twins y ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) del inicio rápido de Azure Digital Twins. Esta sección le lleva por los siguientes pasos:
+1. Configuración de una instancia de Azure Digital Twins (puede omitir esta parte dado que ya tiene una instancia)
+2. Configuración de las credenciales locales de Azure para proporcionar acceso a la instancia
+3. Ejecute ADT Explorer y configúrelo para conectarse a la instancia. Usará el **nombre de host** de la instancia original de Azure Digital Twins que va a mover.
 
 Ahora tendrá en ejecución la aplicación de ejemplo del Explorador de ADT en un explorador en la máquina. El ejemplo debe estar conectado a la instancia original de Azure Digital Twins.
 
@@ -88,7 +89,7 @@ Ahora tendrá en ejecución la aplicación de ejemplo del Explorador de ADT en u
 
 Para comprobar la conexión, puede presionar el botón *Ejecutar consulta* para ejecutar la consulta predeterminada que muestra todos los gemelos y relaciones en el grafo en el cuadro *PROBADOR DE GRAPH*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Explorador de ADT y contiene los cuadros Query Explorer (Explorador de consultas), Model View (Vista de modelo), Graph View (Vista de grafo) y Property Explorer (Explorador de propiedades). Todavía no hay datos en pantalla." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="El botón Ejecutar consulta cerca de la parte superior de la ventana aparece resaltado" lightbox="media/how-to-move-regions/run-query.png":::
 
 Puede dejar el Explorador de ADT en ejecución, ya que lo usará más adelante en este artículo para volver a cargar estos elementos en la nueva instancia de la región de destino.
 
@@ -96,11 +97,11 @@ Puede dejar el Explorador de ADT en ejecución, ya que lo usará más adelante e
 
 A continuación, descargue los modelos, los gemelos y el grafo de la solución en la máquina.
 
-Para descargar todos ellos a la vez, asegúrese primero de que el grafo completo se muestra en el cuadro *GRAPH VIEW* (VISTA DE GRAFO) (puede hacerlo volviendo a ejecutar la consulta predeterminada de `SELECT * FROM digitaltwins` en el cuadro *EXPLORADOR DE CONSULTAS*).
+Para descargar todos ellos a la vez, asegúrese primero de que el grafo completo se muestra en el cuadro *GRAPH VIEW* (VISTA DE GRAFO) (puede hacerlo volviendo a ejecutar la consulta predeterminada de `SELECT * FROM digitaltwins` en el cuadro *EXPLORADOR DE CONSULTAS* ).
  
 A continuación, presione el icono *Export graph* (Exportar grafo) en el cuadro *GRAPH VIEW* (VISTA DE GRAFO).
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Explorador de ADT y contiene los cuadros Query Explorer (Explorador de consultas), Model View (Vista de modelo), Graph View (Vista de grafo) y Property Explorer (Explorador de propiedades). Todavía no hay datos en pantalla." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Hay un icono resaltado en el cuadro de texto Vista de grafo. Se muestra una flecha que apunta hacia fuera de una nube." lightbox="media/how-to-move-regions/export-graph.png":::
 
 Esta acción habilitará un vínculo *Descargar* en *GRAPH VIEW* (VISTA DE GRAFO). Selecciónelo para descargar una representación basada en JSON del resultado de la consulta, incluidos los modelos, los gemelos y las relaciones. Se descargará un archivo *.json* en la máquina.
 
@@ -116,9 +117,6 @@ A continuación, creará una instancia en la región de destino y la rellenará 
 En primer lugar, **crear una instancia de Azure Digital Twins en la región de destino**. Para ello, siga los pasos descritos en [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md), teniendo en cuenta estas indicaciones:
 * Puede mantener el mismo nombre para la nueva instancia **si** está en otro grupo de recursos. Si necesita usar el mismo grupo de recursos que contiene la instancia original, la nueva instancia necesitará su propio nombre distintivo.
 * Cuando se le solicite una ubicación, escriba la nueva región de destino.
-* No **necesita** volver a crear el registro de aplicaciones. La nueva instancia puede volver a usar el que ya tiene.
-    - Si usa las instrucciones del artículo de configuración [con script](how-to-set-up-instance-scripted.md), puede volver a escribir los detalles del registro de aplicaciones existente en lugar de especificar un nuevo nombre cuando se le solicite.
-    - Si usa las instruccioes de los artículos de configuración manual del [portal](how-to-set-up-instance-portal.md) o de la [CLI](how-to-set-up-instance-cli.md), puede detenerse después de los pasos *Creación de la instancia de Azure Digital Twins* y *Configuración de los permisos de acceso de usuario*. No es necesario continuar con *Configuración de los permisos de acceso para las aplicaciones cliente*.
 
 Cuando haya finalizado, necesitará el **nombre de host** de la nueva instancia para continuar con la configuración de los datos. Si no ha tomado nota de esta información durante la configuración, puede seguir [estas instrucciones](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) para obtenerla ahora desde Azure Portal.
 
@@ -134,11 +132,11 @@ De lo contrario, para continuar, ejecute el **Explorador de ADT** para volver a 
 
 ##### <a name="connect-to-the-new-instance"></a>Conexión a la nueva instancia
 
-Actualmente, el Explorador de ADT está conectado a la instancia original de Azure Digital Twins. Cambie la conexión para que apunte a la nueva instancia; para ello, presione el botón *Iniciar sesión* en la parte superior de la ventana. 
+Actualmente, el Explorador de ADT está conectado a la instancia original de Azure Digital Twins. Cambie la conexión para que apunte a la nueva instancia; para ello, presione el botón *Sign in* (Iniciar sesión) en la parte superior de la ventana. 
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Explorador de ADT y contiene los cuadros Query Explorer (Explorador de consultas), Model View (Vista de modelo), Graph View (Vista de grafo) y Property Explorer (Explorador de propiedades). Todavía no hay datos en pantalla." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Explorador de ADT con el icono de inicio de sesión resaltado cerca de la parte superior de la ventana. El icono muestra una silueta simple de una persona superpuesta con la silueta de una llave." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Puesto que va a reutilizar el registro de aplicaciones, solo debe reemplazar la *dirección URL de ADT*. Cambie este valor por el que pone *https://{new instance hostname}* .
+Reemplace la *dirección URL de ADT* para que se refleje la nueva instancia. Cambie este valor por el que pone *https://{new instance hostname}* .
 
 Presione *Conectar*. Es posible que se le pida que vuelva a iniciar sesión con sus credenciales de Azure o que conceda a esta aplicación el consentimiento para la instancia.
 
@@ -146,19 +144,19 @@ Presione *Conectar*. Es posible que se le pida que vuelva a iniciar sesión con 
 
 A continuación, cargue los componentes de la solución que descargó anteriormente en la nueva instancia.
 
-Para cargar los **modelos, los gemelos y el grafo**, presione el icono *Import Graph* (Importar grafo) en el cuadro *GRAPH VIEW* (VISTA DE GRAFO). Esta opción cargará los tres componentes a la vez (incluso los modelos que no se usen en ese momento en el grafo).
+Para cargar los **modelos, los gemelos y el grafo** , presione el icono *Import Graph* (Importar grafo) en el cuadro *GRAPH VIEW* (VISTA DE GRAFO). Esta opción cargará los tres componentes a la vez (incluso los modelos que no se usen en ese momento en el grafo).
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Explorador de ADT y contiene los cuadros Query Explorer (Explorador de consultas), Model View (Vista de modelo), Graph View (Vista de grafo) y Property Explorer (Explorador de propiedades). Todavía no hay datos en pantalla." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Hay un icono resaltado en el cuadro de texto Vista de grafo. Muestra una flecha que apunta a una nube." lightbox="media/how-to-move-regions/import-graph.png":::
 
 En el cuadro se selección de archivos, desplácese hasta el grafo descargado. Seleccione el archivo *.json* del grafo y presione *Abrir*.
 
 Después de unos segundos, Explorador de ADT abrirá un vista de *importación* que muestra una vista previa del grafo que se va a cargar.
 
-Para confirmar la carga del grafo, haga clic en el icono *Save* (Guardar) situado en la esquina superior derecha de la *Vista de grafo*:
+Para confirmar la carga del grafo, haga clic en el icono *Save* (Guardar) situado en la esquina superior derecha de la *Vista de grafo* :
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Explorador de ADT y contiene los cuadros Query Explorer (Explorador de consultas), Model View (Vista de modelo), Graph View (Vista de grafo) y Property Explorer (Explorador de propiedades). Todavía no hay datos en pantalla." lightbox="media/how-to-move-regions/graph-preview-save.png":::
+        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Resaltado del icono Guardar en el panel de vista previa del grafo" lightbox="media/how-to-move-regions/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -168,7 +166,7 @@ El Explorador de ADT cargará ahora los modelos y el grafo (incluidos los gemelo
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Explorador de ADT y contiene los cuadros Query Explorer (Explorador de consultas), Model View (Vista de modelo), Graph View (Vista de grafo) y Property Explorer (Explorador de propiedades). Todavía no hay datos en pantalla." lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Cuadro de diálogo que indica que el grafo se ha importado correctamente. Indica &quot;Importación correcta. 2 modelos importados. 4 gemelos importados. 2 relaciones importadas.&quot;" lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -178,11 +176,11 @@ El Explorador de ADT cargará ahora los modelos y el grafo (incluidos los gemelo
 
 Para comprobar que todo se cargó correctamente, presione el botón *Ejecutar consulta* en el cuadro *PROBADOR DE GRAPH* para ejecutar la consulta predeterminada que muestra todos los gemelos y las relaciones del grafo. También se actualizará la lista de modelos en *VISTA DE MODELO*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Explorador de ADT y contiene los cuadros Query Explorer (Explorador de consultas), Model View (Vista de modelo), Graph View (Vista de grafo) y Property Explorer (Explorador de propiedades). Todavía no hay datos en pantalla." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Resaltado alrededor del mismo botón &quot;Ejecutar consulta&quot; de antes, cerca de la parte superior de la ventana" lightbox="media/how-to-move-regions/run-query.png":::
 
 Verá el grafo con todos sus gemelos y relaciones mostrados en el cuadro *PROBADOR DE GRAPH*. También verá los modelos enumerados en el cuadro *MODELO DE VISTA*.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Explorador de ADT y contiene los cuadros Query Explorer (Explorador de consultas), Model View (Vista de modelo), Graph View (Vista de grafo) y Property Explorer (Explorador de propiedades). Todavía no hay datos en pantalla." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Una vista del Explorador de ADT que muestra 2 modelos resaltados en el cuadro &quot;Vista de modelo&quot; y un grafo resaltado en el cuadro &quot;Probador de Graph&quot;" lightbox="media/how-to-move-regions/post-upload.png":::
 
 Esto confirma que los modelos, los gemelos y el grafo se han vuelto a cargar en la nueva instancia de la región de destino.
 
@@ -211,6 +209,7 @@ Los recursos exactos que necesite editar dependen del escenario, pero estos son 
 * Azure Maps
 * Device Provisioning Service (DPS)
 * Aplicaciones personales o empresariales fuera de Azure, como la **aplicación cliente** creada en el [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md), que se conecta a la instancia y llama a las API de Azure Digital Twins
+* **No es necesario** crear de nuevo los registros de aplicaciones de Azure AD. Si usa un [registro de aplicaciones](how-to-create-app-registration.md) para conectarse a las Azure Digital Twins API, puede volver a usar el mismo registro de aplicaciones con la nueva instancia.
 
 Después de completar este paso, la nueva instancia de la región de destino debe ser una copia de la instancia original.
 
@@ -234,4 +233,4 @@ Para eliminar la instancia mediante Azure Portal, [abra el portal](https://porta
 
 Presione el botón *Eliminar* y siga las indicaciones para finalizar la eliminación.
 
-:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Explorador de ADT y contiene los cuadros Query Explorer (Explorador de consultas), Model View (Vista de modelo), Graph View (Vista de grafo) y Property Explorer (Explorador de propiedades). Todavía no hay datos en pantalla.":::
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Vista de los detalles de la instancia de Azure Digital Twins en Azure Portal, en la pestaña Información general. El botón Guardar está resaltado.":::

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: 6d6757af6619edd41709a4b8f06ef615cd35bf30
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b24a9dcb7a369708b1374f367186dc4d9a6ce475
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636585"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146882"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>Personalización del botón del Lector inmersivo
 
@@ -41,7 +41,7 @@ Utilice el atributo `data-button-style` para establecer el estilo del botón. Lo
 
 Esto representa lo siguiente:
 
-![Botón de icono](./media/button-icon.png)
+![Este es el botón de texto representado.](./media/button-icon.png)
 
 ### <a name="text-button"></a>Botón de texto
 
@@ -51,7 +51,7 @@ Esto representa lo siguiente:
 
 Esto representa lo siguiente:
 
-![Botón de icono](./media/button-text.png)
+![Este es el botón del Lector inmersivo representado.](./media/button-text.png)
 
 ### <a name="icon-and-text-button"></a>Botón de icono y texto
 

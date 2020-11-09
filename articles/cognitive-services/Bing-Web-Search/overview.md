@@ -11,14 +11,19 @@ ms.topic: overview
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4cbf79abaf915e7f6e055f5bcb0d8f09de026ad5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2c0d84854f593511196a236f4c449d5b609ae6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85604869"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073424"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>¿Qué es Bing Web Search API?
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Web Search API es un servicio RESTful que proporciona respuestas instantáneas a las consultas de los usuarios. Los resultados de búsqueda se configuran fácilmente para incluir páginas web, imágenes, vídeos, noticias, traducciones y mucho más. Bing Web Search proporciona los resultados como JSON según la pertinencia de la búsqueda y las suscripciones de Bing Web Search.
 

@@ -8,19 +8,19 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 53887b7487c3f0bb70c9f8cc7cd61246fabc0b37
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970136"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145606"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creación de SDK personalizados para Azure Digital Twins con AutoRest
 
 En este momento, los únicos SDK de plano de datos publicados para interactuar con las API de Azure Digital Twins son para .NET (C#), JavaScript y Java. Puede leer sobre estos SDK en general, en [*Procedimiento: las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md). Si está trabajando en otro lenguaje, este artículo le mostrará cómo generar su propio SDK de plano de datos en el lenguaje de su elección mediante AutoRest.
 
 >[!NOTE]
-> También puede usar AutoRest para generar un SDK de plano de control si lo desea. Para ello, complete los pasos descritos en este artículo con el **archivo Swagger (OpenAPI) del plano de control** de la (carpeta Swagger del plano de control)https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) en lugar del plano de datos.
+> También puede usar AutoRest para generar un SDK de plano de control si lo desea. Para ello, complete los pasos descritos en este artículo con el archivo **Swagger (OpenAPI) del plano de control** de la [carpeta Swagger del plano de control](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) en lugar del plano de datos.
 
 ## <a name="set-up-your-machine"></a>Configuración de la máquina
 
@@ -64,7 +64,7 @@ He aquí los pasos:
 3. En el Explorador de soluciones, seleccione con el botón derecho el proyecto *ADTApi* de la solución generada y elija *Agregar > Elemento existente...*
 4. Busque la carpeta en la que generó el SDK y seleccione los archivos en el nivel raíz.
 5. Presione "Aceptar".
-6. Agregue una carpeta al proyecto (haga clic con el botón derecho para seleccionar el proyecto en el Explorador de soluciones y elija *Agregar > Nueva carpeta*).
+6. Agregue una carpeta al proyecto (haga clic con el botón derecho para seleccionar el proyecto en el Explorador de soluciones y elija *Agregar > Nueva carpeta* ).
 7. Asigne a la carpeta el nombre *Models*.
 8. En el Explorador de soluciones, seleccione con el botón derecho la carpeta *Models* y elija *Agregar > Elemento existente...*
 9. Seleccione los archivos de la carpeta *Models* del SDK generado y presione "Aceptar".
@@ -117,40 +117,25 @@ AutoRest genera dos tipos de patrones de paginación para el SDK:
 * Uno para todas las API, excepto la API de consulta
 * Uno para la API de consulta
 
-En el patrón de paginación que no es de consulta, hay dos versiones de cada llamada:
-* Una versión para establecer la llamada inicial (como `DigitalTwins.ListEdges()`)
-* Una versión para obtener las páginas siguientes. Estas llamadas tienen el sufijo "Next" (como `DigitalTwins.ListEdgesNext()`)
+En el patrón de paginación sin consultas se incluye un fragmento de código que muestra cómo recuperar una lista paginada de relaciones de salida de Azure Digital Twins:
 
-A continuación se incluye un fragmento de código que muestra cómo recuperar una lista paginada de relaciones de salida de Azure Digital Twins:
 ```csharp
-try
-{
-    // List to hold the results in
-    List<object> relList = new List<object>();
-    // Enumerate the IPage object returned to get the results
-    // ListAsync will throw if an error occurs
-    IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
-    relList.AddRange(relPage);
-    // If there are more pages, the NextPageLink in the page is set
-    while (relPage.NextPageLink != null)
+ try 
+ {
+     // List the relationships.
+    AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
+    Console.WriteLine($"Twin {srcId} is connected to:");
+    // Iterate through the relationships found.
+    int numberOfRelationships = 0;
+    await foreach (string rel in results)
     {
-        // Get more pages...
-        relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
-        relList.AddRange(relPage);
+         ++numberOfRelationships;
+         // Do something with each relationship found
+         Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
     }
-    Console.WriteLine($"Found {relList.Count} relationships on {id}");
-    // Do something with each object found
-    // As relationships are custom types, they are JSON.Net types
-    foreach (JObject r in relList)
-    {
-        string relId = r.Value<string>("$edgeId");
-        string relName = r.Value<string>("$relationship");
-        Console.WriteLine($"Found relationship {relId} from {id}");
-    }
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error retrieving relationships on {id}: {e.Response.StatusCode}");
+    Console.WriteLine($"Found {numberOfRelationships} relationships on {srcId}");
+} catch (RequestFailedException rex) {
+    Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
 }
 ```
 

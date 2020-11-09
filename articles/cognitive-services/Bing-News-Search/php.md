@@ -11,20 +11,25 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ecdcfc7d90f61443cc6947680df9bbf9d9b9514e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b872f27e55f7735142cc04707489c79e51d33f81
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83873230"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101710"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Inicio rápido: Realizar una búsqueda de noticias mediante PHP y la API de REST de Bing News Search
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para realizar la primera llamada a la API Bing News Search. Esta sencilla aplicación de PHP envía una consulta de búsqueda a la API y muestra la respuesta JSON.
 
 Aunque esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * PHP 5.6 o posterior
 
@@ -50,8 +55,8 @@ Para ejecutar esta aplicación, siga estos pasos:
 // ;extension=php_openssl.dll
 
 // **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+// **_ Update or verify the following values. _*_
+// _*********************************************
 
 // Replace the accessKey string value with your valid access key.
 $accessKey = 'enter key here';

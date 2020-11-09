@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95e80907220a58243844b80d81dc187f8dc4c8bc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85609459"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078703"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Actualizar Bing Web Search API v5 a v7
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de Bing Web Search API. Utilice esta guía para identificar las partes de la aplicación que se deben actualizar para usar la versión 7.
 
@@ -26,7 +31,7 @@ Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de
 
 ### <a name="endpoints"></a>Puntos de conexión
 
-- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search.
+- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https:\/\/api.cognitive.microsoft.com/bing/ **v7.0** /search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de la respuesta de error y códigos de error
 
@@ -81,7 +86,7 @@ Bloqueado|InvalidRequest.Blocked
 
 - Se ha agregado el parámetro de consulta [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Utilice este parámetro para especificar el número de respuestas que quiere que incluya la respuesta. Las respuestas se eligen en función de la clasificación. Por ejemplo, si establece este parámetro en tres (3), la respuesta incluye las tres primeras respuestas clasificadas.  
 
-- Se ha agregado el parámetro de consulta [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Utilice este parámetro junto con `answerCount` incluir explícitamente uno o más tipos de respuesta, independientemente de su clasificación. Por ejemplo, para promover vídeos e imágenes en la respuesta, habría que establecer promote en *videos, images*. La lista de respuestas que quiere promover no se tiene en cuenta para el límite de `answerCount`. Por ejemplo, si `answerCount` es 2 y `promote` está establecido en *videos, images*, la respuesta puede incluir páginas web, noticias, vídeos e imágenes.
+- Se ha agregado el parámetro de consulta [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Utilice este parámetro junto con `answerCount` incluir explícitamente uno o más tipos de respuesta, independientemente de su clasificación. Por ejemplo, para promover vídeos e imágenes en la respuesta, habría que establecer promote en *videos, images*. La lista de respuestas que quiere promover no se tiene en cuenta para el límite de `answerCount`. Por ejemplo, si `answerCount` es 2 y `promote` está establecido en *videos, images* , la respuesta puede incluir páginas web, noticias, vídeos e imágenes.
 
 ### <a name="object-changes"></a>Cambios en objetos
 

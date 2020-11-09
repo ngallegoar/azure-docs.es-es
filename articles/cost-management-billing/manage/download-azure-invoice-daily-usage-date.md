@@ -7,15 +7,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/28/2020
 ms.author: banders
-ms.openlocfilehash: c24af5a9fb1367e00d9a014b1e10f750a38ad30b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e380aa1f4d50e6ced34254ceca9d899022142f6d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270906"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911297"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Procedimiento para descargar las datos de uso diario y de factura de Azure
 
@@ -41,7 +41,7 @@ En la mayoría de las suscripciones, puede descargar la factura desde Azure Por
 
     ![Captura de pantalla que muestra la opción Facturación y uso](./media/download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. Haga clic en el botón Descargar para descargar una copia de la factura en PDF y, después, seleccione **Descargar factura**. Si muestra **No disponible**, vea [¿Por qué no veo una factura para el último período de facturación?](#noinvoice)
+3. Haga clic en el botón Descargar para descargar una copia de la factura en PDF y, después, seleccione **Descargar factura**. Si muestra **No disponible** , vea [¿Por qué no veo una factura para el último período de facturación?](#noinvoice)
 
     ![Captura de pantalla que muestra los períodos de facturación, la opción de descarga y los cargos totales para cada período de facturación](./media/download-azure-invoice-daily-usage-date/downloadinvoice.png)
 
@@ -107,10 +107,10 @@ Si tiene un contrato de cliente de Microsoft, puede optar por recibir la factura
 
 1. Busque **Administración de costos + facturación**.
 1. Seleccione un perfil de facturación.
-1. En **Configuración**, seleccione **Propiedades**.
-1. En **Enviar factura por correo electrónico**, seleccione **Actualizar la preferencia de factura por correo electrónico**.
+1. En **Configuración** , seleccione **Propiedades**.
+1. En **Enviar factura por correo electrónico** , seleccione **Actualizar la preferencia de factura por correo electrónico**.
 1. Seleccione **Habilitar envío**.
-1. Haga clic en **Update**(Actualizar).
+1. Haga clic en **Update** (Actualizar).
 
 ### <a name="opt-out-of-getting-your-billing-profile-invoices-in-email"></a>Opción de no recibir las facturas del perfil de facturación por correo electrónico
 
@@ -136,9 +136,7 @@ Para ver y descargar los datos de uso como cliente de EA, debe ser administrador
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Busque *Administración de costos + facturación*.
-
-    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
-
+1. Si tiene acceso a varias cuentas de facturación, seleccione el ámbito de facturación de su cuenta de Contrato Enterprise.
 1. Seleccione **Uso + cargos**.
 1. Seleccione **Descargar** para el mes que quiere descargar.
 
@@ -161,14 +159,10 @@ También puede descargar el uso del mes hasta la fecha para el período de factu
 
 1. Busque **Administración de costos + facturación**.
 2. Seleccione un perfil de facturación.
-3. En la hoja **Información general**, haga clic en **Uso y cargos de Azure**.
+3. En la hoja **Información general** , haga clic en **Uso y cargos de Azure**.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
-
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
-
-Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

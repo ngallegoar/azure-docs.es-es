@@ -10,14 +10,19 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: b68bc2eca25c35395d9a31f3a80e45d1595815bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d55ff4ed8717a449628e94a940c0896d31818da2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85601979"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101942"
 ---
 # <a name="what-is-bing-autosuggest"></a>¿Qué es Bing Autosuggest?
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Si una aplicación envía consultas a cualquier Bing Search API, puede usar Bing Autosuggest API para mejorar su experiencia de búsqueda. Bing Autosuggest API devuelve una lista de consultas sugeridas según la cadena de consulta parcial del cuadro de búsqueda. Como los caracteres se escriben en el cuadro de búsqueda, puede mostrar sugerencias en una lista desplegable.
 

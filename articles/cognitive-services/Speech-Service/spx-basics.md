@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7ca290b7b7df9e4e03aec78b611361ba52942523
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893822"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286690"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conozca los aspectos básicos de la CLI de Voz.
 
@@ -72,8 +72,9 @@ En este comando, se especifican los idiomas de origen (el idioma **del** que se 
 
 ### <a name="configuration-files-in-the-datastore"></a>Archivos de configuración en el almacén de archivos
 
-La CLI de Voz puede leer varios valores de los archivos de configuración, o escribirlos en ellos, que se almacenan en el almacén de datos local de la CLI de Voz, y en las llamadas de la CLI de Voz se usa el símbolo @ para nombrarlos. La CLI de Voz intenta guardar los valores nuevos en una subdirectorio `./spx/data` nuevo que crea en el directorio de trabajo actual.
-Al buscar un valor de configuración, la CLI de Voz busca en el directorio de trabajo actual y, luego, en la ruta de acceso de `./spx/data`.
+El comportamiento de la CLI de voz utiliza los valores de los archivos de configuración, a los se puede hacer referencia en las llamadas de la CLI mediante un símbolo @.
+La CLI de voz guarda los valores nuevos en un subdirectorio `./spx/data` nuevo que crea en el directorio de trabajo actual.
+Al buscar un valor de configuración, la CLI de voz busca en el directorio de trabajo actual, luego en el almacén de archivos de `./spx/data`y, después, en otros almacenes de archivos, incluido un almacén de datos de solo lectura final que se encuentra en el binario `spx`.
 Anteriormente se usaba el almacén de datos para guardar los valores `@key` y `@region`, por lo que no era necesario especificarlos con cada llamada a la línea de comandos.
 También puede usar los archivos de configuración para almacenar su propia configuración, o incluso para pasar direcciones URL o cualquier otro contenido dinámico que se haya generado en el runtime.
 
@@ -181,4 +182,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Realice los inicios rápidos sobre el [reconocimiento de voz](./quickstarts/speech-to-text-from-microphone.md) o la [síntesis de voz](./quickstarts/text-to-speech.md) con el SDK.
+* Realice los inicios rápidos sobre el [reconocimiento de voz](get-started-speech-to-text.md?pivots=programmer-tool-spx) o la [síntesis de voz](get-started-text-to-speech.md?pivots=programmer-tool-spx) con la CLI de voz.

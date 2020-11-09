@@ -10,20 +10,25 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 44dc3f16128913f76369ad645a32e91f38272546
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e82ac36b0943a4286ac883de5b95c26e9e13a1e5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83869867"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083964"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y PHP
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de PHP envía una solicitud a la API y devuelve una lista de correcciones sugeridas. 
 
 Aunque esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [PHP 5.6.x](https://php.net/downloads.php)
 

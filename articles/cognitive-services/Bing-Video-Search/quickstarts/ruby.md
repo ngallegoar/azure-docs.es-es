@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: cd02a0ea51faa7dae14e0f9d61c446aae55dcbe1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7262adc05086f9c998742fad91bd859af4895de8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83849576"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094071"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Inicio rápido: Búsqueda de vídeos con Bing Video Search API y Ruby
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para realizar la primera llamada a la API Bing Video Search. Esta sencilla aplicación de Ruby envía una consulta de búsqueda de vídeo HTTP a la API y muestra la respuesta JSON. Aunque esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. 
 

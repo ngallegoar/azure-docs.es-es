@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: dc20b6abaf04b3743218e35d258bc8beab33c542
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c8eca53f118fe0b2012ff0b687a939842ebc8576
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277451"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101874"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Inicio rápido: Sugerencia de consultas de búsqueda con la API REST Bing Autosuggest y Java
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Siga este inicio rápido para aprender a realizar llamadas a la API Bing Autosuggest y a leer la respuesta JSON. Esta sencilla aplicación de Java envía una consulta de búsqueda parcial a la API y devuelve sugerencias para las búsquedas. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java).
 

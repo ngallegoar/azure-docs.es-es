@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea9cd9cf064b9c07016bc5e166cc4ec4c041b146
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68854006"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078550"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Uso de marcadores de decoración para resaltar texto
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing admite el resaltado de aciertos, que marca los términos de la consulta (u otros términos que Bing considere pertinentes) en las cadenas de presentación de algunas respuestas. Por ejemplo, los campos `name`, `displayUrl` y `snippet` del resultado de una página web pueden contener términos de consulta marcados. 
 
@@ -36,7 +41,7 @@ Antes de mostrar la cadena en la interfaz de usuario, reemplace los caracteres U
 
 Bing ofrece la opción de usar caracteres Unicode o etiquetas HTML como marcadores. Para especificar los marcadores que se van a usar, incluya el parámetro de consulta [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat): 
 
-| Value             | Marcador                       |
+| Valor             | Marcador                       |
 |-------------------|------------------------------|
 | `textFormat=Raw`  | Caracteres Unicode (valor predeterminado) |
 | `textFormat=HTML` | Caracteres HTML              |
@@ -51,7 +56,7 @@ Si la solicitud no hubiese especificado decoraciones, el campo `expression` cont
 
 Si `textDecorations` es `true`, Bing puede incluir los siguientes marcadores en las cadenas de presentación de las respuestas. Si no hay ninguna etiqueta HTML equivalente, la celda correspondiente de la tabla aparece vacía.
 
-|Unicode|HTML|Descripción
+|Unicode|HTML|Description
 |-|-|-
 |U+E000|\<b>|Marca el principio del término de la consulta (resaltado de aciertos)
 |U+E001|\</b>|Marca el final del término de la consulta

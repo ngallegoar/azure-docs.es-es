@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e72d1161f80ad92c1e4cfc7fd2c9fde0d46e77b9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 97853f0524b794169de3aaaec33cf1b30949d930
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332015"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901558"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
 
@@ -29,19 +29,19 @@ Proteger los recursos es un esfuerzo conjunto entre el proveedor de nube, Azure 
 
 Azure Security Center aborda los tres desafíos de seguridad más urgentes:
 
--   **Cargas de trabajo que cambian con rapidez**: se trata tanto de una fortaleza como de un desafío de la nube. Por un lado, los usuarios finales pueden hacer más cosas pero, por el otro, ¿cómo puede asegurarse de que los servicios en constante evolución que los usuarios utilizan y crean se rigen según los estándares de seguridad y siguen los procedimientos recomendados de seguridad?
+-   **Cargas de trabajo que cambian con rapidez** : se trata tanto de una fortaleza como de un desafío de la nube. Por un lado, los usuarios finales pueden hacer más cosas pero, por el otro, ¿cómo puede asegurarse de que los servicios en constante evolución que los usuarios utilizan y crean se rigen según los estándares de seguridad y siguen los procedimientos recomendados de seguridad?
 
--   **Ataques cada vez más sofisticados**: no importa dónde ejecute las cargas de trabajo, los ataques son cada vez más sofisticados. Debe proteger las cargas de trabajo de la nube pública que son, en realidad, una carga de trabajo con conexión a Internet que puede dejarlo incluso más vulnerable si no sigue los procedimientos recomendados de seguridad.
+-   **Ataques cada vez más sofisticados** : no importa dónde ejecute las cargas de trabajo, los ataques son cada vez más sofisticados. Debe proteger las cargas de trabajo de la nube pública que son, en realidad, una carga de trabajo con conexión a Internet que puede dejarlo incluso más vulnerable si no sigue los procedimientos recomendados de seguridad.
 
--   **Las aptitudes de seguridad son escasas**: el número de alertas de seguridad y de sistemas de alertas sobrepasa considerablemente la cantidad de administradores con la experiencia y los antecedentes necesarios para garantizar que los entornos estén protegidos. Mantenerse actualizado respecto de los ataques más recientes es un desafío constante, lo que no permiten quedarse donde mismo mientras el mundo de la seguridad es un frente en continuo cambio.
+-   **Las aptitudes de seguridad son escasas** : el número de alertas de seguridad y de sistemas de alertas sobrepasa considerablemente la cantidad de administradores con la experiencia y los antecedentes necesarios para garantizar que los entornos estén protegidos. Mantenerse actualizado respecto de los ataques más recientes es un desafío constante, lo que no permiten quedarse donde mismo mientras el mundo de la seguridad es un frente en continuo cambio.
 
 Para ayudarlo a protegerse contra estos desafíos, Security Center le brinda las herramientas para que haga lo siguiente:
 
--   **Reforzamiento de la posición de seguridad**: Security Center evalúa el entorno y le permite entender el estado de los recursos y si son seguros.
+-   **Reforzamiento de la posición de seguridad** : Security Center evalúa el entorno y le permite entender el estado de los recursos y si son seguros.
 
--   **Protección frente a amenazas**: Security Center evalúa las cargas de trabajo y genera alertas de seguridad y recomendaciones para la prevención de amenazas.
+-   **Protección frente a amenazas** : Security Center evalúa las cargas de trabajo y genera alertas de seguridad y recomendaciones para la prevención de amenazas.
 
--   **Protección con mayor rapidez**: En Security Center, todo se hace a la velocidad de la nube. Al integrarse de manera nativa, la implementación de Security Center es sencilla y le proporciona aprovisionamiento automático y protección con los servicios de Azure.
+-   **Protección con mayor rapidez** : En Security Center, todo se hace a la velocidad de la nube. Al integrarse de manera nativa, la implementación de Security Center es sencilla y le proporciona aprovisionamiento automático y protección con los servicios de Azure.
 
 > [!NOTE]
 > Este servicio admite [Azure Lighthouse](../lighthouse/overview.md), que permite a los proveedores de servicios iniciar sesión en su propio inquilino para administrar las suscripciones y los grupos de recursos que los clientes hayan delegado. En los escenarios Azure Security Center se debe delegar una suscripción en lugar de grupos de recursos individuales.
@@ -68,7 +68,7 @@ En lo que respecta a la seguridad, resulta fundamental saber que las cargas de t
 
 Security Center ayuda a **identificar las suscripciones de shadow IT**. Si echa un vistazo a las suscripciones con la etiqueta **not covered** (no cubierta) en el panel, puede saber de inmediato cuando hay suscripciones recién creadas y asegurarse de que estén cubiertas por las directivas, además de protegidas por Azure Security Center.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Página Administración de directivas":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Panel de directivas de Security Center":::
 
 ### <a name="continuous-assessments"></a>Evaluaciones continuas
 
@@ -76,13 +76,13 @@ Security Center siempre está detectando los recursos nuevos que se implementan 
 
 Para ayudarle a conocer el grado de importancia que tiene cada una de las recomendaciones en su postura global acerca de la seguridad, Security Center agrupa las recomendaciones en controles de seguridad y agrega un valor de **puntuación de la seguridad** a cada control. Esto resulta esencial para permitirle **clasificar por orden de prioridad el trabajo de seguridad**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Página Administración de directivas":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Puntuación de seguridad de Security Center":::
 
 ### <a name="network-map"></a>Mapa de red
 
 Una de las herramientas más avanzadas que proporciona Security Center para la supervisión continua del estado de la seguridad de la red es el **Mapa de red**. El mapa le permite ver la topología de las cargas de trabajo para que pueda notar si cada nodo está configurado correctamente. Ahora puede ver cómo están conectados los nodos, lo que le permite bloquear las conexiones no deseadas que podrían facilitar que un atacante se deslice por la red.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Página Administración de directivas":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mapa de red de Security Center":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optimice y mejore la seguridad mediante la configuración de controles recomendados
@@ -93,7 +93,7 @@ De este modo, Security Center le permite no solo establecer las directivas de se
 
 Las recomendaciones lo ayudan a disminuir la superficie expuesta a ataques en cada uno de los recursos. Aquí se incluyen las máquinas virtuales de Azure, los servidores que no son de Azure y los servicios de PaaS de Azure, como cuentas de SQL y Storage, etc., donde cada tipo de recurso se evalúa de manera distinta y tiene sus propios estándares.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Página Administración de directivas":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Ejemplo de recomendación de Security Center":::
 
 ## <a name="protect-against-threats"></a>Protección frente a amenazas
 
@@ -101,11 +101,11 @@ La protección contra amenazas de Security Center permite detectar y prevenir la
 
 La protección contra amenazas de Security Center incluye el análisis de la cadena de destrucción de fusión, que correlaciona de manera automática las alertas del entorno en función del análisis de la cadena de destrucción cibernética, para ayudarlo a entender mejor la historia completa de una campaña de ataque, dónde empezó y qué tipo de impacto tuvo en los recursos.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Página Administración de directivas":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alertas de seguridad":::
 
-### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integración con Advanced Threat Protection de Microsoft Defender
+### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integración con Microsoft Defender para punto de conexión
 
-Security Center incluye integración nativa automática con Advanced Threat Protection de Microsoft Defender. Esto significa que, sin ninguna configuración, los servidores y las máquinas virtuales Windows y Linux están completamente integrados con las recomendaciones y evaluaciones de Security Center.
+Security Center incluye integración nativa automática con Microsoft Defender para punto de conexión. Esto significa que, sin ninguna configuración, los servidores y las máquinas virtuales Windows y Linux están completamente integrados con las recomendaciones y evaluaciones de Security Center.
 
 Además, Security Center le permite automatizar las directivas de control de las aplicaciones en los entornos de servidor. Los controles de aplicaciones adaptables de Security Center permiten la creación de una lista de aprobación de aplicaciones integral en todos los servidores Windows. No necesita crear reglas ni comprobar las infracciones: todo se hace de manera automática.
 
@@ -123,7 +123,7 @@ Security Center incluye funcionalidades que le permiten llevar a cabo la clasifi
 
 ## <a name="get-secure-faster"></a>Protección con mayor rapidez
 
-La integración nativa de Azure (que incluye Azure Policy y los registros de Azure Monitor), en combinación con la integración perfecta con otras soluciones de seguridad de Microsoft, como Microsoft Cloud App Security y Protección contra amenazas avanzada de Windows Defender, lo ayudan a garantizar que la solución de seguridad es completa y sencilla de incorporar e implementar.
+La integración nativa de Azure (que incluye los registros de Azure Monitor y Azure Policy), en combinación con la integración perfecta con otras soluciones de seguridad de Microsoft, como Microsoft Cloud App Security y Microsoft Defender para punto de conexión, ayudan a garantizar que la solución de seguridad es completa y sencilla de incorporar e implementar.
 
 Además, puede extender toda la solución más allá de Azure a las cargas de trabajo que se ejecutan en otras nubes y en centros de datos locales.
 

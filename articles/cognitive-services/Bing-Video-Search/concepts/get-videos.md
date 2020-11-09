@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8074b2411a053c8b55457f9ace716481f6b107a5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79218918"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102231"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Búsqueda de vídeos con Bing Video Search API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Video Search API facilita la integración de las funcionalidades cognitivas de búsqueda de noticias de Bing en sus aplicaciones. Aunque la API principalmente busca y devuelve vídeos pertinentes de Internet, también proporciona varias características para la recuperación de vídeos inteligente y centrada en la web.
 
@@ -144,7 +149,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Expansión de la consulta
 
-Si Bing puede expandir la consulta para restringir la búsqueda original, el objeto [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene el campo `queryExpansions`. Por ejemplo, si la consulta fuese *Limpieza de canalones*, las consultas expandidas podrían ser: **herramientas** de limpieza de canalones, limpieza de canalones **desde cero**, **máquina** de limpieza de canalones y limpieza de canalones **fácil**.
+Si Bing puede expandir la consulta para restringir la búsqueda original, el objeto [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene el campo `queryExpansions`. Por ejemplo, si la consulta fuese *Limpieza de canalones* , las consultas expandidas podrían ser: **herramientas** de limpieza de canalones, limpieza de canalones **desde cero** , **máquina** de limpieza de canalones y limpieza de canalones **fácil**.
 
 En el ejemplo siguiente se muestran las consultas expandidas para *Limpieza de canalones*.
 
@@ -175,7 +180,7 @@ El campo `queryExpansions` contiene una lista de objetos [Query](https://docs.mi
 
 ## <a name="pivoting-the-query"></a>Dinamizar la consulta
 
-Si Bing puede segmentar la consulta de búsqueda original, el objeto [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene el campo `pivotSuggestions`. Por ejemplo, si la consulta original fuese *Limpieza de canalones*, Bing podría segmentar la consulta en *limpieza* y *canalones*.
+Si Bing puede segmentar la consulta de búsqueda original, el objeto [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene el campo `pivotSuggestions`. Por ejemplo, si la consulta original fuese *Limpieza de canalones* , Bing podría segmentar la consulta en *limpieza* y *canalones*.
 
 En el ejemplo siguiente se muestran las sugerencias dinámicas para *Limpieza de canalones*.
 

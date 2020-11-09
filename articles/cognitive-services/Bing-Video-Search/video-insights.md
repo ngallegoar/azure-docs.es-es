@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7683930af1de0fc4e4d112c1e559358d5d5d5609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ec57937b2bac430fccd7b6e1fbc05b44d9cf996
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68500593"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078803"
 ---
 # <a name="get-insights-about-a-video"></a>Obtener información sobre un vídeo
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Cada vídeo que devuelve la API incluye un identificador de vídeo que puede usar para obtener más información sobre el vídeo, como, por ejemplo, vídeos relacionados. Para obtener información detallada sobre un vídeo, capture su token [videoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) en la respuesta de la API. 
 

@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 5a08ee7f5ea3d5e8c393ea4c1a64c353e24777e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90b6619a5a0c3d59b09eeb5a5002d15cf0c21e19
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072695"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095907"
 ---
 # <a name="share-your-custom-search-instance"></a>Uso compartido de la búsqueda personalizada
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Puede permitir fácilmente la edición y prueba colaborativas de la instancia al compartirla con miembros del equipo. Puede compartir la instancia con otra persona simplemente con su dirección de correo electrónico. Para compartir una instancia:
 

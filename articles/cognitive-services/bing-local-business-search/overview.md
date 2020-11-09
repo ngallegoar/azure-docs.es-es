@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: overview
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 685ee0c616234563981e55f14213e424daae32f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b715d4b801159b451957c30ee9ef7b406f3a2f4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85611278"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095380"
 ---
 # <a name="what-is-bing-local-business-search"></a>¿Qué es Bing Local Business Search?
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 Bing Local Business Search API es un servicio RESTful que permite a las aplicaciones buscar información acerca de empresas locales en función de las consultas de búsquedas. Por ejemplo, `q=<business-name> in Redmond, Washington` o `q=Italian restaurants near me`. 
 
 ## <a name="features"></a>Características

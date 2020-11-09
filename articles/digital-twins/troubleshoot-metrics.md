@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: b4bc291c21ca1ccabec3cfd9544deaa5d45fcf51
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7fde67ab9b9160bb89493748d09e83bd9cfcff34
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787200"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091708"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
@@ -64,7 +64,7 @@ Métricas relacionadas con las solicitudes de API:
 Métricas relacionadas con la facturación:
 
 >[!NOTE]
-> Durante la versión preliminar, la **facturación es de costo cero**. Aunque estas métricas se siguen mostrando en la lista seleccionable, no se aplican durante la versión preliminar y permanecerán en cero hasta que el servicio vaya más allá de la versión preliminar.
+>Aunque estas métricas se siguen mostrando en la lista seleccionable, permanecerán en cero hasta que esté disponible el nuevo precio del servicio. Para más información, consulte [*Precios de Azure Digital Twins*](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 | Métrica | Nombre para mostrar de la métrica | Unidad | Tipo de agregación| Descripción | Dimensions |
 | --- | --- | --- | --- | --- | --- |

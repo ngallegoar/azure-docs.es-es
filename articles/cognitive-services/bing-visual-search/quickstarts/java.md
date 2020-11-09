@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.custom: devx-track-java
 ms.author: scottwhi
-ms.openlocfilehash: 6e0e0cc2513b1c2a5f89e61984331399ebae269a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f33b5f5274fcaf8f64f898e2b7aebe8a27470033
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87320449"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086540"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API de REST Bing Visual Search y Java
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para realizar la primera llamada a la API Bing Visual Search. Esta aplicación de Java carga una imagen en la API y muestra la información que se devuelve. Aunque esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
@@ -68,7 +73,7 @@ Use este inicio rápido para realizar la primera llamada a la API Bing Visual Se
     --boundary_1234-abcd
     Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     
-    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
     
     --boundary_1234-abcd--
     ```

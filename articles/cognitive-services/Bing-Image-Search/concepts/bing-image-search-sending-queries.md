@@ -11,14 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f697449fffe6c93d8e5082b210678d3f51c0c736
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67542755"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084417"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>Personalizar y sugerir consultas de búsqueda de imagen
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este artículo para obtener información sobre cómo personalizar las consultas y sugerir términos de búsqueda para enviarlos a la API Bing Image Search.
 
@@ -28,9 +33,9 @@ Si la aplicación tiene un cuadro de búsqueda donde se escriben los términos d
 
 ## <a name="pivot-the-query"></a>Dinamización de la consulta
 
-Si Bing puede segmentar la consulta de búsqueda original, el objeto [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) devuelvo contiene el elemento `pivotSuggestions`. Las sugerencias dinámicas se pueden mostrar como términos de búsqueda opcionales para el usuario. Por ejemplo, si la consulta original era *Microsoft Surface*, Bing podría segmentar la consulta en *Microsoft* y *Surface* y proporcionar las sugerencias dinámicas de cada una. Estas se pueden mostrar como términos de consulta opcionales al usuario.
+Si Bing puede segmentar la consulta de búsqueda original, el objeto [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) devuelvo contiene el elemento `pivotSuggestions`. Las sugerencias dinámicas se pueden mostrar como términos de búsqueda opcionales para el usuario. Por ejemplo, si la consulta original era *Microsoft Surface* , Bing podría segmentar la consulta en *Microsoft* y *Surface* y proporcionar las sugerencias dinámicas de cada una. Estas se pueden mostrar como términos de consulta opcionales al usuario.
 
-El ejemplo siguiente muestra las sugerencias dinámicas para *Microsoft Surface*:  
+El ejemplo siguiente muestra las sugerencias dinámicas para *Microsoft Surface* :  
 
 ```json
 {
@@ -101,7 +106,7 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Expansión de la consulta
 
-Si Bing puede expandir la consulta para restringir la búsqueda original, el objeto [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contiene el campo `queryExpansions`. Por ejemplo, si la consulta era *Microsoft Surface*, las consultas expandidas podrían ser:
+Si Bing puede expandir la consulta para restringir la búsqueda original, el objeto [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contiene el campo `queryExpansions`. Por ejemplo, si la consulta era *Microsoft Surface* , las consultas expandidas podrían ser:
 - Microsoft Surface **Pro 3**.
 - Microsoft Surface **RT**.
 - Microsoft Surface **Phone**.

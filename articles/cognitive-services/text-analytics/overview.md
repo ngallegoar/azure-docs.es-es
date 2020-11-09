@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d58c501af3d90fec1eea43d13fa2383c8e847f18
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647471"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289690"
 ---
 # <a name="what-is-the-text-analytics-api"></a>¿Qué es Text Analytics API?
 
@@ -29,7 +29,9 @@ La API forma parte de [Azure Cognitive Services](https://docs.microsoft.com/azur
 
 ## <a name="sentiment-analysis"></a>análisis de opiniones
 
-Use el [análisis de sentimiento](how-tos/text-analytics-how-to-sentiment-analysis.md) para averiguar qué piensa el público de su marca o de un tema específico mediante la minería de texto, con el fin de obtener pistas acerca de si sus opiniones son positivas o negativas. Esta característica de la API devuelve una puntuación de opinión entre 0 y 1,para cada documento, donde 1 es la más positiva.
+Use el [análisis de sentimiento](how-tos/text-analytics-how-to-sentiment-analysis.md) para averiguar qué piensa el público de su marca o de un tema específico mediante la minería de texto, con el fin de obtener pistas acerca de si sus opiniones son positivas o negativas. 
+
+La característica proporciona etiquetas de opinión (como "negative", "neutral" y "positive") basadas en la mayor puntuación de confianza que ha encontrado el servicio tanto en el nivel de oración como en el de documento. Esta característica también devuelve puntuaciones de confianza entre 0 y 1 para todos los documentos y que contiene, con el fin de indicar una opinión positiva, neutra y negativa. El servicio también se puede ejecutar de forma local, para lo que se debe [usar un contenedor](how-tos/text-analytics-how-to-install-containers.md).
 
 La minería de opiniones es una característica de Análisis de sentimiento, a partir de la versión preliminar v3.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con los aspectos (como los atributos de los productos o servicios) en el texto.
 

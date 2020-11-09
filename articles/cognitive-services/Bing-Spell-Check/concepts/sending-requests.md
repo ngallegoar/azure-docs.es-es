@@ -10,14 +10,19 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: de232ab6c52afa45b40ef7863a0cb35d7b40531f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 205adf8cb173c9df30e9907b5fe9de6d5d5ab343
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299123"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098321"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Envío de solicitudes a Bing Spell Check API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Para buscar en una cadena de texto existente errores ortográficos y gramaticales, enviaría una solicitud GET al punto de conexión siguiente:  
 

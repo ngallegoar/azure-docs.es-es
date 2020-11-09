@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38191c55afb87151b238069a75a6c86acd8904df
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76983119"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100548"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Llamada a la instancia de Bing Custom Search desde el portal
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Después de configurar su experiencia de búsqueda personalizada, puede probarla desde el [portal](https://customsearch.ai) de Bing Custom Search. 
 
@@ -35,12 +40,12 @@ A continuación, se muestran algunos parámetros importantes:
 |---------|---------|
 |Consultar     | El término de búsqueda para buscar. Solo está disponible para los puntos de conexión Web, Image, Video y Autosuggest. |
 |Custom Configuration ID (Id. de configuración personalizada) | El identificador de configuración de la instancia de Custom Search seleccionada. Este campo es de solo lectura. |
-|Market     | El mercado desde el que se originan los resultados. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.        |
+|Mercado     | El mercado desde el que se originan los resultados. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.        |
 |Clave de suscripción | La clave de suscripción con la que probar. Puede seleccionar una clave en la lista desplegable o escribirla manualmente.          |
 
 Al hacer clic en **Additional Parameters** (Parámetros adicionales) aparecen los siguientes parámetros:  
 
-|Parámetro  |Descripción  |
+|Parámetro  |Description  |
 |---------|---------|
 |Safe Search     | Un filtro usado para filtrar las páginas web de contenido para adultos. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI. Tenga en cuenta que Bing Custom Video Search solo admite dos valores: `moderate` y `strict`.        |
 |Idioma de la interfaz de usuario    | Idioma que se usa para las cadenas de la interfaz de usuario. Por ejemplo, si habilita las imágenes y los vídeos en Hosted UI, las pestañas **Image** (Imagen) y **Video** (Vídeo) usan el lenguaje especificado.        |

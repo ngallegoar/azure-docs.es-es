@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ce922e3ce39bc3df9f4c242558644922e5713300
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 88828d6dea05c530d20fe378a108df2bd0dcd5b9
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494823"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279463"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
@@ -20,14 +20,14 @@ ms.locfileid: "92494823"
 
 En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](how-to-interpret-event-data.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [**rutas de eventos**](concepts-route-events.md) que especifiquen qué eventos generados por Azure Digital Twins se entregan a los puntos de conexión.
 
-Los puntos de conexión y las rutas se pueden administrar con las [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Este artículo le guiará a través del proceso de creación de puntos de conexión y rutas a través de estos mecanismos.
+Los puntos de conexión y las rutas se pueden administrar con las [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Este artículo le guiará a través del proceso de creación de puntos de conexión y rutas a través de estos mecanismos.
 
 También se pueden administrar a través de [Azure Portal](https://portal.azure.com). Para obtener una versión de este artículo que usa el portal en su lugar, consulte [*Procedimiento: Administración de puntos de conexión y rutas (portal)*](how-to-manage-routes-portal.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Necesitará una **cuenta de Azure** (puede configurar una de forma gratuita [aquí](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
-* Necesitará una **instancia de Azure Digital Twins** en su suscripción de Azure. Si no dispone de una instancia, puede crear una con los pasos de [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md). Tenga a mano los siguientes valores de configuración para usarlos más adelante en este artículo:
+* Necesitará una **instancia de Azure Digital Twins** en su suscripción de Azure. Si no dispone de una instancia, puede crear una con los pasos de [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-cli.md). Tenga a mano los siguientes valores de configuración para usarlos más adelante en este artículo:
     - Nombre de instancia
     - Grupo de recursos
     
@@ -154,7 +154,7 @@ A continuación se muestra un ejemplo de un mensaje fallido en cola de una [noti
 
 Para enviar datos de Azure Digital Twins a un punto de conexión, debe definir una **ruta de eventos**. Las **API EventRoutes** de Azure Digital Twins permiten a los desarrolladores conectar el flujo de eventos a lo largo del sistema y a los servicios de bajada. Obtenga más información sobre las rutas de eventos en [*Conceptos: Enrutamiento de eventos de Azure Digital Twins*](concepts-route-events.md).
 
-Los ejemplos de esta sección usan el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
+Los ejemplos de esta sección usan el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
 **Requisito previo** : Debe crear puntos de conexión como se describió anteriormente en este artículo para poder continuar con la creación de una ruta. Puede continuar con la creación de una ruta de evento una vez finalizada la configuración de los puntos de conexión.
 
@@ -176,45 +176,48 @@ Si no hay ningún nombre de ruta, no se enruta ningún mensaje fuera de Azure Di
 
 Una ruta debe permitir que se seleccionen varias notificaciones y tipos de evento. 
 
-`CreateEventRoute` es la llamada de SDK que se usa para agregar una ruta de evento. A continuación se muestra un ejemplo del uso:
+`CreateOrReplaceEventRouteAsync` es la llamada de SDK que se usa para agregar una ruta de evento. A continuación se muestra un ejemplo del uso:
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
-er.Filter = "true"; //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("<your-endpointName>", eventFilter);
+await CreateOrReplaceEventRouteAsync(client, "routeName", er);
 ```
-
+    
 > [!TIP]
 > Todas las funciones del SDK cuentan con versiones sincrónicas y asincrónicas.
 
 ### <a name="event-route-sample-code"></a>Código de ejemplo de la ruta de evento
 
-En el código de ejemplo siguiente se muestra cómo crear, enumerar y eliminar una ruta de evento:
+En el método de ejemplo siguiente se muestra cómo crear, enumerar y eliminar una ruta de eventos:
 ```csharp
-try
+private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, DigitalTwinsEventRoute er)
 {
+  try
+  {
     Console.WriteLine("Create a route: testRoute1");
-    EventRoute er = new EventRoute("< your - endpoint - name >");
+            
     // Make a filter that passes everything
     er.Filter = "true";
-    client.CreateEventRoute("< your - route - name >", er);
+    await client.CreateOrReplaceEventRouteAsync(routeName, er);
     Console.WriteLine("Create route succeeded. Now listing routes:");
-    Pageable <EventRoute> result = client.GetEventRoutes();
-    foreach (EventRoute r in result)
+    Pageable<DigitalTwinsEventRoute> result = client.GetEventRoutes();
+    foreach (DigitalTwinsEventRoute r in result)
     {
         Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
     }
     Console.WriteLine("Deleting routes:");
-    foreach (EventRoute r in result)
+    foreach (DigitalTwinsEventRoute r in result)
     {
         Console.WriteLine($"Deleting route {r.Id}:");
         client.DeleteEventRoute(r.Id);
     }
-}
-catch (RequestFailedException e)
-{
-    Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
-}
+  }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
+    }
+  }
 ```
 
 ## <a name="filter-events"></a>Filtrado de eventos

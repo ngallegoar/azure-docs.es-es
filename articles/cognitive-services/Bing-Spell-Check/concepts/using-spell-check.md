@@ -10,14 +10,19 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: a17ed0f13e352fb185d20d9dc2d7bfffa74ac957
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ece9d191460323a917579c5a32cff429f52139fa
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334776"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098236"
 ---
 # <a name="using-the-bing-spell-check-api"></a>Uso de Bing Spell Check API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 En este artículo puede aprender sobre el uso de Bing Spell Check API para realizar la revisión ortográfica y gramatical contextual. Aunque la mayoría de los correctores ortográficos dependen de conjuntos de reglas basadas en diccionario, el corrector ortográfico de Bing aprovecha el aprendizaje automático y la traducción automática estadística para proporcionar correcciones precisas y contextuales. 
 

@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: f59c924caca86505e9f1e91bf58095b271475794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb6a03cff3191f55b6869f6907aad6d29095d8b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75383726"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102265"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>Envío de consultas a Bing News Search API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing News Search API le permite buscar en la web noticias pertinentes. Use este artículo para más información acerca de cómo enviar consultas de búsqueda a la API.
 

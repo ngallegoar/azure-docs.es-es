@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: e18605b75e4fcfcd8f2793e06801c309f9f23965
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 49d444fcb02e548e606a0f30246736575c82ab7e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83869290"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102248"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Inicio rápido: Obtenga resultados de noticias con la API de REST Bing News Search y Go
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 En este inicio rápido se usa el lenguaje Go para llamar a Bing News Search API. Los resultados incluyen los nombres y las direcciones URL de las fuentes de noticias identificadas por la cadena de consulta.
 

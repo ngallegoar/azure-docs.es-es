@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Cómo familiarizarse con Content Moderator'
 titleSuffix: Azure Cognitive Services
-description: Use la herramienta de revisión en línea de Content Moderator para probar las funcionalidades básicas de Content Moderator sin tener que escribir ningún código.
+description: En este tutorial, usará la herramienta de revisión en línea de Content Moderator para probar las funcionalidades básicas de Content Moderator sin tener que escribir ningún código.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, moderación de contenido
-ms.openlocfilehash: 025c8fcf98a31d7b3380ee2530428d08428493fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1d9315986f7a6c57c1da012b9034e4f1a3730bc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596801"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143741"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Inicio rápido: Cómo familiarizarse con Content Moderator
 
@@ -28,14 +28,13 @@ En este tutorial, usará la herramienta de revisión en línea de Content Modera
 - Un explorador web
 
 ## <a name="set-up-the-review-tool"></a>Configuración de la herramienta de revisión
-
-La herramienta de revisión Content Moderator es una herramienta basada en web que permite a los usuarios revisores ayudar a tomar decisiones a la instancia de Cognitive Services. En esta guía, recorrerá el breve proceso de configuración de la herramienta de revisión para que pueda ver cómo funciona el servicio de Content Moderator. Vaya al sitio de la [herramienta de revisión de Content Moderator](https://contentmoderator.cognitive.microsoft.com/) y regístrese.
+La herramienta de revisión Content Moderator es una herramienta basada en web que permite a los usuarios revisores ayudar a tomar decisiones a la instancia de Cognitive Services. En esta guía, recorrerá el breve proceso de configuración de la herramienta de revisión para que pueda ver cómo funciona el servicio Content Moderator. Vaya al sitio de la [herramienta de revisión de Content Moderator](https://contentmoderator.cognitive.microsoft.com/) y regístrese.
 
 ![Página principal de Content Moderator](images/homepage.PNG)
 
 ## <a name="create-a-review-team"></a>Creación de un equipo de revisión
 
-A continuación, cree un equipo de revisión. En un escenario de trabajo, será el grupo de personas que revisa manualmente las decisiones de moderación del servicio. Para crear un equipo, debe seleccionar una **Región** y proporcionar un **Nombre del equipo** y un **Id. de equipo**. Si quiere invitar colegas a su equipo, puede escribir sus direcciones de correo electrónico aquí.
+A continuación, cree un equipo de revisión. En un escenario de trabajo, este equipo será el grupo de personas que revisa manualmente las decisiones de moderación del servicio. Para crear un equipo, debe seleccionar una **Región** y proporcionar un **Nombre del equipo** y un **Id. de equipo**. Si quiere invitar colegas a su equipo, puede escribir sus direcciones de correo electrónico aquí.
 
 > [!NOTE]
 > **Nombre del equipo** es un nombre descriptivo para el equipo de revisión. Este es el nombre que se muestra en Azure Portal. El **Id. de equipo** se usa para identificar el equipo de revisión mediante programación.
@@ -43,35 +42,39 @@ A continuación, cree un equipo de revisión. En un escenario de trabajo, será 
 > [!div class="mx-imgBorder"]
 > ![Invitar a miembros del equipo](images/create-team.png)
 
-Si decide cifrar los datos mediante una clave administrada por el cliente (CMK), se le pedirá el **Identificador de recurso** del recurso de Content Moderator del plan de tarifa E0. El recurso que proporcione debe ser nuevo. 
+Si decide cifrar los datos mediante una clave administrada por el cliente (CMK), se le pedirá el **Identificador de recurso** del recurso de Content Moderator del plan de tarifa E0. El recurso que proporcione debe ser único para este equipo. 
 
 > [!div class="mx-imgBorder"]
 > ![Invitar a miembros del equipo con CMK](images/create-team-cmk.png)
 
-Si intenta reutilizar un recurso de Content Moderator, verá esta advertencia: 
-
-> [!div class="mx-imgBorder"]
-> ![Error de CMK](images/create-team-cmk-fail.png)
-
 ## <a name="upload-sample-content"></a>Carga del contenido de ejemplo
 
-Ahora está listo para cargar el contenido de ejemplo. Seleccione **Probar > Imagen**, **Probar > Texto** o **Probar > Vídeo**.
+Ahora está listo para cargar el contenido de ejemplo. Seleccione **Probar > Imagen** , **Probar > Texto** o **Probar > Vídeo**.
 
-![Probar moderación de imagen o texto](images/tryimagesortext.png)
+> [!div class="mx-imgBorder"]
+> ![Probar moderación de imagen o texto](images/tryimagesortext.png)
 
-Envíe el contenido para moderación. Internamente, la herramienta de revisión llamará a las API de moderación para examinar el contenido. Cuando haya finalizado el análisis, verá un mensaje que le informa de la presencia de resultados a la espera de que los revise.
+Envíe el contenido para moderación. Puede usar el siguiente contenido de texto de ejemplo:
 
-![Moderar archivos](images/submitted.png)
+```
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 4255550111
+```
+
+Internamente, la herramienta de revisión llamará a las API de moderación para examinar el contenido. Cuando haya finalizado el análisis, verá un mensaje que le informa de la presencia de resultados a la espera de que los revise.
+
+> [!div class="mx-imgBorder"]
+> ![Moderar archivos](images/submitted.png)
 
 ## <a name="review-moderation-tags"></a>Revisión de las etiquetas de moderación
 
-Revise las etiquetas de moderación aplicadas. Puede ver qué etiquetas se aplicaron a su contenido y cuál fue la puntuación de cada categoría. Consulte los temas de moderación de [Imagen](image-moderation-api.md), [Texto](text-moderation-api.md) y [Vídeo](video-moderation-api.md) para obtener información sobre qué indican las diferentes etiquetas de contenido.
+Revise las etiquetas de moderación aplicadas. Puede ver qué etiquetas se aplicaron a su contenido y cuál fue la puntuación de cada categoría. Consulte los artículos de moderación de [Imagen](image-moderation-api.md), [Texto](text-moderation-api.md) y [Vídeo](video-moderation-api.md) para obtener información sobre qué indican las diferentes etiquetas de contenido.
 
-![Revisión de los resultados](images/reviewresults_text.png)
+<!-- ![Review results](images/reviewresults_text.png) -->
 
 En un proyecto, usted o su equipo de revisión pueden cambiar estas etiquetas o agregar más según sea necesario. Los cambios se envían con el botón **Siguiente**. Dado que la aplicación empresarial llama a las API de Moderator, el contenido etiquetado se apilará en la cola y estará listo para que los equipos de usuarios revisores lo examinen. Con este enfoque, puede revisar rápidamente grandes volúmenes de contenido.
 
-Hasta ahora, ha usado la herramienta de revisión Content Moderator para ver ejemplos de lo que puede hacer el servicio Content Moderator. A continuación, puede obtener más información acerca de la herramienta de revisión y cómo integrarla en un proyecto de software mediante las API de revisión, o puede ir a la sección [Pasos siguientes](#next-steps) para obtener información sobre cómo usar las API de moderación en la aplicación.
+Hasta ahora, ha usado la herramienta de revisión de Content Moderator para ver ejemplos de lo que puede hacer el servicio Content Moderator. A continuación, puede obtener más información acerca de la herramienta de revisión y cómo integrarla en un proyecto de software mediante las API de revisión, o puede ir a la sección [Pasos siguientes](#next-steps) para obtener información sobre cómo usar las API de moderación en la aplicación.
 
 ## <a name="learn-more-about-the-review-tool"></a>Más información sobre la herramienta de revisión
 

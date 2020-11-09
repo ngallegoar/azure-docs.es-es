@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: acb84a11318175c17976c5dc570ce5d5f6aa6b6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4e9bf67aa1d3df815c674fdc1e2019f68b4a60
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512698"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086710"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Ejemplos del uso de la información de Bing
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Este artículo contiene ejemplos de cómo Bing puede mostrar y usar información de imágenes en Bing.com.
 

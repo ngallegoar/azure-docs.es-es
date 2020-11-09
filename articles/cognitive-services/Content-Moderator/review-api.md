@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872058"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143646"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisiones, flujos de trabajo y trabajos de moderación de contenido
 
@@ -23,9 +23,24 @@ Content Moderator combina la moderación automática con funcionalidades de int
 
 ## <a name="reviews"></a>Revisiones
 
-En una revisión, el contenido se carga en la herramienta de revisión y aparece en la pestaña **Revisar**. A partir de aquí, los usuarios pueden modificar las etiquetas aplicadas y aplicar sus propias etiquetas personalizadas según corresponda. Cuando un usuario envía una revisión, los resultados se envían a un punto de conexión de devolución de llamada especificado y el contenido se quita del sitio.
+En una revisión, el contenido se carga en la herramienta de revisión. Para verlo, haga clic en su tipo de contenido en la pestaña **Review** (Revisar) en el panel. En la pantalla de revisión, puede modificar las etiquetas aplicadas y aplicar sus propias etiquetas personalizadas según corresponda. Cuando se envía una revisión, los resultados se envían a un punto de conexión de devolución de llamada especificado y el contenido se quita del sitio.
 
-![El sitio web de la herramienta de revisión se abre en un explorador web, en la pestaña Revisar](./Review-Tool-user-Guide/images/image-workflow-review.png)
+> [!div class="mx-imgBorder"]
+> ![Sitio de la herramienta de revisión con la pestaña Review (Revisar) seleccionada](./Review-Tool-user-Guide/images/review-tab.png)
+
+### <a name="manage-reviews"></a>Administración de revisiones
+
+En el panel, vaya a **Admin** -> **Manage Reviews** (Administración > Administrar revisiones) para ver la pantalla de administración. Aquí puede ver una lista de todas las revisiones (pendientes y completadas).
+
+El botón **Acciones** , con tres puntos, de cada revisión permite ir a la pantalla de revisiones o inspeccionar el historial de esa revisión.
+
+> [!div class="mx-imgBorder"]
+> ![Sitio web de la herramienta de revisión, en la pantalla Review (Revisión)](./Review-Tool-user-Guide/images/manage-reviews.png)
+
+Use la barra de herramientas de **búsqueda** para ordenar las revisiones por diversas categorías, como el estado de la revisión, las etiquetas, el tipo de contenido, los subequipos, los usuarios asignados y la fecha de creación o modificación.
+
+> [!div class="mx-imgBorder"]
+> ![Sitio de la herramienta de revisión con la pestaña Review (Revisar) seleccionada](./Review-Tool-user-Guide/images/review-search.png)
 
 Consulte la [guía de la herramienta de revisión](./review-tool-user-guide/review-moderated-images.md) para empezar a crear revisiones o la [guía de la API REST](./try-review-api-review.md) si quiere aprender a hacerlo mediante programación.
 
@@ -35,11 +50,12 @@ Un flujo de trabajo es un filtro personalizado basado en la nube para el conteni
 
 ### <a name="view-workflows"></a>Vista de flujos de trabajo
 
-Para ver los flujos de trabajo existentes, vaya a la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) y seleccione **Configuración** > **Flujos de trabajo**.
+Para ver los flujos de trabajo existentes, vaya a la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) y seleccione **Admin** > **Workflows** (Administración > Flujos de trabajo).
 
-![Flujo de trabajo predeterminado](images/default-workflow-listed.PNG)
+> [!div class="mx-imgBorder"]
+> ![Flujo de trabajo predeterminado](images/default-workflow-list.png)
 
-Los flujos de trabajo se pueden describir por completo como cadenas JSON, lo que hace que sean accesibles mediante programación. Si selecciona la opción **Editar** del flujo de trabajo y luego selecciona la pestaña **JSON**, verá una expresión JSON similar a la siguiente:
+Los flujos de trabajo se definen como cadenas JSON, lo que hace que sean accesibles mediante programación. Si selecciona la opción **Editar** del flujo de trabajo y luego selecciona la pestaña **JSON** , verá una expresión JSON similar a la siguiente:
 
 ```json
 {
@@ -68,12 +84,12 @@ Consulte la [guía de la herramienta de revisión](./review-tool-user-guide/work
 
 ## <a name="jobs"></a>Trabajos
 
-Un trabajo de moderación actúa como un tipo de contenedor para la funcionalidad de moderación de contenido, los flujos de trabajo y las revisiones. El trabajo de moderación examina el contenido con Content Moderator Image Moderation API o Text Moderation API y luego lo compara con el flujo de trabajo designado. En función de los resultados del flujo de trabajo, tal vez pueda crear una revisión del contenido en la [herramienta de revisión](./review-tool-user-guide/human-in-the-loop.md). Mientras que tanto las revisiones como los flujos de trabajo pueden crearse y configurarse con sus respectivas API, la API de trabajos le permite obtener un informe detallado de todo el proceso (que puede enviarse a un punto final de devolución de llamada especificado).
+Un trabajo de moderación actúa como un tipo de contenedor para la funcionalidad de moderación de contenido, flujos de trabajo y revisiones. El trabajo de moderación examina el contenido con Content Moderator Image Moderation API o Text Moderation API y luego lo compara con el flujo de trabajo designado. En función de los resultados del flujo de trabajo, tal vez pueda crear una revisión del contenido en la [herramienta de revisión](./review-tool-user-guide/human-in-the-loop.md). Mientras que tanto las revisiones como los flujos de trabajo pueden crearse y configurarse con sus respectivas API, la API de trabajos le permite obtener un informe detallado de todo el proceso (que puede enviarse a un punto final de devolución de llamada especificado).
 
 Consulte la [guía de la API REST](./try-review-api-job.md) para empezar a usar los trabajos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Pruebe la [consola de Job API](try-review-api-job.md) y use los ejemplos de código de la API REST. Consulte también el [inicio rápido de .NET de trabajos](moderation-jobs-quickstart-dotnet.md) si está familiarizado con C# y Visual Studio. 
-* Para las revisiones, empiece a trabajar con la [consola de Review API](try-review-api-review.md) y use los ejemplos de código de la API REST. A continuación, consulte la sección de revisiones de [Guía de inicio rápido de .NET](dotnet-sdk-quickstart.md).
+* Para las revisiones, empiece a trabajar con la [consola de Review API](try-review-api-review.md) y use los ejemplos de código de la API REST. A continuación, consulte la sección de revisiones de [Guía de inicio rápido de .NET](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp).
 * Para revisiones de vídeos, use [Video review quickstart](video-reviews-quickstart-dotnet.md) (Guía de inicio rápido de revisión de vídeos) y aprenda a [agregar transcripciones a la revisión del vídeo](video-transcript-reviews-quickstart-dotnet.md).

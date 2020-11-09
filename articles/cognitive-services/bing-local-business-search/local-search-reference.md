@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: d5de1cc606f97655427c0c86aea0c5c722e1bab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbd4f32e77dc8d386067987a0ab0436a7875c15e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84171470"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095397"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referencia de Bing Local Business Search API v7
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Local Business Search API envía una consulta de búsqueda a Bing para obtener resultados que incluyan restaurantes, hoteles u otros negocios locales. En el caso de los lugares, la consulta puede especificar el nombre del negocio local o una categoría (por ejemplo, restaurantes próximos a mi ubicación). Los resultados de entidad incluyen personas, lugares o cosas. A este contexto pertenecen entidades empresariales, estados, países o regiones, etc.  
 
@@ -71,7 +76,7 @@ A continuación se indican los encabezados que una solicitud y una respuesta pue
 La solicitud puede incluir los siguientes parámetros de consulta. Consulte la columna Obligatorio para saber cuáles son los parámetros obligatorios. Debe codificar como dirección URL los parámetros de la consulta.  
   
   
-|Nombre|Value|Tipo|Obligatorio|  
+|Nombre|Valor|Tipo|Obligatorio|  
 |----------|-----------|----------|--------------|
 |<a name="count"></a>count|El número de resultados para devolver, empezando por el índice especificado por el parámetro `offset`.|String|No|   
 |<a name="localCategories"></a>localCategories|Lista de las opciones que definen la búsqueda por categoría de empresa.  Consulte la [Búsqueda de categorías de empresas locales](local-categories.md)|String|No|  
@@ -108,7 +113,7 @@ Define el error que se produjo.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objeto de nivel superior que la respuesta incluye cuando se produce un error en la solicitud.  
   
-|Nombre|Value|Tipo|  
+|Nombre|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo.|String|  
 |<a name="errors"></a>errors|Lista de errores que describen los motivos que causaron un error en la solicitud.|[Error](#error)[]|  
@@ -118,7 +123,7 @@ Objeto de nivel superior que la respuesta incluye cuando se produce un error en 
 ### <a name="license"></a>Licencia  
 Define la licencia bajo la que se pueden usar el texto o la foto.  
   
-|Nombre|Value|Tipo|  
+|Nombre|Valor|Tipo|  
 |----------|-----------|----------|  
 |name|Nombre de la licencia.|String|  
 |url|La dirección URL a un sitio web en el que el usuario puede obtener más información acerca de la licencia.<br /><br /> Utilice el nombre y la dirección URL para crear un hipervínculo.|String|  
@@ -127,7 +132,7 @@ Define la licencia bajo la que se pueden usar el texto o la foto.
 ### <a name="link"></a>Vínculo  
 Define los componentes de un hipervínculo.  
   
-|Nombre|Value|Tipo|  
+|Nombre|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo.|String|  
 |text|Texto que se muestra.|String|  
@@ -141,7 +146,7 @@ Define un anunciante.
   
 Tenga en cuenta que un anunciante puede proporcionar su nombre, su sitio web o ambos.  
   
-|Nombre|Value|Tipo|  
+|Nombre|Valor|Tipo|  
 |----------|-----------|----------|  
 |name|Nombre del publicador.|String|  
 |url|La dirección URL al sitio web del anunciante.<br /><br /> Tenga en cuenta que es posible que el publicador no publique un sitio web.|String|  
@@ -151,7 +156,7 @@ Tenga en cuenta que un anunciante puede proporcionar su nombre, su sitio web o a
 ### <a name="place"></a>Lugar  
 Define la información acerca de un negocio local como un restaurante o un hotel.  
   
-|Nombre|Value|Tipo|  
+|Nombre|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo, que puede establecerse en uno de los siguientes:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|String|  
 |address|La dirección postal del lugar en el que se encuentra la entidad.|PostalAddress|  
@@ -168,28 +173,28 @@ Define el contexto de la consulta que Bing ha usado para la solicitud.
 |Elemento|Descripción|Tipo|  
 |-------------|-----------------|----------|  
 |adultIntent|Un valor booleano que indica si la consulta especificada está prevista para adultos. El valor es **true** si la consulta está prevista para adultos; de lo contrario, es **false**.|Boolean|  
-|alterationOverrideQuery|La cadena de consulta que se usa para forzar a Bing a usar la cadena original. Por ejemplo, si la cadena de consulta es *navegar a sotavento*, la cadena de consulta de invalidación será *+ navegar a sotavento*. No olvide codificar la cadena de consulta que da lugar a *%2Bnavegar+a sotavento*.<br /><br /> Este campo solo se incluye si la cadena de consulta original contiene un error de ortografía.|String|  
+|alterationOverrideQuery|La cadena de consulta que se usa para forzar a Bing a usar la cadena original. Por ejemplo, si la cadena de consulta es *navegar a sotavento* , la cadena de consulta de invalidación será *+ navegar a sotavento*. No olvide codificar la cadena de consulta que da lugar a *%2Bnavegar+a sotavento*.<br /><br /> Este campo solo se incluye si la cadena de consulta original contiene un error de ortografía.|String|  
 |alteredQuery|La cadena de consulta que utiliza Bing para realizar la consulta. Bing usa la cadena modificada si la cadena de consulta original contenía errores de ortografía. Por ejemplo, si la cadena de consulta es `saling downwind`, la cadena de consulta modificada será `sailing downwind`.<br /><br /> Este campo solo se incluye si la cadena de consulta original contiene un error de ortografía.|String|  
 |askUserForLocation|Un valor booleano que indica si Bing requiere la ubicación del usuario para proporcionar resultados precisos. Si ha especificado la ubicación del usuario mediante los encabezados [X-MSEdge-ClientIP](#clientip) y [X-Search-Location](#location), puede omitir este campo.<br /><br /> En consultas relacionadas con la ubicación, como "clima de hoy" o "restaurantes cerca de mí", que necesitan la ubicación del usuario para proporcionar resultados precisos, este campo se establece en **true**.<br /><br /> En consultas relacionadas con la ubicación que incluyan la ubicación (por ejemplo, "clima en Seattle"), este campo se establece en **false**. Este campo también se establece en **false** en las consultas no relacionadas con la ubicación, como los "más vendidos".|Boolean|  
 |originalQuery|La cadena de consulta como se especifica en la solicitud.|String|  
 
 ### <a name="identifiable"></a>Identifiable
 
-|Nombre|Value|Tipo|  
+|Nombre|Valor|Tipo|  
 |-------------|-----------------|----------|
 |id|Identificador de recursos.|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define un grupo de resultados de la búsqueda grupo, como línea principal.
 
-|Nombre|Value|Tipo|  
+|Nombre|Valor|Tipo|  
 |-------------|-----------------|----------|
 |items|Una lista de resultados de la búsqueda que se muestran en el grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define un elemento del resultado de la búsqueda que se muestra.
 
-|Nombre|Value|Tipo|  
+|Nombre|Valor|Tipo|  
 |-------------|-----------------|----------|
 |resultIndex|Índice basado en cero del elemento en la respuesta que se muestra. Si el elemento no incluye este campo, muestre todos los elementos en la respuesta. Por ejemplo, muestre todos los artículos de noticias en la respuesta de News.|Entero|
 |answerType|La respuesta que contiene el elemento que se muestra. Por ejemplo, News.<br /><br />Use el tipo para encontrar la respuesta en el objeto SearchResponse. El tipo es el nombre de un campo de SearchResponse.<br /><br /> Sin embargo, ese el tipo de respuesta solo si el objeto incluye el campo de valor; de lo contario, omítalo.|String|
@@ -210,7 +215,7 @@ Define el objeto de nivel superior que la respuesta incluye cuando la solicitud 
   
 Tenga en cuenta que si el servicio sospecha de un ataque de denegación de servicio, la solicitud se realizará correctamente (código de estado HTTP 200 OK); sin embargo, el cuerpo de la respuesta estará vacío.  
   
-|Nombre|Value|Tipo|  
+|Nombre|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo, que se establece en SearchResponse.|String|  
 |places|Una lista de entidades que son pertinentes a la consulta de búsqueda.|Objeto JSON|  

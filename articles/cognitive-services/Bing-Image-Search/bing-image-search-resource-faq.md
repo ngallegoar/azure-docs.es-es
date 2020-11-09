@@ -10,14 +10,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 19c5c5280b8ff4fb997366375b4300958d694d6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbed826757e397b036a6a54ae5ee8ac493c1cc25
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293666"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084524"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Preguntas más frecuentes (P+F) sobre Bing Image Search API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Encuentre respuestas a preguntas habituales sobre conceptos, código y escenarios relacionados con Bing Image Search API para Microsoft Cognitive Services en Azure.
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: f16b0fb5cf241604c627925a7cd905c1683399fd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ea5a5948ad051aca58879851e5e657973710eb8d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886735"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136072"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 
@@ -58,7 +58,7 @@ Para más información sobre `require`, consulte <a href="https://nodejs.org/en/
 Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true). Esta clase incluye información sobre la suscripción, como la clave, la región asociada, el punto de conexión, el host o el token de autorización. Cree una clase [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) mediante su clave y región. Consulte la página de [soporte por regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para buscar el identificador de región.
 
 ```javascript
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 ```
 
 Existen otras maneras de inicializar una clase [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true):
@@ -70,13 +70,13 @@ Existen otras maneras de inicializar una clase [`SpeechConfig`](https://docs.mic
 > [!NOTE]
 > Debe crear siempre una configuración, independientemente de si va a realizar reconocimiento de voz, síntesis de voz, traducción o reconocimiento de intenciones.
 
-## <a name="recognize-from-microphone"></a>Reconocimiento desde un micrófono
+## <a name="recognize-from-microphone-browser-only"></a>Reconocimiento desde un micrófono (solo explorador)
 
 Para reconocer la voz desde el micrófono del dispositivo, cree una clase `AudioConfig` mediante `fromDefaultMicrophoneInput()`. A continuación, inicialice una clase [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true), y pase `speechConfig` y `audioConfig`.
 
 ```javascript
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromMic() {
     let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
@@ -100,7 +100,7 @@ Para reconocer la voz desde un archivo de audio en un entorno de JavaScript basa
 
 ```javascript
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromFile() {
     // wavByteContent should be a byte array of the raw wav content
@@ -126,7 +126,7 @@ Para reconocer la voz desde un archivo de audio de Node.js, se requiere un patr�
 ```javascript
 const fs = require('fs');
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromFile() {
     let pushStream = sdk.AudioInputStream.createPushStream();

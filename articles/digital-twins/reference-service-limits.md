@@ -1,22 +1,22 @@
 ---
-title: Límites de servicio de la versión preliminar pública
+title: Límites de servicio
 titleSuffix: Azure Digital Twins
-description: Gráfico que muestra los límites del servicio Azure Digital Twins durante la versión preliminar pública.
+description: Gráfico que muestra los límites del servicio Azure Digital Twins.
 author: baanders
 ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 123090cad78af46e88e6493a47d04b97e448f62a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87061d378be97bf669fd569c0408f247b9e8dc5d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522336"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091789"
 ---
-# <a name="service-limits-in-public-preview"></a>Límites de servicio de la versión preliminar pública
+# <a name="service-limits"></a>Límites de servicio
 
-Estos son los límites de servicio Azure Digital Twins durante la versión preliminar pública.
+Estos son los límites del servicio Azure Digital Twins.
 
 > [!NOTE]
 > Los límites de algunas áreas de este servicio son ajustables. Esto se representa en las tablas siguientes con la columna *¿Ajustable?* . Cuando se puede ajustar el límite, el valor de *¿Ajustable?* es *Sí*.
@@ -29,5 +29,5 @@ Estos son los límites de servicio Azure Digital Twins durante la versión preli
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre la versión preliminar actual de Azure Digital Twins en la información general del servicio:
-* [*Información general: ¿Qué es Azure Digital Twins?* ](overview.md)
+Encuentre más información sobre la versión actual de Azure Digital Twins en la información general del servicio:
+* [*Información general: ¿Qué es Azure Digital Twins?*](overview.md)

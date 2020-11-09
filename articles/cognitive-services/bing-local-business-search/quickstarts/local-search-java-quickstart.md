@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: b35e8e11c93ad7f48dc24d8bd13fcd7dc706acb9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e2724fb3b077b833d4e1097188b636afea486347
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90970378"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095244"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Inicio rápido: Envío de una consulta a Bing Local Business Search API mediante Java
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para aprender a enviar solicitudes a la API Bing Local Business Search, que es un servicio de Azure Cognitive Services. Aunque esta aplicación sencilla está escrita en Java, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
 
@@ -86,8 +91,8 @@ import com.google.gson.JsonParser;
 public class LocalSearchCls {
 
     // ***********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
+    // **_ Update or verify the following values. _*_
+    // _*********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key.
         static String subscriptionKey = "YOUR-ACCESS-KEY";

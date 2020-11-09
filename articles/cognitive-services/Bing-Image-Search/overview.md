@@ -12,14 +12,19 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: eb657c16f6f3ff67f4379134f3aa478f10d8ef94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1cdcf6a7aeee6618177440aaef6f488a31870b49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85603543"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087849"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>¿Qué es Bing Image Search API?
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Image Search API le permite usar funcionalidades de búsqueda de imágenes de Bing en la aplicación. Envíe consultas de búsqueda de usuarios a la API para obtener imágenes de alta calidad similares a [bing.com/images](https://www.bing.com/images).
 

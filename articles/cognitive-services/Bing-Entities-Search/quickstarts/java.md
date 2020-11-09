@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 3afc19e93e400894a66e659d79d834b8a83132a2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0e31563b6a6e397f679042e441fd60348445de51
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87319293"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084840"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con Java
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para realizar la primera llamada a Bing Entity Search API y ver la respuesta JSON. Esta sencilla aplicación de Java envía una consulta de búsqueda de noticias a la API y muestra la respuesta.
 

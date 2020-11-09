@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 010f2960693a06a50cd15ac3bac2fe35b6c0985f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83a398b114a8bf0ac25d875e037208d775debc4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84434583"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077347"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>¿Qué es Bing Custom Search API?
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Custom Search API le permite crear experiencias de búsqueda a medida sin anuncios de los temas que le interesan. Puede especificar los dominios y las páginas web donde buscará Bing, así como anclar y aumentar o disminuir el nivel de contenido específico para crear una vista personalizada de la Web y ayudar a los usuarios a encontrar rápidamente los resultados de búsqueda apropiados. 
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: gelecaro
-ms.openlocfilehash: 29433e7ecaa4135c790f7cafb36d56c4c07ac684
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 06e4eea32aefcb400c144be98c274e3e4bb4b121
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097004"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136265"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para Linux.
 
@@ -17,7 +17,7 @@ En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-ser
 
 ## <a name="system-requirements"></a>Requisitos del sistema
 
-Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
+Linux: consulte la lista de [distribuciones y arquitecturas de destino de Linux admitidas](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,21 +28,16 @@ Para realizar este inicio rápido, necesita lo siguiente:
 
 * Las plataformas Linux admitidas requerirán la instalación de determinadas bibliotecas (`libssl` para la compatibilidad con la capa de sockets seguros y `libasound2` para la compatibilidad con el audio). Consulte a continuación su distribución para saber cuáles son los comandos necesarios para instalar las versiones correctas de estas bibliotecas.
 
-   * En Ubuntu:
+   * En Ubuntu y Debian:
 
      ```sh
      sudo apt-get update
      sudo apt-get install build-essential libssl1.0.0 libasound2 wget
      ```
 
-   * En Debian 9:
+     Si libssl 1.0.0 no está disponible, instale libssl 1.0. x (donde x es mayor que 0) o libssl 1.1.
 
-     ```sh
-     sudo apt-get update
-     sudo apt-get install build-essential libssl1.0.2 libasound2 wget
-     ```
-
-   * En On RHEL/CentOS 8:
+   * En RHEL/CentOS:
 
      ```sh
      sudo yum update
@@ -51,7 +46,8 @@ Para realizar este inicio rápido, necesita lo siguiente:
      ```
 
 > [!NOTE]
-> En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - En RHEL/CentOS 7, siga las instrucciones sobre [cómo configurar RHEL/CentOS 7 para el SDK de voz](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 

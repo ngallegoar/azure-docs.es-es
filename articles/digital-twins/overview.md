@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f0c19130312db4e6ef500a0750f40359931d48d2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044673"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099120"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
@@ -64,7 +64,7 @@ También puede impulsar Azure Digital Twins desde otros orígenes de datos media
 
 ### <a name="output-to-tsi-storage-and-analytics"></a>Salida a TSI, almacenamiento y análisis
 
-Los datos del modelo de Azure Digital Twins se pueden enrutar a servicios de Azure de nivel inferior para operaciones de análisis o almacenamiento adicionales. Esto se proporciona a través de **rutas de evento**, que usan el [centro de eventos](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md) o [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para impulsar los flujos de datos deseados.
+Los datos del modelo de Azure Digital Twins se pueden enrutar a servicios de Azure de nivel inferior para operaciones de análisis o almacenamiento adicionales. Esto se proporciona a través de **rutas de evento** , que usan el [centro de eventos](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md) o [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para impulsar los flujos de datos deseados.
 
 Algunas de las cosas que puede hacer con las rutas de eventos son:
 * Almacenar datos de Azure Digital Twins en [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md).
@@ -88,20 +88,16 @@ Una solución completa con Azure Digital Twins puede contener las siguientes par
 
 En el diagrama siguiente se muestra dónde se encuentra Azure Digital Twins en el contexto de una solución de Azure IoT más grande.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="Captura de pantalla de la aplicación de ejemplo Explorador de Azure Digital Twins, que muestra un gráfico de nodos que representan gemelos digitales" border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="Diagrama que muestra los orígenes de entrada, los servicios de salida y la comunicación bidireccional con las aplicaciones cliente y los recursos de proceso externos." border="false" lightbox="media/overview/solution-context.png":::
 
-## <a name="service-limits-in-public-preview"></a>Límites de servicio de la versión preliminar pública
+## <a name="service-limits"></a>Límites de servicio
 
-> [!IMPORTANT]
-> Azure Digital Twins se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [*Condiciones de uso complementarias de las versiones preliminares de Microsoft Azure*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Para obtener una lista de los límites de Azure Digital Twins durante la versión preliminar pública, consulte [*Referencia: Límites de servicio de la versión preliminar pública*](reference-service-limits.md).
+Puede encontrar una lista de los límites de Azure Digital Twins en [*Referencia: Límites de servicio*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si ha trabajado con la versión preliminar anterior de Azure Digital Twins, obtenga información sobre lo que ha cambiado:
-* [*Información general: Diferencias con respecto a la versión anterior*](overview-differences.md)
+Si ha trabajado con la primera versión preliminar de Azure Digital Twins (octubre de 2018), obtenga información sobre lo que ha cambiado:
+* [*Información general: Diferencias respecto a la primera versión*](overview-differences.md)
 
 O bien, avance y profundice en el trabajo con Azure Digital Twins con el primer tutorial:
 

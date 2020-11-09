@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5e957e21b431ede445fd64774fa4727eda7f803
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 921230e217f014e05d6d7e9a2c5402814d3226f0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88922249"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099970"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y C#
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Utilice este inicio rápido para aprender cómo enviar solicitudes de búsqueda a la API Bing Image Search. Esta aplicación de C# envía una consulta de búsqueda a la API y muestra la dirección URL de la primera imagen de los resultados. Aunque esta aplicación está escrita en C#, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 

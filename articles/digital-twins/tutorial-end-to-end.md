@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a765bf547924cbba1c4cff36a97df4ae88df1787
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495940"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324558"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
@@ -48,7 +48,7 @@ Para recorrer el escenario, interactuará con los componentes de la aplicación 
 
 Estos son los complementos que implementa la aplicación de ejemplo *AdtSampleApp* del escenario del edificio:
 * Autenticación de dispositivos 
-* Ejemplos de uso del [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) (se encuentran en *CommandLoop.cs* ).
+* Ejemplos de uso del [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) (se encuentran en *CommandLoop.cs* ).
 * Interfaz de consola para llamar a la API de Azure Digital Twins.
 * *SampleClientApp* : una solución de Azure Digital Twins de ejemplo.
 * *SampleFunctionsApp* : una aplicación de Azure Functions que actualiza su grafo de Azure Digital Twins con los datos de telemetría de los eventos de IoT Hub y Azure Digital Twins.
@@ -329,7 +329,7 @@ Para ello, usará la función de Azure *ProcessDTRoutedData* para actualizar un 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Un extracto del gráfico del escenario completo del edificio que resalta la flecha C, los elementos después de Azure Digital Twins: Event Grid y la segunda función de Azure":::
 
 Estas son las acciones que se deben realizar para configurar este flujo de datos:
-1. Crear un punto de conexión de Azure Digital Twins que conecte la instancia a Event Grid.
+1. Crear un punto de conexión de Event Grid en Azure Digital Twins que conecte la instancia a Event Grid.
 2. Configurar una ruta en Azure Digital Twins para enviar eventos de cambio de propiedades de los gemelos al punto de conexión.
 3. Implementar una aplicación de Azure Functions que realice escuchas (a través de [Event Grid](../event-grid/overview.md)) en el punto de conexión y actualice otros gemelos como corresponda.
 4. Ejecutar el dispositivo simulado y consultar Azure Digital Twins para ver los resultados en directo.
@@ -354,7 +354,7 @@ az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-g
 
 La salida de este comando es información sobre el tema de Event Grid que ha creado.
 
-Luego, cree un punto de conexión de Azure Digital Twins que apunte al tema de Event Grid. Use el comando siguiente y rellene los campos de marcadores de posición cuando sea necesario:
+A continuación, cree en Azure Digital Twins un punto de conexión de Event Grid que conecte su instancia a su tema de Event Grid. Use el comando siguiente y rellene los campos de marcadores de posición cuando sea necesario:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
@@ -372,11 +372,11 @@ Busque el campo `provisioningState` en la salida y compruebe que el valor es "Su
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultado de la consulta del punto de conexión que muestra el punto de conexión con un provisioningState de Succeeded":::
 
-Guarde los nombres que dio tanto al tema de Event Grid como al punto de conexión de Azure Digital Twins, ya que los usará más adelante.
+Guarde los nombres que dio tanto al tema de Event Grid como al punto de conexión de Event Grid en Azure Digital Twins, ya que los usará más adelante.
 
 ### <a name="set-up-route"></a>Configuración de una ruta
 
-A continuación, cree una ruta de Azure Digital Twins que envíe eventos al punto de conexión de Azure Digital Twins que acaba de crear.
+A continuación, cree una ruta de Azure Digital Twins que envíe eventos al punto de conexión de Event Grid que acaba de crear.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

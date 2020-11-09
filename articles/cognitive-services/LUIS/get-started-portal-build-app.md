@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 38fffd7793e1f5bd59ac6dde4499b2eb25009b52
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303869"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131486"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Inicio rápido: Creación de una aplicación en el portal de LUIS
 
@@ -20,21 +20,22 @@ En este inicio rápido, compilará una nueva aplicación en el portal de LUIS. E
 
 ## <a name="create-an-app"></a>Creación de una aplicación
 
-1. Seleccione **+ New app for conversation** (+ Nueva aplicación para conversación) en la barra de herramientas de contexto y, después, vuelva a seleccionar **+ New app for conversation** (+ Nueva aplicación para conversación).
+Para crear una aplicación, haga clic en **+ Nueva aplicación**. 
 
-    > [!div class="mx-imgBorder"]
-    > [![Captura de pantalla de la creación de una nueva aplicación en el portal de LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+En la ventana que aparece, escriba la siguiente información:
 
-1. En la ventana emergente, configure la aplicación con los siguientes valores y, a continuación, seleccione **Listo**.
+|Nombre  |Descripción  |
+|---------|---------|
+|Nombre     | El nombre de la aplicación. Por ejemplo, "home automation". Necesario.        |
+|culture     | El idioma que la aplicación entiende y habla. Necesario.   |
+|Description | La descripción de la aplicación. Opcional.
+|Recurso de predicción | El recurso de predicción que recibirá las consultas. Opcional. |
 
-   |Nombre del valor| Value | Propósito|
-   |--|--|--|
-   |Nombre|`myEnglishApp`|Nombre único de la aplicación de LUIS<br>requerido|
-   |Referencia cultural|**Inglés**|Idioma de las expresiones de los usuarios, **en-us**<br>requerido|
-   |Description (Descripción) (opcional)|`App made with LUIS Portal`|Descripción de la aplicación<br>opcional|
-   |Prediction resource (Recurso de predicción) (opcional) |-  |No seleccione ninguno. LUIS proporciona una clave de inicio que puede usar de forma gratuita para la creación y que incluye 1000 solicitudes al punto de conexión de predicción. |
+Seleccione **Listo**.
 
-   ![Captura de pantalla de la especificación de la configuración de la nueva aplicación](./media/get-started-portal-build-app/create-new-app-settings.png)
+>[!NOTE]
+>La referencia cultural no se puede cambiar una vez creada la aplicación.
+
 
 ## <a name="create-intents"></a>Creación de intenciones
 
@@ -52,7 +53,7 @@ Las dos _intenciones_ diferentes de la aplicación se alinean con las intencione
 
 Para crear intenciones, complete los siguientes pasos:
 
-1. Una vez creada la aplicación, se encuentra en la página **Intenciones** de la sección **Compilar**. Seleccione **Crear**.
+1. Una vez creada la aplicación, asegúrese de que se encuentra en la página **Intenciones** de la sección **Compilar**. Seleccione **Crear**.
 
    [![Captura de pantalla de la selección de "Crear" para crear una nueva intención](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
@@ -60,14 +61,9 @@ Para crear intenciones, complete los siguientes pasos:
 
 ## <a name="add-an-example-utterance"></a>Incorporación de una expresión de ejemplo
 
-Agregue expresiones de ejemplo después de crear las intenciones. Las expresiones de ejemplo son texto que un usuario escribe en un bot de chat o en otra aplicación cliente. Asignan la intención del texto del usuario a una intención de LUIS.
+Agregue expresiones de ejemplo después de crear las intenciones. Las expresiones de ejemplo son texto que un usuario escribe en un bot de chat o en otra aplicación cliente. Asignan la intención del texto del usuario a una intención de LUIS. Para esta intención `FindForm` de la aplicación de ejemplo, las expresiones de ejemplo incluirán el número de formulario. La aplicación cliente necesita el número de formulario para satisfacer la solicitud del usuario, por lo que es importante incluirlo en la expresión.
 
-Para esta intención `FindForm` de la aplicación de ejemplo, las expresiones de ejemplo incluirán el número de formulario. La aplicación cliente necesita el número de formulario para satisfacer la solicitud del usuario, por lo que es importante incluirlo en la expresión.
-
-> [!div class="mx-imgBorder"]
-> [![Captura de pantalla de la especificación de expresiones de ejemplo para la intención FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
-
-Agregue las quince expresiones de ejemplo siguientes a la intención `FindForm`.
+En la página **Intenciones** de `FindForm`, agregue las siguientes expresiones del ejemplo en **Expresión de ejemplo** , 
 
 |#|Expresiones de ejemplo|
 |--|--|
@@ -159,7 +155,7 @@ Use el panel de **prueba** interactiva en el portal de LUIS para validar que la 
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla de la prueba de una nueva expresión en el panel de prueba](./media/get-started-portal-build-app/test-new-utterance.png)
 
-   La intención de predicción con mayor puntuación es **FindForm**, con un nivel de confianza superior al 90 % (0,977). Se extrae la entidad **FormNumber** con un valor de hrf-234098.
+   La intención de predicción con mayor puntuación es **FindForm** , con un nivel de confianza superior al 90 % (0,977). Se extrae la entidad **FormNumber** con un valor de hrf-234098.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

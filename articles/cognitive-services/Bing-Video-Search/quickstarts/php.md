@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: c43abc6c87b88e9fc4a15d4ca5d5506389a8a81a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6bcfb9057739277c1f57b5ebd98b99877f759e9b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83849627"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094105"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Inicio rápido: Búsqueda de vídeos con Bing Video Search API y PHP
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para realizar la primera llamada a la API Bing Video Search. Esta sencilla aplicación de PHP envía una consulta de búsqueda de vídeo HTTP a la API y muestra la respuesta JSON. El ejemplo de código se ha escrito para ejecutarse en PHP 5.6.
 
@@ -46,8 +51,8 @@ Aunque esta aplicación está escrita en PHP, la API es un servicio web RESTful 
 // ;extension=php_openssl.dll
 
 // **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+// **_ Update or verify the following values. _*_
+// _*********************************************
 
 // Replace the accessKey string value with your valid access key.
 $accessKey = 'enter key here';

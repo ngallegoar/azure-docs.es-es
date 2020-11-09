@@ -8,12 +8,12 @@ ms.subservice: language-understanding
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e389152292239076f3077e2edfb8d5be52ab815b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327309"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241385"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Inicio rápido: Bibliotecas cliente del SDK de Language Understanding (LUIS) para crear la aplicación de LUIS y realizar consultas en ella
 
@@ -21,7 +21,8 @@ Con este inicio rápido, creará una aplicación de inteligencia artificial de A
 
 Language Understanding (LUIS) permite aplicar procesamiento del lenguaje natural a una conversación o un texto de lenguaje natural de un usuario para predecir el significado global y extraer información pertinente y detallada.
 
-* La biblioteca cliente del **SDK de creación** le permite crear, editar, entrenar y publicar aplicaciones de LUIS. *La biblioteca cliente del **SDK del entorno de ejecución de predicción** le permite consultar la aplicación publicada.
+* La biblioteca cliente del **SDK de creación** le permite crear, editar, entrenar y publicar aplicaciones de LUIS.
+* La biblioteca cliente del **SDK del runtime de predicción** permite consultar la aplicación publicada.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [LUIS development with C# SDK](./includes/sdk-csharp.md)]
@@ -41,7 +42,7 @@ La aplicación se puede eliminar desde el [portal de LUIS](https://www.luis.ai) 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-* Autenticación en la biblioteca cliente: los errores de autenticación indican normalmente que se han usado el punto de conexión y la clave incorrectos. Por comodidad, en este inicio rápido se usan la clave y el punto de conexión de creación del entorno de ejecución de predicción, pero solo funcionarán si aún no ha usado la cuota mensual. Si no puede usarlos, debe utilizar la clave y el punto de conexión del entorno de ejecución de predicción al acceder a la biblioteca cliente del SDK del entorno de ejecución de predicción.
+* Autenticación en la biblioteca cliente: los errores de autenticación indican normalmente que se han usado el punto de conexión y la clave incorrectos. Por comodidad, en este inicio rápido se usan la clave y el punto de conexión de creación del runtime de predicción, pero solo funcionarán si aún no ha usado la cuota mensual. Si no puede usarlos, debe utilizar la clave y el punto de conexión del entorno de ejecución de predicción al acceder a la biblioteca cliente del SDK del entorno de ejecución de predicción.
 * Creación de entidades: si recibe un error al crear la entidad de aprendizaje automático anidada que se usa en este tutorial, asegúrese de que ha copiado el código y que no lo ha modificado para crear una entidad diferente.
 * Creación de expresiones de ejemplo: si recibe un error al crear la expresión del ejemplo con etiquetas usado en este tutorial, asegúrese de que ha copiado el código y de que no lo ha modificado para crear otro ejemplo con etiquetas.
 * Entrenamiento: si recibe un error de entrenamiento, normalmente significa que hay una aplicación vacía (sin intenciones con expresiones de ejemplo) o una aplicación con intenciones o entidades con un formato incorrecto.

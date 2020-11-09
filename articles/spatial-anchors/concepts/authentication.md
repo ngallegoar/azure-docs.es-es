@@ -9,12 +9,12 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f59f626d9edbf30f61935c026ac965dbbe946f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a3d88c8d5d42e3dec2142df1ede7a9ee50898e92
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516926"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242354"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticación y autorización en Azure Spatial Anchors
 
@@ -103,7 +103,7 @@ En el caso de las aplicaciones que tienen como destino los usuarios de Azure Ac
     3.  Seleccione **mixedreality.signin** en **mixedreality**.
     4.  Seleccione **Agregar permisos**.
 3.  Seleccione **Conceder consentimiento de administrador**.
-    
+
 2. Conceda acceso a la aplicación o a los usuarios para el recurso:
    1.    Vaya al recurso de Spatial Anchors en Azure Portal.
    2.    Vaya a la pestaña **Control de acceso (IAM)** .
@@ -118,7 +118,7 @@ En el caso de las aplicaciones que tienen como destino los usuarios de Azure Ac
         1.    Si la aplicación admite **Solo mi organización** , reemplace este valor por el **id. de inquilino** o el **nombre de inquilino**. Por ejemplo, contoso.microsoft.com.
         2.    Si la aplicación admite las **cuentas de cualquier directorio organizativo** , reemplace este valor por **Organizations**.
         3.    Si la aplicación admite **Todos los usuarios de cuentas Microsoft** , reemplace este valor por **Común**.
-3.    En la solicitud de token, establezca el **ámbito** en **https://sts.mixedreality.azure.com//.default** . Este ámbito indicará a Azure AD que la aplicación solicita un token para el servicio de token de seguridad (STS) de Mixed Reality.
+3.    En la solicitud de token, establezca el **ámbito** en **"`https://sts.<account-domain>//.default`"** , donde `<account-domain>` se reemplaza por el **dominio de la cuenta** de Azure Spatial Anchors. Un ámbito de ejemplo de una cuenta de Azure Spatial Anchors en el dominio de la cuenta del este de EE. UU. 2 es **"`https://sts.mixedreality.azure.com//.default`"** . Este ámbito indicará a Azure AD que la aplicación solicita un token para el servicio de token de seguridad (STS) de Mixed Reality.
 
 Después de completar estos pasos, la aplicación debe poder obtener desde MSAL un token de Azure AD. Puede establecer ese token de Azure AD como `authenticationToken` en el objeto de configuración de sesiones en la nube:
 
@@ -177,27 +177,27 @@ El token de acceso de Azure AD se recupera mediante [MSAL](../../active-directo
         1.    En Azure Portal, seleccione **Azure Active Directory** y, a continuación, **Registros de aplicaciones**.
         2.    Seleccione **Nuevo registro**.
         3.    Escriba el nombre de la aplicación, seleccione **Aplicación web o API** como tipo de aplicación y escriba la dirección URL de autenticación para el servicio. Seleccione **Crear**.
-4.    En la aplicación, seleccione **Configuración** y, a continuación, seleccione la pestaña **Certificates and secrets** (Certificados y secretos). Cree un nuevo secreto de cliente, seleccione una duración y presione **Agregar**. Asegúrese de guardar el valor del secreto. Deberá incluirlo en el código del servicio web.
-2.    Conceda acceso a la aplicación o a los usuarios para el recurso:
+2.    En la aplicación, seleccione **Configuración** y, a continuación, seleccione la pestaña **Certificates and secrets** (Certificados y secretos). Cree un nuevo secreto de cliente, seleccione una duración y presione **Agregar**. Asegúrese de guardar el valor del secreto. Deberá incluirlo en el código del servicio web.
+3.    Conceda acceso a la aplicación o a los usuarios para el recurso:
         1.    Vaya al recurso de Spatial Anchors en Azure Portal.
         2.    Vaya a la pestaña **Control de acceso (IAM)** .
         3.    Seleccione **Agregar asignación de roles**.
-        1.    [Seleccione un rol](#azure-role-based-access-control).
-        2.    En el campo **Seleccionar** , escriba los nombres de las aplicaciones a las que quiere asignar el acceso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de Spatial Anchors, debe registrar varias aplicaciones en Azure AD y asignar a cada una un rol independiente. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios.
-        
-              > [!NOTE] 
-              > En el panel **Agregar asignación de roles** de la opción **Asignar acceso a** , seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
-    
-      3.    Seleccione **Guardar**.
-    
-**En el código** 
+        4.    [Seleccione un rol](#azure-role-based-access-control).
+        5.    En el campo **Seleccionar** , escriba los nombres de las aplicaciones a las que quiere asignar el acceso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de Spatial Anchors, debe registrar varias aplicaciones en Azure AD y asignar a cada una un rol independiente. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios.
 
->[!NOTE] 
+              > [!NOTE]
+              > En el panel **Agregar asignación de roles** de la opción **Asignar acceso a** , seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
+
+        6.    Seleccione **Guardar**.
+
+**En el código**
+
+>[!NOTE]
 > Puede usar el ejemplo de servicio que está disponible en GitHub.
 
 1.    Asegúrese de usar el id. de aplicación, el secreto de aplicación y el URI de redirección de la propia aplicación de Azure AD como parámetros de **id. de cliente** , **secreto** y **RedirectUri** de MSAL.
 2.    Establezca el id. de inquilino en su propio id. de inquilino de Azure AD en el parámetro de **autoridad** de MSAL.
-3.    En la solicitud de token, establezca el **ámbito** en **https://sts.mixedreality.azure.com//.default** .
+3.    En la solicitud de token, establezca el **ámbito** en **"`https://sts.<account-domain>//.default`"** , donde `<account-domain>` se reemplaza por el **dominio de la cuenta** de Azure Spatial Anchors. Un ámbito de ejemplo de una cuenta de Azure Spatial Anchors en el dominio de la cuenta del este de EE. UU. 2 es **"`https://sts.mixedreality.azure.com//.default`"** .
 
 Después de completar estos pasos, el servicio de back-end puede recuperar un token de Azure AD. A continuación, puede cambiarlo por un token de MR que va a devolver al cliente. El uso de un token de Azure AD para recuperar un token de MR se realiza a través de una llamada de REST. A continuación se muestra una llamada de ejemplo:
 

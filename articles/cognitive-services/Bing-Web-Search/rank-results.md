@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c328c681874ba171eab1341a16cf059e359feea
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66390137"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076285"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Cómo usar las clasificaciones para mostrar los resultados de Bing Web Search API  
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Cada respuesta de búsqueda de entidad incluye una respuesta [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse), que especifica cómo debe mostrar los resultados de la búsqueda. Resultados de los grupos de respuesta de la clasificación por contenido de la línea principal y contenido de la barra lateral de una página de resultados de la búsqueda tradicional. Si no muestra los resultados en un formato tradicional de línea principal y barra lateral, debe dar mayor visibilidad al contenido de la línea principal que al contenido de la barra lateral.  
 

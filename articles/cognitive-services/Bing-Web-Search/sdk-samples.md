@@ -10,14 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: sample
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 36719fc8370c04e9c2d01422536502f90e124c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b31335df7c1dc48f82699aa3676561721474071d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82735256"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076221"
 ---
 # <a name="bing-web-search-sdk-samples"></a>Ejemplos del SDK de Bing Web Search
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 El SDK de Bing Web Search está disponible en Python, Node.js, C# y Java. En GitHub se proporcionan ejemplos de código, los requisitos previos y las instrucciones de compilación. Se cubren los siguientes escenarios:
 

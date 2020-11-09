@@ -10,14 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60499892"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075694"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisitos de uso y visualización de Bing Search API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Estos requisitos de uso y visualización se aplican a cualquier implementación de contenido y la información asociada de las siguientes Bing Search APIs, incluidas las relaciones, los metadatos y otras señales.
 
@@ -134,7 +139,7 @@ Se puede permitir a los usuarios conservar los resultados en un dispositivo dura
 - Para permitir que el usuario acceda a los resultados devueltos anteriormente a ese usuario en ese dispositivo (por ejemplo, en caso de interrupción del servicio).
 - Para almacenar los resultados devueltos para la consulta proactiva personalizada en previsión de las necesidades del usuario basadas en las señales del usuario (por ejemplo, en caso de interrupción prevista del servicio).
 
-#### <a name="server"></a>Server
+#### <a name="server"></a>Servidor
 
 Puede conservar los resultados específicos de un solo usuario de forma segura en un servidor bajo su control y presentar los resultados retenidos solo:
 

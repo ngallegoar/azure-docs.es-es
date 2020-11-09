@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: d9be654b014b00a9d906210f484c2620e688838d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 331b2ffde8d034ba94f5b1adcae5efa223f57594
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84169141"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095125"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envío de consultas de búsqueda a Bing Visual Search API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 En este artículo se describen los parámetros y atributos de las solicitudes enviadas a Bing Visual Search API, así como el objeto de respuesta. 
 
@@ -73,7 +78,7 @@ Las solicitudes solo se deben enviar como solicitudes HTTP POST.
 
 Estos son los parámetros de consulta que debe especificar la solicitud. Como mínimo, debe incluir el parámetro de consulta `mkt`.
 
-| Nombre | Value | Tipo | Obligatorio |
+| Nombre | Valor | Tipo | Obligatorio |
 | --- | --- | --- | --- |
 | <a name="cc"></a>cc  | Código de país de dos caracteres que representa de dónde provienen los resultados.<br /><br /> Si establece este parámetro, debe especificar también el encabezado [Accept-Language](#acceptlanguage). Bing usa el primer idioma compatible que encuentra en la lista de idiomas y combina el idioma con el código de país que especifique para determinar el mercado del que debe devolver resultados. Si la lista de idiomas no incluye ningún idioma compatible, Bing busca el idioma y el mercado más cercanos que admiten la solicitud. También puede usar un mercado agregado o predeterminado para los resultados, en lugar del especificado.<br /><br /> Debe utilizar este parámetro de consulta y el parámetro de consulta `Accept-Language` solo si especifica varios idiomas. En caso contrario, debe utilizar los parámetros de consulta `mkt` y `setLang`.<br /><br /> Este parámetro y el parámetro de consulta [mkt](#mkt) son mutuamente excluyentes: no especifique los dos. | String | No       |
 | <a name="mkt"></a>mkt   | Mercado de dónde proceden los resultados. <br /><br /> **NOTA:** Si se conoce, se recomienda especificar siempre el mercado. Especificar el mercado ayuda a Bing a enrutar la solicitud y devolver una respuesta adecuada y óptima.<br /><br /> Este parámetro y el parámetro de consulta [cc](#cc) son mutuamente excluyentes: no especifique los dos. | String | Sí      |
@@ -148,7 +153,7 @@ Si carga una imagen local, el fragmento de código siguiente muestra los datos d
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Content-Type: image/jpeg
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -175,7 +180,7 @@ Content-Disposition: form-data; name="image"; filename="image"
 Content-Type: image/jpeg
 
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```

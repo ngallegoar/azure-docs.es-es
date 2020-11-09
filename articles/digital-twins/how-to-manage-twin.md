@@ -7,49 +7,58 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f8eae6381a438f6820f525a4d66cb5dc388eefb0
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494776"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280396"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
-Las entidades de su entorno se representan mediante [gemelos digitales](concepts-twins-graph.md). La administración de los gemelos digitales puede incluir las operaciones de creación, modificación y eliminación. Para realizar estas operaciones, puede usar las [**API de DigitalTwins**](/rest/api/digital-twins/dataplane/twins), el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Las entidades de su entorno se representan mediante [gemelos digitales](concepts-twins-graph.md). La administración de los gemelos digitales puede incluir las operaciones de creación, modificación y eliminación. Para realizar estas operaciones, puede usar las [**API de DigitalTwins**](/rest/api/digital-twins/dataplane/twins), el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
 Este artículo se centra en la administración de gemelos digitales; para trabajar con relaciones y con el [grafo de gemelos](concepts-twins-graph.md) en conjunto, consulte [*Procedimiento: Administración del grafo de gemelos con relaciones*](how-to-manage-graph.md).
 
 > [!TIP]
 > Todas las funciones del SDK cuentan con versiones sincrónicas y asincrónicas.
 
+## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## <a name="create-a-digital-twin"></a>Creación de un gemelo digital
 
-Para crear un gemelo, use el método `CreateDigitalTwin()` en el cliente de servicio de la siguiente manera:
+Para crear un gemelo, use el método `CreateOrReplaceDigitalTwinAsync()` en el cliente de servicio de la siguiente manera:
 
 ```csharp
-await client.CreateDigitalTwinAsync("myTwinId", initData);
+await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
 ```
 
 Para crear un gemelo digital, debe proporcionar lo siguiente:
 * El identificador deseado para el gemelo digital.
 * El [modelo](concepts-models.md) que quiere usar.
 
-Opcionalmente, puede proporcionar los valores iniciales de todas las propiedades del gemelo digital. 
+Opcionalmente, puede proporcionar los valores iniciales de todas las propiedades del gemelo digital. Las propiedades se tratan como opcionales y se pueden establecer más adelante, pero **no aparecerán como parte de un gemelo hasta que se hayan establecido.**
 
-Los valores de las propiedades del modelo e iniciales se proporcionan a través del parámetro `initData`, que es una cadena JSON que contiene los datos pertinentes. Para más información sobre cómo estructurar este objeto, vaya a la sección siguiente.
+>[!NOTE]
+>Aunque no es necesario inicializar las propiedades del gemelo, los [componentes](concepts-models.md#elements-of-a-model) del gemelo **deben** establecerse cuando se crea este. Aunque pueden ser objetos vacíos, los componentes en sí deben existir.
+
+El modelo y los valores iniciales de las propiedades se proporcionan mediante el parámetro `initData`, que es una cadena JSON que contiene los datos pertinentes. Para más información sobre cómo estructurar este objeto, vaya a la sección siguiente.
 
 > [!TIP]
 > Después de crear o actualizar un gemelo, puede haber una latencia de hasta 10 segundos antes de que los cambios se reflejen en las [consultas](how-to-query-graph.md). La API `GetDigitalTwin` (que se describe [más adelante en este artículo](#get-data-for-a-digital-twin)) no experimenta este retraso, por lo que debe usar la llamada a la API en lugar de realizar una consulta para ver los gemelos recién creados si necesita una respuesta instantánea. 
 
 ### <a name="initialize-model-and-properties"></a>Inicialización del modelo y las propiedades
 
+Puede inicializar las propiedades de un gemelo en el momento en que este se crea. 
+
 La API de creación de gemelos acepta un objeto serializado en una descripción JSON válida de las propiedades gemelas. Consulte [*Conceptos: Gemelos digitales y el grafo de gemelos*](concepts-twins-graph.md) para obtener una descripción del formato JSON de un gemelo. 
 
-En primer lugar, puede crear un objeto de datos para representar el gemelo y los datos de sus propiedades. A continuación, puede usar `JsonSerializer` para pasar una versión serializada de este objeto a la llamada a la API para el parámetro `initdata`, como se muestra a continuación:
+En primer lugar, puede crear un objeto de datos que represente el gemelo y los datos de sus propiedades, por ejemplo:
 
 ```csharp
-await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
 ```
 Puede crear un objeto de parámetro manualmente o mediante una clase auxiliar proporcionada. A continuación se muestra un ejemplo de cada opción.
 
@@ -71,14 +80,14 @@ twin.Metadata.ModelId = "dtmi:example:Room;1";
 Dictionary<string, object> props = new Dictionary<string, object>();
 props.Add("Temperature", 25.0);
 props.Add("Humidity", 50.0);
-twin.CustomProperties = props;
+twin.Contents = props;
 
-client.CreateDigitalTwinAsync("myRoomId", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myRoomId", twin);
 Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> Los objetos `BasicDigitalTwin` contienen un campo `Id`. Puede dejar este campo vacío, pero si agrega un valor de id., debe coincidir con el parámetro de id. pasado a la llamada `CreateDigitalTwin()`. Por ejemplo:
+> Los objetos `BasicDigitalTwin` contienen un campo `Id`. Puede dejar este campo vacío, pero si agrega un valor de id., debe coincidir con el parámetro de id. pasado a la llamada `CreateOrReplaceDigitalTwinAsync()`. Por ejemplo:
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -91,15 +100,14 @@ Puede acceder a los detalles de cualquier gemelo digital mediante una llamada al
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-Esta llamada devuelve los datos de gemelos como una cadena JSON. Este es un ejemplo de cómo se usa para ver los detalles del gemelo:
+Esta llamada devuelve los datos del gemelo en forma de un tipo de objeto fuertemente tipado, como `BasicDigitalTwin`. Este es un ejemplo de cómo se usa para ver los detalles del gemelo:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin("myRoomId");
-twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.CustomProperties.Keys)
+foreach (string prop in twin.Contents.Keys)
 {
-  if (twin.CustomProperties.TryGetValue(prop, out object value))
+  if (twin.Contents.TryGetValue(prop, out object value))
   Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -174,12 +182,11 @@ Puede analizar el JSON devuelto para el gemelo mediante una biblioteca de análi
 También puede usar la clase auxiliar de serialización `BasicDigitalTwin` que se incluye con el SDK, que devolverá los metadatos y las propiedades de gemelos principales en formato analizado previamente. Este es un ejemplo:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_Id);
-BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.CustomProperties.Keys)
+foreach (string prop in twin.Contents.Keys)
 {
-    if (twin.CustomProperties.TryGetValue(prop, out object value))
+    if (twin.Contents.TryGetValue(prop, out object value))
         Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -215,30 +222,12 @@ Este es un ejemplo de código de revisión de JSON. En este documento se reempla
   }
 ]
 ```
-Puede crear revisiones manualmente o mediante una clase auxiliar de serialización en el [SDK](how-to-use-apis-sdks.md). A continuación se muestra un ejemplo de cada opción.
-
-#### <a name="create-patches-manually"></a>Creación manual de revisiones
+Puede crear revisiones mediante `JsonPatchDocument` en el [SDK](how-to-use-apis-sdks.md). A continuación se muestra un ejemplo:
 
 ```csharp
-List<object> twinData = new List<object>();
-twinData.Add(new Dictionary<string, object>() {
-    { "op", "add"},
-    { "path", "/Temperature"},
-    { "value", 25.0}
-});
-
-await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
-Console.WriteLine("Updated twin properties");
-FetchAndPrintTwin(twin_Id, client);
-}
-```
-
-#### <a name="create-patches-using-the-helper-class"></a>Creación de revisiones con la clase auxiliar
-
-```csharp
-UpdateOperationsUtility uou = new UpdateOperationsUtility();
-uou.AppendAddOp("/Temperature", 25.0);
-await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
+var updateTwinData = new JsonPatchDocument();
+updateTwinData.AppendAddOp("/Temperature", temperature.Value<double>());
+await client.UpdateDigitalTwinAsync(twin_Id, updateTwinData);
 ```
 
 ### <a name="update-properties-in-digital-twin-components"></a>Actualización de propiedades en componentes de gemelos digitales
@@ -337,11 +326,10 @@ public async Task FindAndDeleteOutgoingRelationshipsAsync(string dtId)
     try
     {
         // GetRelationshipsAsync will throw an error if a problem occurs
-        AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+        AsyncPageable<BasicRelationship> rels = client.GetRelationshipsAsync<BasicRelationship>(dtId);
 
-        await foreach (string relJson in relsJson)
+        await foreach (BasicRelationship rel in rels)
         {
-            var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
             await client.DeleteRelationshipAsync(dtId, rel.Id).ConfigureAwait(false);
             Log.Ok($"Deleted relationship {rel.Id} from {dtId}");
         }
@@ -446,8 +434,8 @@ namespace minimal
             Dictionary<string, object> props = new Dictionary<string, object>();
             props.Add("Temperature", 35.0);
             props.Add("Humidity", 55.0);
-            twin.CustomProperties = props;
-            await client.CreateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            twin.Contents = props;
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twin_Id, twin);
             Console.WriteLine("Twin created successfully");
             Console.WriteLine();
 
@@ -458,14 +446,9 @@ namespace minimal
             Console.WriteLine();
 
             //Update twin data
-            List<object> twinData = new List<object>();
-            twinData.Add(new Dictionary<string, object>() 
-            {
-                { "op", "add"},
-                { "path", "/Temperature"},
-                { "value", 25.0}
-            });
-            await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+            var updateTwinData = new JsonPatchDocument();
+            updateTwinData.AppendAdd("/Temperature", 25.0);
+            await client.UpdateDigitalTwinAsync(twin_Id, updateTwinData);
             Console.WriteLine("Twin properties updated");
             Console.WriteLine();
 
@@ -482,12 +465,11 @@ namespace minimal
         private static BasicDigitalTwin FetchAndPrintTwin(string twin_Id, DigitalTwinsClient client)
         {
             BasicDigitalTwin twin;
-            Response<string> res = client.GetDigitalTwin(twin_Id);
-            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
             Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-            foreach (string prop in twin.CustomProperties.Keys)
+            foreach (string prop in twin.Contents.Keys)
             {
-                if (twin.CustomProperties.TryGetValue(prop, out object value))
+                if (twin.Contents.TryGetValue(prop, out object value))
                     Console.WriteLine($"Property '{prop}': {value}");
             }
 
@@ -515,11 +497,10 @@ namespace minimal
             try
             {
                 // GetRelationshipsAsync will throw an error if a problem occurs
-                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+                AsyncPageable<BasicRelationship> rels = client.GetRelationshipsAsync<BasicRelationship>(dtId);
 
-                await foreach (string relJson in relsJson)
+                await foreach (BasicRelationship rel in rels)
                 {
-                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
                     await client.DeleteRelationshipAsync(dtId, rel.Id).ConfigureAwait(false);
                     Console.WriteLine($"Deleted relationship {rel.Id} from {dtId}");
                 }

@@ -4,13 +4,13 @@ description: En este inicio rápido se indica cómo crear una aplicación de LUI
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: 28bf79b61c0278a3f45820a23cd2c69f0b609700
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/13/2020
+ms.openlocfilehash: 60151e97c64a3d61044e4b82299573ee59951d46
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316499"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128209"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Inicio rápido: Uso de automatización del hogar compilada previamente
 
@@ -23,20 +23,23 @@ En esta guía de inicio rápido, creará una aplicación de LUIS que utiliza el 
 ## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 Las aplicaciones se pueden crear y administrar en **My Apps** (Mis aplicaciones).
 
-1. En la lista Mis aplicaciones, seleccione **+ New app for conversation** (+ Nueva aplicación para conversación) y, a continuación, en la lista de opciones, vuelva a seleccionar **+ New app for conversation** (+ Nueva aplicación para conversación).
+### <a name="create-an-application"></a>Crear una aplicación
 
-1. En el cuadro de diálogo asigne el nombre `Home Automation` a la aplicación.
-1. Seleccione la referencia cultural **English** (Inglés).
-1. Escriba una descripción opcional.
-1. No seleccione un recurso de predicción si aún no ha creado el recurso. Para usar el punto de conexión de predicción de la aplicación (almacenamiento provisional o producción), debe asignar un recurso de predicción.
-1. Seleccione **Listo**.
+Para crear una aplicación, haga clic en  **+ Nueva aplicación**. 
 
-    Se crea la aplicación en LUIS.
+En la ventana que aparece, escriba la siguiente información:
 
-    ![En el cuadro de diálogo, asigne a la aplicación l nombre "Home Automation".](./media/create-new-app-details.png)
+|Nombre  |Descripción  |
+|---------|---------|
+|Nombre     | El nombre de la aplicación. Por ejemplo, "home automation".        |
+|Cultura     | El idioma que la aplicación entiende y habla.   |
+|Descripción | La descripción de la aplicación.
+|Recurso de predicción | El recurso de predicción que recibirá las consultas. |
 
-    >[!NOTE]
-    >La referencia cultural no se puede cambiar una vez creada la aplicación.
+Seleccione **Listo**.
+
+>[!NOTE]
+>La referencia cultural no se puede cambiar una vez creada la aplicación.
 
 ## <a name="add-prebuilt-domain"></a>Incorporación de un dominio creado previamente
 
@@ -51,10 +54,7 @@ Las aplicaciones se pueden crear y administrar en **My Apps** (Mis aplicaciones)
 
 ## <a name="intents-and-entities"></a>Intenciones y entidades
 
-1. Seleccione **Intents** (Intenciones) para revisar las intenciones del dominio HomeAutomation. Las intenciones del dominio precompilado tienen expresiones de ejemplo.
-
-    > [!div class="mx-imgBorder"]
-    > ![Captura de pantalla de la lista de intenciones de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Captura de pantalla de la lista de intenciones de HomeAutomation")
+1. Seleccione **Intenciones** en el menú de navegación izquierdo para ver las intenciones del dominio HomeAutomation. Tiene expresiones de ejemplo, como `HomeAutomation.QueryState` y `HomeAutomation.SetDevice`.
 
     > [!NOTE]
     > **None** (Ninguna) es una intención que proporcionan todas las aplicaciones de LUIS. Se usa para controlar las expresiones que no corresponden a la funcionalidad que proporciona la aplicación.
@@ -63,6 +63,10 @@ Las aplicaciones se pueden crear y administrar en **My Apps** (Mis aplicaciones)
 
     > [!div class="mx-imgBorder"]
     > [![Captura de pantalla de la intención HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Captura de pantalla de la intención HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+
+1. Si desea ver las entidades de la aplicación, seleccione **Entidades**. Si hace clic en una de las entidades, como **HomeAutomation.DeviceName** verá una lista de valores que tiene asociados. 
+ 
+    :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Texto alternativo de la imagen" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
 
@@ -73,11 +77,7 @@ Una vez que haya entrenado a su aplicación, puede probarla.
 
 1. Select **Test** (Probar) en el panel de navegación superior derecho.
 
-1. Escriba una expresión de prueba, como `Turn off the lights` en el panel de prueba interactivo y presione Entrar.
-
-    ```
-    Turn off the lights
-    ```
+1. Escriba una expresión de prueba, como `Turn off the lights` en el panel de prueba interactivo y presione Entrar. Por ejemplo, *Turn off the lights*.
 
     En este ejemplo, `Turn off the lights` está identificada correctamente como la intención con puntuación más alta de **HomeAutomation.TurnOff**.
 
@@ -94,7 +94,18 @@ Una vez que haya entrenado a su aplicación, puede probarla.
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
 
-[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
+Para recibir una predicción de LUIS en un bot de chat u otra aplicación cliente, tiene que publicar la aplicación en el punto de conexión de predicción.
+
+1. Seleccione **Publish** (Publicar) en la esquina derecha de la ventana.
+
+1. Seleccione el espacio de **producción** y, después, **Done** (Listo).
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la publicación de LUIS en el punto de conexión](media/howto-publish/publish-app-popup.png)
+
+1. Seleccione el vínculo **Access your endpoint URLs** (Acceder a las direcciones URL del punto de conexión) de la notificación para ir a la página **Azure Resources** (Recursos de Azure). Las direcciones URL del punto de conexión se muestran como **Example Query** (Ejemplo de consulta).
+
+<!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 

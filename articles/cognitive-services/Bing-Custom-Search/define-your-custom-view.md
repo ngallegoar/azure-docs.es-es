@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86183212"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090824"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configuración de la experiencia de Bing Custom Search
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Una instancia de Custom Search le permite adaptar la experiencia de búsqueda para incluir contenido solo de sitios web que interesan a los usuarios. En lugar de realizar una búsqueda en toda la web, Bing solo busca en el sector de la web que le interesa. Para crear la vista personalizada de la web, use el [portal](https://customsearch.ai) de Bing Custom Search.
 
@@ -57,7 +62,7 @@ Para obtener acceso a la lista de sectores activos y bloqueados, haga clic en la
 
 Para especificar los sectores de la web que quiera que busque Bing, haga clic en la pestaña **Active** (Activos) y agregue una o varias direcciones URL. Para editar o eliminar direcciones URL, use las opciones de la columna **Controls** (Controles). 
 
-Al agregar direcciones URL a la lista de **activos**, puede agregar direcciones URL únicas o varias direcciones URL a la vez mediante la carga de un archivo de texto con el icono de carga.
+Al agregar direcciones URL a la lista de **activos** , puede agregar direcciones URL únicas o varias direcciones URL a la vez mediante la carga de un archivo de texto con el icono de carga.
 
 ![Pestaña Active (Activos) de Bing Custom Search](media/file-upload-icon.png)
 
@@ -70,7 +75,7 @@ Para cargar un archivo, cree un archivo de texto y especifique un único dominio
 
 ### <a name="get-website-suggestions-for-your-search-experience"></a>Obtención de sugerencias de sitio web para la experiencia de búsqueda
 
-Después de agregar sectores de la web a la lista de **activos**, el portal de Bing Custom Search generará sugerencias de sitio web y subpágina en la parte inferior de la pestaña. Estos son los sectores que Bing Custom Search cree que quiere incluir. Haga clic en **Actualizar** para obtener sugerencias actualizadas después de actualizar la configuración de la instancia de Custom Search. Esta sección solo está visible si hay sugerencias disponibles.
+Después de agregar sectores de la web a la lista de **activos** , el portal de Bing Custom Search generará sugerencias de sitio web y subpágina en la parte inferior de la pestaña. Estos son los sectores que Bing Custom Search cree que quiere incluir. Haga clic en **Actualizar** para obtener sugerencias actualizadas después de actualizar la configuración de la instancia de Custom Search. Esta sección solo está visible si hay sugerencias disponibles.
 
 ## <a name="search-for-images-and-videos"></a>Búsqueda de imágenes y vídeos
 
@@ -84,7 +89,7 @@ Puede probar la instancia de búsqueda mediante el panel de vista previa situado
 
 1. Debajo del cuadro de búsqueda, seleccione **My Instance** (Mi instancia). Puede comparar los resultados de la experiencia de búsqueda con Bing seleccionando **Bing**. 
 2. Seleccione un filtro de búsqueda seguro y el mercado en el que buscar (consulte [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) [Parámetros de consulta]).
-3. Escriba una consulta y presione Entrar o haga clic en el icono de búsqueda para ver los resultados de la configuración actual. Puede cambiar el tipo de búsqueda que realiza haciendo clic en **Web**, **Imagen** o **Vídeo** para obtener los resultados correspondientes. 
+3. Escriba una consulta y presione Entrar o haga clic en el icono de búsqueda para ver los resultados de la configuración actual. Puede cambiar el tipo de búsqueda que realiza haciendo clic en **Web** , **Imagen** o **Vídeo** para obtener los resultados correspondientes. 
 
 <a name="adjustrank"></a>
 
@@ -120,7 +125,7 @@ Puede anclar una página web al principio de dos maneras:
 
 * En la pestaña **Pinned** (Anclado), escriba la dirección URL de la página web que se va a anclar al principio y su consulta correspondiente.
 
-* En el panel **Vista previa**, escriba una consulta de búsqueda y haga clic en el botón de búsqueda. Busque la página web que quiere anclar para la consulta y haga clic en **Anclar al principio**. La página web y la consulta se agregarán a la lista **Anclado**.
+* En el panel **Vista previa** , escriba una consulta de búsqueda y haga clic en el botón de búsqueda. Busque la página web que quiere anclar para la consulta y haga clic en **Anclar al principio**. La página web y la consulta se agregarán a la lista **Anclado**.
 
 ### <a name="specify-the-pins-match-condition"></a>Especificación de la condición de coincidencia de anclaje
 

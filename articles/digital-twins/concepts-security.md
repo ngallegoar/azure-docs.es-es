@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503324"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279902"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -72,7 +72,7 @@ Para más información sobre cómo se definen los roles integrados, consulte [*D
 Al hacer referencia a los roles en escenarios automatizados, se recomienda hacer referencia a ellos por sus **identificadores** en lugar de sus nombres. Los nombres pueden cambiar entre versiones, pero los identificadores no, lo que los convierte en una referencia más estable en la automatización.
 
 > [!TIP]
-> Si se asignan roles con un cmdlet, como `New-AzRoleAssignment` ([referencia](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), puede usar el parámetro `-RoleDefinitionId` en lugar de `-RoleDefinitionName` para pasar un identificador en lugar de un nombre para el rol.
+> Si se asignan roles con un cmdlet, como `New-AzRoleAssignment` ([referencia](/powershell/module/az.resources/new-azroleassignment)), puede usar el parámetro `-RoleDefinitionId` en lugar de `-RoleDefinitionName` para pasar un identificador en lugar de un nombre para el rol.
 
 ### <a name="permission-scopes"></a>Ámbitos de permiso
 
@@ -88,6 +88,32 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 ### <a name="troubleshooting-permissions"></a>Solución de problemas de permisos
 
 Si un usuario intenta realizar una acción no permitida por su rol, es posible que reciba el siguiente error de la solicitud de servicio: `403 (Forbidden)`. Para obtener más información y pasos para solucionar problemas, vea [*Solución de problemas: Error en la solicitud de Azure Digital Twins con el estado: 403 (Prohibido)*](troubleshoot-error-403.md).
+
+## <a name="service-tags"></a>Etiquetas de servicio
+
+Una **etiqueta de servicio** representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Para más información sobre las etiquetas de servicio, consulte  [*Etiquetas de red virtuales*](../virtual-network/service-tags-overview.md). 
+
+Puede usar etiquetas de servicio para definir controles de acceso de red en  [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md#security-rules) o [Azure Firewall](../firewall/service-tags.md), usando etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (en este caso,  **AzureDigitalTwins** ) en el campo de  *origen* o *destino* apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. 
+
+A continuación, se muestran los detalles de la etiqueta de servicio **AzureDigitalTwins**.
+
+| Etiqueta | Propósito | ¿Se puede usar para tráfico entrante o saliente? | ¿Puede ser regional? | ¿Se puede usar con Azure Firewall? |
+| --- | --- | --- | --- | --- |
+| AzureDigitalTwins | Azure Digital Twins<br>Nota: Esta etiqueta o las direcciones IP que abarca se pueden utilizar para restringir el acceso a los puntos de conexión configurados para [rutas de eventos](concepts-route-events.md). | Entrada | No | Sí |
+
+### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>Uso de etiquetas de servicio para acceder a puntos de conexión de ruta de eventos 
+
+Estos son los pasos para acceder a puntos de conexión de [ruta de eventos](concepts-route-events.md) usando etiquetas de servicio con Azure Digital Twins.
+
+1. En primer lugar, descargue esta referencia de archivo JSON que muestra los intervalos IP y las etiquetas de servicio de Azure: [*Intervalos IP y etiquetas de servicio de Azure*](https://www.microsoft.com/download/details.aspx?id=56519). 
+
+2. Busque los intervalos IP de "AzureDigitalTwins" en el archivo JSON.  
+
+3. Consulte la documentación del recurso externo conectado al punto de conexión (por ejemplo [Event Grid](../event-grid/overview.md), [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) o [Azure Storage](../storage/blobs/storage-blobs-overview.md) en busca de los [eventos con problemas de entrega](concepts-route-events.md#dead-letter-events)) para ver cómo definir filtros IP para ese recurso.
+
+4. Establezca filtros IP en los recursos externos mediante los intervalos IP del *paso 2*.  
+
+5. Actualice los intervalos IP periódicamente según sea necesario. Los intervalos pueden cambiar con el tiempo, por lo que es una buena idea comprobarlos periódicamente y actualizarlos cuando sea necesario. Aunque la frecuencia de estas actualizaciones puede variar, es una buena idea comprobarlos una vez por semana.
 
 ## <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
 

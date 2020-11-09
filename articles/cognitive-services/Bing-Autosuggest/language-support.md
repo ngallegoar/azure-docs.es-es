@@ -10,14 +10,19 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6971dafc7e3157b3de62284b400ebdc6ddc19c0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60547343"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101908"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Compatibilidad de idiomas y regiones para Bing Autosuggest API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 A continuación se enumeran los idiomas que admite Bing Autosuggest API.
 

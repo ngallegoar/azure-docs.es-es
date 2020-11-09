@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: db0b93533822de3e5cb7e16e99b9f3fb4f8a7f9d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4981f4a5ca355d22ebfb36f7530ef03282febd24
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426232"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095346"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Inicio rápido: Envío de una consulta a Bing Local Business Search API en C#
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para aprender a enviar solicitudes a la API Bing Local Business Search, que es un servicio de Azure Cognitive Services. Aunque esta aplicación sencilla está escrita en C#, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
 
@@ -29,11 +34,11 @@ Esta aplicación de ejemplo obtiene los datos de respuesta local de la API para 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
 * Cualquier edición de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Si usa Linux o MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
-* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="cree un recurso de Bing Search"  target="_blank">crear un recurso de Bing Search<span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso** .
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="cree un recurso de Bing Search"  target="_blank">crear un recurso de Bing Search<span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
 
 ## <a name="create-the-request"></a>Creación de la solicitud 
 
-El siguiente código crea una instancia de `WebRequest`, establece el encabezado de la clave de acceso y agrega una cadena de consulta para *restaurante in Bellevue* .  Después envía la solicitud y asigna la respuesta a una cadena que contiene el texto JSON.
+El siguiente código crea una instancia de `WebRequest`, establece el encabezado de la clave de acceso y agrega una cadena de consulta para *restaurante in Bellevue*.  Después envía la solicitud y asigna la respuesta a una cadena que contiene el texto JSON.
 
 ```csharp
     // Replace the accessKey string value with your valid access key.

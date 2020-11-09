@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-js
-ms.openlocfilehash: 225ab3a8ab03c507132bdfcb176aeeb706d6b115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eef6f424c0360ba1378bafa738cbec7dbf05776
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304056"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098372"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Creación de una aplicación web de una sola página
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing News Search API permite buscar en la Web y obtener resultados relacionados con las noticias y que sean relevantes para una consulta de búsqueda. En este tutorial, crearemos una aplicación web de una sola página que usa Bing News Search API para mostrar los resultados de la búsqueda directamente en la página. La aplicación incluye componentes HTML, CSS y JavaScript. El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 

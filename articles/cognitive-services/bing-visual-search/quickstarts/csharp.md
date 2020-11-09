@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0f908863b16b892e0978964a549b20bd9393fbae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c39f1eeda5ccdfb72a58f5c082d14100812ec0fa
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277129"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075038"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API de REST Bing Visual Search y C#
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Este inicio rápido muestra cómo cargar una imagen en la API Bing Visual Search y cómo ver la información detallada que devuelve.
 
@@ -76,7 +81,7 @@ Este inicio rápido muestra cómo cargar una imagen en la API Bing Visual Search
     --boundary_1234-abcd
     Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     
-    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
     
     --boundary_1234-abcd--
     ```

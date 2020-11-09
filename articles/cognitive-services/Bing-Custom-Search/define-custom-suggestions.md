@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072803"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080981"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configuración de experiencia de Custom Autosuggest
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Custom Autosuggest devuelve una lista de cadenas de consulta de búsqueda sugeridas que son pertinentes para su experiencia de búsqueda. Las cadenas de consulta sugeridas se basan en una cadena de consulta parcial que proporciona el usuario en el cuadro de búsqueda. La lista contendrá un máximo de 10 sugerencias. 
 
@@ -60,7 +65,7 @@ Si incluye sugerencias de Bing, puede agregar una lista de cadenas de consulta d
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>Habilitación de Autosuggest en la interfaz de usuario hospedada
 
-Para habilitar las sugerencias de cadena de consulta para la interfaz de usuario hospedada, haga clic en **Hosted UI** (IU hospedada). Desplácese hacia abajo hasta la sección **Additional Configuration** (Configuración adicional). En **Búsqueda web**, seleccione **Activado** para **Enable autosuggest** (Habilitar las sugerencias automáticas). Para habilitar Autosuggest, debe seleccionar un diseño que incluye un cuadro de búsqueda.
+Para habilitar las sugerencias de cadena de consulta para la interfaz de usuario hospedada, haga clic en **Hosted UI** (IU hospedada). Desplácese hacia abajo hasta la sección **Additional Configuration** (Configuración adicional). En **Búsqueda web** , seleccione **Activado** para **Enable autosuggest** (Habilitar las sugerencias automáticas). Para habilitar Autosuggest, debe seleccionar un diseño que incluye un cuadro de búsqueda.
 
 
 ## <a name="calling-the-autosuggest-api"></a>Llamada a Autosuggest API

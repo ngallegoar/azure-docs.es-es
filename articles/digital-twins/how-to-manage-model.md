@@ -7,18 +7,22 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 399ae682028479f801b82b6273f7d1429cfa1b97
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494852"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279414"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
-Puede administrar los [modelos](concepts-models.md) que la instancia de Azure Digital Twins conoce mediante las [**API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md). 
+Puede administrar los [modelos](concepts-models.md) que la instancia de Azure Digital Twins conoce mediante las [**API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md). 
 
 Las operaciones de administración incluyen la carga, validación, recuperación y eliminación de modelos. 
+
+## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## <a name="create-models"></a>Crear modelos
 
@@ -137,10 +141,9 @@ En la carga, el servicio valida los archivos de modelo.
 Puede mostrar y recuperar los modelos almacenados en la instancia de Azure Digital Twins. 
 
 Estas son las opciones para ello:
-* Recuperar todos los modelos
 * Recuperar un único modelo
-* Recuperar un único modelo con dependencias
-* Recuperar metadatos para los modelos
+* Recuperar todos los modelos
+* Recuperar los metadatos y las dependencias de los modelos.
 
 A continuación, se muestran algunas llamadas de ejemplo:
 
@@ -148,19 +151,16 @@ A continuación, se muestran algunas llamadas de ejemplo:
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
-
-// Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
 ```
 
-Todas las llamadas API para recuperar modelos devuelven todos los objetos `ModelData`. `ModelData` contiene metadatos sobre el modelo almacenado en la instancia Azure Digital Twins, como el nombre, la DTMI y la fecha de creación del modelo. El objeto `ModelData` también incluye opcionalmente el propio modelo. En función de los parámetros, puede usar las llamadas de recuperación para recuperar solo los metadatos (lo que resulta útil en escenarios en los que se desea mostrar una lista de interfaz de usuario de las herramientas disponibles, por ejemplo) o todo el modelo.
+Todas las llamadas API para recuperar modelos devuelven todos los objetos `DigitalTwinsModelData`. `DigitalTwinsModelData` contiene metadatos sobre el modelo almacenado en la instancia Azure Digital Twins, como el nombre, la DTMI y la fecha de creación del modelo. El objeto `DigitalTwinsModelData` también incluye opcionalmente el propio modelo. En función de los parámetros, puede usar las llamadas de recuperación para recuperar solo los metadatos (lo que resulta útil en escenarios en los que se desea mostrar una lista de interfaz de usuario de las herramientas disponibles, por ejemplo) o todo el modelo.
 
 La llamada a `RetrieveModelWithDependencies` devuelve no solo el modelo solicitado, sino también todos los modelos de los que depende el modelo solicitado.
 

@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
-ms.openlocfilehash: 630b86f55a537d109c851cb585cfccc34d229f83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac1b636f644784092b5f68f59d787c328478df69
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74110644"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096927"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Cambio de tamaño y recorte de miniaturas
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Algunas respuestas de las API de Bing Search incluyen URL a imágenes en miniatura que muestra Bing, que puede cambiar de tamaño y recortar, y que pueden contener parámetros de consulta. Por ejemplo:
 

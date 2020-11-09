@@ -11,20 +11,25 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: b03dd9140ef49d34ba0303742aa4961a9f313cc9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b042c125d3a7327d3e59424809a7dc7e9339e8fc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87323373"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094208"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Inicio rápido: Búsqueda de vídeos con la API de REST Bing Video Search y Java
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use este inicio rápido para realizar la primera llamada a la API Bing Video Search. Esta sencilla aplicación de Java envía una consulta de búsqueda de vídeo HTTP a la API y muestra la respuesta JSON. Aunque esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. 
 
 El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) con anotaciones de código, características y control de errores adicionales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * El [Kit de desarrollo de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 

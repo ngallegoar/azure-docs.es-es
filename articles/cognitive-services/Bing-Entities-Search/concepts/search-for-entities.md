@@ -10,20 +10,25 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532bf806789476c1ec901c1e4ac8522451819625
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872075"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085129"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Búsqueda de entidades con Bing Entity API
+
+> [!WARNING]
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 ## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Sugerencia de términos de búsqueda con Bing Autosuggest API
 
 Si proporciona un cuadro de búsqueda donde el usuario escribe su término de búsqueda, use [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) para mejorar la experiencia. La API devuelve cadenas consulta sugeridas basadas en términos de búsqueda parciales a medida que el usuario escribe.
 
-Una vez que el usuario escribe el término de búsqueda, codifique el término en formato de URL antes de establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Por ejemplo, si el usuario escribe *Marcus Appel*, configure `q` como *Marcus+Appel* o *Marcus%20Appel*.
+Una vez que el usuario escribe el término de búsqueda, codifique el término en formato de URL antes de establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Por ejemplo, si el usuario escribe *Marcus Appel* , configure `q` como *Marcus+Appel* o *Marcus%20Appel*.
 
 Si el término de búsqueda contiene un error ortográfico, la respuesta de búsqueda incluye un objeto [QueryContext ](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext). El objeto muestra la ortografía original y la ortografía corregida que Bing utilizó para la búsqueda.
 
@@ -189,7 +194,7 @@ El objeto Places incluye restaurantes, hoteles o empresas locales. El campo [ent
 > [!NOTE]
 > Las respuestas de las entidades admiten múltiples mercados, pero la respuesta de lugares solo admite ubicaciones comerciales en EE. UU. 
 
-Las consultas de entidades con conocimiento del entorno local como *restaurantes cercanos*, requieren que la ubicación del usuario proporcione resultados precisos. Sus solicitudes siempre deben usar los encabezados X-Search-Location y X-MSEdge-ClientIP para especificar la ubicación del usuario. Si Bing cree que la consulta se beneficiaría de la ubicación del usuario, establece el campo `askUserForLocation` de [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) en **true**. 
+Las consultas de entidades con conocimiento del entorno local como *restaurantes cercanos* , requieren que la ubicación del usuario proporcione resultados precisos. Sus solicitudes siempre deben usar los encabezados X-Search-Location y X-MSEdge-ClientIP para especificar la ubicación del usuario. Si Bing cree que la consulta se beneficiaría de la ubicación del usuario, establece el campo `askUserForLocation` de [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) en **true**. 
 
 ```json
 {

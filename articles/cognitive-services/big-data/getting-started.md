@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 5256db4547f8c19960a6f470ce3c84b2eef25e24
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 444b76a594e768face892462da12a1cbb35a5106
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776619"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324688"
 ---
 # <a name="getting-started"></a>Introducción
 
@@ -31,19 +31,19 @@ Para usar Cognitive Services para macrodatos, primero se debe crear un servicio 
 
 ### <a name="cloud-services"></a>Servicios en la nube
 
-Los servicios cognitivos basados en la nube son algoritmos inteligentes que se hospedan en Azure. Estos servicios se pueden usar sin necesidad de entrenamiento, solo hace falta una conexión a Internet. Puede [crear un servicio cognitivo en Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) o con la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
+Cognitive Services basado en la nube es un conjunto de algoritmos inteligentes hospedados en Azure. Estos servicios se pueden usar sin necesidad de entrenamiento, solo hace falta una conexión a Internet. Puede [crear un servicio cognitivo en Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) o con la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
 
 ### <a name="containerized-services-optional"></a>Servicios en contenedores (opcional)
 
-Si la aplicación o la carga de trabajo emplean conjuntos de datos muy grandes, necesitan redes privadas o no pueden establecer contacto con la nube, puede que la comunicación con los servicios en la nube no sea posible. En esta situación, los servicios cognitivos en contenedores tienen estas ventajas:
+Si la aplicación o la carga de trabajo emplean conjuntos de datos grandes, necesitan redes privadas o no pueden establecer contacto con la nube, es posible que no se pueda establecer comunicación con los servicios en la nube. En esta situación, los servicios cognitivos en contenedores tienen estas ventajas:
 
-* **Conectividad baja**: puede implementar servicios cognitivos en contenedores en cualquier entorno informático, tanto en la nube como fuera de ella. Si la aplicación no puede establecer contacto con la nube, considere la posibilidad de implementar servicios cognitivos en contenedores en la aplicación.
+* **Conectividad baja** : puede implementar servicios cognitivos en contenedores en cualquier entorno informático, tanto en la nube como fuera de ella. Si la aplicación no puede establecer contacto con la nube, considere la posibilidad de implementar servicios cognitivos en contenedores en la aplicación.
 
-* **Baja latencia**: dado que los servicios en contenedores no necesitan la comunicación de ida y vuelta hacia y desde la nube, las respuestas se devuelven con latencias mucho más bajas.
+* **Baja latencia** : dado que los servicios en contenedores no necesitan la comunicación de ida y vuelta hacia y desde la nube, las respuestas se devuelven con latencias mucho más bajas.
 
-* **Privacidad y seguridad de los datos**: puede implementar servicios en contenedores en redes privadas, de modo que los datos confidenciales no salgan de la red.
+* **Privacidad y seguridad de los datos** : puede implementar servicios en contenedores en redes privadas, de modo que los datos confidenciales no salgan de la red.
 
-* **Alta escalabilidad**: los servicios en contenedores no tienen "límites de frecuencia" y se ejecutan en equipos administrados por el usuario. Por lo tanto, puede escalar los servicios cognitivos sin fin para administrar cargas de trabajo mucho más grandes.
+* **Alta escalabilidad** : los servicios en contenedores no tienen "límites de frecuencia" y se ejecutan en equipos administrados por el usuario. Por lo tanto, puede escalar los servicios cognitivos sin fin para administrar cargas de trabajo mucho más grandes.
 
 Siga [esta guía](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support?tabs=luis) para crear un servicio cognitivo en contenedores.
 
@@ -70,7 +70,7 @@ Azure Databricks es una plataforma de análisis basada en Apache Spark con una c
 Opcionalmente, puede usar Synapse Analytics para crear un clúster de Spark. Azure Synapse Analytics reúne el almacenamiento de datos empresarial y el análisis de macrodatos. Este servicio ofrece la libertad de consultar los datos como prefiera, ya sea a petición sin servidor o con recursos aprovisionados a escala. Para empezar a usar Synapse Analytics, siga estos pasos:
 
 1. [Cree un área de trabajo de Synapse (versión preliminar)](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
-1. [Cree un grupo de Apache Spark (versión preliminar) mediante Azure Portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
+1. [Cree un grupo de Apache Spark sin servidor (versión preliminar) mediante Azure Portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
 
 En Synapse Analytics, Cognitive Services para macrodatos está instalado de forma predeterminada.
 
@@ -100,7 +100,7 @@ Primero, cree un cuaderno en Azure Databricks. En el caso de otros proveedores d
 
     Seleccione **Crear**.
 
-1. Pegue este fragmento de código a continuación en el nuevo cuaderno.
+1. Pegue este fragmento de código en el cuaderno nuevo.
 
 ```python
 from mmlspark.cognitive import *

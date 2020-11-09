@@ -11,14 +11,19 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9ba749d671e24e86e2cd0a299e98ba03e47cf354
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85602761"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101687"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>¿Qué es Bing News Search API?
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing News Search API facilita la integración de las funcionalidades cognitivas de búsqueda de noticias de Bing en tus aplicaciones. La API ofrece una experiencia parecida a la de [Bing News](https://www.bing.com/news), que le permite enviar consultas de búsqueda y recibir los artículos de noticias pertinentes.
 

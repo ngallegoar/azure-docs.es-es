@@ -12,20 +12,25 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-js
-ms.openlocfilehash: b9f677c9596974129b38d56e8ef9aeb304c5f690
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2c797ef365f9d9463a841835fc5f6f15f5da0c93
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91324916"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099936"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y Node.js
+
+> [!WARNING]
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Utilice este inicio rápido para aprender cómo enviar solicitudes de búsqueda a la API Bing Image Search. Esta aplicación de JavaScript envía una consulta de búsqueda a la API y muestra la dirección URL de la primera imagen de los resultados. Aunque esta aplicación está escrita en JavaScript, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) con anotaciones y control de errores adicionales.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * La última versión de [Node.js](https://nodejs.org/en/download/).
 
