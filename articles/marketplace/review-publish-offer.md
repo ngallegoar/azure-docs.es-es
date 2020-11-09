@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 08/12/2020
-ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 10/27/2020
+ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976493"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129582"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Procedimiento para revisar y publicar una oferta en el marketplace comercial
 
@@ -38,11 +38,11 @@ Puede revisar el estado de la oferta en la pestaña **Información general** del
 
 Cuando esté listo para enviar una oferta para su publicación, seleccione **Revisar y publicar** en la esquina superior derecha del portal. En la página **Revisar y publicar** se muestra el estado de cada página de la oferta, que puede ser uno de los siguientes:
 
-   - **No iniciado**: la página está incompleta.
-   - **Incompleta**: falta información necesaria en la página o hay errores que deben corregirse. Tendrá que volver a la página anterior y actualizarla.
-   - **Completa**: la página está completa. Se han proporcionado todos los datos necesarios y no hay ningún error.
+   - **No iniciado** : la página está incompleta.
+   - **Incompleta** : falta información necesaria en la página o hay errores que deben corregirse. Tendrá que volver a la página anterior y actualizarla.
+   - **Completa** : la página está completa. Se han proporcionado todos los datos necesarios y no hay ningún error.
 
-Si alguna de las páginas tiene un estado distinto de **Completo**, debe corregir el problema de la página y, a continuación, volver a la página **Revisar y publicar** para confirmar que el estado es ahora **Completo**. Algunos tipos de oferta requieren pruebas. En este caso, verá un campo **Notas para la certificación** donde deberá proporcionar instrucciones para la realización de pruebas al equipo de certificación, además de todas las notas adicionales que pueden resultar útiles para comprender la aplicación.
+Si alguna de las páginas tiene un estado distinto de **Completo** , debe corregir el problema de la página y, a continuación, volver a la página **Revisar y publicar** para confirmar que el estado es ahora **Completo**. Algunos tipos de oferta requieren pruebas. En este caso, verá un campo **Notas para la certificación** donde deberá proporcionar instrucciones para la realización de pruebas al equipo de certificación, además de todas las notas adicionales que pueden resultar útiles para comprender la aplicación.
 
 Cuando todas las páginas estén completas y haya escrito las notas de prueba aplicables, seleccione **Publicar** para iniciar los procesos de validación y publicación. Las fases y la secuencia general pueden variar en función del tipo de oferta que esté publicando. En la tabla siguiente se muestra un posible flujo de publicación. Cada una de las fases se explica con más detalle en las secciones siguientes.
 
@@ -77,7 +77,7 @@ El primer paso del proceso de publicación es realizar un conjunto de validacion
 
 ## <a name="certification-phase"></a>Fase de certificación
 
-Antes de que se publiquen, las ofertas enviadas al marketplace comercial se deben certificar. Las ofertas se someten a pruebas rigurosas, algunas automáticas y otras manuales. Para más información, consulte las [directivas de certificación de marketplace comercial](https://aka.ms/commercial-marketplace-certification-policies).
+Antes de que se publiquen, las ofertas enviadas al marketplace comercial se deben certificar. Las ofertas se someten a pruebas rigurosas, algunas automáticas y otras manuales. Para más información, consulte las [directivas de certificación de marketplace comercial](/legal/marketplace/certification-policies).
 
 ### <a name="types-of-validation-that-take-place-during-certification"></a>Tipos de validación que se realizan durante la certificación
 
@@ -100,7 +100,7 @@ Se comprueba la calidad y pertinencia de la información que se introdujo al cre
 - capturas de pantallas y vídeos de calidad
 - una explicación de cómo la oferta usa las plataformas y las herramientas de Microsoft.
 
-Para más información sobre los criterios de validación del contenido, consulte las [directivas generales de los anuncios](https://aka.ms/commercial-marketplace-certification-policies#100-general).
+Para más información sobre los criterios de validación del contenido, consulte las [directivas generales de los anuncios](/legal/marketplace/certification-policies#100-general).
 
 #### <a name="technical-validation"></a>Validación técnica
 
@@ -126,6 +126,19 @@ Durante la fase de creación de la versión preliminar, creamos una versión de 
 > [!NOTE]
 > No utilice la audiencia de versión preliminar para otorgar visibilidad sobre la oferta a personas ajenas a la organización. Use la opción de Oferta privada en su lugar. En este momento, la oferta no se ha probado y validado por completo y no está lista para distribuirse fuera de la organización.
 
+## <a name="cancel-publishing"></a>Cancelación de la publicación
+
+Para cancelar una oferta con el estado **Publicación en curso** :
+
+1. Seleccione el nombre de la oferta para abrir la página **Información general de la oferta**.
+1. Seleccione **Cancelar publicación** en la esquina superior derecha de la página.
+1. Confirme que desea detener la publicación de la oferta.
+
+Si desea publicar la oferta más adelante, tendrá que volver a empezar el proceso de publicación.
+
+> [!NOTE]
+> La publicación de una oferta solo se puede detener si esta aún no ha llegado al paso de aprobación por parte del publicador. Después de seleccionar **Publicar** , ya no hay opción de cancelar la publicación.
+
 ## <a name="publisher-sign-off-phase"></a>Fase de aprobación del editor
 
 Cuando la oferta esté lista para su revisión y aprobación, se le enviará un correo electrónico para solicitarle que revise y apruebe la versión preliminar de la oferta. También se puede actualizar la página **Offer overview** (Información general de la oferta) en el explorador para ver si la oferta ha alcanzado la fase de aprobación del editor. Si es así, el botón **Transmitir en directo** y los vínculos de versión preliminar estarán disponibles.
@@ -139,11 +152,11 @@ En la captura de pantalla siguiente se muestra la página de **Información gene
 > [!IMPORTANT]
 > Para validar el flujo de compra y configuración de un extremo a otro, compre la oferta mientras está en versión preliminar. En primer lugar, informe a Microsoft con una [incidencia de soporte técnico](https://aka.ms/marketplacesupport) para asegurarse de que no se procesarán cargos.
 
-En la página **Información general de la oferta**, verá vínculos de versión preliminar bajo el botón **Transmitir**. Habrá un vínculo para la versión preliminar de AppSource, la versión preliminar de Azure Marketplace o ambos según las opciones que elija al crear la oferta. Si elige vender la oferta mediante Microsoft, cualquiera que sea agregado a la audiencia de versión preliminar podrá probar la adquisición y la implementación de esta para asegurarse de que cumple sus requisitos durante esta etapa.
+En la página **Información general de la oferta** , verá vínculos de versión preliminar bajo el botón **Transmitir**. Habrá un vínculo para la versión preliminar de AppSource, la versión preliminar de Azure Marketplace o ambos según las opciones que elija al crear la oferta. Si elige vender la oferta mediante Microsoft, cualquiera que sea agregado a la audiencia de versión preliminar podrá probar la adquisición y la implementación de esta para asegurarse de que cumple sus requisitos durante esta etapa.
 
 Después de aprobar la versión preliminar, seleccione **Transmitir** para publicar su oferta en el marketplace comercial. 
 
-Si desea realizar cambios después obtener la versión preliminar de la oferta, puede editar y volver a enviar la solicitud de publicación. Si la oferta ya está activa y disponible para el público en el marketplace, las actualizaciones que realice no se activarán hasta que seleccione **Transmitir*. Para obtener más información, consulte [Actualización de una oferta existente en el marketplace comercial](./partner-center-portal/update-existing-offer.md).
+Si desea realizar cambios después obtener la versión preliminar de la oferta, puede editar y volver a enviar la solicitud de publicación. Si la oferta ya está activa y disponible para el público en el marketplace, las actualizaciones que realice no se activarán hasta que seleccione * *Transmitir*. Para obtener más información, consulte [Actualización de una oferta existente en el marketplace comercial](partner-center-portal/update-existing-offer.md).
 
 ## <a name="publish-phase"></a>Fase de publicación
 
@@ -215,7 +228,7 @@ Hay cuatro filtros:
 * Date
 * Páginas
 
-Al elegir el filtro **Páginas**, puede seleccionar cualquiera de las páginas del Centro de partners aplicables a su tipo de oferta. Cuando se aplica, el filtro **Páginas** muestra todos los eventos **Envío de oferta a versión preliminar** con cambios en la página seleccionada.
+Al elegir el filtro **Páginas** , puede seleccionar cualquiera de las páginas del Centro de partners aplicables a su tipo de oferta. Cuando se aplica, el filtro **Páginas** muestra todos los eventos **Envío de oferta a versión preliminar** con cambios en la página seleccionada.
 
 * Para todas las ofertas, se incluye la página **Configuración de la oferta** de manera predeterminada para cada evento de envío.
 * En el caso de las ofertas que admiten planes, se incluye la página **Información general del plan** para cada evento de envío.

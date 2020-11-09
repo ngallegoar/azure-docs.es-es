@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 5e2f5e067f0a1d5c13179b3d6175b3aebf6a43fd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548443"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128886"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Supervisión de Azure IoT Hub
 
@@ -23,7 +23,9 @@ En la página **Información general** de Azure Portal de cada centro de IoT se 
 
 :::image type="content" source="media/monitor-iot-hub/overview-portal.png" alt-text="Gráficos de métricas predeterminados en la página Información general del centro de IoT.":::
 
-Esta información es útil, pero solo representa una pequeña cantidad de los datos de supervisión disponibles para un centro de IoT. Algunos datos de supervisión se recopilan de forma automática y están disponibles para su análisis en cuanto se crea el centro de IoT. Puede habilitar tipos adicionales de recopilación de datos con cierta configuración adicional.
+Tenga en cuenta que el valor de recuento de mensajes se puede retrasar 1 minuto y que, por motivos relacionados con la infraestructura del servicio IoT Hub, a veces puede rebotar entre los valores superior e inferior al actualizar. Este contador solo debería ser incorrecto en el caso de los valores acumulados durante el último minuto.
+
+La información que se muestra en el panel Información general es útil, pero solo representa una pequeña cantidad de los datos de supervisión disponibles sobre un centro de IoT. Algunos datos de supervisión se recopilan de forma automática y están disponibles para su análisis en cuanto se crea el centro de IoT. Puede habilitar tipos adicionales de recopilación de datos con cierta configuración adicional.
 
 ## <a name="what-is-azure-monitor"></a>¿Qué es Azure Monitor?
 
@@ -52,13 +54,16 @@ Vea [Referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-refer
 
 Las métricas de la plataforma y el registro de actividad se recopilan y almacenan de forma automática, pero se pueden enrutar a otras ubicaciones mediante una configuración de diagnóstico.
 
-Los registros de recursos no se recopilan ni almacenan hasta que se crea una configuración de diagnóstico y se enrutan a una o varias ubicaciones.
+Los registros de recursos no se recopilan ni almacenan hasta que se crea una configuración de diagnóstico y se enrutan a una o más ubicaciones.
 
-Las métricas y los registros se pueden enrutar a un área de trabajo de Log Analytics, donde se pueden analizar mediante registros de Azure Monitor; a Azure Storage para el archivado el análisis sin conexión; o bien a un punto de conexión de Event Hubs donde pueden ser leídos por aplicaciones externas, por ejemplo, herramientas de SIEM de terceros.
+Las métricas y los registros se pueden enrutar a varias ubicaciones, que incluyen:
+- El almacén de registros de Azure Monitor a través de un área de trabajo de Log Analytics asociada. Allí se pueden analizar mediante Log Analytics.
+- Azure Storage para el archivado y el análisis sin conexión. 
+- Un punto de conexión de Event Hubs, donde pueden ser leídos por aplicaciones externas, por ejemplo, herramientas de SIEM de terceros.
 
 En Azure Portal, puede seleccionar **Configuración de diagnóstico** en **Supervisión** en el panel izquierdo del centro de IoT y después **Agregar configuración de diagnóstico** para crear la configuración de diagnóstico en el ámbito de los registros y las métricas de plataforma que emite el centro de IoT.
 
-En la captura de pantalla siguiente se muestra una configuración de diagnóstico para enrutar las operaciones de conexión en los registros de recursos y todas las métricas de la plataforma a un área de trabajo de Log Analytics.
+En la captura de pantalla siguiente se muestra una configuración de diagnóstico para enrutar el tipo de registro de recursos *Operaciones de conexión* y todas las métricas de plataforma a un área de trabajo de Log Analytics.
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Panel Configuración de diagnóstico para un centro de IoT.":::
 
@@ -82,11 +87,11 @@ Para obtener una lista de las métricas de plataforma recopiladas para Azure IoT
 
 Para las métricas de plataforma de IoT Hub que se recopilan en unidades de recuento, es posible que algunas agregaciones no estén disponibles o se puedan usar. Para obtener más información, vea [Agregaciones admitidas en la referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md#supported-aggregations).
 
-Algunas métricas de IoT Hub, como las [métricas de enrutamiento](monitor-iot-hub-reference.md#routing-metrics), son multidimensionales. Para estas métricas, puede aplicar [filtros](/azure-monitor/platform/metrics-charts#apply-filters-to-charts) y [divisiones](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) en los gráficos en función de una dimensión.
+Algunas métricas de IoT Hub, como las [métricas de enrutamiento](monitor-iot-hub-reference.md#routing-metrics), son multidimensionales. Para estas métricas, puede aplicar [filtros](/azure/azure-monitor/platform/metrics-charts#apply-filters-to-charts) y [divisiones](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) en los gráficos en función de una dimensión.
 
 ## <a name="analyzing-logs"></a>Análisis de datos
 
-Los datos de los registros de Azure Monitor se almacenan en tablas, cada una con un conjunto propio de propiedades únicas. Para obtener más información sobre los registros de Azure Monitor, vea [Información general sobre los registros Azure Monitor](/azure/azure-monitor/platform/data-platform-logs) en la documentación de Azure Monitor. 
+Los datos de los registros de Azure Monitor se almacenan en tablas, cada una con un conjunto propio de propiedades únicas. Los datos de estas tablas están asociados a un área de trabajo de Log Analytics y se pueden consultar en Log Analytics. Para obtener más información sobre los registros de Azure Monitor, vea [Información general sobre los registros Azure Monitor](/azure/azure-monitor/platform/data-platform-logs) en la documentación de Azure Monitor. 
 
 Para enrutar los datos a registros de Azure Monitor, debe crear una configuración de diagnóstico para enviar los registros de recursos o las métricas de plataforma a un área de trabajo de Log Analytics. Para obtener más información, vea [Recopilación y enrutamiento](#collection-and-routing).
 

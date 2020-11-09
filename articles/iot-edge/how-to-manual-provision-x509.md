@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: b1aa12bd73772b5d6332a36d749ec4d7d10d4026
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: abb3aa9ca7c9697fef1cf456964154249f0d69f3
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048192"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913983"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-x509-certificate-authentication"></a>Configuración de un dispositivo Azure IoT Edge con autenticación de certificados X.509
 
@@ -26,11 +26,11 @@ Los pasos descritos en este artículo lo guiarán a través de un proceso llamad
 
 Para el aprovisionamiento manual, tiene dos opciones para autenticar dispositivos IoT Edge:
 
-* **Clave simétrica**: cuando se crea una identidad de dispositivo nueva en IoT Hub, el servicio crea dos claves. Debe colocar una de las claves en el dispositivo y este presenta la clave a IoT Hub al autenticarse.
+* **Clave simétrica** : cuando se crea una identidad de dispositivo nueva en IoT Hub, el servicio crea dos claves. Debe colocar una de las claves en el dispositivo y este presenta la clave a IoT Hub al autenticarse.
 
   Este método de autenticación es más rápido para comenzar, pero no es tan seguro.
 
-* **X.509 autofirmado**: cree dos certificados de identidad X.509 y colóquelos en el dispositivo. Cuando se crea una identidad de dispositivo nueva en IoT Hub, se proporcionan huellas digitales desde ambos certificados. Cuando el dispositivo se autentica en IoT Hub, presenta sus certificados e IoT Hub puede comprobar que coinciden con las huellas digitales.
+* **X.509 autofirmado** : cree dos certificados de identidad X.509 y colóquelos en el dispositivo. Cuando se crea una identidad de dispositivo nueva en IoT Hub, se proporcionan huellas digitales desde ambos certificados. Cuando el dispositivo se autentica en IoT Hub, presenta sus certificados e IoT Hub puede comprobar que coinciden con las huellas digitales.
 
   Este método de autenticación es más seguro y se recomienda para escenarios de producción.
 
@@ -44,9 +44,24 @@ El aprovisionamiento manual con certificados X.509 requiere IoT Edge, versión 1
 
 ## <a name="create-certificates-and-thumbprints"></a>Creación de certificados y huellas digitales
 
+El certificado de identidad del dispositivo es un certificado de hoja que se conecta a través de una cadena de certificados de confianza con el certificado de la entidad de certificación X.509 (CA) superior. El nombre común (CN) del certificado de identidad del dispositivo debe estar establecido en el id. de dispositivo que quiere que tenga el dispositivo en el centro de IoT.
 
+Los certificados de identidad del dispositivo solo se usan para aprovisionar al dispositivo IoT Edge y autenticarlo con Azure IoT Hub. No son certificados de firma, a diferencia de los certificados de CA que el dispositivo IoT Edge presenta a los módulos o los dispositivos hoja para la comprobación. Para obtener más información, consulte los [detalles de uso de los certificados de Azure IoT Edge](iot-edge-certs.md).
 
-<!-- TODO -->
+Después de crear el certificado de identidad del dispositivo, debe tener dos archivos: un archivo. cer o. pem que contiene la parte pública del certificado y un archivo. cer o. pem con la clave privada del certificado.
+
+Necesita los siguientes archivos para el aprovisionamiento manual con X.509:
+
+* Dos conjuntos de certificados de identidad del dispositivo y certificados de clave privada. Se proporciona un conjunto de archivos de certificado y clave al entorno de ejecución de IoT Edge.
+* Huellas digitales tomadas de ambos certificados de identidad del dispositivo. Los valores de huella digital son 40 caracteres hexadecimales para hashes de tipo SHA-1 o 64 caracteres hexadecimales para hashes de tipo SHA-256. Ambas huellas digitales se proporcionan a IoT Hub en el momento del registro del dispositivo.
+
+Si no tiene certificados disponibles, puede proceder a la [Creación de certificados de demostración para probar las características de dispositivo IoT Edge](how-to-create-test-certificates.md). Siga las instrucciones de ese artículo para configurar scripts de creación de certificados, crear un certificado de CA raíz y luego crear dos certificados de identidad del dispositivo IoT Edge.
+
+Una manera de recuperar la huella digital de un certificado es con el siguiente comando openssl:
+
+```cmd
+openssl x509 -in <certificate filename>.pem -text -fingerprint
+```
 
 ## <a name="register-a-new-device"></a>Registro de un dispositivo nuevo
 
@@ -54,7 +69,7 @@ Todos los dispositivos que se conectan a un centro de IoT tienen un id. de dispo
 
 En el caso de la autenticación mediante certificados X.509, esta información se proporciona en forma de *huellas digitales* tomadas de los certificados de identidad del dispositivo. Estas huellas digitales se proporcionan a IoT Hub en el momento de registrar el dispositivo para que el servicio pueda reconocer el dispositivo al conectarse.
 
-Puede usar varias herramientas para registrar un dispositivo IoT Edge nuevo en IoT Hub y cargar sus huellas digitales de certificado. 
+Puede usar varias herramientas para registrar un dispositivo IoT Edge nuevo en IoT Hub y cargar sus huellas digitales de certificado.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -72,7 +87,7 @@ En IoT Hub de Azure Portal, los dispositivos IoT Edge se crean y administran por
 
    ![Agrear un dispositivo IoT Edge desde Azure Portal](./media/how-to-manual-provision-symmetric-key/portal-add-iot-edge-device.png)
 
-1. En la página **Crear un dispositivo**, proporcione la información siguiente:
+1. En la página **Crear un dispositivo** , proporcione la información siguiente:
 
    * Cree un id. de dispositivo descriptivo. Anote este id. de dispositivo porque lo usará en la sección siguiente.
    * Seleccione **X.509 autofirmado** como el tipo de autenticación.
@@ -160,10 +175,10 @@ Para proporcionar esta información en un dispositivo Linux, edite un archivo co
 
 1. Actualice los campos siguientes:
 
-   * **iothub_hostname**: nombre de host del centro de IoT al que se conectará el dispositivo. Por ejemplo, `{IoT hub name}.azure-devices.net`.
-   * **device_id**: el id. que proporcionó al registrar el dispositivo.
-   * **identity_cert**: URI a un certificado de identidad en el dispositivo. Por ejemplo, `file:///path/identity_certificate.pem`.
-   * **identity_pk**: URI al archivo de clave privada para el certificado de identidad proporcionado. Por ejemplo, `file:///path/identity_key.pem`.
+   * **iothub_hostname** : nombre de host del centro de IoT al que se conectará el dispositivo. Por ejemplo, `{IoT hub name}.azure-devices.net`.
+   * **device_id** : el id. que proporcionó al registrar el dispositivo.
+   * **identity_cert** : URI a un certificado de identidad en el dispositivo. Por ejemplo, `file:///path/identity_certificate.pem`.
+   * **identity_pk** : URI al archivo de clave privada para el certificado de identidad proporcionado. Por ejemplo, `file:///path/identity_key.pem`.
 
 1. Guarde y cierre el archivo.
 
@@ -202,10 +217,10 @@ Para proporcionar esta información en un dispositivo Linux, edite un archivo co
 
 3. Cuando se le solicite, proporcione la siguiente información:
 
-   * **IotHubHostName**: nombre de host del centro de IoT al que se conectará el dispositivo. Por ejemplo, `{IoT hub name}.azure-devices.net`.
-   * **DeviceId**: el id. que proporcionó al registrar el dispositivo.
-   * **X509IdentityCertificate**: ruta de acceso absoluta a un certificado de identidad en el dispositivo. Por ejemplo, `C:\path\identity_certificate.pem`.
-   * **X509IdentityPrivateKey**: ruta de acceso absoluta al archivo de clave privada para el certificado de identidad proporcionado. Por ejemplo, `C:\path\identity_key.pem`.
+   * **IotHubHostName** : nombre de host del centro de IoT al que se conectará el dispositivo. Por ejemplo, `{IoT hub name}.azure-devices.net`.
+   * **DeviceId** : el id. que proporcionó al registrar el dispositivo.
+   * **X509IdentityCertificate** : ruta de acceso absoluta a un certificado de identidad en el dispositivo. Por ejemplo, `C:\path\identity_certificate.pem`.
+   * **X509IdentityPrivateKey** : ruta de acceso absoluta al archivo de clave privada para el certificado de identidad proporcionado. Por ejemplo, `C:\path\identity_key.pem`.
 
 Al aprovisionar un dispositivo manualmente, puede usar parámetros adicionales para modificar el proceso, incluyendo:
 

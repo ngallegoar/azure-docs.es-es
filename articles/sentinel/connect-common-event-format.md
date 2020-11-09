@@ -1,6 +1,6 @@
 ---
 title: Conexión de datos CEF a la versión preliminar de Azure Sentinel | Microsoft Docs
-description: Conecte una solución externa que envía mensajes de formato de evento común (CEF) a Azure Sentinel mediante el uso de una máquina Linux como proxy.
+description: Conecte una solución externa que envía mensajes de formato de evento común (CEF) a Azure Sentinel mediante una máquina Linux como reenviador de registros.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747907"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347614"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conexión de su solución externa con Common Event Format
 
@@ -50,40 +50,49 @@ Para usar la comunicación TLS entre el origen y el reenviador de Syslog, debe c
  
 ## <a name="prerequisites"></a>Requisitos previos
 
-Asegúrese de que la máquina Linux que usa como proxy ejecute uno de los siguientes sistemas operativos:
+Asegúrese de que la máquina Linux que usa como reenviador de registros ejecuta alguno de los siguientes sistemas operativos:
 
 - 64 bits
-  - CentOS 7 y subversiones, y versiones posteriores (no la 6)
+  - CentOS 7 y 8, incluidas las subversiones (no la 6)
   - Amazon Linux 2017.09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 y subversiones, y versiones posteriores (no la 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 y 8, incluidas las subversiones (no la 6)
   - Debian GNU/Linux 8 y 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS y 18.04 LTS
-  - SUSE Linux Enterprise Server 12
+  - SUSE Linux Enterprise Server 12, 15
+
 - 32 bits
-   - CentOS 7
-   - Oracle Linux 7
-   - Red Hat Enterprise Linux Server 7
-   - Debian GNU/Linux 8 y 9
-   - Ubuntu Linux 14.04 LTS y 16.04 LTS
+  - CentOS 7 y 8, incluidas las subversiones (no la 6)
+  - Oracle Linux 7
+  - Red Hat Enterprise Linux (RHEL) Server 7 y 8, incluidas las subversiones (no la 6)
+  - Debian GNU/Linux 8 y 9
+  - Ubuntu Linux 14.04 LTS y 16.04 LTS
  
- - Versiones de demonio
-   - Syslog-ng: 2.1 - 3.22.1
-   - Rsyslog: v8
+- Versiones de demonio
+  - Syslog-ng: 2.1 - 3.22.1
+  - Rsyslog: v8
   
- - RFC de Syslog compatibles
-   - Syslog RFC 3164
-   - RFC de Syslog 5424
+- RFC de Syslog compatibles
+  - Syslog RFC 3164
+  - RFC de Syslog 5424
  
 Asegúrese de que la máquina cumpla también con los requisitos siguientes: 
+
 - Permisos
-    - Debe tener permisos elevados (sudo) en la máquina. 
+  - Debe tener permisos elevados (sudo) en la máquina. 
+
 - Requisitos de software
-    - Asegúrese de que Python 2.7 se esté ejecutando en el equipo.
+  - Asegúrese de que Python 2.7 se esté ejecutando en el equipo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido a conectar dispositivos CEF a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento ha aprendido cómo recopila Azure Sentinel los registros de CEF de los dispositivos y las soluciones de seguridad. Para obtener información sobre cómo conectar la solución a Azure Sentinel, vea los siguientes artículos:
+
+- PASO 1: [Conexión de CEF mediante la implementación de un reenviador de Syslog/CEF](connect-cef-agent.md)
+- PASO 2: [Ejecución de pasos específicos de la solución](connect-cef-solution-config.md)
+- PASO 3: [Comprobar la conectividad](connect-cef-verify.md)
+
+Para obtener más información sobre qué hacer con los datos recopilados en Azure Sentinel, vea los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
 

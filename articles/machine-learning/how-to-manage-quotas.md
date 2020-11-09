@@ -1,7 +1,7 @@
 ---
 title: Administración de recursos y cuotas
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre las cuotas de los recursos de Azure Machine Learning y cómo solicitar más cuota.
+description: Obtenga información sobre las cuotas de los recursos de Azure Machine Learning y cómo solicitar aumentos de cuota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,34 +11,35 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 4b072257d49011819fe19d6e2901560df43b26dc
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275548"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309077"
 ---
-# <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
+# <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 
-Azure utiliza límites y cuotas para evitar salirse del presupuesto debido a fraudes y para respetar las restricciones de capacidad de Azure. Tenga en cuenta estos límites a medida que escala para cargas de trabajo de producción. En este artículo, aprenderá lo siguiente:
+Azure usa límites y cuotas para evitar rebasamientos presupuestarios por fraudes y para respetar las restricciones de capacidad de Azure. Tenga en cuenta estos límites a medida que escala para cargas de trabajo de producción. En este artículo, aprenderá lo siguiente:
 
 > [!div class="checklist"]
 > + Límites predeterminados de los recursos de Azure relacionados con [Azure Machine Learning](overview-what-is-azure-ml.md).
-> + Consulte sus cuotas y límites.
-> + Cree cuotas de nivel de área de trabajo.
-> + Solicite aumentos de cuota.
+> + Creación de cuotas de nivel de área de trabajo.
+> + Visualización de las cuotas y los límites.
+> + Solicitud de aumentos de cuota.
 > + Puntos de conexión privados y cuotas de DNS.
 
-Además de administrar cuotas, también puede aprender a [planear y administrar los costos de Azure Machine Learning](concept-plan-manage-cost.md).
+Además de administrar cuotas, puede obtener información sobre el [Planeamiento y administración de los costos de Azure Machine Learning](concept-plan-manage-cost.md).
 
 ## <a name="special-considerations"></a>Consideraciones especiales
 
 + Una cuota es un límite de crédito, no una garantía de capacidad. Si tiene necesidades de capacidad a gran escala, [póngase en contacto con el soporte técnico de Azure para incrementar la cuota](#request-quota-increases).
 
-+ La cuota se comparte en todos los servicios de las suscripciones, incluso en Azure Machine Learning. Calcule el uso en todos los servicios al evaluar la capacidad.
-    + El Proceso de Azure Machine Learning es una excepción, ya que tiene una cuota independiente de la cuota de procesos principales. 
++ Una cuota se comparte entre todos los servicios de las suscripciones, incluido Azure Machine Learning. Calcule el uso en todos los servicios al evaluar la capacidad.
+ 
+  El proceso de Azure Machine Learning es una excepción. Tiene una cuota independiente de la cuota de proceso base. 
 
-+ Los límites predeterminados varían según el tipo de categoría de la oferta, por ejemplo, evaluación gratuita, pago por uso y series de máquina virtual (VM), como Dv2, F, G, etc.
++ Los límites predeterminados varían según el tipo de categoría de la oferta, por ejemplo, evaluación gratuita, pago por uso, y la serie de la máquina virtual (VM), como Dv2, F y G.
 
 ## <a name="default-resource-quotas"></a>Cuotas de recursos predeterminadas
 
@@ -47,47 +48,47 @@ En esta sección, obtendrá información acerca de los límites de cuota predete
 + Máquinas virtuales
 + Proceso de Azure Machine Learning
 + Canalizaciones de Azure Machine Learning
-+ Container Instances
-+ Storage
++ Azure Container Instances
++ Azure Storage
 
 > [!IMPORTANT]
-> Los límites están sujetos a cambios. El más reciente siempre se puede encontrar en el [documento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) de la cuota de nivel de servicio para todo Azure.
+> Los límites están sujetos a cambios. Para obtener la información más reciente, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) de todo Azure.
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
-Cada suscripción de Azure tiene un límite en el número de máquinas virtuales que pueden tenerse entre todos los servicios. Los núcleos de las máquinas virtuales tienen un límite regional total y un límite de serie por tamaño (Dv2, F, etc.). Ambos límites se aplican por separado.
+Cada suscripción de Azure tiene un límite en el número de máquinas virtuales que pueden tenerse entre todos los servicios. Los núcleos de las máquinas virtuales tienen un límite regional total y un límite regional por serie de tamaño. Ambos límites se aplican por separado.
 
 Por ejemplo, considere una suscripción con un límite total de núcleos de máquinas virtuales de Este de EE. UU. de 30, un límite de núcleos de serie A de 30 y un límite de núcleos de serie D de 30. Esta suscripción podría volver a implementar 30 máquinas virtuales A1, 30 máquinas virtuales D1 o una combinación de las dos que no superen los 30 núcleos.
 
-Los límites de las máquinas virtuales no pueden generarse por encima del valor que se muestra en la siguiente tabla.
+No se pueden aumentar los límites de las máquinas virtuales por encima de los valores que se muestran en la siguiente tabla.
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### <a name="azure-machine-learning-compute"></a>Proceso de Azure Machine Learning
-El [proceso de Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) tiene un límite de cuota predeterminado tanto sobre el número de núcleos como el número de recursos de proceso único permitido por región en una suscripción. Esta cuota es independiente de la cuota de núcleos de máquinas virtuales de la sección anterior.
+El [proceso de Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) tiene un límite de cuota predeterminado sobre el número de núcleos y sobre el número de recursos de proceso únicos permitidos por región en una suscripción. Esta cuota es independiente de la cuota de núcleos de máquinas virtuales de la sección anterior.
 
-[Solicite un aumento de la cuota](#request-quota-increases) para aumentar los límites de esta sección hasta el **límite máximo** que se muestra en la tabla.
+[Solicite un aumento de cuota](#request-quota-increases) para aumentar los límites de esta sección hasta el límite máximo que se muestra en la tabla.
 
 Recursos disponibles:
-+ Los **núcleos dedicados por región** tienen un límite predeterminado de 24 a 300 según el tipo de oferta de la suscripción.  El número de núcleos dedicados por suscripción se puede aumentar para cada familia de máquinas virtuales. Las familias de máquinas virtuales especializadas, como las series NCv2, NCv3 o ND, comienzan con un valor predeterminado de cero núcleos.
++ Los **núcleos dedicados por región** tienen un límite predeterminado de 24 a 300, según el tipo de oferta de la suscripción. Es posible aumentar el número de núcleos dedicados por suscripción de cada familia de máquinas virtuales. Las familias de máquinas virtuales especializadas, como las series NCv2, NCv3 o ND, comienzan con un valor predeterminado de cero núcleos.
 
-+ Los **núcleos de baja prioridad por región** tienen un límite predeterminado de 100 a 3000, según el tipo de oferta de la suscripción. El número de núcleos de baja prioridad por suscripción se puede aumentar y es un valor único en todas las familias de máquinas virtuales.
++ Los **núcleos de baja prioridad por región** tienen un límite predeterminado de 100 a 3000, según el tipo de oferta de la suscripción. El número de núcleos de baja prioridad por suscripción se puede aumentar y es un valor único en todas las familias de máquinas virtuales.
 
-+ Los **clústeres por región** tienen un límite predeterminado de 200. Se comparten entre un clúster de entrenamiento y una instancia de proceso (que se considera un clúster de un solo nodo con fines de cuota).
++ Los **clústeres por región** tienen un límite predeterminado de 200. Se comparten entre un clúster de entrenamiento y una instancia de proceso. (Una instancia de proceso se considera un clúster de un solo nodo para los fines de la cuota).
 
 En la siguiente tabla se muestran los límites adicionales que no pueden superarse.
 
 | **Recurso** | **Límite máximo** |
 | --- | --- |
 | Número de áreas de trabajo por grupo de recursos | 800 |
-| Número de nodos en un solo recurso de Proceso de Azure Machine Learning (AmlCompute) | 100 nodos |
+| Nodos de un solo recurso de proceso de Azure Machine Learning (AmlCompute) | 100 nodos |
 | Número de procesos MPI de GPU por nodo | 1-4 |
 | Número de trabajos de GPU por nodo | 1-4 |
 | Vigencia del trabajo | 21 días<sup>1</sup> |
-| Duración de un trabajo en un nodo de prioridad baja | 7 días<sup>2</sup> |
+| Vigencia del trabajo en un nodo de prioridad baja | 7 días<sup>2</sup> |
 | Número de servidores de parámetro por nodo | 1 |
 
-<sup>1</sup> La duración máxima se refiere a la duración entre el inicio y la finalización de una ejecución. Las ejecuciones completadas se mantienen de forma indefinida. Los datos de las ejecuciones no completadas dentro de la duración máxima no son accesibles.
-<sup>2</sup> Los trabajos en un nodo de prioridad baja pueden anularse en el momento que exista una restricción de capacidad. Le recomendamos que implemente los puntos de comprobación en el trabajo.
+<sup>1</sup> La vigencia máxima es la duración entre el inicio y la finalización de una ejecución. Las ejecuciones completadas se mantienen de forma indefinida. Los datos de las ejecuciones no completadas dentro de la duración máxima no son accesibles.
+<sup>2</sup> Los trabajos en un nodo de prioridad baja pueden adelantarse siempre que haya una restricción de capacidad. Se recomienda implementar puntos de comprobación en el trabajo.
 
 ### <a name="azure-machine-learning-pipelines"></a>Canalizaciones de Azure Machine Learning
 Las [canalizaciones de Azure Machine Learning](concept-ml-pipelines.md) tienen los siguientes límites.
@@ -97,94 +98,94 @@ Las [canalizaciones de Azure Machine Learning](concept-ml-pipelines.md) tienen l
 | Pasos en una canalización | 30,000 |
 | Número de áreas de trabajo por grupo de recursos | 800 |
 
-### <a name="container-instances"></a>Instancias de contenedor
+### <a name="container-instances"></a>Azure Container Instances
 
-Para más información, consulte [Límites de Container Instances](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+Para más información, consulte [Límites de Container Instances](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
 ### <a name="storage"></a>Storage
-Las cuentas de almacenamiento de Azure tienen un límite de 250 cuentas de almacenamiento por región y suscripción. Esto incluye las cuentas de almacenamiento Estándar y Premium.
+Azure Storage tiene un límite de 250 cuentas de almacenamiento por región y suscripción. Este límite incluye las cuentas de almacenamiento Estándar y Premium.
 
-En el caso de que quisiera aumentar el límite, envíe una solicitud a través del [Soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). El equipo de Azure Storage revisará su caso y podría aprobar hasta 250 cuentas de almacenamiento por región.
+En el caso de que quisiera aumentar el límite, envíe una solicitud a través del [Soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). El equipo de Azure Storage revisa el caso y puede aprobar hasta 250 cuentas de almacenamiento para una región.
 
 
-## <a name="workspace-level-quota"></a>Cuota de nivel de área de trabajo
+## <a name="workspace-level-quotas"></a>Cuotas de nivel de área de trabajo
 
-Utilice las cuotas de nivel de área de trabajo para administrar la asignación de destino de proceso de Azure Machine Learning entre varias [áreas de trabajo](concept-workspace.md) en la misma suscripción.
+Use las cuotas de nivel de área de trabajo para administrar la asignación de destino de proceso de Azure Machine Learning entre varias [áreas de trabajo](concept-workspace.md) de la misma suscripción.
 
-De manera predeterminada, todas las áreas de trabajo tienen la misma cuota que la cuota de nivel de suscripción de familias de máquinas virtuales. Sin embargo, puede establecer una cuota máxima para familias de máquinas virtuales individuales en áreas de trabajo de una suscripción. Esto le permite compartir la capacidad y evitar problemas de contención de recursos:
+De manera predeterminada, todas las áreas de trabajo comparten la misma cuota que la cuota de nivel de suscripción de las familias de máquinas virtuales. Sin embargo, puede establecer una cuota máxima para familias de máquinas virtuales individuales en áreas de trabajo de una suscripción. Esto permite compartir capacidad y evitar problemas de contención de recursos.
 
 1. Vaya a cualquier área de trabajo de la suscripción.
-1. En el panel izquierdo, seleccione **Uso y cuotas** .
+1. En el panel izquierdo, seleccione **Uso y cuotas**.
 1. Seleccione la pestaña **Configurar cuotas** para ver las cuotas.
 1. Expanda una familia de máquinas virtuales.
 1. Establezca un límite de cuota en cualquier área de trabajo que aparezca en esa familia de máquinas virtuales.
 
-No puede establecer un valor negativo o un valor mayor que la cuota de nivel de suscripción.
+No se puede establecer un valor negativo ni un valor superior a la cuota de nivel de suscripción.
 
-[![Cuota de nivel de área de trabajo de Azure Machine Learning](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)
+[![Captura de pantalla que muestra una cuota de nivel de área de trabajo de Azure Machine Learning.](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)
 
 > [!NOTE]
-> Necesita permisos de nivel de suscripción para establecer la cuota en el nivel de área de trabajo.
+> Se necesitan permisos de nivel de suscripción para establecer una cuota en el nivel de área de trabajo.
 
 ## <a name="view-your-usage-and-quotas"></a>Visualización del uso y las cuotas
 
-Para ver la cuota de varios recursos de Azure Portal, como las máquinas virtuales, el almacenamiento y la red, utiliza Azure Portal:
+Para ver la cuota de diversos recursos de Azure, como máquinas virtuales, almacenamiento o red, use Azure Portal:
 
-1. En el panel izquierdo, seleccione **Todos los servicios** y, después, seleccione **Suscripciones** en la categoría General.
+1. En el panel izquierdo seleccione **Todos los servicios** y luego **Suscripciones** en la categoría **General**.
 
-2. En la lista de suscripciones, seleccione la suscripción cuya cuota busca.
+2. En la lista de suscripciones seleccione la suscripción cuya cuota busca.
 
 3. Seleccione **Uso y cuotas** para ver los límites y el uso actuales de la cuota. Use los filtros para seleccionar el proveedor y las ubicaciones. 
 
-La cuota de Proceso de Azure Machine Learning de la suscripción se administra de forma independiente de otras cuotas de Azure. 
+La cuota de proceso de Azure Machine Learning de la suscripción se administra de forma independiente de otras cuotas de Azure: 
 
-1. En **Azure Portal** , vaya al área de trabajo de Azure Machine Learning.
+1. Vaya al área de trabajo de **Azure Machine Learning** en Azure Portal.
 
-2. En el panel izquierdo, en la **sección Soporte técnico y solución de problemas** , seleccione **Uso y cuotas** para ver el uso y los límites de cuota actuales.
+2. En el panel izquierdo, en la sección **Soporte técnico y solución de problemas** , seleccione **Uso y cuotas** para ver el uso y los límites de cuota actuales.
 
-3. Seleccione una suscripción para ver los límites de cuota. No olvide filtrar por la región en que esté interesado.
+3. Seleccione una suscripción para ver los límites de cuota. Filtre por la región que le interesa.
 
-4. Puede alternar entre una vista de nivel de suscripción y una vista de nivel de área de trabajo.
+4. Puede alternar entre una vista de nivel de suscripción y una de nivel de área de trabajo.
 
 ## <a name="request-quota-increases"></a>Solicitud de aumento de cuota
 
 Para aumentar el límite o la cuota por encima del límite predeterminado, [abra una solicitud de soporte técnico al cliente en línea sin cargo alguno](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/).
 
-Los límites no se pueden subir por encima del valor del límite máximo que se muestra en las siguientes tablas. Si no hay ningún límite máximo, no puede ajustar el límite del recurso.
+No se pueden aumentar los límites por encima de los valores máximos mostrados en las tablas anteriores. Si no hay ningún límite máximo, no se puede ajustar el límite del recurso.
 
-Al solicitar un aumento de cuota, seleccione el servicio al que solicita elevar la cuota. Por ejemplo, Azure Machine Learning, Container Instances, Storage, etc. En el caso de Proceso de Azure Machine Learning, puede hacer clic en el botón **Solicitar cuota** al visualizar la cuota según los pasos anteriores.
+Cuando solicite un aumento de cuota, seleccione el servicio que tiene en mente. Por ejemplo, seleccione Azure Machine Learning, Container Instances o Storage. En el caso del proceso de Azure Machine Learning, puede seleccionar el botón **Solicitar cuota** mientras ve la cuota en los pasos anteriores.
 
 > [!NOTE]
-> Las [suscripciones de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) no son aptas para aumentar el límite ni la cuota. Si tiene una [suscripción de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), puede actualizar a una suscripción de [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para obtener más información, consulte [Actualización de evaluación gratuita de Azure a pago por uso](../billing/billing-upgrade-azure-subscription.md) y [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq) (Preguntas más frecuentes de la suscripción de evaluación gratuita).
+> Las [suscripciones de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) no son aptas para aumentos de límite ni cuota. Si tiene una suscripción de evaluación gratuita, puede actualizar a una suscripción de [pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para obtener más información, vea [Actualización de evaluación gratuita de Azure a pago por uso](../cost-management-billing/manage/upgrade-azure-subscription.md) y [Preguntas más frecuentes sobre la cuenta gratuita de Azure](https://azure.microsoft.com/free/free-account-faq).
 
 ## <a name="private-endpoint-and-private-dns-quota-increases"></a>El punto de conexión privado y la cuota de DNS privada aumentan
 
-Existen limitaciones en cuanto al número de puntos de conexión privados y zonas DNS privadas que pueden crearse en una suscripción.
+Existen límites en cuanto al número de puntos de conexión privados y zonas DNS privadas que pueden crearse en una suscripción.
 
-Aunque Azure Machine Learning crea recursos en su suscripción (cliente), existen algunas situaciones en las que se crean recursos en una suscripción propiedad de Microsoft.
+Azure Machine Learning crea recursos en la suscripción (cliente), pero algunos escenarios crean recursos en una suscripción propiedad de Microsoft.
 
- En los siguientes casos, puede que necesite solicitar una asignación de cuota en la suscripción propiedad de Microsoft:
+ En los siguientes escenarios puede que tenga que solicitar una asignación de cuota en la suscripción propiedad de Microsoft:
 
-* __Área de trabajo habilitada para Private Link con una clave administrada por el cliente (CMK)__
-* __Azure Container Registry para el área de trabajo detrás de la red virtual__
-* __Adjunte un clúster de Azure Kubernetes Service habilitado por un vínculo privado en el área de trabajo__ .
+* Área de trabajo habilitada para Azure Private Link con una clave administrada por el cliente (CMK)
+* Azure Container Registry para el área de trabajo detrás de la red virtual
+* Adjunte un clúster de Azure Kubernetes Service habilitado por Private Link en el área de trabajo.
 
 Para solicitar una asignación para dichos casos, siga estos pasos:
 
-1. [Cree una solicitud de soporte técnico de Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) y seleccione las siguientes opciones en la sección __Básicos__ :
+1. [Cree una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) y seleccione las siguientes opciones en la sección __Conceptos básicos__ :
 
     | Campo | Selección |
     | ----- | ----- |
-    | Tipo de problema | Técnicos |
-    | Servicio | Mis servicios. Seleccione __Machine Learning__ en la lista desplegable. |
-    | Tipo de problema | Seguridad y configuración del área de trabajo |
-    | Subtipo de problema | Solicitud de concesión de punto de conexión privado y de zona DNS privada |
+    | Tipo de problema | **Técnico** |
+    | Servicio | **Mis servicios**. Luego seleccione __Machine Learning__ en la lista desplegable. |
+    | Tipo de problema | **Seguridad y configuración del área de trabajo** |
+    | Subtipo de problema | **Solicitud de concesión de punto de conexión privado y de zona DNS privada** |
 
-2. En la sección __Detalles__ y utilice el campo __Descripción__ para proporcionar la región de Azure que quiere utilizar y el escenario que planea utilizar. Si necesita solicitar aumentos de cuota para varias suscripciones, enumere también los id. de suscripción de este campo.
+2. En la sección __Detalles__ , use el campo __Descripción__ para proporcionar la región de Azure y el escenario que piensa usar. Si necesita solicitar aumentos de cuota para varias suscripciones, especifique los identificadores de suscripción en este campo.
 
-3. Para crear la solicitud, seleccione __Crear__ .
+3. Para crear la solicitud, seleccione __Crear__.
 
-:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Captura de pantalla de un punto de conexión privado y de la solicitud de aumento de la cuota de DNS privada":::
+:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Captura de pantalla de la solicitud de aumento de cuota de un punto de conexión privado y una DNS privada.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/05/2020
-ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/30/2020
+ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675312"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131367"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Copias de seguridad automatizadas - Azure SQL Database e Instancia administrada de SQL
 
@@ -50,7 +50,7 @@ En el caso de una instancia de SQL Database, la redundancia del almacenamiento d
 > El almacenamiento con redundancia de zona solo está disponible actualmente en [determinadas regiones](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> La redundancia de almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente con carácter general en la región Sudeste de Asia de Azure. Esta característica aún no está disponible para el nivel Hiperescala. 
+> La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible de momento en versión preliminar pública en la región Sur de Brasil y con carácter general en la región Sudeste de Asia de Azure. Esta característica aún no está disponible para el nivel Hiperescala. 
 
 ### <a name="backup-usage"></a>Uso de copia de seguridad
 
@@ -190,7 +190,7 @@ Para más información sobre los precios de almacenamiento de copia de seguridad
 
 ### <a name="monitor-costs"></a>Supervisión de costos
 
-Para comprender los costos de almacenamiento de copia de seguridad, vaya a **Administración de costos + facturación** en Azure Portal, seleccione **Administración de costos** y, después, seleccione **Análisis de costos** . Seleccione la suscripción deseada como **ámbito** y, a continuación, filtre por el período de tiempo y el servicio que le interese.
+Para comprender los costos de almacenamiento de copia de seguridad, vaya a **Administración de costos + facturación** en Azure Portal, seleccione **Administración de costos** y, después, seleccione **Análisis de costos**. Seleccione la suscripción deseada como **ámbito** y, a continuación, filtre por el período de tiempo y el servicio que le interese.
 
 Agregue un filtro para el **nombre de servicio** y, después, seleccione **Base de datos SQL** en la lista desplegable. Use el filtro de **subcategoría del medidor** para elegir el contador de facturación para el servicio. En el caso de una sola base de datos o de un grupo de bases de datos elásticas, seleccione **single/elastic pool PITR backup storage** (almacenamiento de copia de seguridad de recuperación a un momento dado de base de datos única/grupo de bases de datos elásticas). En el caso de una instancia administrada, seleccione **mi PITR backup storage** (almacenamiento de copia de seguridad de recuperación a un momento dado de instancia administrada). Las subcategorías **Almacenamiento** y **Proceso** pueden interesarle también, pero no están asociadas con los costos de almacenamiento de copia de seguridad.
 
@@ -371,7 +371,7 @@ Para más información, consulte [API REST de retención de Backup](/rest/api/sq
 ## <a name="configure-backup-storage-redundancy"></a>Configuración de la redundancia del almacenamiento de copia de seguridad
 
 > [!NOTE]
-> La redundancia de almacenamiento configurable para copias de seguridad de SQL Managed Instance solo se puede especificar durante el proceso de creación de la instancia administrada. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad. En el caso de SQL Database, actualmente la versión preliminar pública de esta característica solo está disponible en la región Sudeste de Asia de Azure. 
+> La redundancia de almacenamiento configurable para copias de seguridad de SQL Managed Instance solo se puede especificar durante el proceso de creación de la instancia administrada. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad. En el caso de SQL Database, la versión preliminar pública de esta característica está disponible de momento en la región Sur de Brasil y con carácter general en la región Sudeste de Asia de Azure. 
 
 La redundancia del almacenamiento de copia de seguridad de una instancia administrada se puede configurar solo durante la creación de la instancia. En el caso de SQL Database se puede establecer al crear la base de datos o se puede actualizar para una base de datos existente. El valor predeterminado es Almacenamiento con redundancia geográfica (RA-GRS). Para conocer las diferencias de precios entre el almacenamiento de copia de seguridad con redundancia local (LRS), con redundancia de zona (ZRS) y con redundancia geográfica (RA-GRS), visite la [página de precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
@@ -379,7 +379,7 @@ La redundancia del almacenamiento de copia de seguridad de una instancia adminis
 
 #### <a name="sql-database"></a>[SQL Database](#tab/single-database)
 
-En Azure Portal, puede configurar la redundancia del almacenamiento de copia de seguridad en la hoja **Crear base de datos SQL** . La opción está disponible en la sección Redundancia del almacenamiento de copias de seguridad. 
+En Azure Portal, puede configurar la redundancia del almacenamiento de copia de seguridad en la hoja **Crear base de datos SQL**. La opción está disponible en la sección Redundancia del almacenamiento de copias de seguridad. 
 ![Abrir la hoja Crear base de datos SQL](./media/automated-backups-overview/sql-database-backup-storage-redundancy.png)
 
 #### <a name="sql-managed-instance"></a>[Instancia administrada de SQL](#tab/managed-instance)
@@ -387,7 +387,7 @@ En Azure Portal, puede configurar la redundancia del almacenamiento de copia de 
 En Azure Portal, la opción para cambiar la redundancia del almacenamiento de copia de seguridad se encuentra en la hoja **Proceso y almacenamiento** , a la que se puede tener acceso desde la opción **Configurar instancia administrada** de la pestaña **Datos básicos** al crear la instancia de SQL Managed Instance.
 ![Abrir hoja de configuración Proceso y almacenamiento](./media/automated-backups-overview/open-configuration-blade-managedinstance.png)
 
-Busque la opción para seleccionar la redundancia del almacenamiento de copia de seguridad en la hoja **Proceso y almacenamiento** .
+Busque la opción para seleccionar la redundancia del almacenamiento de copia de seguridad en la hoja **Proceso y almacenamiento**.
 ![Configuración de la redundancia del almacenamiento de copia de seguridad](./media/automated-backups-overview/select-backup-storage-redundancy-managedinstance.png)
 
 ---

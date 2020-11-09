@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 99c74547d5f48f57af56af69f47190d80d9cd350
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5d74b17bdd9c264a983bfdd2e374001dd4a0e2c0
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074964"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242116"
 ---
 # <a name="azure-app-configuration-faq"></a>Preguntas frecuentes de Azure App Configuration
 
@@ -86,16 +86,16 @@ Ambos niveles de App Configuration ofrecen funcionalidad básica, como opciones 
 
 A continuación se indican algunas consideraciones para elegir un nivel.
 
-- **Recursos por suscripción**: Un recurso se compone de un único almacén de configuración. Cada suscripción está limitada a un almacén de configuración en el nivel Gratis. Las suscripciones pueden tener un número ilimitado de almacenes de configuración en el nivel Estándar.
-- **Almacenamiento por recurso**: En el nivel Gratis, cada almacén de configuración está limitado a 10 MB de almacenamiento. En el nivel Estándar, cada almacén de configuración puede usar hasta 1 GB de almacenamiento.
-- **Historial de claves**: App Configuration almacena un historial de todos los cambios realizados en las claves. En el nivel Gratis, el historial se almacena durante siete días. En el nivel Estándar, el historial se almacena durante 30 días.
-- **Solicitudes por día**: los almacenes del nivel Gratis se limitan a 1 000 solicitudes al día. Una vez que un almacén alcanza 1 000 solicitudes, devolverá el código de estado HTTP 429 para todas las solicitudes hasta medianoche UTC.
+- **Recursos por suscripción** : Un recurso se compone de un único almacén de configuración. Cada suscripción está limitada a un almacén de configuración en el nivel Gratis. Las suscripciones pueden tener un número ilimitado de almacenes de configuración en el nivel Estándar.
+- **Almacenamiento por recurso** : En el nivel Gratis, cada almacén de configuración está limitado a 10 MB de almacenamiento. En el nivel Estándar, cada almacén de configuración puede usar hasta 1 GB de almacenamiento.
+- **Historial de revisiones** : App Configuration almacena un historial de todos los cambios realizados en las claves. En el nivel Gratis, el historial se almacena durante siete días. En el nivel Estándar, el historial se almacena durante 30 días.
+- **Cuota de solicitudes** : los almacenes del nivel Gratis se limitan a 1 000 solicitudes al día. Cuando un almacén alcanza 1000 solicitudes, devuelve el código de estado HTTP 429 para todas las solicitudes hasta medianoche UTC.
 
-    En el caso de los almacenes del nivel Estándar, las primeras 200 000 solicitudes diarias se incluyen en el cargo diario. Las solicitudes adicionales se facturan como uso por encima del límite.
+    Los almacenes de nivel Estándar están limitados a 20 000 solicitudes por hora. Cuando se agota la cuota, se devuelve el código de estado HTTP 429 para todas las solicitudes hasta el final de la hora.
 
-- **Contrato de nivel de servicio**: El nivel Estándar tiene un contrato de nivel de servicio del 99,9 % de disponibilidad. El nivel Gratis no tiene un contrato de nivel de servicio.
-- **Características de seguridad**: Ambos niveles incluyen la funcionalidad básica de seguridad, incluido el cifrado con claves administradas por Microsoft, la autenticación mediante HMAC o Azure Active Directory, la compatibilidad con Azure RBAC y la identidad administrada. El nivel Estándar ofrece una funcionalidad de seguridad más avanzada, incluida la compatibilidad con Private Link y el cifrado con claves administradas por el cliente.
-- **Costo**: Los almacenes del nivel Estándar tienen un cargo de uso diario. También hay un cargo por uso por encima del límite por las solicitudes más allá de la asignación diaria. El uso de un almacén del nivel Gratis no supone ningún costo.
+- **Contrato de nivel de servicio** : El nivel Estándar tiene un contrato de nivel de servicio del 99,9 % de disponibilidad. El nivel Gratis no tiene un contrato de nivel de servicio.
+- **Características de seguridad** : ambos niveles proporcionan funcionalidad de seguridad básica, lo que incluye el cifrado con claves administradas por Microsoft, la autenticación mediante HMAC o Azure Active Directory, la compatibilidad con RBAC de Azure, la identidad administrada y las etiquetas de servicio. El nivel Estándar ofrece una funcionalidad de seguridad más avanzada, incluida la compatibilidad con Private Link y el cifrado con claves administradas por el cliente.
+- **Costo** : Los almacenes del nivel Estándar tienen un cargo de uso diario. Las primeras 200 000 solicitudes de cada día se incluyen en el cargo diario. También hay un cargo por uso por encima del límite por las solicitudes más allá de la asignación diaria. El uso de un almacén del nivel Gratis no supone ningún costo.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>¿Puedo actualizar un almacén desde el nivel Gratis al nivel Estándar? ¿Puedo degradar un almacén del nivel Estándar al nivel Gratis?
 
