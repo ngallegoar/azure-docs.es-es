@@ -1,6 +1,6 @@
 - name: Azure VMware Solution
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: Acerca de Azure VMware Solution
       href: introduction.md
@@ -72,6 +72,8 @@
           href: concepts-api-management.md
         - name: En estrella tipo hub-and-spoke
           href: concepts-hub-and-spoke.md
+        - name: Azure Security Center
+          href: azure-security-integration.md
         - name: Azure Backup Server
           items:
             - name: Configuración Backup Server
