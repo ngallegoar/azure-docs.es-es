@@ -40,6 +40,8 @@
       href: front-door-backend-pool.md
     - name: Almacenamiento en caché con Front Door
       href: front-door-caching.md
+    - name: Protección contra DDOS
+      href: front-door-ddos.md
     - name: Preguntas más frecuentes sobre Front Door
       href: front-door-faq.md
     - name: Filtrado geográfico

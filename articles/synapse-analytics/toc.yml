@@ -173,7 +173,7 @@
           href: sql/resource-consumption-models.md
         - name: Datos procesados
           href: sql/data-processed.md
-        - name: Procedimientos recomendados de SQL a petición
+        - name: Procedimientos recomendados para un grupo de SQL sin servidor
           href: sql/best-practices-sql-on-demand.md
         - name: Procedimientos recomendados para grupos de SQL dedicados
           href: sql/best-practices-sql-pool.md

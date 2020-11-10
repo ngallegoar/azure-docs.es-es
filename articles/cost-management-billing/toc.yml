@@ -120,6 +120,8 @@
           href: understand/subscription-transfer.md
         - name: Transferencia de suscripciones entre asociados (versión preliminar)
           href: manage/azure-plan-subscription-transfer-partners.md
+        - name: Introducción al portal de Azure EA
+          href: manage/ea-portal-get-started.md
 - name: Guías paso a paso
   items:
     - name: Configuración de Cost Management + facturación
@@ -200,8 +202,6 @@
               href: manage/cancel-azure-subscription.md
         - name: Administración de suscripciones al Contrato Enterprise
           items:
-            - name: Introducción al portal de Azure EA
-              href: manage/ea-portal-get-started.md
             - name: Roles de EA en Azure
               href: manage/understand-ea-roles.md
             - name: Administración del portal del Contrato Enterprise de Azure

@@ -49,7 +49,7 @@
     - name: Lista de comprobación de seguridad
       href: steps-secure-identity.md
     - name: Seleccionar inicio de sesión sin contraseña
-      href: ad-passwordless.md
+      href: ../../active-directory/authentication/concept-authentication-passwordless.md
 - name: Seguridad de las redes
   items:
     - name: Introducción a la seguridad
@@ -63,7 +63,7 @@
     - name: Adquisición de DNS y subdominio pendiente
       href: subdomain-takeover.md
     - name: Arquitectura de red híbrida segura
-      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
 - name: Seguridad de IaaS
   items:
     - name: Microsoft Antimalware
@@ -97,13 +97,13 @@
     - name: Seguridad de bases de datos
       items:
         - name: Información general
-          href: ../../sql-database/sql-database-security-overview.md
+          href: ../../azure-sql/database/security-overview.md
         - name: Procedimientos recomendados
-          href: ../../sql-database/sql-database-security-best-practice.md
+          href: ../../azure-sql/database/security-best-practice.md
         - name: Lista de comprobación de seguridad
           href: database-security-checklist.md
     - name: Guía de seguridad de Storage
-      href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+      href: ../../storage/blobs/security-recommendations.md?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
     - name: Caja de seguridad del cliente
       href: customer-lockbox-overview.md
     - name: Línea de base de seguridad de Caja de seguridad del cliente

@@ -64,6 +64,8 @@
           href: connection-monitor-preview-create-using-portal.md
         - name: Uso de ARMClient
           href: connection-monitor-preview-create-using-arm-client.md
+        - name: Usar PowerShell
+          href: connection-monitor-create-using-powershell.md
     - name: Migración a Connection Monitor (versión preliminar)
       items:
         - name: Desde Network Performance Monitor
@@ -189,7 +191,7 @@
           href: resource-move.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
       href: /powershell/module/az.network/#network_watcher
