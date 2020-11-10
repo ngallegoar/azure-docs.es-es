@@ -1,6 +1,6 @@
 ---
-title: Creación y uso de vistas en SQL a petición (versión preliminar)
-description: En esta sección, aprenderá a crear y usar vistas para encapsular consultas de SQL a petición (versión preliminar). Las vistas le permitirán volver a usar esas consultas. Las vistas también son necesarias si se desea usar herramientas, como Power BI, junto con SQL a petición.
+title: Creación y uso de vistas en el grupo de SQL sin servidor (versión preliminar)
+description: En esta sección, aprenderá a crear y usar vistas para encapsular consultas del grupo de SQL sin servidor (versión preliminar). Las vistas le permitirán volver a usar esas consultas. Las vistas también son necesarias si se desea usar herramientas, como Power BI, junto con el grupo de SQL sin servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: f91611ab3c75a96f13ab84312ca0b2157e69af0d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d578529839afb5393dd013cb10f48c755f08addd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289317"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316240"
 ---
-# <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Creación y uso de vistas en SQL a petición (versión preliminar) mediante Azure Synapse Analytics
+# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Creación y uso de vistas en el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
 
-En esta sección, aprenderá a crear y usar vistas para encapsular consultas de SQL a petición (versión preliminar). Las vistas le permitirán volver a usar esas consultas. Las vistas también son necesarias si se desea usar herramientas, como Power BI, junto con SQL a petición.
+En esta sección, aprenderá a crear y usar vistas para encapsular consultas del grupo de SQL sin servidor (versión preliminar). Las vistas le permitirán volver a usar esas consultas. Las vistas también son necesarias si se desea usar herramientas, como Power BI, junto con el grupo de SQL sin servidor.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -57,7 +57,7 @@ WITH (
 
 En la vista de este ejemplo se usa la función `OPENROWSET`, que utiliza la ruta de acceso absoluta a los archivos subyacentes. Si tiene `EXTERNAL DATA SOURCE` con una dirección URL raíz del almacenamiento, puede usar `OPENROWSET` con `DATA_SOURCE` y una ruta de acceso relativa al archivo:
 
-```
+```sql
 CREATE VIEW TaxiView
 AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
 FROM

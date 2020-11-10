@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558642"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145827"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introducción a Azure Defender para registros de contenedor
 
@@ -32,6 +32,12 @@ Security Center filtra y clasifica los resultados del análisis. Cuando una imag
 
 Al enviar notificaciones solo cuando hay problemas, Security Center reduce las alertas informativas no deseadas.
 
+
+> [!TIP]
+> Para obtener más información sobre las características de seguridad de los contenedores de Security Center, consulte:
+>
+> - [Seguridad de los contenedores y Azure Security Center](container-security.md)
+> - [Introducción a Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## <a name="when-are-images-scanned"></a>¿Cuándo se examinan las imágenes?
 
@@ -81,10 +87,5 @@ Sí. Si tiene una necesidad organizativa de omitir un resultado, en lugar de cor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre las características de seguridad de los contenedores de Security Center, consulte:
-
-- [Seguridad de los contenedores y Azure Security Center](container-security.md)
-
-- [Introducción a Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
-
-
+> [!div class="nextstepaction"]
+> [Detección de vulnerabilidades en sus imágenes](defender-for-container-registries-usage.md)

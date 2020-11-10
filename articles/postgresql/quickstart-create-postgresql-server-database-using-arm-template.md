@@ -1,18 +1,18 @@
 ---
 title: 'Inicio rápido: Creación de una instancia de Azure DB for PostgreSQL: plantilla de Resource Manager'
-description: En este artículo, aprenderá a crear un servidor individual de Azure Database for PostgreSQL mediante una plantilla de Azure Resource Manager.
-author: mgblythe
+description: En esta guía de inicio rápido, aprenderá a crear un servidor individual de Azure Database for PostgreSQL mediante una plantilla de Azure Resource Manager.
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: b73bf82b7fba4c7c618dbae81873efabec61051d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9b022f83ed2a4e3a23165cc6bda298a53c008c7c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906436"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331648"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear una instancia de Azure Database for PostgreSQL: un solo servidor
 
@@ -68,32 +68,32 @@ Seleccione el siguiente vínculo para implementar la plantilla de servidor de Az
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
-En la página **Implementación de Azure Database for PostgreSQL con red virtual**:
+En la página **Implementación de Azure Database for PostgreSQL con red virtual** :
 
-1. En **Grupo de recursos**, seleccione **Crear nuevo** y, después, especifique un nombre válido para el nuevo grupo de recursos y seleccione **Aceptar**.
+1. En **Grupo de recursos** , seleccione **Crear nuevo** y, después, especifique un nombre válido para el nuevo grupo de recursos y seleccione **Aceptar**.
 
 2. Si ha creado un grupo de recursos, seleccione una **ubicación** para el grupo de recursos y el nuevo servidor.
 
-3. Escriba un **nombre de servidor**, **Inicio de sesión del administrador** y **Contraseña de inicio de sesión del administrador**.
+3. Escriba un **nombre de servidor** , **Inicio de sesión del administrador** y **Contraseña de inicio de sesión del administrador**.
 
-    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Implementación en Azure":::
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Implementación de Azure Database for PostgreSQL con la ventana de red virtual, plantilla de inicio rápido de Azure, Azure Portal":::
 
 4. Cambie los valores predeterminados si lo desea:
 
     * **Subscription** (Suscripción): la suscripción de Azure que desea usar para el servidor.
-    * **Sku Capacity** (Capacidad de SKU): la capacidad del núcleo virtual, que puede ser *2* (el valor predeterminado), *4*, *8*, *16*, *32* o *64*.
-    * **Sku Name** (Nombre de SKU): el prefijo del nivel de SKU, la familia del SKU y la capacidad del SKU, unidos por guiones bajos, como *B_Gen5_1*, *GP_Gen5_2* (el valor predeterminado) o *MO_Gen5_32*.
-    * **Sku Size MB** (Tamaño de SKU, en MB): el tamaño de almacenamiento, en megabytes, del servidor de Azure Database for PostgreSQL (valor predeterminado, *51200*).
-    * **Nivel de SKU**: el nivel de implementación, como *Basic*, *GeneralPurpose* (el valor predeterminado) o *MemoryOptimized*.
+    * **Sku Capacity** (Capacidad de SKU): la capacidad del núcleo virtual, que puede ser *2* (el valor predeterminado), *4* , *8* , *16* , *32* o *64*.
+    * **Sku Name** (Nombre de SKU): el prefijo del nivel de SKU, la familia del SKU y la capacidad del SKU, unidos por guiones bajos, como *B_Gen5_1* , *GP_Gen5_2* (el valor predeterminado) o *MO_Gen5_32*.
+    * **Sku Size MB** (Tamaño de SKU, en MB): el tamaño de almacenamiento, en megabytes, del servidor de Azure Database for PostgreSQL (valor predeterminado, *51200* ).
+    * **Nivel de SKU** : el nivel de implementación, como *Basic* , *GeneralPurpose* (el valor predeterminado) o *MemoryOptimized*.
     * **Sku Family** (Familia de SKU): *Gen4* o *Gen5* (el valor predeterminado), que indica la generación de hardware de la implementación de servidores.
-    * **Postgresql Version** (Versión de Postgresql): la versión del servidor de PostgreSQL que se va a implementar, como *9.5*, *9.6*, *10* u *11* (el valor predeterminado).
-    * **Backup Retention Days** (Días de retención de copia de seguridad): el período deseado para la conservación de copias de seguridad con redundancia geográfica, en días (el valor predeterminado es *7*).
+    * **Postgresql Version** (Versión de Postgresql): la versión del servidor de PostgreSQL que se va a implementar, como  *9.5* ,  *9.6* ,  *10*  u *11* (el valor predeterminado).
+    * **Backup Retention Days** (Días de retención de copia de seguridad): el período deseado para la conservación de copias de seguridad con redundancia geográfica, en días (el valor predeterminado es *7* ).
     * **Geo Redundant Backup** (Copia de seguridad con redundancia geográfica): *Habilitado* o *Deshabilitado* (el valor predeterminado), en función de los requisitos de la recuperación ante desastres geográfica (Geo-DR).
-    * **Virtual Network Name** (Nombre de red virtual): el nombre de la red virtual (el valor predeterminado es *azure_postgresql_vnet*).
-    * **Subnet Name** (Nombre de subred): el nombre de la subred (el valor predeterminado es *azure_postgresql_subnet*).
-    * **Virtual Network Rule Name** (Nombre de regla de red virtual): el nombre de la regla de red virtual que permite la subred (el valor predeterminado es *AllowSubnet*).
-    * **Vnet Address Prefix** (Prefijo de dirección de red virtual): el prefijo de dirección de la red virtual (valor predeterminado, *10.0.0.0/16*).
-    * **Subnet Prefix** (Prefijo de subred): el prefijo de dirección de la subred (valor predeterminado, *10.0.0.0/16*).
+    * **Virtual Network Name** (Nombre de red virtual): el nombre de la red virtual (el valor predeterminado es *azure_postgresql_vnet* ).
+    * **Subnet Name** (Nombre de subred): el nombre de la subred (el valor predeterminado es *azure_postgresql_subnet* ).
+    * **Virtual Network Rule Name** (Nombre de regla de red virtual): el nombre de la regla de red virtual que permite la subred (el valor predeterminado es *AllowSubnet* ).
+    * **Vnet Address Prefix** (Prefijo de dirección de red virtual): el prefijo de dirección de la red virtual (valor predeterminado, *10.0.0.0/16* ).
+    * **Subnet Prefix** (Prefijo de subred): el prefijo de dirección de la subred (valor predeterminado, *10.0.0.0/16* ).
 
 5. Consulte los términos y condiciones y seleccione **Acepto los términos y condiciones indicados anteriormente**.
 

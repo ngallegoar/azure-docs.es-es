@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar) mediante Synapse Studio'
-description: Siga los pasos de esta guía para crear un grupo de Apache Spark mediante Synapse Studio.
+title: 'Inicio rápido: Creación de un grupo de Apache Spark sin servidor (versión preliminar) mediante Synapse Studio'
+description: Siga los pasos de esta guía para crear un grupo de Apache Spark sin servidor mediante Synapse Studio.
 services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c497b9974ad2d6fdd9482ae673de5807669d8ff5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748318"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324181"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar) mediante Synapse Studio
+# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>Inicio rápido: Creación de un grupo de Apache Spark sin servidor (versión preliminar) mediante Synapse Studio
 
 Azure Synapse Analytics ofrece varios motores de análisis que ayudan a ingerir, transformar, modelar, analizar y servir datos. Los grupos de Apache Spark ofrecen funcionalidades de proceso de macrodatos de código abierto. Después de crear un grupo de Apache Spark en el área de trabajo de Synapse, los datos se pueden cargar, modelar, procesar y servir para obtener información.  
 
@@ -47,7 +47,7 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 ## <a name="launch-synapse-studio"></a>Inicio de Synapse Studio 
 
-En la información general del área de trabajo, seleccione **Iniciar Synapse Studio** para abrir la ubicación en la que se va a crear el grupo de Apache Spark. Escriba el nombre del servicio o del recurso directamente en la barra de búsqueda.
+En la información general del área de trabajo, seleccione la **dirección URL web del área de trabajo**  para abrir Synapse Studio.
 
 ![Información general del área de trabajo de Synapse en Azure Portal con la opción Iniciar Synapse Studio resaltada.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 

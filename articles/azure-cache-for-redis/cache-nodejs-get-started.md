@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Uso de Azure Redis Cache con Node.js'
+title: 'Inicio rápido: Uso de Azure Cache for Redis con Node.js'
 description: En este inicio rápido obtendrá información sobre cómo usar Azure Redis Cache con Node.js y node_redis.
 author: yegu-ms
 ms.service: cache
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: ce570475617236bb99f1bca7a07dc95e1f3285aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa22cffc1fc38e055c6c2bb504c311c012f31ac2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91331002"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087152"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Inicio rápido: Uso de Azure Redis Cache con Node.js
+# <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Inicio rápido: Uso de Azure Cache for Redis con Node.js
 
 En este inicio rápido incorporará Azure Redis Cache en una aplicación Node.js para acceder a una caché dedicada y segura, a la que se puede acceder desde cualquier aplicación de Azure.
 
@@ -121,7 +121,7 @@ En caso contrario, si ya ha terminado con la aplicación de ejemplo de la guía 
 
 Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Grupos de recursos**.
 
-En el cuadro de texto **Filtrar por nombre**, escriba el nombre del grupo de recursos. En las instrucciones de este artículo se usa un grupo de recursos llamado *TestResources*. En el grupo de recursos de la lista de resultados, seleccione **...** y, después, **Eliminar grupo de recursos**.
+En el cuadro de texto **Filtrar por nombre** , escriba el nombre del grupo de recursos. En las instrucciones de este artículo se usa un grupo de recursos llamado *TestResources*. En el grupo de recursos de la lista de resultados, seleccione **...** y, después, **Eliminar grupo de recursos**.
 
 ![Eliminación de un grupo de recursos de Azure](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 

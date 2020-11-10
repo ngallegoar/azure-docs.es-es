@@ -1,20 +1,20 @@
 ---
-title: Creación y firma de una directiva de Azure Attestation
-description: Explicación de cómo crear y firmar una directiva de atestación.
+title: Creación de una directiva de Azure Attestation
+description: Explicación de cómo crear una directiva de atestación.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c8ffdcd0615913649e80b20f6873d005f4ad4410
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3e36de62b79788e2efdc3e9abf711924c4fba0c4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675982"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341814"
 ---
-# <a name="how-to-author-and-sign-an-attestation-policy"></a>Procedimiento para crear y firmar una directiva de atestación
+# <a name="how-to-author-an-attestation-policy"></a>Creación de una directiva de atestación
 
 La directiva de atestación es un archivo cargado en Microsoft Azure Attestation. Azure Attestation ofrece la flexibilidad para cargar una directiva en un formato específico de la atestación. Como alternativa, también se puede cargar una versión codificada de la directiva, en firma web JSON. El administrador de directivas es el responsable de escribir la directiva de atestación. En la mayoría de los escenarios de atestación, el usuario de confianza actúa como administrador de directivas. El cliente que realiza la llamada de atestación envía la evidencia de la misma, que el servicio analiza y convierte en notificaciones entrantes (conjunto de propiedades, valor). Después, el servicio procesa las notificaciones, en función de lo que se defina en la directiva, y devuelve el resultado calculado.
 
@@ -44,7 +44,7 @@ Un archivo de directiva tiene tres segmentos, como se ha indicado anteriormente:
 
     Actualmente, la única versión admitida es "1.0".
 
-- **authorizationrules** : una colección de las reglas de notificación que se comprobarán en primer lugar, para determinar si Azure Attestation debe continuar con **issuancerules** . Las reglas de notificación se aplican en el orden en el que se definan.
+- **authorizationrules** : una colección de las reglas de notificación que se comprobarán en primer lugar, para determinar si Azure Attestation debe continuar con **issuancerules**. Las reglas de notificación se aplican en el orden en el que se definan.
 
 - **issuancerules** : colección de las reglas de notificación que se evaluarán para agregar información adicional al resultado de la atestación tal y como se defina en la directiva. Las reglas de notificación se aplican en el orden en el que se definan y también son opcionales.
 
@@ -54,7 +54,7 @@ Consulte las [notificaciones y las reglas de notificación](claim-rule-grammar.m
 
 1. Cree un archivo.
 1. Agregue la versión al archivo.
-1. Agregue secciones para **authorizationrules** e **issuancerules** .
+1. Agregue secciones para **authorizationrules** e **issuancerules**.
 
   ```
   version=1.0;
@@ -84,9 +84,9 @@ Consulte las [notificaciones y las reglas de notificación](claim-rule-grammar.m
   };
   ```
 
-  Si el conjunto de notificaciones entrantes contiene una notificación que coincida con el tipo, el valor y el emisor, la acción permit() le indicará al motor de directivas que procese las **issuancerules** .
+  Si el conjunto de notificaciones entrantes contiene una notificación que coincida con el tipo, el valor y el emisor, la acción permit() le indicará al motor de directivas que procese las **issuancerules**.
   
-5. Agregue reglas de notificación a **issuancerules** .
+5. Agregue reglas de notificación a **issuancerules**.
 
   ```
   version=1.0;
@@ -134,41 +134,6 @@ Después de crear un archivo de directiva, para cargar una directiva en formato 
 3. Cargue el JWS y valide la directiva.
      - Si el archivo de directiva no tiene errores de sintaxis, el servicio lo acepta.
      - Si contiene errores de sintaxis, el servicio lo rechaza.
-
-## <a name="signing-the-policy"></a>Firma de la directiva
-
-A continuación se muestra un script de Python de ejemplo sobre cómo realizar la operación de firma de la directiva.
-
-```python
-from OpenSSL import crypto
-import jwt
-import getpass
-       
-def cert_to_b64(cert):
-              cert_pem = crypto.dump_certificate(crypto.FILETYPE_PEM, cert)
-              cert_pem_str = cert_pem.decode('utf-8')
-              return ''.join(cert_pem_str.split('\n')[1:-2])
-       
-print("Provide the path to the PKCS12 file:")
-pkcs12_path = str(input())
-pkcs12_password = getpass.getpass("\nProvide the password for the PKCS12 file:\n")
-pkcs12_bin = open(pkcs12_path, "rb").read()
-pkcs12 = crypto.load_pkcs12(pkcs12_bin, pkcs12_password.encode('utf8'))
-ca_chain = pkcs12.get_ca_certificates()
-ca_chain_b64 = []
-for chain_cert in ca_chain:
-   ca_chain_b64.append(cert_to_b64(chain_cert))
-   signing_cert_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pkcs12.get_privatekey())
-signing_cert_b64 = cert_to_b64(pkcs12.get_certificate())
-ca_chain_b64.insert(0, signing_cert_b64)
-
-print("Provide the path to the policy text file:")
-policy_path = str(input())
-policy_text = open(policy_path, "r").read()
-encoded = jwt.encode({'text': policy_text }, signing_cert_pkey, algorithm='RS256', headers={'x5c' : ca_chain_b64})
-print("\nAttestation Policy JWS:")
-print(encoded.decode('utf-8'))
-```
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración de Azure Attestation con PowerShell](quickstart-powershell.md)

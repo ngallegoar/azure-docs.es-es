@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d7d82db7fc8a39a0865e80ee7873ee849627c583
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 454dc593dca216d3805036ce78ec9986cf317d4e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791076"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145861"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de SQL Server 2017 en una máquina virtual Windows en Azure Portal
 
@@ -44,12 +44,12 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta.
 
 1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y, luego, escriba *Azure SQL* en el cuadro de búsqueda.
-1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver información adicional, seleccione **Mostrar detalles** en el icono **Máquinas virtuales SQL** .
+1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver información adicional, seleccione **Mostrar detalles** en el icono **Máquinas virtuales SQL**.
 1. Seleccione la imagen de **Free SQL Server License: SQL Server 2017 Developer en Windows Server 2016** de la lista desplegable.
 
-   ![Nueva ventana de búsqueda](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
+   ![Captura de pantalla que muestra dónde se selecciona la licencia gratuita de SQL Server: Imagen de SQL Server 2017 Developer en Windows Server 2016.](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
 
-1. Seleccione **Crear** .
+1. Seleccione **Crear**.
 
    ![Nueva ventana de búsqueda](./media/sql-vm-create-portal-quickstart/create-sql-2017-vm-image.png)
 
@@ -59,14 +59,14 @@ En la pestaña **Básico** , especifique la siguiente información:
 
 1. En la sección **Detalles de proyecto** , seleccione su suscripción de Azure y, a continuación, seleccione **Crear nuevo** para crear un nuevo grupo de recursos. Escriba _SQLVM-RG_ para el nombre.
 
-   ![Subscription](./media/sql-vm-create-portal-quickstart/basics-project-details.png)
+   ![Suscripción](./media/sql-vm-create-portal-quickstart/basics-project-details.png)
 
 1. En **Detalles de instancia** :
-    1. Escriba _SQLVM_ para el **Nombre de la máquina virtual** . 
-    1. Elija una ubicación para su **Región** . 
-    1. Para este inicio rápido, deje las **Opciones de disponibilidad** establecidas en _No se requiere redundancia de la infraestructura_ . Para más información acerca de las opciones de disponibilidad, consulte [Disponibilidad](../../../virtual-machines/availability.md). 
+    1. Escriba _SQLVM_ para el **Nombre de la máquina virtual**. 
+    1. Elija una ubicación para su **Región**. 
+    1. Para este inicio rápido, deje las **Opciones de disponibilidad** establecidas en _No se requiere redundancia de la infraestructura_. Para más información acerca de las opciones de disponibilidad, consulte [Disponibilidad](../../../virtual-machines/availability.md). 
     1. En la lista **Imagen** seleccione la denominada _Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016_ (Licencia gratuita de SQL Server: SQL Server 2017 Developer en Windows Server 2016). 
-    1. Elija **Cambiar el tamaño** para el **Tamaño** de la máquina virtual y seleccione la oferta **Básico A2** . Asegúrese de limpiar los recursos cuando haya terminado con ellos para evitar cargos inesperados. 
+    1. Elija **Cambiar el tamaño** para el **Tamaño** de la máquina virtual y seleccione la oferta **Básico A2**. Asegúrese de limpiar los recursos cuando haya terminado con ellos para evitar cargos inesperados. 
 
    ![Detalles de instancia](./media/sql-vm-create-portal-quickstart/basics-instance-details.png)
 
@@ -83,12 +83,12 @@ En la pestaña **Básico** , especifique la siguiente información:
 En la pestaña **Configuración de SQL Server** , configure las siguientes opciones:
 
 1. En **Seguridad y redes** , seleccione _Pública (Internet_ ) para **Conectividad SQL** y cambie el puerto a `1401` para evitar el uso de un número de puerto conocido en el escenario público. 
-1. En **Autenticación de SQL** , seleccione **Habilitar** . Las credenciales de inicio de sesión de SQL se establecen en el mismo nombre de usuario y contraseña que ha configurado para la máquina virtual. Utilice la configuración predeterminada para la [**integración de Azure Key Vault**](azure-key-vault-integration-configure.md). La **configuración del almacenamiento** no está disponible para la imagen de máquina virtual de SQL Server básica, pero puede encontrar más información sobre las opciones disponibles para otras imágenes en la [configuración del almacenamiento](storage-configuration.md#new-vms).  
+1. En **Autenticación de SQL** , seleccione **Habilitar**. Las credenciales de inicio de sesión de SQL se establecen en el mismo nombre de usuario y contraseña que ha configurado para la máquina virtual. Utilice la configuración predeterminada para la [**integración de Azure Key Vault**](azure-key-vault-integration-configure.md). La **configuración del almacenamiento** no está disponible para la imagen de máquina virtual de SQL Server básica, pero puede encontrar más información sobre las opciones disponibles para otras imágenes en la [configuración del almacenamiento](storage-configuration.md#new-vms).  
 
    ![Valores de seguridad de SQL Server](./media/sql-vm-create-portal-quickstart/sql-server-settings.png)
 
 
-1. Cambie cualquier otro valor si es necesario y, a continuación, seleccione **Revisar y crear** . 
+1. Cambie cualquier otro valor si es necesario y, a continuación, seleccione **Revisar y crear**. 
 
    ![Revisar y crear](./media/sql-vm-create-portal-quickstart/review-create.png)
 
@@ -106,15 +106,15 @@ Puede supervisar la implementación desde Azure Portal. En el botón **Notificac
 1. En otro equipo conectado a Internet, abra [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
-1. En el cuadro de diálogo **Conectar al servidor** o **Conectarse al motor de base de datos** , edite el valor de **Nombre del servidor** . Escriba la dirección IP pública de la máquina virtual. Luego, agregue una coma y el puerto personalizado ( **1401** ) que especificó cuando configuró la nueva máquina virtual. Por ejemplo, `11.22.33.444,1401`.
+1. En el cuadro de diálogo **Conectar al servidor** o **Conectarse al motor de base de datos** , edite el valor de **Nombre del servidor**. Escriba la dirección IP pública de la máquina virtual. Luego, agregue una coma y el puerto personalizado ( **1401** ) que especificó cuando configuró la nueva máquina virtual. Por ejemplo, `11.22.33.444,1401`.
 
-1. En el cuadro **Autenticación** , seleccione **Autenticación de SQL Server** .
+1. En el cuadro **Autenticación** , seleccione **Autenticación de SQL Server**.
 
 1. En el cuadro **Inicio de sesión** , escriba un nombre de inicio de sesión de SQL válido.
 
 1. En el cuadro **Contraseña** , escriba la contraseña de inicio de sesión.
 
-1. Seleccione **Conectar** .
+1. Seleccione **Conectar**.
 
     ![conexión ssms](./media/sql-vm-create-portal-quickstart/ssms-connect.png)
 

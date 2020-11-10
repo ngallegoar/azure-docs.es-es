@@ -9,22 +9,22 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 394521156d6192d25c3a4d254ac2c9b94c6231f5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093555"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318393"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos de Synapse SQL
 
 En este artículo se describen los modelos de consumo de recursos de Synapse SQL (versión preliminar).
 
-## <a name="sql-on-demand"></a>SQL a petición
+## <a name="serverless-sql-pool"></a>Grupo de SQL sin servidor
 
-SQL a petición es un servicio de pago por consulta que no requiere que se elija el tamaño correcto. El sistema se ajusta automáticamente en función de sus requisitos, lo que le libera de administrar la infraestructura y elegir el tamaño adecuado para la solución.
+El grupo de SQL sin servidor es un servicio de pago por consulta que no requiere que se elija el tamaño correcto. El sistema se ajusta automáticamente en función de sus requisitos, lo que le libera de administrar la infraestructura y elegir el tamaño adecuado para la solución.
 
-## <a name="sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Grupo de SQL: unidades de almacenamiento de datos (DWU) y unidades de almacenamiento de datos de proceso (cDWU)
+## <a name="dedicated-sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Grupo de SQL dedicado: unidades de almacenamiento de datos (DWU) y unidades de almacenamiento de datos de proceso (cDWU)
 
 Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades de almacenamiento de datos (DWU) para optimizar el precio y el rendimiento y cómo cambiar el número de unidades.
 
@@ -50,12 +50,12 @@ Aumentar las DWU:
 
 El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determina el nivel de costo y el rendimiento del almacenamiento de datos. Los niveles de servicio de Gen2 se miden en unidades de almacenamiento de datos de proceso (cDWU); por ejemplo, DW2000c. Los niveles de servicio de Gen1 se miden en DWU; por ejemplo, DW2000.
 
-El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determina el nivel de costo y el rendimiento del almacenamiento de datos. Los niveles de servicio del grupo SQL Gen2 se miden en unidades de almacenamiento de datos (DWU); por ejemplo, DW2000c.
+El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determina el nivel de costo y el rendimiento del almacenamiento de datos. Los niveles de servicio del grupo de SQL dedicado Gen2 se miden en unidades de almacenamiento de datos (DWU); por ejemplo, DW2000c.
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2 ha agregado recientemente funcionalidades de escalado adicionales compatibles con niveles de proceso tan bajos como 100 cDWU. Los almacenes de datos existentes actualmente en Gen1 que requieren los niveles de proceso más bajos ahora pueden actualizarse a Gen2 en las regiones que están actualmente disponibles sin ningún costo adicional.  Si esto no se admite aún en su región, aún puede actualizar a una región admitida. Para obtener más información, vea [Actualización a Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-En T-SQL, el valor de SERVICE_OBJECTIVE determina el nivel de servicio y el nivel de rendimiento del grupo SQL.
+En T-SQL, el valor de SERVICE_OBJECTIVE determina el nivel de servicio y el nivel de rendimiento del grupo de SQL dedicado.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -127,7 +127,7 @@ Para cambiar DWU:
 
 1. Abra [Azure Portal](https://portal.azure.com), abra la base de datos y seleccione **Escalar**.
 
-2. En **Escalar**, mueva el control deslizante izquierdo o derecho para cambiar el valor de DWU.
+2. En **Escalar** , mueva el control deslizante izquierdo o derecho para cambiar el valor de DWU.
 
 3. Seleccione **Guardar**. Aparece un mensaje de confirmación. Seleccione **Sí** para confirmar o **No** para cancelar.
 
@@ -204,7 +204,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-Esta DMV devuelve información sobre varias operaciones de administración en el grupo SQL, como la operación y el estado de esta, que es IN_PROGRESS o COMPLETED.
+Esta DMV devuelve información sobre varias operaciones de administración en el grupo de SQL dedicado, como la operación y el estado de esta, que es IN_PROGRESS o COMPLETED.
 
 ### <a name="the-scaling-workflow"></a>Flujo de trabajo de escalado
 

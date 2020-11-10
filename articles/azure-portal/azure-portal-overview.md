@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4a00c1dcf973098895e80d5e3d656efd4a35d0d0
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072397"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147052"
 ---
 # <a name="azure-portal-overview"></a>Introducción a Azure Portal
 
@@ -42,7 +42,7 @@ Si selecciona el modo acoplado para el menú del portal, siempre está visible. 
 
 Como nuevo suscriptor a servicios de Azure, lo primero que ve nada más [iniciar sesión en el portal](https://portal.azure.com) es **Inicio de Azure**. En esta página se compilan recursos que le ayudan a sacar el máximo partido a su suscripción a Azure. Hemos incluido vínculos a cursos en línea gratuitos, documentación, servicios principales y sitios útiles para mantenerse al día y administrar el cambio para su organización. Para obtener acceso de forma rápida y sencilla al trabajo en curso, también mostramos una lista de sus últimos recursos visitados. No puede personalizar esta página, pero puede elegir si desea ver **Inicio de Azure** o **Panel de Azure** como su vista predeterminada. Al iniciar sesión por primera vez, aparece un aviso en la parte superior de la página donde puede guardar su preferencia.
 
-![Captura de pantalla que muestra el selector de vistas predeterminado](./media/azure-portal-overview/azure-portal-default-view.png)
+![Captura de pantalla que muestra dónde guardar sus preferencias.](./media/azure-portal-overview/azure-portal-default-view.png)
 
 Tanto el menú de Azure Portal como la vista predeterminada de Azure se pueden cambiar en **Configuración del portal**. Si cambia la selección, el cambio se aplica de inmediato.
 

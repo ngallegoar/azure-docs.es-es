@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d06d1b0553161523708f4bb142f1c715a77eb2dd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fa7faf64e1889ef2d1abe644f23f0be363709a6b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461114"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322712"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Inicio rápido: Creación de un área de trabajo de Synapse
 En este inicio rápido se describe cómo crear un área de trabajo de Azure Synapse mediante Azure Portal.
@@ -65,6 +65,6 @@ Es posible que las identidades administradas del área de trabajo de Azure Synap
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de un grupo de SQL](quickstart-create-sql-pool-studio.md) 
-* [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool-portal.md)
-* [Uso de SQL a petición](quickstart-sql-on-demand.md)
+* [Creación de un grupo de SQL dedicado](quickstart-create-sql-pool-studio.md) 
+* [Creación de un grupo de Apache Spark sin servidor](quickstart-create-apache-spark-pool-portal.md)
+* [Uso de grupos de SQL sin servidor](quickstart-sql-on-demand.md)

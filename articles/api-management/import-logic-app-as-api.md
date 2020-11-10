@@ -1,6 +1,6 @@
 ---
 title: Importación de una aplicación lógica como una API desde Azure Portal | Microsoft Docs
-description: En este tutorial se muestra cómo utilizar API Management (APIM) para importar una aplicación lógica como API.
+description: En este artículo se muestra cómo utilizar API Management (APIM) para importar una aplicación lógica como API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: b107b4a54b7d013da160119b16bd646a79cce696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dd460bce01b86c72d0b8fd70351fdcc85c69bd4
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626843"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146967"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importación de una aplicación lógica como API
 
@@ -48,7 +48,7 @@ En este artículo aprenderá a:
 3. Presione **Examinar** para ver la lista de aplicaciones Logic Apps con desencadenador HTTP en su suscripción. (Tenga en cuenta que las aplicaciones Logic Apps sin desencadenador HTTP no aparecerán en la lista).
 4. Seleccione la aplicación. API Management busca el swagger asociado a la aplicación seleccionada, lo captura y lo importa.
 5. Agregue un sufijo URL de API. El sufijo es un nombre que identifica esta API específica en esta instancia de API Management. Tiene que ser único en esta instancia de API Management.
-6. Publique la API asociándola a un producto. En este caso, se usa el producto "_Unlimited_". Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.
+6. Publique la API asociándola a un producto. En este caso, se usa el producto " _Unlimited_ ". Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.
 
     Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de API Management, ya es un administrador, así que de forma predeterminada está suscrito a todos los productos.
 

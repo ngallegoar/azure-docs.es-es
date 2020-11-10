@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación de un grupo de Apache Spark en Azure Synapse Analytics mediante herramientas web'
-description: En este inicio rápido se muestra cómo usar las herramientas web para crear un grupo de Apache Spark en Azure Synapse Analytics y ejecutar una consulta SQL de Spark.
+title: 'Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante herramientas web'
+description: En este inicio rápido se muestra cómo usar las herramientas web para crear un grupo de Apache Spark sin servidor en Azure Synapse Analytics y cómo ejecutar una consulta SQL de Spark.
 services: synapse-analytics
 author: euangMS
 ms.author: euang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b20f2ce88695cb68de496d126c5e3cd52f9eb6c8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742555"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316143"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Inicio rápido: Creación de un grupo de Apache Spark en Azure Synapse Analytics mediante herramientas web
+# <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Inicio rápido: Creación de un grupo de Apache Spark sin servidor en Azure Synapse Analytics mediante herramientas web
 
-En este inicio rápido, aprenderá a crear un grupo de Apache Spark (versión preliminar) en Azure Synapse mediante herramientas web. Luego, aprenderá a conectarse al grupo de Apache Spark y a ejecutar consultas SQL de Spark en archivos y tablas. Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para información sobre Spark en Azure Synapse, consulte [Introducción: Apache Spark en Azure Synapse](./spark/apache-spark-overview.md).
+En este inicio rápido, aprenderá a crear un grupo de Apache Spark sin servidor (versión preliminar) en Azure Synapse mediante herramientas web. Luego, aprenderá a conectarse al grupo de Apache Spark y a ejecutar consultas SQL de Spark en archivos y tablas. Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para información sobre Spark en Azure Synapse, consulte [Introducción: Apache Spark en Azure Synapse](./spark/apache-spark-overview.md).
 
 > [!IMPORTANT]
 > La facturación de las instancias de Spark se prorratea por minuto, tanto si se usan como si no. Asegúrese de cerrar la instancia de Spark después de que haya terminado de usarla, o configure un breve tiempo de espera. Para obtener más información, consulte la sección **Limpieza de recursos** de este artículo.
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Área de trabajo de Synapse Analytics](quickstart-create-workspace.md)
-- [Grupo de Apache Spark](quickstart-create-apache-spark-pool-studio.md)
+- [Grupo de Apache Spark sin servidor](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -132,9 +132,12 @@ SQL (Lenguaje de consulta estructurado) es el lenguaje más común y ampliamente
 
 11. Cada una de las celdas que se ejecutaron anteriormente tenía la opción de ir a **History Server** (Servidor de historial) y **Monitoring** (Supervisión). Al hacer clic en los vínculos, se le remite a diferentes partes de la experiencia del usuario.
 
+> [!NOTE]
+> Una parte de la [documentación oficial de Apache Spark](https://spark.apache.org/docs/latest/) se basa en el uso de la consola de Spark, que no está disponible en Synapse Spark. En su lugar, use las experiencias de [cuaderno](quickstart-apache-spark-notebook.md) o [IntelliJ](./spark/intellij-tool-synapse.md).
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Azure Synapse guarda los datos en Azure Data Lake Storage. Puede dejar que se cierre de forma segura una instancia de Spark cuando no esté en uso. Un grupo de Apache Spark en Azure Synapse se le cobra mientras esté en ejecución, aunque no esté en uso. 
+Azure Synapse guarda los datos en Azure Data Lake Storage. Puede dejar que se cierre de forma segura una instancia de Spark cuando no esté en uso. Los grupos de Apache Spark sin servidor se le cobrarán mientras estén en ejecución, aunque no esté en uso. 
 
 Como en muchas ocasiones los cargos del clúster son mucho más elevados que los cargos de almacenamiento, es mejor para la economía dejar que las instancias de Spark se cierren cuando no estén en uso.
 
@@ -142,11 +145,10 @@ Para asegurarse de que se cierra la instancia de Spark, finalice todas las sesio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a crear un grupo de Apache Spark en Azure Synapse y a ejecutar una consulta SQL básica de Spark.
+En este inicio rápido, ha aprendido a crear un grupo de Apache Spark sin servidor y a ejecutar una consulta básica de SQL de Spark.
 
 - [Azure Synapse Analytics](overview-what-is.md)
 - [Documentación de .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Documentación oficial de Apache Spark](https://spark.apache.org/docs/latest/)
 
->[!NOTE]
-> Parte de la documentación oficial de Apache Spark se basa en el uso de la consola de Spark, que no está disponible en Azure Synapse Spark. En su lugar, use las experiencias de [cuaderno](quickstart-apache-spark-notebook.md) o [IntelliJ](./spark/intellij-tool-synapse.md).
+
+

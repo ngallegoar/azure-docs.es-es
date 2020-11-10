@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f6a4045308aa0ae8488839b0d5ea4d476c4dc883
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 3c5a04bd14bdcbf250908db78c622b963f191d91
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776330"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333110"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service
 
@@ -71,17 +71,18 @@ El proceso de implementación en Azure App Service utilizará sus credenciales d
 Ejecute el siguiente comando de Maven para configurar la implementación. Este comando le ayudará a configurar el sistema operativo de App Service, la versión de Java y la versión de Tomcat.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 ```
 
 ::: zone pivot="platform-windows"
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
-1. Cuando se le aparezca la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>`.
-1. Cuando se le aparezca la opción **SO**, especifique `2` para seleccionar **Windows**.
-1. Use la versión de Java predeterminada (1.8); para ello, presione Entrar.
+1. Cuando se le aparezca la opción **Suscripción** , escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+1. Cuando se le solicite la opción **Aplicación web** , presione Entrar para aceptar la opción predeterminada `<create>` o seleccione una aplicación existente.
+1. Cuando se le solicite la opción **SO** , especifique `3` para seleccionar **Windows**.
+1. Cuando se le solicite la opción **Plan de tarifa** , especifique `2` para seleccionar **B2**.
+1. Use la versión de Java predeterminada, **Java 8** ; para ello, presione Entrar.
 1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     La salida del resumen tendrá un aspecto similar al fragmento de código que se muestra a continuación.
@@ -92,7 +93,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Windows
     Java : 1.8
     WebContainer : java 8
@@ -109,11 +110,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
-1. Cuando se le aparezca la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>`.
-1. Cuando se le aparezca la opción **SO**, especifique `2` para seleccionar **Windows**.
-1. Use la versión de Java predeterminada (1.8); para ello, presione Entrar.
-1. Use el contenedor web predeterminado (Tomcat 8.5); para ello, presione Entrar.
+1. Cuando se le aparezca la opción **Suscripción** , escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+1. Cuando se le solicite la opción **Aplicación web** , presione Entrar para aceptar la opción predeterminada `<create>` o seleccione una aplicación existente.
+1. Cuando se le solicite la opción **SO** , especifique `3` para seleccionar **Windows**.
+1. Cuando se le solicite la opción **Plan de tarifa** , especifique `2` para seleccionar **B2**.
+1. Use la versión de Java predeterminada, **Java 8** ; para ello, presione Entrar.
+1. Use el contenedor web predeterminado, **Tomcat 8.5** ; para ello, presione Entrar.
 1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     La salida del resumen tendrá un aspecto similar al fragmento de código que se muestra a continuación.
@@ -124,7 +126,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Windows
     Java : 1.8
     WebContainer : tomcat 8.5
@@ -146,10 +148,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
-1. Cuando se le aparezca la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>`.
-1. Cuando se le aparezca la opción **SO**, presione Entrar para seleccionar **Linux**.
-1. Use la versión de Java predeterminada (1.8); para ello, presione Entrar.
+1. Cuando se le aparezca la opción **Suscripción** , escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+1. Cuando se le solicite la opción **Aplicación web** , presione Entrar para aceptar la opción predeterminada `<create>` o seleccione una aplicación existente.
+1. Cuando se le solicite la opción **SO** , presione Entrar para seleccionar **Linux**.
+1. Cuando se le solicite la opción **Plan de tarifa** , especifique `2` para seleccionar **B2**.
+1. Use la versión de Java predeterminada, **Java 8** ; para ello, presione Entrar.
 1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     ```
@@ -158,7 +161,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Linux
     RuntimeStack : JAVA 8-jre8
     Deploy to slot : false
@@ -174,11 +177,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
-1. Cuando se le aparezca la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>`.
-1. Cuando se le aparezca la opción **SO**, presione Entrar para seleccionar **Linux**.
-1. Use la versión de Java predeterminada (1.8); para ello, presione Entrar.
-1. Use el contenedor web predeterminado (Tomcat 8.5); para ello, presione Entrar.
+1. Cuando se le aparezca la opción **Suscripción** , escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+1. Cuando se le solicite la opción **Aplicación web** , presione Entrar para aceptar la opción predeterminada `<create>` o seleccione una aplicación existente.
+1. Cuando se le solicite la opción **SO** , presione Entrar para seleccionar **Linux**.
+1. Cuando se le solicite la opción **Plan de tarifa** , especifique `2` para seleccionar **B2**.
+1. Use la versión de Java predeterminada, **Java 8** ; para ello, presione Entrar.
+1. Use el contenedor web predeterminado, **Tomcat 8.5** ; para ello, presione Entrar.
 1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     ```
@@ -187,7 +191,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Linux
     RuntimeStack : TOMCAT 8.5-jre8
     Deploy to slot : false
@@ -214,9 +218,9 @@ Propiedad | Obligatorio | Descripción | Versión
 `<resourceGroup>` | true | Grupo de recursos de Azure para la aplicación web. | 0.1.0+
 `<appName>` | true | El nombre de la aplicación web. | 0.1.0+
 `<region>` | true | Especifica la región donde se hospedará la aplicación web. El valor predeterminado es **westeurope**. Todas las regiones válidas en la sección [Regiones admitidas](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
-`<pricingTier>` | false | El plan de tarifa de la aplicación web. El valor predeterminado es **P1V2**.| 0.1.0+
-`<runtime>` | true | La configuración del entorno en tiempo de ejecución. Puede ver los detalles [aquí](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
-`<deployment>` | true | La configuración de implementación. Puede ver los detalles [aquí](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
+`<pricingTier>` | false | El plan de tarifa de la aplicación web. El valor predeterminado es **P1V2** para cargas de trabajo de producción, mientras que **B2** es el mínimo recomendado para desarrollo y pruebas de Java. [Más información](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<runtime>` | true | La configuración del entorno en tiempo de ejecución. Puede ver los detalles [aquí](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
+`<deployment>` | true | La configuración de implementación. Puede ver los detalles [aquí](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 
 Tenga cuidado con los valores de `<appName>` y `<resourceGroup>`(`helloworld-1590394316693` y `helloworld-1590394316693-rg` en la demostración), ya que se usarán más adelante.
 
@@ -225,7 +229,7 @@ Tenga cuidado con los valores de `<appName>` y `<resourceGroup>`(`helloworld-159
 
 ## <a name="deploy-the-app"></a>Implementar la aplicación
 
-El complemento de Maven usa las credenciales de la cuenta desde la CLI de Azure para la implementación en App Services. [Inicie sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) antes de continuar.
+El complemento de Maven usa las credenciales de la cuenta desde la CLI de Azure para la implementación en App Services. [Inicie sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli) antes de continuar.
 
 ```azurecli
 az login

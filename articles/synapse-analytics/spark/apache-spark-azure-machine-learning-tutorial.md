@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979e360bb920fc3b34a201b1287b50b141bffa9b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540513"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313629"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Tutorial: Ejecución de experimentos mediante el aprendizaje automático automatizado de Azure y Apache Spark
 
@@ -29,13 +29,16 @@ En este tutorial, aprenderá a realizar las tareas siguientes:
 - Calcular la precisión del modelo
 
 ### <a name="before-you-begin"></a>Antes de empezar
-- Cree un grupo de Apache Spark, para lo que puede seguir el tutorial [Creación de un grupo de Apache Spark](../quickstart-create-apache-spark-pool-studio.md).
+
+- Cree un grupo de Apache Spark sin servidor como se indica en el [inicio rápido de creación de un grupo de Apache Spark sin servidor](../quickstart-create-apache-spark-pool-studio.md).
 - Si no tiene un área de trabajo de Azure Machine Learning, complete el [tutorial de configuración del área de trabajo de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup). 
 
 ### <a name="understand-regression-models"></a>Descripción de los modelos de regresión
+
 Los *modelos de regresión* predicen los valores de salida numéricos basados en indicadores independientes. En la regresión, el objetivo es ayudar a establecer la relación entre esas variables de predicción independientes mediante la estimación de cómo una variable afecta a las otras.  
 
 ### <a name="regression-analysis-example-on-the-nyc-taxi-data"></a>Ejemplo de análisis de regresión en los datos de los taxis de Nueva York
+
 En este ejemplo, usará Spark para realizar un análisis de los datos de las propinas de los trayectos en taxi de Nueva York. Los datos están disponibles a través de [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Este subconjunto del conjunto de datos contiene información sobre las carreras de Yellow Taxi, incluida información sobre cada carrera, la hora y la ubicación de inicio y fin, el costo y otros atributos interesantes.
 
 > [!IMPORTANT]
@@ -143,7 +146,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>Conversión de un dataframe en un conjunto de datos de Azure Machine Learning
-Para enviar un experimento remoto, es necesario convertir el conjunto de información en un ```TabularDatset``` de Azure Machine Learning. [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa los datos en formato tabular, para lo que analiza los archivos proporcionados.
+Para enviar un experimento remoto, es necesario convertir el conjunto de información en un ```TabularDatset``` de Azure Machine Learning. [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representa los datos en formato tabular, para lo que analiza los archivos proporcionados.
 
 El código siguiente obtiene el área de trabajo existente y el almacén de datos predeterminado de Azure Machine Learning. Luego, pasa las ubicaciones del almacén de datos y de los archivos al parámetro de la ruta de acceso para crear un elemento ```TabularDataset```. 
 
@@ -165,7 +168,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 
 ![Imagen del conjunto de datos cargado.](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
 
-## <a name="submit-an-auto-ml-experiment"></a>Envío de un experimento de Machine Learning automatizado
+## <a name="submit-an-automl-experiment"></a>Envío de un experimento de AutoML
 
 #### <a name="define-training-settings"></a>Definición de la configuración del entrenamiento
 

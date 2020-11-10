@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 774e503bec3f1f8c4cc5b85bb599230a3397f811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8ae47f89dcddd2253abd21239eb1a9bffee27c7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858445"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307830"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Hoja de referencia rápida de Azure Synapse Analytics
 
@@ -29,29 +29,31 @@ Un **área de trabajo de Synapse** es un límite de colaboración protegible par
 Un área de trabajo le permite realizar análisis con SQL y Apache Spark. Los recursos disponibles para los análisis de SQL y Spark se organizan en **grupos** de SQL y Spark. 
 
 ## <a name="synapse-sql"></a>SQL de Synapse
-**Synapse SQL** es la capacidad de realizar análisis basados en T-SQL en el área de trabajo de Synapse. Synapse SQL tiene dos modelos de consumo: dedicado y sin servidor.  Para el modelo dedicado, use **grupos de SQL** dedicados. Un área de trabajo puede tener un número ilimitado de estos grupos. Para usar el modelo sin servidor, use el grupo SQL sin servidor denominado "SQL a petición". Cada área de trabajo tiene uno de estos grupos.
+
+**Synapse SQL** es la capacidad de realizar análisis basados en T-SQL en el área de trabajo de Synapse. Synapse SQL tiene dos modelos de consumo: dedicado y sin servidor.  Para el modelo dedicado, use **grupos de SQL dedicados**. Un área de trabajo puede tener un número ilimitado de estos grupos. Para usar el modelo sin servidor, use los **grupos de SQL sin servidor**. Cada área de trabajo tiene uno de estos grupos.
 
 ## <a name="apache-spark-for-synapse"></a>Apache Spark para Synapse
-Para usar el análisis de Spark, cree y use **grupos de Spark** en el área de trabajo de Synapse.
+
+Para usar el análisis de Spark, cree y use **grupos de Apache Spark sin servidor** en el área de trabajo de Synapse.
 
 ## <a name="sql-terminology"></a>Terminología de SQL
 | Término                         | Definición      |
 |:---                                 |:---                 |
-| **Solicitud de SQL**  |   Operación como, por ejemplo, una consulta ejecutada a través del grupo de SQL o de SQL a petición. |
+| **Solicitud de SQL**  |   Algunas operaciones, como las consultas, se ejecutan mediante el grupo de SQL dedicado o el grupo de SQL sin servidor. |
 
 ## <a name="spark-terminology"></a>Terminología de Spark
 | Término                         | Definición      |
 |:---                                 |:---                 |
-|**Apache Spark para Synapse** | Entorno de ejecución de Spark que se usa en un grupo de Spark. La versión actual admitida es Spark 2.4 con Python 3.6.1, Scala 2.11.12, compatibilidad con .NET para Apache Spark 0.5 y Delta Lake 0.3.  | 
+|**Apache Spark para Synapse** | Entorno de ejecución de Spark que se usa en un grupo de Spark sin servidor. La versión actual admitida es Spark 2.4 con Python 3.6.1, Scala 2.11.12, compatibilidad con .NET para Apache Spark 0.5 y Delta Lake 0.3.  | 
 | **Grupo de Apache Spark**  | Se pueden implementar en un área de trabajo de 0 a N recursos aprovisionados de Spark con sus bases de datos correspondientes. Un grupo de Spark se puede pausar, reanudar y escalar automáticamente.  |
-| **Aplicación Spark**  |   Consta de un proceso de controlador y un conjunto de procesos del ejecutor. Una aplicación Spark se ejecuta en un grupo de Spark.            |
-| **Sesión de Spark**  |   Punto de entrada unificado de una aplicación de Spark. Proporciona una manera de interactuar con las diversas funcionalidades de Spark y con un número menor de construcciones. Para ejecutar un cuaderno, es necesario crear una sesión. Una sesión se puede configurar para que se ejecute en un número específico de ejecutores de un tamaño específico. La configuración predeterminada para una sesión de un cuaderno es ejecutar en dos ejecutores de tamaño medio. |
+| **Aplicación Spark**  |   Consta de un proceso de controlador y un conjunto de procesos del ejecutor. Una aplicación Spark se ejecuta en un grupo de Spark sin servidor.            |
+| **Sesión de Spark**  |   Punto de entrada unificado de una aplicación de Spark. Proporciona una manera de interactuar con las diversas funcionalidades de Spark y con un número menor de construcciones. Para ejecutar un cuaderno, es necesario crear una sesión. Una sesión se puede configurar para que se ejecute en un número específico de ejecutores de un tamaño específico. La configuración predeterminada de una sesión de un cuaderno es que se usen dos ejecutores de tamaño medio. |
 |**Integración de registros**| Proporciona la funcionalidad de introducir datos entre varios orígenes y coordinar las actividades que se ejecutan en un área de trabajo o fuera de ella.| 
 |**Artefactos**| Concepto que encapsula todos los objetos necesarios para que un usuario administre los orígenes de datos y los desarrolle, organice y visualice.|
 |**Cuaderno**| Interfaz de ciencia de datos e ingeniería interactiva y reactiva que admite Scala, PySpark, C# y SparkSQL. |
 |**Definición de trabajos de Spark**|Interfaz para enviar un trabajo de Spark con el archivo jar del ensamblado que contiene el código y sus dependencias.|
 |**Flujo de datos**|  Proporciona una experiencia completamente visual que no requiere codificación para realizar la transformación de macrodatos. Toda la optimización y ejecución se administra sin servidor. |
-|**Script de SQL**| Conjunto de comandos SQL guardados en un archivo. Un script SQL puede contener una o varias instrucciones SQL. Se puede usar para ejecutar solicitudes SQL a través del grupo de SQL o de SQL a petición.|
+|**Script de SQL**| Conjunto de comandos SQL guardados en un archivo. Un script SQL puede contener una o varias instrucciones SQL. Se puede usar para ejecutar solicitudes SQL a través del grupo de SQL dedicado o el grupo de SQL sin servidor.|
 |**Canalización**| Una agrupación lógica de actividades que realizan una tarea juntas.|
 |**Actividad**| Define las acciones que se deben realizar en los datos, como la copia de datos, la ejecución de un bloc de notas o un script SQL.|
 |**Desencadenador**| Ejecuta una canalización. Se puede ejecutar de forma manual o automática (programación, ventana de saltos de tamaño constante o basada en eventos).|
@@ -62,7 +64,7 @@ Para usar el análisis de Spark, cree y use **grupos de Spark** en el área de t
 
 - [Creación de un área de trabajo](quickstart-create-workspace.md)
 - [Inicio rápido: Uso de Synapse Studio (versión preliminar)](quickstart-synapse-studio.md)
-- [Creación de un grupo de SQL](quickstart-create-sql-pool-portal.md)
-- [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool-portal.md)
-- [Uso de SQL a petición](quickstart-sql-on-demand.md)
+- [Creación de un grupo de SQL dedicado](quickstart-create-sql-pool-portal.md)
+- [Creación de un grupo de Apache Spark sin servidor](quickstart-create-apache-spark-pool-portal.md)
+- [Uso de grupos de SQL sin servidor](quickstart-sql-on-demand.md)
 

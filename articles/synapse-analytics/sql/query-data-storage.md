@@ -1,6 +1,6 @@
 ---
-title: Consulta de los datos en el almacenamiento mediante SQL a petición (versión preliminar)
-description: En este artículo se describe cómo consultar Azure Storage mediante el recurso de SQL a petición (versión preliminar) en Azure Synapse Analytics.
+title: Consulta del almacenamiento de datos con el grupo de SQL sin servidor (versión preliminar)
+description: En este artículo se describe cómo consultar Azure Storage mediante el recurso del grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3fd3a94efd6e7870ae3919a011fc24f66b97c559
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288382"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310954"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consulta de archivos de almacenamiento mediante recursos de SQL a petición (versión preliminar) en Synapse SQL
+# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consulta de archivos del almacenamiento con el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
 
-SQL a petición (versión preliminar) permite consultar los datos de un lago de datos. Ofrece un área expuesta de consultas de T-SQL que admite consultas de datos semiestructurados y no estructurados. Para realizar consultas, se admiten los siguientes aspectos de T-SQL:
+El grupo de SQL sin servidor (versión preliminar) permite consultar los datos del lago de datos. Ofrece un área expuesta de consultas de T-SQL que admite consultas de datos semiestructurados y no estructurados. Para realizar consultas, se admiten los siguientes aspectos de T-SQL:
 
 - Área expuesta [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) completa, que incluye la mayoría de los [operadores y funciones de SQL](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) crea una [tabla externa](develop-tables-external-tables.md) y, después, exporta en paralelo los resultados de una instrucción SELECT de Transact-SQL a Azure Storage.
 
-Para más información sobre lo que se admite o no se admite actualmente, lea el artículo [Introducción a SQL a petición](on-demand-workspace-overview.md) o los artículos siguientes:
+Para más información sobre lo que se admite o no actualmente, lea el artículo [Introducción a al grupo de SQL sin servidor](on-demand-workspace-overview.md) o los artículos siguientes:
 - [Desarrollo de acceso al almacenamiento](develop-storage-files-overview.md), donde puede aprender a usar una [tabla externa](develop-tables-external-tables.md) y la [función OPENROWSET](develop-openrowset.md) para leer datos del almacenamiento.
 - [Control del acceso al almacenamiento](develop-storage-files-storage-access-control.md), donde puede aprender a habilitar Synapse SQL para acceder al almacenamiento mediante la autenticación de SAS o la identidad administrada del área de trabajo.
 
 ## <a name="overview"></a>Información general
 
-Para tener una experiencia fluida en las consultas en contexto de los datos que se encuentran en los archivos de Azure Storage, SQL a petición usa la función [OPENROWSET](develop-openrowset.md) con funcionalidades adicionales:
+Para tener una experiencia fluida en las consultas en contexto de los datos que se encuentran en los archivos de Azure Storage, el grupo de SQL sin servidor usa la función [OPENROWSET](develop-openrowset.md) con funcionalidades adicionales:
 
 - [Consulta de varios archivos o carpetas](#query-multiple-files-or-folders)
 - [Formato de archivo PARQUET](#query-parquet-files)
@@ -146,7 +146,7 @@ El tipo de datos devuelto es nvarchar (1024). Para obtener un rendimiento óptim
 
 ## <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Uso con tipos complejos y estructuras de datos anidadas o repetidas
 
-Para poder tener una experiencia fluida con los datos almacenados en tipos de datos anidados o repetidos como, por ejemplo, en los archivos con formato [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types), SQL a petición ha agregado las siguientes extensiones.
+Para tener una experiencia fluida con los datos almacenados en tipos de datos anidados o repetidos como, por ejemplo, en los archivos con formato [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types), el grupo de SQL sin servidor ha agregado las siguientes extensiones.
 
 #### <a name="project-nested-or-repeated-data"></a>Proyección de datos anidados o repetidos de proyecto
 

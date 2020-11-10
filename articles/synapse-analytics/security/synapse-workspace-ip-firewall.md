@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2bac9645fa66cd33c7cda79f16628c1104e27d7d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00b4f38f4a2a44b88718224db2b2442033816f83
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480554"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313890"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Reglas de firewall de IP de Azure Synapse Analytics (versión preliminar)
 
@@ -21,7 +21,7 @@ En este artículo se explican las reglas de firewall de IP y se muestra cómo co
 
 ## <a name="ip-firewall-rules"></a>Reglas de firewall de IP
 
-Las reglas de firewall de IP conceden o deniegan el acceso al área de trabajo de Synapse en función de la dirección IP de origen de cada solicitud. Se pueden configurar reglas de firewall de IP para el área de trabajo. Las reglas de firewall de IP configuradas en el nivel de área de trabajo se aplican a todos los puntos de conexión públicos del área de trabajo (grupos de SQL, SQL a petición y desarrollo).
+Las reglas de firewall de IP conceden o deniegan el acceso al área de trabajo de Synapse en función de la dirección IP de origen de cada solicitud. Se pueden configurar reglas de firewall de IP para el área de trabajo. Las reglas de firewall de IP configuradas en el nivel de área de trabajo se aplican a todos los puntos de conexión públicos del área de trabajo (grupos de SQL dedicado, grupo de SQL sin servidor y desarrollo).
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Creación y administración de reglas de firewall de IP
 
@@ -37,7 +37,7 @@ También puede agregar reglas de firewall de IP a un área de trabajo de Synapse
 
 ## <a name="connect-to-synapse-from-your-own-network"></a>Conexión con Synapse desde su propia red
 
-Puede conectarse al área de trabajo de Synapse con Synapse Studio. También puede usar SQL Server Management Studio (SSMS) para conectarse a los recursos de SQL (grupos de SQL y SQL a petición) en el área de trabajo.
+Puede conectarse al área de trabajo de Synapse con Synapse Studio. También puede usar SQL Server Management Studio (SSMS) para conectarse a los recursos de SQL (grupos de SQL dedicado y grupo de SQL sin servidor) del área de trabajo.
 
 Asegúrese de que el firewall de la red y del equipo local permita la comunicación saliente en los puertos TCP 80, 443 y 1443 para Synapse Studio.
 

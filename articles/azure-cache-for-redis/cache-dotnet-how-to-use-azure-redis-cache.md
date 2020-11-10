@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Uso de Azure Cache for Redis con aplicaciones .NET'
+title: 'Inicio rápido: Uso de Azure Cache for Redis con .NET Framework'
 description: En este inicio rápido, aprenderá cómo acceder a Azure Redis Cache desde las aplicaciones .NET
 author: yegu-ms
 ms.author: yegu
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: b3c18fcc0f4ff21eaaea2cbaf664e87d0ff33d60
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537072"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077071"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Inicio rápido: Uso de Azure Redis Cache con una aplicación .NET Framework
+# <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Inicio rápido: Uso de Azure Cache for Redis con .NET Framework
 
 En este inicio rápido incorporará Azure Redis Cache en una aplicación .NET Framework para acceder a una caché dedicada y segura, a la que se puede acceder desde cualquier aplicación de Azure. Concretamente, usará el cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) con código C# en una aplicación de consola de .NET.
 
@@ -30,7 +30,7 @@ En este inicio rápido incorporará Azure Redis Cache en una aplicación .NET Fr
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Cree un archivo en el equipo llamado *CacheSecrets.config* y colóquelo en una ubicación donde no se vaya a insertar en el repositorio con el código fuente de la aplicación de ejemplo. En esta guía de inicio rápido, el archivo *CacheSecrets.config* se encuentra aquí, *C:\AppSecrets\CacheSecrets.config* .
+Cree un archivo en el equipo llamado *CacheSecrets.config* y colóquelo en una ubicación donde no se vaya a insertar en el repositorio con el código fuente de la aplicación de ejemplo. En esta guía de inicio rápido, el archivo *CacheSecrets.config* se encuentra aquí, *C:\AppSecrets\CacheSecrets.config*.
 
 Edite el archivo *CacheSecrets.config* y agregue el contenido siguiente:
 
@@ -47,7 +47,7 @@ Reemplace `<access-key>` por la clave principal de la caché.
 
 ## <a name="create-a-console-app"></a>Creación de una aplicación de consola
 
-En Visual Studio, haga clic en **Archivo** > **Nuevo** > **proyecto** .
+En Visual Studio, haga clic en **Archivo** > **Nuevo** > **proyecto**.
 
 Seleccione **Aplicación de consola (.NET Framework)** y **Siguiente** para configurar la aplicación. Escriba un **Nombre de proyecto** y haga clic en **Crear** para crear una nueva aplicación de consola.
 
@@ -68,7 +68,7 @@ Una vez completada la instalación, el cliente de caché *StackExchange.Redis* e
 
 ## <a name="connect-to-the-cache"></a>Conexión a la memoria caché
 
-En Visual Studio, abra el archivo *App.config* y actualícelo para incluir un atributo `appSettings` `file` que haga referencia al archivo *CacheSecrets.config* .
+En Visual Studio, abra el archivo *App.config* y actualícelo para incluir un atributo `appSettings` `file` que haga referencia al archivo *CacheSecrets.config*.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -81,7 +81,7 @@ En Visual Studio, abra el archivo *App.config* y actualícelo para incluir un a
 </configuration>
 ```
 
-En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** y haga clic en **Agregar una referencia** . Agregue una referencia al ensamblado **System.Configuration** .
+En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** y haga clic en **Agregar una referencia**. Agregue una referencia al ensamblado **System.Configuration**.
 
 Agregue las siguientes instrucciones `using` a *Program.cs* :
 
@@ -247,13 +247,13 @@ En caso contrario, si ya ha terminado con la aplicación de ejemplo de la guía 
 > La eliminación de un grupo de recursos es irreversible y el grupo de recursos y todos los recursos que contiene se eliminarán de forma permanente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado los recursos para hospedar este ejemplo dentro de un grupo de recursos existente que contiene recursos que desea mantener, puede eliminar cada recurso individualmente de sus hojas respectivas, en lugar de eliminar el grupo de recursos.
 >
 
-Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos** .
+Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 
-Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...** . En las instrucciones de este artículo se usa un grupo de recursos llamado *TestResources* . En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos** .
+Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...** . En las instrucciones de este artículo se usa un grupo de recursos llamado *TestResources*. En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
 
 ![Eliminar](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
-Se le pedirá que confirme la eliminación del grupo de recursos. Escriba el nombre del grupo de recursos para confirmar y haga clic en **Eliminar** .
+Se le pedirá que confirme la eliminación del grupo de recursos. Escriba el nombre del grupo de recursos para confirmar y haga clic en **Eliminar**.
 
 Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
 

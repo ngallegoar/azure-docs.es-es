@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fcc7c6ff74e17db2066d97597849c985f5a961e9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 23615daf4a07e02b01bbd5a9cdf57ec9a81a2b76
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76514075"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347406"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ En esta guía de inicio rápido se describe cómo implementar Azure Data Box Dis
 
 Para obtener instrucciones detalladas para realizar una implementación y el seguimiento del proceso, vaya a [Tutorial: Pedido de Azure Data Box](data-box-disk-deploy-ordered.md). 
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F&preserve-view=true).
 
 ::: zone-end
 
@@ -52,11 +52,11 @@ Inicie sesión en Azure Portal en [https://aka.ms/azuredataboxfromdiskdocs](http
 
 > [!div class="checklist"]
 >
-> - **Revisión de los requisitos previos**: compruebe el número de discos y cables, el sistema operativo y otros programas de software.
-> - **Conexión y desbloqueo**: conecte el dispositivo y desbloquee el disco para copiar los datos.
-> - **Copia de los datos en el disco y validación**: copie los datos en los discos en las carpetas creadas.
-> - **Devolución de los discos**: devuelva los discos al centro de datos de Azure en el se cargan los datos en la cuenta de almacenamiento.
-> - **Comprobación de los datos en Azure**: compruebe que los datos se han cargado en la cuenta de almacenamiento antes de eliminarlos del servidor de datos de origen.
+> - **Revisión de los requisitos previos** : compruebe el número de discos y cables, el sistema operativo y otros programas de software.
+> - **Conexión y desbloqueo** : conecte el dispositivo y desbloquee el disco para copiar los datos.
+> - **Copia de los datos en el disco y validación** : copie los datos en los discos en las carpetas creadas.
+> - **Devolución de los discos** : devuelva los discos al centro de datos de Azure en el se cargan los datos en la cuenta de almacenamiento.
+> - **Comprobación de los datos en Azure** : compruebe que los datos se han cargado en la cuenta de almacenamiento antes de eliminarlos del servidor de datos de origen.
 
 ::: zone-end
 
@@ -64,6 +64,8 @@ Inicie sesión en Azure Portal en [https://aka.ms/azuredataboxfromdiskdocs](http
 ::: zone target="docs"
 
 ## <a name="order"></a>Pedido de
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Este paso tarda aproximadamente 5 minutos.
 
@@ -73,6 +75,74 @@ Este paso tarda aproximadamente 5 minutos.
 4. Escriba los detalles del pedido y la información de envío. Si el servicio está disponible en su región, proporcione las direcciones de correo electrónico de notificación, revise el resumen y, a continuación, cree el pedido.
 
 Una vez que se creó el pedido, los discos están preparados para su envío.
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Utilice estos comandos de la CLI de Azure para crear un trabajo de Data Box Disk.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+1. Ejecute el comando [az group create](/cli/azure/group#az_group_create) para crear un grupo de recursos o use un grupo de recursos existente:
+
+   ```azurecli
+   az group create --name databox-rg --location westus
+   ```
+
+1. Use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) para crear una cuenta de almacenamiento o utilice una cuenta de almacenamiento existente:
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. Ejecute el comando [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) para crear un trabajo de Data Box con el SKU DataBoxDisk:
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxdisk-job \
+       --location westus --sku DataBoxDisk --contact-name "Jim Gan" --phone=4085555555 \
+       –-city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA \
+       --storage-account databoxtestsa --expected-data-size 1
+   ```
+
+1. Ejecute el comando [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) para actualizar un trabajo, como en este ejemplo, donde puede cambiar el nombre y la dirección de correo electrónico del contacto:
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+   ```
+
+   Ejecute el comando [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) para obtener información sobre el trabajo:
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   Use el comando [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) para ver todos los trabajos de Data Box de un grupo de recursos:
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   Ejecute el comando [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) para cancelar un trabajo:
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   ```
+
+   Ejecute el comando [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) para eliminar un trabajo:
+
+   ```azurecli
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. Use el comando [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) para enumerar las credenciales de un trabajo de Data Box:
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+Una vez que se creó el pedido, el dispositivo está preparado para su envío.
+
+---
 
 ## <a name="unpack"></a>Desempaquetado
 
@@ -100,7 +170,7 @@ Este paso tarda aproximadamente 5 minutos.
 
 El tiempo en completar esta operación depende del tamaño de los datos.
 
-1. La unidad contiene las carpetas *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk* y *DataBoxDiskImport*. Arrastre y coloque los datos que deben importarse como blobs en bloques en la carpeta *BlockBlob* para copiarlos. De forma similar, puede arrastrar y colocar los datos como VHD/VHDX en la carpeta *PageBlob* y los datos apropiados en *AzureFile*. Copie los discos duros virtuales que desea cargar como discos administrados en una carpeta en *ManagedDisk*.
+1. La unidad contiene las carpetas *PageBlob* , *BlockBlob* , *AzureFile* , *ManagedDisk* y *DataBoxDiskImport*. Arrastre y coloque los datos que deben importarse como blobs en bloques en la carpeta *BlockBlob* para copiarlos. De forma similar, puede arrastrar y colocar los datos como VHD/VHDX en la carpeta *PageBlob* y los datos apropiados en *AzureFile*. Copie los discos duros virtuales que desea cargar como discos administrados en una carpeta en *ManagedDisk*.
 
     Se crea un contenedor en la cuenta de almacenamiento de Azure para cada subcarpeta bajo las carpetas *BlockBlob* y *PageBlob*. Se crea un recurso compartido para una subcarpeta en *AzureFile*.
 
@@ -110,7 +180,7 @@ El tiempo en completar esta operación depende del tamaño de los datos.
     > - Todos los contenedores, blobs y archivos deben cumplir las [convenciones de nomenclatura de Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Si no se siguen estas reglas, se producirá un error en la carga de datos en Azure.
     > - Asegúrese de que los archivos no superen ~4,75 TiB para blobs en bloques, ~ 8 TiB para blobs en páginas y ~ 1 TiB para Azure Files.
 
-2. **(Opcional pero recomendado)**  Una vez completada la copia, se recomienda encarecidamente que, como mínimo, se ejecute el `DataBoxDiskValidation.cmd` proporcionado en la carpeta *DataBoxDiskImport* y se seleccione la opción 1 para validar los archivos. También se recomienda que, si el tiempo lo permite, use la opción 2 para generar también sumas de comprobación para la validación (puede tardar tiempo en función del tamaño de los datos). Estos pasos minimizan las posibilidades de errores al cargar los datos en Azure.
+2. **(Opcional pero recomendado)** Una vez completada la copia, se recomienda encarecidamente que, como mínimo, se ejecute el `DataBoxDiskValidation.cmd` proporcionado en la carpeta *DataBoxDiskImport* y se seleccione la opción 1 para validar los archivos. También se recomienda que, si el tiempo lo permite, use la opción 2 para generar también sumas de comprobación para la validación (puede tardar tiempo en función del tamaño de los datos). Estos pasos minimizan las posibilidades de errores al cargar los datos en Azure.
 3. Quite la unidad de forma segura.
 
 ## <a name="ship-to-azure"></a>Envío a Azure
@@ -122,7 +192,7 @@ Este paso tarda entre 5 y 7 minutos en completarse.
 
 El servicio Data Box Disk envía una notificación por correo electrónico y actualiza el estado del pedido en Azure Portal.
 
-## <a name="verify-your-data"></a>Verificación de los datos
+## <a name="verify-your-data"></a>Confirmación de los datos
 
 El tiempo en completar esta operación depende del tamaño de los datos.
 

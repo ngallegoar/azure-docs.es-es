@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de una aplicación de Python (Azure Cache for Redis)'
+title: 'Inicio rápido: Uso de Azure Cache for Redis con Python'
 description: En este tutorial, aprenderá a crear una aplicación de Python que usa Azure Cache for Redis.
 author: yegu-ms
 ms.author: yegu
@@ -11,14 +11,14 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.date: 11/05/2019
-ms.openlocfilehash: aed9be394076b4ef10b8354552d69771ae659eea
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79add54478e9cd52ffd3041d5f85bf588929b44f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87845331"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099443"
 ---
-# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Inicio rápido: Creación de una aplicación de Python que use Azure Cache for Redis
+# <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Inicio rápido: Uso de Azure Cache for Redis con Python
 
 En este artículo incorporará Azure Cache for Redis en una aplicación de Python para acceder a una caché dedicada y segura, a la que se puede acceder desde cualquier aplicación de Azure.
 
@@ -34,7 +34,7 @@ En este artículo incorporará Azure Cache for Redis en una aplicación de Pytho
 
 ## <a name="install-redis-py"></a>Instalación de redis-py
 
-[Redis-py](https://github.com/andymccurdy/redis-py) es una interfaz de Python para Azure Redis Cache. Use la herramienta de paquetes de Python, *pip*, para instalar el paquete *redis-py* desde un símbolo del sistema. 
+[Redis-py](https://github.com/andymccurdy/redis-py) es una interfaz de Python para Azure Redis Cache. Use la herramienta de paquetes de Python, *pip* , para instalar el paquete *redis-py* desde un símbolo del sistema. 
 
 En el ejemplo siguiente se usa *pip3* para Python 3 para instalar *redis-py* en Windows 10 desde un símbolo del sistema de administrador.
 
@@ -99,7 +99,7 @@ Si ya ha terminado con el grupo de recursos y los recursos de Azure que creó en
 Para eliminar el grupo de recursos y su instancia de Azure Cache for Redis:
 
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Grupos de recursos**.
-1. En el cuadro de texto **Filtrar por nombre**, escriba el nombre del grupo de recursos que contiene la instancia de caché y, a continuación, selecciónela en los resultados de la búsqueda. 
+1. En el cuadro de texto **Filtrar por nombre** , escriba el nombre del grupo de recursos que contiene la instancia de caché y, a continuación, selecciónela en los resultados de la búsqueda. 
 1. En la página del grupo de recursos, seleccione **Eliminar grupo de recursos**.
 1. Escriba el nombre del grupo de recursos y, a continuación, seleccione **Eliminar**.
    

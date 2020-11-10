@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ab484e8caaffaf57f19f1fcd1e65f4b8e723f86
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88948868"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077904"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Inicio rápido: Solicitud de la aceptación de los términos de uso antes de acceder a aplicaciones en la nube
 
@@ -27,7 +27,7 @@ Antes de acceder a determinadas aplicaciones en la nube de su entorno, puede obt
 
 En este inicio rápido se muestra cómo configurar una [directiva de acceso condicional de Azure AD](./overview.md) que exija la aceptación de unas condiciones de uso para una aplicación en la nube seleccionada de su entorno.
 
-![Creación de directiva](./media/require-tou/5555.png)
+:::image type="content" source="./media/require-tou/5555.png" alt-text="Captura de pantalla de Azure Portal. Aparece un panel que define una directiva denominada Require T O U for Isabella (Requerir CDU para Isabella)." border="false":::
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -35,8 +35,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar el escenario en este inicio rápido, necesita:
 
-- **Acceso a una edición de Azure AD Premium**: el acceso condicional de Azure AD es una funcionalidad de Azure AD Premium.
-- **Una cuenta de prueba denominada Isabella Simonsen**: si no sabe cómo crear una cuenta de prueba, consulte [Agregar usuarios basados en la nube](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- **Acceso a una edición de Azure AD Premium** : el acceso condicional de Azure AD es una funcionalidad de Azure AD Premium.
+- **Una cuenta de prueba denominada Isabella Simonsen** : si no sabe cómo crear una cuenta de prueba, consulte [Agregar usuarios basados en la nube](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Prueba del inicio de sesión
 
@@ -54,34 +54,34 @@ En esta sección se explican los pasos necesarios para crear unas condiciones de
 **Para crear las condiciones de uso:**
 
 1. En Microsoft Word, cree un nuevo documento.
-1. Escriba **Mis condiciones de uso**y guárdelo en el equipo como **mytou.pdf**.
+1. Escriba **Mis condiciones de uso** y guárdelo en el equipo como **mytou.pdf**.
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global, administrador de seguridad o administrador de acceso condicional.
 1. En Azure Portal, en la barra de navegación izquierda, haga clic en **Azure Active Directory**.
 
    ![Azure Active Directory](./media/require-tou/02.png)
 
-1. En la página **Azure Active Directory**, en la sección **Seguridad**, haga clic en **Acceso condicional**.
+1. En la página **Azure Active Directory** , en la sección **Seguridad** , haga clic en **Acceso condicional**.
 
    ![Acceso condicional](./media/require-tou/03.png)
 
-1. En la sección **Administrar**, haga clic en **Condiciones de uso**.
+1. En la sección **Administrar** , haga clic en **Condiciones de uso**.
 
-   ![Términos de uso](./media/require-tou/04.png)
+   :::image type="content" source="./media/require-tou/04.png" alt-text="Captura de pantalla de la sección Administrar de la página de Azure Active Directory. El elemento Términos de uso está resaltado." border="false":::
 
 1. En el menú de la parte superior, haga clic en **Nuevos términos**.
 
-   ![Términos de uso](./media/require-tou/05.png)
+   :::image type="content" source="./media/require-tou/05.png" alt-text="Captura de pantalla de un menú en la página de Azure Active Directory. El elemento Nuevos términos aparece resaltado." border="false":::
 
-1. En la página **Nuevos términos de uso**:
+1. En la página **Nuevos términos de uso** :
 
-   ![Términos de uso](./media/require-tou/112.png)
+   :::image type="content" source="./media/require-tou/112.png" alt-text="Captura de pantalla de la página Nuevos términos de uso, con el nombre, el nombre para mostrar, el documento, el idioma, el acceso condicional y la alternancia de los términos de expansión resaltados." border="false":::
 
-   1. En el cuadro de texto **Nombre**, escriba un **Mis CDU**.
-   1. En el cuadro de texto **Nombre para mostrar**, escriba **Mis CDU**.
+   1. En el cuadro de texto **Nombre** , escriba un **Mis CDU**.
+   1. En el cuadro de texto **Nombre para mostrar** , escriba **Mis CDU**.
    1. Cargue el archivo PDF de las condiciones de uso.
-   1. En **Idioma**, seleccione **Inglés**.
-   1. En **Requerir a los usuarios que expandan las condiciones de uso**, seleccione **Activado**.
-   1. En **Exigir con plantillas de directiva de acceso condicional**, seleccione **Directiva personalizada**.
+   1. En **Idioma** , seleccione **Inglés**.
+   1. En **Requerir a los usuarios que expandan las condiciones de uso** , seleccione **Activado**.
+   1. En **Exigir con plantillas de directiva de acceso condicional** , seleccione **Directiva personalizada**.
    1. Haga clic en **Crear**.
 
 ## <a name="create-your-conditional-access-policy"></a>Creación de la directiva de acceso condicional
@@ -99,50 +99,50 @@ En la directiva, establezca:
 | Aplicaciones de nube | Microsoft Azure Management (Administración de Microsoft Azure) |
 | Conceder acceso | Mi CDU |
 
-![Creación de directiva](./media/require-tou/1234.png)
+:::image type="content" source="./media/require-tou/1234.png" alt-text="Captura de pantalla de un panel de Azure Portal que define una directiva. Las flechas indican que la directiva concede acceso a My T O U (Mis C D U) e incluye un usuario y una aplicación." border="false":::
 
 **Para configurar la directiva de acceso condicional:**
 
-1. En la página **Nuevo**, en el cuadro de texto **Nombre**, escriba **Requerir CDU para Isabella**.
+1. En la página **Nuevo** , en el cuadro de texto **Nombre** , escriba **Requerir CDU para Isabella**.
 
    ![Nombre](./media/require-tou/71.png)
 
-1. En la sección **Asignación**, haga clic en **Usuarios y grupos**.
+1. En la sección **Asignación** , haga clic en **Usuarios y grupos**.
 
-   ![Usuarios y grupos](./media/require-tou/06.png)
+   :::image type="content" source="./media/require-tou/06.png" alt-text="Captura de pantalla de la sección Asignaciones de un panel de Azure Portal que define una directiva. El elemento Usuarios y grupos está visible, no hay nada seleccionado." border="false":::
 
-1. En la página **Usuarios y grupos**:
+1. En la página **Usuarios y grupos** :
 
-   ![Usuarios y grupos](./media/require-tou/24.png)
+   :::image type="content" source="./media/require-tou/24.png" alt-text="Captura de pantalla de la pestaña Incluir de la página Usuarios y grupos. La opción Seleccionar usuarios y grupos está seleccionada, al igual que lo está Usuarios y grupos. Seleccionar está resaltado." border="false":::
 
    1. Haga clic en **Seleccionar usuarios y grupos** y, luego, seleccione **Usuarios y grupos**.
    1. Haga clic en **Seleccionar**.
-   1. En la página **Seleccionar**, seleccione **Isabella Simonsen** y, luego, haga clic en **Seleccionar**.
-   1. En la página **Usuarios y grupos**, haga clic en **Listo**.
+   1. En la página **Seleccionar** , seleccione **Isabella Simonsen** y, luego, haga clic en **Seleccionar**.
+   1. En la página **Usuarios y grupos** , haga clic en **Listo**.
 1. Haga clic en **Aplicaciones en la nube**.
 
-   ![Aplicaciones de nube](./media/require-tou/08.png)
+   :::image type="content" source="./media/require-tou/08.png" alt-text="Captura de pantalla de la sección Asignaciones de un panel de Azure Portal que define una directiva. El elemento Aplicaciones en la nube está visible, no hay nada seleccionado." border="false":::
 
-1. En la página **Aplicaciones en la nube**:
+1. En la página **Aplicaciones en la nube** :
 
    ![Seleccionar aplicaciones en la nube](./media/require-tou/26.png)
 
    1. Haga clic en **Seleccionar aplicaciones**.
    1. Haga clic en **Seleccionar**.
-   1. En la página **Seleccionar**, seleccione **Microsoft Azure Management** (Administración de Microsoft Azure) y, luego, haga clic en **Seleccionar**.
-   1. En la página **Aplicaciones en la nube**, haga clic en **Listo**.
-1. En la sección **Controles de acceso**, haga clic en **Conceder**.
+   1. En la página **Seleccionar** , seleccione **Microsoft Azure Management** (Administración de Microsoft Azure) y, luego, haga clic en **Seleccionar**.
+   1. En la página **Aplicaciones en la nube** , haga clic en **Listo**.
+1. En la sección **Controles de acceso** , haga clic en **Conceder**.
 
    ![Controles de acceso](./media/require-tou/10.png)
 
-1. En la página **Conceder**:
+1. En la página **Conceder** :
 
    ![Conceder](./media/require-tou/111.png)
 
    1. Seleccione **Conceder acceso**.
    1. Seleccione **Mis CDU**.
    1. Haga clic en **Seleccionar**.
-1. En la sección **Habilitar directiva**, haga clic en **Activar**.
+1. En la sección **Habilitar directiva** , haga clic en **Activar**.
 
    ![Habilitar directiva](./media/require-tou/18.png)
 
@@ -152,12 +152,12 @@ En la directiva, establezca:
 
 Ahora que ha configurado la directiva de acceso condicional, probablemente quiera saber si funciona según lo previsto. Como primer paso, use la herramienta de directivas What If de acceso condicional para simular un inicio de sesión del usuario de prueba. La simulación calcula el impacto que este inicio de sesión tiene en las directivas y genera un informe de simulación.  
 
-Para inicializar la herramienta de evaluación de directivas **What If**, establezca:
+Para inicializar la herramienta de evaluación de directivas **What If** , establezca:
 
 - **Isabella Simonsen** como usuario
 - **Microsoft Azure Management** (Administración de Microsoft Azure) como aplicación en la nube
 
-Al hacer clic en **What If**, se crea un informe de simulación que muestra:
+Al hacer clic en **What If** , se crea un informe de simulación que muestra:
 
 - **Requerir CDU para Isabella** en **Directivas que se aplicarán**
 - **Mi CDU** en **Conceder controles**.
@@ -170,18 +170,18 @@ Al hacer clic en **What If**, se crea un informe de simulación que muestra:
 
    ![What If](./media/require-tou/14.png)
 
-1. Haga clic en **Usuarios**, seleccione **Isabella Simonsen** y, luego, haga clic en **Seleccionar**.
+1. Haga clic en **Usuarios** , seleccione **Isabella Simonsen** y, luego, haga clic en **Seleccionar**.
 
    ![Usuario](./media/require-tou/15.png)
 
 1. Para seleccionar una aplicación en la nube:
 
-   ![Aplicaciones de nube](./media/require-tou/16.png)
+   :::image type="content" source="./media/require-tou/16.png" alt-text="Captura de pantalla de la sección Aplicaciones en la nube. El texto indica que hay una aplicación seleccionada." border="false":::
 
    1. Haga clic en **Aplicaciones en la nube**.
-   1. En la **página Aplicaciones en la nube**, haga clic en **Seleccionar aplicaciones**.
+   1. En la **página Aplicaciones en la nube** , haga clic en **Seleccionar aplicaciones**.
    1. Haga clic en **Seleccionar**.
-   1. En la página **Seleccionar**, seleccione **Microsoft Azure Management** (Administración de Microsoft Azure) y, luego, haga clic en **Seleccionar**.
+   1. En la página **Seleccionar** , seleccione **Microsoft Azure Management** (Administración de Microsoft Azure) y, luego, haga clic en **Seleccionar**.
    1. En la página Aplicaciones en la nube, haga clic en **Listo**.
 1. Haga clic en **What If**.
 
@@ -191,7 +191,7 @@ En la sección anterior, ha aprendido a evaluar un inicio de sesión de simulado
 
 Para probar la directiva, intente iniciar sesión en [Azure Portal](https://portal.azure.com) con su cuenta de prueba **Isabella Simonsen**. Debería ver un cuadro de diálogo que requiera que acepte las condiciones de uso.
 
-![Términos de uso](./media/require-tou/57.png)
+:::image type="content" source="./media/require-tou/57.png" alt-text="Captura de pantalla de un cuadro de diálogo titulado Identity Security Protection terms of use (Condiciones de uso de seguridad y protección de la identidad), con los botones para rechazar y aceptar y un botón con la etiqueta My T O U (Mis C D U)." border="false":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -200,11 +200,11 @@ Cuando ya no sean necesarios, elimine el usuario de prueba y la directiva de acc
 - Si no sabe cómo eliminar un usuario de Azure AD, consulte [Eliminación de usuarios desde Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 - Para eliminar la directiva, selecciónela y, a continuación, haga clic en **Eliminar** en la barra de herramientas de acceso rápido.
 
-    ![Multi-Factor Authentication](./media/require-tou/33.png)
+    :::image type="content" source="./media/require-tou/33.png" alt-text="Captura de pantalla que muestra una directiva denominada Require M F A for Azure portal users (Requerir M F A para usuarios de Azure Portal). El menú contextual está visible, con la opción Delete (Eliminar) resaltada." border="false":::
 
 - Para eliminar las condiciones de uso, selecciónelo y haga clic en **Eliminar términos** en la barra de herramientas de la parte superior.
 
-    ![Multi-Factor Authentication](./media/require-tou/29.png)
+    :::image type="content" source="./media/require-tou/29.png" alt-text="Captura de pantalla que muestra parte de una tabla con los documentos de las condiciones de uso. El documento My T O U (Mis C D U) está visible. En el menú, aparece resaltada la opción Eliminar términos." border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

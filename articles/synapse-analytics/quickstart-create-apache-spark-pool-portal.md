@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación de un grupo de Apache Spark mediante Azure Portal'
-description: Siga los pasos de esta guía para crear un grupo de Apache Spark mediante Azure Portal.
+title: 'Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Azure Portal'
+description: Siga los pasos de esta guía para crear un grupo de Apache Spark sin servidor mediante Azure Portal.
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea32126e19c4520a6d5a40f38f60ec44e9a119cd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260876"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323536"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Inicio rápido: Creación de un grupo de Apache Spark mediante Azure Portal
+# <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Azure Portal
 
 Azure Synapse Analytics ofrece varios motores de análisis que le ayudarán a ingerir, transformar, modelar, analizar y distribuir sus datos. Un grupo de Apache Spark proporciona funcionalidades de proceso de macrodatos de código abierto. Después de crear un grupo de Apache Spark en el área de trabajo de Synapse, los datos se pueden cargar, modelar, procesar y distribuir para tener información para los análisis más rápidamente.
 
@@ -47,7 +47,7 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 1. En el área de trabajo de Synapse en la que desee crear el grupo de Apache Spark, seleccione **New Apache Spark pool** (Nuevo grupo de Apache Spark) en la barra superior.
     ![Información general del área de trabajo de Synapse con un cuadro rojo alrededor del comando para crear un nuevo grupo de Apache Spark](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
-2. En la pestaña **Datos básicos**, escriba la siguientes información:
+2. En la pestaña **Datos básicos** , escriba la siguientes información:
 
     |Configuración | Valor sugerido | Descripción |
     | :------ | :-------------- | :---------- |
@@ -62,7 +62,7 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
     > Tenga en cuenta que existen limitaciones específicas para los nombres que pueden usar los grupos de Apache Spark. Los nombres solo deben contener letras o números, deben tener 15 caracteres o menos, deben comenzar con una letra, no contener palabras reservadas y ser únicos en el área de trabajo.
 
 3. Seleccione **Siguiente: Configuración adicional** y examine la configuración predeterminada. No modifique ninguna configuración predeterminada.
-    ![Flujo de creación del grupo de Apache Spark: pestaña de configuración adicional.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
+    ![Captura de pantalla que muestra la página "Create Apache Spark pool" (Crear grupo de Apache Spark) con la pestaña "Additional settings"(Configuración adicional) seleccionada.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
 4. Seleccione **Siguiente: etiquetas**. No agregue ninguna etiqueta.
     ![Flujo de creación del grupo de Apache Spark: pestaña de configuración adicional.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
@@ -73,7 +73,7 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
     ![Flujo de creación del grupo de SQL: pestaña de revisión de la configuración.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. Llegados a este punto, se iniciará el flujo de aprovisionamiento de recursos, que mandará una indicación al finalizar.
-    ![Flujo de creación del grupo de Apache Spark: aprovisionamiento de recursos.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
+    ![Captura de pantalla que muestra la página "Overview" (Información general) con un mensaje que indica que se ha completado la implementación.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
 
 8. Una vez completado el aprovisionamiento, al desplazarse al área de trabajo se mostrará una nueva entrada para el grupo de Apache Spark recién creado.
     ![Flujo de creación del grupo de Apache Spark: aprovisionamiento de recursos.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-07.png)
@@ -89,7 +89,7 @@ Siga los pasos que se indican a continuación para eliminar el grupo de Apache S
 Si está seguro de que quiere eliminar el grupo de Apache Spark, haga lo siguiente:
 
 1. Vaya a la hoja Grupos de Apache Spark en el área de trabajo.
-2. Seleccione el grupo de Apache Spark que se va a eliminar (en este caso, **contosospark**).
+2. Seleccione el grupo de Apache Spark que se va a eliminar (en este caso, **contosospark** ).
 3. Presione **Eliminar**.
  ![Lista de grupos de Apache Spark, con el grupo creado recientemente seleccionado.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Confirme la eliminación y presione el botón **Eliminar**.
@@ -99,4 +99,4 @@ Si está seguro de que quiere eliminar el grupo de Apache Spark, haga lo siguien
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [Quickstart: Creación de un cuaderno de Apache Spark](quickstart-apache-spark-notebook.md)
-- Consulte [Quickstart: Creación de un grupo de Synapse SQL mediante Azure Portal](quickstart-create-sql-pool-portal.md).
+- Consulte [Quickstart: Creación de un grupo de SQL dedicado de Synapse mediante Azure Portal](quickstart-create-sql-pool-portal.md).

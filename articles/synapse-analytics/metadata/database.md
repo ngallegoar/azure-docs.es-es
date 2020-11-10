@@ -1,6 +1,6 @@
 ---
 title: Base de datos compartida
-description: Azure Synapse Analytics proporciona un modelo de metadatos compartidos donde la creación de una tabla en Apache Spark hará que sea accesible desde sus motores de SQL a petición (versión preliminar) y de grupo de SQL.
+description: Azure Synapse Analytics proporciona un modelo de metadatos compartido en el que la creación de una base de datos en el grupo de Apache Spark sin servidor hará que sea accesible desde su grupo de SQL sin servidor (versión preliminar) y los motores del grupo de SQL.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,36 +10,36 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260859"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317833"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de datos compartida de Azure Synapse Analytics
 
-Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre sus grupos de Spark (versión preliminar), el motor de SQL On-Demand (versión preliminar).
+Azure Synapse Analytics permite que los diferentes motores de las áreas de trabajo de cálculo compartan bases de datos y tablas entre sus grupos de Apache Spark (versión preliminar) y el motor del grupo de SQL sin servidor (versión preliminar).
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Una base de datos creada con un trabajo de Spark será visible con el mismo nombre en todos los grupos de Spark (versión preliminar) actuales y futuros en el área de trabajo, incluido el motor de SQL a petición.
+Una base de datos creada con un trabajo de Spark será visible con el mismo nombre en todos los grupos de Spark (versión preliminar) actuales y futuros del área de trabajo, incluido el motor del grupo de SQL sin servidor.
 
-La base de datos predeterminada de Spark, denominada `default`, también estará visible en el contexto de SQL On-Demand como una base de datos llamada `default`.
+La base de datos predeterminada de Spark, llamada `default`, también estará visible en el contexto del grupo de SQL sin servidor como una base de datos llamada `default`.
 
-Dado que las bases de datos se sincronizan con SQL On-Demand de forma asincrónica, se producirá un retraso hasta que aparezcan.
+Dado que las bases de datos se sincronizan con el grupo de SQL sin servidor de forma asincrónica, se producirá un retraso hasta que aparezcan.
 
 ## <a name="manage-a-spark-created-database"></a>Administración de una base de datos creada con Spark
 
 Use Spark para administrar las bases de datos creadas con Spark. Por ejemplo, elimínelas mediante un trabajo de grupo de Spark y cree tablas en ellas desde Spark.
 
-Si crea objetos en una base de datos creada con Spark mediante SQL a petición, o intenta anular la base de datos, la operación se realizará correctamente. Pero la base de datos original de Spark no se cambiará.
+Si crea objetos en una base de datos creada con Spark mediante el grupo de SQL sin servidor o intenta eliminar la base de datos, la operación se realizará correctamente. Pero la base de datos original de Spark no se cambiará.
 
 ## <a name="how-name-conflicts-are-handled"></a>Control de los conflictos de nombres
 
-Si el nombre de una base de datos de Spark entra en conflicto con el nombre de una base de datos SQL a petición existente, se anexa un sufijo a la base de datos de Spark en SQL a petición. El sufijo de SQL a petición es `_<workspace name>-ondemand-DefaultSparkConnector`.
+Si el nombre de una base de datos de Spark entra en conflicto con el nombre de una base de datos existente del grupo de SQL sin servidor, se anexa un sufijo a la base de datos de Spark en el grupo de SQL sin servidor. El sufijo del grupo de SQL sin servidor es `_<workspace name>-ondemand-DefaultSparkConnector`.
 
-Por ejemplo, si se crea una base de datos de Spark llamada `mydb` en el área de trabajo `myws` de Azure Synapse, y ya existe una base de datos SQL a petición con ese nombre, se tendrá que hacer referencia a la base de datos de Spark en SQL a petición con el nombre `mydb_myws-ondemand-DefaultSparkConnector`.
+Por ejemplo, si se crea una base de datos de Spark llamada `mydb` en el área de trabajo `myws` de Azure Synapse y ya existe una base de datos del grupo de SQL sin servidor con ese nombre, se tendrá que hacer referencia a la base de datos de Spark en el grupo de SQL sin servidor con el nombre `mydb_myws-ondemand-DefaultSparkConnector`.
 
 > [!CAUTION]
 > Precaución: No debe tener una dependencia de este comportamiento.
@@ -58,7 +58,7 @@ Si una entidad de seguridad requiere la capacidad de crear objetos o de anular o
 
 ## <a name="examples"></a>Ejemplos
 
-### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Creación y conexión a una base de datos de Spark con SQL a petición
+### <a name="create-and-connect-to-spark-database-with-serverless-sql-pool"></a>Creación y conexión a una base de datos de Spark con un grupo de SQL sin servidor
 
 En primer lugar, cree una nueva base de datos de Spark denominada `mytestdb` con un clúster de Spark que ya haya creado en el área de trabajo. Puede lograrlo, por ejemplo, mediante un cuaderno C# de Spark con la siguiente instrucción .NET para Spark:
 
@@ -66,7 +66,7 @@ En primer lugar, cree una nueva base de datos de Spark denominada `mytestdb` con
 spark.Sql("CREATE DATABASE mytestdb")
 ```
 
-Después de un breve retraso, puede ver la base de datos de SQL a petición. Por ejemplo, ejecute la siguiente instrucción desde SQL a petición.
+Después de un breve retraso, puede ver la base de datos del grupo de SQL sin servidor. Por ejemplo, ejecute la siguiente instrucción desde el grupo de SQL sin servidor.
 
 ```sql
 SELECT * FROM sys.databases;

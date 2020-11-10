@@ -7,12 +7,12 @@ ms.date: 10/15/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6c1ccbfc221970980d5d0b15e82f9f8483c48bce
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6ac4d0e0744bfc82a686671234e013b2dd717146
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043772"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927760"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar Azure Key Vault con Azure Policy
 
@@ -29,9 +29,9 @@ Escenarios de uso de ejemplo:
 
 ## <a name="types-of-policy-effects-and-guidance"></a>Tipos de instrucciones y efectos de directivas
 
-**Auditoría**: Cuando el efecto de una directiva se establece en auditoría, la directiva no producirá ningún cambio importante en el entorno. Solo le avisará de los componentes, como los certificados que no cumplan las definiciones de directiva dentro de un ámbito especificado, marcando estos componentes como no compatibles en el panel de cumplimiento de directivas. La auditoría es predeterminada si no se selecciona ningún efecto de directiva.
+**Auditoría** : Cuando el efecto de una directiva se establece en auditoría, la directiva no producirá ningún cambio importante en el entorno. Solo le avisará de los componentes, como los certificados que no cumplan las definiciones de directiva dentro de un ámbito especificado, marcando estos componentes como no compatibles en el panel de cumplimiento de directivas. La auditoría es predeterminada si no se selecciona ningún efecto de directiva.
 
-**Denegar**: Cuando el efecto de una directiva se establece en denegar, la directiva bloqueará la creación de nuevos componentes, como los certificados, así como el bloqueo de nuevas versiones de componentes existentes que no cumplen con la definición de la directiva. Los recursos existentes no compatibles dentro de un almacén de claves no se ven afectados. Las capacidades de ' auditoría ' seguirán funcionando.
+**Denegar** : Cuando el efecto de una directiva se establece en denegar, la directiva bloqueará la creación de nuevos componentes, como los certificados, así como el bloqueo de nuevas versiones de componentes existentes que no cumplen con la definición de la directiva. Los recursos existentes no compatibles dentro de un almacén de claves no se ven afectados. Las capacidades de ' auditoría ' seguirán funcionando.
 
 ## <a name="available-built-in-policy-definitions"></a>Definiciones de Directiva "Integradas" disponibles
 
@@ -91,9 +91,9 @@ El servicio puede experimentar una interrupción si un certificado que no se est
 
 Si desea asegurarse de que las claves no estén activas durante más tiempo que un número especificado de días, puede usar esta directiva para auditar cuánto tiempo ha estado activa la clave.
 
-**Si la clave tiene establecida una fecha de activación**, esta directiva calculará el número de días transcurridos desde la **fecha de activación** de la clave hasta la fecha actual. Si el número de días supera el umbral establecido, la clave se marcará como no compatible con la directiva.
+**Si la clave tiene establecida una fecha de activación** , esta directiva calculará el número de días transcurridos desde la **fecha de activación** de la clave hasta la fecha actual. Si el número de días supera el umbral establecido, la clave se marcará como no compatible con la directiva.
 
-**Si la clave no tiene establecida una fecha de activación**, esta directiva calculará el número de días transcurridos desde la **fecha de creación** de la clave hasta la fecha actual. Si el número de días supera el umbral establecido, la clave se marcará como no compatible con la directiva.
+**Si la clave no tiene establecida una fecha de activación** , esta directiva calculará el número de días transcurridos desde la **fecha de creación** de la clave hasta la fecha actual. Si el número de días supera el umbral establecido, la clave se marcará como no compatible con la directiva.
 
 ### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec-preview"></a>Las claves deben ser del tipo criptográfico especificado, RSA o EC (versión preliminar)
 
@@ -139,9 +139,9 @@ Administre los requisitos de cumplimiento de su organización. Para ello, especi
 
 Si desea asegurarse de que los secretos no estén activos durante más tiempo que un número especificado de días, puede usar esta directiva para auditar cuánto tiempo ha estado activo el secreto.
 
-**Si el secreto tiene establecida una fecha de activación**, esta directiva calculará el número de días transcurridos desde la **fecha de activación** del secreto hasta la fecha actual. Si el número de días supera el umbral establecido, el secreto se marcará como no compatible con la directiva.
+**Si el secreto tiene establecida una fecha de activación** , esta directiva calculará el número de días transcurridos desde la **fecha de activación** del secreto hasta la fecha actual. Si el número de días supera el umbral establecido, el secreto se marcará como no compatible con la directiva.
 
-**Si el secreto no tiene establecida una fecha de activación**, esta directiva calculará el número de días transcurridos desde la **fecha de creación** del secreto hasta la fecha actual. Si el número de días supera el umbral establecido, el secreto se marcará como no compatible con la directiva.
+**Si el secreto no tiene establecida una fecha de activación** , esta directiva calculará el número de días transcurridos desde la **fecha de creación** del secreto hasta la fecha actual. Si el número de días supera el umbral establecido, el secreto se marcará como no compatible con la directiva.
 
 ### <a name="secrets-should-have-content-type-set-preview"></a>Los secretos deben tener establecido el tipo de contenido (versión preliminar)
 
@@ -165,7 +165,7 @@ Administre los requisitos de cumplimiento de su organización. Para ello, especi
 
 Puede administrar un almacén de claves usado por varios equipos que contengan 100 certificados y desea asegurarse de que ninguno de los certificados del almacén de claves sea válido durante más de 2 años.
 
-1. Asigne la directiva **Los certificados deben tener el período de validez máximo especificado**, especifique que el período de validez máximo de un certificado es de 24 meses y establezca el efecto de la directiva en "auditoría". 
+1. Asigne la directiva **Los certificados deben tener el período de validez máximo especificado** , especifique que el período de validez máximo de un certificado es de 24 meses y establezca el efecto de la directiva en "auditoría". 
 1. Puede ver el [informe de cumplimiento en el Azure Portal](#view-compliance-results) y detectar que 20 certificados son no compatibles y válidos durante > 2 años, y que los certificados restantes son conformes. 
 1. Se pone en contacto con los propietarios de estos certificados y comunican el nuevo requisito de seguridad que los certificados no pueden ser válidos durante más de 2 años. Algunos equipos responden y 15 de los certificados se renovaron con un período de validez máximo de 2 años o menos. Otros equipos no responden y todavía tiene 5 certificados no compatibles en el almacén de claves.
 1. Cambia el efecto de la directiva asignada a "denegar". Los 5 certificados no compatibles no se revocan y continúan funcionando. Sin embargo, no se pueden renovar con un período de validez superior a 2 años. 
@@ -177,49 +177,49 @@ Puede administrar un almacén de claves usado por varios equipos que contengan 1
 1. Inicie sesión en el Portal de Azure. 
 1. Busque "Directiva" en la barra de búsqueda y seleccione **Directiva**.
 
-    ![Introducción al funcionamiento de Azure Key Vault](../media/policy-img1.png)
+    ![Captura de pantalla que muestra la barra de búsqueda.](../media/policy-img1.png)
 
 1. En la ventana Directiva, seleccione **Definiciones**.
 
-    ![Introducción al funcionamiento de Azure Key Vault](../media/policy-img2.png)
+    ![Captura de pantalla que resalta la opción Definiciones.](../media/policy-img2.png)
 
 1. En el Filtro de categoría, anule la selección de **Seleccionar todos** y seleccione **Almacén de claves**. 
 
-    ![Introducción al funcionamiento de Azure Key Vault](../media/policy-img3.png)
+    ![Captura de pantalla que muestra el filtro de categoría y la categoría de Key Vault seleccionada.](../media/policy-img3.png)
 
 1. Ahora debería poder ver todas las directivas disponibles para la Versión preliminar pública, por Azure Key Vault. Asegúrese de leer y comprender la sección de instrucciones de directiva anterior y seleccionar una directiva que desee asignar a un ámbito.  
 
-    ![Introducción al funcionamiento de Azure Key Vault](../media/policy-img4.png)
+    ![Captura de pantalla que muestra las directivas que están disponibles para la versión preliminar pública.](../media/policy-img4.png)
 
 ### <a name="assign-a-policy-to-a-scope"></a>Asignar una Directiva a un Ámbito 
 
 1. Seleccione la directiva que quiere aplicar en este ejemplo, se muestra la directiva **Administrar el período de validez del certificado**. Haga clic en el botón asignar situado en la esquina superior izquierda.
 
-    ![Introducción al funcionamiento de Azure Key Vault](../media/policy-img5.png)
+    ![Captura de pantalla que muestra la directiva Administrar el período de validez del certificado.](../media/policy-img5.png)
   
-1. Seleccione la suscripción en la que desea que se aplique la directiva. Puede optar por restringir el ámbito a un solo grupo de recursos dentro de una suscripción. Si desea aplicar la directiva a toda la suscripción y excluir algunos grupos de recursos, también puede configurar una lista de exclusión. Establezca el selector de cumplimiento de directivas en **Habilitado** si quiere que se produzca el efecto de la directiva (auditoría o denegación) o ** Deshabilitado** para desactivar el efecto (auditoría o denegación). 
+1. Seleccione la suscripción en la que desea que se aplique la directiva. Puede optar por restringir el ámbito a un solo grupo de recursos dentro de una suscripción. Si desea aplicar la directiva a toda la suscripción y excluir algunos grupos de recursos, también puede configurar una lista de exclusión. Establezca el selector de cumplimiento de directivas en **Habilitado** si quiere que se produzca el efecto de la directiva (auditoría o denegación) o **Deshabilitado** para desactivar el efecto (auditoría o denegación). 
 
-    ![Introducción al funcionamiento de Azure Key Vault](../media/policy-img6.png)
+    ![Captura de pantalla que muestra dónde puede optar por restringir el ámbito a un solo grupo de recursos dentro de una suscripción.](../media/policy-img6.png)
 
 1. Haga clic en la pestaña parámetros en la parte superior de la pantalla para especificar el período de validez máximo en meses que desee. Seleccione **auditoría** o **denegar** para el efecto de la directiva siguiendo las instrucciones de las secciones anteriores. Después, seleccione el botón revisar y crear. 
 
-    ![Introducción al funcionamiento de Azure Key Vault](../media/policy-img7.png)
+    ![Captura de pantalla que muestra la pestaña Parámetros en la que puede especificar el período de validez máximo en meses que desee.](../media/policy-img7.png)
 
 ### <a name="view-compliance-results"></a>Ver Resultados de Cumplimiento
 
 1. Vuelva a la hoja Directiva y seleccione la pestaña cumplimiento. Haga clic en la asignación de directiva para la que quiere ver los resultados de cumplimiento.
 
-    ![Introducción al funcionamiento de Azure Key Vault](../media/policy-img8.png)
+    ![Captura de pantalla que muestra la pestaña Cumplimiento, donde puede seleccionar la asignación de directiva de la que desea ver los resultados de cumplimiento.](../media/policy-img8.png)
 
 1. En esta página puede filtrar los resultados por almacenes compatibles o no compatibles. Aquí puede ver una lista de almacenes de claves no compatibles dentro del ámbito de la asignación de directiva. Un almacén se considera no compatible si alguno de los componentes (certificados) del almacén no es compatible. Puede seleccionar un almacén individual para ver los componentes individuales no compatibles (certificados). 
 
 
-    ![Introducción al funcionamiento de Azure Key Vault](../media/policy-img9.png)
+    ![Captura de pantalla que muestra una lista de almacenes de claves no compatibles dentro del ámbito de la asignación de directiva.](../media/policy-img9.png)
 
 1. Ver el nombre de los componentes de un almacén que no son compatibles
 
 
-    ![Introducción al funcionamiento de Azure Key Vault](../media/policy-img10.png)
+    ![Captura de pantalla que muestra dónde puede ver el nombre de los componentes de un almacén que no son compatibles.](../media/policy-img10.png)
 
 1. Si tiene que comprobar si se deniega a los usuarios la posibilidad de crear recursos en el almacén de claves, puede hacer clic en la pestaña **Eventos de componentes (versión preliminar)** para ver un resumen de las operaciones de certificado denegado con el solicitante y las marcas de tiempo de las solicitudes. 
 

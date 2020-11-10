@@ -1,6 +1,6 @@
 ---
-title: Acceso a los archivos que se encuentran en el almacenamiento en SQL a petición (versión preliminar)
-description: Describe la consulta de archivos de almacenamiento mediante recursos de SQL a petición (versión preliminar) en Synapse SQL.
+title: Acceso a los archivos del almacenamiento en el grupo de SQL sin servidor (versión preliminar)
+description: Describe la consulta de archivos del almacenamiento con el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 73a5414a979742c4a7df16dcd2a5edda3748abef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288994"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315938"
 ---
-# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Acceso al almacenamiento externo en Synapse SQL (a petición)
+# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Acceso al almacenamiento externo con el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
 
-En este documento se describe la forma en que los usuarios pueden leer datos de los archivos almacenados en Azure Storage en Synapse SQL (a petición). Los usuarios tienen las siguientes opciones para acceder al almacenamiento:
+En este documento se describe la forma en que los usuarios pueden leer datos de los archivos almacenados en Azure Storage en el grupo de SQL sin servidor. Los usuarios tienen las siguientes opciones para acceder al almacenamiento:
 
 - La función [OPENROWSET](develop-openrowset.md), que habilita las consultas ad hoc en los archivos de Azure Storage.
 - Una [tabla externa](develop-tables-external-tables.md), que es una estructura de datos predefinida basada en un conjunto de archivos externos.
@@ -27,7 +27,7 @@ El usuario puede utilizar [diferentes métodos de autenticación](develop-storag
 
 ## <a name="query-files-using-openrowset"></a>Consulta de archivos mediante OPENROWSET
 
-OPENROWSET permite a los usuarios consultar archivos externos en Azure Storage si tienen acceso al almacenamiento. El usuario que está conectado al punto de conexión de Synapse SQL a petición debe usar la siguiente consulta para leer el contenido de los archivos en Azure Storage:
+OPENROWSET permite a los usuarios consultar archivos externos en Azure Storage si tienen acceso al almacenamiento. Un usuario que está conectado al grupo de SQL sin servidor debe usar la siguiente consulta para leer el contenido de los archivos en Azure Storage:
 
 ```sql
 SELECT * FROM

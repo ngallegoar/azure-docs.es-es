@@ -1,6 +1,6 @@
 ---
 title: Integración del control de código fuente
-description: Experiencia de DevOps de bases de datos de clase empresarial para el grupo de SQL con integración nativa de control de código fuente mediante Azure Repos (Git y GitHub).
+description: Experiencia de DevOps de bases de datos de clase empresarial para el grupo de SQL dedicado con integración nativa de control de código fuente mediante Azure Repos (Git y GitHub).
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4751f3cf213098873b0c53b15df82f57d155787a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89441422"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313299"
 ---
-# <a name="source-control-integration-for-sql-pool"></a>Integración del control de código fuente para el grupo de SQL
+# <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integración del control de código fuente para el grupo de SQL dedicado en Azure Synapse Analytics
 
-En este tutorial se describe cómo integrar el proyecto de base de datos de SQL Server Data Tools (SSDT) con control de código fuente.  La integración del control de código fuente es el primer paso en la creación de una canalización de integración e implementación continuas con el recurso de grupo de SQL en Azure Synapse Analytics.
+En este tutorial se describe cómo integrar el proyecto de base de datos de SQL Server Data Tools (SSDT) con control de código fuente.  La integración del control de código fuente es el primer paso en la creación de una canalización de integración e implementación continuas con el recurso de grupo de SQL dedicado en Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -85,8 +85,8 @@ Para más información sobre cómo conectar proyectos mediante Visual Studio, co
 
    ![Verify](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Comprobar los cambios")
 
-4. (**Opcional**) Use Comparación de esquemas y actualice los cambios en el almacenamiento de datos de destino mediante SSDT para asegurarse de que las definiciones de los objetos del repositorio de Azure Repos y del repositorio local reflejan el almacenamiento de datos.
+4. ( **Opcional** ) Use Comparación de esquemas y actualice los cambios en el almacenamiento de datos de destino mediante SSDT para asegurarse de que las definiciones de los objetos del repositorio de Azure Repos y del repositorio local reflejan el almacenamiento de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Desarrollo para el grupo de SQL](sql-data-warehouse-overview-develop.md)
+- [Desarrollo para el grupo de SQL dedicado](sql-data-warehouse-overview-develop.md)

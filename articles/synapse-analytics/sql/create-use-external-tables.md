@@ -1,6 +1,6 @@
 ---
-title: Creación y uso de tablas externas en SQL a petición (versión preliminar)
-description: En esta sección, aprenderá a crear y usar tablas externas en SQL a petición (versión preliminar).
+title: Creación y uso de tablas externas en el grupo de SQL sin servidor (versión preliminar)
+description: En esta sección aprenderá a crear y usar tablas externas en el grupo de SQL sin servidor (versión preliminar).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a52db131311d9956cf7217d910f22c3a4f07738
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289334"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314728"
 ---
-# <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Creación y uso de tablas externas en SQL a petición (versión preliminar) mediante Azure Synapse Analytics
+# <a name="create-and-use-external-tables-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Creación y uso de tablas externas en el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
 
-En esta sección, aprenderá a crear y usar [tablas externas](develop-tables-external-tables.md) en SQL On-demand (SQL a petición) (versión preliminar). Las tablas externas son útiles si se desea controlar el acceso a los datos externos en SQL a petición y si se desea usar herramientas, como Power BI, junto con SQL a petición. Las tablas externas pueden acceder a dos tipos de almacenamiento:
+En esta sección aprenderá a crear y usar [tablas externas](develop-tables-external-tables.md) en el grupo de SQL sin servidor (versión preliminar). Las tablas externas son útiles si se desea controlar el acceso a los datos externos en el grupo de SQL sin servidor y si se desea usar herramientas, como Power BI, junto con el grupo de SQL sin servidor. Las tablas externas pueden acceder a dos tipos de almacenamiento:
 - Almacenamiento público, en el que los usuarios acceden a archivos de almacenamiento público.
 - Almacenamiento protegido, en el que los usuarios acceden a los archivos de almacenamiento mediante una credencial de SAS, una identidad de Azure AD o una identidad administrada del área de trabajo de Synapse.
 
@@ -63,7 +63,7 @@ Las consultas de este artículo se ejecutarán en la base de datos de ejemplo y 
 
 Puede crear tablas externas que accedan a los datos de una cuenta de Azure Storage que permita el acceso a los usuarios con una identidad de Azure AD o clave SAS. Puede crear tablas externas de la misma manera que crea tablas externas de SQL Server normales. 
 
-La siguiente consulta crea una tabla externa que lee el archivo*population.csv* de la cuenta de Azure Storage de demostración de SynapseSQL a la que se hace referencia mediante un `sqlondemanddemo` origen de datos y que está protegida con una credencial cuyo ámbito es la base de datos llamada `sqlondemand`. 
+La siguiente consulta crea una tabla externa que lee el archivo *population.csv* de la cuenta de Azure Storage de demostración de SynapseSQL a la que se hace referencia mediante un `sqlondemanddemo` origen de datos y que está protegida con una credencial cuyo ámbito es la base de datos llamada `sqlondemand`. 
 
 El origen de datos y la credencial cuyo ámbito es la base de datos se crean en el [script de instalación](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 

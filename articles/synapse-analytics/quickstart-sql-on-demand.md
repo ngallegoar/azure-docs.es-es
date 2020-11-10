@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Uso de SQL a petición'
-description: En este inicio rápido, verá y aprenderá lo fácil que es consultar varios tipos de archivos mediante SQL a petición (versión preliminar).
+title: 'Inicio rápido: Uso de grupos de SQL sin servidor'
+description: En este inicio rápido, verá y aprenderá lo fácil que es consultar varios tipos de archivos mediante un grupo de SQL sin servidor (versión preliminar).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2e502a984e71a06eb57b345371d70d659c6a031
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86274176"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321683"
 ---
-# <a name="quickstart-use-sql-on-demand"></a>Inicio rápido: Uso de SQL a petición
+# <a name="quickstart-use-serverless-sql-pool"></a>Inicio rápido: Uso de grupos de SQL sin servidor
 
-Synapse SQL a petición (versión preliminar) es un servicio de consulta sin servidor que permite ejecutar consultas SQL en archivos colocados en Azure Storage. En este inicio rápido, aprenderá a consultar varios tipos de archivos mediante SQL a petición. Los formatos admitidos se enumeran en [OPENROWSET](sql/develop-openrowset.md).
+El grupo de SQL sin servidor de Synapse (versión preliminar) es un servicio de consulta sin servidor que permite ejecutar consultas SQL en archivos colocados en Azure Storage. En este inicio rápido, aprenderá a consultar varios tipos de archivos mediante un grupo de SQL sin servidor. Los formatos admitidos se enumeran en [OPENROWSET](sql/develop-openrowset.md).
 
 Este inicio rápido muestra cómo realizar consultas en: archivos CSV, Apache Parquet y JSON.
 
@@ -34,8 +34,8 @@ Parámetros de este inicio rápido:
 
 | Parámetro                                 | Descripción                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Dirección de un punto de conexión del servicio de SQL a petición.    | Se usa como nombre de servidor.                                   |
-| Región de punto de conexión del servicio de SQL a petición.     | Se usará para determinar qué almacenamiento se utilizará en los ejemplos. |
+| Dirección del punto de conexión de servicio del grupo de SQL sin servidor    | Se usa como nombre de servidor.                                   |
+| Región del punto de conexión de servicio del grupo de SQL sin servidor     | Se usará para determinar qué almacenamiento se utilizará en los ejemplos. |
 | Nombre de usuario y contraseña para el acceso al punto de conexión. | Se usa para acceder al punto de conexión.                               |
 | La base de datos que se utiliza para crear vistas.         | La base de datos que se utiliza como punto de partida en ejemplos.       |
 
@@ -44,7 +44,7 @@ Parámetros de este inicio rápido:
 Antes de usar los ejemplos:
 
 - Crear una base de datos para las vistas (en caso de que quiera usar vistas).
-- Crear las credenciales que va a usar SQL a petición para acceder a los archivos en el almacenamiento.
+- Crear las credenciales que va a usar el grupo de SQL sin servidor para acceder a los archivos en el almacenamiento.
 
 ### <a name="create-database"></a>Crear base de datos
 
@@ -62,7 +62,7 @@ CREATE DATABASE mydbname
 
 ### <a name="create-data-source"></a>Creación de un origen de datos
 
-Para ejecutar consultas mediante SQL On-Demand, cree un origen de datos que SQL On-Demand pueda usar para acceder a los archivos del almacenamiento.
+Para ejecutar consultas mediante el grupo de SQL sin servidor, cree un origen de datos que el grupo de SQL sin servidor pueda usar para acceder a los archivos del almacenamiento.
 Ejecute el siguiente fragmento de código para crear el origen de datos que se usa en los ejemplos de esta sección:
 
 ```sql
@@ -115,7 +115,7 @@ Para obtener más ejemplos, consulte el artículo sobre cómo [consultar un arch
 En el ejemplo siguiente se muestran las funcionalidades de inferencia automática del esquema para los archivos Parquet. Devuelve el número de filas de septiembre de 2017 sin especificar un esquema.
 
 > [!NOTE]
-> No es necesario especificar columnas en la cláusula `OPENROWSET WITH` al leer los archivos Parquet. En este caso, SQL a petición utiliza los metadatos del archivo de Parquet y enlaza las columnas por nombre.
+> No es necesario especificar columnas en la cláusula `OPENROWSET WITH` al leer los archivos Parquet. En este caso, el grupo de SQL sin servidor utiliza los metadatos del archivo de Parquet y enlaza las columnas por nombre.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -133,7 +133,7 @@ Obtenga más información sobre cómo [consultar archivos Parquet](sql/query-par
 
 ### <a name="json-sample-file"></a>Archivo de ejemplo de JSON
 
-Los archivos se almacenan en un contenedor *json*, carpeta *books*y contienen una entrada con un único libro con la siguiente estructura:
+Los archivos se almacenan en un contenedor *json* , carpeta *books* y contienen una entrada con un único libro con la siguiente estructura:
 
 ```json
 {  
@@ -153,7 +153,7 @@ Los archivos se almacenan en un contenedor *json*, carpeta *books*y contienen un
 
 ### <a name="query-json-files"></a>Consulta de archivo JSON
 
-En la consulta siguiente se muestra cómo usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalares (título, editor) de un libro con el título *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+En la consulta siguiente se muestra cómo usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalares (título, editor) de un libro con el título *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles* :
 
 ```sql
 SELECT

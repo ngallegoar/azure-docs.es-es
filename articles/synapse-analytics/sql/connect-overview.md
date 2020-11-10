@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bbd82f856213bb36e71625eabc8bce9999ccd53f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 532ada430e7ff2ae76eb0cfbc389792bb0d98209
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289402"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322659"
 ---
 # <a name="connect-to-synapse-sql"></a>Conexión a Synapse SQL
 Conéctese a la funcionalidad de Synapse SQL en Azure Synapse Analytics.
 
-## <a name="supported-tools-for-sql-on-demand-preview"></a>Herramientas compatibles con SQL a petición (versión preliminar)
+## <a name="supported-tools-for-serverless-sql-pool-preview"></a>Herramientas admitidas en el grupo de SQL sin servidor (versión preliminar)
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) es totalmente compatible a partir de la versión 1.18.0. SSMS es parcialmente compatible a partir de la versión 18.5, que solo se puede usar para establecer conexión y realizar consultas.
 
@@ -31,8 +31,8 @@ Conéctese a la funcionalidad de Synapse SQL en Azure Synapse Analytics.
 
 ## <a name="find-your-server-name"></a>Búsqueda del nombre de servidor
 
-El nombre de servidor del grupo de SQL en el siguiente ejemplo es: showdemoweu.sql.azuresynapse.net.
-El nombre de servidor de SQL a petición en el siguiente ejemplo es: showdemoweu.sql.azuresynapse.net.
+El nombre de servidor del grupo de SQL dedicado en el siguiente ejemplo es showdemoweu.sql.azuresynapse.net.
+El nombre de servidor del grupo de SQL sin servidor en el siguiente ejemplo es showdemoweu.sql.azuresynapse.net.
 
 Para buscar el nombre del servidor completo:
 
@@ -46,9 +46,9 @@ Para buscar el nombre del servidor completo:
 
 ![Nombre del servidor completo](./media/connect-overview/server-connect-example.png)
 
-## <a name="sql-on-demand"></a>**SQL a petición**
+## <a name="serverless-sql-pool"></a>**Grupo de SQL sin servidor**
 
-![Nombre completo del servidor de SQL a petición](./media/connect-overview/server-connect-example-sqlod.png)
+![Nombre de servidor completo del grupo de SQL sin servidor](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Cadenas de conexión y controladores admitidos
 Synapse SQL admite [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)y [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Para buscar la versión más reciente y su documentación, seleccione uno de los controladores anteriores. Para generar automáticamente la cadena de conexión del controlador que está usando en Azure Portal, seleccione el vínculo **Mostrar las cadenas de conexión de la base de datos** del ejemplo anterior. Los siguientes son también algunos ejemplos del aspecto de una cadena de conexión para cada controlador.
@@ -92,7 +92,7 @@ Synapse SQL normaliza algunos valores de configuración durante la conexión y l
 
 ## <a name="recommendations"></a>Recomendaciones
 
-Para ejecutar consultas de **SQL a petición**, se recomienda usar estas dos herramientas: [Azure Data Studio](get-started-azure-data-studio.md) y Azure Synapse Studio.
+Para ejecutar consultas del **grupo de SQL sin servidor** , se recomienda usar estas dos herramientas: [Azure Data Studio](get-started-azure-data-studio.md) y Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para conectarse y realizar consultas con Visual Studio, consulte [Realización de consultas con Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para más información sobre las opciones de autenticación, consulte [Autenticación en Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

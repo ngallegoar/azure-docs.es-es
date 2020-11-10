@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: b723c77b193b499286a692bd5145131a904a7f07
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369342"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306982"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Compilación de una aplicación de aprendizaje automático con MLlib de Apache Spark y Azure Synapse Analytics
 
@@ -31,9 +31,9 @@ MLlib es una biblioteca básica de Spark que proporciona varias utilidades que r
 
 ## <a name="understand-classification-and-logistic-regression"></a>Comprensión de la clasificación y la regresión logística
 
-*Clasificación*, una tarea habitual en el aprendizaje automático, es el proceso de ordenación de datos de entrada en categorías. El trabajo de averiguar cómo asignar *etiquetas* a las entradas de datos que se proporcionen lo realiza un algoritmo de clasificación. Por ejemplo, piense en un algoritmo de aprendizaje automático que acepta información bursátil como entrada y divide las existencias en dos categorías: acciones que se deberían vender y acciones que se deberían conservar.
+*Clasificación* , una tarea habitual en el aprendizaje automático, es el proceso de ordenación de datos de entrada en categorías. El trabajo de averiguar cómo asignar *etiquetas* a las entradas de datos que se proporcionen lo realiza un algoritmo de clasificación. Por ejemplo, piense en un algoritmo de aprendizaje automático que acepta información bursátil como entrada y divide las existencias en dos categorías: acciones que se deberían vender y acciones que se deberían conservar.
 
-La *regresión logística* es un algoritmo que puede usar para la clasificación. La API de regresión logística de Spark es útil para la *clasificación binaria*, o para la clasificación de datos de entrada en uno de los dos grupos. Para obtener más información acerca de la regresión logística, consulte [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
+La *regresión logística* es un algoritmo que puede usar para la clasificación. La API de regresión logística de Spark es útil para la *clasificación binaria* , o para la clasificación de datos de entrada en uno de los dos grupos. Para obtener más información acerca de la regresión logística, consulte [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
 En resumen, el proceso de regresión logística genera una *función logística* que se puede usar para predecir la probabilidad de que un vector de entrada pertenezca a un grupo o al otro.
 
@@ -49,7 +49,7 @@ En los pasos siguientes, desarrollará un modelo para predecir si una carrera de
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Creación de una aplicación de aprendizaje automático de Apache Spark MLlib
 
 1. Cree un cuaderno con el kernel de PySpark. Para obtener las instrucciones, consulte [Creación un cuaderno](../quickstart-apache-spark-notebook.md#create-a-notebook).
-2. Importe los tipos necesarios para esta aplicación. Copie y pegue el código siguiente en una celda vacía y, a continuación, presione **Mayús+Entrar**, o ejecute la celda con el icono de reproducción azul situado a la izquierda del código.
+2. Importe los tipos necesarios para esta aplicación. Copie y pegue el código siguiente en una celda vacía y, a continuación, presione **Mayús+Entrar** , o ejecute la celda con el icono de reproducción azul situado a la izquierda del código.
 
     ```python
     import matplotlib.pyplot as plt
@@ -71,7 +71,7 @@ En los pasos siguientes, desarrollará un modelo para predecir si una carrera de
 
 Dado que los datos sin procesar están en formato de Parquet, puede usar el contexto de Spark para extraer el archivo a la memoria como dataframe directamente. Aunque el código siguiente usa las opciones predeterminadas, es posible forzar la asignación de tipos de datos y otros atributos de esquema, de ser necesario.
 
-1. Ejecute las líneas siguientes para crear un dataframe de Spark pegando el código en una nueva celda. Se recuperan los datos a través de Open Datasets API. La extracción de todos estos datos genera aproximadamente 1500 millones de filas. En función del tamaño del grupo de Spark (versión preliminar), los datos sin procesar pueden ser demasiado grandes o tardar demasiado para poder trabajar con ellos. Puede filtrar estos datos hasta algo más pequeño. En el ejemplo de código siguiente se usa start_date y end_date para aplicar un filtro que devuelve un mes único de datos.
+1. Ejecute las líneas siguientes para crear un dataframe de Spark pegando el código en una nueva celda. Se recuperan los datos a través de Open Datasets API. La extracción de todos estos datos genera aproximadamente 1500 millones de filas. En función del tamaño del grupo de Apache Spark sin servidor (versión preliminar), los datos sin procesar pueden ser demasiado grandes o tardar demasiado para poder trabajar con ellos. Puede filtrar estos datos hasta algo más pequeño. En el ejemplo de código siguiente se usa start_date y end_date para aplicar un filtro que devuelve un mes único de datos.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -193,7 +193,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Crear un modelo de regresión logística
 
-La última tarea consiste en convertir los datos etiquetados a un formato que se pueda analizar con la regresión logística. La entrada a un algoritmo de regresión logística debe ser un conjunto de *pares de vector de etiqueta-característica*, donde el *vector de característica* es un vector de números que representa el punto de entrada. Por lo tanto, es necesario convertir las columnas de categorías en números. Las columnas `trafficTimeBins` y `weekdayString` se deben convertir en representaciones de enteros. Hay varios enfoques para realizar la conversión, pero el enfoque que se realiza en este ejemplo es *OneHotEncoding*, un enfoque común.
+La última tarea consiste en convertir los datos etiquetados a un formato que se pueda analizar con la regresión logística. La entrada a un algoritmo de regresión logística debe ser un conjunto de *pares de vector de etiqueta-característica* , donde el *vector de característica* es un vector de números que representa el punto de entrada. Por lo tanto, es necesario convertir las columnas de categorías en números. Las columnas `trafficTimeBins` y `weekdayString` se deben convertir en representaciones de enteros. Hay varios enfoques para realizar la conversión, pero el enfoque que se realiza en este ejemplo es *OneHotEncoding* , un enfoque común.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed

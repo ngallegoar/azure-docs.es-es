@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 06b535b25df19e5062d16184f4469d9e9253b9c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 00920f30061832bd1d685f04113a63781df718b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87042611"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313685"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Red virtual administrada de Azure Synapse Analytics (versión preliminar)
 
@@ -30,11 +30,11 @@ La red virtual de área de trabajo administrada aporta valor de cuatro formas:
 - No es necesario crear una subred para los clústeres de Spark en función de la carga máxima.
 - La red virtual de área de trabajo administrada, junto con los puntos de conexión privados administrados, sirven de protección contra la filtración de datos. Solo se pueden crear puntos de conexión privados administrados en áreas de trabajo que tengan asociadas una red virtual de área de trabajo administrada.
 
-La creación de un área de trabajo con una red virtual de área de trabajo administrada asociada garantiza que el área de trabajo esté aislada por la red de otras áreas de trabajo. Azure Synapse ofrece varias funcionalidades de análisis en un área de trabajo: integración de datos, Apache Spark, grupo de SQL y SQL a petición.
+La creación de un área de trabajo con una red virtual de área de trabajo administrada asociada garantiza que el área de trabajo esté aislada por la red de otras áreas de trabajo. Azure Synapse ofrece varias funcionalidades de análisis en un área de trabajo: Integración de datos, grupo de Apache Spark sin servidor, grupo de SQL dedicado y grupo de SQL sin servidor.
 
 Si el área de trabajo tiene una red virtual de área de trabajo administrada, en ella se implementan la integración de datos y los recursos de Spark. Una red virtual de área de trabajo administrada también proporciona aislamiento en el nivel de usuario para las actividades de Spark, ya que cada clúster de Spark está en su propia subred.
 
-Grupo de SQL y SQL a petición son funcionalidades de varios inquilinos y, por tanto, residen fuera de la red virtual de área de trabajo administrada. En la comunicación dentro del área de trabajo con el grupo de SQL y SQL a petición se usan vínculos privados de Azure. Estos vínculos privados se crean automáticamente cuando se crea un área de trabajo con una red virtual de área de trabajo administrada asociada.
+El grupo de SQL dedicado y el grupo de SQL sin servidor son funcionalidades de varios inquilinos y, por tanto, residen fuera de la red virtual de área de trabajo administrada. En la comunicación dentro del área de trabajo con el grupo de SQL dedicado y el grupo de SQL sin servidor se usan vínculos privados de Azure. Estos vínculos privados se crean automáticamente cuando se crea un área de trabajo con una red virtual de área de trabajo administrada asociada.
 
 >[!IMPORTANT]
 >Esta configuración del área de trabajo no se puede cambiar una vez creada el área de trabajo. Por ejemplo, no puede volver a configurar un área de trabajo que no tenga una red virtual de área de trabajo administrada asociada y asociarle una red virtual. De igual modo, no puede volver a configurar un área de trabajo que no tenga una red virtual de área de trabajo administrada asociada y desasociarle la red virtual.
@@ -43,7 +43,7 @@ Grupo de SQL y SQL a petición son funcionalidades de varios inquilinos y, por t
 
 Si aún no lo ha hecho, registre el proveedor de recursos de red. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. Elija *Microsoft.Network* en la lista de proveedores de recursos al [registrarse](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
-Para crear un área de trabajo de Azure Synapse que tenga una red virtual de área de trabajo administrada asociada, seleccione la pestaña **Seguridad y redes** en Azure Portal y active la casilla **Enable managed virtual network** (Habilitar red virtual administrada).
+Para crear un área de trabajo de Azure Synapse que tenga una red virtual de área de trabajo administrada asociada, seleccione la pestaña **Redes** en Azure Portal y active la casilla **Enable managed virtual network** (Habilitar red virtual administrada).
 
 Si deja la casilla desactivada, el área de trabajo no tendrá asociada ninguna red virtual.
 

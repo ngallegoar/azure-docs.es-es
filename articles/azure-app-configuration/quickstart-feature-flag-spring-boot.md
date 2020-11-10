@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 64ccc9c91d9ead567035b1f7f35e0a0088b6200b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075542"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124193"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Inicio rápido: Incorporación de marcas de características a una aplicación de Spring Boot
 
@@ -185,7 +185,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
     }
     ```
 
-1. Cree un archivo HTML llamado *welcome.html*en el directorio de plantillas de la aplicación.
+1. Cree un archivo HTML llamado *welcome.html* en el directorio de plantillas de la aplicación.
 
     ```html
     <!DOCTYPE html>
@@ -286,7 +286,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 
 1. Abra una ventana del explorador y vaya a la dirección URL: `http://localhost:8080/welcome`.
 
-    ![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
+    ![Captura de pantalla que muestra una ventana del explorador con un mensaje de bienvenida.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
 1. En el portal de App Configuration, seleccione **Feature Manager** (Administrador de características) y cambie el estado de la clave **Beta** a **On** (Activado):
 
@@ -296,7 +296,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 
 1. Actualice la página del explorador para ver los nuevos valores de configuración.
 
-    ![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ![Captura de pantalla que muestra una ventana del explorador con un mensaje de bienvenida y un vínculo de la versión beta resaltado.](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

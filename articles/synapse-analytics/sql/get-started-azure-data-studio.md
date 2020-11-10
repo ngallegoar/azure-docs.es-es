@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3c1b61cb4f799b79ca00fc92ffadc2374a61c03
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132472"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323832"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Conexión a Synapse SQL con Azure Data Studio (versión preliminar)
 
@@ -30,11 +30,11 @@ Puede usar [Azure Data Studio (versión preliminar)](/sql/azure-data-studio/down
 
 ## <a name="connect"></a>Conectar
 
-Para conectarse a Synapse SQL, abra Azure Data Studio y seleccione **Nueva conexión** .
+Para conectarse a Synapse SQL, abra Azure Data Studio y seleccione **Nueva conexión**.
 
 ![Procedimiento para abrir Azure Data Studio](./media/get-started-azure-data-studio/1-start.png)
 
-Seleccione **Microsoft SQL Server** como **Tipo de conexión** .
+Seleccione **Microsoft SQL Server** como **Tipo de conexión**.
 
 La cadena de conexión requiere los siguientes parámetros:
 
@@ -42,15 +42,15 @@ La cadena de conexión requiere los siguientes parámetros:
 * **Base de datos** Nombre de la base de datos
 
 > [!NOTE]
-> Si desea usar **SQL a petición (versión preliminar)** la dirección URL debe ser similar a la siguiente:
+> Si desea usar el **grupo de SQL sin servidor (versión preliminar)** , la dirección URL debe ser similar a la siguiente:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> Si desea usar un **grupo de SQL** la dirección URL debe ser similar a la siguiente:
+> Si desea usar el **grupo de SQL dedicado** , la dirección URL debe ser similar a la siguiente:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-Elija **Autenticación de Windows** , **Azure Active Directory** o **Inicio de sesión de SQL** como **Tipo de autenticación** .
+Elija **Autenticación de Windows** , **Azure Active Directory** o **Inicio de sesión de SQL** como **Tipo de autenticación**.
 
 Para utilizar **Inicio de sesión SQL** como tipo de autenticación, agregue los parámetros de nombre de usuario y contraseña:
 
@@ -77,7 +77,7 @@ Una vez conectado, puede consultar Synapse SQL mediante instrucciones [Transact-
 
 ![Nueva consulta](./media/get-started-azure-data-studio/5-new-query.png)
 
-Por ejemplo, puede usar la siguiente instrucción Transact-SQL para [consultar archivos Parquet](query-parquet-files.md) mediante SQL a petición:
+Por ejemplo, puede usar la siguiente instrucción Transact-SQL para [consultar archivos Parquet](query-parquet-files.md) mediante el grupo de SQL sin servidor:
 
 ```sql
 SELECT COUNT(*)

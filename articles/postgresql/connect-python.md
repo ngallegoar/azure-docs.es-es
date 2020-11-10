@@ -7,69 +7,65 @@ ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/07/2019
-ms.openlocfilehash: 2ecf5c540c3fce7a60ebf256d871993400a731ed
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 10/28/2020
+ms.openlocfilehash: db94a82112f2670facd4d89178f11653c5316c36
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481200"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331784"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de Python para conectarse y consultar datos en un servidor único Azure Database for PostgreSQL
 
-En este inicio rápido se muestra cómo trabajar con una instancia de Azure Database for PostgreSQL mediante Python en macOS, Ubuntu Linux o Windows. En la guía de inicio rápido se muestra cómo conectarse a la base de datos y usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos. En este artículo se da por hecho que está familiarizado con Python, pero que es nuevo para trabajar con Azure Database for PostgreSQL.
+En esta guía de inicio rápido, obtendrá información sobre cómo conectarse a la base de datos en Azure Database for PostgreSQL (servidor único) y ejecutar instrucciones SQL para realizar consultas mediante Python en macOS, Ubuntu Linux o Windows.
 
 > [!TIP]
 > Si está pensando en compilar una aplicación de Django con PostgreSQL, consulte el tutorial, [Implementación de una aplicación web de Django de Python con PostgreSQL](../app-service/tutorial-python-postgresql-app.md) tutorial.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
+Para esta guía de inicio rápido, necesitará lo siguiente:
 
-- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free).
+- Crear un único servidor Azure Database for PostgreSQL mediante [Azure Portal](./quickstart-create-server-database-portal.md) <br/> o la [CLI de Azure](./quickstart-create-server-database-azure-cli.md) si no tiene uno.
+- En función de si usa el acceso público o privado, complete **UNA** de las acciones siguientes para habilitar la conectividad.
 
-- Finalización de [Inicio rápido: Cree un servidor de Azure Database for PostgreSQL en Azure Portal ](quickstart-create-server-database-portal.md)o [ en la guía de Inicio rápido de: Cree un Azure Database for PostgreSQL mediante la de CLI de Azure](quickstart-create-server-database-azure-cli.md).
-  
+  |Acción| Método de conectividad|Guía paso a paso|
+  |:--------- |:--------- |:--------- |
+  | **Configurar reglas de firewall** | Público | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+  | **Configurar el punto de conexión de servicio** | Público | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
+  | **Configuración del vínculo privado** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
+
 - [Python](https://www.python.org/downloads/) 2.7.9+ o 3.4+.
-  
+
 - Instalador de paquetes [pip](https://pip.pypa.io/en/stable/installing/) más reciente.
-
-## <a name="install-the-python-libraries-for-postgresql"></a>Instalación de las bibliotecas de Python para PostgreSQL
-El módulo [psycopg2](https://pypi.python.org/pypi/psycopg2/) permite conectarse a una base de datos de PostgreSQL y realizar consultas, y está disponible como un paquete de Linux, macOS o Windows [wheel](https://pythonwheels.com/). Instale la versión binaria del módulo, incluidas todas las dependencias. Para más información sobre `psycopg2` instalación y requisitos, consulte [Instalación](http://initd.org/psycopg/docs/install.html). 
-
-Para instalar `psycopg2`, abra un símbolo del sistema o de terminal y ejecute el comando`pip install psycopg2`.
+- Instalar [psycopg2](https://pypi.python.org/pypi/psycopg2/) mediante `pip install psycopg2` en un terminal o una ventana del símbolo del sistema. Para más información, consulte [Instalación`psycopg2`](http://initd.org/psycopg/docs/install.html).
 
 ## <a name="get-database-connection-information"></a>Obtener información de conexión de base de datos
 La conexión a una base de datos Azure Database for PostgreSQL requiere el nombre completo del servidor y las credenciales de inicio de sesión. Puede obtener esta información en el Azure Portal.
 
-1. En el [Azure Portal](https://portal.azure.com/), busque y seleccione el nombre del servidor de Azure Database for PostgreSQL. 
-1. En la página de **Información general** del servidor, copie el nombre completo del **Servidor** y el **Nombre del usuario administrador** . El **nombre completo del servidor** siempre tiene el formato *\<my-server-name>.postgres.database.azure.com* y el **nombre del usuario administrador** siempre tiene el formato *\<my-admin-username>@\<my-server-name>* . 
-   
-   También necesitará la contraseña de administrador. Si la olvida, puede restablecerla desde esta página. 
-   
+1. En el [Azure Portal](https://portal.azure.com/), busque y seleccione el nombre del servidor de Azure Database for PostgreSQL.
+1. En la página de **Información general** del servidor, copie el nombre completo del **Servidor** y el **Nombre del usuario administrador**. El **nombre completo del servidor** siempre tiene el formato *\<my-server-name>.postgres.database.azure.com* y el **nombre del usuario administrador** siempre tiene el formato *\<my-admin-username>@\<my-server-name>* .
+
+   También necesitará la contraseña de administrador. Si la olvida, puede restablecerla desde esta página.
+
    :::image type="content" source="./media/connect-python/1-connection-string.png" alt-text="Nombre de servidor de Azure Database for PostgreSQL":::
 
-## <a name="how-to-run-the-python-examples"></a>Cómo ejecutar los ejemplos de Python
+> [!IMPORTANT]
+>  Reemplace los siguientes valores:
+>   - `<server-name>` y `<admin-username>` con los valores que copió del Azure Portal.
+>   - `<admin-password>` con la contraseña del servidor.
+>   - `<database-name>` se ha creado automáticamente una base de datos predeterminada llamada *postgres* al crear el servidor. Puede cambiar el nombre de la base de datos o [crear una nueva](https://www.postgresql.org/docs/9.0/sql-createdatabase.html) mediante comandos SQL.
 
-Para cada ejemplo de código de este artículo:
-
-1. Cree un nuevo archivo en un editor de texto. 
-   
-1. Agregue el ejemplo de código al archivo. En el código, reemplace:
-   - `<server-name>` y `<admin-username>` con los valores que copió del Azure Portal.
-   - `<admin-password>` con la contraseña del servidor.
-   - `<database-name>` con el nombre de la base de datos de Azure Database for PostgreSQL. Se creará automáticamente una base de datos predeterminada denominada *postgres* al crear el servidor. Puede cambiar el nombre de la base de datos o crear una nueva mediante comandos SQL. 
-   
-1. Guarde el archivo en la carpeta del proyecto con una extensión *.py* , como *postgres-insert.py* . En Windows, asegúrese de que la codificación UTF-8 está seleccionada al guardar el archivo. 
-   
-1. Para ejecutar el archivo, cambie a la carpeta del proyecto en una interfaz de línea de comandos y escriba `python`seguido del nombre de archivo, por ejemplo`python postgres-insert.py`.
-
-## <a name="create-a-table-and-insert-data"></a>Crear una tabla e insertar datos
-El siguiente ejemplo de código se conecta a la base de datos de Azure Database for PostgreSQL mediante la función [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) y carga los datos con una instrucción SQL **INSERT** . La función [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) ejecuta la consulta SQL en la base de datos. 
+## <a name="step-1-connect-and-insert-data"></a>Paso 1: Conexión e inserción de datos
+El siguiente ejemplo de código se conecta a la base de datos de Azure Database for PostgreSQL con
+-  la función [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) y carga los datos con la instrucción SQL **INSERT**.
+- la función [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) ejecuta la consulta SQL en la base de datos.
 
 ```Python
 import psycopg2
 
-# Update connection string information 
+# Update connection string information
 host = "<server-name>"
 dbname = "<database-name>"
 user = "<admin-username>"
@@ -78,7 +74,7 @@ sslmode = "require"
 
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
-conn = psycopg2.connect(conn_string) 
+conn = psycopg2.connect(conn_string)
 print("Connection established")
 
 cursor = conn.cursor()
@@ -105,27 +101,17 @@ conn.close()
 
 Cuando el código se ejecuta correctamente, genera el siguiente resultado:
 
-:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Nombre de servidor de Azure Database for PostgreSQL":::
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Salida de la línea de comandos":::
 
-## <a name="read-data"></a>Lectura de datos
-En el ejemplo de código siguiente se conecta a la base de datos de Azure Database for PostgreSQL y se usa [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) con la instrucción SQL **SELECT** para leer datos. Esta función acepta una consulta y devuelve un conjunto de resultados para iterar mediante [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 
+
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/postgres-doc-feedback)
+
+## <a name="step-2-read-data"></a>Paso 2: Lectura de datos
+El siguiente ejemplo de código se conecta a la base de datos de Azure Database for PostgreSQL y usa
+- [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) con la instrucción SQL **SELECT** para leer los datos.
+- [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall) acepta una consulta y devuelve un conjunto de resultados para iterar mediante
 
 ```Python
-import psycopg2
-
-# Update connection string information
-host = "<server-name>"
-dbname = "<database-name>"
-user = "<admin-username>"
-password = "<admin-password>"
-sslmode = "require"
-
-# Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
-conn = psycopg2.connect(conn_string) 
-print("Connection established")
-
-cursor = conn.cursor()
 
 # Fetch all rows from table
 cursor.execute("SELECT * FROM inventory;")
@@ -135,72 +121,50 @@ rows = cursor.fetchall()
 for row in rows:
     print("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
 
-# Cleanup
-conn.commit()
-cursor.close()
-conn.close()
-```
 
-## <a name="update-data"></a>Actualización de datos
-El siguiente ejemplo de código se conecta a la base de datos de Azure Database for PostgreSQL y usa [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) con la instrucción SQL **UPDATE** para actualizar los datos. 
+```
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/postgres-doc-feedback)
+
+## <a name="step-3-update-data"></a>Paso 3: Actualización de datos
+En el ejemplo de código siguiente se usa [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) con la instrucción SQL **UPDATE** para actualizar los datos.
 
 ```Python
-import psycopg2
-
-# Update connection string information
-host = "<server-name>"
-dbname = "<database-name>"
-user = "<admin-username>"
-password = "<admin-password>"
-sslmode = "require"
-
-# Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
-conn = psycopg2.connect(conn_string) 
-print("Connection established")
-
-cursor = conn.cursor()
 
 # Update a data row in the table
 cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
 print("Updated 1 row of data")
 
-# Cleanup
-conn.commit()
-cursor.close()
-conn.close()
 ```
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/postgres-doc-feedback)
 
-## <a name="delete-data"></a>Eliminación de datos
-En el ejemplo de código siguiente se conecta a la base de datos de Azure Database for PostgreSQL y se usa [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) con la instrucción SQL **DELETE** para eliminar un elemento de inventario que se ha insertado previamente. 
+## <a name="step-5-delete-data"></a>Paso 5: Eliminación de datos
+En el ejemplo de código siguiente se ejecuta [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) con la instrucción SQL **DELETE** para eliminar un elemento de inventario que se ha insertado previamente.
 
 ```Python
-import psycopg2
-
-# Update connection string information
-host = "<server-name>"
-dbname = "<database-name>"
-user = "<admin-username>"
-password = "<admin-password>"
-sslmode = "require"
-
-# Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
-conn = psycopg2.connect(conn_string) 
-print("Connection established")
-
-cursor = conn.cursor()
 
 # Delete data row from table
 cursor.execute("DELETE FROM inventory WHERE name = %s;", ("orange",))
 print("Deleted 1 row of data")
 
-# Cleanup
-conn.commit()
-cursor.close()
-conn.close()
+```
+
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/postgres-doc-feedback)
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Para limpiar todos los recursos utilizados durante esta guía de inicio rápido, elimine el grupo de recursos con el siguiente comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)
+> [Administración de un servidor de Azure Database for MySQL mediante Azure Portal](./howto-create-manage-server-portal.md)<br/>
+
+> [!div class="nextstepaction"]
+> [Administración con la CLI de Azure de una instancia de Azure Database for MySQL: Servidor único](./how-to-manage-server-cli.md)<br/>
+
+[¿No encuentra lo que busca? Háganoslo saber.](https://aka.ms/postgres-doc-feedback)

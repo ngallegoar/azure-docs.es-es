@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 622ead2ab58075fe6edbe2c013f14391624fd2b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590462"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927845"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Solución de problemas del servicio Azure Dedicated HSM
 
@@ -71,7 +71,7 @@ Cuando un sello o una región se están llenando, es decir, se aprovisionan casi
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>¿Cómo puedo ver los HSM cuando se aprovisionan?
 Debido a que Dedicated HSM es un servicio con lista de permitidos, se considera un "Tipo oculto" en Azure Portal. Para ver los recursos de HSM, debe activar la casilla "Mostrar tipos ocultos" como se muestra a continuación. El recurso de la NIC siempre sigue al HSM y es un buen lugar para averiguar la dirección IP del HSM antes de usar SSH para conectarse.
 
-![Delegación de subred](./media/troubleshoot/hsm-provisioned.png)
+![Captura de pantalla que resalta la casilla Mostrar tipos ocultos](./media/troubleshoot/hsm-provisioned.png)
 
 ## <a name="networking-resources"></a>Recursos de redes
 
@@ -85,7 +85,7 @@ Dedicated HSM usa la puerta de enlace de ExpressRoute como "túnel" para la comu
 
 Las plantillas de ejemplo proporcionadas para Dedicated HSM suponen que la dirección IP del HSM se tomará automáticamente de un intervalo de subred determinado. Puede especificar una dirección IP explícita para el HSM mediante el atributo "NetworkInterfaces" de la plantilla de ARM. 
 
-![Delegación de subred](./media/troubleshoot/private-ip-address.png)
+![Captura de pantalla que muestra la plantilla de ejemplo para Dedicated HSM.](./media/troubleshoot/private-ip-address.png)
 
 ## <a name="hsm-initialization"></a>Inicialización del HSM
 

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 141cc47adb398cbd5730fbe33bcd90fece809ed3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91543330"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307955"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Inicio rápido: Creación de un servicio vinculado de Azure Machine Learning en Synapse
 
@@ -60,7 +60,7 @@ Con este paso se creará una nueva entidad de servicio. Si desea usar una entida
 
 ## <a name="create-a-linked-service"></a>Creación de un servicio vinculado
 
-1. En el área de trabajo de Synapse en la que desea crear el nuevo servicio vinculado de Azure Machine Learning, vaya a **Administración** -> **Servicio vinculado**, cree un nuevo servicio vinculado con el tipo "Azure Machine Learning".
+1. En el área de trabajo de Synapse en la que desea crear el nuevo servicio vinculado de Azure Machine Learning, vaya a **Administración** -> **Servicio vinculado** , cree un nuevo servicio vinculado con el tipo "Azure Machine Learning".
 
    ![Creación de un servicio vinculado](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 
@@ -79,5 +79,5 @@ Con este paso se creará una nueva entidad de servicio. Si desea usar una entida
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial: Asistente para puntuación de modelos de Machine Learning: grupos de SQL](tutorial-sql-pool-model-scoring-wizard.md)
+- [Tutorial: Asistente para puntuación de modelos de Machine Learning: grupo de SQL dedicado](tutorial-sql-pool-model-scoring-wizard.md)
 - [Funcionalidades de aprendizaje automático en Azure Synapse Analytics (vista previa de áreas de trabajo)](what-is-machine-learning.md)

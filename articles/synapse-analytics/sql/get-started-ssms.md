@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288790"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311126"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conexión a Synapse SQL con SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "91288790"
 > 
 > 
 
-Puede usar [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para conectarse y realizar consultas a Synapse SQL en Azure Synapse Analytics con los recursos de SQL a petición (versión preliminar) o del grupo de SQL. 
+Puede usar [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para conectarse y realizar consultas a Synapse SQL en Azure Synapse Analytics con los recursos del grupo de SQL sin servidor (versión preliminar) o del grupo de SQL dedicado. 
 
-### <a name="supported-tools-for-sql-on-demand-preview"></a>Herramientas compatibles con SQL a petición (versión preliminar)
+### <a name="supported-tools-for-serverless-sql-pool-preview"></a>Herramientas admitidas en el grupo de SQL sin servidor (versión preliminar)
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) es totalmente compatible a partir de la versión 1.18.0. SSMS es parcialmente compatible a partir de la versión 18.5, que solo se puede usar para establecer conexión y realizar consultas.
 
@@ -40,41 +40,41 @@ Puede usar [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-m
 Asegúrese de que cumple los siguientes requisitos previos antes de empezar:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* Para el grupo de SQL, necesita un almacén de datos existente. Para crear uno, vea [Creación de un grupo de SQL](../quickstart-create-sql-pool-portal.md). En el caso de SQL a petición, ya se ha aprovisionado uno en el área de trabajo en el momento de la creación. 
+* Para el grupo de SQL dedicado, necesita un almacenamiento de datos existente. Para crear uno, consulte [Creación de un grupo de SQL dedicado](../quickstart-create-sql-pool-portal.md). En el caso del grupo de SQL sin servidor, ya se ha aprovisionado uno, llamado Built-in (integrado), en el área de trabajo en el momento de la creación. 
 * El nombre del servidor SQL completo. Para encontrar el nombre, consulte [Conexión a Synapse SQL](connect-overview.md).
 
 ## <a name="connect"></a>Conectar
 
-### <a name="sql-pool"></a>Grupo de SQL
+### <a name="dedicated-sql-pool"></a>Grupo de SQL dedicado
 
-Para conectarse a Synapse SQL mediante el grupo de SQL, siga estos pasos: 
+Para conectarse a Synapse SQL mediante el grupo de SQL dedicado, siga estos pasos: 
 
 1. Abra SQL Server Management Studio (SSMS). 
-1. En el cuadro de diálogo **Conectar al servidor**, rellene los campos y seleccione **Conectar**: 
+1. En el cuadro de diálogo **Conectar al servidor** , rellene los campos y seleccione **Conectar** : 
   
     ![Conectar al servidor 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **Nombre del servidor**: Escriba el **nombre del servidor** definido anteriormente.
-   * **Autenticación**:  Elija un tipo de autenticación como, por ejemplo, **Autenticación de SQL Server** o **Autenticación integrada de Active Directory**.
-   * **Nombre de usuario** y **contraseña**: Escriba su nombre de usuario y la contraseña si la autenticación de SQL Server se seleccionó anteriormente.
+   * **Nombre del servidor** : Escriba el **nombre del servidor** definido anteriormente.
+   * **Autenticación** :  Elija un tipo de autenticación como, por ejemplo, **Autenticación de SQL Server** o **Autenticación integrada de Active Directory**.
+   * **Nombre de usuario** y **contraseña** : Escriba su nombre de usuario y la contraseña si la autenticación de SQL Server se seleccionó anteriormente.
 
 1. Expanda el servidor de Azure SQL Server en **Explorador de objetos**. Puede ver las bases de datos asociadas al servidor, como la base de datos AdventureWorksDW de ejemplo. Puede expandir la base de datos para ver las tablas:
    
     ![Explore AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="sql-on-demand-preview"></a>SQL a petición (versión preliminar)
+### <a name="serverless-sql-pool-preview"></a>Grupo de SQL sin servidor (versión preliminar)
 
-Para conectarse a Synapse SQL mediante SQL a petición, siga estos pasos: 
+Para conectarse a Synapse SQL mediante el grupo de SQL sin servidor, siga estos pasos: 
 
 1. Abra SQL Server Management Studio (SSMS).
-1. En el cuadro de diálogo **Conectar al servidor**, rellene los campos y seleccione **Conectar**: 
+1. En el cuadro de diálogo **Conectar al servidor** , rellene los campos y seleccione **Conectar** : 
    
     ![Conectar al servidor 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **Nombre del servidor**: Escriba el **nombre del servidor** definido anteriormente.
-   * **Autenticación**: Elija un tipo de autenticación como, por ejemplo, **Autenticación de SQL Server** o **Autenticación integrada de Active Directory**:
-   * **Nombre de usuario** y **contraseña**: Escriba su nombre de usuario y la contraseña si la autenticación de SQL Server se seleccionó anteriormente.
+   * **Nombre del servidor** : Escriba el **nombre del servidor** definido anteriormente.
+   * **Autenticación** : Elija un tipo de autenticación como, por ejemplo, **Autenticación de SQL Server** o **Autenticación integrada de Active Directory** :
+   * **Nombre de usuario** y **contraseña** : Escriba su nombre de usuario y la contraseña si la autenticación de SQL Server se seleccionó anteriormente.
    * Seleccione **Conectar**.
 
 4. Para explorar, expanda su Azure SQL Server. Puede ver las bases de datos asociadas al servidor. Expanda *demo* para ver el contenido de la base de datos de ejemplo.
@@ -84,7 +84,7 @@ Para conectarse a Synapse SQL mediante SQL a petición, siga estos pasos:
 
 ## <a name="run-a-sample-query"></a>Ejecución de una consulta de ejemplo
 
-### <a name="sql-pool"></a>Grupo de SQL
+### <a name="dedicated-sql-pool"></a>Grupo de SQL dedicado
 
 Ahora que se ha establecido una conexión de base de datos, puede consultar los datos.
 
@@ -104,7 +104,7 @@ Ahora que se ha establecido una conexión de base de datos, puede consultar los 
    
     ![Resultados de consulta 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
-### <a name="sql-on-demand"></a>SQL a petición
+### <a name="serverless-sql-pool"></a>Grupo de SQL sin servidor
 
 Ahora que se ha establecido una conexión de base de datos, puede consultar los datos.
 

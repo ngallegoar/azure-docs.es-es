@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2020
 ms.author: memildin
-ms.openlocfilehash: ba0c68589f7ea4b32970e3ad81fea5175b998dc7
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 549a95b0b2ffc2b2d2bf5670a961e0454683e33a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629160"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026724"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
@@ -42,27 +42,19 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 
 Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. [Mas información sobre Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-Las 29 recomendaciones siguientes se agregarán a Security Center para aumentar la cobertura de la prueba comparativa.
+Las 18 recomendaciones siguientes se agregarán a Security Center para aumentar la cobertura de la prueba comparativa.
 
 Las recomendaciones de la versión preliminar no representan un recurso incorrecto y no se incluyen en los cálculos de una puntuación segura. Corríjalas siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación. Puede encontrar más información sobre cómo responder a estas recomendaciones en [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
 
 - Azure Backup debería habilitarse en las máquinas virtuales
-- La retención de la auditoría en los servidores de SQL Server debe establecerse en 90 días, como mínimo
-- Los registros de diagnóstico deben habilitarse en App Service 
 - La aplicación de la conexión SSL debe estar habilitada para los servidores de bases de datos MySQL
 - La aplicación de la conexión SSL debe estar habilitada para los servidores de bases de datos PostgreSQL
-- Es necesario exigir FTPS en la aplicación de API.
-- Es necesario exigir FTPS en la aplicación de funciones.
-- Es necesario exigir FTPS en la aplicación web.
 - La copia de seguridad con redundancia geográfica debe estar habilitada para Azure Database for MariaDB.
 - La copia de seguridad con redundancia geográfica debe estar habilitada para Azure Database for MySQL.
 - La copia de seguridad con redundancia geográfica debe estar habilitada para Azure Database for PostgreSQL.
 - Java debe actualizarse a la versión más reciente en la aplicación de API
 - Java debe actualizarse a la versión más reciente en la aplicación de funciones
 - Java debe actualizarse a la versión más reciente en la aplicación web
-- Se debe usar una identidad administrada en la aplicación de API
-- Se debe usar una identidad administrada en la aplicación de funciones
-- Se debe usar una identidad administrada en la aplicación web
 - PHP debe actualizarse a la versión más reciente en la aplicación de API
 - PHP debe actualizarse a la versión más reciente en la aplicación web
 - El punto de conexión privado debe estar habilitado para servidores MariaDB
@@ -71,9 +63,6 @@ Las recomendaciones de la versión preliminar no representan un recurso incorrec
 - Python debe actualizarse a la versión más reciente en la aplicación de API
 - Python debe actualizarse a la versión más reciente en la aplicación de funciones
 - Python debe actualizarse a la versión más reciente en la aplicación web
-- TLS debe actualizarse a la versión más reciente en la aplicación de API
-- TLS debe actualizarse a la versión más reciente en la aplicación de funciones
-- TLS debe actualizarse a la versión más reciente en la aplicación web
 - Las aplicaciones web deben solicitar un certificado SSL a todas las solicitudes entrantes
 
 Vínculos relacionados:

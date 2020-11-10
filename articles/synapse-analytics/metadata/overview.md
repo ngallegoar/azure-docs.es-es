@@ -1,6 +1,6 @@
 ---
 title: Modelo de metadatos compartidos
-description: Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre los grupos de Spark (versión preliminar), el motor de SQL a petición (versión preliminar) y los grupos de SQL.
+description: Azure Synapse Analytics permite que los diferentes motores de las áreas de trabajo de cálculo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor (versión preliminar), el grupo de SQL sin servidor (versión preliminar) y los grupos de SQL dedicados.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87387343"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324662"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadatos compartidos de Azure Synapse Analytics
 
-Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre los grupos de Spark (versión preliminar) y el motor de SQL On-Demand (versión preliminar).
+Azure Synapse Analytics permite que los diferentes motores de las áreas de trabajo de cálculo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor (versión preliminar) y el grupo de SQL sin servidor (versión preliminar).
 
 [!INCLUDE [preview](../includes/note-preview.md)]
 
@@ -32,7 +32,7 @@ El modelo de metadatos compartidos admite el moderno patrón de almacenamiento d
 
 2. Las bases de datos creadas por Spark y todas sus tablas se vuelven visibles en cualquiera de las instancias del grupo de Spark del área de trabajo de Azure Synapse y se pueden usar desde cualquiera de los trabajos de Spark. Esta funcionalidad está sujeta a los [permisos](#security-model-at-a-glance), dado que todos los grupos de Spark de un área de trabajo comparten el mismo almacén de metadatos del catálogo subyacente.
 
-3. Las bases de datos creadas por Spark y sus tablas respaldadas por Parquet se vuelven visibles en el motor de SQL a petición del área de trabajo. Las [bases de datos](database.md) se crean automáticamente en los metadatos de SQL a petición, y las [tablas externas y administradas](table.md) creadas mediante un trabajo de Spark se hacen accesibles como tablas externas en los metadatos de SQL a petición en el esquema `dbo` de la base de datos correspondiente. 
+3. Las bases de datos creadas por Spark y sus tablas respaldadas por Parquet se vuelven visibles en el grupo de SQL sin servidor del área de trabajo. Las [bases de datos](database.md) se crean automáticamente en los metadatos del grupo de SQL sin servidor y las [tablas externas y administradas](table.md) creadas mediante un trabajo de Spark se hacen accesibles como tablas externas en los metadatos del grupo de SQL sin servidor en el esquema `dbo` de la base de datos correspondiente. 
 
 <!--[INSERT PICTURE]-->
 
@@ -52,7 +52,7 @@ Para más información, consulte [Base de datos compartida de Azure Synapse Anal
 
 ## <a name="change-maintenance"></a>Cambio del mantenimiento
 
-Si se elimina o cambia un objeto de metadatos con Spark, los cambios se recogen y propagan al motor de SQL On-Demand. La sincronización es asincrónica y los cambios se reflejan en el motor SQL tras un breve retraso.
+Si se elimina o cambia un objeto de metadatos con Spark, los cambios se recogen y propagan al grupo de SQL sin servidor. La sincronización es asincrónica y los cambios se reflejan en el motor SQL tras un breve retraso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

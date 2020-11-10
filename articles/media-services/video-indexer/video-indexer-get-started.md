@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9ad004f65335d79205cbaddaa190b92a19c327d5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219797"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147290"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Inicio rápido: Suscripción y carga del primer vídeo
 
@@ -27,8 +27,10 @@ Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gra
 
 Para empezar a desarrollar con Video Indexer, vaya al sitio web de [Video Indexer](https://www.videoindexer.ai/) y suscríbase.
 
+Una vez que empiece a usar Video Indexer, todos los datos almacenados y el contenido cargado se cifran en reposo con una clave administrada de Microsoft.
+
 > [!NOTE]
-> Una vez que empiece a usar Video Indexer, todos los datos almacenados y el contenido cargado se cifran en reposo con una clave administrada de Microsoft.
+> Consulte [Cambios planeados en la autenticación del sitio web de Video Indexer](release-notes.md#planned-video-indexer-website-authenticatication-changes).
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Carga de un vídeo mediante el sitio web de Video Indexer
 
@@ -49,12 +51,12 @@ Consulte la sección [Formatos de archivo/contenedor de entrada](../latest/media
 1. Una vez cargado el vídeo, Video Indexer inicia la indexación y el análisis del vídeo. Verá el progreso. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Cargar":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progreso de la carga":::
 1. Cuando Video Indexer haya terminado el análisis, recibirá un correo electrónico con un vínculo a su vídeo y una breve descripción de lo que se ha encontrado en él. Por ejemplo: personas, palabras habladas y escritas, temas y entidades con nombre.
 1. Más adelante, puede buscar el vídeo en la lista de bibliotecas y realizar diferentes operaciones. Por ejemplo: buscar, volver a indexar o editar.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Cargar":::
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Realización de la carga":::
  
 ## <a name="see-also"></a>Consulte también
 

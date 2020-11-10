@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Uso de Azure Redis Cache con Java'
+title: 'Inicio rápido: Uso de Azure Cache for Redis con Java'
 description: En este inicio rápido, creará una nueva aplicación Java que utiliza Azure Redis Cache.
 author: yegu-ms
 ms.service: cache
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 16a912b2530d567a11a81fc10e9e09eee572e7e6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: edb80ab3107cbd0a5ddd802d56a60ce77affb2f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87528842"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088121"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Inicio rápido: Uso de Azure Redis Cache con Java
+# <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Inicio rápido: Uso de Azure Cache for Redis con Java
 
 En este inicio rápido incorporará Azure Redis Cache en una aplicación Java mediante el cliente de Redis [Jedis](https://github.com/xetorthio/jedis) para acceder a una caché dedicada y segura, a la que se puede acceder desde cualquier aplicación de Azure.
 
@@ -46,8 +46,8 @@ export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 
 Reemplace los marcadores de posición por los siguientes valores:
 
-- `<YOUR_HOST_NAME>`: El nombre de host DNS, que se obtiene en la sección *Propiedades* del recurso Azure Cache for Redis en Azure Portal.
-- `<YOUR_PRIMARY_ACCESS_KEY>`: El nombre de host DNS, que se obtiene en la sección *Claves de acceso* del recurso Azure Cache for Redis en Azure Portal.
+- `<YOUR_HOST_NAME>`: nombre de host DNS, que se obtiene en la sección *Propiedades* del recurso de Azure Cache for Redis en Azure Portal.
+- `<YOUR_PRIMARY_ACCESS_KEY>`: clave de acceso principal, que se obtiene en la sección *Claves de acceso* del recurso de Azure Cache for Redis en Azure Portal.
 
 ## <a name="create-a-new-java-app"></a>Creación de una nueva aplicación Java
 

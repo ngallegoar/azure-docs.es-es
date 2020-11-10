@@ -1,6 +1,6 @@
 ---
-title: Importación y exportación de datos entre grupos de Spark (versión preliminar) y grupos de SQL
-description: En este artículo se proporciona información sobre cómo usar el conector personalizado para mover datos entre grupos de SQL y grupos de Spark (versión preliminar).
+title: Importación y exportación de datos entre grupos de Apache Spark sin servidor (versión preliminar) y grupos de SQL
+description: En este artículo se proporciona información sobre cómo usar el conector personalizado para mover datos entre grupos de SQL dedicados y grupos de Apache Spark sin servidor (versión preliminar).
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee82fbaa9687e064747908600c7e5c9017f8f1a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259925"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323891"
 ---
 # <a name="introduction"></a>Introducción
 
-El conector entre Azure Synapse Apache Spark y Synapse SQL está diseñado para transferir datos de forma eficaz entre los grupos de Spark (versión preliminar) y los grupos de SQL de Azure Synapse. El conector entre Azure Synapse Apache Spark y Synapse SQL solo funciona en grupos SQL, no funciona con SQL On-demand (SQL a petición).
+El conector entre Azure Synapse Apache Spark y Synapse SQL está diseñado para transferir datos de forma eficaz entre los grupos de Apache Spark sin servidor (versión preliminar) y los grupos de SQL de Azure Synapse. El conector entre Azure Synapse Apache Spark y Synapse SQL solo funciona en grupos de SQL dedicados, no funciona con grupos de SQL sin servidor.
 
 ## <a name="design"></a>Diseño
 
 La transferencia de datos entre grupos de Spark y grupos de SQL se puede realizar mediante JDBC. Sin embargo, dados dos sistemas distribuidos, como grupos de SQL y de Spark, JDBC tiende a convertirse en un cuello de botella con la transferencia de datos serie.
 
-El conector entre el grupo de Azure Synapse Apache Spark y Synapse SQL es una implementación de origen de datos para Apache Spark. Se emplea Azure Data Lake Storage Gen2 y Polybase en los grupos de SQL para transferir datos de forma eficaz entre el clúster de Spark y la instancia de Synapse SQL.
+El conector entre el grupo de Azure Synapse Apache Spark y Synapse SQL es una implementación de origen de datos para Apache Spark. Utiliza Azure Data Lake Storage Gen2 y Polybase en los grupos de SQL dedicados para transferir datos de forma eficaz entre el clúster de Spark y la instancia de Synapse SQL.
 
 ![Arquitectura del conector](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -32,7 +32,7 @@ El conector entre el grupo de Azure Synapse Apache Spark y Synapse SQL es una im
 
 La autenticación entre sistemas se realiza sin problemas en Azure Synapse Analytics. El servicio de token se conecta con Azure Active Directory para obtener los tokens de seguridad que se van a usar al acceder a la cuenta de almacenamiento o al servidor de almacenamiento de datos.
 
-Por esta razón, no es necesario crear credenciales ni especificarlas en la API del conector, siempre y cuando AAD-Auth esté configurado en la cuenta de almacenamiento y el servidor de almacenamiento de datos. Si no es así, se puede especificar la autenticación de SQL. Encontrará más detalles en la sección [Uso](#usage).
+Por esta razón, no es necesario crear credenciales ni especificarlas en la API del conector, siempre y cuando esté configurada la autenticación de Azure AD en la cuenta de almacenamiento y el servidor de almacenamiento de datos. Si no es así, se puede especificar la autenticación de SQL. Encontrará más detalles en la sección [Uso](#usage).
 
 ## <a name="constraints"></a>Restricciones
 
@@ -67,7 +67,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 Las instrucciones de importación no son necesarias, ya que se importan previamente para la experiencia del cuaderno.
 
-### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Transferencia de datos hacia un grupo de SQL asociado al área de trabajo, o desde él
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-attached-within-the-workspace"></a>Transferencia de datos hacia y desde un grupo de SQL dedicado asociado al área de trabajo
 
 > [!NOTE]
 > **Importaciones no necesarias en la experiencia del cuaderno**
@@ -91,12 +91,12 @@ La API anterior funciona tanto con tablas internas (administradas) como externas
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-Write API crea la tabla en el grupo de SQL y, después, invoca Polybase para cargar los datos.  La tabla no debe existir en el grupo de SQL o se devolverá un error que indica que "Ya hay un objeto llamado..."
+Write API crea la tabla en el grupo de SQL dedicado y, después, invoca a Polybase para cargar los datos.  La tabla no debe existir en el grupo de SQL dedicado o se devolverá un error que indica que "Ya hay un objeto llamado..."
 
 Valores de TableType
 
-- Constantes.INTERNAL: tabla administrada en el grupo de SQL
-- Constantes.EXTERNAL: tabla externa en el grupo de SQL
+- Constants.INTERNAL: tabla administrada en el grupo de SQL dedicado
+- Constants.EXTERNAL: tabla externa en el grupo de SQL dedicado
 
 Tabla administrada del grupo de SQL
 
@@ -106,10 +106,10 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 Tabla externa del grupo de SQL
 
-Para escribir en una tabla externa del grupo de SQL, debe existir un ORIGEN DE DATOS EXTERNO y un FORMATO DE ARCHIVO EXTERNO en el grupo de SQL.  Para más información, lea el artículo acerca de cómo [crear un origen de datos externo](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y [formatos de archivo externos](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) en un grupo de SQL.  A continuación, encontrará ejemplos de creación de un origen de datos externo y formatos de archivo externos en un grupo de SQL.
+Para escribir en una tabla externa del grupo de SQL dedicado, debe existir un ORIGEN DE DATOS EXTERNO y un FORMATO DE ARCHIVO EXTERNO en el grupo de SQL dedicado.  Para más información, consulte [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) en un grupo de SQL dedicado.  A continuación, encontrará ejemplos de creación de un origen de datos externo y formatos de archivo externos en un grupo de SQL dedicado.
 
 ```sql
---For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
+--For an external table, you need to pre-create the data source and file format in dedicated SQL pool using SQL queries:
 CREATE EXTERNAL DATA SOURCE <DataSourceName>
 WITH
   ( LOCATION = 'abfss://...' ,
@@ -134,7 +134,7 @@ df.write.
 
 ```
 
-### <a name="if-you-transfer-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Si transfiere datos hacia un grupo de SQL o una base de datos fuera del área de trabajo, o desde él
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-or-database-outside-the-workspace"></a>Transferencia de datos hacia o desde un grupo de SQL dedicado o una base de datos fuera del área de trabajo
 
 > [!NOTE]
 > Importaciones no necesarias en la experiencia del cuaderno
@@ -160,11 +160,11 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="use-sql-auth-instead-of-aad"></a>Uso de la autenticación de SQL, en lugar de AAD
+### <a name="use-sql-auth-instead-of-azure-ad"></a>Uso de la autenticación de SQL en lugar de Azure AD
 
 #### <a name="read-api"></a>Read API
 
-Actualmente, el conector no admite la autenticación basada en token en un grupo de SQL que esté fuera del área de trabajo. Tendrá que usar la autenticación de SQL.
+Actualmente, el conector no admite la autenticación basada en token en un grupo de SQL dedicado que esté fuera del área de trabajo. Tendrá que usar la autenticación de SQL.
 
 ```scala
 val df = spark.read.
@@ -227,7 +227,7 @@ Para modificar los permisos que faltan para otros usuarios es preciso ser propie
 
 - Debe ser capaz de usar la lista de control de acceso en todas las carpetas de "synapse" y hacia abajo desde Azure Portal. Para usar una lista de control de acceso en la carpeta raíz "/", siga las instrucciones que se indican a continuación.
 
-- Conexión a la cuenta de almacenamiento conectada con el área de trabajo desde el Explorador de Storage mediante AAD
+- Conéctese a la cuenta de almacenamiento conectada con el área de trabajo desde el Explorador de Storage mediante Azure AD.
 - Seleccione su cuenta y proporcione la dirección URL de ADLS Gen2 y el sistema de archivos predeterminado para el área de trabajo
 - Una vez que pueda ver la cuenta de almacenamiento en la lista, haga clic con el botón derecho en el área de trabajo de la lista y seleccione "Manage Access" (Administrar acceso).
 - Agregue el usuario a la carpeta / con el permiso de acceso de "ejecución". Seleccione "OK" (Aceptar).
@@ -237,5 +237,5 @@ Para modificar los permisos que faltan para otros usuarios es preciso ser propie
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de un grupo de SQL mediante Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Creación de un grupo de SQL dedicado mediante Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 - [Creación de un grupo de Apache Spark mediante Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

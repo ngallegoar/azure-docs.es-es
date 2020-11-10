@@ -1,6 +1,6 @@
 ---
-title: Uso de OPENROWSET en SQL a petición (versión preliminar)
-description: En este artículo se describe la sintaxis de OPENROWSET en SQL a petición (versión preliminar) y se explica cómo usar los argumentos.
+title: Uso de OPENROWSET en el grupo de SQL sin servidor (versión preliminar)
+description: En este artículo se describe la sintaxis de OPENROWSET en el grupo de SQL sin servidor (versión preliminar) y se explica cómo usar los argumentos.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474791"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341338"
 ---
-# <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Uso de OPENROWSET con SQL a petición (versión preliminar)
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Uso de OPENROWSET con el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
 
-La función `OPENROWSET(BULK...)` permite acceder a archivos en Azure Storage. La función `OPENROWSET` lee el contenido de un origen de datos remoto (por ejemplo, un archivo) y devuelve el contenido como un conjunto de filas. En el recurso de SQL a petición (versión preliminar), para acceder al proveedor de conjuntos de filas BULK de OPENROWSET se llama a la función OPENROWSET y se especifica la opción BULK.  
+La función `OPENROWSET(BULK...)` permite acceder a archivos en Azure Storage. La función `OPENROWSET` lee el contenido de un origen de datos remoto (por ejemplo, un archivo) y devuelve el contenido como un conjunto de filas. En el recurso del grupo de SQL sin servidor (versión preliminar), para acceder al proveedor de conjuntos de filas BULK de OPENROWSET se llama a la función OPENROWSET y se especifica la opción BULK.  
 
 Se puede hacer referencia a la función `OPENROWSET` en la cláusula `FROM` de una consulta como si fuera un nombre de tabla `OPENROWSET`. Admite operaciones masivas a través de un proveedor integrado BULK que permite que los datos se lean y se devuelvan en forma de conjunto de filas.
 
@@ -95,6 +95,8 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
+[ , HEADER_ROW = { TRUE | FALSE } ]
+[ , DATAFILETYPE = { 'char' | 'widechar' } ]
 ```
 
 ## <a name="arguments"></a>Argumentos
@@ -111,7 +113,7 @@ El elemento unstructured_data_path que establece una ruta de acceso a los datos 
 - La ruta de acceso absoluta con el formato "\<prefix>://\<storage_account_path>/\<storage_path>" permite que un usuario lea directamente los archivos.
 - Ruta de acceso relativa con el formato "<storage_path>" que se debe usar con el parámetro `DATA_SOURCE` y describe el patrón de archivo en la ubicación <storage_account_path> definida en `EXTERNAL DATA SOURCE`. 
 
- A continuación, encontrará los valores de <storage account path> relevantes que se vincularán a su origen de datos externo concreto. 
+A continuación, encontrará los valores de <storage account path> relevantes que se vincularán a su origen de datos externo concreto. 
 
 | Origen de datos externo       | Prefijo | Ruta de acceso a la cuenta de almacenamiento                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
@@ -124,18 +126,20 @@ El elemento unstructured_data_path que establece una ruta de acceso a los datos 
 
 "\<storage_path>"
 
- Especifica una ruta de acceso en el almacenamiento que apunta a la carpeta o archivo que desea leer. Si la ruta de acceso apunta a un contenedor o a una carpeta, se leerán todos los archivos de ese contenedor o carpeta. No se incluirán los archivos de las subcarpetas. 
+Especifica una ruta de acceso en el almacenamiento que apunta a la carpeta o archivo que desea leer. Si la ruta de acceso apunta a un contenedor o a una carpeta, se leerán todos los archivos de ese contenedor o carpeta. No se incluirán los archivos de las subcarpetas. 
 
- Puede usar caracteres comodín si el destino son varios archivos o carpetas. Se permite el uso de varios caracteres comodín no consecutivos.
+Puede usar caracteres comodín si el destino son varios archivos o carpetas. Se permite el uso de varios caracteres comodín no consecutivos.
 A continuación se muestra un ejemplo en el que se leen todos los archivos *csv* que comienzan por *population* de todas las carpetas a partir de */csv/population* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
-Si especifica que el elemento unstructured_data_path sea una carpeta, una consulta de SQL a petición recuperará los archivos de esa carpeta. 
+Si especifica que el elemento unstructured_data_path sea una carpeta, una consulta del grupo de SQL sin servidor recupera los archivos de esa carpeta. 
+
+Puede indicar al grupo de SQL sin servidor que pase por las carpetas; para ello, especifique /* al final de la ruta de acceso, como en el ejemplo: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`.
 
 > [!NOTE]
-> A diferencia de Hadoop y PolyBase, SQL a petición no devuelve subcarpetas. También a diferencia de Hadoop y PolyBase, SQL a petición devuelve los archivos cuyo nombre comienza por un carácter de subrayado (_) o un punto (.).
+> A diferencia de Hadoop y PolyBase, el grupo de SQL sin servidor no devuelve subcarpetas a menos que especifique /** al final de la ruta de acceso. A diferencia de Hadoop y PolyBase, el grupo de SQL sin servidor también devuelve los archivos cuyo nombre comienza por un carácter de subrayado (_) o un punto (.).
 
-En el ejemplo siguiente, si unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/`, una consulta de SQL a petición devolverá las filas de mydata.txt y _hidden.txt. No devolverá mydata2. txt y mydata3. txt porque se encuentran en una subcarpeta.
+En el ejemplo siguiente, si unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/`, una consulta del grupo de SQL sin servidor devolverá las filas de mydata.txt y _hidden.txt. No devolverá mydata2. txt y mydata3. txt porque se encuentran en una subcarpeta.
 
 ![Datos recursivos para tablas externas](./media/develop-openrowset/folder-traversal.png)
 
@@ -144,12 +148,13 @@ En el ejemplo siguiente, si unstructured_data_path = `https://mystorageaccount.d
 La cláusula WITH le permite especificar las columnas que desea leer de los archivos.
 
 - En el caso de los archivos de datos con la extensión .csv, para leer todas las columnas, especifique los nombres de columna y sus tipos de datos. Si desea un subconjunto de columnas, use números ordinales para seleccionar las columnas en los archivos de datos de origen por ordinal. Las columnas se enlazarán por la designación ordinal. 
-
-    > [!IMPORTANT]
-    > La cláusula WITH es obligatoria para los archivos .csv.
-    >
+    > [!TIP]
+    > También puede omitir la cláusula WITH para los archivos .csv. Los tipos de datos se infieren automáticamente a partir del contenido del archivo. Puede usar el argumento HEADER_ROW para especificar que existe una fila de encabezado, en cuyo caso los nombres de columna se leerán de ella. Para más información, consulte [Detección automática del esquema](#automatic-schema-discovery).
     
-- En el caso de los archivos de datos con formato Parquet, especifique nombres de columna que coincidan con los de los archivos de datos de origen. Las columnas se enlazarán por nombre. Si se omite la cláusula WITH, se devolverán todas las columnas de los archivos con formato Parquet.
+- En el caso de los archivos de datos con formato Parquet, especifique nombres de columna que coincidan con los de los archivos de datos de origen. Las columnas se enlazan por nombre y distinguen mayúsculas de minúsculas. Si se omite la cláusula WITH, se devolverán todas las columnas de los archivos con formato Parquet.
+    > [!IMPORTANT]
+    > Los nombres de columna de los archivos con formato Parquet distinguen mayúsculas de minúsculas. Si especifica el nombre de columna con un tratamiento de distinción de mayúsculas y minúsculas diferente del que se hace en el nombre de columna del archivo con formato Parquet, se devolverán valores NULL para esa columna.
+
 
 column_name = Nombre de la columna de salida. Si se especifica, este nombre anula el nombre de la columna del archivo de origen.
 
@@ -205,6 +210,10 @@ Especifica la versión del analizador que se utilizará al leer archivos. Las ve
 
 La versión 1.0 del analizador de CSV es la predeterminada y tiene gran cantidad de características. La versión 2.0 se centra en el rendimiento y no admite todas las opciones y codificaciones. 
 
+Detalles de la versión 1.0 del analizador de CSV:
+
+- Las siguientes opciones no se admiten: HEADER_ROW.
+
 Detalles de la versión 2.0 del analizador de CSV:
 
 - No se admiten todos los tipos de datos.
@@ -212,22 +221,97 @@ Detalles de la versión 2.0 del analizador de CSV:
 - Las siguientes opciones no se admiten: DATA_COMPRESSION.
 - La cadena vacía entre comillas ("") se interpreta como una cadena vacía.
 
+HEADER_ROW = { TRUE | FALSE }
+
+Especifica si el archivo .csv contiene una fila de encabezado. El valor predeterminado es FALSE. Se admite en PARSER_VERSION='2.0'. Si es TRUE, los nombres de columna se leerán de la primera fila según el argumento FIRSTROW.
+
+DATAFILETYPE = { 'char' | 'widechar' }
+
+Especifica que se usa la codificación char para archivos UTF8 y WideChar para archivos UTF16.
+
+## <a name="fast-delimited-text-parsing"></a>Análisis de texto delimitado rápido
+
+Hay dos versiones de analizador de texto delimitado que se pueden usar. La versión 1.0 del analizador de archivos .csv es la predeterminada y cuenta con numerosas características, mientras que la versión 2.0 se basa en el rendimiento. La mejora en el rendimiento de la versión 2.0 del analizador se debe al uso de técnicas avanzadas de análisis y subprocesos múltiples. La diferencia de velocidad será mayor cuanto mayor sea el tamaño del archivo.
+
+## <a name="automatic-schema-discovery"></a>Detección automática del esquema
+
+Puede consultar fácilmente archivos con formato .csv y Parquet sin necesidad de conocer o especificar el esquema; para ello, omita la cláusula WITH. Los nombres de columna y los tipos de datos se inferirán de los archivos.
+
+Los archivos con formato Parquet contienen metadatos de columna que se leerán; las asignaciones de tipo se encuentran en [Asignaciones de tipos para Parquet](#type-mapping-for-parquet). Consulte [Lectura de archivos Parquet sin esquema específico](#read-parquet-files-without-specifying-schema) para ver ejemplos.
+
+Los nombres de columna de los archivos .csv se leen en la fila de encabezado. Se puede especificar si existe la fila de encabezado mediante el argumento HEADER_ROW. Si HEADER_ROW = FALSE, se usarán los nombres de columna genéricos: C1, C2,... Cn, donde n es el número de columnas del archivo. Los tipos de datos se inferirán de las primeras 100 filas de datos. Consulte [Lectura de archivos .csv sin esquema específico](#read-csv-files-without-specifying-schema) para ejemplos.
+
+> [!IMPORTANT]
+> A veces no se puede inferir el tipo de datos adecuado por la falta de información; en este caso, se usa un tipo de datos mayor en su lugar. Esto aporta un rendimiento extra y es especialmente importante para las columnas de caracteres que se infieren, como varchar (8000). Para obtener un rendimiento óptimo, consulte [Comprobación de los tipos de datos inferidos](best-practices-sql-on-demand.md#check-inferred-data-types) y [Uso del tipo de datos adecuado](best-practices-sql-on-demand.md#use-appropriate-data-types).
+
+### <a name="type-mapping-for-parquet"></a>Asignación de tipos para Parquet
+
+Los archivos de Parquet contienen descripciones de tipos para cada columna. En la tabla siguiente se describe cómo se asignan los tipos de Parquet a los tipos nativos de SQL.
+
+| Tipo de Parquet | Tipo lógico de Parquet (anotación) | Tipo de datos de SQL |
+| --- | --- | --- |
+| BOOLEAN | | bit |
+| BINARY/BYTE_ARRAY | | varbinary |
+| DOUBLE | | FLOAT |
+| FLOAT | | real |
+| INT32 | | int |
+| INT64 | | bigint |
+| INT96 | |datetime2 |
+| FIXED_LEN_BYTE_ARRAY | |binary |
+| BINARY |UTF8 |varchar \*(intercalación UTF8) |
+| BINARY |STRING |varchar \*(intercalación UTF8) |
+| BINARY |ENUM|varchar \*(intercalación UTF8) |
+| BINARY |UUID |UNIQUEIDENTIFIER |
+| BINARY |DECIMAL |Decimal |
+| BINARY |JSON |varchar(max) \*(intercalación UTF8) |
+| BINARY |BSON |varbinary(max) |
+| FIXED_LEN_BYTE_ARRAY |DECIMAL |Decimal |
+| BYTE_ARRAY |INTERVAL |VARCHAR(max), serializado en formato normalizado |
+| INT32 |INT(8, true) |SMALLINT |
+| INT32 |INT(16, true) |SMALLINT |
+| INT32 |INT(32, true) |int |
+| INT32 |INT(8, false) |TINYINT |
+| INT32 |INT(16, false) |int |
+| INT32 |INT(32, false) |bigint |
+| INT32 |DATE |date |
+| INT32 |DECIMAL |Decimal |
+| INT32 |TIME (MILLIS)|time |
+| INT64 |INT(64, true) |bigint |
+| INT64 |INT(64, false) |decimal(20,0) |
+| INT64 |DECIMAL |Decimal |
+| INT64 |TIME (MICROS / NANOS) |time |
+|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
+|[Tipo complejo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(max), serializado en JSON |
+|[Tipo complejo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), serializado en JSON |
+
 ## <a name="examples"></a>Ejemplos
 
-En el ejemplo siguiente se devuelven solo dos columnas con los números ordinales 1 y 4 de los archivos population*.csv. Al no haber fila de encabezado en los archivos, empieza a leer desde la primera línea:
+### <a name="read-csv-files-without-specifying-schema"></a>Lectura de archivos .csv sin esquema específico
+
+En el ejemplo siguiente se lee un archivo .csv que contiene una fila de encabezado sin especificar nombres de columna ni tipos de datos: 
 
 ```sql
-SELECT * 
+SELECT 
+    *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
-        FORMAT = 'CSV',
-        FIRSTROW = 1
-    )
-WITH (
-    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
-    [population] bigint 4
-) AS [r]
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0',
+    HEADER_ROW = TRUE) as [r]
 ```
+
+En el ejemplo siguiente se lee un archivo .csv que no contiene una fila de encabezado sin especificar nombres de columna ni tipos de datos: 
+
+```sql
+SELECT 
+    *
+FROM OPENROWSET(
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0') as [r]
+```
+
+### <a name="read-parquet-files-without-specifying-schema"></a>Lectura de archivos Parquet sin especificar el esquema
 
 En el ejemplo siguiente se devuelven todas las columnas de la primera fila del conjunto de datos del censo en formato Parquet y sin especificar los nombres de columna ni los tipos de datos: 
 
@@ -241,6 +325,42 @@ FROM
     ) AS [r]
 ```
 
+### <a name="read-specific-columns-from-csv-file"></a>Lectura de columnas específicas de un archivo .csv
+
+En el ejemplo siguiente se devuelven solo dos columnas con los números ordinales 1 y 4 de los archivos population*.csv. Al no haber fila de encabezado en los archivos, empieza a leer desde la primera línea:
+
+```sql
+SELECT 
+    * 
+FROM OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
+        FORMAT = 'CSV',
+        FIRSTROW = 1
+    )
+WITH (
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
+    [population] bigint 4
+) AS [r]
+```
+
+### <a name="read-specific-columns-from-parquet-file"></a>Lectura de columnas específicas de un archivo Parquet
+
+En el ejemplo siguiente se devuelven solo dos columnas de la primera fila del conjunto de datos del censo, con formato Parquet: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    [stateName] VARCHAR (50),
+    [population] bigint
+) AS [r]
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver más ejemplos, consulte el [inicio rápido del almacenamiento de datos de consulta](query-data-storage.md) para aprender a usar `OPENROWSET`para leer los formatos de archivo [CSV ](query-single-csv-file.md),[PARQUET](query-parquet-files.md) y [JSON](query-json-files.md). También puede obtener información sobre cómo guardar los resultados de la consulta en Azure Storage mediante [CETAS](develop-tables-cetas.md).
+Para ver más ejemplos, consulte el [inicio rápido del almacenamiento de datos de consulta](query-data-storage.md) para aprender a usar `OPENROWSET`para leer los formatos de archivo [CSV ](query-single-csv-file.md),[PARQUET](query-parquet-files.md) y [JSON](query-json-files.md). Consulte los [procedimientos recomendados](best-practices-sql-on-demand.md) para lograr un rendimiento óptimo. También puede obtener información sobre cómo guardar los resultados de la consulta en Azure Storage mediante [CETAS](develop-tables-cetas.md).

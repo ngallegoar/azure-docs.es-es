@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537956"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927981"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -50,7 +50,7 @@ Si está configurada la alta disponibilidad con redundancia de zona, el servicio
 
 Consulte los [conceptos de alta disponibilidad](concepts-high-availability.md) para obtener más detalles.
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagrama conceptual de la alta disponibilidad de zona única"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagrama conceptual de la alta disponibilidad con redundancia de zona"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Aplicación de revisiones automatizada con la ventana de mantenimiento administrado
 
@@ -75,7 +75,7 @@ Tiene dos opciones de red para conectar su instancia de Servidor flexible de Azu
    * Uso de VPN o ExpressRoute para conectarse desde recursos que no son de Azure al servidor flexible
    * Ningún punto de conexión público
 
-* **Acceso público (direcciones IP permitidas)** : puede implementar el servidor flexible a con un punto de conexión público. El punto de conexión público es una dirección DNS que se puede resolver públicamente. La frase "direcciones IP permitidas" hace referencia a un intervalo de direcciones IP a las que decida conceder permiso para acceder al servidor. Estos permisos se denominan **reglas de firewall** .
+* **Acceso público (direcciones IP permitidas)** : puede implementar el servidor flexible a con un punto de conexión público. El punto de conexión público es una dirección DNS que se puede resolver públicamente. La frase "direcciones IP permitidas" hace referencia a un intervalo de direcciones IP a las que decida conceder permiso para acceder al servidor. Estos permisos se denominan **reglas de firewall**.
 
 Consulte los [conceptos de redes](concepts-networking.md) para obtener más información.
 
@@ -84,6 +84,17 @@ Consulte los [conceptos de redes](concepts-networking.md) para obtener más info
 El servicio de servidor flexible está disponible en tres niveles de SKU: flexible, de uso general y optimizado para memoria. El nivel flexible es el más adecuado para las cargas de trabajo de desarrollo de bajo costo y simultaneidad que no necesitan una capacidad de proceso completa continuamente. Los niveles De uso general y Optimizado para memoria son los más adecuados para las cargas de trabajo de producción que requieren un alto nivel de simultaneidad, escala y rendimiento predecible. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar fácilmente la escala para satisfacer las necesidades de la solución. El escalado de almacenamiento se realiza en línea y admite el crecimiento automático del almacenamiento. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que consume. 
 
 Consulte [Conceptos de proceso y almacenamiento](concepts-compute-storage.md) para obtener más información.
+
+## <a name="scale-out-your-read-workload-with-up-to-10-read-replicas"></a>Escalabilidad horizontal de la carga de trabajo de lectura con hasta 10 réplicas de lectura
+
+MySQL es uno de los motores de base de datos populares para ejecutar aplicaciones web y móviles a escala de Internet. Muchos de nuestros clientes lo usan para sus servicios de educación en línea, servicios de streaming de vídeo, soluciones de pago digital, plataformas de comercio electrónico, servicios de juegos, portales de noticias, gobierno y sitios web de atención sanitaria. Estos servicios son necesarios para servir y escalar a medida que aumenta el tráfico en la aplicación web o móvil.
+
+En el caso de las aplicaciones, la aplicación se desarrolla normalmente en Java o PHP y se migra para ejecutarse en  [conjuntos de escalado de máquinas virtuales de Azure](/azure/virtual-machine-scale-sets/overview.md)  o en instancias de  [Azure App Services](/azure/app-service/overview.md) , o bien se incluye en contenedores para ejecutarse en  [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes.md). Con el conjunto de escalado de máquinas virtuales, App Service o AKS como infraestructura subyacente, el escalado de aplicaciones se simplifica al aprovisionar de forma instantánea nuevas máquinas virtuales y replicar los componentes sin estado de las aplicaciones para satisfacer las solicitudes. Sin embargo, la base de datos a menudo acaba siendo un cuello de botella como componente con estado centralizado.
+
+La característica de réplica de lectura permite replicar datos de Azure Database for MySQL con servidor flexible en un servidor de solo lectura. Puede replicar desde el servidor de origen en **hasta 10 réplicas**. Las réplicas se actualizan asincrónicamente mediante la [tecnología de replicación basada en la posición de los archivos de registros binarios (binlog)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) nativa del motor de MySQL. Puede usar una solución de proxy de equilibrador de carga como [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) para escalar horizontalmente la carga de trabajo de la aplicación para leer réplicas sin ningún costo de refactorización de la aplicación. 
+
+Consulte [Conceptos de la réplica de lectura](concepts-read-replicas.md) para más información. 
+
 
 ## <a name="stopstart-server-to-optimize-cost"></a>Detención o inicio del servidor para optimizar el costo
 

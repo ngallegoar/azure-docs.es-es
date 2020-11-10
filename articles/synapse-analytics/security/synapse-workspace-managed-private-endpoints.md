@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 091f73aa2383094973db35efb05c5f93034efa39
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 60087dc23b804dac6644dc09cddc031526fb0f8f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738093"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313773"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Puntos de conexión privados administrados de Synapse (versión preliminar)
 
@@ -43,17 +43,17 @@ Si el propietario aprueba la conexión, se establece el vínculo privado. Sin em
 
 Solo un punto de conexión privado administrado en un estado aprobado puede enviar tráfico a un recurso de vínculo privado determinado.
 
-## <a name="managed-private-endpoints-for-sql-pool-and-sql-on-demand"></a>Puntos de conexión privados administrados para el grupo de SQL y SQL a petición
+## <a name="managed-private-endpoints-for-dedicated-sql-pool-and-serverless-sql-pool"></a>Puntos de conexión privados administrados para el grupo de SQL dedicado y el grupo de SQL sin servidor
 
-El grupo de SQL y SQL a petición son funcionalidades de análisis del área de trabajo de Azure Synapse. Estas funcionalidades usan una infraestructura de varios inquilinos que no está implementada en la [red virtual de área de trabajo administrada](./synapse-workspace-managed-vnet.md).
+El grupo de SQL dedicado y el grupo de SQL sin servidor son funcionalidades de análisis del área de trabajo de Azure Synapse. Estas funcionalidades usan una infraestructura de varios inquilinos que no está implementada en la [red virtual de área de trabajo administrada](./synapse-workspace-managed-vnet.md).
 
-Cuando se crea un área de trabajo, Azure Synapse crea en ella dos puntos de conexión privados administrados para el grupo de SQL y SQL a petición. 
+Cuando se crea un área de trabajo, Azure Synapse crea en ella dos puntos de conexión privados administrados, uno para el grupo de SQL dedicado y otro para el grupo de SQL sin servidor. 
 
 Estos dos puntos de conexión privados administrados aparecen en Azure Synapse Studio. Seleccione **Manage** (Administrar) en el panel de navegación izquierdo y, luego, elija **Managed Virtual Networks** (Redes virtuales administradas) para verlas en Studio.
 
-El punto de conexión privado administrado cuyo destino es un grupo de SQL se denomina *synapse-ws-sql--\<workspacename\>* y el que tiene como destino SQL a petición se denomina *synapse-ws-sqlOnDemand--\<workspacename\>* .
+El punto de conexión privado administrado cuyo destino es un grupo de SQL se llama *synapse-ws-sql--\<workspacename\>* y el que tiene como destino el grupo de SQL sin servidor se llama *synapse-ws-sqlOnDemand--\<workspacename\>* .
 
-![Puntos de conexión privados administrados para el grupo de SQL y SQL a petición](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
+![Puntos de conexión privados administrados para el grupo de SQL dedicado y el grupo de SQL sin servidor](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 Estos dos puntos de conexión privados administrados se crean automáticamente al crear el área de trabajo de Azure Synapse. No se le cobra por ellos.
 

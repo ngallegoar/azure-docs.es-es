@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594346"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096009"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>¿Qué son las revisiones de acceso de Azure AD?
 
@@ -81,7 +81,7 @@ El directorio debe tener al menos tantas licencias de Azure AD Premium P2 como
 
 Las licencias de Azure AD Premium P2 **no** son necesarias para los usuarios con los roles Administrador global o Administrador de usuarios que configuran revisiones de acceso, realizan configuraciones o aplican las decisiones a partir de los resultados de las revisiones.
 
-Por cada licencia de Azure AD Premium P2 de pago que asigne a uno de los usuarios de la organización, puede usar la colaboración negocio a negocio (B2B) Azure AD para invitar hasta a cinco usuarios, gracias a la concesión de usuarios externos. Los usuarios invitados también pueden usar las características de Azure AD Premium P2. Para más información, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../external-identities/licensing-guidance.md).
+El acceso de usuario invitado de Azure AD se basa en un modelo de facturación mensual de usuarios activos (MAU), que reemplaza el modelo de facturación de relación 1:5. Para más información, consulte [Precios de las identidades externas de Azure AD](../external-identities/external-identities-pricing.md).
 
 Para más información sobre las licencias, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
 

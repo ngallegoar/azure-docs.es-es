@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503290"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311740"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Administración del acceso a áreas de trabajo, datos y canalizaciones
 
@@ -94,21 +94,21 @@ Al aprovisionar el área de trabajo, tenía que elegir una cuenta de [Azure Data
 El control de acceso a los datos subyacentes se divide en tres partes:
 
 - Acceso del plano de datos a la cuenta de almacenamiento (ya configurado en el paso 2)
-- Acceso del plano de datos a las bases de datos SQL (tanto para grupos de SQL como para SQL a petición)
-- Creación de una credencial para bases de datos de SQL a petición a través de la cuenta de almacenamiento
+- Acceso del plano de datos a las bases de datos SQL (tanto para grupos de SQL dedicados como para grupos de SQL sin servidor)
+- Creación de una credencial para bases de datos del grupo de SQL sin servidor con la cuenta de almacenamiento
 
 ## <a name="access-control-to-sql-databases"></a>Control de acceso a bases de datos SQL
 
 > [!TIP]
 > Los pasos siguientes deben ejecutarse para **cada** base de datos SQL con el fin de conceder a los usuarios acceso a todas las bases de datos SQL, excepto en la sección [Permisos de nivel de servidor](#server-level-permission), donde puede asignar un rol sysadmin a un usuario.
 
-### <a name="sql-on-demand"></a>SQL a petición
+### <a name="serverless-sql-pool"></a>Grupo de SQL sin servidor
 
 En esta sección, puede encontrar ejemplos sobre cómo conceder a un usuario un permiso para una base de datos determinada o permisos de servidor completos.
 
 #### <a name="database-level-permission"></a>Permiso de nivel de base de datos
 
-Para conceder acceso a un usuario a una base de datos **única** de SQL a petición, siga los pasos de este ejemplo:
+Para conceder acceso a un usuario a una base de datos **única** del grupo de SQL sin servidor, siga los pasos de este ejemplo:
 
 1. Cree LOGIN
 
@@ -140,14 +140,14 @@ Para conceder acceso a un usuario a una base de datos **única** de SQL a petici
 
 #### <a name="server-level-permission"></a>Permiso de nivel de servidor
 
-Para conceder acceso total a un usuario a **todas** las bases de datos de SQL On-Demand, siga el paso de este ejemplo:
+Para conceder acceso total a un usuario a **todas** las bases de datos del grupo de SQL sin servidor, siga el paso de este ejemplo:
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### <a name="sql-pools"></a>Grupos de SQL
+### <a name="dedicated-sql-pool"></a>Grupo de SQL dedicado
 
 Para conceder acceso a un usuario a una base de datos **única** de SQL, siga estos pasos:
 
@@ -167,18 +167,18 @@ Para conceder acceso a un usuario a una base de datos **única** de SQL, siga es
 
 > [!IMPORTANT]
 > *db_datareader* y *db_datawriter* pueden funcionar para los permisos de lectura y escritura si no se desea conceder el permiso *db_owner*.
-> Para que los usuarios de Spark lean directamente desde Spark de un grupo de SQL, o escriban en él, se requiere el permiso *db_owner*.
+> Para que los usuarios de Spark lean directamente desde Spark de un grupo de SQL dedicado, o escriban en él, se requiere el permiso *db_owner*.
 
-Después de crear los usuarios, compruebe que SQL a petición puede consultar la cuenta de almacenamiento.
+Después de crear los usuarios, compruebe que puede consultar la cuenta de almacenamiento con el grupo de SQL sin servidor.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>Control de acceso a las ejecuciones de la canalización del área de trabajo
 
 ### <a name="workspace-managed-identity"></a>Identidad administrada del área de trabajo
 
 > [!IMPORTANT]
-> Para ejecutar correctamente canalizaciones que incluyen conjuntos de datos o actividades que hacen referencia a un grupo de SQL, es preciso que se conceda a la identidad del área de trabajo acceso al grupo de SQL directamente.
+> Para ejecutar correctamente canalizaciones que incluyen conjuntos de datos o actividades que hacen referencia a un grupo de SQL dedicado, es preciso que se conceda a la identidad del área de trabajo acceso al grupo de SQL directamente.
 
-Ejecute los siguientes comandos en cada grupo de SQL para permitir que la identidad administrada del área de trabajo ejecute canalizaciones en la base de datos del grupo de SQL:
+Ejecute los siguientes comandos en cada grupo de SQL dedicado para permitir que la identidad administrada del área de trabajo ejecute canalizaciones en la base de datos del grupo de SQL:
 
 ```sql
 --Create user in DB

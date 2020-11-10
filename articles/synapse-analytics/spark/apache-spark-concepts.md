@@ -1,6 +1,6 @@
 ---
 title: Conceptos básicos de Apache Spark
-description: Introducción a Apache Spark en Azure Synapse Analytics y a los diferentes conceptos.
+description: Introducción a los conceptos básicos de Apache Spark en Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: bb5c7e082dc4a35183190f5d2d6a4b305b907f4f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d29fa6454839b0c34830374282b8abb5fa6e4c51
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480486"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313406"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Conceptos básicos de Apache Spark en Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Azure Synapse facilita la creación y configuración de funcionalidades de Spark
 
 ## <a name="spark-pools-preview"></a>Grupos de Spark (versión preliminar)
 
-Un grupo de Spark (versión preliminar) se crea en Azure Portal. Es la definición de un grupo de Spark que, cuando se crean instancias, se utiliza para crear una instancia de Spark que procesa datos. Cuando se crea un grupo de Spark, solo existe como metadatos; no se consumen, ejecutan ni cobran recursos. Un grupo de Spark tiene una serie de propiedades que controlan las características de una instancia de Spark. Estas características incluyen, entre otras, el nombre, el tamaño, el comportamiento de escalado y el período de vida.
+Se crea un grupo de Apache Spark sin servidor (versión preliminar) en Azure Portal. Es la definición de un grupo de Spark que, cuando se crean instancias, se utiliza para crear una instancia de Spark que procesa datos. Cuando se crea un grupo de Spark, solo existe como metadatos; no se consumen, ejecutan ni cobran recursos. Un grupo de Spark tiene una serie de propiedades que controlan las características de una instancia de Spark. Estas características incluyen, entre otras, el nombre, el tamaño, el comportamiento de escalado y el período de vida.
 
 Dado que no hay ningún costo de recursos asociado a la creación de grupos de Spark, se puede crear cualquier cantidad de ellos con cualquier número de configuraciones diferentes. Los permisos también se pueden aplicar a los grupos de Spark, lo que permite a los usuarios acceder a algunos y a otros no.
 

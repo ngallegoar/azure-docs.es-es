@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 631717252abe956357cf8b588fa653890037bbc9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85254708"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322171"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Inicio rápido: Configuración de Data Science Virtual Machine para Linux (Ubuntu)
 
@@ -39,25 +39,25 @@ A continuación le indicamos los pasos para crear una instancia de Data Science 
    
 1. Escriba la siguiente información para configurar cada paso del asistente:
 
-    1. **Aspectos básicos**:
+    1. **Aspectos básicos** :
     
-       * **Suscripción**: si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina. Debe tener privilegios de creación de recursos en esta suscripción.
-       * **Grupo de recursos**: cree un grupo o use uno existente.
-       * **Nombre de la máquina virtual**: escriba el nombre de la máquina virtual. Este nombre se usará en Azure Portal.
-       * **Región**: seleccione el centro de datos más adecuado. Para disfrutar de un acceso más rápido a la red, elija el centro de datos que tenga la mayoría de los datos o el que esté más cerca de su ubicación física. Más información sobre las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-       * **Imagen**: Deje el valor predeterminado.
-       * **Size**: esta opción debería rellenarse automáticamente con un tamaño adecuado para cargas de trabajo generales. Obtenga más información sobre los [tamaños de las máquinas virtuales Linux en Azure](../../virtual-machines/linux/sizes.md).
-       * **Tipo de autenticación**: para que la configuración sea más rápida, seleccione "Contraseña". 
+       * **Suscripción** : si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina. Debe tener privilegios de creación de recursos en esta suscripción.
+       * **Grupo de recursos** : cree un grupo o use uno existente.
+       * **Nombre de la máquina virtual** : escriba el nombre de la máquina virtual. Este nombre se usará en Azure Portal.
+       * **Región** : seleccione el centro de datos más adecuado. Para disfrutar de un acceso más rápido a la red, elija el centro de datos que tenga la mayoría de los datos o el que esté más cerca de su ubicación física. Más información sobre las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+       * **Imagen** : Deje el valor predeterminado.
+       * **Size** : esta opción debería rellenarse automáticamente con un tamaño adecuado para cargas de trabajo generales. Obtenga más información sobre los [tamaños de las máquinas virtuales Linux en Azure](../../virtual-machines/sizes.md).
+       * **Tipo de autenticación** : para que la configuración sea más rápida, seleccione "Contraseña". 
          
          > [!NOTE]
          > Si tiene previsto usar JupyterHub, asegúrese de seleccionar "Contraseña", ya que JupyterHub *no* está configurado para usar las claves públicas de SSH.
 
-       * **Nombre de usuario**: escriba el nombre de usuario del administrador. Este nombre de usuario se utilizará para iniciar sesión en la máquina virtual. No es preciso que este nombre de usuario sea el mismo que el de Azure. *No* use mayúsculas.
+       * **Nombre de usuario** : escriba el nombre de usuario del administrador. Este nombre de usuario se utilizará para iniciar sesión en la máquina virtual. No es preciso que este nombre de usuario sea el mismo que el de Azure. *No* use mayúsculas.
          
          > [!IMPORTANT]
          > Si usa mayúsculas en el nombre de usuario, JupyterHub no funcionará y se producirá un error interno del servidor 500.
 
-       * **Contraseña**: escriba la contraseña que utilizará para iniciar sesión en la máquina virtual.    
+       * **Contraseña** : escriba la contraseña que utilizará para iniciar sesión en la máquina virtual.    
     
    1. Seleccione **Revisar + crear**.
    1. **Revisar y crear**
@@ -95,13 +95,13 @@ La máquina virtual de Linux ya está provista del servidor X2Go y está prepara
 1. Ejecute el cliente X2Go. Si la ventana "Nueva sesión" no aparece automáticamente, vaya a Sesión-> Nueva sesión.
 
 1. En la ventana de configuración resultante, escriba los parámetros de configuración siguientes:
-   * **Pestaña Sesión**:
-     * **Host**: Escriba la dirección IP de la máquina virtual, la que anotó anteriormente.
-     * **Inicio de sesión**: escriba el nombre de usuario de la máquina virtual de Linux.
-     * **Puerto SSH**: déjelo en 22, el valor predeterminado.
-     * **Tipo de sesión**: cambie el valor a **XFCE**. Actualmente, la máquina virtual de Linux solo admite el escritorio XFCE.
-   * **Pestaña Multimedia**: puede desactivar la compatibilidad de sonido y la impresión en el cliente si no necesita usarlas.
-   * **Carpetas compartidas**: esta pestaña se usa para agregar el directorio de la máquina cliente que quiere montar en la máquina virtual. 
+   * **Pestaña Sesión** :
+     * **Host** : Escriba la dirección IP de la máquina virtual, la que anotó anteriormente.
+     * **Inicio de sesión** : escriba el nombre de usuario de la máquina virtual de Linux.
+     * **Puerto SSH** : déjelo en 22, el valor predeterminado.
+     * **Tipo de sesión** : cambie el valor a **XFCE**. Actualmente, la máquina virtual de Linux solo admite el escritorio XFCE.
+   * **Pestaña Multimedia** : puede desactivar la compatibilidad de sonido y la impresión en el cliente si no necesita usarlas.
+   * **Carpetas compartidas** : esta pestaña se usa para agregar el directorio de la máquina cliente que quiere montar en la máquina virtual. 
 
    ![Configuración de X2Go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Seleccione **Aceptar**.
@@ -126,7 +126,7 @@ La instancia de DSVM de Ubuntu ejecuta [JupyterHub](https://github.com/jupyterhu
       ![Escriba el inicio de sesión de Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
 >[!NOTE]
-> Si recibe un error 500 en esta fase, es probable que se deba a que ha usado letras mayúsculas en el nombre de usuario. Se trata de una interacción conocida entre Jupyter Hub y la instancia de PAMAuthenticator que usa. 
+> Si recibe un error 500 en esta fase, es probable que se deba a que ha usado letras mayúsculas en el nombre de usuario. Se trata de una interacción conocida entre Jupyter Hub y la instancia de PAMAuthenticator que usa. Si recibe el error "No se puede acceder a esta página", es probable que tenga que ajustar los permisos del grupo de seguridad de red. En Azure Portal, busque el recurso de grupo de seguridad de red en el grupo de recursos. Para acceder a JupyterHub desde la red pública de Internet, debe tener abierto el puerto 8000. (La imagen muestra que esta máquina virtual está configurada para el acceso Just-in-Time, que es muy recomendable. Consulte [Protección de los puertos de administración con acceso Just-in-Time](../../security-center/security-center-just-in-time.md)). ![Configuración del grupo de seguridad de red](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Examine los numerosos cuadernos de ejemplo que están disponibles.
 
@@ -144,6 +144,6 @@ A continuación, mostramos cómo puede continuar con las tareas de aprendizaje y
 
 * En el tutorial [Ciencia de datos con una instancia de Data Science Virtual Machine de Linux](linux-dsvm-walkthrough.md) se muestra cómo llevar a cabo varias tareas comunes de ciencia de datos con la instancia de DSVM de Linux aprovisionada aquí. 
 * Pruebe las herramientas descritas en este artículo para conocer las distintas herramientas de ciencia de datos de la instancia de DSVM. También puede ejecutar `dsvm-more-info` en el shell de la máquina virtual para obtener un introducción básica y referencias que le permitirán consultar más información sobre las herramientas instaladas en la máquina virtual.  
-* Aprenda a crear sistemáticamente soluciones analíticas mediante el [proceso de ciencia de los datos en equipos](https://aka.ms/tdsp).
+* Aprenda a crear sistemáticamente soluciones analíticas mediante el [proceso de ciencia de los datos en equipos](../team-data-science-process/index.yml).
 * Visite la [Azure AI Gallery](https://gallery.azure.ai/) para ver ejemplos de aprendizaje automático y análisis de datos donde se usan los servicios de Azure AI.
 * Consulte la [documentación de referencia](./reference-ubuntu-vm.md) adecuada para esta máquina virtual.
