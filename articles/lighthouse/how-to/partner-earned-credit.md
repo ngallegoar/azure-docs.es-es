@@ -1,14 +1,14 @@
 ---
 title: Vincule a un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados
 description: Obtenga información acerca de cómo asociar el identificador de asociado para recibir créditos obtenidos por el asociado en los recursos de cliente que se administran a través de Azure Lighthouse.
-ms.date: 10/13/2020
+ms.date: 10/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 95483cfabb7632182a7c23ae4963f2d38a2bd2c3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019923"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080284"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Vincule a un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados 
 
@@ -42,7 +42,9 @@ Una vez que la cuenta se ha [vinculado a su identificador de MPN asociado](../..
 
 Puede [ver los detalles del PEC en Azure Portal](/partner-center/partner-earned-credit-explanation#azure-cost-management) y confirmar qué costos han recibido la ventaja del PEC. Recuerde que PEC solo se aplica a los clientes de CSP que han firmado el MCA y que están en el plan de Azure.
 
-Si ha seguido los pasos anteriores y no ve la asociación, abra una solicitud de soporte técnico en Azure Portal.
+Si ha seguido los pasos anteriores y no ve la asociación esperada, abra una solicitud de soporte técnico en Azure Portal.
+
+También puede usar el [SDK del Centro de partners](/partner-center/develop/get-invoice-unbilled-consumption-lineitems) y filtrar por `rateOfPartnerEarnedCredit` para automatizar la comprobación de PEC en una suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

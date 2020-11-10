@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: fefa19e8dfee295d34231d36df079b80d1e82768
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d8eb450d2010bf2a525a26f1c5ff48f59732ce43
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778595"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240977"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Administración de la expiración del contenido web en Azure CDN
 > [!div class="op_single_selector"]
@@ -42,46 +42,46 @@ También puede controlar la configuración de caché desde Azure Portal establec
 El método preferido para establecer el encabezado `Cache-Control` de un servidor web consiste en usar las reglas de almacenamiento en caché en Azure Portal. Para más información sobre las reglas de almacenamiento en caché de CDN, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de almacenamiento en caché](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Las reglas de almacenamiento en caché solo están disponibles para los perfiles **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai** . Para perfiles **Azure CDN premium de Verizon** , debe usar el [motor de reglas de Azure CDN](./cdn-verizon-premium-rules-engine.md) en el portal **Administrar** para una funcionalidad similar.
+> Las reglas de almacenamiento en caché solo están disponibles para los perfiles **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai**. Para perfiles **Azure CDN premium de Verizon** , debe usar el [motor de reglas de Azure CDN](./cdn-verizon-premium-rules-engine.md) en el portal **Administrar** para una funcionalidad similar.
 
 **Para navegar a la página de reglas de almacenamiento en caché de CDN** :
 
 1. En Azure Portal, seleccione un perfil de CDN y luego seleccione un punto de conexión para el servidor web.
 
-1. En el panel izquierdo, debajo de Configuración, haga clic en **Reglas de caché** .
+1. En el panel izquierdo, debajo de Configuración, haga clic en **Reglas de caché**.
 
    ![Botón Reglas de caché de CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
-   Aparece la página **Reglas de caché** .
+   Aparece la página **Reglas de caché**.
 
    ![Página de caché de CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
 **Para establecer encabezados Cache-Control de un servidor web con reglas de almacenamiento en caché globales:**
 
-1. En **Reglas de almacenamiento en caché globales** , establezca **Comportamiento del almacenamiento en caché de cadenas de consulta** en **Ignorar cadenas de consulta** , y establezca **Comportamiento de almacenamiento en caché** en **Invalidar** .
+1. En **Reglas de almacenamiento en caché globales** , establezca **Comportamiento del almacenamiento en caché de cadenas de consulta** en **Ignorar cadenas de consulta** , y establezca **Comportamiento de almacenamiento en caché** en **Invalidar**.
       
-1. Para **Duración de expiración de caché** , escriba 3600 en el cuadro **Segundos** o 1 en el cuadro **Horas** . 
+1. Para **Duración de expiración de caché** , escriba 3600 en el cuadro **Segundos** o 1 en el cuadro **Horas**. 
 
    ![Ejemplo de reglas de almacenamiento en caché globales de CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    Esta regla de almacenamiento en caché global establece una duración de caché de una hora y afecta a todas las solicitudes para el punto de conexión. Invalida todos los encabezados HTTP `Cache-Control` o `Expires` que envía el servidor de origen especificado por el punto de conexión.   
 
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
 **Para establecer encabezados Cache-Control del archivo de servidor web con reglas de almacenamiento en caché personalizadas:**
 
 1. En **Reglas de almacenamiento en caché personalizadas** , cree dos condiciones de coincidencia:
 
-     a. Para la primera condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/*` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 4 en el cuadro **Horas** .
+     a. Para la primera condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/*` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 4 en el campo **Días**.
 
-     b. Para la segunda condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/file1.txt` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 2 en el cuadro **Horas** .
+     b. Para la segunda condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/file1.txt` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 2 en el campo **Días**.
 
     ![Ejemplo de reglas de almacenamiento en caché personalizadas de CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
     La primera regla de almacenamiento en caché personalizada establece una duración de caché de cuatro horas para los archivos en la carpeta `/webfolder1` en el servidor de origen especificado por el punto de conexión. La segunda regla invalida la primera regla para el archivo `file1.txt` únicamente y establece una duración de caché de dos horas para él.
 
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Establecimiento de los encabezados Cache-Control mediante archivos de configuración
@@ -91,7 +91,7 @@ Para el contenido estático, como imágenes y hojas de estilos, puede controlar 
 El archivo **ApplicationHost.config** es el archivo raíz del sistema de configuración de IIS. El valor de la configuración del archivo **ApplicationHost.config** afecta a todas las aplicaciones del sitio, pero se reemplaza por la configuración de cualquier archivo **Web.config** existente en una aplicación web.
 
 ### <a name="using-webconfig-files"></a>Uso de archivos Web.config
-Con un archivo **Web.config** , puede personalizar el comportamiento de toda la aplicación web o de un directorio específico en la aplicación web. Por lo general, tiene al menos un archivo **Web.config** en la carpeta raíz de la aplicación web. Para cada archivo **Web.config** de una carpeta específica, el valor de la configuración afecta a todo lo que haya en dicha carpeta y en sus subcarpetas, a menos que se invaliden en el nivel de subcarpeta por otro archivo **Web.config** . 
+Con un archivo **Web.config** , puede personalizar el comportamiento de toda la aplicación web o de un directorio específico en la aplicación web. Por lo general, tiene al menos un archivo **Web.config** en la carpeta raíz de la aplicación web. Para cada archivo **Web.config** de una carpeta específica, el valor de la configuración afecta a todo lo que haya en dicha carpeta y en sus subcarpetas, a menos que se invaliden en el nivel de subcarpeta por otro archivo **Web.config**. 
 
 Por ejemplo, puede establecer un elemento `<clientCache>` de un archivo **Web.config** en la carpeta raíz de la aplicación web para almacenar en caché todo el contenido estático en la aplicación web durante tres días. También puede agregar un archivo **Web.config** a una subcarpeta con contenido más variable (por ejemplo, `\frequent`) y establecer el elemento `<clientCache>` para almacenar en caché contenido de la subcarpeta durante seis horas. El resultado neto es que el contenido de todo el sitio web se almacenará en caché durante tres días, excepto el contenido del directorio `\frequent`, que se almacenará en caché solo durante seis horas.  
 

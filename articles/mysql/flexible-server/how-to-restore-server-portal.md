@@ -1,17 +1,17 @@
 ---
 title: 'Restauración de Azure Database for MySQL con Azure Portal: servidor flexible'
 description: En este artículo se explica cómo realizar operaciones en Azure Database for MySQL con Azure Portal.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 1c81ddad8a11cbad361ff84caf6f7200a0c010d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 062d53fcb122ebacd004d7dca5e11f5a883354cd
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931899"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241963"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Recuperación a un momento dado de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -31,7 +31,7 @@ Para completar esta guía, necesita:
 
 Siga estos pasos para restaurar un servidor flexible utilizando su copia de seguridad más antigua.
 
-1.  En [Azure Portal](https://portal.azure.com/), elija el servidor flexible del que quiera restaurar la copia de seguridad.
+1.  En [Azure Portal](https://portal.azure.com/), seleccione el servidor flexible cuya copia de seguridad quiera restaurar.
 
 2.  En el panel izquierdo, haga clic en **Información general**.
 
@@ -56,7 +56,7 @@ Siga estos pasos para restaurar un servidor flexible utilizando su copia de segu
 
 Siga estos pasos para restaurar un servidor flexible mediante la copia de seguridad más antigua.
 
-1.  En  [Azure Portal](https://portal.azure.com/), elija el servidor flexible desde el que desea restaurar la copia de seguridad.
+1.  En [Azure Portal](https://portal.azure.com/), seleccione el servidor flexible cuya copia de seguridad quiera restaurar.
 
 2.  En la página Información general, haga clic en **Restaurar**.
 
@@ -72,7 +72,7 @@ Siga estos pasos para restaurar un servidor flexible mediante la copia de seguri
 
 6.  Indique un nombre de servidor nuevo en el campo **Restaurar en el servidor nuevo**. 
    
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="Punto de restauración más antiguo":::
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="ver información general":::
  
 7.  Haga clic en **Aceptar**.
 

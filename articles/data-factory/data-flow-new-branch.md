@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: daebd6a4a00d82706ceda68f94736f21b8fe5a84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1dd4baecd0e1f817c93652fbc0766069ccf5583
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606393"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040129"
 ---
 # <a name="creating-a-new-branch-in-mapping-data-flow"></a>Creación de una nueva rama en el flujo de datos de asignación
 
@@ -23,8 +23,8 @@ Agregue una nueva rama para realizar varios conjuntos de operaciones y transform
 
 Se puede agregar una nueva rana desde la lista de transformación del mismo modo en que se agregan otras transformaciones. La opción **Nueva rama** solo estará disponible como acción cuando exista una transformación después de la transformación que está intentando ramificar.
 
-![Adición de una nueva rama](media/data-flow/new-branch2.png "Adición de una nueva rama")
+![Captura de pantalla que muestra la opción New branch (Nueva rama) en el menú Multiple inputs / outputs (Varias entradas y salidas).](media/data-flow/new-branch2.png "Adición de una nueva rama")
 
 En el ejemplo siguiente, el flujo de datos está leyendo los datos de carreras de taxi. Es obligatorio agregar los resultados por día y por proveedor. En lugar de crear dos flujos de datos independientes que leen del mismo origen, se puede agregar una nueva rama. De este modo, ambas agregaciones se pueden ejecutar como parte del mismo flujo de datos. 
 
-![Adición de una nueva rama](media/data-flow/new-branch.png "Adición de una nueva rama")
+![Captura de pantalla que muestra el flujo de datos con dos ramas desde el origen.](media/data-flow/new-branch.png "Adición de una nueva rama")

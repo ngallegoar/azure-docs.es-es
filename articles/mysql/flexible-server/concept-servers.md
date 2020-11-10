@@ -1,17 +1,17 @@
 ---
 title: 'Conceptos del servidor: Servidor flexible de Azure Database for MySQL'
 description: En este tema se incluyen consideraciones e instrucciones para trabajar con un servidor flexible de Azure Database for MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 7217817e9add6214c2da8362a2769cad0c2cf330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932268"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240756"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceptos del servidor: Servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -46,7 +46,7 @@ En un servidor flexible de Azure Database for MySQL, se pueden crear una o varia
 
 La opción de implementación Servidor flexible de Azure Database for MySQL permite **detener** el servidor cuando no está en uso e **iniciar** el servidor cuando se reanuda la actividad. Esto se hace básicamente para ahorrar costos en los servidores de bases de datos, ya que el recurso solo se paga cuando se usa. Esto cobra aún más importancia en las cargas de trabajo de desarrollo y pruebas, y cuando el servidor solo se usa durante una parte del día. Al detener el servidor, se anularán todas las conexiones activas. Más adelante, cuando desee volver a poner el servidor en línea, puede usar [Azure Portal](how-to-stop-start-server-portal.md) o la CLI.
 
-Si el servidor está en estado **detenido**, el proceso del mismo no se factura. Sin embargo, el almacenamiento se sigue facturando mientras se mantiene el almacenamiento del servidor, con el fin de asegurarse de que los archivos de datos están disponibles cuando se vuelve a iniciar el servidor.
+Si el servidor está en estado **detenido** , el proceso del mismo no se factura. Sin embargo, el almacenamiento se sigue facturando mientras se mantiene el almacenamiento del servidor, con el fin de asegurarse de que los archivos de datos están disponibles cuando se vuelve a iniciar el servidor.
 
 > [!IMPORTANT]
 > Cuando se **detiene** el servidor permanece en ese estado durante los siete días siguientes. Si no lo **inicia** de forma manual durante ese tiempo, se iniciará automáticamente al final de los siete días. Puede optar por volver a **detenerlo** si no va a usar el servidor.
@@ -59,6 +59,6 @@ El servidor flexible de Azure Database for MySQL se puede administrar mediante [
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   Aprenda a  [crear un servidor](./quickstart-create-server-portal.md)
+-   Más información sobre la [creación de un servidor](./quickstart-create-server-portal.md).
 -   Más información acerca de la [supervisión y las alertas](./how-to-alert-on-metric.md)
 

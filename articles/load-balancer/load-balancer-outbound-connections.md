@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 422f8106ac52c85f0680d54e420d0f1b4d326910
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 185bb47677e978a3098f39024995da6399f90658
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017699"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241776"
 ---
 # <a name="outbound-proxy-azure-load-balancer"></a>Azure Load Balancer como proxy de salida
 
@@ -68,7 +68,7 @@ Se producirá un error en las nuevas conexiones salientes a una dirección IP de
 
 En el caso de las conexiones TCP, el equilibrador de carga usará un solo puerto SNAT para cada IP y puerto de destino. Este uso múltiple permite varias conexiones a la misma dirección IP de destino con el mismo puerto SNAT, pero se limita si la conexión no es a puertos de destino diferentes.
 
-En el caso de las conexiones UDP, el equilibrador de carga usa un algoritmo de **NAT de cono con restricción de puerto**, que consume un puerto SNAT por cada IP de destino, sea cual sea el puerto de destino. 
+En el caso de las conexiones UDP, el equilibrador de carga usa un algoritmo de **NAT de cono con restricción de puerto** , que consume un puerto SNAT por cada IP de destino, sea cual sea el puerto de destino. 
 
 Un puerto se reutiliza para un número ilimitado de conexiones. El puerto solo se reutiliza si la dirección IP o puerto de destino son diferentes.
 
@@ -92,7 +92,7 @@ En la <a name="snatporttable"></a>tabla siguiente se muestran las asignaciones p
 | 801-1000 | 32 | 
 
 >[!NOTE]
-> Si tiene un grupo de back-end con un tamaño máximo de 6, cada instancia puede tener 64 000/10 = 6400 puertos si define una regla de salida explícita. Según la tabla anterior, cada uno solo tendrá 1024 si elige la asignación automática.
+> Si tiene un grupo de back-end con un tamaño máximo de 10, cada instancia puede tener 64 000/10 = 6400 puertos si define una regla de salida explícita. Según la tabla anterior, cada uno solo tendrá 1024 si elige la asignación automática.
 
 ## <a name="outbound-rules-and-virtual-network-nat"></a><a name="outboundrules"></a> Reglas de salida y Virtual Network NAT
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed13111584e7e9621ec2ccde16efb3cdf2eef50c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 64bd9e4a4cf78d2628e946af30c2d290ff002cf7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016185"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081151"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 
@@ -73,7 +73,7 @@ Para crear un recurso de puerta de enlace en Azure, debe registrar la instancia 
 
 1.  Seleccione **Registrar una nueva puerta de enlace en este equipo**.
 
-    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Captura de pantalla en la que se resalta la opción Registrar una nueva puerta de enlace en este equipo.](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Escriba el nombre y la clave de recuperación de la puerta de enlace. De forma predeterminada, la puerta de enlace usa la región predeterminada de la suscripción. Si tiene que seleccionar otra región diferente, elija **Cambiar la región**.
 
@@ -87,23 +87,23 @@ Para crear un recurso de puerta de enlace en Azure, debe registrar la instancia 
 
 Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso de puerta de enlace en Azure. Inicie sesión en Azure con la misma cuenta que usó al registrar la puerta de enlace.
 
-1. En Azure Portal, haga clic en **Crear un recurso**, busque **Puerta de enlace de datos local** y, luego, haga clic en **Crear**.
+1. En Azure Portal, haga clic en **Crear un recurso** , busque **Puerta de enlace de datos local** y, luego, haga clic en **Crear**.
 
    ![Creación de un recurso de puerta de enlace](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
-2. En **Crear puerta de enlace de conexión**, escriba estos valores:
+2. En **Crear puerta de enlace de conexión** , escriba estos valores:
 
-   * **Name**: escriba un nombre para el recurso de puerta de enlace. 
+   * **Name** : escriba un nombre para el recurso de puerta de enlace. 
 
-   * **Suscripción**: seleccione la suscripción de Azure que se asociará al recurso de puerta de enlace. 
+   * **Suscripción** : seleccione la suscripción de Azure que se asociará al recurso de puerta de enlace. 
    
      La suscripción predeterminada se basa en la cuenta de Azure que usó para iniciar sesión.
 
-   * **Grupo de recursos**: Cree un grupo de recursos o seleccione uno existente.
+   * **Grupo de recursos** : Cree un grupo de recursos o seleccione uno existente.
 
-   * **Ubicación**: seleccione la región en que se ha registrado la puerta de enlace.
+   * **Ubicación** : seleccione la región en que se ha registrado la puerta de enlace.
 
-   * **Nombre de instalación**: Si la instalación de la puerta de enlace no está seleccionada, seleccione la puerta de enlace que ha instalado en el equipo y registrado. 
+   * **Nombre de instalación** : Si la instalación de la puerta de enlace no está seleccionada, seleccione la puerta de enlace que ha instalado en el equipo y registrado. 
 
      Cuando haya terminado, haga clic en **Crear**.
 
@@ -118,7 +118,7 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
 
    ![Conectar un servidor a una puerta de enlace](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
-2. En **Seleccione una puerta de enlace de datos local que conectar**, seleccione el recurso de puerta de enlace y, después, haga clic en **Conectar la puerta de enlace seleccionada**.
+2. En **Seleccione una puerta de enlace de datos local que conectar** , seleccione el recurso de puerta de enlace y, después, haga clic en **Conectar la puerta de enlace seleccionada**.
 
    ![Conectar un servidor a un recurso de puerta de enlace](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 

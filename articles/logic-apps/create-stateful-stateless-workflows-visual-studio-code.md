@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: 3b8bf89bc43781fdf6c1a640992f15e21691cd63
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676417"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322062"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creación de flujos de trabajo con estado o sin estado en Visual Studio Code con la extensión Azure Logic Apps (versión preliminar)
 
@@ -106,7 +106,7 @@ Para esta versión preliminar pública, estas funcionalidades no están disponib
 
 * Para iniciar el flujo de trabajo, seleccione la [Solicitud integrada, HTTP, Event Hubs o el desencadenador de Service Bus](../connectors/apis-list.md), que se ejecutan de forma nativa en el entorno de ejecución de Logic Apps. Actualmente, esta versión preliminar no admite los [conectores de empresa](../connectors/apis-list.md#enterprise-connectors), los [desencadenadores de puerta de enlace de datos local](../connectors/apis-list.md#on-premises-connectors), los desencadenadores basados en webhook, el desencadenador de ventana deslizante, los [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors), las cuentas de integración, los artefactos y [sus conectores](../connectors/apis-list.md#integration-account-connectors). La funcionalidad para llamar a una función de Azure no está disponible, por lo que, por ahora, use la *acción* HTTP para llamar a la dirección URL de solicitud de la función de Azure.
 
-  Excepto en el caso de los desencadenadores especificados anteriormente, los flujos de trabajo *con estado* pueden usar tanto desencadenadores como acciones para los [conectores administrados](../connectors/apis-list.md#managed-api-connectors) que se implementan en Azure. Sin embargo, los flujos de trabajo *sin estado* solo admiten actualmente *acciones* para conectores administrados, no para desencadenadores. Aunque tiene la opción de habilitar conectores en Azure para el flujo de trabajo sin estado, el diseñador no muestra ningún desencadenador de conector administrado para que pueda seleccionarlo.
+  Excepto en el caso de los desencadenadores especificados anteriormente, los flujos de trabajo *con estado* pueden usar tanto desencadenadores como acciones con los [conectores administrados](../connectors/apis-list.md#managed-api-connectors) que se implementan en Azure, frente a los desencadenadores y las acciones integrados que se ejecutan de forma nativa con el entorno de ejecución de Logic Apps. Sin embargo, los flujos de trabajo *sin estado* solo admiten actualmente *acciones* para conectores administrados, no para desencadenadores. Aunque puede habilitar conectores en Azure para el flujo de trabajo sin estado, el diseñador no muestra ningún desencadenador de conector administrado para que pueda seleccionarlo.
 
 * Solo puede implementar el nuevo tipo de recurso **Aplicación lógica (versión preliminar)** en un plan de hospedaje [Premium o de App Service en Azure](#publish-azure), o en un [contenedor de Docker](#deploy-docker), y no en [entornos de servicios de integración (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Los planes de hospedaje de **consumo** no son compatibles ni están disponibles para implementar este tipo de recurso.
 

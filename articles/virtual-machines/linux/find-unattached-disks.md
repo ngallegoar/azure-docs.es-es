@@ -1,5 +1,5 @@
 ---
-title: Búsqueda y eliminación de discos administrados y no administrados de Azure no conectados
+title: 'CLI de Azure: búsqueda y eliminación de discos administrados y no administrados desasociados'
 description: Cómo buscar y eliminar discos administrados y no administrados (VHD o blobs en páginas) de Azure no asociados mediante la CLI de Azure.
 author: roygara
 ms.service: virtual-machines
@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 821ba551dc19f92988a352b8f1bab792ce52207b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0c3e8bb2ff6f3313e851a4253a95a5ad923a8f70
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978924"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913949"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Búsqueda y eliminación de discos administrados y no administrados de Azure no conectados mediante la CLI de Azure
 Cuando se elimina una máquina virtual (VM) en Azure, de forma predeterminada, no se elimina ningún disco asociado a la máquina virtual. Esta característica ayuda a evitar la pérdida de datos debido a la eliminación accidental de máquinas virtuales. Después de eliminar una máquina virtual, seguirá pagando por los discos no asociados. En este artículo se muestra cómo buscar y eliminar los discos no asociados y reducir costos innecesarios. 
@@ -29,11 +29,9 @@ El siguiente script busca los [discos administrados](../managed-disks-overview.m
 >
 
 ```azurecli
-
 # Set deleteUnattachedDisks=1 if you want to delete unattached Managed Disks
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
 deleteUnattachedDisks=0
-
 unattachedDiskIds=$(az disk list --query '[?managedBy==`null`].[id]' -o tsv)
 for id in ${unattachedDiskIds[@]}
 do
@@ -52,7 +50,7 @@ done
 
 ## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Discos no administrados: Búsqueda y eliminación de discos no conectados 
 
-Los discos no administrados son archivos VHD almacenados como [blobs en páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) en [cuentas de Azure Storage](../../storage/common/storage-account-overview.md). El siguiente script busca discos no administrados no asociados (blobs en páginas) examinando el valor de la propiedad **LeaseStatus**. Cuando un disco no administrado está asociado a una máquina virtual, la propiedad **LeaseStatus** se establece en **Bloqueado**. Cuando un disco no administrado está desasociado, la propiedad **LeaseStatus** se establece en **Desbloqueado**. El script examina todos los discos no administrados de todas las cuentas de almacenamiento de Azure de una suscripción de Azure. Cuando el script localiza un disco no administrado con la propiedad **LeaseStatus** establecida en **Desbloqueado**, se determina que el disco no está asociado.
+Los discos no administrados son archivos VHD almacenados como [blobs en páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) en [cuentas de Azure Storage](../../storage/common/storage-account-overview.md). El siguiente script busca discos no administrados no asociados (blobs en páginas) examinando el valor de la propiedad **LeaseStatus**. Cuando un disco no administrado está asociado a una máquina virtual, la propiedad **LeaseStatus** se establece en **Bloqueado**. Cuando un disco no administrado está desasociado, la propiedad **LeaseStatus** se establece en **Desbloqueado**. El script examina todos los discos no administrados de todas las cuentas de almacenamiento de Azure de una suscripción de Azure. Cuando el script localiza un disco no administrado con la propiedad **LeaseStatus** establecida en **Desbloqueado** , se determina que el disco no está asociado.
 
 >[!IMPORTANT]
 >Primero, ejecute el script y establezca la variable **deleteUnattachedVHDs** en 0. Esta acción le permite buscar y ver todos los discos duros virtuales no administrados y no asociados.
@@ -61,13 +59,10 @@ Los discos no administrados son archivos VHD almacenados como [blobs en páginas
 >
 
 ```azurecli
-   
 # Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
 # Set deleteUnattachedVHDs=0 if you want to see the details of the unattached VHDs
 deleteUnattachedVHDs=0
-
 storageAccountIds=$(az storage account list --query [].[id] -o tsv)
-
 for id in ${storageAccountIds[@]}
 do
     connectionString=$(az storage account show-connection-string --ids $id --query connectionString -o tsv)

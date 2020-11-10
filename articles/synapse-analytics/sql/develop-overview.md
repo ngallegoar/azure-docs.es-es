@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4c61b43855e4a845956a937d9d9cfe738d6f47a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a24a61e26bdfaba0619e3965e95b1828380a1c8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032952"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322098"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisiones de diseño y técnicas de codificación para características de SQL de Synapse en Azure Synapse Analytics
-En este artículo, encontrará una lista de recursos para las funciones del grupo de SQL y SQL a petición (versión preliminar) de SQL de Synapse. Los artículos recomendados se dividen en dos secciones: Decisiones de diseño clave y técnicas de codificación y desarrollo.
+En este artículo va a encontrar una lista de recursos para las funciones del grupo de SQL dedicado y sin servidor (versión preliminar) de Synapse SQL. Los artículos recomendados se dividen en dos secciones: Decisiones de diseño clave y técnicas de codificación y desarrollo.
 
 El objetivo de estos artículos es ayudarle a desarrollar el enfoque técnico óptimo para los componentes de SQL de Synapse en Synapse Analytics.
 
 ## <a name="key-design-decisions"></a>Decisiones de diseño clave
 En los artículos siguientes se resaltan los conceptos y las decisiones de diseño para el desarrollo de SQL de Synapse:
 
-| Artículo | Grupo de SQL | SQL a petición |
+| Artículo | Grupo de SQL dedicado | Grupo de SQL sin servidor |
 | ------- | -------- | ------------- |
 | [Conexiones](connect-overview.md)                    | Sí | Sí |
 | [Clases de recursos y simultaneidad](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sí    | No |
@@ -44,7 +44,7 @@ En los artículos siguientes se resaltan los conceptos y las decisiones de dise�
 
 A continuación encontrará artículos esenciales que resaltan las técnicas de codificación, las sugerencias y las recomendaciones específicas para el desarrollo:
 
-| Artículo | Grupo de SQL | SQL a petición |
+| Artículo | Grupo de SQL dedicado | Grupo de SQL sin servidor |
 | ------- | -------- | ------------- |
 | [procedimientos almacenados](develop-stored-procedures.md)  | Sí                | No                      |
 | [Etiquetas](develop-label.md)                           | Sí                | No                      |

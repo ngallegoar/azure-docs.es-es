@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas de conectividad
-description: Solución de problemas de conectividad en el grupo de SQL de Synapse.
+description: Solución de problemas de conectividad de un grupo de SQL dedicado.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,47 +11,47 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82b9f988ef4a7f4a53cd0b451da28642b53bcb65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362187"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308369"
 ---
-# <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Solución de problemas de conectividad en el grupo de Synapse SQL
+# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool"></a>Solución de problemas de conectividad de un grupo de SQL dedicado
 
-En este artículo se enumeran las técnicas de solución de problemas comunes en torno a la conexión de una base de datos de grupo de SQL.
+En este artículo se enumeran las técnicas comunes de solución de problemas en torno a la conectividad a la base de datos de un grupo de SQL dedicado.
 
 ## <a name="check-service-availability"></a>Comprobación de la disponibilidad del servicio
 
-Compruebe si el servicio está disponible. En Azure Portal, vaya al grupo de SQL al que está intentando conectarse. En el panel de índice izquierdo, haga clic en **Diagnosticar y solucionar problemas**.
+Compruebe si el servicio está disponible. En Azure Portal, vaya al grupo de SQL dedicado al que intenta conectarse. En el panel de índice izquierdo, haga clic en **Diagnosticar y solucionar problemas**.
 
 ![Selección de Resource Health](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-El estado de su grupo de SQL se mostrará aquí. Si el servicio no se muestra como **disponible**, consulte más pasos.
+El estado del grupo de SQL dedicado se mostrará aquí. Si el servicio no se muestra como **disponible** , consulte más pasos.
 
 ![El servicio está disponible](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Si Resource Health muestra que la instancia del grupo de SQL está en pausa o se está escalando, siga las instrucciones para reanudarla.
+Si Resource Health muestra que la instancia del grupo de SQL dedicado está en pausa o se está escalando, siga las instrucciones para reanudarla.
 
 ![Captura de pantalla que muestra una instancia de SQL Data Warehouse en pausa o escalado.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
 Aquí puede encontrar información adicional sobre Resource Health.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Comprobación de la operación de pausa o escalado
 
-Compruebe en el portal si su instancia del grupo de SQL está en pausa o se está escalando.
+Compruebe el portal para ver si su instancia del grupo de SQL dedicado está en pausa o se está escalando.
 
 ![Captura de pantalla que muestra cómo comprobar si un almacenamiento de datos está en pausa.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Si ve el servicio está en pausa o escalado, compruebe que no es durante la programación de mantenimiento. En el portal, en la página *Información general* del grupo de SQL, verá la programación de mantenimiento elegida.
+Si ve el servicio está en pausa o escalado, compruebe que no es durante la programación de mantenimiento. En el portal, en la página *Información general* del grupo de SQL dedicado, verá el programa de mantenimiento elegido.
 
 ![Información general de la programación de mantenimiento](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-En caso contrario, consulte al Administrador de TI para comprobar que este mantenimiento no es un evento programado. Para reanudar la instancia del grupo de SQL, siga [estos pasos](pause-and-resume-compute-portal.md).
+En caso contrario, consulte al Administrador de TI para comprobar que este mantenimiento no es un evento programado. Para reanudar la instancia del grupo de SQL dedicado, siga [estos pasos](pause-and-resume-compute-portal.md).
 
 ## <a name="check-your-firewall-settings"></a>Comprobación de la configuración de firewall
 
-La base de datos del grupo de SQL se comunica a través del puerto 1433.  Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no podrá conectarse al [servidor lógico](../../azure-sql/database/logical-servers.md) a menos que el departamento de TI abra el puerto 1433. Puede encontrar información adicional sobre las configuraciones de firewall [aquí](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+La base de datos del grupo de SQL dedicado se comunica a través del puerto 1433.  Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no podrá conectarse al [servidor lógico](../../azure-sql/database/logical-servers.md) a menos que el departamento de TI abra el puerto 1433. Puede encontrar información adicional sobre las configuraciones de firewall [aquí](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Comprobación de la configuración del punto de conexión de servicio o red virtual
 
@@ -61,7 +61,7 @@ Si recibe los errores 40914 y 40615, consulte la [descripción del error y la re
 
 ### <a name="software"></a>Software
 
-Asegúrese de usar las herramientas más recientes para conectarse al grupo de SQL:
+Asegúrese de usar las herramientas más recientes para conectarse al grupo de SQL dedicado:
 
 - SSMS
 - Azure Data Studio
@@ -106,7 +106,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problemas de conexión intermitente
 
-Compruebe si experimenta mucha carga en el servidor con un gran número de solicitudes en cola. Es posible que deba escalar verticalmente el grupo de SQL para obtener recursos adicionales.
+Compruebe si experimenta mucha carga en el servidor con un gran número de solicitudes en cola. Es posible que deba escalar verticalmente el grupo de SQL dedicado para obtener más recursos.
 
 ## <a name="common-error-messages"></a>Mensajes comunes de error
 

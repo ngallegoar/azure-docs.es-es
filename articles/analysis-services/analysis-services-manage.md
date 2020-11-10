@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 697e5484c007c095201344fb4829a92eb642a6e3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014858"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078907"
 ---
 # <a name="manage-analysis-services"></a>Administración de Analysis Services
 Una vez que se ha creado un servidor de Analysis Services en Azure, es posible que haya que realizar varias tareas de administración inmediatamente o en algún momento del futuro. Por ejemplo, ejecutar el procesamiento de los datos de la actualización, controlar quién puede acceder a los modelos del servidor o supervisar el estado del servidor. Varias de estas tareas solo se pueden realizar en Azure Portal, otras en SQL Server Management Studio (SSMS) y otras se pueden realizar indistintamente en ambos.
@@ -20,7 +20,7 @@ Una vez que se ha creado un servidor de Analysis Services en Azure, es posible q
 ## <a name="azure-portal"></a>Portal de Azure
 [Azure Portal](https://portal.azure.com/) es el lugar donde se puede crear y eliminar servidores, supervisar los recursos de los servidores, y cambiar el tamaño de los servidores y administrar quién tiene acceso a ellos.  Si tiene problemas, también puede enviar una solicitud de soporte técnico.
 
-![Obtención del nombre del servidor en Azure](./media/analysis-services-manage/aas-manage-portal.png)
+![Captura de pantalla que muestra Azure Portal, donde se pueden crear y eliminar servidores, supervisar los recursos de servidor, cambiar el tamaño de los servidores y administrar quién tiene acceso a ellos.](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
 En Azure, la conexión a los servidores se realiza de la misma forma que la conexión a una instancia de servidor en una organización. Desde SSMS se pueden realizar muchas de las mismas tareas, como procesar datos o crear una script de procesamiento, administrar roles y usar PowerShell.
@@ -36,11 +36,11 @@ Para obtener las últimas características y la experiencia más completa al con
 ### <a name="to-connect-with-ssms"></a>Para conectarse con SSMS
  Si se usa SSMS, antes de conectarse al servidor por primera vez, asegúrese de que su nombre de usuario se incluye en el grupo de administradores de Analysis Services. Para más información, consulte la sección[Administradores del servidor y usuarios de la base de datos](#server-administrators-and-database-users) en este mismo artículo.
 
-1. Antes de establecer la conexión, es necesario obtener el nombre del servidor. En **Azure Portal** > servidor > **Información general** > **Nombre de servidor**, copie el nombre del servidor.
+1. Antes de establecer la conexión, es necesario obtener el nombre del servidor. En **Azure Portal** > servidor > **Información general** > **Nombre de servidor** , copie el nombre del servidor.
    
     ![Obtención del nombre del servidor en Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. En SSMS > **Explorador de objetos**, haga clic en **Conectar** > **Analysis Services**.
-3. En el cuadro de diálogo **Conectarse al servidor**, pegue el nombre del servidor y en **Autenticación**, elija uno de los siguientes tipos de autenticación:   
+2. En SSMS > **Explorador de objetos** , haga clic en **Conectar** > **Analysis Services**.
+3. En el cuadro de diálogo **Conectarse al servidor** , pegue el nombre del servidor y en **Autenticación** , elija uno de los siguientes tipos de autenticación:   
     > [!NOTE]
     > Se recomienda el tipo de autenticación **Active Directory - Universal compatible con MFA**.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c71a7d4737ad34c43df1aa302d9517c61ed400b2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fecadf3cd6fd0d654315038680b9aa3fa2b71782
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440797"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913915"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
@@ -20,9 +20,9 @@ Una característica clave de Azure Digital Twins es la capacidad de definir su p
 
 Un modelo es similar a una **clase** en un lenguaje de programación orientado a objetos, el que define una forma de datos para un concepto determinado en el entorno de trabajo real. Los modelos tienen nombres (como *Sala* o *SensorDeTemperatura* ) y contienen elementos como propiedades, telemetría/eventos y comandos que describen lo que puede hacer este tipo de entidad en el entorno. Más adelante usará estos modelos para crear [**gemelos digitales**](concepts-twins-graph.md) que representen entidades específicas que cumplan con esta descripción de tipo.
 
-Los modelos se escriben con el **lenguaje de definición de gemelos digitales (DTDL)** basado en JSON-LD.  
+Los modelos de Azure Digital Twins se representan mediante el **lenguaje de definición de gemelos digitales (DTDL)** , que se basa en JSON-LD.  
 
-## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Lenguaje de definición de gemelos digitales (DTDL) para escribir modelos
+## <a name="digital-twin-definition-language-dtdl-for-models"></a>Lenguaje de definición de gemelos digitales (DTDL) para modelos
 
 Los modelos de Azure Digital Twins se definen con el lenguaje de definición de gemelos digitales (DTDL). DTDL se basa en JSON-LD y es independiente del lenguaje de programación. DTDL no es exclusivo de Azure Digital Twins, sino que también se usa para presentar datos de dispositivo en otros servicios de IoT, como [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
@@ -227,6 +227,12 @@ La interfaz de extensión no puede cambiar ninguna de las definiciones de las in
 ## <a name="validating-models"></a>Validación de modelos
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
+
+## <a name="converting-industry-standard-models"></a>Conversión de modelos estándar del sector
+
+Si tiene modelos existentes fuera de Azure Digital Twins que se basen en un estándar del sector, como OWL o RDF, deberá **convertirlos a DTDL** para usarlos con Azure Digital Twins. La versión en DTDL se convertirá en el origen confiable del modelo en Azure Digital Twins.
+
+Para más información sobre este proceso, consulte [*Procedimiento: Conversión de modelos estándar del sector*](how-to-convert-models.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

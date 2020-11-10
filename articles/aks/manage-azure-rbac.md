@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329098"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346050"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Uso de Azure RBAC para la autorización de Kubernetes (versión preliminar)
 
@@ -72,9 +72,9 @@ az extension update --name aks-preview
 - Requiere [integración administrada de Azure AD](managed-aad.md).
 - No se puede integrar Azure RBAC para la autorización de Kubernetes en clústeres existentes durante la versión preliminar, pero podrá usar la disponibilidad general (GA).
 - Use [kubectl v1.18.3+][az-aks-install-cli].
-- Durante la versión preliminar, solo puede agregar permisos de *Nivel de espacio de nombres* a través de la CLI de Azure.
 - Si tiene CRDs y está realizando definiciones de roles personalizados, la única manera de abarcar CRDs hoy es proporcionar `Microsoft.ContainerService/managedClusters/*/read`. AKS trabaja para proporcionar permisos más granulares para CRDs. Para el resto de objetos, puede usar los grupos de API específicos, por ejemplo: `Microsoft.ContainerService/apps/deployments/read`.
 - Las nuevas asignaciones de roles pueden tardar hasta 5 minutos en propagarse y actualizarse mediante el servidor de autorización.
+- Es necesario que el inquilino de Azure AD configurado para la autenticación sea el mismo que el de la suscripción que contiene el clúster de AKS. 
 
 ## <a name="create-a-new-cluster-using-azure-rbac-and-managed-azure-ad-integration"></a>Crear un nuevo clúster con Azure RBAC y la integración administrada de Azure AD
 

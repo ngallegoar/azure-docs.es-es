@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259643"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040466"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
@@ -127,6 +127,7 @@ Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth
 | {SAML:ForceAuthn} | Valor del atributo `ForceAuthN` del elemento `AuthnRequest` de la solicitud SAML. | True |
 | {SAML:ProviderName} | Valor del atributo `ProviderName` del elemento `AuthnRequest` de la solicitud SAML.| Contoso.com |
 | {SAML:RelayState} | El parámetro de cadena de consulta `RelayState`.| 
+| {SAML:Subject} | El valor de `Subject` del elemento NameId de la solicitud de autenticación de SAML.| 
 
 ## <a name="using-claim-resolvers"></a>Uso de solucionadores de notificaciones
 

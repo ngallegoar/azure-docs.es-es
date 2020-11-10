@@ -1,21 +1,22 @@
 ---
-title: Power BI y un grupo de Synapse SQL sin servidor para analizar los datos de Azure Cosmos DB mediante Synapse Link
-description: Aprenda a crear una base de datos de grupo de Synapse SQL sin servidor y vistas de Synapse Link para Azure Cosmos DB, a consultar contenedores de Azure Cosmos y a crear un modelo de esas vistas mediante Power BI.
+title: Power BI y un grupo de SQL sin servidor para analizar los datos de Azure Cosmos DB mediante Synapse Link
+description: Aprenda a compilar una base de datos de Synapse SQL sin servidor y vistas de Synapse Link para Azure Cosmos DB, a consultar contenedores de Azure Cosmos DB y, finalmente, a compilar un modelo de esas vistas con Power BI.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 6e77746d21d63cf1460b9e460e470a3bd12ce656
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 55a73ada39f4f48aeb22c5482bd85d1092d54c35
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480044"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342256"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Uso de Power BI y de un grupo de Synapse SQL sin servidor para analizar los datos de Azure Cosmos DB mediante Synapse Link (versión preliminar) 
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-En este artículo aprenderá a crear una base de datos de Synapse SQL sin servidor (anteriormente conocida como **SQL a petición** ) y vistas de Synapse Link para Azure Cosmos DB. Consultará los contenedores de Azure Cosmos y, después, creará un modelo con Power BI con esas vistas que refleje esa consulta.
+En este artículo va a aprender a compilar una base de datos de grupos de SQL sin servidor y vistas de Synapse Link para Azure Cosmos DB. Va a consultar los contenedores de Azure Cosmos DB y, después, va a compilar un modelo con Power BI de esas vistas que refleje esa consulta.
 
 En este escenario usará datos ficticios sobre las ventas de productos de Surface en un comercio asociado. Analizará los ingresos por tienda en función de la proximidad a núcleos familiares grandes y el impacto de la publicidad durante una semana específica. En este artículo creará dos vistas denominadas **RetailSales** y **StoreDemographics** y una consulta entre ellas. Puede obtener los datos del producto de ejemplo en este repositorio de [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData).
 
@@ -41,7 +42,7 @@ En el área de trabajo de Synapse, vaya a la pestaña **Desarrollar** , seleccio
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Incorporación de un script SQL al área de trabajo de Synapse Analytics":::
 
-Cada área de trabajo incluye un punto de conexión de SQL sin servidor. Después de crear un script SQL, en la barra de herramientas de la parte superior, conéctese a **SQL a petición**.
+Cada área de trabajo incluye un punto de conexión de SQL sin servidor. Después de crear un script SQL, en la barra de herramientas de la parte superior, conéctese a **Integrado**.
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Habilitación del script SQL para usar el punto de conexión de SQL sin servidor en el área de trabajo":::
 
@@ -144,4 +145,4 @@ Después de elegir estas opciones, debería ver un gráfico como el de la siguie
 
 [Uso de T-SQL para consultar datos de Azure Cosmos DB datos mediante Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
-Uso de un grupo de Synapse SQL sin servidor para [analizar Azure Open Datasets y visualizar los resultados en Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)
+[Uso de un grupo de SQL sin servidor para analizar Azure Open Datasets y visualizar los resultados en Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)

@@ -1,6 +1,6 @@
 ---
-title: Diseño de una estrategia de carga de datos de PolyBase para el grupo de SQL
-description: En lugar de ETL, diseñe un proceso de extracción, carga y transformación (ETL) para cargar datos o e grupo de SQL.
+title: Diseño de una estrategia de carga de datos de PolyBase para un grupo de SQL dedicado
+description: En lugar de un proceso de extracción, transformación y carga (ETL), diseñe uno de extracción, carga y transformación (ETL) para cargar datos con SQL dedicado.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a57abd080bdbbaefbe07258a2b241c093dc8c441
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474672"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308736"
 ---
-# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Diseño de una estrategia de carga de datos de PolyBase para el grupo de SQL de Azure Synapse
+# <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Diseño de una estrategia de carga de datos de PolyBase para un grupo de SQL dedicado en Azure Synapse Analytics
 
 Los almacenes de datos SMP tradicionales usan un proceso de extracción, transformación y carga (ETL) para cargar los datos. El grupo de SQL de Azure es una arquitectura de diseño de procesamiento paralelo masivo (MPP) que aprovecha la escalabilidad y la flexibilidad de los recursos de proceso y almacenamiento. El uso de un proceso de extracción, carga y transformación (ELT) puede aprovechar las ventajas de las funcionalidades integradas de procesamiento de consultas distribuidas, y eliminar los recursos necesarios para transformar los datos antes de cargarlos.
 
@@ -29,12 +29,12 @@ Mientras que el grupo de SQL es compatible con muchos métodos de carga, incluid
 
 Extracción, carga y transformación (ELT) es un proceso mediante el que se extraen datos se extraen de un sistema de origen, se cargan en un almacén de datos y, después, se transforman.
 
-Los pasos básicos para implementar un ELT de PolyBase para el grupo de SQL son:
+Los pasos básicos para implementar un proceso ELT de PolyBase para un grupo de SQL dedicado son:
 
 1. Extraer los datos de origen en archivos de texto.
 2. Llevar los datos a Azure Blob Storage o Azure Data Lake Store.
 3. Preparar los datos para la carga.
-4. Cargar los datos en las tablas de almacenamiento provisional del grupo de SQL mediante PolyBase.
+4. Cargar los datos en las tablas de almacenamiento provisional del grupo de SQL dedicado mediante PolyBase.
 5. Transformar los datos.
 6. Insertar los datos en tablas de producción.
 
@@ -85,11 +85,11 @@ Herramientas y servicios que puede usar para mover datos a Azure Storage:
 
 - El servicio [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) mejora el rendimiento de la red, el rendimiento en general y la capacidad de predicción. ExpressRoute es un servicio que enruta los datos a Azure a través de una conexión privada dedicada. Las conexiones ExpressRoute no enrutan datos a través de la red pública de Internet. Estas conexiones son más fiables y ofrecen velocidades más altas, menores latencias y mayor seguridad que las conexiones habituales a través de Internet.
 - La [utilidad AZCopy](../../storage/common/storage-use-azcopy-v10.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) lleva los datos a Azure Storage a través de la red pública de Internet. Esto funciona si el tamaño de los datos es de menos de 10 TB. Para realizar cargas de forma regular con AZCopy, pruebe la velocidad de la red para ver si es aceptable.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) tiene una puerta de enlace que se puede instalar en el servidor local. A continuación, puede crear una canalización para llevar los datos desde el servidor local hasta Azure Storage. Para usar Data Factory con el grupo de SQL, consulte [Carga de datos en el grupo de SQL](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) tiene una puerta de enlace que se puede instalar en el servidor local. A continuación, puede crear una canalización para llevar los datos desde el servidor local hasta Azure Storage. Para usar Data Factory con un grupo de SQL dedicado, consulte [Carga de datos en un grupo de SQL dedicado](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Preparar los datos para la carga
 
-Deberá preparar y limpiar los datos de la cuenta de almacenamiento antes de cargarlos en el grupo de SQL. Puede preparar los datos mientras están en el origen y a medida que los exporta a archivos de texto o después de que estén en Azure Storage.  Si trabaja con los datos en la parte inicial el proceso, será más fácil manejarlos.  
+Puede que tenga que preparar y limpiar los datos de la cuenta de almacenamiento antes de cargarlos en el grupo de SQL dedicado. Puede preparar los datos mientras están en el origen y a medida que los exporta a archivos de texto o después de que estén en Azure Storage.  Si trabaja con los datos en la parte inicial el proceso, será más fácil manejarlos.  
 
 ### <a name="define-external-tables"></a>Definir tablas externas
 
@@ -110,7 +110,7 @@ Para dar formato a los archivos de texto:
 - Debe dar formato a datos en el archivo de texto que se alineará con los tipos de datos y columnas en la tabla de destino del grupo de SQL. Si se desalinean los tipos de datos en los archivos de texto externos y la tabla de almacenamiento de datos, las filas se rechazarán durante la carga.
 - Debe separar los campos en el archivo de texto con un terminador.  Asegúrese de usar un carácter o una secuencia de caracteres que no se encuentre en los datos de origen. Use el terminador que especificó con la instrucción [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. Cargar los datos en las tablas de almacenamiento provisional del grupo de SQL mediante PolyBase
+## <a name="4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase"></a>4. Carga de los datos en las tablas de almacenamiento provisional del grupo de SQL dedicado mediante PolyBase.
 
 Es una práctica recomendada para cargar datos en una tabla de almacenamiento provisional. Las tablas de almacenamiento provisional le permiten controlar los errores sin interferir con las tablas de producción. Asimismo, una tabla de almacenamiento provisional también ofrece la posibilidad de usar las funcionalidades integradas de procesamiento de consultas distribuidas del grupo de SQL para transformaciones de datos antes de insertar estos datos en tablas de producción.
 
@@ -125,7 +125,7 @@ Para cargar datos con PolyBase, puede usar cualquiera de estas opciones de carga
 
 ### <a name="non-polybase-loading-options"></a>Opciones de carga que no pertenecen a PolyBase
 
-Si los datos no son compatibles con PolyBase, puede usar [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) o [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). El formato bcp carga datos directamente al grupo de SQL sin tener que pasar por Azure Blob Storage y está diseñado únicamente para cargas pequeñas. Tenga en cuenta que el rendimiento de la carga de estas opciones es mucho más lento que PolyBase.
+Si los datos no son compatibles con PolyBase, puede usar [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) o [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). El formato bcp carga los datos directamente en el grupo de SQL dedicado sin tener que pasar por Azure Blob Storage, y está diseñado únicamente para cargas pequeñas. Tenga en cuenta que el rendimiento de la carga de estas opciones es mucho más lento que PolyBase.
 
 ## <a name="5-transform-the-data"></a>5. Transformar los datos
 
