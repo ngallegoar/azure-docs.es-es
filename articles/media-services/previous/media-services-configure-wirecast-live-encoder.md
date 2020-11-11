@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: 7b11d7f577f0a2ceb7284d9f78ccf83a64c72fd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecab0ee67dd1d5cee3fd9927c00c9f9d827b2f47
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89258119"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910056"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador Wirecast para enviar una transmisión por secuencias en directo de velocidad de bits única
 
@@ -51,7 +51,7 @@ En este tutorial se muestra cómo administrar Azure Media Services (AMS) con la 
 ## <a name="create-a-channel"></a>Crear un canal
 1. En la herramienta AMSE, navegue a la pestaña **Live** (Live) y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
 
-    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+    ![Captura de pantalla en la que se muestra la creación de un canal seleccionado en un menú.](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
 2. Especifique un nombre de canal (el campo de descripción es opcional). En Configuración de canal, seleccione **Estándar** para la opción Live Encoding, con el protocolo de entrada establecido en **RTMP**. Puede dejar todas las demás opciones como están.
 
@@ -59,7 +59,7 @@ En este tutorial se muestra cómo administrar Azure Media Services (AMS) con la 
 
 3. Haga clic en **Crear canal**.
 
-   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+   ![Captura de pantalla en la que se muestra el cuadro de diálogo para crear un canal en vivo.](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 > [!NOTE]
 > El canal puede tardar hasta 20 minutos en iniciarse.
@@ -76,7 +76,7 @@ Mientras se inicia el canal puede [configurar el codificador](media-services-con
 ## <a name="configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configuración del codificador Telestream Wirecast
 En este tutorial se usa la siguiente configuración de salida. En el resto de esta sección se describen los pasos de configuración con más detalle.
 
-**Vídeo**:
+**Vídeo** :
 
 * Códec: H.264
 * Perfil: alto (nivel 4.0)
@@ -84,7 +84,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 * Fotograma clave: 2 segundos (60 segundos)
 * Velocidad de fotogramas: 30
 
-**Audio**:
+**Audio** :
 
 * Códec: AAC (LC)
 * Velocidad de bits: 192 Kbps
@@ -98,9 +98,9 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 3. Haga clic en **OK**.
 4. En la página de configuración, establezca el campo **Destination** (Destino) en **Azure Media Services**.
 
-    El perfil de Encoding está previamente seleccionado como **Azure H.264 720 p 16:9 (1280 x 720)** . Para personalizar esta configuración, seleccione el icono de engranaje a la derecha de la lista desplegable y luego elija **New Preset**(Nuevo valor preestablecido).
+    El perfil de Encoding está previamente seleccionado como **Azure H.264 720 p 16:9 (1280 x 720)** . Para personalizar esta configuración, seleccione el icono de engranaje a la derecha de la lista desplegable y luego elija **New Preset** (Nuevo valor preestablecido).
 
-    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
+    ![Captura de pantalla en la que se muestra el cuadro de diálogo para elegir una plantilla con la opción BlobTrigger seleccionada.](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Configure los valores preestablecidos del codificador.
 
     Asigne un nombre al valor preestablecido y busque la siguiente configuración recomendada:
@@ -118,27 +118,27 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
    * Velocidad de bits de destino: 192 kbits/s
    * Velocidad de muestreo: 44,100 kHz
 
-     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
-6. Presione **Save**(Guardar).
+     ![Captura de pantalla en la que se muestra el valor preestablecido del codificador para AzureTest1.](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
+6. Presione **Save** (Guardar).
 
     El campo de codificación tiene ahora el perfil recién creado disponible para la selección.
 
     Asegúrese de que esté seleccionado el nuevo perfil.
-7. Obtenga la dirección URL de entrada del canal para asignarla al **punto de conexión de RTMP**de Wirecast.
+7. Obtenga la dirección URL de entrada del canal para asignarla al **punto de conexión de RTMP** de Wirecast.
 
-    Navegue de nuevo a la herramienta AMSE y compruebe el estado de finalización del canal. Una vez que ha cambiado el estado de **Iniciando** a **En ejecución**, puede obtener la dirección URL de entrada.
+    Navegue de nuevo a la herramienta AMSE y compruebe el estado de finalización del canal. Una vez que ha cambiado el estado de **Iniciando** a **En ejecución** , puede obtener la dirección URL de entrada.
 
     Mientras se ejecuta el canal, haga clic con el botón derecho en el nombre del canal, desplácese hacia abajo y mantenga el puntero sobre **Copy Input URL to clipboard** (Copiar dirección URL de entrada en el Portapapeles) y seleccione **Primary Input URL** (Dirección URL de entrada principal).  
 
-    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
+    ![Captura de pantalla en la que se muestra la opción para copiar la entrada de la dirección URL al portapapeles en la entrada principal de la dirección URL.](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
 8. En la ventana **Output Settings** (Configuración de salida) de Wirecast, pegue esta información en el campo **Address** (Dirección) de la sección de salida y asigne un nombre de transmisión.
 
-    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
+    ![Captura de pantalla en la que se muestra la configuración de salida.](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
 1. Seleccione **Aceptar**.
-2. En la pantalla principal de **Wirecast**, confirme que los orígenes de audio y vídeo están listos y haga clic en **Stream** (Transmitir) en la esquina superior izquierda.
+2. En la pantalla principal de **Wirecast** , confirme que los orígenes de audio y vídeo están listos y haga clic en **Stream** (Transmitir) en la esquina superior izquierda.
 
-    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![Captura de pantalla en la que se muestra el botón Wirecast Stream.](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > Antes de hacer clic en **Stream** (Transmitir), **debe** asegurarse de que el canal esté listo.
@@ -150,7 +150,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 
 Vaya a la herramienta AMSE y haga clic con el botón derecho en el canal que se va a probar. En el menú, mantenga el puntero sobre **Playback the Preview** (Reproducir la vista previa) y seleccione **with Azure Media Player** (con Azure Media Player).  
 
-![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+![Captura de pantalla en la que se muestra la versión preliminar con la opción Azure Media Player seleccionada.](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 Si la transmisión aparece en el reproductor, entonces el codificador se configuró correctamente para conectarse a AMS.
 
@@ -159,7 +159,7 @@ Si se recibe un error, debe restablecer el canal y ajustar la configuración del
 ## <a name="create-a-program"></a>Creación de un programa
 1. Una vez confirmada la reproducción de canales, cree un programa. En la pestaña **Live** (Directo) de la herramienta AMSE, haga clic con el botón derecho dentro del área de programas y seleccione **Create New Program** (Crear programa).  
 
-    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
+    ![Captura de pantalla en la que se muestra la opción Crear programa seleccionada.](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
 2. Dé nombre al programa y, si es necesario, ajuste el valor de **Archive Window Length** (Duración de la ventana de archivo), que de forma predeterminada es cuatro horas. También puede especificar una ubicación de almacenamiento o dejar el valor predeterminado.  
 3. Active la casilla **Iniciar el programa ahora** .
 4. Haga clic en **Crear programa**.  
@@ -168,7 +168,7 @@ Si se recibe un error, debe restablecer el canal y ajustar la configuración del
    >La creación de programas tarda menos que la creación de canales.
        
 5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y vaya a **Playback the program(s)** (Reproducir los programas). Luego, seleccione **with Azure Media Player** (con Azure Media Player).  
-6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copy the Output URL to Clipboard** (Copiar la dirección URL de salida en el Portapapeles) o recupere esta información con la opción **Program information and settings**(Información y configuración del programa) en el menú.
+6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copy the Output URL to Clipboard** (Copiar la dirección URL de salida en el Portapapeles) o recupere esta información con la opción **Program information and settings** (Información y configuración del programa) en el menú.
 
 La transmisión está ahora preparada para insertarse en un reproductor o distribuirse a una audiencia para su visualización en directo.  
 

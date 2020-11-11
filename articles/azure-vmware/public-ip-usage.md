@@ -1,23 +1,25 @@
 ---
-title: Uso de la funcionalidad de dirección IP pública en Virtual WAN
+title: Uso de la funcionalidad de dirección IP pública en Azure VMware Solution
 description: En este artículo se explica cómo usar la funcionalidad de IP pública en Azure Virtual WAN.
 ms.topic: how-to
-ms.date: 10/30/2020
-ms.openlocfilehash: 61ed6487bc000a35fd25cabde2b562b6eb08da46
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/28/2020
+ms.openlocfilehash: f51f00a9adc1fd122e723909ecaa6193c152d496
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048311"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912674"
 ---
-# <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Uso de la funcionalidad de dirección IP pública en Azure Virtual WAN
+# <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Uso de la funcionalidad de dirección IP pública en Azure VMware Solution
 
-La dirección IP pública es una característica nueva de la conectividad de Azure VMware Solution, gracias a la cual los clientes pueden habilitar el acceso público a Internet de dos maneras. 
+La dirección IP pública es una característica nueva de la conectividad de Azure VMware Solution. Hace que recursos tales como los servidores web, las máquinas virtuales (VM) y los hosts sean accesibles a través de una red pública. 
+
+Puede habilitar el acceso público a Internet de dos maneras. 
 
 - Las aplicaciones se pueden hospedar y publicar en el equilibrador de carga de Application Gateway para el tráfico HTTP/HTTPS.
 - Publicado mediante las características de IP públicas de Azure Virtual WAN.
 
-Como parte de la implementación de la nube privada de Azure VMware Solution, al habilitar la funcionalidad de IP pública, los componentes automatizados necesarios se crean y habilitan automáticamente:
+Como parte de la implementación de la nube privada de Azure VMware Solution, al habilitar la funcionalidad de IP pública, los componentes necesarios se crean y habilitan automáticamente:
 
 -  Virtual WAN
 
@@ -25,7 +27,7 @@ Como parte de la implementación de la nube privada de Azure VMware Solution, al
 
 -  Servicios de Azure Firewall con IP pública
 
-En este artículo se detalla cómo se puede usar la funcionalidad de IP pública en Virtual WAN para hacer que recursos como servidores web, máquinas virtuales (VM) y hosts, sean accesibles a través de una red pública.
+En este artículo se describe cómo puede usar la funcionalidad de IP pública en Virtual WAN.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -52,15 +54,15 @@ En este escenario, debe publicar el servidor web de IIS en Internet. Use la cara
 
 1. Seleccione la nube privada de Azure VMware Solution.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Diagrama de la arquitectura de la IP pública" border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Seleccione la nube privada de Azure VMware Solution." border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
-1. En **Administrar**, seleccione **Conectividad**.
+1. En **Administrar** , seleccione **Conectividad**.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Diagrama de la arquitectura de la IP pública" border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="En Administrar, seleccione Conectividad." border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
 1. Seleccione la pestaña de **IP pública** y, a continuación, seleccione **Configurar**.
 
-   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagrama de la arquitectura de la IP pública" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
+   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Seleccione la pestaña de IP pública y, a continuación, seleccione Configurar." border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
 1. Acepte los valores predeterminados o cámbielos; a continuación, seleccione **Crear**.
 
@@ -85,19 +87,19 @@ Para comprobar y agregar más direcciones IP públicas, siga los pasos que se in
 
 1. Seleccione un firewall implementado y, a continuación, seleccione **Visit Azure Firewall Manager to configure and manage this firewall** (Visite Azure Firewall Manager para configurar y administrar este firewall).
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagrama de la arquitectura de la IP pública" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Seleccione un firewall implementado." border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. Seleccione la opción de los **Centros virtuales protegidos** y, en la lista, seleccione un centro virtual.
 
-   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="Diagrama de la arquitectura de la IP pública" lightbox="media/public-ip-usage/select-virtual-hub.png":::
+   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="Seleccione la opción de los Centros virtuales protegidos y, a continuación, seleccione un centro virtual de la lista." lightbox="media/public-ip-usage/select-virtual-hub.png":::
 
 1. En la página del centro virtual, seleccione la **Configuración de IP pública** y, para agregar más direcciones IP públicas, seleccione **Agregar**. 
 
-   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Diagrama de la arquitectura de la IP pública" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
+   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="En la página del centro virtual, seleccione Configuración de IP pública." border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
 
 1. Proporcione el número de direcciones IP necesarias y seleccione **Agregar**.
 
-   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="Diagrama de la arquitectura de la IP pública" border="true":::
+   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="Seleccione Agregar y proporcione el número de direcciones IP necesarias; a continuación, seleccione Agregar." border="true":::
 
 
 ## <a name="create-firewall-policies"></a>Creación de directivas de firewall
@@ -108,17 +110,17 @@ Una vez que se implementan todos los componentes, puede verlos en el grupo de re
 
 1. Seleccione un firewall implementado y, a continuación, seleccione **Visit Azure Firewall Manager to configure and manage this firewall** (Visite Azure Firewall Manager para configurar y administrar este firewall).
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagrama de la arquitectura de la IP pública" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Seleccione un firewall implementado." border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. Seleccione **Directivas de Azure Firewall** y, a continuación, seleccione **Crear una directiva de Azure Firewall**.
 
-   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Diagrama de la arquitectura de la IP pública" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
+   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Seleccione Directivas de Azure Firewall y, a continuación, seleccione Crear una directiva de Azure Firewall." border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
-1. En la pestaña **Básico**, proporcione los detalles necesarios y seleccione **Siguiente: Configuración de DNS**. 
+1. En la pestaña **Básico** , proporcione los detalles necesarios y seleccione **Siguiente: Configuración de DNS**. 
 
-1. En la pestaña **DNS**, seleccione **Deshabilitar** y, a continuación, seleccione **Siguiente: Las reglas**.
+1. En la pestaña **DNS** , seleccione **Deshabilitar** y, a continuación, seleccione **Siguiente: Las reglas**.
 
-1. Seleccione **Agregar una colección de reglas**, proporcione los detalles siguientes y seleccione **Agregar**; a continuación, seleccione **Siguiente: Inteligencia sobre amenazas**.
+1. Seleccione **Agregar una colección de reglas** , proporcione los detalles siguientes y seleccione **Agregar** ; a continuación, seleccione **Siguiente: Inteligencia sobre amenazas**.
 
    -  Name
    -  Tipo de colección de reglas: DNAT
@@ -126,8 +128,8 @@ Una vez que se implementan todos los componentes, puede verlos en el grupo de re
    -  Acción de la colección de reglas: permitir
    -  Nombre de la regla
    -  Tipo de origen: **IPaddress**
-   -  Origen: **\***
-   -  Protocolo **TCP**
+   -  Origen: * *\** _
+   -  Protocolo: _ *TCP**
    -  Puerto de destino: **80**
    -  Tipo de destino: **Dirección IP**
    -  Destino: **Dirección IP pública**
@@ -138,11 +140,11 @@ Una vez que se implementan todos los componentes, puede verlos en el grupo de re
 
 1. Seleccione **Asociar centros virtuales**.
 
-   :::image type="content" source="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png" alt-text="Diagrama de la arquitectura de la IP pública" border="true" lightbox="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png":::
+   :::image type="content" source="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png" alt-text="En la pestaña Centros, seleccione Asociar centros virtuales." border="true" lightbox="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png":::
 
 1. Seleccione un centro de la lista y seleccione **Agregar**.
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Diagrama de la arquitectura de la IP pública" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::.
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Seleccione un centro de la lista y seleccione Agregar" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::.
 
 1. Seleccione **Siguiente: Etiquetas**. 
 

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 2a986afa1916d179834c516a26f76a2789f82452
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87511894"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910481"
 ---
 # <a name="monitor-azure-data-share"></a>Supervisión de Azure Data Share  
 
@@ -42,7 +42,7 @@ Vea el estado de las suscripciones a recursos compartidos de datos. Para ello va
 
 En la pestaña **Historial** de un recurso compartido, puede ver cuándo se copian los datos del proveedor de datos al almacén de datos del consumidor de datos. Es posible supervisar la frecuencia, duración y estado de cada instantánea. 
 
-![Historial de instantáneas](./media/sent-shares.png "Historial de instantáneas") 
+![Captura de pantalla en la que se muestran los recursos compartidos enviados en Azure Portal.](./media/sent-shares.png "Historial de instantáneas") 
 
 Para ver más información sobre la ejecución de cada instantánea, haga clic en la fecha de inicio de la ejecución. A continuación, haga clic en el estado de cada conjunto de datos para ver la cantidad de datos transferidos, el número de archivos o registros copiados, la duración de la instantánea, el número de núcleos virtuales usados y el mensaje de error, si hay alguno. 
 
@@ -52,7 +52,7 @@ Se muestra un máximo de 30 días de historial de instantáneas. Si tiene que gu
 
 Puede establecer la configuración de diagnóstico para guardar eventos o datos de registro. Vaya a Supervisión -> Configuración de diagnóstico y seleccione **Agregar configuración de diagnóstico**. Seleccione los eventos o datos de registro que le interesen, así como el lugar donde quiera almacenarlos o enviarlos. 
 
-![Historial de instantáneas](./media/diagnostic-settings.png "Configuración de diagnóstico") 
+![Captura de pantalla en la que se muestra la página de configuración de diagnóstico en Azure Portal.](./media/diagnostic-settings.png "Configuración de diagnóstico") 
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

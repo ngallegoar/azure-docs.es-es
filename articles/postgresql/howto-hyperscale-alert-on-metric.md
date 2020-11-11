@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 8b59bcf3f25921a348e9c5f25e83619d8596ebd5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7e455565a0cd5e1fc96a6fe7d9e0502da3214fcf
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489870"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909920"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Use Azure Portal para configurar alertas métricas en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -41,13 +41,13 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
 4. Se abre la página **Crear regla** , tal y como se muestra a continuación. Rellene la información necesaria:
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Selección de Reglas de alerta":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Formulario de adición de alerta de métrica":::
 
-5. En la sección de **Condición** , seleccione **Agregar** .
+5. En la sección de **Condición** , seleccione **Agregar**.
 
 6. Seleccione una métrica de la lista de señales sobre las que desea recibir alertas. En este ejemplo, seleccione "Porcentaje de almacenamiento".
    
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Selección de Reglas de alerta":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Captura de pantalla en la que se muestra la página para configurar la lógica de señal, donde puede ver varias señales.":::
 
 7. Configure la lógica de alertas:
 
@@ -58,17 +58,25 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
    
    Seleccione **Listo** cuando haya terminado.
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Selección de Reglas de alerta" con un nombre, un nombre corto, la suscripción y el grupo de recursos.
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Captura de pantalla en la que se muestra el panel donde puede configurar la lógica de alertas.":::
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Selección de Reglas de alerta" para enviar notificaciones a los suscriptores, contribuidores y lectores.
+8. En la sección **Grupos de acciones** , seleccione **Crear nuevo** para crear un grupo en el que recibir las notificaciones sobre la alerta.
+
+9. Rellene el formulario "Agregar grupo de acciones" con un nombre, un nombre corto, la suscripción y el grupo de recursos.
+
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Captura de pantalla en la que se muestra el formulario para agregar un grupo de acciones, donde puede especificar los valores descritos.":::
+
+10. Configure el tipo de acción **Correo electrónico/SMS/Push/Voz**.
+    
+    Elija "Rol de Azure Resource Manager de correo electrónico" para enviar notificaciones a los suscriptores, contribuidores y lectores.
    
-    Cuando haya terminado, seleccione **Aceptar** .
+    Cuando haya terminado, seleccione **Aceptar**.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Selección de Reglas de alerta":::
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Captura de pantalla en la que se muestra el panel Email/S M S/Push/Voice.":::
 
 11. Especifique el nombre de la regla de alertas, la descripción y la gravedad.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Selección de Reglas de alerta"::: 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Captura de pantalla en la que se muestra el panel de detalles de alerta."::: 
 
 12. Seleccione **Crear regla de alerta** para crear la alerta.
 

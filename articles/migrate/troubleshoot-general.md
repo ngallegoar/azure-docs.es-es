@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: hamusa
-ms.openlocfilehash: 433f3cc29e334a9034fa073d4ace735fc7e7e3ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e7c54f47db645f218ea68ea475146143f806de1
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75722173"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912997"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -28,7 +28,7 @@ Revise las [respuestas a problemas comunes](troubleshoot-appliance-discovery.md)
 
 ## <a name="machines-arent-discovered"></a>No se detectan las máquinas.
 
-Revise los problemas de detección de habituales.
+Revise los [problemas de detección de habituales](common-questions-discovery-assessment.md).
 
 ## <a name="app-discovery-isnt-working"></a>La detección de aplicaciones no funciona.
 

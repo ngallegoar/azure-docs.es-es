@@ -12,12 +12,12 @@ ms.date: 10/27/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a8e3b6cfce9bff76ec3989273cadadebb23d6d40
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795038"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913252"
 ---
 # <a name="switching-organizations-in-a-portal"></a>Cambio de organización en un portal
 
@@ -34,7 +34,7 @@ El cambio de organizaciones no está disponible para **Mis inicios de sesión** 
 
 ## <a name="switch-organizations"></a>Cambio de organizaciones
 
-A continuación, se muestra cómo cambiar a otra organización. En este ejemplo se usa en el portal **Mi cuenta** , pero el icono del conmutador y la ubicación también son similares en otros portales.
+A continuación, se muestra cómo cambiar a otra organización. En este ejemplo se usa el portal **Mi cuenta** , pero el icono del conmutador y la selección de ubicación también son similares en otros portales.
 
 1. Inicie sesión en su cuenta profesional o educativa y abra la página [Mi cuenta](https://myaccount.microsoft.com).
 1. Seleccione el conmutador de organizaciones (:::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="el icono del conmutador de organizaciones"::: se encuentra en la parte superior de la página, junto a la foto de la cuenta).

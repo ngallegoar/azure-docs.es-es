@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: dbe277c7451b02887ec5657b1a183fcd001d134e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 93b692574588396f776c4d62bd24072382ae8471
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148282"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912147"
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
 
@@ -43,7 +43,7 @@ Debe tener los permisos adecuados para acceder a cualquiera de los puntos de con
 
 Puede conceder los [permisos](#iot-hub-permissions) de las maneras siguientes:
 
-* **Directivas de acceso compartido de nivel de centro de IoT**. Las directivas de acceso compartido pueden conceder cualquier combinación de los [permisos](#iot-hub-permissions). Puede definir directivas en [Azure Portal](https://portal.azure.com), mediante programación con las [API REST de recursos de IoT Hub](/rest/api/iothub/iothubresource) o con el comando [az iot hub policy](/cli/azure/iot/hub/policy?view=azure-cli-latest) de la CLI. Un Centro de IoT recién creado tiene las siguientes directivas predeterminadas:
+* **Directivas de acceso compartido de nivel de centro de IoT**. Las directivas de acceso compartido pueden conceder cualquier combinación de los [permisos](#iot-hub-permissions). Puede definir directivas en [Azure Portal](https://portal.azure.com), mediante programación con las [API REST de recursos de IoT Hub](/rest/api/iothub/iothubresource) o con el comando [az iot hub policy](/cli/azure/iot/hub/policy) de la CLI. Un Centro de IoT recién creado tiene las siguientes directivas predeterminadas:
   
   | Directiva de acceso compartido | Permisos |
   | -------------------- | ----------- |
@@ -51,7 +51,7 @@ Puede conceder los [permisos](#iot-hub-permissions) de las maneras siguientes:
   | service | Permisos **ServiceConnect** |
   | device | Permisos **DeviceConnect** |
   | registryRead | Permisos **RegistryRead** |
-  | registryReadWrite | Permisos**RegistryRead** y **RegistryWrite** |
+  | registryReadWrite | Permisos **RegistryRead** y **RegistryWrite** |
 
 * **Credenciales de seguridad de cada dispositivo**. Cada instancia de IoT Hub contiene un [registro de identidades](iot-hub-devguide-identity-registry.md), y para cada dispositivo de este registro de identidades, puede configurar credenciales de seguridad que otorgan permisos **DeviceConnect** con ámbito a los puntos de conexión de dispositivo correspondientes.
 
@@ -99,7 +99,7 @@ HTTPS implementa la autenticación mediante la inclusión de un token válido en
 
 Nombre de usuario (DeviceId distingue entre mayúsculas y minúsculas): `iothubname.azure-devices.net/DeviceId`
 
-Contraseña (puede generar un token de SAS con el comando de extensión de la CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) o [Azure IoT Tools para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
+Contraseña (puede generar un token de SAS con el comando de extensión de la CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) o [Azure IoT Tools para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -116,7 +116,7 @@ Cuando se usa SASL PLAIN con AMQP, un cliente que se conecta a una instancia de 
 
 ## <a name="scope-iot-hub-level-credentials"></a>Restricción de las credenciales de nivel de centro de IoT
 
-Puede restringir el ámbito de las directivas de seguridad de nivel de centro de IoT mediante la creación de tokens con un URI de recurso restringido. Por ejemplo, el punto de conexión para enviar mensajes de dispositivo a nube desde un dispositivo es **/devices/{deviceId}/messages/events**. También puede usar una directiva de acceso compartido de nivel de centro de IoT con permisos **DeviceConnect** para firmar un token cuyo resourceURI sea **/devices/{deviceId}** . Este enfoque crea un token que solo se puede usar para enviar mensajes en nombre del **deviceId**del dispositivo.
+Puede restringir el ámbito de las directivas de seguridad de nivel de centro de IoT mediante la creación de tokens con un URI de recurso restringido. Por ejemplo, el punto de conexión para enviar mensajes de dispositivo a nube desde un dispositivo es **/devices/{deviceId}/messages/events**. También puede usar una directiva de acceso compartido de nivel de centro de IoT con permisos **DeviceConnect** para firmar un token cuyo resourceURI sea **/devices/{deviceId}** . Este enfoque crea un token que solo se puede usar para enviar mensajes en nombre del **deviceId** del dispositivo.
 
 Se trata de un mecanismo similar a la [directiva de edición de Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab), que permite que se implementen métodos de autenticación personalizados.
 
@@ -144,13 +144,13 @@ Estos son los valores esperados:
 
 | Value | Descripción |
 | --- | --- |
-| {signature} |Una cadena de firma HMAC-SHA256 con el formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: La clave se descodifica en base64 y se utiliza para realizar el cálculo de HMAC-SHA256. |
+| {signature} |Una cadena de firma HMAC-SHA256 con el formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante** : La clave se descodifica en base64 y se utiliza para realizar el cálculo de HMAC-SHA256. |
 | {resourceURI} |Prefijo del identificador URI (por segmento) de los puntos de conexión a los que se puede obtener acceso con este token, que comienza por un nombre de host de IoT Hub (sin protocolo) Por ejemplo: `myHub.azure-devices.net/devices/device1` |
 | {expiry} |Cadenas UTF8 para el número de segundos transcurridos desde el tiempo 00:00:00 UTC el 1 de enero de 1970. |
 | {URL-encoded-resourceURI} |Codificación de dirección URL en minúsculas del URI del recurso en minúsculas |
 | {policyName} |El nombre de la directiva de acceso compartido a la que hace referencia este token. Ausente en caso de que el token haga referencia a las credenciales del registro de dispositivos. |
 
-**Nota sobre el prefijo**: el prefijo URI se calcula por segmento y no por carácter. Por ejemplo `/a/b` es un prefijo de `/a/b/c` pero `/a/bc`.
+**Nota sobre el prefijo** : el prefijo URI se calcula por segmento y no por carácter. Por ejemplo `/a/b` es un prefijo de `/a/b/c` pero `/a/bc`.
 
 El siguiente fragmento de Node.js muestra una función denominada **generateSasToken** que calcula el token de las entradas `resourceUri, signingKey, policyName, expiresInMins`. Las secciones siguientes detallan cómo inicializar las entradas diferentes para los distintos casos de uso de token.
 
@@ -303,7 +303,7 @@ El resultado, que concede acceso a todas las funcionalidades del dispositivo1, s
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Se puede generar un token de SAS con el comando de extensión de la CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) o con [Azure IoT Tools para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+> Se puede generar un token de SAS con el comando de extensión de la CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) o con [Azure IoT Tools para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 ### <a name="use-a-shared-access-policy"></a>Uso de una directiva de acceso compartido
 
@@ -381,9 +381,9 @@ Los certificados admitidos incluyen:
 
 * **Certificado X.509 firmado por una CA**. Puede utilizar un certificado X.509 generado y firmado por una entidad de certificación (CA) con el objetivo de identificar un dispositivo y autenticarlo con IoT Hub. Funciona con la autenticación por huella digital o CA.
 
-* **Un certificado X-509 autofirmado y generado automáticamente**. Un fabricante de dispositivos o implementador interno pueden generar estos certificados y almacenar la clave privada correspondiente (y el certificado) en el dispositivo. Puede usar herramientas como [OpenSSL](https://www.openssl.org/) y la utilidad [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) para este fin. Solo funciona con la autenticación por huella digital. 
+* **Un certificado X-509 autofirmado y generado automáticamente**. Un fabricante de dispositivos o implementador interno pueden generar estos certificados y almacenar la clave privada correspondiente (y el certificado) en el dispositivo. Puede usar herramientas como [OpenSSL](https://www.openssl.org/) y la utilidad [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) para este fin. Solo funciona con la autenticación por huella digital.
 
-Un dispositivo puede usar un token de seguridad o un certificado X.509 para realizar la autenticación, pero no ambos.
+Un dispositivo puede usar un token de seguridad o un certificado X.509 para realizar la autenticación, pero no ambos. Con la autenticación de certificados X.509, asegúrese de que dispone de una estrategia para controlar la sustitución de certificados cuando expire un certificado existente.
 
 La funcionalidad siguiente no es compatible con los dispositivos que usan la autenticación con la entidad de certificación X.509:
 
@@ -396,7 +396,7 @@ Para más información sobre la autenticación mediante una entidad de certifica
 
 El [SDK de servicio de Azure IoT para C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (versión 1.0.8 o posterior) permite registrar un dispositivo que utilice un certificado X.509 para realizar la autenticación. Otras API como la importación y exportación de dispositivos también admiten este tipo de certificados.
 
-También puede usar el comando de la extensión de la CLI [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) para configurar certificados X.509 para los dispositivos.
+También puede usar el comando de la extensión de la CLI [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para configurar certificados X.509 para los dispositivos.
 
 ### <a name="c-support"></a>Compatibilidad con C\#
 

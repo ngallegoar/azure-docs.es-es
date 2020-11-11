@@ -3,12 +3,12 @@ title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar su solución de Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0663d1910e2b67b8302e41a96509bdd84cd1a3a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dff6668050e45d9179cd985aa10670b56afe5377
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102785"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913235"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -41,7 +41,7 @@ Los [grupos](nodes-and-pools.md#pools) de Batch son los recursos de proceso para
 La vigencia del grupo puede variar en función del método de asignación y de las opciones que se apliquen a la configuración del grupo. Los grupos pueden tener una vigencia arbitraria y un número de nodos de proceso variable en el grupo en cualquier momento. Es su responsabilidad administrar los nodos de proceso del grupo, ya sea explícitamente o a través de las características proporcionadas por el servicio (escalado automático o autogrupo).
 
 - **Mantenga los grupos actualizados.**
-    Debe cambiar el tamaño de los grupos a cero cada pocos meses para asegurarse de que obtiene las actualizaciones y las correcciones de errores del agente de nodo más recientes. El grupo no recibirá actualizaciones de agente de nodo a menos que se vuelva a crear o se cambie el tamaño a 0 nodos de proceso. Antes de volver a crear o cambiar el tamaño del grupo, se recomienda descargar los registros del agente de nodo con fines de depuración, como se describe en la sección [Nodos](#nodes).
+    Debe cambiar el tamaño de los grupos a cero cada pocos meses para asegurarse de que obtiene las [actualizaciones y las correcciones de errores del agente de nodo más recientes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). El grupo no recibirá actualizaciones de agente de nodo a menos que se vuelva a crear o se cambie el tamaño a 0 nodos de proceso. Antes de volver a crear o cambiar el tamaño del grupo, se recomienda descargar los registros del agente de nodo con fines de depuración, como se describe en la sección [Nodos](#nodes).
 
 - **Volver a crear el grupo** De forma similar, no se recomienda eliminar y volver a crear los grupos diariamente. En su lugar, cree un nuevo grupo y actualice los trabajos existentes para que apunten al nuevo grupo. Cuando se hayan pasado todas las tareas al nuevo grupo, elimine el grupo anterior.
 

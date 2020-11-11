@@ -7,66 +7,65 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f78aa110ed42e17db873b9593de62602aa4193f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121874"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911144"
 ---
 # <a name="what-is-a-test-drive"></a>¿Qué es una versión de prueba?
 
-Una versión de prueba es una excelente manera de presentar la oferta a clientes potenciales, ya que se les brinda la oportunidad de *probar antes de comprar*, lo que aumenta la conversión y la generación de clientes potenciales altamente cualificados. Una versión de prueba hace que el producto cobre vida en un escenario de implementación real, además de generar clientes potenciales altamente cualificados.
+Una versión de prueba es una excelente manera de presentar la oferta a clientes potenciales, ya que se les brinda la oportunidad de probar antes de comprar, lo que aumenta la conversión y la generación de clientes potenciales altamente cualificados. Una versión de prueba hará que su producto cobre vida en un escenario de implementación real. Los clientes que prueben su producto demostrarán una clara intención de comprar una solución similar. Use las ventajas que le ofrece esta opción realizando el seguimiento de los clientes potenciales más avanzados.
 
-Las versiones de prueba son instancias administradas que implementan la solución o aplicación a petición para los clientes que la solicitan. Una vez que se asigna una instancia de versión de prueba, está disponible para usarla durante el tiempo establecido y, luego, se elimina para hacer espacio para otro cliente.
-
-Como publicador, puede administrar y configurar las opciones de la versión de prueba en el Centro de partners. Los detalles de la configuración técnica varían según el tipo de oferta con la que trabaje. Para obtener instrucciones detalladas, vea el vínculo [Paso siguiente](#next-step) al final de este tema.
-
-Los clientes potenciales descubren la versión de prueba en el marketplace comercial. Proporcionan su información de contacto y aceptan los términos y la directiva de privacidad de la oferta y, después, obtienen acceso al entorno preconfigurado para probarlo durante un período de tiempo fijo. Los clientes reciben una evaluación gratuita práctica y guiada de las principales características y ventajas del producto y, a cambio, usted obtiene un valioso cliente potencial.
+Asimismo, los clientes también podrán usar una versión de prueba. Al permitirles probar el producto en primer lugar, se reduce la fricción del proceso de compra. Además, la versión de prueba está aprovisionada previamente; es decir, los clientes no tienen que descargar, instalar o configurar el producto.
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 
-Como publicador, puede administrar y configurar las opciones de la versión de prueba desde el Centro de partners. Después de configurarla, se convierte en una instancia administrada que se implementará a petición para el cliente que la solicita. Una vez que se asigna una instancia de versión de prueba, está disponible para usarla durante el tiempo establecido y, luego, se elimina para hacer espacio para otro cliente.
+Las versiones de prueba son instancias administradas que inician la solución o aplicación a petición para los clientes que la solicitan. Una vez asignada una instancia de la versión de prueba, el cliente podrá usarla durante un período establecido. Una vez finalizado ese período, se elimina para que otro cliente pueda usarla.
+
+Como publicador, puede administrar y configurar las opciones de la versión de prueba en el Centro de partners. Los detalles de la configuración técnica varían según el tipo de oferta. Para obtener instrucciones detalladas, consulte la [Configuración técnica de la versión de prueba](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+
+Los clientes potenciales detectan la versión de prueba como una CTA de la oferta en [AppSource](https://appsource.microsoft.com/en-US/). Proporcionan su información de contacto y aceptan los términos y la directiva de privacidad de la oferta; a continuación, obtienen acceso al entorno preconfigurado para probarlo durante un período de tiempo fijo. Los clientes reciben una evaluación gratuita práctica y guiada de las principales características y ventajas del producto y, a cambio, usted obtiene un valioso cliente potencial.
 
 ## <a name="types-of-test-drives"></a>Tipos de versiones de prueba
 
 Hay diferentes versiones de prueba disponibles en el marketplace comercial para ofertas concretas según el tipo de producto, el escenario y el marketplace en el que se encuentre:
 
 - Azure Resource Manager
+    - Aplicaciones de Azure
+    - SaaS
+    - Virtual Machines
 - Versión de prueba hospedada
-    - Dynamics 365 for Business Central
+    - Dynamics 365 for Business central (actualmente no se admite)
     - Dynamics 365 for Customer Engagement
     - Dynamics 365 for Operations
-- Aplicación lógica
+- Aplicación lógica (solo en modo de soporte técnico)
 - Power BI
 
-Para obtener más información sobre la configuración de una de estas unidades de prueba, vea el vínculo bajo [Paso siguiente](#next-step) al final de este tema.
+Para obtener más información sobre la configuración de una de estas versiones de prueba, consulte [Configuración técnica de la versión de prueba](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
 Esta plantilla de implementación contiene todos los recursos de Azure que componen la solución. Los productos que se ajustan a este escenario usan solo recursos de Azure. La versión de prueba de Azure Resource Manager está disponible para estos tipos de oferta: 
 
 - Aplicaciones de Azure
-- Dynamics 365 for Business Central
-- Dynamics 365 for Customer Engagement y Power Apps
-- Dynamics 365 for Operations
 - SaaS
 - Máquinas virtuales
 
 >[!NOTE]
 >Es la única opción de versión de prueba para las ofertas de máquina virtual o de aplicación de Azure.
 
-### <a name="hosted-test-drive"></a>Versión de prueba hospedada
+### <a name="hosted-test-drive-recommended"></a>Versión de prueba hospedada (recomendada)
 
-Una versión de prueba hospedada elimina la complejidad de la configuración ya que deja que Microsoft hospede y mantenga el servicio que realiza las tareas de aprovisionamiento, implementación y desaprovisionamiento de los usuarios de la versión de prueba. Si tiene una oferta en Microsoft AppSource, compile la versión de prueba para conectarse con una instancia de Dynamics AX/CRM o cualquier otro recurso más allá de Azure. Use este tipo para que las ofertas de AppSource se conecten con estas de Dynamics 365:
+Una versión de prueba hospedada elimina la complejidad de la configuración ya que deja que Microsoft hospede y mantenga el servicio que realiza las tareas de aprovisionamiento y desaprovisionamiento de los usuarios de la versión de prueba. Si tiene una oferta en Microsoft AppSource, compile la versión de prueba para conectarse con una instancia de Dynamics AX/CRM. Puede usar los siguientes tipos de oferta de AppSource:
 
-- Use [Dynamics 365 for Business Central](partner-center-portal/create-new-operations-offer.md) para un sistema central de planeamiento de recursos empresariales como finanzas, operaciones, cadena de suministro y CRM.
 - Use [Dynamics 365 for Customer Engagement](partner-center-portal/create-new-customer-engagement-offer.md) para un sistema de involucración del cliente como ventas, servicio, servicio de proyecto y servicio de campo.
 - Use [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) para un sistema de planeamiento de recursos empresariales de finanzas y operaciones, como finanzas, operaciones y fabricación, cadena de suministro.
 
 ### <a name="logic-app-test-drive"></a>Versión de prueba de aplicación lógica
 
-Microsoft no hospeda este tipo de versión de prueba. Úselo para conectarse con una oferta de Dynamics 365 u otro recurso personalizado.
+Este tipo de versión de prueba no lo hospeda Microsoft y usa plantillas Azure Resource Manager (ARM) para los tipos de oferta de Dynamics AX/CRM. Tendrá que ejecutar la plantilla de ARM para crear los recursos necesarios en su suscripción de Azure. La versión de prueba de la aplicación lógica solo está disponible en el modo de compatibilidad y Microsoft no la recomienda. Para obtener más información sobre la configuración de la versión de prueba de una aplicación lógica, consulte [Configuración técnica de la versión de prueba](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
 
 ### <a name="power-bi-test-drive"></a>Versión de prueba de Power BI
 
@@ -92,7 +91,7 @@ Si cierra un trato con un cliente potencial de una versión de prueba, no olvide
 
 Recursos adicionales de la versión de prueba:
 
-- [Procedimientos técnicos recomendados](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Prácticas recomendadas de la versión de prueba](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Información general](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF, asegúrese de que el bloqueador de elementos emergentes está desactivado)
 
 ## <a name="next-step"></a>Paso siguiente

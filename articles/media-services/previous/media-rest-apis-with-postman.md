@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: 4cdc3efc766daff38b566e71f06dc4db0f38fe7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d235316ad6a16cdc535c705ec88ec13d6963fb41
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89255518"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910294"
 ---
 # <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Configuración de Postman para llamadas a API REST de Media Services v2
 
@@ -39,26 +39,26 @@ Este entorno y esta colección se utilizan en los artículos que muestran cómo 
 
 ## <a name="configure-the-environment"></a>Configuración del entorno 
 
-1. Cree un archivo .json que contenga las variables de entorno utilizadas en los tutoriales de AMS. Asigne el nombre (por ejemplo, **AzureMediaServices.postman_environment.json**) al archivo. Abra el archivo y pegue el código que define el entorno de Postman desde [esta lista de códigos](postman-environment.md). 
+1. Cree un archivo .json que contenga las variables de entorno utilizadas en los tutoriales de AMS. Asigne el nombre (por ejemplo, **AzureMediaServices.postman_environment.json** ) al archivo. Abra el archivo y pegue el código que define el entorno de Postman desde [esta lista de códigos](postman-environment.md). 
 2. Abra **Postman**.
 3. A la derecha de la pantalla, seleccione la opción **Manage Environments** (Administrar entornos).
 
-    ![Cargar un archivo](./media/media-services-rest-upload-files/postman-create-env.png)
+    ![Captura de pantalla en la que se muestra la opción para administrar el entorno seleccionada.](./media/media-services-rest-upload-files/postman-create-env.png)
 4. En el cuadro de diálogo **Manage Environments** (Administrar entornos), haga clic en **Import** (Importar).
 5. Busque y seleccione el archivo **AzureMediaServices.postman_environment.json**.
 6. Se agregará el entorno **AzureMedia**.
 7. Cierre el cuadro de diálogo.
 8. Seleccione el entorno **AzureMedia**.
 
-    ![Cargar un archivo](./media/media-services-rest-upload-files/postman-choose-env.png)
+    ![Captura de pantalla en la que se muestra el entorno de AzureMedia seleccionado.](./media/media-services-rest-upload-files/postman-choose-env.png)
 
 ## <a name="configure-the-collection"></a>Configuración de la colección
 
-1. Cree un archivo .json que contenga la colección de **Postman** con todas las operaciones que son necesarios para cargar un archivo a Media Services. Asigne el nombre (por ejemplo, **AzureMediaServicesOperations.postman_collection.json**) al archivo. Abra el archivo y pegue el código que define la colección de **Postman** desde [esta lista de códigos](postman-collection.md).
+1. Cree un archivo .json que contenga la colección de **Postman** con todas las operaciones que son necesarios para cargar un archivo a Media Services. Asigne el nombre (por ejemplo, **AzureMediaServicesOperations.postman_collection.json** ) al archivo. Abra el archivo y pegue el código que define la colección de **Postman** desde [esta lista de códigos](postman-collection.md).
 2. Haga clic en **Import** (Importar) para importar el archivo de la colección.
 3. Elija el archivo **AzureMediaServicesOperations.postman_collection.json**.
 
-    ![Cargar un archivo](./media/media-services-rest-upload-files/postman-import-collection.png)
+    ![Captura de pantalla en la que se muestra el cuadro de diálogo IMPORTAR con la opción para elegir archivos seleccionada.](./media/media-services-rest-upload-files/postman-import-collection.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
