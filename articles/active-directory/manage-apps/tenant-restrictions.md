@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce96eb5e91ccc4cb9f69711f9e6fd8fd59ce65bc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669931"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286213"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -33,7 +33,7 @@ Este artículo se centra en las restricciones de inquilino para Microsoft 365, 
 
 La solución general consta de los siguientes componentes:
 
-1. **Azure AD** : si `Restrict-Access-To-Tenants: <permitted tenant list>` está presente, Azure AD solo emite tokens de seguridad para los inquilinos permitidos.
+1. **Azure AD** : si el encabezado `Restrict-Access-To-Tenants: <permitted tenant list>` está presente, Azure AD solo emite tokens de seguridad para los inquilinos permitidos.
 
 2. **Infraestructura de servidor proxy local** : Esta infraestructura es un dispositivo proxy compatible con la inspección de Seguridad de la capa de transporte (TLS). Debe configurar el proxy para insertar el encabezado que contiene la lista de inquilinos permitidos en el tráfico destinado a Azure AD.
 
@@ -63,7 +63,7 @@ Se necesita la configuración siguiente para habilitar restricciones de inquilin
 
 - Los clientes deben confiar en la cadena de certificados que presenta el proxy para las comunicaciones TLS. Por ejemplo, si se usan certificados de una [infraestructura de clave pública (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) interna, el certificado de la entidad de certificación raíz emisora interna debe ser de confianza.
 
-- Esta característica se incluye en las suscripciones de Microsoft 365, pero si quiere usar restricciones de inquilino para controlar el acceso a otras aplicaciones SaaS, necesitará licencias Premium 1 de Azure AD.
+- Las licencias de Azure AD Premium 1 son necesarias para el uso de restricciones de inquilino. 
 
 #### <a name="configuration"></a>Configuración
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c02812d4c97b94667fcddcb275243e7a9b36b29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01fb93a4b74a35501d0684b822ea83fc7b20770a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321911"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130585"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Creación de un grupo de acciones con una plantilla de Resource Manager
 En este artículo se muestra cómo utilizar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar grupos de acciones. Mediante el uso de plantillas, puede configurar automáticamente grupos de acciones que se pueden reutilizar en determinados tipos de alertas. Estos grupos de acciones garantizan que se notifique a todas las entidades correctas cuando se desencadene una alerta.
@@ -23,11 +23,11 @@ Los pasos básicos son:
 
 2. Implemente la plantilla mediante [cualquier método de implementación](../../azure-resource-manager/templates/deploy-powershell.md).
 
-En primer lugar, se describe cómo crear una plantilla de Resource Manager para un grupo de acciones donde las definiciones de acción están codificadas en la plantilla. En segundo lugar, se describe cómo crear una plantilla que toma la información de configuración de webhook como parámetros de entrada cuando se implementa la plantilla.
-
 ## <a name="resource-manager-templates-for-an-action-group"></a>Plantillas de Resource Manager para un grupo de acciones
 
 Para crear un grupo de acciones mediante una plantilla de Resource Manager, cree un recurso del tipo `Microsoft.Insights/actionGroups`. A continuación, rellene todas las propiedades relacionadas. Aquí hay dos plantillas de ejemplo que crean un grupo de acciones.
+
+En la primera plantilla se describe cómo crear una plantilla de Resource Manager para un grupo de acciones, en el que las definiciones de acción están codificadas en la plantilla. En la segunda plantilla, se describe cómo crear una plantilla que toma la información de configuración de webhook como parámetros de entrada cuando se implementa la plantilla.
 
 ```json
 {

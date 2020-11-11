@@ -9,22 +9,22 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 085f865b567cf67adfd6f50a37e07ac40b36f871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00501a1e17f8e085b817cfe3dac819ba890248f5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356577"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309848"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importación de datos de entrenamiento en Azure Machine Learning Studio (clásico) desde varios orígenes de datos
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Para usar sus propios datos en Machine Learning Studio (clásico) para desarrollar y entrenar una solución de análisis predictivo, puede usar los datos de: 
 
-* Un **archivo local**: cargue los datos locales de antemano desde la unidad de disco duro para crear un módulo de conjunto de datos en su área de trabajo
-* **Orígenes de datos en línea**: use el módulo [Importar datos][import-data] para acceder a los datos de varios orígenes en línea mientras se ejecuta su experimento
+* Un **archivo local** : cargue los datos locales de antemano desde la unidad de disco duro para crear un módulo de conjunto de datos en su área de trabajo
+* **Orígenes de datos en línea** : use el módulo [Importar datos][import-data] para acceder a los datos de varios orígenes en línea mientras se ejecuta su experimento
 * **Experimento de Machine Learning Studio (clásico)** : use los datos que se guardaron como un conjunto de datos en Machine Learning Studio (clásico)
 * [**Base de datos de SQL Server**](use-data-from-an-on-premises-sql-server.md): use los datos de una base de datos de SQL Server sin tener que copiar manualmente los datos
 
@@ -73,12 +73,12 @@ Studio (clásico) reconoce los siguientes tipos de datos:
 * DateTime
 * TimeSpan
 
-Studio usa un tipo de datos interno llamado ***tabla de datos*** para pasar datos entre los módulos. Puede convertir explícitamente sus datos en formato de tabla de datos con el módulo [Convertir al conjunto de datos][convert-to-dataset].
+Studio usa un tipo de datos interno llamado * **tabla de datos** _ para pasar datos entre los módulos. Puede convertir explícitamente sus datos en formato de tabla de datos con el módulo [Convertir al conjunto de datos][convert-to-dataset].
 
 Todo módulo que acepta formatos distintos de tabla de datos convertirá los datos a tabla de datos de manera silenciosa antes de pasarlos al módulo siguiente.
 
 En caso de ser necesario, puede convertir el formato tabla de datos de vuelta al formato CSV, TSV, ARFF o SVMLight mediante otros módulos de conversión.
-Consulte la sección **Conversiones de formatos de datos** de la paleta de módulos para ver los módulos que realizan estas funciones.
+Consulte la sección _ *Conversiones de formatos de datos* * de la paleta de módulos para ver los módulos que realizan estas funciones.
 
 ## <a name="data-capacities"></a>Capacidades de datos
 
@@ -101,7 +101,7 @@ Los siguientes módulos están limitados a conjuntos de datos de menos de 10 GB
 
 En el caso de conjuntos de datos que tengan más de 2 GB, cargue los datos en Azure Storage o Azure SQL Database, o use Azure HDInsight, en lugar de cargarlos directamente desde el archivo local.
 
-Puede encontrar información acerca de los datos de las imágenes en la referencia del módulo [Importar imágenes](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes).
+Puede encontrar información acerca de los datos de las imágenes en la referencia del módulo [Importar imágenes](/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes).
 
 ## <a name="import-from-a-local-file"></a>Importación desde un archivo local
 
@@ -111,7 +111,7 @@ Para importar datos desde una unidad de disco duro local, siga estos pasos:
 
 1. Haga clic en **+NUEVO** en la parte inferior de la ventana de Studio (clásico).
 2. Seleccione **CONJUNTO DE DATOS** y **DESDE ARCHIVO LOCAL**.
-3. En el cuadro de diálogo **Cargar un nuevo conjunto de datos**, vaya al archivo que quiere cargar.
+3. En el cuadro de diálogo **Cargar un nuevo conjunto de datos** , vaya al archivo que quiere cargar.
 4. Escriba un nombre, identifique el tipo de datos y, si lo desea, escriba una descripción. Se recomienda incluir una descripción: le permite registrar cualquier característica acerca de los datos que quiera recordar cuando use los datos en el futuro.
 5. La casilla **Esta es la versión nueva de un conjunto de datos existente** le permite actualizar una base de datos existente con datos nuevos. Para ello, haga clic en esta casilla y, luego, escriba el nombre de un conjunto de datos existente.
 
@@ -160,7 +160,7 @@ El módulo **Importar datos** de Azure Machine Learning Studio (clásico) admite
 | Origen de datos | Descripción | Parámetros |
 | --- | --- | --- |
 | Dirección URL web a través de HTTP |Lee datos en valores separados por comas (CSV), valores separados por tabulaciones (TSV), formato de archivo de atributo-relación (ARFF) y formatos de máquinas de vectores de soporte (SVM-light), desde cualquier dirección URL web que use HTTP |<b>URL</b>: Especifica el nombre completo del archivo, incluida la dirección URL del sitio y el nombre de archivo, con cualquier extensión. <br/><br/><b>Formato de datos</b>: Especifica uno de los formatos de datos admitidos: CSV, TSV, ARFF o SVM-light. Si los datos tienen una fila de encabezado, esta se usa para asignar nombres de columna. |
-| Hadoop/HDFS |Lee datos de almacenamiento distribuido de Hadoop. Especifique los datos que desee mediante HiveQL, un lenguaje de consulta similar a SQL. HiveQL también se puede usar para agregar datos y realizar un filtrado de datos antes de agregarlos a Studio (clásico). |<b>Consulta de base de datos de Hive</b>: Especifica la consulta de Hive usada para generar los datos.<br/><br/><b>URI del servidor de HCatalog </b>: Especifica el nombre del clúster con el formato *&lt;nombre del clúster&gt;.azurehdinsight.net.*<br/><br/><b>Nombre de la cuenta de usuario de Hadoop</b>: Especifica el nombre de la cuenta de usuario de Hadoop usada para aprovisionar el clúster.<br/><br/><b>Contraseña de cuenta de usuario de Hadoop</b>: Especifica las credenciales usadas para aprovisionar el clúster. Para más información, consulte [Creación de clústeres de Hadoop en HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Ubicación de los datos de salida</b>: Especifica si los datos se almacenan en un sistema de archivos distribuido de Hadoop (HDFS) o en Azure. <br/><ul>Si almacena datos de salida en HDFS, especifique el URI del servidor HDFS. (Asegúrese de usar el nombre del clúster de HDInsight sin el prefijo HTTPS://). <br/><br/>Si almacena los datos de salida en Azure, debe especificar el nombre de cuenta de Azure Storage, la clave de acceso a Storage y el nombre del contenedor de Storage.</ul> |
+| Hadoop/HDFS |Lee datos de almacenamiento distribuido de Hadoop. Especifique los datos que desee mediante HiveQL, un lenguaje de consulta similar a SQL. HiveQL también se puede usar para agregar datos y realizar un filtrado de datos antes de agregarlos a Studio (clásico). |<b>Consulta de base de datos de Hive</b>: Especifica la consulta de Hive usada para generar los datos.<br/><br/><b>URI del servidor de HCatalog</b>: Especifica el nombre del clúster con el formato *&lt;nombre del clúster&gt;.azurehdinsight.net.*<br/><br/><b>Nombre de la cuenta de usuario de Hadoop</b>: Especifica el nombre de la cuenta de usuario de Hadoop usada para aprovisionar el clúster.<br/><br/><b>Contraseña de cuenta de usuario de Hadoop</b>: Especifica las credenciales usadas para aprovisionar el clúster. Para más información, consulte [Creación de clústeres de Hadoop en HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).<br/><br/><b>Ubicación de los datos de salida</b>: Especifica si los datos se almacenan en un sistema de archivos distribuido de Hadoop (HDFS) o en Azure. <br/><ul>Si almacena datos de salida en HDFS, especifique el URI del servidor HDFS. (Asegúrese de usar el nombre del clúster de HDInsight sin el prefijo HTTPS://). <br/><br/>Si almacena los datos de salida en Azure, debe especificar el nombre de cuenta de Azure Storage, la clave de acceso a Storage y el nombre del contenedor de Storage.</ul> |
 | Base de datos SQL |Lee los datos almacenados en una base de datos de Azure SQL Database, SQL Managed Instance o SQL Server que se ejecuta en una máquina virtual de Azure. |<b>Nombre del servidor de bases de datos</b>: Especifica el nombre del servidor en el que se ejecuta la base de datos.<br/><ul>En el caso de Azure SQL Database, escriba el nombre del servidor que se genera. Normalmente tiene el formato *&lt;identificador_generado&gt;.database.windows.net*. <br/><br/>En el caso de un servidor SQL Server hospedado en una máquina virtual de Azure, escriba *tcp:&lt;nombre DNS de la máquina virtual&gt;, 1433*</ul><br/><b>Nombre de base de datos</b>: Especifica el nombre de la base de datos en el servidor. <br/><br/><b>Nombre de cuenta de usuario del servidor</b>: Especifica un nombre de usuario de una cuenta que tiene permisos de acceso para la base de datos. <br/><br/><b>Contraseña de cuenta de usuario del servidor</b>: Especifica la contraseña para la cuenta de usuario.<br/><br/><b>Consulta de base de datos</b>: escriba una instrucción SQL que describa los datos que desea leer. |
 | SQL Database local |Lee los datos almacenados en una bases de datos SQL. |<b>Puerta de enlace de datos</b>: Especifica el nombre de la instancia de la puerta de enlace de administración de datos instalada en un equipo donde puede acceder a la base de datos de SQL Server. Para más información sobre cómo configurar la puerta de enlace, consulte [Análisis avanzados con Azure Machine Learning Studio (clásico) con datos de una base de datos de SQL Server](use-data-from-an-on-premises-sql-server.md).<br/><br/><b>Nombre del servidor de bases de datos</b>: Especifica el nombre del servidor en el que se ejecuta la base de datos.<br/><br/><b>Nombre de base de datos</b>: Especifica el nombre de la base de datos en el servidor. <br/><br/><b>Nombre de cuenta de usuario del servidor</b>: Especifica un nombre de usuario de una cuenta que tiene permisos de acceso para la base de datos. <br/><br/><b>Nombre de usuario y contraseña</b>: Haga clic en <b>Especificar valores</b> y escriba sus credenciales de la base de datos. Puede usar la autenticación integrada de Windows o la autenticación de SQL Server según la configuración de SQL Server.<br/><br/><b>Consulta de base de datos</b>: escriba una instrucción SQL que describa los datos que desea leer. |
 | tabla de Azure |Lee los datos de Table service en Azure Storage.<br/><br/>Si se leen grandes cantidades de datos con poca frecuencia, use el servicio Tabla de Azure. Proporciona una solución de almacenamiento flexible, no relacional (No SQL), escalable a gran escala, económica y de alta disponibilidad. |Las opciones del módulo **Importar datos** cambian en función de si se accede a información pública o a una cuenta de almacenamiento privada que requiere credenciales de inicio de sesión. Esto viene determinado por el <b>Tipo de autenticación</b> que puede tener el valor "PublicOrSAS" o "Cuenta", cada uno de los cuales tiene su propio conjunto de parámetros. <br/><br/><b>URI de firma de acceso compartido (SAS) o público</b>: Los parámetros son los siguientes:<br/><br/><ul><b>URI de la tabla</b>: Especifica la dirección URL SAS o pública de la tabla.<br/><br/><b>Especifica las filas en las que se van a buscar nombres de propiedad</b>: Los valores son <i>TopN</i> para examinar el número especificado de filas, o <i>ScanAll</i> para buscar en todas las filas de la tabla. <br/><br/>Si los datos son homogéneos y predecibles, se recomienda que seleccione *TopN* y escriba un número para N. Para las tablas grandes, esto puede reducir los tiempos de lectura.<br/><br/>Si los datos están estructurados con conjuntos de propiedades que varían en función de la profundidad y la posición de la tabla, elija la opción *ScanAll* para examinar todas las filas. Esto garantiza la integridad de la propiedad resultante y la conversión de metadatos.<br/><br/></ul><b>Cuenta de almacenamiento privado</b>: Los parámetros son los siguientes: <br/><br/><ul><b>Nombre de cuenta</b>: Especifica el nombre de la cuenta que contiene la tabla que se va a leer.<br/><br/><b>Clave de cuenta</b>: Especifica la clave de almacenamiento asociada con la cuenta.<br/><br/><b>Nombre de tabla</b>: Especifica el nombre de la tabla que contiene los datos que se van a leer.<br/><br/><b>Filas en las que se van a buscar nombres de propiedad</b>: Los valores son <i>TopN</i> para examinar el número especificado de filas, o <i>ScanAll</i> para buscar en todas las filas de la tabla.<br/><br/>Si los datos son homogéneos y predecibles, se recomienda que seleccione *TopN* y escriba un número para N. Para las tablas grandes, esto puede reducir los tiempos de lectura.<br/><br/>Si los datos están estructurados con conjuntos de propiedades que varían en función de la profundidad y la posición de la tabla, elija la opción *ScanAll* para examinar todas las filas. Esto garantiza la integridad de la propiedad resultante y la conversión de metadatos.<br/><br/> |
@@ -184,11 +184,11 @@ Cuando termine de guardar, el conjunto de datos estará disponible para usarlo d
 
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[export-data]: /azure/machine-learning/studio-module-reference/export-data
 
 
 <!-- Module References -->
-[convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[convert-to-dataset]: /azure/machine-learning/studio-module-reference/convert-to-dataset
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

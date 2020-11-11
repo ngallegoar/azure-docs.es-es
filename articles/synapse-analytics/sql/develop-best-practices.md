@@ -10,17 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: fe00d7f107911e2245041419c20f86e2e32a0480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5e514602668c96d63562e45fb114cf9770a54a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289266"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321486"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Procedimientos recomendados de desarrollo para SQL de Synapse
+
 En este artículo se describen la guía y los procedimientos recomendados a medida que desarrolla una solución de almacenamiento de datos. 
 
-## <a name="sql-pool-development-best-practices"></a>Procedimientos recomendados para el desarrollo de grupos de SQL
+## <a name="dedicated-sql-pool-development-best-practices"></a>Procedimientos recomendados para el desarrollo de grupos de SQL dedicados
 
 ### <a name="reduce-cost-with-pause-and-scale"></a>Menos costos gracias a las características de pausa y escalado
 
@@ -55,12 +56,12 @@ Consulte los siguientes vínculos para conocer detalles adicionales sobre cómo 
 Consulte también [Información general de tablas](develop-tables-overview.md), [Distribución de tablas](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Selección de distribución de tablas](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="do-not-over-partition"></a>Sin particiones excesivas
-Crear particiones de datos puede resultar eficaz para el mantenimiento de los datos mediante la modificación de particiones o exámenes de optimización, pero el exceso de particiones puede ralentizar las consultas.  A menudo una estrategia de creación de particiones con granularidad alta que puede funcionar bien en SQL Server no funciona correctamente en el grupo de SQL.  
+Crear particiones de datos puede resultar eficaz para el mantenimiento de los datos mediante la modificación de particiones o exámenes de optimización, pero el exceso de particiones puede ralentizar las consultas.  A menudo, una estrategia de creación de particiones con granularidad alta que puede funcionar bien en SQL Server no funciona correctamente en el grupo de SQL dedicado.  
 
 > [!NOTE]
-> A menudo una estrategia de creación de particiones con granularidad alta que puede funcionar bien en SQL Server no funciona correctamente en el grupo de SQL.  
+> A menudo, una estrategia de creación de particiones con granularidad alta que puede funcionar bien en SQL Server no funciona correctamente en el grupo de SQL dedicado.  
 
-El exceso de particiones también puede reducir la eficacia de los índices de almacén de columnas agrupadas si cada partición tiene menos de 1 millón de filas. El grupo de SQL crea particiones de datos en su nombre en 60 bases de datos. 
+El exceso de particiones también puede reducir la eficacia de los índices de almacén de columnas agrupadas si cada partición tiene menos de 1 millón de filas. El grupo de SQL dedicado crea particiones de datos en su nombre en 60 bases de datos. 
 
 Por lo tanto, si crea una tabla con 100 particiones, el resultado serán 6000 particiones.  Cada carga de trabajo es diferente, por lo mejor es probar con las particiones para ver qué funciona mejor para la suya.  
 
@@ -95,7 +96,7 @@ Consulte también [Información general de tablas](develop-tables-overview.md), 
 
 ### <a name="optimize-clustered-columnstore-tables"></a>Optimización de tablas de almacén de columnas agrupadas
 
-Los índices de almacén de columnas agrupadas son una de las maneras más eficaces para almacenar datos en el grupo de SQL.  De forma predeterminada, las tablas del grupo de SQL se crean como almacén de columnas agrupadas.  
+Los índices de almacén de columnas en clúster son una de las maneras más eficaces de almacenar los datos en el grupo de SQL dedicado.  De forma predeterminada, las tablas del grupo de SQL dedicado se crean como almacén de columnas en clúster.  
 
 Para conseguir el máximo rendimiento de las consultas en las tablas de almacén de columnas, es importante la calidad de los segmentos.  Escriben filas en las tablas de almacén de columnas bajo presión de memoria afecta a la calidad de segmento.  
 
@@ -103,7 +104,7 @@ La calidad de segmento se puede medir por el número de filas de un grupo de fil
 
 Como es importante que los segmentos de almacén de columnas sean de una buena calidad, es conveniente usar identificadores de usuario que se encuentren en la clase de recursos grande o mediana para cargar los datos. El uso de [unidades de almacenamiento de datos](resource-consumption-models.md) inferiores significa que desea asignar una clase de recurso mayor para el usuario que realiza la carga.
 
-Dado que las tablas de almacén de columnas, generalmente, no insertan datos en un segmento del almacén de columnas comprimido hasta que hay más de 1 millón de filas por tabla y cada tabla del grupo de SQL se divide en 60 partes, las tablas de almacén de columnas no serán útiles para las consultas a menos que la tabla tenga más de 60 millones de filas.  
+Dado que las tablas de almacén de columnas, generalmente, no insertan datos en un segmento del almacén de columnas comprimido hasta que hay más de 1 millón de filas por tabla y cada tabla del grupo de SQL dedicado se divide en 60 partes, las tablas de almacén de columnas no serán útiles para las consultas a menos que la tabla tenga más de 60 millones de filas.  
 
 > [!TIP]
 > En el caso de las tablas con menos de 60 millones de filas, un índice de almacén de columnas puede no ser la solución óptima.  
@@ -116,23 +117,23 @@ Al consultar una tabla de almacén de columnas, las consultas se ejecutarán má
 
 Consulte también [Índices de tablas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Guía de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y [Recompilación de índices de almacén de columnas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
 
-## <a name="sql-on-demand-development-best-practices"></a>Procedimientos recomendados de desarrollo a petición de SQL
+## <a name="serverless-sql-pool-development-best-practices"></a>Procedimientos recomendados para el desarrollo de grupos de SQL sin servidor
 
 ### <a name="general-considerations"></a>Consideraciones generales
 
-SQL a petición permite consultar archivos de las cuentas de almacenamiento de Azure. No tiene funcionalidades de almacenamiento local o ingesta, lo que significa que todos los archivos que la consulta tiene como destino son externos a SQL a petición. Por lo tanto, todo lo relacionado con la lectura de archivos desde el almacenamiento puede afectar al rendimiento de las consultas.
+El grupo de SQL sin servidor permite consultar archivos de las cuentas de almacenamiento de Azure. No tiene funcionalidades de almacenamiento local o ingesta, lo que significa que todos los archivos que la consulta tiene como destino son externos a SQL sin servidor. Por lo tanto, todo lo relacionado con la lectura de archivos desde el almacenamiento puede afectar al rendimiento de las consultas.
 
-### <a name="colocate-azure-storage-account-and-sql-on-demand"></a>Colocación de una cuenta de Azure Storage y SQL a petición
+### <a name="colocate-azure-storage-account-and-serverless-sql-pool"></a>Ubicación conjunta de la cuenta de Azure Storage y el grupo de SQL sin servidor
 
-Para minimizar la latencia, coloque su cuenta de Azure Storage y el punto de conexión de SQL a petición. Las cuentas de almacenamiento y los puntos de conexión aprovisionados durante la creación del área de trabajo se encuentran en la misma región.
+Para minimizar la latencia, ubique conjuntamente la cuenta de Azure Storage y el punto de conexión del grupo de SQL sin servidor. Las cuentas de almacenamiento y los puntos de conexión aprovisionados durante la creación del área de trabajo se encuentran en la misma región.
 
-Para obtener un rendimiento óptimo, si tiene acceso a otras cuentas de almacenamiento con SQL a petición, asegúrese de que se encuentran en la misma región. De lo contrario, aumentará la latencia de la transferencia de red de los datos de la región remota a la región del punto de conexión.
+Para un rendimiento óptimo, si accede a otras cuentas de almacenamiento con el grupo de SQL sin servidor, asegúrese de que se encuentren en la misma región. De lo contrario, aumentará la latencia de la transferencia de red de los datos de la región remota a la región del punto de conexión.
 
 ### <a name="azure-storage-throttling"></a>Limitaciones de Azure Storage
 
-Varias aplicaciones y servicios pueden acceder a la cuenta de almacenamiento. Cuando las IOPS o el rendimiento combinados que generan las aplicaciones, los servicios y la carga de trabajo a petición de SQL superan los límites de la cuenta de almacenamiento, se producen las limitaciones de Storage. Cuando se produce la limitación de almacenamiento, hay un efecto negativo significativo en el rendimiento de las consultas.
+Varias aplicaciones y servicios pueden acceder a la cuenta de almacenamiento. Cuando el número de IOPS o el rendimiento combinados que generan las aplicaciones, los servicios y la carga de trabajo del grupo de SQL sin servidor superan los límites de la cuenta de almacenamiento, se producen limitaciones de almacenamiento. Cuando se produce la limitación de almacenamiento, hay un efecto negativo significativo en el rendimiento de las consultas.
 
-Una vez detectada la limitación, SQL a petición tiene controles integrados para este escenario. SQL a petición realizará solicitudes al almacenamiento a un ritmo más lento hasta que la limitación se resuelva. 
+Cuando se detecta la limitación, el grupo de SQL sin servidor dispone de controles integrados para este escenario. El grupo de SQL sin servidor realizará solicitudes al almacenamiento a un ritmo más lento hasta que la limitación se resuelva. 
 
 Sin embargo, para que la ejecución de las consultas sea óptima, se recomienda que no fuerce la cuenta de almacenamiento con otras cargas de trabajo durante la ejecución de consultas.
 
@@ -140,7 +141,7 @@ Sin embargo, para que la ejecución de las consultas sea óptima, se recomienda 
 
 Si es posible, puede preparar los archivos para mejorar el rendimiento:
 
-- Convierta los archivos CSV a Parquet: Parquet es un formato de columnas. Dado que se trata de un formato comprimido, los tamaños de archivo son menores que los de los archivos CSV con los mismos datos, y SQL a petición necesita menos tiempo y solicitudes de almacenamiento para leerlos.
+- Convierta los archivos CSV a Parquet: Parquet es un formato de columnas. Dado que se trata de un formato comprimido, los tamaños de archivo son menores que los de los archivos CSV con los mismos datos, y un grupo de SQL sin servidor necesita menos tiempo y solicitudes de almacenamiento para leerlos.
 - Si una consulta tiene como destino un solo archivo de gran tamaño, se beneficiará de dividirlo en varios archivos más pequeños.
 - Pruebe a mantener el tamaño del archivo CSV por debajo de los 10 GB.
 - Es preferible tener archivos de igual tamaño para una sola ruta de acceso OPENROWSET o una ubicación de tabla externa.
@@ -148,17 +149,17 @@ Si es posible, puede preparar los archivos para mejorar el rendimiento:
 
 ### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Uso de las funciones fileinfo y filepath para seleccionar particiones específicas
 
-A menudo, los datos se organizan en particiones. Puede indicar a SQL a petición que consulte archivos y carpetas concretos. De este modo se reducirá el número de archivos y la cantidad de datos que la consulta tiene que leer y procesar. 
+A menudo, los datos se organizan en particiones. Puede indicar a un grupo de SQL sin servidor que consulte carpetas y archivos concretos. De este modo se reducirá el número de archivos y la cantidad de datos que la consulta tiene que leer y procesar. 
 
 Por lo tanto, conseguirá un mejor rendimiento. Para obtener más información, consulte las funciones [filename](query-data-storage.md#filename-function) y [filepath](query-data-storage.md#filepath-function), así como ejemplos sobre cómo [consultar archivos específicos](query-specific-files.md).
 
 Si los datos en el almacenamiento no tienen particiones, considere la posibilidad de crear particiones para usar estas funciones en la optimización de las consultas que están dirigidas a esos archivos.
 
-Cuando [consulte las tablas externas de Apache Spark para Azure Synapse con particiones](develop-storage-files-spark-tables.md) desde SQL a petición, automáticamente la consulta tendrá como destino solo los archivos necesarios.
+Cuando [consulte las tablas externas de Apache Spark para Azure Synapse con particiones](develop-storage-files-spark-tables.md) desde el grupo de SQL sin servidor, automáticamente la consulta tendrá como destino solo los archivos necesarios.
 
 ### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Uso de CETAS para mejorar el rendimiento de las consultas y las combinaciones
 
-[CETAS](develop-tables-cetas.md) es una de las características más importantes que están disponibles en SQL a petición. CETAS es una operación en paralelo que crea metadatos de tabla externa y exporta el resultado de la consulta SELECT a un conjunto de archivos de la cuenta de almacenamiento.
+[CETAS](develop-tables-cetas.md) es una de las características más importantes que están disponibles en el grupo de SQL sin servidor. CETAS es una operación en paralelo que crea metadatos de tabla externa y exporta el resultado de la consulta SELECT a un conjunto de archivos de la cuenta de almacenamiento.
 
 Puede usar CETAS para almacenar en un nuevo conjunto de archivos las partes de las consultas que se usan frecuentemente, como las tablas de referencia combinadas. Más adelante, podrá realizar combinaciones con esta tabla externa única, en lugar de repetir combinaciones comunes en varias consultas. 
 
@@ -166,7 +167,7 @@ Cuando CETAS genera archivos Parquet, las estadísticas se crean automáticament
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-Si necesita información que no esté incluida en este artículo, use la función de **búsqueda de documentación** en el lado izquierdo de esta página para buscar en todos los documentos del grupo de SQL.  En la [página de preguntas y respuestas de Microsoft para el grupo de SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) puede plantear preguntas a otros usuarios y al grupo de productos del grupo de SQL.  
+Si necesita información que no esté incluida en este artículo, use la función de **búsqueda de documentación** en el lado izquierdo de esta página para buscar en todos los documentos del grupo de SQL.  En la [página de preguntas y respuestas de Microsoft para Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) puede publicar preguntas para otros usuarios y para el grupo del producto de Azure Synapse Analytics. Supervisamos continuamente este foro para garantizar que sus preguntas las responde otro usuario o alguno de nosotros.  
 
-Supervisamos continuamente este foro para garantizar que sus preguntas las responde otro usuario o alguno de nosotros.  Si prefiere formular sus preguntas en Stack Overflow, también hay disponible un [foro de Stack Overflow acerca del grupo de Azure SQL](https://stackoverflow.com/questions/tagged/azure-sqldw).
+Si prefiere formular sus preguntas en Stack Overflow, también tenemos un [foro de Stack Overflow acerca de Azure Synapse Analytics](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

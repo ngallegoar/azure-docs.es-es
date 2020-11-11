@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1ac0033b7ed2de90ece481cd02d64970ff5f9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f48c26a65314e2f23513fba155f07db3805a516
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85608116"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123071"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Solución de problemas: Faltan datos en los registros de actividad de Azure Active Directory 
 
@@ -32,7 +32,7 @@ ms.locfileid: "85608116"
 
 Realice algunas acciones en Azure Portal y esperaba ver los registros de auditoría de dichas acciones en la hoja `Activity logs > Audit Logs`, pero no los encuentro.
 
- ![Notificación](./media/troubleshoot-missing-audit-data/01.png)
+ ![Captura de pantalla que muestra las entradas del registro de auditoría.](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>Causa
 
@@ -53,7 +53,7 @@ Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el regi
 
 Hace poco he iniciado sesión en Azure Portal y esperaba ver los registros de inicio de sesión de dichas acciones en la hoja `Activity logs > Sign-ins`, pero no los encuentro.
 
- ![Notificación](./media/troubleshoot-missing-audit-data/02.png)
+ ![Captura de pantalla que muestra inicios de sesión en el registro de actividad.](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>Causa
 
@@ -74,7 +74,7 @@ Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el regi
 
 No puedo ver más de 30 días de datos de inicio de sesión y auditoría en Azure Portal. ¿Por qué? 
 
- ![Notificación](./media/troubleshoot-missing-audit-data/03.png)
+ ![Captura de pantalla que muestra el menú de fecha.](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>Causa
 

@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254807"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307442"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Seguimiento de experimentos e implementación de modelos en Azure Machine Learning
 
@@ -26,11 +26,11 @@ En el siguiente diagrama se ilustra que con Seguimiento de MLflow, se realiza un
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Necesitará [aprovisionar un área de trabajo de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+* Necesitará [aprovisionar un área de trabajo de Azure Machine Learning](../how-to-manage-workspace.md#create-a-workspace).
 
 ## <a name="create-a-new-notebook"></a>Creación un nuevo cuaderno
 
-Los SDK de Azure Machine Learning y de MLFlow están preinstalados en Data Science VM y se puede acceder a ellos en el entorno de Conda **azureml_py36_\*** . En Jupyterlab, haga clic en el selector y seleccione el siguiente kernel:
+Los SDK de Azure Machine Learning y MLFlow están preinstalados en Data Science VM y se puede acceder a ellos desde el entorno de Conda * *azureml_py36_\** _. En Jupyterlab, haga clic en el selector y seleccione el siguiente kernel:
 
 ![selección de kernel](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -135,9 +135,9 @@ En el menú de la izquierda de [AzureML Studio](https://ml.azure.com), haga clic
 
 ![Crear procesos de inferencia](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
-En el panel __Nuevo clúster de inferencia__, rellene los detalles siguientes:
+En el panel __Nuevo clúster de inferencia__ , rellene los detalles siguientes:
 
-* Nombre del proceso.
+_ Nombre del proceso
 * Kubernetes Service: seleccione Crear.
 * Seleccione la región.
 * Seleccione el tamaño de la máquina virtual (para los fines de este tutorial, el valor predeterminado Standard_D3_v2 es suficiente).
@@ -204,4 +204,4 @@ Elimine el proceso de inferencia que creó en el paso 1 para no incurrir en gas
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre la [implementación de modelos en AzureML](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
+* Más información sobre la [implementación de modelos en AzureML](../how-to-deploy-and-where.md)

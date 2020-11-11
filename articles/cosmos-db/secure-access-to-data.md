@@ -4,17 +4,19 @@ description: Obtenga información sobre los conceptos de control de acceso en Az
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 936e98b3efa27f2d0a85c373ccae0ab223f4fd95
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371739"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340913"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Protección del acceso a los datos de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se proporciona información general sobre la protección del acceso a los datos almacenados en [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
@@ -118,6 +120,12 @@ Un recurso de permiso está asociado a un usuario y está asignado en el contene
 
 > [!NOTE]
 > Para ejecutar procedimientos almacenados, el usuario debe tener el permiso "Todo" en el contenedor donde se va a ejecutar el procedimiento almacenado.
+
+Si habilita los [registros de diagnóstico en solicitudes del plano de datos](cosmosdb-monitor-resource-logs.md), se registran las dos propiedades siguientes correspondientes al permiso:
+
+* **resourceTokenPermissionId** : esta propiedad indica el identificador del permiso del token de recurso que ha especificado. 
+
+* **resourceTokenPermissionMode** : esta propiedad indica el modo de permiso que estableció al crear el token de recurso. El modo de permiso puede tener valores como "all" o "read".
 
 ### <a name="code-sample-to-create-permission"></a>Ejemplo de código para crear permisos
 

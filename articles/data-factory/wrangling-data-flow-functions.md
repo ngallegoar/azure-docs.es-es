@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3ee7761d43710e0833eb8002851e286ce5449983
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c56c52193f433571f16e4acf7bd6e7b89641b26f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636126"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233957"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funciones de transformación en flujos de datos de limpieza y transformación
 
@@ -25,7 +25,7 @@ El flujo de datos de limpieza y transformación en Azure Data Factory permite la
 
 Actualmente no se admiten todas las funciones de Power Query M para la limpieza y transformación de datos, a pesar de estar disponibles durante la creación. Al compilar los flujos de datos de limpieza y transformación, aparecerá el siguiente mensaje de error si no se admite una función:
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
 
 A continuación se muestra una lista de funciones admitidas de Power Query M.
 
@@ -76,7 +76,7 @@ Las siguientes funciones de M agregan o transforman columnas: [Table.AddColumn](
 
 Utilice [Table.Group](/powerquery-m/table-group) para agregar valores.
 * Debe usarse con una función de agregación
-* Funciones de agregación compatibles:   [Table.RowCount](/powerquery-m/table-rowcount), [List.Sum](/powerquery-m/list-sum), [List.Count](/powerquery-m/list-count), [List.Average](/powerquery-m/list-average), [List.Min](/powerquery-m/list-min), [List.Max](/powerquery-m/list-max), [List.StandardDeviation](/powerquery-m/list-standarddeviation), [List.First](/powerquery-m/list-first), [List.Last](/powerquery-m/list-last)
+* Funciones de agregación compatibles:   [List.Sum](/powerquery-m/list-sum), [List.Count](/powerquery-m/list-count), [List.Average](/powerquery-m/list-average), [List.Min](/powerquery-m/list-min), [List.Max](/powerquery-m/list-max), [List.StandardDeviation](/powerquery-m/list-standarddeviation), [List.First](/powerquery-m/list-first), [List.Last](/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Ordenación
 
@@ -96,7 +96,7 @@ Mantener y quitar la parte superior, mantener el rango (funciones M correspondie
 | Table.NestedJoin | Si realiza una combinación, se producirá un error de validación. Las columnas deben expandirse para que funcione. |
 | Table.Distinct | No se admite la eliminación de filas duplicadas. |
 | Table.RemoveLastN | No se admite la eliminación de las filas inferiores. |
-| Table.RowCount | No se admite, pero se puede realizar si agrega una columna con todas las celdas vacías (se puede usar la columna condición) y, a continuación, usa Agrupar por en esa columna. Se admite Table.Group. | 
+| Table.RowCount | No se admite, pero se puede lograr agregando una columna personalizada que contenga el valor 1 y sumando después esa columna con List.Sum. Se admite Table.Group. | 
 | Control de errores de nivel de fila | El control de errores de nivel de fila no se admite actualmente. Por ejemplo, para filtrar los valores no numéricos de una columna, una opción sería transformar la columna de texto en números. Cada celda que no se pueda transformar tendrá un estado de error y debe filtrarse. Este escenario no es posible en el flujo de datos de limpieza y transformación. |
 | Table.Transpose | No compatible |
 | Table.Pivot | No compatible |

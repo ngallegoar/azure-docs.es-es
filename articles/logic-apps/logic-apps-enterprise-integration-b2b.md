@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/02/2020
+ms.openlocfilehash: e16cc8934407a5c54c84fd045c99e28116e656c9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542383"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310465"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Recepción y confirmación de mensajes B2B AS2 con Azure Logic Apps y Enterprise Integration Pack
 
@@ -39,7 +39,7 @@ En este artículo se muestra cómo crear una aplicación lógica que recibe una 
 
 * Al menos dos [entidades](../logic-apps/logic-apps-enterprise-integration-partners.md) que ya haya definido en su cuenta de integración, junto con los[contratos AS2 y X12](logic-apps-enterprise-integration-agreements.md) para esas entidades.
 
-## <a name="add-request-trigger"></a>Agregar un desencadenador de solicitud
+## <a name="add-the-request-trigger"></a>Adición del desencadenador Request
 
 En este ejemplo se usa el diseñador de aplicaciones lógicas en Azure Portal, pero puede seguir pasos similares para el diseñador de aplicaciones lógicas en Visual Studio.
 
@@ -49,7 +49,7 @@ En este ejemplo se usa el diseñador de aplicaciones lógicas en Azure Portal, p
 
    ![Selección del desencadenador Solicitud para iniciar el flujo de trabajo de la aplicación lógica](./media/logic-apps-enterprise-integration-b2b/select-http-request-trigger.png)
 
-1. Deje vacío el cuadro**Esquema JSON del cuerpo de la solicitud**, ya que el mensaje X12 es un archivo plano.
+1. Deje vacío el cuadro **Esquema JSON del cuerpo de la solicitud** , ya que el mensaje X12 es un archivo plano.
 
    ![Deje "Esquema JSON del cuerpo de la solicitud" vacío](./media/logic-apps-enterprise-integration-b2b/receive-trigger-message-body-json-schema.png)
 
@@ -59,7 +59,7 @@ En este ejemplo se usa el diseñador de aplicaciones lógicas en Azure Portal, p
 
    ![Dirección URL generada para el desencadenador Solicitud para recibir llamadas](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-## <a name="add-as2-decode-action"></a>Incorporación de la acción de descodificación AS2
+## <a name="add-the-as2-decode-action"></a>Incorporación de la acción de descodificación AS2
 
 Ahora, agregue las acciones B2B que desee usar. En este ejemplo, se usan las acciones AS2 y X12.
 
@@ -67,21 +67,21 @@ Ahora, agregue las acciones B2B que desee usar. En este ejemplo, se usan las acc
 
    ![Adición de otro paso al flujo de trabajo de la aplicación lógica](./media/logic-apps-enterprise-integration-b2b/add-new-action-under-trigger.png)
 
-1. En **Elegir una acción**, en el cuadro de búsqueda, escriba `as2 decode` y seleccione **Descodificación AS2 (v2)** .
+1. En **Elegir una acción** , en el cuadro de búsqueda, escriba `as2 decode` y seleccione **Descodificación AS2 (v2)** .
 
    ![Busque y seleccione "Descodificación AS2 (v2)"](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
-1. Para la propiedad **Mensaje que se descodificará**, escriba la entrada que desea que descodifique la acción AS2, que es el contenido `body` que recibe el desencadenador de la solicitud HTTP. Hay varias maneras de especificar este contenido como entrada, ya sea desde la lista de contenido dinámico o como expresión:
+1. Para la propiedad **Mensaje que se descodificará** , escriba la entrada que desea que descodifique la acción AS2, que es el contenido `body` que recibe el desencadenador de la solicitud HTTP. Hay varias maneras de especificar este contenido como entrada, ya sea desde la lista de contenido dinámico o como expresión:
 
-   * Para seleccionar de una lista que muestre las salidas de desencadenador disponibles, haga clic dentro del cuadro **Mensaje que se descodificará**. Cuando aparezca la lista de contenido dinámico, en **Cuando se recibe una solicitud HTTP**, seleccione el valor de propiedad **Cuerpo**, por ejemplo:
+   * Para seleccionar de una lista que muestre las salidas de desencadenador disponibles, haga clic dentro del cuadro **Mensaje que se descodificará**. Cuando aparezca la lista de contenido dinámico, en **Cuando se recibe una solicitud HTTP** , seleccione el valor de propiedad **Cuerpo** , por ejemplo:
 
      ![Seleccione el valor "Cuerpo" del desencadenador](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * Para especificar una expresión que haga referencia a la salida `body` del desencadenador, haga clic dentro del cuadro **Mensaje que se descodificará**. Después de que aparezca la lista de contenido dinámico, seleccione **Expresión**. En el editor de expresiones, escriba esta expresión y seleccione **Aceptar**:
+   * Para especificar una expresión que haga referencia a la salida `body` del desencadenador, haga clic dentro del cuadro **Mensaje que se descodificará**. Después de que aparezca la lista de contenido dinámico, seleccione **Expresión**. En el editor de expresiones, escriba esta expresión y seleccione **Aceptar** :
 
      `triggerOutputs()['body']`
 
-     O bien, en el cuadro **Mensaje que se descodificará**, escriba directamente esta expresión:
+     O bien, en el cuadro **Mensaje que se descodificará** , escriba directamente esta expresión:
 
      `@triggerBody()`
 
@@ -89,23 +89,31 @@ Ahora, agregue las acciones B2B que desee usar. En este ejemplo, se usan las acc
 
      ![Resultado de cuerpo resuelto desde el desencadenador](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-body-expression.png)
 
-1. Para la propiedad **Encabezados de mensaje**, escriba los encabezados necesarios para la acción AS2, que se describen en el contenido `headers` que recibe el desencadenador de la solicitud HTTP.
+1. Para la propiedad **Encabezados de mensaje** , escriba los encabezados necesarios para la acción AS2, que se describen en el contenido `headers` que recibe el desencadenador de la solicitud HTTP.
 
-   Para especificar una expresión que haga referencia a la salida `headers` del desencadenador, haga clic dentro del cuadro **Encabezados de mensaje**. Después de que aparezca la lista de contenido dinámico, seleccione **Expresión**. En el editor de expresiones, escriba esta expresión y seleccione **Aceptar**:
+   1. Para especificar una expresión que haga referencia a la salida `headers` del desencadenador, seleccione la opción para **cambiar los encabezados del mensaje al modo de texto**.
 
-   `triggerOutputs()['Headers']`
+      ![Captura de pantalla que muestra la selección del cambio de los encabezados del mensaje al modo de texto.](./media/logic-apps-enterprise-integration-b2b/as2-decode-switch-text-mode.png)
 
-   Para que esta expresión se resuelva como este token, cambie entre la vista del diseñador y la vista de código, por ejemplo:
+   1. Haga clic dentro del cuadro **Encabezados de mensaje**. Después de que aparezca la lista de contenido dinámico, seleccione **Expresión**. En el editor de expresiones, escriba esta expresión y seleccione **Aceptar** :
 
-   ![Resultado de los encabezados resueltos desde el desencadenador](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
+      `triggerOutputs()['Headers']`
+
+      En la acción de descodificación AS2, la expresión aparece ahora como un token:
+
+      ![Captura de pantalla que muestra el token ""@triggerOutputs()['Headers']" en el cuadro "Encabezados de mensaje".](./media/logic-apps-enterprise-integration-b2b/as2-decode-message-header-expression.png)
+
+   1. Para que este token de expresión se resuelva en el token **Headers** , cambie entre la vista del diseñador y la vista de código. Después de este paso, la acción de descodificación AS2 es similar a la de este ejemplo:
+
+      ![Resultado de los encabezados resueltos desde el desencadenador](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
 ## <a name="add-response-action-for-message-receipt-notification"></a>Adición de la acción Respuesta para la notificación de recepción de mensajes
 
-Para notificar a la entidad que el mensaje se ha recibido, puede volver a enviar una respuesta que contenga una notificación de disposición del mensaje (MDN) AS2 en una acción **Respuesta**. Al agregar esta acción inmediatamente después de la acción **Descodificación AS2**, en caso de que se produzca un error en la acción, la aplicación lógica no continúa el procesamiento.
+Para notificar a la entidad que el mensaje se ha recibido, puede volver a enviar una respuesta que contenga una notificación de disposición del mensaje (MDN) AS2 en una acción **Respuesta**. Al agregar esta acción inmediatamente después de la acción **Descodificación AS2** , en caso de que se produzca un error en la acción, la aplicación lógica no continúa el procesamiento.
 
-1. En la acción **Descodificación AS2**, seleccione **Nuevo paso**.
+1. En la acción **Descodificación AS2** , seleccione **Nuevo paso**.
 
-1. En **Elegir una acción**, en el cuadro de búsqueda, seleccione **Integrado**. En el cuadro de búsqueda, escriba `condition`. En la lista **Acciones**, seleccione **Condición**.
+1. En **Elegir una acción** , en el cuadro de búsqueda, seleccione **Integrado**. En el cuadro de búsqueda, escriba `condition`. En la lista **Acciones** , seleccione **Condición**.
 
    ![Agregar la acción "Condición"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 
@@ -113,7 +121,7 @@ Para notificar a la entidad que el mensaje se ha recibido, puede volver a enviar
 
    ![Captura de pantalla que muestra la forma de la condición con rutas de acceso vacías.](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
-1. Ahora especifique la condición que se va a evaluar. En el cuadro **Elegir un valor**, escriba esta expresión:
+1. Ahora especifique la condición que se va a evaluar. En el cuadro **Elegir un valor** , escriba esta expresión:
 
    `@body('AS2_Decode')?['AS2Message']?['MdnExpected']`
 
@@ -123,17 +131,17 @@ Para notificar a la entidad que el mensaje se ha recibido, puede volver a enviar
 
 1. Ahora, especifique las respuestas para devolver si la acción **Descodificación AS2** se realiza correctamente o no.
 
-   1. En el caso de que la acción **Descodificación AS2** sea correcta, en la forma **If true**, seleccione **Agregar una acción**. En **Elegir una acción**, en el cuadro de búsqueda, escriba `response` y seleccione **Respuesta**.
+   1. En el caso de que la acción **Descodificación AS2** sea correcta, en la forma **If true** , seleccione **Agregar una acción**. En **Elegir una acción** , en el cuadro de búsqueda, escriba `response` y seleccione **Respuesta**.
 
       ![Buscar y seleccionar la acción "Respuesta"](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
 
-   1. Para acceder a la notificación de disposición del mensaje de AS2 desde la salida de la acción **Descodificación AS2**, especifique estas expresiones:
+   1. Para acceder a la notificación de disposición del mensaje de AS2 desde la salida de la acción **Descodificación AS2** , especifique estas expresiones:
 
-      * En la propiedad **Encabezados** de la acción **Respuesta**, escriba esta expresión:
+      * En la propiedad **Encabezados** de la acción **Respuesta** , escriba esta expresión:
 
         `@body('AS2_Decode')?['OutgoingMdn']?['OutboundHeaders']`
 
-      * En la propiedad **Cuerpo** de la acción **Respuesta**, escriba esta expresión:
+      * En la propiedad **Cuerpo** de la acción **Respuesta** , escriba esta expresión:
 
         `@body('AS2_Decode')?['OutgoingMdn']?['Content']`
 
@@ -141,15 +149,15 @@ Para notificar a la entidad que el mensaje se ha recibido, puede volver a enviar
 
       ![Expresión resuelta para acceder a la MDN de AS2](./media/logic-apps-enterprise-integration-b2b/response-action-success-resolved-expression.png)
 
-   1. En el caso de que la acción **Descodificación AS2** genere un error, en la forma **If false**, seleccione **Agregar una acción**. En **Elegir una acción**, en el cuadro de búsqueda, escriba `response` y seleccione **Respuesta**. Configure la acción **Respuesta** para devolver el estado y el error que desea.
+   1. En el caso de que la acción **Descodificación AS2** genere un error, en la forma **If false** , seleccione **Agregar una acción**. En **Elegir una acción** , en el cuadro de búsqueda, escriba `response` y seleccione **Respuesta**. Configure la acción **Respuesta** para devolver el estado y el error que desea.
 
 1. Guarde la aplicación lógica.
 
 ## <a name="add-decode-x12-message-action"></a>Agregue la acción Descodificar mensaje X12.
 
-1. Ahora agregue la acción **Descodificar mensaje X12**. En la acción **Respuesta**, seleccione **Agregar una acción**.
+1. Ahora agregue la acción **Descodificar mensaje X12**. En la acción **Respuesta** , seleccione **Agregar una acción**.
 
-1. En **Elegir una acción**, en el cuadro de búsqueda, escriba `x12 decode` y seleccione **Descodificar mensaje X12**.
+1. En **Elegir una acción** , en el cuadro de búsqueda, escriba `x12 decode` y seleccione **Descodificar mensaje X12**.
 
    ![Busque y seleccione la acción "Descodificar mensaje X12"](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
 
@@ -159,7 +167,7 @@ Para notificar a la entidad que el mensaje se ha recibido, puede volver a enviar
 
 1. Ahora, especifique la entrada para la acción X12. En este ejemplo se usa la salida de la acción AS2, que es el contenido del mensaje, pero tenga en cuenta que este contenido está en formato de objeto JSON y está codificado en base64. Por lo tanto, tiene que convertir este contenido en una cadena.
 
-   En el cuadro **Mensaje de archivo plano X12 que se va a descodificar**, escriba esta expresión para convertir la salida AS2:
+   En el cuadro **Mensaje de archivo plano X12 que se va a descodificar** , escriba esta expresión para convertir la salida AS2:
 
    `@base64ToString(body('AS2_Decode')?['AS2Message']?['Content'])`
 

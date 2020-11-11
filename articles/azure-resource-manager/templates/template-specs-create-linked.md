@@ -2,17 +2,17 @@
 title: Creación de una especificación de plantilla con plantillas vinculadas
 description: Aprenda a crear una especificación de plantilla con plantillas vinculadas.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: b1862789ede4a9d2ab8c57bdb913c449a560dc58
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728546"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321596"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: Creación de una especificación de plantilla con plantillas vinculadas (versión preliminar)
 
-Aprenda a crear una [especificación de plantilla](template-specs.md) con [plantillas vinculadas](linked-templates.md#linked-template). Las especificaciones de plantilla se usan para compartir plantillas de ARM con otros usuarios de la organización. En este artículo se muestra cómo crear una especificación de plantilla para empaquetar una plantilla principal y sus plantillas vinculadas con la propiedad `relativePath` del [recurso de implementación](/azure/templates/microsoft.resources/deployments).
+Aprenda a crear una [especificación de plantilla](template-specs.md) con una plantilla principal y una [plantilla vinculada](linked-templates.md#linked-template). Las especificaciones de plantilla se usan para compartir plantillas de ARM con otros usuarios de la organización. En este artículo se muestra cómo crear una especificación de plantilla para empaquetar una plantilla principal y sus plantillas vinculadas con la propiedad `relativePath` del [recurso de implementación](/azure/templates/microsoft.resources/deployments).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -27,7 +27,7 @@ Cree la plantilla principal y la plantilla vinculada.
 
 Para vincular una plantilla, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad `templateLink`, especifique la ruta de acceso relativa de la plantilla vinculada de acuerdo con la ruta de acceso de la plantilla principal.
 
-La plantilla vinculada se denomina **linkedTemplate.json**y se almacena en una subcarpeta denominada **artefactos** en la ruta de acceso donde se almacena la plantilla principal.  Puede usar uno de los valores siguientes para la ruta de acceso relativa:
+La plantilla vinculada se denomina **linkedTemplate.json** y se almacena en una subcarpeta denominada **artefactos** en la ruta de acceso donde se almacena la plantilla principal.  Puede usar uno de los valores siguientes para la ruta de acceso relativa:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
@@ -35,7 +35,7 @@ La plantilla vinculada se denomina **linkedTemplate.json**y se almacena en una s
 
 La propiedad `relativePath` siempre es relativa al archivo de plantilla en el que se declara `relativePath`, por lo que si hay otro archivo linkedTemplate2.json que se llame desde linkedTemplate.json y linkedTemplate2.json se almacena en la misma subcarpeta de artefactos, la propiedad relativePath especificada en linkedTemplate.json es solo `linkedTemplate2.json`.
 
-1. Cree la plantilla principal con el JSON siguiente. Guarde la plantilla principal como **azuredeploy.json** en el equipo local. En este tutorial se da por supuesto que se ha guardado en la ruta de acceso **c:\Templates\linkedTS\azuredeploy.json**, pero puede usar cualquier ruta de acceso.
+1. Cree la plantilla principal con el JSON siguiente. Guarde la plantilla principal como **azuredeploy.json** en el equipo local. En este tutorial se da por supuesto que se ha guardado en la ruta de acceso **c:\Templates\linkedTS\azuredeploy.json** , pero puede usar cualquier ruta de acceso.
 
     ```json
     {

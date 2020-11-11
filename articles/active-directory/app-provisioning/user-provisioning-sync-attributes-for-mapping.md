@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 05/13/2019
 ms.author: kenwith
-ms.openlocfilehash: 00c4dec329456409bc8d5b77dca72f25daf9f5c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cecdda27139aa1dd0733b50898db9db70aa34dc3
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84781080"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040987"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sincronización de un atributo de Active Directory local en Azure AD para el aprovisionamiento en una aplicación
 
@@ -33,7 +33,7 @@ Si los datos que necesita para el aprovisionamiento están en Active Directory, 
  
 2. Inicie sesión como administrador global de Azure AD. 
 
-3. En la página **Características opcionales**, seleccione **Sincronización de atributos de las extensiones de directorios**.
+3. En la página **Características opcionales** , seleccione **Sincronización de atributos de las extensiones de directorios**.
  
    ![Página de características opcionales del asistente de Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
 
@@ -41,7 +41,7 @@ Si los datos que necesita para el aprovisionamiento están en Active Directory, 
    > [!NOTE]
    > La búsqueda en **Atributos disponibles** distingue mayúsculas de minúsculas.
 
-   ![Página de selección de las extensiones de directorios del asistente de Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
+   ![Captura de pantalla en la que se muestra la página de selección "Extensiones de directorio".](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
 
 5. Finalice el asistente de Azure AD Connect y permita que se ejecute un ciclo de sincronización completo. Cuando se complete el ciclo, se extiende el esquema y los nuevos valores se sincronizan entre AD local y Azure AD.
  
@@ -50,7 +50,7 @@ Si los datos que necesita para el aprovisionamiento están en Active Directory, 
    ![Página de selección de las extensiones de directorios del asistente de Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> La capacidad de aprovisionar atributos de referencia desde AD local, como **managedby** o **DN/DistinguishedName**, no se admite actualmente. Puede solicitar esta característica en [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory). 
+> La capacidad de aprovisionar atributos de referencia desde AD local, como **managedby** o **DN/DistinguishedName** , no se admite actualmente. Puede solicitar esta característica en [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

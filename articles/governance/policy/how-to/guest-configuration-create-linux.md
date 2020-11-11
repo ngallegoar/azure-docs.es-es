@@ -4,12 +4,12 @@ description: Aprenda a crear una directiva de Configuración de invitado de Azur
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676634"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346883"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -24,7 +24,11 @@ Solo se puede usar la [configuración de invitados de Azure Policy](../concepts/
 Use las siguientes acciones para crear su propia configuración para validar el estado de una máquina de Azure o que no sea de Azure.
 
 > [!IMPORTANT]
+> Las definiciones de directivas personalizadas con configuración de invitado en los entornos de Azure Government y Azure China es una característica en versión preliminar.
+>
 > La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas Linux, asigne las siguientes definiciones de directiva: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> No use secretos ni información confidencial en paquetes de contenido personalizado.
 
 ## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
 
@@ -49,7 +53,9 @@ Sistemas operativos donde se puede instalar el módulo:
 - Windows
 
 > [!NOTE]
-> El cmdlet "test-GuestConfigurationPackage" requiere OpenSSL versión 1.0, debido a una dependencia en OMI. Esto produce un error en cualquier entorno con OpenSSL 1.1 o posterior.
+> El cmdlet `Test-GuestConfigurationPackage` requiere la versión 1.0 de OpenSSL debido a una dependencia de OMI. Esto produce un error en cualquier entorno con OpenSSL 1.1 o posterior.
+>
+> La ejecución del cmdlet `Test-GuestConfigurationPackage` solo se admite en Windows con la versión 2.1.0 del módulo de configuración de invitado.
 
 El módulo de recursos de configuración de invitados requiere el siguiente software:
 
@@ -160,7 +166,7 @@ El cmdlet `New-GuestConfigurationPackage` crea el paquete. Parámetros del cmdle
 - **Name** : nombre del paquete de configuración de invitados.
 - **Configuración** : Ruta de acceso completa del documento de configuración compilado.
 - **Ruta de acceso** : ruta de acceso de la carpeta de salida. Este parámetro es opcional. Si no se especifica, el paquete se crea en el directorio actual.
-- **ChefProfilePath** : ruta de acceso completa al perfil de InSpec. Este parámetro solo se admite cuando se crea contenido para auditar Linux.
+- **ChefInspecProfilePath** : ruta de acceso completa al perfil de InSpec. Este parámetro solo se admite cuando se crea contenido para auditar Linux.
 
 Ejecute el siguiente comando para crear un paquete con la configuración proporcionada en el paso anterior:
 
@@ -191,10 +197,10 @@ Test-GuestConfigurationPackage `
 El cmdlet también admite la entrada de la canalización de PowerShell. Canaliza la salida del cmdlet `New-GuestConfigurationPackage` al cmdlet `Test-GuestConfigurationPackage`.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-El siguiente paso consiste en publicar el archivo en Azure Blob Storage.  El comandos `Publish-GuestConfigurationPackage` requiere el módulo `Az.Storage`.
+El siguiente paso consiste en publicar el archivo en Azure Blob Storage.  El comando `Publish-GuestConfigurationPackage` requiere el módulo `Az.Storage`.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -319,13 +325,16 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida de la directiva
 
-Para publicar una actualización de la definición de la directiva, hay dos campos que requieren atención.
+Para publicar una actualización de la definición de la directiva, hay tres campos que requieren atención.
 
-- **Versión** : al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente. La propiedad actualiza la versión de la asignación de Configuración de invitado para que el agente reconozca el paquete actualizado.
+> [!NOTE]
+> La propiedad `version` de la asignación de configuración de invitado solo afecta a los paquetes hospedados por Microsoft. El procedimiento recomendado para el control de versiones del contenido personalizado es incluir la versión en el nombre de archivo.
+
+- **Versión** : al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente.
+- **contentUri** : al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un URI para la ubicación del paquete. La inclusión de una versión del paquete en el nombre de archivo garantiza que el valor de esta propiedad cambie en cada versión.
 - **contentHash** : el cmdlet `New-GuestConfigurationPolicy` actualiza automáticamente esta propiedad. Es un valor hash del paquete que creó `New-GuestConfigurationPackage`. La propiedad debe ser correcta para el archivo `.zip` que se publica. Si solo se actualiza la propiedad **contentUri** , la extensión no aceptará el paquete de contenido.
 
 La manera más fácil de publicar un paquete actualizado es repetir el proceso que se describe en este artículo y proporcionar un número de versión actualizado. Este proceso garantiza que todas las propiedades se hayan actualizado correctamente.
-
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrado de directivas de Configuración de invitado mediante etiquetas
 

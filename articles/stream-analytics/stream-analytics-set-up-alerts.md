@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 06/21/2019
-ms.openlocfilehash: 271cae3504601ffa42c077029541cef8c7726053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6353fe988b9b94c27ab777741bf63d3869579d9e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461043"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124448"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuración de alertas en Azure Stream Analytics
 
@@ -28,7 +28,7 @@ El ejemplo siguiente muestra cómo configurar alertas para cuando el trabajo ent
 
 1. En Azure Portal, abra el trabajo de Stream Analytics para el que desea crear una alerta.
 
-2. En la página **Trabajo**, vaya a la sección **Supervisión**.  
+2. En la página **Trabajo** , vaya a la sección **Supervisión**.  
 
 3. Seleccione **Métricas** y luego **Nueva regla de alertas**.
 
@@ -38,7 +38,7 @@ El ejemplo siguiente muestra cómo configurar alertas para cuando el trabajo ent
 
    ![Selección del nombre de la señal para la alerta de Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. En **Configurar lógica de señal**, cambie **Nivel de evento** a **Todo** y cambie **Estado** a **Con error**. Deje la opción **Evento iniciado por** en blanco y seleccione **Listo**.
+5. En **Configurar lógica de señal** , cambie **Nivel de evento** a **Todo** y cambie **Estado** a **Con error**. Deje la opción **Evento iniciado por** en blanco y seleccione **Listo**.
 
    ![Configuración de señal lógica para alerta de Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -46,13 +46,13 @@ El ejemplo siguiente muestra cómo configurar alertas para cuando el trabajo ent
 
    ![Configuración de una alerta para un trabajo Azure Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. En **RECURSO**, **CONDICIÓN** y **GRUPOS DE ACCIONES** debería haber una entrada. Tenga en cuenta que para que se activen las alertas, es preciso que se den las condiciones definidas. Por ejemplo, puede medir el valor promedio de una métrica en los últimos 15 minutos, cada 5 minutos.
+7. En **RECURSO** , **CONDICIÓN** y **GRUPOS DE ACCIONES** debería haber una entrada. Tenga en cuenta que para que se activen las alertas, es preciso que se den las condiciones definidas. Por ejemplo, puede medir el valor promedio de una métrica en los últimos 15 minutos, cada 5 minutos.
 
-   ![Creación de una regla de alerta de Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo Crear regla con RECURSO, CONDICIÓN, y GRUPO DE ACCIONES.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
-   Agregue un **nombre de regla de alerta**, una **descripción**y su **grupo de recursos** en **DETALLES DE LA ALERTA** y haga clic en **Crear regla de alertas** para crear la regla para el trabajo de Stream Analytics.
+   Agregue un **nombre de regla de alerta** , una **descripción** y su **grupo de recursos** en **DETALLES DE LA ALERTA** y haga clic en **Crear regla de alertas** para crear la regla para el trabajo de Stream Analytics.
 
-   ![Creación de una regla de alerta de Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo Crear regla con DETALLES DE LA ALERTA.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    
 ## <a name="scenarios-to-monitor"></a>Escenarios que supervisar
 
@@ -68,5 +68,4 @@ Se recomiendan las siguientes alertas para supervisar el rendimiento del trabajo
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Escalado de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

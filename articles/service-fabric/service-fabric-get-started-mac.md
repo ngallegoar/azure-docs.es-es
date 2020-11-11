@@ -4,12 +4,12 @@ description: Instale las herramientas, el SDK y el motor en tiempo de ejecución
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: adec05a4d8e34374fe260343c73b1ecd14ba04f1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d08046c8f29901dd9650a1edc886efa2ff226e00
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168178"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086784"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configuración de su entorno de desarrollo en Mac OS X
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Para configurar un contenedor local de Docker y hacer que un clúster de Service
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Puede actualizar estos valores directamente en el archivo daemon.json en la ruta de acceso de instalación de Docker. Puede modificar directamente los valores de configuración del demonio en Docker. Seleccione el **icono de Docker** y, a continuación, seleccione **Preferencias** > **Daemon** > **Avanzadas** .
+    Puede actualizar estos valores directamente en el archivo daemon.json en la ruta de acceso de instalación de Docker. Puede modificar directamente los valores de configuración del demonio en Docker. Seleccione el **icono de Docker** y, a continuación, seleccione **Preferencias** > **Daemon** > **Avanzadas**.
     
     >[!NOTE]
     >
@@ -63,7 +63,7 @@ Para configurar un contenedor local de Docker y hacer que un clúster de Service
     ```
 
     >[!TIP]
-    > De forma predeterminada, se extraerá la imagen con la versión más reciente de Service Fabric. Para revisiones concretas, visite la página [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+    > De forma predeterminada, se extraerá la imagen con la versión más reciente de Service Fabric. Para ver revisiones concretas, consulte la página [Service Fabric OneBox](https://hub.docker.com/_/microsoft-service-fabric-onebox) en Docker Hub.
 
 
 

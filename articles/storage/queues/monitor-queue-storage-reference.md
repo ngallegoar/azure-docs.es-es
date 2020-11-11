@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: abf2a274b61c0f209f8ceaecdf1754536c9f53f4
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787489"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347240"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Queue Storage
 
@@ -22,11 +22,11 @@ Consulte [Supervisión de Azure Storage](monitor-queue-storage.md) para más inf
 
 ## <a name="metrics"></a>Métricas
 
-En las tablas siguientes se indican las métricas de plataforma recopiladas de Azure Storage. 
+En las tablas siguientes se indican las métricas de plataforma recopiladas de Azure Storage.
 
 ### <a name="capacity-metrics"></a>Métricas de capacidad
 
-Los valores de las métricas de capacidad se envían a Azure Monitor cada hora. Los valores se actualizan a diario. El intervalo de agregación define el intervalo de tiempo para el que se presentan los valores de las métricas. El intervalo de agregación que se admite en las métricas de capacidad es una hora (PT1H).
+Los valores de las métricas de capacidad se actualizan diariamente (hasta 24 horas). El intervalo de agregación define el intervalo de tiempo para el que se presentan los valores de las métricas. El intervalo de agregación que se admite en las métricas de capacidad es una hora (PT1H).
 
 Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor.
 
@@ -54,14 +54,14 @@ Se emiten en todas las solicitudes enviadas a una cuenta de almacenamiento de Az
 
 ## <a name="metrics-dimensions"></a>Dimensiones de métricas
 
-Azure Storage admite los siguientes dimensiones para las métricas en Azure Monitor.
+Azure Storage admite las siguientes dimensiones para las métricas en Azure Monitor.
 
 [!INCLUDE [Metrics dimensions](../../../includes/azure-storage-account-metrics-dimensions.md)]
 
 ## <a name="resource-logs-preview"></a>Registros de recursos (versión preliminar)
 
 > [!NOTE]
-> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de la nube pública. Para inscribirse en la versión preliminar, visite [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Esta versión preliminar habilita los registros de blobs (incluido Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no son compatibles.
+> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de la nube pública. Para inscribirse en la versión preliminar, visite [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Esta versión preliminar habilita los registros de blobs (incluido Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no son compatibles.
 
 En la tabla siguiente se indican las propiedades de los registros de recursos de Azure Storage cuando se recopilan en registros de Azure Monitor o Azure Storage. Las propiedades describen la operación, el servicio y el tipo de autorización que se ha usado para realizar la operación.
 

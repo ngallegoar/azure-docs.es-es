@@ -1,7 +1,7 @@
 ---
 title: Auditoría y administración del cumplimiento de directivas
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar Azure Policy con las directivas integradas en Azure Machine Learning.
+description: Conozca Azure Policy y aprenda a utilizar directivas integradas en Azure Machine Learning para asegurarse de que las áreas de trabajo se ajustan a sus requisitos.
 author: jhirono
 ms.author: jhirono
 ms.date: 09/15/2020
@@ -10,25 +10,25 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: d371ea077b479ad2256e782dadd5d037f53004f2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 47a97bb8fbe52d3dde84afd77997b179a5c9248d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900141"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325498"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Auditoría y administración de Azure Machine Learning mediante Azure Policy
 
-[Azure Policy](/azure/governance/policy) es una herramienta de gobernanza que le permite tener la seguridad de que los recursos de Azure son compatibles con las directivas. Con Azure Machine Learning, puede asignar las siguientes directivas:
+[Azure Policy](../governance/policy/index.yml) es una herramienta de gobernanza que le permite tener la seguridad de que los recursos de Azure son compatibles con las directivas. Con Azure Machine Learning, puede asignar las siguientes directivas:
 
 * **Clave administrada por el cliente** : audite o exija si las áreas de trabajo deben usar una clave administrada por el cliente.
 * **Vínculo privado** : audite si las áreas de trabajo usan un punto de conexión privado para comunicarse con una red virtual.
 
-Se pueden establecer directivas en ámbitos diferentes, por ejemplo, en el nivel de suscripción o de grupo de recursos. Para más información, consulte la [documentación de Azure Policy](/azure/governance/policy/overview).
+Se pueden establecer directivas en ámbitos diferentes, por ejemplo, en el nivel de suscripción o de grupo de recursos. Para más información, consulte la [documentación de Azure Policy](../governance/policy/overview.md).
 
 ## <a name="built-in-policies"></a>Directivas integradas
 
-Azure Machine Learning proporciona un conjunto de directivas que puede usar en escenarios comunes con esta solución. Estas definiciones de directiva se pueden asignar a la suscripción existente o utilizar como base para crear sus propias definiciones personalizadas. Para ver una lista completa de las directivas integradas de Azure Machine Learning, consulte [Directivas integradas de Azure Machine Learning](/azure/governance/policy/samples/built-in-policies#machine-learning).
+Azure Machine Learning proporciona un conjunto de directivas que puede usar en escenarios comunes con esta solución. Estas definiciones de directiva se pueden asignar a la suscripción existente o utilizar como base para crear sus propias definiciones personalizadas. Para ver una lista completa de las directivas integradas de Azure Machine Learning, consulte [Directivas integradas de Azure Machine Learning](../governance/policy/samples/built-in-policies.md#machine-learning).
 
 Para ver las definiciones de directivas integradas relacionadas con Azure Machine Learning, siga estos pasos:
 
@@ -36,9 +36,9 @@ Para ver las definiciones de directivas integradas relacionadas con Azure Machin
 1. Seleccione __Definiciones__.
 1. En __Tipo__ , seleccione _Integrada_ y, en __Categoría__ , seleccione __Machine Learning__.
 
-Desde aquí, puede seleccionar definiciones de directivas para verlas. Al ver una definición, puede usar el vínculo __Asignar__ para asignar la directiva a un ámbito específico y configurar los parámetros de la directiva. Para más información, consulte [Asignación de una directiva: Portal](/azure/governance/policy/assign-policy-portal).
+Desde aquí, puede seleccionar definiciones de directivas para verlas. Al ver una definición, puede usar el vínculo __Asignar__ para asignar la directiva a un ámbito específico y configurar los parámetros de la directiva. Para más información, consulte [Asignación de una directiva: Portal](../governance/policy/assign-policy-portal.md).
 
-También puede asignar directivas mediante [Azure PowerShell](/azure/governance/policy/assign-policy-powershell), la [CLI de Azure](https://docs.microsoft.com/azure/governance/policy/assign-policy-azurecli) y [plantillas](/azure/governance/policy/assign-policy-template).
+También puede asignar directivas mediante [Azure PowerShell](../governance/policy/assign-policy-powershell.md), la [CLI de Azure](../governance/policy/assign-policy-azurecli.md) y [plantillas](../governance/policy/assign-policy-template.md).
 
 ## <a name="workspaces-encryption-with-customer-managed-key"></a>Cifrado de las áreas de trabajo con claves administradas por el cliente
 
@@ -56,6 +56,6 @@ Para configurar esta directiva, establezca el parámetro de efecto en __audit__.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Documentación de Azure Policy](/azure/governance/policy/overview)
+* [Documentación de Azure Policy](../governance/policy/overview.md)
 * [Directivas integradas de Azure Machine Learning](policy-reference.md)
-* [Uso de directivas de seguridad con Azure Security Center](/azure/security-center/tutorial-security-policy)
+* [Uso de directivas de seguridad con Azure Security Center](../security-center/tutorial-security-policy.md)

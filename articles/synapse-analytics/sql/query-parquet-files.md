@@ -1,6 +1,6 @@
 ---
-title: Consulta de archivos de Parquet con SQL a petición (versión preliminar)
-description: En este artículo, aprenderá a consultar archivos de Parquet con SQL a petición (versión preliminar).
+title: Consulta de archivos de Parquet mediante un grupo de SQL sin servidor (versión preliminar)
+description: En este artículo, aprenderá a consultar archivos de Parquet mediante un grupo de SQL sin servidor (versión preliminar).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288314"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306855"
 ---
-# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta de archivos de Parquet con SQL a petición (versión preliminar) en Azure Synapse Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consulta de archivos de Parquet mediante un grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
 
-En este artículo, aprenderá a escribir una consulta con SQL a petición (versión preliminar) que leerá archivos de Parquet.
+En este artículo, aprenderá a escribir una consulta mediante un grupo de SQL sin servidor (versión preliminar) que leerá archivos de Parquet.
 
 ## <a name="quickstart-example"></a>Ejemplo de inicio rápido
 
@@ -111,7 +111,7 @@ No es necesario usar la cláusula OPENROWSET WITH al leer los archivos de Parque
 En el ejemplo siguiente se muestran las funcionalidades de inferencia automática del esquema para los archivos de Parquet. Devuelve el número de filas de septiembre de 2017 sin especificar un esquema.
 
 > [!NOTE]
-> No es necesario especificar columnas en la cláusula OPENROWSET WITH al leer los archivos de Parquet. En dicho caso, el servicio de consulta de SQL a petición utilizará los metadatos en el archivo de Parquet y enlazará las columnas por nombre.
+> No es necesario especificar columnas en la cláusula OPENROWSET WITH al leer los archivos de Parquet. En ese caso, el servicio de consulta del grupo de SQL sin servidor utilizará los metadatos del archivo de Parquet y enlazará las columnas por el nombre.
 
 ```sql
 SELECT TOP 10 *
@@ -128,7 +128,7 @@ FROM
 El conjunto de datos que se proporciona en este ejemplo se divide (particiona) en subcarpetas independientes. Puede dirigirse a particiones específicas mediante la función filepath. Este ejemplo muestra los importes de las tarifas por year, month y payment_type durante los tres primeros meses de 2017.
 
 > [!NOTE]
-> La consulta de SQL a petición es compatible con el esquema de partición de Hive y Hadoop.
+> La consulta del grupo de SQL sin servidor es compatible con el esquema de partición de Hive y Hadoop.
 
 ```sql
 SELECT
@@ -155,43 +155,7 @@ ORDER BY
 
 ## <a name="type-mapping"></a>Asignación de tipos
 
-Los archivos de Parquet contienen descripciones de tipos para cada columna. En la tabla siguiente se describe cómo se asignan los tipos de Parquet a los tipos nativos de SQL.
-
-| Tipo de Parquet | Tipo lógico de Parquet (anotación) | Tipo de datos de SQL |
-| --- | --- | --- |
-| BOOLEAN | | bit |
-| BINARY/BYTE_ARRAY | | varbinary |
-| DOUBLE | | FLOAT |
-| FLOAT | | real |
-| INT32 | | int |
-| INT64 | | bigint |
-| INT96 | |datetime2 |
-| FIXED_LEN_BYTE_ARRAY | |binary |
-| BINARY |UTF8 |varchar \*(intercalación UTF8) |
-| BINARY |STRING |varchar \*(intercalación UTF8) |
-| BINARY |ENUM|varchar \*(intercalación UTF8) |
-| BINARY |UUID |UNIQUEIDENTIFIER |
-| BINARY |DECIMAL |Decimal |
-| BINARY |JSON |varchar(max) \*(intercalación UTF8) |
-| BINARY |BSON |varbinary(max) |
-| FIXED_LEN_BYTE_ARRAY |DECIMAL |Decimal |
-| BYTE_ARRAY |INTERVAL |VARCHAR(max), serializado en formato normalizado |
-| INT32 |INT(8, true) |SMALLINT |
-| INT32 |INT(16, true) |SMALLINT |
-| INT32 |INT(32, true) |int |
-| INT32 |INT(8, false) |TINYINT |
-| INT32 |INT(16, false) |int |
-| INT32 |INT(32, false) |bigint |
-| INT32 |DATE |date |
-| INT32 |DECIMAL |Decimal |
-| INT32 |TIME (MILLIS)|time |
-| INT64 |INT(64, true) |bigint |
-| INT64 |INT(64, false) |decimal(20,0) |
-| INT64 |DECIMAL |Decimal |
-| INT64 |TIME (MICROS / NANOS) |time |
-|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
-|[Tipo complejo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(max), serializado en JSON |
-|[Tipo complejo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), serializado en JSON |
+Para la asignación de tipos de Parquet al tipo nativo de SQL, consulte la [asignación de tipos para Parquet](develop-openrowset.md#type-mapping-for-parquet).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

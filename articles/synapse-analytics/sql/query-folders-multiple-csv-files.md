@@ -1,6 +1,6 @@
 ---
-title: Consulta de carpetas y varios archivos por medio de SQL a petición (versión preliminar)
-description: SQL a petición (versión preliminar) admite la lectura de varios archivos o carpetas mediante caracteres comodín, que son similares a los caracteres comodín usados en el sistema operativo Windows.
+title: Consulta de carpetas y varios archivos mediante el grupo de SQL sin servidor (versión preliminar)
+description: El grupo de SQL sin servidor (versión preliminar) admite la lectura de varios archivos o carpetas mediante caracteres comodín, que son similares a los caracteres comodín usados en el sistema operativo Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 424a1ef7a73b5abbdba0d89ededb44cb9efdd116
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288348"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340995"
 ---
 # <a name="query-folders-and-multiple-files"></a>Consulta de carpetas y varios archivos  
 
-En este artículo, aprenderá a escribir una consulta con SQL a petición (versión preliminar) en Azure Synapse Analytics.
+En este artículo, aprenderá a escribir una consulta mediante el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics.
 
-SQL a petición admite la lectura de varios archivos o carpetas mediante caracteres comodín, que son similares a los caracteres comodín usados en el sistema operativo Windows. Sin embargo, existe una mayor flexibilidad, ya que se permiten varios caracteres comodín.
+El grupo de SQL sin servidor admite la lectura de varios archivos o carpetas mediante caracteres comodín, que son similares a los caracteres comodín usados en el sistema operativo Windows. Sin embargo, existe una mayor flexibilidad, ya que se permiten varios caracteres comodín.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,7 +29,7 @@ El primer paso es **crear una base de datos** en la que se ejecutarán las consu
 Usará la carpeta *csv/taxi* para seguir las consultas de ejemplo. Contiene los datos de NYC Taxi - Yellow Taxi Trip Records de julio de 2016 a junio de 2018. Los archivos de *csv/taxi* se denominan según el año y el mes con el siguiente patrón: yellow_tripdata_<year>-<month>.csv
 
 ## <a name="read-all-files-in-folder"></a>Lectura de todos los archivos de una carpeta
-    
+
 En el ejemplo siguiente se leen todos los archivos de datos de NYC Yellow Taxi de la carpeta *csv/taxi* y se devuelve el número total de viajeros y carreras por año. También muestra el uso de las funciones de agregado.
 
 ```sql
@@ -180,6 +180,49 @@ ORDER BY
 > Todos los archivos a los que se tiene acceso con la función OPENROWSET única deben tener la misma estructura (es decir, el número de columnas y sus tipos de datos).
 
 Puesto que solo tiene una carpeta que coincida con los criterios, el resultado de la consulta es el mismo que [Lectura de todos los archivos de una carpeta](#read-all-files-in-folder).
+
+## <a name="traverse-folders-recursively"></a>Atravesar carpetas de forma recursiva
+
+El grupo de SQL sin servidor puede atravesar carpetas de forma recursiva si se especifica /** al final de la ruta de acceso. La siguiente consulta leerá todos los archivos de todas las carpetas y subcarpetas ubicadas en la carpeta *csv*.
+
+```sql
+SELECT
+    YEAR(pickup_datetime) as [year],
+    SUM(passenger_count) AS passengers_total,
+    COUNT(*) AS [rides_total]
+FROM OPENROWSET(
+        BULK 'csv/taxi/**', 
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+        trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
+GROUP BY
+    YEAR(pickup_datetime)
+ORDER BY
+    YEAR(pickup_datetime);
+```
+
+> [!NOTE]
+> Todos los archivos a los que se tiene acceso con la función OPENROWSET única deben tener la misma estructura (es decir, el número de columnas y sus tipos de datos).
 
 ## <a name="multiple-wildcards"></a>Varios caracteres comodín
 

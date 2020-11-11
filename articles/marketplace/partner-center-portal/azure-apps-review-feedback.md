@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: aecc64c5fa923bc29d34efd3969c2c12f30153c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 351a9742e9d839a8e217fdea35cad922acc3339f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320109"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095679"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Control de los comentarios de revisión de las ofertas de aplicaciones de Azure
 
-En este artículo se explica cómo acceder a los comentarios del equipo de revisión de Microsoft Azure Marketplace desde [Azure DevOps](https://azure.microsoft.com/services/devops/). Si se detectan problemas críticos en su oferta de la aplicación de Azure durante el paso de **revisión de Microsoft**, puede iniciar sesión en este sistema para la información detallada sobre estos problemas (comentarios de revisión). Después de corregir todos los problemas, debe volver a enviar la oferta para proceder a su publicación en Azure Marketplace. En el siguiente diagrama se ilustra cómo se relacionan estos comentarios con la publicación.
+En este artículo se explica cómo acceder a los comentarios del equipo de revisión de Microsoft Azure Marketplace desde [Azure DevOps](https://azure.microsoft.com/services/devops/). Si se detectan problemas críticos en su oferta de la aplicación de Azure durante el paso de **revisión de Microsoft** , puede iniciar sesión en este sistema para la información detallada sobre estos problemas (comentarios de revisión). Después de corregir todos los problemas, debe volver a enviar la oferta para proceder a su publicación en Azure Marketplace. En el siguiente diagrama se ilustra cómo se relacionan estos comentarios con la publicación.
 
 ![Proceso de comentarios de revisión](./media/review-feedback-process.png)
 
@@ -39,12 +39,12 @@ Use el procedimiento siguiente para revisar los problemas que se documentan en l
     [![Página principal de la solicitud de incorporación de cambios](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Haga clic en la imagen para expandirla.*
 
-1. (Opcional) En el lado derecho de la ventana, en la sección **Directivas**, seleccione el mensaje del problema (en este ejemplo: **Policy Validation failed**) (Error durante la validación de directivas) para investigar los detalles de bajo nivel del problema, incluidos los archivos de registro asociados. Normalmente, los errores aparecen en la parte inferior de los archivos de registro.
+1. (Opcional) En el lado derecho de la ventana, en la sección **Directivas** , seleccione el mensaje del problema (en este ejemplo: **Policy Validation failed** ) (Error durante la validación de directivas) para investigar los detalles de bajo nivel del problema, incluidos los archivos de registro asociados. Normalmente, los errores aparecen en la parte inferior de los archivos de registro.
 
 1. En el menú en el lado izquierdo de la página principal, seleccione **Archivos** para mostrar la lista de archivos que componen los recursos técnicos de esta oferta. Los revisores de Microsoft deberían haber agregado comentarios que describen los problemas críticos detectados. En el ejemplo siguiente, se detectaron dos problemas.
 
-    [![Página principal de la solicitud de incorporación de cambios](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
-    <br/> *Haga clic en la imagen para expandirla.*
+    [![Captura de pantalla en la que se resaltan los archivos y los dos problemas detectados](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    .<br/> *Haga clic en la imagen para expandirla.*
 
 1. Seleccione cada nodo de comentario en el árbol de la izquierda para ver el comentario en el contexto del código circundante. Corrija el código fuente en el proyecto de equipo para corregir el problema que se describe en el comentario.
 

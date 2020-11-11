@@ -8,12 +8,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 8d24eb868a13e7b2d9ff3d2b625302c1c1fcb908
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 69dd2c6cdba41779849b4eb6b889cde9b1d6e5c9
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318014"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913575"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Threat Modeling Tool, versión actualizada 7.1.60408.1: 9 de abril de 2019
 
@@ -28,7 +28,7 @@ El 9 de abril de 2019 se lanzó la versión 7.1.60408.1 de Microsoft Threat Mode
 
 ### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Nuevas galerías de símbolos para Azure Key Vault y Azure Traffic Manager
 
-![Galerías de símbolos de Azure Key Vault](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
+![Captura de pantalla en la que se muestran los iconos de Azure Key Vault y Azure Traffic Manager.](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
 
 Se agregaron nuevas galerías de símbolos y amenazas para Azure Key Vault y Azure Traffic Manager en el conjunto de galerías de símbolos de Azure. Cuando abre los modelos basados en el conjunto de galerías de símbolos de Azure, se pedirá a los usuarios que actualicen la plantilla asociada con el modelo. También es puede iniciar manualmente la actualización de un modelo basada en el conjunto de galerías de símbolos de Azure mediante el comando "Aplicar plantilla" del menú "Archivo" y la reaplicación del archivo Azure Cloud Services.tb7 más reciente.
 
@@ -36,7 +36,7 @@ Se agregaron nuevas galerías de símbolos y amenazas para Azure Key Vault y Azu
 
 La versión de cliente de Threat Modeling Tool ahora se muestra en la pantalla principal de la aplicación para facilitar su acceso.
 
-![Galerías de símbolos de Azure Key Vault](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
+![Captura de pantalla en la que se muestra Microsoft Threat Modeling Tool con el número de versión de cliente.](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
 
 ### <a name="support-links-have-been-updated"></a>Se actualizaron los vínculos de soporte técnico
 

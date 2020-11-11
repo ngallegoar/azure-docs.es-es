@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 922f4a2785a0b7260bcd0aae19c0172a2fa7a782
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bc5e98484560fcc15e0ea3e289069c84687f158c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283397"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040585"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Procedimientos para crear planes para una oferta de máquina virtual
 
@@ -30,21 +30,21 @@ Después de crear los planes, la pestaña **Plan overview** (Información genera
 
 Las acciones que están disponibles en el panel **Plan overview** (Información general del plan) varían en función del estado actual del plan.
 
-- Si el estado del plan es un borrador, seleccione **Eliminar borrador** .
+- Si el estado del plan es un borrador, seleccione **Eliminar borrador**.
 - Si el estado del plan se publica en directo, seleccione **Stop sell plan** (Detener el plan de venta) o **Sync private audience** (Sincronizar audiencia privada).
 
 ## <a name="create-a-new-plan"></a>Creación de un nuevo plan
 
-Seleccione **Crear nuevo plan** en la parte superior. Aparece el cuadro de diálogo **Nuevo plan** .
+Seleccione **Crear nuevo plan** en la parte superior. Aparece el cuadro de diálogo **Nuevo plan**.
 
 En el cuadro **Id. de plan** , cree un identificador de plan único para cada plan de esta oferta. Este identificador será visible para los clientes en la dirección web del producto. Use solo letras minúsculas y números, guiones o caracteres de subrayado, y un máximo de 50 caracteres.
 
 > [!NOTE]
-> El id. de oferta no se puede cambiar después de seleccionar **Crear** .
+> El id. de oferta no se puede cambiar después de seleccionar **Crear**.
 
-En el cuadro **Nombre del plan** , escriba un nombre para este plan. Los clientes verán este nombre al decidir qué plan van a seleccionar en su oferta. Cree un nombre único que destaque claramente las diferencias entre los planes. Por ejemplo, puede especificar **Windows Server** con los planes *Pago por uso* , *BYOL* , *Avanzado* y *Enterprise* .
+En el cuadro **Nombre del plan** , escriba un nombre para este plan. Los clientes verán este nombre al decidir qué plan van a seleccionar en su oferta. Cree un nombre único que destaque claramente las diferencias entre los planes. Por ejemplo, puede especificar **Windows Server** con los planes *Pago por uso* , *BYOL* , *Avanzado* y *Enterprise*.
 
-Seleccione **Crear** .
+Seleccione **Crear**.
 
 ## <a name="plan-setup"></a>Configuración del plan
 
@@ -138,7 +138,7 @@ Puede diseñar cada plan para que sea visible para todos los usuarios o solo par
 **Audiencia privada** : haga que el plan sea visible solo para una audiencia preseleccionada. Una vez publicado como un plan privado, puede actualizar la audiencia o cambiarlo a público. Después de hacer que un plan sea público, debe seguir siendo público. No se puede volver a cambiar a un plan privado.
 
 > [!NOTE]
-> Una audiencia privada o restringida es diferente de la audiencia preliminar que definió en la pestaña **Versión preliminar** . A una audiencia preliminar se le permite acceder a la oferta _antes_ de que se publique en Azure Marketplace. Mientras que la designación de una audiencia privada solo se aplica a un plan específico, la audiencia preliminar puede ver todos los planes privados y públicos con fines de validación.
+> Una audiencia privada o restringida es diferente de la audiencia preliminar que definió en la pestaña **Versión preliminar**. A una audiencia preliminar se le permite acceder a la oferta _antes_ de que se publique en Azure Marketplace. Mientras que la designación de una audiencia privada solo se aplica a un plan específico, la audiencia preliminar puede ver todos los planes privados y públicos con fines de validación.
 
 **Audiencia restringida (identificadores de suscripción de Azure)** : asigne la audiencia que tendrá acceso a este plan privado mediante los identificadores de suscripción de Azure. Opcionalmente, incluya una descripción de cada identificador de suscripción de Azure que haya asignado. Agregue hasta 10 identificadores de suscripción manualmente o hasta 20 000 si importa una hoja de cálculo CSV. Los identificadores de suscripción de Azure se representan como GUID y todas las letras deben estar en minúsculas.
 
@@ -165,7 +165,7 @@ Proporcione las imágenes y otras propiedades técnicas que están asociadas al 
 
 En el panel **Sistema operativo** , haga lo siguiente:
 
-- En **Familia del sistema operativo** , seleccione entre el sistema operativo **Windows** o **Linux** .
+- En **Familia del sistema operativo** , seleccione entre el sistema operativo **Windows** o **Linux**.
 - En **Versión** o **Distribuidor** , seleccione la versión de Windows o el distribuidor de Linux.
 - En **Nombre descriptivo del sistema operativo** , especifique un nombre descriptivo para el sistema operativo. Este nombre es visible para los clientes.
 
@@ -179,11 +179,35 @@ Puertos públicos o privados abiertos en una máquina virtual implementada.
 
 ### <a name="storage-option-for-deployment"></a>Opción de almacenamiento para la implementación
 
-En **Disk deployment option** (Opción de implementación de disco), seleccione el tipo de implementación de disco que pueden utilizar los clientes para la máquina virtual. Microsoft recomienda limitar la implementación solo a la **implementación de discos administrados** .
+En **Disk deployment option** (Opción de implementación de disco), seleccione el tipo de implementación de disco que pueden utilizar los clientes para la máquina virtual. Microsoft recomienda limitar la implementación solo a la **implementación de discos administrados**.
 
 ### <a name="properties"></a>Propiedades
 
 En **Support Accelerated Networking** (Compatibilidad con redes aceleradas), seleccione esta opción si la máquina virtual es compatible con [redes aceleradas](https://go.microsoft.com/fwlink/?linkid=2124513).
+
+### <a name="generations"></a>Generaciones
+
+La generación de una máquina virtual define el hardware virtual que usa. En función de las necesidades de sus clientes, puede publicar una máquina virtual de generación 1, una máquina virtual de generación 2 o ambas.
+
+1. Al crear una oferta, seleccione un **tipo de generación** y escriba los detalles de la imagen solicitada:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details.png" alt-text="Una vista del cuadro desplegable de generación":::.
+
+2. Para agregar otra generación a un plan, seleccione **Add generation** (Agregar generación):
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="Vista del enlace &quot;Add Generation&quot; (Agregar generación)":::.
+
+    A continuación, escriba los detalles de la generación:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-details.png" alt-text="Una vista de la ventana de los detalles de la generación":::.
+
+    El **Id. de generación** que seleccione se mostrará a los clientes en ubicaciones como las direcciones URL de los productos y las plantillas de ARM (si procede). Use solo caracteres alfanuméricos en minúscula, guiones o caracteres de subrayado; no se puede modificar una vez publicado.
+
+3. Para actualizar una máquina virtual existente que tiene una generación 1 ya publicada, solo tiene que editar los detalles en la página **Configuración técnica** :
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="Una vista de la página de configuración técnica del plan":::.
+
+Para obtener más información sobre las diferencias entre las funcionalidades de la generación 1 y generación 2, vea [Compatibilidad para máquinas virtuales de generación 2 en Azure](../virtual-machines/generation-2.md).
 
 ### <a name="vm-images"></a>Imágenes de VM
 

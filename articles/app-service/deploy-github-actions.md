@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 638dfc63b6a37bae3905703bbd5ecabaa94d2020
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6c768df964d46364a8ca501c078dbecaf1aaa21f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783086"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095567"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementación de App Service con Acciones de GitHub
 
@@ -46,12 +46,12 @@ El archivo tiene tres secciones:
 Puede empezar a trabajar rápidamente con Acciones de GitHub mediante el centro de implementación de App Service. Se generará automáticamente un archivo de flujo de trabajo basado en la pila de aplicaciones y se confirmará en el repositorio de GitHub en el directorio correcto.
 
 1. Vaya a la aplicación web en Azure Portal.
-1. En el lado izquierdo, haga clic en **Centro de implementación** .
-1. En **Implementación continua (CI/CD)** , seleccione **GitHub** .
-1. A continuación, seleccione **Acciones de GitHub** .
+1. En el lado izquierdo, haga clic en **Centro de implementación**.
+1. En **Implementación continua (CI/CD)** , seleccione **GitHub**.
+1. A continuación, seleccione **Acciones de GitHub**.
 1. Use las listas desplegables para seleccionar el repositorio de GitHub, la rama y la pila de aplicaciones.
     - Si la rama seleccionada está protegida, todavía puede seguir agregando el archivo de flujo de trabajo. Asegúrese de revisar las protecciones de la rama antes de continuar.
-1. En la pantalla final, puede revisar las selecciones y obtener una versión preliminar del archivo de flujo de trabajo que se confirmará en el repositorio. Si las selecciones son correctas, haga clic en **Finalizar** .
+1. En la pantalla final, puede revisar las selecciones y obtener una versión preliminar del archivo de flujo de trabajo que se confirmará en el repositorio. Si las selecciones son correctas, haga clic en **Finalizar**.
 
 Con esta acción se confirmará el archivo de flujo de trabajo en el repositorio. El flujo de trabajo que va a compilar e implementar la aplicación se iniciará inmediatamente.
 
@@ -71,13 +71,16 @@ Un perfil de publicación es una credencial de nivel de aplicación. Configure e
 
 1. En Azure Portal, vaya a la aplicación de App Service. 
 
-1. En la página de **Información general** , seleccione **Obtener perfil de publicación** .
+1. En la página de **Información general** , seleccione **Obtener perfil de publicación**.
 
 1. Guarde el archivo descargado. Usará el contenido del archivo para crear un secreto de GitHub.
 
+> [!NOTE]
+> A partir de octubre de 2020, las aplicaciones web de Linux necesitarán que la configuración de la aplicación `WEBSITE_WEBDEPLOY_USE_SCM` esté establecida en `true` **antes de descargar el perfil de publicación**. Este paso dejará de ser un requisito en el futuro.
+
 # <a name="service-principal"></a>[Entidad de servicio](#tab/userlevel)
 
-Puede crear una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar** .
+Puede crear una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -107,7 +110,7 @@ En este ejemplo, reemplace los marcadores de posición por su identificador de s
 
 # <a name="publish-profile"></a>[Perfil de publicación](#tab/applevel)
 
-En [GitHub](https://github.com/), examine el repositorio y seleccione **Configuración > Secretos > Agregar un nuevo secreto** .
+En [GitHub](https://github.com/), examine el repositorio y seleccione **Configuración > Secretos > Agregar un nuevo secreto**.
 
 Para usar las [credenciales de nivel de aplicación](#generate-deployment-credentials), pegue el contenido del archivo del perfil de publicación descargado en el campo de valor del secreto. Asigne al secreto el siguiente nombre: `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
@@ -121,7 +124,7 @@ Al configurar el flujo de trabajo de GitHub, use `AZURE_WEBAPP_PUBLISH_PROFILE` 
 
 # <a name="service-principal"></a>[Entidad de servicio](#tab/userlevel)
 
-En [GitHub](https://github.com/), examine el repositorio y seleccione **Configuración > Secretos > Agregar un nuevo secreto** .
+En [GitHub](https://github.com/), examine el repositorio y seleccione **Configuración > Secretos > Agregar un nuevo secreto**.
 
 Para utilizar las [credenciales de nivel de usuario](#generate-deployment-credentials), pegue toda la salida JSON del comando CLI de Azure en el campo de valor del secreto. Asigne al secreto el nombre `AZURE_CREDENTIALS`.
 

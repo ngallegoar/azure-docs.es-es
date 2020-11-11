@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 7f2673bd181bc24d821b41ae1466c05a9593f154
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: fae4e349d46425c0c2b2b923d6a61e2e588708c1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315730"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077258"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Azure API Management
 
@@ -61,9 +61,9 @@ En esta guía se explica cómo configurar la instancia del servicio Administraci
 
     El **Método de solicitud de autorización** especifica cómo se envía la solicitud de autorización al servidor OAuth 2.0. El valor predeterminado es **GET** .
 
-5. A continuación, debe especificar **URL del punto de conexión de token**, **Métodos de autenticación de cliente**, **Método de envío de tokens de acceso** y **Ámbito predeterminado**.
+5. A continuación, debe especificar **URL del punto de conexión de token** , **Métodos de autenticación de cliente** , **Método de envío de tokens de acceso** y **Ámbito predeterminado**.
 
-    ![Nuevo servidor de OAuth 2.0](./media/api-management-howto-oauth2/oauth-03.png)
+    ![Captura de pantalla en la que se muestra la pantalla Agregar el servicio OAuth2.](./media/api-management-howto-oauth2/oauth-03.png)
 
     En un servidor OAuth 2.0 de Azure Active Directory, la **URL del punto de conexión de token** tendrá el formato siguiente, donde `<TenantID>` tiene el formato de `yourapp.onmicrosoft.com`.
 
@@ -71,14 +71,14 @@ En esta guía se explica cómo configurar la instancia del servicio Administraci
 
     Los valores predeterminados para **Métodos de autenticación de cliente** y **Método de envío de tokens de acceso** son **Básico** y **Encabezado de autorización** respectivamente. Estos valores se configuran en esta sección del formulario, junto con el **Ámbito predeterminado**.
 
-6. La sección **Credenciales de cliente** contiene el **Id. de cliente** y el **Secreto del cliente** que se obtienen durante los procesos de creación y configuración del servidor OAuth 2.0. Al especificar el **Id. de cliente** y el **Secreto del cliente**, se genera el **uri de redirección** para el **código de autorización**. Con este URI se configura la URL de respuesta en la configuración del servidor OAuth 2.0.
+6. La sección **Credenciales de cliente** contiene el **Id. de cliente** y el **Secreto del cliente** que se obtienen durante los procesos de creación y configuración del servidor OAuth 2.0. Al especificar el **Id. de cliente** y el **Secreto del cliente** , se genera el **uri de redirección** para el **código de autorización**. Con este URI se configura la URL de respuesta en la configuración del servidor OAuth 2.0.
 
     En el nuevo portal para desarrolladores, el sufijo del URI tiene el formato siguiente:
 
     - `/signin-oauth/code/callback/{authServerName}` para el flujo de concesión de código de autorización
     - `/signin-oauth/implicit/callback` para el flujo de concesión implícita
 
-    ![Nuevo servidor de OAuth 2.0](./media/api-management-howto-oauth2/oauth-04.png)
+    ![Captura de pantalla en la que se muestra dónde agregar las credenciales del cliente para el nuevo servicio OAuth2.](./media/api-management-howto-oauth2/oauth-04.png)
 
     Si **Authorization grant types**  (Tipos de concesión de autorización) se establece en **Resource owner password** (Contraseña de propietario de recursos), las credenciales se especifican con la sección **Resource owner password credentials** (Credenciales de contraseña de propietario de recursos). De no ser así, puede dejarse en blanco.
 
@@ -96,7 +96,7 @@ En esta guía se explica cómo configurar la instancia del servicio Administraci
 
 3. Seleccione el **Servidor de autorización** que quiera en la lista desplegable y haga clic en **Guardar**.
 
-    ![Configuración de OAuth 2.0](./media/api-management-howto-oauth2/oauth-07.png)
+    ![Captura de pantalla en la que se resalta el servidor de autorización seleccionado y el botón Guardar.](./media/api-management-howto-oauth2/oauth-07.png)
 
 ## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>Prueba de la autorización de usuarios OAuth 2.0 en el portal para desarrolladores (heredado)
 
@@ -111,7 +111,7 @@ Haga clic en **API** en el menú superior y seleccione **API eco**.
 > [!NOTE]
 > Si solamente tiene una API configurada o visible en su cuenta, al hacer clic en API irá directamente a las operaciones de dicha API.
 
-Seleccione la operación **Recurso GET**, haga clic en **Abrir consola** y seleccione **Código de autorización** en la lista desplegable.
+Seleccione la operación **Recurso GET** , haga clic en **Abrir consola** y seleccione **Código de autorización** en la lista desplegable.
 
 ![Open console][api-management-open-console]
 

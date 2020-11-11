@@ -1,6 +1,6 @@
 ---
 title: Tipos de intercalación de almacenamiento de datos
-description: Tipos de intercalación compatibles en el grupo de SQL de Azure Synapse Analytics.
+description: Tipos de intercalación admitidos para un grupo de SQL dedicado en Azure Synapse Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,16 +11,16 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 08a008e2f2402072dce3069c5d059b297239b7dd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 8d76d70c4c84f1d63d4643e1fba3f66d3541beff
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090461"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305253"
 ---
-# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Compatibilidad de la intercalación de bases de datos con el grupo de SQL de Azure Synapse Analytics
+# <a name="database-collation-support-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Compatibilidad de la intercalación de bases de datos en un grupo de SQL dedicado en Azure Synapse Analytics 
 
-Puede cambiar la intercalación de bases de datos predeterminada desde Azure Portal al crear una base de datos del grupo de SQL de Azure Synapse. Esta capacidad facilita aún más la creación de una base de datos mediante una de las 3800 intercalaciones de bases de datos compatibles.
+La intercalación de bases de datos predeterminada se puede cambiar desde Azure Portal cuando se crea una base de datos del grupo de SQL dedicado. Esta capacidad facilita aún más la creación de una base de datos mediante una de las 3800 intercalaciones de bases de datos compatibles.
 
 Las intercalaciones proporcionan la configuración regional, la página de códigos, el criterio de ordenación y las reglas de distinción de caracteres para los tipos de datos basados en caracteres. Una vez que se han elegido estas opciones, todas las columnas y expresiones que requieren información de intercalación heredan la intercalación elegida de la configuración de base de datos. La herencia predeterminada se puede reemplazar si se indica explícitamente una intercalación diferente para un tipo de datos basado en caracteres.
 

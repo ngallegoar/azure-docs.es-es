@@ -1,6 +1,6 @@
 ---
 title: Procedimientos recomendados para la carga de datos
-description: Recomendaciones y optimizaciones de rendimiento para cargar datos en SQL de Synapse
+description: Recomendaciones y optimizaciones del rendimiento para cargar datos en un grupo de SQL dedicado en Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4c07ad2aaf6c682dc370e3223dba1f199242ca2f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289238"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321511"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Procedimientos recomendados para la carga de datos en almacenamientos de datos
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Procedimientos recomendados para cargar datos en un grupo de SQL dedicado en Azure Synapse Analytics
 
 En este artículo, encontrará recomendaciones y optimizaciones de rendimiento para la carga de datos.
 
 ## <a name="prepare-data-in-azure-storage"></a>Preparación de datos en Azure Storage
 
-Para minimizar la latencia, coloque juntos la capa de almacenamiento y el almacenamiento de datos.
+Para minimizar la latencia, ubique conjuntamente la capa de almacenamiento y el grupo de SQL dedicado.
 
 Al exportar datos en formato de archivo ORC, pueden producirse errores de falta de memoria de Java con las columnas de texto grandes. Para resolver este problema, exporte solo un subconjunto de las columnas.
 
@@ -36,7 +36,7 @@ Dividir archivos comprimidos grandes en archivos comprimidos más pequeños.
 
 ## <a name="run-loads-with-enough-compute"></a>Ejecución de cargas con suficientes recursos de proceso
 
-Para una velocidad de carga más rápida, ejecute solo una carga de trabajo de cada vez. Si no es factible, ejecute un número mínimo de cargas al mismo tiempo. Si espera un trabajo de carga grande, considere la posibilidad de escalar verticalmente el grupo de SQL antes de la carga.
+Para una velocidad de carga más rápida, ejecute solo una carga de trabajo de cada vez. Si no es factible, ejecute un número mínimo de cargas al mismo tiempo. Si espera un trabajo de carga grande, considere la posibilidad de escalar verticalmente el grupo de SQL dedicado antes de la carga.
 
 Para ejecutar cargas con recursos de proceso adecuados, cree usuarios de carga designados para ejecutar cargas. Asigne cada usuario de carga a un grupo de cargas de trabajo o una clase de recurso específicos. Para ejecutar una carga, inicie sesión como uno de los usuarios de carga y, a continuación, ejecute la carga. La carga se ejecuta con la clase de recurso del usuario.  Este método es más sencillo que intentar cambiar la clase de recursos de un usuario para que se ajuste a la necesidad actual de clase de recurso.
 

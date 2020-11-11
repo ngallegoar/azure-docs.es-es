@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 419de27ad87b113de62dacb0dc384702420afbd6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 980d3ca52016c65301ea72e4e669c4bafea4c053
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071122"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077207"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management
 
@@ -44,7 +44,7 @@ Siga los pasos que se describen a continuación para cargar un nuevo certificado
 1. Vaya a la instancia del servicio Azure API Management en Azure Portal.
 2. Seleccione **Certificados** en el menú.
 3. Haga clic en el botón **+ Agregar**.
-    ![Incorporación de certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+    ![Captura de pantalla en la que se resalta el botón + Agregar](media/api-management-howto-mutual-certificates/apim-client-cert-add.png).
 4. Busque el certificado y proporcione su identificador y la contraseña.
 5. Haga clic en **Crear**.
 
@@ -71,11 +71,11 @@ Si alguna API está usando el certificado, aparecerá una pantalla de advertenci
 1. Haga clic en **API** en el menú **API Management** de la izquierda y vaya a la API.
     ![Habilitar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
 
-2. En la pestaña **Diseño**, haga clic en un icono de lápiz de la sección **Backend**.
+2. En la pestaña **Diseño** , haga clic en un icono de lápiz de la sección **Backend**.
 3. Cambie las **credenciales de puerta de enlace** a **certificado de cliente** y seleccione el certificado en la lista desplegable.
-    ![Habilitar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
+    ![Captura de pantalla que muestra dónde cambiar las credenciales de la puerta de enlace y seleccionar el certificado](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png).
 
-4. Haga clic en **Save**(Guardar).
+4. Haga clic en **Save** (Guardar).
 
 > [!WARNING]
 > Este cambio se hace efectivo de forma inmediata y llama a las operaciones de la API que realizarán la autenticación en el servidor back-end con el certificado.

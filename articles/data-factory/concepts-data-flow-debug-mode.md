@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085100"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027013"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuración de flujos de datos de asignación
 
@@ -77,15 +77,15 @@ Cuando las pruebas unitarias realicen transformaciones Joins, Exists o Lookup, a
 
 Una vez obtenida la vista previa de los datos, puede generar una transformación rápida para quitar una columna o realizar en ella una conversión de tipo o una modificación. Haga clic en el encabezado de la columna y seleccione una de las opciones de la barra de herramientas de vista previa de datos.
 
-![Acciones rápidas](media/data-flow/quick-actions1.png "Acciones rápidas")
+![Captura de pantalla en la que se muestra la barra de herramientas de vista previa de los datos con opciones: Conversión de tipo, Modificar, Estadísticas y Eliminar](media/data-flow/quick-actions1.png "Acciones rápidas").
 
 Una vez que seleccione una modificación, la vista previa de los datos se actualizará inmediatamente. Haga clic en **Confirmar** en la esquina superior derecha para generar una nueva transformación.
 
-![Acciones rápidas](media/data-flow/quick-actions2.png "Acciones rápidas")
+![Captura de pantalla en la que se muestra el botón Confirmar](media/data-flow/quick-actions2.png "Acciones rápidas").
 
 Con las opciones **Conversión de tipo** y **Modificar** se generará una transformación Columna derivada, mientras que con la opción **Quitar** se generará una transformación Select.
 
-![Acciones rápidas](media/data-flow/quick-actions3.png "Acciones rápidas")
+![Captura de pantalla en la que se muestra la configuración de la columna derivada](media/data-flow/quick-actions3.png "Acciones rápidas").
 
 > [!NOTE]
 > Si edita su instancia de Data Flow, deberá volver a obtener la vista previa de los datos para poder agregar una transformación rápida.

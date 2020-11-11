@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 649f02097a18a141d186434a91539563c64e72ba
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735066"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042127"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -131,16 +131,18 @@ az aks get-versions --location eastus --output table
 
 ## <a name="aks-kubernetes-release-calendar"></a>Calendario de publicación de AKS Kubernetes
 
-Para ver el historial de versiones anteriores, consulte [aquí](https://en.wikipedia.org/wiki/Kubernetes#History).
+Para ver el historial de versiones anteriores, vea [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
-|  Versión de K8s | Versión anterior  | Versión preliminar de AKS  | Disponibilidad general de AKS  | Fin de la vida útil |
+|  Versión de K8s | Versión anterior  | Versión preliminar de AKS  | Disponibilidad general de AKS  | Final de la vida útil |
 |--------------|-------------------|--------------|---------|-------------|
 | 1.16  | 19 de septiembre de 2019  | Enero de 2019   | Marzo de 2020  | Enero de 2021* | 
 | 1.17  | 9 de diciembre de 2019  | Enero de 2019   | Julio de 2020  | 1.20 disponibilidad general | 
 | 1.18  | 23 de marzo de 2020  | Mayo de 2020   | Agosto de 2020  | 1.21 disponibilidad general | 
 | 1.19  | 4 de agosto de 2020  | Septiembre de 2020   | Noviembre de 2020  | 1.22 disponibilidad general | 
-| 1.20  | 8 de diciembre de 2020  | Enero de 2021   | Marzo de 2021  | 1.23 Disponibilidad general | 
-\* Debido a la temporada de vacaciones, AKS ampliará la duración de la versión 1.16 de noviembre de 2020 hasta el enero de 2021. Obtenga más información [aquí](https://github.com/Azure/AKS/releases/tag/2020-10-12)
+| 1.20  | 8 de diciembre de 2020  | Enero de 2021   | Marzo de 2021  | 1.23 Disponibilidad general |
+
+\* Debido a la temporada de vacaciones, AKS ampliará la duración de la versión 1.16 de noviembre de 2020 hasta el enero de 2021. [Más información](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

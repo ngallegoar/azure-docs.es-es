@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900297"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927998"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Tutorial: Configuración de Global Relay Identity Sync para el aprovisionamiento automático de usuarios
 
@@ -34,7 +34,11 @@ En este tutorial, se describen los pasos que debe realizar en Global Relay Ident
 > * Mantener los atributos de usuario sincronizados entre Azure AD y Global Relay Identity Sync
 > * Aprovisionar grupos y pertenencias a grupos en Global Relay Identity Sync
 
-## <a name="prerequisites"></a>Prerrequisitos
+
+> [!NOTE]
+> El conector de aprovisionamiento de Global Relay Identity Sync emplea un método de autorización SCIM que ya no se admite debido a problemas de seguridad. Se está trabajando con Global Relay para cambiar a un método de autorización más seguro.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 

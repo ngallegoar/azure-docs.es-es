@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143738"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927913"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Orígenes de datos de libros de Azure Monitor
 
@@ -77,7 +77,7 @@ Los libros permiten obtener el estado de los recursos de Azure y combinarlo con 
 
 Para que un control de consulta use este origen de datos, utilice la lista desplegable **Tipo de consulta** para elegir Azure Health y seleccione los recursos de destino. Use las listas desplegables de filtros de mantenimiento para seleccionar un subconjunto interesante de problemas de recursos para sus necesidades de análisis.
 
-![Captura de pantalla de consulta de alertas](./media/workbooks-overview/resource-health.png)
+![Captura de pantalla de la consulta de alertas que muestra las listas de filtros de estado.](./media/workbooks-overview/resource-health.png)
 
 ## <a name="json"></a>JSON
 

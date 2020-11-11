@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4d15f78c19b5f142f8879d54a1ae32e229ce7f50
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 21c2329ec58e414ebfedaa4c49d5f690f47cac72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896589"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913898"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveles de zoom y cuadrícula de mosaico
 
@@ -28,41 +28,41 @@ Para optimizar el rendimiento de la recuperación y visualización del mapa, est
 
 El nivel de zoom 1 utiliza cuatro mosaicos para representar el mundo: un cuadrado de 2 x 2
 
-:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="Mosaico de mapa del mundo":::
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="Diseño de mosaico de mapa de 2×2":::
 
 Cada nivel de zoom adicional divide por cuatro los mosaicos del anterior, de forma que se crea una cuadrícula de 2<sup>zoom</sup> x 2<sup>zoom</sup>. El nivel de zoom 22 es una cuadrícula de 2<sup>22</sup> x 2<sup>22</sup> o 4 194 304 x 4 194 304 mosaicos (17 592 186 044 416 mosaicos en total).
 
 Los controles de mapa interactivo de Azure Maps para web y Android admiten 25 niveles de zoom, numerados de 0 a 24. Aunque los datos de carretera solo estarán disponibles en los niveles de zoom cuando los mosaicos estén disponibles.
 
-En la tabla siguiente se proporciona la lista completa de valores para los niveles de zoom en los que el tamaño del mosaico es un cuadrado de 512 píxeles por lado:
+En la tabla siguiente se proporciona la lista completa de valores para los niveles de zoom en los que el tamaño del mosaico es un cuadrado de 512 píxeles por lado con una latitud 0:
 
 |Nivel de zoom|Metros/píxel|Metros/lado de mosaico|
 |--- |--- |--- |
-|0|156543|40075008|
-|1|78271,5|20037504|
-|2|39135,8|10018764,8|
-|3|19567,9|5009382,4|
-|4|9783,9|2504678,4|
-|5|4892|1252352|
-|6|2446|626176|
-|7|1223|313088|
-|8|611,5|156544|
-|9|305,7|78259,2|
-|10|152,9|39142,4|
-|11|76,4|19558,4|
-|12|38,2|9779,2|
-|13|19,1|4889,6|
-|14|9,6|2457,6|
-|15|4.8|1228,8|
-|16|2.4|614,4|
-|17|1.2|307,2|
-|18|0.6|152,8|
-|19|0,3|76,4|
-|20|0,15|38,2|
-|21|0,075|19,1|
-|22|0,0375|9,55|
-|23|0,01875|4,775|
-|24|0,009375|2,3875|
+| 0 | 156543 | 40075017 |
+| 1 | 78271,5 | 20037508 |
+| 2 | 39135,8 | 10018754 |
+| 3 | 19567.88 | 5009377.1 |
+| 4 | 9783.94 | 2504688.5 |
+| 5 | 4891.97 | 1252344.3 |
+| 6 | 2445.98 | 626172.1 |
+| 7 | 1222.99 | 313086.1 |
+| 8 | 611,5 | 156543 |
+| 9 | 305.75 | 78271,5 |
+| 10 | 152.87 | 39135,8 |
+| 11 | 76.44 | 19567,9 |
+| 12 | 38.219 | 9783.94 |
+| 13 | 19.109 | 4891.97 |
+| 14 | 9.555 | 2445.98 |
+| 15 | 4.777 | 1222.99 |
+| 16 | 2.3887 | 611.496 |
+| 17 | 1.1943 | 305.748 |
+| 18 | 0.5972 | 152.874 |
+| 19 | 0.14929 | 76.437 |
+| 20 | 0.14929 | 38.2185 |
+| 21 | 0.074646 | 19.10926 |
+| 22 | 0.037323 | 9.55463 |
+| 23 | 0.0186615 | 4.777315 |
+| 24 | 0.00933075 | 2.3886575 |
 
 ## <a name="pixel-coordinates"></a>Coordenadas de píxeles
 
@@ -76,7 +76,7 @@ var mapHeight = mapWidth;
 
 Dado que el ancho y la altura del mapa son diferentes en cada nivel de zoom, también lo son las coordenadas de los píxeles. El píxel situado en la esquina superior izquierda del mapa siempre tiene coordenadas de píxel (0, 0). El píxel situado en la esquina inferior derecha del mapa tiene coordenadas de píxel *(width-1, height-1)* o, haciendo referencia a las ecuaciones de la sección anterior, *(tileSize \*2 <sup>zoom</sup>–1, tileSize \* 2 <sup>zoom</sup>–1)* . Por ejemplo, al usar mosaicos cuadrados de 512 en el nivel 2, las coordenadas de los píxeles van de (0, 0) a (2047, 2047), como se observa a continuación:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Mosaico de mapa del mundo":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Mapa que muestra las dimensiones de píxeles":::
 
 Dada la latitud y la longitud en grados y el nivel de detalle, las coordenadas XY de los píxeles se calcula de la manera siguiente:
 
@@ -102,7 +102,7 @@ var numberOfTilesHigh = numberOfTilesWide;
 
 Cada mosaico tiene coordenadas XY que van de (0, 0) en la esquina superior izquierda a *(2 <sup>zoom</sup>–1, 2 <sup>zoom</sup>–1)* en la esquina inferior derecha. Por ejemplo, en el nivel de zoom 3, las coordenadas del mosaico van de (0, 0) a (7, 7) de la manera siguiente:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Mosaico de mapa del mundo":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Mapa de coordenadas de mosaicos":::
 
 Dado un par de coordenadas XY de píxeles, puede determinar fácilmente las coordenadas XY del mosaico que contiene ese píxel:
 
@@ -116,13 +116,13 @@ El nivel de zoom determina los mosaicos. Las coordenadas x e y se corresponden c
 
 Al determinar qué nivel de zoom se usará, recuerde que cada ubicación está en una posición fija en su mosaico. Como resultado, el número de mosaicos necesarios para mostrar una extensión determinada del territorio depende de la ubicación específica de la cuadrícula de zoom en el mundo. Por ejemplo, si hay dos puntos separados 900 metros, *puede* que al mostrar una ruta entre ellos en el nivel de zoom 17, solo ocupen tres mosaicos. Sin embargo, si el punto occidental está a la derecha de su mosaico y el punto oriental a la izquierda, puede ocupar cuatro mosaicos:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Mosaico de mapa del mundo":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Escala de demostración del zoom":::
 
 Una vez determinado el nivel de zoom, se pueden calcular los valores x e y. El mosaico superior izquierdo de cada cuadrícula de zoom es x=0, y=0; el mosaico inferior derecho está en x=2<sup>zoom-1</sup>, y=2<sup>zoom-1</sup>.
 
 Esta es la cuadrícula de zoom para el nivel de zoom 1:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Mosaico de mapa del mundo":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Cuadrícula de zoom para el nivel de zoom 1":::
 
 ## <a name="quadkey-indices"></a>Índices de quadkeys
 
@@ -143,7 +143,7 @@ quadkey = 100111 (base 2) = 213 (base 4) = "213"
 
 Los `Qquadkeys` tienen varias propiedades interesantes. En primer lugar, la longitud de un `quadkey` (el número de dígitos) es igual al nivel de zoom del mosaico correspondiente. En segundo lugar, el `quadkey` de cualquier mosaico comienza con el `quadkey` de su mosaico primario (el mosaico contenedor del nivel anterior). Como se muestra en el ejemplo siguiente, el mosaico 2 es el elemento primario de los mosaicos 20 a 23:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Mosaico de mapa del mundo":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Pirámide de mosaicos de quadkey":::
 
 Por último, los `quadkeys` proporcionan una clave de índice unidimensional que normalmente respeta la proximidad de los mosaicos en el espacio XY. En otras palabras, normalmente, dos mosaicos que tengan coordenadas XY cercanas tendrán `quadkeys` que estarán relativamente cerca. Esto es importante para optimizar el rendimiento de la base de datos, porque a menudo los mosaicos vecinos se solicitan en grupos, por lo que es conveniente mantener esos mosaicos en los mismos bloques de disco, con el fin de minimizar el número de lecturas de disco.
 

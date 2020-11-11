@@ -4,12 +4,12 @@ description: Instale el SDK y el motor en tiempo de ejecución, y cree un clúst
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 39ed4a394a54112c03145c0d481e5459ecbf6d8b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675271"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086897"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -175,7 +175,7 @@ El sistema en tiempo de ejecución de Service Fabric que viene con la instalaci�
 
 # <a name="container-based-local-cluster"></a>[Clúster local basado en contenedores](#tab/localclusteroneboxcontainer)
 
-Iniciar un [clúster de Service Fabric todo en uno](https://hub.docker.com/r/microsoft/service-fabric-onebox/), basado en contenedores.
+Inicie un [clúster de Service Fabric todo en uno](https://hub.docker.com/_/microsoft-service-fabric-onebox) basado en contenedores.
 
 1. Instale Moby para poder implementar contenedores de Docker.
     ```bash

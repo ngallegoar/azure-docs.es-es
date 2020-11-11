@@ -2,13 +2,13 @@
 title: Conceptos sobre almacenamiento
 description: Obtenga información sobre las funcionalidades de almacenamiento principales en las nubes privadas de Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 02378040061080d3c9abbfafb26180c9d22e9073
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 11/03/2020
+ms.openlocfilehash: 394b755f5dc8fdbcaa6092419e9451ae1691aa67
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316824"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289245"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Conceptos de almacenamiento de Azure VMware Solution
 
@@ -28,7 +28,7 @@ El almacenamiento local en los hosts de un clúster se usa en el almacén de dat
 
 ## <a name="data-at-rest-encryption"></a>Cifrado de datos en reposo
 
-Los almacenes de datos de vSAN usan el cifrado de datos en reposo de forma predeterminada. La solución de cifrado se basa en KMS y admite operaciones de vCenter para la administración de claves. Las claves se almacenan cifradas, encapsuladas por una clave maestra de Azure Key Vault basada en HSM. Cuando se quita un host de un clúster por cualquier motivo, los datos en los SSD se invalidan inmediatamente.
+Los almacenes de datos de vSAN usan el cifrado de datos en reposo de forma predeterminada. La solución de cifrado se basa en KMS y admite operaciones de vCenter para la administración de claves. Las claves se almacenan cifradas, encapsuladas por una clave maestra de Azure Key Vault. Cuando se quita un host de un clúster por cualquier motivo, los datos en los SSD se invalidan inmediatamente.
 
 ## <a name="scaling"></a>Ampliación
 

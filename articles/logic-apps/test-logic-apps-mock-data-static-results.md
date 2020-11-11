@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
-ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711d753203aeaeba50cea692053a37fcab2e9c7b
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74790281"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027710"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Probar aplicaciones lógicas con datos simulados mediante la configuración de resultados estáticos
 
@@ -78,7 +78,7 @@ Si la aplicación lógica tiene una ejecución anterior con salidas que se puede
 
 1. En el menú principal de la aplicación lógica, seleccione **Introducción**.
 
-1. En la sección **Historial de ejecuciones**, seleccione la ejecución de aplicación lógica que quiera.
+1. En la sección **Historial de ejecuciones** , seleccione la ejecución de aplicación lógica que quiera.
 
 1. En el flujo de trabajo de la aplicación lógica, busque y expanda la acción que tiene los resultados que quiera.
 
@@ -88,7 +88,7 @@ Si la aplicación lógica tiene una ejecución anterior con salidas que se puede
 
 1. Realice el procedimiento para abrir el cuadro **Resultado estático** de la acción descrito en la sección [Configurar resultados estáticos](#set-up-static-results).
 
-1. Cuando se abra el cuadro **Resultado estático**, elija uno de estos dos pasos:
+1. Cuando se abra el cuadro **Resultado estático** , elija uno de estos dos pasos:
 
    * Para pegar un objeto JSON completo, elija **Cambiar al modo JSON** (![Selección de "Cambiar al modo JSON"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
 
@@ -112,9 +112,9 @@ En el historial de ejecuciones de la aplicación lógica se identifican las ejec
 
 1. En el menú principal de la aplicación lógica, seleccione **Introducción**. 
 
-1. En el panel derecho, bajo **Historial de ejecuciones**, busque la columna **Resultados estáticos**. 
+1. En el panel derecho, bajo **Historial de ejecuciones** , busque la columna **Resultados estáticos**. 
 
-   Las ejecuciones que incluyan acciones con resultados tienen la columna **Resultados estáticos** establecida en **Habilitado**, por ejemplo:
+   Las ejecuciones que incluyan acciones con resultados tienen la columna **Resultados estáticos** establecida en **Habilitado** , por ejemplo:
 
    ![Historial de ejecuciones: columna Resultados estáticos](./media/test-logic-apps-mock-data-static-results/run-history.png)
 
@@ -130,11 +130,11 @@ Si los resultados estáticos se desactivan, los valores de la última configurac
 
 1. Busque la acción donde quiera deshabilitar las salidas estáticas. En la esquina superior derecha de la acción, seleccione el icono de vaso de precipitación de prueba (![Icono de resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)).
 
-   ![Deshabilitar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
+   ![Captura de pantalla en la que se muestra una acción HTTP donde puede seleccionar el icono de vaso de precipitación.](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
 1. Seleccione **Deshabilitar el resultado estático** > **Listo**.
 
-   ![Deshabilitar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
+   ![Captura de pantalla en la que se muestra la opción Deshabilitar el resultado estático que se puede seleccionar.](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
 ## <a name="reference"></a>Referencia
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e907a3ec2e2521524cdf23e1403ae38a19275aa6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c7c002b57f2220ac0a9fba43a8081b2a4ed800e7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071326"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081066"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidad de una instancia de Azure API Management
 
@@ -42,7 +42,7 @@ Para seguir los pasos de este artículo, debe tener:
 
 ## <a name="what-is-capacity"></a>¿Qué es la capacidad?
 
-![Métrica de capacidad](./media/api-management-capacity/capacity-ingredients.png)
+![Diagrama que explica la métrica de capacidad.](./media/api-management-capacity/capacity-ingredients.png)
 
 La **capacidad** es un indicador de la carga de una instancia de API Management. Refleja el uso de los recursos (CPU y memoria) y las longitudes de cola de la red. El uso de la CPU y la memoria revela el consumo de recursos por parte de:
 

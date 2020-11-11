@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 7dd23f481409eb3498893c1c7f9c0fd8311b9af2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a06bbeb4946f03b9cb6e5b1400521a0abffdd7f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901601"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913558"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Synapse Analytics (antes SQL Data Warehouse) mediante Azure Data Factory
 
@@ -42,7 +42,7 @@ Para la actividad de copia, este conector de Azure Synapse Analytics admite esta
 
 - Copiar datos mediante la autenticación con SQL y la autenticación de tokens de aplicaciones de Azure Active Directory (Azure AD) con una entidad de servicio o identidades administradas para recursos de Azure.
 - Como origen, la recuperación de datos mediante una consulta SQL o un procedimiento almacenado. También puede optar por la copia en paralelo desde un origen de Azure Synapse Analytics; vea la sección [Copia en paralelo desde Synapse Analytics](#parallel-copy-from-synapse-analytics) para obtener detalles.
-- Como receptor, cargar de datos mediante [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics), la [instrucción COPY](#use-copy-statement) (versión preliminar) o Inserción masiva. Se recomienda PolyBase o la instrucción COPY (versión preliminar) para mejorar el rendimiento de la copia. El conector también admite la creación automática de la tabla de destino, si no existe, en función del esquema de origen.
+- Como receptor, cargar de datos mediante [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics), la [instrucción COPY](#use-copy-statement) o Inserción masiva. Se recomienda PolyBase o la instrucción COPY para mejorar el rendimiento de la copia. El conector también admite la creación automática de la tabla de destino, si no existe, en función del esquema de origen.
 
 > [!IMPORTANT]
 > Si copia los datos mediante Azure Data Factory Integration Runtime, configure una [regla de firewall de nivel de servidor](../azure-sql/database/firewall-configure.md) para que los servicios de Azure puedan acceder al [servidor lógico de SQL](../azure-sql/database/logical-servers.md).
@@ -51,7 +51,7 @@ Para la actividad de copia, este conector de Azure Synapse Analytics admite esta
 ## <a name="get-started"></a>Introducción
 
 > [!TIP]
-> Para obtener el mejor rendimiento posible, use PolyBase para cargar datos en Azure Synapse Analytics. Encontrará más detalles en la sección [Usar PolyBase para cargar datos en SQL Data Warehouses](#use-polybase-to-load-data-into-azure-synapse-analytics). Para un tutorial con un caso de uso, vea [Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory](load-azure-sql-data-warehouse.md).
+> Para obtener el mejor rendimiento posible, use PolyBase o la instrucción COPY para cargar datos en Azure Synapse Analytics. Las secciones [Uso de PolyBase para cargar datos en Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) y [Uso de la instrucción COPY para cargar datos en Azure Synapse Analytics](#use-copy-statement) contienen detalles. Para un tutorial con un caso de uso, vea [Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory](load-azure-sql-data-warehouse.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -478,7 +478,7 @@ Usar [PolyBase](/sql/relational-databases/polybase/polybase-guide) es una manera
 - Si el formato y el almacenamiento de datos de origen no es compatible originalmente con PolyBase, use en su lugar la característica **[Copia almacenada provisionalmente con PolyBase](#staged-copy-by-using-polybase)** . La característica de copia almacenada provisionalmente también proporciona un mejor rendimiento. Convierte automáticamente los datos en formato compatible con PolyBase, almacena los datos en Azure Blob Storage y llama a PolyBase para cargar los datos en Azure Synapse Analytics.
 
 > [!TIP]
-> Más información en [Prácticas recomendadas para usar PolyBase](#best-practices-for-using-polybase). Cuando se usa PolyBase con Azure Integration Runtime, las unidades de integración de datos eficaces siempre son dos. La optimización de la unidad de integración de datos no afecta al rendimiento, ya que la carga de datos desde el almacenamiento se basa en el motor de Synapse.
+> Más información en [Prácticas recomendadas para usar PolyBase](#best-practices-for-using-polybase). Cuando se usa PolyBase con Azure Integration Runtime, las [unidades de integración de datos (DIU)](copy-activity-performance-features.md#data-integration-units) eficaces para el almacenamiento directo o provisional en Synapse siempre son dos. La optimización de la unidad de integración de datos no afecta al rendimiento, ya que la carga de datos desde el almacenamiento se basa en el motor de Synapse.
 
 Esta configuración de PolyBase es compatible con `polyBaseSettings` en la actividad de copia:
 
@@ -507,7 +507,8 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Autenticación de clave de cuenta y autenticación de identidad administrada |
 
     >[!IMPORTANT]
-    >Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Obtenga información sobre las configuraciones necesarias en Data Factory en las secciones [Azure Blob: autenticación de identidad administrada](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2: autenticación de identidad administrada](connector-azure-data-lake-storage.md#managed-identity) respectivamente.
+    >- Cuando use la autenticación de identidad administrada para el servicio vinculado de almacenamiento, obtenga información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity), respectivamente.
+    >- Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 2. El **formato de datos de origen** es de **Parquet** , **ORC** , o **texto delimitado** , con las siguientes configuraciones:
 
@@ -567,7 +568,8 @@ Si los datos de origen no son compatibles de forma nativa con PolyBase, habilite
 Para usar esta característica, cree un [servicio vinculado de Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) con **autenticación de identidad administrada o clave de cuenta** que haga referencia a la cuenta de almacenamiento de Azure como almacenamiento provisional.
 
 >[!IMPORTANT]
->Si el almacenamiento provisional de Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Obtenga información sobre las configuraciones necesarias en Data Factory en [Azure Blob: autenticación de identidad administrada](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2: autenticación de identidad administrada](connector-azure-data-lake-storage.md#managed-identity).
+>- Cuando use la autenticación de identidad administrada para el servicio vinculado de almacenamiento provisional, obtenga información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity), respectivamente.
+>- Si el almacenamiento provisional de Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ```json
 "activities":[
@@ -673,7 +675,7 @@ La [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql) de Azure Sy
 >Actualmente, Data Factory solo admite la copia de los orígenes compatibles con la instrucción COPY que se mencionan a continuación.
 
 >[!TIP]
->Cuando se usa la instrucción COPY con Azure Integration Runtime, las unidades de integración de datos eficaces siempre son dos. La optimización de la unidad de integración de datos no afecta al rendimiento, ya que la carga de datos desde el almacenamiento se basa en el motor de Synapse.
+>Cuando se usa la instrucción COPY con Azure Integration Runtime, las [unidades de integración de datos (DIU)](copy-activity-performance-features.md#data-integration-units) eficaces siempre son dos. La optimización de la unidad de integración de datos no afecta al rendimiento, ya que la carga de datos desde el almacenamiento se basa en el motor de Synapse.
 
 La instrucción COPY es compatible con esta configuración:
 
@@ -687,7 +689,8 @@ La instrucción COPY es compatible con esta configuración:
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Texto delimitado](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Autenticación de clave de cuenta, autenticación de entidad de servicio, autenticación de identidad administrada |
 
     >[!IMPORTANT]
-    >Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Obtenga información sobre las configuraciones necesarias en Data Factory en las secciones [Azure Blob: autenticación de identidad administrada](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2: autenticación de identidad administrada](connector-azure-data-lake-storage.md#managed-identity) respectivamente.
+    >- Cuando use la autenticación de identidad administrada para el servicio vinculado de almacenamiento, obtenga información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity), respectivamente.
+    >- Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 2. Esta es la configuración de formato:
 
@@ -769,7 +772,10 @@ La configuración específica de Azure Synapse Analytics está disponible en la 
 
 **Entrada** Seleccione si desea señalar el origen en una tabla (equivale a ```Select * from <table-name>```) o escribir una consulta SQL personalizada.
 
-**Enable Staging** (Habilitar almacenamiento provisional) Se recomienda encarecidamente usar esta opción en cargas de trabajo de producción con orígenes de Synapse DW. Al ejecutar una actividad de flujo de datos con orígenes de Synapse desde una canalización, ADF le solicitará una cuenta de almacenamiento de ubicación de almacenamiento provisional y la usará para la carga de datos almacenados provisionalmente. Es el mecanismo más rápido para cargar datos desde Synapse DW.
+**Enable Staging** (Permitir almacenamiento provisional): se recomienda encarecidamente usar esta opción en cargas de trabajo de producción con orígenes de Azure Synapse Analytics. Al ejecutar una [actividad de flujo de datos](control-flow-execute-data-flow-activity.md) con orígenes de Azure Synapse Analytics desde una canalización, ADF le solicitará una cuenta de almacenamiento de ubicación de almacenamiento provisional y la usará para la carga de datos almacenados provisionalmente. Es el mecanismo más rápido para cargar datos desde Azure Synapse Analytics.
+
+- Cuando use la autenticación de identidad administrada para el servicio vinculado de almacenamiento, obtenga información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity), respectivamente.
+- Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 **Consultar** Si selecciona Consulta en el campo de entrada, escriba una consulta SQL para el origen. Esta configuración invalidará cualquier tabla que haya elegido en el conjunto de datos. Las cláusulas **Ordenar por** no se admiten aquí, pero puede establecer una instrucción SELECT FROM completa. También puede usar las funciones de tabla definidas por el usuario. **select * from udfGetData()** es un UDF in SQL que devuelve una tabla. Esta consulta genera una tabla de origen que puede usar en el flujo de datos. El uso de consultas también es una excelente manera de reducir las filas para pruebas o búsquedas.
 
@@ -798,7 +804,10 @@ La configuración específica de Azure Synapse Analytics está disponible en la 
 - Recreate (Volver a crear): se quitará la tabla y se volverá a crear. Obligatorio si se crea una nueva tabla dinámicamente.
 - Truncate (Truncar): se quitarán todas las filas de la tabla de destino.
 
-**Enable staging** (Permitir almacenamiento provisional): determina si se debe usar [PolyBase](/sql/relational-databases/polybase/polybase-guide) al escribir en Azure Synapse Analytics
+**Enable staging** (Permitir almacenamiento provisional): determina si se debe usar [PolyBase](/sql/relational-databases/polybase/polybase-guide) al escribir en Azure Synapse Analytics. El almacenamiento provisional se configura en [Actividad de ejecución de Data Flow](control-flow-execute-data-flow-activity.md). 
+
+- Cuando use la autenticación de identidad administrada para el servicio vinculado de almacenamiento, obtenga información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity), respectivamente.
+- Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 **Tamaño del lote** : controla el número de filas que se escriben en cada cubo. Los tamaños de lote más grandes mejoran la compresión y la optimización de memoria, pero se arriesgan a obtener excepciones de memoria al almacenar datos en caché.
 

@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 2f61fef58485a905b96bdada32b915106e60d1a8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2ee32b3ced8fdcd5f9f889c4fd0183e46ad5d8d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425128"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346016"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Uso del almacenamiento de colas de Java
 
@@ -36,7 +36,7 @@ En primer lugar, compruebe que el sistema de desarrollo cumple los requisitos pr
 
 Para crear una aplicación Java llamada *queues-how-to-v12* :
 
-1. En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use Maven para crear una nueva aplicación de consola con el nombre *queues-how-to-v12* . Escriba el siguiente comando **mvn** para crear un proyecto "Hola mundo" sencillo de Java.
+1. En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use Maven para crear una nueva aplicación de consola con el nombre *queues-how-to-v12*. Escriba el siguiente comando **mvn** para crear un proyecto "Hola mundo" sencillo de Java.
 
    ```bash
     mvn archetype:generate \
@@ -152,7 +152,8 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
-Puede almacenar esta cadena en el archivo de configuración de servicio denominado *ServiceConfiguration.cscfg* . Para una aplicación que se ejecuta dentro de un rol de Microsoft Azure, acceda a la cadena de conexión llamando a **RoleEnvironment.getConfigurationSettings** . A continuación se muestra un ejemplo de cómo obtener la cadena de conexión desde un elemento de **configuración** denominado *StorageConnectionString* :
+
+Puede almacenar esta cadena en el archivo de configuración de servicio denominado *ServiceConfiguration.cscfg*. En el caso de las aplicaciones que se ejecutan en un rol de Microsoft Azure, llame a **RoleEnvironment.getConfigurationSettings** para acceder a la cadena de conexión. A continuación se muestra un ejemplo de cómo obtener la cadena de conexión desde un elemento de **configuración** denominado *StorageConnectionString* :
 
 ```java
 // Retrieve storage account from connection-string.
@@ -168,13 +169,13 @@ En los ejemplos siguientes se supone que tiene un objeto **String** que contiene
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
-Un objeto **QueueClient** contiene las operaciones para interactuar con una cola. El siguiente código crea un objeto **QueueClient** . Use el objeto **QueueClient** para crear la cola que desea utilizar.
+Un objeto **QueueClient** contiene las operaciones para interactuar con una cola. El siguiente código crea un objeto **QueueClient**. Use el objeto **QueueClient** para crear la cola que desea utilizar.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_CreateQueue":::
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient** . (Nota: Existen otras maneras de crear objetos **CloudStorageAccount** . Para más información, consulte **CloudStorageAccount** en la [referencia del SDK del cliente de Azure Storage].
+Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. (Nota: Existen otras maneras de crear objetos **CloudStorageAccount**. Para más información, consulte **CloudStorageAccount** en la [referencia del SDK del cliente de Azure Storage].
 
 Use el objeto **CloudQueueClient** para obtener una referencia a la cola que desea utilizar. En caso de que la cola no exista todavía, es posible crearla.
 
@@ -207,13 +208,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
-Para insertar un mensaje en una cola existente, llame al método **sendMessage** . Un mensaje puede ser una cadena (en formato UTF-8) o una matriz de bytes. Este es el código que envía un mensaje de cadena a la cola.
+Para insertar un mensaje en una cola existente, llame al método **sendMessage**. Un mensaje puede ser una cadena (en formato UTF-8) o una matriz de bytes. Este es el código que envía un mensaje de cadena a la cola.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_AddMessage":::
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo **CloudQueueMessage** . A continuación, llame al método **addMessage** . Se puede crear un **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de bytes. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo".
+Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo **CloudQueueMessage**. A continuación, llame al método **addMessage** . Se puede crear un **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de bytes. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo".
 
 ```java
 try
@@ -246,7 +247,7 @@ catch (Exception e)
 
 ## <a name="how-to-peek-at-the-next-message"></a>Procedimientos: siguiente mensaje
 
-Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peekMessage** .
+Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peekMessage**.
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
@@ -436,13 +437,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
-El código extrae un mensaje de una cola en dos pasos. Al llamar a **receiveMessage** , obtiene el siguiente mensaje de una cola. Un mensaje devuelto por **receiveMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para terminar de quitar el mensaje de la cola, también debe llamar a **deleteMessage** . Si el código no puede procesar un mensaje, este proceso de dos pasos garantiza que pueda obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
+El código extrae un mensaje de una cola en dos pasos. Al llamar a **receiveMessage** , obtiene el siguiente mensaje de una cola. Un mensaje devuelto por **receiveMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para terminar de quitar el mensaje de la cola, también debe llamar a **deleteMessage**. Si el código no puede procesar un mensaje, este proceso de dos pasos garantiza que pueda obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-El código extrae un mensaje de una cola en dos pasos. Al llamar a **retrieveMessage** , obtiene el siguiente mensaje de una cola. Un mensaje devuelto por **retrieveMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para terminar de quitar el mensaje de la cola, también debe llamar a **deleteMessage** . Si el código no puede procesar un mensaje, este proceso de dos pasos garantiza que pueda obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
+El código extrae un mensaje de una cola en dos pasos. Al llamar a **retrieveMessage** , obtiene el siguiente mensaje de una cola. Un mensaje devuelto por **retrieveMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para terminar de quitar el mensaje de la cola, también debe llamar a **deleteMessage**. Si el código no puede procesar un mensaje, este proceso de dos pasos garantiza que pueda obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
 
 ```java
 try
@@ -522,13 +523,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
-Para obtener una lista de las colas actuales, llame al método **QueueServiceClient.listQueues()** , el cual devolverá una colección de objetos **QueueItem** .
+Para obtener una lista de las colas actuales, llame al método **QueueServiceClient.listQueues()** , el cual devolverá una colección de objetos **QueueItem**.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ListQueues":::
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-Para obtener una lista de las colas actuales, llame al método **CloudQueueClient.listQueues()** , el cual devolverá una colección de objetos **CloudQueue** .
+Para obtener una lista de las colas actuales, llame al método **CloudQueueClient.listQueues()** , el cual devolverá una colección de objetos **CloudQueue**.
 
 ```java
 try
@@ -561,13 +562,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
-Para eliminar una cola y todos los mensajes que contiene, llame al método **delete** en el objeto **QueueClient** .
+Para eliminar una cola y todos los mensajes que contiene, llame al método **delete** en el objeto **QueueClient**.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DeleteMessageQueue":::
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **deleteIfExists** en el objeto de cola **CloudQueue** .
+Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **deleteIfExists** en el objeto de cola **CloudQueue**.
 
 ```java
 try
@@ -600,10 +601,10 @@ catch (Exception e)
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-* [SDK de Azure Storage para Java][Azure Storage SDK for Java]
-* [Referencia del SDK del cliente de Azure Storage][Azure Storage Client SDK Reference]
-* [API de REST de servicios de Azure Storage][Azure Storage Services REST API]
-* [Blog del equipo de Azure Storage][Azure Storage Team Blog]
+- [SDK de Azure Storage para Java][Azure Storage SDK for Java]
+- [Referencia del SDK del cliente de Azure Storage][Azure Storage Client SDK Reference]
+- [API de REST de servicios de Azure Storage][Azure Storage Services REST API]
+- [Blog del equipo de Azure Storage][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
 [Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage

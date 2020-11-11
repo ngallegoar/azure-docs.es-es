@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 887e76fb1fa3dc630b12862c49689b3fa923b656
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7cc92c8bfb7dd9cb0328820009828ed0dd22e2a1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795023"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339468"
 ---
 # <a name="certificate-authorities-used-by-azure-active-directory"></a>Entidades de certificación utilizadas por Azure Active Directory
 
@@ -31,7 +31,7 @@ Las entidades de certificación se pueden clasificar en entidades de certificaci
 
 ## <a name="cas-used-in-azure-public-and-azure-us-government-clouds"></a>Entidades de certificación usadas en las nubes públicas de Azure y de Azure Government US
 
-Los diferentes servicios pueden utilizar distintas entidades de certificación raíz o intermedias.
+Los diferentes servicios pueden utilizar distintas entidades de certificación raíz o intermedias. Por lo tanto, es posible que se necesiten todas las entradas que se incluyen a continuación.
 
 ### <a name="digicert-global-root-g2"></a>DigiCert Global Root G2
 
@@ -79,9 +79,8 @@ Los diferentes servicios pueden utilizar distintas entidades de certificación r
 | - | - | - | - | - |
 | DigiCert SHA2 Secure Server CA| 01fda3eb6eca75c 888438b724bcfbc91| 8 de marzo de 2013
 8 de marzo 2023| 1fb86b1168ec743154062 e8c9cc5b171a4b7ccb4| [AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA.crt)<br>[CDP](http://crl3.digicert.com/ssca-sha2-g6.crl)<br>[OCSP](http://ocsp.digicert.com/) |
+| DigiCert SHA2 Secure Server CA |02742eaa17ca8e21 c717bb1ffcfd0ca0 |22 de septiembre de 2020<br>22 de septiembre de 2030|626d44e704d1ceabe3bf 0d53397464ac8080142c|[AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA-2.crt)<br>[CDP](http://crl3.digicert.com/DigiCertSHA2SecureServerCA.crl)<br>[OCSP](http://ocsp.digicert.com/)|
 
-
- 
 
 ## <a name="cas-used-in-azure-china-21vianet-cloud"></a>Entidad de certificación usada en la nube de Azure China 21Vianet
 

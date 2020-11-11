@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43974258008e3813a368ab31891251db15060aff
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364123"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127066"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -145,7 +145,7 @@ Azure Active Directory tiene varias funcionalidades que interceptan ataques auto
 
 El riesgo de usuario indica la probabilidad de que la identidad de un usuario se haya visto comprometida, y se calcula en función de las [detecciones de riesgo de usuario](../../active-directory/identity-protection/overview.md) que están asociadas con la identidad del usuario. Una directiva de riesgo de usuario es una directiva de acceso condicional que evalúa el nivel de riesgo para un usuario o grupo de usuarios específico. Según el nivel de riesgo (bajo, medio o alto), se puede configurar la directiva para que bloquee el acceso o solicite un cambio de contraseña segura mediante la autenticación multifactor. Microsoft le recomienda exigir un cambio de contraseña seguro a aquellos usuarios de alto riesgo.
 
-![Usuarios marcados con riesgo](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![Captura de pantalla que muestra Usuarios marcados en riesgo, con un usuario seleccionado.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Implementar la directiva de riesgo de inicio de sesión con Azure AD Identity Protection
 
@@ -175,7 +175,7 @@ Azure AD Identity Protection dispone de dos informes importantes que debe superv
 1. Los informes de inicios de sesión de riesgo ponen de manifiesto las actividades de inicio de sesión de los usuarios que deben investigarse, ya que es posible que el inicio de sesión no lo haya realizado el propietario legítimo.
 2. Los informes de riesgo de usuarios ponen de manifiesto las cuentas de usuario que podrían haberse visto comprometidas; por ejemplo, las cuentas en las que se ha detectado una filtración de credenciales o donde el usuario ha iniciado sesión desde una ubicación diferente, lo que indicaría que se ha producido un viaje que no es posible.
 
-![Usuarios marcados con riesgo](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![Captura de pantalla que muestra el panel Azure A D Identity Protection con los usuarios y sus niveles de riesgo.](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Aplicaciones de auditoría y permisos consentidos
 

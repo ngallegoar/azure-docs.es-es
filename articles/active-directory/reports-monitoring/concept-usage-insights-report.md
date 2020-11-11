@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74008264"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122748"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Informe de uso y conclusiones en el portal de Azure Active Directory
 
@@ -43,9 +43,9 @@ Para obtener acceso a los datos del informe de uso y conclusiones, necesita:
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
 2. Seleccione el directorio correcto y luego seleccione **Azure Active Directory** y elija **Aplicaciones empresariales**.
-3. Desde la sección **Actividad**, seleccione **Uso y conclusiones** para abrir el informe. 
+3. Desde la sección **Actividad** , seleccione **Uso y conclusiones** para abrir el informe. 
 
-![Uso e informes de Insights](./media/concept-usage-insights-report/main-menu.png)
+![Captura de pantalla que muestra que se seleccionó Uso y conclusiones en la sección Actividad.](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Uso del informe
@@ -58,7 +58,7 @@ También puede establecer el foco en una aplicación específica. Seleccione **V
 
 Al seleccionar un día del gráfico de uso de la aplicación, obtendrá una lista detallada de las actividades para la aplicación.  
 
-![Uso e informes de Insights](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![Captura de pantalla que muestra Uso y conclusiones para una actividad de aplicación en la que puede seleccionar un intervalo y consultar la actividad de inicio de sesión de aplicaciones distintas.](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

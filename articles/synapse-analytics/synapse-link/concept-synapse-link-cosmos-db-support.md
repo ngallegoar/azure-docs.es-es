@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7f1f1f004fb8c9c4d67f409072ce061c6047569
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: fa05f8a8b05a0acddae906a93c90c42424466969
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127018"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322607"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Características admitidas de Azure Synapse Link (versión preliminar) para Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Puede conectarse a un contenedor de Azure Cosmos DB sin habilitar Synapse Link.
 | **Escritura**   | ¿Se puede usar el tiempo de ejecución de Azure Synapse para escribir datos en un contenedor de Azure Cosmos DB? | Sí | No |
 
 * Si escribe datos en un contenedor de Azure Cosmos DB desde Spark, este proceso se lleva a cabo a través del almacén transaccional de Azure Cosmos DB. Esta operación afectará al rendimiento transaccional de Azure Cosmos DB al consumir unidades de solicitud.
-* Actualmente, no se admite la integración del grupo de SQL a través de tablas externas.
+* Actualmente no se admite la integración del grupo de SQL dedicado a través de tablas externas.
  
 ## <a name="supported-code-generated-actions-for-spark"></a>Acciones generadas por el código compatibles con Spark
 
@@ -64,4 +64,4 @@ Puede conectarse a un contenedor de Azure Cosmos DB sin habilitar Synapse Link.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte el artículo [Conexión a Synapse Link para Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md).
-* [Información sobre cómo realizar consultas en el almacén analítico con Spark](how-to-query-analytical-store-spark.md)
+* [Más información sobre cómo realizar consultas en el almacén analítico de Cosmos DB con Spark](how-to-query-analytical-store-spark.md)

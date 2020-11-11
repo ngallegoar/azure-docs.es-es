@@ -10,26 +10,26 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4559c72481dfa0cefb2ce84cab56a50d0bf182ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd285e8029d8e140380b0f90c60081d0e1f8dd56
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030334"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305030"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tablas temporales en SQL de Synapse
 
 Este artículo contiene directrices esenciales para el uso de tablas temporales y resalta los principios de las tablas temporales de nivel de sesión en SQL de Synapse. 
 
-Los recursos del grupo de SQL y SQL a petición (versión preliminar) pueden emplear tablas temporales. SQL a petición tiene limitaciones que se analizan al final de este artículo. 
+Los recursos tanto del grupo de SQL dedicado como del grupo de SQL sin servidor (versión preliminar) pueden utilizar tablas temporales. El grupo de SQL sin servidor tiene limitaciones que se tratan al final de este artículo. 
 
 ## <a name="temporary-tables"></a>Tablas temporales
 
 Las tablas temporales son útiles al procesar datos, especialmente durante la transformación, en la que los resultados intermedios son transitorios. En SQL de Synapse, las tablas temporales existen en el nivel de sesión.  Solo están visibles para la sesión en la que se crearon. Como tales, se quitan automáticamente cuando se cierra la sesión. 
 
-## <a name="temporary-tables-in-sql-pool"></a>Tablas temporales en el grupo de SQL
+## <a name="temporary-tables-in-dedicated-sql-pool"></a>Tablas temporales en el grupo de SQL dedicado
 
-En el recurso de grupo de SQL, las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local, en lugar de en el remoto.
+En el recurso de grupo de SQL dedicado, las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local, en lugar de en el remoto.
 
 ### <a name="create-a-temporary-table"></a>Creación de una tabla temporal
 
@@ -99,6 +99,7 @@ GROUP BY
 > 
 
 ### <a name="drop-temporary-tables"></a>Eliminación de tablas temporales
+
 Cuando se crea una nueva sesión, no debe existir ninguna tabla temporal.  Sin embargo, si va a llamar al mismo procedimiento almacenado que crea un archivo temporal con el mismo nombre para tener la seguridad de que las instrucciones `CREATE TABLE` se ejecutan correctamente, puede usar una sencilla comprobación de existencia previa con `DROP`: 
 
 ```sql
@@ -117,6 +118,7 @@ DROP TABLE #stats_ddl
 ```
 
 ### <a name="modularize-code"></a>Modularización de código
+
 Las tablas temporales se pueden usar en cualquier parte de una sesión de usuario. Esta capacidad se puede aprovechar para ayudarle a separar el código de la aplicación en módulos.  Como demostración, el siguiente procedimiento almacenado genera DDL para actualizar todas las estadísticas de la base de datos por nombre de la estadística:
 
 ```sql
@@ -195,7 +197,7 @@ En este punto, la única acción que se ha producido es la creación de un proce
 
 Puesto que no hay ningún elemento `DROP TABLE` al final del procedimiento almacenado, cuando este se complete, la tabla creada se conservará y se podrá leer fuera del procedimiento almacenado.  
 
-A diferencia de otras bases de datos SQL Server, SQL de Synapse permite usar la tabla temporal fuera del procedimiento almacenado que la ha creado.  Las tablas temporales que se crearon mediante el grupo de SQL se pueden usar **en cualquier parte** dentro de la sesión. Como resultado, tendrá un código más modular y fácil de administrar, tal como se muestra en el ejemplo siguiente:
+A diferencia de otras bases de datos SQL Server, SQL de Synapse permite usar la tabla temporal fuera del procedimiento almacenado que la ha creado.  Las tablas temporales que se crearon mediante el grupo de SQL dedicado se pueden usar **en cualquier parte** dentro de la sesión. Como resultado, tendrá un código más modular y fácil de administrar, tal como se muestra en el ejemplo siguiente:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -218,15 +220,15 @@ DROP TABLE #stats_ddl;
 
 ### <a name="temporary-table-limitations"></a>Limitaciones de tablas temporales
 
-El grupo de SQL tiene algunas limitaciones de implementación para las tablas temporales:
+El grupo de SQL dedicado tiene algunas limitaciones de implementación para las tablas temporales:
 
 - Solo se admiten las tablas temporales con ámbito de sesión.  No se admiten las tablas temporales globales.
 - No se pueden crear vistas en las tablas temporales.
 - Solo se pueden crear tablas temporales con distribución hash o round robin.  No se admite la distribución de tablas temporales replicadas. 
 
-## <a name="temporary-tables-in-sql-on-demand-preview"></a>Tablas temporales en SQL a petición (versión preliminar)
+## <a name="temporary-tables-in-serverless-sql-pool-preview"></a>Tablas temporales en el grupo de SQL sin servidor (versión preliminar)
 
-Las tablas temporales en SQL a petición son compatibles, pero su uso es limitado. No se pueden usar en consultas que tienen archivos como destino. 
+Las tablas temporales en el grupo de SQL sin servidor son compatibles, pero su uso es limitado. No se pueden usar en consultas que tienen archivos como destino. 
 
 Por ejemplo, no puede combinar una tabla temporal con datos de los archivos almacenados. El número de tablas temporales está limitado a 100 y su tamaño total está limitado a 100 MB.
 

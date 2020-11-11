@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9087722b54a805a0c217c236263bdcb39e5456e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 027cd8eb9c855afb845b08ce6aada7ddfd44daba
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84986245"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147018"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>Enumeración de asignaciones de roles de Azure mediante la CLI de Azure
 
@@ -42,7 +42,7 @@ az role assignment list --assignee {assignee}
 
 De forma predeterminada, se mostrarán únicamente las asignaciones de roles para la suscripción actual. Para ver las asignaciones de roles de la suscripción actual y anteriores, agregue el parámetro `--all`. Para ver las asignaciones de roles heredadas, agregue el parámetro `--include-inherited`.
 
-En el ejemplo siguiente, se muestran las asignaciones de roles asignadas directamente al usuario *patlong\@contoso.com*:
+En el ejemplo siguiente, se muestran las asignaciones de roles asignadas directamente al usuario *patlong\@contoso.com* :
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json --query '[].{principalName:principalName, roleDefinitionName:roleDefinitionName, scope:scope}'
@@ -71,7 +71,7 @@ Para mostrar las asignaciones de roles de un ámbito de grupo de recursos, utili
 az role assignment list --resource-group {resourceGroup}
 ```
 
-En el ejemplo siguiente se muestran las asignaciones de roles del grupo de recursos *pharma-sales*:
+En el ejemplo siguiente se muestran las asignaciones de roles del grupo de recursos *pharma-sales* :
 
 ```azurecli
 az role assignment list --resource-group pharma-sales --output json --query '[].{principalName:principalName, roleDefinitionName:roleDefinitionName, scope:scope}'
@@ -163,15 +163,15 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Lista de asignaciones de roles para una identidad administrada
 
-1. Obtenga el identificador de objeto de la identidad administrada asignada por el usuario o el sistema.
+1. Obtenga el identificador de entidad de seguridad de la identidad administrada asignada por el usuario o el sistema.
 
-    Para obtener el identificador de objeto de una identidad administrada asignada por el usuario, puede usar [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) o [az identity list](/cli/azure/identity#az-identity-list).
+    Para obtener el identificador de entidad de seguridad de una identidad administrada asignada por el usuario, puede usar [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) o [az identity list](/cli/azure/identity#az-identity-list).
 
     ```azurecli
     az ad sp list --display-name "{name}" --query [].objectId --output tsv
     ```
 
-    Para obtener el identificador de objeto de una identidad administrada asignada por el sistema, puede usar [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
+    Para obtener el identificador de entidad de seguridad de una identidad administrada asignada por el sistema, puede usar [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
 
     ```azurecli
     az ad sp list --display-name "{vmname}" --query [].objectId --output tsv

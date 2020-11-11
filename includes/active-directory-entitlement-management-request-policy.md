@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 12c9b1226e3ba928a4062049c7839d4e46ef727d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 239fcc1e57cb4bd56a8704f8a840689d44617fcf
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91024999"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93029517"
 ---
 ## <a name="for-users-in-your-directory"></a>para los usuarios del directorio
 
@@ -35,7 +35,7 @@ Siga estos pasos si quiere que los usuarios que están en el directorio puedan s
 
     Los usuarios invitados hacen referencia a usuarios externos que han sido invitados al directorio con [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). Para más información sobre las diferencias entre los usuarios miembros y los usuarios invitados, consulte [¿Cuáles son los permisos de usuario predeterminados en Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md)
 
-1. Si seleccionó **Usuarios y grupos específicos**, haga clic en **Agregar usuarios y grupos**.
+1. Si seleccionó **Usuarios y grupos específicos** , haga clic en **Agregar usuarios y grupos**.
 
 1. En el panel Seleccionar usuarios y grupos, seleccione los usuarios y grupos que quiera agregar.
 
@@ -54,7 +54,7 @@ Siga estos pasos si quiere que los usuarios que están en el directorio puedan s
 
 Siga estos pasos si quiere que los usuarios que no están en el directorio soliciten este paquete de acceso:
 
-1. En la sección **Usuarios que pueden solicitar acceso**, haga clic en **Para los usuarios que no están en el directorio**.
+1. En la sección **Usuarios que pueden solicitar acceso** , haga clic en **Para los usuarios que no están en el directorio**.
 
     Cuando se selecciona esta opción, aparecen nuevas opciones.
 
@@ -70,7 +70,7 @@ Siga estos pasos si quiere que los usuarios que no están en el directorio solic
 
     Una organización conectada es un dominio o directorio externo de Azure AD con el que tiene relación.
 
-1. Si seleccionó **Organizaciones conectadas específicas**, haga clic en **Agregar directorios** para seleccionar en una lista de las organizaciones conectadas que el administrador haya agregado anteriormente.
+1. Si seleccionó **Organizaciones conectadas específicas** , haga clic en **Agregar directorios** para seleccionar en una lista de las organizaciones conectadas que el administrador haya agregado anteriormente.
 
 1. Escriba el nombre o el nombre de dominio para buscar una organización anteriormente conectada.
 
@@ -89,7 +89,7 @@ Siga estos pasos si quiere que los usuarios que no están en el directorio solic
 
 Siga estos pasos si quiere omitir las solicitudes de acceso y permitir a los administradores asignar directamente a usuarios específicos al paquete de acceso. Los usuarios no tendrán que solicitar el paquete de acceso. Aún podrá establecer la configuración del ciclo de vida, pero no hay ninguna configuración de solicitud.
 
-1. En la sección **Usuarios que pueden solicitar acceso**, haga clic en **Ninguno (solo para las asignaciones directas del administrador)** .
+1. En la sección **Usuarios que pueden solicitar acceso** , haga clic en **Ninguno (solo para las asignaciones directas del administrador)** .
 
     ![Paquete de acceso - Solicitudes - Ninguno (solo para las asignaciones directas del administrador)](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
@@ -121,7 +121,7 @@ Siga estos pasos para especificar la configuración de aprobación de las solici
 
 1. Para requerir que los usuarios proporcionen una justificación para solicitar el paquete de acceso, establezca la opción **R** en **Sí**.
     
-1. Ahora determine si las solicitudes requerirán la aprobación de una sola fase o de dos fases. Establezca el botón de alternancia **Número de fases** en **1** para una aprobación de una sola fase o en **2**, para la aprobación de dos fases.
+1. Ahora determine si las solicitudes requerirán la aprobación de una sola fase o de dos fases. Establezca el botón de alternancia **Número de fases** en **1** para una aprobación de una sola fase o en **2** , para la aprobación de dos fases.
 
     ![Acceder a paquete - Solicitudes - Configuración de aprobación](./media/active-directory-entitlement-management-request-policy/approval.png)
 
@@ -129,7 +129,7 @@ Siga los pasos que se indican a continuación para agregar aprobadores después 
 
 ### <a name="single-stage-approval"></a>Aprobación de una sola fase
 
-1. Agregue el **Primer aprobador**:
+1. Agregue el **Primer aprobador** :
     
     Si la directiva está configurada para regir el acceso de los usuarios en el directorio, puede seleccionar **Administrador como aprobador**. O bien agregue un usuario específico con un clic en **Agregar aprobadores** después de seleccionar Elegir aprobadores específicos en el menú desplegable.
     
@@ -143,7 +143,7 @@ Siga los pasos que se indican a continuación para agregar aprobadores después 
 
     La administración de derechos encuentra al administrador mediante el atributo **Manager**. El atributo está en el perfil del usuario en Azure AD. Para más información, consulte [Incorporación o actualización de la información de perfil de un usuario mediante Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-1. Si seleccionó **Elegir aprobadores específicos**, haga clic en **Agregar aprobadores** para seleccionar uno o varios usuarios o grupos del directorio para que sean aprobadores.
+1. Si seleccionó **Elegir aprobadores específicos** , haga clic en **Agregar aprobadores** para seleccionar uno o varios usuarios o grupos del directorio para que sean aprobadores.
 
 1. En el cuadro bajo **¿Dentro de cuántos días es necesario tomar una decisión?** , especifique el número de días que un aprobador tiene que revisar una solicitud para este paquete de acceso.
 
@@ -157,7 +157,7 @@ Siga los pasos que se indican a continuación para agregar aprobadores después 
 
 Si seleccionó una aprobación de dos fases, deberá agregar otro aprobador.
 
-1. Agregue el **Segundo aprobador**: 
+1. Agregue el **Segundo aprobador** : 
     
     Si los usuarios están en el directorio, agregue un usuario específico como el segundo aprobador mediante un clic en **Agregar aprobadores** en Elegir aprobadores específicos.
 
@@ -202,9 +202,9 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
 
     Podrá habilitarla en todo momento cuando haya terminado de crear el paquete de acceso.
 
-    Si seleccionó **Ninguno (solo para las asignaciones directas del administrador)** y establece la habilitación en **No**, los administradores no podrán asignar directamente este paquete de acceso.
+    Si seleccionó **Ninguno (solo para las asignaciones directas del administrador)** y establece la habilitación en **No** , los administradores no podrán asignar directamente este paquete de acceso.
 
-    ![Paquete de acceso: directiva; configuración de habilitación de la directiva](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![Captura de pantalla en la que se muestra la opción para habilitar nuevas solicitudes y asignaciones.](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Haga clic en **Next**.
 
@@ -223,7 +223,7 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
 
     ![Paquete de acceso: Directiva Configurar texto traducido](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
 
-1. Seleccione el **formato de respuesta** en el que desea que los solicitantes respondan. Entre los formatos de respuesta se incluyen: *texto breve*, *opciones múltiples* y *texto largo*.
+1. Seleccione el **formato de respuesta** en el que desea que los solicitantes respondan. Entre los formatos de respuesta se incluyen: *texto breve* , *opciones múltiples* y *texto largo*.
  
     ![Paquete de acceso: Directiva Seleccionar ver y editar el formato de respuesta de opciones múltiples](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  

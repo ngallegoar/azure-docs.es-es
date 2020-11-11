@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7651f84e14d6ea7dcb4e12d57e2bf494d5aeff1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825964"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083191"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrucciones: Administración de dispositivos obsoletos en Azure AD
 
@@ -55,11 +55,11 @@ Tiene dos opciones para recuperar el valor de la marca de tiempo de actividad:
 
 - La columna **Actividad** en la [página de dispositivos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) de Azure Portal
 
-    ![Marca de tiempo de actividad](./media/manage-stale-devices/01.png)
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Captura de pantalla de una página de Azure Portal donde se muestran el nombre, el propietario y otra información sobre los dispositivos. Una columna muestra la marca de tiempo de actividad" border="false":::.
 
 - El cmdlet [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
-    ![Marca de tiempo de actividad](./media/manage-stale-devices/02.png)
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Captura de pantalla en la que se muestra la salida de la línea de comandos. Una línea aparece resaltada, y se muestra una marca de tiempo para el valor ApproximateLastLogonTimeStamp" border="false":::.
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>Planeamiento de la limpieza de los dispositivos obsoletos
 
@@ -97,8 +97,8 @@ Los dispositivos unidos a Azure AD híbrido deben seguir las directivas para la 
 
 Para realizar la limpieza de Azure AD:
 
-- **Dispositivos de Windows 10**: deshabilite o elimine dispositivos de Windows 10 en la instancia de Azure AD local y deje que Azure AD Connect sincronice el estado del dispositivo modificado con Azure AD.
-- **Windows 7/8**: deshabilite o elimine primero los dispositivos Windows 7/8 en Azure AD en el entorno local. No se puede usar Azure AD Connect para deshabilitar o eliminar dispositivos Windows 7/8 en Azure AD. En su lugar, cuando realice el cambio en su entorno local, debe deshabilitarlos o eliminarlos en Azure AD.
+- **Dispositivos de Windows 10** : deshabilite o elimine dispositivos de Windows 10 en la instancia de Azure AD local y deje que Azure AD Connect sincronice el estado del dispositivo modificado con Azure AD.
+- **Windows 7/8** : deshabilite o elimine primero los dispositivos Windows 7/8 en Azure AD en el entorno local. No se puede usar Azure AD Connect para deshabilitar o eliminar dispositivos Windows 7/8 en Azure AD. En su lugar, cuando realice el cambio en su entorno local, debe deshabilitarlos o eliminarlos en Azure AD.
 
 > [!NOTE]
 >* La eliminación de dispositivos en la instancia de AD en el entorno local o en Azure AD no elimina el registro en el cliente. Solo impedirá el acceso a los recursos que usan el dispositivo como una identidad (por ejemplo, el acceso condicional). Lea información adicional sobre cómo [quitar el registro en el cliente](faq.md#hybrid-azure-ad-join-faq).
@@ -175,9 +175,9 @@ Para más información sobre los distintos tipos, consulte la [introducción a l
 
 Se deniega cualquier autenticación donde se use un dispositivo para autenticarse en Azure AD. Los ejemplos comunes son:
 
-- **Dispositivo unido a Azure AD híbrido**: los usuarios podrían usar el dispositivo para iniciar sesión en su dominio local. Sin embargo, no pueden acceder a los recursos de Azure AD, como Microsoft 365.
-- **Dispositivo unido a Azure AD**: los usuarios no pueden usar el dispositivo para iniciar sesión. 
-- **Dispositivos móviles**: el usuario no puede acceder a recursos de Azure AD, como Microsoft 365. 
+- **Dispositivo unido a Azure AD híbrido** : los usuarios podrían usar el dispositivo para iniciar sesión en su dominio local. Sin embargo, no pueden acceder a los recursos de Azure AD, como Microsoft 365.
+- **Dispositivo unido a Azure AD** : los usuarios no pueden usar el dispositivo para iniciar sesión. 
+- **Dispositivos móviles** : el usuario no puede acceder a recursos de Azure AD, como Microsoft 365. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

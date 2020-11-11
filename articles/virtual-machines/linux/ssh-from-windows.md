@@ -4,28 +4,28 @@ description: Obtenga información acerca de cómo generar y utilizar claves SSH 
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.date: 07/09/2020
+ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 7e99c9191e93562211f6294cf671f431a5db455d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825572"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147154"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Uso de claves SSH con Windows en Azure
 
 Este artículo está destinado a los usuarios de Windows que desean [crear](#create-an-ssh-key-pair) y usar claves de *shell seguro (SSH)* para [conectar](#connect-to-your-vm) con máquinas virtuales Linux en Azure. También puede [generar y almacenar claves SSH en Azure Portal](../ssh-keys-portal.md) que se van a usar al crear máquinas virtuales en el portal.
 
 
-Para usar las claves SSH desde un cliente Linux o macOS, consulte la [guía rápida](mac-create-ssh-keys.md). Para más información sobre SSH, consulte [Pasos detallados: crear y administrar claves SSH para la autenticación en una VM Linux en Azure](create-ssh-keys-detailed.md).
+Para usar las claves SSH desde un cliente Linux o macOS, consulte los [pasos rápidos](mac-create-ssh-keys.md). Para más información sobre SSH, consulte [Pasos detallados: crear y administrar claves SSH para la autenticación en una VM Linux en Azure](create-ssh-keys-detailed.md).
 
 ## <a name="overview-of-ssh-and-keys"></a>Información general sobre SSH y sus claves
 
 [SSH](https://www.ssh.com/ssh/) es un protocolo de conexión cifrada que permite inicios de sesión seguros a través de conexiones no seguras. SSH es el protocolo de conexión predeterminado de las máquinas virtuales Linux hospedadas en Azure. Aunque el propio SSH proporciona una conexión cifrada, el uso de contraseñas con SSH deja la máquina virtual vulnerable a ataques por fuerza bruta. Se recomienda conectarse a una máquina virtual a través de SSH mediante un par de claves pública y privada, también conocidas como *claves SSH*. 
 
-El par de claves pública y privada es como el bloqueo de la puerta principal. El bloqueo se expone al **público**, es decir, cualquiera que tenga la clave correcta puede abrir la puerta. La clave es **privada** y solo se proporciona a las personas en las que confía porque se puede usar para desbloquear la puerta. 
+El par de claves pública y privada es como el bloqueo de la puerta principal. El bloqueo se expone al **público** , es decir, cualquiera que tenga la clave correcta puede abrir la puerta. La clave es **privada** y solo se proporciona a las personas en las que confía porque se puede usar para desbloquear la puerta. 
 
 - El *clave pública* se coloca en la máquina virtual Linux al crear la máquina virtual. 
 

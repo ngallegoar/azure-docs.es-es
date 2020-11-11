@@ -1,6 +1,6 @@
 ---
 title: Arquitectura de SQL de Synapse
-description: Obtenga información acerca de cómo combina Azure Synapse SQL las funcionalidades de procesamiento de consultas distribuidas con Azure Storage para lograr un alto rendimiento y escalabilidad.
+description: Aprenda cómo Azure Synapse SQL combina las funcionalidades de procesamiento de consultas distribuidas con Azure Storage para lograr alto rendimiento y escalabilidad.
 services: synapse-analytics
 author: mlee3gsd
 manager: rothja
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: ae3b54ca72c92722dffa370b0b8be1ca2c490f97
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 22cbd0b4ce512df70d13d89c5f2539420dac2b85
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476015"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307028"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitectura de SQL de Azure Synapse 
 
@@ -27,9 +27,9 @@ En este artículo se describen los componentes de la arquitectura de SQL de Syna
 
 SQL de Synapse aprovecha una arquitectura de escalabilidad horizontal para distribuir el procesamiento de cálculo de datos entre varios nodos. Como el proceso está separado del almacenamiento, se puede escalar con independencia de los datos del sistema. 
 
-En el caso de un grupo de SQL, la unidad de escalado es una abstracción de la eficacia de proceso que se conoce como [unidad de almacenamiento de datos](resource-consumption-models.md). 
+En el caso de un grupo de SQL dedicado, la unidad de escalado es una abstracción de la eficacia de proceso que se conoce como [unidad de almacenamiento de datos](resource-consumption-models.md). 
 
-En el caso de SQL a petición, al ser sin servidor, el escalado se realiza automáticamente para adaptarse a los requisitos de los recursos de consulta. A medida que la topología cambia con el tiempo al agregar o quitar nodos o conmutaciones por error, se adapta a los cambios y se asegura de que la consulta tenga suficientes recursos y finalice correctamente. Por ejemplo, en la imagen siguiente se muestra SQL a petición con cuatro nodos de proceso para ejecutar una consulta.
+En el caso de un grupo de SQL sin servidor, al ser sin servidor, el escalado se realiza automáticamente para adaptarse a los requisitos de los recursos de consulta. A medida que la topología cambia con el tiempo al agregar o quitar nodos o conmutaciones por error, se adapta a los cambios y se asegura de que la consulta tenga suficientes recursos y finalice correctamente. Por ejemplo, en la imagen siguiente se muestra un grupo de SQL sin servidor que utiliza cuatro nodos de proceso para ejecutar una consulta.
 
 ![Arquitectura de SQL de Synapse](./media//overview-architecture/sql-architecture.png)
 
@@ -37,13 +37,13 @@ SQL de Synapse usa una arquitectura basada en nodos. Las aplicaciones se conecta
 
 El nodo de control de Azure Synapse SQL utiliza un motor de consultas distribuidas para optimizar las consultas para el procesamiento en paralelo y, después, pasa las operaciones a los nodos de ejecución para hacer su trabajo en paralelo. 
 
-El nodo de control de SQL a petición utiliza el motor de procesamiento de consultas distribuidas (DQP) para optimizar y orquestar la ejecución distribuida de consultas de usuario mediante su división en consultas más pequeñas que se ejecutarán en nodos de ejecución. Cada consulta pequeña se denomina "tarea", que representa una unidad de ejecución distribuida. Lee los archivos del almacenamiento, combina los resultados de otras tareas, agrupa u ordena los datos recuperados de otras tareas. 
+El nodo de control del grupo de SQL sin servidor utiliza el motor de procesamiento de consultas distribuidas (DQP) para optimizar y orquestar la ejecución distribuida de consultas de usuario, para lo cual se dividen en consultas más pequeñas que se ejecutarán en nodos de proceso. Cada consulta pequeña se denomina "tarea", que representa una unidad de ejecución distribuida. Lee los archivos del almacenamiento, combina los resultados de otras tareas, agrupa u ordena los datos recuperados de otras tareas. 
 
 Los nodos de ejecución almacenan todos los datos del usuario en Azure Storage y ejecutan las consultas en paralelo. El servicio de movimiento de datos (DMS) es un servicio interno de nivel de sistema que mueve datos entre los nodos según sea necesario para ejecutar consultas en paralelo y devolver resultados precisos. 
 
-Con un almacenamiento y proceso desacoplados, cuando se usa SQL de Synapse, es posible aprovechar un tamaño independiente de la capacidad de proceso, más allá de sus necesidades de almacenamiento. Para el escalado de SQL a petición esto se realiza automáticamente mientras que para el grupo de SQL es posible:
+Con un almacenamiento y proceso desacoplados, cuando se usa SQL de Synapse, es posible aprovechar un tamaño independiente de la capacidad de proceso, más allá de sus necesidades de almacenamiento. Con el grupo de SQL sin servidor, el escalado se realiza automáticamente, mientras que con el grupo de SQL dedicado se puede:
 
-* Aumentar o reducir la capacidad de proceso en un grupo de SQL (almacenamiento de datos), sin mover los datos.
+* Aumentar o reducir la capacidad de proceso en un grupo de SQL dedicado, sin mover los datos.
 * Pausar la capacidad de proceso mientras se dejan los datos intactos, por lo que solo paga por el almacenamiento.
 * Reanudar la capacidad de proceso durante las horas operativas.
 
@@ -51,7 +51,7 @@ Con un almacenamiento y proceso desacoplados, cuando se usa SQL de Synapse, es p
 
 SQL de Synapse aprovecha Azure Storage para proteger los datos del usuario. Puesto que los datos se almacenan y administran en Azure Storage, el consumo de almacenamiento se cobra aparte. 
 
-SQL a petición le permite consultar los archivos de su lago de datos en modo de solo lectura, mientras que el grupo de SQL también le permite ingerir datos. Cuando se ingieren datos en el grupo de SQL, los datos se particionan en **distribuciones** para optimizar el rendimiento del sistema. Puede elegir qué modelo de particionamiento quiere usar para distribuir los datos cuando define la tabla. Se admiten estos patrones de particionamiento:
+El grupo de SQL sin servidor le permite consultar los archivos del lago de datos en modo de solo lectura, mientras que el grupo de SQL también le permite ingerir datos. Cuando se ingieren datos en el grupo de SQL dedicado, los datos se particionan en **distribuciones** para optimizar el rendimiento del sistema. Puede elegir qué modelo de particionamiento quiere usar para distribuir los datos cuando define la tabla. Se admiten estos patrones de particionamiento:
 
 * Hash
 * Round Robin
@@ -61,34 +61,34 @@ SQL a petición le permite consultar los archivos de su lago de datos en modo de
 
 El nodo de control es el cerebro de la arquitectura. Es el front-end que interactúa con todas las aplicaciones y conexiones. 
 
-En Synapse SQL, el motor de consultas distribuidas se ejecuta en el nodo de control para optimizar y coordinar las consultas en paralelo. Al enviar una consulta T-SQL a un grupo de SQL, el nodo de control la transforma en consultas que se ejecutan en cada distribución en paralelo.
+En Synapse SQL, el motor de consultas distribuidas se ejecuta en el nodo de control para optimizar y coordinar las consultas en paralelo. Al enviar una consulta T-SQL a un grupo de SQL dedicado, el nodo de control la transforma en consultas que se ejecutan en cada distribución en paralelo.
 
-En SQL a petición, el motor de DQP se ejecuta en el nodo de control para optimizar y coordinar la ejecución distribuida de consultas de usuario mediante su división en consultas más pequeñas que se ejecutarán en nodos de ejecución. También asigna conjuntos de archivos para que cada nodo los procese.
+En el grupo de SQL sin servidor, el motor de DQP se ejecuta en el nodo de control para optimizar y coordinar la ejecución distribuida de consultas de usuario, para lo cual se dividen en consultas más pequeñas que se ejecutarán en nodos de proceso. También asigna conjuntos de archivos para que cada nodo los procese.
 
 ## <a name="compute-nodes"></a>Nodos de proceso
 
 Los nodos de proceso proporcionan la eficacia de cálculo. 
 
-En un grupo de SQL, las distribuciones se asignan a nodos de ejecución para su procesamiento. Al pagar por más recursos de proceso, el grupo reasigna las distribuciones a los nodos de ejecución disponibles. El número de nodos de ejecución va de 1 a 60, y viene determinado por el nivel de servicio del grupo de SQL. Cada nodo de cálculo tiene un identificador de nodo que está visible en las vistas del sistema. Para ver el identificador del nodo de ejecución, busque la columna node_id en las vistas del sistema cuyos nombres comiencen por sys.pdw_nodes. Para obtener una lista de las vistas del sistema, consulte el artículo sobre las [vistas del sistema de Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+En un grupo de SQL dedicado, las distribuciones se asignan a nodos de proceso para su procesamiento. Al pagar por más recursos de proceso, el grupo reasigna las distribuciones a los nodos de ejecución disponibles. El número de nodos de proceso va de 1 a 60, y viene determinado por el nivel de servicio del grupo de SQL dedicado. Cada nodo de cálculo tiene un identificador de nodo que está visible en las vistas del sistema. Para ver el identificador del nodo de ejecución, busque la columna node_id en las vistas del sistema cuyos nombres comiencen por sys.pdw_nodes. Para obtener una lista de las vistas del sistema, consulte el artículo sobre las [vistas del sistema de Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
-En SQL a petición, a cada nodo de ejecución se le asigna una tarea y un conjunto de archivos en los que se ejecutará la tarea. La tarea es una unidad de ejecución de consulta distribuida que, en realidad, es parte de la consulta enviada por el usuario. El escalado automático está en vigor para asegurarse de que se utilicen suficientes nodos de ejecución para ejecutar la consulta del usuario.
+En el grupo de SQL sin servidor, a cada nodo de proceso se le asigna una tarea y un conjunto de archivos en los que se ejecutará esta. La tarea es una unidad de ejecución de consulta distribuida que, en realidad, es parte de la consulta enviada por el usuario. El escalado automático está en vigor para asegurarse de que se utilicen suficientes nodos de ejecución para ejecutar la consulta del usuario.
 
 ## <a name="data-movement-service"></a>Servicio de movimiento de datos
 
-Servicio de movimiento de datos (DMS) es la tecnología de transporte de datos del grupo de SQL, que coordina el movimiento de los datos entre los nodos de ejecución. Algunas consultas requieren el movimiento de datos para asegurarse de que las consultas paralelas devuelven resultados precisos. Cuando un movimiento de datos es necesario, DMS asegura que los datos adecuados llegan a la ubicación adecuada.
+El servicio de movimiento de datos (DMS) es la tecnología de transporte de datos del grupo de SQL dedicado, que coordina el movimiento de los datos entre los nodos de proceso. Algunas consultas requieren el movimiento de datos para asegurarse de que las consultas paralelas devuelven resultados precisos. Cuando un movimiento de datos es necesario, DMS asegura que los datos adecuados llegan a la ubicación adecuada.
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="distributions"></a>Distribuciones
 
-Una distribución es la unidad básica de almacenamiento y procesamiento de consultas en paralelo que se ejecutan en datos distribuidos en el grupo de SQL. Cuando el grupo de SQL ejecuta una consulta, el trabajo se divide en 60 consultas más pequeñas que se ejecutan en paralelo. 
+Una distribución es la unidad básica de almacenamiento y procesamiento de consultas en paralelo que se ejecutan en datos distribuidos en el grupo de SQL dedicado. Cuando el grupo de SQL dedicado ejecuta una consulta, el trabajo se divide en 60 consultas más pequeñas que se ejecutan en paralelo. 
 
-Cada una de estas 60 consultas más pequeñas se ejecuta en una de las distribuciones de datos. Cada nodo de ejecución administra una o más de las 60 distribuciones. Un grupo de SQL con recursos de proceso máximos tiene una distribución por nodo de proceso. Un grupo de SQL con recursos de proceso mínimos tiene todas las distribuciones en un nodo de proceso. 
+Cada una de estas 60 consultas más pequeñas se ejecuta en una de las distribuciones de datos. Cada nodo de ejecución administra una o más de las 60 distribuciones. Un grupo de SQL dedicado con recursos de proceso máximos tiene una distribución por nodo de proceso. Un grupo de SQL dedicado con recursos de proceso mínimos tiene todas las distribuciones en un nodo de proceso. 
 
 ## <a name="hash-distributed-tables"></a>Tablas distribuidas mediante una función hash
 Una tabla con distribución por hash puede ofrecer el máximo rendimiento de consultas para combinaciones y agregaciones en tablas grandes. 
 
-Para particionar los datos en una tabla con distribución por hash, un grupo de SQL emplea una función hash para asignar de una manera determinista cada fila a una distribución. En la definición de tabla, una de las columnas se designa como columna de distribución. La función hash usa el valor de la columna de distribución para asignar cada fila a una distribución.
+Para particionar los datos en una tabla con distribución por hash, un grupo de SQL dedicado emplea una función hash para asignar de una manera determinista cada fila a una distribución. En la definición de tabla, una de las columnas se designa como columna de distribución. La función hash usa el valor de la columna de distribución para asignar cada fila a una distribución.
 
 El siguiente diagrama muestra cómo se almacena una tabla completa (no distribuida) como una tabla distribuida mediante una función hash. 
 
@@ -117,4 +117,4 @@ En el diagrama siguiente se muestra una tabla replicada que se almacena en cach�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ya conoce un poco sobre SQL de Synapse, aprenda a [crear un grupo de SQL](../quickstart-create-sql-pool-portal.md) rápidamente y a [cargar datos de ejemplo](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md). O bien, inicie [mediante SQL a petición](../quickstart-sql-on-demand.md). Si no está familiarizado con Azure, el [Glosario de Azure](../../azure-glossary-cloud-terminology.md) le puede resultar útil para consultar la nueva terminología que se encuentre. 
+Ahora que ya conoce un poco sobre Synapse SQL, aprenda a [crear un grupo de SQL dedicado](../quickstart-create-sql-pool-portal.md) rápidamente y a [cargar datos de ejemplo](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md). O bien, puede empezar por [usar un grupo de SQL sin servidor](../quickstart-sql-on-demand.md). Si no está familiarizado con Azure, el [Glosario de Azure](../../azure-glossary-cloud-terminology.md) le puede resultar útil para consultar la nueva terminología que se encuentre. 

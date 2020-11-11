@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d10b7084cfc49d60e9d14c3c857d1ade839398ac
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474774"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305096"
 ---
-# <a name="performance-tuning-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas
+# <a name="performance-tuning-with-materialized-views-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Ajuste del rendimiento con vistas materializadas mediante el grupo de SQL dedicado en Azure Synapse Analytics
 
-En un grupo de SQL de Synapse, las vistas materializadas proporcionan un método con poco mantenimiento para que las consultas analíticas complejas puedan tener un rendimiento rápido sin cambiar la consulta. En este artículo se describe la guía general sobre el uso de vistas materializadas.
+En un grupo de SQL dedicado, las vistas materializadas proporcionan un método con poco mantenimiento para que las consultas analíticas complejas puedan tener un rendimiento rápido sin cambiar la consulta. En este artículo se describe la guía general sobre el uso de vistas materializadas.
 
 ## <a name="materialized-views-vs-standard-views"></a>Vistas materializadas frente a vistas estándar
 
@@ -27,7 +27,7 @@ El grupo de SQL admite las vistas estándar y materializadas.  Ambas son tablas 
 
 Una vista estándar calcula sus datos cada vez que se utiliza la vista.  No hay datos almacenados en disco. Normalmente, los usuarios usan las vistas estándar como una herramienta que ayuda a organizar los objetos lógicos y las consultas de una base de datos.  Para utilizar una vista estándar, una consulta debe hacer referencia directa a ella.
 
-Una vista materializada calcula previamente, almacena y mantiene sus datos en el grupo de SQL como una tabla.  No es necesario volver a calcular cada vez que se usa una vista materializada.  Este es el motivo por el que las consultas que utilizan todos los datos o un subconjunto de ellos en vistas materializadas pueden lograr un rendimiento más rápido.  Además, las consultas pueden usar una vista materializada sin hacer referencia directa a ella, por lo que no es necesario cambiar el código de la aplicación.  
+Las vistas materializadas calculan previamente, almacenan y mantienen sus datos en el grupo de SQL dedicado como si fueran tablas.  No es necesario volver a calcular cada vez que se usa una vista materializada.  Este es el motivo por el que las consultas que utilizan todos los datos o un subconjunto de ellos en vistas materializadas pueden lograr un rendimiento más rápido.  Además, las consultas pueden usar una vista materializada sin hacer referencia directa a ella, por lo que no es necesario cambiar el código de la aplicación.  
 
 La mayoría de los requisitos de una vista estándar se aplican a una vista materializada. Para más información sobre la sintaxis de la vista materializada y otros requisitos, consulte [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
@@ -46,13 +46,13 @@ Una vista materializada diseñada correctamente proporciona las siguientes venta
 
 - Menor tiempo de ejecución de las consultas complejas con instrucciones JOIN y funciones de agregado. Cuanto más compleja sea la consulta, mayor será la posibilidad de reducir el tiempo de ejecución. La mayor ventaja se obtiene cuando el costo de cálculo de una consulta es elevado y el conjunto de datos resultante es pequeño.  
 
-- El optimizador en el grupo de SQL puede usar automáticamente las vistas materializadas implementadas para mejorar los planes de ejecución de consultas.  Este proceso es transparente para los usuarios y proporciona un rendimiento de las consultas más rápido y no requiere que las consultas hagan referencia directa a las vistas materializadas.
+- El optimizador de consultas del grupo de SQL dedicado puede usar automáticamente las vistas materializadas implementadas para mejorar los planes de ejecución de consultas.  Este proceso es transparente para los usuarios y proporciona un rendimiento de las consultas más rápido y no requiere que las consultas hagan referencia directa a las vistas materializadas.
 
 - Bajos requisitos de mantenimiento en las vistas.  Una vista materializada almacena los datos en dos lugares, un índice de almacén de columnas agrupado para los datos iniciales en el momento de creación de la vista y un almacén incremental para los cambios de datos incrementales.  Todos los cambios de datos de las tablas base se agregan automáticamente al almacén incremental de forma sincrónica.  Un proceso en segundo plano (motor de tupla) mueve periódicamente los datos del almacén incremental al índice de almacén de columnas de la vista.  Este diseño permite que las consultas de las vistas materializadas devuelvan los mismos datos que las consultas directas de las tablas base.
 - Los datos de una vista materializada se pueden distribuir de forma diferente de las tablas base.  
 - Los datos de las vistas materializadas tienen las mismas ventajas de alta disponibilidad y resistencia que los datos de las tablas normales.  
 
-En comparación con otros proveedores de almacenamiento de datos, las vistas materializadas implementadas en un grupo de SQL también proporcionan las siguientes ventajas adicionales:
+En comparación con otros proveedores de almacenamiento de datos, las vistas materializadas implementadas en el grupo de SQL dedicado también proporcionan las siguientes ventajas adicionales:
 
 - Actualización automática y sincrónica de los datos con los cambios de los datos de las tablas base. No se requiere ninguna acción del usuario.
 - Amplia compatibilidad con funciones de agregado. Consulte [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
@@ -151,7 +151,7 @@ Para evitar la degradación del rendimiento de las consultas, se recomienda ejec
 
 **Vista materializada y almacenamiento en caché de conjuntos de resultados**
 
-Estas dos características se introducen en el grupo de SQL aproximadamente al mismo tiempo para el ajuste del rendimiento de las consultas. El almacenamiento en caché de conjuntos de resultados se usa para obtener una alta simultaneidad y tiempos de respuesta menores a consultas repetitivas sobre datos estáticos.  
+Estas dos características se introducen en el grupo de SQL dedicado aproximadamente al mismo tiempo para el ajuste del rendimiento de las consultas. El almacenamiento en caché de conjuntos de resultados se usa para obtener una alta simultaneidad y tiempos de respuesta menores a consultas repetitivas sobre datos estáticos.  
 
 Para usar el resultado almacenado en caché, la forma de la consulta de solicitud de almacenamiento en caché debe coincidir con la consulta que generó la memoria caché.  Además de esto, el resultado almacenado en caché debe ser de aplicación para toda la consulta.  
 

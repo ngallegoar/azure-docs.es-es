@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2b0a56bac1652881e9d1733bcb52b02610e27e9e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425103"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314158"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -47,7 +47,7 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
     - "Microsoft.Network/virtualNetworks/join/action" en el recurso de red virtual.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" en el recurso de subred.
 
-    Para más información sobre RBAC de Azure con redes, consulte [Roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
+    Para más información sobre RBAC de Azure con redes, consulte [Roles integrados de redes](../role-based-access-control/built-in-roles.md#networking).
 
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clústeres e instancias de proceso 
@@ -60,8 +60,9 @@ Para usar un [__destino de proceso__ de Azure Machine Learning](concept-compute-
 > * Compruebe si sus directivas de seguridad o bloqueos del grupo de recursos o la suscripción de la red virtual restringen los permisos para administrar las redes virtuales. Si va a proteger la red virtual mediante la restricción del tráfico, deje abiertos algunos puertos para el servicio de proceso. Para más información, vea la sección [Puertos obligatorios](#mlcports).
 > * Si va a colocar varios clústeres o instancias de proceso en una red virtual, es posible que tenga que solicitar un aumento de la cuota para uno o varios de los recursos.
 > * Si las cuentas de Azure Storage del área de trabajo también están protegidas en una red virtual, deben estar en la misma red virtual que el clúster o la instancia de Proceso de Azure Machine Learning. 
-> * Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, asegúrese de que la comunicación de socket web no esté deshabilitada. Asegúrese de que la red permita las conexiones WebSocket a *.instances.azureml.net e *.instances.azureml.ms.
-
+> * Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, asegúrese de que la comunicación de socket web no esté deshabilitada. Asegúrese de que la red permita las conexiones WebSocket a *.instances.azureml.net e *.instances.azureml.ms. 
+> * Cuando se implementa la instancia de proceso en un área de trabajo de vínculo privado, solo se puede tener acceso a ella desde dentro de la red virtual. Si usa un archivo de host o DNS personalizado, agregue una entrada para `<instance-name>.<region>.instances.azureml.ms` con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md).
+    
 > [!TIP]
 > El clúster o la instancia de proceso de Machine Learning asigna automáticamente recursos de red adicionales __al grupo de recursos que contiene la red virtual__. Para cada clúster o instancia de proceso, el servicio asigna los recursos siguientes:
 > 
@@ -70,7 +71,7 @@ Para usar un [__destino de proceso__ de Azure Machine Learning](concept-compute-
 > * Un equilibrador de carga
 > 
 > En el caso de los clústeres, estos recursos se eliminan (y se vuelven a crear) cada vez que el clúster se reduce verticalmente hasta quedarse sin ningún nodo. Sin embargo, para una instancia, los recursos se retienen hasta que esta se elimina completamente (los recursos no se eliminan con la detención). 
-> Estos recursos están limitados por las [cuotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) de la suscripción.
+> Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Puertos necesarios
@@ -153,17 +154,17 @@ La configuración de la regla de NSG en Azure Portal se muestra en la siguiente 
 
 ### <a name="forced-tunneling"></a>Tunelización forzada
 
-Si usa la [tunelización forzada](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm) con el proceso de Azure Machine Learning, debe permitir la comunicación con la red pública de Internet desde la subred que contiene el recurso de proceso. Esta comunicación se usa para la programación de tareas y el acceso a Azure Storage.
+Si usa la [tunelización forzada](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) con el proceso de Azure Machine Learning, debe permitir la comunicación con la red pública de Internet desde la subred que contiene el recurso de proceso. Esta comunicación se usa para la programación de tareas y el acceso a Azure Storage.
 
 Hay dos maneras en que puede lograrlo:
 
 * Use una instancia de [Virtual Network NAT](../virtual-network/nat-overview.md). Una puerta de enlace NAT proporciona conectividad de salida a Internet para una o más subredes en su red virtual. Para obtener más información, consulte [Diseño de redes virtuales con recursos de puertas de enlace NAT](../virtual-network/nat-gateway-resource.md).
 
-* Agregue [rutas definidas por el usuario (UDR)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) a la subred que contiene el recurso de proceso. Establezca una ruta definida por el usuario para cada dirección IP que use el servicio Azure Batch en la región en la que existen sus recursos. Estas UDR permiten que el servicio Batch se comunique con los nodos de proceso para programar tareas. Agregue también la dirección IP de Azure Machine Learning Service en el que existen los recursos, ya que esto es necesario para acceder a las instancias de proceso. Para obtener una lista de direcciones IP del servicio Batch y de Azure Machine Learning Service, utilice uno de los métodos siguientes:
+* Agregue [rutas definidas por el usuario (UDR)](../virtual-network/virtual-networks-udr-overview.md) a la subred que contiene el recurso de proceso. Establezca una ruta definida por el usuario para cada dirección IP que use el servicio Azure Batch en la región en la que existen sus recursos. Estas UDR permiten que el servicio Batch se comunique con los nodos de proceso para programar tareas. Agregue también la dirección IP de Azure Machine Learning Service en el que existen los recursos, ya que esto es necesario para acceder a las instancias de proceso. Para obtener una lista de direcciones IP del servicio Batch y de Azure Machine Learning Service, utilice uno de los métodos siguientes:
 
     * Descargue los [intervalos de direcciones IP y las etiquetas de servicio de Azure](https://www.microsoft.com/download/details.aspx?id=56519) y busque `BatchNodeManagement.<region>` y `AzureMachineLearning.<region>` en el archivo, donde `<region>` es su región de Azure.
 
-    * Use la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para descargar la información. En el ejemplo siguiente se descarga la información de la dirección IP, que se filtra para la región Este de EE. UU. 2:
+    * Use la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) para descargar la información. En el ejemplo siguiente se descarga la información de la dirección IP, que se filtra para la región Este de EE. UU. 2:
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
@@ -277,9 +278,9 @@ En esta sección aprenderá a usar una máquina virtual o un clúster de Azure H
 ### <a name="create-the-vm-or-hdinsight-cluster"></a>Creación de la máquina virtual o el clúster de HDInsight
 
 Cree una máquina virtual o un clúster de HDInsight mediante Azure Portal o la CLI de Azure y colóquelo en una red virtual de Azure. Para más información, consulte los siguientes artículos.
-* [Creación y administración de redes virtuales de Azure para máquinas virtuales Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+* [Creación y administración de redes virtuales de Azure para máquinas virtuales Linux](../virtual-machines/linux/tutorial-virtual-network.md)
 
-* [Extender HDInsight mediante una red virtual de Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
+* [Extender HDInsight mediante una red virtual de Azure](../hdinsight/hdinsight-plan-virtual-network-deployment.md)
 
 ### <a name="configure-network-ports"></a>Configuración de los puertos de red 
 
@@ -301,7 +302,7 @@ Permita que Azure Machine Learning se comunique con el puerto SSH en la máquina
 
 1. En __Acción__ , seleccione __Permitir__.
 
-Conserve las reglas de salida predeterminadas para el grupo de seguridad de red. Para más información, consulte las reglas de seguridad predeterminadas en [Grupos de seguridad](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+Conserve las reglas de salida predeterminadas para el grupo de seguridad de red. Para más información, consulte las reglas de seguridad predeterminadas en [Grupos de seguridad](../virtual-network/network-security-groups-overview.md#default-security-rules).
 
 Si no desea usar las reglas de salida predeterminadas, pero desea limitar el acceso de salida de la red virtual, consulte la sección [Limitación de la conectividad saliente de la red virtual](#limiting-outbound-from-vnet).
 

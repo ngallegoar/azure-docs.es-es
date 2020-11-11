@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 2c487b5bc5c8d5fa01388b2942a70defa0001253
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e50cce74f7291a6673e5d43f3485a1c63c81d827
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791535"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319284"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Creación y administración de servidores y bases de datos únicas en Azure SQL Database
 
@@ -43,7 +43,7 @@ Para crear una única instancia de Azure SQL Database mediante [Azure Portal](ht
 
 ## <a name="manage-an-existing-server"></a>Administración de un servidor existente
 
-Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de la base de datos, la página **Servidores SQL Server** o la página **Todos los recursos** .
+Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de la base de datos, la página **Servidores SQL Server** o la página **Todos los recursos**.
 
 Para administrar una base de datos existente, vaya a la página de **SQL Database** y seleccione la base de datos que desea administrar. En la captura de pantalla siguiente se muestra cómo empezar a configurar un firewall de nivel de servidor para una base de datos desde la página de **información general** de una base de datos.
 
@@ -123,10 +123,10 @@ Para crear y administrar los servidores, bases de datos y firewalls con Transact
 
 | Get-Help | Descripción |
 | --- | --- |
-|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Crea una base de datos. Debe estar conectado a la base de datos maestra para crear una base de datos.|
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica una base de datos o un grupo elástico. |
+|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)|Crea una base de datos. Debe estar conectado a la base de datos maestra para crear una base de datos.|
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modifica una base de datos o un grupo elástico. |
 |[DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql)|Permite eliminar una base de datos.|
-|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devuelve la edición (nivel de servicio), el objetivo de servicio (plan de tarifa) y el nombre del grupo elástico, si existe, para una instancia de Azure SQL Database o un grupo de SQL de Azure Synapse Analytics. Si inició sesión en la base de datos maestra en SQL Database, devuelve información sobre todas las bases de datos. Para Azure Synapse Analytics, debe estar conectado a la base de datos maestra.|
+|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devuelve la edición (nivel de servicio), el objetivo de servicio (plan de tarifa) y el nombre del grupo elástico, si existe, de una instancia de Azure SQL Database o de un grupo de SQL dedicado en Azure Synapse Analytics. Si inició sesión en la base de datos maestra en SQL Database, devuelve información sobre todas las bases de datos. Para Azure Synapse Analytics, debe estar conectado a la base de datos maestra.|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devuelve el consumo de CPU, E/S y memoria para una base de datos en Azure SQL Database. Hay una fila para cada 15 segundos, incluso si no hay ninguna actividad en la base de datos.|
 |[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Devuelve datos de almacenamiento y uso de CPU para una base de datos de Azure SQL Database. Los datos se recopilan y se agregan en intervalos de cinco minutos.|
 |[sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contiene estadísticas de eventos de conectividad de SQL Database, que proporcionan una visión general de los aciertos y errores de conexión a la base de datos. |

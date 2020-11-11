@@ -1,6 +1,6 @@
 ---
 title: Compatibilidad con la intercalación
-description: Tipos de intercalación compatibles en SQL de Azure Synapse
+description: Compatibilidad con tipos de intercalación para Synapse SQL en Azure Synapse Analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: reference
@@ -8,25 +8,25 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 436dbac814197556385a33d956928f97fd4716bf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288076"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311927"
 ---
-# <a name="database-collation-support-for-synapse-sql"></a>Compatibilidad con la intercalación de bases de datos para SQL de Synapse
+# <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Compatibilidad con la intercalación de bases de datos para Synapse SQL en Azure Synapse Analytics 
 
 Las intercalaciones proporcionan la configuración regional, la página de códigos, el criterio de ordenación y las reglas de distinción de caracteres para tipos de datos basados en caracteres. Una vez que se han elegido estas opciones, todas las columnas y expresiones que requieren información de intercalación heredan la intercalación elegida de la configuración de base de datos. La herencia predeterminada se puede reemplazar si se indica explícitamente una intercalación diferente para un tipo de datos basado en caracteres.
 
-Puede cambiar la intercalación de bases de datos predeterminada desde Azure Portal al crear una base de datos del grupo de SQL. Esta capacidad facilita aún más la creación de una base de datos mediante una de las 3800 intercalaciones de bases de datos compatibles.
+Puede cambiar la intercalación de bases de datos predeterminada desde Azure Portal al crear una base de datos del grupo de SQL dedicado. Esta capacidad facilita aún más la creación de una base de datos mediante una de las 3800 intercalaciones de bases de datos compatibles.
 
-Puede especificar la intercalación predeterminada de base de datos de SQL a petición de Synapse en el momento de la creación mediante la instrucción CREATE DATABASE.
+Puede especificar la intercalación predeterminada de la base de datos del grupo de SQL sin servidor en el momento de la creación mediante la instrucción CREATE DATABASE.
 
 ## <a name="change-collation"></a>Definir intercalación
-A fin de cambiar la intercalación predeterminada para una base de datos de grupo de SQL, actualice el campo Intercalación en la experiencia de aprovisionamiento. Por ejemplo, si quiere cambiar la intercalación predeterminada para que distinga mayúsculas de minúsculas, cambie el nombre de la intercalación de SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS. 
+A fin de cambiar la intercalación predeterminada para una base de datos de grupo de SQL dedicado, actualice el campo Intercalación en la experiencia de aprovisionamiento. Por ejemplo, si quiere cambiar la intercalación predeterminada para que distinga mayúsculas de minúsculas, cambie el nombre de la intercalación de SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS. 
 
-Para cambiar la intercalación predeterminada para la base de datos de SQL a petición, puede usar la instrucción ALTER DATABASE.
+Para cambiar la intercalación predeterminada para la base de datos del grupo de SQL sin servidor, puede usar la instrucción ALTER DATABASE.
 
 ## <a name="list-of-unsupported-collation-types"></a>Lista de los tipos de intercalación que no se admiten
 *    Japanese_Bushu_Kakusu_140_BIN
@@ -98,7 +98,7 @@ Para cambiar la intercalación predeterminada para la base de datos de SQL a pet
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
 
-Además, el grupo de SQL no admite los siguientes tipos de intercalación:
+Además, el grupo de SQL dedicado no admite los siguientes tipos de intercalación:
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS
@@ -113,9 +113,9 @@ Cuando se pasa "Collation" como parámetro de propiedad, la función DatabasePro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En los siguientes artículos puede encontrar más información sobre los procedimientos recomendados para el grupo de SQL y SQL a petición:
+En los siguientes artículos encontrará más información sobre los procedimientos recomendados para el grupo de SQL dedicado y el grupo de SQL sin servidor:
 
-- [Procedimientos recomendados para grupos de SQL](best-practices-sql-pool.md)
-- [Procedimientos recomendados para SQL a petición](best-practices-sql-on-demand.md)
+- [Procedimientos recomendados para el grupo de SQL dedicado](best-practices-sql-pool.md)
+- [Procedimientos recomendados para el grupo de SQL sin servidor](best-practices-sql-on-demand.md)
 
 

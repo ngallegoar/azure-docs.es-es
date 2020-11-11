@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8dcddcd3d928758557074bf01d92e4bcc57ee1d
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403728"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279432"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -74,35 +74,41 @@ La lista de regiones admitidas para la Supervisión de ExpressRoute está dispon
 
 ### <a name="install-and-configure-agents"></a>Instalación y configuración de agentes 
 
-Use los procesos básicos para instalar agentes en [Conexión de equipos Windows a Azure Monitor](../platform/agent-windows.md) y [Conexión de Operations Manager con Azure Monitor](../platform/om-agents.md).
+Use los procesos básicos para instalar agentes en [Conexión de equipos Windows a Azure Monitor](../platform/agent-windows.md) [Conexión de equipos Windows a Azure Monitor (versión preliminar)](../../virtual-machines/extensions/oms-linux.md) y [Conexión de Operations Manager con Azure Monitor](../platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Dónde instalar los agentes 
 
-* **Monitor de rendimiento**: instale agentes de Log Analytics como mínimo en un nodo conectado a cada subred desde la que supervisará la conectividad de red a otras subredes.
+* **Monitor de rendimiento** : instale agentes de Log Analytics como mínimo en un nodo conectado a cada subred desde la que supervisará la conectividad de red a otras subredes.
 
     Para supervisar un vínculo de red, instale agentes en ambos puntos de conexión del vínculo en cuestión. Si no está seguro de la topología de la red, instale los agentes en servidores con cargas de trabajo críticas entre las que desee supervisar el rendimiento de red. Por ejemplo, si quiere supervisar la conexión de red entre un servidor web y un servidor que ejecuta SQL, instale un agente en ambos servidores. Los agentes supervisan la conectividad de red (vínculos) entre los hosts, no los hosts propiamente dichos. 
 
-* **Monitor de conectividad de servicio**: instale un agente de Log Analytics en cada nodo desde el que supervisará la conectividad de red al punto de conexión de servicio. Un ejemplo es si desea supervisar la conectividad de red a Microsoft 365 desde sus oficinas etiquetadas O1, O2 y O3. Instale el agente de Log Analytics como mínimo en un nodo en O1, O2 y O3. 
+* **Monitor de conectividad de servicio** : instale un agente de Log Analytics en cada nodo desde el que supervisará la conectividad de red al punto de conexión de servicio. Un ejemplo es si desea supervisar la conectividad de red a Microsoft 365 desde sus oficinas etiquetadas O1, O2 y O3. Instale el agente de Log Analytics como mínimo en un nodo en O1, O2 y O3. 
 
-* **Supervisión de ExpressRoute**: instale como mínimo un agente de Log Analytics en la red virtual de Azure. Asimismo, instale al menos un agente en la subred local, que se conecta mediante el emparejamiento privado de ExpressRoute.  
+* **Supervisión de ExpressRoute** : instale como mínimo un agente de Log Analytics en la red virtual de Azure. Asimismo, instale al menos un agente en la subred local, que se conecta mediante el emparejamiento privado de ExpressRoute.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurar agentes de Log Analytics para la supervisión 
 
 Network Performance Monitor usa transacciones sintéticas para supervisar el rendimiento de red entre los agentes de origen y de destino. Puede elegir entre los protocolos TCP e ICMP para la supervisión en las funcionalidades de Monitor de rendimiento y Monitor de conectividad de servicio. Solo TCP está disponible como el protocolo de supervisión para Supervisión de ExpressRoute. Asegúrese de que el firewall permita la comunicación entre los agentes de Log Analytics usados para supervisar en el protocolo que ha elegido. 
 
-* **Protocolo TCP**: si ha elegido el protocolo TCP para la supervisión, abra el puerto de firewall en los agentes que se usan en Network Performance Monitor y Supervisión de ExpressRoute, para asegurarse de que estos pueden conectarse entre sí. Para abrir el puerto, ejecute el script de PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) sin parámetros en una ventana de PowerShell con privilegios administrativos.
+* **Protocolo TCP** : si ha elegido el protocolo TCP para la supervisión, abra el puerto de firewall en los agentes que se usan en Network Performance Monitor y Supervisión de ExpressRoute, para asegurarse de que estos pueden conectarse entre sí. En las máquinas Windows, para abrir el puerto, ejecute el script de PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) sin parámetros en una ventana de PowerShell con privilegios administrativos.
+Para las máquinas Linux, el uso de portNumbers se debe cambiar manualmente. 
+* Vaya a ruta de acceso /var/opt/Microsoft/omsagent/npm_state. 
+* Abra el archivo npmdregistry.
+* Cambie el valor de número de puerto ```“PortNumber:<port of your choice>”```.
 
-    El script crea las claves del Registro que requiere la solución. También crea reglas de firewall de Windows para permitir que los agentes creen conexiones TCP entre sí. Las claves del Registro que crea el script especifican si se deben escribir los registros de depuración y la ruta del archivo de registro. Asimismo, el script define el puerto TCP del agente empleado para establecer la comunicación. El script establece automáticamente los valores de estas claves. No cambie manualmente estas claves. El puerto que se abre de forma predeterminada es 8084. Puede utilizar un puerto personalizado especificando el parámetro portNumber en el script. Utilice el mismo puerto en todos los equipos en los que se ejecute el script. 
+ Tenga en cuenta que los números de puerto que se usan deben ser iguales en todos los agentes usados en un área de trabajo. 
+
+El script crea las claves del Registro que requiere la solución. También crea reglas de firewall de Windows para permitir que los agentes creen conexiones TCP entre sí. Las claves del Registro que crea el script especifican si se deben escribir los registros de depuración y la ruta del archivo de registro. Asimismo, el script define el puerto TCP del agente empleado para establecer la comunicación. El script establece automáticamente los valores de estas claves. No cambie manualmente estas claves. El puerto que se abre de forma predeterminada es 8084. Puede utilizar un puerto personalizado especificando el parámetro portNumber en el script. Utilice el mismo puerto en todos los equipos en los que se ejecute el script. 
 
     >[!NOTE]
-    > El script configura solo el firewall de Windows localmente. Si tiene un firewall de red, asegúrese de que permite el tráfico destinado al puerto TCP que Network Performance Monitor esté utilizando.
+    > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
 
     >[!NOTE]
-    > No es necesario ejecutar el script de PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript ) para el Monitor de conectividad de servicio.
+    > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Connectivity Monitor.
 
     
 
-* **Protocolo ICMP**: si ha elegido el protocolo ICMP para la supervisión, habilite las reglas de firewall siguientes para usar ICMP de forma confiable:
+* **Protocolo ICMP** : si ha elegido el protocolo ICMP para la supervisión, habilite las reglas de firewall siguientes para usar ICMP de forma confiable:
     
    ```
    netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
@@ -122,17 +128,17 @@ Network Performance Monitor usa transacciones sintéticas para supervisar el ren
 
    ![Icono Monitor de rendimiento de red](media/network-performance-monitor/npm-config.png)
 
-4. En la página **Configuración**, verá la opción para instalar agentes de Log Analytics y configurar los agentes para la supervisión en la vista **Configuración común**. Como se ha explicado anteriormente, si ha instalado y configurado los agentes de Log Analytics, seleccione la vista **Configuración** para configurar la función que quiere usar. 
+4. En la página **Configuración** , verá la opción para instalar agentes de Log Analytics y configurar los agentes para la supervisión en la vista **Configuración común**. Como se ha explicado anteriormente, si ha instalado y configurado los agentes de Log Analytics, seleccione la vista **Configuración** para configurar la función que quiere usar. 
 
-   **Monitor de rendimiento**: elija el protocolo que se va a usar para las transacciones sintéticas en la regla del Monitor de rendimiento **Default** (Predeterminada) y seleccione **Save & Continue** (Guardar y continuar). Esta selección de protocolo contiene únicamente para la regla predeterminada generada por el sistema. Debe elegir el protocolo cada vez que cree explícitamente una regla de monitor de rendimiento. Siempre puede mover la configuración de reglas **Default** (Predeterminada) en la pestaña **Performance Monitor** (Monitor de rendimiento) (que aparece después de completar la configuración del día 0) y cambiar el protocolo más adelante. Si no quiere la funcionalidad Performance Monitor, puede deshabilitar la regla predeterminada en la configuración de reglas **Default** (Predeterminada) de la pestaña **Performance Monitor** (Monitor de rendimiento).
+   **Monitor de rendimiento** : elija el protocolo que se va a usar para las transacciones sintéticas en la regla del Monitor de rendimiento **Default** (Predeterminada) y seleccione **Save & Continue** (Guardar y continuar). Esta selección de protocolo contiene únicamente para la regla predeterminada generada por el sistema. Debe elegir el protocolo cada vez que cree explícitamente una regla de monitor de rendimiento. Siempre puede mover la configuración de reglas **Default** (Predeterminada) en la pestaña **Performance Monitor** (Monitor de rendimiento) (que aparece después de completar la configuración del día 0) y cambiar el protocolo más adelante. Si no quiere la funcionalidad Performance Monitor, puede deshabilitar la regla predeterminada en la configuración de reglas **Default** (Predeterminada) de la pestaña **Performance Monitor** (Monitor de rendimiento).
 
    ![Vista Supervisión del rendimiento](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Monitor de conectividad de servicio**: esta funcionalidad proporciona pruebas preconfiguradas integradas para supervisar la conectividad de red a Microsoft 365 y Dynamics 365 desde los agentes. Elija los servicios de Microsoft 365 y Dynamics 365 que desea supervisar seleccionando las casillas junto a ellos. Para elegir los agentes desde los que desea realizar la supervisión, seleccione el botón **Add Agents** (Agregar agentes). Si no desea utilizar esta funcionalidad o si desea configurarla más adelante, no seleccione nada y haga clic en **Save & Continue** (Guardar y continuar).
+   **Monitor de conectividad de servicio** : esta funcionalidad proporciona pruebas preconfiguradas integradas para supervisar la conectividad de red a Microsoft 365 y Dynamics 365 desde los agentes. Elija los servicios de Microsoft 365 y Dynamics 365 que desea supervisar seleccionando las casillas junto a ellos. Para elegir los agentes desde los que desea realizar la supervisión, seleccione el botón **Add Agents** (Agregar agentes). Si no desea utilizar esta funcionalidad o si desea configurarla más adelante, no seleccione nada y haga clic en **Save & Continue** (Guardar y continuar).
 
    ![Vista del Monitor de conectividad de servicio](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **Supervisión de ExpressRoute**: Seleccione **Detectar ahora** para detectar todos los emparejamientos privados de ExpressRoute que están conectados a las redes virtuales en la suscripción de Azure vinculada a esta área de trabajo de Azure Log Analytics. 
+   **Supervisión de ExpressRoute** : Seleccione **Detectar ahora** para detectar todos los emparejamientos privados de ExpressRoute que están conectados a las redes virtuales en la suscripción de Azure vinculada a esta área de trabajo de Azure Log Analytics. 
 
    ![Vista Supervisión de ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
@@ -146,7 +152,7 @@ Una vez finalizada la configuración, se tarda entre 30 minutos y una hora en re
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Edición de la configuración de supervisión de subredes y nodos 
 
-Todas las subredes que tienen instalado al menos un agente se muestran en la pestaña  **Subredes** de la página de configuración. 
+Todas las subredes que tienen instalado al menos un agente se muestran en la pestaña   **Subredes** de la página de configuración. 
 
 
 Para habilitar o deshabilitar la supervisión de subredes determinadas, siga estos pasos:
@@ -200,15 +206,15 @@ Una vez que ha habilitado la solución Network Performance Monitor, el icono de 
 
 ### <a name="network-performance-monitor-dashboard"></a>Panel Monitor de rendimiento de red 
 
-* **Eventos de mantenimiento de red principales**: esta página proporciona una lista de los eventos de mantenimiento y las alertas más recientes del sistema, así como el tiempo que llevan activos los eventos. Cada vez que el valor de la métrica seleccionada (pérdida, latencia, tiempo de respuesta o utilización de ancho de banda) para la regla de supervisión supera el umbral, se genera un evento de mantenimiento o una alerta. 
+* **Eventos de mantenimiento de red principales** : esta página proporciona una lista de los eventos de mantenimiento y las alertas más recientes del sistema, así como el tiempo que llevan activos los eventos. Cada vez que el valor de la métrica seleccionada (pérdida, latencia, tiempo de respuesta o utilización de ancho de banda) para la regla de supervisión supera el umbral, se genera un evento de mantenimiento o una alerta. 
 
-* **Supervisión de ExpressRoute**: esta página proporciona resúmenes de mantenimiento para las distintas conexiones de emparejamiento de ExpressRoute que supervisa la solución. El icono **Topology** (Topología) muestra el número de rutas de acceso de red mediante los circuitos de ExpressRoute que se supervisan en la red. Seleccione este icono para ir a la vista **Topology** (Topología).
+* **Supervisión de ExpressRoute** : esta página proporciona resúmenes de mantenimiento para las distintas conexiones de emparejamiento de ExpressRoute que supervisa la solución. El icono **Topology** (Topología) muestra el número de rutas de acceso de red mediante los circuitos de ExpressRoute que se supervisan en la red. Seleccione este icono para ir a la vista **Topology** (Topología).
 
-* **Monitor de conectividad de servicio**: esta página proporciona resúmenes de mantenimiento de las distintas pruebas creadas. El icono **Topology** (Topología) indica al número de puntos de conexión que se supervisan. Seleccione este icono para ir a la vista **Topology** (Topología).
+* **Monitor de conectividad de servicio** : esta página proporciona resúmenes de mantenimiento de las distintas pruebas creadas. El icono **Topology** (Topología) indica al número de puntos de conexión que se supervisan. Seleccione este icono para ir a la vista **Topology** (Topología).
 
-* **Monitor de rendimiento**: esta página proporciona resúmenes de mantenimiento para los vínculos **Network** (Red) y **Subnetwork** (Subred) que supervisa la solución. El icono **Topology** (Topología) indica al número de rutas de acceso de red que se supervisan en la red. Seleccione este icono para ir a la vista **Topology** (Topología). 
+* **Monitor de rendimiento** : esta página proporciona resúmenes de mantenimiento para los vínculos **Network** (Red) y **Subnetwork** (Subred) que supervisa la solución. El icono **Topology** (Topología) indica al número de rutas de acceso de red que se supervisan en la red. Seleccione este icono para ir a la vista **Topology** (Topología). 
 
-* **Consultas comunes**: esta página contiene un conjunto de consultas de búsqueda que capturan directamente los datos de supervisión de la red sin procesar. Puede usar estas consultas como punto de partida a fin de crear las suyas propias para generar informes personalizados. 
+* **Consultas comunes** : esta página contiene un conjunto de consultas de búsqueda que capturan directamente los datos de supervisión de la red sin procesar. Puede usar estas consultas como punto de partida a fin de crear las suyas propias para generar informes personalizados. 
 
    ![Panel Monitor de rendimiento de red](media/network-performance-monitor/npm-dashboard.png)
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/01/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 2e09f92e21743d39cbd132637cc63b27e8cfe944
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c8d0f32821bbb3957d7787b7c3bfd733a880325b
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996145"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233923"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluciones de aplicaciones de Oracle que integran Microsoft Azure y Oracle Cloud Infrastructure
 
@@ -48,6 +48,7 @@ La conectividad entre nubes está limitada a las siguientes regiones:
 * Centro de Canadá de Azure (canadacentral) y OCI Toronto (Sudeste de Canadá)
 * Oeste de Europa de Azure (westeurope) y OCI Amsterdam (Noroeste de Países Bajos)
 * Japón Oriental de Azure (japaneast) y OCI Tokio (Japón Oriental)
+* Oeste de EE. UU. de Azure (WestUS) y OCI San Jose (US West)
 
 ## <a name="networking"></a>Redes
 

@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3f1e2e12b7ba0a47c20614065510ffd1ae8bf195
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735481"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325352"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Protección de un entorno de inferencia de Azure Machine Learning con redes virtuales
 
@@ -47,7 +47,7 @@ En este artículo aprenderá a proteger los siguientes recursos de inferencia en
     - "Microsoft.Network/virtualNetworks/join/action" en el recurso de red virtual.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" en el recurso de subred.
 
-    Para obtener más información sobre Azure RBAC con redes, consulte los [roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
+    Para obtener más información sobre Azure RBAC con redes, consulte los [roles integrados de redes](../role-based-access-control/built-in-roles.md#networking).
 
 <a id="aksvnet"></a>
 
@@ -86,7 +86,7 @@ Para agregar AKS en una red virtual a su área de trabajo, siga los pasos siguie
     Para buscar la dirección IP del punto de conexión de puntuación, examine el URI de puntuación para el servicio implementado. Para obtener información sobre cómo ver el URI de puntuación, vea [Consumo de un modelo implementado como servicio web](how-to-consume-web-service.md#connection-information).
 
    > [!IMPORTANT]
-   > Mantenga las reglas de salida predeterminadas para el grupo de seguridad de red. Para más información, consulte las reglas de seguridad predeterminadas en [Grupos de seguridad](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+   > Mantenga las reglas de salida predeterminadas para el grupo de seguridad de red. Para más información, consulte las reglas de seguridad predeterminadas en [Grupos de seguridad](../virtual-network/network-security-groups-overview.md#default-security-rules).
 
    [![Regla de seguridad de entrada](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
@@ -170,7 +170,7 @@ Un equilibrador de carga privado se habilita mediante la configuración de AKS p
     ```azurecli-interactive
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
-Para más información sobre el uso del equilibrador de carga interno con AKS, consulte [Uso del equilibrador de carga interno con Azure Kubernetes Service](/azure/aks/internal-lb).
+Para más información sobre el uso del equilibrador de carga interno con AKS, consulte [Uso del equilibrador de carga interno con Azure Kubernetes Service](../aks/internal-lb.md).
 
 #### <a name="enable-private-load-balancer"></a>Habilitación del equilibrador de carga privado
 
@@ -217,7 +217,10 @@ except:
 az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
-Para más información, consulte la referencia de [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks).
+> [!IMPORTANT]
+> Si se utiliza la CLI, solo se puede crear un clúster de AKS con un equilibrador de carga interno. No hay ningún comando az ml que permita actualizar un clúster existente para que utilice un equilibrador de carga interno.
+
+Para más información, consulte la referencia de [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks).
 
 ---
 
@@ -258,8 +261,11 @@ A fin de usar ACI en una red virtual para su área de trabajo, siga los pasos si
     > [!IMPORTANT]
     > Al habilitar la delegación, use `Microsoft.ContainerInstance/containerGroups` como el valor __Delegar subred en un servicio__.
 
-2. Implemente el modelo mediante [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use los parámetros `vnet_name` y `subnet_name`. Establezca estos parámetros en el nombre de red virtual y subred donde habilitó la delegación.
+2. Implemente el modelo mediante [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use los parámetros `vnet_name` y `subnet_name`. Establezca estos parámetros en el nombre de red virtual y subred donde habilitó la delegación.
 
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a> Limitación de la conectividad saliente de la red virtual
+
+Si no quiere usar las reglas de salida predeterminadas y quiere limitar el acceso de salida de la red virtual, debe permitir el acceso a Azure Container Registry. Por ejemplo, asegúrese de que los grupos de seguridad de red (NSG) contienen una regla que permita el acceso a la etiqueta de servicio __AzureContainerRegistry.RegionName__ , donde {RegionName} es el nombre de una región de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

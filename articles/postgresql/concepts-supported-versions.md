@@ -7,15 +7,16 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cfe4b92dbed69440ee2c07cff758faad7e01293f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f03016c9a44968db49cd68bfec025c328861fc07
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707921"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286427"
 ---
 # <a name="supported-postgresql-major-versions"></a>Versiones principales de PostgreSQL admitidas
-Microsoft tiene la intención de admitir versiones n-2 del motor de PostgreSQL en el servicio Azure Database for PostgreSQL: servidor único. Estas versiones serían la versión principal actual en Azure (n) y las dos versiones principales anteriores (-2).
+
+Consulte [Directiva de control de versiones de Azure Database for PostgreSQL](concepts-version-policy.md) para obtener detalles de la directiva de soporte técnico.
 
 Azure Database for PostgreSQL actualmente admite las siguientes versiones principales:
 
@@ -35,6 +36,7 @@ La versión secundaria actual es la 9.5.20. Consulte la [documentación de Post
 El proyecto de PostgreSQL publica periódicamente versiones secundarias para corregir errores detectados. Azure Database for PostgreSQL aplica automáticamente revisiones a los servidores con versiones secundarias durante las implementaciones mensuales del servicio. 
 
 No se admiten las actualizaciones locales automáticas de las versiones principales. Para actualizar a la siguiente versión principal, puede: 
+   * Consulte [Actualizaciones de versiones principales con volcado y restauración](./how-to-upgrade-using-dump-and-restore.md).
    * Usar [pg_dump y pg_restore](./howto-migrate-using-dump-and-restore.md) para mover una base de datos a un servidor creado con la nueva versión del motor.
    * Como alternativa, puede actualizar de PostgreSQL 10 a 11 mediante el [servicio Azure Database Migration](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md).
 

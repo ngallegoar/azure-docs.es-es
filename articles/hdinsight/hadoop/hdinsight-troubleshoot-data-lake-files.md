@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
-ms.openlocfilehash: 92cce0751a400e17f9975d7ae3d10e6612017823
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8bac53cd08629e8b0a9cb91e596856c0ae6b5a2f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533638"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289122"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Imposibilidad de acceder a los archivos de Data Lake Storage en Azure HDInsight
 
@@ -32,7 +32,7 @@ Es posible que el usuario haya revocado los permisos de la entidad de servicio (
 
 ### <a name="resolution"></a>Solución
 
-1. Compruebe que el SP tiene los permisos "x" para atravesar la ruta de acceso. Para más información, consulte [Permisos](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Comando DFS de ejemplo para comprobar el acceso a los archivos o las carpetas en la cuenta de Data Lake Storage:
+1. Compruebe que el SP tiene los permisos "x" para atravesar la ruta de acceso. Para más información, consulte [Permisos](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Comando `dfs` de ejemplo para comprobar el acceso a los archivos o las carpetas en la cuenta de Data Lake Storage:
 
     ```
     hdfs dfs -ls /<path to check access>
@@ -54,13 +54,13 @@ Token Refresh failed - Received invalid http response: 500
 
 El certificado proporcionado para el acceso a la entidad de servicio puede haber expirado.
 
-1. SSH en el nodo principal. Compruebe el acceso a la cuenta de almacenamiento mediante el siguiente comando DFS:
+1. SSH en el nodo principal. Compruebe el acceso a la cuenta de almacenamiento mediante el siguiente comando `dfs`:
 
     ```
     hdfs dfs -ls /
     ```
 
-1. Confirme que el mensaje de error es similar al siguiente:
+1. Confirme que el mensaje de error es similar a la salida siguiente:
 
     ```
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
@@ -161,16 +161,10 @@ Invoke-AzureRmResourceAction `
 
 ```
 
-Para asignar un certificado existente, cree un certificado, y tenga la contraseña y el archivo. pfx listos. Asocie el certificado a la entidad de servicio con la que se creó el clúster y tenga el elemento AppId preparado.
+Para asignar un certificado existente, cree un certificado, y tenga la contraseña y el archivo. pfx listos. Asocie el certificado a la entidad de servicio con la que se creó el clúster mediante el elemento AppId preparado.
 
 Ejecute el comando de PowerShell después de sustituir los parámetros por los valores reales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
-
-* Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
-
-* Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
-
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico** . Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

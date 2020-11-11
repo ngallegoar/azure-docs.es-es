@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
-ms.openlocfilehash: af03dde724b4f1ec75c9505bb2f9311ad09f5fd0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/28/2020
+ms.openlocfilehash: 5969c449afe203ec9a014d2da78b56eeeb837590
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635922"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913371"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Blob Storage mediante Azure Data Factory
 
@@ -48,9 +48,6 @@ En el caso de la actividad de copia, este conector de Blob Storage admite:
 - Copia de blobs tal cual, o análisis o generación de los mismos con [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 - [Conservación de los metadatos de archivo durante la copia](#preserving-metadata-during-copy).
 
->[!IMPORTANT]
->Si habilita la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en la configuración de firewall de Azure Storage y quiere usar Azure Integration Runtime para conectarse a Blob Storage, debe usar la [autenticación de identidad administrada](#managed-identity).
-
 ## <a name="get-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -67,7 +64,8 @@ El conector de Blob Storage admite los siguientes tipos de autenticación. Consu
 - [Identidades administradas para la autenticación del recurso de Azure](#managed-identity)
 
 >[!NOTE]
->Cuando use PolyBase para cargar datos en Azure Synapse Analytics (anteriormente SQL Data Warehouse), si la instancia de origen o almacenamiento provisional de Blob Storage está configurada con un punto de conexión de Azure Virtual Network, deberá usar la autenticación de identidad administrada como requiere PolyBase. También debe usar el entorno de ejecución de integración autohospedado, con la versión 3.18 o posterior. Consulte la sección sobre [autenticación de identidad administrada](#managed-identity) para conocer más requisitos previos de configuración.
+>- Si desea utilizar el entorno de ejecución de integración de Azure público para conectarse a su instancia de Blob Storage con la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** habilitada en el firewall de Azure Storage, debe usar la [autenticación de identidad administrada](#managed-identity).
+>- Cuando use PolyBase o la instrucción COPY para cargar datos en Azure Synapse Analytics, si la instancia de origen o almacenamiento provisional de Blob Storage está configurada con un punto de conexión de Azure Virtual Network, deberá usar la autenticación de identidad administrada como requiere Synapse. Consulte la sección sobre [autenticación de identidad administrada](#managed-identity) para conocer más requisitos previos de configuración.
 
 >[!NOTE]
 >Las actividades de Azure HDInsights y Azure Machine Learning solo admiten la autenticación que usa las claves de cuenta de Azure Blob Storage.
@@ -286,7 +284,7 @@ Para obtener información general sobre la autenticación de Azure Storage, cons
     - **Como receptor** , en el **Control de acceso (IAM)** , conceda al menos el rol **Colaborador de datos de blobs de almacenamiento**.
 
 >[!IMPORTANT]
->Si usa PolyBase para cargar datos desde Blob Storage (como origen o como almacenamiento provisional) en Azure Synapse Analytics (anteriormente SQL Data Warehouse), cuando use la autenticación de identidad administrada para Blob Storage, asegúrese de seguir los pasos 1 y 2 de [esta guía](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). En estos pasos se registrará el servidor con Azure AD y se asignará el rol Colaborador de datos de Storage Blob en el servidor. Data Factory controla el resto. Si ha configurado la instancia de Blob Storage con un punto de conexión de Azure Virtual Network, para usar PolyBase para cargar datos desde este deberá usar la autenticación de identidad administrada como requiere PolyBase.
+>Si usa PolyBase o una instrucción COPY para cargar datos desde Blob Storage (como origen o como almacenamiento provisional) en Azure Synapse Analytics, cuando use la autenticación de identidad administrada para Blob Storage, asegúrese de seguir los pasos 1 a 3 de [esta guía](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). En estos pasos se registrará el servidor con Azure AD y se asignará el rol Colaborador de datos de Storage Blob en el servidor. Data Factory controla el resto. Si configura Blob Storage con un punto de conexión de Azure Virtual Network, también debe tener la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** activada en el menú de configuración **Firewalls y redes virtuales** de la cuenta de Azure Storage, tal como requiere Synapse.
 
 Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storage:
 
@@ -377,13 +375,13 @@ Las propiedades siguientes se admiten para Azure Blob Storage en la configuraci�
 | Propiedad                 | Descripción                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La propiedad **type** de `storeSettings` se debe establecer en **AzureBlobStorageReadSettings**. | Sí                                           |
-| **_Buscar los archivos para copiar:_* _ |  |  |
+| **_Buscar los archivos para copiar:_* |  |  |
 | OPCIÓN 1: ruta de acceso estática<br> | Copia de la ruta de acceso de carpeta/archivo o de contenedor especificada en el conjunto de datos. Si quiere copiar todos los blobs de un contenedor o una carpeta, especifique también `wildcardFileName` como `_`. |  |
 | OPCIÓN 2: prefijo de blob<br>- prefix | Prefijo para el nombre de blob en el contenedor dado configurado en un conjunto de datos para filtrar los blobs de origen. Se seleccionan los blobs cuyo nombre comienza con `container_in_dataset/this_prefix`. Usa el filtro del lado de servicio para Blob Storage, que proporciona un mejor rendimiento que un filtro de caracteres comodín. | No                                                          |
 | OPCIÓN 3: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín en el contenedor especificado configurado en un conjunto de datos para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter). Use `^` como escape si el nombre de la carpeta contiene un carácter comodín o este carácter de escape. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
 | OPCIÓN 3: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en el contenedor y la ruta de carpeta (o ruta de carpeta con carácter comodín) indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter). Use `^` como escape si el nombre de la carpeta contiene un carácter comodín o este carácter de escape. Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
 | OPCIÓN 4: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos determinado. Apunte a un archivo de texto que incluya una lista de los archivos que quiere copiar, con un archivo por línea, que sea la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos.<br/>Al usar esta opción, no especifique un nombre de archivo en el conjunto de datos. Ver más ejemplos en [Ejemplos de lista de archivos](#file-list-examples). |No |
-| ***Configuración adicional:** _ |  | |
+| ***Configuración adicional:** |  | |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando _ *recursive* * se establece en **true** y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. <br>Los valores permitidos son: **True** (valor predeterminado) y **False**.<br>Esta propiedad no se aplica al configurar `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indica si los archivos binarios se eliminarán del almacén de origen después de moverse correctamente al almacén de destino. Cada archivo se elimina individualmente, de modo que cuando se produzca un error en la actividad de copia, algunos archivos ya se habrán copiado al destino y se habrán eliminado del origen, mientras que otros seguirán aún en el almacén de origen. <br/>Esta propiedad solo es válida en el escenario de copia de archivos binarios. El valor predeterminado es false. |No |
 | modifiedDatetimeStart    | Los archivos se filtran en función del atributo Last Modified. <br>Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a una zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br> Las propiedades pueden ser **NULL** , lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene un valor de fecha y hora, pero `modifiedDatetimeEnd` es **NULL** , significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene un valor de fecha y hora, pero `modifiedDatetimeStart` es **NULL** , significa que se seleccionarán los archivos cuyo último atributo modificado sea menor que el valor de fecha y hora.<br/>Esta propiedad no se aplica al configurar `fileListPath`. | No                                            |

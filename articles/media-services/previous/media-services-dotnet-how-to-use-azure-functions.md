@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5bca9b0d5907d9900741d0fe2c319f141f810b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262131"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913643"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desarrollo de Azure Functions con Media Services
 
@@ -49,15 +49,15 @@ Cuando desarrolle funciones de Media Services, es útil agregar variables de ent
 
 La función, definida en este artículo, da por hecho que tiene las siguientes variables de entorno en la configuración de la aplicación:
 
-**AMSAADTenantDomain**: Punto de conexión de inquilino de Azure AD. Para más información sobre cómo conectarse a la API de AMS, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artículo.
+**AMSAADTenantDomain** : Punto de conexión de inquilino de Azure AD. Para más información sobre cómo conectarse a la API de AMS, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artículo.
 
-**AMSRESTAPIEndpoint**:  identificador URI que representa el punto de conexión de API REST. 
+**AMSRESTAPIEndpoint** :  identificador URI que representa el punto de conexión de API REST. 
 
-**AMSClientId**: Identificador de cliente de la aplicación de Azure AD.
+**AMSClientId** : Identificador de cliente de la aplicación de Azure AD.
 
-**AMSClientSecret**: Secreto de cliente de la aplicación de Azure AD.
+**AMSClientSecret** : Secreto de cliente de la aplicación de Azure AD.
 
-**StorageConnection**: conexión de almacenamiento de la cuenta asociada a la cuenta de Media Services. Este valor se utiliza en los archivos **function.json** y **run.csx** (descritos a continuación).
+**StorageConnection** : conexión de almacenamiento de la cuenta asociada a la cuenta de Media Services. Este valor se utiliza en los archivos **function.json** y **run.csx** (descritos a continuación).
 
 ## <a name="create-a-function"></a>Creación de una función
 
@@ -67,11 +67,11 @@ Una vez implementada su instancia de Function App, puede encontrarla entre Azure
 2. Elija el lenguaje **C#** y el escenario **Procesamiento de datos**.
 3. Elija la plantilla **BlobTrigger**. Esta función se desencadena si se carga un blob en el contenedor **input**. El nombre **input** se especifica en **Path** (Ruta de acceso), en el paso siguiente.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![Captura de pantalla en la que se muestra el cuadro de diálogo Elegir una plantilla con la opción BlobTrigger seleccionada.](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
-4. Una vez que seleccione **BlobTrigger**, aparecerán algunos controles más en la página.
+4. Una vez que seleccione **BlobTrigger** , aparecerán algunos controles más en la página.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![Captura de pantalla en la que se muestra el cuadro de diálogo Asigne un nombre a la función.](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Haga clic en **Crear**. 
 
@@ -79,7 +79,7 @@ Una vez implementada su instancia de Function App, puede encontrarla entre Azure
 
 La función de Azure está asociada a archivos de código y otros archivos que se describen en esta sección. Cuando se usa Azure Portal para crear una función, **function.json** y **run.csx** se crean automáticamente. Debe agregar o cargar un archivo **project.json**. El resto de esta sección proporciona una breve explicación de cada archivo y muestra sus definiciones.
 
-![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![Captura de pantalla en la que se muestran los archivos json del proyecto.](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 

@@ -3,12 +3,12 @@ title: Guía de configuración acelerada de una cuenta de laboratorio para Azure
 description: Esta guía ayuda a los administradores a configurar rápidamente una cuenta de laboratorio para usarla en su centro educativo.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c186560b27ebcb543a23785dc5fbc556614f64b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0855e59aced37e50c088cfe89ffeb3d0af9fcdca
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445430"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148310"
 ---
 # <a name="lab-account-setup-guide"></a>Guía de configuración de una cuenta de laboratorio
 
@@ -29,6 +29,10 @@ Para empezar a trabajar rápidamente, cree una sola cuenta de laboratorio y, des
 ### <a name="who-should-be-owners-and-contributors-of-the-lab-account"></a>¿Quiénes deben ser propietarios y colaboradores de la cuenta de laboratorio?
 
 Los administradores suelen ser propietarios y colaboradores de una cuenta de laboratorio. Son responsables de administrar las directivas que se aplican a todos los laboratorios incluidos en la cuenta de laboratorio. La persona que crea la cuenta de laboratorio se convierte automáticamente en propietario. Puede agregar propietarios y colaboradores adicionales, normalmente desde el inquilino de Azure Active Directory (Azure AD) asociado a la suscripción. Esto puede ser útil para ayudar a administrar una cuenta de laboratorio mediante la asignación del rol de propietario o colaborador en el nivel de la cuenta de laboratorio.
+
+[!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+
+Los usuarios del laboratorio solo ven una lista con las máquinas virtuales que tienen acceso a diferentes inquilinos de Azure Lab Services.
 
 ### <a name="who-will-be-allowed-to-create-and-manage-labs"></a>¿A quién se le permitirá crear y administrar laboratorios?
 

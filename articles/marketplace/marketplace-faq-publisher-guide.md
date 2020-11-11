@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707989"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126726"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Preguntas habituales sobre el marketplace comercial de Microsoft
 
@@ -46,7 +46,7 @@ Para más información, consulte el [centro del marketplace comercial de Microso
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>¿Hay que pagar por anunciarse en el marketplace comercial de Microsoft?
 
-No, la publicación de ofertas en el marketplace comercial no tiene ningún costo. Mantenemos un pequeño porcentaje de la venta, como honorario de transacción, y lo invertimos en el programa de premios de Marketplace, la innovación de la plataforma y las operaciones comerciales de marketplace. Esta cuota de transacción se reduce para las ofertas de [venta conjunta con incentivos de Azure](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) y para ofertas de SaaS de pago en AppSource que están asociadas a una aplicación de Microsoft Teams o un mínimo de dos complementos de Microsoft 365 (Excel, PowerPoint, Word, Outlook y SharePoint).
+No, la publicación de ofertas en el marketplace comercial no tiene ningún costo. Mantenemos un pequeño porcentaje de la venta, como honorario de transacción, y lo invertimos en el programa de premios de Marketplace, la innovación de la plataforma y las operaciones comerciales de marketplace. Esta cuota de transacción se reduce para las ofertas de [venta conjunta con incentivos de Azure](./marketplace-co-sell.md) y para ofertas de SaaS de pago en AppSource que están asociadas a una aplicación de Microsoft Teams o un mínimo de dos complementos de Microsoft 365 (Excel, PowerPoint, Word, Outlook y SharePoint).
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>¿Cómo me registro como editor en el marketplace comercial de Microsoft?
 
@@ -99,14 +99,14 @@ Sí, el marketplace de Azure Government está disponible en regiones de Azure Go
 
 Hay cuatro roles pertinentes que controlan el acceso al Centro de partners.
 
-- *Administrador*: proporciona permisos para administrar usuarios del Centro de partners en el directorio y para crear y actualizar ofertas.
-- *Desarrollador*: permite a un usuario crear y actualizar ofertas.
-- *Colaborador financiero*: proporciona permisos para ver los informes de pago.
-- *Propietario*: puede configurar la cuenta de pago y el perfil fiscal. El usuario que aceptó el contrato de editor se convierte en el propietario de forma predeterminada.
+- *Administrador* : proporciona permisos para administrar usuarios del Centro de partners en el directorio y para crear y actualizar ofertas.
+- *Desarrollador* : permite a un usuario crear y actualizar ofertas.
+- *Colaborador financiero* : proporciona permisos para ver los informes de pago.
+- *Propietario* : puede configurar la cuenta de pago y el perfil fiscal. El usuario que aceptó el contrato de editor se convierte en el propietario de forma predeterminada.
 
 Se necesitan permisos de *Administrador global* de Azure Active Directory (Azure AD) para crear nuevas cuentas de usuario o invitar a cuentas de invitado del directorio subyacente. El Centro de partners aplica Azure AD al modelo de identidad y, a menudo, los equipos de seguridad y TI administran y controlan la instancia de Azure AD de la organización.
 
-Para más información, consulte [Asignar roles y permisos de usuarios](https://docs.microsoft.com/partner-center/permissions-overview).
+Para más información, consulte [Asignar roles y permisos de usuarios](/partner-center/permissions-overview).
 
 ### <a name="do-customers-need-a-subscription-for-microsoft-azure-cloud-services"></a>¿Los clientes necesitan una suscripción a Microsoft Azure Cloud Services?
 
@@ -175,7 +175,7 @@ La disponibilidad de las ofertas y los planes se define según la ubicación de 
 
 ### <a name="what-offer-types-are-transacted-through-microsoft"></a>¿Qué tipos de oferta se comercializan mediante Microsoft?
 
-Las ofertas de tipo*Obtener ahora* se pueden administrar mediante Microsoft en algunos modelos de entrega. Actualmente, esta opción se admite con los siguientes modelos de entrega:
+Las ofertas de tipo *Obtener ahora* se pueden administrar mediante Microsoft en algunos modelos de entrega. Actualmente, esta opción se admite con los siguientes modelos de entrega:
 - Imágenes de VM
 - Aplicaciones de Azure (aplicaciones administradas)
 - Aplicaciones SaaS
@@ -303,7 +303,7 @@ Para obtener más información, consulte [Configuración de la cuenta de pago y 
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>¿Se admiten devoluciones y reembolsos en el marketplace comercial?
 
-Para tener opción al reembolso, los clientes pueden cancelar las suscripciones dentro de un período de tiempo especificado. En el caso de las suscripciones mensuales, es de 24 horas y, en el caso de las suscripciones anuales, es de 14 días. Las ofertas que se facturan según el uso nos on aptas para reembolsos una vez que se ha usado la solución.
+Los clientes tienen el reembolso disponibles con ciertas condiciones y para determinados cargos. Las solicitudes de reembolso para cargos periódicos facturados mensualmente se deben recibir en un plazo de 24 horas a partir de la compra o la renovación. Del mismo modo, las solicitudes de reembolso de cargos periódicos facturados anualmente se deben recibir en los 14 días siguientes a la compra o renovación. Este tipo de reembolsos no se aplica a los cargos derivados del uso (ya sea de ofertas de máquinas virtuales o de la facturación de uso medido).
 
 ## <a name="resources"></a>Recursos
 

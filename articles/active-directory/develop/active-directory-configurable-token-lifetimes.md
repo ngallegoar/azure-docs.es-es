@@ -9,29 +9,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 10/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4dab75a4e95a7561bc86176816cb402c10de781e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503783"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077428"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)
 
-Puede especificar la vigencia de un token emitido por la Plataforma de identidad de Microsoft. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización. No obstante, actualmente no se admite la configuración de la vigencia de los tokens para las [entidades de servicio de identidad administrada](../managed-identities-azure-resources/overview.md).
-
 > [!IMPORTANT]
-> Después del 30 de enero de 2021, los inquilinos ya no podrán configurar la duración de los tokens de actualización y sesión, y Azure Active Directory dejará de respetar la configuración existente de los tokens de sesión y actualización en las directivas después de esa fecha. Después de la retirada, todavía podrá configurar la duración de los tokens de acceso.
-> Se han implementado  [funciones de administración de sesiones de autenticación](../conditional-access/howto-conditional-access-session-lifetime.md) en el acceso condicional de Azure AD. Puede usar esta nueva característica para configurar la vigencia de los tokens de actualización mediante la configuración de la frecuencia de inicio de sesión. El acceso condicional es una característica de Azure AD Premium P1 y puede evaluar si Premium es adecuado para la organización en la [página de precios de Premium](https://azure.microsoft.com/en-us/pricing/details/active-directory/). 
-> 
-> En el caso de los inquilinos que no usen la administración de sesiones de autenticación en el acceso condicional después de la fecha de retirada, pueden esperar que Azure AD respetará la configuración predeterminada que se describe en la sección siguiente.
+> A partir del 30 de enero de 2021, los inquilinos ya no podrán configurar la duración de los tokens de actualización y sesión, y Azure Active Directory dejará de respetar la configuración de los tokens de sesión y actualización en las directivas después de esa fecha.
+>
+> Si necesita seguir definiendo el período de tiempo antes de que se pida al usuario que vuelva a iniciar sesión, configure la frecuencia de inicio de sesión en el acceso condicional. Para más información sobre el acceso condicional, visite la [página de precios de Azure AD](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+>
+> En el caso de los inquilinos que no usan el acceso condicional después de la fecha de retirada, pueden esperar que Azure AD respetará la configuración predeterminada que se describe en la sección siguiente.
 
 ## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Propiedades de vigencia de tokens configurables después de la retirada
-La configuración de los tokens de actualización y sesión se ve afectada por las siguientes propiedades y sus correspondientes valores establecidos. Después de la retirada de la configuración de tokens de actualización y sesión, Azure AD solo respetará el valor predeterminado que se describe a continuación, con independencia de que las directivas tengan valores personalizados configurados.  
+La configuración de los tokens de actualización y sesión se ve afectada por las siguientes propiedades y sus correspondientes valores establecidos. Después de la retirada de la configuración de tokens de actualización y sesión, Azure AD solo respetará el valor predeterminado que se describe a continuación, con independencia de que las directivas tengan valores personalizados configurados. Después de la retirada, todavía podrá configurar la duración de los tokens de acceso. 
 
 |Propiedad   |Cadena de propiedad de directiva    |Afecta a |Valor predeterminado |
 |----------|-----------|------------|------------|
@@ -41,13 +40,34 @@ La configuración de los tokens de actualización y sesión se ve afectada por l
 |Antigüedad máxima del token de sesión (un solo factor)  |MaxAgeSessionSingleFactor |Tokens de sesión (persistentes y no persistentes)  |Hasta que se revoca |
 |Antigüedad máxima del token de sesión (varios factores)  |MaxAgeSessionMultiFactor  |Tokens de sesión (persistentes y no persistentes)  |180 días |
 
-Puede usar el cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) para identificar directivas de vigencia de token cuyos valores de propiedad difieren de los valores predeterminados de Azure AD.
+## <a name="identify-configuration-in-scope-of-retirement"></a>Identificación de la configuración en el ámbito de la retirada
 
-Para comprender mejor cómo se usan las directivas en el inquilino, puede usar el cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) para identificar qué aplicaciones y entidades de servicio están vinculadas a las directivas. 
+Para comenzar, realice uno de los pasos siguientes:
+
+1. Descargue la [versión preliminar pública más reciente del módulo de PowerShell de Azure AD](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Ejecute el comando `Connect` para iniciar sesión en la cuenta de administrador de Azure AD. Ejecute este comando cada vez que inicie una nueva sesión.
+
+    ```powershell
+    Connect-AzureAD -Confirm
+    ```
+
+1. Para ver todas las directivas creadas en la organización, ejecute el cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true).  Los resultados con valores de propiedad definidos que difieren de los valores predeterminados mencionados anteriormente se encuentran en el ámbito de la retirada.
+
+    ```powershell
+    Get-AzureADPolicy -All
+    ```
+
+1. Para ver qué aplicaciones y entidades de servicio están vinculadas a una directiva específica que identificó, ejecute el siguiente cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) reemplazando **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** con cualquiera de los identificadores de directiva. A continuación, puede decidir si desea configurar la frecuencia de inicio de sesión de acceso condicional o mantener los valores predeterminados de Azure AD.
+
+    ```powershell
+    Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
+    ```
 
 Si el inquilino tiene directivas que definen valores personalizados para las propiedades de configuración de tokens de sesión y actualización, Microsoft recomienda actualizarlas a los valores que reflejen los valores predeterminados descritos anteriormente. Si no se realiza ningún cambio, Azure AD respetará de forma automática los valores predeterminados.  
 
 ## <a name="overview"></a>Información general
+
+Puede especificar la vigencia de un token emitido por la Plataforma de identidad de Microsoft. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización. No obstante, actualmente no se admite la configuración de la vigencia de los tokens para las [entidades de servicio de identidad administrada](../managed-identities-azure-resources/overview.md).
 
 En Azure AD, un objeto de directiva representa un conjunto de reglas que se exigen en algunas o todas las aplicaciones de una organización. Cada tipo de directiva tiene una estructura única con un conjunto de propiedades que luego se aplican a los objetos a los que están asignadas.
 
@@ -77,7 +97,7 @@ Tenga en cuenta que la confirmación de asunto NotOnOrAfter especificada en el e
 
 ### <a name="refresh-tokens"></a>Tokens de actualización
 
-Cuando un cliente adquiere un token de acceso para acceder a un recurso protegido, recibe también un token de actualización. El token de actualización se usa para obtener nuevos pares de tokens de acceso/actualización cuando el token de acceso actual expira. Un token de actualización se enlaza a una combinación de usuario y cliente. Se puede [revocar en cualquier momento](access-tokens.md#token-revocation) un token de actualización y se comprobará la validez de este cada vez que se use.  Los tokens de actualización no se revocan cuando se utilizan para obtener nuevos tokens de acceso; sin embargo, un procedimiento recomendado consiste en eliminar de forma segura el token antiguo cuando se obtiene uno nuevo. 
+Cuando un cliente adquiere un token de acceso para acceder a un recurso protegido, recibe también un token de actualización. El token de actualización se usa para obtener nuevos pares de tokens de acceso/actualización cuando el token de acceso actual expira. Un token de actualización se enlaza a una combinación de usuario y cliente. Se puede [revocar en cualquier momento](access-tokens.md#token-revocation) un token de actualización y se comprobará la validez de este cada vez que se use.  Los tokens de actualización no se revocan cuando se utilizan para obtener nuevos tokens de acceso; sin embargo, un procedimiento recomendado consiste en eliminar de forma segura el token antiguo cuando se obtiene uno nuevo.
 
 Es importante diferenciar entre clientes públicos y confidenciales, ya que esto afecta al período de tiempo que se pueden usar los tokens de actualización. Para más información sobre los diferentes tipos de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 

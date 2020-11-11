@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de VMware en Azure Migrate
 description: Obtenga información sobre la compatibilidad de la evaluación de máquinas virtuales de VMware con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8b119b56e7e4c7fac74c57cc5c48fb44f91a7ee6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315806"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345438"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de compatibilidad para la evaluación de VMware 
 
@@ -66,14 +66,13 @@ Además de detectar máquinas, Server Assessment puede detectar aplicaciones, ro
 
 **Soporte técnico** | **Detalles**
 --- | ---
-**Máquinas compatibles** | Actualmente solo se admite la detección de aplicaciones para máquinas virtuales de VMware.
+**Máquinas compatibles** | Actualmente solo se admite la detección de aplicaciones para máquinas virtuales de VMware. Puede detectar aplicaciones instaladas en un máximo de 10000 máquinas virtuales de VMware de cada dispositivo de Azure Migrate.
+**Sistemas operativos** | La detección de aplicaciones en se admite en máquinas virtuales que funcionan con todas las versiones de Windows y Linux.
+**Requisitos de máquina virtual** | Las herramientas de VMware se deben instalar y ejecutar en las máquinas virtuales en las que quiera detectar aplicaciones. <br/><br/> La versión de las herramientas de VMware debe ser posterior a 10.2.0.<br/><br/> Las máquinas virtuales deben tener instalada la versión 2.0 de PowerShell o una versión posterior.
 **Detección** | La detección de aplicaciones es sin agente. Usa las credenciales de invitado de las máquinas y obtiene acceso a ellas de forma remota mediante llamadas WMI y SSH.
-**Soporte técnico de máquina virtual** | La detección de aplicaciones en se admite en máquinas virtuales que funcionan con todas las versiones de Windows y Linux.
-**vCenter** | La cuenta de vCenter Server de solo lectura que se usa para la valoración, necesita privilegios habilitados para  > **las operaciones de invitado** de **Virtual Machines**, con el fin de interactuar con la máquina virtual para la detección de aplicaciones.
+**vCenter** | La cuenta de vCenter Server de solo lectura que se usa para la valoración, necesita privilegios habilitados para  > **las operaciones de invitado** de **Virtual Machines** , con el fin de interactuar con la máquina virtual para la detección de aplicaciones.
 **Acceso a una máquina virtual** | La detección de aplicaciones necesita una cuenta de usuario local en la máquina virtual para la detección de aplicaciones.<br/><br/> Actualmente, Azure Migrate admite el uso de una credencial para todos los servidores Windows y otra para todos los servidores Linux.<br/><br/> Se crea una cuenta de usuario invitado para máquinas virtuales Windows y una cuenta de usuario normal (acceso sin sudo) para todas las máquinas virtuales Linux.
-**Herramientas de VMware** | Las herramientas de VMware se deben instalar y ejecutar en las máquinas virtuales que se quieren detectar. <br/><br/> La versión de las herramientas de VMware debe ser posterior a 10.2.0.
-**PowerShell** | Las máquinas virtuales deben tener instalada la versión 2.0 de PowerShell o una versión posterior.
-**Acceso a puertos** | En los hosts ESXi que ejecuten las máquinas virtuales que desea detectar, Azure Migrate debería ser capaz de conectarse al puerto TCP 443.
+**Acceso a puertos** | El dispositivo de Azure Migrate debe poder conectarse al puerto TCP 443 en los hosts ESXi que ejecutan las máquinas virtuales en las que quiere detectar aplicaciones. vCenter Server devuelve una conexión de host ESXI para descargar el archivo que contiene la información de la aplicación.
 **Límites** | Para la detección de aplicaciones, puede detectar hasta 10 000 máquinas virtuales en cada dispositivo de Azure Migrate.
 
 

@@ -3,12 +3,12 @@ title: 'Azure Event Grid: guía para la solución de problemas'
 description: En este artículo se proporciona una lista de códigos de error, mensajes de error, descripciones y acciones recomendadas.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dd464339e7654f8886224ff07cf368b4724ff82
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119045"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041387"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Solución de problemas de Azure Event Grid
 En esta guía de solución de problemas se le proporciona una lista de códigos de error de Azure Event Grid, mensajes de error, sus descripciones y acciones recomendadas que debe realizar cuando reciba estos errores. 
@@ -16,8 +16,8 @@ En esta guía de solución de problemas se le proporciona una lista de códigos 
 ## <a name="error-code-400"></a>Código de error: 400
 | Código de error | Mensaje de error | Descripción | Recomendación |
 | ---------- | ------------- | ----------- | -------------- | 
-| HttpStatusCode.BadRequest<br/>400 | El nombre del tema debe tener entre 3 y 50 caracteres. | La longitud del nombre del dominio debe estar entre 3 y 50 caracteres. Solo se permiten caracteres alfanuméricos, dígitos y el carácter "-" en el nombre del tema. Además, el nombre no debe comenzar con las siguientes palabras reservadas: <ul><li>Microsoft</li><li>EventGrid</li><li>Sistema</li></ul> | Elija otro nombre de tema que cumpla con los requisitos pertinentes. |
-| HttpStatusCode.BadRequest<br/>400 | El nombre del dominio debe tener entre 3 y 50 caracteres. | La longitud del nombre del dominio debe estar entre 3 y 50 caracteres. Solo se permiten caracteres alfanuméricos, dígitos y el carácter "-" en el nombre del tema. Además, el nombre no debe comenzar con las siguientes palabras reservadas:<ul><li>Microsoft</li><li>EventGrid</li><li>Sistema</li> | Elija otro nombre de dominio que cumpla con los requisitos pertinentes. |
+| HttpStatusCode.BadRequest<br/>400 | El nombre del tema debe tener entre 3 y 50 caracteres. | La longitud del nombre del dominio debe estar entre 3 y 50 caracteres. Solo se permiten caracteres alfanuméricos, dígitos y el carácter "-" en el nombre del tema. Además, el nombre no debe comenzar con las siguientes palabras reservadas: <ul><li>Microsoft-</li><li>EventGrid-</li><li>System-</li></ul> | Elija otro nombre de tema que cumpla con los requisitos pertinentes. |
+| HttpStatusCode.BadRequest<br/>400 | El nombre del dominio debe tener entre 3 y 50 caracteres. | La longitud del nombre del dominio debe estar entre 3 y 50 caracteres. Solo se permiten caracteres alfanuméricos, dígitos y el carácter "-" en el nombre de dominio. Además, el nombre no debe comenzar con las siguientes palabras reservadas:<ul><li>Microsoft-</li><li>EventGrid-</li><li>System-</li> | Elija otro nombre de dominio que cumpla con los requisitos pertinentes. |
 | HttpStatusCode.BadRequest<br/>400 | Hora de expiración no válida. | La hora de expiración de la suscripción de eventos determina cuándo se retirará la suscripción de eventos. Este valor debe ser un valor DateTime válido en el futuro.| Asegúrese de la hora de expiración de la suscripción de eventos está en un formato DateTime válido y que está configurada en un momento futuro. |
 
 ## <a name="error-code-409"></a>Código de error: 409

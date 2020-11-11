@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0727f512ab24342b493ba2563262a9253d95d8c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567152"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339982"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>¿Qué es el almacén analítico de Azure Cosmos DB (versión preliminar)?
+# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>¿Qué es el almacén analítico de Azure Cosmos DB (versión preliminar)?
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 > [!IMPORTANT]
 > El almacén analítico de Azure Cosmos DB se encuentra actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -52,7 +53,7 @@ El almacén analítico, que es un almacén de columnas, es más adecuado para es
 
 En la imagen siguiente se muestra el almacén de filas transaccional frente el almacén de columnas analítico en Azure Cosmos DB:
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Tabla operativa de ejemplo" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Almacén de filas transaccional frente al almacén de columnas analítico en Azure Cosmos DB" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Rendimiento desacoplado para cargas de trabajo analíticas
 

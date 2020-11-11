@@ -11,30 +11,30 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: cefc6cc72ed8d74663464f4ac2d672369cd9d31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf85b0ea658ae6459644dd710630a30f78ad99aa
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288671"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339400"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estadísticas en SQL de Synapse
 
-En este artículo se proporcionan recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas mediante los siguientes recursos SQL de Synapse: Grupo de SQL y SQL a petición (versión preliminar).
+En este artículo se proporcionan recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas mediante los siguientes recursos de Synapse SQL: grupo de SQL dedicado y grupo de SQL sin servidor (versión preliminar).
 
-## <a name="statistics-in-sql-pool"></a>Estadísticas en el grupo de SQL
+## <a name="statistics-in-dedicated-sql-pool"></a>Estadísticas del grupo de SQL dedicado
 
 ### <a name="why-use-statistics"></a>¿Por qué usar estadísticas?
 
-Cuanto más sepa el recurso del grupo de SQL acerca de los datos, más rápido puede ejecutar consultas. Después de cargar los datos en el grupo de SQL, la recopilación de estadísticas de los datos es una de las cosas más importantes que puede hacer para la optimización de consultas.  
+Cuanto más sepa el grupo de SQL dedicado acerca de los datos, más rápido puede ejecutar las consultas. Después de cargar los datos en un grupo de SQL dedicado, la recopilación de estadísticas de los datos es una de las cosas más importantes que puede hacer para la optimización de las consultas.  
 
-El optimizador de consultas del grupo de SQL está basado en el costo. Compara el costo de varios planes de consulta y elige el menor de ellos. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente.
+El optimizador de consultas del grupo de SQL dedicado se basa en el costo. Compara el costo de varios planes de consulta y elige el menor de ellos. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente.
 
 Por ejemplo, si el optimizador considera que la fecha en que se filtra la consulta devolverá una fila, se elegirá un plan. Si estima que la fecha seleccionada devolverá 1 millón de filas, devolverá un plan diferente.
 
 ### <a name="automatic-creation-of-statistics"></a>Creación automática de estadísticas
 
-El grupo de SQL analizará las consultas entrantes de los usuarios para buscar las estadísticas que faltan cuando la opción AUTO_CREATE_STATISTICS de la base de datos esté establecida en `ON`.  Si faltan estadísticas, el optimizador de consultas crea las estadísticas en columnas individuales del predicado de consulta o en la condición de combinación. 
+El motor del grupo de SQL dedicado analizará las consultas entrantes de los usuarios para buscar las estadísticas que faltan cuando la opción AUTO_CREATE_STATISTICS de la base de datos esté establecida en `ON`.  Si faltan estadísticas, el optimizador de consultas crea las estadísticas en columnas individuales del predicado de consulta o en la condición de combinación. 
 
 Esta función se usa para mejorar las estimaciones de cardinalidad del plan de consulta.
 
@@ -74,7 +74,7 @@ Para evitar la degradación del rendimiento cuantificable, debe asegurarse de qu
 > [!NOTE]
 > La creación de estadísticas también se registra en [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) en un contexto de usuario diferente.
 
-Cuando se crean las estadísticas automáticas, estas adoptan la siguiente forma: _WA_Sys_<identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas ya creadas, ejecute el comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
+Cuando se crean las estadísticas automáticas, estas adoptan la siguiente forma: _WA_Sys_ <identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas ya creadas, ejecute el comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -166,7 +166,7 @@ Estos ejemplos muestran cómo utilizar diversas opciones de creación de estadí
 #### <a name="create-single-column-statistics-with-default-options"></a>Crear estadísticas de columna única con las opciones predeterminadas
 
 Para crear estadísticas en una columna, especifique un nombre para el objeto de estadística y el nombre de la columna.
-Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, un grupo de SQL muestrea el **20 %** de la tabla cuando crea estadísticas.
+Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, el grupo de SQL dedicado muestrea el **20 %** de la tabla cuando crea estadísticas.
 
 ```sql
 CREATE STATISTICS [statistics_name]
@@ -245,7 +245,7 @@ Para crear un objeto de estadísticas de varias columnas, use los ejemplos anter
 > [!NOTE]
 > El histograma, que se utiliza para calcular el número de filas en el resultado de la consulta, solo está disponible para la primera columna de la definición del objeto de estadísticas.
 
-En este ejemplo, el histograma se encuentra en *product\_category*. Las estadísticas entre columnas se calculan en *product\_category* y *product\_sub_category*:
+En este ejemplo, el histograma se encuentra en *product\_category*. Las estadísticas entre columnas se calculan en *product\_category* y *product\_sub_category* :
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Dado que no existe una correlación entre *product\_category* y *product\_sub\_category*, un objeto de estadística de varias columnas puede ser útil si se tiene acceso a estas columnas al mismo tiempo.
+Dado que no existe una correlación entre *product\_category* y *product\_sub\_category* , un objeto de estadística de varias columnas puede ser útil si se tiene acceso a estas columnas al mismo tiempo.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Creación de estadísticas en todas las columnas de una tabla
 
@@ -430,7 +430,7 @@ Es fácil usar la instrucción UPDATE STATISTICS. Solo tiene que recordar que se
 Si el rendimiento no es un problema, este método es la forma más fácil y completa de garantizar que las estadísticas están actualizadas.
 
 > [!NOTE]
-> Al actualizar todas las estadísticas de una tabla, un grupo de SQL realiza un análisis para crear muestras de la tabla para cada objeto de estadística. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.
+> Al actualizar todas las estadísticas de una tabla, el grupo de SQL dedicado realiza un análisis para muestrear los objetos de estadísticas de la tabla. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.
 
 Para ver una implementación del procedimiento `UPDATE STATISTICS`, consulte [Tablas temporales](develop-tables-temporary.md). El método de implementación difiere ligeramente del procedimiento `CREATE STATISTICS`, pero el resultado es el mismo.
 Para ver la sintaxis completa, consulte [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
@@ -512,7 +512,7 @@ DBCC SHOW_STATISTICS() muestra los datos contenidos en un objeto de estadística
 
 El encabezado contiene los metadatos sobre las estadísticas. El histograma muestra la distribución de valores en la primera columna de clave del objeto de estadísticas. 
 
-El vector de densidad mide la correlación entre las columnas. Un grupo de SQL calcula las estimaciones de cardinalidad con cualquiera de los datos en el objeto de estadísticas.
+El vector de densidad mide la correlación entre las columnas. El grupo de SQL dedicado calcula las estimaciones de cardinalidad con cualquiera de los datos del objeto de estadísticas.
 
 #### <a name="show-header-density-and-histogram"></a>Mostrar el encabezado, la densidad y el histograma
 
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="dbcc-show_statistics-differences"></a>Diferencias de DBCC SHOW_STATISTICS()
 
-En comparación, `DBCC SHOW_STATISTICS()` se implementa de forma más estricta en un grupo de SQL que en SQL Server:
+En comparación, `DBCC SHOW_STATISTICS()` se implementa de forma más estricta en un grupo de SQL dedicado que en SQL Server:
 
 - No se admiten las características no documentadas.
 - No se puede usar Stats_stream.
@@ -556,25 +556,25 @@ En comparación, `DBCC SHOW_STATISTICS()` se implementa de forma más estricta e
 - No se pueden usar nombres de columna para identificar objetos de estadísticas.
 - No se admite el error personalizado 2767.
 
-### <a name="next-steps"></a>Pasos siguientes
 
-Para mejorar aún más el rendimiento de las consultas, vea [Supervisión de la carga de trabajo](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-
-## <a name="statistics-in-sql-on-demand-preview"></a>Estadísticas en SQL a petición (versión preliminar)
+## <a name="statistics-in-serverless-sql-pool-preview"></a>Estadísticas en el grupo de SQL sin servidor (versión preliminar)
 
 Las estadísticas se crean por cada columna concreta en un conjunto de datos determinado (ruta de acceso de almacenamiento).
 
+> [!NOTE]
+> No se pueden crear estadísticas para columnas LOB.
+
 ### <a name="why-use-statistics"></a>¿Por qué usar estadísticas?
 
-Cuanto más sepa SQL a petición (versión preliminar) acerca de los datos, más rápido puede ejecutar consultas en ellos. La recopilación de estadísticas sobre los datos es una de las tareas más importantes que se pueden realizar para optimizar las consultas. 
+Cuanto más sepa el grupo de SQL sin servidor (versión preliminar) acerca de los datos, más rápido puede ejecutar consultas en ellos. La recopilación de estadísticas sobre los datos es una de las tareas más importantes que se pueden realizar para optimizar las consultas. 
 
-El optimizador de consultas de SQL a petición está basado en el costo. Compara el costo de varios planes de consulta y elige el menor de ellos. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente. 
+El optimizador de consultas del grupo de SQL sin servidor se basa en el costo. Compara el costo de varios planes de consulta y elige el menor de ellos. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente. 
 
 Por ejemplo, si el optimizador estima que la fecha en que se filtra la consulta devolverá una fila, se elegirá un plan. Si estima que la fecha seleccionada devolverá 1 millón de filas, devolverá un plan diferente.
 
 ### <a name="automatic-creation-of-statistics"></a>Creación automática de estadísticas
 
-SQL a petición analiza las consultas de usuario entrantes para buscar las estadísticas que faltan. Si faltan las estadísticas, el optimizador de consultas crea las estadísticas en columnas individuales en el predicado de consulta o en la condición de combinación para mejorar las estimaciones de cardinalidad del plan de consulta.
+El grupo de SQL sin servidor analiza las consultas entrantes de los usuarios en busca de estadísticas que falten. Si faltan las estadísticas, el optimizador de consultas crea las estadísticas en columnas individuales en el predicado de consulta o en la condición de combinación para mejorar las estimaciones de cardinalidad del plan de consulta.
 
 La instrucción SELECT activará la creación automática de estadísticas.
 
@@ -585,7 +585,7 @@ La creación automática de estadísticas se realiza de forma sincrónica, por l
 
 ### <a name="manual-creation-of-statistics"></a>Creación manual de estadísticas
 
-SQL a petición le permite crear estadísticas de forma manual. En el caso de los archivos CSV, debe crear las estadísticas manualmente, ya que la creación automática de estadísticas no está activada para los archivos CSV. 
+El grupo de SQL sin servidor permite crear estadísticas de forma manual. En el caso de los archivos CSV, debe crear las estadísticas manualmente, ya que la creación automática de estadísticas no está activada para los archivos CSV. 
 
 Consulte los siguientes ejemplos para obtener instrucciones sobre cómo crear estadísticas manualmente.
 
@@ -593,7 +593,7 @@ Consulte los siguientes ejemplos para obtener instrucciones sobre cómo crear es
 
 Los cambios en los datos de los archivos, así como la eliminación y adición de archivos, producen cambios en la distribución de datos y hace que las estadísticas no estén actualizadas. En ese caso, es necesario actualizar las estadísticas.
 
-SQL a petición vuelve a crear automáticamente las estadísticas si se cambian los datos de forma significativa. Cada vez que se crean estadísticas automáticamente, también se guarda el estado actual del conjunto de datos: las rutas de acceso, los tamaños y las fechas de última modificación de los archivos.
+El grupo de SQL sin servidor vuelve a crear automáticamente las estadísticas si cambian los datos de forma significativa. Cada vez que se crean estadísticas automáticamente, también se guarda el estado actual del conjunto de datos: las rutas de acceso, los tamaños y las fechas de última modificación de los archivos.
 
 Cuando las estadísticas estén obsoletas, se crean otras nuevas. El algoritmo recorre los datos y los compara con el estado actual del conjunto de datos. Si el tamaño de los cambios supera el umbral especificado, las estadísticas anteriores se eliminan y se vuelven a crear en el nuevo conjunto de información.
 
@@ -616,7 +616,7 @@ Debería extender la canalización de datos para asegurarse de que las estadíst
 Los siguientes principios fundamentales se proporcionan para actualizar las estadísticas:
 
 - Asegúrese de que el conjunto de datos tenga al menos un objeto de estadísticas actualizado. Así se actualiza la información del tamaño (recuento de filas y recuento de páginas) como parte de la actualización de las estadísticas.
-- Céntrese en las columnas que participan en las cláusulas JOIN, GROUP BY, ORDER BY y DISTINCT.
+- Céntrese en las columnas que participan en las cláusulas WHERE, JOIN, GROUP BY, ORDER BY y DISTINCT.
 - Actualice con más frecuencia las columnas de "clave ascendente", como las fechas de transacción, ya que estos valores no se incluirán en el histograma de estadísticas.
 - Actualice las columnas de distribución estáticas con menor frecuencia.
 
@@ -629,12 +629,12 @@ En los siguientes ejemplos se muestra cómo usar diversas opciones de creación 
 > [!NOTE]
 > En este momento, solo puede crear estadísticas de columna única.
 >
-> El nombre del procedimiento sp_create_file_statistics se cambiará por sp_create_openrowset_statistics. El rol de servidor público tiene concedido el permiso ADMINISTER BULK OPERATIONS mientras que el rol de base de datos público tiene permisos EXECUTE en sp_create_file_statistics y sp_drop_file_statistics. Esto podría cambiar en el futuro.
+> Se requieren los siguientes permisos para ejecutar sp_create_openrowset_statistics y sp_drop_openrowset_statistics: ADMINISTER BULK OPERATIONS o ADMINISTER DATABASE BULK OPERATIONS.
 
 El procedimiento almacenado siguiente se emplea para crear estadísticas:
 
 ```sql
-sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 Argumentos: [ @stmt = ] N“statement_text”: especifica una instrucción Transact-SQL que devolverá los valores de columna que se usarán para las estadísticas. Puede usar TABLESAMPLE para especificar los ejemplos de datos que se usarán. Si no se especifica TABLESAMPLE, se usará FULLSCAN.
@@ -650,7 +650,7 @@ Argumentos: [ @stmt = ] N“statement_text”: especifica una instrucción Trans
 
 Para crear las estadísticas de una columna, especifique una consulta que devuelva la columna para la que necesita estadísticas.
 
-De forma predeterminada, si no se especifica lo contrario, SQL a petición usa el 100 % de los datos proporcionados en el conjunto de datos al crear las estadísticas.
+De forma predeterminada, si no se especifica lo contrario, el grupo de SQL sin servidor usa el 100 % de los datos proporcionados en el conjunto de datos al crear las estadísticas.
 
 Por ejemplo, haga lo siguiente para crear estadísticas mediante las opciones predeterminadas (FULLSCAN) de la columna year del conjunto de datos basado en el archivo population.csv:
 
@@ -666,7 +666,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT year
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
         FORMAT = ''CSV'',
@@ -698,7 +698,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -712,18 +712,18 @@ FROM OPENROWSET(
 Para actualizar las estadísticas, debe quitarlas y crearlas. El procedimiento almacenado siguiente se emplea para quitar estadísticas:
 
 ```sql
-sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> El nombre del procedimiento sp_drop_file_statistics se cambiará por sp_drop_openrowset_statistics. El rol de servidor público tiene concedido el permiso ADMINISTER BULK OPERATIONS mientras que el rol de base de datos público tiene permisos EXECUTE en sp_create_file_statistics y sp_drop_file_statistics. Esto podría cambiar en el futuro.
+> Se requieren los siguientes permisos para ejecutar sp_create_openrowset_statistics y sp_drop_openrowset_statistics: ADMINISTER BULK OPERATIONS o ADMINISTER DATABASE BULK OPERATIONS.
 
 Argumentos: [@stmt =] N“statement_text”: especifica la misma instrucción Transact-SQL que se usa al crear las estadísticas.
 
 Para actualizar las estadísticas de la columna year del conjunto de datos, que se basa en el archivo population.csv, debe quitar y crear las estadísticas:
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT payment_type
+EXEC sys.sp_drop_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -743,7 +743,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -816,4 +816,6 @@ CREATE STATISTICS sState
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para mejorar aún más el rendimiento de las consultas, consulte [Procedimientos recomendados para el grupo de SQL](best-practices-sql-pool.md#maintain-statistics).
+Para mejorar aún más el rendimiento de las consultas de los grupos de SQL dedicados, consulte [Supervisión de la carga de trabajo](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) y [Procedimientos recomendados para grupos de SQL dedicados](best-practices-sql-pool.md#maintain-statistics).
+
+Para mejorar aún más el rendimiento de las consultas de los grupos de SQL sin servidor, consulte [Procedimientos recomendados para grupos de SQL sin servidor](best-practices-sql-on-demand.md).

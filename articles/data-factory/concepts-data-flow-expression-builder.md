@@ -6,19 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635378"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145722"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Generación de expresiones del flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En el flujo de datos de asignación, muchas propiedades de transformación se especifican como expresiones. Estas expresiones se componen de valores de columna, parámetros, funciones, operadores y literales que se evalúan como un tipo de datos de Spark en tiempo de ejecución. La asignación de flujos de datos tiene una experiencia dedicada orientada a ayudarle a crear estas expresiones denominada **Generador de expresiones** . La utilización de la finalización de código de [IntelliSense](/visualstudio/ide/using-intellisense) para resaltar, comprobar la sintaxis y autocompletar, el generador de expresiones está diseñado para facilitar la creación de flujos de datos. En este artículo se explica cómo usar el generador de expresiones para crear eficazmente la lógica de negocios.
+En el flujo de datos de asignación, muchas propiedades de transformación se especifican como expresiones. Estas expresiones se componen de valores de columna, parámetros, funciones, operadores y literales que se evalúan como un tipo de datos de Spark en tiempo de ejecución. La asignación de flujos de datos tiene una experiencia dedicada orientada a ayudarle a crear estas expresiones denominada **Generador de expresiones**. La utilización de la finalización de código de [IntelliSense](/visualstudio/ide/using-intellisense) para resaltar, comprobar la sintaxis y autocompletar, el generador de expresiones está diseñado para facilitar la creación de flujos de datos. En este artículo se explica cómo usar el generador de expresiones para crear eficazmente la lógica de negocios.
 
 ![Generador de expresiones](media/data-flow/expresion-builder.png "Generador de expresiones")
 
@@ -30,15 +30,15 @@ Hay varios puntos de entrada para abrir el generador de expresiones. Todos ellos
 
 En algunas transformaciones como [filtro](data-flow-filter.md), al hacer clic en un cuadro de texto de expresión azul, se abrirá el generador de expresiones. 
 
-![Cuadro de expresión azul](media/data-flow/expressionbox.png "Generador de expresiones")
+![Cuadro de expresión azul](media/data-flow/expressionbox.png "Cuadro de expresión azul")
 
-Al hacer referencia a columnas en una coincidencia o grupo por condición, una expresión puede extraer valores de las columnas. Para crear una expresión, seleccione la opción **Columna calculada** .
+Al hacer referencia a columnas en una coincidencia o grupo por condición, una expresión puede extraer valores de las columnas. Para crear una expresión, seleccione la opción **Columna calculada**.
 
-![Opción Columna calculada](media/data-flow/computedcolumn.png "Generador de expresiones")
+![Opción Columna calculada](media/data-flow/computedcolumn.png "Opción Columna calculada")
 
 En los casos en los que una expresión o un valor literal son entradas válidas, **Agregar contenido dinámico** le permitirá crear una expresión que se evalúe como un literal.
 
-![Opción Agregar contenido dinámico](media/data-flow/add-dynamic-content.png "Generador de expresiones")
+![Opción Agregar contenido dinámico](media/data-flow/add-dynamic-content.png "Opción Agregar contenido dinámico")
 
 ## <a name="expression-elements"></a>Elementos de expresión
 
@@ -72,6 +72,16 @@ Si tiene nombres de columna que incluyen caracteres especiales o espacios, escri
 ### <a name="parameters"></a>Parámetros
 
 Los parámetros son valores que se pasan a un flujo de datos en tiempo de ejecución desde una canalización. Para hacer referencia a un parámetro, haga clic en él en la vista **Elementos de expresión** o haga referencia a él con un signo de dólar delante de su nombre. Por ejemplo, se haría referencia con `$parameter1` a un parámetro denominado parameter1. Para más información, vea [Parametrización de flujos de datos de asignación](parameters-data-flow.md).
+
+### <a name="cached-lookup"></a>Búsqueda en caché
+
+Una búsqueda en caché le permite realizar una búsqueda alineada de la salida de un receptor almacenado en la memoria caché. Hay dos funciones que se pueden usar en cada receptor, `lookup()` y `outputs()`. La sintaxis para hacer referencia a estas funciones es `cacheSinkName#functionName()`. Para obtener más información, vea el tema sobre [receptores de caché](data-flow-sink.md#cache-sink).
+
+`lookup()` toma las columnas coincidentes de la transformación actual como parámetros y devuelve una columna compleja igual a la fila que coincide con las columnas de clave del receptor de caché. La columna compleja devuelta contiene una subcolumna para cada columna asignada en el receptor de caché. Por ejemplo, si tuviera un receptor de caché con código de error `errorCodeCache` que tiene una columna de clave que coincide con el código y una columna llamada `Message`. La llamada a `errorCodeCache#lookup(errorCode).Message` devolvería el mensaje correspondiente al código que se ha pasado. 
+
+`outputs()` no toma ningún parámetro y devuelve el receptor de caché completo como una matriz de columnas complejas. No se puede llamar a este método si las columnas de clave se especifican en el receptor y solo se debe usar si hay un número pequeño de filas en el receptor de caché. Un caso de uso común es anexar el valor máximo de una clave de incremento. Si una sola fila agregada almacenada en caché `CacheMaxKey` contiene una columna `MaxKey`, puede hacer referencia al primer valor llamando a `CacheMaxKey#outputs()[1].MaxKey`.
+
+![Búsqueda en caché](media/data-flow/cached-lookup-example.png "Búsqueda en caché")
 
 ### <a name="locals"></a>Locals
 

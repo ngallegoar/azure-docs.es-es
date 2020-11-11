@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3157eda4e2a21b0d153e7300db54f445fdb6878d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547765"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146933"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -200,7 +200,7 @@ Las identidades de dispositivos se representan como documentos JSON con las prop
 | statusUpdateTime |solo lectura |Un indicador temporal, que muestra la fecha y hora de la última actualización de estado. |
 | connectionState |solo lectura |Un campo que indica el estado de la conexión: **Conectado** o **Desconectado**. Este campo representa la vista de IoT Hub del estado de conexión del dispositivo. **Importante** : Este campo debe usarse solo para fines de desarrollo o depuración. El estado de conexión se actualiza solo para dispositivos que usen AMQP o MQTT. Además, se basa en pings de nivel de protocolo (pings MQTT o pings AMQP) y puede tener un retraso de 5 minutos como máximo. Por estos motivos es posible que haya falsos positivos, como dispositivos que se notifican como conectados pero que están desconectados. |
 | connectionStateUpdatedTime |solo lectura |Un indicador temporal que muestra la fecha y hora de la última vez que se actualizó el estado de conexión. |
-| lastActivityTime |solo lectura |Un indicador temporal que muestra la fecha y hora de la última vez que el dispositivo se conectó, recibió o envió un mensaje. |
+| lastActivityTime |solo lectura |Un indicador temporal que muestra la fecha y hora de la última vez que el dispositivo se conectó, recibió o envió un mensaje. Está propiedad al final es coherente, pero puede retrasarse hasta 5 o 10 minutos. Por este motivo, no debe usarse en escenarios de producción. |
 
 > [!NOTE]
 > El estado de la conexión solo puede representar la vista del IoT Hub del estado de la conexión. Las actualizaciones de este estado se pueden retrasar, dependiendo de las configuraciones y las condiciones de red.

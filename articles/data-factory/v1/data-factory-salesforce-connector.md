@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba95ba57bb57b1b2e9ecde3ad27f6bb5fbca66cb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79236288"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124890"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Movimiento de datos de Salesforce mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -51,7 +51,7 @@ Puede crear una canalización con actividad de copia que mueva datos desde Sales
 
 La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
+Puede usar las siguientes herramientas para crear una canalización: **Visual Studio** , **Azure PowerShell** , una **plantilla de Azure Resource Manager** , la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -81,12 +81,12 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
-| tableName |Nombre de la tabla de Salesforce. |No (si se especifica una **consulta** de **RelationalSource**) |
+| tableName |Nombre de la tabla de Salesforce. |No (si se especifica una **consulta** de **RelationalSource** ) |
 
 > [!IMPORTANT]
 > La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
 
-![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Captura de pantalla que muestra los detalles de la definición del objeto personalizado, donde aparecen los nombres de API de los objetos personalizados.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [creación de canalizaciones](data-factory-create-pipelines.md) . Propiedades como name, description, tablas input y output y varias directivas están disponibles para todos los tipos de actividades.
@@ -97,19 +97,19 @@ En la actividad de copia cuando el origen es del tipo **RelationalSource** (lo q
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| Query |Utilice la consulta personalizada para leer los datos. |Consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por ejemplo: `select * from MyTable__c`. |No (si se especifica **tableName** de **dataset**) |
+| Query |Utilice la consulta personalizada para leer los datos. |Consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por ejemplo: `select * from MyTable__c`. |No (si se especifica **tableName** de **dataset** ) |
 
 > [!IMPORTANT]
 > La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
 
-![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Captura de pantalla muestra los campos personalizados y las relaciones, donde aparecen los nombres de API de los objetos personalizados.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## <a name="query-tips"></a>Sugerencias de consulta
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recuperación de datos mediante la cláusula WHERE en la columna DateTime
 Cuando se especifica la consulta SQL o SOQL, preste atención a la diferencia del formato de fecha y hora. Por ejemplo:
 
-* **Ejemplo SOQL**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
-* **Ejemplo de SQL**:
+* **Ejemplo SOQL** :`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **Ejemplo de SQL** :
     * **Uso del Asistente para copia para especificar la consulta:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
     * **Uso de la edición JSON para especificar la consulta (carácter de escape adecuado):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
@@ -119,8 +119,8 @@ Puede recuperar datos de informes de Salesforce especificando las consultas como
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Recuperación de los registros eliminados desde la papelera de reciclaje de Salesforce
 Para consultar los registros eliminados temporalmente de papelera de reciclaje de Salesforce, puede especificar **"IsDeleted = 1"** en la consulta. Por ejemplo,
 
-* Para consultar solo los registros eliminados, especifique "select * from MyTable__c **where IsDeleted= 1**"
-* Para consultar todos los registros, tanto existentes como eliminados, especifique "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
+* Para consultar solo los registros eliminados, especifique "select * from MyTable__c **where IsDeleted= 1** "
+* Para consultar todos los registros, tanto existentes como eliminados, especifique "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1** "
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Ejemplo JSON: Copia de datos de Salesforce a un blob de Azure
 En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos Salesforce a Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
@@ -192,12 +192,12 @@ Este ejemplo usa el servicio vinculado de **Salesforce** . Consulte la sección 
 }
 ```
 
-Si se establece **external** en **true**, se informa al servicio Data Factory que el conjunto de datos es externo a Data Factory y que no lo genera ninguna actividad de la factoría de datos.
+Si se establece **external** en **true** , se informa al servicio Data Factory que el conjunto de datos es externo a Data Factory y que no lo genera ninguna actividad de la factoría de datos.
 
 > [!IMPORTANT]
 > La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
 
-![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Captura de pantalla que muestra los detalles de la definición del objeto personalizado, donde aparecen la etiqueta en singular, la etiqueta en plural, el nombre de objeto y el nombre de API.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Conjunto de datos de salida de blob de Azure**
 
@@ -278,7 +278,7 @@ Consulte [Propiedades del tipo RelationalSource](#copy-activity-properties) para
 > [!IMPORTANT]
 > La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
 
-![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Captura de pantalla que muestra los campos personalizados y relaciones con los nombres de API seleccionados.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 
 ### <a name="type-mapping-for-salesforce"></a>Asignación de tipos para Salesforce

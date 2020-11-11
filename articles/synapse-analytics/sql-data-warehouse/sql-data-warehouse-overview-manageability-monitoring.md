@@ -1,6 +1,6 @@
 ---
 title: 'Administración y supervisión: información general'
-description: Información general de supervisión y administración para el uso de recursos, la actividad de registros y consultas, las recomendaciones y la protección de datos (copia de seguridad y restauración) con un grupo de SQL de Synapse.
+description: Información general de supervisión y administración para el uso de recursos, la actividad de registros y consultas, las recomendaciones y la protección de datos (copia de seguridad y restauración) con el grupo de SQL dedicado en Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 19b2b4aecedbaa66c258b9076c517b02034a46fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4792842eddac3e8082be2d3a67736824a02dfebd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85200994"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317500"
 ---
-# <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>Administración y supervisión con un grupo de SQL de Synapse
+# <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Facilidad de uso y supervisión con el grupo de SQL dedicado en Azure Synapse Analytics
 
-SQL de Synapse le permite aprovisionar un almacenamiento de datos mediante un grupo de SQL. Los artículos siguientes le ayudarán a administrar y supervisar el almacenamiento de datos. También aprenderá a optimizar el uso y el rendimiento del almacenamiento de datos.
+Synapse SQL permite aprovisionar un almacenamiento de datos mediante el grupo de SQL dedicado. Los artículos siguientes le ayudarán a administrar y supervisar el almacenamiento de datos. También aprenderá a optimizar el uso y el rendimiento del almacenamiento de datos.
 
 ## <a name="overview"></a>Información general
 
@@ -33,4 +33,4 @@ SQL de Synapse le permite aprovisionar un almacenamiento de datos mediante un gr
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para acceder a guías de procedimientos, consulte [Supervisión y ajuste del grupo de SQL](sql-data-warehouse-manage-monitor.md).
+Para acceder a guías de procedimientos, consulte [Supervisión y ajuste del grupo de SQL dedicado](sql-data-warehouse-manage-monitor.md).

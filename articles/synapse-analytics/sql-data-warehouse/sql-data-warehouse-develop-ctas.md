@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: a6550ff9bc3a7cec3d9c50b6c60a02ef1af851f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d9a842af5e1d3fac73515d96644bef250d7d0c4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213489"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334576"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
@@ -206,62 +206,29 @@ AND     CTAS_acs.[CalendarYear]  = AnnualCategorySales.[CalendarYear] ;
 DROP TABLE CTAS_acs;
 ```
 
-## <a name="ansi-join-replacement-for-delete-statements"></a>Sustitución de una combinación ANSI en instrucciones delete
+## <a name="ansi-join-replacement-for-merge"></a>Reemplazo de la unión de ANSI para MERGE 
 
-A veces, el mejor método para eliminar datos es usar CTAS, especialmente para las instrucciones `DELETE` que usan la sintaxis de combinación ANSI. Esto se debe a que SQL de Synapse no admite combinaciones ANSI en la cláusula `FROM` de una instrucción `DELETE`. En lugar de eliminar los datos, simplemente seleccione los datos que quiera conservar.
-
-El siguiente es un ejemplo de una instrucción convertida `DELETE`:
+En Azure Synapse Analytics, [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (versión preliminar) con NOT MATCHED BY TARGET requiere que el destino sea una tabla distribuida HASH.  Los usuarios pueden usar la combinación de ANSI con [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) o [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) como solución alternativa para modificar los datos de la tabla de destino en función del resultado de la combinación con otra tabla.  A continuación se muestra un ejemplo:
 
 ```sql
-CREATE TABLE dbo.DimProduct_upsert
-WITH
-(   Distribution=HASH(ProductKey)
-,   CLUSTERED INDEX (ProductKey)
-)
-AS -- Select Data you want to keep
-SELECT p.ProductKey
-, p.EnglishProductName
-,  p.Color
-FROM  dbo.DimProduct p
-RIGHT JOIN dbo.stg_DimProduct s
-ON p.ProductKey = s.ProductKey;
+CREATE TABLE dbo.Table1   
+    (ColA INT NOT NULL, ColB DECIMAL(10,3) NOT NULL);  
+GO  
+CREATE TABLE dbo.Table2   
+    (ColA INT NOT NULL, ColB DECIMAL(10,3) NOT NULL);  
+GO  
+INSERT INTO dbo.Table1 VALUES(1, 10.0);  
+INSERT INTO dbo.Table2 VALUES(1, 0.0);  
+GO  
+UPDATE dbo.Table2   
+SET dbo.Table2.ColB = dbo.Table2.ColB + dbo.Table1.ColB  
+FROM dbo.Table2   
+    INNER JOIN dbo.Table1   
+    ON (dbo.Table2.ColA = dbo.Table1.ColA);  
+GO  
+SELECT ColA, ColB   
+FROM dbo.Table2;
 
-RENAME OBJECT dbo.DimProduct TO DimProduct_old;
-RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
-```
-
-## <a name="replace-merge-statements"></a>Sustitución de instrucciones MERGE
-
-Puede reemplazar las instrucciones de combinación, al menos en parte, mediante CTAS. También puede combinar `INSERT` y `UPDATE` en una única instrucción. Cualquier registro eliminado debe estar restringido de la instrucción `SELECT` para poder omitir los resultados.
-
-El ejemplo siguiente es para un `UPSERT`:
-
-```sql
-CREATE TABLE dbo.[DimProduct_upsert]
-WITH
-(   DISTRIBUTION = HASH([ProductKey])
-,   CLUSTERED INDEX ([ProductKey])
-)
-AS
--- New rows and new versions of rows
-SELECT s.[ProductKey]
-, s.[EnglishProductName]
-, s.[Color]
-FROM      dbo.[stg_DimProduct] AS s
-UNION ALL  
--- Keep rows that are not being touched
-SELECT      p.[ProductKey]
-, p.[EnglishProductName]
-, p.[Color]
-FROM      dbo.[DimProduct] AS p
-WHERE NOT EXISTS
-(   SELECT  *
-    FROM    [dbo].[stg_DimProduct] s
-    WHERE   s.[ProductKey] = p.[ProductKey]
-);
-
-RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
-RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 ```
 
 ## <a name="explicitly-state-data-type-and-nullability-of-output"></a>establezca explícitamente el tipo de datos y la nulabilidad de salida

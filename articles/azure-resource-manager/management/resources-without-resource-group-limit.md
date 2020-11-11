@@ -2,13 +2,13 @@
 title: Recursos sin límite de recuento de 800
 description: Aquí se enumeran los tipos de recursos de Azure que pueden tener más de 800 instancias en un grupo de recursos.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: e7a15607b144f1d7916f310948f15dc28d76a205
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/28/2020
+ms.openlocfilehash: cec7ea87bbe81d3bfcca37f3133ac650e66f849f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330764"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913507"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos no limitados a 800 instancias por grupo de recursos
 
@@ -81,6 +81,7 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
+* labs/virtualMachines: de forma predeterminada, está limitado a 800 instancias. Este límite se puede incrementar poniéndose en contacto con soporte técnico.
 * schedules
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
@@ -173,6 +174,10 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 
 * workspaceCollections: de forma predeterminada, con un límite de 800 instancias. Este límite se puede incrementar poniéndose en contacto con soporte técnico.
 
+## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
+
+* capacities: de forma predeterminada, está limitado a 800 instancias. Este límite se puede incrementar poniéndose en contacto con soporte técnico.
+
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 * espacios de nombres
@@ -185,18 +190,21 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 
 * espacios de nombres
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+## <a name="microsoftsingularity"></a>Microsoft.Singularity
 
-* applications
-* containerGroups
-* gateways
-* networks
-* secrets
-* volumes
+* accounts
+* accounts/accountQuotaPolicies
+* accounts/groupPolicies
+* accounts/jobs
+* accounts/storageContainers
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 * storageAccounts
+
+## <a name="microsoftsql"></a>Microsoft.Sql
+
+* servers/databases
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 

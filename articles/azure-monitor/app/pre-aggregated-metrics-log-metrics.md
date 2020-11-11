@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539136"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027166"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas agregadas previamente y basadas en registros en Application Insights
 
@@ -40,6 +40,28 @@ Los SDK más recientes (SDK de [Application Insights 2.7](https://www.nuget.org/
 En el caso de los SDK que no implementan la agregación previa (es decir, las versiones anteriores del SDK de Application Insights o la instrumentación del explorador) el servidor back-end de Application Insights sigue agregando los eventos recibidos por la el punto de conexión de recopilación de eventos de Application Insights para rellenar las nuevas métricas. Esto significa que aunque no se beneficie del menor volumen de datos que se transmite a través del cable, podrá seguir usando las métricas agregadas previamente para experimentar un mejor rendimiento y aprovechar la compatibilidad con las alertas dimensionales casi en tiempo real con los SDK que no agregan previamente las métricas durante la recopilación.
 
 Merece la pena mencionar que el punto de conexión de la colección agrega previamente los eventos antes de muestreo de ingesta, lo que significa que el [muestreo de ingesta](./sampling.md) no afectará nunca a la precisión de las métricas agregadas previamente, independientemente de la versión SDK que use con su aplicación.  
+
+### <a name="sdk-supported-pre-aggregated-metrics-table"></a>Tabla de métricas compatibles con SDK agregados previamente
+
+| SDK de producción actuales | Métricas estándar (agregación previa de SDK) | Métricas personalizadas (sin agregación previa de SDK) | Métricas personalizadas (con agregación previa de SDK)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core y .NET Framework | Compatible (V2.13.1+)| Compatible mediante [TrackMetric](api-custom-events-metrics.md#trackmetric)| Compatible (V2.7.2+) mediante [GetMetric](get-metric.md) |
+| Java                         | No compatible       | Compatible mediante [TrackMetric](api-custom-events-metrics.md#trackmetric)| No compatible                           |
+| Node.js                      | No compatible       | Compatible mediante [TrackMetric](api-custom-events-metrics.md#trackmetric)| No compatible                           |
+| Python                       | No compatible       | Compatible                                 | Compatible mediante [OpenCensus.stats](opencensus-python.md#metrics) |  
+
+
+### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tabla de métricas previamente agregadas compatibles sin código
+
+| SDK de producción actuales | Métricas estándar (agregación previa de SDK) | Métricas personalizadas (sin agregación previa de SDK) | Métricas personalizadas (con agregación previa de SDK)|
+|-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP.NET                 | Compatible <sup>1<sup>    | No compatible                             | No compatible                           |
+| ASP.NET Core            | Compatible <sup>2<sup>    | No compatible                             | No compatible                           |
+| Java                    | No compatible            | No compatible                             | [Compatible](java-in-process-agent.md#metrics) |
+| Node.js                 | No compatible            | No compatible                             | No compatible                           |
+
+1. La conexión sin código de ASP.NET en App Service solo emite métricas en el modo de supervisión "completa". La conexión sin código de ASP.NET en App Service, VM/VMSS y entornos locales emite métricas estándar sin dimensiones. El SDK es necesario para todas las dimensiones.
+2. La conexión sin código de ASP.NET Core en App Service emite métricas estándar sin dimensiones. El SDK es necesario para todas las dimensiones.
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Uso de agregación previa con métricas personalizadas de Application Insights
 

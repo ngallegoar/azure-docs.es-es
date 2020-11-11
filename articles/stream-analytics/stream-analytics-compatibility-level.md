@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056523"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348940"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nivel de compatibilidad de los trabajos de Azure Stream Analytics
 
@@ -33,13 +33,13 @@ Al crear un nuevo trabajo de Stream Analytics, se recomienda hacerlo con el nive
 
 ## <a name="set-the-compatibility-level"></a>Definición del nivel de compatibilidad
 
-Puede establecer el nivel de compatibilidad de un trabajo de Stream Analytics desde Azure Portal o con la [llamada a la API de REST del trabajo Create](/rest/api/streamanalytics/stream-analytics-job).
+Puede establecer el nivel de compatibilidad de un trabajo de Stream Analytics desde Azure Portal o con la [llamada a la API de REST del trabajo Create](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel).
 
 Para actualizar el nivel de compatibilidad del trabajo en Azure Portal:
 
 1. Use [Azure Portal](https://portal.azure.com) para buscar el trabajo de Stream Analytics.
 2. **Detenga** el trabajo antes de actualizar el nivel de compatibilidad. No se puede actualizar el nivel de compatibilidad si el trabajo está en un estado de ejecución.
-3. En el encabezado **Configurar**, seleccione **Nivel de compatibilidad**.
+3. En el encabezado **Configurar** , seleccione **Nivel de compatibilidad**.
 4. Seleccione el valor de nivel de compatibilidad que quiera.
 5. Seleccione **Guardar** en la parte inferior de la página.
 
@@ -53,7 +53,7 @@ En el nivel de compatibilidad 1.2 se han incorporado los siguientes cambios de i
 
 ###  <a name="amqp-messaging-protocol"></a>Protocolo de mensajería de AMQP
 
-**Nivel 1.2**: Azure Stream Analytics usa el protocolo de mensajería [Advanced Message Queuing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) para escribir en colas y temas de Service Bus. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto.
+**Nivel 1.2** : Azure Stream Analytics usa el protocolo de mensajería [Advanced Message Queuing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) para escribir en colas y temas de Service Bus. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto.
 
 ### <a name="geospatial-functions"></a>Funciones geoespaciales
 
@@ -77,13 +77,13 @@ Para obtener más información, vea [Updates to geospatial features in Azure Str
 
 **Niveles anteriores:** el comportamiento de upsert era *insertar o combinar*.
 
-**Nivel 1.2:** la integración nativa de API Bulk con la salida de CosmosDB maximiza el rendimiento y controla con eficacia las solicitudes de limitación. Para obtener más información, vea [la página sobre la salida de Azure Stream Analytics a Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
+**Nivel 1.2:** la integración nativa de API Bulk con la salida de CosmosDB maximiza el rendimiento y controla con eficacia las solicitudes de limitación. Para obtener más información, vea [la página sobre la salida de Azure Stream Analytics a Azure Cosmos DB](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
 El comportamiento de upsert es *insertar o reemplazar*.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset al escribir en la salida de SQL
 
-**Niveles anteriores:** los tipos [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) se ajustaban a UTC.
+**Niveles anteriores:** los tipos [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql) se ajustaban a UTC.
 
 **Nivel 1.2:** DateTimeOffset ya no se ajusta.
 
@@ -151,4 +151,4 @@ En el nivel de compatibilidad 1.1 se introdujeron los siguientes cambios princip
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Solución de problemas de las conexiones de entrada de Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
-* [Estado de recursos de Stream Analytics](stream-analytics-resource-health.md)
+* [Estado de recursos de Stream Analytics](./stream-analytics-troubleshoot-query.md)

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: cd4f2198721e0d92abe22b1b6d95dceda2dc874d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789189"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289231"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportación continua de alertas y recomendaciones de seguridad
 
@@ -41,7 +41,7 @@ En este artículo se describe cómo configurar la exportación continua a áreas
 |Estado de la versión:|Disponible con carácter general|
 |Precios:|Gratuito|
 |Roles y permisos necesarios:|<ul><li>**Administrador de seguridad** o **Propietario** en el grupo de recursos.</li><li>Permisos de escritura para el recurso de destino.</li><li>Si utiliza las directivas "DeployIfNotExist" de Azure Policy que se describen a continuación, también necesitará permisos para asignar directivas.</li></ul>|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![Sí](./media/icons/yes-icon.png) China Gov (en el centro de eventos), otro Gov|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov, otros gobiernos<br>![Sí](./media/icons/yes-icon.png) China Gov (en el centro de eventos)|
 |||
 
 

@@ -5,18 +5,18 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: e791e4ca3481bc0aea931abe946751415f1e1614
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b4e184f827875ebebd40ab976ef63e77ee702d49
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311825"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126046"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Uso de un certificado TLS/SSL en el código de Azure App Service
 
 En el código de la aplicación, puede acceder a los [certificados públicos o privados que agregue a App Service](configure-ssl-certificate.md). El código de la aplicación puede actuar como un cliente y acceder a un servicio externo que requiere autenticación de certificado, o puede que tenga que realizar tareas criptográficas. Esta guía muestra cómo utilizar certificados públicos o privados en el código de aplicación.
 
-Este enfoque para el uso de certificados en el código usa la funcionalidad TLS de App Service, que requiere que la aplicación tenga el nivel **Básico** u otro superior. Si la aplicación está en los niveles **Gratis** o **Compartido**, puede [incluir el archivo de certificado en el repositorio de la aplicación](#load-certificate-from-file).
+Este enfoque para el uso de certificados en el código usa la funcionalidad TLS de App Service, que requiere que la aplicación tenga el nivel **Básico** u otro superior. Si la aplicación está en los niveles **Gratis** o **Compartido** , puede [incluir el archivo de certificado en el repositorio de la aplicación](#load-certificate-from-file).
 
 Cuando permite que App Service administre los certificados TLS/SSL, puede mantener por separado los certificados y el código de la aplicación y proteger así la información confidencial.
 
@@ -49,10 +49,7 @@ Para que todos los certificados sean accesibles, establezca el valor en `*`.
 
 ## <a name="load-certificate-in-windows-apps"></a>Carga de certificado en aplicaciones de Windows
 
-El valor `WEBSITE_LOAD_CERTIFICATES` de la aplicación permite que los certificados especificados estén accesibles para la aplicación hospedada de Windows en el almacén de certificados de Windows; la ubicación depende del [plan de tarifa ](overview-hosting-plans.md):
-
-- Plan **Aislado**: en [Equipo local\Mi](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
-- El resto de los planes: en [Usuario actual\Mi](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
+El valor `WEBSITE_LOAD_CERTIFICATES` de la aplicación permite que los certificados especificados estén accesibles para la aplicación hospedada de Windows en el almacén de certificados de Windows, en [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
 En el código C#, se accede al certificado mediante su huella digital. El código siguiente carga un certificado con la huella digital `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 

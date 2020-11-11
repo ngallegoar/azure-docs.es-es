@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: b0335f4f58645ae481b0fb4127a1235c4d0800f1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: bd41a2c3a101dd678be665fd7102b8ff33957824
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636398"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925771"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binario en Azure Data Factory
 
@@ -36,8 +36,8 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | type             | La propiedad type del conjunto de datos debe establecerse en **binario**. | Sí      |
 | ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
 | compression | Grupo de propiedades para configurar la compresión de archivo. Configure esta sección si desea realizar la compresión o descompresión durante la ejecución de la actividad. | No |
-| type | El códec de compresión usado para leer y escribir archivos binarios. <br>Los valores permitidos son **bzip2** , **gzip** , **deflate** , **ZipDeflate** o **TarGzip**. <br>**Tenga en cuenta** que, al usar la actividad de copia para descomprimir archivos **ZipDeflate**/**TarGzip** y escribir en el almacén de datos receptor basado en archivos, los archivos se extraen de manera predeterminada en la carpeta: `<path specified in dataset>/<folder named as source compressed file>/`. Use `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` en el [origen de la actividad de copia](#binary-as-source) para controlar si se debe conservar el nombre de los archivos comprimidos como una estructura de carpetas.| No       |
-| level | La razón de compresión. Se aplica cuando se utiliza el conjunto de datos en el receptor de la actividad de copia.<br>Los valores permitidos son **Optimal** o **Fastest**.<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal** : la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](/dotnet/api/system.io.compression.compressionlevel) . | No       |
+| type | El códec de compresión usado para leer y escribir archivos binarios. <br>Los valores permitidos son **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **Tar** o **TarGzip**. <br>**Tenga en cuenta** que, cuando se utiliza la actividad de copia para descomprimir archivos **ZipDeflate**/**TarGzip**/**Tar** y escribir en el almacén de datos receptor basado en archivos, los archivos se extraen de manera predeterminada en la carpeta: `<path specified in dataset>/<folder named as source compressed file>/`. Use `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` en el [origen de la actividad de copia](#binary-as-source) para controlar si se debe conservar el nombre de los archivos comprimidos como una estructura de carpetas.| No       |
+| level | La razón de compresión. Se aplica cuando se utiliza el conjunto de datos en el receptor de la actividad de copia.<br>Los valores permitidos son **Optimal** o **Fastest**.<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal** : la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 A continuación se muestra un ejemplo de un conjunto de datos binarios en Azure Blob Storage:
 
@@ -88,7 +88,7 @@ En la sección **_\_source\*** * de la actividad de copia se admiten las siguien
 | type          | El tipo de formatSettings debe establecerse en **BinaryReadSettings**. | Sí      |
 | compressionProperties | Un grupo de propiedades sobre cómo descomprimir datos para un códec de compresión determinado. | No       |
 | preserveZipFileNameAsFolder<br>( *en `compressionProperties`->`type` como `ZipDeflateReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`.<br>- Cuando se establece en **false** , Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en archivos ZIP de origen diferentes para evitar comportamientos acelerados o inesperados.  | No |
-| preserveCompressionFileNameAsFolder<br>( *en `compressionProperties`->`type` como `TarGZipReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **TarGzip**. Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false** , Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos de origen comprimidos para evitar comportamientos acelerados o inesperados. | No |
+| preserveCompressionFileNameAsFolder<br>( *en `compressionProperties`->`type` como `TarGZipReadSettings` o `TarReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada está configurado con la compresión **TarGzip**/**Tar**. Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false** , Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos de origen comprimidos para evitar comportamientos acelerados o inesperados. | No |
 
 ```json
 "activities": [

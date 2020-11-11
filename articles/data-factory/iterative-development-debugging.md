@@ -1,7 +1,7 @@
 ---
 title: Desarrollo y depuración iterativos en Azure Data Factory
 description: Obtenga información sobre cómo desarrollar y depurar de manera iterativa las canalizaciones de Data Factory en ADF UX.
-ms.date: 09/11/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -9,12 +9,12 @@ documentationcenter: ''
 ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
-ms.openlocfilehash: e4c66055184b2ef0113aa0e25c02ad8635feddb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031014"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102082"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desarrollo y depuración iterativos con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,7 +40,7 @@ Consulte los resultados de las series de pruebas en la ventana **Salida** del li
 Después de realizar correctamente una serie de pruebas, agregue más actividades a la canalización y continúe con la depuración de manera iterativa. También puede **cancelar** una serie de pruebas mientras está en curso.
 
 > [!IMPORTANT]
-> Al seleccionar **Depurar**, se ejecuta la canalización. Por ejemplo, si la canalización contiene actividad de copia, la serie de pruebas copia datos del origen al destino. Como resultado, se recomienda usar las carpetas de prueba en las actividades de copia y otras actividades cuando se realice la depuración. Una vez que se depure la canalización, cambie a las carpetas reales que desea usar en las operaciones normales.
+> Al seleccionar **Depurar** , se ejecuta la canalización. Por ejemplo, si la canalización contiene actividad de copia, la serie de pruebas copia datos del origen al destino. Como resultado, se recomienda usar las carpetas de prueba en las actividades de copia y otras actividades cuando se realice la depuración. Una vez que se depure la canalización, cambie a las carpetas reales que desea usar en las operaciones normales.
 
 ### <a name="setting-breakpoints"></a>Establecimiento de puntos de interrupción
 
@@ -52,7 +52,7 @@ Para establecer un punto de interrupción, seleccione un elemento en el lienzo d
 
 ![Antes de establecer un punto de interrupción en el elemento seleccionado](media/iterative-development-debugging/iterative-development-4.png)
 
-Tras seleccionar la opción *Depurar hasta*, cambia a un círculo de color rojo con relleno para indicar que el punto de interrupción está habilitado.
+Tras seleccionar la opción *Depurar hasta* , cambia a un círculo de color rojo con relleno para indicar que el punto de interrupción está habilitado.
 
 ![Después de establecer un punto de interrupción en el elemento seleccionado](media/iterative-development-debugging/iterative-development-5.png)
 
@@ -79,11 +79,14 @@ Puede supervisar las sesiones de depuración del flujo de datos activas en una f
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Depuración de una canalización con una actividad de flujo de datos
 
-Al realizar una ejecución de depuración con un flujo de datos, tiene dos opciones sobre qué proceso utilizar. Puede usar un clúster de depuración existente o poner en marcha un nuevo clúster Just-in-Time para los flujos de datos.
+Al ejecutar una canalización de depuración con un flujo de datos, tiene dos opciones sobre qué proceso utilizar. Puede usar un clúster de depuración existente o poner en marcha un nuevo clúster Just-in-Time para los flujos de datos.
 
-El uso de una sesión de depuración existente reducirá considerablemente el tiempo de inicio del flujo de datos puesto que el clúster ya se está ejecutando, pero no se recomienda para cargas de trabajo complejas o paralelas, ya que puede producir un error cuando se ejecutan varios trabajos a la vez. 
+El uso de una sesión de depuración existente reducirá considerablemente el tiempo de inicio del flujo de datos puesto que el clúster ya se está ejecutando, pero no se recomienda para cargas de trabajo complejas o paralelas, ya que puede producir un error cuando se ejecutan varios trabajos a la vez.
 
-El uso del entorno de ejecución de actividad creará un nuevo clúster con la configuración especificada en el entorno de ejecución de integración de cada actividad de flujo de datos. Esto permite aislar cada trabajo y debe usarse para cargas de trabajo complejas o pruebas de rendimiento.
+El uso del entorno de ejecución de actividad creará un nuevo clúster con la configuración especificada en el entorno de ejecución de integración de cada actividad de flujo de datos. Esto permite aislar cada trabajo y debe usarse para cargas de trabajo complejas o pruebas de rendimiento. También puede controlar el TTL en Azure IR para que los recursos de clúster usados para la depuración sigan estando disponibles durante ese período de tiempo para atender solicitudes de trabajo adicionales.
+
+> [!NOTE]
+> Si tiene una canalización con flujos de datos que se ejecutan en paralelo, elija "Use Activity Runtime" (Usar tiempo de ejecución de la actividad) para que Data Factory pueda usar el entorno de Integration Runtime que ha seleccionado en la actividad del flujo de datos. Esto permitirá que los flujos de datos se ejecuten en varios clústeres y puedan adaptarse a las ejecuciones de flujo de datos paralelas.
 
 ![Ejecución de una canalización con un flujo de datos](media/iterative-development-debugging/iterative-development-dataflow.png)
 

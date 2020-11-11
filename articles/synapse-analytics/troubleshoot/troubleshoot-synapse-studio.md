@@ -8,28 +8,28 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287754"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321030"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Solución de problemas de Azure Synapse Studio (versión preliminar)
 
 En esta guía de solución de problemas se brindan instrucciones sobre la información que se debe proporcionar al abrir una incidencia de soporte técnico sobre problemas de conectividad de red. Con la información adecuada, posiblemente podamos resolver el problema con más rapidez.
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Problema de conectividad del servicio de SQL a petición (versión preliminar)
+## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>Problema de conectividad del servicio del grupo de SQL sin servidor (versión preliminar)
 
 ### <a name="symptom-1"></a>Síntoma 1
 
-La opción "SQL a petición" aparece atenuada en la lista desplegable "Conectarse a".
+La opción "Grupo de SQL sin servidor" aparece atenuada en la lista desplegable "Conectarse a".
 
 ![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>Síntoma 2
 
-La ejecución de la consulta con "SQL a petición" muestra el mensaje de error "No se pudo establecer una conexión al servidor".
+La ejecución de la consulta con "grupo de SQL sin servidor" muestra el mensaje de error "No se pudo establecer una conexión al servidor".
 
 ![Síntoma 2](media/troubleshooting-synapse-studio/symptom2.png)
  
@@ -45,7 +45,7 @@ Abra el panel "Información de diagnóstico", seleccione el botón "Download Dia
 
 Para empezar a solucionar problemas, vuelva a intentar la operación que realizó en Azure Synapse Studio.
 
-- En el caso del síntoma 1, seleccione el botón "Actualizar" a la derecha de la lista desplegable "Use database" (Usar base de datos) en la pestaña "Script SQL" y compruebe si puede ver "SQL a petición".
+- En el caso del síntoma 1, seleccione el botón "Actualizar" a la derecha de la lista desplegable "Use database" (Usar base de datos) en la pestaña "Script SQL" y compruebe si puede ver "grupo de SQL sin servidor".
 - En el caso del síntoma 2, intente ejecutar de nuevo la consulta para ver si se ejecuta correctamente.
 
 Si el problema persiste, presione F12 en el explorador para abrir "Developer Tools" (DevTools).
@@ -61,7 +61,7 @@ Busque el elemento cuya columna URL coincida con el siguiente patrón:
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Donde [*A*] es el nombre del área de trabajo y "-ondemand" podría ser "-sqlod" y donde [*B*] debe ser un nombre de base de datos, como "master". Debería haber como máximo dos elementos con el mismo valor de dirección URL, pero distintos valores de método: OPTIONS y POST. Compruebe si estos dos elementos tienen "200" o "20x" en la columna de estado, donde "x" podría ser un dígito cualquiera.
+Donde [ *A* ] es el nombre del área de trabajo y "-ondemand" podría ser "-sqlod" y donde [ *B* ] debe ser un nombre de base de datos, como "master". Debería haber como máximo dos elementos con el mismo valor de dirección URL, pero distintos valores de método: OPTIONS y POST. Compruebe si estos dos elementos tienen "200" o "20x" en la columna de estado, donde "x" podría ser un dígito cualquiera.
 
 Si alguno de ellos tiene un valor distinto de "20x" y:
 
@@ -71,7 +71,7 @@ Si alguno de ellos tiene un valor distinto de "20x" y:
 
     - Si ve ERR_NAME_NOT_RESOLVED y creó el área de trabajo en un plazo de 10 minutos, espere 10 minutos y vuelva a intentarlo para ver si el problema aún existe.
     - Si ve ERR_INTERNET_DISCONNECTED o ERR_NETWORK_CHANGED, puede indicar que la conexión de red de su equipo tiene problemas. Compruebe la conexión de red y vuelva a intentar la operación.
-    - Si ve ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR u otros códigos de error que contengan "SSL", puede indicar que la configuración de SSL local tiene problemas o que el administrador de red ha bloqueado el acceso al servidor de SQL a petición. Abra una incidencia de soporte técnico y adjunte el código de error en la descripción.
+    - Si ve ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR u otros códigos de error que contengan "SSL", puede indicar que la configuración de SSL local tiene problemas o que el administrador de red ha bloqueado el acceso al servidor del grupo de SQL sin servidor. Abra una incidencia de soporte técnico y adjunte el código de error en la descripción.
     - Si ve ERR_NETWORK_ACCESS_DENIED, es posible que tenga que consultar con el administrador si su directiva de firewall local ha bloqueado el acceso a un dominio *.database.windows.net o a un puerto remoto 1443.
     - Opcionalmente, intente la misma operación inmediatamente en otra máquina o entorno de red para descartar un problema de configuración de red en el equipo.
 

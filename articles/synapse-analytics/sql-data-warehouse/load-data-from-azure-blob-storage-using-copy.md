@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb5984ba5d5764ee2ffa3f28e2d95612c14f7e27
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371531"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025942"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carga de conjuntos de datos de taxis de Nueva York
 
@@ -50,9 +50,9 @@ Siga estos pasos para crear una base de datos en blanco.
 
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
-2. Seleccione **Bases de datos** en la página **Nuevo** y **Azure Synapse Analytics** en **Destacados**, en la página **Nuevo**.
+2. Seleccione **Bases de datos** en la página **Nuevo** y **Azure Synapse Analytics** en **Destacados** , en la página **Nuevo**.
 
-    ![creación del almacenamiento de datos](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![La captura de pantalla muestra SQL Data Warehouse seleccionado en Bases de datos en Azure Portal.](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
 3. Rellene el formulario con la siguiente información:
 
@@ -63,7 +63,7 @@ Siga estos pasos para crear una base de datos en blanco.
    | **Grupos de recursos** | myResourceGroup       | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
    | **Seleccionar origen**  | Base de datos en blanco        | Se especifica para crear una base de datos en blanco. Tenga en cuenta que un almacenamiento de datos es un tipo de base de datos. |
 
-    ![creación del almacenamiento de datos](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
+    ![Captura de pantalla que muestra el panel SQL Data Warehouse donde puede especificar estos valores.](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
 4. Seleccione **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información:
 
@@ -100,7 +100,7 @@ Un firewall a nivel de servidor impide que herramientas y aplicaciones externas 
 > [!NOTE]
 > Azure Synapse Analytics se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no podrá conectarse al servidor salvo que el departamento de TI abra el puerto 1433.
 
-1. Cuando se haya terminado la implementación, seleccione **Bases de datos SQL** en el menú de la izquierda y, después, seleccione **mySampleDatabase** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20180430.database.windows.net**) y proporciona opciones para otras configuraciones.
+1. Cuando se haya terminado la implementación, seleccione **Bases de datos SQL** en el menú de la izquierda y, después, seleccione **mySampleDatabase** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20180430.database.windows.net** ) y proporciona opciones para otras configuraciones.
 
 2. Copie este nombre para conectarse a su servidor y a sus bases de datos en los inicios rápidos posteriores. Después, seleccione el nombre del servidor para abrir su configuración.
 
@@ -141,7 +141,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 1. Abra SQL Server Management Studio.
 
-2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
+2. En el cuadro de diálogo **Conectar con el servidor** , especifique la siguiente información:
 
     | Configuración        | Valor sugerido                            | Descripción                                                  |
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
@@ -178,7 +178,7 @@ Puesto que actualmente está conectado como administrador del servidor, puede cr
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. Seleccione **Execute**(Ejecutar).
+3. Seleccione **Execute** (Ejecutar).
 
 4. Haga clic con el botón derecho en **mySampleDataWarehouse** y elija **Nueva consulta**. Se abre una nueva ventana de consulta.  
 
@@ -192,7 +192,7 @@ Puesto que actualmente está conectado como administrador del servidor, puede cr
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. Seleccione **Execute**(Ejecutar).
+6. Seleccione **Execute** (Ejecutar).
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>Conexión al servidor como el usuario de carga
 

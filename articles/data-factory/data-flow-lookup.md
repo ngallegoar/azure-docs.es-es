@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84187604"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147273"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformación de búsqueda en el flujo de datos de asignación
 
@@ -27,7 +27,7 @@ Una transformación búsqueda es similar a una combinación externa izquierda. T
 
 ## <a name="configuration"></a>Configuración
 
-![Transformación Búsqueda](media/data-flow/lookup1.png "Búsqueda")
+![Captura de pantalla que muestra la pestaña Configuración de búsqueda con las etiquetas descritas en el siguiente texto](media/data-flow/lookup1.png "Búsqueda").
 
 **Flujo principal:** El flujo de datos entrante. Este flujo es equivalente a la parte izquierda de una combinación.
 
@@ -69,6 +69,10 @@ En las combinaciones, búsquedas y transformaciones Existe, si uno o ambos flujo
 
 No se recomienda deshabilitar la difusión a través de la opción **Desactivado** a menos que las combinaciones experimenten errores de tiempo de espera.
 
+## <a name="cached-lookup"></a>Búsqueda en caché
+
+Si está realizando varias búsquedas más pequeñas en el mismo origen, un receptor y una búsqueda en caché puede ser un caso de uso mejor que la transformación de la búsqueda. Algunos ejemplos comunes en los que un receptor de caché puede ser mejor son buscar un valor máximo en un almacén de datos y buscar coincidencias de códigos de error en una base de datos de mensajes de error. Para obtener más información, consulte los temas sobre los [receptores de caché](data-flow-sink.md#cache-sink) y las [búsquedas almacenadas en caché](concepts-data-flow-expression-builder.md#cached-lookup).
+
 ## <a name="data-flow-script"></a>Script de flujo de datos
 
 ### <a name="syntax"></a>Sintaxis
@@ -85,7 +89,7 @@ No se recomienda deshabilitar la difusión a través de la opción **Desactivado
 ```
 ### <a name="example"></a>Ejemplo
 
-![Transformación Búsqueda](media/data-flow/lookup-dsl-example.png "Búsqueda")
+![Captura de pantalla que muestra la pestaña Configuración de búsqueda para el código siguiente](media/data-flow/lookup-dsl-example.png "Búsqueda").
 
 El script de flujo de datos para la configuración de búsqueda anterior se encuentra en el siguiente fragmento de código.
 

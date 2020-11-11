@@ -5,22 +5,23 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 21bbe15a37e95df297f580064beb63ebd5debe57
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9becd6341baad54a74f10ae2f38cf9ccf1fd3037
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899896"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347903"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales en Azure Portal
 
-Para implementar rápidamente las cargas de trabajo en un clúster de Azure Kubernetes Service (AKS), puede usar nodos virtuales. Con los nodos virtuales, tiene un aprovisionamiento rápido de pods y solo paga por segundo para el tiempo de ejecución. En un escenario de escalado, no es necesario que espere a que el escalador automático del clúster de Kubernetes implemente nodos de proceso de máquina virtual para ejecutar los pods adicionales. Los nodos virtuales solo son compatibles con los nodos y pods de Linux.
+En este artículo se muestra cómo usar Azure Portal para crear y configurar los recursos de red virtual y un clúster de AKS con nodos virtuales habilitados.
 
-En este artículo se muestra cómo crear y configurar los recursos de red virtual y un clúster de AKS con nodos virtuales habilitados.
+> [!NOTE]
+> [En este artículo](virtual-nodes.md) se ofrece información general sobre la disponibilidad y las limitaciones de regiones usando nodos virtuales.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en Azure Container Instances (ACI) y el clúster de AKS. Para proporcionar esta comunicación, se crea una subred de red virtual y se asignan permisos delegados. Los nodos virtuales solo funcionan con clústeres de AKS creados mediante redes *avanzadas* . De forma predeterminada, los clústeres de AKS se crean con redes *básicas* . En este artículo se explica cómo crear una red virtual y subredes y, después, cómo implementar un clúster de AKS que usa redes avanzadas.
+Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en Azure Container Instances (ACI) y el clúster de AKS. Para proporcionar esta comunicación, se crea una subred de red virtual y se asignan permisos delegados. Los nodos virtuales solo funcionan con clústeres de AKS creados mediante redes *avanzadas* (Azure CNI). De forma predeterminada, los clústeres de AKS se crean con redes *básicas* (kubenet). En este artículo se explica cómo crear una red virtual y subredes y, después, cómo implementar un clúster de AKS que usa redes avanzadas.
 
 Si no ha utilizado anteriormente ACI, registre el proveedor de servicio con su suscripción. Puede comprobar el estado de registro del proveedor de ACI mediante el comando [az provider list][az-provider-list], tal como se muestra en el siguiente ejemplo:
 
@@ -42,52 +43,24 @@ Si el proveedor se muestra como *NotRegistered* , registre el proveedor con el c
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Disponibilidad regional
-
-Se admiten las siguientes regiones para las implementaciones de nodos virtuales:
-
-* Este de Australia (australiaeast)
-* Centro de EE. UU. (centralus)
-* Este de EE. UU. (eastus)
-* Este de EE. UU. 2 (eastus2)
-* Japón Oriental (japaneast)
-* Norte de Europa (northeurope)
-* Sudeste de Asia (southeastasia)
-* Centro-oeste de EE. UU. (westcentralus)
-* Oeste de Europa (westeurope)
-* Oeste de EE. UU. (westus)
-* Oeste de EE. UU. 2 (westus2)
-
-## <a name="known-limitations"></a>Restricciones conocidas
-La funcionalidad de nodos virtuales es muy dependiente del conjunto de características de ACI. Además de las [cuotas y los límites de Azure Container Instances](../container-instances/container-instances-quotas.md), los siguientes escenarios no se admiten aún con los nodos virtuales:
-
-* Uso de entidad de servicio para extraer imágenes de ACR. La [solución alternativa](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) consiste en usar [secretos de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Limitaciones de la red virtual](../container-instances/container-instances-virtual-network-concepts.md) entre las que se incluyen el emparejamiento de redes virtuales, las directivas de red de Kubernetes y el tráfico saliente a Internet con grupos de seguridad de red.
-* Iniciar contenedores
-* [Hospedaje de alias](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Argumentos](../container-instances/container-instances-exec.md#restrictions) para la ejecución en ACI
-* [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) no implementará los pods en el nodo virtual
-* Los nodos virtuales admiten la programación de pods de Linux. Puede instalar manualmente el proveedor de código abierto [ACI de Kubelet virtual](https://github.com/virtual-kubelet/azure-aci) para programar contenedores de Windows Server en ACI.
-* Los nodos virtuales necesitan clústeres de AKS con redes de Azure CNI
-
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
-En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Kubernetes Service** .
+En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Kubernetes Service**.
 
 En la página **Datos básicos** , configure las siguientes opciones:
 
-- *DETALLES DEL PROYECTO* : seleccione una suscripción de Azure y, a continuación, seleccione o cree un grupo de recursos de Azure, como *myResourceGroup* . Escriba un **Nombre del clúster de Kubernetes** , como *myAKSCluster* .
+- *DETALLES DEL PROYECTO* : seleccione una suscripción de Azure y, a continuación, seleccione o cree un grupo de recursos de Azure, como *myResourceGroup*. Escriba un **Nombre del clúster de Kubernetes** , como *myAKSCluster*.
 - *DETALLES DEL CLÚSTER* : seleccione la región, la versión de Kubernetes y el prefijo del nombre DNS para el clúster de AKS.
 - *GRUPO DE NODOS PRINCIPAL* : seleccione un tamaño de máquina virtual para los nodos de AKS. El tamaño de VM **no** puede cambiarse una vez que se ha implementado un clúster de AKS.
-     - Seleccione el número de nodos que se van a implementar en el clúster. Para este artículo, establezca **Número de nodos** en *1* . El número de nodos **puede** ajustarse después de implementar el clúster.
+     - Seleccione el número de nodos que se van a implementar en el clúster. Para este artículo, establezca **Número de nodos** en *1*. El número de nodos **puede** ajustarse después de implementar el clúster.
 
-Haga clic en **Siguiente: Escalado** .
+Haga clic en **Siguiente: Escalado**.
 
-En la página **Escalado** , seleccione *Habilitado* en **Nodos virtuales** .
+En la página **Escalado** , seleccione *Habilitado* en **Nodos virtuales**.
 
 ![Creación del clúster de AKS y habilitación de los nodos virtuales](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -95,7 +68,7 @@ De forma predeterminada, se crea una entidad de servicio de Azure Active Directo
 
 El clúster también se configurado para redes avanzadas. Los nodos virtuales están configurados para usar su propia subred de red virtual de Azure. Esta subred tiene permisos delegados para conectarse a recursos de Azure entre el clúster de AKS. Si aún no tiene una subred delegada, Azure Portal crea y configura la red virtual de Azure y la subred para su uso con los nodos virtuales.
 
-Seleccione **Revisar + crear** . Una vez completada la validación, seleccione **Crear** .
+Seleccione **Revisar + crear**. Una vez completada la validación, seleccione **Crear**.
 
 Se tardan unos minutos en crear el clúster de AKS y en prepararlo para usarlo.
 
@@ -241,5 +214,5 @@ Los nodos virtuales son un componente de una solución de escalado en AKS. Para 
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider#az-provider-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-provider-list]: /cli/azure/provider&preserve-view=true#az-provider-list
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az-provider-register

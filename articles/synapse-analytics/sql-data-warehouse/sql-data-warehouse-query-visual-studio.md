@@ -11,14 +11,15 @@ ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a3e8ea3b0ed2840e5eee7a046fa3a145f82884dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e0aed3ceda369909c6a4aecd03637a82a2dd1b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85200705"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305370"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Conexión a Azure Synapse Analytics con Visual Studio y SSDT
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](../sql/get-started-azure-data-studio.md)
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
@@ -28,16 +29,16 @@ ms.locfileid: "85200705"
 > 
 > 
 
-Use Visual Studio para realizar consultas en un grupo de SQL dentro de Azure Synapse en solo unos minutos. Este método usa la extensión SQL Server Data Tools (SSDT) de Visual Studio 2019. 
+Use Visual Studio para realizar consultas en un grupo de SQL dedicado dentro de Azure Synapse en solo unos minutos. Este método usa la extensión SQL Server Data Tools (SSDT) de Visual Studio 2019. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Para utilizar este tutorial, necesitará:
 
-* Un grupo de SQL existente. Para crear uno, vea [Creación de un grupo de SQL](create-data-warehouse-portal.md).
+* Un grupo de SQL dedicado existente. Para crearlo, consulte [Creación de un grupo de SQL dedicado](create-data-warehouse-portal.md).
 * SSDT para Visual Studio. Si tiene Visual Studio, probablemente ya tenga SSDT para Visual Studio. Para ver instrucciones y opciones de instalación, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL](sql-data-warehouse-install-visual-studio.md).
-* El nombre del servidor SQL completo. Para encontrar esta información, vea [Conexión a un grupo de SQL](../sql/connect-overview.md).
+* El nombre del servidor SQL completo. Para encontrar esta información, vea [Conexión a un grupo de SQL dedicado](../sql/connect-overview.md).
 
-## <a name="1-connect-to-your-sql-pool"></a>1. Conexión al grupo de SQL
+## <a name="1-connect-to-your-dedicated-sql-pool"></a>1. Conexión al grupo de SQL dedicado
 1. Abra Visual Studio 2019.
 2. Abra el Explorador de objetos de SQL Server al seleccionar **Ver** > **Explorador de objetos de SQL Server**.
    
@@ -79,4 +80,4 @@ Ahora que se ha establecido una conexión a la base de datos, pasemos a escribir
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que puede conectarse y realizar consultas, intente realizar la [Visualización de datos con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
-Para configurar el entorno para la autenticación de Azure Active Directory, vea [Autenticación en un grupo de SQL](sql-data-warehouse-authentication.md).
+Para configurar un entorno para la autenticación de Azure Active Directory, vea [Autenticación en el grupo de SQL dedicado](sql-data-warehouse-authentication.md).

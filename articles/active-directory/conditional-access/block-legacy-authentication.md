@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c3107be1c36f1c15a1bcb27c5e0dcf851cfb946
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1485c2abd24022dbfa6476e3c5a530413b9cb4f2
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145541"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233804"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
@@ -80,8 +80,8 @@ Para más información sobre estos protocolos y servicios de autenticación, vea
 
 Para poder bloquear la autenticación heredada en su directorio, primero debe entender si los usuarios tienen aplicaciones que la usen y cómo afecta a su directorio global. Se pueden usar los registros de inicio de sesión de Azure AD para saber si usa la autenticación heredada.
 
-1. Vaya a **Azure Portal** > **Azure Active Directory** > **Inicios de sesión** .
-1. Agregue la columna Aplicación cliente si no se muestra; para ello, haga clic en **Columnas** > **Aplicación cliente** .
+1. Vaya a **Azure Portal** > **Azure Active Directory** > **Inicios de sesión**.
+1. Agregue la columna Aplicación cliente si no se muestra; para ello, haga clic en **Columnas** > **Aplicación cliente**.
 1. **Agregar filtros** > **Aplicación cliente** > seleccione todos los protocolos de autenticación heredados. Seleccione fuera del cuadro de diálogo de filtrado para aplicar las selecciones y cierre el cuadro de diálogo.
 
 Al filtrar solo se muestran los intentos de inicio de sesión que se realizaron con protocolos de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran detalles adicionales. El campo **Aplicación cliente** en la pestaña **Información básica** indicará qué protocolo de autenticación heredada se usó.
@@ -97,7 +97,7 @@ Hay dos maneras de usar las directivas de acceso condicional para bloquear la au
  
 ### <a name="directly-blocking-legacy-authentication"></a>Bloqueo directo de la autenticación heredada
 
-La forma más sencilla de bloquear la autenticación heredada en toda la organización es mediante la configuración de una directiva de acceso condicional que se aplica específicamente a los clientes de autenticación heredados y bloquea el acceso. Al asignar usuarios y aplicaciones a la directiva, asegúrese de excluir los usuarios y las cuentas de servicio que todavía deben iniciar sesión con la autenticación heredada. Configure la condición de aplicaciones cliente; para ello, seleccione **Clientes de Exchange ActiveSync** y **Otros clientes** . Para bloquear el acceso a estas aplicaciones cliente, configure los controles de acceso para bloquear el acceso.
+La forma más sencilla de bloquear la autenticación heredada en toda la organización es mediante la configuración de una directiva de acceso condicional que se aplica específicamente a los clientes de autenticación heredados y bloquea el acceso. Al asignar usuarios y aplicaciones a la directiva, asegúrese de excluir los usuarios y las cuentas de servicio que todavía deben iniciar sesión con la autenticación heredada. Configure la condición de aplicaciones cliente; para ello, seleccione **Clientes de Exchange ActiveSync** y **Otros clientes**. Para bloquear el acceso a estas aplicaciones cliente, configure los controles de acceso para bloquear el acceso.
 
 ![Condición de aplicaciones cliente configurada para bloquear la autenticación heredada](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 

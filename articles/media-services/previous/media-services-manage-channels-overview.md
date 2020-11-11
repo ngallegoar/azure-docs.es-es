@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: eb508831d7a10537f27bb5b4e55f3a0627ce1f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2e899a9d98d43f826bfa63e62458adf1601f071
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265978"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042994"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Información general de streaming en vivo con Media Services
 
@@ -53,7 +53,7 @@ Con Media Services puede aprovechar el [empaquetado dinámico](media-services-dy
 
 ## <a name="streaming-endpoints-channels-programs"></a>Puntos de conexión de streaming, canales y programas
 
-En Azure Media Services, los **canales**, **programas** y **extremos de streaming** controlan todas las funcionalidades de streaming en vivo, incluidas la recopilación, el formato, DVR, la seguridad, la escalabilidad y la redundancia.
+En Azure Media Services, los **canales** , **programas** y **extremos de streaming** controlan todas las funcionalidades de streaming en vivo, incluidas la recopilación, el formato, DVR, la seguridad, la escalabilidad y la redundancia.
 
 Un **canal** representa una canalización para procesar contenido de streaming en vivo. Un canal puede recibir transmisiones de entrada en directo de la siguiente manera:
 
@@ -68,7 +68,7 @@ Un **canal** representa una canalización para procesar contenido de streaming e
 A partir de la versión 2.10 de Media Services, al crear un canal, puede especificar la forma en que desea que este reciba el flujo de entrada y si quiere que el canal realice la codificación en directo de la secuencia. Tiene dos opciones:
 
 * **Ninguna** (paso a través): especifique este valor si piensa usar un codificador en directo local que genere una secuencia de varias velocidades de bits (una transmisión de paso a través). En este caso, el flujo entrante pasa hasta la salida sin codificación alguna. Este es el comportamiento de un canal antes de la versión 2.10.  
-* **Estándar**: elija este valor si piensa usar Media Services para codificar transmisiones en directo con una sola velocidad de bits en transmisiones de varias velocidades de bits. Este método es más económico para la escalación vertical rápida para eventos poco frecuentes. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación.  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
+* **Estándar** : elija este valor si piensa usar Media Services para codificar transmisiones en directo con una sola velocidad de bits en transmisiones de varias velocidades de bits. Este método es más económico para la escalación vertical rápida para eventos poco frecuentes. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación.  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
 
 ## <a name="comparison-of-channel-types"></a>Comparación de tipos de canales
 
@@ -92,7 +92,7 @@ La tabla siguiente proporciona a una guía para comparar los dos tipos de canal 
 
 En el diagrama siguiente se muestran las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de **paso a través** .
 
-![Flujo de trabajo activo](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+![Diagrama que muestra las partes principales de la plataforma AMS del flujo de trabajo de "tránsito".](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 Para más información, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Protección de bases de datos
-description: Sugerencias para proteger una base de datos y desarrollar soluciones en el recurso de un grupo de SQL de Synapse.
+description: Sugerencias para proteger un grupo de SQL dedicado y desarrollar soluciones en Azure Synapse Analytics.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -11,14 +11,14 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: c94924c973a1095a4bebf6231d9853968facc1b2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f6c1370cab573926183a937b8e749ef490c19334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516890"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317694"
 ---
-# <a name="secure-a-database-in-azure-synapse"></a>Protección de una base de datos en Azure Synapse
+# <a name="secure-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Protección de un grupo de SQL dedicado en Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >
@@ -27,7 +27,7 @@ ms.locfileid: "92516890"
 > * [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-Este artículo le guiará a través de los aspectos básicos de la protección del grupo de SQL de Synapse. En concreto, este artículo le ayuda a empezar a trabajar con los recursos para limitar el acceso, proteger los datos y supervisar las actividades en una base de datos aprovisionada mediante un grupo de SQL.
+Este artículo le guiará a través de los aspectos básicos de la protección del grupo de SQL dedicado. En concreto, este artículo le ayuda a empezar a trabajar con los recursos para limitar el acceso, proteger los datos y supervisar las actividades mediante el grupo de SQL dedicado.
 
 ## <a name="connection-security"></a>Seguridad de conexión
 
@@ -35,15 +35,15 @@ Seguridad de conexión hace referencia a cómo restringir y proteger las conexio
 
 Las reglas de firewall las usan tanto el [servidor lógico con SQL Server](../../azure-sql/database/logical-servers.md) como sus bases de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan aprobado explícitamente. Para permitir conexiones desde la dirección IP pública de la máquina cliente o de la aplicación, primero debe crear una regla de firewall de nivel de servidor mediante Azure Portal, la API de REST o PowerShell.
 
-Como procedimiento recomendado, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall de nivel de servidor tanto como sea posible.  Para acceder al grupo de SQL desde su equipo local, asegúrese de que el firewall de su red y del equipo local permita la comunicación de salida en el puerto TCP 1433.  
+Como procedimiento recomendado, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall de nivel de servidor tanto como sea posible.  Para acceder al grupo de SQL dedicado desde un equipo local, asegúrese de que tanto el firewall de la red como el equipo local permiten la comunicación de salida en el puerto TCP 1433.  
 
 Azure Synapse Analytics usa las reglas de firewall de IP de nivel de servidor. No es compatible con las de nivel de base de datos. Para más información, consulte [Reglas de firewall de Azure SQL Database](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Las conexiones al grupo de SQL están cifradas de forma predeterminada.  Se pasa por alto la modificación de la configuración de conexión para deshabilitar el cifrado.
+De manera predeterminada las conexiones con el grupo de SQL dedicado están cifradas.  Se pasa por alto la modificación de la configuración de conexión para deshabilitar el cifrado.
 
 ## <a name="authentication"></a>Authentication
 
-La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. Actualmente, el grupo de SQL admite la autenticación de SQL Server con un nombre de usuario y una contraseña, y con Azure Active Directory.
+La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. Actualmente, el grupo de SQL dedicado admite la autenticación de SQL Server con un nombre de usuario y una contraseña, y con Azure Active Directory.
 
 Al crear el servidor de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos de ese servidor como propietario, o "dbo" a través de la autenticación en SQL Server.
 
@@ -57,7 +57,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-A continuación, conéctese a la **base de datos del grupo de SQL** con el inicio de sesión de administrador de servidor y cree un usuario de base de datos basado en el inicio de sesión de servidor que creó.
+A continuación, conéctese a la **base de datos del grupo de SQL dedicado** con el inicio de sesión de administrador de servidor y cree un usuario de base de datos basado en el inicio de sesión de servidor que creó.
 
 ```sql
 -- Connect to the database and create a database user
@@ -104,4 +104,4 @@ Puede cifrar la base de datos mediante [Azure Portal](sql-data-warehouse-encrypt
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver detalles y ejemplos sobre la conexión del almacenamiento con diferentes protocolos, consulte [Conexión a un grupo de SQL](../sql/connect-overview.md).
+Para ver detalles y ejemplos sobre la conexión del almacenamiento con diferentes protocolos, consulte [Conexión a un grupo de SQL dedicado](../sql/connect-overview.md).

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 919b8fb89e9189df7cb1964cbe0149dc6945ad2d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065482"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323198"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Creación de un punto de conexión privado administrado al origen de datos (versión preliminar)
 
@@ -21,12 +21,11 @@ En este artículo se explica cómo crear un punto de conexión privado administr
 
 ## <a name="step-1-open-your-azure-synapse-workspace-in-azure-portal"></a>Paso 1: Abra el área de trabajo de Azure Synapse en Azure Portal
 
-Puede crear un punto de conexión privado administrado para el origen de datos desde Azure Synapse Studio. Seleccione la pestaña **Información general** en Azure Portal y seleccione **Iniciar Synapse Studio**.
-![Iniciar Azure Synapse Studio](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-1.png)
+Puede crear un punto de conexión privado administrado para el origen de datos desde Azure Synapse Studio. Seleccione la pestaña **Información general** en Azure Portal y, en la tarjeta Open Synapse Studio (Abrir Synapse Studio), elija **Open** (Abrir).
 
 ## <a name="step-2-navigate-to-the-managed-virtual-networks-tab-in-synapse-studio"></a>Paso 2: Vaya a la pestaña Redes virtuales administradas en Synapse Studio
 
-En Azure Synapse Studio, seleccione la pestaña **Administrar** en el panel de navegación izquierdo. Seleccione **Redes virtuales administradas** y, después, seleccione **+ Nueva**.
+En Azure Synapse Studio, seleccione la pestaña **Administrar** en el panel de navegación izquierdo. Seleccione **Managed private endpoints** (Puntos de conexión privados administrados) y, después, elija **+ New** (+ Nuevo).
 ![Creación de un punto de conexión privado administrado](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-2.png)
 
 ## <a name="step-3-select-the-data-source-type"></a>Paso 3: Seleccione el tipo de origen de datos

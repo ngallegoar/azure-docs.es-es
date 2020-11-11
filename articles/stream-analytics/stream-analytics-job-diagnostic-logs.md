@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91459819"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124024"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de recursos
 
@@ -48,7 +48,7 @@ Los registros de actividad están activados de forma predeterminada y proporcion
 
    ![Resumen de la operación de registro de actividad de Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Desplácese hacia abajo hasta la sección **Propiedades** del código JSON, que proporciona los detalles del error que provocó el error de la operación. En este ejemplo, el error se produjo debido a un error en tiempo de ejecución por valores fuera de los límites de latitud. Una discrepancia en los datos que se procesan mediante un trabajo de Stream Analytics produce un error de datos. Puede obtener información sobre diferentes [errores de entrada y salida de datos y por qué se producen](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+4. Desplácese hacia abajo hasta la sección **Propiedades** del código JSON, que proporciona los detalles del error que provocó el error de la operación. En este ejemplo, el error se produjo debido a un error en tiempo de ejecución por valores fuera de los límites de latitud. Una discrepancia en los datos que se procesan mediante un trabajo de Stream Analytics produce un error de datos. Puede obtener información sobre diferentes [errores de entrada y salida de datos y por qué se producen](./data-errors.md).
 
    ![Detalles del error en JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -62,29 +62,29 @@ Es muy recomendable activar los registros de recursos y enviarlos a los registro
 
 1.  Cree un área de trabajo de Log Analytics, en caso de que no tenga una. Se recomienda disponer de un área de trabajo de Log Analytics en la misma región que el trabajo de Stream Analytics.
 
-2.  Inicie sesión en Azure Portal y vaya al trabajo de Stream Analytics. En **Supervisión**, seleccione **Registros de diagnóstico**. Después, seleccione **Activar diagnósticos**.
+2.  Inicie sesión en Azure Portal y vaya al trabajo de Stream Analytics. En **Supervisión** , seleccione **Registros de diagnóstico**. Después, seleccione **Activar diagnósticos**.
 
     ![Exploración de los registros de recursos en la hoja](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Proporcione un **nombre** en el campo **Nombre de configuración de diagnóstico** y active las casillas **Ejecución** y **Creación** en **registro**, y **AllMetrics** en **métrica**. Después, seleccione **Enviar a Log Analytics** y elija su área de trabajo. Haga clic en **Save**(Guardar).
+2.  Proporcione un **nombre** en el campo **Nombre de configuración de diagnóstico** y active las casillas **Ejecución** y **Creación** en **registro** , y **AllMetrics** en **métrica**. Después, seleccione **Enviar a Log Analytics** y elija su área de trabajo. Haga clic en **Save** (Guardar).
 
     ![Configuración de registros de recursos](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
 3. Cuando se inicia el trabajo de Stream Analytics, los registros de recursos se enrutan a su área de trabajo de Log Analytics. Para ver los registros de recursos del trabajo, seleccione **Registros** en la sección **Supervisión**.
 
-   ![Registros de recursos en Supervisión](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![Captura de pantalla que muestra el menú General con la opción Registros seleccionada.](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
 4. Stream Analytics proporciona consultas predefinidas que le permiten buscar fácilmente los registros que le interesan. Puede seleccionar las consultas predefinidas en el panel izquierdo y, a continuación, seleccionar **Ejecutar**. Verá los resultados de la consulta en el panel inferior. 
 
-   ![Registros de recursos en Supervisión](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
+   ![Captura de pantalla que muestra los registros de un trabajo de Stream Analytics.](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## <a name="resource-log-categories"></a>Categorías del registro de recursos
 
 Azure Stream Analytics captura dos categorías de registros de recursos:
 
-* **Creación**: Captura registros de eventos relacionados con operaciones de creación de trabajos, como creación de trabajos, adición y eliminación de entradas y salidas, adición y actualización de la consulta, e inicio y detención del trabajo.
+* **Creación** : Captura registros de eventos relacionados con operaciones de creación de trabajos, como creación de trabajos, adición y eliminación de entradas y salidas, adición y actualización de la consulta, e inicio y detención del trabajo.
 
-* **Ejecución**: Captura los eventos que se producen durante la ejecución del trabajo.
+* **Ejecución** : Captura los eventos que se producen durante la ejecución del trabajo.
     * Errores de conectividad
     * Errores de procesamiento de datos, como por ejemplo:
         * Eventos que no se ajustan a la definición de consulta (tipos y valores de campo no coincidentes, campos ausentes, etc.)
@@ -102,7 +102,7 @@ resourceId | Identificador del recurso en el que tuvo lugar la operación, en ma
 category | La categoría del registro: **Ejecución** o **Creación**.
 operationName | Nombre de la operación que se registra. Por ejemplo, **Envío de eventos: error de escritura de salida de SQL en mysqloutput**.
 status | Estado de la operación. Por ejemplo, **Erróneo** o **Correcto**.
-level | Nivel de registro. Por ejemplo, **Error**, **Advertencia** o **Información**.
+level | Nivel de registro. Por ejemplo, **Error** , **Advertencia** o **Información**.
 properties | Detalle específico de entrada de registro, serializado como una cadena JSON. Para más información, consulte las siguientes secciones de este artículo.
 
 ### <a name="execution-log-properties-schema"></a>Esquema de propiedades de registros de ejecución
@@ -111,22 +111,22 @@ Los registros de ejecución contienen información sobre eventos que se produjer
 
 ### <a name="data-errors"></a>Errores de datos
 
-Cualquier error que se produce mientras el trabajo está procesando datos se puede incluir en esta categoría de registros. Estos registros se crean habitualmente durante las operaciones de lectura, serialización y escritura de datos. No incluyen errores de conectividad. Los errores de conectividad se tratan como eventos genéricos. Puede aprender más sobre la causa de los distintos [errores de datos de entrada y salida](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+Cualquier error que se produce mientras el trabajo está procesando datos se puede incluir en esta categoría de registros. Estos registros se crean habitualmente durante las operaciones de lectura, serialización y escritura de datos. No incluyen errores de conectividad. Los errores de conectividad se tratan como eventos genéricos. Puede aprender más sobre la causa de los distintos [errores de datos de entrada y salida](./data-errors.md).
 
 Nombre | Descripción
 ------- | -------
 Source | Nombre de la entrada o salida del trabajo donde se produjo el error.
 Message | Mensaje asociado al error.
-Tipo | Tipo de error. Por ejemplo, **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
+Tipo | Tipo de error. Por ejemplo, **DataConversionError** , **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
 data | Contiene datos útiles para localizar con exactitud el origen del error. Sujeto a truncamiento dependiendo del tamaño.
 
-En función del valor de **operationName**, los errores de datos tendrán el siguiente esquema:
+En función del valor de **operationName** , los errores de datos tendrán el siguiente esquema:
 
 * Los **eventos de serialización** se producen durante las operaciones de lectura de eventos. Tienen lugar cuando los datos en la entrada no satisfacen el esquema de consulta por una de las siguientes razones:
 
-   * *Discordancia de tipos durante la (de)serialización de eventos*: identifica el campo que provoca el error.
+   * *Discordancia de tipos durante la (de)serialización de eventos* : identifica el campo que provoca el error.
 
-   * *No se puede leer un evento, la serialización no es válida*: muestra información sobre la ubicación de los datos de entrada donde se produjo el error. Incluye el nombre de blob de la entrada de blob, el desplazamiento y una muestra de los datos.
+   * *No se puede leer un evento, la serialización no es válida* : muestra información sobre la ubicación de los datos de entrada donde se produjo el error. Incluye el nombre de blob de la entrada de blob, el desplazamiento y una muestra de los datos.
 
 * Los **eventos de envío** se producen durante las operaciones de escritura. Identifican el evento de transmisión que produjo el error.
 
@@ -143,5 +143,5 @@ Id. de correlación | GUID que identifica de manera única la ejecución del tra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Errores de datos de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
-* [Referencia de lenguaje de consulta de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Errores de datos de Stream Analytics](./data-errors.md)
+* [Referencia de lenguaje de consulta de Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

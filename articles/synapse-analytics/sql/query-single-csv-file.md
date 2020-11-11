@@ -1,6 +1,6 @@
 ---
-title: Consulta de archivos CSV con SQL a petición (versión preliminar)
-description: En este artículo, aprenderá a consultar archivos CSV únicos con distintos formatos de archivo mediante SQL a petición (versión preliminar).
+title: Consulta de archivos .csv mediante un grupo de SQL sin servidor (versión preliminar)
+description: En este artículo, aprenderá a consultar archivos .csv únicos con distintos formatos de archivo mediante el grupo de SQL sin servidor (versión preliminar).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288297"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321462"
 ---
 # <a name="query-csv-files"></a>Consulta de archivo CSV
 
-En este artículo, aprenderá a consultar un único archivo CSV con SQL a petición (versión preliminar) en Azure Synapse Analytics. Los archivos CSV pueden tener distintos formatos: 
+En este artículo, aprenderá a consultar un único archivo .csv mediante el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics. Los archivos CSV pueden tener distintos formatos: 
 
 - Con y sin una fila de encabezado
 - Valores delimitados por comas y tabulaciones

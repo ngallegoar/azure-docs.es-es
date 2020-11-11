@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: f963f4c3538146b7f9929960092a18294659be5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61d6556467bc6f1494e11ce3a01bf5266b740f3f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045253"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305785"
 ---
 # <a name="azure-stream-analytics-external-error-codes"></a>Códigos de error externo de Azure Stream Analytics
 
@@ -19,77 +19,77 @@ Puede usar registros de actividad y registros de recursos para ayudar a depurar 
 
 ## <a name="adapterinitializationerror"></a>AdapterInitializationError
 
-* **Causa**: Error al inicializar un adaptador.
+* **Causa** : Error al inicializar un adaptador.
 
 ## <a name="adapterfailedtowriteevents"></a>AdapterFailedToWriteEvents
 
-* **Causa**: Error al escribir datos en un adaptador.
+* **Causa** : Error al escribir datos en un adaptador.
 
 ## <a name="azurefunctionhttperror"></a>AzureFunctionHttpError
 
-* **Causa**: Se ha devuelto un error HTTP de Azure Functions.
+* **Causa** : Se ha devuelto un error HTTP de Azure Functions.
 
 ## <a name="azurefunctionfailedtosendmessage"></a>AzureFunctionFailedToSendMessage
 
-* **Causa**: Stream Analytics no pudo escribir los eventos en Azure Functions.
+* **Causa** : Stream Analytics no pudo escribir los eventos en Azure Functions.
 
 ## <a name="azurefunctionredirecterror"></a>AzureFunctionRedirectError
 
-* **Causa**: Se produce un error de redirección al generar Azure Functions.
+* **Causa** : Se produce un error de redirección al generar Azure Functions.
 
 ## <a name="azurefunctionclienterror"></a>AzureFunctionClientError
 
-* **Causa**: Se produce un error de cliente al generar Azure Functions.
+* **Causa** : Se produce un error de cliente al generar Azure Functions.
 
 ## <a name="azurefunctionservererror"></a>AzureFunctionServerError
 
-* **Causa**: Se produce un error de servidor al generar Azure Functions.
+* **Causa** : Se produce un error de servidor al generar Azure Functions.
 
 ## <a name="azurefunctionhttptimeouterror"></a>AzureFunctionHttpTimeOutError
 
-* **Causa**: Error al escribir en Azure Functions porque la solicitud HTTP superó el tiempo de espera. 
+* **Causa** : Error al escribir en Azure Functions porque la solicitud HTTP superó el tiempo de espera. 
 * **Recomendación:** Compruebe los registros de Azure Functions para detectar posibles retrasos.
 
 ## <a name="eventhubargumenterror"></a>EventHubArgumentError
 
-* **Causa**: Los desplazamientos de entrada no son válidos. Esto puede deberse a una conmutación por error.
+* **Causa** : Los desplazamientos de entrada no son válidos. Esto puede deberse a una conmutación por error.
 * **Recomendación:** Reinicie el trabajo de Stream Analytics desde la última hora de salida.
 
 ## <a name="eventhubfailedtowriteevents"></a>EventHubFailedToWriteEvents
 
-* **Causa**: Error al enviar datos al centro de eventos.
+* **Causa** : Error al enviar datos al centro de eventos.
 
 ## <a name="cosmosdbconnectionfailureaftermaxretries"></a>CosmosDBConnectionFailureAfterMaxRetries
 
-* **Causa**: Stream Analytics no se pudo conectar a una cuenta de Cosmos DB después de alcanzar el número máximo de reintentos.
+* **Causa** : Stream Analytics no se pudo conectar a una cuenta de Cosmos DB después de alcanzar el número máximo de reintentos.
 
 ## <a name="cosmosdbfailureaftermaxretries"></a>CosmosDBFailureAfterMaxRetries
 
-* **Causa**: Stream Analytics no pudo consultar la colección y la base de datos de Cosmos DB después de alcanzar el número máximo de reintentos.
+* **Causa** : Stream Analytics no pudo consultar la colección y la base de datos de Cosmos DB después de alcanzar el número máximo de reintentos.
 
 ## <a name="cosmosdbfailedtocreatestoredprocedure"></a>CosmosDBFailedToCreateStoredProcedure
 
-* **Causa**: CosmosDB no puede crear el procedimiento almacenado después de varios reintentos.
+* **Causa** : CosmosDB no puede crear el procedimiento almacenado después de varios reintentos.
 
 ## <a name="cosmosdboutputrequesttimeout"></a>CosmosDBOutputRequestTimeout
 
-* **Causa**: El procedimiento almacenado de upsert devolvió un error. 
+* **Causa** : El procedimiento almacenado de upsert devolvió un error. 
 
 ## <a name="sqldatabaseoutputinitializationerror"></a>SQLDatabaseOutputInitializationError
 
-* **Causa**: Stream Analytics no puede inicializar la salida de SQL Database.
+* **Causa** : Stream Analytics no puede inicializar la salida de SQL Database.
 
 ## <a name="sqldatabaseoutputwriteerror"></a>SQLDatabaseOutputWriteError
 
-* **Causa**: Stream Analytics no puede escribir eventos en la salida de SQL Database.
+* **Causa** : Stream Analytics no puede escribir eventos en la salida de SQL Database.
 
 ## <a name="sqldwoutputinitializationerror"></a>SQLDWOutputInitializationError
 
-* **Causa**: Ha habido un error al inicializar una salida del grupo de Synapse SQL.
+* **Causa** : Ha habido un error al inicializar una salida del grupo de SQL dedicado.
 
 ## <a name="sqldwoutputwriteerror"></a>SQLDWOutputWriteError
 
-* **Causa**: Ha habido un error al escribir la salida en un grupo de Synapse SQL.
+* **Causa** : Ha habido un error al escribir la salida en un grupo de SQL dedicado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

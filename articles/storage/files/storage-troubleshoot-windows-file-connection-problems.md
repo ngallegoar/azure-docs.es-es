@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 17b2ab53c0154a29f9084f9dd999a53bcf477b72
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715995"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075133"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Solución de problemas de Azure Files en Windows (SMB)
 
-En este artículo se enumeran los problemas habituales relacionados con Microsoft Azure Files cuando se conecta desde clientes Windows. También se proporcionan posibles causas de estos problemas y sus resoluciones. Además de los pasos de solución de problemas de este artículo, también puede usar [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)  para asegurarse de que el entorno de cliente Windows cumpla los requisitos previos. AzFileDiagnostics automatiza la detección de la mayoría de los síntomas que se mencionan en este artículo y le ayuda a configurar su entorno para obtener un rendimiento óptimo.
+En este artículo se enumeran los problemas habituales relacionados con Microsoft Azure Files cuando se conecta desde clientes Windows. También se proporcionan posibles causas de estos problemas y sus resoluciones. Además de los pasos de solución de problemas de este artículo, también puede usar [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) para asegurarse de que el entorno de cliente Windows cumpla los requisitos previos. AzFileDiagnostics automatiza la detección de la mayoría de los síntomas que se mencionan en este artículo y le ayuda a configurar su entorno para obtener un rendimiento óptimo.
 
 > [!IMPORTANT]
 > El contenido de este artículo solo se aplica a los recursos compartidos SMB. Para obtener información sobre los recursos compartidos NFS, consulte el artículo sobre la [solución de problemas de los recursos compartidos de archivos NFS de Azure](storage-troubleshooting-files-nfs.md).
@@ -177,23 +177,82 @@ Vaya a la cuenta de almacenamiento donde se encuentra el recurso compartido de a
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>No se puede eliminar un archivo o un directorio en un recurso compartido de archivos de Azure
-Al intentar eliminar un archivo, puede que reciba el siguiente mensaje de error:
+Uno de principales propósitos de un recurso compartido de archivos es que varios usuarios y aplicaciones pueden interactuar de manera simultánea con los archivos y directorios del recurso compartido. Para facilitar esta interacción, los recursos compartidos de archivos proporcionan varias maneras de mediar el acceso a los archivos y directorios.
 
-El recurso especificado está marcado para su eliminación por parte de un cliente SMB.
+Al abrir un archivo desde un recurso compartido de archivos de Azure montado en SMB, la aplicación o el sistema operativo solicitan un identificador de archivos, que es una referencia al archivo. Entre otras cosas, la aplicación especifica un modo de uso compartido de archivos cuando solicita un identificador de archivos, que especifica el nivel de exclusividad del acceso al archivo aplicado por Azure Files: 
 
-### <a name="cause"></a>Causa
-Este problema suele producirse si el archivo o el directorio tiene un identificador abierto. 
+- `None`: tiene acceso exclusivo. 
+- `Read`: otros usuarios pueden leer el archivo mientras lo tiene abierto.
+- `Write`: otros usuarios pueden escribir en el archivo mientras lo tiene abierto. 
+- `ReadWrite`: una combinación de los modos de uso compartido `Read` y `Write`.
+- `Delete`: otros usuarios pueden eliminar el archivo mientras está abierto. 
 
-### <a name="solution"></a>Solución
+Aunque como protocolo sin estado FileREST no tiene un concepto de identificadores de archivos, proporciona un mecanismo similar para mediar el acceso a los archivos y carpetas que pueden usar el script, la aplicación o el servicio: concesiones de archivos. Cuando se concede un archivo, se trata como equivalente a un identificador de archivos con un modo de uso compartido de archivos de `None`. 
 
-Si los clientes SMB cerraron todos los identificadores abiertos y el problema sigue ocurriendo, realice lo siguiente:
+Aunque la finalidad de los identificadores y las concesiones de archivos es importante, a veces pueden estar huérfanos. Cuando esto sucede, se pueden producir problemas al modificar o eliminar archivos. Puede que vea mensajes de error parecidos a estos:
 
-- Use el cmdlet de PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) para ver los identificadores abiertos.
+- El proceso no puede obtener acceso al archivo porque otro proceso lo está utilizando.
+- La acción no se puede completar porque el archivo está abierto en otro programa.
+- Otro usuario ha bloqueado el documento para su edición.
+- El recurso especificado está marcado para su eliminación por parte de un cliente SMB.
 
-- Use el cmdlet de PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) para cerrar los identificadores abiertos. 
+La solución a este problema depende de si la causa es un identificador o una concesión de archivos huérfanos. 
+
+### <a name="cause-1"></a>Causa 1
+Un identificador de archivos impide que un archivo o directorio se modifique o elimine. Puede usar el cmdlet [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) de PowerShell para ver los identificadores abiertos. 
+
+Si todos los clientes de SMB han cerrado sus identificadores abiertos en un archivo o directorio y el problema sigue ocurriendo, puede forzar el cierre de un identificador de archivos.
+
+### <a name="solution-1"></a>Solución 1
+Para forzar el cierre de un identificador de archivos, use el cmdlet [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) de PowerShell. 
 
 > [!Note]  
 > Los cmdlets Get-AzStorageFileHandle y Close-AzStorageFileHandle se incluyen en la versión 2.4 o posteriores del módulo Az de PowerShell. Para instalar el módulo Az de PowerShell más reciente, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+### <a name="cause-2"></a>Causa 2
+Una concesión de archivos impide que se modifique o elimine un archivo. Puede comprobar si un archivo tiene una concesión con el siguiente cmdlet de PowerShell, reemplazando `<resource-group>`, `<storage-account>`, `<file-share>` y `<path-to-file>` por los valores adecuados para su entorno:
+
+```PowerShell
+# Set variables 
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$fileShareName = "<file-share>"
+$fileForLease = "<path-to-file>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName
+
+# Get reference to file
+$file = Get-AzStorageFile `
+        -Context $storageAccount.Context `
+        -ShareName $fileShareName `
+        -Path $fileForLease
+
+$fileClient = $file.ShareFileClient
+
+# Check if the file has a file lease
+$fileClient.GetProperties().Value
+```
+
+Si un archivo tiene una concesión, el objeto devuelto debe contener las siguientes propiedades:
+
+```Output
+LeaseDuration         : Infinite
+LeaseState            : Leased
+LeaseStatus           : Locked
+```
+
+### <a name="solution-2"></a>Solución 2
+Para quitar una concesión de un archivo, puede liberar la concesión o interrumpirla. Para liberar la concesión, necesita el valor de LeaseId de la concesión, que se establece al crear esta. Este valor no es necesario para interrumpir la concesión.
+
+En el ejemplo siguiente se muestra cómo interrumpir la concesión del archivo indicado en la causa 2 (este ejemplo continúa con las variables de PowerShell de la causa 2):
+
+```PowerShell
+$leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($fileClient)
+$leaseClient.Break() | Out-Null
+```
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Lentitud al copiar archivos a y desde Azure Files en Windows

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746409"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074257"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protección de datos en Azure Stream Analytics 
 
@@ -73,6 +73,27 @@ Siga estos pasos para configurar su cuenta de almacenamiento para recursos de da
 
    ![Configuración de una cuenta de almacenamiento de datos privados](./media/data-protection/storage-account-create.png)
 
+## <a name="private-data-assets-that-are-stored"></a>Recursos de datos privados que se almacenan
+
+Todos aquellos datos privados que se deban conservar mediante Stream Analytics se almacenan en su cuenta de almacenamiento. Estos son algunos ejemplos de recursos de datos privados: 
+
+* Las consultas que ha creado y sus configuraciones relacionadas.  
+
+* Funciones definidas por el usuario 
+
+* Los puntos de control que necesita el runtime de Stream Analytics.
+
+* Las instantáneas de los datos de referencia. 
+
+También se almacenan los detalles de conexión de los recursos, que usa el trabajo de Stream Analytics. Cifre su cuenta de almacenamiento para proteger todos los datos. 
+
+Para ayudarle a cumplir las obligaciones de cumplimiento normativo de cualquier entorno o sector regulado, puede leer más sobre las [ofertas de cumplimiento de Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="enables-data-residency"></a>Habilitación de la residencia de datos 
+Puede usar esta característica para aplicar los requisitos de residencia de datos que pueda tener; para ello, proporcione una cuenta de almacenamiento como corresponda.
+
+## <a name="known-issues"></a>Problemas conocidos
+Hay un problema conocido en el que un trabajo que usa la clave administrada por el cliente devuelve errores cuando se usa la identidad administrada para autenticarse en cualquier entrada o salida. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

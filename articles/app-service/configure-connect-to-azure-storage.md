@@ -6,24 +6,30 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7f177a7801e18bcdb2c2d6ef737f0c790cf6b1d1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057763"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075796"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Acceso a Azure Storage como un recurso compartido de red desde un contenedor de App Service
+# <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Acceso a Azure Storage (versión preliminar) como un recurso compartido de red desde un contenedor de App Service
 
 ::: zone pivot="container-windows"
 
 En esta guía se muestra cómo adjuntar archivos de Azure Storage como un recurso compartido de red a un contenedor de Windows en App Service. Solo se admiten [recursos compartidos de archivos de Azure Files](../storage/files/storage-how-to-use-files-cli.md) y [recursos compartidos de archivos Premium](../storage/files/storage-how-to-create-premium-fileshare.md). Entre las ventajas se incluye protección y portabilidad del contenido, acceso a varias aplicaciones y varios métodos de transferencia.
+
+> [!NOTE]
+>Azure Storage en App Service se encuentra **en versión preliminar** y **no es compatible** con los **escenarios de producción**.
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
 En esta guía se muestra cómo adjuntar Azure Storage a una instancia de App Service en contenedor de Linux. Entre las ventajas se incluye protección y portabilidad del contenido, almacenamiento persistente, acceso a varias aplicaciones y varios métodos de transferencia.
+
+> [!NOTE]
+>Azure Storage en App Service está en **versión preliminar** para App Service en Linux y Web App for Containers. **No se admite** para **escenarios de producción**.
 
 ::: zone-end
 
@@ -53,7 +59,6 @@ En esta guía se muestra cómo adjuntar Azure Storage a una instancia de App Ser
 
 ::: zone pivot="container-windows"
 
-- Azure Storage en App Service se encuentra **en versión preliminar** y **no es compatible** con los **escenarios de producción**.
 - Actualmente, **no se admite** Azure Storage en App Service para incluir escenarios de código propios (aplicaciones de Windows no en contenedor).
 - Azure Storage en App Service **no admite** el uso de la configuración del **firewall de Storage** debido a limitaciones de la infraestructura.
 - Azure Storage con App Service le permite especificar **hasta cinco** puntos de montaje por aplicación.
@@ -63,7 +68,6 @@ En esta guía se muestra cómo adjuntar Azure Storage a una instancia de App Ser
 
 ::: zone pivot="container-linux"
 
-- Azure Storage en App Service está en **versión preliminar** para App Service en Linux y Web App for Containers. **No se admite** para **escenarios de producción**.
 - Azure Storage en App Service admite el montaje de **contenedores de Azure Files** (lectura y escritura) y **contenedores de blobs de Azure** (solo lectura)
 - Azure Storage en App Service le permite especificar **hasta cinco** puntos de montaje por aplicación.
 - No se pude acceder a Azure Storage montado en una aplicación mediante los puntos de conexión de FTP/FTP de App Service. Usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).

@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6971e62b20dc1155b875f69eb1d4da9d7b6e6887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627013"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286962"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifiesto de aplicación de Azure Active Directory
 
@@ -194,6 +194,7 @@ Configura la notificación `groups` emitida en un token de acceso OAuth 2.0 o de
 
 - `"None"`
 - `"SecurityGroup"` (para grupos de seguridad y roles de Azure AD)
+- `"ApplicationGroup"` (esta opción solo incluye los grupos asignados a la aplicación)
 - `"All"` (se obtendrán todos los grupos de seguridad, grupos de distribución y los roles de directorio de Azure AD a los que pertenezca el usuario que inició sesión.
 
 Ejemplo:
@@ -663,10 +664,10 @@ Para obtener descripciones de estos atributos, consulte la sección de [referenc
 
 Al intentar cargar un manifiesto descargado anteriormente, es posible que vea uno de los siguientes errores. Este error probablemente se deba a que el editor de manifiestos ahora admite una versión más reciente del esquema, que no coincide con el que está intentando cargar.
 
-* "No se pudo actualizar la aplicación xxxxxx. Detalle del error: Identificador de objeto no válido "undefined". []".
-* "No se pudo actualizar la aplicación xxxxxx. Detalle del error: Uno o más de los valores de propiedad especificados no son válidos. []".
-* "No se pudo actualizar la aplicación xxxxxx. Detalle del error: No se permite establecer availableToOtherTenants en esta versión de API para la actualización. []".
-* "No se pudo actualizar la aplicación xxxxxx. Detalle del error: No se permiten actualizaciones de la propiedad "replyUrls" para esta aplicación. Use la propiedad "replyUrlsWithType" en su lugar. []".
+* "No se pudo actualizar la aplicación xxxxxx. Detalle del error: Identificador de objeto no válido "undefined". []."
+* "No se pudo actualizar la aplicación xxxxxx. Detalle del error: Uno o más de los valores de propiedad especificados no son válidos. []."
+* "No se pudo actualizar la aplicación xxxxxx. Detalle del error: No se permite establecer availableToOtherTenants en esta versión de API para la actualización. []."
+* "No se pudo actualizar la aplicación xxxxxx. Detalle del error: No se permiten actualizaciones de la propiedad "replyUrls" para esta aplicación. Use la propiedad "replyUrlsWithType" en su lugar. []."
 * "No se pudo actualizar la aplicación xxxxxx. Detalle del error: Se encontró un valor sin nombre de tipo y no ningún tipo esperado disponible. Cuando se especifica el modelo, cada valor de la carga debe tener un tipo que el autor puede especificar en la carga de forma explícita o que se puede inferir de forma implícita a partir del valor primario. []"
 
 Cuando vea uno de estos errores, se recomienda realizar las acciones siguientes:

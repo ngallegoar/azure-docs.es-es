@@ -1,34 +1,34 @@
 ---
 title: Asignación de una estructura de carpetas a una topología de Azure File Sync
-description: Asigne una estructura de archivos y carpetas existente a recursos compartidos de archivos de Azure para su uso con Azure File Sync. Un bloque de texto común, compartido entre los documentos de migración.
+description: Asigne una estructura de archivos y carpetas existente a recursos compartidos de archivos de Azure para su uso con Azure File Sync. Un bloque de texto común, compartido entre documentos de migración.
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 80e04ec06edc7169f0a4318c2c94de34dda9d96a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 441632ea33195ff8bcb6da5f4fb2298c337a6c97
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331101"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043171"
 ---
 En este paso, se evalúan cuántos recursos compartidos de archivos de Azure son necesarios. Una sola instancia de Windows Server (o clúster) puede sincronizar hasta 30 recursos compartidos de archivos de Azure.
 
-Es posible que tenga más carpetas en los volúmenes que actualmente comparte localmente como recursos compartidos de SMB en sus usuarios y aplicaciones. Lo más sencillo es prever un recurso compartido local que asigne 1:1 a un recurso compartido de archivos de Azure. Si tiene un número suficientemente pequeño, por debajo de 30 para una sola instancia de Windows Server, se recomienda una asignación 1:1.
+Es posible que tenga más carpetas en los volúmenes que actualmente comparte localmente como recursos compartidos de SMB en sus usuarios y aplicaciones. La manera más sencilla de visualizar este escenario es imaginar un recurso compartido local que asigne 1:1 a un recurso compartido de archivos de Azure. Si tiene un número suficientemente pequeño, por debajo de 30 para una sola instancia de Windows Server, se recomienda una asignación 1:1.
 
 Si tiene más de 30 recursos compartidos, a menudo no es necesario asignar un recurso compartido local 1:1 a un recurso compartido de archivos de Azure. Considere las opciones siguientes.
 
 #### <a name="share-grouping"></a>Agrupación de recursos compartidos
 
-Si el departamento de RR. HH. (por ejemplo) tiene un total de 15 recursos compartidos, podría considerar la posibilidad de almacenar todos los datos de recursos humanos en un solo recurso compartido de archivos de Azure. El almacenamiento de varios recursos compartidos locales en un recurso compartido de archivos de Azure no evita que tenga que crear los 15 recursos compartidos de SMB habituales en la instancia local de Windows Server. Solo significa que organiza las carpetas raíz de estos 15 recursos compartidos como subcarpetas en una carpeta común. A continuación, sincronizará esta carpeta común con un recurso compartido de archivos de Azure. De este modo, solo se necesita un único recurso compartido de archivos de Azure en la nube para este grupo de recursos compartidos locales.
+Por ejemplo, si el departamento de RR. HH. tiene un total de 15 recursos compartidos, podría considerar la posibilidad de almacenar todos los datos de recursos humanos en un solo recurso compartido de archivos de Azure. El almacenamiento de varios recursos compartidos locales en un recurso compartido de archivos de Azure no evita que tenga que crear los 15 recursos compartidos de SMB habituales en la instancia local de Windows Server. Solo significa que organiza las carpetas raíz de estos 15 recursos compartidos como subcarpetas en una carpeta común. A continuación, sincronizará esta carpeta común con un recurso compartido de archivos de Azure. De este modo, solo se necesita un único recurso compartido de archivos de Azure en la nube para este grupo de recursos compartidos locales.
 
 #### <a name="volume-sync"></a>Sincronización de volúmenes
 
 Azure File Sync admite la sincronización de la raíz de un volumen con un recurso compartido de archivos de Azure. Si sincroniza la carpeta raíz, todas las subcarpetas y los archivos van al mismo recurso compartido de archivos de Azure.
 
-La sincronización de la raíz del volumen no siempre es la mejor respuesta. La sincronización de varias ubicaciones ofrece algunas ventajas. Por ejemplo, ayuda a disminuir el número de elementos por ámbito de sincronización. Mientras se prueban los recursos compartidos de archivos de Azure y Azure File Sync con 100 millones de elementos (archivos y carpetas) por recurso compartido, es recomendable probar y mantener el número inferior a 20 o 30 millones en un solo recurso compartido. La configuración de Azure File Sync con un número de elementos menor no solo es beneficiosa para la sincronización de archivos. Un número de elementos menor también beneficia a escenarios como estos:
+La sincronización de la raíz del volumen no siempre es la mejor respuesta. La sincronización de varias ubicaciones ofrece algunas ventajas. Por ejemplo, ayuda a disminuir el número de elementos por ámbito de sincronización. Mientras se prueban los recursos compartidos de archivos de Azure y Azure File Sync con 100 millones de elementos (archivos y carpetas) por recurso compartido, un procedimiento recomendado es intentar mantener el número inferior a 20 millones o 30 millones en un solo recurso compartido. La configuración de Azure File Sync con un número de elementos menor no solo es beneficiosa para la sincronización de archivos. Un número de elementos menor también beneficia a escenarios como estos:
 
 * El examen inicial del contenido de la nube antes de que el espacio de nombres pueda empezar a aparecer en un servidor habilitado para Azure File Sync se puede completar con mayor rapidez.
 * La restauración en la nube a partir de una instantánea de recursos compartidos de archivos de Azure se hará con mayor rapidez.
@@ -36,7 +36,7 @@ La sincronización de la raíz del volumen no siempre es la mejor respuesta. La 
 * Los cambios realizados directamente en un recurso compartido de archivos de Azure (sin sincronización) se pueden detectar y sincronizar con más rapidez.
 
 > [!TIP]
-> Si no está seguro de cuántos archivos y carpetas tiene, puede consultar la herramienta TreeSize de JAM Software GmbH.
+> Si no está seguro de cuántos archivos y carpetas tiene, consulte la herramienta TreeSize de JAM Software GmbH.
 
 #### <a name="a-structured-approach-to-a-deployment-map"></a>Un enfoque estructurado de una asignación de implementación
 
@@ -45,11 +45,11 @@ Antes de implementar el almacenamiento en la nube en un paso posterior, es impor
 Para tomar la decisión sobre cuántos recursos compartidos de archivos de Azure necesita, revise los límites y procedimientos recomendados siguientes. Eso le va a ayudar a optimizar la asignación.
 
 * Un servidor con el agente de Azure File Sync instalado puede sincronizarse con hasta 30 recursos compartidos de archivos de Azure.
-* Un recurso compartido de archivos de Azure se implementa dentro de una cuenta de almacenamiento. Esto hace que la cuenta de almacenamiento sea un destino de escalado para los números de rendimiento como IOPS y rendimiento. 
+* Un recurso compartido de archivos de Azure se implementa dentro de una cuenta de almacenamiento. Esto hace que la cuenta de almacenamiento sea un destino de escalado para los números de rendimiento como IOPS y rendimiento.
 
-  Dos recursos compartidos de archivos de Azure estándar (no Premium) pueden saturar en teoría el rendimiento máximo que puede ofrecer una cuenta de almacenamiento. Si solo tiene previsto asociar Azure File Sync a estos recursos compartidos de archivos, la agrupación de varios recursos compartidos de archivos de Azure en la misma cuenta de almacenamiento no plantea ningún problema. Revise los destinos de rendimiento para obtener información más detallada sobre las métricas pertinentes que se deben tener en cuenta. 
+  Dos recursos compartidos de archivos de Azure estándar (no Premium) pueden saturar en teoría el rendimiento máximo que puede ofrecer una cuenta de almacenamiento. Si solo tiene previsto asociar Azure File Sync a estos recursos compartidos de archivos, la agrupación de varios recursos compartidos de archivos de Azure en la misma cuenta de almacenamiento no plantea ningún problema. Revise los destinos de rendimiento para obtener información más detallada sobre las métricas pertinentes que se deben tener en cuenta.
 
-  Si tiene previsto mover una aplicación a Azure que usará el recurso compartido de archivos de Azure de forma nativa, es posible que necesite un mayor rendimiento del recurso compartido de archivos de Azure. Si esto es una posibilidad, incluso en el futuro, lo mejor es asignar un recurso compartido de archivos de Azure a su propia cuenta de almacenamiento.
+  Si tiene previsto mover una aplicación a Azure que usará el recurso compartido de archivos de Azure de forma nativa, es posible que necesite un mayor rendimiento del recurso compartido de archivos de Azure. Si este tipo de uso es una posibilidad, incluso en el futuro, lo mejor es asignar un recurso compartido de archivos de Azure a su propia cuenta de almacenamiento.
 * Hay un límite de 250 cuentas de almacenamiento por suscripción en una sola región de Azure.
 
 > [!TIP]
@@ -60,9 +60,9 @@ Para tomar la decisión sobre cuántos recursos compartidos de archivos de Azure
 > [!IMPORTANT]
 > El vector de escala más importante para Azure File Sync es el número de elementos (archivos y carpetas) que deben sincronizarse.
 
-Azure File Sync admite la sincronización de hasta 100  millones de elementos con un recurso compartido de archivos de Azure. Este límite se puede superar y solo muestra lo que prueba el equipo de Azure File Sync de forma regular.
+Azure File Sync admite la sincronización de hasta 100  millones de elementos con un recurso compartido de archivos de Azure. Este límite se puede superar y solo muestra lo que prueba el equipo de Azure File Sync de forma regular.
 
-Se recomienda mantener bajo el número de elementos por ámbito de sincronización. Ese es un factor importante que se debe tener en cuenta en la asignación de carpetas a recursos compartidos de archivos de Azure. Mientras se prueban los recursos compartidos de archivos de Azure y Azure File Sync con 100 millones de elementos (archivos y carpetas) por recurso compartido, es recomendable probar y mantener el número inferior a 20 o 30 millones en un solo recurso compartido. Divida el espacio de nombres en varios recursos compartidos si empieza a superar estos números. Puede seguir agrupando varios recursos compartidos locales en el mismo recurso compartido de archivos de Azure, siempre y cuando se mantenga aproximadamente por debajo de estos números. Esto le proporcionará más espacio para crecer.
+Se recomienda mantener bajo el número de elementos por ámbito de sincronización. Ese es un factor importante que se debe tener en cuenta en la asignación de carpetas a recursos compartidos de archivos de Azure. Mientras se prueban los recursos compartidos de archivos de Azure y Azure File Sync con 100 millones de elementos (archivos y carpetas) por recurso compartido, un procedimiento recomendado es intentar mantener el número inferior a 20 millones o 30 millones en un solo recurso compartido. Divida el espacio de nombres en varios recursos compartidos si empieza a superar estos números. Puede seguir agrupando varios recursos compartidos locales en el mismo recurso compartido de archivos de Azure, siempre y cuando se mantenga aproximadamente por debajo de estos números. Esto le proporcionará más espacio para crecer.
 
 En este caso, es posible que un conjunto de carpetas pueda sincronizarse de forma lógica con el mismo recurso compartido de archivos de Azure (mediante el nuevo enfoque de carpeta raíz común mencionado anteriormente). Pero puede que siga siendo mejor reagrupar carpetas de modo que se sincronicen con dos recursos compartidos de archivos de Azure en lugar de uno. Puede usar este enfoque para mantener equilibrado el número de archivos y carpetas por recurso compartido de archivos en el servidor.
 

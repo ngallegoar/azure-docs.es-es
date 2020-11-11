@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 15b876104dfa1a35077a34aa178d650e2d68855e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 707c12cac6bbceee925c4710eff29482f687d47f
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266738"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040734"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Realización de streaming en vivo con codificadores locales mediante Azure Portal
 
@@ -112,7 +112,7 @@ Esta sección muestra cómo utilizar la opción **Creación rápida** para crear
 Para más información sobre este tipo de canales, consulte [Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
-2. En la ventana **Configuración**, haga clic en **Streaming en vivo**. 
+2. En la ventana **Configuración** , haga clic en **Streaming en vivo**. 
    
     ![Introducción](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
@@ -133,7 +133,7 @@ Para más información sobre este tipo de canales, consulte [Streaming en vivo c
 ## <a name="get-ingest-urls"></a>Obtención de direcciones URL de introducción
 Una vez creado el canal, obtendrá direcciones URL de introducción que se proporcionarán al codificador en directo. El codificador usa estas direcciones URL para introducir una secuencia en vivo.
 
-![Creado](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![Captura de pantalla en la que se muestra la página "Streaming en vivo" con un canal seleccionado y el panel del canal mostrado.](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## <a name="watch-the-event"></a>Visualización del evento
 Para ver el evento, haga clic en **Inspección** en el Portal de Azure o copie la dirección URL de streaming y use el reproductor que prefiera. 

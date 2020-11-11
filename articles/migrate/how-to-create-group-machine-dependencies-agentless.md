@@ -3,12 +3,12 @@ title: Configuración del análisis de dependencias sin agente en Azure Migrate 
 description: Configure el análisis de dependencias sin agente en Azure Migrate Server Assessment.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8893b0f41bb7a06c02a6c2aa28002980144b582a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667476"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337700"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Análisis de las dependencias de la máquina (sin agente)
 
@@ -25,7 +25,7 @@ En este artículo se describe cómo configurar el análisis de dependencias sin 
 
 - En la vista de análisis de dependencias, actualmente no se puede agregar o quitar un servidor de un grupo.
 - Actualmente, no existe ningún mapa de dependencias disponible para un grupo de servidores.
-- La recopilación de datos de dependencia se puede configurar simultáneamente para 1000 servidores. Se puede analizar un número mayor de servidores mediante la secuenciación en lotes de 1000.
+- En un proyecto de Azure Migrate, la recopilación de datos de dependencia se puede configurar simultáneamente para 1000 servidores. Se puede analizar un número mayor de servidores mediante la secuenciación en lotes de 1000.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -48,9 +48,9 @@ Agregue la cuenta de usuario al dispositivo.
 
 1. Abra la aplicación de administración del dispositivo. 
 2. Navegue hasta el panel **Provide vCenter details** (Proporcionar detalles de vCenter).
-3. En **Detectar aplicaciones y dependencias en VM**, haga clic en **Agregar credenciales**.
-3. Elija el **Sistema operativo**, proporcione un nombre descriptivo para la cuenta y especifique los valores de **Nombre de usuario**/**Contraseña**.
-6. Haga clic en **Save**(Guardar).
+3. En **Detectar aplicaciones y dependencias en VM** , haga clic en **Agregar credenciales**.
+3. Elija el **Sistema operativo** , proporcione un nombre descriptivo para la cuenta y especifique los valores de **Nombre de usuario**/**Contraseña**.
+6. Haga clic en **Save** (Guardar).
 7. Haga clic en **Guardar e iniciar la detección**.
 
     ![Adición de una cuenta de usuario de VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -59,10 +59,10 @@ Agregue la cuenta de usuario al dispositivo.
 
 Elija las máquinas en las que quiere habilitar la detección de dependencias. 
 
-1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
+1. En **Azure Migrate: Server Assessment** , haga clic en **Servidores detectados**.
 2. Haga clic en el icono **Análisis de dependencias**.
 3. Haga clic en **Agregar servidores**.
-4. En la página **Agregar servidores**, elija el dispositivo que detecta las máquinas pertinentes.
+4. En la página **Agregar servidores** , elija el dispositivo que detecta las máquinas pertinentes.
 5. En la lista de máquinas, seleccione las máquinas.
 6. Haga clic en **Agregar servidores**.
 
@@ -72,9 +72,9 @@ Puede visualizar las dependencias aproximadamente 6 horas después de iniciar la
 
 ## <a name="visualize-dependencies"></a>Visualización de dependencias
 
-1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
+1. En **Azure Migrate: Server Assessment** , haga clic en **Servidores detectados**.
 2. Busque la máquina que desea ver.
-3. En la columna **Dependencias**, haga clic en **Ver dependencias**.
+3. En la columna **Dependencias** , haga clic en **Ver dependencias**.
 4. Cambie el período de tiempo del que quiere ver el mapa mediante el menú desplegable **Duración**.
 5. Expanda el grupo **Cliente** para mostrar las máquinas que tienen una dependencia en la máquina seleccionada.
 6. Expanda el grupo **Puerto** para mostrar las máquinas que tienen una dependencia de la máquina seleccionada.
@@ -93,10 +93,10 @@ Puede visualizar las dependencias aproximadamente 6 horas después de iniciar la
 
 ## <a name="export-dependency-data"></a>Exportar datos de dependencia
 
-1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
+1. En **Azure Migrate: Server Assessment** , haga clic en **Servidores detectados**.
 2. Haga clic en el icono **Análisis de dependencias**.
 3. Haga clic en **Exportar las dependencias de la aplicación**.
-4. En la página **Exportar las dependencias de la aplicación**, elija el dispositivo que detecta las máquinas correspondientes.
+4. En la página **Exportar las dependencias de la aplicación** , elija el dispositivo que detecta las máquinas correspondientes.
 5. Seleccione la hora de inicio y la hora de finalización. Tenga en cuenta que solo puede descargar los datos de los últimos 30 días.
 6. Haga clic en **Exportar dependencia**.
 
@@ -127,10 +127,10 @@ Puerto de destino | Número de puerto en la máquina de destino
 
 Elija las máquinas en las que quiere detener la detección de dependencias. 
 
-1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
+1. En **Azure Migrate: Server Assessment** , haga clic en **Servidores detectados**.
 2. Haga clic en el icono **Análisis de dependencias**.
 3. Haga clic en **Quitar servidores**.
-3. En la página **Quitar servidores**, elija el **dispositivo** que está detectando las VM en las que quiere detener la detección de dependencias.
+3. En la página **Quitar servidores** , elija el **dispositivo** que está detectando las VM en las que quiere detener la detección de dependencias.
 4. En la lista de máquinas, seleccione las máquinas.
 5. Haga clic en **Quitar servidores**.
 

@@ -1,6 +1,6 @@
 ---
-title: Obtención de registros para solucionar problemas del controlador de datos habilitado para Azure Arc
-description: Obtenga registros de servicio para solucionar problemas del controlador de datos habilitado para Azure Arc.
+title: Obtención de registros para solucionar problemas de los servicios de datos habilitados para Azure Arc
+description: Aprenda a obtener archivos de registro de un controlador de datos para solucionar problemas de los servicios de datos habilitados para Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,27 +9,27 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0c4cff7583f08fe27649cee464fcef802cddd88f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320199"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234057"
 ---
-# <a name="get-azure-arc-enabled-data-services-logs"></a>Obtención de registros de los servicios de datos habilitados para Azure Arc
+# <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Obtención de registros para solucionar problemas de los servicios de datos habilitados para Azure Arc
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de continuar, necesitará lo siguiente:
+Antes de continuar, debe disponer de lo siguiente:
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Instrucciones de instalación](./install-client-tools.md).
-* Una cuenta de administrador para iniciar sesión en el controlador de servicios de datos habilitados para Azure Arc.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. Para obtener más información, consulte [Instalación de las herramientas de cliente para implementar y administrar los servicios de datos habilitados para Azure Arc](./install-client-tools.md).
+* Una cuenta de administrador para iniciar sesión en el controlador de datos habilitado para Azure Arc.
 
-## <a name="get-azure-arc-enabled-data-services-logs"></a>Obtención de registros de los servicios de datos habilitados para Azure Arc
+## <a name="get-log-files"></a>Obtención de los archivos de registro
 
-Puede obtener los registros de los servicios de datos habilitados para Azure Arc de todos los pods o de pods específicos para solucionar problemas. Para ello, puede usar herramientas estándar de Kubernetes, como el comando `kubectl logs`. Asimismo, en este artículo, utilizará la herramienta [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], que facilita la obtención de todos los registros a la vez.
+Puede obtener los registros de los servicios de todos los pods o de pods específicos para solucionar problemas. Uno de los modos de conseguirlos es mediante herramientas de Kubernetes estándar, como el comando `kubectl logs`. En este artículo, usará la herramienta [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], que facilita la obtención de todos los registros a la vez.
 
 1. Inicie sesión en el controlador de datos con una cuenta de administrador.
 
@@ -53,27 +53,27 @@ El controlador de datos crea los archivos de registro en el directorio de trabaj
 
 ## <a name="options"></a>Opciones
 
-`azdata arc dc debug copy-logs` proporciona las siguientes opciones para administrar la salida.
+El comando `azdata arc dc debug copy-logs` proporciona las siguientes opciones para administrar la salida:
 
 * Puede utilizar el parámetro `--target-folder` para que la salida de los archivos de registro llegue a otro directorio.
 * Para comprimir los archivos, omita el parámetro `--skip-compress`.
-* Desencadene e incluya volcados de memoria omitiendo `--exclude-dumps`. No se recomienda este método a menos que el Soporte técnico de Microsoft haya solicitado los volcados de memoria. El volcado de memoria requiere que el valor `allowDumps` del controlador de datos esté establecido en `true` cuando se cree el controlador de datos.
+* Si omite `--exclude-dumps`, desencadena e incluye volcados de memoria. No se recomienda este método a menos que el servicio de soporte técnico de Microsoft haya solicitado los volcados de memoria. Para obtener un volcado de memoria, al crear el controlador de datos, su valor `allowDumps` debe establecerse en `true`.
 * Filtre el contenido por nombre para recopilar registros de un pod (`--pod`) o un contenedor (`--container`) específicos.
-* Filtre el contenido para recopilar los registros de un recurso personalizado específico pasando los parámetros `--resource-kind` y `--resource-name`. El valor del parámetro `resource-kind` debe ser uno de los nombres de definición de recursos personalizados que puede recuperar el comando `kubectl get customresourcedefinition`.
+* Puede pasar los parámetros `--resource-kind` y `--resource-name` para filtrar el contenido y recopilar los registros de un recurso personalizado específico. El valor del parámetro `resource-kind` debe ser uno de los nombres de definición de recursos personalizados. Puede recuperar esos nombres mediante el comando `kubectl get customresourcedefinition`.
 
-Con estos parámetros, puede reemplazar `<parameters>` en el ejemplo siguiente. 
+Con estos parámetros, puede reemplazar los elementos de `<parameters>` del ejemplo siguiente: 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
 ```
 
-Por ejemplo
+Por ejemplo:
 
 ```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Ejemplo de jerarquía de carpetas. Tenga en cuenta que la jerarquía de carpetas está organizada por nombre de pod, después por contenedor y después por jerarquía de directorios en el contenedor.
+La siguiente jerarquía de carpetas es un ejemplo. Está organizada por nombre de pod, después por contenedor y después por jerarquía de directorios en el contenedor.
 
 ```output
 <export directory>

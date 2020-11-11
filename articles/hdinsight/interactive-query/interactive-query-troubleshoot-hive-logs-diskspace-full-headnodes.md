@@ -1,32 +1,32 @@
 ---
-title: 'Los registros de Apache Hive llenan el espacio en disco: Azure HDInsight'
-description: Los registros de Apache Hive están llenando el espacio en disco de los nodos principales de Azure HDInsight.
+title: 'Solución de problemas: Los registros de Apache Hive llenan el espacio en disco: Azure HDInsight'
+description: En este artículo se proporcionan los pasos para la solución de problemas que se deben seguir cuando los registros de Apache Hive llenan el espacio en disco de los nodos principales de Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 10/05/2020
-ms.openlocfilehash: 5554a66927fc70f22ec552b938ae62038a04acb9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 107ec012bf2ff76ee1cbe4c5f8252566a5a16127
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533026"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288926"
 ---
-# <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Escenario: Los registros de Apache Hive están llenando el espacio en disco de los nodos principales de Azure HDInsight
+# <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Escenario: Los registros de Apache Hive llenan el espacio en disco de los nodos principales de Azure HDInsight.
 
-En este artículo se describen los pasos para la solución de problemas y las posibles opciones para cuestiones relacionadas con la falta de espacio en disco en los nodos principales de los clústeres de Azure HDInsight.
+En este artículo se describen los pasos para la solución de problemas y las posibles opciones para problemas relacionados con el espacio en disco insuficiente en los nodos principales de los clústeres de Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-En un clúster de Apache Hive/LLAP, los registros no deseados ocupan todo el espacio en disco de los nodos principales. Debido a esto, se han podido ver los siguientes problemas.
+En un clúster de Apache Hive/LLAP, los registros no deseados ocupan todo el espacio en disco de los nodos principales. Esta condición podría provocar los problemas siguientes:
 
-1. No se puede acceder a SSH porque no queda espacio en el nodo principal.
-2. Ambari muestra un *ERROR HTTP: 503: Servicio no disponible* .
-3. HiveServer2 Interactive no se puede reiniciar.
+- No se puede acceder a SSH porque no queda espacio en el nodo principal.
+- Ambari produce el *ERROR HTTP: 503: Servicio no disponible*.
+- HiveServer2 Interactive no se puede reiniciar.
 
-Los registros de `ambari-agent` muestran lo siguiente cuando se produce el problema.
+Los registros de `ambari-agent` incluirán las siguientes entradas cuando se produzca el problema:
 ```
 ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
 ```
@@ -36,17 +36,17 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>Causa
 
-En las configuraciones avanzadas de hive-log4j, la programación de eliminación predeterminada actual se establece para los archivos de más de 30 días, según la fecha de la última modificación.
+En las configuraciones avanzadas de Hive log4j, la programación de eliminación predeterminada actual es borrar los archivos de más de 30 días, según la fecha de la última modificación.
 
 ## <a name="resolution"></a>Solución
 
-1. Vaya al resumen de componentes de Hive en el portal de Ambari y haga clic en la pestaña `Configs`.
+1. Vaya al resumen de componentes de Hive en el portal de Ambari y seleccione la pestaña **Configs** (Configuraciones).
 
-2. Vaya a la sección `Advanced hive-log4j` en Advanced settings (Configuración avanzada).
+2. Vaya a la sección `Advanced hive-log4j` en **Advanced settings** (Configuración avanzada).
 
-3. Establezca el parámetro `appender.RFA.strategy.action.condition.age` en una edad de su elección. Ejemplo de 14 días: `appender.RFA.strategy.action.condition.age = 14D`
+3. Establezca el parámetro `appender.RFA.strategy.action.condition.age` en una antigüedad de su elección. En este ejemplo se establecerá la antigüedad en 14 días: `appender.RFA.strategy.action.condition.age = 14D`
 
-4. Si no ve ninguna configuración relacionada, anexe la siguiente configuración.
+4. Si no ve ninguna configuración relacionada, anexe estos valores:
     ```
     # automatically delete hive log
     appender.RFA.strategy.action.type = Delete
@@ -57,7 +57,7 @@ En las configuraciones avanzadas de hive-log4j, la programación de eliminación
     appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
     ```
 
-5. Establezca `hive.root.logger` en `INFO,RFA`, como se indica a continuación. La configuración predeterminada es DEBUG, lo que provoca que los registros sean muy grandes.
+5. Establezca `hive.root.logger` en `INFO,RFA`, tal como se muestra en el ejemplo siguiente. La configuración predeterminada es `DEBUG`, lo que aumenta el tamaño de los registros.
 
     ```
     # Define some default values that can be overridden by system properties
@@ -71,10 +71,4 @@ En las configuraciones avanzadas de hive-log4j, la programación de eliminación
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
-
-* Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
-
-* Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
-
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico** . Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

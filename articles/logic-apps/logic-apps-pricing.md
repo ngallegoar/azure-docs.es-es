@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 486930776b4b4b6d852102be723ac1047ebd5e0a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078152"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098491"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de precios de Azure Logic Apps
 
@@ -45,9 +45,9 @@ Más información sobre la facturación en los niveles de [desencadenadores](#tr
 
 Un [*entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) proporciona una manera aislada de crear y ejecutar aplicaciones lógicas que pueden acceder a los recursos de una red virtual de Azure. Las aplicaciones lógicas que se ejecutan en un ISE no comportan gastos de retención de datos. Al crear un ISE y solo durante la creación, puede elegir un [nivel de ISE o "SKU"](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), que tienen [tarifas de precios](https://azure.microsoft.com/pricing/details/logic-apps) diferentes:
 
-* ISE **Premium**: La unidad base de este ISE tiene una capacidad fija, pero si necesita más rendimiento, puede [agregar más unidades de escalado](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), ya sea durante el proceso de creación del ISE o posteriormente. Para conocer los límites del ISE, consulte [Límites y configuración para Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+* ISE **Premium** : La unidad base de este ISE tiene una capacidad fija, pero si necesita más rendimiento, puede [agregar más unidades de escalado](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), ya sea durante el proceso de creación del ISE o posteriormente. Para conocer los límites del ISE, consulte [Límites y configuración para Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
 
-* ISE de **Desarrollador**: Esta SKU no tiene ninguna funcionalidad de escalado vertical, ningún acuerdo de nivel de servicio (SLA) y ningún límite publicado. Use esta SKU solo para experimentar, desarrollar y probar, no para pruebas de rendimiento ni en producción.
+* ISE de **Desarrollador** : Esta SKU no tiene ninguna funcionalidad de escalado vertical, ningún acuerdo de nivel de servicio (SLA) y ningún límite publicado. Use esta SKU solo para experimentar, desarrollar y probar, no para pruebas de rendimiento ni en producción.
 
 En el caso de las aplicaciones lógicas que crea y ejecuta dentro de un ISE, paga un [precio fijo](https://azure.microsoft.com/pricing/details/logic-apps) (en lugar de un pago por uso) para estas funcionalidades:
 
@@ -61,15 +61,15 @@ En el caso de las aplicaciones lógicas que crea y ejecuta dentro de un ISE, pag
 
 * Uso de la [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) sin costo adicional, en función de la [SKU de ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
-  * SKU de ISE **Premium**: una cuenta de integración de [nivel estándar](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) única
+  * SKU de ISE **Premium** : una cuenta de integración de [nivel estándar](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) única
 
-  * SKU de ISE de **Desarrollador**: una cuenta de integración de [nivel Gratis](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) única
+  * SKU de ISE de **Desarrollador** : una cuenta de integración de [nivel Gratis](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) única
 
   Cada SKU de ISE está limitada a 5 cuentas de integración totales. Para un costo adicional, puede tener más cuentas de integración en función de la SKU de ISE:
 
-  * SKU de ISE **Premium**: hasta cuatro cuentas Estándar más. Sin cuentas Gratis ni Básicas.
+  * SKU de ISE **Premium** : hasta cuatro cuentas Estándar más. Sin cuentas Gratis ni Básicas.
 
-  * SKU de ISE de **Desarrollador**: hasta 4 cuentas Estándar más o hasta 5 cuentas Estándar en total. Sin cuentas Básicas.
+  * SKU de ISE de **Desarrollador** : hasta 4 cuentas Estándar más o hasta 5 cuentas Estándar en total. Sin cuentas Básicas.
 
   Para obtener más información sobre los límites de las cuentas de integración, consulte [Límites y configuración de Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Puede obtener más información sobre los [niveles de las cuentas de integración y su modelo de precios](#integration-accounts) más adelante en este tema.
 
@@ -85,13 +85,13 @@ Los conectores de Azure Logic Apps ayudan a la aplicación lógica a acceder a l
 
 Un desencadenador es siempre el primer paso del flujo de trabajo de una aplicación lógica y es una acción especial que crea y ejecuta una instancia de aplicación lógica cuando se cumplen determinados criterios o cuando se produce un evento específico. Los desencadenadores actúan de formas distintas, que afectan al modo en que la aplicación lógica se mide. Estos son los distintos tipos de desencadenadores que hay en Azure Logic Apps:
 
-* **Desencadenador de periodicidad**: puede usar este desencadenador genérico, que no es específico de ningún servicio o sistema, para iniciar un flujo de trabajo de aplicación lógica y crear una instancia de aplicación lógica que se ejecute según el intervalo de periodicidad configurado en el desencadenador. Por ejemplo, puede establecer un desencadenador de periodicidad que se ejecute cada tres días o según una programación más compleja.
+* **Desencadenador de periodicidad** : puede usar este desencadenador genérico, que no es específico de ningún servicio o sistema, para iniciar un flujo de trabajo de aplicación lógica y crear una instancia de aplicación lógica que se ejecute según el intervalo de periodicidad configurado en el desencadenador. Por ejemplo, puede establecer un desencadenador de periodicidad que se ejecute cada tres días o según una programación más compleja.
 
-* **Desencadenador de sondeo**: puede usar este desencadenador de periodicidad más especializado, que normalmente está asociado al conector administrado de un servicio o sistema específicos, para comprobar si hay eventos o mensajes que cumplan los criterios para crear y ejecutar una instancia de aplicación lógica según el intervalo de periodicidad configurado en el desencadenador. Incluso cuando no se crea ninguna instancia de aplicación lógica, por ejemplo, cuando se omiten los desencadenadores, el servicio Logic Apps mide cada solicitud de sondeo como una ejecución. Para especificar el intervalo de sondeo, configure el desencadenador a través del Diseñador de aplicaciones lógicas.
+* **Desencadenador de sondeo** : puede usar este desencadenador de periodicidad más especializado, que normalmente está asociado al conector administrado de un servicio o sistema específicos, para comprobar si hay eventos o mensajes que cumplan los criterios para crear y ejecutar una instancia de aplicación lógica según el intervalo de periodicidad configurado en el desencadenador. Incluso cuando no se crea ninguna instancia de aplicación lógica, por ejemplo, cuando se omiten los desencadenadores, el servicio Logic Apps mide cada solicitud de sondeo como una ejecución. Para especificar el intervalo de sondeo, configure el desencadenador a través del Diseñador de aplicaciones lógicas.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Desencadenador de webhook**: en lugar de usar un desencadenador de sondeo, puede usar un desencadenador de webhook para esperar a que el cliente envíe una solicitud a la aplicación lógica a una dirección URL de punto de conexión específica. Cada solicitud enviada al punto de conexión de webhook se considera una ejecución de acción. Por ejemplo, el desencadenador de solicitud y de webhook HTTP son ambos desencadenadores de webhook. Algunos conectores de servicios o sistemas también tienen desencadenadores de webhook.
+* **Desencadenador de webhook** : en lugar de usar un desencadenador de sondeo, puede usar un desencadenador de webhook para esperar a que el cliente envíe una solicitud a la aplicación lógica a una dirección URL de punto de conexión específica. Cada solicitud enviada al punto de conexión de webhook se considera una ejecución de acción. Por ejemplo, el desencadenador de solicitud y de webhook HTTP son ambos desencadenadores de webhook. Algunos conectores de servicios o sistemas también tienen desencadenadores de webhook.
 
 <a name="actions"></a>
 
@@ -122,11 +122,11 @@ Si tiene un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-
 
 Para elegir una cuenta de integración Gratis, Básica o Estándar, revise estas descripciones de casos de uso:
 
-* **Gratis**: adecuada si se quieren probar escenarios de exploración, no escenarios de producción. Este nivel solo está disponible para las regiones públicas en Azure, por ejemplo, Oeste de EE. UU. o Sudeste Asiático, pero no para [Azure China 21Vianet](/azure/china/overview-operations) o [Azure Government](../azure-government/documentation-government-welcome.md).
+* **Gratis** : adecuada si se quieren probar escenarios de exploración, no escenarios de producción. Este nivel solo está disponible para las regiones públicas en Azure, por ejemplo, Oeste de EE. UU. o Sudeste Asiático, pero no para [Azure China 21Vianet](/azure/china/overview-operations) o [Azure Government](../azure-government/documentation-government-welcome.md).
 
-* **Básico**: adecuada si se quiere utilizar solo el control de mensajes o actuar como un asociado de pequeña empresa que tenga una relación empresarial con una entidad empresarial mayor.
+* **Básico** : adecuada si se quiere utilizar solo el control de mensajes o actuar como un asociado de pequeña empresa que tenga una relación empresarial con una entidad empresarial mayor.
 
-* **Estándar**: adecuada si se tienen relaciones B2B más complejas y un número de entidades mayor del que debe administrar.
+* **Estándar** : adecuada si se tienen relaciones B2B más complejas y un número de entidades mayor del que debe administrar.
 
 <a name="data-retention"></a>
 
@@ -137,6 +137,7 @@ Excepto en el caso de las aplicaciones lógicas que se ejecutan en un Entorno de
 Para ayudarle a supervisar el consumo de almacenamiento de la aplicación lógica, haga lo siguiente:
 
 * Consulte el número de unidades de almacenamiento en GB que la aplicación lógica usa cada mes.
+
 * Consulte los tamaños de las entradas y salidas de una acción específica en el historial de ejecuciones de la aplicación lógica.
 
 <a name="storage-consumption"></a>
@@ -145,11 +146,14 @@ Para ayudarle a supervisar el consumo de almacenamiento de la aplicación lógic
 
 1. En Azure Portal, busque y abra la aplicación lógica.
 
-1. En el menú de la aplicación lógica, en **Supervisión**, seleccione **Métricas**.
+1. En el menú de la aplicación lógica, en **Supervisión** , seleccione **Métricas**.
 
-1. En el panel de la derecha, en la lista **Métricas** de **Título del gráfico**, seleccione **Uso de facturación para las ejecuciones de consumo de almacenamiento**.
+1. En el panel de la derecha, en la lista **Métricas** de **Título del gráfico** , seleccione **Uso de facturación para las ejecuciones de consumo de almacenamiento**.
 
    Esta métrica señala el número de unidades de consumo de almacenamiento en GB al mes que se está facturando.
+
+   > [!NOTE]
+   > Las ejecuciones que consumen menos de 500 MB de almacenamiento podrían no aparecer en la vista de supervisión, aunque se siguen facturando.
 
 <a name="input-output-sizes"></a>
 
@@ -159,13 +163,16 @@ Para ayudarle a supervisar el consumo de almacenamiento de la aplicación lógic
 
 1. En el menú de la aplicación lógica, seleccione **Introducción**.
 
-1. En el panel de la derecha, en **Historial de ejecuciones**, seleccione la ejecución que tiene las entradas y salidas que quiera consultar.
+1. En el panel de la derecha, en **Historial de ejecuciones** , seleccione la ejecución que tiene las entradas y salidas que quiera consultar.
 
-1. En **Ejecución de aplicación lógica**, elija **Detalles de ejecución**.
+1. En **Ejecución de aplicación lógica** , elija **Detalles de ejecución**.
 
-1. En el panel **Detalles de ejecución de la aplicación lógica**, seleccione la acción que quiera ver en la tabla de acciones, que muestra el estado y la duración de cada acción.
+1. En el panel **Detalles de ejecución de la aplicación lógica** , seleccione la acción que quiera ver en la tabla de acciones, que muestra el estado y la duración de cada acción.
 
-1. En el panel **Acción de aplicación lógica**, los tamaños de las entradas y las salidas de esa acción aparecen en **Vínculo de entradas** y **Vínculo de salidas** respectivamente.
+1. En el panel **Acción de aplicación lógica** , busque los tamaños de las entradas y salidas de esa acción. En **Vínculo de entradas** y **Vínculos salidas** , busque los vínculos a dichas entradas y salidas.
+
+   > [!NOTE]
+   > En el caso de los bucles, solo las acciones de nivel superior muestran los tamaños de sus entradas y salidas. En el caso de las acciones dentro de bucles anidados, las entradas y salidas muestran un tamaño cero y la ausencia de vínculos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

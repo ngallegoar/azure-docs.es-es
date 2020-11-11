@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148530"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347002"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -262,7 +262,8 @@ La cuarentena de imágenes actualmente es una característica de versión prelim
 La configuración de una instancia de Azure Container Registry para el acceso de extracción anónimo (público) es actualmente una característica en versión preliminar. Si tiene una [asignación de ámbito (usuario) o recursos de token](./container-registry-repository-scoped-permissions.md) en el registro, elimínelos antes de generar una incidencia de soporte técnico (se pueden omitir las asignaciones de ámbito del sistema). Para habilitar el acceso público, abra una incidencia de soporte técnico en https://aka.ms/acr/support/create-ticket. Para más información, consulte [Foro de comentarios de Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
-> Solo se puede acceder de forma anónima a las API necesarias para extraer una imagen conocida. No se puede acceder de forma anónima a ninguna otra API para operaciones como la lista de etiquetas o la lista de repositorios.
+> * Solo se puede acceder de forma anónima a las API necesarias para extraer una imagen conocida. No se puede acceder de forma anónima a ninguna otra API para operaciones como la lista de etiquetas o la lista de repositorios.
+> * Antes de intentar una operación de extracción anónima, ejecute `docker logout` para que se borren todas las credenciales de Docker existentes.
 
 ## <a name="diagnostics-and-health-checks"></a>Comprobaciones de mantenimiento y diagnóstico
 

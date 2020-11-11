@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: eab0a54d30f2cd2829779dbfc6081445f5be0a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 525635ef40437fe308c52e2d5aba2c97ed8f20e7
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83648848"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927539"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions en Kubernetes con KEDA
 
@@ -34,6 +34,9 @@ Hay varias maneras de instalar KEDA en un clúster de Kubernetes, incluido Helm.
 
 Puede implementar cualquier aplicación de función en un clúster de Kubernetes mediante la ejecución de KEDA.  Puesto que las funciones se ejecutan en un contenedor de Docker, su proyecto necesita un elemento `Dockerfile`.  Si aún no tiene ninguno, puede agregar un archivo Dockerfile ejecutando el comando siguiente en la raíz del proyecto de Functions:
 
+> [!NOTE]
+> Las herramientas principales crean automáticamente el Dockerfile para Azure Functions escrito en .NET, Node, Python, o PowerShell. En el caso de las aplicaciones de función escritas en Java, el Dockerfile debe crearse manualmente. Use la [lista de imágenes](https://github.com/Azure/azure-functions-docker) de Azure Functions para buscar la imagen correcta en la que basar la función de Azure.
+
 ```cli
 func init --docker-only
 ```
@@ -49,7 +52,10 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > Reemplace `<name-of-function-deployment>` por el nombre de la aplicación de función.
 
-Esto crea un recurso `Deployment` de Kubernetes, un recurso `ScaledObject` y `Secrets`, que incluye las variables de entorno importadas desde su archivo `local.settings.json`.
+El comando de implementación ejecuta una serie de acciones:
+1. El Dockerfile creado anteriormente se usa para compilar una imagen local para la aplicación de funciones.
+2. La imagen local se etiqueta y se inserta en el registro de contenedor en el que el usuario ha iniciado sesión.
+3. Se crea un manifiesto y se aplica al clúster que define un recurso `Deployment` de Kubernetes, un recurso `ScaledObject` y `Secrets`, que incluye las variables de entorno importadas desde su archivo `local.settings.json`.
 
 ### <a name="deploying-a-function-app-from-a-private-registry"></a>Implementación de una aplicación de funciones desde un registro privado
 

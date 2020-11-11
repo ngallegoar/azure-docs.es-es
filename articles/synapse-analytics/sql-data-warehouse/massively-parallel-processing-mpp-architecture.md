@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d32aa011e9e816f97b050d43f9558af0cf82e90
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479347"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319648"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitectura de Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -25,8 +25,8 @@ Azure Synapse es un servicio de análisis ilimitado que reúne el almacenamiento
 
 - SQL de Synapse: análisis completo basado en T-SQL.
 
-  - Grupo SQL (pago por DWU aprovisionada): disponible con carácter general.
-  - SQL a petición (pago por TB procesados): (versión preliminar).
+  - Grupo de SQL dedicado (pago por DWU aprovisionada): disponible con carácter general.
+  - Grupo de SQL sin servidor (pago por TB procesado): versión preliminar
 - Spark: profunda integración con Apache Spark (versión preliminar).
 - Integración de datos: integración de datos híbridos (versión preliminar).
 - Studio: experiencia de usuario unificada.  (versión preliminar)
@@ -35,7 +35,7 @@ Azure Synapse es un servicio de análisis ilimitado que reúne el almacenamiento
 
 ## <a name="synapse-sql-architecture-components"></a>Componentes de la arquitectura de SQL de Synapse
 
-[SQL de Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) aprovecha una arquitectura de escalabilidad horizontal para distribuir el procesamiento de cálculo de datos entre varios nodos. La unidad de escalado es una abstracción de la eficacia de proceso que se conoce como [unidad de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md). Como el proceso está separado del almacenamiento, se puede escalar con independencia de los datos del sistema.
+[SQL de Synapse](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) aprovecha una arquitectura de escalabilidad horizontal para distribuir el procesamiento de cálculo de datos entre varios nodos. La unidad de escalado es una abstracción de la eficacia de proceso que se conoce como [unidad de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md). Como el proceso está separado del almacenamiento, se puede escalar con independencia de los datos del sistema.
 
 ![Arquitectura de SQL de Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

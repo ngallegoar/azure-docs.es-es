@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631281"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027115"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -35,6 +35,10 @@ Puede seleccionar un operador regional y conexiones Ethernet por tierra a una de
 ### <a name="how-much-does-expressroute-cost"></a>¿Cuánto cuesta ExpressRoute?
 
 Para obtener más información sobre los precios, consulte [Información sobre el precio](https://azure.microsoft.com/pricing/details/expressroute/) .
+
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-this-bandwidth-allocated-for-ingress-and-egress-traffic-separately"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿tengo asignado este ancho de banda para el tráfico de entrada y salida por separado?
+
+Sí, el ancho de banda del circuito ExpressRoute se duplica. Por ejemplo, si compra un circuito ExpressRoute de 200 Mbps, obtendrá 200 Mbps para el tráfico de entrada y 200 Mbps para el tráfico de salida.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿la conexión VPN que adquiero de mi proveedor de servicios de red debe tener la misma velocidad?
 

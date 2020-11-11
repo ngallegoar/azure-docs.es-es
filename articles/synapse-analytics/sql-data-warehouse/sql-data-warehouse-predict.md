@@ -11,19 +11,19 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ef56274e0bda3f1a9d494852520a77ecdfc25799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048013"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325370"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Puntuación de modelos de Machine Learning con PREDICT
 
 Synapse SQL proporciona la capacidad de puntuar modelos de Machine Learning mediante el conocido lenguaje T-SQL. Con [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest) de T-SQL, puede traer los modelos de Machine Learning existentes entrenados con datos históricos y puntuarlos dentro de los límites de seguridad del almacenamiento de datos. La función PREDICT toma un modelo [ONNX (Open Neural Network Exchange)](https://onnx.ai/) y los datos como entradas. Esta característica elimina el paso de sacar datos valiosos del almacén de datos para realizar la puntuación. Su objetivo es permitir a los profesionales de datos implementar de manera sencilla los modelos de Machine Learning con la conocida interfaz de T-SQL, así como colaborar sin problemas con los científicos de datos que trabajan con el marco adecuado para su tarea.
 
 > [!NOTE]
-> Esta funcionalidad no se admite actualmente en SQL a petición.
+> Esta funcionalidad no se admite actualmente en el grupo de SQL sin servidor.
 
 La funcionalidad requiere que el modelo se entrene fuera de Synapse SQL. Después de compilar el modelo, cárguelo en el almacenamiento de datos y puntúelo con la sintaxis de PREDICT de T-SQL para obtener información a partir de los datos.
 

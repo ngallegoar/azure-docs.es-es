@@ -1,7 +1,7 @@
 ---
 title: Paridad entre regiones públicas y soberanas
 titleSuffix: Azure Machine Learning
-description: Algunas características de Azure Machine Learning, como las características en vista previa pública (gb), puede que solo estén disponibles en regiones de la nube pública. En este artículo se enumeran las características que también están disponibles en las regiones Azure Government, Azure Alemania y Azure China 21Vianet.
+description: En este artículo, se explica la paridad de características entre la nube pública y las regiones Azure Government, Azure Alemania y Azure China 21Vianet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426533"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305752"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Paridad de nube soberana de Azure Machine Learning
 

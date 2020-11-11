@@ -3,12 +3,12 @@ title: Implementación de Horizon en Azure VMware Solution
 description: Aprenda a implementar VMware Horizon en Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6a466aea5cbdf4452a2c46b455932042d920c3b9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369019"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321364"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implementación de Horizon en Azure VMware Solution 
 
@@ -211,3 +211,6 @@ En función de la arquitectura de implementación estándar, las máquinas virtu
 | Recurso compartido de archivos de Windows               | D4sv3          |         | *Opcional*                               |
 
 El costo de las máquinas virtuales de infraestructura es de \$0,36 por usuario y mes para la implementación de 2000 escritorios del ejemplo anterior. En este ejemplo se usan los precios de junio de 2020 para instancias de Azure en la región Este de EE. UU. Los precios pueden variar en función de la región, las opciones seleccionadas y el tiempo.
+
+## <a name="next-steps"></a>Pasos siguientes
+Para obtener más información sobre VMware Horizon en Azure VMware Solution, lea el artículo de [preguntas frecuentes sobre VMware Horizon](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).

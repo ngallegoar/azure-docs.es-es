@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/09/2020
-ms.openlocfilehash: 187d430e1475a85118be3811520824d6f8ca3aa7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/28/2020
+ms.openlocfilehash: aedaedd29082c9ad51c03aa919181649a6dcf281
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636517"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913354"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copia y transformación de los datos de Azure Data Lake Storage Gen2 mediante Azure Data Factory
 
@@ -46,10 +46,6 @@ En el caso de la actividad de copia, con este conector puede:
 - [Conservación de los metadatos de archivo durante la copia](#preserve-metadata-during-copy).
 - [Conservar ACL](#preserve-acls) al copiar desde Azure Data Lake Storage Gen1/Gen2.
 
->[!IMPORTANT]
->Si habilita la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en la configuración de firewall de Azure Storage y quiere usar Azure Integration Runtime para conectarse a Data Lake Storage Gen2, debe usar la [autenticación de identidad administrada](#managed-identity) para ADLS Gen2.
-
-
 ## <a name="get-started"></a>Introducción
 
 >[!TIP]
@@ -68,7 +64,8 @@ El conector de Azure Data Lake Storage Gen2 admite los siguientes tipos de auten
 - [Identidades administradas para la autenticación de recursos de Azure](#managed-identity)
 
 >[!NOTE]
->Al usar PolyBase para cargar datos en Azure Synapse Analytics (anteriormente, SQL Data Warehouse), si la instancia de origen de Data Lake Storage Gen2 está configurada con un punto de conexión de Virtual Network, deberá usar la autenticación de identidad administrada como requiere PolyBase. Consulte la sección sobre [autenticación de identidad administrada](#managed-identity) que incluye más requisitos previos de configuración.
+>- Si desea utilizar el entorno de ejecución de integración de Azure público para conectarse a Data Lake Storage Gen2 con la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** habilitada en el firewall de Azure Storage, debe usar la [autenticación de identidad administrada](#managed-identity).
+>- Cuando use PolyBase o la instrucción COPY para cargar datos en Azure Synapse Analytics, si la instancia de origen o almacenamiento provisional de Data Lake Storage Gen2 está configurada con un punto de conexión de Azure Virtual Network, deberá usar la autenticación de identidad administrada como requiere Synapse. Consulte la sección sobre [autenticación de identidad administrada](#managed-identity) que incluye más requisitos previos de configuración.
 
 ### <a name="account-key-authentication"></a>Autenticación de clave de cuenta
 
@@ -210,7 +207,7 @@ Para usar identidades administradas para la autenticación de recursos de Azure,
 >Si usa la interfaz de usuario de Data Factory para la creación, y la identidad administrada no está configurada con el rol "Lector o colaborador de datos de Storage Blob" en IAM, al realizar las pruebas de conexión o al explorar las carpetas o navegar por ellas, elija "Test connection to file path" (Probar conexión con la ruta de acceso del archivo) o "Browse from specified path" (Examinar desde la ruta de acceso especificada) y especifique una ruta de acceso con el permiso de **lectura y ejecución** para continuar.
 
 >[!IMPORTANT]
->Si usa PolyBase para cargar datos desde Data Lake Storage Gen2 en Azure Synapse Analytics (anteriormente, SQL Data Warehouse), al utilizar la autenticación de identidad administrada de Data Lake Storage Gen2, asegúrese de que también sigue los pasos 1 y 2 de [esta guía](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) para 1) registrar el servidor en Azure Active Directory (Azure AD) y 2) asignar el rol Colaborador de datos de Storage Blob a su servidor; Data Factory controlará lo demás. Si la instancia de Data Lake Storage Gen2 está configurada con un punto de conexión de Azure Virtual Network, para usar PolyBase para cargar datos desde este deberá usar la autenticación de identidad administrada como requiere PolyBase.
+>Si usa PolyBase o una instrucción COPY para cargar datos de Data Lake Storage Gen2 en Azure Synapse Analytics, cuando use la autenticación de identidad administrada para Data Lake Storage Gen2, asegúrese de seguir los pasos 1 a 3 de [esta guía](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). En estos pasos se registrará el servidor con Azure AD y se asignará el rol Colaborador de datos de Storage Blob en el servidor. Data Factory controla el resto. Si configura Blob Storage con un punto de conexión de Azure Virtual Network, también debe tener la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** activada en el menú de configuración **Firewalls y redes virtuales** de la cuenta de Azure Storage, tal como requiere Synapse.
 
 Estas propiedades son compatibles con el servicio vinculado:
 
@@ -299,12 +296,12 @@ Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configurac
 | Propiedad                 | Descripción                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La propiedad type de `storeSettings` se debe establecer en **AzureBlobFSReadSettings**. | Sí                                           |
-| **_Buscar los archivos para copiar:_* _ |  |  |
+| **_Buscar los archivos para copiar:_* |  |  |
 | OPCIÓN 1: ruta de acceso estática<br> | Copia de la ruta de acceso de carpeta/sistema de archivos especificada en el conjunto de datos. Si quiere copiar todos los archivos de una carpeta o un sistema de archivos, especifique también `wildcardFileName` como `_`. |  |
 | OPCIÓN 2: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín en el sistema de archivos especificado configurado en el conjunto de datos para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
 | OPCIÓN 2: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en la propiedad file system + folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
 | OPCIÓN 3: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos determinado. Apunte a un archivo de texto que incluya una lista de los archivos que quiere copiar, con un archivo por línea, que sea la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos.<br/>Al utilizar esta opción, no especifique el nombre de archivo en el conjunto de datos. Ver más ejemplos en [Ejemplos de lista de archivos](#file-list-examples). |No |
-| ***Configuración adicional:** _ |  | |
+| ***Configuración adicional:** |  | |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. <br>Los valores permitidos son _ *true* * (valor predeterminado) y **false**.<br>Esta propiedad no se aplica al configurar `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indica si los archivos binarios se eliminarán del almacén de origen después de moverse correctamente al almacén de destino. Cada archivo se elimina individualmente, de modo que cuando se produzca un error en la actividad de copia, algunos archivos ya se habrán copiado al destino y se habrán eliminado del origen, mientras que otros seguirán aún en el almacén de origen. <br/>Esta propiedad solo es válida en el escenario de copia de archivos binarios. El valor predeterminado es false. |No |
 | modifiedDatetimeStart    | Filtro de archivos basado en el atributo: Última modificación. <br>Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.<br/>Esta propiedad no se aplica al configurar `fileListPath`. | No                                            |

@@ -1,97 +1,129 @@
 ---
-title: Obtención de ayuda con los errores de implementación o aprovisionamiento de Azure VMware Solution
-description: Cómo obtener la información necesaria de la nube privada de Azure VMware Solution para realizar una solicitud de servicio para los errores de aprovisionamiento o implementación de Azure VMware Solution.
+title: Soporte técnico para los errores de implementación o aprovisionamiento de Azure VMware Solution
+description: Consiga información de la nube privada de Azure VMware Solution para presentar una solicitud de servicio por errores de implementación o aprovisionamiento de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 1f46dde895db417fd2b488a6203d5482e73d3c5e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d609774b0d3a2de7809d04e4fa0c4e3e6593590
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779499"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349127"
 ---
-# <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Obtención de ayuda con los errores de implementación o aprovisionamiento de Azure VMware Solution
+# <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Apertura de una solicitud de soporte técnico por errores en la implementación o el aprovisionamiento de Azure VMware Solution
 
-Este artículo le ayuda con los errores de implementación y aprovisionamiento de Azure VMware Solution. Cuando se produzcan errores en la nube privada, deberá abrir una [solicitud de soporte técnico](https://rc.portal.azure.com/#create/Microsoft.Support) en Azure Portal. 
+En este artículo se muestra cómo abrir una [solicitud de soporte técnico](https://rc.portal.azure.com/#create/Microsoft.Support) y proporcionar información clave sobre un error de implementación o aprovisionamiento de Azure VMware Solution. 
 
-Sin embargo, primero deberá recopilar información importante en Azure Portal:
+Si se producen errores en la nube privada, debe abrir una solicitud de soporte técnico en Azure Portal. Para ello, debe obtener antes determinada información clave en Azure Portal:
 
 - Id. de correlación
-- Id. de circuito ExpressRoute
+- Identificador de circuito de Azure ExpressRoute
+- Mensajes de error
 
-## <a name="collect-the-correlation-id"></a>Recopilación del id. de correlación
+## <a name="get-the-correlation-id"></a>Obtención del identificador de correlación
  
-Se genera un id. de correlación cuando crea una nube privada o cualquier recurso en Azure. Cada implementación de Azure Resource Manager también genera un id. de correlación. Este id. permite crear y solucionar más rápido una solicitud de servicio. 
+Cuando crea una nube privada o cualquier otro recurso en Azure, se genera automáticamente un identificador de correlación para ese recurso. Para abrir una solicitud de soporte técnico y resolverla más rápidamente, incluya en ella el identificador de correlación de la nube privada.
+
+En Azure Portal, tiene dos maneras de obtener el identificador de correlación de un recurso:
+
+* Panel **Información general**
+* Registros de implementación
  
-Este es un ejemplo de la salida de una implementación de nube privada con errores, con el id. de correlación resaltado.
+ ### <a name="get-the-correlation-id-from-the-resource-overview"></a>Obtención del identificador de correlación desde la información general del recurso
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Error de implementación de nube privada con id. de correlación.":::
+Este es un ejemplo de los detalles de una operación de implementación de nube privada con errores, donde se muestra el identificador de correlación seleccionado:
 
-Copie y guarde este id. de correlación para incluirlo en la solicitud de servicio. Para obtener más información, consulte [Creación de la solicitud de soporte técnico](#create-your-support-request) al final de este artículo.
+:::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Captura de pantalla que muestra una implementación de nube privada con errores, con el identificador de correlación seleccionado.":::
 
-Si el error se produce en las fases previas a la validación, no se generará ningún id. de correlación. En este caso, puede proporcionar la información que usó al crear la nube privada de Azure VMware Solution, que incluye:
+Para acceder a los resultados de la implementación en el panel **Información general** de una nube privada:
 
-- Location
-- Resource group
-- Nombre del recurso
+1. En Azure Portal, seleccione la nube privada.
+
+1. En el menú de la izquierda, seleccione **Información general**.
+
+Una vez iniciada la implementación, sus resultados se muestran en el panel **Información general** de la nube privada.
+
+Copie y guarde el identificador de correlación de la implementación de la nube privada para incluirlo en la solicitud de servicio.
+
+### <a name="get-the-correlation-id-from-the-deployment-log"></a>Obtención del identificador de correlación desde el registro de la implementación
+
+Puede obtener el identificador de correlación de una implementación con errores si lo busca en el registro de actividad de la implementación en Azure Portal.
+
+Para acceder al registro de la implementación:
+
+1. En Azure Portal, seleccione la nube privada y, a continuación, seleccione el icono de notificaciones.
+
+   :::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Captura de pantalla que muestra el icono de notificaciones en Azure Portal.":::
+
+1. En el panel **Notificaciones** , seleccione **Más eventos en el registro de actividad** :
+
+    :::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Captura de pantalla que muestra el vínculo Más eventos en el registro de actividad seleccionado en el panel Notificaciones.":::
+
+1. Para localizar la implementación con errores y su identificador de correlación, busque el nombre del recurso u otros datos usados para crearlo. 
+
+    En el ejemplo siguiente se muestran los resultados de la búsqueda de un recurso de nube privada con el nombre pc03.
  
-### <a name="collect-a-summary-of-errors"></a>Recopilación de un resumen de errores
-
-Los detalles de todos los errores también pueden ayudar a solucionar el problema. En la pantalla anterior, seleccione el mensaje de advertencia para ver un resumen de los errores.
+    :::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Captura de pantalla que muestra los resultados de la búsqueda de un recurso de nube privada de ejemplo y el panel de creación o actualización de una nube privada.":::
  
- :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Resumen de errores.":::
+1. En los resultados de la búsqueda del panel **Registro de actividad** , seleccione el nombre de la operación que produjo el error.
 
-De nuevo, copie y guarde este resumen para incluirlo en la solicitud de servicio.
+1. En el panel **Create or update a PrivateCloud** (Crear o actualizar una nube privada), seleccione la pestaña **JSON** y, a continuación, busque `correlationId` en el registro que se muestra. Copie el valor de `correlationId` para incluirlo en la solicitud de soporte técnico. 
  
-### <a name="retrieve-past-deployments"></a>Recuperación de las implementaciones anteriores
+## <a name="copy-error-messages"></a>Copia de mensajes de error
 
-Puede recuperar las implementaciones anteriores, incluidas las erróneas, al realizar una búsqueda en el registro de actividad de las implementaciones al que se tiene acceso al seleccionar el icono de notificaciones.
-
-:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Abrir las notificaciones.":::
-
-En Notificaciones, seleccione **More events in the activity log** (Más eventos en el registro de actividad).
-
-:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Vínculo: Más eventos en el registro de actividad.":::
-
-A continuación, busque el nombre del recurso, u otros datos usados para crearlo, para buscar la implementación con errores y su id. de correlación. En el ejemplo siguiente se muestran los resultados de la búsqueda en un recurso de la nube privada (pc03).
+Para ayudar a resolver el problema de implementación, incluya los mensajes de error que se muestren en Azure Portal. Seleccione un mensaje de advertencia para ver un resumen de los errores:
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Búsqueda de las implementaciones de Azure VMware Solution anteriores con errores.":::
- 
-Al seleccionar el nombre de operación de la implementación con errores se abre una ventana con detalles. Seleccione la pestaña JSON y busque el elemento correlationId. Copie la información e inclúyala en la solicitud de servicio. 
- 
-## <a name="collect-the-expressroute-id-uri"></a>Recopilación del id. de ExpressRoute (URI)
- 
-Quizá intentó escalar o emparejar una nube privada existente con el circuito ExpressRoute de la nube privada y se produjo un error. En ese caso, necesitará el id. de ExpressRoute. 
+:::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Captura de pantalla que muestra los detalles del error en la pestaña Resumen del panel de errores, con el icono de copia seleccionado.":::
 
-En Azure Portal, seleccione **Conectividad > ExpressRoute** y copie el **Id. de ExpressRoute** en el Portapapeles.
+Para copiar el mensaje de error, seleccione el icono de copia. Guarde el mensaje copiado para incluirlo en la solicitud de soporte técnico.
+ 
+## <a name="get-the-expressroute-id-uri"></a>Obtención del identificador (URI) de ExpressRoute
+ 
+Quizá intentó escalar o emparejar una nube privada existente con el circuito ExpressRoute de la nube privada y se produjo un error. En ese caso, necesitará el identificador de ExpressRoute para incluirlo en la solicitud de soporte técnico.
+
+Para copiar el identificador de ExpressRoute:
+
+1. En Azure Portal, seleccione la nube privada.
+1. En el menú de la izquierda, en **Administrar** , seleccione **Conectividad**. 
+1. En el panel derecho, seleccione la pestaña **ExpressRoute**.
+1. Seleccione el icono de copia de **Id. de ExpressRoute** y guarde el valor para usarlo en la solicitud de soporte técnico.
  
 :::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copia del identificador de ExpressRoute en el portapapeles."::: 
  
-> [!NOTE]
-> En ocasiones, es posible que se produzcan errores en las comprobaciones anteriores a la implementación y que la única información disponible sea el error y los mensajes de error. Estos pueden ser útiles con muchos errores (por ejemplo, con los problemas relacionados con la cuota) y es importante incluir estos mensajes en la solicitud de soporte técnico. Para recopilarlos, consulte la sección anterior. [Recopilación de un resumen de errores](#collect-a-summary-of-errors).
+## <a name="pre-validation-failures"></a>Errores anteriores a la validación
+
+Si el error se produjo en la comprobación anterior a la validación de la nube privada (antes de la implementación), no se habrá generado ningún identificador de correlación. En este caso, puede incluir la siguiente información en la solicitud de soporte técnico:
+
+- Mensajes de error. Estos mensajes pueden ser útiles en muchos casos de errores, por ejemplo, en problemas relacionados con la cuota. Es importante copiar estos mensajes e incluirlos en la solicitud de soporte técnico, como se describe en este artículo.
+- Información utilizada para crear la nube privada de Azure VMware Solution, que incluye:
+  - Location
+  - Resource group
+  - Nombre del recurso
 
 ## <a name="create-your-support-request"></a>Creación de una solicitud de soporte técnico
 
-Para obtener instrucciones generales sobre cómo crear una solicitud de soporte técnico, consulte [Creación de una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
+Para obtener información general sobre cómo crear una solicitud de soporte técnico, consulte [Creación de una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
-Esta es una guía específica para la creación de una solicitud de servicio para errores de implementación o aprovisionamiento de Azure VMware Solution.
+Para crear una solicitud de soporte técnico por errores en la implementación o el aprovisionamiento de Azure VMware Solution, siga estos pasos:
 
-1. Seleccione el icono **Ayuda** y, a continuación, **+ Nueva solicitud de soporte técnico**.
+1. En Azure Portal, seleccione el icono **Ayuda** y, a continuación, **Nueva solicitud de soporte técnico**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Recopilación de un id. de ExpressRoute para la solicitud de servicio.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Captura de pantalla del panel Nueva solicitud de soporte técnico en Azure Portal.":::
 
-2. Rellene todos los campos obligatorios y, en la pestaña **Aspectos básicos** :
+1. Escriba o seleccione la información necesaria:
 
-    - En **Tipo de problema** , seleccione **Configuration and Setup Issues** (Problemas de instalación y configuración).
+   1. En la pestaña **Aspectos básicos** :
 
-    - En **Subtipo de problema** , seleccione **Aprovisionar una nube privada**.
+      1. En **Tipo de problema** , seleccione **Configuration and Setup Issues** (Problemas de instalación y configuración).
 
-3. Haga clic en la pestaña **Detalles** :
+      1. En **Subtipo de problema** , seleccione **Aprovisionar una nube privada**.
 
-    - Rellene todos los campos obligatorios.
+   1. Haga clic en la pestaña **Detalles** :
 
-    - Pegue el id. de correlación o el id. de ExpressRoute en los campos específicos proporcionados. Si no se muestra un campo específico, puede pegarlos en el cuadro de texto bajo la instrucción **Proporcione detalles sobre el problema.**
+      1. Escriba o seleccione la información necesaria.
 
-    - Pegue todos los detalles del error, incluido el resumen de errores que copió, en el cuadro de texto debajo de la instrucción **Proporcione detalles sobre el problema.**
+      1. Pegue el identificador de correlación o el identificador de ExpressRoute donde se solicite esta información. Si no ve un cuadro de texto específico para estos valores, péguelos en el cuadro de texto donde se le pide que **proporcione detalles sobre el problema**.
 
-4. Revise la información y seleccione **Crear** para crear la solicitud de servicio.
+    1. Pegue los detalles de los errores, incluidos los mensajes de error que ha copiado, en el cuadro de texto donde se le pide que **proporcione detalles sobre el problema**.
+
+1. Revise las entradas y, a continuación, seleccione **Crear** para crear la solicitud de soporte técnico.

@@ -1,7 +1,7 @@
 ---
 title: Uso de un firewall
 titleSuffix: Azure Machine Learning
-description: Controle el acceso a las áreas de trabajo de Azure Machine Learning con instancias de Azure Firewall. Obtenga información acerca de los hosts que debe permitir a través del firewall para que Azure Machine Learning funcione correctamente.
+description: Controle el acceso a las áreas de trabajo de Azure Machine Learning con instancias de Azure Firewall. Averigüe qué hosts debe permitir a través del firewall.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d0f30edeb24f3c4abed6f144f3fb7f755cc08a72
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 5ba1804630649044d29dd2919ef8375265a69a08
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629466"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320884"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Uso de áreas de trabajo detrás de un firewall en Azure Machine Learning
 

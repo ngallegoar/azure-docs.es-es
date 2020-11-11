@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3908e5f4b7b246fe1c74e5ac4d20053242ece9f6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336010"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927692"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Cómo ampliar la unidad de sistema operativo de una máquina virtual
 
@@ -32,8 +32,9 @@ Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante 
 > [!IMPORTANT]
 > Para cambiar el tamaño de un disco de datos o de sistema operativo de una máquina virtual de Azure, es necesario desasignar la máquina virtual.
 >
-> Después de expandir los discos, necesita [expandir el volumen dentro del sistema operativo](#expand-the-volume-within-the-os) para aprovechar el disco más grande.
+> No se admite la reducción de un disco existente, y puede provocar una pérdida de datos.
 > 
+> Después de expandir los discos, necesita [expandir el volumen dentro del sistema operativo](#expand-the-volume-within-the-os) para aprovechar el disco más grande.
 
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Cambio de tamaño de un disco administrado en Azure Portal
 
@@ -43,13 +44,13 @@ Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Captura de pantalla que muestra la opción Discos seleccionada en la sección Configuración del menú.":::
 
  
-3. En **Nombre del disco**, seleccione el disco cuyo tamaño quiere cambiar.
+3. En **Nombre del disco** , seleccione el disco cuyo tamaño quiere cambiar.
 
-    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Captura de pantalla que muestra la opción Discos seleccionada en la sección Configuración del menú.":::
+    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Captura de pantalla que muestra el panel Discos con un nombre de disco seleccionado.":::
 
 4. En la sección **Configuración** del menú de la izquierda, seleccione **Configuración**.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Captura de pantalla que muestra la opción Discos seleccionada en la sección Configuración del menú.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Captura de pantalla que muestra la opción Configuración seleccionada en la sección Configuración del menú.":::
 
 5. En **Tamaño (GiB)** , seleccione el tamaño de disco que quiera.
    
@@ -57,11 +58,11 @@ Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante 
    > El nuevo tamaño debe ser mayor que el tamaño de disco existente. El máximo permitido es 2048 GB para los discos del sistema operativo. (El blob de VHD se puede expandir más, pero el sistema operativo solo usa los primeros 2048 GB de espacio).
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Captura de pantalla que muestra la opción Discos seleccionada en la sección Configuración del menú.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Captura de pantalla que muestra el panel Configuración con el tamaño de disco seleccionado.":::
 
 6. Seleccione **Guardar**.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Captura de pantalla que muestra la opción Discos seleccionada en la sección Configuración del menú.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Captura de pantalla que muestra el panel Configuración con el botón Guardar seleccionado.":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>Cambio de tamaño de un disco administrado mediante PowerShell
@@ -236,11 +237,11 @@ Una vez expandido el disco para la máquina virtual, deberá entrar en el sistem
 
 2. Abra un símbolo del sistema y escriba **diskpart**.
 
-3. En el símbolo del sistema **DISKPART**, escriba `list volume`. Tome nota del volumen que desea extender.
+3. En el símbolo del sistema **DISKPART** , escriba `list volume`. Tome nota del volumen que desea extender.
 
-4. En el símbolo del sistema **DISKPART**, escriba `select volume <volumenumber>`. Este comando selecciona el volumen *númeroDeVolumen* que desea extender en el espacio vacío contiguo del mismo disco.
+4. En el símbolo del sistema **DISKPART** , escriba `select volume <volumenumber>`. Este comando selecciona el volumen *númeroDeVolumen* que desea extender en el espacio vacío contiguo del mismo disco.
 
-5. En el símbolo del sistema **DISKPART**, escriba `extend [size=<size>]`. Este comando extiende el volumen seleccionado por *tamaño* en megabytes (MB).
+5. En el símbolo del sistema **DISKPART** , escriba `extend [size=<size>]`. Este comando extiende el volumen seleccionado por *tamaño* en megabytes (MB).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

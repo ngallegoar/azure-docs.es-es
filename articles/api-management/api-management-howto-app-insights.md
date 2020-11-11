@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adb221c12af436135b1e740fdef7c5c0a0a7f0cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254751"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096043"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
@@ -33,7 +33,7 @@ Para seguir esta guía, debe tener una instancia de Azure API Management. Si no 
 Antes de poder usar Azure Application Insights, debe crear una instancia del servicio.
 
 1. Abra **Azure Portal** y vaya a **Application Insights**.  
-    ![Creación de App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
+    ![Captura de pantalla en la que se muestra cómo navegar a Application Insights](media/api-management-howto-app-insights/apim-app-insights-instance-1.png).  
 2. Haga clic en **+ Agregar**.  
     ![Creación de App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
 3. Rellene el formulario. Seleccione **General** como **Tipo de aplicación**.
@@ -44,11 +44,11 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 1. Vaya a la **instancia del servicio Azure API Management** en **Azure Portal**.
 2. Seleccione **Application Insights** en el menú de la izquierda.
 3. Haga clic en **+ Agregar**.  
-    ![Registrador de App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
+    ![Captura de pantalla en la que se muestra dónde agregar una conexión nueva](media/api-management-howto-app-insights/apim-app-insights-logger-1.png).  
 4. Seleccione la instancia de **Application Insights** creada anteriormente y escriba una descripción breve.
 5. Haga clic en **Crear**.
 6. Acaba de crear un registrador de Azure Application Insights con una clave de instrumentación. Ahora debería aparecer en la lista.  
-    ![Registrador de App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
+    ![Captura de pantalla en la que se muestra dónde ver el registrador de Azure Application Insights recién creado con la clave de instrumentación.](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
 > En segundo plano, se crea una entidad [Logger](/rest/api/apimanagement/2019-12-01/logger/createorupdate) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
@@ -64,7 +64,7 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 6. Marque la casilla **Habilitar**.
 7. Seleccione el registrador adjunto en el menú desplegable **Destino**.
 8. Escriba **100** como **Sampling (%)** [Muestreo (%)] y marque la casilla **Always log errors** (Registrar errores siempre).
-9. Haga clic en **Save**(Guardar).
+9. Haga clic en **Save** (Guardar).
 
 > [!WARNING]
 > Reemplazar el valor predeterminado **0** en el campo **First bytes of body** (Primeros bytes del cuerpo) puede disminuir considerablemente el rendimiento de las API.
@@ -97,9 +97,9 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 
 Azure Application Insights recibe:
 
-+ elemento de telemetría *Solicitud*, para cada solicitud de entrada (*solicitud de front-end*, *respuesta de front-end*);
-+ elemento de telemetría *Dependencia*, para cada solicitud reenviada a un servicio de back-end (*solicitud de back-end*, *respuesta de back-end*);
-+ elemento de telemetría *Excepción*, para cada solicitud con error.
++ elemento de telemetría *Solicitud* , para cada solicitud de entrada ( *solicitud de front-end* , *respuesta de front-end* );
++ elemento de telemetría *Dependencia* , para cada solicitud reenviada a un servicio de back-end ( *solicitud de back-end* , *respuesta de back-end* );
++ elemento de telemetría *Excepción* , para cada solicitud con error.
 
 Una solicitud con error es una solicitud que:
 

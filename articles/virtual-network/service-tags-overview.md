@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.date: 07/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 863ab9b600b81006cdeb670811c61ed961e8c623
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 8aae75aca585c30c0678c88247a8ecfe8a0b801d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170250"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340267"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
 
 Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red.
 
-Puede usar etiquetas de servicio para definir controles de acceso a la red en [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)  o  [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). Utilice etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio, como **ApiManagement** , en el campo de *origen* o  *destino* apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente.
+Puede usar etiquetas de servicio para definir controles de acceso a la red en [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). Utilice etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio, como **ApiManagement** , en el campo de *origen* o *destino* apropiados de una regla, puede permitir o denegar el tráfico del servicio correspondiente.
 
 Puede usar etiquetas de servicio para lograr el aislamiento de red y proteger los recursos de Azure de Internet general mientras accede a los servicios de Azure que tienen puntos de conexión públicos. Cree reglas de grupo de seguridad de red de entrada y salida para denegar el tráfico hacia y desde **Internet** y permitir el tráfico desde y hacia **AzureCloud** u otras [etiquetas de servicio disponibles](#available-service-tags) de servicios específicos de Azure.
 
@@ -51,7 +51,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureActiveDirectory** | Azure Active Directory. | Salida | No | Sí |
 | **AzureActiveDirectoryDomainServices** | Tráfico de administración para las implementaciones dedicadas a Azure Active Directory Domain Services. | Ambos | No | Sí |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | Salida | No | No |
-| **AzureBackup** |Azure Backup.<br/><br/>*Nota:* Esta etiqueta tiene dependencia de las etiquetas **Storage** y **AzureActiveDirectory** . | Salida | No | Sí |
+| **AzureBackup** |Azure Backup.<br/><br/>*Nota:* Esta etiqueta tiene dependencia de las etiquetas **Storage** y **AzureActiveDirectory**. | Salida | No | Sí |
 | **AzureBotService** | Azure Bot Service. | Salida | No | No |
 | **AzureCloud** | Todos las [direcciones IP públicas del centro de recursos](https://www.microsoft.com/download/details.aspx?id=56519). | Salida | Sí | Sí |
 | **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>Esta etiqueta o las direcciones IP que cubre esta etiqueta se pueden usar para conceder a los indexadores un acceso seguro a los orígenes de datos. Para más información, consulte la [documentación de la conexión del indexador](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors). <br/><br/> *Nota* : La dirección IP del servicio de búsqueda no se incluye en la lista de intervalos IP para esta etiqueta de servicio y **también se debe agregar** al firewall de IP de los orígenes de datos. | Entrada | No | No |
@@ -62,28 +62,28 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureDataExplorerManagement** | Administración de Azure Data Explorer. | Entrada | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Salida | No | Sí |
 | **AzureDevSpaces** | Azure Dev Spaces. | Salida | No | No |
+| **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*Nota:* Esta etiqueta o las direcciones IP que abarca se pueden utilizar para restringir el acceso a los puntos de conexión configurados para rutas de eventos. *Esta etiqueta no se puede configurar actualmente mediante Azure Portal* | Entrada | No | Sí |
 | **AzureEventGrid** | Azure Event Grid. | Ambos | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Ambos | No | No |
-| **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Nota:* Esta etiqueta presenta dependencia con las etiquetas **AzureActiveDirectory** , **AzureFrontDoor.Frontend** y **AzureFrontDoor.FirstParty** . | Salida | No | No |
+| **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Nota:* Esta etiqueta presenta dependencia con las etiquetas **AzureActiveDirectory** , **AzureFrontDoor.Frontend** y **AzureFrontDoor.FirstParty**. | Salida | No | No |
 | **AzureIoTHub** | Azure IoT Hub. | Salida | No | No |
-| **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* Esta etiqueta tiene dependencia en la etiqueta **AzureActiveDirectory** . | Salida | Sí | Sí |
+| **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* Esta etiqueta tiene dependencia en la etiqueta **AzureActiveDirectory**. | Salida | Sí | Sí |
 | **AzureLoadBalancer** | Equilibrador de carga de la infraestructura de Azure. La etiqueta se traduce en la [dirección IP virtual del host](security-overview.md#azure-platform-considerations) (168.63.129.16) donde se originan los sondeos de mantenimiento de Azure. Aquí solo se incluye el tráfico de sondeo, no el tráfico real al recurso de back-end. Si no usa Azure Load Balancer, puede reemplazar esta regla. | Ambos | No | No |
 | **AzureMachineLearning** | Azure Machine Learning. | Ambos | No | Sí |
-| **AzureMonitor** | Log Analytics, Application Insights, AzMon y métricas personalizadas (puntos de conexión GiG).<br/><br/>*Nota:* Para Log Analytics, esta etiqueta tiene dependencia en la etiqueta **Storage** . | Salida | No | Sí |
-| **AzureOpenDatasets** | Azure Open Datasets.<br/><br/>*Nota:* Esta etiqueta tiene dependencia de las etiquetas **AzureFrontDoor.Frontend** y **Storage** . | Salida | No | No |
+| **AzureMonitor** | Log Analytics, Application Insights, AzMon y métricas personalizadas (puntos de conexión GiG).<br/><br/>*Nota:* Para Log Analytics, esta etiqueta tiene dependencia en la etiqueta **Storage**. | Salida | No | Sí |
+| **AzureOpenDatasets** | Azure Open Datasets.<br/><br/>*Nota:* Esta etiqueta tiene dependencia de las etiquetas **AzureFrontDoor.Frontend** y **Storage**. | Salida | No | No |
 | **AzurePlatformDNS** | El servicio DNS de infraestructura básica (predeterminado).<br/><br>Puede usar esta etiqueta para deshabilitar el DNS predeterminado. Tenga cuidado al usar esta etiqueta. Se recomienda leer las [consideraciones sobre la plataforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). También se recomienda realizar pruebas antes de usar esta etiqueta. | Salida | No | No |
 | **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), que es un servicio de infraestructura básico.<br/><br/>Puede usar esta etiqueta para deshabilitar el IMDS predeterminado. Tenga cuidado al usar esta etiqueta. Se recomienda leer las [consideraciones sobre la plataforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). También se recomienda realizar pruebas antes de usar esta etiqueta. | Salida | No | No |
 | **AzurePlatformLKM** | Servicio de administración de claves o licencias de Windows.<br/><br/>Puede usar esta etiqueta para deshabilitar los valores predeterminados para licencias. Tenga cuidado al usar esta etiqueta. Se recomienda leer las [consideraciones sobre la plataforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations).  También se recomienda realizar pruebas antes de usar esta etiqueta. | Salida | No | No |
 | **AzureResourceManager** | Azure Resource Manager. | Salida | No | No |
 | **AzureSignalR** | Azure SignalR. | Salida | No | No |
-| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Nota:* Esta etiqueta presenta dependencia con las etiquetas **AzureActiveDirectory** , **AzureKeyVault** , **EventHub** , **GuestAndHybridManagement** y **Storage** . | Salida | No | No |
+| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Nota:* Esta etiqueta presenta dependencia con las etiquetas **AzureActiveDirectory** , **AzureKeyVault** , **EventHub** , **GuestAndHybridManagement** y **Storage**. | Salida | No | No |
 | **AzureTrafficManager** | Direcciones IP de sondeo de Azure Traffic Manager.<br/><br/>En [Preguntas más frecuentes sobre Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs), puede encontrar más información acerca de las direcciones IP de sondeo de Traffic Manager. | Entrada | No | Sí |  
 | **BatchNodeManagement** | Tráfico de administración para implementaciones dedicadas de Azure Batch. | Ambos | No | Sí |
 | **CognitiveServicesManagement** | Los intervalos de direcciones para el tráfico para Azure Cognitive Services. | Ambos | No | No |
 | **DataFactory**  | Azure Data Factory | Ambos | No | No |
 | **DataFactoryManagement** | Tráfico de administración para Azure Data Factory. | Salida | No | No |
 | **Dynamics365ForMarketingEmail** | Los intervalos de direcciones del servicio de correo electrónico de marketing de Dynamics 365. | Salida | Sí | No |
-| **ElasticAFD** | Azure Front Door elástico. | Ambos | No | No |
 | **EventHub** | Azure Event Hubs. | Salida | Sí | Sí |
 | **GatewayManager** | Tráfico de administración para implementaciones dedicadas a Azure VPN Gateway y Application Gateway. | Entrada | No | No |
 | **GuestAndHybridManagement** | Azure Automation y Configuración de invitado | Salida | No | Sí |
@@ -92,7 +92,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **LogicApps** | Logic Apps. | Ambos | No | No |
 | **LogicAppsManagement** | Tráfico de administración para Logic Apps. | Entrada | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Salida | No | No |
-| **MicrosoftContainerRegistry** | Registro de contenedor para imágenes de contenedor de Microsoft. <br/><br/>*Nota:* Esta etiqueta presenta dependencia con la etiqueta **AzureFrontDoor.FirstParty** . | Salida | Sí | Sí |
+| **MicrosoftContainerRegistry** | Registro de contenedor para imágenes de contenedor de Microsoft. <br/><br/>*Nota:* Esta etiqueta presenta dependencia con la etiqueta **AzureFrontDoor.FirstParty**. | Salida | Sí | Sí |
 | **PowerQueryOnline** | Power Query Online. | Ambos | No | No |
 | **Service Bus** | Tráfico de Azure Service Bus que usa el nivel de servicio Premium. | Salida | Sí | Sí |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Nota:* Esta etiqueta representa el punto de conexión de servicio de Service Fabric para el plano de control por región. Esto permite a los clientes realizar operaciones de administración para sus clústeres de Service Fabric desde la red virtual (punto de conexión, p. ej. https:// westus.servicefabric.azure.com) | Ambos | No | No |

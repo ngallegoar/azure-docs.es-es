@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 46a5f4036be2d670689f7e936a31dc63e0690ddc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dea38705dbb6c2b7abd8a9786ef9adb66ad56ad7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302390"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320432"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicación y seguimiento de canalizaciones de aprendizaje automático
 
@@ -38,7 +38,7 @@ Las canalizaciones de aprendizaje automático son flujos de trabajo reutilizable
 
 Una vez que tenga una canalización en funcionamiento, puede publicarla para que se ejecute con diferentes entradas. Para que el punto de conexión REST de una canalización ya publicada acepte parámetros, tiene que configurar la canalización para que use objetos `PipelineParameter` para los argumentos que varían.
 
-1. Para crear un parámetro de canalización, use un objeto [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true) con un valor predeterminado.
+1. Para crear un parámetro de canalización, use un objeto [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?preserve-view=true&view=azure-ml-py) con un valor predeterminado.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -73,7 +73,10 @@ Una vez que tenga una canalización en funcionamiento, puede publicarla para que
 
 Todas las canalizaciones publicadas tienen un punto de conexión REST. Con el punto de conexión de canalización, puede desencadenar una ejecución de la canalización desde cualquier sistema externo, incluidos los clientes que no sean de Python. Este punto de conexión habilita la "repetibilidad administrada" en los escenarios de puntuación y nuevo entrenamiento.
 
-Para invocar el proceso de ejecución de la canalización anterior, necesitará un token de encabezado de autenticación de Azure Active Directory. La obtención de este tipo de token se describe en la referencia de [clase AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py&preserve-view=true) y en el cuaderno [Autenticación en Azure Machine Learning](https://aka.ms/pl-restep-auth).
+> [!IMPORTANT]
+> Si utiliza el control basado en rol (RBAC) para administrar el acceso a la canalización, [establezca los permisos del escenario de canalización (entrenamiento o puntuación)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service).
+
+Para invocar el proceso de ejecución de la canalización anterior, necesitará un token de encabezado de autenticación de Azure Active Directory. La obtención de este tipo de token se describe en la referencia de [clase AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) y en el cuaderno [Autenticación en Azure Machine Learning](https://aka.ms/pl-restep-auth).
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -95,9 +98,148 @@ El argumento `json` de la solicitud POST debe contener, para la clave `Parameter
 | `DataSetDefinitionValueAssignments` | Diccionario usado para cambiar conjuntos de datos sin volver a entrenar (vea la siguiente explicación) | 
 | `DataPathAssignments` | Diccionario usado para cambiar rutas de acceso de datos sin volver a entrenar (vea la siguiente explicación) | 
 
+### <a name="run-a-published-pipeline-using-c"></a>Ejecución de una canalización publicada con C# 
+
+En el código siguiente, se muestra cómo se llama de forma asincrónica a una canalización desde C#. Este fragmento de código parcial no forma parte de ningún ejemplo de Microsoft y solo ilustra la estructura de la llamada. No se muestra el proceso completo de control de errores o clases. 
+
+```csharp
+[DataContract]
+public class SubmitPipelineRunRequest
+{
+    [DataMember]
+    public string ExperimentName { get; set; }
+
+    [DataMember]
+    public string Description { get; set; }
+
+    [DataMember(IsRequired = false)]
+    public IDictionary<string, string> ParameterAssignments { get; set; }
+}
+
+// ... in its own class and method ... 
+const string RestEndpoint = "your-pipeline-endpoint";
+
+using (HttpClient client = new HttpClient())
+{
+    var submitPipelineRunRequest = new SubmitPipelineRunRequest()
+    {
+        ExperimentName = "YourExperimentName", 
+        Description = "Asynchronous C# REST api call", 
+        ParameterAssignments = new Dictionary<string, string>
+        {
+            {
+                // Replace with your pipeline parameter keys and values
+                "your-pipeline-parameter", "default-value"
+            }
+        }
+    };
+
+    string auth_key = "your-auth-key"; 
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth_key);
+
+    // submit the job
+    var requestPayload = JsonConvert.SerializeObject(submitPipelineRunRequest);
+    var httpContent = new StringContent(requestPayload, Encoding.UTF8, "application/json");
+    var submitResponse = await client.PostAsync(RestEndpoint, httpContent).ConfigureAwait(false);
+    if (!submitResponse.IsSuccessStatusCode)
+    {
+        await WriteFailedResponse(submitResponse); // ... method not shown ...
+        return;
+    }
+
+    var result = await submitResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+    var obj = JObject.Parse(result);
+    // ... use `obj` dictionary to access results
+}
+```
+
+### <a name="run-a-published-pipeline-using-java"></a>Ejecución de una canalización publicada con Java
+
+En el código siguiente, se muestra una llamada a una canalización que requiere autenticación (consulte [Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning](how-to-setup-authentication.md)). Si la canalización está implementada públicamente, no se necesitan las llamadas que generan `authKey`. En este fragmento de código parcial, no se muestra la clase de Java ni el código reutilizable de control de excepciones. El código utiliza `Optional.flatMap` para encadenar funciones que pueden devolver un objeto `Optional` vacío. Al utilizar `flatMap`, el código es más corto y más claro, pero tenga en cuenta que `getRequestBody()` pasa por alto las excepciones.
+
+```java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Optional;
+// JSON library
+import com.google.gson.Gson;
+
+String scoringUri = "scoring-endpoint";
+String tenantId = "your-tenant-id";
+String clientId = "your-client-id";
+String clientSecret = "your-client-secret";
+String resourceManagerUrl = "https://management.azure.com";
+String dataToBeScored = "{ \"ExperimentName\" : \"My_Pipeline\", \"ParameterAssignments\" : { \"pipeline_arg\" : \"20\" }}";
+
+HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
+
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+Optional<String> authBody = getRequestBody(client, tokenAuthenticationRequest);
+Optional<String> authKey = authBody.flatMap(body -> Optional.of(gson.fromJson(body, AuthenticationBody.class).access_token);;
+Optional<HttpRequest> scoringRequest = authKey.flatMap(key -> Optional.of(scoringRequest(key, scoringUri, dataToBeScored)));
+Optional<String> scoringResult = scoringRequest.flatMap(req -> getRequestBody(client, req));
+// ... etc (`scoringResult.orElse()`) ... 
+
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl)
+{
+    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
+    String clientIdParam = String.format("client_id=%s", clientId);
+    String resourceParam = String.format("resource=%s", resourceManagerUrl);
+    String clientSecretParam = String.format("client_secret=%s", clientSecret);
+
+    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
+
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(authUrl))
+        .POST(HttpRequest.BodyPublishers.ofString(bodyString))
+        .build();
+    return request;
+}
+
+static HttpRequest scoringRequest(String authKey, String scoringUri, String dataToBeScored)
+{
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(scoringUri))
+        .header("Authorization", String.format("Token %s", authKey))
+        .POST(HttpRequest.BodyPublishers.ofString(dataToBeScored))
+        .build();
+    return request;
+
+}
+
+static Optional<String> getRequestBody(HttpClient client, HttpRequest request) {
+    try {
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        if (response.statusCode() != 200) {
+            System.out.println(String.format("Unexpected server response %d", response.statusCode()));
+            return Optional.empty();
+        }
+        return Optional.of(response.body());
+    }catch(Exception x)
+    {
+        System.out.println(x.toString());
+        return Optional.empty();
+    }
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
+}
+```
+
 ### <a name="changing-datasets-and-datapaths-without-retraining"></a>Cambio de conjuntos de datos y rutas de acceso de datos sin volver a entrenar
 
-Tal vez quiera entrenar e inferir en diferentes conjuntos de datos y rutas de acceso de datos. Por ejemplo, puede que desee entrenar un conjunto de datos menor y escaso, pero inferir en el conjunto de datos completo. Puede cambiar los conjuntos de datos con la clave `DataSetDefinitionValueAssignments` en el argumento `json` de la solicitud. Puede cambiar las rutas de acceso de datos con `DataPathAssignments`. La técnica para ambos es similar:
+Tal vez quiera entrenar e inferir en diferentes conjuntos de datos y rutas de acceso de datos. Por ejemplo, puede que desee entrenar un conjunto de datos menor, pero sacar inferencias del conjunto de datos completo. Puede cambiar los conjuntos de datos con la clave `DataSetDefinitionValueAssignments` en el argumento `json` de la solicitud. Puede cambiar las rutas de acceso de datos con `DataPathAssignments`. La técnica para ambos es similar:
 
 1. En el script de definición de la canalización, cree un parámetro `PipelineParameter` para el conjunto de datos. Cree un `DatasetConsumptionConfig` o `DataPath` a partir de `PipelineParameter`:
 
@@ -155,7 +297,7 @@ Los cuadernos [Presentación del conjunto de datos y PipelineParameter](https://
 
 ## <a name="create-a-versioned-pipeline-endpoint"></a>Creación de un punto de conexión de canalización con versiones
 
-Puede crear un punto de conexión de canalización con varias canalizaciones publicadas detrás. Esto le proporciona un punto de conexión de REST fijo a medida que se recorre en iteración y se actualizan las canalizaciones de ML.
+Puede crear un punto de conexión de canalización con varias canalizaciones publicadas detrás. Esta técnica le proporciona un punto de conexión de REST fijo a medida que itera por las canalizaciones de ML y las actualiza.
 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
@@ -218,10 +360,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-Puede habilitarla de nuevo con `p.enable()`. Para más información, consulte la referencia de la [clase PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py&preserve-view=true).
+Puede habilitarla de nuevo con `p.enable()`. Para más información, consulte la referencia de la [clase PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?preserve-view=true&view=azure-ml-py).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Use [estos cuadernos de Jupyter en GitHub](https://aka.ms/aml-pipeline-readme) para explorar aún más canalizaciones de Machine Learning.
-- Consulte la ayuda de referencia del SDK para el paquete [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) y el paquete [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true).
+- Consulte la ayuda de referencia del SDK para el paquete [azureml-pipelines-core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) y el paquete [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py).
 - Consulte los [procedimientos](how-to-debug-pipelines.md) para obtener sugerencias sobre la depuración y la solución de problemas de canalizaciones.

@@ -1,18 +1,18 @@
 ---
 title: Administración del agente de servidores habilitados para Azure Arc
 description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Connected Machine de los servidores habilitados para Azure Arc.
-ms.date: 10/21/2020
+ms.date: 10/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371433"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130976"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 
-Después de la implementación inicial del agente de Connected Machine de los servidores habilitados para Azure Arc en Windows o Linux, debe volver a configurar el agente, actualizarlo o quitarlo del equipo si ha alcanzado la fase de retirada de su ciclo de vida. Puede administrar fácilmente estas tareas de mantenimiento rutinarias manualmente o de manera automática, lo que reduce los errores de funcionamiento y los gastos.
+Después de la implementación inicial del agente de Connected Machine de los servidores habilitados para Azure Arc en Windows o Linux, debe volver a configurar el agente, actualizarlo o quitarlo del equipo. Puede administrar fácilmente estas tareas de mantenimiento rutinarias manualmente o de manera automática, lo que reduce los errores de funcionamiento y los gastos.
 
 ## <a name="before-uninstalling-agent"></a>Antes de desinstalar el agente
 
@@ -38,7 +38,11 @@ En el caso de los servidores o máquinas que ya no quiera administrar con servid
 
 ## <a name="upgrading-agent"></a>Actualizar el agente
 
-El agente de Azure Connected Machine para Windows y Linux se puede actualizar a la versión más reciente de forma manual o automática según sus necesidades. En la tabla siguiente se describen los métodos admitidos para la actualización del agente.
+El agente de Azure Connected Machine se actualiza periódicamente para abordar correcciones de errores, mejoras de estabilidad y funcionalidades nuevas. [Azure Advisor](../../advisor/advisor-overview.md) identifica los recursos que no usan la versión más reciente del agente de la máquina y recomienda actualizar a la versión más reciente. Se le notificará cuando seleccione el servidor habilitado para Arc mediante la presentación de un banner en la página **Información general** o cuando acceder a Advisor a través de Azure Portal.
+
+El agente de Azure Connected Machine para Windows y Linux se puede actualizar a la versión más reciente de forma manual o automática según sus necesidades.
+
+En la tabla siguiente se describen los métodos admitidos para la actualización del agente.
 
 | Sistema operativo | Método de actualización |
 |------------------|----------------|

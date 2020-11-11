@@ -8,18 +8,18 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 50dbca7e32548380c6dbf338260b98ce59cda715
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 0fecc9fc954a1ac648e8f60badf69ad1d2e8f1cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122422"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126947"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Evitar la eliminación accidental de recursos compartidos de archivos de Azure
 
-Ahora Azure Storage ofrece eliminación temporal para recursos compartidos de archivos (versión preliminar). La eliminación temporal permite recuperar el recurso compartido de archivos cuando una aplicación u otro usuario de la cuenta de almacenamiento lo ha eliminado por error.
+Ahora Azure Storage ofrece eliminación temporal para recursos compartidos de archivos. La eliminación temporal permite recuperar el recurso compartido de archivos cuando una aplicación u otro usuario de la cuenta de almacenamiento lo ha eliminado por error.
 
-## <a name="how-soft-delete-preview-works"></a>Funcionamiento de la eliminación temporal (versión preliminar)
+## <a name="how-soft-delete-works"></a>Cómo funciona la eliminación temporal
 
 Cuando la eliminación temporal de recursos compartidos de archivos de Azure está habilitada, si se elimina uno de ellos, realiza la transición a un estado de eliminación temporal, en lugar de borrarse de forma permanente. Se puede configurar el tiempo durante el que los datos eliminados de forma temporal se pueden recuperar antes de que se eliminen permanentemente y durante este período de retención el recurso compartido se puede recuperar en cualquier momento. Después de recuperarlo, tanto el recurso compartido como todo su contenido, incluidas las instantáneas, se restaurarán al estado en que se encontraban antes de la eliminación. La eliminación temporal solo funciona a nivel de recurso compartido de archivos (los archivos individuales que se eliminen se borrarán de forma permanente).
 
@@ -29,15 +29,11 @@ Para eliminar de forma permanente un recurso compartido de archivos en un estado
 
 En el caso de los recursos compartidos de archivos Premium eliminados temporalmente, la cuota de recursos compartidos de archivos (el tamaño aprovisionado de un recurso compartido de archivos) se usa en el cálculo de la cuota de cuenta de almacenamiento total hasta la fecha de expiración del recurso compartido con eliminación temporal, cuando este se elimina de forma completa.
 
-## <a name="availability"></a>Disponibilidad
-
-La eliminación temporal de los recursos compartidos de archivos de Azure (versión preliminar) está disponible en todas las capas de almacenamiento, todos los tipos de cuenta de almacenamiento y en todas las regiones en que Azure Files está disponible.
-
 ## <a name="configuration-settings"></a>Parámetros de configuración
 
 ### <a name="enabling-or-disabling-soft-delete"></a>Habilitación o deshabilitación de la eliminación temporal
 
-La eliminación temporal de recursos compartidos de archivos está habilitada en el nivel de cuenta de almacenamiento, a causa de ello, la configuración de eliminación temporal se aplica a todos los recursos compartidos de archivos de una cuenta de almacenamiento. La eliminación temporal se puede habilitar o deshabilitar en cualquier momento. Cuando cree una cuenta de almacenamiento, la eliminación temporal de recursos compartidos de archivos está deshabilitada de manera predeterminada mientras la característica está en versión preliminar pública. Una vez que la eliminación temporal esté disponible con carácter general, se habilitará de manera predeterminada. La eliminación temporal seguirá deshabilitada de manera predeterminada en las cuentas de almacenamiento existentes. Si ha configurado la [copia de seguridad de recursos compartidos de archivos de Azure ](../../backup/azure-file-share-backup-overview.md) para un recurso compartido de archivos de Azure, la eliminación temporal de recursos compartidos de archivos de Azure se habilitará automáticamente en la cuenta de almacenamiento del recurso compartido.
+La eliminación temporal de recursos compartidos de archivos está habilitada en el nivel de cuenta de almacenamiento, a causa de ello, la configuración de eliminación temporal se aplica a todos los recursos compartidos de archivos de una cuenta de almacenamiento. La eliminación temporal se puede habilitar o deshabilitar en cualquier momento. Cuando se crea una cuenta de almacenamiento, la eliminación temporal de recursos compartidos de archivos está deshabilitada de forma predeterminada, pero puede habilitarla durante la implementación o en cualquier momento posterior. La eliminación temporal seguirá deshabilitada de manera predeterminada en las cuentas de almacenamiento existentes. Si ha configurado la [copia de seguridad de recursos compartidos de archivos de Azure ](../../backup/azure-file-share-backup-overview.md) para un recurso compartido de archivos de Azure, la eliminación temporal de recursos compartidos de archivos de Azure se habilitará automáticamente en la cuenta de almacenamiento del recurso compartido.
 
 Si habilita la eliminación temporal para recursos compartidos de archivos, elimina algunos y, después, deshabilita la eliminación temporal, si durante ese período se han guardado los recursos compartidos, todavía podrá acceder a ellos y recuperarlos. Al habilitar la eliminación temporal, también debe configurar el período de retención.
 

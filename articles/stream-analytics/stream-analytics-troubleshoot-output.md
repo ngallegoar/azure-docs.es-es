@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6942fd68625fd8eac18ea899330fd99f31f771f7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903194"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346118"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solución de problemas en las salidas de Azure Stream Analytics
 
@@ -71,7 +71,7 @@ Para ver los detalles, seleccione el trabajo de streaming en Azure Portal y sele
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Advertencia de infracción clave con salida de Azure SQL Database
 
-Al configurar una instancia de Azure SQL Database como salida para un trabajo de Stream Analytics, inserta registros en bloque en la tabla de destino. En general, Azure Stream Analytics garantiza [al menos una entrega](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) al receptor de salida. Todavía puede [lograr la entrega exactamente una vez]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) en una salida SQL si la tabla SQL tiene definida una restricción única.
+Al configurar una instancia de Azure SQL Database como salida para un trabajo de Stream Analytics, inserta registros en bloque en la tabla de destino. En general, Azure Stream Analytics garantiza [al menos una entrega](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) al receptor de salida. Todavía puede [lograr la entrega exactamente una vez]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) en una salida SQL si la tabla SQL tiene definida una restricción única.
 
 Al configurar restricciones de clave única en la tabla SQL, Azure Stream Analytics quita los registros duplicados. Divide los datos en lotes e inserta los lotes de forma recursiva hasta que se encuentra un único registro duplicado. El proceso de división e inserción omite los duplicados de uno en uno. En el caso de un trabajo de streaming que tiene muchas filas duplicadas, el proceso es ineficaz y lleva mucho tiempo. Si ve varios mensajes de advertencia de infracción de clave en el registro de actividad para la última hora, es probable que la salida de SQL esté ralentizando todo el trabajo.
 
@@ -81,20 +81,42 @@ Tenga en cuenta las observaciones siguientes al configurar IGNORE_DUP_KEY para v
 
 * No se puede establecer IGNORE_DUP_KEY en una clave principal o una restricción única que use ALTER INDEX. Debe quitar el índice y volver a crearlo.  
 * Puede establecer IGNORE_DUP_KEY mediante el uso de ALTER INDEX para un índice único. Esta instancia es diferente de una restricción PRIMARY KEY/UNIQUE y se crea con una definición CREATE INDEX o INDEX.  
-* La opción IGNORE_DUP_KEY no se aplica a los índices de almacén de columna, ya que en ellos no se puede exigir exclusividad.  
+* La opción IGNORE_DUP_KEY no se aplica a los índices de almacén de columna, ya que en ellos no se puede exigir exclusividad.
+
+## <a name="sql-output-retry-logic"></a>Lógica de reintentos de salida de SQL
+
+Cuando un trabajo de Stream Analytics con salida SQL recibe el primer lote de eventos, se producen los siguientes pasos:
+
+1. El trabajo intenta conectarse a SQL.
+2. El trabajo captura el esquema de la tabla de destino.
+3. El trabajo valida los nombres y tipos de columna con el esquema de la tabla de destino.
+4. El trabajo prepara una tabla de datos en memoria a partir de los registros de salida del lote.
+5. El trabajo escribe la tabla de datos en SQL mediante BulkCopy [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver).
+
+Durante estos pasos, la salida de SQL puede experimentar los siguientes tipos de errores:
+
+* [Errores transitorios](../azure-sql/database/troubleshoot-common-errors-issues.md#transient-fault-error-messages-40197-40613-and-others) que se reintentan con una estrategia de retroceso exponencial. El intervalo de reintento mínimo depende del código de error individual, pero los intervalos suelen ser inferiores a 60 segundos. El límite superior puede ser de cinco minutos como máximo. 
+
+   [Errores de inicio de sesión](../azure-sql/database/troubleshoot-common-errors-issues.md#unable-to-log-in-to-the-server-errors-18456-40531) y [problemas de firewall](../azure-sql/database/troubleshoot-common-errors-issues.md#cannot-connect-to-server-due-to-firewall-issues) que se reintentan al menos cinco minutos después del intento anterior y hasta que son correctos.
+
+* Los errores de datos, como los errores de conversión y las infracciones de las restricciones de esquema, se administran con la directiva de errores de salida. Para administrar estos errores, se reintentan lotes de división binaria hasta que el registro que causa el error se omite o reintenta. La infracción de restricción de la clave única principal [siempre se administra](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output).
+
+* Los errores no transitorios pueden producirse cuando hay problemas con el servicio SQL o defectos de código interno. Por ejemplo, con errores que indican que el grupo elástico está próximo a su límite de almacenamiento (Código 1132), los reintentos no resuelven el error. En estos casos, el trabajo Stream Analytics experimenta una [degradación](job-states.md).
+* Se pueden producir tiempos de espera de `BulkCopy` durante esta operación en el paso 5. `BulkCopy` puede experimentar en ocasiones tiempos de espera de la operación. El tiempo de espera configurado mínimo predeterminado es de cinco minutos y se duplica cuando se alcanza de forma consecutiva.
+Cuando el tiempo de espera es superior a 15 minutos, la sugerencia de tamaño de lote máximo para `BulkCopy` se reduce a la mitad hasta que se dejan 100 eventos por lote.
 
 ## <a name="column-names-are-lowercase-in-azure-stream-analytics-10"></a>Los nombres de columna están en minúsculas en Azure Stream Analytics (1.0)
 
-Cuando se usa el nivel de compatibilidad original (1.0), Azure Stream Analytics cambia los nombres de columna a minúsculas. Este comportamiento se corrigió en niveles de compatibilidad posteriores. Para poder conservar las mayúsculas, cambie al nivel de compatibilidad 1.1 o posterior. Para obtener más información, consulte [Nivel de compatibilidad para los trabajos de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+Cuando se usa el nivel de compatibilidad original (1.0), Azure Stream Analytics cambia los nombres de columna a minúsculas. Este comportamiento se corrigió en niveles de compatibilidad posteriores. Para poder conservar las mayúsculas, cambie al nivel de compatibilidad 1.1 o posterior. Para obtener más información, consulte [Nivel de compatibilidad para los trabajos de Stream Analytics](./stream-analytics-compatibility-level.md).
 
 ## <a name="get-help"></a>Obtener ayuda
 
-Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referencia de API de REST de administración de Azure Stream Analytics](/rest/api/streamanalytics/)

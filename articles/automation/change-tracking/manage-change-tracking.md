@@ -3,14 +3,14 @@ title: Administración de Change Tracking e Inventario en Azure Automation
 description: En este artículo se describe cómo utilizar Change Tracking e Inventario para realizar el seguimiento de los cambios en el software y en los servicios de Microsoft en su entorno.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: a599bb6f07683540f5b12c6a69d6565161f89a4f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209355"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288750"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Administración de Change Tracking e Inventario
 
@@ -37,29 +37,36 @@ Use los pasos siguientes para configurar el seguimiento de archivos en equipos W
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. En Azure Portal, seleccione **Todos los servicios** . En la lista de recursos, escriba **Automation** . Cuando comience a escribir, la lista filtrará las sugerencias en función de la entrada. Seleccione **Cuentas de Automation** .
+2. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Automation**. Cuando comience a escribir, la lista filtrará las sugerencias en función de la entrada. Seleccione **Cuentas de Automation**.
 
 3. En la lista de cuentas de Automation, seleccione la cuenta que eligió al habilitar Seguimiento de cambios e inventario.
 
-4. En la cuenta de Automation, seleccione **Change Tracking** en **Administración de configuración** .
+4. En la cuenta de Automation, seleccione **Change Tracking** en **Administración de configuración**.
 
 5. Seleccione **Editar configuración** (el símbolo de engranaje).
 
 6. En la página Configuración del área de trabajo, seleccione **Archivos de Windows** y, a continuación, haga clic en **+ Agregar** para agregar un nuevo archivo para realizar su seguimiento.
 
-7. En la opción Agregar archivo de Windows para el panel de Change Tracking, escriba la información del archivo o carpeta cuyo seguimiento se va a realizar y haga clic en **Guardar** . En la tabla siguiente se definen las propiedades que puede usar para la información.
+7. En la opción Agregar archivo de Windows para el panel de Change Tracking, escriba la información del archivo o carpeta cuyo seguimiento se va a realizar y haga clic en **Guardar**. En la tabla siguiente se definen las propiedades que puede usar para la información.
 
     |Propiedad  |Descripción  |
     |---------|---------|
     |habilitado     | True si se aplica la configuración y False en caso contrario.        |
     |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
     |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
-    |Escriba la ruta de acceso     | Ruta de acceso para buscar el archivo, por ejemplo: **c:\temp\\\*.txt** . También puede usar variables de entorno, como `%winDir%\System32\\\*.*`.       |
+    |Escriba la ruta de acceso     | Ruta de acceso para buscar el archivo, por ejemplo: **c:\temp\\\*.txt**. También puede usar variables de entorno, como `%winDir%\System32\\\*.*`.       |
     |Tipo de ruta de acceso     | Tipo de ruta de acceso. Los valores posibles son Archivo y Carpeta.        |    
     |Recursividad     | True si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar y False en caso contrario.        |    
     |Cargar contenido de archivo | True para cargar el contenido del archivo en los cambios bajo seguimiento y False en caso contrario.|
 
-8. Asegúrese de especificar True para **Cargar contenido de archivo** . Esta opción habilita el seguimiento del contenido del archivo para la ruta de acceso de archivo indicada.
+    Si planea configurar la supervisión de archivos y carpetas con caracteres comodín, tenga en cuenta lo siguiente:
+
+    - Los caracteres comodín son necesarios para realizar el seguimiento de varios archivos.
+    - Los caracteres comodín solo se pueden usar en el último segmento de una ruta de acceso, como *C:\carpeta\archivo* o */etc/* .conf*.
+    - Si una variable de entorno tiene una ruta de acceso no válida, la validación será correcta, pero se producirá un error en dicha ruta cuando se ejecute el inventario.
+    - Al establecer la ruta de acceso, evite las rutas de acceso generales como *c:* .**, ya que daría lugar a que se recorrieran demasiadas carpetas.
+
+8. Asegúrese de especificar True para **Cargar contenido de archivo**. Esta opción habilita el seguimiento del contenido del archivo para la ruta de acceso de archivo indicada.
 
 ### <a name="configure-file-tracking-on-linux"></a>Configuración del seguimiento de archivos en Linux
 
@@ -69,21 +76,21 @@ Use los pasos siguientes para configurar el seguimiento de archivos en equipos L
 
 2. En la página Configuración del área de trabajo, seleccione **Archivos de Linux** y, a continuación, seleccione **+ Agregar** para agregar un nuevo archivo para realizar su seguimiento.
 
-3. En la página **Agregar archivo de Linux para el seguimiento de cambios** , escriba la información del archivo o directorio cuyo seguimiento se va a realizar y, después, seleccione **Guardar** . En la tabla siguiente se definen las propiedades que puede usar para la información.
+3. En la página **Agregar archivo de Linux para el seguimiento de cambios** , escriba la información del archivo o directorio cuyo seguimiento se va a realizar y, después, seleccione **Guardar**. En la tabla siguiente se definen las propiedades que puede usar para la información.
 
     |Propiedad  |Descripción  |
     |---------|---------|
     |habilitado     | True si se aplica la configuración y False en caso contrario.        |
     |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
     |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
-    |Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: **/etc/*.conf** .       |
+    |Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: **/etc/*.conf**.       |
     |Tipo de ruta de acceso     | Tipo de ruta de acceso. Los valores son Archivo y Directorio.        |
     |Recursividad     | True si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar y False en caso contrario.        |
     |Usar sudo     | True si se usa sudo al buscar el elemento y False en caso contrario.         |
     |Vínculos     | Configuración que determina cómo tratar los vínculos simbólicos cuando se recorren directorios. Los valores posibles son:<br> Omitir: ignora los vínculos simbólicos y no incluye los archivos y directorios de referencia.<br>Seguir: sigue los vínculos simbólicos durante la recursión y también incluye los archivos o directorios de referencia.<br>Administrar: sigue los vínculos simbólicos y permite modificar el contenido devuelto.<br>**Nota:** No se recomienda la opción Administrar, ya que no admite la recuperación del contenido del archivo.    |
     |Cargar contenido de archivo | True para cargar el contenido del archivo en los cambios bajo seguimiento y False en caso contrario. |
 
-4. Asegúrese de especificar **True** para **Cargar contenido de archivo** . Esta opción habilita el seguimiento del contenido del archivo para la ruta de acceso de archivo indicada.
+4. Asegúrese de especificar **True** para **Cargar contenido de archivo**. Esta opción habilita el seguimiento del contenido del archivo para la ruta de acceso de archivo indicada.
 
    ![Agregar archivo de Linux](./media/manage-change-tracking/add-linux-file.png)
 
@@ -102,17 +109,17 @@ Siga los pasos a continuación para habilitar el seguimiento de los cambios en e
 
 1. Seleccione **Editar configuración** (el símbolo de engranaje).
 
-2. Seleccione **Contenido del archivo** y, después, seleccione **Vínculo** . Esta acción abre la página **Agregar ubicación de contenido para Change Tracking** .
+2. Seleccione **Contenido del archivo** y, después, seleccione **Vínculo**. Esta acción abre la página **Agregar ubicación de contenido para Change Tracking**.
 
    ![Agregar una ubicación de contenido](./media/manage-change-tracking/enable.png)
 
 3. Seleccione la suscripción y la cuenta de almacenamiento que se va a usar para almacenar el contenido del archivo.
 
-5. Si desea habilitar el seguimiento del contenido de los archivos para todos los archivos que se sigan, seleccione **Activar** para **cargar el contenido del archivo para todas las configuraciones** . Puede cambiar esto para la ruta de acceso de cada archivo más adelante.
+5. Si desea habilitar el seguimiento del contenido de los archivos para todos los archivos que se sigan, seleccione **Activar** para **cargar el contenido del archivo para todas las configuraciones**. Puede cambiar esto para la ruta de acceso de cada archivo más adelante.
 
    ![Establecimiento de la cuenta de almacenamiento](./media/manage-change-tracking/storage-account.png)
 
-6. Change Tracking e Inventario muestran los URI de la cuenta de almacenamiento y la firma de acceso compartido (SAS) cuando habilita el seguimiento de cambios del contenido de archivos. Las firmas expiran después de 365 días y puede volver a crearlas seleccionando **Regenerar** .
+6. Change Tracking e Inventario muestran los URI de la cuenta de almacenamiento y la firma de acceso compartido (SAS) cuando habilita el seguimiento de cambios del contenido de archivos. Las firmas expiran después de 365 días y puede volver a crearlas seleccionando **Regenerar**.
 
    ![Enumeración de claves de cuenta](./media/manage-change-tracking/account-keys.png)
 
@@ -134,11 +141,11 @@ Use los pasos siguientes para configurar las claves del registro para realizar u
 
 1. En la página **Seguimiento de cambios** de la cuenta de Automation, seleccione **Editar configuración** (el símbolo del engranaje).
 
-2. En la página Configuración del área de trabajo, seleccione **Registro de Windows** .
+2. En la página Configuración del área de trabajo, seleccione **Registro de Windows**.
 
 3. Seleccione **+ Agregar** para agregar una nueva clave del Registro para realizar su seguimiento.
 
-4. En la página **Agregar registro de Windows a Change Tracking** , escriba la información de la clave cuyo seguimiento se va a realizar y seleccione **Guardar** . En la tabla siguiente se definen las propiedades que puede usar para la información.
+4. En la página **Agregar registro de Windows a Change Tracking** , escriba la información de la clave cuyo seguimiento se va a realizar y seleccione **Guardar**. En la tabla siguiente se definen las propiedades que puede usar para la información. Al especificar una ruta de acceso del registro, debe ser la clave y no un valor.
 
     |Propiedad  |Descripción  |
     |---------|---------|

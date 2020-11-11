@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635786"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317077"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -51,7 +51,7 @@ Los puntos de conexión privados administrados se crean en la red virtual admini
 
 ![Nuevo punto de conexión privado administrado](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory admite vínculos privados. El vínculo privado le permite acceder a servicios de Azure (PaaS) [como Azure Storage, Azure Cosmos DB o Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)].
+Azure Data Factory admite vínculos privados. El vínculo privado le permite acceder a servicios de Azure (PaaS), como Azure Storage, Azure Cosmos DB o Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse).
 
 Cuando se usa un vínculo privado, el tráfico entre los almacenes de datos y la red virtual administrada atraviesa completamente la red troncal de Microsoft. Private Link protege frente a los riesgos de la filtración de datos. El vínculo privado a un recurso se establece mediante la creación de un punto de conexión privado.
 
@@ -81,7 +81,7 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (sin incluir Azure SQL Managed Instance)
-- Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)
+- Azure Synapse Analytics (anteriormente SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Servicio Azure Private Link

@@ -1,5 +1,5 @@
 ---
-title: 'Vistas del sistema admitidas en Synapse SQL: versión preliminar de áreas de trabajo'
+title: Vistas del sistema admitidas en SQL de Synapse
 description: Vínculos a la documentación de las vistas del sistema admitidas en SQL de Synapse.
 author: filippopovic
 ms.service: synapse-analytics
@@ -8,20 +8,21 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7079bbcf3bd7cb7f6073b132cd558386744f6884
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4e4e6a1607fa42f4be07451f9aa0d8ff923d85d6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092773"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317335"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Vistas del sistema admitidas en SQL de Synapse
+
 Vínculos a la documentación de las instrucciones T-SQL admitidas en SQL de Synapse.
 
 > [!NOTE]
-> SQL a petición de Synapse solo admite vistas de catálogo de SQL Server.  
+> El grupo de SQL sin servidor de Synapse solo admite vistas de catálogo de SQL Server.  
 
-## <a name="sql-pool-catalog-views"></a>Vistas de catálogo del grupo de SQL
+## <a name="dedicated-sql-pool-and-serverless-sql-pool-catalog-views"></a>Vistas de catálogo del grupo de SQL dedicado y del grupo de SQL sin servidor
 
 * [sys.pdw_column_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-column-distribution-properties-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.pdw_distributions](/sql/relational-databases/system-catalog-views/sys-pdw-distributions-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -47,7 +48,7 @@ Vínculos a la documentación de las instrucciones T-SQL admitidas en SQL de Syn
 * [Sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (versión preliminar)
 * [Sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (versión preliminar)
 
-## <a name="sql-pool-dynamic-management-views-dmvs"></a>Vistas de administración dinámica (DMV) del grupo de SQL
+## <a name="dedicated-sql-pool-dynamic-management-views-dmvs"></a>Vistas de administración dinámica (DMV) del grupo de SQL dedicado
 
 * [sys.dm_pdw_dms_cores](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-cores-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_pdw_dms_external_work](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-external-work-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -69,9 +70,9 @@ Vínculos a la documentación de las instrucciones T-SQL admitidas en SQL de Syn
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-applicable-to-sql-pool"></a>DMV de SQL Server aplicables al grupo de SQL
+## <a name="sql-server-dmvs-applicable-to-dedicated-sql-pool"></a>Vistas de administración dinámica de SQL Server aplicables al grupo de SQL dedicado
 
-Las siguientes DMV son aplicables al grupo de SQL, pero, para ejecutarlas, es necesario conectarse a la base de datos **master**.
+Las siguientes vistas de administración dinámica son aplicables al grupo de SQL dedicado, pero, para ejecutarlas, es necesario conectarse a la base de datos **maestra**.
 
 * [sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -151,16 +152,16 @@ Las siguientes DMV son aplicables al grupo de SQL, pero, para ejecutarlas, es ne
 * [sys.types](/sql/relational-databases/system-catalog-views/sys-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.views](/sql/relational-databases/system-catalog-views/sys-views-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-available-in-sql-pool"></a>DMV de SQL Server disponibles en el grupo de SQL
+## <a name="sql-server-dmvs-available-in-dedicated-sql-pool"></a>Vistas de administración dinámica de SQL Server disponibles en el grupo de SQL dedicado
 
-El grupo de SQL expone muchas de las vistas de administración dinámica (DMV) de SQL Server. Estas vistas, cuando se consultan en el grupo de SQL, informan del estado de las instancias de SQL Database que se ejecutan en las distribuciones.
+El grupo de SQL expone muchas de las vistas de administración dinámica (DMV) de SQL Server. Cuando estas vistas se consultan en el grupo de SQL dedicado, informan del estado de las instancias de SQL Database que se ejecutan en las distribuciones.
 
 El grupo de SQL y el almacenamiento de datos paralelos (PDW) de Analytics Platform System utilizan las mismas vistas de sistema. Cada DMV tiene una columna llamada pdw_node_id, que es el identificador del nodo de ejecución.
 
 > [!NOTE]
 > Para utilizar estas vistas, inserte "pdw_nodes_" en el nombre, como se muestra en la tabla siguiente:
 
-| Nombre de DMV en el grupo de SQL | Artículo de Transact-SQL de SQL Server|
+| Nombre de DMV en el grupo de SQL dedicado | Artículo de Transact-SQL de SQL Server|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)|
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)|
@@ -222,9 +223,9 @@ El grupo de SQL y el almacenamiento de datos paralelos (PDW) de Analytics Platfo
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-top-version-generators-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-pool"></a>DMV de PolyBase de SQL Server 2016 disponibles en el grupo de SQL
+## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool"></a>Vistas de administración dinámica de PolyBase de SQL Server 2016 disponibles en el grupo de SQL dedicado
 
-Las siguientes DMV son aplicables al grupo de SQL, pero, para ejecutarlas, es necesario conectarse a la base de datos **master**.
+Las siguientes vistas de administración dinámica son aplicables al grupo de SQL dedicado, pero, para ejecutarlas, es necesario conectarse a la base de datos **maestra**.
 
 * [sys.dm_exec_compute_node_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-errors-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_exec_compute_node_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-status-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)

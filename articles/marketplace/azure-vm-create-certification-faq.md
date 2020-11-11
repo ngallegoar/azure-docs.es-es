@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f065b1bc98eab86542ecff73e1471e4d90cd4182
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677910"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339541"
 ---
 # <a name="vm-certification-troubleshooting"></a>Solución de problemas de certificación de máquina virtual
 
@@ -81,6 +81,45 @@ Entre los problemas de aprovisionamiento, se incluyen los siguientes escenarios:
 > Para obtener más información sobre la generalización de máquinas virtuales, consulte:
 > - [Documentación de Linux](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Documentación de Windows](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+
+
+## <a name="vhd-specifications"></a>Especificaciones del disco duro virtual
+
+### <a name="conectix-cookie-and-other-vhd-specifications"></a>Cookies de Conectix y otras especificaciones del disco duro virtual
+La cadena "conectix" forma parte de la especificación del disco duro virtual y se define como la "cookie" de 8 bytes del pie de página del disco duro virtual siguiente que identifica al creador del archivo. Todos los archivos .vhd creados por Microsoft tienen esta cookie. 
+
+Un blob con formato .vhd debe tener un pie de página de 512 bytes. Este es el formato de pie de página de .vhd:
+
+|Campos de pie de disco duro|Tamaño (bytes)|
+|---|---|
+Cookie|8
+Características|4
+Versión del formato de archivo|4
+Desplazamiento de los datos|8
+Marca de tiempo|4
+Aplicación de creación|4
+Versión de la creación|4
+Sistema operativo host de la creación|4
+Tamaño original|8
+Tamaño actual|8
+Geometría del disco|4
+Tipo de disco|4
+Suma de comprobación|4
+Id. único|16
+Estado guardado|1
+Reservada|427
+
+
+### <a name="vhd-specifications"></a>Especificaciones del disco duro virtual
+Para garantizar una perfecta experiencia de publicación, asegúrese de que e **disco duro virtual cumple los siguientes criterios:**
+* La cookie debe contener la cadena "conectix".
+* El tipo de disco debe ser Fijo.
+* El tamaño virtual del disco duro virtual es de al menos 20 MB.
+* El disco duro virtual está alineado, es decir, el tamaño virtual debe ser un múltiplo de 1 MB.
+* La longitud del blob del disco duro virtual = tamaño virtual + longitud de pie de página del disco duro virtual (512).
+
+Puede descargar la especificación del disco duro virtual [aquí](https://www.microsoft.com/download/details.aspx?id=23850).
+
 
 ## <a name="software-compliance-for-windows"></a>Compatibilidad de software para Windows
 

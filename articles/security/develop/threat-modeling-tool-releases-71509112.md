@@ -8,12 +8,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: 780ddc614feef492dafa54862abbea9552496274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b0afdd90f2a1413c7f8364fc4518c4d1116454a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87539822"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913592"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool, versión de disponibilidad general 7.1.50911.2: 12 de septiembre de 2018
 
@@ -65,13 +65,13 @@ El usuario puede hacer clic en el texto de mitigación y usar el control de zoom
 
 Se quitó la característica "Abrir desde OneDrive" de la versión preliminar. Los usuarios con "Recently Opened Models" (Modelos abiertos recientemente) que se guardaron en OneDrive recibirán el siguiente error.
 
-![Eliminada característica de OneDrive](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
+![Captura de pantalla en la que se muestra un error: Error al abrir el archivo "Referencia a objeto no establecida como instancia de un objeto".](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
 #### <a name="workaround"></a>Solución alternativa
 
 Se recomienda a los usuarios de OneDrive usar el cliente [OneDrive para Windows](https://onedrive.live.com/about/en-us/download/) de Microsoft para acceder a sus archivos almacenados en OneDrive mediante el cuadro de diálogo estándar para abrir un modelo.
 
-![Eliminada característica de OneDrive](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
+![Captura de pantalla en la que se muestra OneDrive seleccionado en el cuadro de diálogo Abrir un modelo.](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>Mi organización usa la versión 2016 de la herramienta, ¿puedo usar el conjunto de galerías de símbolos de Azure?
 

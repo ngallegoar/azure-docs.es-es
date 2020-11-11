@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 46adbfee24ab463acdc4687c0465bbf50527a329
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f681c6c453c9c0955092c4f1574a54ea2c9973f5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790651"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126658"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Estrategias de desarrollo y patrones de aplicación para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -121,7 +121,7 @@ El diagrama siguiente muestra cómo se pueden colocar las capas de aplicación e
 ![Patrón de aplicación: escalabilidad horizontal del nivel de presentación](./media/application-patterns-development-strategies/IC728010.png)
 
 ### <a name="best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier"></a>Prácticas recomendadas para patrones de dos, tres o n niveles que tienen varias máquinas virtuales en un solo nivel
-Se recomienda colocar las máquinas virtuales que pertenecen al mismo nivel en el mismo servicio en la nube y en el mismo conjunto de disponibilidad. Por ejemplo, coloque un conjunto de servidores web en **CloudService1** y **AvailabilitySet1** y un conjunto de servidores de bases de datos en **CloudService2** y **AvailabilitySet2** . Un conjunto de disponibilidad de Azure le permite colocar los nodos de alta disponibilidad en dominios de error independientes y dominios de actualización.
+Se recomienda colocar las máquinas virtuales que pertenecen al mismo nivel en el mismo servicio en la nube y en el mismo conjunto de disponibilidad. Por ejemplo, coloque un conjunto de servidores web en **CloudService1** y **AvailabilitySet1** y un conjunto de servidores de bases de datos en **CloudService2** y **AvailabilitySet2**. Un conjunto de disponibilidad de Azure le permite colocar los nodos de alta disponibilidad en dominios de error independientes y dominios de actualización.
 
 Para sacar provecho de varias instancias de máquina virtual de un nivel, es preciso configurar el Equilibrador de carga de Azure entre los niveles de la aplicación. Para configurarlo en cada nivel, cree un extremo de carga equilibrada en las máquinas virtuales de cada uno de los niveles por separado. En el caso de un nivel concreto, cree primero las máquinas virtuales en el mismo servicio en la nube. De esta forma, se asegurará de que tengan la misma dirección IP virtual pública. A continuación, cree un extremo en una de las máquinas virtuales de dicho nivel. Seguidamente, asigne el mismo extremo a las demás máquinas virtuales de ese nivel para equilibrar la carga. Al crear un conjunto de carga equilibrada, el tráfico se distribuye entre varias máquinas virtuales y también se permite que el Equilibrador de carga determine qué nodo se debe conectar cuando se produzca un error en un nodo de la máquina virtual de back-end. Por ejemplo, la existencia de varias instancias en los servidores web detrás de un equilibrador de carga garantiza la alta disponibilidad del nivel de presentación.
 
@@ -191,11 +191,11 @@ El siguiente diagrama muestra un escenario local y su solución con la nube habi
 
 Como muestra el diagrama, el Equilibrador de carga de Azure distribuye el tráfico entre varias máquinas virtuales y determina el servidor web o el servidor de aplicaciones al que se realiza la conexión. La existencia de varias instancias en los servidores web y de aplicaciones detrás de un equilibrador de carga garantiza la alta disponibilidad de los niveles de presentación y de empresa. Para obtener más información, consulte [Prácticas recomendadas para patrones de aplicación que requieren HADR de SQL](#best-practices-for-application-patterns-requiring-sql-hadr).
 
-![Patrones de aplicaciones con Cloud Services](./media/application-patterns-development-strategies/IC728013.png)
+![En el diagrama se muestran máquinas virtuales o físicas locales conectadas a instancias de rol web en una red virtual de Azure a través de un equilibrador de carga de Azure.](./media/application-patterns-development-strategies/IC728013.png)
 
 Otro enfoque para implementar este patrón de aplicación es usar un rol web consolidado que contenga componentes tanto del nivel de presentación como del nivel de empresa, como se muestra en el siguiente diagrama. Este patrón de aplicación es útil para aplicaciones que requieren diseño con estado. Puesto que Azure proporciona nodos de proceso sin estado en los roles web y de trabajo, se recomienda implementar una lógica para almacenar el estado de la sesión mediante una de las siguientes tecnologías: [Azure Caching](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [Azure Table Storage](../../../cosmos-db/tutorial-develop-table-dotnet.md) o [Azure SQL Database](../../database/sql-database-paas-overview.md).
 
-![Patrones de aplicaciones con Cloud Services](./media/application-patterns-development-strategies/IC728014.png)
+![En el diagrama se muestran máquinas virtuales o físicas locales conectadas a instancias de rol web o de trabajo consolidadas en una red virtual de Azure.](./media/application-patterns-development-strategies/IC728014.png)
 
 ## <a name="pattern-with-azure-virtual-machines-azure-sql-database-and-azure-app-service-web-apps"></a>Patrón con Azure Virtual Machines, Azure SQL Database y Azure App Service (Web Apps)
 El objetivo principal de este patrón de aplicación es mostrarle cómo combinar los componentes de infraestructura como servicio (IaaS) de Azure con los componentes de plataforma como servicio (PaaS) de Azure en una solución. Este patrón se centra en Azure SQL Database para el almacenamiento de datos relacionales. No incluye SQL Server en una máquina virtual de Azure, que forma parte de la infraestructura de Azure como oferta de servicio.

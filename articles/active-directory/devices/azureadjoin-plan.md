@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3587ef6be9d6c9969dff5d1af2181ed51aea7d29
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653220"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308275"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -90,8 +90,8 @@ No se puede usar las tarjetas inteligentes ni la autenticación basada en certif
 
 Si crea usuarios en:
 
-- **Active Directory local**, debe sincronizarlos con Azure AD mediante [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
-- **Azure AD**, no se requiere ninguna configuración adicional.
+- **Active Directory local** , debe sincronizarlos con Azure AD mediante [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
+- **Azure AD** , no se requiere ninguna configuración adicional.
 
 Los nombres principales de usuario locales son distintos de los nombres principales de usuario de Azure AD no se admiten en los dispositivos unidos a Azure AD. Si los usuarios usan un UPN local, debe planear usar su UPN principal en Azure AD.
 
@@ -116,10 +116,10 @@ La característica Administración de dispositivos para dispositivos unidos a Az
 
 Existen dos enfoques para la administración de dispositivos unidos a Azure AD:
 
-- **Solo MDM**: un dispositivo lo administra exclusivamente un proveedor de MDM como Intune. Todas las directivas se entregan como parte del proceso de inscripción de MDM. Para los clientes de Azure AD Premium o EMS, la inscripción de MDM es un paso automatizado que forma parte de una unión a Azure AD.
-- **Administración conjunta**: un dispositivo lo administran un proveedor de MDM y SCCM. En este enfoque, el agente de SCCM se instala en un dispositivo administrado por MDM para administrar determinados aspectos.
+- **Solo MDM** : un dispositivo lo administra exclusivamente un proveedor de MDM como Intune. Todas las directivas se entregan como parte del proceso de inscripción de MDM. Para los clientes de Azure AD Premium o EMS, la inscripción de MDM es un paso automatizado que forma parte de una unión a Azure AD.
+- **Administración conjunta** : un dispositivo lo administran un proveedor de MDM y SCCM. En este enfoque, el agente de SCCM se instala en un dispositivo administrado por MDM para administrar determinados aspectos.
 
-Si está usando directivas de grupo, evalúe la paridad de la directiva de MDM mediante la [herramienta de análisis de migración de MDM (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
+Si usa directivas de grupo, evalúe la paridad de directivas de GPO y MDM mediante los [análisis de directivas de grupo](/mem/intune/configuration/group-policy-analytics) en Microsoft Endpoint Manager. 
 
 Revise las directivas compatibles y no compatibles para determinar si puede usar una solución MDM en lugar de las directivas de grupo. Para las directivas no compatibles, tenga en cuenta lo siguiente:
 
@@ -187,13 +187,13 @@ La conexión a Escritorio remoto para dispositivos unidos a Azure AD requiere qu
 A partir de la actualización 2004 de Windows 10, los usuarios también pueden usar el escritorio remoto desde un dispositivo con Windows 10 registrado en Azure AD a un dispositivo unido a Azure AD. 
 
 ## <a name="understand-your-provisioning-options"></a>Explicación de las opciones de aprovisionamiento
-**Nota**: No se pueden implementar los dispositivos unidos a Azure AD mediante la Herramienta de preparación del sistema (Sysprep) o herramientas de creación de imágenes similares
+**Nota** : No se pueden implementar los dispositivos unidos a Azure AD mediante la Herramienta de preparación del sistema (Sysprep) o herramientas de creación de imágenes similares
 
 Puede aprovisionar la unión a Azure AD con los siguientes enfoques:
 
-- **Autoservicio en la configuración o en Configuración**: en el modo de autoservicio, los usuarios se someten al proceso de unión a Azure AD durante la experiencia de configuración rápida o desde la Configuración de Windows. Para obtener más información, consulte [Una su dispositivo de trabajo a la red de su organización](../user-help/user-help-join-device-on-network.md). 
-- **Windows Autopilot**: permite la configuración previa de dispositivos para una experiencia más fluida en la configuración rápida para realizar una unión a Azure AD. Para obtener más información, consulte [Introducción a Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
-- **Inscripción masiva**: permite la unión a Azure AD controlada por un administrador mediante una herramienta de aprovisionamiento en bloque para configurar dispositivos. Para obtener más información, consulte [Inscripción masiva para dispositivos Windows](/intune/windows-bulk-enroll).
+- **Autoservicio en la configuración o en Configuración** : en el modo de autoservicio, los usuarios se someten al proceso de unión a Azure AD durante la experiencia de configuración rápida o desde la Configuración de Windows. Para obtener más información, consulte [Una su dispositivo de trabajo a la red de su organización](../user-help/user-help-join-device-on-network.md). 
+- **Windows Autopilot** : permite la configuración previa de dispositivos para una experiencia más fluida en la configuración rápida para realizar una unión a Azure AD. Para obtener más información, consulte [Introducción a Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Inscripción masiva** : permite la unión a Azure AD controlada por un administrador mediante una herramienta de aprovisionamiento en bloque para configurar dispositivos. Para obtener más información, consulte [Inscripción masiva para dispositivos Windows](/intune/windows-bulk-enroll).
  
 A continuación se incluye una comparación de estos tres enfoques 
  
@@ -219,7 +219,7 @@ Elija el enfoque o los enfoques de implementación. Para ello, revise la tabla a
 
 ## <a name="configure-your-device-settings"></a>Configuración de las opciones del dispositivo
 
-Azure Portal permite controlar la implementación de dispositivos unidos a Azure AD en su organización. Para configurar las opciones relacionadas, en la **página Azure Active Directory**, seleccione `Devices > Device settings`.
+Azure Portal permite controlar la implementación de dispositivos unidos a Azure AD en su organización. Para configurar las opciones relacionadas, en la **página Azure Active Directory** , seleccione `Devices > Device settings`.
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Los usuarios pueden unir dispositivos a Azure AD
 
@@ -243,13 +243,13 @@ Seleccione **Sí** si necesita que los usuarios ejecuten MFA al unir dispositivo
 
 Para poder configurar las opciones de movilidad, es posible que primero tenga que agregar un proveedor de MDM.
 
-**Para agregar un proveedor de MDM**:
+**Para agregar un proveedor de MDM** :
 
-1. En la página **Azure Active Directory**, en la sección **Administrar**, haga clic en `Mobility (MDM and MAM)` 
+1. En la página **Azure Active Directory** , en la sección **Administrar** , haga clic en `Mobility (MDM and MAM)` 
 1. Haga clic en **Agregar aplicación**.
 1. Seleccione su proveedor de MDM en la lista.
 
-   ![Adición de una aplicación](./media/azureadjoin-plan/04.png)
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Captura de pantalla de la página para agregar una aplicación de Azure Active Directory. Aparecen varios proveedores de M D M." border="false":::
 
 Seleccione su proveedor de MDM para configurar las opciones relacionadas. 
 
@@ -261,8 +261,8 @@ Seleccione **Algunos** o **Todos** en función del ámbito de la implementación
 
 En función del ámbito, se dará una de las siguientes situaciones: 
 
-- **El usuario está en el ámbito de MDM**: si tiene una suscripción a Azure AD Premium, la inscripción de MDM se automatiza junto con la unión a Azure AD. Todos los usuarios con ámbito deben tener una licencia adecuada para su MDM. Si se produce un error en la inscripción de MDM en este escenario, la unión a Azure AD también se revertirá.
-- **El usuario no está en el ámbito de MDM**: si los usuarios no están en el ámbito de MDM, la unión a Azure AD se completará sin ninguna inscripción a MDM. Esto da como resultado un dispositivo no administrado.
+- **El usuario está en el ámbito de MDM** : si tiene una suscripción a Azure AD Premium, la inscripción de MDM se automatiza junto con la unión a Azure AD. Todos los usuarios con ámbito deben tener una licencia adecuada para su MDM. Si se produce un error en la inscripción de MDM en este escenario, la unión a Azure AD también se revertirá.
+- **El usuario no está en el ámbito de MDM** : si los usuarios no están en el ámbito de MDM, la unión a Azure AD se completará sin ninguna inscripción a MDM. Esto da como resultado un dispositivo no administrado.
 
 ### <a name="mdm-urls"></a>Direcciones URL de MDM
 
@@ -272,7 +272,7 @@ Hay tres direcciones URL relacionadas con la configuración de MDM:
 - Dirección URL de descubrimiento de MDM 
 - Dirección URL de cumplimiento de MDM
 
-![Adición de una aplicación](./media/azureadjoin-plan/06.png)
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Captura de pantalla de parte de la sección de configuración de M D M de Azure Active Directory, con campos de U R L para las condiciones de uso, la detección y el cumplimiento de M D M." border="false":::
 
 Cada dirección URL tiene un valor predeterminado predefinido. Si estos campos están vacíos, póngase en contacto con su proveedor de MDM para obtener más información.
 

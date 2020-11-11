@@ -1,6 +1,6 @@
 ---
-title: Creación y actualización de estadísticas en tablas mediante Azure Synapse SQL
-description: Recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas en las tablas del grupo de SQL de Synapse.
+title: Creación y actualización de estadísticas en tablas
+description: Recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas en las tablas del grupo de SQL dedicado.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,35 +11,35 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9349c5d1c4e6255dc0854537bb7e93e3e636ce8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799322"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321064"
 ---
-# <a name="table-statistics-in-synapse-sql-pool"></a>Estadísticas de tablas en el grupo de SQL de Synapse
+# <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Estadísticas de tablas para el grupo de SQL dedicado en Azure Synapse Analytics
 
-En este artículo, encontrará recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas en las tablas del grupo de SQL.
+En este artículo, encontrará recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas en las tablas del grupo de SQL dedicado.
 
 ## <a name="why-use-statistics"></a>¿Por qué usar estadísticas?
 
-Cuanto más sepa el grupo de SQL acerca de los datos, más rápido puede ejecutar consultas en ellos. Después de cargar los datos en el grupo de SQL, la recopilación de estadísticas de los datos es una de las cosas más importantes que puede hacer para optimizar sus consultas.
+Cuanto más sepa el grupo de SQL dedicado sobre los datos, más rápido podrá ejecutar consultas en él. Después de cargar los datos en el grupo de SQL dedicado, la recopilación de estadísticas de los datos es una de las cosas más importantes que puede hacer para optimizar sus consultas.
 
-El optimizador de consultas del grupo de SQL está basado en el costo. Compara el costo de varios planes de consulta y elige el menor de ellos. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente.
+El optimizador de consultas del grupo de SQL dedicado se basa en el costo. Compara el costo de varios planes de consulta y elige el menor de ellos. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente.
 
 Por ejemplo, si el optimizador estima que la fecha en que se filtra la consulta devolverá una fila, se elegirá un plan. Si estima que la fecha seleccionada devolverá 1 millón de filas, devolverá un plan diferente.
 
 ## <a name="automatic-creation-of-statistic"></a>Creación automática de estadísticas
 
-Cuando la opción de base de datos AUTO_CREATE_STATISTICS está activada, el grupo de SQL analiza las consultas entrantes de los usuarios para buscar las estadísticas que faltan.
+Cuando la opción de base de datos AUTO_CREATE_STATISTICS está activada, el grupo de SQL dedicado analiza las consultas entrantes de los usuarios para buscar las estadísticas que faltan.
 
 Si faltan las estadísticas, el optimizador de consultas crea las estadísticas en columnas individuales en el predicado de consulta o en la condición de combinación para mejorar las estimaciones de cardinalidad del plan de consulta.
 
 > [!NOTE]
 > Actualmente, la creación automática de estadísticas está activada de forma predeterminada.
 
-Puede comprobar si el grupo de SQL tiene configurado AUTO_CREATE_STATISTICS; para ello, ejecute el siguiente comando:
+Para comprobar si el grupo de SQL dedicado tiene configurado AUTO_CREATE_STATISTICS, ejecute el siguiente comando:
 
 ```sql
 SELECT name, is_auto_create_stats_on
@@ -72,7 +72,7 @@ Para evitar la degradación del rendimiento cuantificable, debe asegurarse de qu
 > [!NOTE]
 > La creación de estadísticas también se registrará en [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) en un contexto de usuario diferente.
 
-Cuando se crean las estadísticas automáticas, estas adoptarán la forma de: _WA_Sys_<identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas que ya se han creado, ejecute el comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest):
+Cuando se crean las estadísticas automáticas, estas adoptarán la forma de: _WA_Sys_ <identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas que ya se han creado, ejecute el comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest):
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -82,11 +82,11 @@ El valor de table_name es el nombre de la tabla que contiene las estadísticas p
 
 ## <a name="update-statistics"></a>Actualizar estadísticas
 
-Uno de los procedimientos recomendados es la actualización diaria de estadísticas en columnas de fecha al agregarse nuevas fechas. Cada vez que se cargan nuevas filas en el grupo de SQL, se agregan nuevas fechas de carga o de transacción. Estas incorporaciones cambian la distribución de los datos y hacen que las estadísticas se queden obsoletas.
+Uno de los procedimientos recomendados es la actualización diaria de estadísticas en columnas de fecha al agregarse nuevas fechas. Cada vez que se cargan nuevas filas en el grupo de SQL dedicado, se agregan nuevas fechas de carga o de transacción. Estas incorporaciones cambian la distribución de los datos y hacen que las estadísticas se queden obsoletas.
 
 Es posible que las estadísticas de una columna de países o regiones en una tabla de clientes nunca tengan que actualizarse, ya que la distribución de valores no suele cambiar. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos.
 
-Sin embargo, si su grupo de SQL solo contiene un país o región y trae datos de un nuevo país o región, lo que provoca que se almacenen datos de varios países o regiones, debe actualizar las estadísticas en la columna de país o región.
+Sin embargo, si su grupo de SQL dedicado solo contiene un país o región y trae datos de un país o región nuevos, lo que hace que se almacenen datos de varios países o regiones, debe actualizar las estadísticas en la columna de país o región.
 
 Las siguientes son recomendaciones para actualizar las estadísticas:
 
@@ -101,7 +101,7 @@ No se trata de una pregunta que se pueda responder por la antigüedad de los dat
 
 No hay una vista de administración dinámica para determinar si los datos de la tabla han cambiado desde la última vez que se actualizaron las estadísticas.  Las dos consultas siguientes pueden ayudarle a determinar si las estadísticas están obsoletas.
 
-**Consulta 1**:  averiguar la diferencia entre el recuento de filas de las estadísticas (**stats_row_count**) y el recuento de filas real (**actual_row_count**). 
+**Consulta 1** :  averiguar la diferencia entre el recuento de filas de las estadísticas ( **stats_row_count** ) y el recuento de filas real ( **actual_row_count** ). 
 
 ```sql
 select 
@@ -150,7 +150,7 @@ on objIdsWithStats.object_id = actualRowCounts.object_id
 
 ```
 
-**Consulta 2**: averiguar la antigüedad de las estadísticas comprobando la última vez que se actualizaron las estadísticas en cada tabla. 
+**Consulta 2** : averiguar la antigüedad de las estadísticas comprobando la última vez que se actualizaron las estadísticas en cada tabla. 
 
 > [!NOTE]
 > Recuerde que, si hay un cambio material en la distribución de valores para una columna, debe actualizar las estadísticas independientemente de la última vez que se actualizaran.
@@ -182,11 +182,11 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Por ejemplo, las **columnas de fecha** de un grupo de SQL normalmente necesitan que las estadísticas se actualicen con frecuencia. Cada vez que se cargan nuevas filas en el grupo de SQL, se agregan nuevas fechas de carga o de transacción. Estas incorporaciones cambian la distribución de los datos y hacen que las estadísticas se queden obsoletas.
+Por ejemplo, las **columnas de fecha** de un grupo de SQL dedicado normalmente necesitan que las estadísticas se actualicen con frecuencia. Cada vez que se cargan nuevas filas en el grupo de SQL dedicado, se agregan nuevas fechas de carga o de transacción. Estas incorporaciones cambian la distribución de los datos y hacen que las estadísticas se queden obsoletas.
 
 Por el contrario, es posible que las estadísticas en una columna de género de una tabla de clientes no necesiten actualizarse nunca. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos.
 
-Si el grupo de SQL contiene solo un género y un nuevo requisito da como resultado varios géneros, tiene que actualizar las estadísticas en la columna de género.
+Si el grupo de SQL dedicado contiene solo un género y un nuevo requisito da como resultado varios géneros, tiene que actualizar las estadísticas en la columna de género.
 
 Para más información, consulte [Estadísticas](/sql/relational-databases/statistics/statistics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) en la guía general.
 
@@ -214,7 +214,7 @@ Estos ejemplos muestran cómo utilizar diversas opciones de creación de estadí
 
 Para crear estadísticas de una columna, especifique un nombre para el objeto de estadística y el nombre de la columna.
 
-Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, un grupo de SQL muestrea el **20 %** de la tabla cuando crea estadísticas.
+Esta sintaxis utiliza todas las opciones predeterminadas. De manera predeterminada, al crear las estadísticas se muestrea el  **20 %** de la tabla.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -282,13 +282,13 @@ Para crear un objeto de estadísticas de varias columnas, use los ejemplos anter
 > [!NOTE]
 > El histograma, que se utiliza para calcular el número de filas en el resultado de la consulta, solo está disponible para la primera columna de la definición del objeto de estadísticas.
 
-En este ejemplo, el histograma se encuentra en *product\_category*. Las estadísticas entre columnas se calculan en *product\_category* y *product\_sub_category*:
+En este ejemplo, el histograma se encuentra en *product\_category*. Las estadísticas entre columnas se calculan en *product\_category* y *product\_sub_category* :
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Dado que no hay una correlación entre *product\_category* y *product\_sub\_category*, un objeto de estadística de varias columnas puede ser útil si se tiene acceso a estas columnas al mismo tiempo.
+Dado que no hay una correlación entre *product\_category* y *product\_sub\_category* , un objeto de estadística de varias columnas puede ser útil si se tiene acceso a estas columnas al mismo tiempo.
 
 ### <a name="create-statistics-on-all-columns-in-a-table"></a>Creación de estadísticas en todas las columnas de una tabla
 
@@ -314,7 +314,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 ### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Utilizar un procedimiento almacenado para crear estadísticas de todas las columnas de una base de datos
 
-Un grupo de SQL no tiene un procedimiento almacenado del sistema equivalente a sp_create_stats en SQL Server. Este procedimiento almacenado crea un objeto de estadísticas de columna única en todas las columnas de la base de datos que ya no tienen estadísticas.
+El grupo de SQL dedicado no tiene un procedimiento almacenado del sistema equivalente a sp_create_stats en SQL Server. Este procedimiento almacenado crea un objeto de estadísticas de columna única en todas las columnas de la base de datos que ya no tienen estadísticas.
 
 El ejemplo siguiente le ayudará a empezar a trabajar con el diseño de la base de datos. Puede adaptarlo a sus necesidades.
 
@@ -462,7 +462,7 @@ UPDATE STATISTICS dbo.table1;
 Es fácil usar la instrucción UPDATE STATISTICS. Solo tiene que recordar que se actualizan *todas* las estadísticas de la tabla y, por tanto, puede realizar más trabajo del necesario. Si el rendimiento no es un problema, es la forma más fácil y completa de garantizar que las estadísticas están actualizadas.
 
 > [!NOTE]
-> Al actualizar todas las estadísticas de una tabla, un grupo de SQL realiza un análisis para crear muestras de la tabla para cada objeto de estadística. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.
+> Al actualizar todas las estadísticas de una tabla, el grupo de SQL dedicado realiza un análisis para muestrear los objetos de estadísticas de la tabla. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.
 
 Para obtener una implementación de un procedimiento `UPDATE STATISTICS`, consulte [Tablas temporales](sql-data-warehouse-tables-temporary.md). El método de implementación difiere ligeramente del procedimiento `CREATE STATISTICS`, pero el resultado es el mismo.
 
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS() muestra los datos contenidos en un objeto de estadística
 Los metadatos de encabezado sobre las estadísticas. El histograma muestra la distribución de valores en la primera columna de clave del objeto de estadísticas. El vector de densidad mide la correlación entre las columnas.
 
 > [!NOTE]
-> Un grupo de SQL calcula las estimaciones de cardinalidad con cualquiera de los datos en el objeto de estadísticas.
+> El grupo de SQL dedicado calcula las estimaciones de cardinalidad con cualquiera de los datos del objeto de estadísticas.
 
 ### <a name="show-header-density-and-histogram"></a>Mostrar el encabezado, la densidad y el histograma
 
@@ -578,7 +578,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 ## <a name="dbcc-show_statistics-differences"></a>Diferencias de DBCC SHOW_STATISTICS()
 
-DBCC SHOW_STATISTICS() se implementa de forma más estricta en un grupo de SQL en comparación con SQL Server:
+DBCC SHOW_STATISTICS() se implementa de forma más estricta en el grupo de SQL dedicado, en comparación con SQL Server:
 
 - No se admiten las características no documentadas.
 - No se puede usar Stats_stream.

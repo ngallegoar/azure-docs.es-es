@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
-ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dea9c0eec275c6a0596636c8625e52b8978bb9a6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121918"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130551"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Uso de Azure Blob Storage para administrar clientes potenciales de Marketplace comercial
 
@@ -33,7 +33,7 @@ ms.locfileid: "86121918"
 3. En Azure Portal, cree una cuenta de almacenamiento mediante el siguiente procedimiento.  
     1. En la barra de menús de la izquierda, seleccione **+ Crear un recurso**.  El panel **Nuevo** (hoja) se mostrará a la derecha.
     2. Seleccione **Almacenamiento** en el panel **Nuevo**.  En la derecha se mostrará una lista de **Destacados**.
-    3. Seleccione **Cuenta de almacenamiento** para iniciar la creación de la cuenta.  Siga las instrucciones que aparecen en el artículo [Crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    3. Seleccione **Cuenta de almacenamiento** para iniciar la creación de la cuenta.  Siga las instrucciones que aparecen en el artículo [Crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
     ![Pasos para crear una cuenta de Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
@@ -51,15 +51,15 @@ ms.locfileid: "86121918"
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Claves de Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    ![Captura de pantalla que muestra la página "Claves de acceso" con el cuadro de texto "Cadena de conexión" resaltado.](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
 6. En la página de la cuenta de almacenamiento, seleccione **Blobs**.
 
-   ![Claves de Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
+   ![Captura de pantalla de la página de la cuenta de Azure Storage con Blobs seleccionados](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. Cuando esté en la página de blobs, seleccione el botón **+ Contenedor**.
 
-8. Escriba un **nombre** para el nuevo contenedor. El nombre del contenedor debe escribirse en minúsculas, comenzar por una letra o un número, y solo puede incluir letras, números y el carácter de guión (-). Para más información sobre la nomenclatura de contenedores y blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y referencia a contenedores, blobs y metadatos).
+8. Escriba un **nombre** para el nuevo contenedor. El nombre del contenedor debe escribirse en minúsculas, comenzar por una letra o un número, y solo puede incluir letras, números y el carácter de guión (-). Para más información sobre la nomenclatura de contenedores y blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y referencia a contenedores, blobs y metadatos).
 
     Guarde este valor, ya que es el valor de *Nombre del contenedor* que tendrá que proporcionar en el portal de publicación para recibir clientes potenciales para su oferta de Marketplace.
 
@@ -74,7 +74,7 @@ ms.locfileid: "86121918"
 Cuando esté listo para configurar la información de administración de clientes potenciales de la oferta en el portal de publicación, siga estos pasos:
 
 1. Vaya a la página **Configuración de la oferta** de su oferta.
-2. En la sección **Clientes potenciales**, seleccione **Conectar**.
+2. En la sección **Clientes potenciales** , seleccione **Conectar**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Clientes potenciales":::
 
@@ -91,5 +91,3 @@ Cuando esté listo para configurar la información de administración de cliente
 
     > [!NOTE]
     > Debe terminar de configurar el resto de las partes de la oferta y publicarla para poder recibir clientes potenciales para la oferta.
-
-

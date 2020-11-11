@@ -1,6 +1,6 @@
 ---
-title: Consulta de archivos JSON con SQL a petición (versión preliminar)
-description: En esta sección se explica cómo leer archivos JSON mediante SQL a petición en Azure Synapse Analytics.
+title: Consulta de archivos de JSON mediante un grupo de SQL sin servidor (versión preliminar)
+description: En esta sección se explica cómo leer archivos de JSON mediante un grupo de SQL sin servidor en Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86ed3f005788627166c65b30398279f04388546c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dbad07401d77a15cd860a8ae492560c5fced819
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930856"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310610"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta de archivos JSON con SQL a petición (versión preliminar) en Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consulta de archivos de JSON mediante un grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
 
-En este artículo, aprenderá a escribir una consulta con SQL a petición (versión preliminar) en Azure Synapse Analytics. El objetivo de la consulta es leer archivos JSON con [OPENROWSET](develop-openrowset.md). 
+En este artículo, aprenderá a escribir una consulta mediante un grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics. El objetivo de la consulta es leer archivos JSON con [OPENROWSET](develop-openrowset.md). 
 - Archivos JSON estándar en los que se almacenan varios documentos JSON como una matriz JSON.
 - Archivos JSON delimitados por líneas, donde los documentos JSON se separan con un carácter de nueva línea. Las extensiones comunes para estos tipos de archivos son `jsonl`, `ldjson` y `ndjson`.
 

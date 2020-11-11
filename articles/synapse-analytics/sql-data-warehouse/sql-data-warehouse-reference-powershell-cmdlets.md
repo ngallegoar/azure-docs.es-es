@@ -1,6 +1,6 @@
 ---
-title: API de PowerShell y REST
-description: Busque los principales cmdlets de PowerShell para el grupo de SQL de Azure Synapse Analytics, incluidos aquellos para pausar y reanudar una base de datos.
+title: PowerShell y API REST para el grupo de SQL dedicado
+description: Los principales cmdlets de PowerShell para el grupo de SQL dedicado en Azure Synapse Analytics, incluidos aquellos para pausar y reanudar una base de datos.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: aaf290fac71fec0ff4106e3f8a1895dd65b94e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a86676f1a7939ff33deeeeae8d3f45c8238645d5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072900"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305293"
 ---
-# <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>API de REST y PowerShell para el grupo de SQL de Azure Synapse Analytics
+# <a name="powershell--rest-apis-for-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>PowerShell y API REST para el grupo de SQL dedicado en Azure Synapse Analytics 
 
-Muchas tareas de administración del grupo de SQL de Azure Synapse Analytics se pueden administrar mediante los cmdlets de Azure PowerShell o las API de REST.  A continuación, se muestran algunos ejemplos de cómo usar comandos de PowerShell para automatizar tareas comunes en el grupo de SQL.  Para ver algunos buenos ejemplos de REST, consulte el artículo [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)](sql-data-warehouse-manage-compute-rest-api.md).
+Muchas tareas de administración del grupo de SQL dedicado se pueden administrar mediante los cmdlets de Azure PowerShell o las API de REST.  A continuación, se muestran algunos ejemplos de cómo usar comandos de PowerShell para automatizar tareas comunes en el grupo de SQL dedicado.  Para ver algunos buenos ejemplos de REST, consulte el artículo [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

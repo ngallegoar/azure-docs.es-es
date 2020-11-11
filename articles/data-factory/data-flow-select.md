@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
-ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d8c4d1915e22ccabf193f1b34c5fc4797ead549
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84322097"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040235"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Transformación Selección en el flujo de datos de asignación
 
@@ -46,11 +46,11 @@ Si desea asignar muchas columnas a la vez o pasar las columnas desfasadas a un n
 
 Para agregar una asignación basada en reglas, haga clic en **Agregar asignación** y seleccione **Rule based mapping** (Asignación basada en reglas).
 
-![asignación basada en reglas](media/data-flow/rule2.png "Asignación basada en reglas")
+![Captura de pantalla que muestra la asignación basada en reglas seleccionada en Agregar asignación.](media/data-flow/rule2.png "Asignación basada en reglas")
 
 Cada asignación basada en reglas requiere dos entradas: la condición por la que buscar coincidencias y el nombre de cada columna asignada. Ambos valores se insertaron a través del [generador de expresiones](concepts-data-flow-expression-builder.md). En el cuadro de expresión de la izquierda, escriba la condición de coincidencia booleana. En el cuadro de expresión de la derecha, especifique a qué se asignará la columna coincidente.
 
-![asignación basada en reglas](media/data-flow/rule-based-mapping.png "Asignación basada en reglas")
+![Captura de pantalla que muestra una asignación.](media/data-flow/rule-based-mapping.png "Asignación basada en reglas")
 
 Use la sintaxis de `$$` para hacer referencia al nombre de entrada de una columna coincidente. Utilizando la imagen anterior como ejemplo, supongamos que un usuario desea buscar coincidencias en todas las columnas de cadena cuyos nombres tengan más de 6 caracteres. Si una columna de entrada se denomina `test`, la expresión `$$ + '_short'` cambiará el nombre de la columna `test_short`. Si esta es la única asignación que existe, todas las columnas que no cumplan la condición se quitarán de los datos de salida.
 
@@ -60,7 +60,7 @@ Los patrones coinciden con las columnas desfasadas y definidas. Para ver qué co
 
 Si hace clic en el icono del botón de contenido adicional hacia abajo, puede especificar una condición de asignación de regex. Una condición de asignación de regex coincide con todos los nombres de columna que coinciden con la condición regex especificada. Se puede usar en combinación con las asignaciones estándar basadas en reglas.
 
-![asignación basada en reglas](media/data-flow/regex-matching.png "Asignación basada en reglas")
+![Captura de pantalla que muestra la condición de asignación de regex con Hierarchy level (Nivel de jerarquía) y Name matches (Coincidencias de nombres).](media/data-flow/regex-matching.png "Asignación basada en reglas")
 
 El ejemplo anterior coincide con el patrón regex `(r)` o cualquier nombre de columna que contenga un "r" en minúscula. De forma similar a la asignación basada en reglas estándar, todas las columnas coincidentes se modifican por la condición de la derecha con `$$` sintaxis.
 
@@ -70,7 +70,7 @@ Si tiene varias coincidencias de expresiones regulares en el nombre de columna, 
 
 Si la proyección definida tiene una jerarquía, puede usar la asignación basada en reglas para asignar las subcolumnas de las jerarquías. Especifique una condición de coincidencia y la columna compleja cuyas subcolumnas desee asignar. Todas las subcolumnas coincidentes se enviarán con la regla para asignar un nombre de salida especificada a la derecha.
 
-![asignación basada en reglas](media/data-flow/rule-based-hierarchy.png "Asignación basada en reglas")
+![Captura de pantalla que muestra una asignación basada en reglas usando una jerarquía.](media/data-flow/rule-based-hierarchy.png "Asignación basada en reglas")
 
 En el ejemplo anterior se hace coincidir con todas las subcolumnas de la columna compleja `a`. `a` contiene dos subcolumnas `b` y `c`. El esquema de salida incluirá dos columnas `b` y `c`, ya que la condición para asignar un nombre de salida es `$$`.
 

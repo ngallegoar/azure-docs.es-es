@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f24eb64a5418a9963fd58611314ccbc6b72ec4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 27075af51c8deb886a060c81927f30bb70b5f638
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968470"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077666"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Preguntas más frecuentes sobre protección con contraseña de Azure AD local
 
@@ -32,9 +32,9 @@ La guía actual de Microsoft sobre este tema puede encontrarse en el siguiente v
 
 **P: ¿La protección con contraseña de Azure AD local se admite en las nubes que no son públicas?**
 
-No, la protección con contraseña de Azure AD local solo se admite en las nubes públicas. No se ha anunciado ninguna fecha de disponibilidad de la nube no pública.
+La protección de contraseñas de Azure AD local se admite en la nube pública y en la nube de Arlington. No se ha anunciado ninguna fecha para la disponibilidad en otras nubes.
 
-El portal de Azure AD permite la modificación de la configuración de "protección mediante contraseña para Windows Server Active Directory" en el entorno local, incluso en nubes no públicas. Estos cambios se conservarán; si no fuera así, nunca surtirán efecto. No se admite el registro de agentes o bosques de proxy local cuando se usan credenciales de nube no públicas y cualquier otro intento de registro siempre producirá un error.
+El portal de Azure AD permite la modificación de la configuración de "protección mediante contraseña para Windows Server Active Directory" en el entorno local, incluso en nubes no compatibles. Estos cambios se conservarán; si no fuera así, nunca surtirán efecto. No se admite el registro de agentes o bosques de proxy local en nubes no compatibles, y cualquier otro intento de registro siempre producirá un error.
 
 **P: ¿Cómo puedo aplicar las ventajas de la protección con contraseña de Azure AD a un subconjunto de mis usuarios locales?**
 

@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: bfd40d39907c4e69ded0fa257305d346ca261836
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34767c160c8229eb5b63806924926a46ea00cc2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320003"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127202"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Ejecución de Micro Focus Enterprise Server 5.0 en un contenedor de Docker en Azure
 
@@ -54,9 +54,9 @@ Antes de comenzar, revise estos requisitos previos:
 
     2.  Seleccione la **Región** y el **Grupo de recursos** en los que le gustaría implementarla.
 
-    3.  En **Opciones de disponibilidad**, use la configuración predeterminada.
+    3.  En **Opciones de disponibilidad** , use la configuración predeterminada.
 
-    4.  En **Nombre de usuario**, escriba la cuenta de administrador que desea utilizar y la contraseña.
+    4.  En **Nombre de usuario** , escriba la cuenta de administrador que desea utilizar y la contraseña.
 
     5.  Asegúrese de que el **puerto RDP 3389** está abierto. Solo debe estar expuesto públicamente este puerto, para que pueda iniciar sesión en la máquina virtual. A continuación, acepte todos los valores predeterminados y haga clic en **Revisar y crear**.
 
@@ -129,7 +129,7 @@ En este momento, la máquina virtual está ejecutándose y conectada a través d
 
 2.  Obtenga la dirección IP del contenedor acctdemo, para que Docker pueda actuar como servidor del Protocolo de configuración dinámica de host (DHCP) para los contenedores que administra:
 
-    1.  Obtenga el identificador del contenedor en ejecución. Escriba **Docker ps** en el símbolo del sistema y anote el identificador (**22a0fe3159d0**, en este ejemplo). Guárdelo para el siguiente paso.
+    1.  Obtenga el identificador del contenedor en ejecución. Escriba **Docker ps** en el símbolo del sistema y anote el identificador ( **22a0fe3159d0** , en este ejemplo). Guárdelo para el siguiente paso.
 
     2.  Para obtener la dirección IP del contenedor acctdemo, use el identificador del contenedor del paso anterior como sigue:
 
@@ -157,11 +157,11 @@ En este momento, la máquina virtual está ejecutándose y conectada a través d
 
 8. Para iniciar la aplicación acctdemo, escriba **ACCT**. Se muestra la pantalla inicial de la aplicación.
 
-     ![Captura de pantalla de acctdemo](./media/run-image-7.png)
+     ![Captura de pantalla que muestra una ventana de consola en al que aparece la aplicación.](./media/run-image-7.png)
 
 9. Experimente con los tipos de cuenta de la pantalla. Por ejemplo, escriba **D** en la solicitud y **11111** en **ACCOUNT** (Cuenta). Otros números de cuenta son 22222, 33333 y así sucesivamente.
 
-    ![Captura de pantalla de acctdemo](./media/run-image-8.png)
+    ![La captura de pantalla muestra la edición de diferentes valores en la aplicación.](./media/run-image-8.png)
 
 10. Para mostrar la consola Enterprise Server Administration, vaya al símbolo del sistema y escriba **start http:172.19.202.52:86**.
 

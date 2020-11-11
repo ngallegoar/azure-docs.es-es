@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3aee10c0682feeea7c74133f908452d1c5595f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968606"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077734"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeación e implementación de la protección con contraseña de Azure Active Directory local
 
@@ -125,7 +125,7 @@ Los siguientes requisitos se aplican al servicio de proxy de protección con con
     * NET 4.7 ya debería estar instalado en un servidor Windows completamente actualizado. Si es necesario, descargue y ejecute el instalador que se encuentra en [ El instalador fuera de línea de .NET Framework 4.7 para Windows ](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Todas las máquinas que hospedan el servicio de proxy de protección con contraseña de Azure AD deben estar configuradas para conceder a los controladores de dominio la posibilidad de iniciar sesión en el servicio de proxy. Esta capacidad se controla a través de la asignación del privilegio "Tener acceso a este equipo desde la red".
 * Todas las máquinas que hospedan el servicio de proxy de protección con contraseña de Azure AD deben estar configuradas para permitir el tráfico TLS 1.2 HTTP de salida.
-* Una cuenta de *administrador global* para registrar el servicio de proxy de protección con contraseña de Azure AD y el bosque con Azure AD.
+* Una cuenta de *administrador global* o *administrador de seguridad* para registrar el servicio de proxy de protección de contraseñas de Azure AD y el bosque con Azure AD.
 * El acceso a la red debe estar habilitado para el conjunto de puertos y direcciones URL especificados en los [procedimientos de configuración del entorno de proxy de aplicación](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Requisitos previos de Agent Updater de Microsoft Azure AD Connect
@@ -142,8 +142,8 @@ El servicio de actualización de Agent Updater de Microsoft Azure AD Connect se 
 
 Hay dos instaladores requeridos para una implementación de la protección con contraseña de Azure AD local:
 
-* Agente de controlador de dominio de protección con contraseña de Azure AD (*AzureADPasswordProtectionDCAgentSetup.msi*)
-* Proxy de protección con contraseña de Azure AD (*AzureADPasswordProtectionProxySetup.exe*)
+* Agente de controlador de dominio de protección con contraseña de Azure AD ( *AzureADPasswordProtectionDCAgentSetup.msi* )
+* Proxy de protección con contraseña de Azure AD ( *AzureADPasswordProtectionProxySetup.exe* )
 
 Descargue ambos instaladores en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -155,9 +155,11 @@ En la siguiente sección, instalará los agentes de controlador de dominio de pr
 
 Elija uno o varios servidores para hospedar el servicio de proxy de protección con contraseña de Azure AD. Las siguientes consideraciones se aplican a este servidor o servidores:
 
-* Cada servicio de este tipo solo puede proporcionar directivas de contraseñas para un único bosque. El equipo host debe estar unido a un dominio de ese bosque. Se admiten los dominios raíz y secundarios. Se necesita conectividad de red entre al menos un controlador de dominio en cada dominio del bosque y el equipo con protección con contraseña.
+* Cada servicio de este tipo solo puede proporcionar directivas de contraseñas para un único bosque. El equipo host debe estar unido a cualquier dominio de ese bosque.
+* Admite la instalación del proxy del servicio en dominios raíz o secundarios, o en una combinación de ellos.
+* Se necesita conectividad de red entre al menos un controlador de dominio en cada dominio del bosque y un servidor proxy con protección de contraseñas.
 * Puede ejecutar el servicio de proxy de protección con contraseña de Azure AD en un controlador de dominio para pruebas, pero este controlador de dominio requiere conectividad a Internet. Esta conectividad puede ser un problema de seguridad. Esta configuración es recomendable solo para realizar pruebas.
-* Se recomienda al menos dos servidores proxy de protección con contraseña de Azure AD para la redundancia, tal como se indica en la sección anterior acerca de las [consideraciones sobre la alta disponibilidad](#high-availability-considerations).
+* Se recomiendan al menos dos servidores proxy con protección de contraseñas de Azure AD por cada bosque para la redundancia, tal como se indica en la sección anterior acerca de las [consideraciones sobre la alta disponibilidad](#high-availability-considerations).
 * No se admite la ejecución del servicio de proxy de protección con contraseña de Azure AD en un controlador de dominio de solo lectura.
 
 Para instalar el servicio de proxy de protección con contraseña de Azure AD, siga estos pasos:
@@ -195,7 +197,7 @@ Para instalar el servicio de proxy de protección con contraseña de Azure AD, 
 
 1. El servicio de proxy se ejecuta en la máquina, pero aún no dispone de credenciales para comunicarse con Azure AD. Registre el servidor proxy de protección con contraseña de Azure AD con Azure AD mediante el cmdlet `Register-AzureADPasswordProtectionProxy`.
 
-    Este cmdlet requiere credenciales de administrador global para el inquilino de Azure. También necesita privilegios de administrador de dominio de Active Directory de forma local en el dominio raíz del bosque. Este cmdlet también se debe ejecutar mediante una cuenta con privilegios de administrador local:
+    Este cmdlet requiere credenciales de *administrador global* o *administrador de seguridad* para el inquilino de Azure. Este cmdlet también se debe ejecutar mediante una cuenta con privilegios de administrador local.
 
     Cuando este comando se ejecute correctamente una vez para un servicio de proxy de protección con contraseña de Azure AD, las invocaciones adicionales se realizarán correctamente, pero no son necesarias.
 
@@ -237,7 +239,7 @@ Para instalar el servicio de proxy de protección con contraseña de Azure AD, 
         >
         > Se recomienda omitir los requisitos de MFA solo con fines de prueba.
 
-    Actualmente, no se requiere especificar el parámetro *-ForestCredential*, que está reservado para una futura funcionalidad.
+    Actualmente, no se requiere especificar el parámetro *-ForestCredential* , que está reservado para una futura funcionalidad.
 
     El registro del servicio de proxy de protección con contraseña de Azure AD solo se debe hacer una vez a lo largo del ciclo de vida del servicio. A partir de aquí, el servicio de proxy de protección con contraseña de Azure AD realizará automáticamente todas las demás tareas de mantenimiento necesarias.
 
@@ -246,7 +248,9 @@ Para instalar el servicio de proxy de protección con contraseña de Azure AD, 
     > [!NOTE]
     > Si hay varios servidores proxy de protección con contraseña de Azure AD instalados en el entorno, da igual el servidor proxy que utilice para registrar el bosque.
 
-    Este cmdlet requiere credenciales de administrador global para el inquilino de Azure. También debe ejecutar este cmdlet mediante una cuenta con privilegios de administrador local. También requiere privilegios de administrador de empresa de Active Directory local. Este paso se ejecuta una vez por bosque.
+    El cmdlet requiere credenciales de *administrador global* o *administrador de seguridad* para el inquilino de Azure. También requiere privilegios de administrador de empresa de Active Directory local. También debe ejecutar este cmdlet mediante una cuenta con privilegios de administrador local. La cuenta de Azure que se usa para registrar el bosque puede ser diferente de la cuenta de Active Directory local.
+    
+    Este paso se ejecuta una vez por bosque.
 
     El cmdlet `Register-AzureADPasswordProtectionForest` admite los siguientes tres modos de autenticación. Los dos primeros modos son compatibles con Azure Multi-Factor Authentication, pero el tercero no.
 
@@ -309,7 +313,7 @@ Cree un archivo *AzureADPasswordProtectionProxy.exe.config* en la carpeta `%Prog
    </configuration>
    ```
 
-Si el proxy de HTTP requiere autenticación, agregue la etiqueta *useDefaultCredentials*:
+Si el proxy de HTTP requiere autenticación, agregue la etiqueta *useDefaultCredentials* :
 
    ```xml
    <configuration>

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282203"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186593"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ Las API de Blob y Data Lake Storage Gen2 API pueden operar en los mismos datos.
 
 En esta sección se describen los problemas y las limitaciones del uso de las API de blob y de las API de Data Lake Storage Gen2 para operar en los mismos datos.
 
-* No puede usar las API y las API de Data Lake Storage para escribir en la misma instancia de un archivo. Si escribe en un archivo con la API de Data Lake Storage Gen2, los bloques de ese archivo no estarán visibles para las llamadas a la API de blob [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list). La única excepción es cuando se usa para sobrescribir algún elemento. Puede sobrescribir un archivo o blob mediante cualquier API.
+* No puede usar la API de blob y las API de Data Lake Storage para escribir en la misma instancia de un archivo. Si escribe en un archivo con la API de Data Lake Storage Gen2, los bloques de ese archivo no estarán visibles para las llamadas a la API de blob [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list). La única excepción es cuando se usa para sobrescribir algún elemento. Puede sobrescribir un archivo o blob mediante cualquier API.
 
 * Cuando use la operación [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (Enumerar blobs) sin especificar un delimitador, los resultados incluirán tanto los directorios como los blobs. Si decide usar un delimitador, use solo una barra diagonal (`/`). Este es el único delimitador admitido.
 
@@ -68,13 +68,13 @@ La capacidad de aplicar cambios de ACL de forma recursiva desde el directorio pr
 
 ## <a name="azcopy"></a>AzCopy
 
-Use solo la versión más reciente de AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).  No se admiten versiones anteriores de AzCopy, como AzCopy v8.1.
+Use solo la versión más reciente de AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). No se admiten versiones anteriores de AzCopy, como AzCopy v8.1.
 
 <a id="storage-explorer"></a>
 
 ## <a name="azure-storage-explorer"></a>Explorador de Azure Storage
 
-Use solo las versiones  `1.6.0`  o superiores.
+Use solo las versiones `1.6.0` o superiores.
 
 <a id="explorer-in-portal"></a>
 
@@ -92,38 +92,15 @@ Las aplicaciones de terceros que usan las API REST para funcionar seguirán func
 
 Si se ha concedido [acceso de lectura anónimo](storage-manage-access-to-resources.md) a un contenedor, las ACL no tendrán ningún efecto en ese contenedor o los archivos de ese contenedor.
 
-### <a name="diagnostic-logs"></a>Registros de diagnóstico
+## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
 Todavía no se admite la configuración de los días de retención, pero puede eliminar los registros manualmente mediante cualquier herramienta compatible como Explorador de Azure Storage, REST o un SDK.
 
-## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>Problemas específicos de las cuentas de almacenamiento de BlockBlobStorage con rendimiento Premium
+## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Directivas de administración del ciclo de vida con nivel prémium para Azure Data Lake Storage
 
-### <a name="diagnostic-logs"></a>Registros de diagnóstico
+Los datos que se almacenan en el nivel prémium no se pueden mover entre los niveles de acceso frecuente, esporádico y de archivo. Sin embargo, puede copiar los datos del nivel prémium al nivel de acceso frecuente en otra cuenta.
 
-Los registros de diagnóstico aún no se pueden habilitar mediante Azure Portal. Puede habilitarlos mediante PowerShell. Por ejemplo:
-
-```powershell
-#To login
-Connect-AzAccount
-
-#Set default block blob storage account.
-Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
-
-#Enable logging
-Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
-```
-
-### <a name="lifecycle-management-policies"></a>Directivas de administración del ciclo de vida
-
-- Las directivas de administración del ciclo de vida solo se admiten en las cuentas de uso general v2. Todavía no se admiten en cuentas de almacenamiento BlockBlobStorage premium.
-- Los datos no se pueden pasar del nivel Premium a niveles inferiores.
-
-
-### <a name="hdinsight-support"></a>Compatibilidad con HDInsight
-
-Al crear un clúster de HDInsight, todavía no se puede seleccionar una cuenta BlockBlobStorage con la característica de espacio de nombres jerárquico habilitada en ella. Sin embargo, puede asociar la cuenta al clúster después de haberla creado.
-
-### <a name="dremio-support"></a>Compatibilidad con Dremio
+## <a name="dremio-support-with-premium-performance-blockblobstorage-storage-accounts"></a>Soporte técnico de Dremio para las cuentas de almacenamiento de BlockBlobStorage con rendimiento prémium
 
 Dremio todavía no se conecta a una cuenta BlockBlobStorage con la característica de espacio de nombres jerárquico habilitada en ella. 
 

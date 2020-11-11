@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 59df49d320b23686a3d053335ea2b95e98125b28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1741331c57427c57507376afdb878edc18259b72
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88135562"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306834"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -36,9 +36,9 @@ Existen dos formas de exportar las métricas de plataforma de la canalización d
 
 El uso de la configuración de diagnóstico es la forma más sencilla de enrutar las métricas, pero existen algunas limitaciones: 
 
-- **Algunas no son exportables**: todas las métricas son exportables mediante la API REST, pero algunas no se pueden exportar con la configuración de diagnóstico debido a las complejidades del back-end de Azure Monitor. La columna *¿Se puede exportar con la configuración de diagnóstico?* en las tablas siguientes enumera las métricas que se pueden exportar de esta manera.  
+- **Algunas no son exportables** : todas las métricas son exportables mediante la API REST, pero algunas no se pueden exportar con la configuración de diagnóstico debido a las complejidades del back-end de Azure Monitor. La columna *¿Se puede exportar con la configuración de diagnóstico?* en las tablas siguientes enumera las métricas que se pueden exportar de esta manera.  
 
-- **Métricas multidimensionales**: actualmente no se admite el envío de métricas de varias dimensiones a otras ubicaciones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión. *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representará con todos los mensajes entrantes de todas las colas de Event Hub.
+- **Métricas multidimensionales** : actualmente no se admite el envío de métricas de varias dimensiones a otras ubicaciones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión. *Por ejemplo* : la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representará con todos los mensajes entrantes de todas las colas de Event Hub.
 
 ## <a name="guest-os-and-host-os-metrics"></a>Métricas del SO invitado y del SO host
 
@@ -952,10 +952,10 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |d2c.endpoints.latency.serviceBusQueues|Sí|Enrutamiento: latencia de mensajes de la cola de Service Bus|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes de telemetría a un punto de conexión de la cola de Service Bus.|Sin dimensiones|
 |d2c.endpoints.latency.serviceBusTopics|Sí|Enrutamiento: latencia de mensajes del tema de Service Bus|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes de telemetría a un punto de conexión del tema de Service Bus.|Sin dimensiones|
 |d2c.endpoints.latency.storage|Sí|Enrutamiento: latencia de mensajes para almacenamiento|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes de telemetría a un punto de conexión de almacenamiento.|Sin dimensiones|
-|d2c.telemetry.egress.dropped|Sí|Enrutamiento: mensajes de telemetría quitados |Count|Total|Número de veces que se han quitado los mensajes con el enrutamiento de IoT Hub a causa de puntos de conexión inactivos. Este valor no cuenta los mensajes entregados a la ruta de reserva porque los mensajes quitados no se entregan allí.|Sin dimensiones|
+|d2c.telemetry.egress.dropped|Sí|Enrutamiento: mensajes de telemetría quitados |Count|Total|Número de veces que se han quitado los mensajes con el enrutamiento de IoT Hub a causa de puntos de conexión inactivos. Este valor no cuenta los mensajes entregados a la ruta de reserva porque los mensajes quitados no se entregan allí.|Sin dimensiones|
 |d2c.telemetry.egress.fallback|Sí|Enrutamiento: mensajes entregados a la reserva|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes al punto de conexión asociado con la ruta de reserva.|Sin dimensiones|
 |d2c.telemetry.egress.invalid|Sí|Enrutamiento: mensajes de telemetría incompatibles|Count|Total|Número de veces que el enrutamiento de IoT Hub no ha podido entregar mensajes debido a una incompatibilidad con el punto de conexión. Este valor no incluye los reintentos.|Sin dimensiones|
-|d2c.telemetry.egress.orphaned|Sí|Enrutamiento: mensajes de telemetría huérfanos |Count|Total|Número de veces que los mensajes eran huérfanos a causa del enrutamiento de IoT Hub porque no coincidían con las reglas de enrutamiento (incluida la regla de reserva). |Sin dimensiones|
+|d2c.telemetry.egress.orphaned|Sí|Enrutamiento: mensajes de telemetría huérfanos |Count|Total|Número de veces que los mensajes eran huérfanos a causa del enrutamiento de IoT Hub porque no coincidían con las reglas de enrutamiento (incluida la regla de reserva). |Sin dimensiones|
 |d2c.telemetry.egress.success|Sí|Enrutamiento: mensajes de telemetría entregados|Count|Total|Número de veces que los mensajes se han entregado correctamente a todos los puntos de conexión mediante el enrutamiento de IoT Hub. Si un mensaje se enruta a varios puntos de conexión, este valor aumenta en uno por cada entrega correcta. Si un mensaje se enruta al mismo punto de conexión varias veces, este valor aumenta en uno por cada entrega correcta.|Sin dimensiones|
 |d2c.telemetry.ingress.allProtocol|Sí|Intentos de envío de mensajes de telemetría|Count|Total|Número de mensajes de telemetría de dispositivo a la nube para enviar a IoT Hub|Sin dimensiones|
 |d2c.telemetry.ingress.sendThrottle|Sí|Número de errores de limitación|Count|Total|Número de errores de limitación debido a las limitaciones de rendimiento del dispositivo|Sin dimensiones|
@@ -1434,12 +1434,12 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |Preempted Nodes (Nodos con prioridad)|Sí|Preempted Nodes (Nodos con prioridad)|Count|Average|Número de nodos con prioridad. Estos nodos son los nodos de prioridad baja que se quitan del grupo de nodos disponible.|Scenario, ClusterName|
 |Preparando ejecuciones|Sí|Preparando ejecuciones|Count|Total|Número de ejecuciones que se están preparando para esta área de trabajo. El recuento se actualiza cuando una ejecución entra en el estado Preparándose mientras se prepara el entorno de ejecución.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Aprovisionamiento de ejecuciones|Sí|Aprovisionamiento de ejecuciones|Count|Total|Número de ejecuciones que se están aprovisionando para esta área de trabajo. El recuento se actualiza cuando una ejecución está esperando la creación o el aprovisionamiento del destino de proceso.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Ejecuciones en cola|Sí|Ejecuciones en cola|Count|Total|Número de ejecuciones en cola para esta área de trabajo. El recuento se actualiza cuando una ejecución se pone en cola en el destino de proceso. Puede producirse cuando se espera a que los nodos de proceso necesarios estén listos.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
+|Ejecuciones en cola|Sí|Ejecuciones en cola|Count|Total|Número de ejecuciones en cola para esta área de trabajo. El recuento se actualiza cuando una ejecución se pone en cola en el destino de proceso. Puede producirse cuando se espera a que los nodos de ejecución necesarios estén listos.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Porcentaje de uso de la cuota|Sí|Porcentaje de uso de la cuota|Count|Average|Porcentaje de cuota utilizada|Scenario, ClusterName, VmFamilyName, VmPriority|
 |Ejecuciones iniciadas|Sí|Ejecuciones iniciadas|Count|Total|Número de ejecuciones en curso para esta área de trabajo. El recuento se actualiza cuando la ejecución se inicia en los recursos necesarios.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Iniciando ejecuciones|Sí|Iniciando ejecuciones|Count|Total|Número de ejecuciones iniciadas para esta área de trabajo. El recuento se actualiza después de que se hayan rellenado la solicitud para crear la ejecución y la información de ejecución, como el identificador de ejecución|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Total Cores (Núcleos totales)|Sí|Total Cores (Núcleos totales)|Count|Average|Número de núcleos totales|Scenario, ClusterName|
-|Total Nodes|Sí|Total Nodes (Nodos totales)|Count|Average|Número de nodos totales. Este total incluye algunos de los nodos activos, nodos inactivos, nodos inutilizables, nodos con prioridad, nodos de salida.|Scenario, ClusterName|
+|Total Nodes|Sí|Total Nodes (Nodos totales)|Count|Average|Número de nodos totales. Este total incluye algunos de los nodos activos, nodos inactivos, nodos inutilizables, nodos con prioridad, nodos salientes.|Scenario, ClusterName|
 |Unusable Cores|Sí|Unusable Cores (Núcleos no utilizables)|Count|Average|Número de núcleos no utilizables|Scenario, ClusterName|
 |Nodos no utilizables|Sí|Nodos no utilizables|Count|Average|Número de nodos inutilizables. Los nodos inutilizables no funcionan debido a algún problema que no se puede resolver. Azure reciclará estos nodos.|Scenario, ClusterName|
 |Advertencias|Sí|Advertencias|Count|Total|Número de advertencias de ejecución en esta área de trabajo. El recuento se actualiza cada vez que una ejecución encuentra una advertencia.|Escenario|
@@ -1527,7 +1527,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |BytesReceived|Sí|Bytes recibidos|Bytes|Total|Número total de bytes recibidos por Application Gateway de los clientes|Agente de escucha|
 |BytesSent|Sí|Bytes enviados|Bytes|Total|Número total de bytes enviados por Application Gateway a los clientes|Agente de escucha|
 |CapacityUnits|No|Unidades de capacidad actuales|Count|Average|Unidades de capacidad consumidas|Sin dimensiones|
-|ClientRtt|No|Client RTT (RTT del cliente)|MilliSeconds|Average|Tiempo medio de ida y vuelta entre clientes y Application Gateway. Esta métrica indica cuánto tiempo se tarda en establecer conexiones y devolver confirmaciones.|Agente de escucha|
+|ClientRtt|No|Client RTT (RTT del cliente)|MilliSeconds|Average|Tiempo medio de ida y vuelta entre clientes y Application Gateway. Esta métrica indica cuánto tiempo se tarda en establecer conexiones y devolver confirmaciones|Agente de escucha|
 |ComputeUnits|No|Current Compute Units (Unidades de proceso actuales)|Count|Average|Unidades de proceso consumidas|Sin dimensiones|
 |CpuUtilization|No|Uso de CPU|Percent|Average|Uso actual de la CPU de Application Gateway|Sin dimensiones|
 |CurrentConnections|Sí|Conexiones actuales|Count|Total|Recuento de conexiones actuales establecidas con Application Gateway|Sin dimensiones|
@@ -2171,7 +2171,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |StorageSyncRecalledTotalNetworkBytes|Sí|Tamaño de recuperación de nube por niveles|Bytes|Total|El tamaño de los datos que se recuperan|SyncGroupName, ServerName|
 |StorageSyncRecallIOTotalSizeBytes|Sí|Recuperación de niveles de la nube|Bytes|Total|Tamaño total de datos recuperados por el servidor|nombreDeServidor|
 |StorageSyncRecallThroughputBytesPerSecond|Sí|Rendimiento de recuperación de nube por niveles|BytesPerSecond|Average|Rendimiento del tamaño de recuperación de datos|SyncGroupName, ServerName|
-|StorageSyncServerHeartbeat|Sí|Estado en línea del servidor|Count|Máxima|Métrica que registra un valor de 1 cada vez que el servidor registrado registra correctamente un latido con el punto de conexión en la nube.|nombreDeServidor|
+|StorageSyncServerHeartbeat|Sí|Estado en línea del servidor|Count|Máxima|Métrica que registra un valor de 1 cada vez que el servidor registrado registra correctamente un latido con el punto de conexión en la nube|nombreDeServidor|
 |StorageSyncSyncSessionAppliedFilesCount|Sí|Archivos sincronizados|Count|Total|Número de archivos sincronizados|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncSyncSessionPerItemErrorsCount|Sí|Archivos que no se están sincronizando|Count|Total|No se pudo sincronizar el recuento de archivos|SyncGroupName, ServerEndpointName, SyncDirection|
 
@@ -2180,7 +2180,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|ServerHeartbeat|Sí|Estado en línea del servidor|Count|Máxima|Métrica que registra un valor de 1 cada vez que el servidor registrado registra correctamente un latido con el punto de conexión en la nube.|ServerResourceId, ServerName|
+|ServerHeartbeat|Sí|Estado en línea del servidor|Count|Máxima|Métrica que registra un valor de 1 cada vez que el servidor registrado registra correctamente un latido con el punto de conexión en la nube|ServerResourceId, ServerName|
 |ServerRecallIOTotalSizeBytes|Sí|Recuperación de niveles de la nube|Bytes|Total|Tamaño total de datos recuperados por el servidor|ServerResourceId, ServerName|
 
 
@@ -2251,13 +2251,13 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |---|---|---|---|---|---|---|
 |AdaptiveCacheHitPercent|No|Porcentaje de aciertos de caché adaptable|Percent|Máxima|Mide en qué grado las cargas de trabajo usan la caché adaptable. Use esta métrica con la métrica del porcentaje de aciertos de caché para determinar si se debe escalar para aumentar la capacidad o volver a ejecutar cargas de trabajo para hidratar la memoria caché.|Sin dimensiones|
 |AdaptiveCacheUsedPercent|No|Porcentaje usado de caché adaptable|Percent|Máxima|Mide en qué grado las cargas de trabajo usan la caché adaptable. Use esta métrica con la métrica del porcentaje usado de caché para determinar si se debe escalar para aumentar la capacidad o volver a ejecutar cargas de trabajo para hidratar la memoria caché.|Sin dimensiones|
-|Conexiones|Sí|Conexiones|Count|Total|Recuento total de inicios de sesión en el grupo de SQL|Resultado|
-|ConnectionsBlockedByFirewall|No|Conexiones bloqueadas por el firewall|Count|Total|Recuento de conexiones bloqueadas por las reglas de firewall. Vuelva a visitar las directivas de control de acceso para el grupo de SQL y supervise estas conexiones si el recuento es alto.|Sin dimensiones|
-|DWULimit|No|Límite de DWU|Count|Máxima|Objetivo de nivel de servicio del grupo de SQL|Sin dimensiones|
-|DWUUsed|No|DWU utilizada|Count|Máxima|Representa una representación de alto nivel del uso en el grupo de SQL. Medido por el límite de DWU * porcentaje de DWU|Sin dimensiones|
-|DWUUsedPercent|No|Porcentaje usado de DWU|Percent|Máxima|Representa una representación de alto nivel del uso en el grupo de SQL. Medido tomando el máximo entre el porcentaje de CPU y el porcentaje de E/S de datos|Sin dimensiones|
+|Conexiones|Sí|Conexiones|Count|Total|Recuento total de inicios de sesión en el grupo de SQL dedicado|Resultado|
+|ConnectionsBlockedByFirewall|No|Conexiones bloqueadas por el firewall|Count|Total|Recuento de conexiones bloqueadas por las reglas de firewall. Vuelva a visitar las directivas de control de acceso para el grupo de SQL dedicado y supervise estas conexiones si el recuento es alto.|Sin dimensiones|
+|DWULimit|No|Límite de DWU|Count|Máxima|Objetivo de nivel de servicio del grupo de SQL dedicado|Sin dimensiones|
+|DWUUsed|No|DWU utilizada|Count|Máxima|Representación general del uso en el grupo de SQL dedicado. Medido por el límite de DWU * porcentaje de DWU|Sin dimensiones|
+|DWUUsedPercent|No|Porcentaje usado de DWU|Percent|Máxima|Representación general del uso en el grupo de SQL dedicado. Medido tomando el máximo entre el porcentaje de CPU y el porcentaje de E/S de datos|Sin dimensiones|
 |LocalTempDBUsedPercent|No|Porcentaje usado de tempdb local|Percent|Máxima|El uso de tempdb local en todos los nodos de ejecución. Los valores se emiten cada cinco minutos.|Sin dimensiones|
-|MemoryUsedPercent|No|Porcentaje utilizado de memoria.|Percent|Máxima|Uso de memoria en todos los nodos del grupo de SQL|Sin dimensiones|
+|MemoryUsedPercent|No|Porcentaje utilizado de memoria.|Percent|Máxima|Uso de memoria en todos los nodos del grupo de SQL dedicado|Sin dimensiones|
 |wlg_effective_min_resource_percent|Sí|Porcentaje mínimo de recursos efectivo|Percent|Mínima|La configuración de porcentaje de recursos mínimos efectivos permitida teniendo en cuenta el nivel de servicio y la configuración del grupo de cargas de trabajo. El valor min_percentage_resource efectivo se puede ajustar en niveles de servicio superiores o inferiores.|IsUserDefined, WorkloadGroup|
 |WLGActiveQueries|No|Consultas activas de grupo de cargas de trabajo|Count|Total|Consultas activas dentro del grupo de cargas de trabajo. El uso de esta métrica sin filtrar y sin dividir muestra todas las consultas activas que se ejecutan en el sistema.|IsUserDefined, WorkloadGroup|
 |WLGActiveQueriesTimeouts|No|Tiempos de espera de consultas de grupo de cargas de trabajo|Count|Total|Consultas para el grupo de cargas de trabajo que han agotado el tiempo de espera. Los tiempos de espera de consulta que indica esta métrica son solo una vez que se ha iniciado la ejecución de la consulta (no incluye el tiempo de espera debido a las esperas de bloqueo o de recursos).|IsUserDefined, WorkloadGroup|

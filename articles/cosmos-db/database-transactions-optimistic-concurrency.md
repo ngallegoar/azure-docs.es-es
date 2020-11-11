@@ -4,17 +4,19 @@ description: En este artículo se describen las transacciones entre bases de dat
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bdfbe5106f220a9fe4a3568709187b9071bc7917
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278727"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334283"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transacciones y control de simultaneidad optimista
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Las transacciones entre bases de datos proporcionan un modelo de programación seguro y predecible para tratar los cambios simultáneos que se producen en los datos. Las bases de datos relacionales tradicionales, como SQL Server, le permiten escribir la lógica de negocios mediante procedimientos almacenados o desencadenadores y enviarla al servidor para su ejecución directamente en el motor de base de datos. Con las bases de datos relacionales tradicionales, se le pide que trate con dos diferentes lenguajes de programación, el lenguaje de programación de la aplicación (no transaccional) como, por ejemplo, JavaScript, Python, C#, Java, etc. y el lenguaje de programación transaccional (como T-SQL) que la base de datos ejecuta de forma nativa.
 
@@ -64,4 +66,5 @@ Puede encontrar más información sobre las transacciones entre bases de datos y
 - [Uso de bases de datos, contenedores y elementos de Azure Cosmos](account-databases-containers-items.md)
 - [Niveles de coherencia](consistency-levels.md)
 - [Tipos de conflicto y directivas de resolución de conflictos](conflict-resolution-policies.md)
+- [Uso de TransactionalBatch](transactional-batch.md)
 - [Procedimientos almacenados, desencadenadores y funciones definidas por el usuario](stored-procedures-triggers-udfs.md)

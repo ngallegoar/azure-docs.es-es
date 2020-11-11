@@ -1,20 +1,20 @@
 ---
-title: 'Uso del Agente de identidad (versión preliminar) para la administración de credenciales: Azure HDInsight'
+title: Agente de identidad de Azure HDInsight (HIB)
 description: Obtenga información sobre el Agente de identidad de Azure HDInsight para simplificar la autenticación de clústeres de Apache Hadoop unidos a un dominio.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 99ea17dad4f99cdab3fb44b8031e60e6cf69879c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 11/03/2020
+ms.openlocfilehash: df4faf367951402914abb03285498e0da6f3105f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543158"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337683"
 ---
-# <a name="azure-hdinsight-id-broker-preview"></a>Agente de identidad de Azure HDInsight (versión preliminar)
+# <a name="azure-hdinsight-id-broker-hib"></a>Agente de identidad de Azure HDInsight (HIB)
 
 En este artículo se describe cómo configurar y usar la característica Agente de identidad de Azure HDInsight. Puede usar esta característica para obtener una autenticación OAuth moderna en Apache Ambari a la vez que aplica la autenticación multifactor sin necesidad de hashes de contraseña heredados en Azure Active Directory Domain Services (Azure AD DS).
 
@@ -45,7 +45,7 @@ Todavía puede haber muchas aplicaciones heredadas que solo admitan la autentica
 
 En el diagrama siguiente se muestra el flujo de autenticación básica para los usuarios federados. En primer lugar, la puerta de enlace intenta completar la autenticación mediante el [flujo de ROPC](../../active-directory/develop/v2-oauth-ropc.md). En caso de que no haya ningún hash de contraseña sincronizado con Azure AD, recurre a la detección del punto de conexión de AD FS y completa la autenticación mediante el acceso al punto de conexión de AD FS.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que muestra el flujo de autenticación con el Agente de identidad de HDInsight.":::
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que muestra la arquitectura con autenticación básica.":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Habilitación del Agente de identidad de HDInsight
@@ -54,7 +54,7 @@ Para crear un clúster de Enterprise Security Package con el Agente de identidad
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Siga los pasos de creación básicos para un clúster de Enterprise Security Package. Para obtener más información, consulte [Creación de un clúster de HDInsight con Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
-1. Seleccione **Habilitar Agente de identidad de HDInsight** .
+1. Seleccione **Habilitar Agente de identidad de HDInsight**.
 
 La característica Agente de identidad de HDInsight agrega una VM adicional al clúster. Esta VM es el nodo del Agente de identidad de HDInsight e incluye componentes de servidor para admitir la autenticación. El nodo del Agente de identidad de HDInsight está unido al dominio de Azure AD DS.
 
@@ -83,7 +83,7 @@ Si agrega un nuevo rol denominado `idbrokernode` con los siguientes atributos al
         {
             "autoscale": null,
             "name": "idbrokernode",
-            "targetInstanceCount": 1,
+            "targetInstanceCount": 2,
             "hardwareProfile": {
                 "vmSize": "Standard_A2_V2"
             },
@@ -100,6 +100,9 @@ Si agrega un nuevo rol denominado `idbrokernode` con los siguientes atributos al
 .
 .
 ```
+
+Para ver un ejemplo completo de una plantilla de ARM, consulte la plantilla publicada [aquí](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
 
 ## <a name="tool-integration"></a>Integración de herramientas
 
@@ -132,6 +135,8 @@ Después de adquirir el token de OAuth, úselo en el encabezado de autorización
 ```bash
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
+
+Para utilizar Beeline y Livy, también puede seguir los códigos de ejemplo proporcionados [aquí](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) a fin de configurar el cliente para que use OAuth y se conecte al clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

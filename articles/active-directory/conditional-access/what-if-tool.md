@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bebd32d2773ca86638de221d305079bb262e3e5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631433"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077649"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solución de problemas con la herramienta What If en el acceso condicional
 
@@ -32,7 +32,7 @@ La herramienta **What If** también ofrece una manera de determinar rápidamente
 
 ## <a name="how-it-works"></a>Funcionamiento
 
-En la **herramienta What If de Acceso condicional**, primero debe configurar los valores del escenario de inicio de sesión que desea simular. Esta configuración incluye:
+En la **herramienta What If de Acceso condicional** , primero debe configurar los valores del escenario de inicio de sesión que desea simular. Esta configuración incluye:
 
 - El usuario que desea probar. 
 - Las aplicaciones en la nube a las que el usuario intentaría acceder.
@@ -48,7 +48,7 @@ La herramienta **What If** se encuentra en la página **[Acceso condicional: Dir
 
 Para iniciar la herramienta, en la barra de herramientas que aparece en la parte superior de la lista de directivas, haga clic en **What If**.
 
-![What If](./media/what-if-tool/01.png)
+:::image type="content" source="./media/what-if-tool/01.png" alt-text="Captura de pantalla de la página Acceso condicional: Directivas de Azure Portal. En la barra de herramientas, se resalta el elemento What if" border="false":::.
 
 Antes de ejecutar una evaluación, debe configurar los valores.
 
@@ -56,7 +56,7 @@ Antes de ejecutar una evaluación, debe configurar los valores.
 
 En esta sección se proporcionan detalles sobre los ajustes de la ejecución de simulación.
 
-![What If](./media/what-if-tool/02.png)
+:::image type="content" source="./media/what-if-tool/02.png" alt-text="Captura de pantalla de la página de What If de Azure Portal, con campos de usuario, aplicaciones en la nube, una dirección IP, una plataforma de dispositivo, una aplicación cliente y un riesgo de inicio de sesión" border="false":::.
 
 ### <a name="user"></a>Usuario
 
@@ -90,7 +90,7 @@ Esta configuración imita la [condición de riesgo de inicio de sesión](concept
 
 Haga clic en **What If** para iniciar una evaluación. El resultado de la evaluación le brinda un informe que consta de: 
 
-![What If](./media/what-if-tool/03.png)
+:::image type="content" source="./media/what-if-tool/03.png" alt-text="Captura de pantalla de un informe de evaluación. El texto indica que se ha configurado al menos una directiva clásica. Las pestañas están disponibles para ver directivas" border="false":::.
 
 - Un indicador que le informa si existen directivas clásicas en su entorno.
 - Directivas que se aplican al usuario.

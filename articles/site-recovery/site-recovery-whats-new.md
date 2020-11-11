@@ -3,12 +3,12 @@ title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0c35c8e041e47f02d53c680b5812b10d25d75a67
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2e85ee19012f6ae13c18e26b3aa0b5ae28bcaade
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425706"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341355"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -31,6 +31,7 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 
 [Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
 
+## <a name="updates-october-2020"></a>Actualizaciones (octubre de 2020)
 
 ### <a name="update-rollup-51"></a>Paquete acumulativo de actualizaciones 51
 
@@ -41,7 +42,9 @@ El [paquete acumulativo de actualizaciones 51](https://support.microsoft.com/he
 **Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el paquete acumulativo de actualizaciones.
 **Mejoras y correcciones de problemas** | Varias correcciones y mejoras que se detallan en el paquete acumulativo, incluyendo la nueva compatibilidad con Linux del servicio Mobility.
 
-## <a name="update-september-2020"></a>Actualización (septiembre de 2020)
+## <a name="updates-september-2020"></a>Actualizaciones (septiembre de 2020)
+
+### <a name="update-rollup-50"></a>Paquete acumulativo de actualizaciones 50
 
 El [paquete acumulativo de actualizaciones 50](https://support.microsoft.com/help/4582666/update-rollup-50-for-azure-site-recovery) proporciona las siguientes actualizaciones:
 

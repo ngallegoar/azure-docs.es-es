@@ -7,18 +7,19 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 32266695770f627f7044bce92e4505f45776fd28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a013e07ada0ba88b20598c23f706eb5ee71d49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83747366"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073070"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Cumplimiento de Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB está disponible en todas las regiones de Azure. Microsoft pone a disposición de los clientes cinco entornos en la nube de Azure:
 
-* La nube **pública de Azure**, que está disponible globalmente.
+* La nube **pública de Azure** , que está disponible globalmente.
 
 * **Azure China 21Vianet** está disponible gracias a una exclusiva asociación entre Microsoft y 21Vianet, uno de los proveedores de acceso a Internet más importantes del país o región.
 
@@ -47,12 +48,12 @@ Azure Cosmos DB está ampliando continuamente su cobertura de certificaciones. A
 | ISO 27701:2019| | | |
 | SOC 1, 2, 3 | | | |
 
-Para obtener más información acerca de cada una de estas ofertas de cumplimiento y cómo lo benefician, consulte la página [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Información general sobre el cumplimiento de Microsoft Azure).
+Para obtener más información sobre cada una de estas ofertas de cumplimiento y cómo le benefician, consulte los apéndices A y B de las [ofertas de cumplimiento de Microsoft Azure](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
 En la tabla siguiente se enumeran las certificaciones compatibles con Azure Cosmos DB en Azure Government:
 
 | **Aplicable globalmente** | **US Gov** | **Específica del sector** | 
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Certificación de CSA STAR | CJIS| HIPAA BAA | 
 | Atestación de CSA STAR| SRG del DoD nivel 2| HITRUST  | 
 | ISO 20000-1:2011 | SRG del DoD nivel 4 | PCI DSS | 
@@ -68,8 +69,14 @@ En la tabla siguiente se enumeran las certificaciones compatibles con Azure Cosm
 
 Para obtener más información acerca de las certificaciones de cumplimiento en Azure, consulte los siguientes artículos:
 
-* Para obtener información acerca de las certificaciones de cumplimiento más recientes para Azure Cosmos DB, consulte [Overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (información general sobre el cumplimiento de Azure).  
+* Para obtener información sobre las certificaciones de cumplimiento más recientes para Azure Cosmos DB, consulte los apéndices A y B de las [ofertas de cumplimiento de Microsoft Azure](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).  
 
-* Para obtener información general sobre la seguridad y las últimas mejoras de Azure Cosmos DB, consulte el artículo sobre [seguridad de bases de datos de Azure Cosmos](database-security.md).
+* Para obtener información general sobre la seguridad y las últimas mejoras de Azure Cosmos DB, consulte el artículo sobre [seguridad de bases de datos de Azure Cosmos DB](database-security.md).
+
+* Para obtener recomendaciones sobre cómo mejorar la posición de seguridad de la implementación de Azure Cosmos DB, consulte [Base de referencia de seguridad de Azure para Cosmos DB](security-baseline.md). 
 
 * Para obtener más información sobre las certificaciones de Microsoft, visite el [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/).
+
+* Para obtener información sobre el cumplimiento de FedRAMP, consulte [Servicios de Azure por ámbito de auditoría de FedRAMP y DoD CC SRG](../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
+
+* Para obtener información sobre el cumplimiento de DoD, consulte las [ofertas de cumplimiento de DoD](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide).

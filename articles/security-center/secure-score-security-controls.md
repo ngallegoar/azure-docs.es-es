@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 55a4e50e3a85eccb9517cf682b67268e633abecc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425355"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081236"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Puntuación de seguridad de Azure Security Center
 
@@ -162,6 +162,14 @@ Otra forma de mejorar la puntuación y de asegurarse de que los usuarios no cree
 
 En la tabla siguiente se enumeran los controles de seguridad de Azure Security Center. Para cada control, puede ver el número máximo de puntos que puede sumar a la puntuación de seguridad si corrige *todas* las recomendaciones enumeradas en el control, para *todos* los recursos. 
 
+El conjunto de recomendaciones de seguridad proporcionadas con Security Center se adapta a los recursos disponibles en el entorno de cada organización. Las recomendaciones se pueden personalizar aún más [deshabilitando directivas](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) y [excluyendo recursos específicos de una recomendación](exempt-resource.md). 
+ 
+Se recomienda que cada organización revise cuidadosamente sus iniciativas de Azure Policy asignadas. 
+
+> [!TIP]
+> Para obtener información detallada sobre cómo revisar y editar iniciativas, vea [Trabajo con directivas de seguridad](tutorial-security-policy.md). 
+
+Aunque la iniciativa de seguridad predeterminada de Security Center se basa en los estándares y procedimientos recomendados del sector, hay escenarios en los que es posible que las recomendaciones integradas que se indican a continuación no se ajusten completamente a su organización. Por lo tanto, a veces será necesario ajustar la iniciativa predeterminada, sin comprometer la seguridad, para asegurarse de que está alineada con las directivas propias de su organización, así como con estándares del sector, estándares normativos y pruebas comparativas que tiene la obligación de cumplir.<br><br>
 <div class="foo">
 
 <style type="text/css"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-cly1{text-align:left;vertical-align:middle} .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle} </style>
@@ -182,7 +190,7 @@ En la tabla siguiente se enumeran los controles de seguridad de Azure Security C
     <td class="tg-lboi"; width=55%>- Los puertos de administración de las máquinas virtuales deben protegerse con el control de acceso de red Just-In-Time.<br>- Las máquinas virtuales deben estar asociadas a un grupo de seguridad de red.<br>- Se deben cerrar los puertos de administración en las máquinas virtuales.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar actualizaciones del sistema (puntuación máxima: 6)</p></strong>Las actualizaciones del sistema proporcionan a las organizaciones la capacidad de mantener la eficacia operativa, reducir las vulnerabilidades de seguridad y proporcionar un entorno más estable para los usuarios finales. No aplicar actualizaciones deja vulnerabilidades sin revisiones y da lugar a entornos susceptibles a ataques. Estas vulnerabilidades se pueden aprovechar y provocar problemas como la pérdida de datos, la filtración de datos, el ransomware y el uso abusivo de recursos. Para implementar actualizaciones del sistema, puede usar la solución <a href="/azure/automation/automation-update-management">Update Management para administrar las actualizaciones y las revisiones</a> de las máquinas virtuales. La administración de actualizaciones es el proceso mediante el que se controla la implementación y el mantenimiento de las versiones de software.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar actualizaciones del sistema (puntuación máxima: 6)</p></strong>Las actualizaciones del sistema proporcionan a las organizaciones la capacidad de mantener la eficacia operativa, reducir las vulnerabilidades de seguridad y proporcionar un entorno más estable para los usuarios finales. No aplicar actualizaciones deja vulnerabilidades sin revisiones y da lugar a entornos susceptibles a ataques. Estas vulnerabilidades se pueden aprovechar y provocar problemas como la pérdida de datos, la filtración de datos, el ransomware y el uso abusivo de recursos. Para implementar actualizaciones del sistema, puede usar la solución <a href="/azure/automation/update-management/overview">Update Management para administrar las actualizaciones y las revisiones</a> de las máquinas virtuales. La administración de actualizaciones es el proceso mediante el que se controla la implementación y el mantenimiento de las versiones de software.</td>
     <td class="tg-lboi"; width=55%>- Los problemas de estado del agente de supervisión se deben resolver en las máquinas.<br>- El agente de supervisión debe instalarse en conjuntos de escalado de máquinas virtuales.<br>- El agente de supervisión debe instalarse en las máquinas.<br>- La versión del sistema operativo debe actualizarse para los roles de servicio en la nube.<br>- Se deben instalar las actualizaciones del sistema en los conjuntos de escalado de máquinas virtuales.<br>- Se deben instalar las actualizaciones del sistema en las máquinas.<br>- Las máquinas deben reiniciarse para aplicar las actualizaciones del sistema.<br>- Kubernetes Services se debe actualizar a una versión de Kubernetes no vulnerable.<br>- Un agente de supervisión debe estar instalado en las máquinas virtuales.<br>- El agente de Log Analytics debe estar instalado en las máquinas de Azure Arc basadas en Windows (versión preliminar).<br>- El agente de Log Analytics debe estar instalado en las máquinas de Azure Arc basadas en Linux (versión preliminar).</td>
   </tr>
   <tr>

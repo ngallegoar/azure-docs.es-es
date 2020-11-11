@@ -5,32 +5,34 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/10/2020
+ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 50ce8530aca40eed07741f35be1a57bbd7cc1868
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24d146da7946176c92902698d0f52ae01baf79ee
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77133589"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93061658"
 ---
-Abra la consola de PowerShell con privilegios elevados.
+Si PowerShell se ejecuta localmente, abra la consola de PowerShell con privilegios elevados y conéctese a su cuenta de Azure. El cmdlet *Connect-AzAccount* le pide las credenciales. Después de la autenticación, descarga la configuración de la cuenta para que esté disponible en Azure PowerShell.
 
-Si ejecuta Azure PowerShell localmente, conéctese a la cuenta de Azure. El cmdlet *Connect-AzAccount* le pide las credenciales. Después de la autenticación, descarga la configuración de la cuenta para que esté disponible en Azure PowerShell. Si usa Azure Cloud Shell en su lugar, no es necesario ejecutar *Connect-AzAccount*. Azure Cloud Shell se conecta a su cuenta de Azure automáticamente.
+Si usa Azure Cloud Shell, en lugar de ejecutar PowerShell localmente, observará que no es preciso ejecutar *Connect-AzAccount*. Azure Cloud Shell se conecta a su cuenta de Azure automáticamente después de seleccionar **Probar**.
 
-```azurepowershell
-Connect-AzAccount
-```
+1. Si ejecuta PowerShell localmente, inicie sesión.
 
-Si tiene más de una suscripción, obtenga una lista de las suscripciones de Azure.
+   ```azurepowershell
+   Connect-AzAccount
+   ```
 
-```azurepowershell-interactive
-Get-AzSubscription
-```
+1. Si tiene más de una suscripción, obtenga una lista de las suscripciones de Azure.
 
-Especifique la suscripción que desea usar.
+   ```azurepowershell-interactive
+   Get-AzSubscription
+   ```
 
-```azurepowershell-interactive
-Select-AzSubscription -SubscriptionName "Name of subscription"
-```
+1. Especifique la suscripción que desea usar.
+
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionName "Name of subscription"
+   ```

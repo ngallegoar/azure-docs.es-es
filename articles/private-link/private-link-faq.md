@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee6d88b5247209d5628c7f85f1985507d53811d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757051"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913728"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Preguntas frecuentes sobre Azure Private Link
 
@@ -49,6 +49,9 @@ Sí. Los puntos de conexión privados pueden conectarse a servicios Private Link
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>¿Puede el punto de conexión privado conectarse a recursos de PaaS a través de las regiones de Azure?
 Sí. Los puntos de conexión privados pueden conectarse a recursos de PaaS de Azure a través de las regiones de Azure.
 
+### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>¿Puedo modificar mi interfaz de red (NIC) de punto de conexión privado?
+Cuando se crea un punto de conexión privado, se asigna una NIC de solo lectura. Esto no se puede modificar y permanecerá durante el ciclo de vida del punto de conexión privado.
+
 ## <a name="private-link-service"></a>Servicio Private Link
  
 ### <a name="what-are-the-pre-requisites-for-creating-a-private-link-service"></a>¿Cuáles son los requisitos previos para crear un servicio Private Link? 
@@ -66,9 +69,9 @@ Sí. Un servicio Private Link puede recibir conexiones de varios puntos de conex
 ### <a name="how-should-i-control-the-exposure-of-my-private-link-service"></a>¿Cómo debo controlar la exposición de mi servicio Private Link?
 Puede controlar la exposición mediante la configuración de visibilidad del servicio Private Link. La visibilidad admite tres configuraciones:
 
-- **Ninguno**: solo las suscripciones con acceso RBAC pueden localizar el servicio. 
-- **Restrictivo**: solo las suscripciones que están aprobadas y con acceso RBAC pueden localizar el servicio. 
-- **Todo**: todos pueden localizar el servicio. 
+- **Ninguno** : solo las suscripciones con acceso RBAC pueden localizar el servicio. 
+- **Restrictivo** : solo las suscripciones que están aprobadas y con acceso RBAC pueden localizar el servicio. 
+- **Todo** : todos pueden localizar el servicio. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>¿Puedo crear un servicio Private Link con un equilibrador de carga básico? 
 No. No se admite ningún servicio Private Link mediante un equilibrador de carga básico.

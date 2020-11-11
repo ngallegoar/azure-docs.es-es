@@ -2,13 +2,13 @@
 title: Conceptos de Azure Event Grid
 description: Describe Azure Event Grid y sus conceptos. Define varios componentes clave de Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 003139374a056da6ddc22dd1453d28761ff58871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116495"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075116"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
 
@@ -37,11 +37,11 @@ Para información sobre la implementación de cualquiera de los orígenes de Eve
 
 En el tema de Event Grid se proporciona un punto de conexión al que el origen envía los eventos. El publicador crea el tema de Event Grid y decide si un origen de evento necesita un tema o más de un tema. Un tema se usa para una colección de eventos relacionados. Para responder a determinados tipos de eventos, los suscriptores deciden los temas a los que se suscriben.
 
-Los temas del sistema son temas integrados que proporcionan los servicios de Azure, como Azure Storage, Azure Event Hubs y Azure Service Bus. Puede crear temas del sistema en su suscripción de Azure y suscribirse a ellos. Para obtener más información, consulte [Información general sobre los temas del sistema](system-topics.md). 
+Los **temas del sistema** son temas integrados que proporcionan los servicios de Azure, como Azure Storage, Azure Event Hubs y Azure Service Bus. Puede crear temas del sistema en su suscripción de Azure y suscribirse a ellos. Para obtener más información, consulte [Información general sobre los temas del sistema](system-topics.md). 
 
-Los temas personalizados son temas de terceros y de aplicación. Cuando cree un tema personalizado, o se le asigne acceso al mismo, verá ese tema personalizado en su suscripción. Para obtener más información, consulte [Temas personalizados](custom-topics.md).
+Los **temas personalizados** son temas de terceros y de aplicación. Cuando cree un tema personalizado, o se le asigne acceso al mismo, verá ese tema personalizado en su suscripción. Para obtener más información, consulte [Temas personalizados](custom-topics.md). Cuando diseñe la aplicación, tiene flexibilidad al decidir cuántos temas se crean. Para soluciones grandes, cree un tema personalizado para cada categoría de eventos relacionados. Por ejemplo, considere una aplicación que envía eventos relacionados con la modificación de las cuentas de usuario y el procesamiento de pedidos. Es poco probable que algún controlador de eventos quiera ambas categorías de eventos. Cree dos temas personalizados y deje que los controladores de eventos se suscriban a uno que les interese. Para soluciones pequeñas, puede que prefiera enviar todos los eventos a un solo tema. Los suscriptores de eventos se pueden filtrar por los tipos de evento que desean.
 
-Cuando diseñe la aplicación, tiene flexibilidad al decidir cuántos temas se crean. Para soluciones grandes, cree un tema personalizado para cada categoría de eventos relacionados. Por ejemplo, considere una aplicación que envía eventos relacionados con la modificación de las cuentas de usuario y el procesamiento de pedidos. Es poco probable que algún controlador de eventos quiera ambas categorías de eventos. Cree dos temas personalizados y deje que los controladores de eventos se suscriban a uno que les interese. Para soluciones pequeñas, puede que prefiera enviar todos los eventos a un solo tema. Los suscriptores de eventos se pueden filtrar por los tipos de evento que desean.
+Hay otro tipo de tema, el **tema de asociado**. La característica de [eventos de asociado](partner-events-overview.md) permite que un proveedor de SaaS de terceros publique eventos desde sus servicios para ponerlos a disposición de los consumidores que pueden suscribirse a esos eventos. El proveedor de SaaS expone un tipo de tema, un **tema de asociado** , que los suscriptores usan para consumir eventos. También ofrece un modelo de publicación/suscripción claro ya que separa los intereses y la propiedad de los recursos que usan los publicadores y los suscriptores de eventos.
 
 ## <a name="event-subscriptions"></a>Suscripciones a eventos
 

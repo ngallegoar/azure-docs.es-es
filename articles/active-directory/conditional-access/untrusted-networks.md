@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e4c020a9be7683bf045dbcc747dad3cb45058dd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144998"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077683"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedimientos: Uso obligatorio de MFA para el acceso desde redes que no son de confianza con el acceso condicional   
 
@@ -54,11 +54,11 @@ En lugar de intentar definir cuáles son todas las ubicaciones que no son de con
 
 - Incluir todas las ubicaciones 
 
-   ![Acceso condicional](./media/untrusted-networks/02.png)
+   :::image type="content" source="./media/untrusted-networks/02.png" alt-text="Captura de pantalla del panel de ubicaciones de Azure AD, donde la opción de configuración está establecida en Sí, la pestaña para incluir está visible y la opción de cualquier ubicación está seleccionada y resaltada" border="false":::.
 
 - Excluir todas las ubicaciones de confianza 
 
-   ![Acceso condicional](./media/untrusted-networks/01.png)
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Captura de pantalla del panel ubicaciones de Azure AD, con la opción de configuración está establecida en Sí, la pestaña para excluir está visible y la opción de todas las ubicaciones de confianza está seleccionada" border="false":::.
 
 ## <a name="policy-deployment"></a>Implementación de directivas
 

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791586"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087033"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Solución de problemas de la latencia de replicación en Azure Database for MySQL
 
@@ -35,7 +35,7 @@ En este artículo, obtendrá información sobre cómo solucionar problemas de la
 
 Cuando un registro binario está habilitado, el servidor de origen escribe las transacciones confirmadas en el registro binario. Este registro binario se usa para la replicación. Está activado de manera predeterminada en todos los servidores recién aprovisionados que admiten hasta 16 TB de almacenamiento. En los servidores de réplica, se ejecutan dos subprocesos en cada servidor de réplica. Uno es el *subproceso de E/S* , y el otro es el *subproceso de SQL* :
 
-- El subproceso de E/S se conecta al servidor de origen y solicita los registros binarios actualizados. Este subproceso recibe las actualizaciones del registro binario. Esas actualizaciones se guardan en un servidor de réplicas, en un registro local denominado *registro de retransmisión* .
+- El subproceso de E/S se conecta al servidor de origen y solicita los registros binarios actualizados. Este subproceso recibe las actualizaciones del registro binario. Esas actualizaciones se guardan en un servidor de réplicas, en un registro local denominado *registro de retransmisión*.
 - El subproceso de SQL lee el registro de retransmisión y, a continuación, aplica los cambios de datos en los servidores de réplica.
 
 ## <a name="monitoring-replication-latency"></a>Supervisar la latencia de replicación
@@ -87,14 +87,14 @@ mysql> SHOW SLAVE STATUS;
 Esta es una salida típica:
   
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Supervisar la latencia de replicación&quot;:::
+> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Supervisar la latencia de replicación":::
 
 
 La salida contiene mucha información. Normalmente, solo necesita centrarse en las filas que se describen en la tabla siguiente.
 
 |Métrica|Descripción|
 |---|---|
-|Slave_IO_State| Representa el estado actual del subproceso de E/S. Normalmente, el estado es &quot;Esperando a que el maestro envíe el evento&quot; si se está sincronizando el servidor de origen (maestro). Un estado similar a &quot;Conectando con el maestro" indica que la réplica perdió la conexión con el servidor de origen. Asegúrese de que el servidor de origen se está ejecutando, o compruebe si un firewall está bloqueando la conexión.|
+|Slave_IO_State| Representa el estado actual del subproceso de E/S. Normalmente, el estado es "Esperando a que el maestro envíe el evento" si se está sincronizando el servidor de origen (maestro). Un estado similar a "Conectando con el maestro" indica que la réplica perdió la conexión con el servidor de origen. Asegúrese de que el servidor de origen se está ejecutando, o compruebe si un firewall está bloqueando la conexión.|
 |Master_Log_File| Representa el archivo de registro binario en el que está escribiendo el servidor de origen.|
 |Read_Master_Log_Pos| Indica en qué parte del archivo de registro binario escribe el servidor de origen.|
 |Relay_Master_Log_File| Representa el archivo de registro binario que el servidor de réplica lee del servidor de origen.|
@@ -236,6 +236,9 @@ En Azure Database for MySQL, la replicación está optimizada de manera predeter
 El parámetro binlog_group_commit_sync_delay controla cuántos microsegundos espera la confirmación de registro binario antes de sincronizar el archivo de registro binario. La ventaja de este parámetro es que, en lugar de aplicar inmediatamente todas las transacciones confirmadas, el servidor de origen envía las actualizaciones del registro binario de forma masiva. Este retraso reduce las operaciones de E/S en la réplica y ayuda a mejorar el rendimiento. 
 
 Podría resultar útil establecer el parámetro binlog_group_commit_sync_delay en un valor de 1000, aproximadamente. A continuación, supervise la latencia de replicación. Establezca este parámetro con precaución y úselo solo para las cargas de trabajo de simultaneidad alta. 
+
+> [!IMPORTANT] 
+> En el servidor réplica, se recomienda que el parámetro binlog_group_commit_sync_delay sea 0. Esto se recomienda porque, a diferencia de lo que ocurre con el servidor de origen, el servidor de réplica no tendrá una alta simultaneidad, y el aumento del valor de binlog_group_commit_sync_delay en el servidor de réplica podría provocar involuntariamente un retraso en la replicación.
 
 En el caso de las cargas de trabajo con simultaneidad baja que incluyen muchas transacciones singleton, el valor binlog_group_commit_sync_delay puede aumentar la latencia. La latencia puede aumentar porque el subproceso de E/S espera las actualizaciones del registro binario masivas, aunque solo se confirmen algunas transacciones. 
 

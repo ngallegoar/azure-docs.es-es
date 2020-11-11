@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cbe3ef7080397b135ea0fb17cd50de9b1ccfdf09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367744"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336126"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -22,15 +22,15 @@ Cada acción se compone de las siguientes propiedades:
 
 * **Tipo** : La notificación o acción realizada. El envío de llamadas de voz, mensajes de texto o correo electrónico o el desencadenamiento de varios tipos de acciones automatizadas son algunos ejemplos. Consulte los tipos más adelante en este artículo.
 * **Name** : un identificador único dentro del grupo de acciones.
-* **Detalles** : detalles correspondientes que varían según el *tipo* .
+* **Detalles** : detalles correspondientes que varían según el *tipo*.
 
 Para más información sobre el uso de plantillas de Azure Resource Manager para configurar grupos de acciones, consulte [Plantillas de Resource Manager para grupos de acciones](./action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Creación de un grupo de acciones con Azure Portal
 
-1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Monitor** . El panel **Monitor** consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Monitor**. El panel **Monitor** consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
 
-1. Seleccione **Alertas** y **Administrar acciones** .
+1. Seleccione **Alertas** y **Administrar acciones**.
 
     ![Botón Administrar acciones](./media/action-groups/manage-action-groups.png)
     
@@ -46,9 +46,9 @@ Seleccione la **Suscripción** y el **Grupo de recursos** donde está guardado e
 
 En **Detalles de instancia** :
 
-1. Escriba el **Nombre del grupo de acciones** .
+1. Escriba el **Nombre del grupo de acciones**.
 
-1. Escriba un **Nombre para mostrar** . El nombre para mostrar se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
+1. Escriba un **Nombre para mostrar**. El nombre para mostrar se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
 
       ![Cuadro de diálogo "Agregar grupo de acciones"](./media/action-groups/action-group-1-basics.png)
 
@@ -102,7 +102,7 @@ En **Detalles de instancia** :
 
 ## <a name="manage-your-action-groups"></a>Administración de los grupos de acciones
 
-Después de crear un grupo de acciones, puede ver los **grupos de acciones** seleccionando **Administrar acciones** en la página de aterrizaje **Alertas** del panel **Supervisión** . Seleccione el grupo de acciones que desea administrar para:
+Después de crear un grupo de acciones, puede ver los **grupos de acciones** seleccionando **Administrar acciones** en la página de aterrizaje **Alertas** del panel **Supervisión**. Seleccione el grupo de acciones que desea administrar para:
 
 * Agregar, editar o quitar acciones.
 * Eliminar el grupo de acciones.
@@ -131,7 +131,7 @@ En un grupo de acciones puede tener un número limitado de acciones de correo el
 ### <a name="email-azure-resource-manager-role"></a>Rol de Azure Resource Manager de correo electrónico
 Envíe un correo electrónico a los miembros del rol de la suscripción. El correo electrónico solo se enviará a los miembros **usuarios de Azure AD** del rol. No se enviará correo electrónico a grupos de Azure AD ni entidades de servicio.
 
-Solo se envía un correo electrónico de notificación a la dirección de *correo electrónico principal* .
+Solo se envía un correo electrónico de notificación a la dirección de *correo electrónico principal*.
 
 En un grupo de acciones puede tener un número limitado de acciones de correo electrónico. Consulte el artículo de [información sobre las limitaciones](./alerts-rate-limiting.md).
 
@@ -287,32 +287,32 @@ Para recibir actualizaciones sobre los cambios a estas direcciones IP, se recomi
 
 En un grupo de acciones puede tener un número limitado de acciones de webhook.
 
-### <a name="service-tag"></a>Etiqueta de servicio
+Las actualizaciones frecuentes de las direcciones IP de origen pueden llevar bastante tiempo en un webhook. El uso de **Etiqueta de servicio** para *ActionGroup* ayuda a minimizar la complejidad de las actualizaciones frecuentes de las direcciones IP manualmente. Microsoft administra automáticamente los prefijos de intervalo de direcciones IP de origen compartidos anteriormente englobados por **Etiqueta de servicio**.
+
+#### <a name="service-tag"></a>Etiqueta de servicio
 Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red para un ActionGroup.
 
-1. En Azure Portal, en servicios de Azure, busque *Grupo de seguridad de red* .
+1. En Azure Portal, en servicios de Azure, busque *Grupo de seguridad de red*.
 2. Haga clic en **Agregar** y cree un grupo de seguridad de red.
 
-   1. Agregue el nombre del grupo de recursos y escriba los *detalles de la instancia* .
-   1. Haga clic en **Revisar y crear** y, a continuación, en *Crear* .
+   1. Agregue el nombre del grupo de recursos y escriba los *detalles de la instancia*.
+   1. Haga clic en **Revisar y crear** y, a continuación, en *Crear*.
    
    :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Ejemplo de creación de un grupo de seguridad de red"border="true":::.
 
 3. Vaya a Grupo de recursos y haga clic en el *grupo de seguridad de red* que ha creado.
 
-    1. Seleccione *Reglas de seguridad de entrada* .
-    1. Haga clic en **Agregar** .
+    1. Seleccione *Reglas de seguridad de entrada*.
+    1. Haga clic en **Agregar**.
     
     :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Ejemplo de incorporación de una etiqueta de servicio."border="true":::
 
 4. Se abrirá una nueva ventana en el panel derecho.
     1.  Seleccione Origen: **Etiqueta de servicio**
     1.  Etiqueta de servicio de origen: **ActionGroup**
-    1.  Haga clic en **Agregar** .
+    1.  Haga clic en **Agregar**.
     
     :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Ejemplo de incorporación de una etiqueta de servicio."border="true":::
-
-El uso de **Etiqueta de servicio** para ActionGroup ayuda a minimizar la complejidad de las actualizaciones frecuentes de las direcciones IP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre el [comportamiento de las alertas por SMS](./alerts-sms-behavior.md).  

@@ -3,19 +3,21 @@ title: Directivas de indexación de Azure Cosmos DB
 description: Obtenga información sobre la configuración y cambio de la directiva de indexación predeterminada para una indexación automática y un mayor rendimiento en Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9e62d6c475a4aeb366d034af1c80fc728f1a9211
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489241"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335830"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-En Azure Cosmos DB, cada contenedor tiene una directiva de indexación que determina cómo se deben indexar los elementos del contenedor. La directiva de indexación predeterminada para los contenedores recién creados indexa cada propiedad de cada elemento y exige que se usen índices de intervalo para todas las cadenas o números. Esto permite obtener un rendimiento elevado de consultas sin tener que pensar en la indexación y administración de índices por adelantado.
+En Azure Cosmos DB, cada contenedor tiene una directiva de indexación que determina cómo se deben indexar los elementos del contenedor. La directiva de indexación predeterminada para los contenedores recién creados indexa cada propiedad de cada elemento y exige que se usen índices de intervalo para todas las cadenas o números. Esto permite obtener un buen rendimiento de las consultas sin tener que pensar en la indexación ni en la administración de índices por adelantado.
 
 En algunas situaciones, puede que quiera invalidar este comportamiento automático para ajustarse mejor a sus requerimientos. Puede personalizar la directiva de indexación de un contenedor estableciendo su *modo de indexación* e incluir o excluir las *rutas de acceso de propiedad*.
 
@@ -30,7 +32,7 @@ Azure Cosmos DB admite dos modos de indexación:
 - **Ninguna** : La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) hasta que se complete.
 
 > [!NOTE]
-> Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. En junio de 2020, se incluyó un cambio que ya no permite que los nuevos contenedores se establezcan en el modo de indexación diferida. Si la cuenta de Azure Cosmos DB ya contiene al menos un contenedor con indexación diferida, esta cuenta se excluye automáticamente del cambio. También puede ponerse en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar una exención (excepto si usa una cuenta de Azure Cosmos en modo [sin servidor](serverless.md) que no admite la indexación diferida).
+> Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. Los nuevos contenedores no pueden seleccionar la indexación diferida. Puede ponerse en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar una exención (excepto si usa una cuenta de Azure Cosmos en modo [sin servidor](serverless.md), que no admite la indexación diferida).
 
 De forma predeterminada, la directiva de indexación se establece en `automatic`. Esto se consigue al establecer la propiedad `automatic` de la directiva de indexación en `true`. Al establecer esta propiedad en `true`, se permite que Azure Cosmos DB indexe automáticamente los documentos a medida que se escriben.
 
@@ -198,6 +200,7 @@ Las consideraciones siguientes se usan cuando se crean índices compuestos para 
 - Si una propiedad tiene un filtro de intervalo (`>`, `<`, `<=`, `>=` o `!=`), esta propiedad se debe definir en último lugar en el índice compuesto. Si una consulta tiene más de un filtro de intervalo, no utilizará el índice compuesto.
 - Al crear un índice compuesto para optimizar las consultas con varios filtros, el valor de `ORDER` del índice compuesto no tendrá ningún impacto en los resultados. Esta propiedad es opcional.
 - Si no define ningún índice compuesto para una consulta con filtros en varias propiedades, la consulta se realizará correctamente de todos modos. Sin embargo, el costo de RU de la consulta se puede reducir con un índice compuesto.
+- Las consultas que tengan tanto agregados (por ejemplo, COUNT o SUM) como filtros también se benefician de los índices compuestos.
 
 Tenga en cuenta los ejemplos siguientes, en los que se define un índice compuesto en las propiedades name, age y timestamp:
 
@@ -205,6 +208,7 @@ Tenga en cuenta los ejemplos siguientes, en los que se define un índice compues
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name ASC, age ASC)```   | ```SELECT COUNT(1) FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
 | ```(name DESC, age ASC)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
@@ -245,6 +249,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 Las consideraciones siguientes se usan cuando se crean índices compuestos para optimizar una consulta con un filtro y una cláusula `ORDER BY`:
 
 * Si la consulta aplica filtros en las propiedades, estos deben incluirse en primer lugar en la cláusula `ORDER BY`.
+* Si la consulta aplica filtros en varias propiedades, los filtros de igualdad deben ser las primeras propiedades de la cláusula `ORDER BY`.
 * Si no define ningún índice compuesto en una consulta con un filtro en una propiedad y una cláusula independiente `ORDER BY` mediante una propiedad diferente, la consulta se realizará correctamente. Sin embargo, el costo de RU de la consulta se puede reducir con un índice compuesto, especialmente si la propiedad de la cláusula `ORDER BY` tiene una cardinalidad alta.
 * Todavía se aplican todas las consideraciones para crear índices compuestos para consultas `ORDER BY` con varias propiedades, así como consultas con filtros en varias propiedades.
 
@@ -252,6 +257,8 @@ Las consideraciones siguientes se usan cuando se crean índices compuestos para 
 | **Índice compuesto**                      | **Consulta `ORDER BY` de ejemplo**                                  | **¿Es compatible con el índice compuesto?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" AND c.timestamp > 1589840355 ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT * FROM c WHERE c.timestamp > 1589840355 AND c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
@@ -259,7 +266,7 @@ Las consideraciones siguientes se usan cuando se crean índices compuestos para 
 
 ## <a name="modifying-the-indexing-policy"></a>Modificación de la directiva de indexación
 
-Se puede actualizar en cualquier momento una directiva de indexación de un contenedor [mediante Azure Portal o uno de los SDK admitidos](how-to-manage-indexing-policy.md). Una actualización de la directiva de indexación desencadena una transformación del índice antiguo al nuevo, que se realiza en línea y en local (por lo que no se consume ningún espacio de almacenamiento adicional durante la operación). El índice de la directiva antigua se transforma eficientemente en la nueva directiva sin que ello afecte a la disponibilidad de escritura, la disponibilidad de lectura ni al rendimiento aprovisionado en el contenedor. La transformación del índice es una operación asincrónica, y el tiempo que tarda en completarse depende del rendimiento aprovisionado, el número de elementos y su tamaño.
+Se puede actualizar en cualquier momento una directiva de indexación de un contenedor [mediante Azure Portal o uno de los SDK admitidos](how-to-manage-indexing-policy.md). Una actualización de la directiva de indexación desencadena una transformación del índice antiguo al nuevo, que se realiza en línea y en local (por lo que no se consume ningún espacio de almacenamiento adicional durante la operación). La directiva de indexación antigua se transforma eficientemente en la nueva directiva sin que ello afecte a la disponibilidad de escritura, la disponibilidad de lectura ni al rendimiento aprovisionado en el contenedor. La transformación del índice es una operación asincrónica, y el tiempo que tarda en completarse depende del rendimiento aprovisionado, el número de elementos y su tamaño.
 
 > [!IMPORTANT]
 > La transformación de índice es una operación que consume [unidades de solicitud](request-units.md). Las unidades de solicitud consumidas por una transformación de índice no se facturan actualmente si se usan contenedores [sin servidor](serverless.md). Estas unidades de solicitud se facturarán una vez que el modo sin servidor esté disponible con carácter general.
@@ -280,14 +287,10 @@ Al quitar índices y ejecutar consultas de inmediato que tienen filtros en los �
 
 El uso de la [característica Período de vida (TTL)](time-to-live.md) requiere indexación. Esto significa que:
 
-- No es posible activar el TTL en un contenedor en el que se establece el modo de indexación en None.
+- No es posible activar el TTL en un contenedor en el que se establece el modo de indexación en `none`.
 - No es posible establecer el modo de indexación en None en un contenedor donde el TTL está activado.
 
-Para escenarios donde no se necesita indexar ninguna ruta de acceso de propiedad, pero el TTL es necesario, puede usar una directiva de indexación con lo siguiente:
-
-- Un modo de indexación establecido en Consistent.
-- Ninguna ruta de acceso incluida.
-- `/*` como única ruta de acceso excluida.
+En escenarios donde no es necesario indexar ninguna ruta de acceso de propiedad, pero es necesario el TTL, puede usar una directiva de indexación con un modo de indexación con el modo establecido en `consistent`, sin rutas de acceso incluidas y con `/*` como la única ruta de acceso excluida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

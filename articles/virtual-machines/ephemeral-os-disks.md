@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f915652110524aac06d641d636155bc6a5fcd256
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611527"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927930"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos de SO efímeros para máquinas virtuales de Azure
 
@@ -34,7 +34,7 @@ Principales diferencias entre discos del sistema operativo efímeros y persisten
 
 |                             | Disco del sistema operativo persistente                          | Disco de sistema operativo efímero                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Límite de tamaño del disco del sistema operativo**      | 2 TiB                                                                                        | El tamaño de caché para el tamaño de máquina virtual o 2 TiB, el que sea menor. Para el **tamaño de caché en GiB**, consulte [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md) y [GS](sizes-previous-gen.md#gs-series).              |
+| **Límite de tamaño del disco del sistema operativo**      | 2 TiB                                                                                        | El tamaño de caché para el tamaño de máquina virtual o 2 TiB, el que sea menor. Para el **tamaño de caché en GiB** , consulte [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md) y [GS](sizes-previous-gen.md#gs-series).              |
 | **Tamaños de máquina virtual admitidos**          | All                                                                                          | Tamaños de máquina virtual que admiten Premium Storage, como DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS y M                                               |
 | **Compatibilidad con los tipos de discos**           | Disco del sistema operativo administrado y no administrado                                                                | Solo disco del sistema operativo administrado                                                               |
 | **Regiones admitidas**              | Todas las regiones                                                                                  | Todas las regiones                              |
@@ -42,7 +42,8 @@ Principales diferencias entre discos del sistema operativo efímeros y persisten
 | **Estado detenido (desasignado)**      | Las máquinas virtuales y las instancias del conjunto de escalado pueden estar detenidas (desasignadas) y reiniciarse a partir de este estado. | Las máquinas virtuales y las instancias del conjunto de escalado no pueden estar detenidas (desasignadas).                                  |
 | **Compatibilidad con discos del sistema operativo especializados** | Sí                                                                                          | No                                                                                 |
 | **Cambio de tamaño del disco del sistema operativo**              | Se admite durante la creación de la máquina virtual y después de que esta se detiene (desasigna).                                | Se admite solo durante la creación de la máquina virtual                                                  |
-| **Cambio a un nuevo tamaño de máquina virtual**   | Se conservan los datos del disco del sistema operativo                                                                    | Se eliminan los datos del disco del sistema operativo, se vuelve a aprovisionar el sistema operativo.                                      |
+| **Cambio a un nuevo tamaño de máquina virtual**   | Se conservan los datos del disco del sistema operativo                                                                    | Se eliminan los datos del disco del sistema operativo, se vuelve a aprovisionar el sistema operativo.       
+| **Ubicación del archivo de paginación**   | En Windows, el archivo de paginación se almacena en el disco de recursos                                              | En Windows, el archivo de paginación se almacena en el disco del sistema operativo   |
 
 ## <a name="size-requirements"></a>Requisitos de tamaño
 

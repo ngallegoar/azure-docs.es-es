@@ -2,13 +2,13 @@
 title: Entrega y reintento de entrega de Azure Event Grid
 description: Describe cómo Azure Event Grid entrega eventos y cómo administra los mensajes no entregados.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/29/2020
+ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324100"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042951"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
 
@@ -22,8 +22,8 @@ De forma predeterminada, Event Grid envía cada evento individualmente a los sus
 
 La entrega por lotes tiene dos opciones:
 
-* **Número máximo de eventos por lote**: es el número máximo de eventos que Event Grid entregará por lote. No se superará nunca este número; sin embargo, se pueden entregar menos eventos si no hay otros eventos disponibles en el momento de la publicación. Event Grid no retrasa los eventos para crear un lote si hay menos eventos disponibles. Debe estar entre 1 y 5 000.
-* **Tamaño de lote preferido en kilobytes**: es el límite superior de destino para el tamaño de lote en kilobytes. Al igual que el número máximo de eventos, el tamaño del lote puede ser menor si no hay más eventos disponibles en el momento de la publicación. Es posible que un lote sea mayor que el tamaño de lote preferido *si* un solo evento es mayor que el tamaño preferido. Por ejemplo, si el tamaño preferido es 4 KB y se inserta un evento de 10 KB en Event Grid, el evento de 10 KB se seguirá entregando en su propio lote en lugar de ser eliminado.
+* **Número máximo de eventos por lote** : es el número máximo de eventos que Event Grid entregará por lote. No se superará nunca este número; sin embargo, se pueden entregar menos eventos si no hay otros eventos disponibles en el momento de la publicación. Event Grid no retrasa los eventos para crear un lote si hay menos eventos disponibles. Debe estar entre 1 y 5 000.
+* **Tamaño de lote preferido en kilobytes** : es el límite superior de destino para el tamaño de lote en kilobytes. Al igual que el número máximo de eventos, el tamaño del lote puede ser menor si no hay más eventos disponibles en el momento de la publicación. Es posible que un lote sea mayor que el tamaño de lote preferido *si* un solo evento es mayor que el tamaño preferido. Por ejemplo, si el tamaño preferido es 4 KB y se inserta un evento de 10 KB en Event Grid, el evento de 10 KB se seguirá entregando en su propio lote en lugar de ser eliminado.
 
 La entrega por lotes se configura en función de una suscripción por evento mediante el portal, la CLI, PowerShell o los SDK.
 
@@ -33,8 +33,8 @@ La entrega por lotes se configura en función de una suscripción por evento med
 ### <a name="azure-cli"></a>Azure CLI
 Al crear una suscripción a eventos, use los parámetros siguientes: 
 
-- **max-events-per-batch**: número máximo de eventos en un lote. Debe ser un número entre 1 y 5000.
-- **preferred-batch-size-in-kilobytes**: tamaño de lote preferido en kilobytes. Debe ser un número entre 1 y 1024.
+- **max-events-per-batch** : número máximo de eventos en un lote. Debe ser un número entre 1 y 5000.
+- **preferred-batch-size-in-kilobytes** : tamaño de lote preferido en kilobytes. Debe ser un número entre 1 y 1024.
 
 ```azurecli
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -80,12 +80,14 @@ El propósito funcional de la entrega retrasada es proteger los puntos de conexi
 ## <a name="dead-letter-events"></a>Eventos fallidos
 Cuando Event Grid no puede entregar un evento en un período de tiempo determinado o después de intentar entregarlo un número concreto de veces, puede enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos**. Event Grid pone en la cola de mensajes fallidos un evento cuando se cumple **una de las siguientes** condiciones. 
 
-- El evento no se entrega en el período de tiempo de vida
-- El número de intentos de entrega del evento ha superado el límite
+- El evento no se entrega en el período de **tiempo de vida**. 
+- El **número de intentos** de entrega del evento ha superado el límite.
 
 Si se cumple alguna de las condiciones, el evento se quita o pone en la cola de mensajes fallidos.  De forma predeterminada, Event Grid no tiene activada esta opción. Para habilitarla, debe especificar una cuenta de almacenamiento para contener los eventos no entregados al crear la suscripción a eventos. Puede extraer eventos de esta cuenta de almacenamiento para resolver las entregas.
 
 Event Grid envía un evento a la ubicación de la cola de mensajes fallidos cuando ha intentado todos los reintentos. Si Event Grid recibe un código de respuesta 400 (solicitud incorrecta) o 413 (entidad de solicitud demasiado grande), envía inmediatamente el evento al punto de conexión de la cola de mensajes fallidos. Estos códigos de respuesta indican que la entrega del evento nunca se realizará correctamente.
+
+La expiración del período de vida SOLO se comprueba en el siguiente intento de entrega programada. Por lo tanto, incluso si expira el período de vida antes del siguiente intento de entrega programada, la expiración del evento se comprueba solo en el momento de la siguiente entrega y, a continuación, en la cola de mensajes fallidos. 
 
 Hay un retraso de cinco minutos entre el último intento de entregar un evento y su entrega a la ubicación de mensajes fallidos. Este retraso está pensado para reducir el número de operaciones de almacenamiento de blobs. Si la ubicación de la cola de mensajes fallidos no está disponible durante cuatro horas, se elimina el evento.
 

@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357223"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085180"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualización del clúster mediante el Explorador de Service Fabric
 
@@ -117,7 +117,7 @@ EventStore es una característica que ofrece la plataforma que proporciona event
 ## <a name="image-store-viewer"></a>Visor del almacén de imágenes
 El visor del almacén de imágenes es una característica que se ofrece si se usa el almacén de imágenes nativo que permite ver los contenidos actuales del almacén de imágenes y obtener información de archivos y carpetas. Además, también permite la eliminación de archivos y carpetas.
 
-![Mapa de clúster del Explorador de Service Fabric][sfx-imagestore]
+![Captura de pantalla en la que se muestra el visor del Almacén de imágenes.][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Copias de seguridad y restauración
 Service Fabric Explorer ofrece la posibilidad de interactuar con [Copia de seguridad y restauración](./service-fabric-reliable-services-backup-restore.md). Para ver las características de copia de seguridad y restauración en SFX, debe estar habilitado el modo avanzado .

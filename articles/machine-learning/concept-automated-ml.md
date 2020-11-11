@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 04/22/2020
-ms.openlocfilehash: 49c3e5602834576e8d3de86ac7d6683f9b6f7b89
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/27/2020
+ms.openlocfilehash: 31cb2b2b5411968f1eba71fa9afc7bdc8296407c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367523"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307401"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -204,7 +204,7 @@ Por ejemplo, la creación de un modelo __para cada instancia o individual__ en l
 
 Azure Machine Learning ofrece dos experiencias para trabajar con aprendizaje automático automatizado:
 
-* Para clientes con experiencia en código, [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
+* Para clientes con experiencia en código, [SDK de Python de Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 
 
 * Para clientes con poca experiencia en código o ninguna, Azure Machine Learning Studio en [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -263,7 +263,7 @@ Con Azure Machine Learning, puede usar Machine Learning para generar un modelo d
 
 Consulte cómo convertir al formato ONNX [en este ejemplo de Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Aprenda cuáles [son los algoritmos que se admiten en ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
 
-El entorno de ejecución de ONNX también es compatible con C#, por lo que puede usar el modelo creado automáticamente en sus aplicaciones de C# sin necesidad de volver a codificar o experimentar alguna de las latencias de red que presentan los puntos de conexión REST. Obtenga más información sobre la [inferencia de los modelos ONNX con la API de C# en el entorno de ejecución de ONNX](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
+El entorno de ejecución de ONNX también es compatible con C#, por lo que puede usar el modelo creado automáticamente en sus aplicaciones de C# sin necesidad de volver a codificar o experimentar alguna de las latencias de red que presentan los puntos de conexión REST. Obtenga más detalles sobre el [uso de un modelo AutoML de ONNX en una aplicación .NET con ML.NET](./how-to-use-automl-onnx-model-dotnet.md) y la [creación de inferencias en modelos de ONNX con la API de C# del entorno de ejecución de ONNX](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -289,8 +289,7 @@ Revise los ejemplos de código y los casos de uso detallados en el repositorio d
 
 ### <a name="python-sdk-reference"></a>Referencia de SDK de Python
 
-Profundizar en sus conocimientos sobre los patrones de diseño y las especificaciones de clases del SDK con la [documentación de referencia de la clase AutoML](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true). 
+Profundizar en sus conocimientos sobre los patrones de diseño y las especificaciones de clases del SDK con la [documentación de referencia de la clase AutoML](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py). 
 
 > [!Note]
-> Las funcionalidades del aprendizaje automático automatizado también están disponibles en otras soluciones de Microsoft como,[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) y [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
-
+> Las funcionalidades del aprendizaje automático automatizado también están disponibles en otras soluciones de Microsoft como,[ML.NET](/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](/power-bi/service-machine-learning-automated) y [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

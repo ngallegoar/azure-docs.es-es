@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre el dispositivo de Azure Migrate
 description: Respuestas a preguntas comunes sobre el dispositivo de Azure Migrate.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 7be6260a7d3eb25ce2854f6949554e2c66019980
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314772"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337598"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -42,12 +42,13 @@ El dispositivo se puede implementar así:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>¿Cómo se conecta el dispositivo a Azure?
 
-El dispositivo puede conectarse a través de Internet, o mediante Azure ExpressRoute. Asegúrese de que estas [direcciones URL](./migrate-appliance.md#url-access) estén aprobadas para que el dispositivo se conecte a Azure.
+El dispositivo puede conectarse a través de Internet, o mediante Azure ExpressRoute. 
 
-- Para usar Azure ExpressRoute para el tráfico de replicación de Azure Migrate, se requiere del emparejamiento de Microsoft, o de un emparejamiento público existente (el emparejamiento público está en desuso para las creaciones nuevas de ExpressRoute).
-- No se admite la replicación a través de Azure ExpressRoute con (solo) el emparejamiento privado habilitado.
+- Asegúrese de que el dispositivo se puede conectar a estas [direcciones URL de Azure](./migrate-appliance.md#url-access). 
+- Puede usar ExpressRoute con emparejamiento de Microsoft.  El emparejamiento público está en desuso y no está disponible para nuevos circuitos de ExpressRoute.
+- El emparejamiento privado solo no se admite.
 
-Azure ExpressRoute con el emparejamiento de Microsoft configurado es el dominio de enrutamiento recomendado para el tráfico de replicación.
+
 
 ## <a name="does-appliance-analysis-affect-performance"></a>¿Afecta el análisis del dispositivo al rendimiento?
 
@@ -65,9 +66,9 @@ El dispositivo necesita acceso a las direcciones URL de Azure. [Examine](migrate
 
 Consulte los artículos siguientes para obtener información sobre los datos que el dispositivo Azure Migrate recopila en las máquinas virtuales:
 
-- **Máquina virtual de VMware**: [Revisión](migrate-appliance.md#collected-data---vmware) de los datos recopilados.
-- **Máquina virtual de Hyper-V**: [Revisión](migrate-appliance.md#collected-data---hyper-v) de los datos recopilados.
-- **Servidores físicos o virtuales**: [Revisión](migrate-appliance.md#collected-data---physical) de los datos recopilados.
+- **Máquina virtual de VMware** : [Revisión](migrate-appliance.md#collected-data---vmware) de los datos recopilados.
+- **Máquina virtual de Hyper-V** : [Revisión](migrate-appliance.md#collected-data---hyper-v) de los datos recopilados.
+- **Servidores físicos o virtuales** : [Revisión](migrate-appliance.md#collected-data---physical) de los datos recopilados.
 
 ## <a name="how-is-data-stored"></a>¿Cómo se almacenan los datos?
 

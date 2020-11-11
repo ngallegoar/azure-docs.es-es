@@ -3,12 +3,12 @@ title: Nodos y grupos en Azure Batch
 description: Obtenga información sobre los grupos y nodos de proceso, y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371450"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913813"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch
 
@@ -68,7 +68,7 @@ Hay dos tipos de configuraciones de grupo disponibles en Batch.
 
 La **Configuración de máquina virtual** especifica que el grupo está formado por máquinas virtuales de Azure. Estas máquinas virtuales pueden crearse a partir de imágenes de Linux o Windows.
 
-Cuando crea un grupo basado en la configuración de máquina virtual, debe especificar no solo el tamaño de los nodos y el origen de las imágenes utilizadas para crearlos, sino también la **referencia de la imagen de máquina virtual** y la **SKU del agente de nodo** de Batch que desea instalar en los nodos. Para más información sobre cómo especificar estas propiedades del grupo, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Azure Batch](batch-linux-nodes.md). También puede asociar uno o más discos de datos vacíos a las máquinas virtuales del grupo creadas con imágenes de Marketplace, o bien incluir discos de datos en imágenes personalizadas usadas para crear las máquinas virtuales. Al incluir discos de datos, deberá montar y dar formato a los discos desde una máquina virtual para usarlos.
+El [agente de nodo del servicio Batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) es un programa que se ejecuta en cada nodo del grupo y proporciona la interfaz de comandos y control entre el nodo y el servicio Batch. Hay diferentes implementaciones del agente de nodo, conocidas como SKU, para distintos sistemas operativos. Cuando crea un grupo basado en la configuración de máquina virtual, debe especificar no solo el tamaño de los nodos y el origen de las imágenes utilizadas para crearlos, sino también la **referencia de la imagen de máquina virtual** y la **SKU del agente de nodo** de Batch que desea instalar en los nodos. Para más información sobre cómo especificar estas propiedades del grupo, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Azure Batch](batch-linux-nodes.md). También puede asociar uno o más discos de datos vacíos a las máquinas virtuales del grupo creadas con imágenes de Marketplace, o bien incluir discos de datos en imágenes personalizadas usadas para crear las máquinas virtuales. Al incluir discos de datos, deberá montar y dar formato a los discos desde una máquina virtual para usarlos.
 
 ### <a name="cloud-services-configuration"></a>Configuración de Cloud Services
 

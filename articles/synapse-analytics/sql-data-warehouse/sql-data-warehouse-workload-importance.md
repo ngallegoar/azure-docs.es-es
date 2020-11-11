@@ -1,6 +1,6 @@
 ---
 title: Importancia de la carga de trabajo
-description: Guía para configurar la importancia de las consultas del grupo de SQL de Synapse en Azure Synapse Analytics.
+description: Guía para configurar la importancia de las consultas del grupo de SQL dedicado en Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212350"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322115"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importancia de la carga de trabajo de Azure Synapse Analytics
 
-En este artículo se explica cómo puede influir la importancia de la carga de trabajo en el orden de ejecución de las solicitudes del grupo de SQL de Synapse en Azure Synapse.
+En este artículo se explica cómo puede influir la importancia de la carga de trabajo en el orden de ejecución de las solicitudes del grupo de SQL dedicado en Azure Synapse.
 
 ## <a name="importance"></a>importancia
 
@@ -38,7 +38,7 @@ Más allá del escenario de importancia básico ya descrito con datos de ventas 
 
 ### <a name="locking"></a>Bloqueo
 
-El acceso a bloqueos de la actividad de lectura y escritura es un área de contención natural. Las actividades como [modificación de particiones](sql-data-warehouse-tables-partition.md) o [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) requieren bloqueos elevados.  Sin la importancia de la carga de trabajo, el grupo de SQL de Synapse en Azure Synapse optimiza para mejorar el rendimiento. La optimización para el rendimiento significa que, cuando las solicitudes en ejecución y las que están en cola tienen las mismas necesidades de bloqueo y hay recursos disponibles, las solicitudes en cola pueden omitir las solicitudes con necesidades de bloqueo mayores que llegaron anteriormente a la cola de solicitud. Una vez que la importancia de la carga de trabajo se aplica a las solicitudes con necesidades de bloqueo más altas, se ejecutará la solicitud con la importancia de la solicitud antes de una solicitud con una menor importancia.
+El acceso a bloqueos de la actividad de lectura y escritura es un área de contención natural. Las actividades como [modificación de particiones](sql-data-warehouse-tables-partition.md) o [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) requieren bloqueos elevados.  Sin la importancia de la carga de trabajo, el grupo de SQL dedicado en Azure Synapse se optimiza para mejorar el rendimiento. La optimización para el rendimiento significa que, cuando las solicitudes en ejecución y las que están en cola tienen las mismas necesidades de bloqueo y hay recursos disponibles, las solicitudes en cola pueden omitir las solicitudes con necesidades de bloqueo mayores que llegaron anteriormente a la cola de solicitud. Una vez que la importancia de la carga de trabajo se aplica a las solicitudes con necesidades de bloqueo más altas, se ejecutará la solicitud con la importancia de la solicitud antes de una solicitud con una menor importancia.
 
 Considere el ejemplo siguiente:
 
@@ -50,7 +50,7 @@ Si Q2 y Q3 tienen la misma importancia y Q1 todavía está en ejecución, se emp
 
 ### <a name="non-uniform-requests"></a>Solicitudes no uniformes
 
-Otro escenario donde la importancia puede ayudar a cumplir las demandas de consultas es cuando se envían solicitudes con clases de recursos distintas.  Como se mencionó anteriormente, con la misma importancia, el grupo de SQL de Synapse en Azure Synapse se optimiza para lograr un mejor rendimiento. Cuando se ponen en cola solicitudes de distinto tamaño (como smallrc o mediumrc), el grupo de SQL de Synapse elige la primera solicitud que llegue y que se ajuste a los recursos disponibles. Si se aplica la importancia de la carga de trabajo, la solicitud con la importancia más alta se programará a continuación.
+Otro escenario donde la importancia puede ayudar a cumplir las demandas de consultas es cuando se envían solicitudes con clases de recursos distintas.  Como se mencionó anteriormente, con la misma importancia, el grupo de SQL dedicado en Azure Synapse se optimiza para mejorar el rendimiento. Cuando se ponen en cola solicitudes de distinto tamaño (como smallrc o mediumrc), el grupo de SQL dedicado elige la primera solicitud que llegue que se ajuste a los recursos disponibles. Si se aplica la importancia de la carga de trabajo, la solicitud con la importancia más alta se programará a continuación.
   
 Considere el ejemplo siguiente en DW500c:
 

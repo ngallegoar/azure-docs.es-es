@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 30a6a73768db7b073258487435ddbe6c0daccf16
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317818"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074804"
 ---
 # <a name="overview-of-the-developer-portal"></a>Información general del portal para desarrolladores
 
@@ -48,9 +48,9 @@ El servicio de API Management incluye un portal para desarrolladores integrado y
 Si necesita ampliarlo con una lógica personalizada que no se admite de forma integrada, puede modificar su código base. El código base del portal está [disponible en un repositorio de GitHub][1]. Por ejemplo, puede implementar un nuevo widget que se integra con un sistema de soporte de terceros. Al implementar una nueva funcionalidad, puede elegir una de las siguientes opciones:
 
 - **Autohospedaje** del portal resultante fuera del servicio API Management. Cuando se autohospeda el portal, se convierte en su administrador y será responsable de sus actualizaciones. La ayuda del Soporte técnico de Azure solo está limitada a la configuración básica de portales autohospedados, tal como se detalla en la [sección Wiki del repositorio][2].
-- Abra una solicitud de incorporación de cambios para que el equipo de API Management combine la nueva funcionalidad con el código base del portal **administrado** .
+- Abra una solicitud de incorporación de cambios para que el equipo de API Management combine la nueva funcionalidad con el código base del portal **administrado**.
 
-Para obtener información detallada e instrucciones de extensibilidad, consulte el [repositorio de GitHub][1] y [los tutoriales para la implementación de un widget][3]. En el [tutorial para personalizar el portal administrado](api-management-howto-developer-portal-customize.md) obtendrá una serie de pasos que le ayudarán a usar el panel administrativo del portal, que es común para las versiones **administradas** y **autohospedadas** .
+Para obtener información detallada e instrucciones de extensibilidad, consulte el [repositorio de GitHub][1] y [los tutoriales para la implementación de un widget][3]. En el [tutorial para personalizar el portal administrado](api-management-howto-developer-portal-customize.md) obtendrá una serie de pasos que le ayudarán a usar el panel administrativo del portal, que es común para las versiones **administradas** y **autohospedadas**.
 
 ## <a name="frequently-asked-questions"></a><a name="faq"></a> Preguntas más frecuentes
 
@@ -62,7 +62,7 @@ Cuando se inicia por primera vez la versión preliminar del portal para desarrol
 
 Si ha personalizado en gran medida el portal en función de la versión preliminar del contenido, puede seguir con su uso tal cual y colocar nuevos widgets manualmente en las páginas del portal. De lo contrario, se recomienda reemplazar el contenido del portal con el nuevo contenido predeterminado.
 
-Para restablecer el contenido en un portal administrado, seleccione **Restablecer contenido** en la sección **Operaciones** del menú. Esta operación eliminará todo el contenido del portal y aprovisionará el nuevo contenido predeterminado. Perderá todas las personalizaciones y los cambios del portal para desarrolladores. **No es posible deshacer esta acción** .
+Para restablecer el contenido en un portal administrado, seleccione **Restablecer contenido** en la sección **Operaciones** del menú. Esta operación eliminará todo el contenido del portal y aprovisionará el nuevo contenido predeterminado. Perderá todas las personalizaciones y los cambios del portal para desarrolladores. **No es posible deshacer esta acción**.
 
 ![Restablecimiento del contenido del portal](media/api-management-howto-developer-portal/reset-content.png)
 
@@ -126,15 +126,15 @@ La consola interactiva realiza una solicitud de API del lado cliente desde el ex
 
 Puede comprobar el estado de la directiva de CORS en la sección **Portal overview** (Información general del portal) del servicio API Management en Azure Portal. Un cuadro de advertencia indica que falta una directiva o que está mal configurada.
 
-![API Management developer portal](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![Captura de pantalla que muestra dónde puede comprobar el estado de la directiva de CORS.](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
-Aplique automáticamente la directiva de CORS haciendo clic en el botón **Habilitar CORS** .
+Aplique automáticamente la directiva de CORS haciendo clic en el botón **Habilitar CORS**.
 
 También puede habilitar CORS manualmente.
 
 1. Haga clic en el vínculo **Manually apply it on the global level** (Aplicarlo manualmente en el nivel global) para ver el código generado de la directiva.
 2. Vaya a **Todas las API** en la sección **API** del servicio API Management en Azure Portal.
-3. Haga clic en el icono **</>** en la sección **Procesamiento de entrada** .
+3. Haga clic en el icono **</>** en la sección **Procesamiento de entrada**.
 4. Inserte la directiva en la sección **<inbound>** del archivo XML. Asegúrese de que el valor de **<origin>** coincide con el dominio del portal para desarrolladores.
 
 > [!NOTE]

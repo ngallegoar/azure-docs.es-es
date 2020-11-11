@@ -3,18 +3,20 @@ title: Administración de directivas de indexación en Azure Cosmos DB
 description: Obtenga información sobre cómo administrar directivas de indexación, incluir o excluir una propiedad de la indexación y cómo definir la indexación mediante diferentes SDK de Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 67d542ffe0279abe72bc74ab207cd5fddd1a4362
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cd51210a64223fab5d2d48a91bd3d0a6521a9627
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491043"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341321"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En Azure Cosmos DB, para indexar los datos se usan las [directivas de indexación](index-policy.md) que se definen para cada contenedor. La directiva de indexación predeterminada para los contenedores recién creados exige que se usen índices de intervalo para todas las cadenas o números. Puede invalidar esta directiva con su propia directiva de indexación personalizada.
 
@@ -46,7 +48,7 @@ Estos son algunos ejemplos de directivas de indexación que se muestran en [su f
     }
 ```
 
-Esta directiva de indexación es equivalente a la siguiente, que establece manualmente ```kind```, ```dataType``` y ```precision``` en sus valores predeterminados. Estas propiedades ya no son necesarias para establecerse explícitamente y puede omitirlas por completo en la directiva de indexación (como se muestra en el ejemplo anterior).
+Esta directiva de indexación es equivalente a la siguiente, que establece manualmente ```kind```, ```dataType``` y ```precision``` en sus valores predeterminados. Estas propiedades ya no tienen que establecerse explícitamente y debe omitirlas por completo en la directiva de indexación (como se muestra en el ejemplo anterior).
 
 ```json
     {
@@ -100,7 +102,7 @@ Esta directiva de indexación es equivalente a la siguiente, que establece manua
     }
 ```
 
-Esta directiva de indexación es equivalente a la siguiente, que establece manualmente ```kind```, ```dataType``` y ```precision``` en sus valores predeterminados. Estas propiedades ya no son necesarias para establecerse explícitamente y puede omitirlas por completo en la directiva de indexación (como se muestra en el ejemplo anterior).
+Esta directiva de indexación es equivalente a la siguiente, que establece manualmente ```kind```, ```dataType``` y ```precision``` en sus valores predeterminados. Estas propiedades ya no tienen que establecerse explícitamente y debe omitirlas por completo en la directiva de indexación (como se muestra en el ejemplo anterior).
 
 ```json
     {
@@ -142,7 +144,7 @@ Esta directiva de indexación es equivalente a la siguiente, que establece manua
 ```
 
 > [!NOTE]
-> Por lo general se recomienda usar una directiva de indexación de **rechazo** para permitir que Azure Cosmos DB indexe de forma proactiva todas las propiedades nuevas que se puedan agregar a un modelo.
+> Por lo general se recomienda usar una directiva de indexación de **rechazo** para permitir que Azure Cosmos DB indexe de forma proactiva todas las propiedades nuevas que se puedan agregar al modelo de datos.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Uso de un índice espacial en una ruta de acceso de una propiedad concreta solo
 
@@ -176,7 +178,7 @@ Esta directiva de indexación es equivalente a la siguiente, que establece manua
 
 ## <a name="composite-indexing-policy-examples"></a>Ejemplos de la directiva de índice compuesto
 
-Además de incluir o excluir rutas de acceso para las propiedades individuales, también puede especificar un índice compuesto. Si quiere hacer una consulta que tiene una cláusula `ORDER BY` para varias propiedades, necesita un [índice compuesto](index-policy.md#composite-indexes) en esas propiedades. Además, los índices compuestos tendrán una ventaja de rendimiento para las consultas que tienen un filtro y tienen una cláusula ORDER BY en distintas propiedades.
+Además de incluir o excluir rutas de acceso para las propiedades individuales, también puede especificar un índice compuesto. Si quiere hacer una consulta que tiene una cláusula `ORDER BY` para varias propiedades, necesita un [índice compuesto](index-policy.md#composite-indexes) en esas propiedades. Además, los índices compuestos tendrán una ventaja de rendimiento en las consultas que tienen varios filtros o bien un filtro y una cláusula ORDER BY.
 
 > [!NOTE]
 > Las rutas de acceso compuestas tienen un carácter `/?` implícito, ya que solo se indexa el valor escalar de esa ruta de acceso. El carácter comodín `/*` no se admite en las rutas de acceso compuestas. No debe especificar `/?` ni `/*` en las rutas de acceso compuestas.
@@ -313,7 +315,7 @@ Si quiere, puede especificar el orden. Si no lo especifica, el orden es ascenden
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Exclusión de las rutas de acceso de todas las propiedades, pero manteniendo la indexación activa
 
-Esta directiva se puede usar en las situaciones en que la [característica Time-to-Live (TTL)](time-to-live.md) está activa, pero no se requiere un índice secundario (para usar Azure Cosmos DB como almacén de clave-valor puro).
+Esta directiva se puede usar en las situaciones en que la [característica Time-to-Live (TTL)](time-to-live.md) está activa, pero no se necesita ningún otro índice (para usar Azure Cosmos DB como almacén de clave-valor puro).
 
 ```json
     {
@@ -363,7 +365,7 @@ Los contenedores de Azure Cosmos almacenan su directiva de indexación en forma
 
 1. Modifique el documento JSON de la directiva de indexación (vea los ejemplos [a continuación](#indexing-policy-examples))
 
-1. Cuando haya terminado, haga clic en **Guardar** .
+1. Cuando haya terminado, haga clic en **Guardar**.
 
 :::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Administración de la indexación mediante Azure Portal":::
 

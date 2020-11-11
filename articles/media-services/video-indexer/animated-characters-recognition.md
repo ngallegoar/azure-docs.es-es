@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1ac27f8fe0c6c608bfc261e9ac2d96651c94b341
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018889"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040090"
 ---
 # <a name="animated-character-detection-preview"></a>Detección de personajes animados (versión preliminar)
 
@@ -96,7 +96,7 @@ Siga estos pasos para conectar su cuenta de Custom Vision a Video Indexer, o bie
 1. Vaya al sitio web de [Video Indexer](https://vi.microsoft.com/) e inicie sesión.
 1. Haga clic en el botón de personalización del modelo de contenido en la esquina superior derecha de la página.
 
-    ![Personalización del modelo de contenido](./media/animated-characters-recognition/content-model-customization.png)
+    ![Captura de pantalla en la que se muestra la página "Video Indexer" con el botón de "personalización del modelo de contenido" seleccionado en la esquina superior derecha.](./media/animated-characters-recognition/content-model-customization.png)
 1. Vaya a la pestaña **Animated characters** (Personajes animados) en la sección de personalización de modelos.
 1. Haga clic en **Agregar modelo**.
 1. Asigne un nombre al modelo y haga clic en Entrar para guardarlo.
@@ -123,7 +123,7 @@ Siga estos pasos para conectar su cuenta de Custom Vision a Video Indexer, o bie
 
     1. Etiquete el personaje detectado editando su nombre. Una vez que se entrena un personaje en el modelo, se reconocerá en el siguiente vídeo indexado con ese modelo. 
     1. Para etiquetar un personaje animado en el vídeo, vaya a la pestaña **Información** y haga clic en el botón **Editar** en la esquina superior derecha de la ventana.
-    1. En el panel **Información**, haga clic en cualquiera de los personajes animados detectados y cambie sus nombres "Unknown #X" (Desconocido X), o los que asignara previamente al personaje, por otros.
+    1. En el panel **Información** , haga clic en cualquiera de los personajes animados detectados y cambie sus nombres "Unknown #X" (Desconocido X), o los que asignara previamente al personaje, por otros.
     1. Después de escribir el nuevo nombre, haga clic en el icono de verificación junto a él. Esto guarda el nuevo nombre en el modelo en Video Indexer.
     1. Una vez que haya terminado de editar todos los nombres que desee, debe entrenar el modelo.
 

@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962356"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074189"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -60,12 +60,14 @@ En [Limitaciones de App Service](../azure-resource-manager/management/move-limit
 Para establecer la zona horaria de servidor para la aplicación web:
 
 1. En Azure Portal, en la suscripción de App Service, vaya al menú **Configuración de la aplicación**.
-2. En **Configuración de la aplicación**, agregue este valor:
+2. En **Configuración de la aplicación** , agregue este valor:
     * Clave = WEBSITE_TIME_ZONE
     * Valor = *la zona horaria que desea*
 3. Seleccione **Guardar**.
 
-Para los servicios de aplicación que se ejecutan en Windows, consulte la columna **Zona horaria** en el artículo [Zonas horarias predeterminadas](/windows-hardware/manufacture/desktop/default-time-zones) para ver los valores aceptados. En el caso de los servicios de aplicaciones que se ejecutan en Linux, establezca el [nombre de la base de datos de TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como el valor de zona horaria. Este es un ejemplo de nombre de base de datos de TZ: América/Adak.
+En el caso de los servicios de aplicaciones que se ejecutan en Windows, consulte la salida del comando `tzutil /L` de Windows. Use el valor de la segunda línea de cada entrada. Por ejemplo: "Hora estándar de Tonga". Algunos de estos valores también se muestran en la columna **Zona horaria** de [Zonas horarias predeterminadas](/windows-hardware/manufacture/desktop/default-time-zones).
+
+En el caso de los servicios de aplicaciones que se ejecutan en Linux, establezca un valor de la [base de datos de IANA TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Por ejemplo: "America/Adak".
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>¿Por qué mis trabajos web continuos en ocasiones dan error?
 
@@ -183,7 +185,7 @@ Para capturar un seguimiento F12, tiene dos opciones:
 ### <a name="f12-console-output"></a>Salida de consola de F12
 
 1. Seleccione la pestaña **Consola**.
-2. Para cada pestaña que contenga más de cero elementos, seleccione la pestaña (**Error**, **Advertencia** o **Información**). Si la pestaña no está seleccionada, el icono de la pestaña está de color gris o negro al mover el cursor fuera de ella.
+2. Para cada pestaña que contenga más de cero elementos, seleccione la pestaña ( **Error** , **Advertencia** o **Información** ). Si la pestaña no está seleccionada, el icono de la pestaña está de color gris o negro al mover el cursor fuera de ella.
 3. Haga clic con el botón derecho en el área de mensajes del panel y luego seleccione **Copiar todo**.
 4. Pegue el texto copiado en un archivo y luego guarde el archivo.
 

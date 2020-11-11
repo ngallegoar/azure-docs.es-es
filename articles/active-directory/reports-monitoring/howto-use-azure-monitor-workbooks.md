@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76dc7693b1773038d610f9ed42eddad2c81e3eaf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226988"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126641"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Uso de los libros de Azure Monitor en informes de Azure Active Directory
 
@@ -91,7 +91,7 @@ Para acceder a los libros:
 
 ## <a name="sign-in-analysis"></a>Análisis de inicio de sesión
 
-Para tener acceso al libro de análisis de inicio de sesión, en la sección **Uso**, seleccione **Inicios de sesión**. 
+Para tener acceso al libro de análisis de inicio de sesión, en la sección **Uso** , seleccione **Inicios de sesión**. 
 
 Este libro muestra las siguientes tendencias de inicio de sesión:
 
@@ -174,7 +174,7 @@ Este libro muestra las tendencias para los inicios de sesión deshabilitados. Pu
 
 Para los inicios de sesión deshabilitados, obtendrá un desglose por el estado de acceso condicional.
 
-![Estado de acceso condicional](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Captura de pantalla que muestra el estado de acceso condicional y los inicios de sesión recientes.](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 ## <a name="conditional-access-insights"></a>Conditional Access Insights
@@ -194,12 +194,12 @@ Para acceder al libro con la información de acceso condicional, seleccione el l
 
 - **Vista de datos**
 
-![Estado de acceso condicional](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+![Captura de pantalla que muestra el panel de acceso condicional, donde puede seleccionar una directiva de acceso condicional.](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
 El Resumen de impacto muestra el número de usuarios o inicios de sesión para los que las directivas seleccionadas tenían un resultado determinado. Total es el número de usuarios o inicios de sesión para los que se evaluaron las directivas seleccionadas en el intervalo de tiempo seleccionado. Haga clic en un icono para filtrar los datos del libro por ese tipo de resultado. 
 
-![Estado de acceso condicional](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+![Captura de pantalla que muestra los mosaicos que se usan para filtrar los resultados, como total, correcto y error.](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
 Este libro también muestra el impacto de las directivas seleccionadas divididas por cada una de estas seis condiciones: 
 - **Estado del dispositivo**
@@ -209,15 +209,11 @@ Este libro también muestra el impacto de las directivas seleccionadas divididas
 - **Ubicación**
 - **Aplicaciones**
 
-![Estado de acceso condicional](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+![Captura de pantalla que muestra los detalles del filtro de total de inicios de sesión.](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
 También puede investigar inicios de sesión individuales, filtrados por los parámetros seleccionados en el libro. Busque usuarios individuales, ordenados por frecuencia de inicio de sesión y consulte los eventos de inicio de sesión correspondientes. 
 
-![Estado de acceso condicional](./media/howto-use-azure-monitor-workbooks/filtered.png)
-
-
-
-
+![Captura de pantalla que muestra inicios de sesión individuales que puede revisar.](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 ## <a name="sign-ins-by-grant-controls"></a>Inicios de sesión por controles de concesión
 
@@ -261,7 +257,7 @@ Use el libro **Análisis de errores de inicios de sesión** para solucionar erro
 - Autenticación heredada 
 
 
-Para acceder a los inicios de sesión por datos de acceso condicional, en la sección **Solución de problemas**, seleccione **Sign-ins using Legacy Authentication** (Inicios de sesión que utilizan una autenticación heredada). 
+Para acceder a los inicios de sesión por datos de acceso condicional, en la sección **Solución de problemas** , seleccione **Sign-ins using Legacy Authentication** (Inicios de sesión que utilizan una autenticación heredada). 
 
 Este libro muestra las siguientes tendencias de inicio de sesión:
 

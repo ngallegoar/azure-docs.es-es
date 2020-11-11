@@ -1,25 +1,50 @@
 ---
 title: Novedades en los documentos de la plataforma de identidad de Microsoft
+titleSuffix: Microsoft identity platform
 description: Documentación nueva y actualizada de la plataforma de identidad de Microsoft.
-ms.date: 10/09/2020
+services: active-directory
+author: mmacy
+manager: CelesteDG
+ms.date: 11/03/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-services: active-directory
-author: mmacy
-manager: CelesteDG
-ms.openlocfilehash: e6b1e16666188b21926d7547d80bda87303bc0f1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d5865810dafef9ce2bb525a8f1b6cdbdb1a86566
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979308"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322557"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos de la plataforma de identidad de Microsoft: Novedades
 
 Estas son las novedades de la documentación de la plataforma de identidad de Microsoft. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses.
+
+## <a name="october-2020"></a>Octubre de 2020
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una aplicación web de Node mediante el flujo de código de autorización](quickstart-v2-nodejs-webapp-msal.md)
+- [Procedimiento: Habilitación de SSO entre aplicaciones en Android mediante MSAL](msal-android-single-sign-on.md)
+- [Compatibilidad con inicio de sesión único y directivas de protección de aplicaciones en el desarrollo de aplicaciones móviles](mobile-sso-support-overview.md)
+- Documentos de la plataforma de identidad de Microsoft: Novedades (este artículo)
+- [Tutorial: Inicio de sesión de usuarios y llamada a una API protegida desde una aplicación WebAssembly de Blazor](tutorial-blazor-webassembly.md)
+- [Biblioteca de autenticación de Microsoft Identity Web](microsoft-identity-web.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)](active-directory-configurable-token-lifetimes.md)
+- [Cómo: Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino](howto-convert-app-to-be-multi-tenant.md)
+- [Inicio rápido: Modificación de las cuentas compatibles con una aplicación](quickstart-modify-supported-accounts.md)
+- [Vídeos de la plataforma de identidad de Microsoft](identity-videos.md)
+- [Guía de migración de ADAL a MSAL para Android](migrate-android-adal-msal.md)
+- [Inicio rápido: Llamada a una instancia de ASP.NET Web API protegida por una plataforma de identidad de Microsoft](quickstart-v2-dotnet-native-aspnet.md)
+- [Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft](active-directory-certificate-credentials.md)
+- [Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph desde una aplicación de iOS o macOS](tutorial-v2-ios.md)
+- [Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript](tutorial-v2-javascript-spa.md)
+- [Tutorial: Uso del modo de dispositivo compartido en la aplicación Android](tutorial-v2-shared-device-mode.md)
 
 ## <a name="september-2020"></a>Septiembre de 2020
 
@@ -62,27 +87,3 @@ Estas son las novedades de la documentación de la plataforma de identidad de Mi
 - [Inicio rápido: Configuración de una aplicación para exponer una API web](quickstart-configure-app-expose-web-apis.md)
 - [Vídeos de la plataforma de identidad de Microsoft](identity-videos.md)
 - [Inicio rápido: Llamada a una instancia de ASP.NET Web API protegida por una plataforma de identidad de Microsoft](quickstart-v2-dotnet-native-aspnet.md)
-
-## <a name="july-2020"></a>Julio de 2020
-
-### <a name="new-articles"></a>Artículos nuevos
-
-- [Incorporación de su aplicación en la galería de aplicaciones de Azure Active Directory](v2-howto-app-gallery-listing.md)
-- [Certificación de AppSource para Azure Active Directory](v2-howto-get-appsource-certified.md)
-
-### <a name="updated-articles"></a>Artículos actualizados
-
-- [Flujo con derechos delegados de OAuth 2.0 y Plataforma de identidad de Microsoft](v2-oauth2-on-behalf-of-flow.md)
-- [Limitaciones y restricciones de URI de redirección o URL de respuesta](reply-url.md)
-- [API web protegida: Configuración del código](scenario-protected-web-api-app-configuration.md)
-- [API web protegida: Comprobación de ámbitos y roles de aplicación](scenario-protected-web-api-verification-scope-app-roles.md)
-- [API web que llama a las API web: adquisición de un token para la aplicación](scenario-web-api-call-api-acquire-token.md)
-- [API web que llama a las API web: configuración del código](scenario-web-api-call-api-app-configuration.md)
-- [Aplicación web que llama a API web: Adquisición de un token para la aplicación](scenario-web-app-call-api-acquire-token.md)
-- [Aplicación web que inicia sesión de usuarios: Configuración del código](scenario-web-app-sign-user-app-configuration.md)
-- [Introducción a la Plataforma de identidad de Microsoft](v2-overview.md)
-- [Vídeos de la plataforma de identidad de Microsoft](identity-videos.md)
-- [Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java](quickstart-v2-java-webapp.md)
-- [Flujos de autenticación](msal-authentication-flows.md)
-- [Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (XAML)](tutorial-v2-windows-uwp.md)
-- [Inicialización de aplicaciones cliente con MSAL.js](msal-js-initializing-client-applications.md)

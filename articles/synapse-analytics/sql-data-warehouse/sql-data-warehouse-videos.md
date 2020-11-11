@@ -11,18 +11,18 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0515827ab2d93c76ea91e95c2d53a44273b5633b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0b3a924008d4180c045455aecda8ec109845939
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213795"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321007"
 ---
-# <a name="azure-synapse-analytics---sql-pool-videos"></a>Vídeos de Azure Synapse Analytics: grupo de SQL
+# <a name="azure-synapse-analytics---dedicated-sql-pool-videos"></a>Vídeos del grupo de SQL dedicado de Azure Synapse Analytics
 
-Vea los vídeos más recientes del grupo de SQL de Azure Synapse para conocer las nuevas funcionalidades y mejoras de rendimiento. 
+Vea los vídeos más recientes del grupo de SQL dedicado para conocer las nuevas funcionalidades y mejoras de rendimiento. 
 
-Para empezar, seleccione el vídeo de información general que se muestra a continuación para conocer las nuevas actualizaciones al grupo de SQL de Azure Synapse. Además, aprenda cómo se pueden usar los patrones de almacenamiento de datos modernos para abordar escenarios reales, como los ciberdelitos.
+Para empezar, seleccione el vídeo de información general que se muestra a continuación para conocer las nuevas actualizaciones al grupo de SQL dedicado. Además, aprenda cómo se pueden usar los patrones de almacenamiento de datos modernos para abordar escenarios reales, como los ciberdelitos.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">

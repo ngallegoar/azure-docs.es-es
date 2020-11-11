@@ -4,12 +4,12 @@ description: Configure pruebas web en Application Insights. Obtenga alertas si u
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56644a4eb2f91dcce3bc2ee557542da75408ca83
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986024"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075150"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Supervisión de la disponibilidad de un sitio web
 
@@ -60,7 +60,7 @@ Para crear la primera solicitud de disponibilidad, abra el panel Disponibilidad 
 
 |Configuración| Explicación
 |----|----|----|
-| **Tiempo de espera de prueba** |reduzca este valor para recibir una alerta sobre las respuestas lentas. La prueba se considera un error si no se han recibido respuestas de su sitio dentro de este período. Si seleccionó **Analizar solicitudes dependientes**, todas las imágenes, archivos de estilo, scripts y otros recursos dependientes se deben haber recibido durante este período.|
+| **Tiempo de espera de prueba** |reduzca este valor para recibir una alerta sobre las respuestas lentas. La prueba se considera un error si no se han recibido respuestas de su sitio dentro de este período. Si seleccionó **Analizar solicitudes dependientes** , todas las imágenes, archivos de estilo, scripts y otros recursos dependientes se deben haber recibido durante este período.|
 | **Respuesta HTTP** | el código de estado devuelto que se considera correcto. 200 es el código que indica que se ha devuelto una página web normal.|
 | **Coincidencia de contenido** | Una cadena, como "Bienvenido". Probamos que se produce una coincidencia exacta entre mayúsculas y minúsculas en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla. **En la coincidencia de contenido solo se admiten caracteres en inglés** |
 
@@ -71,6 +71,55 @@ Para crear la primera solicitud de disponibilidad, abra el panel Disponibilidad 
 |**Casi en tiempo real (versión preliminar)** | Se recomienda usar alertas casi en tiempo real. La configuración de este tipo de alertas se realiza después de crear la prueba de disponibilidad.  |
 |**Clásico** | Ya no se recomienda usar alertas clásicas para nuevas pruebas de disponibilidad.|
 |**Umbral de la ubicación de la alerta**|se recomienda un mínimo de 3/5 ubicaciones. La relación óptima entre el umbral de ubicación de la alerta y el número de ubicaciones de prueba es **umbral de ubicación de la alerta** = **número de ubicaciones de prueba - 2, con un mínimo de cinco ubicaciones de prueba.**|
+
+### <a name="location-population-tags"></a>Etiquetas para rellenar la ubicación
+
+Se pueden usar las siguientes etiquetas para rellenar el atributo de ubicación geográfica al implementar una prueba de ping de la dirección URL para averiguar la disponibilidad mediante Azure Resource Manager.
+
+#### <a name="azure-gov"></a>Azure Gov
+
+| Display Name (Nombre para mostrar)   | Nombre de rellenado     |
+|----------------|---------------------|
+| USGov Virginia | usgov-va-azr        |
+| USGov: Arizona  | usgov-phx-azr       |
+| USGov Texas    | usgov-tx-azr        |
+| Departamento de Defensa del este de EE. UU     | usgov-ddeast-azr    |
+| Departamento de Defensa de centro de EE. UU.  | usgov-ddcentral-azr |
+
+#### <a name="us-sec"></a>US SEC
+
+| Display Name (Nombre para mostrar) | Nombre de rellenado |
+|--------------|-----------------|
+| USSec occidental   | ussec-west-azr  |
+| USSec oriental   | ussec-east-azr  |
+
+#### <a name="us-nat"></a>US Nat
+
+| Display Name (Nombre para mostrar) | Nombre de rellenado |
+|--------------|-----------------|
+| USNat East   | usnat-east-azr  |
+| USNat West   | usnat-west-azr  |
+
+#### <a name="azure"></a>Azure
+
+| Display Name (Nombre para mostrar)                           | Nombre de rellenado   |
+|----------------------------------------|-------------------|
+| Este de Australia                         | emea-au-syd-edge  |
+| Sur de Brasil                           | latam-br-gru-edge |
+| Centro de EE. UU.                             | us-fl-mia-edge    |
+| Este de Asia                              | apac-hk-hkn-azr   |
+| Este de EE. UU.                                | us-va-ash-azr     |
+| Sur de Francia (anteriormente Centro de Francia) | emea-ch-zrh-edge  |
+| Centro de Francia                         | emea-fr-pra-edge  |
+| Japón Oriental                             | apac-jp-kaw-edge  |
+| Norte de Europa                           | emea-gb-db3-azr   |
+| Centro-Norte de EE. UU                       | us-il-ch1-azr     |
+| Centro-sur de EE. UU.                       | us-tx-sn1-azr     |
+| Sudeste de Asia                         | apac-sg-sin-azr   |
+| Oeste de Reino Unido                                | emea-se-sto-edge  |
+| Oeste de Europa                            | emea-nl-ams-azr   |
+| Oeste de EE. UU.                                | us-ca-sjc-azr     |
+| Sur de Reino Unido                               | emea-ru-msa-edge  |
 
 ## <a name="see-your-availability-test-results"></a>Visualización de los resultados de las pruebas de disponibilidad
 

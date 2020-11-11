@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c650c2b828e2742df5dd92657003460bcda66a0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c11b58954eefda67f981d618b04ab2bd69fa6b43
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145114"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077768"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
@@ -26,7 +26,7 @@ En este artículo se explica cómo puede configurar directivas de acceso condici
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-El uso obligatorio de dispositivos administrados para acceder a las aplicaciones en la nube vincula el **acceso condicional de Azure AD** y la **administración de dispositivos de Azure AD** . Si no está familiarizado con ninguna de estas áreas, debería leer los siguientes temas en primer lugar:
+El uso obligatorio de dispositivos administrados para acceder a las aplicaciones en la nube vincula el **acceso condicional de Azure AD** y la **administración de dispositivos de Azure AD**. Si no está familiarizado con ninguna de estas áreas, debería leer los siguientes temas en primer lugar:
 
 - **[Acceso condicional en Azure Active Directory](./overview.md)** : en este artículo se proporciona información general conceptual sobre el acceso condicional y la terminología relacionada.
 - **[Introducción a la administración de dispositivos en Azure Active Directory](../devices/overview.md)** : en este artículo se proporciona información general de las diversas opciones que tiene para mantener los dispositivos bajo el control de la organización. 
@@ -50,7 +50,7 @@ Con el acceso condicional de Azure AD, puede abordar este requisito con una ún
 
 En otras palabras, los dispositivos administrados son dispositivos que están bajo *algún tipo* de control de la organización. En Azure AD, el requisito previo para un dispositivo administrado es que se haya registrado en Azure AD. Al registrar un dispositivo, se crea una identidad para el dispositivo en forma de un objeto de dispositivo. Azure usa este objeto para realizar el seguimiento de información de estado sobre el dispositivo. Como administrador de Azure AD, ya puede utilizar este objeto para alternar (habilitar/deshabilitar) el estado de un dispositivo.
   
-![Condiciones basadas en el dispositivo](./media/require-managed-devices/32.png)
+:::image type="content" source="./media/require-managed-devices/32.png" alt-text="Captura de pantalla del panel de dispositivos de Azure AD, con las opciones para habilitar y deshabilitar elementos resaltadas" border="false":::.
 
 Para registrar un dispositivo en Azure AD, tiene tres opciones: 
 
@@ -60,19 +60,19 @@ Para registrar un dispositivo en Azure AD, tiene tres opciones:
 
 Estas tres opciones se describen en el artículo [¿Qué es la identidad de dispositivos?](../devices/overview.md)
 
-Para convertirse en dispositivo administrado, un dispositivo registrado debe ser un **dispositivo unido a Azure AD híbrido** o un **dispositivo que se ha marcado como compatible** .  
+Para convertirse en dispositivo administrado, un dispositivo registrado debe ser un **dispositivo unido a Azure AD híbrido** o un **dispositivo que se ha marcado como compatible**.  
 
-![Condiciones basadas en el dispositivo](./media/require-managed-devices/47.png)
+:::image type="content" source="./media/require-managed-devices/47.png" alt-text="Captura de pantalla del panel de concesión de Azure AD. La opción Conceder acceso está seleccionada, al igual que las casillas para que los dispositivos sean compatibles y se unan a Azure AD híbrido" border="false":::.
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Requerir dispositivos unidos a Azure AD híbridos
 
 En la directiva de acceso condicional, puede seleccionar **Requerir dispositivo unido a Azure AD híbrido** para indicar que solo se puede acceder a las aplicaciones en la nube seleccionadas mediante un dispositivo administrado. 
 
-![Condiciones basadas en el dispositivo](./media/require-managed-devices/10.png)
+:::image type="content" source="./media/require-managed-devices/10.png" alt-text="Captura de pantalla del panel de concesiones de Azure AD. La opción Conceder acceso está seleccionada. También aparece seleccionada la casilla que requiere que los dispositivos estén unidos a Azure AD híbrido" border="false":::.
 
 Esta configuración solo se aplica a dispositivos Windows 10 o de nivel inferior, como Windows 7 o Windows 8 que están unidos a una instancia de AD local. Estos dispositivos solo pueden registrarse en Azure AD con una unión a Azure AD híbrida, que es un [proceso automatizado](../devices/hybrid-azuread-join-plan.md) para registrar un dispositivo Windows 10. 
 
-![Condiciones basadas en el dispositivo](./media/require-managed-devices/45.png)
+:::image type="content" source="./media/require-managed-devices/45.png" alt-text="Tabla en la que se muestran el nombre, el estado habilitado, el sistema operativo, la versión, el tipo de unión, el propietario, MDM y el estado de compatibilidad de un dispositivo. El estado de compatibilidad es No" border="false":::.
 
 ¿Qué hace que un dispositivo unido a Azure AD híbrido sea un dispositivo administrado?  Para los dispositivos que están unidos a una instancia de AD local, se supone que el control de estos dispositivos se ejerce mediante soluciones de administración, como **Configuration Manager** o la **directiva de grupo** para administrarlos. Dado que no hay ningún método para que Azure AD determine si alguno de estos métodos se ha aplicado a un dispositivo, requerir un dispositivo unido a Azure AD híbrido es un mecanismo relativamente débil para requerir un dispositivo administrado. Depende de usted como administrador juzgar si los métodos que se aplican a sus dispositivos locales unidos a un dominio son lo suficientemente estrictos para constituir un dispositivo administrado si tal dispositivo también es un dispositivo unido a Azure AD híbrido.
 
@@ -80,14 +80,14 @@ Esta configuración solo se aplica a dispositivos Windows 10 o de nivel inferior
 
 La opción de *requerir que un dispositivo esté marcado como compatibles* es la forma más eficaz para solicitar un dispositivo administrado.
 
-![Condiciones basadas en el dispositivo](./media/require-managed-devices/11.png)
+:::image type="content" source="./media/require-managed-devices/11.png" alt-text="Captura de pantalla del panel de concesiones de Azure AD. La opción Conceder acceso está seleccionada. También está seleccionada una casilla que requiere que un dispositivo se marque como compatible" border="false":::.
 
 Esta opción exige registrar un dispositivo en Azure AD y, también, que se marque como compatible por:
          
 - Intune
 - Un sistema administrado de dispositivos móviles (MDM) de terceros que administra los dispositivos de Windows 10 a través de la integración de Azure AD. No se pueden utilizar sistemas MDM de terceros con otros sistemas operativos que no sean Windows 10.
  
-![Condiciones basadas en el dispositivo](./media/require-managed-devices/46.png)
+:::image type="content" source="./media/require-managed-devices/46.png" alt-text="Tabla en la que se muestran el nombre, el estado habilitado, el sistema operativo, la versión, el tipo de unión, el propietario, MDM y el estado de compatibilidad de un dispositivo. El estado de compatibilidad aparece resaltado" border="false":::.
 
 Para un dispositivo que está marcado como compatible, puede suponer que: 
 
@@ -103,19 +103,19 @@ En este escenario, Contoso ha decidido que todos los accesos móviles a los recu
 Las organizaciones deben completar los pasos siguientes en orden para exigir el uso de un dispositivo móvil inscrito.
 
 1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
-1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional** .
-1. Seleccione **Nueva directiva** .
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
+1. Seleccione **Nueva directiva**.
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
-1. En **Asignaciones** , seleccione **Usuarios y grupos** .
+1. En **Asignaciones** , seleccione **Usuarios y grupos**.
    1. En **Incluir** , seleccione **Todos los usuarios** o **Usuarios y grupos** específicos a los que desee aplicar esta directiva. 
-   1. Seleccione **Listo** .
-1. En **Aplicaciones en la nube o acciones** > **Incluir** , seleccione **Office 365** .
-1. En **Condiciones** , seleccione **Plataformas de dispositivo** .
-   1. Establezca **Configurar** en **Sí** .
-   1. Incluya **Android** e **iOS** .
+   1. Seleccione **Listo**.
+1. En **Aplicaciones en la nube o acciones** > **Incluir** , seleccione **Office 365**.
+1. En **Condiciones** , seleccione **Plataformas de dispositivo**.
+   1. Establezca **Configurar** en **Sí**.
+   1. Incluya **Android** e **iOS**.
 1. En **Controles de acceso** > **Conceder** , seleccione las opciones siguientes:
    - **Requerir que el dispositivo esté marcado como compatible**
-1. Confirme la configuración y establezca **Habilitar directiva** en **Activado** .
+1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear y habilitar la directiva.
 
 ### <a name="known-behavior"></a>Comportamiento conocido
