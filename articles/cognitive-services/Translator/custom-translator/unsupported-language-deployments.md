@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 7498169c2c61b8337a90fbda082729f200f04635
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221203"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369042"
 ---
 # <a name="unsupported-language-deployments"></a>Implementaciones en lenguajes no compatibles
 
@@ -33,7 +33,7 @@ Para que sus modelos sean candidatos para la implementación, deben cumplir los 
 * El par de idiomas del modelo debe ser un par de idiomas no compatible en Traductor personalizado.  Los pares de idiomas en los que se admite un idioma, hacia o desde el inglés, pero el par en sí no incluye el inglés, son candidatos para las implementaciones de idiomas no compatibles.  Por ejemplo, un modelo de Hub para un par de idiomas de francés a alemán se considera un par de idiomas no compatible, aunque francés a inglés e inglés a alemán son pares de idiomas compatibles.
 
 ## <a name="process"></a>Proceso
-Una vez que haya migrado los modelos de la instancia de Hub que sean candidatos para la implementación, los encontrará yendo a la página **Configuración** para su área de trabajo y desplazamiento al final de la página donde verá la sección sobre **entrenamientos de Translator Hub no admitidos** .  Solo aparecerá esta sección si tiene proyectos que cumplen los requisitos previos mencionados anteriormente.
+Una vez que haya migrado los modelos de la instancia de Hub que sean candidatos para la implementación, los encontrará yendo a la página **Configuración** para su área de trabajo y desplazamiento al final de la página donde verá la sección sobre **entrenamientos de Translator Hub no admitidos**.  Solo aparecerá esta sección si tiene proyectos que cumplen los requisitos previos mencionados anteriormente.
 
 ![Captura de pantalla que resalta la sección de entrenamientos no admitidos del centro de traductores.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
@@ -57,4 +57,4 @@ A diferencia de los modelos de Traductor personalizado estándar, los modelos de
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Entrenamiento de un modelo](how-to-train-model.md).
-- Comience a utilizar el modelo de traducción personalizado implementado mediante [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comience a utilizar el modelo de traducción personalizado implementado mediante [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl).

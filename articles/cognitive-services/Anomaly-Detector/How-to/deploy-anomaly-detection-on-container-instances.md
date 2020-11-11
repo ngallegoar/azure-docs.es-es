@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mbullwin
-ms.openlocfilehash: c7ce1985f4c7dcd14befce14abe5b913e2c9a67e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 3979bb82bfa055cc2a134bf3119097c452ffb855
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014754"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364129"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Implementar un contenedor de Anomaly Detector en Azure Container Instances
 
-Aprenda a implementar el contenedor de [Anomaly Detector](../anomaly-detector-container-howto.md) de Cognitive Services en una instancia de [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). Este procedimiento muestra la creación de un recurso de Anomaly Detector. Luego se trata la extracción de la imagen de contenedor asociada. Por último, se resalta la posibilidad de aprovechar la orquestación de los dos desde un explorador. El uso de contenedores puede desviar la atención de los desarrolladores de la administración de la infraestructura y centrarla en el desarrollo de aplicaciones.
+Aprenda a implementar el contenedor de [Anomaly Detector](../anomaly-detector-container-howto.md) de Cognitive Services en una instancia de [Azure Container Instances](../../../container-instances/index.yml). Este procedimiento muestra la creación de un recurso de Anomaly Detector. Luego se trata la extracción de la imagen de contenedor asociada. Por último, se resalta la posibilidad de aprovechar la orquestación de los dos desde un explorador. El uso de contenedores puede desviar la atención de los desarrolladores de la administración de la infraestructura y centrarla en el desarrollo de aplicaciones.
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 

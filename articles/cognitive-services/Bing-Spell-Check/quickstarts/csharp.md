@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 060b648a0d1ee963b44c25e45a7de2888f662335
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3229091a0effda7837b8e58fe8764910e3b6636d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084143"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367002"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y C#
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
 > El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
@@ -205,4 +205,4 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [Creación de una aplicación web de una sola página](../tutorials/spellcheck.md)
 
 - [¿Qué es Bing Spell Check API?](../overview.md)
-- [Referencia de la API Bing Spell Check v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Referencia de la API Bing Spell Check v7](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

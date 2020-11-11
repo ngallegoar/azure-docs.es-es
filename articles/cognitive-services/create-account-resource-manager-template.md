@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: d88d613b6edfc6b08d08410cdc7cf481d973512d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91348344"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363398"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Inicio rápido: Creación de un recurso de Cognitive Services mediante una plantilla de Resource Manager
 
@@ -45,7 +45,7 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
 En la plantilla, se define un recurso de Azure:
-* [Microsoft.CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): crea un recurso de Cognitive Services.
+* [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts): crea un recurso de Cognitive Services.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
@@ -60,7 +60,7 @@ En la plantilla, se define un recurso de Azure:
     |Value  |Descripción  |
     |---------|---------|
     | **Suscripción** | Seleccione una suscripción de Azure. |
-    | **Grupos de recursos** | Seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y haga clic en **Aceptar**. |
+    | **Grupos de recursos** | Seleccione **Crear nuevo** , escriba un nombre único para el grupo de recursos y haga clic en **Aceptar**. |
     | **Región** | Seleccione una región.  Por ejemplo **Este de EE. UU.** |
     | **Nombre de Cognitive Service** | Reemplácelo por un nombre único para el recurso. Necesitará el nombre en la sección siguiente cuando valide la implementación. |
     | **Ubicación** | Reemplácelo por la región utilizada anteriormente. |
@@ -73,9 +73,9 @@ En la plantilla, se define un recurso de Azure:
 # <a name="azure-cli"></a>[CLI de Azure](#tab/CLI)
 
 > [!NOTE]
-> La creación de `az deployment group` requiere la versión 2.6 de la CLI de Azure, o cualquier versión posterior. Para mostrar el tipo de versión `az --version`. Para más información, consulte la [documentación](https://docs.microsoft.com/cli/azure/deployment/group).
+> La creación de `az deployment group` requiere la versión 2.6 de la CLI de Azure, o cualquier versión posterior. Para mostrar el tipo de versión `az --version`. Para más información, consulte la [documentación](/cli/azure/deployment/group).
 
-Ejecute el siguiente script mediante la interfaz de la línea de comandos (CLI) de Azure [en la máquina local](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o en un explorador con el botón **Pruébelo**. Escriba un nombre y una ubicación (por ejemplo `centralus`) para un nuevo grupo de recursos y la plantilla de Resource Manager se usará para implementar un recurso de Cognitive Services dentro de él. Recuerde el nombre que use. Lo usará más adelante para validar la implementación.
+Ejecute el siguiente script mediante la interfaz de la línea de comandos (CLI) de Azure [en la máquina local](/cli/azure/install-azure-cli?view=azure-cli-latest) o en un explorador con el botón **Pruébelo**. Escriba un nombre y una ubicación (por ejemplo `centralus`) para un nuevo grupo de recursos y la plantilla de Resource Manager se usará para implementar un recurso de Cognitive Services dentro de él. Recuerde el nombre que use. Lo usará más adelante para validar la implementación.
 
 
 ```azurecli-interactive
@@ -140,6 +140,6 @@ az group delete --name $resourceGroupName
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Autenticación de solicitudes en Azure Cognitive Services](authentication.md)
-* [¿Qué es Azure Cognitive Services?](Welcome.md)
+* [¿Qué es Azure Cognitive Services?](./what-are-cognitive-services.md)
 * [Compatibilidad con idiomas naturales](language-support.md)
 * [Compatibilidad con contenedores de Docker](cognitive-services-container-support.md)

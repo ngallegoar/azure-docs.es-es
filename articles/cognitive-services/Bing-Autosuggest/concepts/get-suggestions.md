@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: cb507df53778e1b432370daa050041625a45e06e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cdbbd6afeedc1c8808e02aefa268be4fe0de5f9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101976"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363381"
 ---
 # <a name="suggesting-query-terms"></a>Sugerencia de términos de consulta
 
@@ -28,7 +28,7 @@ Generalmente, llamaría a Bing Autosuggest API cada vez que un usuario escribier
 
 ## <a name="example-request"></a>Solicitud de ejemplo
 
-En el ejemplo siguiente se muestra una solicitud que devuelve las cadenas de consulta sugeridas para *navegar*. Recuerde codificar como dirección URL el término de consulta parcial del usuario al establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query). Por ejemplo, si el usuario escribe *sailing les* , establezca `q` en `sailing+les` o `sailing%20les`.
+En el ejemplo siguiente se muestra una solicitud que devuelve las cadenas de consulta sugeridas para *navegar*. Recuerde codificar como dirección URL el término de consulta parcial del usuario al establecer el parámetro de consulta [q](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query). Por ejemplo, si el usuario escribe *sailing les* , establezca `q` en `sailing+les` o `sailing%20les`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
@@ -39,7 +39,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-La respuesta siguiente contiene una lista de objetos [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) que contienen los términos de consulta sugeridos.
+La respuesta siguiente contiene una lista de objetos [SearchAction](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) que contienen los términos de consulta sugeridos.
 
 ```json
 {
@@ -58,7 +58,7 @@ El ejemplo siguiente muestra un cuadro de búsqueda desplegable con los término
 
 ![Lista del cuadro de búsqueda desplegable de AutoSuggest](../media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-Si el usuario selecciona una consulta sugerida en la lista desplegable, puede usar la cadena de consulta del campo `query` para llamar a [Bing Web Search API](../../bing-web-search/search-the-web.md) y ver los resultados por sí mismo. O bien, puede usar la dirección URL del campo `url` para enviar al usuario a la página de resultados de la búsqueda de Bing.
+Si el usuario selecciona una consulta sugerida en la lista desplegable, puede usar la cadena de consulta del campo `query` para llamar a [Bing Web Search API](../../bing-web-search/overview.md) y ver los resultados por sí mismo. O bien, puede usar la dirección URL del campo `url` para enviar al usuario a la página de resultados de la búsqueda de Bing.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

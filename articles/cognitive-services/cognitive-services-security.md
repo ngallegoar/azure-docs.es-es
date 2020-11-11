@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152286"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368787"
 ---
 # <a name="azure-cognitive-services-security"></a>Seguridad de Azure Cognitive Services
 
@@ -222,5 +222,5 @@ El servicio de voz no admite actualmente la Caja de seguridad del cliente. Sin e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Exploración de los distintos servicios de [Cognitive Services](welcome.md)
+* Exploración de los distintos servicios de [Cognitive Services](./what-are-cognitive-services.md)
 * Más información sobre [redes virtuales de Cognitive Services](cognitive-services-virtual-networks.md)

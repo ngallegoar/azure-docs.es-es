@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e556ca2051fd75eb9bf6411c5479e63554606d48
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757034"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368345"
 ---
 # <a name="how-to-manage-settings"></a>Cómo administrar la configuración
 
@@ -33,7 +33,7 @@ Debe tener una clave de suscripción de Traductor asociada con el área de traba
 
 Si no tiene una suscripción, siga los pasos a continuación:
 
-1. Suscríbase para crear un recurso de Translator. Siga [Cómo suscribirse a Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-how-to-signup) para suscribirse y adquirir una clave de traductor.
+1. Suscríbase para crear un recurso de Translator. Siga [Cómo suscribirse a Translator](../translator-how-to-signup.md) para suscribirse y adquirir una clave de traductor.
 2. Apunte la clave para la suscripción a Translator. Tanto la clave Key1 como la clave Key2 son aceptables.
 3. Navegue de vuelta al portal de Custom Translator.
 
@@ -52,7 +52,7 @@ Si no tiene una suscripción, siga los pasos a continuación:
     ![Cuadro de diálogo Crear área de trabajo nueva](media/how-to/create-new-workspace-dialog.png)
 
 >[!Note]
->El Traductor personalizado no admite la creación de un área de trabajo para el recurso de Translator Text API, conocido también como clave de suscripción de Azure, que se creó en la [red virtual habilitada](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+>El Traductor personalizado no admite la creación de un área de trabajo para el recurso de Translator Text API, conocido también como clave de suscripción de Azure, que se creó en la [red virtual habilitada](../../../api-management/api-management-using-with-vnet.md).
 
 ### <a name="modify-existing-key"></a>Modificación de la clave existente
 

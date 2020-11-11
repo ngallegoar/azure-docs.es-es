@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aba990914ea193a7246a24b1502522f6144a0a9c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080981"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367597"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configuración de experiencia de Custom Autosuggest
 
@@ -93,6 +93,6 @@ Si el usuario selecciona una cadena de consulta sugerida de la lista desplegable
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Get custom suggestions](./get-custom-suggestions.md) (Obtención de sugerencias personalizadas)
+- [Get custom suggestions]() (Obtención de sugerencias personalizadas)
 - [Search your custom instance](./search-your-custom-view.md) (Búsqueda de su instancia personalizada)
 - [Configure and consume custom hosted UI](./hosted-ui.md) (Configuración y uso de la IU hospedada personalizada)

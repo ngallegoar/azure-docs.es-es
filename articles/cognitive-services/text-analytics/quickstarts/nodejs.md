@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 00026066c90520f59700c7c5ddc33557099b3e8a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 912434f20d00d276bde23803f4560ebd528872d9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309020"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365132"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Node.js para llamar a Text Analytics de Cognitive Services  
 <a name="HOLTop"></a>
 
-En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las opiniones](#SentimentAnalysis), [extraer las frases clave](#KeyPhraseExtraction) e [identificar las entidades vinculadas](#Entities) mediante  [instancias de Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711)  con Node.JS.
+En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar opiniones](#SentimentAnalysis), [extraer frases clave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) mediante [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) con Node.js.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -366,7 +366,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="identify-linked-entities"></a>Identificación de entidades vinculadas
 
-Entities API identifica las entidades conocidas en un documento de texto mediante el [método Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). Las [entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraen palabras de texto, como "Estados Unidos" y, luego, le proporcionan el tipo o un vínculo a la Wikipedia en relación con estas palabras. El tipo de "Estados Unidos" es `location`, mientras que el vínculo a la Wikipedia es `https://en.wikipedia.org/wiki/United_States`.  En el ejemplo siguiente se identifican las entidades de documentos en inglés.
+Entities API identifica las entidades conocidas en un documento de texto mediante el [método Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). Las [entidades](../how-tos/text-analytics-how-to-entity-linking.md) extraen palabras de texto, como "Estados Unidos" y, luego, le proporcionan el tipo o un vínculo a la Wikipedia en relación con estas palabras. El tipo de "Estados Unidos" es `location`, mientras que el vínculo a la Wikipedia es `https://en.wikipedia.org/wiki/United_States`.  En el ejemplo siguiente se identifican las entidades de documentos en inglés.
 
 1. Cree un proyecto de Node.js en su IDE favorito (o en una carpeta de su escritorio).
 1. Agregue el código que se proporciona a continuación a un nuevo archivo `.js`.

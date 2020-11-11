@@ -10,18 +10,18 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 905ae56ab8d64f7342c4ee6b9f25d188c907710d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0453fa99376cb6a5dba1e427cdc0deccb3e03de
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084194"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367053"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>¿Qué es Bing Spell Check API?
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
-> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Spell Check API permite realizar la revisión ortográfica y gramatical contextual del texto. Aunque la mayoría de los correctores ortográficos dependen de conjuntos de reglas basadas en diccionario, el corrector ortográfico de Bing aprovecha el aprendizaje automático y la traducción automática estadística para proporcionar correcciones precisas y contextuales. 
@@ -49,4 +49,4 @@ En primer lugar, pruebe la [demostración interactiva](https://azure.microsoft.c
 
 Cuando esté listo para llamar a la API, cree una [cuenta de API de Cognitive Services](../../cognitive-services/cognitive-services-apis-create-account.md). Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/free/cognitive-services/) gratuita.
 
-Puede también visitar la [página central de Bing Search API](../bing-web-search/search-the-web.md) para explorar las otras API disponibles.
+Puede también visitar la [página central de Bing Search API](../bing-web-search/overview.md) para explorar las otras API disponibles.

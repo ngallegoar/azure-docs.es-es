@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a4bb02f11c7a9a75ddc96e0ee8e9f4b868f8ade5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13a2d887b17ff319fb3a0f2bb0d5d0ff04629088
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89051600"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369110"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y C#
 
@@ -32,7 +32,7 @@ Normalmente se llamaría a la API desde una aplicación de entrada de lápiz dig
 
 El código fuente de este inicio rápido está disponible en [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Cualquier edición de [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
@@ -99,7 +99,7 @@ Ejecute la aplicación. Se devuelve una respuesta correcta en formato JSON. Tamb
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Referencia de API de REST](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [Referencia de API de REST](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 
 Para ver el funcionamiento de la API Ink Recognition en una aplicación de entrada de lápiz digital, eche un vistazo a las siguientes aplicaciones de ejemplo en GitHub:

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6f4068ece2b08937188397317844a126a9699aee
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ed2c8b4b6dae8713d3ce1c6755c559cda9a9dfb8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102112"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368889"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Uso de un token de información para obtener los detalles de una imagen
 
@@ -262,7 +262,7 @@ namespace VisualSearchInsightsToken
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="cree un recurso de Bing Search"  target="_blank">crear un recurso de Bing Search<span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
-* [JDK 7 u 8](https://aka.ms/azure-jdks) para compilar y ejecutar este código. Puede utilizar un IDE de Java si tiene un favorito, pero bastará con un editor de texto.
+* [JDK 7 u 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) para compilar y ejecutar este código. Puede utilizar un IDE de Java si tiene un favorito, pero bastará con un editor de texto.
 
 
 ## <a name="run-the-java-application"></a>Ejecución de la aplicación Java
@@ -536,4 +536,4 @@ if __name__ == '__main__':
 [Creación de una aplicación web de página única de Visual Search](tutorial-bing-visual-search-single-page-app.md)  
 [¿Qué es Bing Visual Search API?](overview.md)  
 [Pruebe Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
-[Imágenes: Visual Search](https://aka.ms/bingvisualsearchreferencedoc)
+[Imágenes: Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)

@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 83a398b114a8bf0ac25d875e037208d775debc4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4490142a278d5e724fade42e697d8cf2206c0da8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077347"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367342"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>¿Qué es Bing Custom Search API?
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
-> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Custom Search API le permite crear experiencias de búsqueda a medida sin anuncios de los temas que le interesan. Puede especificar los dominios y las páginas web donde buscará Bing, así como anclar y aumentar o disminuir el nivel de contenido específico para crear una vista personalizada de la Web y ayudar a los usuarios a encontrar rápidamente los resultados de búsqueda apropiados. 
@@ -50,16 +50,15 @@ Para iniciar rápidamente, consulte [Create your first Bing Custom Search instan
 
 Para obtener más información sobre cómo personalizar su instancia de búsqueda, consulte [Define a custom search instance](define-your-custom-view.md) (Definir una instancia de búsqueda personalizada).
 
-Consulte los [requisitos de visualización y uso de Bing](./use-and-display-requirements.md) para usar los resultados de búsqueda en sus aplicaciones y servicios.
+Consulte los [requisitos de visualización y uso de Bing](../bing-web-search/use-display-requirements.md) para usar los resultados de búsqueda en sus aplicaciones y servicios.
 
-Visite la [página central de Bing Search API](../bing-web-search/search-the-web.md) para explorar las otras API disponibles.
+Visite la [página central de Bing Search API](../bing-web-search/overview.md) para explorar las otras API disponibles.
 
 Familiarícese con el contenido de referencia de cada uno de los puntos de conexión de búsqueda personalizada. La referencia contiene los puntos de conexión, los encabezados y los parámetros de consulta que se utilizan para solicitar los resultados de la búsqueda. También incluye definiciones de los objetos de respuesta.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
-- [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-- [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
-- [Custom Video API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
-- [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
-
+- [Custom Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+- [Custom Image API](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
+- [Custom Video API](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
+- [Custom Autosuggest API](/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)

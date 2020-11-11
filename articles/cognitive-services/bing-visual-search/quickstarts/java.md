@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.custom: devx-track-java
 ms.author: scottwhi
-ms.openlocfilehash: f33b5f5274fcaf8f64f898e2b7aebe8a27470033
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7ad674b9326f3e55d8e17f738fd68faf26bd1c9a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086540"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368124"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API de REST Bing Visual Search y Java
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
 > El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
@@ -29,7 +29,7 @@ Use este inicio rápido para realizar la primera llamada a la API Bing Visual Se
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* [Kit de desarrollo de Java (JDK) 7 u 8](https://aka.ms/azure-jdks)
+* [Kit de desarrollo de Java (JDK) 7 u 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * La [biblioteca Java para Gson](https://github.com/google/gson)
 * [Apache HttpComponents](https://hc.apache.org/downloads.cgi)
 

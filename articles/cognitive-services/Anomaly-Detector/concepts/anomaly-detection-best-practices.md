@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6bf00d8b5327ddd539190b6e990c7edb35c876f7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b02ccea396fc65f9ecfe1d59e953da7440e87951
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018396"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363657"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedimientos recomendados para usar Anomaly Detector API
 
@@ -52,7 +52,7 @@ Este es el mismo conjunto de datos pero con la detección de anomalías por lote
 
 ## <a name="data-preparation"></a>Preparación de los datos
 
-Anomaly Detector API acepta datos de serie temporal con formato de un objeto de solicitud JSON. Una serie temporal puede ser cualquier dato numérico registrado con el tiempo en orden secuencial. Puede enviar ventanas de los datos de serie temporal al punto de conexión de Anomaly Detector API para mejorar el rendimiento de las API. El número mínimo de puntos de datos que puede enviar es 12, y el máximo es 8640 puntos. [Granularidad](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) se define como la velocidad a la que se muestrean los datos. 
+Anomaly Detector API acepta datos de serie temporal con formato de un objeto de solicitud JSON. Una serie temporal puede ser cualquier dato numérico registrado con el tiempo en orden secuencial. Puede enviar ventanas de los datos de serie temporal al punto de conexión de Anomaly Detector API para mejorar el rendimiento de las API. El número mínimo de puntos de datos que puede enviar es 12, y el máximo es 8640 puntos. [Granularidad](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) se define como la velocidad a la que se muestrean los datos. 
 
 Los puntos de datos enviados a Anomaly Detector API deben tener una marca de tiempo válida en Hora universal coordinada (UTC) y un valor numérico. 
 

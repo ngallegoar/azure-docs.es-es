@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e17f2015ed4428cfd3c1a6c8a7bc4f92854a6b71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ee7272066dbd89e7c0053d51ba039b83fb494f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710607"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363823"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 
@@ -44,8 +44,8 @@ Actualmente puede enviar los mismos documentos para todas las operaciones de Tex
 | Elemento | Valores válidos | ¿Necesario? | Uso |
 |---------|--------------|-----------|-------|
 |`id` |El tipo de datos es una cadena, pero en la práctica, los identificadores de documento tienden a ser números enteros. | Obligatorio | El sistema usa los identificadores que proporcione para estructurar la salida. Se generan códigos de idioma, frases clave y puntuaciones de opinión para cada identificador de la solicitud.|
-|`text` | Texto sin formato no estructurado, hasta 5120 caracteres. | Obligatorio | Para la detección de idioma, el texto se puede expresar en cualquier idioma. Para el análisis de opiniones, la extracción de frases clave y la identificación de entidades, el texto debe estar en un [idioma admitido](../text-analytics-supported-languages.md). |
-|`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de dos caracteres para un [idioma admitido](../text-analytics-supported-languages.md) | Varía | Análisis de opiniones, extracción de frases clave, detección de idioma y vinculación de entidades; opcional para la detección de idioma. No hay ningún error si se excluye, pero sin él se debilita el análisis. El código de idioma se debe corresponder al `text` que proporcione. |
+|`text` | Texto sin formato no estructurado, hasta 5120 caracteres. | Obligatorio | Para la detección de idioma, el texto se puede expresar en cualquier idioma. Para el análisis de opiniones, la extracción de frases clave y la identificación de entidades, el texto debe estar en un [idioma admitido](../language-support.md). |
+|`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de dos caracteres para un [idioma admitido](../language-support.md) | Varía | Análisis de opiniones, extracción de frases clave, detección de idioma y vinculación de entidades; opcional para la detección de idioma. No hay ningún error si se excluye, pero sin él se debilita el análisis. El código de idioma se debe corresponder al `text` que proporcione. |
 
 Para obtener más información sobre los límites, vea [Información general de Text Analytics > Límites de datos](../overview.md#data-limits). 
 

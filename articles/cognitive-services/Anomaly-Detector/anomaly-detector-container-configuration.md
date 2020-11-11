@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mbullwin
-ms.openlocfilehash: ae987a4239f478162e1e1f251e0d6607d63e02c5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c175a52259e9cfe5b4d03ce0279bbe24d16a48ae
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019756"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363721"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configuración de los contenedores de Anomaly Detector
 
@@ -28,7 +28,7 @@ Este contenedor tiene las siguientes opciones de configuración:
 |Obligatorio|Configuración|Propósito|
 |--|--|--|
 |Sí|[ApiKey](#apikey-configuration-setting)|Se usa para realizar un seguimiento de la información de facturación.|
-|No|[Application Insights](#applicationinsights-setting)|Le permite agregar compatibilidad con los datos de telemetría de [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) al contenedor.|
+|No|[Application Insights](#applicationinsights-setting)|Le permite agregar compatibilidad con los datos de telemetría de [Azure Application Insights](/azure/application-insights) al contenedor.|
 |Sí|[Facturación](#billing-configuration-setting)|Especifica el URI del punto de conexión del recurso de servicio en Azure.|
 |Sí|[Eula](#eula-setting)| Indica que ha aceptado la licencia del contenedor.|
 |No|[Fluentd](#fluentd-settings)|Escribe el registro y, opcionalmente, los datos de métricas en un servidor de Fluentd.|
@@ -45,7 +45,7 @@ La opción de configuración `ApiKey` especifica la clave de recurso de Azure us
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: Administrador de recursos de **Anomaly Detector**, en **Claves**
+* Azure Portal: Administrador de recursos de **Anomaly Detector** , en **Claves**
 
 ## <a name="applicationinsights-setting"></a>Opción de configuración ApplicationInsights
 
@@ -57,7 +57,7 @@ El valor de configuración `Billing` especifica el identificador URI del punto d
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: Introducción a **Anomaly Detector**, etiquetado `Endpoint`
+* Azure Portal: Introducción a **Anomaly Detector** , etiquetado `Endpoint`
 
 |Obligatorio| Nombre | Tipo de datos | Descripción |
 |--|------|-----------|-------------|
@@ -97,8 +97,8 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 
 Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo escribir y usar comandos `docker run`.  Una vez que se está ejecutando, el contenedor continúa ejecutándose hasta que lo [detenga](anomaly-detector-container-howto.md#stop-the-container).
 
-* **Carácter de continuación de línea**: Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa, `\`, como carácter de continuación de línea para un shell de Bash. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. Por ejemplo, el carácter de continuación de línea para Windows es un símbolo de intercalación, `^`. Reemplace la barra diagonal inversa por el símbolo de intercalación. 
-* **Orden de los argumentos**: No cambie el orden de los argumentos a menos que esté muy familiarizado con los contenedores de Docker.
+* **Carácter de continuación de línea** : Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa, `\`, como carácter de continuación de línea para un shell de Bash. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. Por ejemplo, el carácter de continuación de línea para Windows es un símbolo de intercalación, `^`. Reemplace la barra diagonal inversa por el símbolo de intercalación. 
+* **Orden de los argumentos** : No cambie el orden de los argumentos a menos que esté muy familiarizado con los contenedores de Docker.
 
 Reemplace el valor entre corchetes, `{}`, por sus propios valores:
 

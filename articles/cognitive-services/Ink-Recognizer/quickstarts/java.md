@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-java
-ms.openlocfilehash: b73f5013fdbef34344ece672bacff90db9bac60b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dea46a07a7357be6079c52634be8ea2ff79cc8f3
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89051583"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369127"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y Java
 
@@ -94,7 +94,7 @@ Ejecute la aplicación. Se devuelve una respuesta correcta en formato JSON. Tamb
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Referencia de API de REST](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [Referencia de API de REST](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 
 Para ver el funcionamiento de la API Ink Recognition en una aplicación de entrada de lápiz digital, eche un vistazo a las siguientes aplicaciones de ejemplo en GitHub:

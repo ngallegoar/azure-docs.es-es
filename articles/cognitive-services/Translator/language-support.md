@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bdd12b5c866ee723547513e35a5adcfabb59dab9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669633"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364432"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Compatibilidad de idiomas y regiones con la traducción de texto y voz
 
@@ -347,7 +347,7 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Galés | `cy` |
 
 ## <a name="speech-translation"></a>Speech Translation
-La traducción de voz está disponible mediante Translator con el Servicio Voz de Cognitive Services. Vea [Documentación sobre el servicio de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/) para obtener más información sobre el uso de la traducción de voz y para ver todas las [opciones de idioma disponibles](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+La traducción de voz está disponible mediante Translator con el Servicio Voz de Cognitive Services. Vea [Documentación sobre el servicio de voz](../speech-service/index.yml) para obtener más información sobre el uso de la traducción de voz y para ver todas las [opciones de idioma disponibles](../speech-service/language-support.md).
 
 ### <a name="speech-to-text"></a>Voz a texto
 Convierta la voz en texto para traducir al idioma de texto que prefiera. La conversión de voz en texto se usa para la traducción de voz a texto o para la traducción de voz a voz cuando se usa junto con la síntesis de voz.

@@ -8,17 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 74e5373ebafbd39748f8b002069eaa6d732be069
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5148114da7fcc654b1f0af431440ce74c7bc8d31
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018475"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371903"
 ---
 ### <a name="create-an-environment-variable"></a>Creación de una variable de entorno
 
 >[!NOTE]
-> Los puntos de conexión de los recursos creados que no son de prueba usan desde el 1 de julio de 2019 el formato de subdominio personalizado que se muestra a continuación. Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) 
+> Los puntos de conexión de los recursos creados que no son de prueba usan desde el 1 de julio de 2019 el formato de subdominio personalizado que se muestra a continuación. Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../../cognitive-services-custom-subdomains.md) 
 
 Con la clave y el punto de conexión del recurso que ha creado, cree dos variables de entorno para la autenticación:
 

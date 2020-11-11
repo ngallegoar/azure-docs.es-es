@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: f24c9c372ff91db5836a62ac2d08b569434ff253
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 4fbac2c2d77d838ac7fc4f3caaa73983633c3e03
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761586"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366067"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Guía de inicio rápido: Compilación, implementación y uso de un modelo personalizado para la traducción
 
@@ -22,14 +22,14 @@ En este artículo se proporcionan instrucciones detalladas para compilar un sist
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-1. Para usar el portal de [Custom Translator](https://portal.customtranslator.azure.ai), necesitará una [cuenta Microsoft](https://signup.live.com) o [cuenta de Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (cuenta de organización hospedada en Azure) para iniciar sesión.
+1. Para usar el portal de [Custom Translator](https://portal.customtranslator.azure.ai), necesitará una [cuenta Microsoft](https://signup.live.com) o [cuenta de Azure AD](../../../active-directory/fundamentals/active-directory-whatis.md) (cuenta de organización hospedada en Azure) para iniciar sesión.
 
-2. Una suscripción a Translator Text API a través de Azure Portal. Necesitará la clave de suscripción de Translator Text API para asociarla con el área de trabajo de Custom Translator. Consulte [Cómo suscribirse a Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Una suscripción a Translator Text API a través de Azure Portal. Necesitará la clave de suscripción de Translator Text API para asociarla con el área de trabajo de Custom Translator. Consulte [Cómo suscribirse a Translator Text API](../translator-how-to-signup.md).
 
 3. Cuando tenga los dos anteriores, inicie sesión in en el portal [Custom Translator](https://portal.customtranslator.azure.ai) para crear áreas de trabajo y proyectos, así como cargar archivos y crear e implementar modelos.
 
 >[!Note]
->Traductor personalizado no admite la creación de un área de trabajo para el recurso de Translator Text API que se creó en la [red virtual habilitada](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+>Traductor personalizado no admite la creación de un área de trabajo para el recurso de Translator Text API que se creó en la [red virtual habilitada](../../../api-management/api-management-using-with-vnet.md).
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
@@ -92,7 +92,7 @@ Para intercambiar un modelo implementado por otro dentro de un proyecto, haga cl
 
 ## <a name="use-a-deployed-model"></a>Uso de un modelo implementado
 
-Se puede acceder a los modelos implementados a través de Microsoft Translator [Text API V3 especificando CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Puede encontrar más información sobre Translator Text API en la página web de [referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Se puede acceder a los modelos implementados a través de Microsoft Translator [Text API V3 especificando CategoryID](../reference/v3-0-translate.md?tabs=curl). Puede encontrar más información sobre Translator Text API en la página web de [referencia de API](../reference/v3-0-reference.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

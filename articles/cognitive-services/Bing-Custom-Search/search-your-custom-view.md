@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: 38191c55afb87151b238069a75a6c86acd8904df
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a27f252f401d0fcf863391a0d45538b01b1141e9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100548"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367291"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Llamada a la instancia de Bing Custom Search desde el portal
 
@@ -31,7 +31,7 @@ Después de configurar su experiencia de búsqueda personalizada, puede probarla
 
 Una vez que haya iniciado sesión en el [portal](https://customsearch.ai) de Bing Custom Search, seleccione la instancia de búsqueda y haga clic en la pestaña **Producción**. En **Endpoints** (Puntos de conexión), seleccione un punto de conexión de API (por ejemplo, Web API). La suscripción determina qué puntos de conexión se muestran.
 
-Para crear una consulta de búsqueda, escriba los valores de parámetro para el punto de conexión. Tenga en cuenta que los parámetros que aparecen en el portal pueden cambiar en función del punto de conexión que elija. Para más información, consulte la [referencia de Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters). Para cambiar la suscripción que usa la instancia de búsqueda, agregue la clave de suscripción adecuada y actualice los parámetros apropiados del mercado y el idioma.
+Para crear una consulta de búsqueda, escriba los valores de parámetro para el punto de conexión. Tenga en cuenta que los parámetros que aparecen en el portal pueden cambiar en función del punto de conexión que elija. Para más información, consulte la [referencia de Custom Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters). Para cambiar la suscripción que usa la instancia de búsqueda, agregue la clave de suscripción adecuada y actualice los parámetros apropiados del mercado y el idioma.
 
 A continuación, se muestran algunos parámetros importantes:
 
@@ -65,4 +65,4 @@ Puede cambiar la suscripción asociada con la instancia de Bing Custom Search si
 - [Call your custom view with NodeJs](./call-endpoint-nodejs.md) (Llamada a la vista personalizada con NodeJs)
 - [Call your custom view with Python](./call-endpoint-python.md) (Llamada a la vista personalizada con Python)
 
-- [Call your custom view withthe C# SDK](./sdk-csharp-quick-start.md) (Llamada a la vista personalizada con el SDK de C#)
+- [Call your custom view withthe C# SDK](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) (Llamada a la vista personalizada con el SDK de C#)

@@ -11,21 +11,21 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019, devx-track-java
-ms.openlocfilehash: 6c3c613f8733c8f786d121ab33b09afab244b09e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 26ddbf4cf97f5b9161be8b6b4ac3c31f801e82a3
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532280"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365166"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Uso de Java para llamar a Azure Text Analytics de Cognitive Services
 <a name="HOLTop"></a>
 
-En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las opiniones](#SentimentAnalysis), [extraer las frases clave](#KeyPhraseExtraction) e [identificar las entidades vinculadas](#Entities) mediante  [instancias de Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711)  con Java.
+En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar opiniones](#SentimentAnalysis), [extraer frases clave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) mediante [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) con Java.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -35,7 +35,7 @@ También debe tener la [clave de acceso y punto de conexión](../../cognitive-se
 
 ## <a name="detect-language"></a>Detectar idioma
 
-Language Detection API detecta el idioma de un documento de texto mediante el  [método de detección de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
+Language Detection API detecta el idioma de un documento de texto con el [método Detectar idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
 1. Cree un proyecto de Java en su IDE favorito (o en una nueva carpeta de su escritorio). Cree una clase denominada `DetectLanguage.java`.
 1. Agregue a la clase el código que se proporciona a continuación.
@@ -553,7 +553,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="identify-entities"></a>Identificación de entidades
 
-Entities API identifica las entidades conocidas en un documento de texto mediante el [método Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). Las [entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraen palabras de texto, como "Estados Unidos" y, luego, le proporcionan el tipo o un vínculo a la Wikipedia en relación con estas palabras. El tipo de "Estados Unidos" es `location`, mientras que el vínculo a la Wikipedia es `https://en.wikipedia.org/wiki/United_States`.  En el ejemplo siguiente se identifican las entidades de documentos en inglés.
+Entities API identifica las entidades conocidas en un documento de texto mediante el [método Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). Las [entidades](../how-tos/text-analytics-how-to-entity-linking.md) extraen palabras de texto, como "Estados Unidos" y, luego, le proporcionan el tipo o un vínculo a la Wikipedia en relación con estas palabras. El tipo de "Estados Unidos" es `location`, mientras que el vínculo a la Wikipedia es `https://en.wikipedia.org/wiki/United_States`.  En el ejemplo siguiente se identifican las entidades de documentos en inglés.
 
 1. Cree un proyecto de Java en su IDE favorito (o en una nueva carpeta de su escritorio). Cree en él una clase llamada `GetEntities.java`.
 1. Agregue a la clase el código que se proporciona a continuación.

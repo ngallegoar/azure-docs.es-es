@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116705"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371783"
 ---
 [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de manera inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con dificultades de aprendizaje, como la dislexia. Puede usar Lector inmersivo en sus aplicaciones para aislar el texto con el fin de mejorar la concentración, mostrar imágenes para palabras de uso frecuente, resaltar partes del texto, leer texto seleccionado en voz alta, traducir palabras y frases en tiempo real y mucho más.
 
@@ -42,7 +42,7 @@ Cree un proyecto en Visual Studio mediante la plantilla de aplicación web de A
 
 ### <a name="configure-authentication-values"></a>Configuración de los valores de autenticación
 
-Haga clic con el botón derecho en el proyecto en el _Explorador de soluciones_ y elija **Administrar secretos de usuario** . Se abrirá un archivo denominado _secrets.json_ . Este archivo no está protegido bajo control de código fuente. Obtenga más información [aquí](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true). Reemplace el contenido de _secrets. json_ con lo siguiente, y proporcione los valores especificados al crear el recurso del Lector inmersivo.
+Haga clic con el botón derecho en el proyecto en el _Explorador de soluciones_ y elija **Administrar secretos de usuario**. Se abrirá un archivo denominado _secrets.json_. Este archivo no está protegido bajo control de código fuente. Obtenga más información [aquí](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1). Reemplace el contenido de _secrets. json_ con lo siguiente, y proporcione los valores especificados al crear el recurso del Lector inmersivo.
 
 ```json
 {
@@ -71,7 +71,7 @@ Abra _Controllers\HomeController.cs_ y agregue el código siguiente después de 
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Ahora, configuraremos el controlador para obtener los valores de Azure AD de _secrets.json_ . En la parte superior de la clase _HomeController_ , después de ```public class HomeController : Controller {``` agregue el código siguiente.
+Ahora, configuraremos el controlador para obtener los valores de Azure AD de _secrets.json_. En la parte superior de la clase _HomeController_ , después de ```public class HomeController : Controller {``` agregue el código siguiente.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -142,7 +142,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 ```
 
 ## <a name="add-sample-content"></a>Adición de contenido de ejemplo
-En primer lugar, abra _Views\Shared\Layout.cshtml_ . Antes de la línea ```</head>```, agregue el código siguiente:
+En primer lugar, abra _Views\Shared\Layout.cshtml_. Antes de la línea ```</head>```, agregue el código siguiente:
 
 ```html
 @RenderSection("Styles", required: false)
@@ -218,7 +218,7 @@ Tenga en cuenta que todo el texto tiene un atributo **lang** , que describe los 
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Incorporación de JavaScript para administrar el inicio del Lector inmersivo
 
-La biblioteca del Lector inmersivo proporciona funcionalidades como el inicio del Lector inmersivo y la representación de sus botones. Obtenga más información [aquí](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
+La biblioteca del Lector inmersivo proporciona funcionalidades como el inicio del Lector inmersivo y la representación de sus botones. Obtenga más información [aquí](../../reference.md).
 
 En la parte inferior de _Views\Home\Index.cshtml_ , agregue el siguiente código:
 

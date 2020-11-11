@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 444b76a594e768face892462da12a1cbb35a5106
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 37239f9c7857a8e72bb293cfa3caeb429962a542
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324688"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363347"
 ---
 # <a name="getting-started"></a>Introducción
 
@@ -31,7 +31,7 @@ Para usar Cognitive Services para macrodatos, primero se debe crear un servicio 
 
 ### <a name="cloud-services"></a>Servicios en la nube
 
-Cognitive Services basado en la nube es un conjunto de algoritmos inteligentes hospedados en Azure. Estos servicios se pueden usar sin necesidad de entrenamiento, solo hace falta una conexión a Internet. Puede [crear un servicio cognitivo en Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) o con la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
+Cognitive Services basado en la nube es un conjunto de algoritmos inteligentes hospedados en Azure. Estos servicios se pueden usar sin necesidad de entrenamiento, solo hace falta una conexión a Internet. Puede [crear un servicio cognitivo en Azure Portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows) o con la [CLI de Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ### <a name="containerized-services-optional"></a>Servicios en contenedores (opcional)
 
@@ -45,7 +45,7 @@ Si la aplicación o la carga de trabajo emplean conjuntos de datos grandes, nece
 
 * **Alta escalabilidad** : los servicios en contenedores no tienen "límites de frecuencia" y se ejecutan en equipos administrados por el usuario. Por lo tanto, puede escalar los servicios cognitivos sin fin para administrar cargas de trabajo mucho más grandes.
 
-Siga [esta guía](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support?tabs=luis) para crear un servicio cognitivo en contenedores.
+Siga [esta guía](../cognitive-services-container-support.md?tabs=luis) para crear un servicio cognitivo en contenedores.
 
 ## <a name="create-an-apache-spark-cluster"></a>Creación de un clúster de Apache Spark
 
@@ -55,8 +55,8 @@ Siga [esta guía](https://docs.microsoft.com/azure/cognitive-services/cognitive-
 
 Azure Databricks es una plataforma de análisis basada en Apache Spark con una configuración de un solo clic, flujos de trabajo optimizados y un área de trabajo interactiva. Se usa a menudo para la colaboración entre científicos de datos, ingenieros y analistas de negocios. Para usar Cognitive Services para macrodatos en Azure Databricks, siga estos pasos:
 
-1. [Creación de un área de trabajo de Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
-1. [Creación de un clúster de Spark en Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-a-spark-cluster-in-databricks)
+1. [Creación de un área de trabajo de Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
+1. [Creación de un clúster de Spark en Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-a-spark-cluster-in-databricks)
 1. Instalación de Cognitive Services para macrodatos
     * Creación de una biblioteca en el área de trabajo de Databricks  
        <img src="media/create-library.png" alt="Create library" width="50%"/>
@@ -69,8 +69,8 @@ Azure Databricks es una plataforma de análisis basada en Apache Spark con una c
 
 Opcionalmente, puede usar Synapse Analytics para crear un clúster de Spark. Azure Synapse Analytics reúne el almacenamiento de datos empresarial y el análisis de macrodatos. Este servicio ofrece la libertad de consultar los datos como prefiera, ya sea a petición sin servidor o con recursos aprovisionados a escala. Para empezar a usar Synapse Analytics, siga estos pasos:
 
-1. [Cree un área de trabajo de Synapse (versión preliminar)](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
-1. [Cree un grupo de Apache Spark sin servidor (versión preliminar) mediante Azure Portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
+1. [Cree un área de trabajo de Synapse (versión preliminar)](../../synapse-analytics/quickstart-create-workspace.md).
+1. [Cree un grupo de Apache Spark sin servidor (versión preliminar) mediante Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
 En Synapse Analytics, Cognitive Services para macrodatos está instalado de forma predeterminada.
 
@@ -80,9 +80,9 @@ Si usa Cognitive Services en contenedores, una opción habitual para implementar
 
 Para empezar a usar Azure Kubernetes Service, siga estos pasos:
 
-1. [Implementación de un clúster de Azure Kubernetes Service (AKS) mediante Azure Portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)
+1. [Implementación de un clúster de Azure Kubernetes Service (AKS) mediante Azure Portal](../../aks/kubernetes-walkthrough-portal.md)
 1. [Instalación del gráfico de Helm de Apache Spark 2.4.0](https://hub.helm.sh/charts/microsoft/spark)
-1. [Instalación de un contenedor de servicios cognitivos mediante Helm](https://docs.microsoft.com/azure/cognitive-services/computer-vision/deploy-computer-vision-on-premises)
+1. [Instalación de un contenedor de servicios cognitivos mediante Helm](../computer-vision/deploy-computer-vision-on-premises.md)
 
 ## <a name="try-a-sample"></a>Prueba de un ejemplo
 

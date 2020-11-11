@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: c0129ff25f1df492ab6eba9f49add18d5321a3e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8c0715b3570bf60205c83390ab93b272e49e8733
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88246065"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371625"
 ---
 Introducción a la biblioteca cliente de Bing Autosuggest para Go. Siga estos pasos para instalar la biblioteca y probar los ejemplos para realizar tareas básicas.
 
@@ -33,7 +33,7 @@ Comience a usar la biblioteca de cliente de Bing Autosuggest mediante la creaci�
 ## <a name="create-environment-variables"></a>Creación de variables de entorno
 
 >[!NOTE]
-> Los puntos de conexión de los recursos creados después del 1 de julio de 2019 usan el formato de subdominio personalizado que se muestra a continuación. Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains)
+> Los puntos de conexión de los recursos creados después del 1 de julio de 2019 usan el formato de subdominio personalizado que se muestra a continuación. Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../../../cognitive-services-custom-subdomains.md)
 
 Con la clave y el punto de conexión del recurso que ha creado, cree dos variables de entorno para la autenticación:
 <!-- replace the below variable names with the names expected in the code sample.-->
@@ -76,9 +76,9 @@ Después de agregar la variable de entorno, ejecute `source .bash_profile` desde
 
 En una ventana de consola (cmd, PowerShell, Terminal, Bash), cree una nueva área de trabajo para el proyecto de Go y vaya hasta ella. El área de trabajo contendrá tres carpetas:
 
-* **src**: este directorio contiene código fuente y paquetes. Todos los paquetes instalados con el comando `go get` residirán aquí.
-* **pkg**: este directorio contiene objetos de paquete de Go compilados. Todos estos archivos tienen la extensión `.a`.
-* **bin**: este directorio contiene los archivos ejecutables binarios que se crean al ejecutar `go install`.
+* **src** : este directorio contiene código fuente y paquetes. Todos los paquetes instalados con el comando `go get` residirán aquí.
+* **pkg** : este directorio contiene objetos de paquete de Go compilados. Todos estos archivos tienen la extensión `.a`.
+* **bin** : este directorio contiene los archivos ejecutables binarios que se crean al ejecutar `go install`.
 
 > [!TIP]
 > Obtenga más información sobre la estructura de [un área de trabajo de Go](https://golang.org/doc/code.html#Workspaces). En esta guía se incluye información para establecer `$GOPATH` y `$GOROOT`.
@@ -155,7 +155,7 @@ En estos ejemplos de código se muestra cómo realizar tareas básicas con la bi
 ### <a name="authenticate-the-client"></a>Autenticar el cliente
 
 > [!NOTE]
-> En este inicio rápido se da por supuesto que ha [creado una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave de Bing Autosuggest, denominada `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`, y una para el punto de conexión denominada `BING_AUTOSUGGEST_ENDPOINT`.
+> En este inicio rápido se da por supuesto que ha [creado una variable de entorno](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para la clave de Bing Autosuggest, denominada `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`, y una para el punto de conexión denominada `BING_AUTOSUGGEST_ENDPOINT`.
 
 En la función `main()`, cree una instancia de un cliente con la clave y el punto de conexión.
 
@@ -171,7 +171,7 @@ client.Endpoint = endpoint
 
 ### <a name="send-an-api-request"></a>Envío de una solicitud de API
 
-En el mismo método, utilice el método [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) para enviar una consulta a Bing. Itere sobre la respuesta de [Suggestions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) e imprima la primera sugerencia.
+En el mismo método, utilice el método [AutoSuggestMethodAsync](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) para enviar una consulta a Bing. Itere sobre la respuesta de [Suggestions](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) e imprima la primera sugerencia.
 
 ```Go
 // This should return the query suggestion "xbox."
@@ -220,4 +220,4 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 ## <a name="see-also"></a>Consulte también
 
 - [¿Qué es Bing Autosuggest?](../../get-suggested-search-terms.md)
-- [Referencia de Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Referencia de Bing Autosuggest API v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

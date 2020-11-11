@@ -8,24 +8,24 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edd1549ddabef0ae1ba37150ad75a371ac6e6d85
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132779"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365523"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Las características son información acerca de las acciones y del contexto
 
 El servicio Personalizer aprende lo que la aplicación debería mostrar a los usuarios en un contexto determinado.
 
-Personalizer usa **características**, que es la información acerca del **contexto actual**, para elegir la mejor **acción**. Las características representan toda la información que crea que es útil personalizar para lograr recompensas mayores. Las características pueden ser genéricas o específicas de un elemento. 
+Personalizer usa **características** , que es la información acerca del **contexto actual** , para elegir la mejor **acción**. Las características representan toda la información que crea que es útil personalizar para lograr recompensas mayores. Las características pueden ser genéricas o específicas de un elemento. 
 
 Por ejemplo, puede tener una **característica** acerca de:
 
-* _Rol de usuario_, como `Sports_Shopper`. No debe ser un identificador de usuario individual. 
-* El _contenido_, como por ejemplo, si un vídeo es de las categorías `Documentary`, `Movie` o `TV Series`, o si un artículo comercial está disponible en el almacén.
-* El periodo _actual_, como qué día de la semana es.
+* _Rol de usuario_ , como `Sports_Shopper`. No debe ser un identificador de usuario individual. 
+* El _contenido_ , como por ejemplo, si un vídeo es de las categorías `Documentary`, `Movie` o `TV Series`, o si un artículo comercial está disponible en el almacén.
+* El periodo _actual_ , como qué día de la semana es.
 
 Personalizer no prescribe, limita ni corrige las características que puede enviar a las acciones y el contexto:
 
@@ -41,8 +41,8 @@ Personalizer admite características de los tipos cadena, numérico y booleano.
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Cómo afecta la elección del tipo de característica a Machine Learning en Personalizer
 
-* **Cadenas**: Para los tipos de cadena, cada combinación de clave y valor crea nuevas ponderaciones en el modelo de aprendizaje automático de Personalizer. 
-* **Numérico**: Debe usar valores numéricos cuando el número debe afectar proporcionalmente al resultado de la personalización. Esto depende mucho del escenario. En un ejemplo simplificado, al personalizar una experiencia de venta al por menor, NumberOfPetsOwned (número de mascotas en propiedad) podría ser una característica de tipo numérico si quiere que las personas con 2 o 3 mascotas tengan influencia en el resultado de la personalización el doble o el triple de las que tienen 1 mascota. Las características que se basan en unidades numéricas cuyo significado no es lineal, como la edad, la temperatura o la estatura de la persona, se podrían codificar mejor como cadenas y la calidad de la característica normalmente se puede mejorar mediante el uso de rangos. Por ejemplo, la edad podría codificarse como "Age":"0-5", "Age":"6-10", etc.
+* **Cadenas** : Para los tipos de cadena, cada combinación de clave y valor crea nuevas ponderaciones en el modelo de aprendizaje automático de Personalizer. 
+* **Numérico** : Debe usar valores numéricos cuando el número debe afectar proporcionalmente al resultado de la personalización. Esto depende mucho del escenario. En un ejemplo simplificado, al personalizar una experiencia de venta al por menor, NumberOfPetsOwned (número de mascotas en propiedad) podría ser una característica de tipo numérico si quiere que las personas con 2 o 3 mascotas tengan influencia en el resultado de la personalización el doble o el triple de las que tienen 1 mascota. Las características que se basan en unidades numéricas cuyo significado no es lineal, como la edad, la temperatura o la estatura de la persona, se podrían codificar mejor como cadenas y la calidad de la característica normalmente se puede mejorar mediante el uso de rangos. Por ejemplo, la edad podría codificarse como "Age":"0-5", "Age":"6-10", etc.
 * Los valores **booleanos** enviados con el valor "false" actúan como si no se hubiesen enviado.
 
 Las características que no estén presentes deben omitirse de la solicitud. Procure no enviar características con un valor nulo, ya que se procesarán como existentes y con un valor "null" al entrenar el modelo.
@@ -152,10 +152,10 @@ Por ejemplo:
 
 Se pueden usar otros elementos de [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), como
 
-* [Entity Linking](../entitylinking/home.md)
+* [Entity Linking](../text-analytics/index.yml)
 * [Text Analytics](../text-analytics/overview.md)
-* [Emotion](../emotion/home.md)
-* [Computer Vision](../computer-vision/home.md)
+* [Emotion](../face/overview.md)
+* [Computer Vision](../computer-vision/overview.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>Las acciones representan una lista de opciones
 
@@ -322,4 +322,4 @@ Los objetos JSON pueden incluir objetos JSON anidados y propiedades y valores si
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Aprendizaje de refuerzo](concepts-reinforcement-learning.md) 
+[Aprendizaje de refuerzo](concepts-reinforcement-learning.md)

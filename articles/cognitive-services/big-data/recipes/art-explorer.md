@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 0a94c66eb51298db226ceec5da5c86666576052a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a65ff28a38e42e05844063a330c0325f16b2247
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87850498"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363296"
 ---
 # <a name="recipe-intelligent-art-exploration-with-the-cognitive-services-for-big-data"></a>Receta: Exploración de arte inteligente con Cognitive Services para macrodatos
 
@@ -24,7 +24,7 @@ En este ejemplo, usaremos Cognitive Services para macrodatos para agregar anotac
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Debe tener una clave de suscripción para Computer Vision y Cognitive Search. Siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave.
+* Debe tener una clave de suscripción para Computer Vision y Cognitive Search. Siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](../../cognitive-services-apis-create-account.md) para suscribirse a Computer Vision y obtener su clave.
   > [!NOTE]
   > Para obtener información sobre precios, consulte [Azure Cognitive Search](https://azure.microsoft.com/services/search/#pricing).
 
@@ -118,4 +118,3 @@ requests.post(url, json={"search": "Glass"}, headers = {"api-key": AZURE_SEARCH_
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a usar [Cognitive Services para macrodatos para la detección de anomalías](anomaly-detection.md).
-

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 449d57579b802191434cda3e63e103e5f3ef4bc5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 64c449bdefe6fb067a7c0e26b155b58b6f00c399
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220880"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368294"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migración del área de trabajo y los proyectos de Microsoft Translator Hub a Custom Translator
 
@@ -27,7 +27,7 @@ Estas acciones se realizan durante la migración:
 * En cualquier momento, la puntuación BLEU migrada desde el entrenamiento del centro se puede encontrar en la página TrainingDetails del modelo en el encabezado "Puntuación BLEU del centro de MT".
 
 > [!Note] 
-> Para que un entrenamiento se realice correctamente, el Traductor personalizado necesita un mínimo de 10 000 frases extraídas únicas. El Traductor personalizado no puede realizar un entrenamiento con menos del [mínimo sugerido](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+> Para que un entrenamiento se realice correctamente, el Traductor personalizado necesita un mínimo de 10 000 frases extraídas únicas. El Traductor personalizado no puede realizar un entrenamiento con menos del [mínimo sugerido](./sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Búsqueda del identificador de área de trabajo de Traductor personalizado
 
@@ -122,7 +122,7 @@ Si desea obtener un informe de migración más detallado sobre los proyectos, ap
 * Los sistemas con pares de idiomas que todavía NO están disponibles en el Traductor personalizado solo podrán acceder a los datos o anular la implementación a través del Traductor personalizado. Estos proyectos se marcarán como "No disponible" en la página Proyectos. A medida que se habiliten nuevos pares de idiomas con el Traductor personalizado, los proyectos quedarán activos para su entrenamiento e implementación. 
 * La migración de un proyecto del centro a Traductor personalizado no tendrá ningún impacto en los entrenamientos o proyectos del centro. No se eliminan documentos ni proyectos del centro durante una migración y no se anula la implementación de modelos.
 * Solo se permite migrar una vez por proyecto. Si necesita repetir una migración de un proyecto, póngase en contacto con nosotros.
-* El Traductor personalizado admite los pares de idiomas de NMT desde y hacia el inglés. [Visualización de la lista completa de los idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). El centro no requiere modelos de referencia y, por tanto, admite varios miles de lenguajes. Puede migrar un par de idiomas no admitidos, pero solo se realizará la migración de los documentos y las definiciones del proyecto. No se podrá entrenar el modelo nuevo. Además, estos documentos y proyectos se mostrarán como inactivos para indicar que no se pueden utilizar en este momento. Si se agrega compatibilidad para estos proyectos y/o documentos, estarán activos y se podrán entrenar.
+* El Traductor personalizado admite los pares de idiomas de NMT desde y hacia el inglés. [Visualización de la lista completa de los idiomas admitidos](../language-support.md#customization). El centro no requiere modelos de referencia y, por tanto, admite varios miles de lenguajes. Puede migrar un par de idiomas no admitidos, pero solo se realizará la migración de los documentos y las definiciones del proyecto. No se podrá entrenar el modelo nuevo. Además, estos documentos y proyectos se mostrarán como inactivos para indicar que no se pueden utilizar en este momento. Si se agrega compatibilidad para estos proyectos y/o documentos, estarán activos y se podrán entrenar.
 * Traductor personalizado no admite actualmente datos de entrenamiento monolingüe. Como con los pares de idiomas no admitidos, puede migrar documentos monolingües, pero se mostrarán como inactivos hasta que se admitan datos monolingües.
 * Traductor personalizado requiere oraciones 10 000 frases en paralelo para el entrenamiento. Microsoft Hub podría entrenar sobre un conjunto más pequeño de datos. Si se migra un entrenamiento que no cumple este requisito, no será entrenado.
 
@@ -146,4 +146,4 @@ Si es una comunidad u organización que trabaja para crear un sistema de idioma 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Entrenamiento de un modelo](how-to-train-model.md).
-- Comience a utilizar el modelo de traducción personalizado implementado mediante [Traductor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comience a utilizar el modelo de traducción personalizado implementado mediante [Traductor V3](../reference/v3-0-translate.md?tabs=curl).

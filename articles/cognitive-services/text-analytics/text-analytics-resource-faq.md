@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffa70afa0edf29181bc622cbef6ff8716134b1f7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73837120"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364945"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Preguntas más frecuentes (P+F) sobre Text Analytics en Cognitive Services
 
@@ -29,11 +29,11 @@ Siempre hay cierto grado de imprecisión en el análisis de opiniones, pero el m
 
 ## <a name="can-i-add-my-own-training-data-or-models"></a>¿Puedo agregar mis propios datos o modelos de aprendizaje?
 
-No, los modelos se entrenan previamente. Las únicas operaciones disponibles en los datos cargados son la puntuación, la extracción de frases clave y la detección de idioma. No hospedamos modelos personalizados. Si quiere crear y hospedar modelos de aprendizaje automático personalizado, considere las [funcionalidades de aprendizaje automático en Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+No, los modelos se entrenan previamente. Las únicas operaciones disponibles en los datos cargados son la puntuación, la extracción de frases clave y la detección de idioma. No hospedamos modelos personalizados. Si quiere crear y hospedar modelos de aprendizaje automático personalizado, considere las [funcionalidades de aprendizaje automático en Microsoft R Server](/r-server/r/concept-what-is-the-microsoftml-package).
 
 ## <a name="can-i-request-additional-languages"></a>¿Puedo solicitar más idiomas?
 
-El análisis de opiniones y la extracción de frases clave están disponibles para un [exclusivo número de idiomas](text-analytics-supported-languages.md). El procesamiento de lenguaje natural es complejo y requiere una comprobación sustancial para poder lanzar la nueva funcionalidad. Por este motivo, evitamos anunciar la compatibilidad previamente para que nadie dependa de una funcionalidad que necesita más tiempo para desarrollarse. 
+El análisis de opiniones y la extracción de frases clave están disponibles para un [exclusivo número de idiomas](./language-support.md). El procesamiento de lenguaje natural es complejo y requiere una comprobación sustancial para poder lanzar la nueva funcionalidad. Por este motivo, evitamos anunciar la compatibilidad previamente para que nadie dependa de una funcionalidad que necesita más tiempo para desarrollarse. 
 
 Para ayudarnos a dar prioridad a que idiomas trabajar a continuación, vote por idiomas específicos en [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 

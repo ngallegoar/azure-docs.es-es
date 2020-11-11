@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 41586b2ec96d30fd583cbc9a746493ed9206548b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28bc07cadf9ffea56059755e243cb3e828077588
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510749"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368974"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>¿Qué es un área de trabajo de Custom Translator?
 
@@ -25,7 +25,7 @@ Las áreas de trabajo son privadas y solo pueden acceder a ellas usted mismo y l
 
 ## <a name="what-is-a-custom-translator-project"></a>¿Qué es un proyecto de Custom Translator?
 
-Un proyecto es un contenedor para un modelo, documentos y pruebas. Cada proyecto incluye automáticamente todos los documentos que se cargan en esa área de trabajo con el par de idiomas correcto. Por ejemplo, si tiene proyectos en inglés y en español, y un proyecto de inglés a español, se incluirán los mismos documentos en todos los proyectos. Cada proyecto tiene un id. de categoría asociado que se usa en las consultas a la [API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) para recibir las traducciones. El parámetro id. de categoría se utiliza para obtener las traducciones de un sistema personalizado creado con Custom Translator.
+Un proyecto es un contenedor para un modelo, documentos y pruebas. Cada proyecto incluye automáticamente todos los documentos que se cargan en esa área de trabajo con el par de idiomas correcto. Por ejemplo, si tiene proyectos en inglés y en español, y un proyecto de inglés a español, se incluirán los mismos documentos en todos los proyectos. Cada proyecto tiene un id. de categoría asociado que se usa en las consultas a la [API V3](../reference/v3-0-translate.md?tabs=curl) para recibir las traducciones. El parámetro id. de categoría se utiliza para obtener las traducciones de un sistema personalizado creado con Custom Translator.
 
 ## <a name="project-categories"></a>Categorías de proyecto
 

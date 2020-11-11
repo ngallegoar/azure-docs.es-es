@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 564af32b724c8b4883cd27d01813e246e5fa4901
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fe9511df5fb290853dbd6cb8d39fed4e289fca4d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100208"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366424"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guía de actualización de News Search API
 
@@ -75,24 +75,24 @@ Bloqueado|InvalidRequest.Blocked
 
 ### <a name="object-changes"></a>Cambios en objetos
 
-- Se ha agregado el campo `contractualRules` al objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). El campo `contractualRules` contiene una lista de reglas que se deben seguir (por ejemplo, la atribución de artículos). Debe aplicar la atribución proporcionada en `contractualRules` en lugar de usar `provider`. El artículo incluye `contractualRules` solo si la respuesta de [Web Search API](../bing-web-search/search-the-web.md) contiene una respuesta de noticias.
+- Se ha agregado el campo `contractualRules` al objeto [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). El campo `contractualRules` contiene una lista de reglas que se deben seguir (por ejemplo, la atribución de artículos). Debe aplicar la atribución proporcionada en `contractualRules` en lugar de usar `provider`. El artículo incluye `contractualRules` solo si la respuesta de [Web Search API](../bing-web-search/overview.md) contiene una respuesta de noticias.
 
 ## <a name="non-breaking-changes"></a>Cambios secundarios
 
 ### <a name="query-parameters"></a>Parámetros de consulta
 
-- Productos agregados como un posible valor en el que puede establecer el parámetro de consulta [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category). Consulte [Categories By Markets](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) (Categorías por mercados).
+- Productos agregados como un posible valor en el que puede establecer el parámetro de consulta [category](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category). Consulte [Categories By Markets](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) (Categorías por mercados).
 
-- Se ha agregado el parámetro de consulta [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby), que devuelve tendencias populares ordenadas por fecha con la más reciente primero.
+- Se ha agregado el parámetro de consulta [SortBy](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby), que devuelve tendencias populares ordenadas por fecha con la más reciente primero.
 
-- Se ha agregado el parámetro de consulta [Since](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) que devuelve tendencias populares que se encontraron en Bing en el mismo momento especificado por la marca de tiempo de época de Unix especificada o posteriormente.
+- Se ha agregado el parámetro de consulta [Since](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) que devuelve tendencias populares que se encontraron en Bing en el mismo momento especificado por la marca de tiempo de época de Unix especificada o posteriormente.
 
 ### <a name="object-changes"></a>Cambios en objetos
 
-- Se ha agregado el campo `mentions` al objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). El campo `mentions` contiene una lista de entidades (personas o lugares) que se encontraron en el artículo.
+- Se ha agregado el campo `mentions` al objeto [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). El campo `mentions` contiene una lista de entidades (personas o lugares) que se encontraron en el artículo.
 
-- Se ha agregado el campo `video` al objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). El campo `video` contiene un vídeo que está relacionado con el artículo de noticias. El vídeo es un \<iframe\> que se puede insertar o una miniatura de vídeo.
+- Se ha agregado el campo `video` al objeto [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). El campo `video` contiene un vídeo que está relacionado con el artículo de noticias. El vídeo es un \<iframe\> que se puede insertar o una miniatura de vídeo.
 
-- Se ha agregado el campo `sort` al objeto [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news). El campo `sort` muestra el criterio de ordenación de los artículos. Por ejemplo, los artículos se ordenan por relevancia (valor predeterminado) o fecha.
+- Se ha agregado el campo `sort` al objeto [News](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news). El campo `sort` muestra el criterio de ordenación de los artículos. Por ejemplo, los artículos se ordenan por relevancia (valor predeterminado) o fecha.
 
-- Se ha agregado el objeto [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) que define un criterio de ordenación. El campo `isSelected` indica si la respuesta utiliza el criterio de ordenación. Si es **true** , la respuesta utiliza el criterio de ordenación. Si `isSelected` es **false** , puede usar la dirección URL del campo `url` para solicitar un criterio de ordenación diferente.
+- Se ha agregado el objeto [SortValue](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) que define un criterio de ordenación. El campo `isSelected` indica si la respuesta utiliza el criterio de ordenación. Si es **true** , la respuesta utiliza el criterio de ordenación. Si `isSelected` es **false** , puede usar la dirección URL del campo `url` para solicitar un criterio de ordenación diferente.

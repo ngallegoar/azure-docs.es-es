@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 5bd929d64d7b877e4b17952eaf4d4d0f2c0e3dff
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a893a239640dfe691a25ab515319493357305e48
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101823"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367665"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Inicio rápido: Sugerencia de consultas de búsqueda con la API REST Bing Autosuggest y Python
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
-> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Siga este inicio rápido para aprender a realizar llamadas a la API Bing Autosuggest y a leer la respuesta JSON. Esta sencilla aplicación de Python envía una consulta de búsqueda parcial a la API y devuelve sugerencias en las búsquedas. Si bien esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py).
@@ -41,7 +41,7 @@ Siga este inicio rápido para aprender a realizar llamadas a la API Bing Autosug
     import http.client, urllib.parse, json
     ```
 
-2. Cree variables para el host y la ruta de acceso de la API, el [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) y una consulta de búsqueda parcial. Use el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+2. Cree variables para el host y la ruta de acceso de la API, el [código de mercado](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) y una consulta de búsqueda parcial. Use el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```python
     subscriptionKey = 'enter key here'
@@ -157,4 +157,4 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 ## <a name="see-also"></a>Consulte también
 
 - [¿Qué es Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Referencia de Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Referencia de Bing Autosuggest API v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

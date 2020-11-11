@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 97327517b40e715294393a97e8a26c078173e762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8a662bf94e958d9e96a454ced9c44058b178a8c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510851"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366849"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparejamiento y alineación de oraciones en documentos paralelos
 
@@ -28,7 +28,7 @@ Custom Translator aprende la traducción de las oraciones una a la vez. Primero,
 
 Si sabe que tiene documentos paralelos, puede invalidar la alineación de oraciones al proporcionar los archivos de texto alineados previamente. Puede extraer todas las oraciones de ambos documentos en un archivo de texto, organizar una oración por línea y cargarlas con la extensión `.align`. La extensión `.align` indica a Custom Translator que debe omitir la alineación de oraciones.
 
-Para obtener mejores resultados, intente asegurarse de que hay una oración por línea en sus archivos. No incluya caracteres de nueva línea en una oración, ya que esto ocasionará alineaciones deficientes.
+Para obtener mejores resultados, intente asegurarse de que hay una oración por línea en sus archivos.  No incluya caracteres de nueva línea en una oración, ya que esto ocasionará alineaciones deficientes.
 
 ## <a name="suggested-minimum-number-of-sentences"></a>Número mínimo de frases sugerido
 
@@ -44,7 +44,7 @@ Para que un entrenamiento se realice correctamente, en la tabla siguiente se mue
 > [!NOTE]
 > - El entrenamiento no se iniciará y se producirá un error si no se cumple el número mínimo de 10 000 frases para el entrenamiento. 
 > - La optimización y las pruebas son opcionales. Si no las proporciona, el sistema quitará un porcentaje adecuado del entrenamiento que se usará para la validación y las pruebas. 
-> - Puede entrenar un modelo usando solo los datos de un diccionario. Consulte [Qué es el diccionario](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
+> - Puede entrenar un modelo usando solo los datos de un diccionario. Consulte [Qué es el diccionario](./what-is-dictionary.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

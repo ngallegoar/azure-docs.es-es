@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a7aa2b75a6f6e95bdeff4176ee2ad852de3d7169
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 80215a22c5af3698aee6719f52e42c457220b7f9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090705"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367468"
 ---
 # <a name="custom-search"></a>Búsqueda personalizada
 
@@ -33,10 +33,10 @@ Punto de conexión: devuelve sugerencias de búsqueda como resultados JSON relac
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Para obtener ejemplos que describen cómo configurar los orígenes de Custom Search, consulte el [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Para obtener más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc., consulte la referencia [Bing Custom Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference).
+Para obtener ejemplos que describen cómo configurar los orígenes de Custom Search, consulte el [tutorial](./tutorials/custom-search-web-page.md). Para obtener más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc., consulte la referencia [Bing Custom Search API v7](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference).
 
 ## <a name="custom-search-response-json"></a>JSON de respuesta de Custom Search
-Una solicitud de búsqueda personalizada devuelve los resultados como objetos JSON, consulte [Response objects](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects) (Objetos de respuesta). 
+Una solicitud de búsqueda personalizada devuelve los resultados como objetos JSON, consulte [Response objects](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects) (Objetos de respuesta). 
 
 ## <a name="custom-autosuggest"></a>Custom Autosuggest
 Custom Autosuggest API le permite enviar un término de consulta de búsqueda parcial a Bing y obtener una lista de consultas sugeridas que puede configurar. Con Custom Autosuggest, agregue las sugerencias devueltas por la API y, opcionalmente, especifique si desea incluir sugerencias generadas por Bing.
@@ -60,10 +60,10 @@ Para solicitar las imágenes de la instancia de Custom Search, envíe una solici
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 ```
 
-Para obtener información acerca de cómo configurar una instancia de Custom Search, consulte [Configure your custom search experience](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view) (Configuración de la experiencia de búsqueda personalizada).
+Para obtener información acerca de cómo configurar una instancia de Custom Search, consulte [Configure your custom search experience](./define-your-custom-view.md) (Configuración de la experiencia de búsqueda personalizada).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Las API de **Bing** admiten acciones de búsqueda que devuelven resultados según su tipo.  Todos los puntos de conexión de búsqueda devuelven resultados como objetos de respuesta JSON.  Todos los puntos de conexión admiten consultas que devuelven un idioma o una ubicación en concreto por longitud, latitud y radio de búsqueda.
 
 Para una información completa acerca de los parámetros admitidos por cada punto de conexión, consulte las páginas de referencia de cada tipo.
-Para obtener ejemplos de solicitudes básicas mediante Custom Search API, consulte los [inicios rápidos de Custom Search](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/).
+Para obtener ejemplos de solicitudes básicas mediante Custom Search API, consulte los [inicios rápidos de Custom Search](/azure/cognitive-services/bing-custom-search/).

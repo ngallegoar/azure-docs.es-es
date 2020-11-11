@@ -10,18 +10,18 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: f6f816f6fb4d422a97c98994996967e71f6a1e07
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 59f2edd30bd47f5da63cbbe79af1142eaf86a747
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084908"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367920"
 ---
 # <a name="what-is-bing-entity-search-api"></a>¿Qué es Bing Entity Search API?
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
-> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Entity Search API envía una consulta de búsqueda a Bing y obtiene resultados que incluyen entidades y lugares. Los resultados de lugares incluyen restaurantes, hoteles u otros negocios locales. Bing devuelve lugares si en la consulta se especifica el nombre de la empresa local o si se solicita un tipo de negocio (por ejemplo, restaurantes cercanos). Bing devuelve entidades si en la consulta se especifican personas, lugares o incluso cosas famosas (puntos turísticos, estados, países o regiones, etc.).
@@ -36,7 +36,7 @@ Bing Entity Search API envía una consulta de búsqueda a Bing y obtiene resulta
 
 Bing Entity Search API es un servicio web RESTful, lo que significa que es fácil llamarlo desde cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar código JSON. Puede usar el servicio con la API REST o el SDK.
 
-1. Cree una [cuenta de API de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con acceso a Bing Search APIs. Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/free/cognitive-services/) gratuita.
+1. Cree una [cuenta de API de Cognitive Services](../cognitive-services-apis-create-account.md) con acceso a Bing Search APIs. Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/free/cognitive-services/) gratuita.
 2. Envíe una solicitud a la API con una consulta de búsqueda válida.
 3. Analice el mensaje JSON devuelto para procesar la respuesta de API.
 
@@ -44,6 +44,6 @@ Bing Entity Search API es un servicio web RESTful, lo que significa que es fáci
 
 * Pruebe la [demostración interactiva](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) de Bing Entity Search API. 
 * Para empezar a trabajar rápidamente con la primera solicitud, pruebe con este [inicio rápido](quickstarts/csharp.md).
-* Sección de referencia de [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
-* En los [requisitos de uso y visualización de Bing](./use-display-requirements.md) se especifican usos aceptables del contenido y la información adquirida mediante las API de búsqueda de Bing.
-* Visite la [página central de Bing Search API](../bing-web-search/search-the-web.md) para explorar las otras API disponibles.
+* Sección de referencia de [Bing Entity Search API v7](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* En los [requisitos de uso y visualización de Bing](../bing-web-search/use-display-requirements.md) se especifican usos aceptables del contenido y la información adquirida mediante las API de búsqueda de Bing.
+* Visite la [página central de Bing Search API](../bing-web-search/overview.md) para explorar las otras API disponibles.

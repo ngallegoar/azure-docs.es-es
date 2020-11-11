@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 205adf8cb173c9df30e9907b5fe9de6d5d5ab343
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e7207a1d675298779c3523ee93a8169ac0a26e4a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098321"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367121"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Envío de solicitudes a Bing Spell Check API
 
@@ -34,16 +34,16 @@ La solicitud debe usar el protocolo HTTPS.
 
 Se recomienda que todas las solicitudes procedan de un servidor. Al distribuir la clave como parte de una aplicación cliente, existe una mayor probabilidad de que un tercero malintencionado acceda a ella. Un servidor también proporciona un único punto de actualización para futuras versiones de la API.
 
-La solicitud debe especificar el parámetro de consulta [text](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#text), que contiene la cadena de texto para probar. Aunque es opcional, la solicitud debe especificar también el parámetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#mkt), que identifica el mercado de donde desea que procedan los resultados. Para ver una lista de parámetros de consulta opcionales, como `mode`, consulte [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#query-parameters) (Parámetros de consulta). Todos los valores de parámetro de consulta deben estar codificados con una dirección URL.  
+La solicitud debe especificar el parámetro de consulta [text](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#text), que contiene la cadena de texto para probar. Aunque es opcional, la solicitud debe especificar también el parámetro de consulta [mkt](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#mkt), que identifica el mercado de donde desea que procedan los resultados. Para ver una lista de parámetros de consulta opcionales, como `mode`, consulte [Query Parameters](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#query-parameters) (Parámetros de consulta). Todos los valores de parámetro de consulta deben estar codificados con una dirección URL.  
   
-La solicitud debe especificar el encabezado [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#subscriptionkey). Aunque es opcional, se recomienda especificar los encabezados siguientes. Estos encabezados ayudan a Bing Spell Check API a obtener resultados más precisos:  
+La solicitud debe especificar el encabezado [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#subscriptionkey). Aunque es opcional, se recomienda especificar los encabezados siguientes. Estos encabezados ayudan a Bing Spell Check API a obtener resultados más precisos:  
   
--   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#useragent)  
--   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#clientid)  
--   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#location)  
+-   [User-Agent](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#useragent)  
+-   [X-MSEdge-ClientID](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#clientid)  
+-   [X-Search-ClientIP](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#clientip)  
+-   [X-Search-Location](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#location)  
 
-Para ver una lista de todos los encabezados de solicitud y respuesta, consulte [Encabezados](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#headers).
+Para ver una lista de todos los encabezados de solicitud y respuesta, consulte [Encabezados](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#headers).
 
 Cuando se llama a Bing Spell Check API desde JavaScript, las características de seguridad integradas de su explorador podrían impedirle acceder a los valores de estos encabezados.
 
@@ -132,4 +132,4 @@ BingAPIs-Market: en-US
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [¿Qué es Bing Spell Check API?](../overview.md)
-- [Referencia de Bing Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Referencia de Bing Spell Check API v7](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

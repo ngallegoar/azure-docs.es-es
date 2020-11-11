@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 5d6b0a6be0d99815c4d14bb04e56241d011812b5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1d9b7c79919569830834915fc609b849e717dce8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084959"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365846"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Punto de conexión de Bing Entity Search API
 
@@ -29,7 +29,7 @@ Bing Entity Search API incluye un punto de conexión que devuelve las entidades 
 
 ## <a name="get-entity-results-from-the-endpoint"></a>Obtención de resultados de entidad a partir del punto de conexión
 
-Para obtener resultados de entidades mediante **Bing API** , envíe una solicitud `GET` al punto de conexión siguiente. Use [encabezados](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers) y [parámetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters) para personalizar la solicitud de búsqueda. Se pueden enviar solicitudes de búsqueda mediante el parámetro `?q=`.
+Para obtener resultados de entidades mediante **Bing API** , envíe una solicitud `GET` al punto de conexión siguiente. Use [encabezados](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers) y [parámetros de consulta](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters) para personalizar la solicitud de búsqueda. Se pueden enviar solicitudes de búsqueda mediante el parámetro `?q=`.
 
 ```cURL
  GET https://api.cognitive.microsoft.com/bing/v7.0/entities
@@ -42,4 +42,4 @@ Para obtener resultados de entidades mediante **Bing API** , envíe una solicitu
 
 ## <a name="see-also"></a>Consulte también 
 
-Para más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc, consulte la referencia sobre [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+Para más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc, consulte la referencia sobre [Bing Entity Search API v7](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

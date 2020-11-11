@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecf3ad43b46d491d5f15270790251a0bc4e882e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051107"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365370"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Envío de datos de entrada de lápiz a la API Ink Recognizer 
 
@@ -64,7 +64,7 @@ La API Ink Recognizer devuelve una respuesta de análisis sobre los objetos que 
 
 ## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Formas reconocidas por la API Ink Recognizer
 
-La API Ink Recognizer puede identificar las formas más utilizadas en la toma de notas. La siguiente imagen muestra algunos ejemplos básicos. Para obtener una lista completa de las formas y otros contenidos de entrada de lápiz reconocidos por la API, consulte el [artículo de referencia de la API](https://go.microsoft.com/fwlink/?linkid=2089907). 
+La API Ink Recognizer puede identificar las formas más utilizadas en la toma de notas. La siguiente imagen muestra algunos ejemplos básicos. Para obtener una lista completa de las formas y otros contenidos de entrada de lápiz reconocidos por la API, consulte el [artículo de referencia de la API](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer). 
 
 ![Lista de formas reconocidas por la API Ink Recognizer](../media/shapes.png)
 
@@ -84,12 +84,12 @@ Tener los resultados del reconocimiento por adelantado le da información sobre 
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integración de la API Ink Recognizer con Windows Ink
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) proporciona herramientas y tecnologías para permitir experiencias de entrada de lápiz digital en una amplia gama de dispositivos. Puede combinar la plataforma Windows Ink con la API Ink Recognizer para crear aplicaciones que muestren e interpreten los trazos de entrada de lápiz digital.
+[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions) proporciona herramientas y tecnologías para permitir experiencias de entrada de lápiz digital en una amplia gama de dispositivos. Puede combinar la plataforma Windows Ink con la API Ink Recognizer para crear aplicaciones que muestren e interpreten los trazos de entrada de lápiz digital.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es la API Ink Recognizer?](../overview.md)
-* [Referencia de API REST Ink Recognizer](https://go.microsoft.com/fwlink/?linkid=2089907)
+* [Referencia de API REST Ink Recognizer](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 * Empiece a enviar datos de los trazos de entrada de lápiz digital mediante:
     * [C#](../quickstarts/csharp.md)

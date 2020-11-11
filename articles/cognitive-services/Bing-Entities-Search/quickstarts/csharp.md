@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52efd103bf510e7cca8a1e4a1d682948b498d64c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b0cac94ac3a0c8dff24cf154e4dd7ab7ddf4dd9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084857"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368430"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con C#
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
 > El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
@@ -30,7 +30,7 @@ Use este inicio rápido para realizar la primera llamada a Bing Entity Search AP
 Aunque esta aplicación está escrita en C#, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://www.visualstudio.com/downloads/).
 - O bien, si usa Linux o MacOS, puede seguir este inicio rápido con [Visual Studio Code](https://code.visualstudio.com/) y [.NET Core](/dotnet/core/install/macos).
@@ -185,4 +185,4 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [Compilar una aplicación web de una sola página](../tutorial-bing-entities-search-single-page-app.md)
 
 * [¿Qué es Bing Entity Search API?](../overview.md )
-* [Referencia de la API Bing Entity Search](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [Referencia de la API Bing Entity Search](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

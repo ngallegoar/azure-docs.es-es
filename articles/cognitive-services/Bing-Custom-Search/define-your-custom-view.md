@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090824"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367563"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configuración de la experiencia de Bing Custom Search
 
@@ -79,16 +79,16 @@ Después de agregar sectores de la web a la lista de **activos** , el portal de 
 
 ## <a name="search-for-images-and-videos"></a>Búsqueda de imágenes y vídeos
 
-Puede buscar imágenes y vídeos de forma similar al contenido web mediante [Bing Custom Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) o [Bing Custom Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Puede mostrar estos resultados con la [UI hospedada](hosted-ui.md) o las API. 
+Puede buscar imágenes y vídeos de forma similar al contenido web mediante [Bing Custom Image Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) o [Bing Custom Video Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Puede mostrar estos resultados con la [UI hospedada](hosted-ui.md) o las API. 
 
-Estas API son similares a las API no personalizadas de [Bing Image Search](../Bing-Image-Search/overview.md) y [Bing Video Search](../Bing-Video-Search/search-the-web.md), pero buscan en toda la web y no requieren el parámetro de consulta `customConfig`. Consulte esta documentación para obtener más información sobre cómo trabajar con imágenes y vídeos. 
+Estas API son similares a las API no personalizadas de [Bing Image Search](../Bing-Image-Search/overview.md) y [Bing Video Search](../bing-video-search/overview.md), pero buscan en toda la web y no requieren el parámetro de consulta `customConfig`. Consulte esta documentación para obtener más información sobre cómo trabajar con imágenes y vídeos. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>Prueba de la instancia de búsqueda con el panel Vista previa
 
 Puede probar la instancia de búsqueda mediante el panel de vista previa situado al lado derecho del portal para enviar consultas de búsqueda y ver los resultados. 
 
 1. Debajo del cuadro de búsqueda, seleccione **My Instance** (Mi instancia). Puede comparar los resultados de la experiencia de búsqueda con Bing seleccionando **Bing**. 
-2. Seleccione un filtro de búsqueda seguro y el mercado en el que buscar (consulte [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) [Parámetros de consulta]).
+2. Seleccione un filtro de búsqueda seguro y el mercado en el que buscar (consulte [Query Parameters](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) [Parámetros de consulta]).
 3. Escriba una consulta y presione Entrar o haga clic en el icono de búsqueda para ver los resultados de la configuración actual. Puede cambiar el tipo de búsqueda que realiza haciendo clic en **Web** , **Imagen** o **Vídeo** para obtener los resultados correspondientes. 
 
 <a name="adjustrank"></a>
@@ -165,4 +165,4 @@ Si se ha suscrito a Custom Search en el nivel adecuado (consulte los [planes de 
 - [Call your custom search](./search-your-custom-view.md) (Llamada a la búsqueda personalizada)
 - [Configuración de la experiencia de interfaz de usuario hospedada](./hosted-ui.md)
 - [Uso de marcadores de decoración para resaltar texto](../bing-web-search/hit-highlighting.md)
-- [Paginación de páginas web](./page-webpages.md)
+- [Paginación de páginas web](../bing-web-search/paging-search-results.md)

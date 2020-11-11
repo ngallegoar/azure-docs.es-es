@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: fb6a03cff3191f55b6869f6907aad6d29095d8b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0e9ca1baced84836a9294d948d24baa77ecbc73
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102265"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364911"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>Envío de consultas a Bing News Search API
 
@@ -40,18 +40,18 @@ La solicitud debe usar el protocolo HTTPS.
 
 Se recomienda que todas las solicitudes procedan de un servidor. Al distribuir la clave como parte de una aplicación cliente, existe una mayor probabilidad de que un tercero malintencionado acceda a ella. Además, la realización de llamadas desde un servidor proporciona un único punto de actualización para futuras versiones de la API.
 
-La solicitud debe especificar el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query), que contiene el término de búsqueda del usuario. Aunque es opcional, la solicitud debe especificar también el parámetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#mkt), que identifica el mercado de donde desea que procedan los resultados. Para ver una lista de parámetros de consulta opcionales, como `freshness` y `textDecorations`, consulte [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) (Parámetros de consulta). Todos los valores de parámetro de consulta deben estar codificados con una dirección URL.
+La solicitud debe especificar el parámetro de consulta [q](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query), que contiene el término de búsqueda del usuario. Aunque es opcional, la solicitud debe especificar también el parámetro de consulta [mkt](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#mkt), que identifica el mercado de donde desea que procedan los resultados. Para ver una lista de parámetros de consulta opcionales, como `freshness` y `textDecorations`, consulte [Query Parameters](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) (Parámetros de consulta). Todos los valores de parámetro de consulta deben estar codificados con una dirección URL.
 
-La solicitud debe especificar el encabezado [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#subscriptionkey). Aunque es opcional, se recomienda especificar los encabezados siguientes:
+La solicitud debe especificar el encabezado [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#subscriptionkey). Aunque es opcional, se recomienda especificar los encabezados siguientes:
 
-- [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#useragent)
-- [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientid)
-- [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientip)
-- [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#location)
+- [User-Agent](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#useragent)
+- [X-MSEdge-ClientID](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientid)
+- [X-Search-ClientIP](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientip)
+- [X-Search-Location](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#location)
 
 Los encabezados de IP y ubicación del cliente son importantes para devolver contenido relativo a la ubicación.
 
-Para ver una lista de todos los encabezados de solicitud y respuesta, consulte [Encabezados](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headers).
+Para ver una lista de todos los encabezados de solicitud y respuesta, consulte [Encabezados](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headers).
 
 A continuación, se muestra una solicitud de búsqueda de noticias que incluye todos los encabezados y parámetros de consulta sugeridos. Si es la primera vez que llama a cualquiera de las API de Bing, no incluya el encabezado de identificador de cliente. Solo debe incluir el identificador de cliente si se ha llamado previamente a una API de Bing y Bing ha devuelto un identificador de cliente para esa combinación de usuario y dispositivo.
 

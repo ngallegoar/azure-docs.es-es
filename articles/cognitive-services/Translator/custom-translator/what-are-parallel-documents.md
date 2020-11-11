@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ce9f7e922b9a168205ea1d193830dd654691998a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6477432636db9592d9b0d9c1f90f5eee7d6e00db
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510817"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369008"
 ---
 # <a name="what-are-parallel-documents"></a>¿Qué son los documentos paralelos?
 
@@ -23,7 +23,7 @@ No importa qué idioma está marcado como "origen" y qué idioma como "destino":
 
 ## <a name="requirements"></a>Requisitos
 
-Necesita un mínimo de 10 000 frases paralelas alineadas para entrenar a un sistema. Esta limitación es una red de seguridad para asegurarse de que las frases paralelas contienen suficiente vocabulario único para entrenar correctamente un modelo de traducción. Como procedimiento recomendado, agregue continuamente más contenido paralelo y entrene el sistema de nuevo para mejorar la calidad de la traducción. Consulte [Alineación de frases](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
+Necesita un mínimo de 10 000 frases paralelas alineadas para entrenar a un sistema. Esta limitación es una red de seguridad para asegurarse de que las frases paralelas contienen suficiente vocabulario único para entrenar correctamente un modelo de traducción. Como procedimiento recomendado, agregue continuamente más contenido paralelo y entrene el sistema de nuevo para mejorar la calidad de la traducción. Consulte [Alineación de frases](./sentence-alignment.md).
 
 Microsoft requiere que los documentos cargados en Custom Translator no infrinjan los derechos de propiedad intelectual o de copyright de terceros. Para más información, consulte los [términos de uso](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Cargar un documento mediante el portal no modifica la propiedad intelectual del documento en sí.

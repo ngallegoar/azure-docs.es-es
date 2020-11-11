@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86524002"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368940"
 ---
 # <a name="customize-your-text-translations"></a>Personalización de las traducciones de texto
 
 Traductor personalizado es una característica del servicio Traductor que permite a los usuarios personalizar la traducción automática neuronal avanzada de Microsoft Translator cuando se traduce texto con Traductor (solo la versión 3).
 
-Esta característica solamente puede utilizarse para personalizar la traducción de voz cuando se usa con el [servicio Voz de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Esta característica solamente puede utilizarse para personalizar la traducción de voz cuando se usa con el [servicio Voz de Cognitive Services](../speech-service/index.yml).
 
 ## <a name="custom-translator"></a>Custom Translator
 
@@ -37,7 +37,7 @@ A partir de ese momento, el sistema personalizado está disponible con una llama
 
 Si se proporcionan el tipo y la cantidad apropiados de datos de aprendizaje, no es extraño que con Custom Translator la calidad de la traducción mejore entre 5 y 10 puntos BLEU, o incluso más.
 
-Puede encontrar más detalles acerca de los diferentes niveles de personalización en función de los datos disponibles en el [Manual del usuario de Custom Translator](https://aka.ms/CustomTranslatorDocs).
+Puede encontrar más detalles acerca de los diferentes niveles de personalización en función de los datos disponibles en el [Manual del usuario de Custom Translator](./custom-translator/overview.md).
 
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
@@ -64,4 +64,4 @@ Puede encontrar más detalles acerca de los diferentes niveles de personalizaci�
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Configuración de un sistema de idiomas personalizado mediante Custom Translator](https://aka.ms/CustomTranslatorDocs)
+> [Configuración de un sistema de idiomas personalizado mediante Custom Translator](./custom-translator/overview.md)

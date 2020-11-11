@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132847"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368872"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services y Machine Learning
 
 Cognitive Services proporciona funciones de aprendizaje automático para solucionar problemas generales, como el análisis de texto para la opinión emocional o el análisis de imágenes para reconocer objetos o caras. No es necesario tener conocimientos de aprendizaje automático ni ciencia de datos para usar estos servicios. 
 
-[Cognitive Services](welcome.md) es un grupo de servicios, cada uno de los cuales admite diferentes funcionalidades de predicción generalizadas. Los servicios se dividen en distintas categorías para ayudarle a encontrar el servicio adecuado. 
+[Cognitive Services](./what-are-cognitive-services.md) es un grupo de servicios, cada uno de los cuales admite diferentes funcionalidades de predicción generalizadas. Los servicios se dividen en distintas categorías para ayudarle a encontrar el servicio adecuado. 
 
 |Categoría del servicio|Propósito|
 |--|--|
@@ -44,7 +44,7 @@ El aprendizaje automático es un concepto en el que reúne los datos y un algori
 
 El proceso de creación de un sistema de aprendizaje automático requiere cierto conocimiento de aprendizaje automático o ciencia de datos.
 
-El aprendizaje automático se proporciona con [productos y servicios de Azure Machine Learning (AML)](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context).
+El aprendizaje automático se proporciona con [productos y servicios de Azure Machine Learning (AML)](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
 
 ## <a name="what-is-a-cognitive-service"></a>¿Qué es un servicio de Cognitive Services?
 
@@ -91,9 +91,9 @@ Los datos siguientes categorizan cada servicio según el tipo de datos que permi
 |--|--|--|--|
 |[Anomaly Detector](./Anomaly-Detector/overview.md)|x|x|x|
 |Bing Search |x|||
-|[Computer Vision](./Computer-vision/Home.md)|x|||
+|[Computer Vision](./computer-vision/overview.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Custom Vision](./Custom-Vision-Service/home.md)||x||
+|[Custom Vision](./custom-vision-service/overview.md)||x||
 |[Face](./Face/Overview.md)|x|x||
 |[Form Recognizer](./form-recognizer/overview.md)||x||
 |[Lector inmersivo](./immersive-reader/overview.md)|x|||
@@ -101,7 +101,7 @@ Los datos siguientes categorizan cada servicio según el tipo de datos que permi
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
-|[Speaker Recognizer](./speaker-recognition/home.md)||x||
+|[Speaker Recognizer](./speech-service/speaker-recognition-overview.md)||x||
 |[Speech: Texto a voz (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Speech: Voz a texto (STT)](speech-service/speech-to-text.md)|x|x||
 |[Traducción de voz](speech-service/speech-translation.md)|x|||
@@ -127,16 +127,16 @@ Cognitive Services que proporcionan modelos exportados para otras herramientas d
 
 |Cognitive Service|Información del modelo|
 |--|--|
-|[Custom Vision](./custom-vision-service/home.md)|[Exportación](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, CoreML para iOS11, ONNX para Windows ML|
+|[Custom Vision](./custom-vision-service/overview.md)|[Exportación](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, CoreML para iOS11, ONNX para Windows ML|
 
 ## <a name="learn-more"></a>Más información
 
-* [Guía de arquitectura: ¿Cuáles son los productos de aprendizaje automático de Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Guía de arquitectura: ¿Cuáles son los productos de aprendizaje automático de Microsoft?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Aprendizaje automático: Introducción a la relación entre aprendizaje profundo y aprendizaje automático](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Cree su cuenta de servicio de Cognitive Services ne [Azure Portal](cognitive-services-apis-create-account.md) o con el [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
+* Cree su cuenta de servicio de Cognitive Services ne [Azure Portal](cognitive-services-apis-create-account.md) o con el [CLI de Azure](./cognitive-services-apis-create-account-cli.md).
 * Obtenga información sobre cómo [autenticarse](authentication.md) en un servicio de Cognitive Services.
 * Use el [registro de diagnóstico](diagnostic-logging.md) para identificar y depurar problemas. 
 * Implemente un servicio de Cognitive Services en un [contenedor](cognitive-services-container-support.md) de Docker.

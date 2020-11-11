@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c587bb042601b947b71658bf790e9acdfbdbf742
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855641"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363789"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Desplazamientos de texto en la salida de Text Analytics API
 
@@ -34,9 +34,9 @@ Siempre que se devuelvan desplazamientos en la respuesta de API, como [Reconocim
 
 ## <a name="extracting-substrings-from-text-with-offsets"></a>Extracción de subcadenas de texto con desplazamientos
 
-Los desplazamientos pueden causar problemas al usar métodos substring basados en caracteres, por ejemplo el método [substring()](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) de .NET. Un problema es que un desplazamiento puede hacer que un método substring finalice en mitad de una codificación de grafemas de carácter múltiple en lugar de al final.
+Los desplazamientos pueden causar problemas al usar métodos substring basados en caracteres, por ejemplo el método [substring()](/dotnet/api/system.string.substring?view=netframework-4.8) de .NET. Un problema es que un desplazamiento puede hacer que un método substring finalice en mitad de una codificación de grafemas de carácter múltiple en lugar de al final.
 
-En .NET, tenga en cuenta el uso de la clase [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8), que le permite trabajar con una cadena como una serie de elementos textuales, en lugar de objetos de caracteres individuales. También puede buscar bibliotecas del separador de grafemas en su entorno de software preferido. 
+En .NET, tenga en cuenta el uso de la clase [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8), que le permite trabajar con una cadena como una serie de elementos textuales, en lugar de objetos de caracteres individuales. También puede buscar bibliotecas del separador de grafemas en su entorno de software preferido. 
 
 Text Analytics API devuelve estos elementos textuales también, por motivos de comodidad.
 

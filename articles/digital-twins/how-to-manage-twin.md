@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f8eae6381a438f6820f525a4d66cb5dc388eefb0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280396"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360078"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -32,7 +32,7 @@ Este artículo se centra en la administración de gemelos digitales; para trabaj
 Para crear un gemelo, use el método `CreateOrReplaceDigitalTwinAsync()` en el cliente de servicio de la siguiente manera:
 
 ```csharp
-await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
+await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myTwinId", initData);
 ```
 
 Para crear un gemelo digital, debe proporcionar lo siguiente:
@@ -55,12 +55,7 @@ Puede inicializar las propiedades de un gemelo en el momento en que este se crea
 
 La API de creación de gemelos acepta un objeto serializado en una descripción JSON válida de las propiedades gemelas. Consulte [*Conceptos: Gemelos digitales y el grafo de gemelos*](concepts-twins-graph.md) para obtener una descripción del formato JSON de un gemelo. 
 
-En primer lugar, puede crear un objeto de datos que represente el gemelo y los datos de sus propiedades, por ejemplo:
-
-```csharp
-await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
-```
-Puede crear un objeto de parámetro manualmente o mediante una clase auxiliar proporcionada. A continuación se muestra un ejemplo de cada opción.
+En primer lugar, puede crear un objeto de datos para representar el gemelo y los datos de sus propiedades. Puede crear un objeto de parámetro manualmente o mediante una clase auxiliar proporcionada. A continuación se muestra un ejemplo de cada opción.
 
 #### <a name="create-twins-using-manually-created-data"></a>Creación de gemelos con datos creados manualmente
 

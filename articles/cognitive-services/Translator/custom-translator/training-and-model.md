@@ -9,17 +9,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: swmachan
-ms.openlocfilehash: d8713d20503dc788175a408f5ec652505090396e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1765aaed3c0562da13c539845bfe19f6f85ed4ef
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510834"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369025"
 ---
 # <a name="what-are-trainings-and-models"></a>¿Qué son los entrenamientos y los modelos?
 
 Un modelo es el sistema que proporciona una traducción para pares de idiomas específicos.
-El resultado de un entrenamiento correcto es un modelo. Cuando se entrena un modelo, se requieren tres tipos de documentos mutuamente exclusivos: aprendizaje, ajuste y pruebas. También se puede proporcionar el tipo de documento de diccionario. Vea [Alineación de frases](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+El resultado de un entrenamiento correcto es un modelo. Cuando se entrena un modelo, se requieren tres tipos de documentos mutuamente exclusivos: aprendizaje, ajuste y pruebas. También se puede proporcionar el tipo de documento de diccionario. Vea [Alineación de frases](./sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 Si solo se proporcionan datos de aprendizaje al poner en cola un entrenamiento, Custom Translator reunirá automáticamente los datos de pruebas y de ajuste. Usará un subconjunto aleatorio de frases de los documentos de aprendizaje y excluirá estas frases de los propios datos de aprendizaje.
 

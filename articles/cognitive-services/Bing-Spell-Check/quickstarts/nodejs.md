@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 1a9756277faf98939ad609231f46bb2f2c04b8b6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1f207a93af22029e4bfdc20e5f84ed8ef3dee37c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084007"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366968"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y Node.js
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
 > El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
@@ -29,7 +29,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 
 Aunque esta aplicación está escrita en JavaScript, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Node.js 6](https://nodejs.org/en/download/) o posterior.
 
@@ -169,4 +169,4 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [Creación de una aplicación web de una sola página](../tutorials/spellcheck.md)
 
 - [¿Qué es Bing Spell Check API?](../overview.md)
-- [Referencia de la API Bing Spell Check v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Referencia de la API Bing Spell Check v7](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

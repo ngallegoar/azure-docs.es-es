@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 25750f690129439f0f614724a2bb62b596f322ea
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b290539bf6424895a9685c1e4cdb53d8fb8cfb41
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084993"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365914"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Envío de solicitudes de búsqueda a Bing Entity Search API
 
@@ -40,18 +40,18 @@ Se recomienda que todas las solicitudes procedan de un servidor. Al distribuir l
 
 ## <a name="specifying-query-parameters-and-headers"></a>Especificación de parámetros y encabezados de consulta
 
-La solicitud debe especificar el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query), que contiene el término de búsqueda del usuario. La solicitud debe especificar también el parámetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mkt), que identifica el mercado de donde desea que procedan los resultados. Para ver una lista de parámetros de consulta opcionales, consulte [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters) (Parámetros de consulta). Codifique en URL de todos los parámetros de consulta.  
+La solicitud debe especificar el parámetro de consulta [q](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query), que contiene el término de búsqueda del usuario. La solicitud debe especificar también el parámetro de consulta [mkt](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mkt), que identifica el mercado de donde desea que procedan los resultados. Para ver una lista de parámetros de consulta opcionales, consulte [Query Parameters](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters) (Parámetros de consulta). Codifique en URL de todos los parámetros de consulta.  
   
-La solicitud debe especificar el encabezado [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#subscriptionkey). Aunque es opcional, se recomienda especificar los encabezados siguientes:  
+La solicitud debe especificar el encabezado [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#subscriptionkey). Aunque es opcional, se recomienda especificar los encabezados siguientes:  
   
--   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#useragent)  
--   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientid)  
--   [X-MSEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#location)  
+-   [User-Agent](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#useragent)  
+-   [X-MSEdge-ClientID](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientid)  
+-   [X-MSEdge-ClientIP](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientip)  
+-   [X-Search-Location](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#location)  
 
 Los encabezados de IP y ubicación del cliente son importantes para devolver contenido relativo a la ubicación.  
 
-Para ver una lista de todos los encabezados de solicitud y respuesta, consulte [Encabezados](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers).
+Para ver una lista de todos los encabezados de solicitud y respuesta, consulte [Encabezados](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers).
 
 ## <a name="the-request"></a>Solicitud
 
@@ -71,7 +71,7 @@ Si es la primera vez que llama a cualquiera de las API de Bing, no incluya el en
 
 ## <a name="the-response"></a>La respuesta
 
-A continuación se muestra la respuesta a la solicitud anterior. En el ejemplo también se muestran los encabezados de respuesta específicos de Bing. Para información sobre el objeto de respuesta, consulte [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse).
+A continuación se muestra la respuesta a la solicitud anterior. En el ejemplo también se muestran los encabezados de respuesta específicos de Bing. Para información sobre el objeto de respuesta, consulte [SearchResponse](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse).
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -140,4 +140,4 @@ BingAPIs-Market: en-US
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Búsqueda de entidades con Bing Entity API](search-for-entities.md)
-* [Requisitos de uso y visualización de Bing API](../use-display-requirements.md)
+* [Requisitos de uso y visualización de Bing API](../../bing-web-search/use-display-requirements.md)

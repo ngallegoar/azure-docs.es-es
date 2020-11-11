@@ -12,12 +12,12 @@ ms.date: 09/28/2020
 ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, contenedor, streaming, algoritmos
-ms.openlocfilehash: e20ff5022b9b4a5b601160516f255af991a540c6
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 911eb993ea5bb3dcce63057efc2d56d91d5a136b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018617"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364401"
 ---
 # <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Instalación y ejecución de contenedores de Docker para la API Anomaly Detector 
 
@@ -43,7 +43,7 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores 
 
 |Obligatorio|Propósito|
 |--|--|
-|Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
+|Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows** , Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.|
 |Recurso de Anomaly Detector |Para usar estos contenedores, debe tener:<br><br>Un recurso de _Anomaly Detector_ de Azure para obtener la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas de claves y de información general de **Anomaly Detector** en Azure Portal y son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Información general**.|
 
@@ -53,7 +53,7 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores 
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-<!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
+<!--* [Azure IoT Edge](../../iot-edge/index.yml). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 

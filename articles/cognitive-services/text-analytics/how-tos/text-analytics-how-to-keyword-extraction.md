@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: e4a652b146286965c68154bd362525861158ecb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44e81286ffa5930b802df3b3bfe657091175f391
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704385"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363650"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Ejemplo: Extracción de frases clave con Text Analytics
 
@@ -23,7 +23,7 @@ ms.locfileid: "91704385"
 
 Esta capacidad es útil si necesita identificar rápidamente los principales puntos en una colección de documentos. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", el servicio devuelve los principales puntos de conversación: "comida" y "personal maravilloso".
 
-Para más información, consulte [Lenguajes admitidos](../text-analytics-supported-languages.md).
+Para más información, consulte [Lenguajes admitidos](../language-support.md).
 
 > [!TIP]
 > Text Analytics proporciona también una imagen de contenedor de Docker basada en Linux para la extracción de frases clave, por lo que puede [instalar y ejecutar el contenedor de Text Analytics](text-analytics-how-to-install-containers.md) cerca de los datos.

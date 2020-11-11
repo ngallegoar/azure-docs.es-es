@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83590645"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368821"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nombres de subdominios personalizados para Cognitive Services
 
-Azure Cognitive Services usa nombres de subdominio personalizados para cada recurso creado a través de [Azure Portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). A diferencia de los puntos de conexión regionales, que son comunes para todos los clientes de una región específica de Azure, los nombres de subdominio personalizados son únicos en el recurso. Los nombres de subdominio personalizados son necesarios para habilitar características como Azure Active Directory (Azure AD) para la autenticación.
+Azure Cognitive Services usa nombres de subdominio personalizados para cada recurso creado a través de [Azure Portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) o la [CLI de Azure](/cli/azure/install-azure-cli). A diferencia de los puntos de conexión regionales, que son comunes para todos los clientes de una región específica de Azure, los nombres de subdominio personalizados son únicos en el recurso. Los nombres de subdominio personalizados son necesarios para habilitar características como Azure Active Directory (Azure AD) para la autenticación.
 
 ## <a name="how-does-this-impact-existing-resources"></a>¿Cómo afecta esto a los recursos existentes?
 
@@ -27,7 +27,7 @@ Los recursos de Cognitive Services creados antes del 1 de julio de 2019 usarán 
 Si quiere migrar un recurso existente para aprovechar los nombres de subdominio personalizado, de modo que pueda habilitar características como Azure AD, siga estas instrucciones:
 
 1. Inicie sesión en Azure Portal y busque el recurso de Cognitive Services al que le gustaría agregar un nombre de subdominio personalizado.
-2. En la hoja de **información general**, busque y seleccione la opción para **generar un nombre de dominio personalizado**.
+2. En la hoja de **información general** , busque y seleccione la opción para **generar un nombre de dominio personalizado**.
 3. Se abrirá un panel con instrucciones para crear un subdominio personalizado único para el recurso.
    > [!WARNING]
    > Después de crear un nombre de subdominio personalizado, **no** se puede cambiar.
@@ -98,5 +98,5 @@ Sí. Esta es una lista de puntos de conexión regionales que puede usar con los 
 
 ## <a name="see-also"></a>Consulte también
 
-* [¿Qué es Cognitive Services?](Welcome.md)
+* [¿Qué es Cognitive Services?](./what-are-cognitive-services.md)
 * [Autenticación](authentication.md)

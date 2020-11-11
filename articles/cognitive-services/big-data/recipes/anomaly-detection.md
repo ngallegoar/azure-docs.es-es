@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: aa650fe9cb7df64a6a7a948224be225ecfad9057
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324617"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366288"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Receta: Mantenimiento predictivo con Cognitive Services para macrodatos
 
@@ -31,13 +31,13 @@ Podría haber valores atípicos en los datos de frecuencia aleatoria. En esas si
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services).
-* [Área de trabajo de Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurada con un [grupo de Apache Spark sin servidor](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Área de trabajo de Azure Synapse](../../../synapse-analytics/quickstart-create-workspace.md) configurada con un [grupo de Apache Spark sin servidor](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
 ## <a name="setup"></a>Configurar
 
 ### <a name="create-an-anomaly-detector-resource"></a>Creación de un recurso de Anomaly Detector
 
-Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Traductor mediante [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). También puede:
+Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Traductor mediante [Azure Portal](../../cognitive-services-apis-create-account.md) o la [CLI de Azure](../../cognitive-services-apis-create-account-cli.md). También puede:
 
 - Vea un recurso existente en [Azure Portal](https://portal.azure.com/).
 

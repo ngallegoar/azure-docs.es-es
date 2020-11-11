@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: c8eca53f118fe0b2012ff0b687a939842ebc8576
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 70576017c0ab304c83f70b6c48b12836f2f537b2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101874"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367869"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Inicio rápido: Sugerencia de consultas de búsqueda con la API REST Bing Autosuggest y Java
 
@@ -49,7 +49,7 @@ Siga este inicio rápido para aprender a realizar llamadas a la API Bing Autosug
     import com.google.gson.JsonParser;
     ```
 
-2. Cree variables para la clave de suscripción, la API de host y la ruta de acceso del punto de conexión de API, la clave de suscripción, el [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) y un término de búsqueda. Use el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+2. Cree variables para la clave de suscripción, la API de host y la ruta de acceso del punto de conexión de API, la clave de suscripción, el [código de mercado](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) y un término de búsqueda. Use el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -212,4 +212,4 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [Creación de una aplicación web de una sola página](../tutorials/autosuggest.md)
 
 - [¿Qué es Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Referencia de Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Referencia de Bing Autosuggest API v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
