@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bb4e2ac525270004a698471cd44955cd25fefc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83634657"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146116"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Creación y administración de varios paneles personales
 
@@ -51,7 +51,7 @@ Por ejemplo, puede agregar un icono **Telemetría** para la temperatura actual d
 Ahora, cuando vea el panel personal, verá el nuevo mosaico con la configuración **Temperatura** para el dispositivo:
 
 > [!div class="mx-imgBorder"]
-> ![Pestaña "Panel" con los detalles para el mosaico Temperatura](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+> ![Captura de pantalla que muestra el nuevo icono con la configuración de temperaturas del dispositivo.](media/howto-create-personal-dashboards/temperature-tile-complete.png)
 
 Puede explorar otros tipos de iconos en la biblioteca para descubrir hasta qué punto es posible personalizar los paneles personales.
 
@@ -64,7 +64,7 @@ Puede tener varios paneles personales y cambiar entre ellos o elegir uno de los 
 > [!div class="mx-imgBorder"]
 > ![Cambio entre paneles](media/howto-create-personal-dashboards/switch-dashboards.png)
 
-Puede editar los paneles personales y eliminar los que ya no necesite. Si es **administrador**, también puede editar o eliminar paneles de nivel de aplicación.
+Puede editar los paneles personales y eliminar los que ya no necesite. Si es **administrador** , también puede editar o eliminar paneles de nivel de aplicación.
 
 > [!div class="mx-imgBorder"]
 > ![Eliminar paneles](media/howto-create-personal-dashboards/delete-dashboards.png)

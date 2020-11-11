@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64e40341ec56a2e1c561b2bcbb5e584830c14015
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74083984"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145589"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Introducción a la compatibilidad multiinquilino con la recuperación ante desastres de máquinas virtuales de VMware en Azure (CSP)
 
@@ -26,7 +26,7 @@ Existen tres modelos principales multiinquilino:
 
 * **Proveedor de servicios de hospedaje compartido (HSP)** : el asociado posee la infraestructura física y usa los recursos compartidos (vCenter, centros de datos, almacenamiento físico, etc.) para hospedar máquinas virtuales multiinquilino en la misma infraestructura. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede ser propietario de la recuperación ante desastres como solución de autoservicio.
 
-* **Proveedor de servicios de hospedaje dedicado**: el asociado posee la infraestructura física, pero usa recursos dedicados (varios vCenters, almacenes de datos físicos, etc.) para hospedar las máquinas virtuales de cada inquilino en infraestructuras diferentes. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede poseerla como solución de autoservicio.
+* **Proveedor de servicios de hospedaje dedicado** : el asociado posee la infraestructura física, pero usa recursos dedicados (varios vCenters, almacenes de datos físicos, etc.) para hospedar las máquinas virtuales de cada inquilino en infraestructuras diferentes. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede poseerla como solución de autoservicio.
 
 * **Proveedor de servicios administrados (MSP)** : aquí el cliente posee la infraestructura física que hospeda las máquinas virtuales y el asociado proporciona la habilitación y la administración de la recuperación ante desastres.
 
@@ -56,9 +56,9 @@ También hay un servidor de proceso con escalado horizontal independiente bajo e
 
 Cada servidor de configuración del escenario multiinquilino emplea dos cuentas:
 
-- **Cuenta de acceso de vCenter**: sirve para detectar las máquinas virtuales del inquilino. Tiene permisos de acceso de vCenter asignados. Para ayudar a evitar pérdidas de acceso, se recomienda que los asociados escriban estas credenciales en la herramienta de configuración.
+- **Cuenta de acceso de vCenter** : sirve para detectar las máquinas virtuales del inquilino. Tiene permisos de acceso de vCenter asignados. Para ayudar a evitar pérdidas de acceso, se recomienda que los asociados escriban estas credenciales en la herramienta de configuración.
 
-- **Cuenta de acceso de máquina virtual**: sirve para instalar el agente de Mobility Service en las máquinas virtuales de inquilino con inserción automática. Suele ser una cuenta de dominio que un inquilino proporciona a un asociado o una que el asociado pueda administrar directamente. Si un inquilino no desea compartir los detalles con el asociado directamente, puede escribir las credenciales mediante acceso limitado por tiempo al servidor de configuración. O bien, con la ayuda del asociado, instalar al agente de Mobility Service manualmente.
+- **Cuenta de acceso de máquina virtual** : sirve para instalar el agente de Mobility Service en las máquinas virtuales de inquilino con inserción automática. Suele ser una cuenta de dominio que un inquilino proporciona a un asociado o una que el asociado pueda administrar directamente. Si un inquilino no desea compartir los detalles con el asociado directamente, puede escribir las credenciales mediante acceso limitado por tiempo al servidor de configuración. O bien, con la ayuda del asociado, instalar al agente de Mobility Service manualmente.
 
 ## <a name="vcenter-account-requirements"></a>Requisitos de la cuenta de vCenter
 
@@ -75,15 +75,15 @@ Configure el servidor de configuración con una cuenta que tenga asignado un rol
 1. Cree un nuevo rol mediante la clonación del rol *Solo lectura* predefinido y proporciónele un nombre adecuado (como Azure_Site_Recovery, que se muestra en este ejemplo).
 2. Asigne los siguientes permisos a este rol:
 
-   * **Almacén de datos**: asignar espacio, examinar almacén de datos, operaciones de archivo de bajo nivel, quitar archivo, actualizar archivos de máquina virtual
+   * **Almacén de datos** : asignar espacio, examinar almacén de datos, operaciones de archivo de bajo nivel, quitar archivo, actualizar archivos de máquina virtual
    * **Network** (Red): asignación de red
-   * **Recursos**: asignar máquina virtual al grupo de recursos, migrar máquina virtual apagada, migrar máquina virtual encendida
-   * **Tareas**: crear tarea, actualizar tarea
-   * **Configuración de VM**: All
-   * **Máquina virtual: interacción**: responder a pregunta, conexión de dispositivos, configurar soporte de CD, configurar soporte de disquete, apagar, encender, instalar herramientas de VMware
-   * **Máquina virtual: inventario**: crear a partir de existente, crear nuevo, registrar, anular registro
-   * **Máquina virtual: aprovisionamiento**: permitir descarga de máquina virtual, permitir carga de archivos de máquina virtual
-   * **Máquina virtual: administración de instantáneas**: eliminar instantáneas
+   * **Recursos** : asignar máquina virtual al grupo de recursos, migrar máquina virtual apagada, migrar máquina virtual encendida
+   * **Tareas** : crear tarea, actualizar tarea
+   * **Configuración de VM** : All
+   * **Máquina virtual: interacción** : responder a pregunta, conexión de dispositivos, configurar soporte de CD, configurar soporte de disquete, apagar, encender, instalar herramientas de VMware
+   * **Máquina virtual: inventario** : crear a partir de existente, crear nuevo, registrar, anular registro
+   * **Máquina virtual: aprovisionamiento** : permitir descarga de máquina virtual, permitir carga de archivos de máquina virtual
+   * **Máquina virtual: administración de instantáneas** : eliminar instantáneas
 
        ![El cuadro de diálogo Editar rol](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
@@ -104,7 +104,7 @@ El acceso a la cuenta de vCenter ha finalizado ahora y se cumplen los requisitos
 ### <a name="failover-only"></a>Solo el modo de conmutación por error
 Para restringir las operaciones de recuperación ante desastres hasta solo conmutación por error (es decir, sin las funcionalidades de conmutación por recuperación), utilice el procedimiento anterior, con las siguientes excepciones:
 
-- En lugar de asignar el rol *Azure_Site_Recovery* a la cuenta de acceso a vCenter, asígnele solo uno de*solo lectura*. Este conjunto de permisos permite la replicación de máquinas virtuales y la conmutación por error, y no permite la conmutación por recuperación.
+- En lugar de asignar el rol *Azure_Site_Recovery* a la cuenta de acceso a vCenter, asígnele solo uno de *solo lectura*. Este conjunto de permisos permite la replicación de máquinas virtuales y la conmutación por error, y no permite la conmutación por recuperación.
 - Todo lo demás del proceso anterior permanece igual. Los permisos se asignan solamente en el nivel de objeto y no se propagan a los objetos secundarios para garantizar el aislamiento de inquilinos y restringir la detección de máquinas virtuales.
 
 ### <a name="deploy-resources-to-the-tenant-subscription"></a>Implementación de recursos en la suscripción de inquilino
@@ -126,7 +126,7 @@ Para restringir las operaciones de recuperación ante desastres hasta solo conmu
 
 Tal como se muestra en el diagrama siguiente, la diferencia de arquitectura en una solución de hospedaje dedicado es que la infraestructura de cada inquilino está configurada para ese inquilino únicamente.
 
-![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+![Diagrama que muestra que la diferencia de arquitectura en una solución de hospedaje dedicado es que la infraestructura de cada inquilino está configurada para ese inquilino únicamente.](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **Escenario de hospedaje dedicado con varios vCenters**
 
 ## <a name="managed-service-solution"></a>Solución de servicios administrados

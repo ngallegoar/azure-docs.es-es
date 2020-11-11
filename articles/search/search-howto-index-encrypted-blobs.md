@@ -8,22 +8,21 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/02/2020
+ms.openlocfilehash: f0295c27f1d193b0dcd7829a11b4aabe0edb659b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791994"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286337"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Indexación de blobs cifrados mediante indexadores de blobs y conjuntos de aptitudes en Azure Cognitive Search
 
-En este artículo se muestra cómo usar [Azure Cognitive Search](search-what-is-azure-search.md) para indexar documentos que se han cifrado previamente en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) mediante [Azure Key Vault](../key-vault/general/overview.md). Normalmente, los indexadores no pueden extraer contenido de archivos cifrados porque no tienen acceso a la clave de cifrado. Sin embargo, al aprovechar la aptitud personalizada [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile), seguida de [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), puede proporcionar acceso controlado a la clave para descifrar los archivos y, a continuación, extraer contenido de ellos. Así se desbloquea la capacidad de indexar estos documentos sin tener que preocuparse de que los datos se almacenen sin cifrar en reposo.
+En este artículo se muestra cómo usar [Azure Cognitive Search](search-what-is-azure-search.md) para indexar documentos que se han cifrado previamente en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) mediante [Azure Key Vault](../key-vault/general/overview.md). Normalmente, los indexadores no pueden extraer contenido de archivos cifrados porque no tienen acceso a la clave de cifrado. Sin embargo, al aprovechar la aptitud personalizada [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile), seguida de [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), puede proporcionar acceso controlado a la clave para descifrar los archivos y, a continuación, extraer contenido de ellos. De este modo, se desbloquea la capacidad de indexar estos documentos sin poner en peligro el estado de cifrado de los documentos almacenados.
 
-En este tutorial se usan Postman y las API REST de Search para realizar las siguientes tareas:
+A partir de documentos completos (texto no estructurado) cifrados previamente, como PDF, HTML, DOCX y PPTX en Azure Blob Storage, en esta guía se usan Postman y las API de REST de Búsqueda para realizar las siguientes tareas:
 
 > [!div class="checklist"]
-> * Comenzar con documentos completos (texto sin estructurar) como PDF, HTML, DOCX y PPTX en Azure Blob Storage que se haya cifrado mediante Azure Key Vault.
 > * Definir una canalización que descifre los documentos y extraiga texto de ellos.
 > * Definir un índice para almacenar la salida.
 > * Ejecute la canalización para crear y cargar el índice.
@@ -36,13 +35,10 @@ Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.m
 En este ejemplo se da por supuesto que ha cargado los archivos en Azure Blob Storage y que los ha cifrado en el proceso. Si necesita ayuda la primera vez que se carguen y cifren los archivos, consulte [este tutorial](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md), donde se explica cómo hacerlo.
 
 + [Almacenamiento de Azure](https://azure.microsoft.com/services/storage/)
-+ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) en la misma suscripción que Azure Cognitive Search. El almacén de claves debe tener la **eliminación temporal** y la **protección contra purgas** habilitada.
++ [Azure Cognitive Search](search-create-service-portal.md) en un [nivel de servicio facturable](search-sku-tier.md#tiers) (básico o superior, en cualquier región).
 + [Función de Azure](https://azure.microsoft.com/services/functions/)
 + [Aplicación de escritorio Postman](https://www.getpostman.com/)
-+ [Creación](search-create-service-portal.md) o [búsqueda de un servicio de búsqueda existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
-
-> [!Note]
-> Para esta guía puede usar el servicio gratis. Un servicio de búsqueda gratis tiene una limitación de tres índices, tres indexadores, tres orígenes de datos y tres conjuntos de aptitudes. En esta guía se crea uno de cada. Antes de empezar, asegúrese de que haya espacio en el servicio para aceptar los nuevos recursos.
 
 ## <a name="1---create-services-and-collect-credentials"></a>1 - Creación de servicios y recopilación de credenciales
 
@@ -64,13 +60,13 @@ A nivel operativo, la aptitud DecryptBlobFile toma la dirección URL y el token 
 
 1. Vaya a la instancia de Azure Key Vault en Azure Portal. [Cree una directiva de acceso](../key-vault/general/assign-access-policy-portal.md) en Azure Key Vault que conceda acceso mediante clave a la aptitud personalizada.
  
-    1. En **Configuración** , seleccione **Directivas de acceso** y, después, **Agregar directiva de acceso** .
+    1. En **Configuración** , seleccione **Directivas de acceso** y, después, **Agregar directiva de acceso**.
      
        ![Agregar directiva de acceso en Keyvault](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Directivas de acceso de Keyvault")
 
-    1. En **Configurar desde plantilla** , seleccione **Azure Data Lake Storage o Azure Storage** .
+    1. En **Configurar desde plantilla** , seleccione **Azure Data Lake Storage o Azure Storage**.
 
-    1. En el caso de la entidad de seguridad, seleccione la instancia de Azure Functions que ha implementado. Para buscarla, use el prefijo de recurso que se usó para crearla en el paso 2, que tiene un valor de prefijo predeterminado de **psdbf-function-app** .
+    1. En el caso de la entidad de seguridad, seleccione la instancia de Azure Functions que ha implementado. Para buscarla, use el prefijo de recurso que se usó para crearla en el paso 2, que tiene un valor de prefijo predeterminado de **psdbf-function-app**.
 
     1. No seleccione nada en la opción de la aplicación autorizada.
      
@@ -121,7 +117,7 @@ Instale y configure Postman.
 1. Descargue el [código fuente de la recopilación de Postman](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json).
 1. Seleccione **Archivo** > **Importar** para importar el código fuente en Postman.
 1. Seleccione la pestaña **Recopilaciones** el botón **...** (puntos suspensivos).
-1. Seleccione **Editar** . 
+1. Seleccione **Editar**. 
    
    ![Aplicación Postman que muestra la navegación](media/indexing-encrypted-blob-files/postman-edit-menu.jpg "Ir al menú de edición de Postman")
 1. En el cuadro de diálogo **Edit** (Editar), seleccione la pestaña **Variables** (Variables). 
@@ -137,15 +133,15 @@ Para obtener el valor de `admin-key`, use la clave de API de administrador de Az
 |-------------|-----------------|
 | `admin-key` | En la página **Claves** del servicio Azure Cognitive Search.  |
 | `search-service-name` | Nombre del servicio Azure Cognitive Search. La dirección URL es `https://{{search-service-name}}.search.windows.net`. | 
-| `storage-connection-string` | En la cuenta de almacenamiento, en la pestaña **Claves de acceso** , seleccione **key1** > **Cadena de conexión** . | 
+| `storage-connection-string` | En la cuenta de almacenamiento, en la pestaña **Claves de acceso** , seleccione **key1** > **Cadena de conexión**. | 
 | `storage-container-name` | El nombre del contenedor de blobs que tiene los archivos cifrados que se van a indexar. | 
 | `function-uri` |  En Azure Functions, en **Essentials** , en la página principal. | 
 | `function-code` | En Azure Functions es preciso desplazarse a **Claves de la aplicación** , hacer clic para mostrar la clave **predeterminada** y copiar el valor. | 
-| `api-version` | Déjela como **2020-06-30** . |
-| `datasource-name` | Déjela como **encrypted-blobs-ds** . | 
-| `index-name` | Déjela como **encrypted-blobs-idx** . | 
-| `skillset-name` | Déjela como **encrypted-blobs-ss** . | 
-| `indexer-name` | Déjela como **encrypted-blobs-ixr** . | 
+| `api-version` | Déjela como **2020-06-30**. |
+| `datasource-name` | Déjela como **encrypted-blobs-ds**. | 
+| `index-name` | Déjela como **encrypted-blobs-idx**. | 
+| `skillset-name` | Déjela como **encrypted-blobs-ss**. | 
+| `indexer-name` | Déjela como **encrypted-blobs-ixr**. | 
 
 ### <a name="review-the-request-collection-in-postman"></a>Revisión de la colección de solicitudes en Postman
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: e42e976e57dd69ffcbd9065cfb3aaf3af9c4b972
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 124bc053aa2c6e59e205bb6f33a9a96190799499
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852079"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102044"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Incorporación de un certificado de entidad de certificación personalizado a Azure API Management
 
@@ -41,15 +41,15 @@ Siga los pasos que se describen a continuación para cargar un nuevo certificado
 
 3. Haga clic en el botón **+ Agregar**.  
 
-    ![Incorporación de certificados de entidad de certificación](media/api-management-howto-ca-certificates/01.png)  
+    ![Captura de pantalla que muestra el botón + Agregar para agregar un certificado de CA.](media/api-management-howto-ca-certificates/01.png)  
 
 4. Busque el certificado y decida cuál es el almacén de certificados. Solo se necesita la clave pública, no la contraseña.
 
-    ![Incorporación de certificados de entidad de certificación](media/api-management-howto-ca-certificates/02.png)  
+    ![Captura de pantalla que muestra cómo buscar el certificado.](media/api-management-howto-ca-certificates/02.png)  
 
-5. Haga clic en **Save**(Guardar). Esta operación puede tardar algunos minutos.
+5. Haga clic en **Save** (Guardar). Esta operación puede tardar algunos minutos.
 
-    ![Incorporación de certificados de entidad de certificación](media/api-management-howto-ca-certificates/03.png)  
+    ![Captura de pantalla que muestra cómo guardar el certificado.](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > Puede cargar un certificado de entidad de certificación mediante el comando de Powershell `New-AzApiManagementSystemCertificate`.

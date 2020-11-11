@@ -7,19 +7,19 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: ecca75f294cf70ba8f7d82fcce7bdd3e9611b21a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 74cfabff22074ee405d7b417e306da62ef69ae19
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636347"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927131"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato Excel en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Siga este artículo cuando desee **analizar los archivos de Excel** . Azure Data Factory admite ".xls" and ".xlsx".
+Siga este artículo cuando desee **analizar los archivos de Excel**. Azure Data Factory admite ".xls" and ".xlsx".
 
 El formato Excel es compatible con los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) y [SFTP](connector-sftp.md). Se admite como origen, pero no como receptor. 
 
@@ -31,15 +31,15 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 | Propiedad         | Descripción                                                  | Obligatorio |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La propiedad type del conjunto de datos debe establecerse en **Excel** .   | Sí      |
+| type             | La propiedad type del conjunto de datos debe establecerse en **Excel**.   | Sí      |
 | ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. | Sí      |
 | sheetName        | Nombre de la hoja de cálculo de Excel para leer los datos.                       | Sí      |
 | range            | Intervalo de celdas de la hoja de cálculo especificada para localizar los datos selectivos, por ejemplo:<br>- Sin especificar: lee toda la hoja de cálculo como una tabla desde la primera fila y columna que no están vacías.<br>- `A3`: lee una tabla a partir de la celda dada y detecta dinámicamente todas las filas debajo y todas las columnas a la derecha.<br>- `A3:H5`: lee este intervalo fijo como una tabla.<br>- `A3:A3`: lee esta celda sola. | No       |
 | firstRowAsHeader | Especifica si se debe tratar la primera fila del rango o la hoja de cálculo determinados como una línea de encabezado con nombres de columnas.<br>Los valores permitidos son **true** y **false** (predeterminado). | No       |
-| nullValue        | Especifica la representación de cadena del valor null. <br>El valor predeterminado es una **cadena vacía** . | No       |
+| nullValue        | Especifica la representación de cadena del valor null. <br>El valor predeterminado es una **cadena vacía**. | No       |
 | compression | Grupo de propiedades para configurar la compresión de archivo. Configure esta sección si desea realizar la compresión o descompresión durante la ejecución de la actividad. | No |
-| type<br/>( *en `compression`* ) | El códec de compresión usado para leer y escribir archivos JSON. <br>Los valores permitidos son **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **snappy** o **lz4** . La opción predeterminada no se comprime.<br>**Tenga en cuenta** que actualmente la actividad de copia no admite "snappy" ni "lz4", y que el flujo de datos de asignación no admite "ZipDeflate".<br>**Tenga en cuenta** que cuando utilice la actividad de copia para descomprimir archivos **ZipDeflate** y escribir en el almacén de datos de receptores basado en archivos, los archivos se extraerán a la carpeta `<path specified in dataset>/<folder named as source zip file>/`. | No.  |
-| level<br/>( *en `compression`* ) | La razón de compresión. <br>Los valores permitidos son **Optimal** o **Fastest** .<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal** : la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](/dotnet/api/system.io.compression.compressionlevel) . | No       |
+| type<br/>( *en `compression`* ) | El códec de compresión usado para leer y escribir archivos JSON. <br>Los valores permitidos son **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **Tar** , **snappy** o **Iz4**. La opción predeterminada no se comprime.<br>**Tenga en cuenta** que actualmente la actividad de copia no admite "snappy" ni "lz4", y que el flujo de datos de asignación no admite "ZipDeflate", "TarGzip" ni "Tar".<br>**Tenga en cuenta** que cuando utilice la actividad de copia para descomprimir archivos **ZipDeflate** y escribir en el almacén de datos de receptores basado en archivos, los archivos se extraerán a la carpeta `<path specified in dataset>/<folder named as source zip file>/`. | No.  |
+| level<br/>( *en `compression`* ) | La razón de compresión. <br>Los valores permitidos son **Optimal** o **Fastest**.<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal** : la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 A continuación, se muestra un ejemplo de un conjunto de datos de Excel en Azure Blob Storage:
 
@@ -77,7 +77,7 @@ En la sección **_\_source\*** * de la actividad de copia se admiten las siguien
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La propiedad type del origen de la actividad de copia debe establecerse en **ExcelSource** . | Sí      |
+| type          | La propiedad type del origen de la actividad de copia debe establecerse en **ExcelSource**. | Sí      |
 | storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. | No       |
 
 ```json
@@ -106,7 +106,7 @@ En los flujos de datos de asignación, puede leer en formato Excel en los siguie
 
 ### <a name="source-properties"></a>Propiedades de origen
 
-En la tabla siguiente se enumeran las propiedades que admite un origen Excel. Puede editar estas propiedades en la pestaña **Opciones del origen** . Al usar un conjunto de valores alineados, verá configuraciones de archivo adicionales que son iguales a las propiedades descritas en la sección [Propiedades del conjunto de datos](#dataset-properties).
+En la tabla siguiente se enumeran las propiedades que admite un origen Excel. Puede editar estas propiedades en la pestaña **Opciones del origen**. Al usar un conjunto de valores alineados, verá configuraciones de archivo adicionales que son iguales a las propiedades descritas en la sección [Propiedades del conjunto de datos](#dataset-properties).
 
 | Nombre                      | Descripción                                                  | Obligatorio | Valores permitidos                                            | Propiedad de script de flujo de datos         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |

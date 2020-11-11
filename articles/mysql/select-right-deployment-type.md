@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: e89a7d9bc71d48be1b7d7ea40246b2394c95e84b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543787"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926196"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
 
@@ -55,7 +55,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | Alta disponibilidad | Alta disponibilidad integrada dentro de una sola zona de disponibilidad| Alta disponibilidad integrada dentro y entre zonas de disponibilidad | Administración personalizada mediante agrupación en clústeres, replicación, etc.|
 | Redundancia de zona | No compatible | Compatible | Compatible|
 | Escenarios híbridos | Compatible con [Replicación de datos de entrada](./concepts-data-in-replication.md)| No disponible en versión preliminar | Administrado por los usuarios finales |
-| Réplicas de lectura | Compatible| Compatible | Administrado por los usuarios finales |
+| Réplicas de lectura | Compatible (hasta 5 réplicas)| Compatible (hasta 10 réplicas)| Administrado por los usuarios finales |
 | Backup | Automatizado con retención de 7-35 días | Automatizado con retención de 1-35 días | Administrado por los usuarios finales |
 | Supervisión de las operaciones de base de datos | Compatible | Compatible | Administrado por los usuarios finales |
 | Recuperación ante desastres | Compatible con el almacenamiento de copia de seguridad con redundancia geográfica y las réplicas de lectura entre regiones | No se admite en la versión preliminar| Administración personalizada con tecnologías de replicación |

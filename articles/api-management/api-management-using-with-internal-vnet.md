@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 06d114c500722259d02a940633a76d043b83064a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0832c975ecb410b97a24c975f9fc0f4799120abd
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077497"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145521"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
 Con Azure Virtual Network, Azure API Management puede administrar las API que no están accesibles desde Internet. Para establecer la conexión, hay una serie de tecnologías de VPN disponibles. API Management puede implementarse de dos modos en una red virtual:
@@ -68,9 +68,11 @@ Después de que la implementación se realiza correctamente, verá la dirección
 ![Panel de API Management con una red virtual interna configurada][api-management-internal-vnet-dashboard]
 
 > [!NOTE]
-> La consola de prueba disponible en Azure Portal no funcionará con un servicio implementado en una red virtual **interna**, ya que la dirección Url de puerta de enlace no está registrada en el DNS público. En su lugar, debe usar la consola de prueba que se ofrece en el **Portal para desarrolladores**.
+> La consola de prueba disponible en Azure Portal no funcionará con un servicio implementado en una red virtual **interna** , ya que la dirección Url de puerta de enlace no está registrada en el DNS público. En su lugar, debe usar la consola de prueba que se ofrece en el **Portal para desarrolladores**.
 
-### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Habilitación de una conexión de red virtual mediante cmdlets de PowerShell
+### <a name="deploy-api-management-into-virtual-network"></a><a name="deploy-apim-internal-vnet"> </a>Implementación de API Management en Virtual Network
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

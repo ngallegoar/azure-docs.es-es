@@ -9,12 +9,12 @@ ms.date: 08/05/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 34750bcc2e9913b23daa3682d4fdea736f9c7a9a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367438"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145946"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Administración de las preferencias y la configuración de Azure Portal
 
@@ -33,7 +33,7 @@ Puede cambiar la suscripción que se abre de forma predeterminada cuando inicia 
 
 1. Seleccione las suscripciones que desee que sean las predeterminadas al iniciar el portal. 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Filtre la lista de recursos por suscripción."::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Seleccione las suscripciones que desee que sean las predeterminadas al iniciar el portal."::: 
 
 
 ## <a name="choose-your-default-view"></a>Elija la vista predeterminada 
@@ -42,7 +42,7 @@ Puede cambiar la página que se abre de forma predeterminada cuando inicia sesi�
 
 ![Haga una captura de pantalla que muestre la configuración de Azure Portal con la vista predeterminada resaltada](./media/set-preferences/default-view.png)
 
-- No se puede personalizar el **Inicio** .  Muestra accesos directos a los servicios populares de Azure y enumera los recursos usados recientemente. También proporcionamos vínculos útiles a recursos como Microsoft Learn y el mapa de ruta de Azure.
+- No se puede personalizar el **Inicio**.  Muestra accesos directos a los servicios populares de Azure y enumera los recursos usados recientemente. También proporcionamos vínculos útiles a recursos como Microsoft Learn y el mapa de ruta de Azure.
 
 - Los paneles se pueden personalizar para crear un área de trabajo diseñada solo para usted. Por ejemplo, puede crear un panel que sea proyecto, tarea o rol centrado. Si selecciona **Panel** , la vista predeterminada irá al panel usado más recientemente. Para obtener más información, consulte [Creación y uso compartido de paneles en Azure Portal](azure-portal-dashboards.md).
 
@@ -50,7 +50,7 @@ Puede cambiar la página que se abre de forma predeterminada cuando inicia sesi�
 
 El modo predeterminado del menú del portal controla cuánto espacio ocupa el menú del portal en la página.
 
-![Haga una captura de pantalla que muestre la configuración de Azure Portal con temas resaltados](./media/set-preferences/menu-mode.png)
+![Captura de pantalla que muestra cómo establecer el modo predeterminado para el menú del portal.](./media/set-preferences/menu-mode.png)
 
 - Cuando el menú del portal está en modo de control **flotante** , se oculta hasta que lo necesite. Seleccione el icono de menú para abrir o cerrar el menú.
 
@@ -84,7 +84,7 @@ La configuración de tiempo de espera de inactividad ayuda a proteger los recurs
 
 ### <a name="change-your-individual-timeout-setting-user"></a>Cambio de la configuración de tiempo de espera individual (usuario)
 
-Seleccione la lista desplegable en **Cerrar sesión cuando esté inactivo** . Elija la duración después de la cual se cerrará la sesión de Azure Portal si está inactivo.
+Seleccione la lista desplegable en **Cerrar sesión cuando esté inactivo**. Elija la duración después de la cual se cerrará la sesión de Azure Portal si está inactivo.
 
 ![Haga una captura de pantalla que muestre la configuración del portal con la configuración de tiempo de espera inactiva](./media/set-preferences/inactive-signout-user.png)
 
@@ -100,7 +100,7 @@ Los administradores del [rol Administrador global](../active-directory/roles/per
 
 Si es un administrador global y quiere aplicar un valor de tiempo de expiración de inactividad para todos los usuarios de Azure Portal, siga estos pasos:
 
-1. Seleccione el texto del vínculo **Configurar el tiempo de espera del nivel de directorio** .
+1. Seleccione el texto del vínculo **Configurar el tiempo de espera del nivel de directorio**.
 
     ![Captura de pantalla en la que se muestra la configuración del portal con el texto del vínculo resaltado](./media/set-preferences/settings-admin.png)
 
@@ -108,7 +108,7 @@ Si es un administrador global y quiere aplicar un valor de tiempo de expiración
 
 1. A continuación, escriba las **horas** y los **minutos** de tiempo máximo que un usuario puede estar inactivo antes de que su sesión se cierre de forma automática.
 
-1. Seleccione **Aplicar** .
+1. Seleccione **Aplicar**.
 
     ![Captura de pantalla en la que se muestra la página para establecer el tiempo de espera de inactividad del nivel de directorio](./media/set-preferences/configure.png)
 
@@ -118,7 +118,7 @@ Para confirmar que la directiva de tiempo de expiración de inactividad se ha es
 
 ## <a name="restore-default-settings"></a>Restaurar la configuración predeterminada
 
-Si ha realizado cambios en la configuración de Azure Portal y desea descartarlos, seleccione **Restaurar la configuración predeterminada** . Se perderán los cambios realizados en la configuración del portal. Esta opción no afecta a las personalizaciones del panel.
+Si ha realizado cambios en la configuración de Azure Portal y desea descartarlos, seleccione **Restaurar la configuración predeterminada**. Se perderán los cambios realizados en la configuración del portal. Esta opción no afecta a las personalizaciones del panel.
 
 ![Captura de pantalla que muestra la restauración de la configuración predeterminada](./media/set-preferences/useful-links-restore-defaults.png)
 
@@ -132,11 +132,11 @@ La información sobre la configuración personalizada se almacena en Azure. Pued
 
 Es una buena idea exportar y revisar la configuración si tiene previsto eliminarla. Volver a generar paneles o rehacer la configuración puede llevar mucho tiempo.
 
-Para exportar la configuración del portal, seleccione **Exportar todas las opciones de configuración** .
+Para exportar la configuración del portal, seleccione **Exportar todas las opciones de configuración**.
 
 ![Captura de pantalla que muestra la exportación de la configuración](./media/set-preferences/useful-links-export-settings.png)
 
-La exportación de la configuración crea un archivo *.json* que contiene la configuración de usuario, como el tema de color, los favoritos y los paneles privados. Debido a la naturaleza dinámica de la configuración de usuario y el riesgo de daños en los datos, no se puede importar la configuración desde el archivo *.json* .
+La exportación de la configuración crea un archivo *.json* que contiene la configuración de usuario, como el tema de color, los favoritos y los paneles privados. Debido a la naturaleza dinámica de la configuración de usuario y el riesgo de daños en los datos, no se puede importar la configuración desde el archivo *.json*.
 
 ## <a name="delete-user-settings-and-dashboards"></a>Eliminación de la configuración de usuario y los paneles
 
@@ -150,7 +150,7 @@ Es una buena idea exportar y revisar la configuración antes de eliminarla. Volv
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-Para eliminar la configuración del portal, seleccione **Eliminar todas las opciones de configuración y los paneles privados** .
+Para eliminar la configuración del portal, seleccione **Eliminar todas las opciones de configuración y los paneles privados**.
 
 ![Captura de pantalla que muestra la eliminación de la configuración](./media/set-preferences/useful-links-delete-settings.png)
 

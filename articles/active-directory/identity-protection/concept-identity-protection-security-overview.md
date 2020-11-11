@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95c589289d77597be2550673944c8fa21902e0fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86024084"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098474"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Información general de seguridad de Azure Active Directory Identity Protection
 
@@ -27,7 +27,7 @@ ms.locfileid: "86024084"
 - Las tendencias, a la izquierda, proporcionan una escala de tiempo de riesgo en su organización.
 - Los iconos situados a la derecha ponen en relieve los problemas clave en curso de su organización y sugieren cómo tomar medidas rápidamente.
 
-![Introducción a la seguridad](./media/concept-identity-protection-security-overview/01.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/01.png" alt-text="Captura de pantalla de la información general de seguridad de Azure Portal. Los gráficos de barras muestran el recuento de riesgos a lo largo del tiempo. Los iconos resumen la información sobre los usuarios y los inicios de sesión." border="false":::
   
 ## <a name="trends"></a>Tendencias
 
@@ -45,7 +45,7 @@ En este gráfico se muestra el número de inicios de sesión de riesgo que se de
 
 El icono de "Usuarios de alto riesgo" muestra el recuento de usuarios más reciente cuya identidad tiene alta probabilidad de riesgo. Estos deben investigarse prioritariamente. Al hacer clic en el icono de "Usuarios de alto riesgo" se le redirigirá a una vista filtrada del informe "Usuarios de riesgo" que muestra solo los usuarios con un nivel de riesgo alto. Al usar este informe, puede obtener más información y corregir estos usuarios con un restablecimiento de contraseña.
 
-![Introducción a la seguridad](./media/concept-identity-protection-security-overview/02.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/02.png" alt-text="Captura de pantalla de la información general sobre seguridad de Azure Portal, con iconos visibles para usuarios de alto riesgo, usuarios de riesgo medio y otros factores de riesgo." border="false":::
 
 ### <a name="medium-risk-users"></a>Usuarios de riesgo medio
 El icono de "Usuarios de riesgo medio" muestra el recuento de usuarios más reciente cuya identidad tiene probabilidad de riesgo medio. Al hacer clic en el icono de "Usuarios de riesgo medio" se le redirigirá a una vista filtrada del informe "Usuarios de riesgo" que muestra solo los usuarios con un nivel de riesgo medio. Al usar este informe, puede investigar más y corregir estos usuarios.

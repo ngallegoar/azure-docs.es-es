@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 71fc3f457338796289c2f6ac54f3bc713a91cc29
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 54e7a781ba9ed3cd4b53e1028c4a3bb79c256aed
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461369"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040880"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Recopilación de orígenes de datos de rendimiento de Windows y Linux con el agente de Log Analytics
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento de los agentes de Log Analytics a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
@@ -38,7 +38,7 @@ Para los contadores de rendimiento de Windows, puede elegir una instancia espec�
 
 ![Configuración de contadores de rendimiento de Windows](media/data-sources-performance-counters/configure-windows.png)
 
-Siga este procedimiento para agregar un nuevo contador de rendimiento de Windows para recopilar.
+Siga este procedimiento para agregar un nuevo contador de rendimiento de Windows para recopilar. Tenga en cuenta que no se admiten los contadores de rendimiento de Windows V2.
 
 1. Escriba el nombre del contador en el cuadro de texto con el formato *objeto(instancia)\contador*.  Cuando empiece a escribir, aparece una lista de contadores comunes coincidentes.  Puede seleccionar un contador de la lista o escribir uno propio.  También puede devolver todas las instancias de un contador determinado, para lo que debe especificar *objeto\contador*.  
 

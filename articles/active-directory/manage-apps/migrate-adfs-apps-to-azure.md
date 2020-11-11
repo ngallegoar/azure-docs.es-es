@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d66c844b7e73f1e3326d628f854a9811ca96fd
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: a07130e55339ed689b65b48e6fd83e65f36d155e
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802708"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280535"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
@@ -86,7 +86,7 @@ Actualice la configuración para que apunte la instancia de prueba de la aplicac
 
 Actualice la configuración de la aplicación de producción para que apunte al inquilino de producción de Azure.
 
-![Fase de migración 1 ](media/migrate-adfs-apps-to-azure/stage4.jpg)
+![Fase de migración 4 ](media/migrate-adfs-apps-to-azure/stage4.jpg)
 
  Las aplicaciones que se autentican con AD FS pueden usar grupos de Active Directory para los permisos. Use la [sincronización de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) para sincronizar los datos de identidad entre el entorno local y Azure AD antes de empezar la migración. Compruebe esos grupos y pertenencias antes de la migración para que pueda conceder acceso a los mismos usuarios cuando se migre la aplicación.
 
@@ -133,7 +133,7 @@ Las aplicaciones que usan OAuth 2.0 u OpenID Connect se pueden integrar con Azur
 
 Si tiene algún problema para incorporar las aplicaciones SaaS, puede ponerse en contacto con el [alias de soporte técnico de la integración de aplicaciones SaaS](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
-**Certificado de firma de SAML para SSO**: Los certificados de firma son una parte importante de cualquier implementación de SSO. Azure AD crea los certificados de firma para establecer el SSO federado basado en SAML para las aplicaciones SaaS. Una vez que agregue aplicaciones de la galería o que no son de la galería, configurará la aplicación agregada con la opción de SSO federado. Consulte [Administrar certificados para inicio de sesión único federado en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on).
+**Certificado de firma de SAML para SSO** : Los certificados de firma son una parte importante de cualquier implementación de SSO. Azure AD crea los certificados de firma para establecer el SSO federado basado en SAML para las aplicaciones SaaS. Una vez que agregue aplicaciones de la galería o que no son de la galería, configurará la aplicación agregada con la opción de SSO federado. Consulte [Administrar certificados para inicio de sesión único federado en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on).
 
 ### <a name="apps-and-configurations-that-can-be-moved-today"></a>Aplicaciones y configuraciones que se pueden migrar actualmente
 
@@ -257,7 +257,7 @@ A continuación se muestran ejemplos de tipos de reglas de autorización en AD 
 
 Permitir el acceso a todos los usuarios tiene este aspecto en AD FS:
 
-![Fase de migración 1 ](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
+![Captura de pantalla que muestra el cuadro de diálogo Configurar el inicio de sesión único con SAML.](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
 
 
 Esto se asigna a Azure AD de una de las maneras siguientes:
@@ -279,7 +279,7 @@ Debe [habilitar los grupos dinámicos](https://docs.microsoft.com/azure/active-d
 Autorización explícita de un grupo en AD FS:
 
 
-![Reglas de autorización de emisión ](media/migrate-adfs-apps-to-azure/allow-a-group-explicitly-1.png)
+![Captura de pantalla que muestra el cuadro de diálogo Editar regla para la regla de notificaciones para permitir administradores de dominio.](media/migrate-adfs-apps-to-azure/allow-a-group-explicitly-1.png)
 
 
 La regla se asigna a Azure AD de la siguiente manera:
@@ -293,7 +293,7 @@ En [Azure Portal](https://portal.azure.com/), primero [creará un grupo de usuar
 
 Autorización explícita de un usuario en AD FS:
 
-![Reglas de autorización de emisión ](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
+![Captura de pantalla que muestra el cuadro de diálogo Editar regla de la regla de notificaciones para permitir de administradores de dominio con un tipo de notificación entrante de SID principal.](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
 
 La regla se asigna a Azure AD de la siguiente manera:
 
@@ -310,7 +310,7 @@ A continuación se muestran ejemplos de tipos de reglas de MFA en AD FS y cómo
 
 Configuración de reglas de MFA en AD FS:
 
-![Configuración de Azure AD MFA](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
+![Captura de pantalla que muestra las condiciones de Azure AD en Azure Portal.](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
 
 
 #### <a name="example-1-enforce-mfa-based-on-usersgroups"></a>Ejemplo 1: Aplicación de MFA en función de usuarios o grupos
@@ -324,9 +324,9 @@ Especifique las reglas de MFA para un usuario o un grupo en Azure AD:
 
 2. Seleccione **Asignaciones**. Agregue los usuarios o los grupos a los que quiere aplicar MFA.
 
-3. Configure las opciones de **Controles de acceso**, tal como se muestra a continuación: ‎
+3. Configure las opciones de **Controles de acceso** , tal como se muestra a continuación: ‎
 
-![Configuración de AAD MFA](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
+![Captura de pantalla que muestra el panel Concesión, en el que puede conceder acceso.](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
 
 
  #### <a name="example-2-enforce-mfa-for-unregistered-devices"></a>Ejemplo 2: Aplicación de MFA para dispositivos no registrados
@@ -337,9 +337,9 @@ Especifique las reglas de MFA para los dispositivos no registrados en Azure AD:
 
 2. Establezca las **Asignaciones** en **Todos los usuarios**.
 
-3. Configure las opciones de **Controles de acceso**, tal como se muestra a continuación: ‎
+3. Configure las opciones de **Controles de acceso** , tal como se muestra a continuación: ‎
 
-![Configuración de AAD MFA](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
+![Captura de pantalla que muestra el panel Concesión, en el que puede conceder acceso y especificar otras restricciones.](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
 
 
 Cuando se establece la opción Para varios controles en Requerir uno de los controles seleccionados, significa que si el usuario cumple con cualquiera de las condiciones especificadas por la casilla, se le concederá acceso a la aplicación.
@@ -356,9 +356,9 @@ Especifique las reglas de MFA en función de la ubicación de un usuario en Azur
 
 1. Configure las **Reglas de condiciones** para especificar las ubicaciones para las que quiere aplicar MFA.
 
-![Configuración de Azure AD MFA](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
+![Captura de pantalla que muestra el panel Ubicaciones para las reglas de condiciones.](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
 
-5. Configure las opciones de **controles de acceso**, tal como se muestra a continuación:
+5. Configure las opciones de **controles de acceso** , tal como se muestra a continuación:
 
 
 ![Asignación de directivas de control de acceso](media/migrate-adfs-apps-to-azure/mfa-location-2.png)
@@ -368,14 +368,14 @@ Especifique las reglas de MFA en función de la ubicación de un usuario en Azur
 
 A continuación se muestra un ejemplo de cómo se asignan los atributos en AD FS:
 
-![Configuración de Azure AD MFA](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-1.png)
+![Captura de pantalla que muestra el cuadro de diálogo Editar regla para emitir atributos como notificaciones.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-1.png)
 
 
 La regla se asigna a Azure AD de la siguiente manera:
 
-En [Azure Portal](https://portal.azure.com/), seleccione **Aplicaciones empresariales**, **Inicio de sesión único** y agregue **Atributos de token SAML**, tal como se muestra a continuación:
+En [Azure Portal](https://portal.azure.com/), seleccione **Aplicaciones empresariales** , **Inicio de sesión único** y agregue **Atributos de token SAML** , tal como se muestra a continuación:
 
-![Configuración de Azure AD MFA](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-2.png)
+![Captura de pantalla que muestra la página Inicio de sesión único para su aplicación empresarial.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-2.png)
 
 
 
@@ -489,5 +489,8 @@ Una vez completada la implementación, puede enviar la comunicación que informa
 Comunicación con usuarios externos: por lo general, este grupo de usuario es el que se ve afectado de forma más crítica en caso de problemas. Esto es especialmente cierto si su postura de seguridad dicta un conjunto diferente de reglas de acceso condicional o perfiles de riesgo para los asociados externos. Asegúrese de que los asociados externos conocen la programación de migración a la nube y que tienen un período de tiempo durante el cual se les anima a participar en una implementación piloto que prueba todos los flujos exclusivos de la colaboración externa. Por último, asegúrese de que tienen una manera de acceder al departamento de soporte técnico en caso de problemas importantes.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Lea [Migrating application authentication to Azure AD](https://aka.ms/migrateapps/whitepaper) (Migración de la autenticación de aplicaciones a Azure AD).<p>
 Configure el [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) y [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+
+Pruebe un ejemplo de código paso a paso: [AD FS para la guía de migración de aplicaciones para desarrolladores de Azure AD](https://aka.ms/adfsplaybook)

@@ -17,24 +17,24 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23074dcd7ee888d6d9d8bf288cf0fda66dc0ceec
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319752"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122850"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
 La arquitectura de los informes de Azure Active Directory (Azure AD) consta de los siguientes componentes:
 
 - **Actividad** 
-    - **Inicios de sesión**: información sobre el uso de aplicaciones administradas y actividades de inicio de sesión de usuario.
-    - **Registros de auditoría** - [: los ](concept-audit-logs.md)registros de auditoría proporcionan información de la actividad del sistema sobre la administración de usuarios y grupos, aplicaciones administradas y actividades de directorio.
+    - **Inicios de sesión** : información sobre el uso de aplicaciones administradas y actividades de inicio de sesión de usuario.
+    - **Registros de auditoría** - [: los](concept-audit-logs.md)registros de auditoría proporcionan información de la actividad del sistema sobre la administración de usuarios y grupos, aplicaciones administradas y actividades de directorio.
     - Los **registros de aprovisionamiento** - [Registros de aprovisionamiento](./concept-provisioning-logs.md) permiten a los clientes supervisar la actividad del servicio de aprovisionamiento, como la creación de un grupo en ServiceNow o un usuario importado desde Workday. 
 - **Seguridad** 
-    - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de un intento de inicio de sesión de alguien que no es el propietario legítimo de una cuenta de usuario.
-    - **Usuarios marcados en riesgo**: un [usuario en riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
+    - **Inicios de sesión de riesgo** : un [inicio de sesión de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de un intento de inicio de sesión de alguien que no es el propietario legítimo de una cuenta de usuario.
+    - **Usuarios marcados en riesgo** : un [usuario en riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
 
 En este artículo se ofrece una visión general del reporte de inicios de sesión.
 
@@ -62,14 +62,14 @@ En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Act
 
 ![Seleccionar Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-En **Supervisión**, seleccione **Inicios de sesión** para abrir el [informe de inicios de sesión](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+En **Supervisión** , seleccione **Inicios de sesión** para abrir el [informe de inicios de sesión](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Actividad de inicio de sesión")
+![Captura de pantalla que muestra los inicios de sesión seleccionados desde el menú Supervisión.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Actividad de inicio de sesión")
 
 Algunos registros de inicio de sesión pueden tardar hasta dos horas antes de aparecer en el portal.
 
 > [!IMPORTANT]
-> El informe de inicios de sesión solo muestra los inicios de sesión **interactivos**, es decir, los inicios de sesión donde un usuario inicia sesión manualmente con su nombre de usuario y contraseña. Los inicios de sesión no interactivos, como la autenticación de servicio a servicio, no se muestran en el informe de inicios de sesión. 
+> El informe de inicios de sesión solo muestra los inicios de sesión **interactivos** , es decir, los inicios de sesión donde un usuario inicia sesión manualmente con su nombre de usuario y contraseña. Los inicios de sesión no interactivos, como la autenticación de servicio a servicio, no se muestran en el informe de inicios de sesión. 
 
 Un registro de inicios de sesión tiene una vista de lista predeterminada que muestra:
 
@@ -80,19 +80,19 @@ Un registro de inicios de sesión tiene una vista de lista predeterminada que mu
 - El estado de la detección de riesgos
 - El estado del requisito de la autenticación multifactor (MFA)
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/sign-in-activity.png "Actividad de inicio de sesión")
+![Captura de pantalla que muestra los inicios de Office 365 SharePoint Online.](./media/concept-sign-ins/sign-in-activity.png "Actividad de inicio de sesión")
 
 Puede personalizar la vista de lista, haga clic en **Columnas** en la barra de herramientas.
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/19.png "Actividad de inicio de sesión")
+![Captura de pantalla que muestra la opción Columnas en la página Inicios de sesión.](./media/concept-sign-ins/19.png "Actividad de inicio de sesión")
 
 En el cuadro de diálogo **Columnas** se proporciona acceso a los atributos seleccionables. En un informe de inicio de sesión, no puede tener campos que tengan más de un valor para una solicitud de inicio de sesión determinada como columna. Esto es así, por ejemplo, para los detalles de autenticación, los datos de acceso condicional y la ubicación de red.   
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/columns.png "Actividad de inicio de sesión")
+![Captura de pantalla que muestra el cuadro de diálogo Columnas, donde puede seleccionar atributos.](./media/concept-sign-ins/columns.png "Actividad de inicio de sesión")
 
 Seleccione un elemento de la vista de lista para obtener información más detallada.
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/basic-sign-in.png "Actividad de inicio de sesión")
+![Captura de pantalla que muestra una vista de información detallada.](./media/concept-sign-ins/basic-sign-in.png "Actividad de inicio de sesión")
 
 > [!NOTE]
 > Los clientes ahora pueden solucionar problemas de directivas de acceso condicional con todos los informes de inicios de sesión. Al hacer clic en la pestaña **Acceso condicional** de un registro de inicio de sesión, los clientes pueden revisar el estado de acceso condicional y profundizar en los detalles de las directivas que se aplican al inicio de sesión y del resultado de cada directiva.
@@ -104,15 +104,15 @@ Seleccione un elemento de la vista de lista para obtener información más detal
 
 En primer lugar, limite los datos informados a un nivel que le resulte más adecuado. En segundo lugar, filtre los datos de inicios de sesión mediante el campo de fecha como filtro predeterminado. Azure AD proporciona una amplia variedad de filtros adicionales que puede establecer:
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/04.png "Actividad de inicio de sesión")
+![Captura de pantalla que muestra la opción Agregar filtros.](./media/concept-sign-ins/04.png "Actividad de inicio de sesión")
 
-**Identificador de solicitud**: el identificador de la solicitud que le interesa.
+**Identificador de solicitud** : el identificador de la solicitud que le interesa.
 
-**Usuario**: el nombre o el nombre principal de usuario (UPN) del usuario que le interesa.
+**Usuario** : el nombre o el nombre principal de usuario (UPN) del usuario que le interesa.
 
-**Aplicación**: el nombre de la aplicación de destino.
+**Aplicación** : el nombre de la aplicación de destino.
  
-**Estado**: el estado de inicio de sesión que le interesa:
+**Estado** : el estado de inicio de sesión que le interesa:
 
 - Correcto
 
@@ -121,9 +121,9 @@ En primer lugar, limite los datos informados a un nivel que le resulte más adec
 - Interrumpido
 
 
-**Dirección IP**: la dirección IP del dispositivo que se utiliza para conectarse al inquilino.
+**Dirección IP** : la dirección IP del dispositivo que se utiliza para conectarse al inquilino.
 
-**Ubicación**: la ubicación desde la que se inició la conexión:
+**Ubicación** : la ubicación desde la que se inició la conexión:
 
 - City
 
@@ -132,13 +132,13 @@ En primer lugar, limite los datos informados a un nivel que le resulte más adec
 - País/región
 
 
-**Recurso**: el nombre del servicio que se usa para el inicio de sesión.
+**Recurso** : el nombre del servicio que se usa para el inicio de sesión.
 
 
-**Identificador de recurso**: el identificador del servicio que se utiliza para el inicio de sesión.
+**Identificador de recurso** : el identificador del servicio que se utiliza para el inicio de sesión.
 
 
-**Aplicación cliente**: el tipo de aplicación cliente que se usa para conectarse al inquilino:
+**Aplicación cliente** : el tipo de aplicación cliente que se usa para conectarse al inquilino:
 
 ![Filtro de aplicación cliente](./media/concept-sign-ins/client-app-filter.png)
 
@@ -164,24 +164,24 @@ En primer lugar, limite los datos informados a un nivel que le resulte más adec
 
 
 
-**Sistema operativo**: el sistema operativo que se ejecuta en el dispositivo utilizado para iniciar sesión en el inquilino. 
+**Sistema operativo** : el sistema operativo que se ejecuta en el dispositivo utilizado para iniciar sesión en el inquilino. 
 
 
-**Explorador de dispositivos**: si la conexión se inició desde un explorador, este campo le permite filtrar por nombre de explorador.
+**Explorador de dispositivos** : si la conexión se inició desde un explorador, este campo le permite filtrar por nombre de explorador.
 
 
-**Id. de correlación**: el identificador de correlación de la actividad.
+**Id. de correlación** : el identificador de correlación de la actividad.
 
 
 
 
-**Acceso condicional**: el estado de las reglas de acceso condicional aplicadas
+**Acceso condicional** : el estado de las reglas de acceso condicional aplicadas
 
-- **No aplicado**: No se aplica ninguna directiva al usuario y a la aplicación durante el inicio de sesión.
+- **No aplicado** : No se aplica ninguna directiva al usuario y a la aplicación durante el inicio de sesión.
 
-- **Correcto**: Una o varias directivas de acceso condicional aplicadas al usuario y a la aplicación (pero no necesariamente a las demás condiciones) durante el inicio de sesión. 
+- **Correcto** : Una o varias directivas de acceso condicional aplicadas al usuario y a la aplicación (pero no necesariamente a las demás condiciones) durante el inicio de sesión. 
 
-- **Error**: El inicio de sesión cumplió la condición de usuario y aplicación de al menos una directiva de acceso condicional, y los controles de concesión no se han cumplido o se han establecido para bloquear el acceso.
+- **Error** : El inicio de sesión cumplió la condición de usuario y aplicación de al menos una directiva de acceso condicional, y los controles de concesión no se han cumplido o se han establecido para bloquear el acceso.
 
 
 
@@ -214,7 +214,7 @@ Tanto Azure AD como Azure Portal proporcionan puntos de entrada adicionales par
 
 El gráfico de inicio de sesión de usuario en la página de información general de la **protección de la seguridad de identidad** muestra agregaciones semanales de inicios de sesión. El valor predeterminado para el período es 30 días.
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/06.png "Actividad de inicio de sesión")
+![Captura de pantalla que muestra un gráfico de los inicios de sesión de un mes.](./media/concept-sign-ins/06.png "Actividad de inicio de sesión")
 
 Al hacer clic en un día del gráfico de inicio de sesión, obtiene una vista general de las actividades de inicio de sesión de ese día.
 
@@ -242,9 +242,9 @@ Si hace clic en un elemento, obtendrá más detalles sobre la operación de inic
 > [!NOTE]
 > Las direcciones IP se emiten de forma que no haya ninguna conexión definitiva entre una dirección IP y donde se encuentre físicamente el equipo con esa dirección. La asignación de direcciones IP se complica por el hecho de que los proveedores de dispositivos móviles y las VPN emiten direcciones IP desde grupos centrales que, a menudo, están muy lejos de donde el dispositivo cliente se usa realmente. Actualmente, la conversión de la dirección IP en una ubicación física en los informes de Azure AD es un esfuerzo notable basado en seguimientos, datos del Registro, búsquedas inversas y otra información.
 
-En la página **Usuarios**, puede obtener una vista general completa de todos los inicios de sesión del usuario haciendo clic en **Inicios de sesión** en la sección **Actividad**.
+En la página **Usuarios** , puede obtener una vista general completa de todos los inicios de sesión del usuario haciendo clic en **Inicios de sesión** en la sección **Actividad**.
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/08.png "Actividad de inicio de sesión")
+![Captura de pantalla que muestra la sección Actividad, donde puede seleccionar Inicios de sesión.](./media/concept-sign-ins/08.png "Actividad de inicio de sesión")
 
 ## <a name="usage-of-managed-applications"></a>Uso de las aplicaciones administradas
 
@@ -256,11 +256,11 @@ Con una vista centrada en la aplicación de los datos de inicio de sesión, pued
 
 El punto de entrada a estos datos son las tres aplicaciones principales de su organización. Los datos se incluyen en el informe de los últimos 30 días en la sección **Información general** en **Aplicaciones empresariales**.
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/10.png "Actividad de inicio de sesión")
+![Captura de pantalla que muestra dónde puede seleccionar Información general.](./media/concept-sign-ins/10.png "Actividad de inicio de sesión")
 
 Agregaciones semanales de los gráficos de uso de la aplicación de inicios de sesión para las tres aplicaciones principales en un período determinado. El valor predeterminado para el período es 30 días.
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/graph-chart.png "Actividad de inicio de sesión")
+![Captura de pantalla que muestra el uso de la aplicación durante un período de un mes.](./media/concept-sign-ins/graph-chart.png "Actividad de inicio de sesión")
 
 Si lo desea, puede establecer el foco en una aplicación específica.
 

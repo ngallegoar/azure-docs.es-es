@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5988cc7bdc34521bfa75e9f179f88bfbe881b882
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332736"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925652"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -88,7 +88,7 @@ Para las copias de seguridad de máquinas virtuales de Azure con Linux, Azure Ba
 **Configuración** | **Límites**
 --- | ---
 Puntos de recuperación máximos por instancia protegida (máquina/carga de trabajo) | 9999.
-Tiempo de expiración máximo de un punto de recuperación | Ilimitado.
+Tiempo de expiración máximo de un punto de recuperación | Sin límite (99 años).
 Frecuencia máxima de copia de seguridad en un almacén (extensión de máquina virtual de Azure) | una vez al día.
 Frecuencia máxima de copia de seguridad en el almacén (agente de MARS) | Tres copias de seguridad por día.
 Frecuencia máxima de copia de seguridad en DPM/MABS | Cada 15 minutos para SQL Server.<br/><br/> Una vez cada hora para otras cargas de trabajo.
@@ -130,7 +130,7 @@ Restaurar la máquina virtual directamente en un conjunto de disponibilidad | En
 Restaurar copia de seguridad de máquinas virtuales no administradas después de actualizar a máquinas virtuales administradas| Compatible.<br/><br/> Puede restaurar discos y después crear una máquina virtual administrada.
 Restaurar máquina virtual a un punto de restauración antes de que la máquina virtual se migre a discos administrados | Compatible.<br/><br/> Restaure a discos no administrados (opción predeterminada), convierta los discos restaurados en discos administrados y cree una máquina virtual con los discos administrados.
 Restaure una máquina virtual que se haya eliminado. | Compatible.<br/><br/> Puede restaurar la máquina virtual desde un punto de recuperación.
-Restaurar una máquina virtual de controlador de dominio que forma parte de una configuración de varios controladores de dominio mediante el portal | Se admite si restaura el disco y crea una máquina virtual mediante PowerShell.
+Restaurar una VM de controlador de dominio  | Compatible. Para obtener más información, consulte [Restauración de VM de controlador de dominio](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 Restaurar una máquina virtual en una red virtual distinta |Compatible.<br/><br/> Las redes virtuales deben pertenecer a la misma suscripción y región.
 
 ## <a name="vm-compute-support"></a>Compatibilidad con proceso de máquina virtual
@@ -160,12 +160,13 @@ Tamaño del disco de datos | El tamaño de disco individual puede ser de hasta 3
 Tipo de almacenamiento | HDD estándar, SSD estándar y SSD Premium.
 Discos administrados | Compatible.
 Discos cifrados | Compatible.<br/><br/> Se puede realizar una copia de seguridad (con o sin la aplicación Azure AD) de las máquinas virtuales de Azure que tengan habilitado Azure Disk Encryption.<br/><br/> Las máquinas virtuales cifradas no se pueden recuperar a nivel de archivo o carpeta. Tiene que recuperar la máquina virtual completa.<br/><br/> Puede habilitar el cifrado en máquinas virtuales que ya estén protegidas con Azure Backup.
-Discos con el Acelerador de escritura habilitado | No compatible.<br/><br/> Azure Backup excluye automáticamente los discos que tienen habilitado el Acelerador de escritura (WA) durante la copia de seguridad. Como no tienen copia de seguridad, no puede restaurar estos discos desde puntos de recuperación de la máquina virtual. <br><br> **Nota importante**: Las máquinas virtuales con discos WA necesitan conectividad a Internet para una copia de seguridad correcta (aunque esos discos se excluyan de la copia de seguridad).
+Discos con el Acelerador de escritura habilitado | No compatible.<br/><br/> Azure Backup excluye automáticamente los discos que tienen habilitado el Acelerador de escritura (WA) durante la copia de seguridad. Como no tienen copia de seguridad, no puede restaurar estos discos desde puntos de recuperación de la máquina virtual. <br><br> **Nota importante** : Las máquinas virtuales con discos WA necesitan conectividad a Internet para una copia de seguridad correcta (aunque esos discos se excluyan de la copia de seguridad).
 Copia de seguridad y restauración de discos y máquinas virtuales desduplicados | Azure Backup no admite la desduplicación. Para más información, consulte este [artículo](./backup-support-matrix.md#disk-deduplication-support). <br/> <br/>  - Azure Backup no se desduplica entre máquinas virtuales en el almacén de Recovery Services <br/> <br/>  - Si hay máquinas virtuales en estado de desduplicación durante la restauración, los archivos no se pueden restaurar porque el almacén no entiende el formato. Sin embargo, puede realizar correctamente la restauración de una máquina virtual completa.
 Agregar disco a una máquina virtual protegida | Compatible.
 Cambiar tamaño de disco de una máquina virtual protegida | Compatible.
 Almacenamiento compartido| No se admite la copia de seguridad de máquinas virtuales mediante el Volumen compartido de clúster (CSV) o el Servidor de archivos de escalabilidad horizontal. Es probable que los escritores de CSV experimenten errores durante la copia de seguridad. En la restauración, es posible que los discos que contienen volúmenes CSV no aparezcan.
 [Discos compartidos](../virtual-machines/disks-shared-enable.md) | No compatible.
+Discos SSD Ultra | No compatible. Para obtener más información, consulte estas [limitaciones](selective-disk-backup-restore.md#limitations).
 
 ## <a name="vm-network-support"></a>Compatibilidad con red de VM
 

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f7bf41bd864f6780eee00938f35bb34d2336eb5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505347"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145759"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de la versión de Video Indexer de Azure Media Services
 
@@ -29,6 +29,21 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Problemas conocidos
 * Corrección de errores
 * Funciones obsoletas
+
+## <a name="october-2020"></a>Octubre de 2020
+
+### <a name="animated-character-identification-improvements"></a>Mejoras en la identificación de personajes animados  
+
+Video Indexer admite la detección, la agrupación y el reconocimiento de personajes en contenido animado a través de la integración con Custom Vision de Cognitive Services. Hemos agregado una mejora importante a este algoritmo de IA en la detección y el reconocimiento de personajes, por lo que la precisión de la información y los personajes identificados han mejorado significativamente.
+
+### <a name="planned-video-indexer-website-authenticatication-changes"></a>Cambios planeados en la autenticación del sitio web de Video Indexer
+
+A partir del 1 de enero de 2021, ya no podrá registrarse e iniciar sesión en el sitio web de [Video Indexer](https://www.videoindexer.ai/) (oferta de prueba) mediante Facebook ni LinkedIn.
+
+Podrá registrarse e iniciar sesión con uno de estos proveedores: Azure AD, Microsoft y Google.
+
+> [!NOTE]
+> Se recomienda exportar el contenido antes del 1 de enero de 2021, ya que las cuentas conectadas a LinkedIn y Facebook se eliminarán, y el contenido ya no estará disponible.
 
 ## <a name="august-2020"></a>Agosto de 2020
 

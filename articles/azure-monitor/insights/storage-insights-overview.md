@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: c030c1548a931bc749ad799a5aa88813c35d19cd
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 250a06d81f929d0e3d3befa1e7494db13044fc97
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997021"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101279"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Supervisión del servicio de almacenamiento con Azure Monitor para Storage
 
@@ -25,11 +25,11 @@ Antes de profundizar en la experiencia, debe entender cómo se presenta y se vis
 
 Cuando se combinan, ofrece lo siguiente:
 
-* **Perspectiva a escala**, que muestra una instantánea de la disponibilidad según el estado del servicio de almacenamiento o la operación de API; del uso, con el número total de solicitudes que recibe el servicio de almacenamiento; y de la latencia, que muestra el tiempo medio que tarda el servicio de almacenamiento o el tipo de operación de API en procesar las solicitudes. También puede ver la capacidad por blob, archivo, tabla y cola.
+* **Perspectiva a escala** , que muestra una instantánea de la disponibilidad según el estado del servicio de almacenamiento o la operación de API; del uso, con el número total de solicitudes que recibe el servicio de almacenamiento; y de la latencia, que muestra el tiempo medio que tarda el servicio de almacenamiento o el tipo de operación de API en procesar las solicitudes. También puede ver la capacidad por blob, archivo, tabla y cola.
 
 * **Análisis profundo** de una cuenta de almacenamiento concreta para ayudar a diagnosticar problemas o realizar análisis detallados por categoría: disponibilidad, rendimiento, errores y capacidad. Al seleccionar cualquiera de estas opciones, se proporciona una vista detallada de las métricas.  
 
-* **Personalización**, que le permite cambiar las métricas que desea ver y modificar, o establecer umbrales en consonancia con sus límites y guardarlos en su propio libro. Los gráficos del libro se pueden anclar al panel de Azure.  
+* **Personalización** , que le permite cambiar las métricas que desea ver y modificar, o establecer umbrales en consonancia con sus límites y guardarlos en su propio libro. Los gráficos del libro se pueden anclar al panel de Azure.  
 
 Esta característica no requiere que se habilite ni configure nada; las métricas de almacenamiento de las cuentas de almacenamiento se recopilan de forma predeterminada. Si no está familiarizado con las métricas disponibles en Azure Storage, revise la descripción y la definición de las métricas de Azure Storage en [Métricas de Azure Storage](../../storage/blobs/monitor-blob-storage.md).
 
@@ -48,7 +48,7 @@ Para ver el uso y la disponibilidad de las cuentas de almacenamiento en todas la
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. Seleccione **Supervisión** en el panel izquierdo de Azure Portal y, en la sección **Información detallada**, elija **Cuentas de almacenamiento**.
+2. Seleccione **Supervisión** en el panel izquierdo de Azure Portal y, en la sección **Información detallada** , elija **Cuentas de almacenamiento**.
 
     ![Vista de varias cuentas de almacenamiento](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -58,7 +58,7 @@ En el libro **Información general** de la suscripción seleccionada, la tabla m
 
 * **Subscriptions** (Suscripciones): solo se muestran las suscripciones que tienen cuentas de almacenamiento.  
 
-* **Cuentas de almacenamiento**: de forma predeterminada, se seleccionan previamente 5 cuentas de almacenamiento. Si selecciona todas o varias cuentas de almacenamiento en el selector de ámbito, se devolverán como máximo 200 cuentas de almacenamiento. Por ejemplo, si tiene en total 573 cuentas de almacenamiento entre tres suscripciones que ha seleccionado, solo se mostrarán 200. 
+* **Cuentas de almacenamiento** : de forma predeterminada, se seleccionan previamente 5 cuentas de almacenamiento. Si selecciona todas o varias cuentas de almacenamiento en el selector de ámbito, se devolverán como máximo 200 cuentas de almacenamiento. Por ejemplo, si tiene en total 573 cuentas de almacenamiento entre tres suscripciones que ha seleccionado, solo se mostrarán 200. 
 
 * **Time Range** (Intervalo de tiempo): de forma predeterminada, muestra las últimas cuatro horas de información en función de las selecciones correspondientes realizadas.
 
@@ -67,7 +67,7 @@ El icono de contador bajo las listas desplegables acumula el número total de cu
 Al seleccionar un valor en las columnas **Availability** (Disponibilidad), **E2E Latency** (Latencia de E2E), **Server Latency** (Latencia del servidor) y **transaction error type/Errors** (tipo de error de transacción/errores), se le dirige a un informe adaptado al tipo específico de métrica de almacenamiento que coincide con la columna seleccionada para esa cuenta de almacenamiento. Para más información sobre los libros de cada categoría, consulte a continuación la sección [Libros de almacenamiento detallados](#detailed-storage-workbooks). 
 
 >[!NOTE]
->Para más información sobre los errores que se pueden mostrar en el informe, consulte [Esquema de tipo de respuesta](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) y busque tipos de respuesta, como **ServerOtherError**, **ClientOtherError** y **ClientThrottlingError**. En función de las cuentas de almacenamiento seleccionadas, si se notifican más de tres tipos de errores, todos los demás errores se representan en la categoría **Other** (Otros).
+>Para más información sobre los errores que se pueden mostrar en el informe, consulte [Esquema de tipo de respuesta](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) y busque tipos de respuesta, como **ServerOtherError** , **ClientOtherError** y **ClientThrottlingError**. En función de las cuentas de almacenamiento seleccionadas, si se notifican más de tres tipos de errores, todos los demás errores se representan en la categoría **Other** (Otros).
 
 El umbral predeterminado de **Availability** (Disponibilidad) es:
 
@@ -94,7 +94,7 @@ Para acceder a Azure Monitor para VM directamente desde una máquina virtual, si
 
 2. En la lista, elija una cuenta de almacenamiento. En la sección Supervisión, seleccione Información detallada.
 
-    ![Página de información general de la cuenta de almacenamiento seleccionada](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Captura de pantalla que muestra la página del libro de información general de la cuenta de almacenamiento.](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 En el libro **Overview** (Información general) de la cuenta de almacenamiento, se muestran varias métricas de rendimiento del almacenamiento que le ayudan evaluar rápidamente:
 
@@ -198,7 +198,7 @@ Ahora, vamos a cambiar el tema de color de las métricas de capacidad del inform
 
 1. Seleccione **Column Settings** (Configuración de columna) en la cuadrícula de métricas.
 
-2. En el panel **Editar la configuración de las columnas**, en la sección **Columnas**, seleccione **microsoft.storage/storageaccounts-Capacity-UsedCapacity$`|`microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$`|`microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$`|`microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$`|`microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$** . En la lista desplegable **Color palette** (Paleta de colores), seleccione **Green** (Verde).
+2. En el panel **Editar la configuración de las columnas** , en la sección **Columnas** , seleccione **microsoft.storage/storageaccounts-Capacity-UsedCapacity$`|`microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$`|`microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$`|`microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$`|`microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$** . En la lista desplegable **Color palette** (Paleta de colores), seleccione **Green** (Verde).
 
 3. Seleccione **Save and close** (Guardar y cerrar) para confirmar el cambio.
 

@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 674d496485f89bee1904e3588a0fb81c6140945b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426611"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130942"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatización de flujos de trabajo en una base de datos SQL mediante Azure Logic Apps
 
@@ -96,9 +96,14 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
    ||||
 
    > [!TIP]
-   > Puede encontrar esta información en la cadena de conexión de la base de datos. Por ejemplo, en Azure Portal, busque y abra la base de datos. En el menú de base de datos, seleccione **Cadenas de conexión** o **Propiedades** donde puede encontrar esta cadena:
+   > Para proporcionar la información de la tabla y la base de datos, tiene estas opciones:
+   > 
+   > * Puede encontrar esta información en la cadena de conexión de la base de datos. Por ejemplo, en Azure Portal, busque y abra la base de datos. En el menú de base de datos, seleccione **Cadenas de conexión** o **Propiedades** donde puede encontrar esta cadena:
    >
-   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >
+   > * De forma predeterminada, las tablas de las bases de datos del sistema se filtran, por lo que es posible que no aparezcan automáticamente al seleccionar una base de datos del sistema. Como alternativa, puede escribir manualmente el nombre de la tabla después de seleccionar **Escribir un valor personalizado** en la lista de bases de datos.
+   >
 
    En este ejemplo se muestra la apariencia que podrían tener estos valores:
 
@@ -210,6 +215,8 @@ En este ejemplo, la aplicación lógica empieza con el [desencadenador de period
 
    Este paso habilita y publica de manera automática la aplicación lógica en vivo en Azure.
 
+<a name="handle-bulk-data"></a>
+
 ## <a name="handle-bulk-data"></a>Controlar datos masivos
 
 En ocasiones, tendrá que trabajar con conjuntos de resultados tan grandes que el conector no devuelva todos los resultados al mismo tiempo, o necesitará un mayor control sobre el tamaño y la estructura de los conjuntos de resultados. A continuación se indican algunas maneras de controlar conjuntos de resultados tan grandes:
@@ -223,7 +230,9 @@ En ocasiones, tendrá que trabajar con conjuntos de resultados tan grandes que e
   Para organizar los resultados de la manera deseada, puede crear un procedimiento almacenado que se ejecute en la instancia de SQL y use la instrucción **SELECT - ORDER BY**. Esta solución le permite tener mayor control sobre el tamaño y la estructura de los resultados. La aplicación lógica llama al procedimiento almacenado mediante la acción **Ejecutar procedimiento almacenado** del conector de SQL Server. Para más información, consulte [Cláusula SELECT: ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
   > [!NOTE]
-  > Con este conector, la ejecución de un procedimiento almacenado está limitada a un [límite de tiempo de espera inferior a 2 minutos](/connectors/sql/#known-issues-and-limitations). Algunos procedimientos almacenados pueden tardar más que este límite en procesarse y finalizar completamente, lo que genera un error `504 TIMEOUT`. En realidad, algunos procesos de ejecución prolongada se codifican como procedimientos almacenados explícitamente para este fin. Llamar a estos procedimientos desde Azure Logic Apps podría crear problemas debido a este límite de tiempo de espera. Aunque el conector de SQL no admite de forma nativa el modo asincrónico, puede simular este modo mediante el uso de un desencadenador de finalización de SQL, una consulta de paso a través de SQL nativa, una tabla de estado y trabajos del lado servidor mediante el [Agente de trabajos elásticos de Azure](../azure-sql/database/elastic-jobs-overview.md).
+  > El conector de SQL tiene un límite de tiempo de espera de procedimiento almacenado que es [inferior a 2 minutos](/connectors/sql/#known-issues-and-limitations). Algunos procedimientos almacenados pueden tardar más que este límite en completarse, lo que provocaría un error `504 Timeout`. Puede solucionar este problema mediante un desencadenador de finalización de SQL, una consulta de paso a través nativa de SQL, una tabla de estado y trabajos del lado servidor.
+  > 
+  > Para esta tarea, puede usar el [agente de trabajos elásticos de Azure](../azure-sql/database/elastic-jobs-overview.md) para [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). Para [SQL Server local](/sql/sql-server/sql-server-technical-documentation) y [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), puede usar el [Agente SQL Server](/sql/ssms/agent/sql-server-agent). Para obtener más información, consulte [Control de los tiempos de espera de los procedimientos almacenados de ejecución prolongada en el conector de SQL para Azure Logic Apps](../logic-apps/handle-long-running-stored-procedures-sql-connector.md).
 
 ### <a name="handle-dynamic-bulk-data"></a>Manipulación de datos dinámicos masivos
 

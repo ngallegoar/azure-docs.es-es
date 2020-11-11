@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 564c7cf6e9627db08d543b964ce476e71bfb473d
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82780423"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040740"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrización de flujos de datos de asignación
 
@@ -36,11 +36,11 @@ Para agregar parámetros a un flujo de datos, haga clic en la parte en blanco de
 
 Se puede hacer referencia a los parámetros en cualquier expresión de flujo de datos. Los parámetros comienzan por $ y son inmutables. Encontrará la lista de parámetros disponibles en el Generador de expresiones en la pestaña **Parámetros**.
 
-![Expresión de parámetros de flujo de datos](media/data-flow/parameter-expression.png "Expresión de parámetros de flujo de datos")
+![Captura de pantalla que muestra los parámetros disponibles en la pestaña Parámetros.](media/data-flow/parameter-expression.png "Expresión de parámetros de flujo de datos")
 
 Para agregar parámetros adicionales rápidamente, puede seleccionar **Nuevo parámetro** y especificar el nombre y el tipo.
 
-![Expresión de parámetros de flujo de datos](media/data-flow/new-parameter-expression.png "Expresión de parámetros de flujo de datos")
+![Captura de pantalla muestra los parámetros en la pestaña Parámetros con los nuevos parámetros agregados.](media/data-flow/new-parameter-expression.png "Expresión de parámetros de flujo de datos")
 
 ## <a name="assign-parameter-values-from-a-pipeline"></a>Asignación de valores de parámetros de una canalización
 
@@ -48,13 +48,13 @@ Una vez que haya creado un flujo de datos con parámetros, podrá ejecutarlo des
 
 Al asignar valores de parámetro, puede usar el [lenguaje de expresiones de canalización](control-flow-expression-language-functions.md) o el [lenguaje de expresiones de flujo de datos](data-flow-expression-functions.md) basado en tipos de Spark. Cada flujo de datos de asignación puede tener cualquier combinación de parámetros de expresión de canalización y flujo de datos.
 
-![Establecimiento de un parámetro de Data Flow](media/data-flow/parameter-assign.png "Establecimiento de un parámetro de Data Flow")
+![Captura de pantalla que muestra la pestaña Parámetros con la expresión Flujo de datos seleccionada para el valor de myparam.](media/data-flow/parameter-assign.png "Establecimiento de un parámetro de Data Flow")
 
 ### <a name="pipeline-expression-parameters"></a>Parámetros de expresión de canalización
 
 Los parámetros de expresión de canalización permiten hacer referencia a variables del sistema, funciones, parámetros de canalización y variables similares a otras actividades de canalización. Al hacer clic en **Pipeline expression** (Expresión de canalización), se abre un panel de navegación lateral que le permite escribir una expresión mediante el generador de expresiones.
 
-![Establecimiento de un parámetro de Data Flow](media/data-flow/parameter-pipeline.png "Establecimiento de un parámetro de Data Flow")
+![Captura de pantalla que muestra el panel del generador de expresiones.](media/data-flow/parameter-pipeline.png "Establecimiento de un parámetro de Data Flow")
 
 Al hacer referencia a los parámetros de canalización, estos se evalúan y, a continuación, se usa su valor en el lenguaje de expresiones de flujo de datos. No es necesario que el tipo de expresión de canalización coincida con el tipo de parámetro de flujo de datos. 
 
@@ -62,7 +62,7 @@ Al hacer referencia a los parámetros de canalización, estos se evalúan y, a c
 
 Al asignar un parámetro de expresión de canalización de tipo string, se agregarán comillas de forma predeterminada y el valor se evaluará como literal. Para leer el valor del parámetro como una expresión de flujo de datos, active la casilla de expresión situada junto al parámetro.
 
-![Establecimiento de un parámetro de Data Flow](media/data-flow/string-parameter.png "Establecimiento de un parámetro de Data Flow")
+![Captura de pantalla que muestra la opción Expresión en el panel Parámetros de flujo de datos seleccionada para un parámetro.](media/data-flow/string-parameter.png "Establecimiento de un parámetro de Data Flow")
 
 Si el parámetro de flujo de datos `stringParam` hace referencia a un parámetro de canalización con el valor `upper(column1)`. 
 
@@ -73,7 +73,7 @@ Si el parámetro de flujo de datos `stringParam` hace referencia a un parámetro
 
 En el lenguaje de expresiones de canalización, las variables del sistema como `pipeline().TriggerTime` y las funciones como `utcNow()` devuelven marcas de tiempo como cadenas con el formato "aaaa-MM-dd\'T\'HH:mm:ss.SSSSSSZ". Para convertirlas en parámetros de flujo de datos de tipo timestamp, use la interpolación de cadenas para incluir la marca de tiempo deseada en una función `toTimestamp()`. Por ejemplo, para convertir la hora del desencadenador de la canalización en un parámetro de flujo de datos, puede utilizar `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')`. 
 
-![Establecimiento de un parámetro de Data Flow](media/data-flow/parameter-timestamp.png "Establecimiento de un parámetro de Data Flow")
+![Captura de pantalla que muestra la pestaña Parámetros, donde puede especificar una hora de desencadenamiento.](media/data-flow/parameter-timestamp.png "Establecimiento de un parámetro de Data Flow")
 
 > [!NOTE]
 > Los flujos de datos solo admiten un máximo 3 dígitos de milisegundo. La función `left()` se usa para recortar los dígitos adicionales.
@@ -82,15 +82,15 @@ En el lenguaje de expresiones de canalización, las variables del sistema como `
 
 Supongamos que tiene un parámetro de entero `intParam` que hace referencia a un parámetro de canalización de tipo string, `@pipeline.parameters.pipelineParam`. 
 
-![Establecimiento de un parámetro de Data Flow](media/data-flow/parameter-pipeline-2.png "Establecimiento de un parámetro de Data Flow")
+![Captura de pantalla que muestra la pestaña Parámetros con los parámetros denominados stringParam e intParam.](media/data-flow/parameter-pipeline-2.png "Establecimiento de un parámetro de Data Flow")
 
 A `@pipeline.parameters.pipelineParam` se le asigna un valor de `abs(1)` en tiempo de ejecución.
 
-![Establecimiento de un parámetro de Data Flow](media/data-flow/parameter-pipeline-4.png "Establecimiento de un parámetro de Data Flow")
+![Captura de pantalla que muestra la pestaña Parámetros con el valor de abs (1) seleccionado.](media/data-flow/parameter-pipeline-4.png "Establecimiento de un parámetro de Data Flow")
 
 Cuando se hace referencia a `$intParam` en una expresión como una columna derivada, evaluará `abs(1)` y devolverá `1`. 
 
-![Establecimiento de un parámetro de Data Flow](media/data-flow/parameter-pipeline-3.png "Establecimiento de un parámetro de Data Flow")
+![Captura de pantalla que muestra el valor de las columnas.](media/data-flow/parameter-pipeline-3.png "Establecimiento de un parámetro de Data Flow")
 
 ### <a name="data-flow-expression-parameters"></a>Parámetros de expresiones de flujo de datos
 

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/08/2020
-ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: d1f8993b1adc297b1bfadba114df76a66e59afa2
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606293"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147191"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Transformación Clave suplente en el flujo de datos de asignación 
 
@@ -31,9 +31,9 @@ Use la transformación Clave suplente para agregar un valor de clave incremental
 
 ## <a name="increment-keys-from-existing-sources"></a>Incrementar claves a partir de orígenes existentes
 
-Para iniciar la secuencia desde un valor que existe en un origen, utilice una transformación Columna derivada inmediatamente después de la transformación Clave suplente para agregar los dos valores juntos:
+Para iniciar la secuencia desde un valor existente en un origen, se recomienda usar un receptor de caché para guardar ese valor y utilizar una transformación de columna derivada para agregar los dos valores juntos. Use una búsqueda almacenada en caché para obtener la salida y anexarla a la clave generada. Para obtener más información, consulte los temas sobre los [receptores de caché](data-flow-sink.md#cache-sink) y las [búsquedas almacenadas en caché](concepts-data-flow-expression-builder.md#cached-lookup).
 
-![Agregar máximo de Clave suplente](media/data-flow/sk006.png "Agregar máximo de transformación Clave suplente")
+![Búsqueda de clave suplente](media/data-flow/cached-lookup-example.png "Búsqueda de clave suplente")
 
 ### <a name="increment-from-existing-maximum-value"></a>Incremento del valor máximo existente
 
@@ -41,19 +41,18 @@ Para inicializar el valor de clave con el máximo anterior, puede usar dos técn
 
 #### <a name="database-sources"></a>Orígenes de base de datos
 
-Use una opción de consulta SQL para seleccionar MAX() desde el origen. Por ejemplo, `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
+Use una opción de consulta SQL para seleccionar MAX() desde el origen. Por ejemplo, `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`.
 
-![Consulta de clave suplente](media/data-flow/sk002.png "Consulta de transformación Clave suplente")
+![Consulta de clave suplente](media/data-flow/surrogate-key-max-database.png "Consulta de transformación Clave suplente")
 
 #### <a name="file-sources"></a>Orígenes de archivo
 
 Si el valor máximo anterior se encuentra en un archivo, use la función `max()` en la transformación Agregado para obtener el valor máximo anterior:
 
-![Archivo de clave suplente](media/data-flow/sk008.png "Archivo de clave suplente")
+![Archivo de clave suplente](media/data-flow/surrogate-key-max-file.png "Archivo de clave suplente")
 
-En ambos casos, debe unir los nuevos datos entrantes junto con el origen que contiene el valor máximo anterior.
+En ambos casos, tendrá que escribir en un receptor de caché y buscar el valor. 
 
-![Unión de clave suplente](media/data-flow/sk004.png "Unión de clave suplente")
 
 ## <a name="data-flow-script"></a>Script de flujo de datos
 

@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
-ms.openlocfilehash: d65f4b55be317234c10a0e90cfe413d9e38a6a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 507af87c3126be00a802bcbc5170f8ad364c06fc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696786"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099324"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services
 
@@ -31,9 +31,9 @@ Puede habilitar una conexión a Escritorio remoto en el rol durante el desarroll
 
 Azure Portal usa el enfoque de extensión de Escritorio remoto, por lo que puede habilitar Escritorio remoto incluso después de que se implementa la aplicación. En la opción **Escritorio remoto** de su servicio en la nube, puede habilitar Escritorio remoto, cambiar la cuenta de Administrador local usada para conectarse a las máquinas virtuales o el certificado que se usa en la autenticación y definir la fecha de caducidad.
 
-1. Haga clic en **Cloud Services**, seleccione el nombre del servicio en la nube y luego seleccione **Escritorio remoto**.
+1. Haga clic en **Cloud Services** , seleccione el nombre del servicio en la nube y luego seleccione **Escritorio remoto**.
 
-    ![Escritorio remoto de Cloud Services](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
+    ![Captura de pantalla que resalta la opción Escritorio remoto.](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
 
 2. Elija si desea habilitar Escritorio remoto para un rol individual o para todos los roles y luego cambie el valor del modificador para **Habilitado**.
 
@@ -44,7 +44,7 @@ Azure Portal usa el enfoque de extensión de Escritorio remoto, por lo que puede
    > [!WARNING]
    > Se reiniciarán todas las instancias de rol la primera vez que habilite el Escritorio remoto y, después, seleccione **Aceptar** (marca de verificación). Para evitar un reinicio, el certificado que se usó para cifrar la contraseña debe instalarse en el rol. Para evitar un reinicio, [cargue un certificado para el servicio en la nube](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) y, luego, vuelva a este cuadro de diálogo.
 
-4. En **Roles**, seleccione el rol de servicio que desea actualizar o seleccione **Todos** para todos los roles.
+4. En **Roles** , seleccione el rol de servicio que desea actualizar o seleccione **Todos** para todos los roles.
 
 5. Después de terminar las actualizaciones de la configuración, seleccione **Guardar**. Las instancias de rol tardarán unos minutos en estar listas para recibir conexiones.
 
@@ -56,12 +56,12 @@ Una vez que Escritorio remoto está habilitado en los roles, puede iniciar una c
 2. Seleccione una instancia de rol que tenga el Escritorio remoto configurado.
 3. Haga clic en **Conectar** para descargar un archivo RDP para la instancia de rol.
 
-    ![Escritorio remoto de Cloud Services](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
+    ![Captura de pantalla en la que se resalta el botón Conectar.](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
 
 4. Haga clic en **Abrir** y, a continuación, en **Conectar** para iniciar la conexión del Escritorio remoto.
 
 >[!NOTE]
-> Si su servicio en la nube se encuentra detrás de un NSG, quizás deba crear reglas que permitan el tráfico en los puertos **3389** y **20000**.  Escritorio remoto usa el puerto **3389**.  Las instancias del servicio en la nube tienen la carga equilibrada, por lo que no se puede controlar directamente a qué instancia conectarse.  Los agentes *RemoteForwarder* y *RemoteAccess* administran el tráfico RDP y permiten al cliente enviar una cookie de RDP y especificar una instancia concreta a la que conectarse.  Los agentes *RemoteForwarder* y *RemoteAccess* requieren que ese puerto **20000*** esté abierto, que podría estar bloqueado si tiene un grupo de seguridad de red.
+> Si su servicio en la nube se encuentra detrás de un NSG, quizás deba crear reglas que permitan el tráfico en los puertos **3389** y **20000**.  Escritorio remoto usa el puerto **3389**.  Las instancias del servicio en la nube tienen la carga equilibrada, por lo que no se puede controlar directamente a qué instancia conectarse.  Los agentes *RemoteForwarder* y *RemoteAccess* administran el tráfico RDP y permiten al cliente enviar una cookie de RDP y especificar una instancia concreta a la que conectarse.  Los agentes *RemoteForwarder* y *RemoteAccess* requieren que ese puerto **20000** * esté abierto, que podría estar bloqueado si tiene un grupo de seguridad de red.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bc7b0ce521522e677e0dc53809c8c33e0743f0d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327925"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042615"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -24,7 +24,10 @@ Las detecciones de riesgo en Azure AD Identity Protection incluyen todas las acc
 
 Identity Protection proporciona a las organizaciones el acceso a recursos eficaces, para ver y responder rápidamente a estas acciones sospechosas. 
 
+>**Nota:** Identity Protection genera detecciones de riesgo solo cuando se usan las credenciales correctas. El hecho de que se usen credenciales incorrectas en un inicio de sesión no pone en peligro las credenciales.
+
 ![Información general sobre seguridad que muestra usuarios e inicios de sesión de riesgo](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
+
 
 ## <a name="risk-types-and-detection"></a>Tipos de riesgo y detección
 

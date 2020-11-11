@@ -1,6 +1,6 @@
 ---
 title: 'Creación de un rol personalizado de Azure mediante plantillas de Azure Resource Manager: Azure RBAC'
-description: Aprenda a crear roles personalizados de Azure mediante plantillas de Azure Resource Manager y el control de acceso basado en roles de Azure (RBAC de Azure).
+description: Obtenga información sobre cómo crear un rol personalizado de Azure mediante una plantilla de Azure Resource Manager (ARM) y el control de acceso basado en rol de Azure (RBAC de Azure).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
 manager: mtillman
@@ -10,47 +10,49 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 06/25/2020
 ms.author: rolyon
-ms.openlocfilehash: bcf1966ffc326291448cb611d99390fe0d652151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96dfdc0a1c32237c55d4e65bb25989656e2a4ad2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85398044"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097029"
 ---
-# <a name="create-an-azure-custom-role-using-an-azure-resource-manager-template"></a>Creación de un rol personalizado de Azure mediante plantillas de Azure Resource Manager
+# <a name="create-an-azure-custom-role-using-an-arm-template"></a>Creación de un rol personalizado de Azure mediante una plantilla de Resource Manager
 
-Si los [roles integrados de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear los [suyos propios](custom-roles.md). En este artículo se describe cómo crear un rol personalizado mediante una plantilla de Resource Manager.
+Si los [roles integrados de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear los [suyos propios](custom-roles.md). En este artículo se describe cómo crear un rol personalizado mediante una plantilla de Azure Resource Manager (ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Para crear un rol personalizado, especifique un nombre de rol, los permisos y dónde se puede usar el rol. En este artículo, se creará un rol denominado _Rol personalizado: lector RG_ con permisos de recursos que se pueden asignar en un ámbito de suscripción o inferior.
+
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fcreate-role-def%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para crear un rol personalizado, debe tener:
 
-- Permisos para crear roles personalizados, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuarios](built-in-roles.md#user-access-administrator)
+- Permisos para crear roles personalizados, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
 
-## <a name="create-a-custom-role"></a>Crear un rol personalizado
+## <a name="review-the-template"></a>Revisión de la plantilla
 
-Para crear un rol personalizado, especifique un nombre de rol, los permisos y dónde se puede usar el rol. En este artículo, se creará un rol denominado "Rol personalizado: lector RG" con permisos de recursos que se pueden asignar en un ámbito de suscripción o inferior.
+La plantilla usada en este artículo forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/create-role-def). La plantilla tiene cuatro parámetros y una sección de recursos. Los cuatro parámetros son:
 
-### <a name="review-the-template"></a>Revisión de la plantilla
-
-La plantilla usada en este artículo forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-role-def). La plantilla tiene cuatro parámetros y una sección de recursos. Los cuatro parámetros son:
-
-- Matriz de acciones con un valor predeterminado de ["Microsoft.Resources/subscriptions/resourceGroups/read"]
-- Matriz de notActions con un valor predeterminado vacío
-- Nombre de rol con un valor predeterminado de "Rol personalizado: lector RG"
-- Descripción del rol con un valor predeterminado de "Implementación del nivel de suscripción de una definición de rol"
-
-El recurso definido en la plantilla es el siguiente:
-
-- [Microsoft.Authorization/roleDefinitions](/azure/templates/Microsoft.Authorization/roleDefinitions)
+- Matriz de acciones con un valor predeterminado de `["Microsoft.Resources/subscriptions/resourceGroups/read"]`.
+- Matriz de `notActions` con un valor predeterminado vacío.
+- Nombre del rol con un valor predeterminado de `Custom Role - RG Reader`.
+- Descripción del rol con un valor predeterminado de `Subscription Level Deployment of a Role Definition`.
 
 El ámbito en el que se puede asignar este rol personalizado se establece en la suscripción actual.
 
 :::code language="json" source="~/quickstart-templates/subscription-deployments/create-role-def/azuredeploy.json":::
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+El recurso definido en la plantilla es el siguiente:
+
+- [Microsoft.Authorization/roleDefinitions](/azure/templates/Microsoft.Authorization/roleDefinitions)
+
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Siga estos pasos para implementar la plantilla anterior.
 
@@ -60,7 +62,7 @@ Siga estos pasos para implementar la plantilla anterior.
 
 1. Copie y pegue el siguiente script en Cloud Shell.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
     [string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
     $actions = $actions.Split(',')
@@ -74,15 +76,15 @@ Siga estos pasos para implementar la plantilla anterior.
 
 1. Escriba una lista de acciones para el rol personalizado como una lista separada por comas, como *Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read*.
 
-1. Si fuera necesario, presione Entrar para ejecutar el comando New-AzDeployment.
+1. Si es necesario, presione Entrar para ejecutar el comando `New-AzDeployment`.
 
     El comando [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) implementa la plantilla para crear el rol personalizado.
 
     Debería ver un resultado similar al siguiente:
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     PS> New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
-    
+
     Id                      : /subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/azuredeploy
     DeploymentName          : azuredeploy
     Location                : centralus
@@ -92,7 +94,7 @@ Siga estos pasos para implementar la plantilla anterior.
     TemplateLink            :
                               Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/create-role-def/azuredeploy.json
                               ContentVersion : 1.0.0.0
-    
+
     Parameters              :
                               Name               Type                       Value
                               =================  =========================  ==========
@@ -103,7 +105,7 @@ Siga estos pasos para implementar la plantilla anterior.
                               notActions         Array                      []
                               roleName           String                     Custom Role - RG Reader
                               roleDescription    String                     Subscription Level Deployment of a Role Definition
-    
+
     Outputs                 :
     DeploymentDebugLogLevel :
     ```
@@ -114,13 +116,13 @@ Siga estos pasos para comprobar que se ha creado el rol personalizado.
 
 1. Ejecute el comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para mostrar el rol personalizado.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Get-AzRoleDefinition "Custom Role - RG Reader" | ConvertTo-Json
     ```
 
     Debería ver un resultado similar al siguiente:
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     {
       "Name": "Custom Role - RG Reader",
       "Id": "11111111-1111-1111-1111-111111111111",
@@ -141,9 +143,9 @@ Siga estos pasos para comprobar que se ha creado el rol personalizado.
 
 1. Abra la suscripción en Azure Portal.
 
-1. En el menú de la izquierda, haga clic en **Control de acceso (IAM)** .
+1. En el menú izquierdo, seleccione **Control de acceso (IAM)** .
 
-1. Haga clic en la pestaña **Roles**.
+1. Seleccione la pestaña **Roles**.
 
 1. Establezca la lista **Tipo** en **CustomRole**.
 
@@ -157,7 +159,7 @@ Para quitar el rol personalizado, siga estos pasos.
 
 1. Ejecute el siguiente comando para quitar el rol personalizado.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Get-AzRoleDefinition -Name "Custom Role - RG Reader" | Remove-AzRoleDefinition
     ```
 

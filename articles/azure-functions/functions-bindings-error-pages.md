@@ -1,18 +1,18 @@
 ---
-title: Guía de control de errores de Azure Functions
-description: Aprenda a controlar los errores en Azure Functions con vínculos a errores específicos de enlace.
+title: Guía de reintentos y control de errores de Azure Functions
+description: Aprenda a controlar los errores y los eventos de reintento en Azure Functions con vínculos a errores de enlace específicos.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 0617d55f7c67c788b1e898d963f7d509cef72d49
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: e52babd5b0612b4590f1422a941b25ba30c3f169
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096851"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284461"
 ---
-# <a name="azure-functions-error-handling"></a>Control de errores de Azure Functions
+# <a name="azure-functions-error-handling-and-retries"></a>Reintentos y control de errores de Azure Functions
 
 El control de los errores en Azure Functions es importante para evitar la pérdida de datos, eventos perdidos y para supervisar el estado de la aplicación.
 
@@ -20,7 +20,7 @@ En este artículo se describen las estrategias generales para el control de erro
 
 ## <a name="handling-errors"></a>Control de errores
 
-[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-retries.md)]
 
 ## <a name="binding-error-codes"></a>Códigos de error de enlace
 

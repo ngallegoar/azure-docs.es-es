@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: e95edf21b7d6dce29b31220533269439fac120e4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a1b7564988c8a4d63a37b53d18ed3a7359e65d72
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281970"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926417"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Uso del servicio de administración de certificados de OPC Vault
 
@@ -64,7 +64,7 @@ Proteja la aplicación OPC UA mediante la emisión de un certificado firmado bas
 
 4. Rellene el formulario con un asunto y los nombres de dominio. Para la clave privada, elija PEM o PFX con contraseña. Seleccione **Generate New KeyPair** (Generar nuevo par de claves) para crear la solicitud de certificado.
 
-   ![Captura de pantalla de visualización detalles de solicitud de certificado](media/howto-opc-vault-secure/approve-reject.png "Aprobación de certificado")
+   ![Captura de pantalla que muestra la pantalla Ver detalles de la solicitud de certificado y el botón Generar nuevo par de claves.](media/howto-opc-vault-secure/approve-reject.png "Aprobación de certificado")
 
 5. La aprobación requiere un usuario con el rol Aprobador y con permisos de firma en Azure Key Vault. En el flujo de trabajo típico, los roles Aprobador y Solicitante deben estar asignados a distintos usuarios. Seleccione **Approve** (Aprobar) o **Reject** (Rechazar) para iniciar o cancelar la creación real del par de claves y la operación de firma. El nuevo par de claves se crea y se almacena de manera segura en Azure Key Vault hasta que el solicitante del certificado lo descarga. La entidad de certificación firma el certificado resultante con la clave pública. Estas operaciones pueden tardar unos segundos en finalizar.
 
@@ -93,7 +93,7 @@ Ahora la aplicación del nuevo par de claves depende del dispositivo OPC UA. Por
 
 5. La aprobación requiere un usuario con el rol Aprobador y con permisos de firma en Azure Key Vault. Seleccione **Approve** (Aprobar) o **Reject** (Rechazar) para iniciar o cancelar la operación de firma real. La entidad de certificación firma el certificado resultante con la clave pública. Esta operación puede tardar unos segundos en finalizar.
 
-   ![Captura de pantalla de visualización de detalles de solicitud de certificado, con mensaje de aprobación en la parte inferior](media/howto-opc-vault-secure/view-cert-csr.png "Visualización de certificado")
+   ![Captura de pantalla que muestra Ver detalles de la solicitud de certificado e incluye un mensaje de aprobación en la parte inferior.](media/howto-opc-vault-secure/view-cert-csr.png "Visualización de certificado")
 
 6. El certificado resultante (DER) se puede descargar desde aquí como archivo binario. También está disponible una versión codificada en Base64, por ejemplo, para copiar y pegar el certificado en una línea de comandos o en una entrada de texto. 
 10. Una vez que el certificado se haya descargado y almacenado de forma segura, puede seleccionar **Delete Certificate** (Eliminar certificado).

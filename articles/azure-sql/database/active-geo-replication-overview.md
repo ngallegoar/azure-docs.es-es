@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 35aff26eac3dd456db55204b662cb9b8a6bb9f2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7c16e3b991bffd9c6bbcc4759a07b9e122ef5b72
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672986"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125349"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creación y uso de la replicación geográfica activa: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ De forma predeterminada, la redundancia del almacenamiento de copia de seguridad
 > La velocidad del registro de transacciones de la base de datos principal puede estar limitada por motivos no relacionados con el tamaño de proceso inferior de una base de datos secundaria. Este tipo de limitación puede producirse aunque la base de datos secundaria tenga el mismo tamaño de proceso que la principal o uno superior. Para obtener más información, incluidos los tipos de espera para diferentes tipos de limitaciones de velocidad de registro, vea [Gobernanza de la velocidad del registro de transacciones](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> La redundancia de almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente con carácter general en la región de Azure Sudeste de Asia. Cuando la base de datos de origen se crea con redundancia de almacenamiento de copia de seguridad local o de zona, no se admite la creación de una base de datos secundaria en otra región de Azure. 
+> La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente en versión preliminar pública en la región Sur de Brasil y con carácter general en la región Sudeste de Asia de Azure. Cuando la base de datos de origen se crea con redundancia de almacenamiento de copia de seguridad local o de zona, no se admite la creación de una base de datos secundaria en otra región de Azure. 
 
 Para más información sobre los tamaños de proceso de SQL Database, consulte [¿Qué son los niveles de servicio de SQL Database?](purchasing-models.md)
 

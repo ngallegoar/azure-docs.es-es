@@ -3,12 +3,12 @@ title: Métricas compatibles con Azure Event Grid
 description: En este artículo se proporcionan las métricas de Azure Monitor admitidas por el servicio Azure Event Grid.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: 06c43b1990efc977cae33ced3f66f02e2de0b9c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87c91077c8eeca2134da53774979c212a82e3b7d
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225179"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042137"
 ---
 # <a name="metrics-supported-by-azure-event-grid"></a>Métricas compatibles con Azure Event Grid
 En este artículo se proporcionan listas de métricas de Event Grid clasificadas por espacios de nombres. 
@@ -26,6 +26,8 @@ En este artículo se proporcionan listas de métricas de Event Grid clasificadas
 |PublishFailCount|Sí|Eventos no publicados|Count|Total|Número total de eventos que no se han podido publicar en este tema|Topic, ErrorType, Error|
 |PublishSuccessCount|Sí|Eventos publicados|Count|Total|Número total de eventos publicados en este tema|Tema|
 |PublishSuccessLatencyInMs|Sí|Latencia de publicación correcta|Milisegundos|Total|Latencia de publicación correcta en milisegundos|Sin dimensiones|
+| AdvancedFilterEvaluationCount | Sí | Evaluaciones de filtros avanzados | Count | Total | Total de filtros avanzados evaluados en las suscripciones de eventos | EventSubscriptionName |
+
 
 
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventSubscriptions
@@ -64,6 +66,8 @@ En este artículo se proporcionan listas de métricas de Event Grid clasificadas
 |PublishSuccessCount|Sí|Eventos publicados|Count|Total|Número total de eventos publicados en este tema|Sin dimensiones|
 |PublishSuccessLatencyInMs|Sí|Latencia de publicación correcta|Milisegundos|Total|Latencia de publicación correcta en milisegundos|Sin dimensiones|
 |UnmatchedEventCount|Sí|Eventos no coincidentes|Count|Total|Número total de eventos que no coinciden con ninguna de las suscripciones de eventos de este tema|Sin dimensiones|
+| AdvancedFilterEvaluationCount | Sí | Evaluaciones de filtros avanzados | Count | Total | Total de filtros avanzados evaluados en las suscripciones de eventos | EventSubscriptionName |
+
 
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
@@ -80,6 +84,7 @@ En este artículo se proporcionan listas de métricas de Event Grid clasificadas
 |PublishSuccessCount|Sí|Eventos publicados|Count|Total|Número total de eventos publicados en este tema|Sin dimensiones|
 |PublishSuccessLatencyInMs|Sí|Latencia de publicación correcta|Milisegundos|Total|Latencia de publicación correcta en milisegundos|Sin dimensiones|
 |UnmatchedEventCount|Sí|Eventos no coincidentes|Count|Total|Número total de eventos que no coinciden con ninguna de las suscripciones de eventos de este tema|Sin dimensiones|
+| AdvancedFilterEvaluationCount | Sí | Evaluaciones de filtros avanzados | Count | Total | Total de filtros avanzados evaluados en las suscripciones de eventos | Topic, EventSubscriptionName, DomainEventSubscriptionName |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el artículo siguiente: [Registros de diagnóstico](diagnostic-logs.md)

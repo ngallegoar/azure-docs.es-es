@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
-ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d93cb49c77a4c8164a8b4e9bca349a805f39678
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82691899"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041636"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migración del esquema de base de datos normalizado de Azure SQL Database a un contenedor desnormalizado de Azure CosmosDB
 
@@ -96,11 +96,11 @@ El contenedor de CosmosDB resultante incrustará la consulta interna en un únic
 
 19. En Sink Settings (Configuración del receptor), establezca Clave de partición en ```\SalesOrderID``` y la acción de recopilación en "Volver a crear". Asegúrese de que la pestaña de asignación tiene el siguiente aspecto:
 
-![Configuración del receptor](media/data-flow/cosmosb7.png)
+![Captura de pantalla que muestra la pestaña Asignación.](media/data-flow/cosmosb7.png)
 
 20. Haga clic en la vista previa de datos para asegurarse de que ve estas 32 filas establecidas para insertar como nuevos documentos en el nuevo contenedor:
 
-![Configuración del receptor](media/data-flow/cosmosb8.png)
+![Captura de pantalla que muestra la pestaña Vista previa de los datos.](media/data-flow/cosmosb8.png)
 
 Si todo parece correcto, ya está listo para crear una nueva canalización, agregar esta actividad de flujo de datos a esa canalización y ejecutarla. Puede ejecutarla desde la depuración o desde una ejecución desencadenada. Después de unos minutos, debería tener un nuevo contenedor desnormalizado de pedidos denominado "orders" en la base de datos de CosmosDB.
 

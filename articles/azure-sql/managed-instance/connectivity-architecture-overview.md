@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5ebe0bcf1e491166c5fc61597904056307f9679c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461726"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098015"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitectura de conectividad de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Implemente SQL Managed Instance en una subred dedicada dentro de la red virtual.
 - **Delegación de subred:** la subred de SQL Managed Instance debe delegarse en el proveedor de recursos `Microsoft.Sql/managedInstances`.
 - **Grupo de seguridad de red (NSG):** se debe asociar un grupo de seguridad de red a la subred de SQL Managed Instance. Puede usar un NSG para controlar el acceso al punto de conexión de datos de SQL Managed Instance mediante el filtrado del tráfico en el puerto 1433 y en los puertos 11000 a 11999 cuando SQL Managed Instance se configura para conexiones de redirección. El servicio aprovisionará y mantendrá automáticamente las [reglas](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) actuales necesarias para permitir el flujo ininterrumpido de tráfico de administración.
 - **Tabla de rutas definida por el usuario (UDR):** se debe asociar una tabla UDR a la subred de SQL Managed Instance. Puede agregar entradas a la tabla de rutas para enrutar el tráfico que tiene intervalos IP privados locales como destino a través de una puerta de enlace de red virtual o de un dispositivo de red virtual (NVA). El servicio aprovisionará y mantendrá automáticamente las [entradas](#user-defined-routes-with-service-aided-subnet-configuration) actuales necesarias para permitir el flujo ininterrumpido de tráfico de administración.
-- **Suficientes direcciones IP:** la subred de Instancia administrada de SQL debe tener al menos 16 direcciones IP. El mínimo recomendado es 32 direcciones IP. Para obtener más información, consulte [Determinación del tamaño de la subred de SQL Managed Instance](vnet-subnet-determine-size.md). Puede implementar instancias administradas en [la red existente](vnet-existing-add-subnet.md) después de configurarla para satisfacer [los requisitos de red de SQL Managed Instance](#network-requirements). De lo contrario, cree [una red y una subred](virtual-network-subnet-create-arm-template.md).
+- **Suficientes direcciones IP:** la subred de SQL Managed Instance debe tener al menos 32 direcciones IP. Para obtener más información, consulte [Determinación del tamaño de la subred de SQL Managed Instance](vnet-subnet-determine-size.md). Puede implementar instancias administradas en [la red existente](vnet-existing-add-subnet.md) después de configurarla para satisfacer [los requisitos de red de SQL Managed Instance](#network-requirements). De lo contrario, cree [una red y una subred](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
 > Cuando se crea una instancia administrada, se aplica una directiva de intención de red en la subred para evitar cambios no compatibles con la configuración de red. Después de quitar la última instancia de la subred, también se quitará la directiva de intención de red.
@@ -300,6 +300,8 @@ Implemente SQL Managed Instance en una subred dedicada dentro de la red virtual.
 ||||
 
 \* MI SUBNET se refiere al intervalo de direcciones IP de la subred con el formato x.x.x.x/y. Puede encontrar esta información en Portal de Azure, en las propiedades de subred.
+
+\** Si la dirección de destino es para uno de los servicios de Azure, Azure enruta el tráfico directamente al servicio a través de su red troncal, en lugar de enrutarlo a Internet. El tráfico entre los servicios de Azure no atraviesa Internet, independientemente de la región de Azure en que exista la red virtual o de la región de Azure en que se implementa una instancia del servicio de Azure. Para obtener más detalles, consulte la [página de documentación de UDR](../../virtual-network/virtual-networks-udr-overview.md).
 
 Además, puede agregar entradas a la tabla de rutas para enrutar el tráfico que tiene intervalos IP privados locales como destino a través de una puerta de enlace de red virtual o de un dispositivo de red virtual (NVA).
 

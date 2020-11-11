@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
-ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac84ce17f53145ffd85ffa31b6633d8b4b184962
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83683370"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042652"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformación Combinación en el flujo de datos de asignación
 
@@ -108,7 +108,7 @@ El ejemplo siguiente es una transformación Combinación denominada `JoinMatched
 
 En la experiencia de usuario de Data Factory, esta transformación es similar a la siguiente imagen:
 
-![Ejemplo de combinación](media/data-flow/join-script1.png "Ejemplo de combinación")
+![Captura de pantalla que muestra la transformación con la pestaña Configuración de combinación seleccionada y el tipo de combinación Interna.](media/data-flow/join-script1.png "Ejemplo de combinación")
 
 En el siguiente fragmento de código se muestra el script del flujo de datos para esta transformación:
 
@@ -130,7 +130,7 @@ El ejemplo siguiente es una transformación Combinación denominada `JoiningColu
 
 En la experiencia de usuario de Data Factory, esta transformación es similar a la siguiente imagen:
 
-![Ejemplo de combinación](media/data-flow/join-script2.png "Ejemplo de combinación")
+![Captura de pantalla que muestra la transformación con la pestaña Configuración de combinación seleccionada y el tipo de combinación Personalizada (cruzada).](media/data-flow/join-script2.png "Ejemplo de combinación")
 
 En el siguiente fragmento de código se muestra el script del flujo de datos para esta transformación:
 

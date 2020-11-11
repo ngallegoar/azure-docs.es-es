@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84752485"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040255"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Listas de exclusión y límites de tamaño de solicitud del Firewall de aplicaciones web
 
@@ -38,7 +38,7 @@ Puede especificar una coincidencia exacta con un atributo de cadena de consulta,
 
 Estos son los operadores de criterios de coincidencia admitidos:
 
-- **Equals** (es igual a):  este operador se usa para una coincidencia exacta. Por ejemplo, para seleccionar el encabezado denominado **bearerToken**, utilice el operador de igualdad con el selector definido como **bearerToken**.
+- **Equals** (es igual a):  este operador se usa para una coincidencia exacta. Por ejemplo, para seleccionar el encabezado denominado **bearerToken** , utilice el operador de igualdad con el selector definido como **bearerToken**.
 - **Starts with** (empieza por): este operador coincide con todos los campos que comienzan por el valor del selector especificado.
 - **Ends with** (termina en):  este operador coincide con todos los campos de solicitud que terminan con el valor del selector especificado.
 - **Contains** (contiene): este operador coincide con todos los campos de solicitud que contienen el valor del selector especificado.
@@ -81,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Por tanto, si la dirección URL `http://www.contoso.com/?user%281%29=fdafdasfda` se pasa a WAF, no evaluará la cadena **fdafdasfda**, pero sí el nombre de parámetro **user%281%29**. 
+Por tanto, si la dirección URL `http://www.contoso.com/?user%281%29=fdafdasfda` se pasa a WAF, no evaluará la cadena **fdafdasfda** , pero sí el nombre de parámetro **user%281%29**. 
 
 ## <a name="waf-request-size-limits"></a>Límites de tamaño de solicitud del WAF
 
@@ -89,7 +89,7 @@ Por tanto, si la dirección URL `http://www.contoso.com/?user%281%29=fdafdasfda`
 
 El firewall de aplicaciones web le permite configurar límites de tamaño de solicitud dentro de los límites inferior y superior. Hay disponibles dos configuraciones de límites de tamaño:
 
-- El campo de tamaño máximo del cuerpo de la solicitud se especifica en kilobytes y controla el límite de tamaño de la solicitud general, excluida cualquier carga de archivo. Este campo puede oscilar entre 1 KB como mínimo y 128 KB como máximo. El valor predeterminado para el tamaño del cuerpo de la solicitud es de 128 KB.
+- El campo de tamaño máximo del cuerpo de la solicitud se especifica en kilobytes y controla el límite de tamaño de la solicitud general, excluida cualquier carga de archivo. Este campo tiene un valor mínimo de 1 KB y un valor máximo de 128 KB. El valor predeterminado para el tamaño del cuerpo de la solicitud es de 128 KB.
 - El campo de límite de carga de archivo se especifica en MB y controla el tamaño máximo de carga de archivo permitido. Este campo puede tener un valor mínimo de 1 MB y los siguientes máximos:
 
    - 100 MB para puertas de enlaces v1 medianas WAF

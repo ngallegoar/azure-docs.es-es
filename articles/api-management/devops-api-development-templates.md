@@ -1,5 +1,5 @@
 ---
-title: DevOps para Azure API Management mediante plantillas de ARM
+title: CI/CD para Azure API Management mediante plantillas de Resource Manager
 description: Introducción a DevOps de API con Azure API Management mediante plantillas de Azure Resource Manager para administrar implementaciones de API en una canalización de CI/CD
 services: api-management
 author: miaojiang
@@ -7,16 +7,16 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 144baa0944451adaf08f0df84325b58079e19d65
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209310"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088886"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD para API Management mediante plantillas de Azure Resource Manager
 
-En este artículo se presenta DevOps de API con Azure API Management mediante el uso de plantillas de Azure Resource Manager. Dado el valor estratégico de las API, una canalización de integración continua (CI) e implementación continua (CD) se ha convertido en un aspecto importante del desarrollo de las API. Permite a las organizaciones automatizar la implementación de los cambios de API sin pasos manuales propensos a errores, detectar problemas más pronto y, en última instancia, ofrecer valor a los usuarios finales con mayor rapidez. 
+En este artículo se muestra cómo usar DevOps de API con Azure API Management mediante plantillas de Azure Resource Manager. Dado el valor estratégico de las API, una canalización de integración continua e implementación continua (CI/CD) se ha convertido en un aspecto importante del desarrollo de las API. Permite a las organizaciones automatizar la implementación de los cambios de API sin pasos manuales propensos a errores, detectar problemas más pronto y, en última instancia, ofrecer valor a los usuarios con mayor rapidez. 
 
 Para obtener más información, herramientas y ejemplos de código para implementar el enfoque de DevOps que se describe en este artículo, consulte el [kit de recursos de DevOps de Azure API Management](https://github.com/Azure/azure-api-management-devops-resource-kit) de código abierto en GitHub. Dado que los clientes presentan una amplia gama de culturas de ingeniería y de soluciones de automatización, el enfoque no es una solución única para todo el mundo.
 
@@ -26,40 +26,40 @@ Hoy en día, las organizaciones suelen tener varios entornos de implementación 
 
 Como resultado, los clientes se enfrentan a los siguientes desafíos:
 
-* ¿Cómo se automatiza la implementación de las API en API Management?
-* ¿Cómo se migran las configuraciones de un entorno a otro?
-* ¿Cómo se evitan las interferencias entre distintos equipos de desarrollo que comparten la misma instancia de API Management?
+* Cómo se automatiza la implementación de las API en API Management
+* Cómo se migran las configuraciones de un entorno a otro
+* Cómo se evitan las interferencias entre distintos equipos de desarrollo que comparten la misma instancia de API Management
 
 ## <a name="manage-configurations-in-resource-manager-templates"></a>Administración de configuraciones en plantillas de Resource Manager
 
-El enfoque propuesto se ilustra en la imagen siguiente. 
+En la imagen siguiente se ilustra el enfoque propuesto. 
 
-:::image type="content" source="media/devops-api-development-templates/apim-devops.png" alt-text="DevOps con API Management":::
+:::image type="content" source="media/devops-api-development-templates/apim-devops.png" alt-text="Diagrama que muestra DevOps con API Management.":::
 
-En este ejemplo, hay dos entornos de implementación: *Desarrollo* y *Producción* . Cada uno tiene su propia instancia de API Management. 
+En este ejemplo, hay dos entornos de implementación: *Desarrollo* y *Producción*. Cada uno tiene su propia instancia de API Management. 
 
 * Los desarrolladores de API tienen acceso a la instancia de desarrollo y pueden usarla para desarrollar y probar sus API. 
-* La instancia de producción está administrada por un equipo designado denominado *Publicadores de API* .
+* Un equipo designado denominado *Publicadores de API* administra la instancia de producción.
 
-La clave de este enfoque propuesto es conservar todas las configuraciones de API Management en [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Estas plantillas se deben mantener en un sistema de control de código fuente como Git. Como se muestra en la imagen, hay un repositorio del publicador que contiene todas las configuraciones de la instancia de API Management de producción en una colección de plantillas:
+La clave de este enfoque propuesto es conservar todas las configuraciones de API Management en [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). La organización debe mantener estas plantillas en un sistema de control de código fuente como Git. Como se muestra en la imagen, un repositorio del publicador contiene todas las configuraciones de la instancia de API Management de producción en una colección de plantillas:
 
 |Plantilla  |Descripción  |
 |---------|---------|
-|Plantilla de servicio     | Configuraciones de nivel de servicio de la instancia de API Management, como el plan de tarifa y los dominios personalizados         |
-|Plantillas compartidas     |  Recursos compartidos en toda una instancia de API Management, como grupos, productos y registradores    |
-|Plantillas de API     |  Configuraciones de API y sus subrecursos: operaciones, directivas, configuración de diagnóstico        |
-|Plantilla maestra (principal)     |   Conecta todo mediante la [vinculación](../azure-resource-manager/resource-group-linked-templates.md) de todas las plantillas y su implementación por orden. Para implementar todas las configuraciones en una instancia de API Management, implemente la plantilla principal. Cada plantilla también puede implementarse de forma individual.       |
+|Plantilla de servicio     | Configuraciones de nivel de servicio de la instancia de API Management, como el plan de tarifa y los dominios personalizados.         |
+|Plantillas compartidas     |  Recursos compartidos en toda una instancia de API Management, como grupos, productos y registradores.    |
+|Plantillas de API     |  Configuraciones de API y sus subrecursos: operaciones, directivas y configuración de diagnóstico.        |
+|Plantilla maestra (principal)     |   Conecta todo mediante la [vinculación](../azure-resource-manager/resource-group-linked-templates.md) de todas las plantillas y su implementación por orden. Para implementar todas las configuraciones en una instancia de API Management, implemente la plantilla principal. También puede implementar cada plantilla de manera individual.       |
 
 Los desarrolladores de API bifurcarán el repositorio del publicador a un repositorio del desarrollador y trabajarán en los cambios de sus API. En la mayoría de los casos, se centran en las plantillas de API para sus API y no es necesario cambiar las plantillas de servicio o compartidas.
 
 ## <a name="migrate-configurations-to-templates"></a>Migración de configuraciones a plantillas
-Existen algunos desafíos para los desarrolladores de API al trabajar con plantillas de Resource Manager:
+Los desarrolladores de API se enfrentan a algunos retos al trabajar con plantillas de Resource Manager:
 
 * Los desarrolladores de API suelen trabajar con la [especificación OpenAPI](https://github.com/OAI/OpenAPI-Specification) y es posible que no estén familiarizados con los esquemas de Resource Manager. La creación manual de plantillas puede ser propensa a errores. 
 
-   Una herramienta de utilidad llamada [**Creator**](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#Creator) del kit de recursos puede ayudarle a automatizar la creación de plantillas de API basadas en un archivo de especificación OpenAPI. Además, los desarrolladores pueden proporcionar directivas de API Management para una API en formato XML. 
+   Una herramienta llamada [Creator](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#Creator) del kit de recursos puede ayudarle a automatizar la creación de plantillas de API basadas en un archivo de especificación OpenAPI. Además, los desarrolladores pueden proporcionar directivas de API Management para una API en formato XML. 
 
-* En el caso de los clientes que ya usan API Management, otro reto es extraer las configuraciones existentes a plantillas de Resource Manager. Para estos clientes, una herramienta llamada [**Extractor**](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#extractor) del kit de recursos puede ayudar a generar plantillas mediante la extracción de configuraciones de sus instancias de API Management.  
+* En el caso de los clientes que ya usan API Management, otro reto es extraer las configuraciones existentes a plantillas de Resource Manager. Para estos clientes, una herramienta llamada [Extractor](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#extractor) del kit de recursos puede ayudar a generar plantillas mediante la extracción de configuraciones de sus instancias de API Management.  
 
 ## <a name="workflow"></a>Flujo de trabajo
 
@@ -67,9 +67,10 @@ Existen algunos desafíos para los desarrolladores de API al trabajar con planti
 
 * Los publicadores de API pueden validar la solicitud de incorporación de cambios y asegurarse de que los cambios sean seguros y compatibles. Por ejemplo, pueden comprobar si solo HTTPS tiene permitido comunicarse con la API. La mayoría de las validaciones se pueden automatizar como un paso en la canalización de CI/CD.
 
-* Una vez que los cambios se aprueban y se combinan correctamente, los publicadores de API pueden optar por implementarlos en la instancia de producción según una programación o a petición. La implementación de las plantillas se puede automatizar con [Acciones de GitHub](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/devops/pipelines/), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), la [CLI de Azure](../azure-resource-manager/templates/deploy-cli.md) u otras herramientas.
+* Una vez que los cambios se aprueban y se combinan correctamente, los publicadores de API pueden optar por implementarlos en la instancia de producción según una programación o a petición. La implementación de las plantillas se puede automatizar con [Acciones de GitHub](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), la [CLI de Azure](../azure-resource-manager/templates/deploy-cli.md) u otras herramientas.
 
-Con este enfoque, se puede automatizar la implementación de los cambios de API en instancias de API Management y es fácil promocionar los cambios de un entorno a otro. Dado que los distintos equipos de desarrollo de API van a trabajar en diferentes conjuntos de archivos y plantillas de API, evita las interferencias entre los distintos equipos.
+
+Con este enfoque, una organización puede automatizar la implementación de los cambios de API en instancias de API Management y es fácil promocionar los cambios de un entorno a otro. Dado que los distintos equipos de desarrollo de API van a trabajar en diferentes conjuntos de archivos y plantillas de API, evita las interferencias entre los distintos equipos.
 
 ## <a name="video"></a>Vídeo
 

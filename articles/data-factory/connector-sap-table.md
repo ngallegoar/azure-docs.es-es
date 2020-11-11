@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 1970709dea67111bfd8b90f9fc315a3b044b2ab9
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 4505deaa4cc11c00c7283ef686827d6893c2742a
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900256"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280430"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copia de datos de una tabla de SAP mediante Azure Data Factory
 
@@ -53,7 +53,7 @@ En concreto, este conector para tablas de SAP admite las siguientes funcionalida
 La versión 7.01 o posterior hace referencia a la versión de SAP NetWeaver en lugar de a la versión de SAP ECC. Por ejemplo, SAP ECC 6.0 EHP 7 en general tiene una versión de NetWeaver >= 7.4. En caso de que no esté seguro de su entorno, estos son los pasos para confirmar la versión del sistema de SAP:
 
 1. Use la GUI de SAP para conectarse al sistema de SAP. 
-2. Vaya a **System** -> **Status** . 
+2. Vaya a **System** -> **Status**. 
 3. Compruebe la versión de SAP_BASIS, asegúrese de que sea mayor o igual que 701.  
       ![Comprobar SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
@@ -229,7 +229,7 @@ Para copiar datos de una tabla de SAP, se admiten las siguientes propiedades:
 | `rfcTableFields`                 | Los campos (columnas) que se copiarán de la tabla de SAP. Por ejemplo, `column0, column1`. | No       |
 | `rfcTableOptions`                | Las opciones para filtrar las filas de la tabla de SAP. Por ejemplo, `COLUMN0 EQ 'SOMEVALUE'`. Consulte también la tabla del operador de consultas de SAP que encontrará en este artículo. | No       |
 | `customRfcReadTableFunctionModule` | Un módulo de función RFC personalizado que puede usarse para leer datos de la tabla de SAP.<br>Puede usar el módulo de función RFC personalizado para definir cómo se recuperan los datos del sistema SAP y cómo se devuelven a Data Factory. El módulo de función personalizado debe tener una interfaz implementada (importación, exportación, tablas) que sea similar a `/SAPDS/RFC_READ_TABLE2`, que es la interfaz predeterminada que usa Data Factory.<br>Data Factory | No       |
-| `partitionOption`                  | El mecanismo de partición para leer desde una tabla de SAP. Las opciones admitidas incluyen: <ul><li>`None`</li><li>`PartitionOnInt` (valores de entero normales o con relleno de ceros a la izquierda, como `0000012345`)</li><li>`PartitionOnCalendarYear` (4 dígitos con el formato "YYYY")</li><li>`PartitionOnCalendarMonth` (6 dígitos con el formato "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 dígitos con el formato "YYYYMMDD")</li></ul> | No       |
+| `partitionOption`                  | El mecanismo de partición para leer desde una tabla de SAP. Las opciones admitidas incluyen: <ul><li>`None`</li><li>`PartitionOnInt` (valores de entero normales o con relleno de ceros a la izquierda, como `0000012345`)</li><li>`PartitionOnCalendarYear` (4 dígitos con el formato "YYYY")</li><li>`PartitionOnCalendarMonth` (6 dígitos con el formato "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 dígitos con el formato "YYYYMMDD")</li><li>`PartitionOntime` (6 dígitos en el formato "HHMMSS", como `235959`)</li></ul> | No       |
 | `partitionColumnName`              | El nombre de la columna que se usa para particionar los datos.                | No       |
 | `partitionUpperBound`              | El valor máximo de la columna especificada en `partitionColumnName` que se usará para continuar con la partición. | No       |
 | `partitionLowerBound`              | El valor mínimo de la columna especificada en `partitionColumnName` que se usará para continuar con la partición. (Nota: `partitionLowerBound` no puede ser "0" si la opción de partición es `PartitionOnInt`). | No       |

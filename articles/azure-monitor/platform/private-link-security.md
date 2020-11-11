@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 42419247de537f9a166c3cdca2fd5a832ade6a5f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 61073ce7e8d3abc43d1db031608da72e6d3e0791
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461437"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926808"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura
 
@@ -112,6 +112,9 @@ Puede conectar su AMPLS primero a los puntos de conexión privados y luego a los
 
     ![Captura de pantalla de selección de una experiencia de usuario de ámbito](./media/private-link-security/ampls-select-2.png)
 
+> [!NOTE]
+> La eliminación de recursos de Azure Monitor requiere que se desconecten primero de cualquier objeto AMPLS al que estén conectados. No es posible eliminar recursos conectados a un objeto AMPLS.
+
 ### <a name="connect-to-a-private-endpoint"></a>Conexión a un punto de conexión privado
 
 Ahora que tiene recursos conectados a su AMPLS, cree un punto de conexión privado para conectar nuestra red. Puede realizar esta tarea en el [centro de Private Link de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints) o en el Ámbito de Private Link de Azure Monitor, como se hace en este ejemplo.
@@ -140,6 +143,8 @@ Ahora que tiene recursos conectados a su AMPLS, cree un punto de conexión priva
    a.    Elija el **red virtual** y la **subred** a las que desea conectar los recursos de Azure Monitor. 
  
    b.    Elija **Sí** para **Integrar con la zona DNS privada** y permita que cree automáticamente una nueva zona DNS privada. Las zonas DNS reales pueden ser distintas de las que se muestran en la siguiente captura de pantalla. 
+   > [!NOTE]
+   > Si elige **No** y prefiere administrar los registros de DNS manualmente, complete primero la configuración de Private Link, incluido este punto de conexión privado y la configuración de AMPLS. A continuación, configure DNS según las instrucciones que se indican en [Configuración de DNS para puntos de conexión privados de Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Asegúrese de no crear registros vacíos como preparación para la configuración de Private Link. Los registros de DNS que se crean pueden invalidar la configuración existente e influir en la conectividad con Azure Monitor.
  
    c.    Haga clic en **Revisar + crear**.
  

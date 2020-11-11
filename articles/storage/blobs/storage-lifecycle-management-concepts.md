@@ -1,24 +1,24 @@
 ---
-title: Administración del ciclo de vida de Azure Storage
-description: Aprenda a crear reglas de directiva de ciclo de vida para realizar la transición de datos antiguos del nivel de almacenamiento de acceso frecuente al nivel de almacenamiento de acceso esporádico y al nivel de almacenamiento de archivo.
+title: Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage
+description: Cree reglas automatizadas para mover datos entre los niveles de acceso frecuente, esporádico y de archivo.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/15/2020
+ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: ee04ad28d6b52e63becd2991d77b453cd411f683
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309795"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100076"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
+# <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage
 
-Los conjuntos de datos tienen ciclos de vida únicos. Al principio del ciclo de vida, las personas acceden con frecuencia a algunos datos. Pero la necesidad de acceso desciende drásticamente a medida que los datos se hacen más antiguos. Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se suele acceder a ellos. Otros datos expiran en días o meses después de su creación, mientras que otros conjuntos de datos se leen y modifican de forma activa en el transcurso de sus ciclos de vida. La administración del ciclo de vida de Azure Blob Storage ofrece una directiva completa basada en reglas para las cuentas de GPv2 y Blob Storage. Use la directiva para realizar la transición de los datos a los niveles de acceso adecuados o hacer que expiren al final de su ciclo de vida.
+Los conjuntos de datos tienen ciclos de vida únicos. Al principio del ciclo de vida, las personas acceden con frecuencia a algunos datos. Pero la necesidad de acceso desciende drásticamente a medida que los datos se hacen más antiguos. Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se suele acceder a ellos. Otros datos expiran en días o meses después de su creación, mientras que otros conjuntos de datos se leen y modifican de forma activa en el transcurso de sus ciclos de vida. La administración del ciclo de vida de Azure Blob Storage ofrece una directiva basada en reglas completa para GPv2 y las cuentas de Blob Storage. Use la directiva para realizar la transición de los datos a los niveles de acceso adecuados o hacer que expiren al final de su ciclo de vida.
 
 La directiva de administración del ciclo de vida le permite:
 
@@ -31,12 +31,13 @@ La directiva de administración del ciclo de vida le permite:
 Considere un escenario donde los datos tienen acceso frecuente durante las primeras fases del ciclo de vida, pero solo ocasionalmente al cabo de dos semanas. Transcurrido el primer mes, rara vez se accede al conjunto de datos. En este escenario, es mejor el almacenamiento de acceso frecuente durante las primeras etapas. El almacenamiento de acceso esporádico es más adecuado para un acceso ocasional. El almacenamiento de archivo es la mejor opción de nivel una vez que los datos tengan un mes. Con el ajuste de los niveles de almacenamiento en relación con la antigüedad de los datos, puede designar las opciones de almacenamiento menos caras para satisfacer sus necesidades. Para conseguir esta transición, las reglas de directivas de administración del ciclo de vida se encuentran disponibles para mover los datos antiguos a niveles de almacenamiento de acceso más esporádico.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 >[!NOTE]
 >Si necesita que los datos no dejen de poder leerse, por ejemplo, cuando los usa StorSimple, no establezca una directiva para mover los blobs al nivel de almacenamiento de archivo.
 
 ## <a name="availability-and-pricing"></a>Disponibilidad y precios
 
-La característica de administración del ciclo de vida está disponible en todas las regiones de Azure para cuentas de almacenamiento de uso general v2 (GPv2), de almacenamiento de blobs, de blob en bloques Premium y de Azure Data Lake Storage Gen2. En Azure Portal, puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
+La característica de administración del ciclo de vida está disponible en todas las regiones de Azure para cuentas de almacenamiento de uso general v2 (GPv2), de almacenamiento de blobs, de blob en bloques prémium y de Azure Data Lake Storage Gen2. En Azure Portal, puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
 La característica de administración del ciclo de vida es gratuita. A los clientes se les cobra el costo operativo habitual para las llamadas API [Establecer el nivel del blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). La operación de eliminación es gratuita. Para más información sobre los precios, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -71,15 +72,15 @@ Hay dos formas de agregar una directiva en Azure Portal.
 
 1. En **Blob service** , seleccione **Administración del ciclo de vida** para ver o cambiar las reglas.
 
-1. Seleccione la pestaña **Vista de lista** .
+1. Seleccione la pestaña **Vista de lista**.
 
-1. Seleccione **Agregar una regla** y asigne un nombre a la regla en el formulario **Detalles** . También puede establecer valores en **Ámbito de la regla** , **Tipo de blob** y **Subtipo de blob** . En el ejemplo siguiente se establece el ámbito para filtrar los blobs. Esto hace que se agregue la pestaña **Conjunto de filtros** .
+1. Seleccione **Agregar una regla** y asigne un nombre a la regla en el formulario **Detalles**. También puede establecer valores en **Ámbito de la regla** , **Tipo de blob** y **Subtipo de blob**. En el ejemplo siguiente se establece el ámbito para filtrar los blobs. Esto hace que se agregue la pestaña **Conjunto de filtros**.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Página de detalles de agregar una regla en la administración del ciclo de vida de Azure Portal":::
 
 1. Seleccione **Base blobs** (Blobs base) para establecer las condiciones de la regla. En el siguiente ejemplo, los blobs se mueven al almacenamiento esporádico si no se han modificado durante 30 días.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Página de detalles de agregar una regla en la administración del ciclo de vida de Azure Portal":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Página de blobs base de administración del ciclo de vida en Azure Portal":::
 
    La opción **Último acceso** está disponible en versión preliminar en las siguientes regiones:
 
@@ -94,7 +95,7 @@ Hay dos formas de agregar una directiva en Azure Portal.
 
 1. Si seleccionó **Limitar blobs con filtros** en la página **Detalles** , seleccione **Conjunto de filtros** para agregar un filtro opcional. En el ejemplo siguiente se filtran los blobs del contenedor *mylifecyclecontainer* que comienzan por "log".
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Página de detalles de agregar una regla en la administración del ciclo de vida de Azure Portal":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Página del conjunto de filtros de administración del ciclo de vida en Azure Portal":::
 
 1. Seleccione **Agregar** para agregar la nueva directiva.
 
@@ -105,7 +106,7 @@ Hay dos formas de agregar una directiva en Azure Portal.
 
 1. En **Blob service** , seleccione **Administración del ciclo de vida** para ver o cambiar la directiva.
 
-1. El siguiente JSON es un ejemplo de una directiva que se puede pegar en la pestaña **Vista de código** .
+1. El siguiente JSON es un ejemplo de una directiva que se puede pegar en la pestaña **Vista de código**.
 
    ```json
    {
@@ -136,7 +137,7 @@ Hay dos formas de agregar una directiva en Azure Portal.
    }
    ```
 
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
 1. Para obtener más información sobre este ejemplo JSON, consulte las secciones [Directiva](#policy) y [Reglas](#rules).
 
@@ -321,7 +322,7 @@ Entre los filtros están los siguientes:
 | blobIndexMatch | Una matriz de valores de diccionario que se compone de las condiciones de clave y valor de la etiqueta de índice de blobs con las que debe haber coincidencias. Cada regla puede definir hasta 10 condiciones de etiqueta de índice de blobs. Por ejemplo, si quiere que todos los blobs coincidan con `Project = Contoso` en `https://myaccount.blob.core.windows.net/` en relación a una regla, el valor de blobIndexMatch es `{"name": "Project","op": "==","value": "Contoso"}`. | Si no define blobIndexMatch, la regla se aplica a todos los blobs de la cuenta de almacenamiento. | No |
 
 > [!NOTE]
-> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá** , **Este de Canadá** , **Centro de Francia** y **Sur de Francia** . Para más información sobre esta característica junto con las limitaciones y los problemas conocidos, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
+> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá** , **Este de Canadá** , **Centro de Francia** y **Sur de Francia**. Para más información sobre esta característica junto con las limitaciones y los problemas conocidos, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Acciones de regla
 
@@ -539,7 +540,7 @@ Algunos datos solo deben expirar si se marcan explícitamente para su eliminaci�
 
 ### <a name="manage-versions"></a>Administración de versiones
 
-En el caso de datos que se modifiquen y accedan de forma regular a lo largo de toda su duración, puede habilitar el control de versiones de Blob Storage para mantener de forma automática las versiones anteriores de un objeto. Puede crear una directiva para organizar en niveles o eliminar las versiones anteriores. La antigüedad de la versión se determina mediante la evaluación de la hora de creación de la misma. Esta regla de directiva crea niveles de las versiones anteriores en el contenedor `activedata` que sean 90 días, o más, posteriores a la creación de la versión en el nivel de acceso esporádico, y elimina las versiones anteriores que tengan 365 días, o más.
+En el caso de datos que se modifican y a los que se accede de forma regular a lo largo de toda su duración, puede habilitar el control de versiones de Blob Storage para mantener de forma automática las versiones anteriores de un objeto. Puede crear una directiva para organizar en niveles o eliminar las versiones anteriores. La antigüedad de la versión se determina mediante la evaluación de la hora de creación de la misma. Esta regla de directiva crea niveles de las versiones anteriores en el contenedor `activedata` que sean 90 días, o más, posteriores a la creación de la versión en el nivel de acceso esporádico, y elimina las versiones anteriores que tengan 365 días, o más.
 
 ```json
 {

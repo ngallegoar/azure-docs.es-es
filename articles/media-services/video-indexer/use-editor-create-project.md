@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28186a7dcced47a42b3249f1f74b13e969b41978
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970092"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041366"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Utilizar el editor de Video Indexer para crear proyectos
 
@@ -35,7 +35,7 @@ En este artículo se muestra cómo crear un proyecto desde cero y también cómo
 1. Seleccione la pestaña **Proyectos**. Si ha creado proyectos anteriormente, verá todos los demás proyectos aquí.
 1. Haga clic en **Crear proyecto**.  
 
-    ![Nuevo proyecto](./media/video-indexer-view-edit/new-project.png)
+    ![Captura de pantalla que muestra la página "Video Indexer" con la pestaña "Proyectos" seleccionada.](./media/video-indexer-view-edit/new-project.png)
 1. Asigne un nombre al proyecto haciendo clic en el icono de lápiz. Reemplace el texto “Untitled project” (Proyecto sin título) por el nombre del proyecto y haga clic en la marca de verificación.
 
     ![Nuevo proyecto](./media/video-indexer-view-edit/new-project3.png)
@@ -117,7 +117,7 @@ Recuerde que, cuando haga cambios, deberá guardar el proyecto seleccionando **S
 
 1. Puede acceder a los proyectos guardados desde la pestaña **Proyectos**. 
 
-    Si selecciona este proyecto, verá toda la información relacionada y su escala de tiempo. Si selecciona el **editor de vídeo**, puede seguir editando el proyecto. Durante la edición, puede agregar o quitar vídeos y clips, o cambiar el nombre del proyecto.
+    Si selecciona este proyecto, verá toda la información relacionada y su escala de tiempo. Si selecciona el **editor de vídeo** , puede seguir editando el proyecto. Durante la edición, puede agregar o quitar vídeos y clips, o cambiar el nombre del proyecto.
 
     ![Editor de vídeo](./media/video-indexer-view-edit/video-editor.png)
      

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87274687"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042812"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -70,7 +70,7 @@ Al usar el [flujo de OAuth de código de dispositivo](../develop/v2-oauth2-devic
 
 Las organizaciones pueden requerir que los intentos de acceso a las aplicaciones en la nube seleccionadas se tengan que realizar desde una aplicación cliente aprobada. Estas aplicaciones cliente aprobadas son compatibles con las [directivas de protección de aplicaciones de Intune](/intune/app-protection-policy) independientemente de cualquier otra solución de administración de dispositivos móviles (MDM).
 
-Con el fin de aprovechar este control de concesión, el acceso condicional requiere que el dispositivo esté registrado en Azure Active Directory, lo que requiere el uso de una aplicación de agente. La aplicación de agente puede ser Microsoft Authenticator para iOS o el portal de empresa de Microsoft para dispositivos Android. Si no hay ninguna aplicación de agente instalada en el dispositivo cuando el usuario intenta autenticarse, será redirigido a la tienda de aplicaciones para que instale la aplicación de agente.
+Con el fin de aprovechar este control de concesión, el acceso condicional requiere que el dispositivo esté registrado en Azure Active Directory, lo que requiere el uso de una aplicación de agente. La aplicación de agente puede ser Microsoft Authenticator para iOS, o bien Microsoft Authenticator o el portal de empresa de Microsoft para dispositivos Android. Si no hay ninguna aplicación de agente instalada en el dispositivo cuando el usuario intenta autenticarse, se le redirigirá a la tienda de aplicaciones adecuada para que instale la aplicación de agente necesaria.
 
 Esta configuración se aplica a las siguientes aplicaciones de iOS y Android:
 
@@ -106,7 +106,7 @@ Esta configuración se aplica a las siguientes aplicaciones de iOS y Android:
 **Comentarios:**
 
 - Las aplicaciones cliente aprobadas admiten la característica de administración de aplicaciones móviles de Intune.
-- Requisito de la opción **Solicitar aplicación cliente aprobada**:
+- Requisito de la opción **Solicitar aplicación cliente aprobada** :
    - Solo admite iOS y Android como condición de plataformas de dispositivo.
    - Se requiere una aplicación de agente para registrar el dispositivo. En iOS, la aplicación de agente es Microsoft Authenticator y, en Android, es la aplicación Portal de empresa de Intune.
 - El acceso condicional no puede considerar Microsoft Edge en modo InPrivate como aplicación cliente aprobada.
@@ -142,7 +142,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 **Comentarios:**
 
 - Las aplicaciones para la directiva de protección de aplicaciones admiten la característica de administración de aplicaciones móviles de Intune con la protección de la directiva.
-- Requisitos para la **Exigencia de la directiva de protección de aplicaciones**:
+- Requisitos para la **Exigencia de la directiva de protección de aplicaciones** :
     - Solo admite iOS y Android como condición de plataformas de dispositivo.
     - Se requiere una aplicación de agente para registrar el dispositivo. En iOS, la aplicación de agente es Microsoft Authenticator y, en Android, es la aplicación Portal de empresa de Intune.
 

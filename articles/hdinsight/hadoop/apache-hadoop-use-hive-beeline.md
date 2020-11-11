@@ -6,18 +6,20 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 08/21/2020
-ms.custom: contperfq1
-ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.custom: contperfq1, contperfq2
+ms.openlocfilehash: 756c87299db85e426b4793d51bea833aa694a830
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755099"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145963"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar el cliente de Apache Beeline con Apache Hive
 
-Aprenda a usar [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) para ejecutar consultas de Apache Hive en HDInsight.
+En este artículo se describe cómo usar el cliente de línea de comandos [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) para crear y ejecutar consultas de Apache Hive a través de una conexión SSH.
+
+## <a name="background"></a>Información previa
 
 Beeline es un cliente de Hive que se incluye en los nodos principales del clúster de HDInsight. Para conectarse al cliente de Beeline instalado en el clúster de HDInsight o instalar Beeline en local, vea [Conexión a Apache Beeline o instalación](connect-install-beeline.md). Beeline usa JDBC para conectarse a HiveServer2, un servicio hospedado en el clúster de HDInsight. Beeline también se puede usar para tener acceso a Hive en HDInsight de forma remota a través de Internet. En los ejemplos siguientes se proporcionan las cadenas de conexión más habituales usadas para conectarse a HDInsight desde Beeline.
 
@@ -27,9 +29,7 @@ Beeline es un cliente de Hive que se incluye en los nodos principales del clúst
 
 * Observe el esquema de URI para el almacenamiento principal del clúster. Por ejemplo, `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI es `wasbs://`. Para más información, consulte el artículo sobre la [transferencia segura](../../storage/common/storage-require-secure-transfer.md).
 
-* Opción 1: Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md). En la mayoría de los pasos descritos en este documento se da por hecho que está usando Beeline desde una sesión de SSH al clúster.
-
-* Opción 2:  Cliente de Beeline local.
+* Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md). En la mayoría de los pasos descritos en este documento se da por hecho que está usando Beeline desde una sesión de SSH al clúster. También puede usar un cliente de Beeline local, pero estos pasos no se explican en este artículo.
 
 ## <a name="run-a-hive-query"></a>Ejecución de una consulta de Hive
 
@@ -157,13 +157,13 @@ Este ejemplo se basa en el uso del cliente de Beeline desde una conexión SSH.
 
 Este ejemplo es una continuación del ejemplo anterior. Use los pasos siguientes para crear un archivo y, luego, ejecútelo mediante Beeline.
 
-1. Use el comando siguiente para crear un archivo denominado **query.hql**:
+1. Use el comando siguiente para crear un archivo denominado **query.hql** :
 
     ```bash
     nano query.hql
     ```
 
-1. Use el texto siguiente como contenido del archivo. Esta consulta crea una nueva tabla "interna" denominada **errorLogs**:
+1. Use el texto siguiente como contenido del archivo. Esta consulta crea una nueva tabla "interna" denominada **errorLogs** :
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -174,14 +174,14 @@ Este ejemplo es una continuación del ejemplo anterior. Use los pasos siguientes
 
     |. |Descripción |
     |---|---|
-    |CREATE TABLE IF NOT EXISTS|Si todavía no existe la tabla, se crea. Dado que no se utiliza la palabra clave **EXTERNAL**, esta instrucción crea una tabla interna. Las tablas internas se guardan en el almacenamiento de datos de Hive y Hive las administra por completo.|
+    |CREATE TABLE IF NOT EXISTS|Si todavía no existe la tabla, se crea. Dado que no se utiliza la palabra clave **EXTERNAL** , esta instrucción crea una tabla interna. Las tablas internas se guardan en el almacenamiento de datos de Hive y Hive las administra por completo.|
     |STORED AS ORC|almacena los datos en el formato de columnas de filas optimizadas (ORC, Optimized Row Columnar). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.|
     |INSERT OVERWRITE ... SELECT|selecciona en la tabla **log4jLogs** las filas que contienen **[ERROR]** y, después, inserta los datos en la tabla **errorLogs**.|
 
     > [!NOTE]  
     > A diferencia de las tablas externas , la eliminación de una tabla interna también elimina los datos subyacentes.
 
-1. Para guardar el archivo, use **Ctrl**+**X**, escriba **Y** y, finalmente, presione **Entrar**.
+1. Para guardar el archivo, use **Ctrl**+**X** , escriba **Y** y, finalmente, presione **Entrar**.
 
 1. Use el siguiente código para ejecutar el archivo mediante Beeline:
 
@@ -192,7 +192,7 @@ Este ejemplo es una continuación del ejemplo anterior. Use los pasos siguientes
     > [!NOTE]  
     > El parámetro `-i` inicia Beeline y ejecuta las instrucciones del archivo `query.hql`. Una vez que se completa la consulta, llegará al aviso `jdbc:hive2://headnodehost:10001/>`. También puede ejecutar un archivo mediante el parámetro `-f` que sale de Beeline después de que la consulta se completa.
 
-1. Para comprobar que la tabla **errorLogs** se creó, use la siguiente instrucción para devolver todas las filas de **errorLogs**:
+1. Para comprobar que la tabla **errorLogs** se creó, use la siguiente instrucción para devolver todas las filas de **errorLogs** :
 
     ```hiveql
     SELECT * from errorLogs;

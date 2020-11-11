@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5095df51fe430990e200b7bc7c3ca03feb0799d5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 20ae53805d25614e18f17a7d20acd884d31ab7d6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964288"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925720"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente del servidor de directivas de redes (NPS) con Azure Multi-Factor Authentication
 
@@ -30,7 +30,7 @@ La extensión NPS actúa como un adaptador entre RADIUS y Azure Multi-Factor Aut
 Cuando se usa la extensión NPS para Azure Multi-Factor Authentication, el flujo de autenticación incluye los siguientes componentes:
 
 1. **Servidor NAS/VPN** recibe solicitudes de los clientes VPN y las convierte en solicitudes RADIUS para servidores NPS.
-2. **Servidor NPS** se conecta a Active Directory Domain Services para realizar la autenticación principal para las solicitudes RADIUS y, cuando se realiza correctamente, pasa la solicitud a todas las extensiones instaladas.  
+2. **Servidor NPS** se conecta a Active Directory Domain Services para realizar la autenticación principal para las solicitudes RADIUS y, cuando se realiza correctamente, pasa la solicitud a todas las extensiones instaladas.  
 3. **Extensión de NPS** desencadena una solicitud para Azure Multi-Factor Authentication para la autenticación secundaria. Una vez que la extensión recibe la respuesta y, si el desafío de MFA se realiza correctamente, se completa la solicitud de autenticación proporcionando al servidor NPS tokens de seguridad que incluyen una notificación de MFA, emitidos por Azure STS.
 4. **Azure MFA** se comunica con Azure Active Directory (Azure AD) para recuperar los detalles del usuario y realiza la autenticación secundaria con un método de comprobación configurado para el usuario.
 
@@ -99,7 +99,7 @@ Para instalar la extensión, necesita el *identificador de inquilino* y las cred
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global del inquilino de Azure.
 1. Busque y seleccione el servicio **Azure Active Directory**.
-1. En la página **Información general**, se muestra la *información del inquilino*. Junto al *identificador de inquilino*, seleccione el icono **Copiar**, tal y como se muestra en la siguiente captura de pantalla de ejemplo:
+1. En la página **Información general** , se muestra la *información del inquilino*. Junto al *identificador de inquilino* , seleccione el icono **Copiar** , tal y como se muestra en la siguiente captura de pantalla de ejemplo:
 
    ![Obtención del identificador de inquilino en Azure Portal](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
@@ -150,16 +150,16 @@ Si necesita iniciar una nueva ronda de sincronización, consulte [Sincronizació
 
 Existen dos factores que afectan a la disponibilidad de los métodos de autenticación con una implementación de extensión NPS:
 
-1. El algoritmo de cifrado de contraseña utilizado entre el cliente RADIUS (VPN, servidor Netscaler u otros) y los servidores NPS.
+* El algoritmo de cifrado de contraseña utilizado entre el cliente RADIUS (VPN, servidor Netscaler u otros) y los servidores NPS.
    - **PAP** es compatible con todos los métodos de autenticación de Azure Multi-Factor Authentication en la nube: llamada de teléfono, mensaje de texto unidireccional, notificación de aplicación móvil, token de hardware OATH y código de verificación de la aplicación móvil.
    - **CHAPV2** y **EAP** admiten llamadas de teléfono y notificaciones de aplicación móvil.
 
-      > [!NOTE]
-      > Al implementar la extensión NPS, use estos factores para estudiar qué métodos están disponibles para los usuarios. Si el cliente RADIUS es compatible con PAP, pero el cliente UX no tiene campos de entrada para un código de verificación, las dos opciones compatibles son la llamada de teléfono y notificación de aplicación móvil.
-      >
-      > Además, si la experiencia del cliente de VPN admite campos de entrada y ha configurado la directiva de acceso a la red, la autenticación puede realizarse correctamente. Sin embargo, ninguno de los atributos RADIUS configurados en la directiva de red se aplicará al dispositivo de acceso a la red, como el servidor RRAS, ni al cliente VPN. Como resultado, el cliente de VPN puede tener más acceso del deseado o menos o ninguno.
+    > [!NOTE]
+    > Al implementar la extensión NPS, use estos factores para estudiar qué métodos están disponibles para los usuarios. Si el cliente RADIUS es compatible con PAP, pero el cliente UX no tiene campos de entrada para un código de verificación, las dos opciones compatibles son la llamada de teléfono y notificación de aplicación móvil.
+    >
+    > Además, independientemente del protocolo de autenticación que se use (PAP, CHAP o EAP), si el método de MFA está basado en texto (SMS, código de verificación de la aplicación móvil o token de hardware OATH) y es necesario que el usuario escriba un código o texto en el campo de entrada de la interfaz de usuario del cliente de VPN, es posible que la autenticación se realice correctamente. *No obstante* , los atributos RADIUS configurados en la directiva de acceso a la red *no* se reenvían al cliente RADIUS (el dispositivo de acceso a la red, como VPN Gateway). Como resultado, el cliente de VPN puede tener más acceso del deseado, menos o ninguno.
 
-2. Los métodos de entrada que la aplicación cliente (VPN, servidor Netscaler u otros) puede controlar. Por ejemplo, ¿tiene el cliente de VPN algún medio para que el usuario escriba un código de comprobación de aplicación móvil o de texto?
+* Los métodos de entrada que la aplicación cliente (VPN, servidor Netscaler u otros) puede controlar. Por ejemplo, ¿tiene el cliente de VPN algún medio para que el usuario escriba un código de comprobación de aplicación móvil o de texto?
 
 Puede [deshabilitar los métodos de autenticación no compatibles](howto-mfa-mfasettings.md#verification-methods) en Azure.
 
@@ -175,7 +175,7 @@ Si tiene que crear y configurar una cuenta de prueba, siga estos pasos:
 
 > [!IMPORTANT]
 >
-> Asegúrese de que los usuarios se han registrado correctamente para Azure Multi-Factor Authentication. Si los usuarios solo se han registrado previamente para el autoservicio de restablecimiento de contraseña (SSPR), *StrongAuthenticationMethods* está habilitado para su cuenta. Azure Multi-Factor Authentication se aplica cuando se configura *StrongAuthenticationMethods*, aunque el usuario solo esté registrado para SSPR.
+> Asegúrese de que los usuarios se han registrado correctamente para Azure Multi-Factor Authentication. Si los usuarios solo se han registrado previamente para el autoservicio de restablecimiento de contraseña (SSPR), *StrongAuthenticationMethods* está habilitado para su cuenta. Azure Multi-Factor Authentication se aplica cuando se configura *StrongAuthenticationMethods* , aunque el usuario solo esté registrado para SSPR.
 >
 > Se puede habilitar el registro de seguridad combinado que configura SSPR y Azure Multi-Factor Authentication al mismo tiempo. Para obtener más información, consulte [Habilitación del registro de información de seguridad combinado en Azure Active Directory](howto-registration-mfa-sspr-combined.md).
 >
@@ -275,7 +275,7 @@ En el caso de los clientes que usan las nubes de Azure Government o Azure China 
 
 Con la versión *1.0.1.32* de la extensión NPS se admite la lectura de varios certificados. Esta funcionalidad le ayuda a facilitar las actualizaciones graduales de certificados antes de su expiración. Si en la organización se ejecuta una versión anterior de la extensión NPS, actualice a la versión *1.0.1.32* o superior.
 
-Los certificados creados por el script `AzureMfaNpsExtnConfigSetup.ps1` son válidos durante 2 años. Supervise los certificados para que no expiren. Los certificados para la extensión NPS se encuentran en el almacén de certificados del *equipo local*, en la carpeta *Personal* y *se emiten* para el identificador de inquilino proporcionado al script de instalación.
+Los certificados creados por el script `AzureMfaNpsExtnConfigSetup.ps1` son válidos durante 2 años. Supervise los certificados para que no expiren. Los certificados para la extensión NPS se encuentran en el almacén de certificados del *equipo local* , en la carpeta *Personal* y *se emiten* para el identificador de inquilino proporcionado al script de instalación.
 
 Cuando un certificado se aproxima a la fecha de expiración, se debe crear un nuevo certificado para reemplazarlo.  Este proceso se realiza de nuevo mediante la ejecución del script `AzureMfaNpsExtnConfigSetup.ps1` y se debe mantener el mismo identificador de inquilino cuando se le solicite. Este proceso se debe repetir en cada servidor de NPS del entorno.
 
@@ -307,7 +307,7 @@ Si tiene usuarios que no están inscritos en MFA, puede determinar lo que sucede
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | No establecido (equivalente a TRUE) |
 
-Este ajuste determina qué hacer cuando un usuario no está inscrito para MFA. Cuando la clave no existe, no está establecida o está establecida en *TRUE*, y el usuario no está inscrito, se produce un error en la extensión al completar el desafío de MFA.
+Este ajuste determina qué hacer cuando un usuario no está inscrito para MFA. Cuando la clave no existe, no está establecida o está establecida en *TRUE* , y el usuario no está inscrito, se produce un error en la extensión al completar el desafío de MFA.
 
 Cuando la clave está establecida en *FALSE* y el usuario no está inscrito, la autenticación continúa sin realizar el desafío de MFA. Si un usuario está inscrito en MFA, debe autenticarse con MFA aunque *REQUIRE_USER_MATCH* esté establecido en *FALSE*.
 
@@ -349,7 +349,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 Una vez que ejecute este comando, vaya a la raíz de la unidad *C:* , busque el archivo y haga doble clic en él. Vaya a los detalles y desplácese hacia abajo hasta llegar a la "huella digital" y compárela con la huella digital del certificado instalado en el servidor. Las huellas digitales del certificado deben coincidir.
 
-Las marcas de tiempo *válido-desde* y *válido-hasta*, que se encuentran en un formato legible, se pueden utilizar para filtrar desajustes evidentes si el comando devuelve más de un certificado.
+Las marcas de tiempo *válido-desde* y *válido-hasta* , que se encuentran en un formato legible, se pueden utilizar para filtrar desajustes evidentes si el comando devuelve más de un certificado.
 
 ### <a name="why-cannot-i-sign-in"></a>¿Por qué no puedo iniciar sesión?
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 5fdec829ceeefce2426a5fd08b4245e66bd0a08c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1a106874277f64a006584f9deb98fb9729263b1b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016678"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040712"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Tutorial de censura de rostros con Azure Media Analytics
 
@@ -30,7 +30,7 @@ ms.locfileid: "92016678"
 
 **Redactor multimedia de Azure** es un procesador multimedia (MP) de [Análisis multimedia de Azure](./legacy-components.md) que ofrece censura de rostros escalable en la nube. La censura de rostros le permite modificar un vídeo con el fin de difuminar las caras de personas seleccionadas. Puede usar el servicio de censura de rostros en escenarios de seguridad pública y de noticias en los medios de comunicación. Unos minutos de material de archivo que contenga varias caras puede tardar horas en censurarse manualmente, pero con este servicio, el proceso de censura de caras requiere solamente unos pocos pasos sencillos. Para más información, consulte [este blog](https://azure.microsoft.com/blog/azure-media-redactor/).
 
-Para obtener más información sobre **Azure Media Redactor**, consulte el tema de [información general sobre Censura de rostros](media-services-face-redaction.md).
+Para obtener más información sobre **Azure Media Redactor** , consulte el tema de [información general sobre Censura de rostros](media-services-face-redaction.md).
 
 En este tema se muestran instrucciones paso a paso sobre cómo ejecutar un flujo de trabajo de censura completa mediante el Explorador de Azure Media Services (AMSE) y Azure Media Redactor Visualizer (herramienta de código abierto).
 
@@ -47,7 +47,7 @@ La manera más fácil de empezar a trabajar con Redactor es usar la herramienta 
 
     Para obtener el nombre de la cuenta y la información de la clave, vaya a [Azure Portal](https://portal.azure.com/) y seleccione la cuenta de Azure Media Services. A continuación, seleccione Configuración > Claves. Aparece la ventana Administrar claves que muestra el nombre de la cuenta y la clave principal y la secundaria. Copie los valores del nombre de la cuenta y la clave principal.
 
-![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
+![Captura de pantalla que muestra Microsoft Azure Media Services, donde puede escribir el nombre y la clave de la cuenta.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 
 ### <a name="first-pass--analyze-mode"></a>Primer paso: Modo Analizar
 
@@ -55,32 +55,32 @@ La manera más fácil de empezar a trabajar con Redactor es usar la herramienta 
 1. Haga clic en el botón derecho y procese el archivo multimedia utilizando Análisis multimedia > Azure Media Redactor – > Modo Analizar. 
 
 
-![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
+![Captura de pantalla que muestra un menú con recursos de proceso con Azure Media Redactor.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
 
-![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
+![Captura de pantalla que muestra Azure Media Redactor con el primer paso: Modo Analizar seleccionado.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
 
 El resultado incluirá un archivo JSON de anotaciones con datos de ubicación de rostros, así como un JPG de cada rostro detectado. 
 
-![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
+![Captura de pantalla que muestra la salida del análisis.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
 ### <a name="second-pass--redact-mode"></a>Segundo paso: Modo Redact (Censurar)
 
 1. Cargue el recurso de vídeo original en la salida del primer paso y establézcalo como un recurso principal. 
 
-    ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
+    ![Captura de pantalla muestra los botones Cargar y Establecer como principales.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
 2. Opcional: cargue un archivo Dance_idlist.txt que incluya una lista delimitada de nueva línea de los identificadores que se van a censurar. 
 
-    ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
+    ![Captura de pantalla que muestra la opción para cargar el archivo de texto.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
 3. Opcional: realice las modificaciones en el archivo annotations.json, por ejemplo, aumentar los límites del cuadro de límite. 
 4. Haga clic con el botón derecho en el recurso de salida del primer paso, seleccione Redactor y ejecútelo con el modo **Redact** (Censurar). 
 
-    ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
+    ![Captura de pantalla que muestra Azure Media Redactor con el segundo paso: Modo de censura seleccionado.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
 5. Descargue o comparta el recurso de salida censurado final. 
 
-    ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
+    ![Captura de pantalla que muestra el botón Descargar.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
 ## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Herramienta de código abierto Azure Media Redactor Visualizer
 
@@ -94,12 +94,12 @@ Si como desarrollador trata de analizar los datos de anotaciones del JSON, busqu
 
 1.  Descargue y genere la solución completa. 
 
-    ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
+    ![Captura de pantalla que muestra la opción Compilar solución seleccionada en el menú.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
 2.  Descargue FFMPEG desde [aquí](https://ffmpeg.org/download.html). Este proyecto se desarrolló originalmente mediante la versión be1d324 (2016-10-04) con vinculación estática. 
 3.  Copie ffmpeg.exe y ffprobe.exe en la misma carpeta de salida que AzureMediaRedactor.exe. 
 
-    ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
+    ![Captura de pantalla que muestra el contenido de la carpeta, incluidos los archivos ffmpeg y ffprobe.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
 4. Ejecute AzureMediaRedactor.exe. 
 
@@ -109,11 +109,11 @@ Si como desarrollador trata de analizar los datos de anotaciones del JSON, busqu
 2. Descargue el archivo de vídeo original y la salida de Redaction (Censura) - trabajo Analizar. 
 3. Ejecute la aplicación de visualización y elija los archivos anteriores. 
 
-    ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
+    ![Captura de pantalla que muestra Azure Media Redactor cargando archivos.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 
 4. Obtenga una vista previa del archivo. Seleccione qué rostros le gustaría desenfocar a través de la barra lateral de la derecha. 
     
-    ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
+    ![Captura de pantalla que muestra Azure Media Redactor, donde puede obtener una vista previa y seleccionar caras para desenfocar.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
 5.  El campo de texto de la parte inferior se actualizará con los identificadores de los rostros. Cree un archivo denominado "idlist.txt" con estos identificadores como una lista delimitada de nueva línea. 
 

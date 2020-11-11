@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 879b9f965a5ee76131a65bf3151be5c6114cd20c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ba8ccf3534cbb4a93983f81095b4ef2c20d6498
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260890"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042779"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Supervisión del progreso de trabajo de codificación con el Portal de Azure
 
@@ -34,7 +34,7 @@ Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento
 
 Para supervisar el progreso del trabajo de codificación, haga clic en **Configuración** (en la parte superior de la página) y, después, seleccione **Trabajos**.
 
-![Trabajos](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Captura de pantalla que muestra la opción "Trabajos" seleccionada en el menú "Configuración".](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 Puede hacer clic en el trabajo para ver más detalles.
 

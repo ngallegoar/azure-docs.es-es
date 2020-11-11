@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167665"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284509"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -116,6 +116,11 @@ El siguiente archivo *host.json* de ejemplo para la versión 2.x y posteriores 
     },
     "managedDependency": {
         "enabled": true
+    },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -349,6 +354,28 @@ La dependencia administrada es una característica en versión preliminar que ac
 ## <a name="queues"></a>queues
 
 Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces de la cola de Storage](functions-bindings-storage-queue-output.md#host-json).  
+
+## <a name="retry"></a>retry
+
+Controla las opciones de la [directiva de reintentos](./functions-bindings-error-pages.md#retry-policies) para todas las ejecuciones de la aplicación.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Propiedad  |Valor predeterminado | Descripción |
+|---------|---------|---------| 
+|strategy|null|Necesario. Estrategia de reintentos que se usará. Los valores válidos son `fixedDelay` y `exponentialBackoff`.|
+|maxRetryCount|null|Necesario. Número máximo de reintentos permitidos por ejecución de función. `-1` significa que se reintentará indefinidamente.|
+|delayInterval|null|Retraso que se utiliza entre los reintentos con una estrategia `fixedDelay`.|
+|minimumInterval|null|Retraso entre reintentos mínimo al usar la estrategia `exponentialBackoff`.|
+|maximumInterval|null|Retraso entre reintentos máximo al usar la estrategia `exponentialBackoff`.| 
 
 ## <a name="sendgrid"></a>sendGrid
 

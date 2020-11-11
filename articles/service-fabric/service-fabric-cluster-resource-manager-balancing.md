@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 192aca589c3b1e660667dbe8377afe7802b56f17
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416270"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146201"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrio del clúster de Service Fabric
 Cluster Resource Manager de Service Fabric admite cambios dinámicos de carga, en respuesta a las incorporaciones y las eliminaciones de nodos o servicios. También corrige automáticamente las infracciones de restricciones y reequilibra el clúster de manera proactiva. ¿Pero con qué frecuencia se realizan estas acciones y qué las activa?
@@ -189,7 +189,7 @@ Seguramente puede ver adónde queremos llegar: Hay una cadena. En realidad no te
 
 <center>
 
-![Equilibrio conjunto de los servicios][Image4]
+![Diagrama que muestra cómo equilibrar los servicios juntos.][Image4]
 </center>
 
 Debido a esta cadena, es posible que un desequilibrio en las métrica 1-4 provoque el movimiento de las réplicas o instancias que pertenecen a los servicios 1-3. También sabemos que un desequilibrio en las métricas 1, 2 o 3 no puede ocasionar movimientos en Service4. No tendría sentido porque mover las réplicas o instancias que pertenecen a Service4 no afectará al equilibrio de las métricas 1-3.
@@ -198,7 +198,7 @@ Cluster Resource Manager averigua automáticamente qué servicios están relacio
 
 <center>
 
-![Equilibrio conjunto de los servicios][Image5]
+![Diagrama que muestra que Cluster Resource Manager determina qué servicios están relacionados.][Image5]
 </center>
 
 ## <a name="next-steps"></a>Pasos siguientes

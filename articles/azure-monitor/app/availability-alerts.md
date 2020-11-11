@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 300c4bcdb948665b2cdf4ce0eb429499208660b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970751"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043383"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidad
 
@@ -28,11 +28,11 @@ Las alertas ahora se habilitan automáticamente de forma predeterminada, pero pa
 
 1. Después de guardar la prueba de disponibilidad, en la pestaña de detalles, haga clic en el signo de puntos suspensivos junto a la prueba que acaba de realizar. Haga clic en “Editar alerta”.
 
-   ![Editar después de guardar](./media/availability-alerts/edit-alert.png)
+   ![Captura de pantalla que muestra la opción Editar alerta seleccionada en el menú.](./media/availability-alerts/edit-alert.png)
 
 2. Establezca el nivel de gravedad deseado, la descripción de la regla y lo más importante: el grupo de acciones con las preferencias de notificación que le gustaría usar para esta regla de alertas.
 
-   ![Editar después de guardar](./media/availability-alerts/set-action-group.png)
+   ![Captura de pantalla que muestra la página Administración de reglas en la que puede editar la regla.](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
 > Las alertas de disponibilidad creadas a través de esta experiencia están basadas en el estado. Esto significa que, cuando se cumplan los criterios de alerta, se generará una única alerta cuando el sitio se detecte como no disponible. Si el sitio sigue fuera de servicio la próxima vez que se evalúen los criterios de alerta, no se generará una nueva alerta. Por lo tanto, si el sitio estuvo fuera de servicio durante una hora y había configurado una alerta de correo electrónico, solo recibiría un correo electrónico cuando el sitio estuviera fuera de servicio y un correo electrónico posterior cuando se realizara una copia de seguridad del sitio. No recibiría alertas continuas recordándole que el sitio seguía sin estar disponible.

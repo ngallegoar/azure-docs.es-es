@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441375"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285849"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propiedades de un usuario de colaboración B2B de Azure Active Directory
 
@@ -43,7 +43,7 @@ Ahora, veamos cómo es un usuario de colaboración de B2B de Azure AD en Azure A
 
 ### <a name="before-invitation-redemption"></a>Antes del canje de la invitación
 
-Las cuentas de estado 1 y estado 2 resultan de los usuarios invitados que invitan a colaborar con el uso de las propias credenciales de los usuarios invitados. Cuando se envía inicialmente la invitación al usuario invitado, se crea una cuenta en el directorio. Esta cuenta no tiene ninguna credencial asociada, ya que la autenticación la realiza el proveedor de identidades del usuario invitado. La propiedad **Origen** de la cuenta de usuario invitado del directorio se establece en **Usuario invitado** . 
+Las cuentas de estado 1 y estado 2 resultan de los usuarios invitados que invitan a colaborar con el uso de las propias credenciales de los usuarios invitados. Cuando se envía inicialmente la invitación al usuario invitado, se crea una cuenta en el directorio. Esta cuenta no tiene ninguna credencial asociada, ya que la autenticación la realiza el proveedor de identidades del usuario invitado. La propiedad **Origen** de la cuenta de usuario invitado del directorio se establece en **Usuario invitado**. 
 
 ![Captura de pantalla que muestra las propiedades del usuario antes del canje de la oferta](media/user-properties/before-redemption.png)
 
@@ -51,11 +51,11 @@ Las cuentas de estado 1 y estado 2 resultan de los usuarios invitados que invita
 
 Una vez que el usuario invitado acepta la invitación, la propiedad **Origen** se actualiza según determine el proveedor de identidades del usuario invitado.
 
-Para los usuarios invitados en estado 1, el **origen** es **Azure Active Directory externo** .
+Para los usuarios invitados en estado 1, el **origen** es **Azure Active Directory externo**.
 
 ![Usuario invitado en estado 1 después de canjear la oferta](media/user-properties/after-redemption-state1.png)
 
-Para los usuarios invitados en estado 2, el **origen** es **Cuenta Microsoft** .
+Para los usuarios invitados en estado 2, el **origen** es **Cuenta Microsoft**.
 
 ![Usuario invitado en estado 2 después de canjear la oferta](media/user-properties/after-redemption-state2.png)
 
@@ -70,6 +70,8 @@ Esta propiedad indica la relación del usuario con el espacio host. Esta propied
 
   > [!NOTE]
   > UserType no tiene relación alguna con la forma en que el usuario inicia sesión, el rol de directorio del usuario, etc. Esta propiedad simplemente indica la relación del usuario con la organización host y permite a la organización exigir directivas que dependan de esta propiedad.
+
+Para obtener detalles relacionados con los precios, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
 
 ### <a name="source"></a>Source
 Esta propiedad indica la forma en que el usuario inicia sesión.

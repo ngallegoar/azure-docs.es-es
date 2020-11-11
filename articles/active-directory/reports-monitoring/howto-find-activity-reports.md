@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230626"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131061"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
 
@@ -48,7 +48,7 @@ El informe de registros de auditoría consolida los siguientes informes:
 
 ### <a name="filtering-on-audit-logs"></a>Filtrado por registros de auditoría
 
-Puede usar los filtros avanzados en el informe de auditoría para acceder a una categoría determinada de datos; para ello, especifíquela en el filtro **Categoría**. Por ejemplo, para ver todas las actividades relacionadas con los usuarios, seleccione la categoría**UserManagement**. 
+Puede usar los filtros avanzados en el informe de auditoría para acceder a una categoría determinada de datos; para ello, especifíquela en el filtro **Categoría**. Por ejemplo, para ver todas las actividades relacionadas con los usuarios, seleccione la categoría **UserManagement**. 
 
 Las categorías son:
 
@@ -69,7 +69,7 @@ Las categorías son:
 - RoleManagement
 - UserManagement
 
-También puede filtrar por un servicio específico mediante el filtro desplegable**Service** (Servicio). Por ejemplo, para obtener todos los eventos de auditoría relacionados con la administración de contraseñas de autoservicio, seleccione el filtro **Self-service Password Management** (Administración de contraseñas de autoservicio).
+También puede filtrar por un servicio específico mediante el filtro desplegable **Service** (Servicio). Por ejemplo, para obtener todos los eventos de auditoría relacionados con la administración de contraseñas de autoservicio, seleccione el filtro **Self-service Password Management** (Administración de contraseñas de autoservicio).
 
 Los servicios son:
 
@@ -149,7 +149,7 @@ Puede acceder a los informes acerca de las detecciones de riesgos observadas en 
 
 Descargue los registros de actividad (auditoría o inicios de sesión) y no veo todos los registros del tiempo que elegí. ¿Por qué? 
 
- ![Notificación](./media/troubleshoot-missing-data-download/01.png)
+ ![Captura de pantalla que muestra el botón Descargar en el informe de actividad.](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Causa
 
@@ -165,7 +165,7 @@ Puede sacar provecho de la [API de creación de informes de Azure AD](concept-re
 
 Realice algunas acciones en Azure Portal y esperaba ver los registros de auditoría de dichas acciones en la hoja `Activity logs > Audit Logs`, pero no los encuentro.
 
- ![Notificación](./media/troubleshoot-missing-audit-data/01.png)
+ ![Captura de pantalla que muestra el informe de actividad.](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>Causa
 
@@ -186,7 +186,7 @@ Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el regi
 
 Hace poco he iniciado sesión en Azure Portal y esperaba ver los registros de inicio de sesión de dichas acciones en la hoja `Activity logs > Sign-ins`, pero no los encuentro.
 
- ![Notificación](./media/troubleshoot-missing-audit-data/02.png)
+ ![Captura de pantalla que muestra los inicios de sesión de Azure Active Directory.](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Causa
 
@@ -207,7 +207,7 @@ Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el regi
 
 No puedo ver más de 30 días de datos de inicio de sesión y auditoría en Azure Portal. ¿Por qué? 
 
- ![Notificación](./media/troubleshoot-missing-audit-data/03.png)
+ ![Captura de pantalla que muestra el menú Fecha.](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Causa
 

@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/27/2020
-ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.date: 10/30/2020
+ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891399"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147242"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -72,6 +72,23 @@ En el siguiente vídeo se explican varias opciones de receptor diferentes para l
 **Usar TempDB:** De manera predeterminada, Data Factory utilizará una tabla temporal global para almacenar los datos como parte del proceso de carga. También puede desactivar la opción "Usar TempDB" y, en su lugar, pedir a Data Factory que almacene la tabla de almacenamiento temporal en una base de datos de usuario que se encuentra en la base de datos que se utiliza para este receptor.
 
 ![TempDB](media/data-flow/tempdb.png "TempDB")
+
+## <a name="cache-sink"></a>Receptor de caché
+ 
+Un *receptor de caché* se utiliza cuando un flujo de datos escribe datos en la memoria caché de Spark en lugar de en un almacén de datos. En los flujos de datos de asignación, puede hacer referencia a estos datos en el mismo flujo muchas veces con una *búsqueda en caché*. Esto resulta útil si desea hacer referencia a los datos como parte de una expresión, pero no desea unir explícitamente las columnas. Algunos ejemplos comunes en los que un receptor de caché puede ayudar son: buscar un valor máximo en un almacén de datos y buscar coincidencias de códigos de error en una base de datos de mensajes de error. 
+
+Para escribir en un receptor de caché, agregue una transformación de receptor y seleccione **Caché** como el tipo de receptor. A diferencia de otros tipos de receptor, no es necesario seleccionar un conjunto de datos ni un servicio vinculado porque no está escribiendo en un almacén externo. 
+
+![Selección del receptor de caché](media/data-flow/select-cache-sink.png "Selección del receptor de caché")
+
+En la configuración del receptor, tiene la opción de especificar las columnas de clave del receptor de caché. Se usan como condiciones de coincidencia cuando se utiliza la función `lookup()` en una búsqueda en caché. Si especifica columnas de clave, no puede usar la función `outputs()` en una búsqueda en caché. Para obtener más información sobre la sintaxis de búsqueda de caché, consulte [búsquedas en caché](concepts-data-flow-expression-builder.md#cached-lookup).
+
+![Columnas de clave del receptor de caché](media/data-flow/cache-sink-key-columns.png "Columnas de clave del receptor de caché")
+
+Por ejemplo, si se especifica una columna de clave única de `column1` en un receptor de caché denominado `cacheExample`, la llamada a `cacheExample#lookup()` tendría un parámetro para especificar con qué fila del receptor de caché debe coincidir. La función genera una única columna compleja con subcolumnas para cada columna asignada.
+
+> [!NOTE]
+> Un receptor de caché debe estar en un flujo de datos completamente independiente de cualquier transformación que haga referencia a este a través de una búsqueda en caché. Un receptor de caché también debe ser el primer receptor escrito. 
 
 ## <a name="field-mapping"></a>Asignación de campos
 

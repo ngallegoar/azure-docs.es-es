@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90838b0b613c043ae41a71c76b5e9023d21df3a6
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387275"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025857"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Inicio de sesión único de SAML para aplicaciones en el entorno local con Application Proxy
 
@@ -33,9 +33,9 @@ SSO de SAML con Application Proxy también funciona con la característica de ci
 
 Los diagramas de protocolos siguientes describen la secuencia de inicio de sesión único para un flujo iniciado por el proveedor de servicios y un flujo iniciado por el proveedor de identidades. Application Proxy funciona con el inicio de sesión único de SAML mediante el almacenamiento en caché de la solicitud y respuesta de SAML en la aplicación local y desde esta.
 
-  ![Flujo iniciado por el proveedor de servicios de SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
+  ![El diagrama muestra las interacciones de la aplicación, de Application Proxy, del cliente y de Azure AD para un inicio de sesión único iniciado por el proveedor de servicios.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
 
-  ![Flujo iniciado por el proveedor de servicios de SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
+  ![El diagrama muestra las interacciones de la aplicación, de Application Proxy, del cliente y de Azure AD para un inicio de sesión único iniciado por el proveedor de identidades.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
 
 ## <a name="create-an-application-and-set-up-saml-sso"></a>Creación de una aplicación y configuración del inicio de sesión único de SAML
 
@@ -72,7 +72,7 @@ Para proporcionar SSO para aplicaciones en el entorno local, tiene que habilitar
 
 1. Con la aplicación todavía abierta en Azure Portal, seleccione **Inicio de sesión único**. 
 
-2. En la página **Configurar el inicio de sesión único con SAML**, vaya al encabezado **Configuración básica de SAML** y seleccione el icono de **edición** (un lápiz). Asegúrese de que la **dirección URL externa** que configuró en Application Proxy rellenará los campos **Identificador**, **URL de respuesta** y **URL de cierre de sesión**. Estas direcciones URL son necesarias para que Application Proxy funcione correctamente. 
+2. En la página **Configurar el inicio de sesión único con SAML** , vaya al encabezado **Configuración básica de SAML** y seleccione el icono de **edición** (un lápiz). Asegúrese de que la **dirección URL externa** que configuró en Application Proxy rellenará los campos **Identificador** , **URL de respuesta** y **URL de cierre de sesión**. Estas direcciones URL son necesarias para que Application Proxy funcione correctamente. 
 
 3. Edite la **Dirección URL de respuesta** configurada anteriormente para que Application Proxy pueda acceder a su dominio a través de Internet. Por ejemplo, si la **dirección URL externa** es `https://contosotravel-f128.msappproxy.net` y la **URL de respuesta** original era `https://contosotravel.com/acs`, deberá actualizar la **URL de respuesta** original a `https://contosotravel-f128.msappproxy.net/acs`.
 

@@ -9,12 +9,12 @@ ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aac7357939ab2d14949c967630840ed6d267d251
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83714226"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145742"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Captura de un seguimiento del explorador para solucionar problemas
 
@@ -30,17 +30,17 @@ Google Chrome y Microsoft Edge (Chromium) se basan en el [proyecto de código ab
 
 1. En el portal, vaya al paso que se encuentra justo antes del problema.
 
-1. Presione F12 o seleccione ![Captura de pantalla del icono de configuración del explorador](media/capture-browser-trace/chromium-icon-settings.png) > **Más herramientas** > **Herramientas de desarrollo**.
+1. Presione F12 o seleccione ![Captura de pantalla que muestra el icono de configuración del explorador.](media/capture-browser-trace/chromium-icon-settings.png) > **Más herramientas** > **Herramientas de desarrollo**.
 
 1. De forma predeterminada, el explorador solo conserva la información de seguimiento de la página que está cargada actualmente. Establezca las siguientes opciones para que el explorador mantenga toda la información de seguimiento, incluso si la reproducción requiere ir a más de una página:
 
     1. Seleccione la pestaña **Red** y **Conservar registro**.
 
-          ![Captura de pantalla de "Conservar registro"](media/capture-browser-trace/chromium-network-preserve-log.png)
+          ![Captura de pantalla que resalta la opción Conservar registro en la pestaña Red.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. Seleccione la pestaña **Consola**, seleccione **Configuración de la consola** y, a continuación, seleccione **Conservar registro**. Vuelva a seleccionar **Configuración de la consola** para cerrar el panel de configuración.
+    1. Seleccione la pestaña **Consola** , seleccione **Configuración de la consola** y, a continuación, seleccione **Conservar registro**. Vuelva a seleccionar **Configuración de la consola** para cerrar el panel de configuración.
 
-          ![Captura de pantalla de "Conservar registro"](media/capture-browser-trace/chromium-console-preserve-log.png)
+          ![Captura de pantalla que resalta la opción Conservar registro en la pestaña Consola.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
 1. Seleccione la pestaña **Red** y, a continuación, seleccione **Dejar de grabar el registro de red** y **Borrar**.
 
@@ -48,21 +48,21 @@ Google Chrome y Microsoft Edge (Chromium) se basan en el [proyecto de código ab
 
 1. Seleccione **Grabar registro de red** y reproduzca el problema en el portal.
 
-    ![Captura de pantalla de "Inicio de la generación de perfiles"](media/capture-browser-trace/chromium-start-session.png)
+    ![Captura de pantalla que muestra cómo realizar el registro de red.](media/capture-browser-trace/chromium-start-session.png)
 
     Verá un resultado de sesión similar al de la imagen siguiente.
 
-    ![Captura de pantalla de los resultados de seguimiento del explorador](media/capture-browser-trace/chromium-browser-trace-results.png)
+    ![Captura de pantalla que muestra la salida de la sesión.](media/capture-browser-trace/chromium-browser-trace-results.png)
 
 1. Una vez que haya reproducido el comportamiento inesperado del portal, seleccione **Dejar de grabar el registro de red** y, a continuación, seleccione **Exportar HAR** y guarde el archivo.
 
-    ![Captura de pantalla de "Exportar HAR"](media/capture-browser-trace/chromium-network-export-har.png)
+    ![Captura de pantalla que muestra cómo exportar archivos HAR en la pestaña Red.](media/capture-browser-trace/chromium-network-export-har.png)
 
 1. Detenga la grabación de acciones y guarde el archivo.
 
 1. En el panel de herramientas de desarrollo del explorador, seleccione la pestaña **Consola**. Haga clic con el botón derecho en uno de los mensajes y, a continuación, seleccione **Guardar como...** y guarde la salida de la consola en un archivo de texto.
 
-    ![Captura de pantalla del resultado de la consola](media/capture-browser-trace/chromium-console-select.png)
+    ![Captura de pantalla en la que se resalta la pestaña Consola y el menú Guardar como.](media/capture-browser-trace/chromium-console-select.png)
 
 1. Empaquete el archivo HAR, el resultado de la consola y la grabación de pantalla en un formato comprimido como .zip, y comparta esta información con el soporte técnico de Microsoft.
 
@@ -76,7 +76,7 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo de 
 
 1. En el portal, vaya al paso que se encuentra justo antes del problema.
 
-1. Presione F12 o seleccione ![Captura de pantalla del icono de configuración del explorador](media/capture-browser-trace/edge-icon-settings.png) > **Más herramientas** > **Herramientas de desarrollo**.
+1. Presione F12 o seleccione ![Captura de pantalla del icono de configuración del explorador.](media/capture-browser-trace/edge-icon-settings.png) > **Más herramientas** > **Herramientas de desarrollo**.
 
 1. De forma predeterminada, el explorador solo conserva la información de seguimiento de la página que está cargada actualmente. Establezca las siguientes opciones para que el explorador mantenga toda la información de seguimiento, incluso si la reproducción requiere ir a más de una página:
 
@@ -98,7 +98,7 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo de 
 
     Verá un resultado de sesión similar al de la imagen siguiente.
 
-    ![Captura de pantalla de los resultados de seguimiento del explorador](media/capture-browser-trace/edge-browser-trace-results.png)
+    ![Captura de pantalla que muestra la salida de la sesión de generación de perfiles.](media/capture-browser-trace/edge-browser-trace-results.png)
 
 1. Una vez que haya reproducido el comportamiento inesperado del portal, seleccione **Detener la sesión de generación de perfiles** y, a continuación, seleccione **Exportar como HAR** y guarde el archivo.
 
@@ -108,7 +108,7 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo de 
 
 1. En el panel de herramientas de desarrollo del explorador, seleccione la pestaña **Consola** y expanda la ventana. Coloque el cursor al principio del resultado de la consola y, a continuación, arrastre y seleccione todo el contenido del resultado. Haga clic con el botón derecho y seleccione **Copiar** y guarde el resultado de la consola en un archivo de texto.
 
-    ![Captura de pantalla del resultado de la consola](media/capture-browser-trace/edge-console-select.png)
+    ![Captura de pantalla que resalta la opción de menú Copiar.](media/capture-browser-trace/edge-console-select.png)
 
 1. Empaquete el archivo HAR, el resultado de la consola y la grabación de pantalla en un formato comprimido como .zip, y comparta esta información con el soporte técnico de Microsoft.
 
@@ -140,11 +140,11 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo en 
 
     1. Seleccione la pestaña **Red** y **Conservar registro**.
 
-          ![Captura de pantalla de "Conservar registro"](media/capture-browser-trace/safari-network-preserve-log.png)
+          ![Captura de pantalla que muestra la opción Conservar registro.](media/capture-browser-trace/safari-network-preserve-log.png)
 
     1. Seleccione la pestaña **Consola** y **Conservar registro**.
 
-          ![Captura de pantalla de "Conservar registro"](media/capture-browser-trace/safari-console-preserve-log.png)
+          ![Captura de pantalla que muestra la opción Conservar registro en la pestaña Consola.](media/capture-browser-trace/safari-console-preserve-log.png)
 
 1. Seleccione la pestaña **Red** y **Borrar elementos de red**.
 
@@ -152,7 +152,7 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo en 
 
 1. Reproduzca el problema en el portal. Verá un resultado de sesión similar al de la imagen siguiente.
 
-    ![Captura de pantalla de los resultados de seguimiento del explorador](media/capture-browser-trace/safari-browser-trace-results.png)
+    ![Captura de pantalla que muestra la salida después de reproducir el problema.](media/capture-browser-trace/safari-browser-trace-results.png)
 
 1. Una vez que haya reproducido el comportamiento inesperado del portal, seleccione **Exportar** y guarde el archivo.
 
@@ -162,7 +162,7 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo en 
 
 1. En el panel de herramientas de desarrollo del explorador, seleccione la pestaña **Consola** y expanda la ventana. Coloque el cursor al principio del resultado de la consola y, a continuación, arrastre y seleccione todo el contenido del resultado. Use Comando-C para copiar el resultado y guárdelo en un archivo de texto.
 
-    ![Captura de pantalla del resultado de la consola](media/capture-browser-trace/safari-console-select.png)
+    ![Captura de pantalla que resalta que puede ver y copiar la salida.](media/capture-browser-trace/safari-console-select.png)
 
 1. Empaquete el archivo HAR, el resultado de la consola y la grabación de pantalla en un formato comprimido como .zip, y comparta esta información con el soporte técnico de Microsoft.
 
@@ -182,9 +182,9 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo en 
 
     1. Seleccione la pestaña **Red** y, a continuación, **Conservar los registros**.
 
-          ![Captura de pantalla de "Conservar los registros"](media/capture-browser-trace/firefox-network-persist-logs.png)
+          ![Captura de pantalla que resalta la opción Conservar los registros.](media/capture-browser-trace/firefox-network-persist-logs.png)
 
-    1. Seleccione la pestaña **Consola**, seleccione **Configuración de la consola** y, después, **Conservar los registros**.
+    1. Seleccione la pestaña **Consola** , seleccione **Configuración de la consola** y, después, **Conservar los registros**.
 
           ![Captura de pantalla de "Conservar los registros"](media/capture-browser-trace/firefox-console-persist-logs.png)
 

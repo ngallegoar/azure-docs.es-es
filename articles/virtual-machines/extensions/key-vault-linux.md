@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fa6f569a1a857c09f1e7d1173a5948b1747c05ed
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 2d5a6949c5dbe1e4c3c668dcb9eae6e51e5806f7
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124368"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926043"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Key Vault para Linux
 
@@ -62,7 +62,7 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
           "linkOnRenewal": <Not available on Linux e.g.: false>,
           "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
-          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"]>
         },
         "authenticationSettings": {
                 "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
@@ -79,7 +79,7 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
 > Esto se debe a que la ruta de acceso `/secrets` devuelve el certificado completo, incluida la clave privada, mientras que la ruta de acceso `/certificates` no. Se puede encontrar más información sobre los certificados aquí: [Certificados de Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> La propiedad "authenticationSettings" es **necesaria** solo para máquinas virtuales con **identidades asignadas por el usuario** .
+> La propiedad "authenticationSettings" es **necesaria** solo para máquinas virtuales con **identidades asignadas por el usuario**.
 > Especifica la identidad que se usará para la autenticación en Key Vault.
 
 
@@ -96,7 +96,7 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
 | requiredInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matriz de cadenas
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | matriz de cadenas
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
@@ -152,7 +152,7 @@ Azure PowerShell puede usarse para implementar la extensión de máquina virtual
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
         $extName =  "KeyVaultForLinux"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForLinux"
@@ -172,7 +172,7 @@ Azure PowerShell puede usarse para implementar la extensión de máquina virtual
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
         $extName = "KeyVaultForLinux"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForLinux"
@@ -198,7 +198,7 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
-         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
+         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
 * Para implementar la extensión en un conjunto de escalado de máquinas virtuales:
@@ -209,40 +209,47 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
         --vm-name "<vmName>" `
-        --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
+        --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 Tenga en cuenta las restricciones y los requisitos siguientes:
 - Restricciones de Key Vault:
   - Debe existir en el momento de la implementación. 
   - La directiva de acceso de Key Vault debe estar establecida para la identidad de VM/VMSS mediante una identidad administrada. Consulte [Autenticación en Key Vault](../../key-vault/general/authentication.md) y [Asignación de una directiva de acceso de Key Vault](../../key-vault/general/assign-access-policy-cli.md).
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
+### <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+* ¿Hay un límite en el número de observedCertificates que se pueden configurar?
+  No, la extensión de VM de Key Vault no tiene un límite para el número de observedCertificates.
+
 
 ### <a name="troubleshoot"></a>Solución de problemas
 
 Los datos sobre el estado de las implementaciones de extensiones pueden recuperarse desde Azure Portal y mediante Azure PowerShell. Para ver el estado de implementación de las extensiones de una máquina virtual determinada, ejecute el comando siguiente con Azure PowerShell.
 
-### <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-
-* ¿Hay un límite en el número de observedCertificates que se pueden configurar?
-  No, la extensión de VM de Key Vault no tiene un límite para el número de observedCertificates.
-  
-## <a name="azure-powershell"></a>Azure PowerShell
+**Azure PowerShell**
 ```powershell
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+**CLI de Azure**
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
-### <a name="logs-and-configuration"></a>Registros y configuración
+#### <a name="logs-and-configuration"></a>Registros y configuración
 
 ```
 /var/log/waagent.log
 /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*
 /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*
 ```
+### <a name="using-symlink"></a>Uso de vínculos simbólicos
+
+Básicamente, los vínculos simbólicos o Symlinks son métodos abreviados avanzados. Para evitar supervisar la carpeta y obtener el certificado más reciente automáticamente, puede usar este vínculo simbólico `([VaultName].[CertificateName])` para obtener la versión más reciente del certificado en Linux.
+
+### <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+* ¿Hay un límite en el número de observedCertificates que se pueden configurar?
+  No, la extensión de VM de Key Vault no tiene un límite para el número de observedCertificates.
 
 ### <a name="support"></a>Soporte técnico
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: af3d9e9fcf0dad6a5e51a3db87b63567d701970e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2f3635c8280bdd95e8ad1259fe4ae35f8b531a4
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687997"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042829"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configuración de la preferencia de enrutamiento de una VM mediante Azure Portal
 
@@ -43,7 +43,7 @@ Inicie sesión en [Azure Portal](https://preview.portal.azure.com/).
 
 1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
 2. Seleccione **Proceso** y, luego, **Máquina virtual de Windows Server 2016** u otro sistema operativo de su elección.
-3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
+3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar** :
 
     |Configuración|Value|
     |---|---|
@@ -55,8 +55,8 @@ Inicie sesión en [Azure Portal](https://preview.portal.azure.com/).
     |Location| Seleccione **Este de EE. UU**.|
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
-5. En la pestaña de **redes**, haga clic en **Crear nueva** para crear una **dirección IP pública**.
-6. Escriba *myPublicIpAddress*, seleccione una SKU como **estándar** y, a continuación, seleccione **Internet** como preferencia de enrutamiento; una vez hecho esto, presione **Aceptar**, tal como se muestra en la siguiente imagen:
+5. En la pestaña de **redes** , haga clic en **Crear nueva** para crear una **dirección IP pública**.
+6. Escriba *myPublicIpAddress* , seleccione una SKU como **estándar** y, a continuación, seleccione **Internet** como preferencia de enrutamiento; una vez hecho esto, presione **Aceptar** , tal como se muestra en la siguiente imagen:
 
    ![Selección de estática](./media/tutorial-routing-preference-virtual-machine-portal/routing-preference-internet-new.png)
 
@@ -65,14 +65,15 @@ Inicie sesión en [Azure Portal](https://preview.portal.azure.com/).
    ![Selección de un puerto](./media/tutorial-routing-preference-virtual-machine-portal/pip-ports-new.png)
 
 7. Acepte los valores predeterminados restantes y seleccione **Aceptar**.
-8. En la página **Resumen**, seleccione **Crear**. La máquina virtual tarda minutos en crearse.
+8. En la página **Resumen** , seleccione **Crear**. La máquina virtual tarda minutos en crearse.
 9. Una vez implementada la máquina virtual, escriba *myPublicIpAddress* en el cuadro de búsqueda de la parte superior del portal. Cuando **myPublicIpAddress** aparezca en los resultados de búsqueda, selecciónela.
-10. Puede ver la dirección IP pública asignada, y que la dirección se asigna a la máquina virtual **myVM**, como se muestra en la siguiente imagen:
+10. Puede ver la dirección IP pública asignada, y que la dirección se asigna a la máquina virtual **myVM** , como se muestra en la siguiente imagen:
 
-    ![Ver dirección IP pública](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    ![Captura de pantalla que muestra la IP pública de la NIC para la interfaz de red mynic.](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
-11. Seleccione **Redes** y haga clic en el valor NIC **mynic**; a continuación, seleccione la dirección IP pública para confirmar que la preferencia de enrutamiento está asignada como **Internet**.
-    ![Ver dirección IP pública](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+11. Seleccione **Redes** y haga clic en el valor NIC **mynic** ; a continuación, seleccione la dirección IP pública para confirmar que la preferencia de enrutamiento está asignada como **Internet**.
+
+    ![En la captura de pantalla se muestra la dirección IP y la preferencia de enrutamiento de una dirección IP pública.](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

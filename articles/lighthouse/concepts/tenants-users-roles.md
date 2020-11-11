@@ -1,16 +1,16 @@
 ---
-title: Inquilinos, roles y usuarios en escenarios de Azure Lighthouse
+title: Inquilinos, usuarios y roles en escenarios de Azure Lighthouse
 description: Comprenda los conceptos de los inquilinos, los usuarios y los roles de Azure Active Directory, así como la forma en que se pueden usar en escenarios de Azure Lighthouse.
-ms.date: 07/03/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424112"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043037"
 ---
-# <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, roles y usuarios en escenarios de Azure Lighthouse
+# <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Inquilinos, usuarios y roles en escenarios de Azure Lighthouse
 
 Antes de incorporar clientes para [Azure Lighthouse](../overview.md), es importante comprender cómo funcionan los inquilinos, los usuarios y los roles de Azure Active Directory (Azure AD), así como la forma en que se pueden usar en escenarios de Azure Lighthouse.
 
@@ -19,6 +19,18 @@ Un *inquilino* es una instancia dedicada y de confianza de Azure AD. Normalment
 Para lograr esta proyección lógica, una suscripción (o uno o varios grupos de recursos dentro de una suscripción) en el inquilino del cliente tiene que estar *incorporado* a Azure Lighthouse. Este proceso de incorporación puede realizarse [a través de plantillas de Azure Resource Manager](../how-to/onboard-customer.md) o [mediante la publicación de una oferta pública o privada en Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
 Sea cual sea el método de incorporación que elija, tendrá que definir las *autorizaciones*. Cada autorización especifica una cuenta de usuario en el inquilino de administración que tendrá acceso a los recursos delegados y a un rol integrado que establece los permisos que cada uno de estos usuarios tendrá en relación con estos recursos.
+
+## <a name="best-practices-for-defining-users-and-roles"></a>Prácticas recomendadas para definir usuarios y roles
+
+Para crear las autorizaciones, se recomiendan las siguientes prácticas recomendadas:
+
+- En la mayoría de los casos, querrá asignar permisos a una entidad de servicio o un grupo de usuarios de Azure AD, en lugar de a una serie de cuentas de usuario individuales. Esto le permite agregar o quitar el acceso de usuarios individuales sin tener que actualizar y volver a publicar el plan cuando cambien los requisitos de acceso.
+- Asegúrese de seguir el principio de privilegios mínimos para que los usuarios solo tengan los permisos necesarios para completar su trabajo, lo que ayuda a reducir la posibilidad de errores involuntarios. Para más información, consulte [Procedimientos de seguridad recomendados](../concepts/recommended-security-practices.md).
+- Incluya un usuario con el [rol de eliminación de asignaciones de registro de los servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que pueda [quitar el acceso a la delegación](../how-to/remove-delegation.md) posteriormente si es necesario. Si este rol no está asignado, solo un usuario puede quitar los recursos delegados del inquilino del cliente.
+- Asegúrese de que todos los usuarios que necesiten [ver la página Mis clientes en Azure Portal](../how-to/view-manage-customers.md) tengan el rol de [Lector](../../role-based-access-control/built-in-roles.md#reader) (u otro rol integrado que incluya acceso de lectura).
+
+> [!IMPORTANT]
+> Para agregar permisos a un grupo de Azure AD, el **Tipo de grupo** debe establecerse en **Seguridad**. Esta opción se selecciona cuando se crea el grupo. Para obtener más información vea [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="role-support-for-azure-lighthouse"></a>Compatibilidad de roles para Azure Lighthouse
 
@@ -32,18 +44,6 @@ Todos los [roles integrados](../../role-based-access-control/built-in-roles.md) 
 
 > [!NOTE]
 > Una vez que se agrega un nuevo rol integrado aplicable a Azure, se puede asignar al [incorporar clientes mediante las plantillas de Azure Resource Manager](../how-to/onboard-customer.md). Puede haber un retraso antes de que el rol recién agregado esté disponible en el Centro de partners cuando [se publique una oferta de servicio administrado](../how-to/publish-managed-services-offers.md).
-
-## <a name="best-practices-for-defining-users-and-roles"></a>Prácticas recomendadas para definir usuarios y roles
-
-Para crear las autorizaciones, se recomiendan las siguientes prácticas recomendadas:
-
-- En la mayoría de los casos, querrá asignar permisos a una entidad de servicio o un grupo de usuarios de Azure AD, en lugar de a una serie de cuentas de usuario individuales. Esto le permite agregar o quitar el acceso de usuarios individuales sin tener que actualizar y volver a publicar el plan cuando cambien los requisitos de acceso.
-- Asegúrese de seguir el principio de privilegios mínimos para que los usuarios solo tengan los permisos necesarios para completar su trabajo, lo que ayuda a reducir la posibilidad de errores involuntarios. Para más información, consulte [Procedimientos de seguridad recomendados](../concepts/recommended-security-practices.md).
-- Incluya un usuario con el [rol de eliminación de asignaciones de registro de los servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que pueda [quitar el acceso a la delegación](../how-to/remove-delegation.md) posteriormente si es necesario. Si este rol no está asignado, solo un usuario puede quitar los recursos delegados del inquilino del cliente.
-- Asegúrese de que todos los usuarios que necesiten [ver la página Mis clientes en Azure Portal](../how-to/view-manage-customers.md) tengan el rol de [Lector](../../role-based-access-control/built-in-roles.md#reader) (u otro rol integrado que incluya acceso de lectura).
-
-> [!IMPORTANT]
-> Para agregar permisos a un grupo de Azure AD, el **Tipo de grupo** debe establecerse en **Seguridad**. Esta opción se selecciona cuando se crea el grupo. Para obtener más información vea [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

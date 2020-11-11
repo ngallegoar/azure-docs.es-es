@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b7ea61a1f09a9340661f333e452f70c5ad8cf877
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 496c5de8f9ead0773dfef7e65051344645ffa9de
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266653"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041979"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Administración de puntos de conexión de streaming con el Portal de Azure
 
@@ -38,9 +38,9 @@ Para obtener información sobre cómo escalar el punto de conexión de streaming
 Para comenzar a administrar puntos de conexión de streaming de su cuenta, haga lo siguiente.
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
-2. En la hoja **Configuración**, haga clic en **Puntos de conexión de streaming**.
+2. En la hoja **Configuración** , haga clic en **Puntos de conexión de streaming**.
    
-    ![extremo de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+    ![Captura de pantalla que muestra la página "Media Services" con "Puntos de conexión de streaming" seleccionado en la hoja "Configuración".](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
 > Solo se le cobrará cuando StreamingEndpoint esté en estado en ejecución.
@@ -59,7 +59,7 @@ Para agregar/quitar el punto de conexión de streaming mediante el Portal de Azu
 2. Para eliminar un punto de conexión de streaming, haga clic en el botón **Eliminar** .      
 3. Haga clic en el botón **Iniciar** para iniciar el punto de conexión de streaming.
    
-    ![extremo de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    ![Captura de pantalla que muestra la acción "Punto de conexión" seleccionada y el panel "Detalles del punto de conexión de streaming".](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
 ## <a name="configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configuración del extremo de streaming
@@ -81,7 +81,7 @@ Puede configurar el punto de conexión de streaming haciendo lo siguiente:
 
 Aparecerá una breve descripción de los campos.
 
-![extremo de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![Captura de pantalla que muestra la acción "Configuración" seleccionada para el punto de conexión de streaming.](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
 1. Directiva de caché máximo: se usa para configurar la duración de la caché de los recursos entregados a través de este punto de conexión de streaming. Si no se establece ningún valor, se utiliza el valor predeterminado. Los valores predeterminados también pueden definirse directamente en el almacenamiento de Azure. Si Azure CDN está habilitado para el punto de conexión de streaming, no debe establecer el valor de la directiva de caché en menos de 600 segundos.  
 2. Direcciones IP permitidas: especifique las direcciones IP que podrán conectarse al punto de conexión de streaming publicado. Si no se especificaron direcciones IP, cualquier dirección IP se podrá conectar. Las direcciones IP se pueden especificar como una dirección IP única (por ejemplo, 10.0.0.1), un intervalo de IP que usa una dirección IP y una máscara de subred CIDR (por ejemplo, 10.0.0.1/22) o un intervalo de IP que usa una máscara de subred decimal con puntos; por ejemplo, 10.0.0.1(255.255.255.0).
@@ -99,7 +99,7 @@ Si más adelante desea volver a habilitar o deshabilitar la red CDN, punto de co
 
 La integración de la red CDN está habilitada en todos los centros de datos de Azure excepto las regiones de China y el Gobierno Federal.
 
-Una vez habilitada, la configuración de **Access Control**, del **nombre de host personalizado y de la **autenticación de firma de Akamai** se deshabilita.
+Una vez habilitada, la configuración de **Access Control** , del **nombre de host personalizado y de la **autenticación de firma de Akamai** se deshabilita.
  
 > [!IMPORTANT]
 > La integración de Azure Media Services con Azure CDN se implementa en **Azure CDN de Verizon** para puntos de conexión de streaming estándar. Los puntos de conexión de streaming premium pueden configurarse con todos los **proveedores y planes de tarifa de Azure CDN**. Para obtener más información sobre las características de Azure CDN, consulte la [información general de la red CDN](../../cdn/cdn-overview.md).

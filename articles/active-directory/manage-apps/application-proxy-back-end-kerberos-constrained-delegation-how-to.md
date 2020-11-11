@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: b18eb0f8d57c06e82d243c10bf038a861bcf88d1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568732"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042700"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas de las configuraciones de delegación restringida de Kerberos para el proxy de aplicación
 
@@ -51,7 +51,7 @@ El mejor lugar para colocar los conectores es lo más cerca posible de sus desti
 
 ¿Qué muestra un problema de KCD? Hay varias indicaciones comunes de que el SSO de KCD está fallando. Los primeros signos de un problema aparecen en el navegador.
 
-![Ejemplo: Error de configuración de KCD incorrecta](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Captura de pantalla que muestra un ejemplo de un error de configuración de KCD incorrecta, con el error "Delegación restringida de Kerberos incorrecta" resaltado.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
 ![Ejemplo: No se pudo autorizar por falta de permisos](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
@@ -102,9 +102,9 @@ Es el consumidor del vale de Kerberos que proporciona el conector. En esta fase,
 
 1. Mediante la dirección URL interna de la aplicación definida en el portal, compruebe que la aplicación sea accesible directamente desde el explorador en el host de conector. Entonces podrá iniciar sesión correctamente. Encontrará detalles sobre el conector en la página de **solución de problemas**.
 1. Todavía en el host de conector, confirme que la autenticación entre el explorador y la aplicación esté utilizando Kerberos. Para ello, realice las siguientes acciones:
-1. Ejecute DevTools (**F12**) en Internet Explorer o use [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) desde el host de conector. Use la dirección URL interna para ir a la aplicación. Inspeccione los encabezados de autorización WWW ofrecidos que se devuelven en la respuesta de la aplicación, para asegurarse de que Negotiate o Kerberos esté presente.
+1. Ejecute DevTools ( **F12** ) en Internet Explorer o use [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) desde el host de conector. Use la dirección URL interna para ir a la aplicación. Inspeccione los encabezados de autorización WWW ofrecidos que se devuelven en la respuesta de la aplicación, para asegurarse de que Negotiate o Kerberos esté presente.
 
-   - El siguiente blob de Kerberos que devuelve el explorador en respuesta a la aplicación, comienza con **YII**. Estas letras indican que Kerberos se está ejecutando. Por otra parte, Microsoft NT LAN Manager (NTLM) siempre empieza por **TlRMTVNTUAAB**, que se convierte en el Proveedor de compatibilidad para seguridad de NTLM (NTLMSSP) cuando se descodifica desde Base64. Si ve **TlRMTVNTUAAB** al principio del blob, significa que Kerberos no está disponible. Si no ve **TlRMTVNTUAAB**, es probable que Kerberos esté disponible.
+   - El siguiente blob de Kerberos que devuelve el explorador en respuesta a la aplicación, comienza con **YII**. Estas letras indican que Kerberos se está ejecutando. Por otra parte, Microsoft NT LAN Manager (NTLM) siempre empieza por **TlRMTVNTUAAB** , que se convierte en el Proveedor de compatibilidad para seguridad de NTLM (NTLMSSP) cuando se descodifica desde Base64. Si ve **TlRMTVNTUAAB** al principio del blob, significa que Kerberos no está disponible. Si no ve **TlRMTVNTUAAB** , es probable que Kerberos esté disponible.
 
       > [!NOTE]
       > Si usa Fiddler, este método requiere deshabilitar temporalmente la protección ampliada en la configuración de la aplicación en IIS.
@@ -115,7 +115,7 @@ Es el consumidor del vale de Kerberos que proporciona el conector. En esta fase,
 
 1. Elimine temporalmente NTLM de la lista de proveedores en el sitio de IIS. Acceda a la aplicación directamente desde Internet Explorer en el host del conector. NTLM ya no se encuentra en la lista de proveedores. Puede acceder a la aplicación usando solo Kerberos. Si el acceso falla, puede haber un problema con la configuración de la aplicación. La autenticación Kerberos no funciona.
 
-   - Si Kerberos no está disponible, compruebe la configuración de autenticación de la aplicación en IIS. Asegúrese de que **Negotiate** aparece en la parte superior, con NTLM justo debajo de él. Si ve **No negociar**, **Kerberos o Negotiate**, o **PKU2U**, continúe solo si Kerberos funciona.
+   - Si Kerberos no está disponible, compruebe la configuración de autenticación de la aplicación en IIS. Asegúrese de que **Negotiate** aparece en la parte superior, con NTLM justo debajo de él. Si ve **No negociar** , **Kerberos o Negotiate** , o **PKU2U** , continúe solo si Kerberos funciona.
 
      ![Proveedores de autenticación de Windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
 
@@ -152,7 +152,7 @@ Para obtener más información, consulte [Purge the Kerberos client ticket cache
 
 Si deja el modo Kernel habilitado, mejora el rendimiento de las operaciones de Kerberos. Asimismo, también provoca que el vale del servicio solicitado se descifre mediante la cuenta de la máquina. Esta cuenta también se llama Sistema Local. Establezca este valor en **True**  para interrumpir el proceso de KCD cuando la aplicación esté alojada en más de un servidor de una granja de servidores.
 
-- Como comprobación adicional, deshabilite también la protección **extendida**. En algunos casos, la protección **extendida** interrumpe el proceso de KCD cuando se habilita en configuraciones específicas. En esos casos, una aplicación se publica como una subcarpeta del sitio web predeterminado. Esta aplicación está configurada para que solo pueda realizarse una autenticación anónima. Además, todos los cuadros de diálogo están atenuados, lo que sugiere que los objetos secundarios no heredarán ninguna configuración activa. Es recomendable que haga pruebas con esto, pero no olvide restaurar este valor a **habilitado**, cuando le sea posible.
+- Como comprobación adicional, deshabilite también la protección **extendida**. En algunos casos, la protección **extendida** interrumpe el proceso de KCD cuando se habilita en configuraciones específicas. En esos casos, una aplicación se publica como una subcarpeta del sitio web predeterminado. Esta aplicación está configurada para que solo pueda realizarse una autenticación anónima. Además, todos los cuadros de diálogo están atenuados, lo que sugiere que los objetos secundarios no heredarán ninguna configuración activa. Es recomendable que haga pruebas con esto, pero no olvide restaurar este valor a **habilitado** , cuando le sea posible.
 
   Este control adicional le permite usar la aplicación publicada. Puede poner en marcha conectores adicionales que también están configurados para realizar procesos de delegado. Para obtener más información, lea la guía técnica detallada, [Troubleshooting the Azure AD Application Proxy](https://aka.ms/proxytshootpaper) (Solución de problemas del Proxy de aplicación Azure AD).
 

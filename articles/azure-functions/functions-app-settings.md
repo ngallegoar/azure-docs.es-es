@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165780"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043227"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -207,7 +207,7 @@ Para más información, vea [Dependencias personalizadas](functions-reference-py
 
 ## <a name="scale_controller_logging_enable"></a>SCALE\_CONTROLLER\_LOGGING\_ENABLE
 
-_Esta configuración se encuentra actualmente en versión preliminar_ .  
+_Esta configuración se encuentra actualmente en versión preliminar_.  
 
 Esta configuración controla el registro del controlador de escala de Azure Functions. Para más información, vea [Registros del controlador de escala](functions-monitoring.md#scale-controller-logs).
 
@@ -226,6 +226,14 @@ Solo para los planes de consumo y Premium. Cadena de conexión para la cuenta de
 |Clave|Valor de ejemplo|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[nombre];AccountKey=[clave]|
+
+## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
+
+Solo para planes Premium. Un valor de `1` permite escalar la aplicación de funciones cuando tiene una cuenta de almacenamiento restringida a una red virtual. Debe habilitar esta opción al restringir la cuenta de almacenamiento a una red virtual. Para obtener más información, consulte [Restricción de la cuenta de almacenamiento a una red virtual](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+
+|Clave|Valor de ejemplo|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 

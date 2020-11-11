@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 19abb3f12dc1a0fd2a3dff548ecdc9e7fff47659
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978788"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927675"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -135,11 +135,11 @@ En el caso de /hana/shared, también se recomienda el uso de [Azure NetApp Files
 
 El diseño básico habitual de un solo nodo en una configuración de escalabilidad horizontal será similar a la siguiente:
 
-![Conceptos básicos de escalabilidad horizontal de un solo nodo](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
+![Diagrama que muestra un diseño básico habitual de un solo nodo en una configuración de escalabilidad horizontal.](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 La configuración básica de un nodo de máquina virtual para escalabilidad horizontal de SAP HANA presenta este aspecto:
 
-- Con **/hana/shared**, usará el servicio NFS nativo que se proporciona mediante Azure NetApp Files. 
+- Con **/hana/shared** , usará el servicio NFS nativo que se proporciona mediante Azure NetApp Files. 
 - Todos los demás volúmenes de disco no se comparten entre los diferentes nodos y no se basan en NFS. Más adelante en este documento se proporcionan las configuraciones de instalación y los pasos para la escalabilidad horizontal de instalaciones HANA con los recursos no compartidos **/hana/data** y **/hana/log**. Para conocer el almacenamiento certificado para HANA que se puede usar, consulte el artículo [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md).
 
 

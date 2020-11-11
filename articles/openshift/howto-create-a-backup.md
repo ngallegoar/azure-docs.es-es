@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 264778d2d6d1ee0119ad8622043b7cd3a1088ec1
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078585"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280130"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Creación de una copia de seguridad de aplicaciones del clúster de Red Hat OpenShift en Azure 4
 
@@ -23,7 +23,10 @@ En este artículo, prepará el entorno para crear una copia de seguridad de apli
 > * Configurar los requisitos previos e instalar las herramientas necesarias
 > * Creación de una copia de seguridad de aplicaciones de Red Hat OpenShift 4 en Azure
 
-Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+> [!NOTE] 
+> Velero no realiza copias de seguridad de los datos del almacén de pares clave-valor etcd de Red Hat OpenShift en Azure. Si necesita realizar una copia de seguridad de etcd, consulte [Copia de seguridad de etcd](https://docs.openshift.com/container-platform/4.5/backup_and_restore/backing-up-etcd.html).
+
+Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -60,7 +63,7 @@ az storage container create -n $BLOB_CONTAINER --public-access off --account-nam
 Velero necesita permisos para realizar copias de seguridad y restauraciones. Al crear una entidad de servicio, se le está asignando el permiso de Velero para acceder al grupo de recursos que definió en el paso anterior. Este paso obtendrá el grupo de recursos del clúster:
 
 ```bash
-export AZURE_RESOURCE_GROUP=aro-$(az aro show --name <name of cluster> --resource-group <name of resource group> | jq -r '.clusterProfile.domain')
+export AZURE_RESOURCE_GROUP=$(az aro show --name <name of cluster> --resource-group <name of resource group> | jq -r .clusterProfile.resourceGroupId | cut -d '/' -f 5,5)
 ```
 
 

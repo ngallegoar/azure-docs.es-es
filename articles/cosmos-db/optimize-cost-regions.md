@@ -5,49 +5,39 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 047e2855949b800a88ca87bcc50e0df06f420aa8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 10/23/2020
+ms.openlocfilehash: 010ca40f4f3aacd6353aecd150e944672cc09066
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475505"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097522"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimización del costo de varias regiones de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Puede agregar regiones a la cuenta de Azure Cosmos o eliminarlas en cualquier momento. La capacidad de proceso que se configura para varias bases de datos y contenedores de Azure Cosmos se reserva en cada región asociada a la cuenta. Si la capacidad de proceso aprovisionada por hora, que es la suma de RU/s configurada en todos los contenedores y las bases de datos para su cuenta de Azure Cosmos, es `T` y el número de regiones de Azure asociado a la cuenta de la base de datos es `N`, la capacidad de proceso aprovisionada para la cuenta de Cosmos para una hora determinada es:
-
-1. `T x N RU/s` si su cuenta de Azure Cosmos está configurada con una región de escritura. 
-
-1. `T x (N+1) RU/s` si su cuenta de Azure Cosmos está configurada con todas las regiones con capacidad de procesar escritura. 
+Puede agregar regiones a la cuenta de Azure Cosmos o eliminarlas en cualquier momento. La capacidad de proceso que se configura para varias bases de datos y contenedores de Azure Cosmos se reserva en cada región asociada a la cuenta. Si el rendimiento aprovisionado por hora, que es la suma de RU/s configurada en todos los contenedores y las bases de datos para su cuenta de Azure Cosmos, es `T` y el número de regiones de Azure asociado a la cuenta de la base de datos es `N`, el rendimiento aprovisionado para la cuenta de Cosmos para una hora determinada es `T x N RU/s`.
 
 La capacidad de proceso con una sola región de escritura cuesta 0,008 USD/hora por cada 100 RU/s y la capacidad de proceso aprovisionada con varias regiones de escritura cuesta 0,016 USD/hora por cada 100 RU/s. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) de Azure Cosmos DB.
 
 ## <a name="costs-for-multiple-write-regions"></a>Costos para varias regiones de escritura
 
-En un sistema de escrituras en varias regiones, las RU disponibles netas para las operaciones de escritura aumentan `N` veces, donde `N` es el número de regiones de escritura. A diferencia de la arquitectura con una sola región de escritura, ahora se podrá escribir en todas las regiones y estas admitirán la resolución de conflictos. La carga de trabajo de escritura ha aumentado. Desde el punto de vista de la planificación de los costos, para realizar escrituras por valor de `M` RU/s por todo el mundo, es necesario aprovisionar M `RUs` en un nivel de contenedor o base de datos. A continuación, puede agregar tantas regiones como desee y usarlas para la escritura global por valor de `M` RU. 
+En un sistema de escrituras en varias regiones, las RU disponibles netas para las operaciones de escritura aumentan `N` veces, donde `N` es el número de regiones de escritura. A diferencia de la arquitectura con una sola región de escritura, ahora se puede escribir en todas las regiones y estas admiten la resolución de conflictos. Desde el punto de vista de la planificación de los costos, para realizar escrituras por valor de `M` RU/s por todo el mundo, es necesario aprovisionar M `RUs` en un nivel de contenedor o base de datos. A continuación, puede agregar tantas regiones como desee y usarlas para la escritura global por valor de `M` RU.
 
 ### <a name="example"></a>Ejemplo
 
-Imagine que tiene un contenedor en la región Oeste de EE. UU. con una capacidad de proceso aprovisionada de 10 000 RU/s y almacena 1 TB de datos este mes. Suponga que agrega tres regiones (Este de EE. UU., Norte de Europa y Este de Asia), cada una con el mismo almacenamiento y capacidad de proceso, y que quiere ser capaz de escribir en los contenedores de las cuatro regiones desde la aplicación distribuida mundialmente. Su factura total mensual (suponiendo que un mes tiene 31 días) será:
+Imagine que tiene un contenedor en la región Oeste de EE. UU. configurado para las escrituras en una sola región, con un rendimiento aprovisionado de 10 000 RU/s y almacena 1 TB de datos este mes. Supongamos que agrega una región, Este de EE. UU., con el mismo almacenamiento y rendimiento, y que desea poder escribir en los contenedores de ambas regiones desde la aplicación. Su factura total mensual (suponiendo que un mes tiene 31 días) será:
 
 |**Elemento**|**Uso (mensual)**|**Tarifa**|**Costo mensual**|
 |----|----|----|----|
-|Factura de capacidad de proceso para un contenedor en la región Oeste de EE. UU. (operaciones de escritura en varias regiones) |10 000 RU/s * 24 * 31 |0,016 USD por cada 100 RU/s por hora |1190,40 USD |
-|Factura de capacidad de proceso para 3 regiones más: Este de EE. UU., Norte de Europa y Este de Asia (operaciones de escritura en varias regiones) |(3 + 1) * 10 000 RU/s * 24 * 31 |0,016 USD por cada 100 RU/s por hora |4761,60 USD |
+|Factura del rendimiento para un contenedor en la región Oeste de EE. UU. (operaciones de escritura en una sola región) |10 000 RU/s * 24 horas * 31 días |0,008 USD por cada 100 RU/s por hora |584,06 USD |
+|Factura del rendimiento para un contenedor en 2 regiones: Oeste de EE. UU. y Este de EE. UU. (operaciones de escritura en varias regiones) |2 * 10 000 RU/s * 24 horas * 31 días|0,016 USD por cada 100 RU/s por hora |2336,26 USD |
 |Factura de almacenamiento por el contenedor en Oeste de EE. UU. |1 TB (o 1024 GB) |0,25 USD/GB |256 USD |
-|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Este de Asia |3 * 1 TB (o 3072 GB) |0,25 USD/GB |768 USD |
-|**Total**|||**6976 USD** |
+|Factura de almacenamiento para 2 regiones: Oeste de EE. UU. y Este de EE. UU. |2 * 1 TB (o 3072 GB) |0,25 USD/GB |768 USD |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Mejora del uso de la capacidad de proceso por región
 
-Si el uso no es el adecuado, como una o más regiones con menos o más uso del necesario, puede tomar las siguientes medidas para mejorar la utilización de la capacidad de proceso:  
-
-1. Asegúrese primero de optimizar la capacidad de proceso aprovisionada (RU) en la región de escritura y, a continuación, aproveche al máximo los RU en las regiones de lectura mediante la fuente de cambios de la región de lectura. 
-
-2. Las distintas lecturas y escrituras de las regiones de escritura se pueden escalar en todas las regiones asociadas a la cuenta de Azure Cosmos. 
-
-3. Supervise la actividad de todas las regiones; podrá agregar o quitar las regiones necesarias para escalar la capacidad de proceso de lectura y escritura.
+Si experimenta un uso ineficaz, por ejemplo, una o varias regiones de lectura infrautilizadas, puede tomar medidas para optimizar el uso de las RU en las regiones de lectura mediante la fuente de cambios de la región de lectura, o bien moverlas a otra secundaria si se están sobreutilizando. Tendrá que asegurarse de optimizar el rendimiento aprovisionado (RU) en la región de escritura en primer lugar. Las escrituras cuestan más que las lecturas, a excepción de las consultas muy grandes, por lo que mantener un uso uniforme puede suponer un reto. En general, supervise el rendimiento consumido en las regiones y agregue o quite regiones a petición para escalar el rendimiento de lectura y escritura. Asegúrese de comprender el impacto en la latencia de las aplicaciones que se implementan en la misma región.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: e7c4842494c144f5cd64d46f53f7a99266064680
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3569ae130813eb0aaf14ec3d8d4e5cfac3e98c6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993637"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095654"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminación TLS con certificados de Key Vault
 
@@ -49,6 +49,9 @@ La integración de Application Gateway con Key Vault requiere un proceso de conf
 
    A continuación, importe un certificado existente o cree uno nuevo en el almacén de claves. Las aplicaciones que se ejecutan a través de Application Gateway usarán el certificado. En este paso, también puede usar un secreto de almacén de claves que se almacena como archivo PFX codificado en Base 64 sin contraseña. Se recomienda usar un tipo de certificado debido a la capacidad de renovación automática que está disponible con los objetos de tipo certificado en el almacén de claves. Después de crear un certificado o un secreto, debe definir directivas de acceso en el almacén de claves para permitir que la identidad que se debe conceder *obtenga* acceso al secreto.
    
+   > [!IMPORTANT]
+   > Actualmente, Application Gateway necesita Key Vault para permitir el acceso desde todas las redes a fin de aprovechar la integración. No admite la integración de Key Vault cuando Key Vault está establecido para permitir solo puntos de conexión privados y el acceso de determinadas redes. La compatibilidad con determinadas redes y redes privadas se está preparando para la integración completa de Key Vault con Application Gateway. 
+
    > [!NOTE]
    > Si implementa la puerta de enlace de aplicaciones mediante una plantilla de ARM, ya sea mediante la CLI de Azure o PowerShell o mediante una aplicación de Azure implementada desde Azure Portal, el certificado SSL se almacena en el almacén de claves como un archivo PFX con codificación base 64. Debe completar los pasos descritos en [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](../azure-resource-manager/templates/key-vault-parameter.md). 
    >

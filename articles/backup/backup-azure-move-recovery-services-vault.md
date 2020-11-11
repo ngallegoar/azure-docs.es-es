@@ -4,12 +4,12 @@ description: Instrucciones sobre cómo mover el almacén de Recovery Services en
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171615"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926689"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Traslado del almacén de Recovery Services entre suscripciones y grupos de recursos de Azure
 
@@ -17,11 +17,7 @@ En este artículo se explica cómo mover un almacén de Recovery Services config
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-El traslado de recursos de un almacén de Recovery Services se admite en Este de Australia, Sudeste de Australia, Centro de Canadá, Este de Canadá, Sudeste de Asia, Este de Asia, Centro de EE. UU., Centro-norte de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Centro-oeste de EE. UU., Centro-oeste de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Centro de la India, Sur de la India, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Norte de Europa, Oeste de Europa, Norte de Sudáfrica, Oeste de Sudáfrica, Sur de Reino Unido y Oeste de Reino Unido.
-
-## <a name="unsupported-regions"></a>Regiones no admitidas
-
-Centro de Francia, Sur de Francia, Nordeste de Alemania, Centro de Alemania, US Gov Iowa, Norte de China, Norte de China 2, Este de China, Este de China 2
+Se admiten todas las regiones públicas y soberanas, excepto el Centro de Francia, Sur de Francia, Nordeste de Alemania, Centro de Alemania, Norte de China, Norte de China 2, Este de China y Este de China 2.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Requisitos previos para el traslado al almacén de Recovery Services
 
@@ -46,7 +42,7 @@ Centro de Francia, Sur de Francia, Nordeste de Alemania, Centro de Alemania, US 
 
 > [!NOTE]
 > No se admite la migración de almacenes de Recovery Services para Azure Backup entre regiones de Azure.<br><br>
-> Si ha configurado alguna máquina virtual (IaaS de Azure, Hyper-V, VMware) o máquina física para la recuperación ante desastres mediante **Azure Site Recovery**, se bloquea la operación de traslado. Si desea mover almacenes para Azure Site Recovery, consulte [este artículo](../site-recovery/move-vaults-across-regions.md) para más información sobre cómo mover los almacenes manualmente.
+> Si ha configurado alguna máquina virtual (IaaS de Azure, Hyper-V, VMware) o máquina física para la recuperación ante desastres mediante **Azure Site Recovery** , se bloquea la operación de traslado. Si desea mover almacenes para Azure Site Recovery, consulte [este artículo](../site-recovery/move-vaults-across-regions.md) para más información sobre cómo mover los almacenes manualmente.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Uso de Azure Portal para trasladar un almacén de Recovery Services a otro grupo de recursos
 
@@ -65,11 +61,11 @@ Para mover un almacén de Recovery Services y los recursos asociados a un grupo 
 
    ![Cambiar el grupo de recursos](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. En el panel **Mover recursos**, para el almacén seleccionado, se recomienda mover los recursos relacionados opcionales activando la casilla de verificación, tal como se muestra en la siguiente imagen.
+4. En el panel **Mover recursos** , para el almacén seleccionado, se recomienda mover los recursos relacionados opcionales activando la casilla de verificación, tal como se muestra en la siguiente imagen.
 
    ![Mover suscripción](./media/backup-azure-move-recovery-services/move-resource.png)
 
-5. Para agregar el grupo de recursos de destino, en la lista desplegable **Grupo de recursos**, seleccione un grupo de recursos existente o la opción **Crear un grupo nuevo**.
+5. Para agregar el grupo de recursos de destino, en la lista desplegable **Grupo de recursos** , seleccione un grupo de recursos existente o la opción **Crear un grupo nuevo**.
 
    ![Crear recurso](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
@@ -99,7 +95,7 @@ Puede mover un almacén de Recovery Services y sus recursos asociados a otra sus
    ![Mover recurso](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Seleccione la suscripción de destino desde la lista desplegable **Suscripción** a donde desea que se mueva el almacén.
-6. Para agregar el grupo de recursos de destino, en la lista desplegable **Grupo de recursos**, seleccione un grupo de recursos existente o la opción **Crear un grupo nuevo**.
+6. Para agregar el grupo de recursos de destino, en la lista desplegable **Grupo de recursos** , seleccione un grupo de recursos existente o la opción **Crear un grupo nuevo**.
 
    ![Agregar suscripción](./media/backup-azure-move-recovery-services/add-subscription.png)
 

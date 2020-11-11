@@ -4,12 +4,12 @@ description: En este artículo, descubra las respuestas a preguntas comunes sobr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172838"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925584"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -76,6 +76,10 @@ Sí. Puede cancelar el trabajo de copia de seguridad si se encuentra en el estad
 Si bloquea el grupo de recursos creado por el servicio Azure Backup, las copias de seguridad comenzarán a producir errores porque hay un límite máximo de 18 puntos de restauración.
 
 Quite el bloqueo y borre la colección de puntos de restauración de ese grupo de recursos para que las copias de seguridad futuras se realicen correctamente. [Siga estos pasos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para quitar la colección de puntos de restauración.
+
+### <a name="i-have-a-lock-at-the-resource-group-level-that-contains-all-the-resources-related-to-my-virtual-machine-will-my-backup-work"></a>Tengo un bloqueo en el nivel de grupo de recursos que contiene todos los recursos relacionados con mi máquina virtual. ¿Funcionará mi copia de seguridad?
+
+Azure Backup crea un grupo de recursos independiente con el formato `AzureBackupRG_<geo>_<number>` para almacenar los objetos ResourcePointCollections. Puesto que este grupo de recursos es propiedad del servicio, el bloqueo provocará un error en las copias de seguridad. Los bloqueos solo se pueden aplicar a grupos de recursos creados por el cliente.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>¿Admite Azure Backup los discos administrados SSD estándar?
 

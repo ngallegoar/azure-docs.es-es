@@ -2,13 +2,13 @@
 title: Alertas de métricas de Azure Monitor para contenedores
 description: En este artículo se revisan las alertas de métricas recomendadas disponibles en Azure Monitor para contenedores en la versión preliminar pública.
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/28/2020
+ms.openlocfilehash: cda5639fdf72f5731af851860f37afa888e7d965
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308642"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927828"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertas de métricas recomendadas (versión preliminar) de Azure Monitor para contenedores
 
@@ -24,16 +24,16 @@ Antes de empezar, confirme lo siguiente:
 
 * Las métricas personalizadas solo están disponibles en un subconjunto de regiones de Azure. Una lista de regiones admitidas se documenta en [Regiones admitidas](../platform/metrics-custom-overview.md#supported-regions).
 
-* Para admitir las alertas de métricas y la introducción de métricas adicionales, la versión mínima necesaria del agente es **microsoft/oms:ciprod05262020** para él clúster de AKS y **microsoft/oms:ciprod09252020** para el clúster de Kubernetes habilitado para Azure Arc.
+* Para admitir las alertas de métricas y la introducción de métricas adicionales, la versión mínima necesaria del agente es **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** para AKS y **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** para el clúster de Kubernetes habilitado para Azure Arc.
 
     Para comprobar que el clúster ejecuta la versión más reciente del agente, puede realizar alguna de las acciones siguientes:
 
     * Ejecute el comando: `kubectl describe <omsagent-pod-name> --namespace=kube-system`. En el estado devuelto, observe el valor de **Imagen** para omsagent en la sección *Contenedores* de la salida. 
-    * En la pestaña **Nodos** , seleccione el nodo de clúster y, en el panel **Propiedades** de la derecha, observe el valor de **Etiqueta de imagen del agente** .
+    * En la pestaña **Nodos** , seleccione el nodo de clúster y, en el panel **Propiedades** de la derecha, observe el valor de **Etiqueta de imagen del agente**.
 
     El valor que se muestra para AKS debe ser la versión **ciprod05262020** o posterior. El valor que se muestra para el clúster de Kubernetes habilitado para Azure Arc debe ser la versión **ciprod09252020** o posterior. Si el clúster tiene una versión anterior, consulte [Actualización del agente de Azure Monitor para contenedores](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) para conocer los pasos necesarios para obtener la versión más reciente.
 
-    Para obtener más información relacionada con la versión del agente, consulte el [historial de versiones del agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Para comprobar que se están recopilando métricas, puede usar el explorador de métricas de Azure Monitor y comprobar que, en **Espacio de nombres de métrica** , se muestra **Conclusiones** . Si es así, puede empezar a configurar las alertas. Si no ve ninguna métrica recopilada, significa que la entidad de servicio de clúster o MSI no tiene los permisos necesarios. Para comprobar que SPN o MSI es miembro del rol de **publicador de métricas de supervisión** , siga los pasos descritos en la sección [Actualización por clúster con la CLI de Azure](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) para confirmar y establecer la asignación de roles.
+    Para obtener más información relacionada con la versión del agente, consulte el [historial de versiones del agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Para comprobar que se están recopilando métricas, puede usar el explorador de métricas de Azure Monitor y comprobar que, en **Espacio de nombres de métrica** , se muestra **Conclusiones**. Si es así, puede empezar a configurar las alertas. Si no ve ninguna métrica recopilada, significa que la entidad de servicio de clúster o MSI no tiene los permisos necesarios. Para comprobar que SPN o MSI es miembro del rol de **publicador de métricas de supervisión** , siga los pasos descritos en la sección [Actualización por clúster con la CLI de Azure](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) para confirmar y establecer la asignación de roles.
 
 ## <a name="alert-rules-overview"></a>Introducción a las reglas de alertas
 
@@ -114,7 +114,7 @@ En esta sección se explica cómo habilitar la alerta de métricas de Azure Moni
 
 2. El acceso a la característica Alerta de métricas de Azure Monitor para contenedores (versión preliminar) está disponible directamente desde un clúster de AKS al seleccionar la opción **Conclusiones** del panel izquierdo de Azure Portal.
 
-3. En la barra de comandos, seleccione **Alertas recomendadas** .
+3. En la barra de comandos, seleccione **Alertas recomendadas**.
 
     ![Opción Alertas recomendadas en Azure Monitor para contenedores](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
@@ -126,7 +126,7 @@ En esta sección se explica cómo habilitar la alerta de métricas de Azure Moni
 
     ![Habilitar regla de alertas](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
-5. Las alertas no están asociadas a un [grupo de acciones](../platform/action-groups.md) para notificar a los usuarios que se ha desencadenado una alerta. Seleccione **No se asignó ningún grupo de acciones** y, en la página **Grupos de acciones** , especifique un grupo de acciones o especifique uno existente mediante **Agregar** o **Crear** .
+5. Las alertas no están asociadas a un [grupo de acciones](../platform/action-groups.md) para notificar a los usuarios que se ha desencadenado una alerta. Seleccione **No se asignó ningún grupo de acciones** y, en la página **Grupos de acciones** , especifique un grupo de acciones o especifique uno existente mediante **Agregar** o **Crear**.
 
     ![Seleccionar un grupo de acciones](./media/container-insights-metric-alerts/select-action-group.png)
 
@@ -148,15 +148,15 @@ Los pasos básicos son los siguientes:
 
 2. Para implementar una plantilla personalizada mediante el portal, seleccione **Crear un recurso** en [Azure Portal](https://portal.azure.com).
 
-3. Busque **plantilla** y, después, seleccione **Template Deployment** .
+3. Busque **plantilla** y, después, seleccione **Template Deployment**.
 
-4. Seleccione **Crear** .
+4. Seleccione **Crear**.
 
-5. Verá varias opciones para crear una plantilla; seleccione **Cree su propia plantilla en el editor** .
+5. Verá varias opciones para crear una plantilla; seleccione **Cree su propia plantilla en el editor**.
 
 6. En **Editar plantilla de página** , seleccione **Cargar archivo** y, a continuación, seleccione el archivo de plantilla.
 
-7. En la página **Editar plantilla** , seleccione **Guardar** .
+7. En la página **Editar plantilla** , seleccione **Guardar**.
 
 8. En la página **Implementación personalizada** , especifique lo siguiente y, después, cuando finalice, seleccione **Comprar** para implementar la plantilla y crear la regla de alertas.
 
@@ -200,14 +200,14 @@ Los pasos básicos son los siguientes:
 
 Puede ver y administrar reglas de alertas de Azure Monitor para contenedores, editar su umbral o configurar un [grupo de acciones](../platform/action-groups.md) para el clúster de AKS. Aunque puede realizar estas acciones desde Azure Portal y la CLI de Azure, también se puede hacer directamente desde el clúster de AKS en Azure Monitor para contenedores.
 
-1. En la barra de comandos, seleccione **Alertas recomendadas** .
+1. En la barra de comandos, seleccione **Alertas recomendadas**.
 
 2. Para modificar el umbral, en el panel **Alertas recomendadas** , seleccione la alerta habilitada. En **Editar regla** , seleccione la opción de **Criterios de alerta** que quiera editar.
 
-    * Para modificar el umbral de la regla de alertas, seleccione la opción de **Condición** .
-    * Para crear un grupo de acciones o especificar uno existente, seleccione **Agregar** o **Crear** en **Grupo de acciones** .
+    * Para modificar el umbral de la regla de alertas, seleccione la opción de **Condición**.
+    * Para crear un grupo de acciones o especificar uno existente, seleccione **Agregar** o **Crear** en **Grupo de acciones**.
 
-Para ver las alertas creadas para las reglas habilitadas, en el panel **Alertas recomendadas** , seleccione **Ver en las alertas** . Se le redirigirá al menú de alertas del clúster de AKS, donde podrá ver todas las alertas creadas actualmente para el clúster.
+Para ver las alertas creadas para las reglas habilitadas, en el panel **Alertas recomendadas** , seleccione **Ver en las alertas**. Se le redirigirá al menú de alertas del clúster de AKS, donde podrá ver todas las alertas creadas actualmente para el clúster.
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Configuración de métricas que generan alertas en ConfigMaps
 

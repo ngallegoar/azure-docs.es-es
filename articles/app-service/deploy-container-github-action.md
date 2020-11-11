@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: f3bc407791b25e4dc1dddd61b60b3cefe0195919
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 068fc9dcb9a4f4a62c2dd879bf8144097452f1e0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203201"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099035"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implementación de un contenedor personalizado en App Service con Acciones de GitHub
 
@@ -47,13 +47,16 @@ Un perfil de publicación es una credencial de nivel de aplicación. Configure e
 
 1. En Azure Portal, vaya a la aplicación de App Service. 
 
-1. En la página de **Información general** , seleccione **Obtener perfil de publicación** .
+1. En la página de **Información general** , seleccione **Obtener perfil de publicación**.
+
+    > [!NOTE]
+    > A partir de octubre de 2020, las aplicaciones web de Linux deberán tener la opción de configuración de la aplicación `WEBSITE_WEBDEPLOY_USE_SCM` establecida en `true` **antes de descargar el archivo**. Este paso dejará de ser un requisito en el futuro.
 
 1. Guarde el archivo descargado. Usará el contenido del archivo para crear un secreto de GitHub.
 
 # <a name="service-principal"></a>[Entidad de servicio](#tab/service-principal)
 
-Puede crear una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar** .
+Puede crear una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -80,7 +83,7 @@ En este ejemplo, reemplace los marcadores de posición por su identificador de s
 
 ## <a name="configure-the-github-secret"></a>Configuración del secreto de GitHub
 
-En [GitHub](https://github.com/), examine el repositorio y seleccione **Configuración > Secretos > Agregar un nuevo secreto** .
+En [GitHub](https://github.com/), examine el repositorio y seleccione **Configuración > Secretos > Agregar un nuevo secreto**.
 
 Pegue el contenido de la salida JSON como valor de la variable secreta. Asigne al secreto un nombre como `AZURE_CREDENTIALS`.
 
@@ -96,7 +99,7 @@ Cuando configure el archivo de flujo de trabajo más adelante, usará el secreto
 
 # <a name="publish-profile"></a>[Perfil de publicación](#tab/publish-profile)
 
-En [GitHub](https://github.com/), examine el repositorio y seleccione **Configuración > Secretos > Agregar un nuevo secreto** .
+En [GitHub](https://github.com/), examine el repositorio y seleccione **Configuración > Secretos > Agregar un nuevo secreto**.
 
 Para usar las [credenciales de nivel de aplicación](#generate-deployment-credentials), pegue el contenido del archivo del perfil de publicación descargado en el campo de valor del secreto. Asigne al secreto el siguiente nombre: `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
@@ -110,7 +113,7 @@ Al configurar el flujo de trabajo de GitHub, use `AZURE_WEBAPP_PUBLISH_PROFILE` 
 
 # <a name="service-principal"></a>[Entidad de servicio](#tab/service-principal)
 
-En [GitHub](https://github.com/), examine el repositorio y seleccione **Configuración > Secretos > Agregar un nuevo secreto** .
+En [GitHub](https://github.com/), examine el repositorio y seleccione **Configuración > Secretos > Agregar un nuevo secreto**.
 
 Para utilizar las [credenciales de nivel de usuario](#generate-deployment-credentials), pegue toda la salida JSON del comando CLI de Azure en el campo de valor del secreto. Asigne al secreto un nombre como `AZURE_CREDENTIALS`.
 

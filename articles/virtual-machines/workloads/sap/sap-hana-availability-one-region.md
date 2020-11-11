@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dcabd01cfbda8cd892c82b391bf649b2b464d6fb
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978210"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927777"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidad de SAP HANA dentro de una región de Azure
 En este artículo se describen varios escenarios de disponibilidad dentro de una región de Azure. Azure tiene muchas regiones repartidas por todo el mundo. Para obtener la lista de las regiones de Azure, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). Para implementar SAP HANA en máquinas virtuales dentro de una región de Azure, Microsoft ofrece la implementación de una única máquina virtual con una instancia de HANA. Para una mayor disponibilidad, puede implementar dos máquinas virtuales con dos instancias de HANA dentro de un [conjunto de disponibilidad de Azure](../../windows/tutorial-availability-sets.md) que usen la replicación del sistema HANA para la disponibilidad. 
@@ -78,7 +78,7 @@ Una de las configuraciones más rudimentarias es utilizar copias de seguridad. E
 
 La arquitectura tiene el siguiente aspecto:
 
-![Diagrama de dos máquinas virtuales con replicación de almacenamiento](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![Diagrama que muestra la arquitectura de dos VM con replicación de almacenamiento.](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 Esta configuración no es adecuada para conseguir grandes tiempos de objetivo de punto de recuperación (RPO) y objetivo de tiempo de recuperación (RTO). En especial, los tiempos de RTO resultarían afectados debido a la necesidad de restaurar completamente la base de datos mediante los archivos de copia de seguridad copiados. Sin embargo, esta configuración es útil para recuperarse de la eliminación de datos no intencionada en las instancias principales. Con ella, puede restaurar en cualquier momento a un punto en el tiempo determinado, extraer los datos e importar los datos eliminados en la instancia principal. De ahí que tenga sentido usar este método de copia de seguridad en combinación con otra funcionalidad de alta disponibilidad. 
 

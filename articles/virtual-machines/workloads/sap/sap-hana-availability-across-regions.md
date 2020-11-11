@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68a393865038722f2fd7fa5e42334f8d5e760951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3de5a449e90452307f3c9b02c725050df6fdd873
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70078852"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925686"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidad de SAP HANA entre regiones de Azure
 
@@ -74,7 +74,7 @@ Una arquitectura posible con la replicación en varios destinos tendría el sigu
 
 Si la organización tiene requisitos para la preparación de la alta disponibilidad en la segunda región de recuperación ante desastres de Azure, la arquitectura sería como la del siguiente ejemplo:
 
-![Diagrama de tres máquinas virtuales en dos regiones de varios destinos](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+![Diagrama que muestra una organización que tiene requisitos para la preparación de la alta disponibilidad en la segunda región de recuperación ante desastres de Azure.](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
 
 
 Con logreplay como modo de operación, esta configuración proporciona un RPO = 0, con un RTO bajo, dentro de la región principal. La configuración también proporciona un RPO aceptable en caso de que se necesite un traslado a la segunda región. Los tiempos de RTO en la segunda región dependen de si los datos se cargan previamente. Muchos clientes usan la máquina virtual en la región secundaria para ejecutar un sistema de prueba. En ese caso de uso, los datos no se pueden cargar previamente.

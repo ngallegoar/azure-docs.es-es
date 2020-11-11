@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas y resolver pr
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074420"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286767"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -157,7 +157,7 @@ Tanto AKS como la plataforma de Azure implementan las restricciones de nomenclat
 * El nombre del grupo de recursos *MC_* o del nodo de AKS combina el nombre del grupo de recursos y el nombre del recurso. La sintaxis generada automáticamente de `MC_resourceGroupName_resourceName_AzureRegion` no puede tener más de 80 caracteres. Si es necesario, disminuya la longitud del nombre del grupo de recursos o del nombre del clúster de AKS. También puede [personalizar el nombre del grupo de recursos del nodo](cluster-configuration.md#custom-resource-group-name).
 * *dnsPrefix* debe empezar y terminar con valores alfanuméricos, y debe tener entre 1 y 54 caracteres. Los caracteres válidos incluyen valores alfanuméricos y guiones (-). *dnsPrefix* no puede incluir caracteres especiales, como un punto (.).
 * Los nombres de grupo del nodo de AKS deben estar en minúsculas y tener entre 1 y 11 caracteres, en el caso de grupos de nodos de Linux, y entre 1 y 6 caracteres si son grupos de nodos de Windows. El nombre debe empezar por una letra y los únicos caracteres permitidos son letras y números.
-* El *admin-username*, que establece el nombre de usuario de administrador para los nodos de Linux, debe empezar con una letra, solo puede contener letras, números, guiones y caracteres de subrayado, y tiene una longitud máxima de 64 caracteres.
+* El *admin-username* , que establece el nombre de usuario de administrador para los nodos de Linux, debe empezar con una letra, solo puede contener letras, números, guiones y caracteres de subrayado, y tiene una longitud máxima de 64 caracteres.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Recibo errores cuando intento crear, actualizar, escalar, eliminar o actualizar un clúster, donde se indica que no se permite la operación porque hay otra en curso.
 
@@ -167,7 +167,7 @@ Las operaciones del clúster se limitan cuando todavía hay en curso una operaci
 
 En función de la salida del estado del clúster:
 
-* Si el clúster está en cualquier estado de aprovisionamiento distinto de *Succeeded* (Correcto) o *Failed* (Con errores), espere a que se termine la operación (*actualización/creación/escalado/eliminación/migración*). Cuando termine la operación anterior, vuelva a intentar la operación más reciente del clúster.
+* Si el clúster está en cualquier estado de aprovisionamiento distinto de *Succeeded* (Correcto) o *Failed* (Con errores), espere a que se termine la operación ( *actualización/creación/escalado/eliminación/migración* ). Cuando termine la operación anterior, vuelva a intentar la operación más reciente del clúster.
 
 * Si el clúster presenta errores de actualización, siga los pasos que se describen en [Recibo errores que indican que mi clúster presenta errores y que la actualización o el escalado no funcionarán hasta que se corrija](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -198,7 +198,7 @@ Cuando se restringe el tráfico de salida desde un clúster de AKS, hay puerto d
 
 Compruebe que la configuración no esté en conflicto con ninguno de los puertos de salida, reglas de red ni reglas de aplicación o FQDN requeridos o recomendados opcionales.
 
-## <a name="im-receiving-429---too-many-requests-errors"></a>Recibo el error "429: Demasiadas solicitudes" 
+## <a name="im-receiving-429---too-many-requests-errors"></a>Recibo el error "429: Demasiadas solicitudes"
 
 Cuando un clúster de Kubernetes en Azure (AKS o no) escala o reduce verticalmente con frecuencia o usa la herramienta de escalabilidad automática de clúster (CA), esas operaciones pueden generar una gran cantidad de llamadas HTTP que, a su vez, exceden la cuota de suscripción asignada, lo que causa un error. Los errores serán similares a estos:
 
@@ -213,6 +213,12 @@ El equipo de ingeniería de AKS recomienda que se asegure de estar ejecutando al
 Como estos errores de limitación se miden en el nivel de suscripción, es posible que sigan ocurriendo si:
 - Hay aplicaciones de terceros que hacen solicitudes GET (por ejemplo, aplicaciones de supervisión, etc.). La recomendación es reducir la frecuencia de estas llamadas.
 - Hay muchos clústeres de AKS o grupos de nodos en VMSS. La recomendación habitual es tener menos de 20 o 30 clústeres en una suscripción determinada.
+
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>El estado de aprovisionamiento de mi clúster cambiaba de Listo a Error realizara o no alguna operación. ¿Cuál debo hacer?
+
+Si el estado de aprovisionamiento del clúster cambia de *Listo* a *Error* independientemente de si se realiza alguna operación, pero las aplicaciones del clúster continúan ejecutándose, es posible que el servicio resuelva este problema automáticamente y las aplicaciones no deberían verse afectadas.
+
+Si el estado de aprovisionamiento del clúster permanece como *Error* o las aplicaciones del clúster dejarán de funcionar, [envíe una solicitud de soporte técnico](https://azure.microsoft.com/support/options/#submit).
 
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Solución de problemas de Azure Storage y AKS
@@ -359,7 +365,7 @@ Configuración recomendada:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 y versiones posteriores | 0777 |
 
-Las opciones de montaje se pueden especificar en el objeto de clase de almacenamiento. En el ejemplo siguiente se establece *0777*:
+Las opciones de montaje se pueden especificar en el objeto de clase de almacenamiento. En el ejemplo siguiente se establece *0777* :
 
 ```yaml
 kind: StorageClass
@@ -470,11 +476,8 @@ Este error se debe a una condición de carrera del escalador automático del cl�
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Conexión lenta de disco, GetAzureDiskLun tarda entre 10 y 15 minutos y recibe un error.
 
-En las versiones de Kubernetes **anteriores a 1.15.0**, puede recibir un error similar a **Error: WaitForAttach no encuentra el LUN del disco**.  Para evitar este problema, espere unos 15 minutos y vuelva a intentarlo.
+En las versiones de Kubernetes **anteriores a 1.15.0** , puede recibir un error similar a **Error: WaitForAttach no encuentra el LUN del disco**.  Para evitar este problema, espere unos 15 minutos y vuelva a intentarlo.
 
-<!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
-[cluster-autoscaler]: cluster-autoscaler.md
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>¿Por qué se produce un error en las actualizaciones a Kubernetes 1.16 al usar etiquetas de nodo con un prefijo kubernetes.io?
 
@@ -487,3 +490,9 @@ Como resultado, para mitigar este problema, puede:
 3. Eliminar el antiguo grupo de nodos
 
 AKS está investigando la capacidad de mutar etiquetas activas en un grupo de nodos para mejorar esta mitigación.
+
+
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

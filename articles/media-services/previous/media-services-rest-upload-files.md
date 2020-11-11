@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: bc0369e99552859393da206e791477040681ccc4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 49863bec4cbd367b6b309ef5a79e7287cb53ee5b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281072"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042982"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carga de archivos en una cuenta de Media Services mediante API de REST
 
@@ -56,7 +56,7 @@ En este tutorial, obtendrá información sobre cómo cargar un archivo y otras o
 Al usar la API de REST de Media Services, se aplican las consideraciones siguientes:
  
 * Al obtener acceso a las entidades mediante la API de REST de Media Services, debe establecer campos de encabezado y valores específicos en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md). <br/>La colección de Postman que se usa en este tutorial establece todos los encabezados necesarios.
-* Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]" Además, solo puede haber un '.' para la extensión del nombre de archivo.
+* Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]" Además, solo puede haber un '.' para la extensión del nombre de archivo.
 * La longitud del nombre no debe ser superior a 260 caracteres.
 * Existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. Consulte [este](media-services-quotas-and-limitations.md) artículo para obtener información más detallada acerca de la limitación de tamaño de archivo.
 
@@ -72,7 +72,7 @@ Para obtener los pasos sobre cómo configurar Postman para este tutorial, consul
 
     Para obtener los valores de las cinco primeras variables, consulte [Acceso a Azure Media Services API con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    ![Cargar un archivo](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![Captura de pantalla que muestra el icono de "engranaje" seleccionado en la parte superior derecha y las cinco primeras variables seleccionadas en la pestaña "Entornos de administración".](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Especifique el valor de la variable de entorno **MediaFileName**.
 
     Especifique el nombre de archivo del elemento multimedia que quiere cargar. En este ejemplo, se cargará el elemento BigBuckBunny.mp4. 
@@ -90,17 +90,17 @@ Para obtener los pasos sobre cómo configurar Postman para este tutorial, consul
         ]
     }
     ```
-4. En la parte izquierda de la ventana **Postman**, haga clic en **1. Get AAD Auth token (Obtener token de autenticación de AAD)**  -> **Get Azure AD Token for Service Principal (Obtener token de Azure AD para la entidad de servicio)** .
+4. En la parte izquierda de la ventana **Postman** , haga clic en **1. Get AAD Auth token (Obtener token de autenticación de AAD)**  -> **Get Azure AD Token for Service Principal (Obtener token de Azure AD para la entidad de servicio)** .
 
     La parte de la dirección URL se rellena con la variable de entorno **AzureADSTSEndpoint** (anteriormente en el tutorial estableció los valores de las variables de entorno para que admiten la colección).
 
-    ![Cargar un archivo](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![Captura de pantalla que muestra "1. Obtener un token de AAD - Obtener un token de Azure AD para la entidad de servicio" seleccionado en la ventana "Postman" con el botón "Enviar" seleccionado.](./media/media-services-rest-upload-files/postment-get-token.png)
 
 5. Presione **Enviar**.
 
     Puede ver la respuesta que contiene "access_token". El script "test" toma este valor y establece la variable de entorno **AccessToken** (tal y como se ha descrito anteriormente). Si examina las variables de entorno, verá que esta variable contiene ahora el valor del token de acceso (token de portador) que se usa en las demás operaciones. 
 
-    Si expira el token, vuelva a realizar el paso "Get Azure AD Token for Service Principal" (Obtener token de Azure AD para la entidad de servicio). 
+    Si expira el token, vuelva a realizar el paso "Get Azure AD Token for Service Principal" (Obtener token de Azure AD para la entidad de servicio). 
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Creación de una directiva de acceso con permiso de escritura
 
@@ -116,7 +116,7 @@ Antes de cargar los archivos en el almacenamiento de blobs, establezca los derec
 1. Seleccione **AccessPolicy** -> **Create AccessPolicy for Upload (Crear AccessPolicy para la carga)** .
 2. Presione **Enviar**.
 
-    ![Cargar un archivo](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![Captura de pantalla que muestra "AccessPolicy: Crear AccessPolicy para la carga" seleccionado en el menú de la izquierda con el botón "Enviar" seleccionado.](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     El script "test" obtiene el identificador de AccessPolicy y establece la variable de entorno adecuada.
 
@@ -137,7 +137,7 @@ En este ejemplo, crearemos un recurso no cifrado.
 1. Seleccione **Recursos** -> **Crear recurso**.
 2. Presione **Enviar**.
 
-    ![Cargar un archivo](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![Captura de pantalla que muestra "Recursos: Crear recurso" seleccionado en el menú "Colecciones" con el botón "Enviar" seleccionado.](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     El script "test" obtiene el identificador de recurso y establece la variable de entorno adecuada.
 
@@ -170,7 +170,7 @@ Se aplican algunas consideraciones:
 
     El script "test" crea la "dirección URL de carga" en función del nombre del archivo multimedia que ha especificado y la información del localizador de SAS, y establece la variable de entorno adecuada.
 
-    ![Cargar un archivo](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![Captura de pantalla que muestra "Localizador: Crear localizador de SAS" seleccionado en el menú "Colecciones" con el botón "Enviar" seleccionado.](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Carga de un archivo a Blob Storage mediante la dirección URL de carga
 
@@ -192,12 +192,12 @@ Creación y configuración de una nueva solicitud:
 1. Presione **+** para crear una nueva pestaña de solicitud.
 2. Seleccione la operación **PUT** y pegue **{{UploadURL}}** en la dirección URL.
 2. Deje la pestaña **Autorización** tal cual (no la establezca en **Bearer Token [Token de portador]** ).
-3. En la pestaña **Encabezados** especifique: **Clave**: "x-ms-blob-type" y **Valor**: "BlockBlob".
-2. En la pestaña **Cuerpo**, haga clic en **binario**.
+3. En la pestaña **Encabezados** especifique: **Clave** : "x-ms-blob-type" y **Valor** : "BlockBlob".
+2. En la pestaña **Cuerpo** , haga clic en **binario**.
 4. Elija el archivo con el nombre que especificó en la variable de entorno **MediaFileName**.
 5. Presione **Enviar**.
 
-    ![Cargar un archivo](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![Captura de pantalla que muestra la pestaña "(UploadURL)" seleccionada.](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  <a name="create-a-metadata-in-the-asset"></a>Creación de metadatos en el recurso
 

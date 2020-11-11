@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745809"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043027"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creación de un clúster de Azure Kubernetes Service (AKS) que use zonas de disponibilidad
 
@@ -52,7 +52,7 @@ Las siguientes limitaciones se aplican cuando crea un clúster de AKS mediante z
 
 Los volúmenes que usan discos administrados de Azure actualmente no son recursos con redundancia de zona. Los volúmenes no se pueden conectar entre zonas y deben estar ubicados en la misma zona que el nodo concreto que hospeda al pod de destino.
 
-Si debe ejecutar cargas de trabajo con estado, use valores taint y toleration de grupo de nodos en las especificaciones de pods para agrupar la programación de pods en la misma zona que los discos. Asimismo, puede usar el almacenamiento basado en la red, como Azure Files, que se puede conectar a los pods según se programan entre zonas.
+Kubernetes tiene en cuenta las zonas de disponibilidad de Azure desde la versión 1.12. Puede implementar un objeto PersistentVolumeClaim que haga referencia a un disco administrado de Azure en un clúster de AKS de varias zonas y [Kubernetes se encargará de programar](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) cualquier pod que reclame este objeto PVC en la zona de disponibilidad correcta.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Introducción a las zonas de disponibilidad para los clústeres de AKS
 
@@ -120,7 +120,20 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 A medida que agrega nodos adicionales a un grupo de agentes, la plataforma Azure distribuye automáticamente las VM subyacentes en las zonas de disponibilidad especificadas.
 
-Tenga en cuenta que en las versiones más recientes de Kubernetes (1.17.0 y versiones posteriores), AKS usa la etiqueta `topology.kubernetes.io/zone` más reciente además de la `failure-domain.beta.kubernetes.io/zone` en desuso.
+Tenga en cuenta que en las versiones más recientes de Kubernetes (1.17.0 y versiones posteriores), AKS usa la etiqueta `topology.kubernetes.io/zone` más reciente además de la `failure-domain.beta.kubernetes.io/zone` en desuso. Puede obtener el mismo resultado que antes ejecutando el siguiente script:
+
+```console
+kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
+```
+
+Que le proporcionará una salida más concisa:
+
+```console
+NAME                                REGION   ZONE
+aks-nodepool1-34917322-vmss000000   eastus   eastus-1
+aks-nodepool1-34917322-vmss000001   eastus   eastus-2
+aks-nodepool1-34917322-vmss000002   eastus   eastus-3
+```
 
 ## <a name="verify-pod-distribution-across-zones"></a>Comprobar la distribución de pods entre zonas
 

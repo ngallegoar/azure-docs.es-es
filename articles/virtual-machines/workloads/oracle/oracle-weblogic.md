@@ -7,20 +7,22 @@ ms.topic: article
 ms.date: 09/23/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: 32f5ae0e06c38f610ae9751d81b7bf77a0ebc050
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d8639214773a4444876b2a89dda5dd831b8c36ce
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149287"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927297"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>¿Cuáles son las soluciones para ejecutar Oracle WebLogic Server en máquinas virtuales de Azure?
 
 En esta página se describen las soluciones para ejecutar Oracle WebLogic Server (WLS) en las máquinas virtuales de Azure. Oracle y Microsoft conjuntamente desarrollan estas soluciones y les prestan soporte técnico.
 
+También es posible ejecutar WLS en Azure Kubernetes Service. Las soluciones para ello se describen en [este artículo de Microsoft](/azure/virtual-machines/workloads/oracle/weblogic-aks).
+
 WLS es un servidor de aplicaciones Java líder en el que se ejecutan algunas de las aplicaciones de Java de empresa más fundamentales de todo el mundo. WLS constituye la base de middleware para el conjunto de software de Oracle. Oracle y Microsoft están comprometidos con ofrecer a los clientes de WLS la posibilidad y flexibilidad de ejecutar cargas de trabajo en Azure como una plataforma de nube líder.
 
-Las soluciones de Azure WLS están diseñadas para que migrar mediante lift-and-shift las aplicaciones de Java EE a las máquinas virtuales de Azure sea lo más fácil posible mediante la automatización de la mayoría de las operaciones reutilizables. Las soluciones aprovisionas automáticamente la red virtual, el almacenamiento, Java y los recursos de Linux. WebLogic Server se instala con un mínimo esfuerzo. Las soluciones pueden configurar la seguridad con un grupo de seguridad de red, el equilibrio de carga con Azure App Gateway y la autenticación con Azure Active Directory. También puede conectarse automáticamente a la base de datos existente, como Azure PostgreSQL, Azure SQL y Oracle DB en la nube de Oracle o Azure. La hoja de rutas para las soluciones incluye la capacidad de habilitar el registro distribuido y el almacenamiento en caché distribuido a través de Oracle Coherence. Microsoft y Oracle están asociados para habilitar una funcionalidad similar para WebLogic y la instancia de Azure Kubernetes Service (AKS).
+Las soluciones de Azure WLS están diseñadas para que migrar mediante lift-and-shift las aplicaciones de Java EE a las máquinas virtuales de Azure sea lo más fácil posible mediante la automatización de la mayoría de las operaciones reutilizables. Las soluciones aprovisionas automáticamente la red virtual, el almacenamiento, Java y los recursos de Linux. WebLogic Server se instala con un mínimo esfuerzo. Las soluciones pueden configurar la seguridad con un grupo de seguridad de red, el equilibrio de carga con Azure App Gateway y la autenticación con Azure Active Directory. También puede conectarse automáticamente a la base de datos existente, como Azure PostgreSQL, Azure SQL y Oracle DB en la nube de Oracle o Azure. La hoja de rutas para las soluciones incluye la capacidad de habilitar el registro distribuido y el almacenamiento en caché distribuido a través de Oracle Coherence.  
 
 :::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="Puede usar Azure Portal para implementar WebLogic Server en Azure":::
 
@@ -50,7 +52,7 @@ _Si está interesado en trabajar estrechamente en los escenarios de migración c
 
 Las soluciones habilitarán una amplia gama de arquitecturas de implementación listas para producción con cierta facilidad. Puede satisfacer la mayoría de los casos de migración de la manera más productiva posible al permitir una mayor atención en el desarrollo de aplicaciones empresariales.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Puede usar Azure Portal para implementar WebLogic Server en Azure":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Las implementaciones complejas de WebLogic Server están habilitadas en Azure":::
 
 De manera adicional a lo que las soluciones aprovisionan automáticamente, los clientes tienen total flexibilidad para personalizar sus implementaciones. Probablemente, además de la implementación de aplicaciones, los clientes integrarán más recursos de Azure a sus implementaciones. Se recomienda a los clientes que envíen comentarios para mejorar aún más las soluciones.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 6bfea42c6fca3369485ccf7a47158f7420df9c9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5714a2fd79d01f4cbc445c1ec1a726209ab6d427
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790039"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124941"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configuración de un grupo de disponibilidad de grupo de trabajo 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,20 +53,20 @@ En este paso, configure el sufijo DNS para ambos servidores. Por ejemplo, `ag.wg
 Para configurar el sufijo DNS, siga estos pasos:
 
 1. Habilite RDP en el primer nodo y abra el Administrador del servidor. 
-1. Seleccione **Servidor local** y, a continuación, seleccione el nombre de la máquina virtual en **Nombre del equipo** . 
-1. Seleccione **Cambiar** en **Para cambiar el nombre de este equipo** . 
+1. Seleccione **Servidor local** y, a continuación, seleccione el nombre de la máquina virtual en **Nombre del equipo**. 
+1. Seleccione **Cambiar** en **Para cambiar el nombre de este equipo**. 
 1. Cambie el nombre del grupo de trabajo para que tenga sentido, como `AGWORKGROUP`: 
 
    ![Cambiar el nombre del grupo de trabajo](./media/availability-group-clusterless-workgroup-configure/1-change-workgroup-name.png)
 
-1. Seleccione **Más** para abrir el cuadro de diálogo **Sufijo DNS y nombre NetBIOS del equipo** . 
+1. Seleccione **Más** para abrir el cuadro de diálogo **Sufijo DNS y nombre NetBIOS del equipo**. 
 1. Escriba el nombre del sufijo DNS en **Sufijo DNS principal de este equipo** (por ejemplo, `ag.wgcluster.example.com`) y, a continuación, seleccione **Aceptar** : 
 
-   ![Agregar un sufijo DNS](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
+   ![Captura de pantalla que muestra el sufijo DNS y el cuadro de diálogo Nombre NetBIOS del equipo en el que puede escribir el valor.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
 1. Confirme que **Nombre completo del equipo** ahora muestra el sufijo DNS y, a continuación, seleccione **Aceptar** para guardar los cambios: 
 
-   ![Agregar un sufijo DNS](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
+   ![Captura de pantalla que muestra dónde ver el nombre completo del equipo.](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
 
 1. Reinicie el servidor cuando se le pida que lo haga. 
 1. Repita estos pasos en todos los demás nodos que se van a usar para el grupo de disponibilidad. 
@@ -111,15 +111,15 @@ Diferencias importantes entre el tutorial y lo que se debe hacer para un clúste
 - Al agregar los nodos al clúster, agregue el nombre completo, como:
    - `AGNode1.ag.wgcluster.example.com`
    - `AGNode2.ag.wgcluster.example.com`
-- Desactive **Agregar todo el almacenamiento apto al clúster** . 
+- Desactive **Agregar todo el almacenamiento apto al clúster**. 
 
 Una vez creado el clúster, asigne una dirección IP de clúster estática. Para hacerlo, siga estos pasos:
 
-1. En uno de los nodos, abra **Administrador de clústeres de conmutación por error** , seleccione el clúster, haga clic con el botón derecho en **Nombre: \<ClusterNam>** en **Recursos principales de clúster** y, luego, seleccione **Propiedades** . 
+1. En uno de los nodos, abra **Administrador de clústeres de conmutación por error** , seleccione el clúster, haga clic con el botón derecho en **Nombre: \<ClusterNam>** en **Recursos principales de clúster** y, luego, seleccione **Propiedades**. 
 
    ![Abrir propiedades del nombre del clúster](./media/availability-group-clusterless-workgroup-configure/5-launch-cluster-name-properties.png)
 
-1. Seleccione la dirección IP en **Direcciones IP** y seleccione **Editar** . 
+1. Seleccione la dirección IP en **Direcciones IP** y seleccione **Editar**. 
 1. Seleccione **Usar estática** , proporcione la dirección IP del clúster y, después, seleccione **Aceptar** : 
 
    ![Proporcionar una dirección IP estática para el clúster](./media/availability-group-clusterless-workgroup-configure/6-provide-static-ip-for-cluster.png)

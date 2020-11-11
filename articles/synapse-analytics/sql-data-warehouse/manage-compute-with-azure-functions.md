@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1683977d5c8be965cb329611c5a7fd6602a1cd97
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259958"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043369"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Uso de Azure Functions para administrar recursos de proceso en el grupo de SQL de Azure Synapse Analytics
 
@@ -97,7 +97,7 @@ En este momento, hay solo dos funciones de escalado incluidas en la plantilla. C
 
 1. Creación de una nueva función en blanco. Seleccione el botón *+* situado cerca de la ubicación Funciones para que aparezca el panel de plantillas de función.
 
-   ![Crear una nueva función](./media/manage-compute-with-azure-functions/create-new-function.png)
+   ![Captura de pantalla que muestra el menú "Aplicaciones de funciones" con el icono "Más" situado junto a la opción "Funciones" seleccionada.](./media/manage-compute-with-azure-functions/create-new-function.png)
 
 2. En Lenguaje, seleccione *Javascript* y, a continuación, seleccione *TimerTrigger*.
 

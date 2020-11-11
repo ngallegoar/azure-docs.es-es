@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b8d744c964b07c1ed6a4d7e8b89bca2258c1bc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9664518a7e8ec505a2823cdd5f17d6fa8a7db8b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963965"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925805"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Solución de problemas de la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory
 
@@ -67,13 +67,13 @@ Si al reiniciar el servicio Azure AD Connect Sync no se resuelve el problema, pr
 Para seguir solucionando problemas, realice estos pasos para deshabilitar y volver a habilitar la característica de escritura diferida de contraseñas:
 
 1. Como administrador en el servidor que ejecuta Azure AD Connect, abra el **asistente para configuración de Azure AD Connect**.
-1. En **Conectarse a Azure AD**, escriba las credenciales de administrador global de Azure AD.
-1. En **Conectarse a AD DS**, escriba las credenciales de administrador de Active Directory Domain Services local.
-1. En **Identificación de forma exclusiva de usuarios**, seleccione el botón **Siguiente**.
-1. En **Características opcionales**, desactive la casilla **Escritura diferida de contraseñas**.
+1. En **Conectarse a Azure AD** , escriba las credenciales de administrador global de Azure AD.
+1. En **Conectarse a AD DS** , escriba las credenciales de administrador de Active Directory Domain Services local.
+1. En **Identificación de forma exclusiva de usuarios** , seleccione el botón **Siguiente**.
+1. En **Características opcionales** , desactive la casilla **Escritura diferida de contraseñas**.
 1. Seleccione **Siguiente** en el resto de las páginas del cuadro de diálogo sin cambiar nada hasta llegar a la página **Listo para configurar**.
 1. Compruebe que en la página **Listo para configurar** la opción *Escritura diferida de contraseñas* aparece como *Deshabilitada*. Seleccione el botón verde **Configurar** para confirmar los cambios.
-1. En **Finalizado**, desactive la opción **Sincronizar ahora** y, a continuación, seleccione **Finalizar** para cerrar el asistente.
+1. En **Finalizado** , desactive la opción **Sincronizar ahora** y, a continuación, seleccione **Finalizar** para cerrar el asistente.
 1. Vuelva a abrir el **asistente para configuración de Azure AD Connect**.
 1. Repita los pasos del 2 al 8, pero, esta vez, seleccione la opción *Escritura diferida de contraseñas* en la pantalla **Características opcionales** para volver a habilitar el servicio.
 
@@ -99,34 +99,34 @@ Si con la instalación de la versión más reciente del servidor de Azure AD Co
 
 ## <a name="verify-that-azure-ad-connect-has-the-required-permissions"></a>Comprobación de que Azure AD Connect tiene los permisos necesarios
 
-Azure AD Connect necesita el permiso **Restablecer contraseña** de AD DS para realizar la escritura diferida de contraseñas. Para averiguar si Azure AD Connect tiene el permiso necesario para una cuenta de usuario de AD DS local determinada, use la característica **Permisos efectivos de Windows**:
+Azure AD Connect necesita el permiso **Restablecer contraseña** de AD DS para realizar la escritura diferida de contraseñas. Para averiguar si Azure AD Connect tiene el permiso necesario para una cuenta de usuario de AD DS local determinada, use la característica **Permisos efectivos de Windows** :
 
 1. Inicie sesión en el servidor Azure AD Connect e inicie **Synchronization Service Manager** seleccionando **Inicio**  > **Synchronization Service**.
 1. En la pestaña **Conectores** seleccione el conector **Active Directory Domain Services** local y, a continuación, seleccione **Propiedades**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Reinicio del servicio de sincronización de Azure AD mediante la GUI" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Synchronization Service Manager que muestra cómo editar propiedades" border="false":::
   
 1. En la ventana emergente, seleccione **Connect to Active Directory Forest** (Conectar con el bosque de Active Directory) y anote el valor de la propiedad **Nombre de usuario**. Esta propiedad es la cuenta de AD DS que Azure AD Connect usa para realizar la sincronización de directorios.
 
     Para que Azure AD Connect realice la escritura diferida de contraseñas, la cuenta de AD DS debe tener permiso para restablecer la contraseña. En los pasos siguientes se comprobarán los permisos de esta cuenta de usuario.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Reinicio del servicio de sincronización de Azure AD mediante la GUI" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Buscar la cuenta de usuario de Active Directory del servicio de sincronización" border="false":::
   
 1. Inicie sesión en un controlador de dominio local e inicie la aplicación **Usuarios y equipos de Active Directory**.
 1. Seleccione **Vista** y asegúrese de que la opción **Características avanzadas** está habilitada.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Reinicio del servicio de sincronización de Azure AD mediante la GUI" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Los usuarios y equipos de Active Directory muestran las características avanzadas" border="false":::
   
 1. Busque la cuenta de usuario de AD DS que quiere comprobar. Haga clic con el botón derecho en el nombre de la cuenta y seleccione **Propiedades**.  
 1. En la ventana emergente, vaya a la pestaña **Seguridad** y seleccione **Avanzada**.  
 1. En la ventana emergente **Advanced Security Settings for Administrator** (Configuración de seguridad avanzada para el administrador), vaya a la pestaña **Acceso efectivo**.
-1. Elija **Seleccionar un usuario**, la cuenta de AD DS que usa Azure AD Connect (consulte el paso 3) y, luego, **Ver acceso efectivo**.
+1. Elija **Seleccionar un usuario** , la cuenta de AD DS que usa Azure AD Connect (consulte el paso 3) y, luego, **Ver acceso efectivo**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Reinicio del servicio de sincronización de Azure AD mediante la GUI" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Pestaña Acceso efectivo que muestra la cuenta de sincronización" border="false":::
   
 1. Desplácese hacia abajo y busque **Restablecer contraseña**. Si la entrada está activada, significa que la cuenta de AD DS tiene permiso para restablecer la contraseña de la cuenta de usuario de Active Directory seleccionada.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Reinicio del servicio de sincronización de Azure AD mediante la GUI" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Validación que la cuenta de sincronización tiene el permiso de restablecimiento de contraseña" border="false":::
 
 ## <a name="common-password-writeback-errors"></a>Errores comunes de la escritura diferida de contraseñas
 
@@ -178,6 +178,7 @@ Un procedimiento recomendado para solucionar problemas con la escritura diferida
 | 31016| WriteBackServiceStopped| Este evento indica que el servicio de escritura diferida de contraseñas se ha detenido. Todas las solicitudes de administración de contraseñas de la nube fracasarán.|
 | 31017| AuthTokenSuccess| Este evento indica que se ha recuperado correctamente un token de autorización para el administrador global especificado durante la instalación de Azure AD Connect para iniciar el proceso de incorporación o externalización.|
 | 31018| KeyPairCreationSuccess| Este evento indica que se creó correctamente la clave de cifrado de contraseña. Esta clave se usa para que las contraseñas cifradas de la nube se envíen al entorno local.|
+| 31034| ServiceBusListenerError| Este evento indica que se ha producido un error al conectarse al cliente de escucha de Service Bus del inquilino. Si el mensaje de error incluye "El certificado remoto no es válido", asegúrese de que el servidor de Azure AD Connect tiene todas las CA raíz necesarias, como se describe en [Cambios en los certificados de Azure TLS](../../security/fundamentals/tls-certificate-changes.md). |
 | 32000| UnknownError| Este evento indica que se produjo un error desconocido durante una operación de administración de contraseñas. Observe el texto de excepción en el evento para obtener más detalles. Si tiene problemas, pruebe a deshabilitar y volver a habilitar la escritura diferida de contraseñas. Si así no se soluciona el problema, incluya una copia del registro de eventos junto con el identificador de seguimiento especificado al abrir una solicitud de soporte técnico.|
 | 32001| ServiceError| Este evento indica que se ha producido un error al conectarse a la instancia de restablecimiento de contraseñas de la nube. Este error suele producirse cuando el servicio local no pudo conectarse al servicio web de restablecimiento de contraseña.|
 | 32002| ServiceBusError| Este evento indica que se ha producido un error al conectarse a la instancia de Service Bus del inquilino. Esto puede deberse a que está bloqueando las conexiones salientes en el entorno local. Compruebe el firewall para asegurarse de que permite conexiones a través del TCP 443 y a https://ssprdedicatedsbprodncu.servicebus.windows.net, y vuelva a intentarlo. Si sigue teniendo problemas, pruebe a deshabilitar y volver a habilitar la escritura diferida de contraseñas.|
@@ -212,22 +213,22 @@ Si no encuentra la respuesta a un problema, nuestros equipos de soporte técnico
 
 Para que reciba la ayuda apropiada, le pedimos que proporcione la mayor cantidad de detalles posible al abrir una incidencia. Estos detalles incluyen los siguientes:
 
-* **Descripción general del error**: ¿Cuál es el error? ¿Qué comportamiento observó? ¿Cómo podemos reproducir el error? Proporcione tantos detalles como sea posible.
-* **Página**: ¿en qué página estaba cuando se detectó el error? Incluya la dirección URL, si es posible, y una captura de pantalla de la página.
-* **Código de soporte técnico**: ¿qué código de soporte técnico se generó cuando el usuario vio el error?
+* **Descripción general del error** : ¿Cuál es el error? ¿Qué comportamiento observó? ¿Cómo podemos reproducir el error? Proporcione tantos detalles como sea posible.
+* **Página** : ¿en qué página estaba cuando se detectó el error? Incluya la dirección URL, si es posible, y una captura de pantalla de la página.
+* **Código de soporte técnico** : ¿qué código de soporte técnico se generó cuando el usuario vio el error?
    * Para encontrarlo, reproduzca el error, seleccione el vínculo **Código de soporte técnico** en la parte inferior de la pantalla y envíe al ingeniero de soporte técnico el GUID resultante.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Reinicio del servicio de sincronización de Azure AD mediante la GUI":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="El código de soporte técnico se encuentra en la parte inferior derecha de la ventana del explorador web.":::
 
   * Si se encuentra en una página sin código de soporte en la parte inferior, seleccione F12, busque el SID y el CID, y envíe estos dos resultados al ingeniero de soporte.
-* **Fecha, hora y zona horaria**: incluya la fecha y la hora precisas (incluida la *zona horaria*) en que se produjo el error.
-* **Id. de usuario**: ¿quién fue el usuario que vio el error? Un ejemplo es *usuario\@contoso.com*.
+* **Fecha, hora y zona horaria** : incluya la fecha y la hora precisas (incluida la *zona horaria* ) en que se produjo el error.
+* **Id. de usuario** : ¿quién fue el usuario que vio el error? Un ejemplo es *usuario\@contoso.com*.
    * ¿Es un usuario federado?
    * ¿Es un usuario de autenticación de paso a través?
    * ¿Es un usuario con sincronización de hash de contraseña?
    * ¿Es un usuario solo de nube?
-* **Licencia**: ¿el usuario tiene asignada una licencia de Azure AD?
-* **Registro de eventos de aplicación**: si usa la escritura diferida de contraseñas y el error se produce en la infraestructura local, incluya una copia comprimida del registro de eventos de la aplicación desde el servidor de Azure AD Connect.
+* **Licencia** : ¿el usuario tiene asignada una licencia de Azure AD?
+* **Registro de eventos de aplicación** : si usa la escritura diferida de contraseñas y el error se produce en la infraestructura local, incluya una copia comprimida del registro de eventos de la aplicación desde el servidor de Azure AD Connect.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

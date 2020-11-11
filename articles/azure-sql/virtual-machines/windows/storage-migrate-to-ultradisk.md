@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4ddafd9fbeda1752a782085244597aea3ccbdd2d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 12ba0900f2499965f7843672183310dfecfbab2b
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271909"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146678"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migración del disco de registro al disco Ultra
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +50,7 @@ Para habilitar la compatibilidad, siga estos pasos:
 
 1. Seleccione **Sí** para **Habilitar la compatibilidad con discos Ultra**. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Selección de la configuración adicional para Discos en Configuración en Azure Portal":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Captura de pantalla que muestra la opción Sí.":::
 
 1. Seleccione **Guardar**. 
 
@@ -84,7 +84,7 @@ Configure SQL Server para usar la nueva unidad de registro. Para ello, puede us
 1. Vaya a su nuevo disco. 
 1. Cree una carpeta (o varias carpetas) que se usarán para el archivo de registro. 
 1. Haga clic con el botón derecho en la carpeta y seleccione **Propiedades**.
-1. En la pestaña **Seguridad**, conceda acceso de control total a la cuenta de servicio de SQL Server. 
+1. En la pestaña **Seguridad** , conceda acceso de control total a la cuenta de servicio de SQL Server. 
 1. Seleccione **Aceptar** para guardar la configuración. 
 1. Repita este paso para cada carpeta de nivel raíz donde tenga previsto tener datos SQL. 
 

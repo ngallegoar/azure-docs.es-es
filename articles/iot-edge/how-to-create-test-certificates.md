@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 66c8f72c82e04bafe9582c4a5dc6967e5470d3ea
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147882"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927709"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creación de certificados de demostración para probar las características de dispositivo IoT Edge
 
@@ -255,7 +255,7 @@ El nombre que se pasa al comando **New-CACertsEdgeDevice** no debe coincidir con
 2. Cree el certificado de entidad de certificación del dispositivo IoT Edge y una clave privada con el siguiente comando. Proporcione un nombre para el certificado de entidad de certificación.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
    Este comando de script crea varios archivos de claves y certificados. El siguiente certificado y el par de claves deben copiarse en un dispositivo IoT Edge y se puede hacer referencia a ellos en el archivo config.yaml:
@@ -263,7 +263,7 @@ El nombre que se pasa al comando **New-CACertsEdgeDevice** no debe coincidir con
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-El nombre que se pasa al comando **create_edge_device_certificate** no debe coincidir con el parámetro hostname en config.yaml o el identificador de dispositivo en IoT Hub.
+El nombre que se pasa al comando **create_edge_device_ca_certificate** no debe coincidir con el parámetro hostname en config.yaml ni con el identificador de dispositivo en IoT Hub.
 
 ## <a name="create-downstream-device-certificates"></a>Creación de certificados de dispositivo de bajada
 

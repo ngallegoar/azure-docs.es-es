@@ -11,26 +11,25 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 719258933dfadf34b8678bf03ee07ee6cc76e331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f459a804b4c375eea17cbc22ded2f41f808c1b82
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84789912"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041178"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Omisión de la eliminación de cuentas de usuario que están fuera de ámbito
 
 De forma predeterminada, el motor de aprovisionamiento de Azure AD elimina o deshabilita los usuarios que están fuera del ámbito. Sin embargo, en determinados escenarios, como el aprovisionamiento entrante de usuarios de Workday a AD, es posible que este comportamiento no sea el esperado y puede que desee reemplazarlo.  
 
-En este artículo se describe cómo usar Microsoft Graph API y el explorador de Microsoft Graph API para establecer la marca ***SkipOutOfScopeDeletions*** que controla el procesamiento de las cuentas que quedan fuera del ámbito. 
-* Si ***SkipOutOfScopeDeletions*** se establece en 0 (false), las cuentas que queden fuera del ámbito se deshabilitarán en el destino.
-* Si ***SkipOutOfScopeDeletions*** se establece en 1 (true), las cuentas que queden fuera del ámbito no se deshabilitarán en el destino. Esta marca se establece en el nivel de la *aplicación de aprovisionamiento* y se puede configurar mediante Graph API. 
+En este artículo se describe cómo usar Microsoft Graph API y el explorador de Microsoft Graph API para establecer la marca * **SkipOutOfScopeDeletions** _ que controla el procesamiento de las cuentas que quedan fuera del ámbito. _ Si * **SkipOutOfScopeDeletions** _ se establece en 0 (false), las cuentas que queden fuera del ámbito se deshabilitarán en el destino.
+_ Si * **SkipOutOfScopeDeletions** _ se establece en 1 (true), las cuentas que queden fuera del ámbito no se deshabilitarán en el destino. Esta marca se establece en el nivel de la _aplicación de aprovisionamiento* y se puede configurar mediante Graph API. 
 
-Como esta configuración se utiliza profusamente con la aplicación de *aprovisionamiento de usuarios de Workday a Active Directory*, los pasos siguientes incluyen capturas de pantallas de la aplicación Workday. Sin embargo, la configuración también se puede usar con *todas las demás aplicaciones*, como ServiceNow, Salesforce y Dropbox.
+Como esta configuración se utiliza profusamente con la aplicación de *aprovisionamiento de usuarios de Workday a Active Directory* , los pasos siguientes incluyen capturas de pantallas de la aplicación Workday. Sin embargo, la configuración también se puede usar con *todas las demás aplicaciones* , como ServiceNow, Salesforce y Dropbox.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Paso 1: Recuperar el identificador de la entidad de servicio de la aplicación de aprovisionamiento (identificador de objeto)
 
-1. Inicie [Azure Portal](https://portal.azure.com) y vaya a la sección Propiedades de la aplicación de aprovisionamiento. Por ejemplo, si desea exportar la asignación de la *aplicación de aprovisionamiento de usuarios de Workday a AD*, vaya a la sección Propiedades de dicha aplicación. 
+1. Inicie [Azure Portal](https://portal.azure.com) y vaya a la sección Propiedades de la aplicación de aprovisionamiento. Por ejemplo, si desea exportar la asignación de la *aplicación de aprovisionamiento de usuarios de Workday a AD* , vaya a la sección Propiedades de dicha aplicación. 
 1. En la sección Propiedades de la aplicación de aprovisionamiento, copie el valor GUID asociado con el campo *Id. de objeto*. Este valor también se conoce como el elemento **ServicePrincipalId** de la aplicación y se usará en las operaciones del Probador de Graph.
 
    ![Identificador de la entidad de servicio de la aplicación de Workday](./media/skip-out-of-scope-deletions/wd_export_01.png)
@@ -69,9 +68,9 @@ Este es el bloque JSON que se agrega a la asignación.
 
 ## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Paso 4: Actualizar el punto de conexión de secretos con la marca SkipOutOfScopeDeletions
 
-En Graph Explorer, ejecute el siguiente comando para actualizar el punto de conexión de secretos con la marca ***SkipOutOfScopeDeletions***. 
+En Graph Explorer, ejecute el siguiente comando para actualizar el punto de conexión de secretos con la marca * *_SkipOutOfScopeDeletions_* _. 
 
-En la dirección URL siguiente, reemplace [servicePrincipalId] por el valor de **ServicePrincipalId** extraído del [paso 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
+En la dirección URL siguiente, reemplace [servicePrincipalId] por el valor de _ *ServicePrincipalId* * extraído del [paso 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
@@ -90,7 +89,7 @@ Debería aparecer la siguiente salida: "Success – Status Code 204" (Correcto: 
 
 Para probar los resultados de esta marca en el comportamiento esperado, actualice de las reglas de ámbito para omitir un usuario específico. En el ejemplo siguiente, se excluye el empleado con el identificador 21173 (que antes estaba dentro del ámbito) agregando una nueva regla de ámbito: 
 
-   ![Ejemplo de ámbito](./media/skip-out-of-scope-deletions/skip-07.png)
+   ![Captura de pantalla que muestra la sección "Agregar filtro de ámbito" con un usuario de ejemplo resaltado.](./media/skip-out-of-scope-deletions/skip-07.png)
 
 En el siguiente ciclo de aprovisionamiento, el servicio de aprovisionamiento de Azure AD identificará que el usuario 21173 ha quedado fuera del ámbito y, si la propiedad SkipOutOfScopeDeletions está habilitada, la regla de sincronización de dicho usuario mostrará un mensaje como el siguiente: 
 

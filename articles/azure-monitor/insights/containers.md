@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326909"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145691"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solución de supervisión de contenedores en Azure Monitor
 
@@ -476,12 +476,12 @@ Para usar Helm con el fin de implementar el agente de Log Analytics en un entorn
  
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
  
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
    
     Para más información, visite [Container Solution Helm Chart](https://aka.ms/omscontainerhelm).
@@ -560,25 +560,25 @@ El icono muestra información general de cuántos contenedores hay en el entorno
 
 Haga clic en el icono **Containers**. Desde allí verá las vistas organizadas por:
 
-- **Eventos de contenedor**: muestra el estado de contenedor y los equipos con contenedores en estado de error.
-- **Registros de contenedor**: muestra un gráfico de archivos de registro de contenedor generados durante el tiempo y una lista de equipos con el mayor número de archivos de registro.
-- **Eventos de Kubernetes**: muestra un gráfico de eventos de Kubernetes generados durante el tiempo y una lista de los motivos por los que los pods generaron los eventos. *Este conjunto de datos solo se usa en entornos Linux.*
-- **Inventario de espacios de nombres de Kubernetes**: muestra el número de espacios de nombres y pods y muestra su jerarquía. *Este conjunto de datos solo se usa en entornos Linux.*
-- **Inventario de nodo de contenedor**: muestra el número de tipos de orquestación usados en los nodos o hosts del contenedor. Los nodos de equipo y hosts también se enumeran según el número de contenedores. *Este conjunto de datos solo se usa en entornos Linux.*
-- **Inventario de imágenes de contenedor**: muestra el número total de imágenes de contenedor que se utilizan y el número de tipos de imagen. También se muestra el número de imágenes según la etiqueta de imagen.
-- **Estado de contenedores**: muestra el número total de nodos de contenedor y equipos host que tienen contenedores en ejecución. También se enumeran los equipos según el número de hosts en ejecución.
-- **Procesos del contenedor**: muestra un gráfico de líneas de procesos de contenedor en ejecución a lo largo del tiempo. También se enumeran los contenedores según los comandos o procesos en ejecución en los contenedores. *Este conjunto de datos solo se usa en entornos Linux.*
-- **Rendimiento de la CPU del contenedor**: muestra un gráfico de líneas del promedio de uso de CPU a lo largo del tiempo para los nodos y hosts. También enumera los nodos y hosts según el uso medio de CPU.
-- **Rendimiento de la memoria del contenedor**: muestra un gráfico de líneas del uso de memoria a lo largo del tiempo. También muestra el uso de memoria de los equipos según el nombre de la instancia.
-- **Rendimiento del equipo**: muestra gráficos de líneas del porcentaje de rendimiento de la CPU, del porcentaje de uso de memoria y de los megabytes de espacio libre en disco a lo largo del tiempo. Puede mantener el ratón sobre cualquier línea de un gráfico para ver más detalles.
+- **Eventos de contenedor** : muestra el estado de contenedor y los equipos con contenedores en estado de error.
+- **Registros de contenedor** : muestra un gráfico de archivos de registro de contenedor generados durante el tiempo y una lista de equipos con el mayor número de archivos de registro.
+- **Eventos de Kubernetes** : muestra un gráfico de eventos de Kubernetes generados durante el tiempo y una lista de los motivos por los que los pods generaron los eventos. *Este conjunto de datos solo se usa en entornos Linux.*
+- **Inventario de espacios de nombres de Kubernetes** : muestra el número de espacios de nombres y pods y muestra su jerarquía. *Este conjunto de datos solo se usa en entornos Linux.*
+- **Inventario de nodo de contenedor** : muestra el número de tipos de orquestación usados en los nodos o hosts del contenedor. Los nodos de equipo y hosts también se enumeran según el número de contenedores. *Este conjunto de datos solo se usa en entornos Linux.*
+- **Inventario de imágenes de contenedor** : muestra el número total de imágenes de contenedor que se utilizan y el número de tipos de imagen. También se muestra el número de imágenes según la etiqueta de imagen.
+- **Estado de contenedores** : muestra el número total de nodos de contenedor y equipos host que tienen contenedores en ejecución. También se enumeran los equipos según el número de hosts en ejecución.
+- **Procesos del contenedor** : muestra un gráfico de líneas de procesos de contenedor en ejecución a lo largo del tiempo. También se enumeran los contenedores según los comandos o procesos en ejecución en los contenedores. *Este conjunto de datos solo se usa en entornos Linux.*
+- **Rendimiento de la CPU del contenedor** : muestra un gráfico de líneas del promedio de uso de CPU a lo largo del tiempo para los nodos y hosts. También enumera los nodos y hosts según el uso medio de CPU.
+- **Rendimiento de la memoria del contenedor** : muestra un gráfico de líneas del uso de memoria a lo largo del tiempo. También muestra el uso de memoria de los equipos según el nombre de la instancia.
+- **Rendimiento del equipo** : muestra gráficos de líneas del porcentaje de rendimiento de la CPU, del porcentaje de uso de memoria y de los megabytes de espacio libre en disco a lo largo del tiempo. Puede mantener el ratón sobre cualquier línea de un gráfico para ver más detalles.
 
 Cada área del panel es una representación visual de una búsqueda que se ejecuta en los datos recopilados.
 
-![Panel Containers](./media/containers/containers-dash01.png)
+![Captura de pantalla que muestra un panel para ver los datos recopilados. ](./media/containers/containers-dash01.png)
 
 ![Panel Containers](./media/containers/containers-dash02.png)
 
-En el área **Estado del contenedor**, haga clic en la parte superior, como se muestra a continuación.
+En el área **Estado del contenedor** , haga clic en la parte superior, como se muestra a continuación.
 
 ![Estado de los contenedores](./media/containers/containers-status.png)
 
@@ -599,9 +599,9 @@ Log Analytics marca un contenedor como **Failed** (Error) si ha terminado con un
 2. Log Analytics se abre y muestra el estado de los contenedores, de forma similar a lo siguiente.  
    ![estado de los contenedores](./media/containers/containers-log-search.png)
 3. Expanda la línea Erróneo y haga clic en + para agregar sus criterios a la consulta. Marque como comentario la línea Resumir de la consulta.
-   ![contenedores con errores](./media/containers/containers-state-failed-select.png)  
+   ![Captura de pantalla que muestra la línea que se debe comentar.](./media/containers/containers-state-failed-select.png)  
 1. Ejecute la consulta y expanda una línea de los resultados para ver el identificador de la imagen.  
-   ![contenedores con errores](./media/containers/containers-state-failed.png)  
+   ![Captura de pantalla que muestra cómo ver el identificador de la imagen.](./media/containers/containers-state-failed.png)  
 1. Escriba lo siguiente en la consulta de registro. `ContainerImageInventory | where ImageID == <ImageID>` para ver detalles de la imagen como tamaño de la imagen y el número de imágenes detenidas y con error.  
    ![contenedores con errores](./media/containers/containers-failed04.png)
 
@@ -609,12 +609,12 @@ Log Analytics marca un contenedor como **Failed** (Error) si ha terminado con un
 
 Cuando está solucionando un error específico, puede resultar de ayuda ver dónde se está produciendo en su entorno. Los siguientes tipos de registro le ayudarán a crear consultas que devuelven la información que desea.
 
-- **ContainerImageInventory**: use este tipo si desea encontrar información organizada por imagen, y para ver información sobre la imagen, por ejemplo, identificadores o tamaños de imagen.
-- **ContainerInventory**: use este tipo si desea obtener información sobre la ubicación del contenedor, cuáles son sus nombres y qué imágenes se están ejecutando.
-- **ContainerLog**: use este tipo si desea buscar la información de registro de un error específico y sus entradas.
+- **ContainerImageInventory** : use este tipo si desea encontrar información organizada por imagen, y para ver información sobre la imagen, por ejemplo, identificadores o tamaños de imagen.
+- **ContainerInventory** : use este tipo si desea obtener información sobre la ubicación del contenedor, cuáles son sus nombres y qué imágenes se están ejecutando.
+- **ContainerLog** : use este tipo si desea buscar la información de registro de un error específico y sus entradas.
 - **ContainerNodeInventory_CL** use este tipo cuando desee ver la información sobre el nodo o host donde se encuentran los contenedores. Proporciona información sobre la versión de Docker, el tipo de orquestación, almacenamiento y red.
 - **ContainerProcess_CL** use este tipo para ver rápidamente los procesos en ejecución en el contenedor.
-- **ContainerServiceLog**: use este tipo si desea encontrar información de seguimiento de auditoría para el daemon de Docker, tales como los comandos de inicio, detención, eliminación o extracción.
+- **ContainerServiceLog** : use este tipo si desea encontrar información de seguimiento de auditoría para el daemon de Docker, tales como los comandos de inicio, detención, eliminación o extracción.
 - **KubeEvents_CL** use este tipo para ver los eventos de Kubernetes.
 - **KubePodInventory_CL** use este tipo cuando desee conocer la información de la jerarquía del clúster.
 

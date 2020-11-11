@@ -5,23 +5,20 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/10/2020
+ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0af98993cc4b3c7d19cdaa61cd7a35e3b444a3df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613805"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124975"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Creación de una cuenta BlockBlobStorage
 
 El tipo de cuenta BlockBlobStorage le permite crear blobs en bloques con características de rendimiento Premium. Este tipo de cuenta de almacenamiento está optimizado para cargas de trabajo con altas tasas de transacciones o que requieren tiempos de acceso muy rápidos. En este artículo se muestra cómo crear una cuenta BlockBlobStorage mediante Azure Portal, la CLI de Azure o Azure PowerShell.
-
-> [!NOTE]
-> La característica de espacio de nombres jerárquico en una cuenta de almacenamiento de blobs en bloques está en versión preliminar pública y está disponible en las regiones Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Oeste de EE. UU. 2, Sur de Reino Unido, Centro de Canadá y Este de Australia. Para revisar las limitaciones, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) y [Problemas conocidos](data-lake-storage-known-issues.md). Para inscribirse en la versión preliminar, visite [este formulario](https://aka.ms/adlspremiumonboard).
 
 Para obtener más información sobre las cuentas de BlockBlobStorage, consulte [Introducción a las cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
@@ -93,19 +90,19 @@ Para crear una cuenta de BlockBlobStorage en Azure Portal, siga estos pasos:
 
 1. En Azure Portal, seleccione **Todos los servicios** > la categoría **Almacenamiento** > **Cuentas de almacenamiento**.
 
-2. En **Cuentas de almacenamiento**, seleccione **Agregar**.
+2. En **Cuentas de almacenamiento** , seleccione **Agregar**.
 
 3. Seleccione la suscripción en la que se va a crear la cuenta de almacenamiento en el campo **Suscripción**.
 
-4. En el campo del **Grupo de recursos**, seleccione un grupo de recursos existente o **Crear nuevo** y escriba un nombre para el grupo de recursos.
+4. En el campo del **Grupo de recursos** , seleccione un grupo de recursos existente o **Crear nuevo** y escriba un nombre para el grupo de recursos.
 
-5. En el campo **Nombre de la cuenta de almacenamiento**, escriba un nombre para la cuenta. Tenga en cuenta estas directrices:
+5. En el campo **Nombre de la cuenta de almacenamiento** , escriba un nombre para la cuenta. Tenga en cuenta estas directrices:
 
    - El nombre debe ser único en Azure.
    - El nombre debe tener entre tres y 24 caracteres.
    - El nombre solo puede contener números y letras minúsculas.
 
-6. En el campo **Ubicación**, seleccione una ubicación para la cuenta de almacenamiento o utilice la ubicación predeterminada.
+6. En el campo **Ubicación** , seleccione una ubicación para la cuenta de almacenamiento o utilice la ubicación predeterminada.
 
 7. Defina la configuración de los siguientes valores:
 
@@ -119,12 +116,7 @@ Para crear una cuenta de BlockBlobStorage en Azure Portal, siga estos pasos:
 
 8. Elija la pestaña **Opciones avanzadas**.
 
-9. Si desea optimizar la cuenta de almacenamiento para el análisis de datos, establezca **Espacio de nombres jerárquico** como **Habilitado**. De lo contrario, deje esta opción establecida en su valor predeterminado.
-
-   Para obtener más información, consulte [Introducción a Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
-
-   > [!NOTE]
-   > La característica de espacio de nombres jerárquico en una cuenta de almacenamiento de blobs en bloques está en versión preliminar pública y está disponible en las regiones Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Oeste de EE. UU. 2, Sur de Reino Unido, Centro de Canadá y Este de Australia. Para revisar las limitaciones, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) y [Problemas conocidos](data-lake-storage-known-issues.md). Para inscribirse en la versión preliminar, visite [este formulario](https://aka.ms/adlspremiumonboard).
+9. Si desea optimizar la cuenta de almacenamiento para el análisis de datos, establezca **Espacio de nombres jerárquico** como **Habilitado**. De lo contrario, deje esta opción establecida en su valor predeterminado. Al habilitar esta configuración con su cuenta de BlockBlobStorage, obtiene el [nivel prémium de Data Lake Storage](premium-tier-for-data-lake-storage.md).  Para más información acerca de Data Lake Storage, consulte [Introduction a Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 8. Seleccione **Revisar y crear** para revisar la configuración de la cuenta de almacenamiento.
 
@@ -165,10 +157,7 @@ Para crear una cuenta de BlockBlobStorage en Azure Portal, siga estos pasos:
 
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
-   Si desea optimizar la cuenta de almacenamiento para el análisis de datos, agregue `-EnableHierarchicalNamespace $True` al comando. Para obtener más información, consulte [Introducción a Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
-
-   > [!NOTE]
-   > La característica de espacio de nombres jerárquico en una cuenta de almacenamiento de blobs en bloques está en versión preliminar pública y está disponible en las regiones Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Oeste de EE. UU. 2, Sur de Reino Unido, Centro de Canadá y Este de Australia. Para revisar las limitaciones, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) y [Problemas conocidos](data-lake-storage-known-issues.md). Para inscribirse en la versión preliminar, visite [este formulario](https://aka.ms/adlspremiumonboard).
+   Si desea optimizar la cuenta de almacenamiento para el análisis de datos, agregue `-EnableHierarchicalNamespace $True` al comando. Al habilitar esta configuración con su cuenta de BlockBlobStorage, obtiene el [nivel prémium de Data Lake Storage](premium-tier-for-data-lake-storage.md).  Para más información acerca de Data Lake Storage, consulte [Introduction a Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 ## <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -199,11 +188,8 @@ Para crear una cuenta de blob en bloques con la CLI de Azure, debe instalar prim
     --sku "Premium_LRS"
    ```
 
-   Si desea optimizar la cuenta de almacenamiento para el análisis de datos, agregue `--hierarchical-namespace true` al comando. Para obtener más información, consulte [Introducción a Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+   Si desea optimizar la cuenta de almacenamiento para el análisis de datos, agregue `--hierarchical-namespace true` al comando. Al habilitar esta configuración con su cuenta de BlockBlobStorage, obtiene el [nivel prémium de Data Lake Storage](premium-tier-for-data-lake-storage.md).  Para más información acerca de Data Lake Storage, consulte [Introduction a Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
-   > [!NOTE]
-   > La característica de espacio de nombres jerárquico en una cuenta de almacenamiento de blobs en bloques está en versión preliminar pública y está disponible en las regiones Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Oeste de EE. UU. 2, Sur de Reino Unido, Centro de Canadá y Este de Australia. Para revisar las limitaciones, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) y [Problemas conocidos](data-lake-storage-known-issues.md). Para inscribirse en la versión preliminar, visite [este formulario](https://aka.ms/adlspremiumonboard).
-   
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes

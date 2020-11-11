@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
-ms.openlocfilehash: 9b51205fe67bfe5be46491b0238e987fc14f6737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b7fc4a120f5a4b513e1852fc6e2cf5ab68e9631
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074358"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101262"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal
 Si la máquina virtual Windows de Azure se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una actualización de aplicación con error que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar Azure Portal para conectar el disco duro virtual a otra máquina virtual Windows para solucionar los errores y, posteriormente, volver a crear la máquina virtual original. 
@@ -86,11 +86,11 @@ Para crear un disco a partir de la instantánea, siga estos pasos:
 ## <a name="attach-the-disk-to-another-vm"></a>Conexión del disco a otra máquina virtual
 Para los pasos siguientes, se usa otra máquina virtual con el fin de solucionar problemas. Después de conectar el disco a la máquina virtual de solución de problemas, puede examinar y modificar el contenido del disco. Este proceso permite corregir los errores de configuración o revisar otros archivos de registro de la aplicación o el sistema. Para conectar el disco a otra máquina virtual, siga estos pasos:
 
-1. Seleccione el grupo de recursos desde el portal y, a continuación, seleccione la máquina virtual de solución de problemas. Seleccione **Discos**, elija **Editar** y haga clic en **Agregar disco de datos**:
+1. Seleccione el grupo de recursos desde el portal y, a continuación, seleccione la máquina virtual de solución de problemas. Seleccione **Discos** , elija **Editar** y haga clic en **Agregar disco de datos** :
 
     ![Conexión del disco existente en el portal](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. En la lista **Discos de datos**, seleccione el disco del sistema operativo de la máquina virtual que identificó. Si no ve el disco del sistema operativo, asegúrese de que la máquina virtual de solución de problemas y el disco del sistema operativo se encuentran en la misma región (ubicación). 
+2. En la lista **Discos de datos** , seleccione el disco del sistema operativo de la máquina virtual que identificó. Si no ve el disco del sistema operativo, asegúrese de que la máquina virtual de solución de problemas y el disco del sistema operativo se encuentran en la misma región (ubicación). 
 3. Seleccione **Guardar** para aplicar los cambios.
 
 ## <a name="mount-the-attached-data-disk-to-the-vm"></a>Montaje del disco de datos conectado en la máquina virtual
@@ -110,20 +110,20 @@ Con el disco duro virtual existente montado, ahora puede realizar todos los paso
 ## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Desmontaje y desconexión del disco duro virtual original
 Una vez resueltos los errores, desconecte el disco duro virtual existente de la máquina virtual de solución de problemas. No se podrá usar el disco duro virtual en ninguna otra máquina virtual hasta que se libere la concesión que conecta el disco duro virtual a la máquina virtual de solución de problemas.
 
-1. En la sesión RDP de la máquina virtual, abra **Administrador del servidor** y, a continuación, seleccione **Servicios de archivos y almacenamiento**:
+1. En la sesión RDP de la máquina virtual, abra **Administrador del servidor** y, a continuación, seleccione **Servicios de archivos y almacenamiento** :
 
     ![Seleccione Servicios de archivos y almacenamiento en Administrador del servidor.](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-2. Seleccione **Discos** y, a continuación, seleccione el disco de datos. Haga clic con el botón derecho en el disco de datos y seleccione **Desconectar**:
+2. Seleccione **Discos** y, a continuación, seleccione el disco de datos. Haga clic con el botón derecho en el disco de datos y seleccione **Desconectar** :
 
     ![Establezca el disco de datos como sin conexión en Administrador del servidor.](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
 3. Ahora, desconecte el disco duro virtual de la máquina virtual. Seleccione la máquina virtual en Azure Portal y haga clic en **Discos**. 
-4. Seleccione **Editar**, elija el disco del sistema operativo que ha conectado y haga clic en **Desasociar**:
+4. Seleccione **Editar** , elija el disco del sistema operativo que ha conectado y haga clic en **Eliminar** :
 
     ![Desconecte el disco duro virtual existente](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
-    Espere hasta que la máquina virtual haya desconectado correctamente el disco de datos antes de continuar.
+    Espere hasta que la VM haya completado la eliminación, es decir, desconectado el disco de datos antes de continuar.
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Intercambio del disco del sistema operativo de la máquina virtual
 

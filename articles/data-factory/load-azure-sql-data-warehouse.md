@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: ffda2b1d096b3c84e3f1df10e37c44922bab16ef
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: dcf3db33818448116da53d8a01d0c62aca7bc1af
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632420"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280173"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carga de datos en Azure Synapse Analytics mediante Azure Data Factory
 
@@ -113,9 +113,6 @@ En este artículo se muestra cómo usar la herramienta Copiar datos de Data Fact
     d. Seleccione el servicio vinculado recién creado como receptor y, a continuación, haga clic en **Siguiente**.
 
 7. En la página **Table mapping** (Asignación de tabla), revise el contenido y seleccione **Next** (Siguiente). Se muestra una asignación de tabla inteligente. Las tablas de origen se asignan a las tablas de destino en función de los nombres de tabla. Si la tabla de origen no existe en el destino, Azure Data Factory crea una con el mismo nombre de manera predeterminada. También se puede asignar una tabla de origen a una tabla de destino existente.
-
-   > [!NOTE]
-   > La creación automática de la tabla para el receptor de Azure Synapse Analytics se aplica cuando el origen es SQL Server o Azure SQL Database. Si copia datos desde otro almacén de datos de origen, debe crear previamente el esquema en el receptor de Azure Synapse Analytics antes de copiar los datos.
 
    ![Página Table mapping (Asignación de tabla)](./media/load-azure-sql-data-warehouse/table-mapping.png)
 

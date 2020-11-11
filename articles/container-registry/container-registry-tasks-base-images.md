@@ -3,12 +3,12 @@ title: 'Actualizaciones de imagen base: Tasks'
 description: Obtenga información sobre las imágenes base para las imágenes de contenedor de aplicación y sobre cómo una actualización de imagen base puede desencadenar una instancia de Azure Container Registry Tasks.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85918515"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025772"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Acerca de las actualizaciones de imagen base para ACR Tasks
 
@@ -22,9 +22,13 @@ El mantenedor de la imagen actualiza frecuentemente la imagen base para que incl
 
 En algunos casos, como en un equipo de desarrollo privado, una imagen base podría especificar más que el sistema operativo o el marco. Por ejemplo, una imagen base podría ser una imagen de componentes de servicio compartido a la que debe realizarse un seguimiento. Es posible que los miembros de un equipo tengan que realizar un seguimiento de esta imagen base para realizar pruebas, o tengan que actualizar periódicamente la imagen al desarrollar imágenes de aplicaciones.
 
+## <a name="maintain-copies-of-base-images"></a>Mantenimiento de copias de imágenes base
+
+En el caso de cualquier contenido de los registros que dependa del contenido base mantenido en un registro público como Docker Hub, se recomienda copiar el contenido en un registro de contenedor de Azure o en otro registro privado. A continuación, asegúrese de compilar las imágenes de la aplicación mediante una referencia a las imágenes base privadas. Azure Container Registry proporciona una capacidad de [importación de imágenes](container-registry-import-images.md) para copiar fácilmente contenido de registros públicos u otros registros de contenedor de Azure. En la sección siguiente se describe el uso de ACR Tasks para realizar el seguimiento de las actualizaciones de imagen base al compilar actualizaciones de la aplicación. Puede realizar un seguimiento de las actualizaciones de imagen base en sus propios registros de contenedor de Azure y, opcionalmente, en los registros públicos ascendentes.
+
 ## <a name="track-base-image-updates"></a>Seguimiento de actualizaciones de imagen base
 
-ACR Tasks incluye la posibilidad de compilar automáticamente las imágenes cuando se actualiza una imagen base del contenedor.
+ACR Tasks incluye la posibilidad de compilar automáticamente las imágenes cuando se actualiza una imagen base del contenedor. Puede usar esta capacidad para mantener y actualizar las copias de las imágenes base públicas en los registros de contenedor de Azure y, después, volver a generar las imágenes de la aplicación que dependan de las imágenes base.
 
 ACR Tasks detecta dinámicamente las dependencias de la imagen base al compilar una imagen de contenedor. Como resultado, puede detectar cuando se actualiza la imagen base de la imagen de una aplicación. Con una tarea de compilación preconfigurada, ACR Tasks puede recompilar automáticamente cada imagen de aplicación que haga referencia a la imagen base. Gracias a esta detección y recompilación automáticas, ACR Tasks le ahorra tiempo y esfuerzo que normalmente son necesarios para actualizar y realizar el seguimiento de forma manual de cada una de las imágenes de aplicación que hacen referencia a la imagen base actualizada.
 
@@ -43,24 +47,24 @@ Si la imagen base especificada en la instrucción `FROM` reside en alguna de esa
 
 El tiempo entre el momento en que se actualiza una imagen base y el momento en que se desencadena la tarea dependiente depende de la ubicación de la imagen base:
 
-* **Imágenes base de un repositorio público en Docker Hub o MCR**: para las imágenes base en repositorios públicos, una tarea de ACR Tasks comprueba las actualizaciones de la imagen en un intervalo aleatorio de entre 10 y 60 minutos. Las tareas dependientes se ejecutan en consecuencia.
-* **Imágenes base de un registro de contenedor de Azure**: para las imágenes base de los registros de contenedor de Azure, una tarea de ACR Tasks desencadena inmediatamente una ejecución cuando se actualiza su imagen base. La imagen base puede estar en el mismo ACR en el que se ejecuta la tarea o en un ACR diferente en cualquier región.
+* **Imágenes base de un repositorio público en Docker Hub o MCR** : para las imágenes base en repositorios públicos, una tarea de ACR Tasks comprueba las actualizaciones de la imagen en un intervalo aleatorio de entre 10 y 60 minutos. Las tareas dependientes se ejecutan en consecuencia.
+* **Imágenes base de un registro de contenedor de Azure** : para las imágenes base de los registros de contenedor de Azure, una tarea de ACR Tasks desencadena inmediatamente una ejecución cuando se actualiza su imagen base. La imagen base puede estar en el mismo ACR en el que se ejecuta la tarea o en un ACR diferente en cualquier región.
 
 ## <a name="additional-considerations"></a>Consideraciones adicionales
 
-* **Imágenes base para imágenes de aplicación**: Actualmente, una instancia de ACR Tasks solo realiza el seguimiento de las actualizaciones de las imágenes base de las imágenes de las aplicaciones (*tiempo de ejecución*). No realiza un seguimiento de las actualizaciones de las imágenes base de las imágenes intermedias (*tiempo de compilación*) que se usan en Dockerfiles de varias fases.  
+* **Imágenes base para imágenes de aplicación** : Actualmente, una instancia de ACR Tasks solo realiza el seguimiento de las actualizaciones de las imágenes base de las imágenes de las aplicaciones ( *tiempo de ejecución* ). No realiza un seguimiento de las actualizaciones de las imágenes base de las imágenes intermedias ( *tiempo de compilación* ) que se usan en Dockerfiles de varias fases.  
 
-* **Habilitado de forma predeterminada**: Cuando se crea una instancia de ACR Tasks con el comando [az acr task create][az-acr-task-create], de manera predeterminada la tarea se *habilita* para desencadenarse con una actualización de imagen base. Es decir, la propiedad `base-image-trigger-enabled` está establecida en True. Si quiere deshabilitar este comportamiento en una tarea, actualice la propiedad en False. Por ejemplo, ejecute el siguiente comando [az acr task update][az-acr-task-update]:
+* **Habilitado de forma predeterminada** : Cuando se crea una instancia de ACR Tasks con el comando [az acr task create][az-acr-task-create], de manera predeterminada la tarea se *habilita* para desencadenarse con una actualización de imagen base. Es decir, la propiedad `base-image-trigger-enabled` está establecida en True. Si quiere deshabilitar este comportamiento en una tarea, actualice la propiedad en False. Por ejemplo, ejecute el siguiente comando [az acr task update][az-acr-task-update]:
 
   ```azurecli
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
   ```
 
-* **Desencadenador para seguimiento de dependencias**: Para que una instancia de ACR Tasks pueda determinar y supervisar las dependencias de una imagen de contenedor (lo cual incluye su imagen base), primero debe desencadenar la tarea de compilación de la imagen **al menos una vez**. Por ejemplo, puede desencadenar la tarea de forma manual mediante el comando [az acr task run][az-acr-task-run].
+* **Desencadenador para seguimiento de dependencias** : Para que una instancia de ACR Tasks pueda determinar y supervisar las dependencias de una imagen de contenedor (lo cual incluye su imagen base), primero debe desencadenar la tarea de compilación de la imagen **al menos una vez**. Por ejemplo, puede desencadenar la tarea de forma manual mediante el comando [az acr task run][az-acr-task-run].
 
-* **Etiqueta stable para imagen base**: Para desencadenar una tarea cuando se actualice la imagen base, la imagen base debe tener una etiqueta *stable*, como `node:9-alpine`. Este etiquetado es común para las imágenes base que se actualizan a una versión estable más reciente mediante revisiones del sistema operativo y el marco. Si se actualiza la imagen base con una nueva etiqueta de versión, no se desencadena una tarea. Para obtener más información sobre el etiquetado de imágenes, consulte la [guía sobre procedimientos recomendados](container-registry-image-tag-version.md). 
+* **Etiqueta stable para imagen base** : Para desencadenar una tarea cuando se actualice la imagen base, la imagen base debe tener una etiqueta *stable* , como `node:9-alpine`. Este etiquetado es común para las imágenes base que se actualizan a una versión estable más reciente mediante revisiones del sistema operativo y el marco. Si se actualiza la imagen base con una nueva etiqueta de versión, no se desencadena una tarea. Para obtener más información sobre el etiquetado de imágenes, consulte la [guía sobre procedimientos recomendados](container-registry-image-tag-version.md). 
 
-* **Otros desencadenadores de tarea**: En una tarea desencadenada por actualizaciones de la imagen base, también puede habilitar desencadenadores en función de la [confirmación del código fuente](container-registry-tutorial-build-task.md) o una [programación](container-registry-tasks-scheduled.md). Una actualización de la imagen base también puede desencadenar una [tareas de varios pasos](container-registry-tasks-multi-step.md).
+* **Otros desencadenadores de tarea** : En una tarea desencadenada por actualizaciones de la imagen base, también puede habilitar desencadenadores en función de la [confirmación del código fuente](container-registry-tutorial-build-task.md) o una [programación](container-registry-tasks-scheduled.md). Una actualización de la imagen base también puede desencadenar una [tareas de varios pasos](container-registry-tasks-multi-step.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
