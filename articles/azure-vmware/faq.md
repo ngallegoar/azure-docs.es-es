@@ -4,12 +4,12 @@ description: En este artículo se ofrecen respuestas a algunas de las preguntas 
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 91be1c51639aa3ae8acbf0c37f5c4a8174b5a592
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a1ca50e1e1374b5e819c9355be1a48e2b7c3e536
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779448"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349093"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Preguntas frecuentes sobre Azure VMware Solution
 
@@ -59,13 +59,7 @@ Las actualizaciones realizadas en el propio servicio seguirán el proceso están
 
 Con la nueva solución Azure VMware Solution, Microsoft y VMware tienen una asociación directa con el proveedor de la nube. La solución nueva está diseñada, creada y respaldada completamente por Microsoft, y aprobada por VMware. Desde el punto de vista de la arquitectura, las soluciones son coherentes con la pila de tecnología de VMware que se ejecuta en una infraestructura de Azure dedicada.
 
-#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>¿Las soluciones de Red Hat se admiten en Azure VMware Solution?
 
-Microsoft y Red Hat comparten un equipo de soporte técnico integrado y coubicado que proporciona un punto de contacto unificado para los ecosistemas de Red Hat que se ejecutan en la plataforma Azure.  Al igual que otros servicios de la plataforma Azure que funcionan con Red Hat Enterprise Linux, Azure VMware Solution está bajo la protección del soporte integrado y Cloud Access. Asimismo, se admite la ejecución de Red Hat Enterprise Linux sobre Azure VMware Solution en Azure.
-
-#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>¿VMware HCX Enterprise Edition está disponible? Si es así, ¿cuánto cuesta?
-
-VMware HCX Enterprise Edition (EE) está disponible con Azure VMware Solution, como una función o servicio en *versión preliminar*. Aunque VMware HCX EE para Azure VMware Solution esté en su versión preliminar, es una función o servicio gratuito y está sujeto a los términos y condiciones de los servicios de versión preliminar. Una vez que el servicio VMware HCX EE esté disponible de forma general, recibirá un aviso de 30 días de que la facturación cambiará. Puede desactivar o no participar en el servicio.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>¿VMRC puede administrar las VM de Azure VMware Solution?
 Sí, siempre que el sistema en el que está instalado pueda acceder al servidor vCenter de la nube privada y use un servidor DNS público para poder resolver los nombres de host ESXi.
@@ -76,8 +70,11 @@ No, use las [instrucciones proporcionadas por VMware](https://docs.vmware.com/en
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>¿Se admite VMware HCX en las VPN?
 No, debido a los requisitos de ancho de banda y latencia.
 
-#### <a name="can-azure-bastion-be-used-for-connecting-to-avs-vms"></a>¿Se puede usar Azure Bastion para conectarse a las VM de AVS?
+#### <a name="can-azure-bastion-be-used-for-connecting-to-azure-vmware-solution-vms"></a>¿Se puede usar Azure Bastion para conectarse a las VM de Azure VMware Solution?
 Azure Bastion es el servicio recomendado para conectarse al jumpbox a fin de evitar exponer Azure VMware Solution a Internet. No se puede usar Azure Bastion para conectarse a VM de Azure VMware Solution porque no son objetos de IaaS de Azure.
+
+#### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>¿Puede Azure Load Balancer usarse internamente para las VM de Azure VMware Solution?
+No. Azure Load Balancer interno solo admite las VM de IaaS de Azure. Azure Load Balancer no admite los grupos de back-end basados en IP; solo las VM de Azure o los objetos de conjuntos de escalado de máquinas virtuales (VMSS) en los que las VM de Azure VMware Solution no sean objetos de Azure.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>¿Se puede usar una puerta de enlace de ExpressRoute existente para la conexión a Azure VMware Solution?
 Puede usar una puerta de enlace de ExpressRoute existente para conectarse a Azure VMware Solution, siempre que no supere el límite de cuatro circuitos ExpressRoute por red virtual.  Sin embargo, para tener acceso a Azure VMware Solution desde el entorno local mediante ExpressRoute, debe tener Global Reach de ExpressRoute, ya que la puerta de enlace de ExpressRoute no proporciona enrutamiento transitivo entre sus circuitos conectados.
@@ -233,6 +230,14 @@ Microsoft ofrece el soporte técnico para Azure VMware Solution. Puede enviar un
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>¿Qué cuentas necesito para crear una nube privada de Azure VMware Solution?
 
 Necesitará una cuenta de Azure en una suscripción a Azure.
+
+#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>¿Las soluciones de Red Hat se admiten en Azure VMware Solution?
+
+Microsoft y Red Hat comparten un equipo de soporte técnico integrado y coubicado que proporciona un punto de contacto unificado para los ecosistemas de Red Hat que se ejecutan en la plataforma Azure.  Al igual que otros servicios de la plataforma Azure que funcionan con Red Hat Enterprise Linux, Azure VMware Solution está bajo la protección del soporte integrado y Cloud Access. Asimismo, se admite la ejecución de Red Hat Enterprise Linux sobre Azure VMware Solution en Azure.
+
+#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>¿VMware HCX Enterprise Edition está disponible? Si es así, ¿cuánto cuesta?
+
+VMware HCX Enterprise Edition (EE) está disponible con Azure VMware Solution, como una función o servicio en *versión preliminar*. Aunque VMware HCX EE para Azure VMware Solution esté en su versión preliminar, es una función o servicio gratuito y está sujeto a los términos y condiciones de los servicios de versión preliminar. Una vez que el servicio VMware HCX EE esté disponible de forma general, recibirá un aviso de 30 días de que la facturación cambiará. Puede desactivar o no participar en el servicio.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>¿Cómo se solicita un aumento de la cuota de host para Azure VMware Solution?
 

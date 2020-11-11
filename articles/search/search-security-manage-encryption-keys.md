@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: fdc0ae3fef2fb70b7372ab4fb28497ea6a6400a4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635469"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287152"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configuración de claves administradas por el cliente para el cifrado de datos en Azure Cognitive Search
 
@@ -43,13 +43,11 @@ Si usa una región diferente o un servicio creado antes del 1 de agosto, el cifr
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este ejemplo se usan los servicios y las herramientas siguientes. 
+En este escenario se usan los servicios y las herramientas siguientes.
 
-+ [Cree un servicio de Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
-
-+ [Cree un recurso de Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) o busque uno existente. Tanto Key Vault como Cognitive Search deben estar en la misma suscripción. El almacén de claves debe tener la **eliminación temporal** y la **protección contra purgas** habilitada.
-
-+ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) para registrar una aplicación y crear una cadena de secretos que usa la aplicación para autenticarse. Si no tiene una, [configure un nuevo inquilino](../active-directory/develop/quickstart-create-new-tenant.md).
++ [Azure Cognitive Search](search-create-service-portal.md) en un [nivel de servicio facturable](search-sku-tier.md#tiers) (básico o superior, en cualquier región).
++ [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) en la misma suscripción que Azure Cognitive Search. El almacén de claves debe tener la **eliminación temporal** y la **protección contra purgas** habilitada.
++ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Si no tiene una, [configure un nuevo inquilino](../active-directory/develop/quickstart-create-new-tenant.md).
 
 Debe tener una aplicación de búsqueda que pueda crear el objeto cifrado. En este código, hará referencia a una clave del almacén de claves y a la información de registro de Active Directory. Este código puede ser una aplicación de trabajo o un código de prototipo como el [ejemplo de código de C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 

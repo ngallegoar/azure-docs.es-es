@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: aa4b55cb0700a47d9235a1d526ef1b1678d6db8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333824"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316685"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Supervisión y visualización de métricas y registros de ejecución de ML
 
@@ -58,7 +58,7 @@ Una vez finalizada la ejecución, ya no se muestra en esta página. Para ver inf
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Supervisar las ejecuciones con el widget de Jupyter Notebooks
 
-Cuando se usa el método **ScriptRunConfig** para enviar ejecuciones, se puede ver el progreso de la ejecución mediante el [widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Al igual que el envío de ejecución, el widget es asincrónico y proporciona las actualizaciones directas cada 10 a 15 segundos hasta que se completa el trabajo.
+Cuando se usa el método **ScriptRunConfig** para enviar ejecuciones, se puede ver el progreso de la ejecución mediante el [widget de Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Al igual que el envío de ejecución, el widget es asincrónico y proporciona las actualizaciones directas cada 10 a 15 segundos hasta que se completa el trabajo.
 
 Vea el widget de Jupyter mientras espera a que finalice la ejecución.
     
@@ -93,7 +93,7 @@ RunDetails(run).show()
 
 ## <a name="show-output-upon-completion"></a>Visualización de la salida al finalizar
 
-Cuando se usa **ScriptRunConfig**, se puede usar ```run.wait_for_completion(show_output = True)``` para mostrar cuándo finaliza el entrenamiento del modelo. La marca ```show_output``` le ofrece una salida detallada. Para obtener más información, consulte la sección ScriptRunConfig en [Cómo habilitar el registro](how-to-track-experiments.md#scriptrun-logs).
+Cuando se usa **ScriptRunConfig** , se puede usar ```run.wait_for_completion(show_output = True)``` para mostrar cuándo finaliza el entrenamiento del modelo. La marca ```show_output``` le ofrece una salida detallada. Para obtener más información, consulte la sección ScriptRunConfig en [Cómo habilitar el registro](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## <a name="query-run-metrics"></a>Métricas de ejecución de consulta
@@ -105,7 +105,9 @@ Puede ver las métricas de un modelo entrenado con ```run.get_metrics()```. Podr
 
 Puede examinar los registros de ejecución completados, incluidas las métricas registradas, en [Azure Machine Learning Studio](https://ml.azure.com).
 
-Vaya a la pestaña **Experimentos** y seleccione el experimento. En el panel de ejecución del experimento, puede ver las métricas y los registros del seguimiento de cada ejecución. 
+Vaya a la sección **Experimentos**. Para ver todas las ejecuciones en el área de trabajo de todos los experimentos, seleccione la pestaña **Todas las ejecuciones**. Puede explorar en profundidad las ejecuciones de Experimentos concretos si aplica el filtro de experimentos en la barra de menús de la parte superior. 
+
+Para obtener la vista de experimentos individuales, seleccione la pestaña **Todos los experimentos**. En el panel de ejecución del experimento, puede ver las métricas y los registros del seguimiento de cada ejecución. 
 
 Explore en profundidad una ejecución específica para ver sus salidas o registros, o descargar la instantánea del experimento para que pueda compartir la carpeta del experimento con otros usuarios.
 
@@ -132,4 +134,3 @@ Pruebe estos pasos para aprender a usar Azure Machine Learning:
 * Obtenga información sobre cómo [realizar un seguimiento de los experimentos y habilitar los registros en el diseñador de Azure Machine Learning](how-to-track-designer-experiments.md).
 
 * Vea un ejemplo de cómo registrar el mejor modelo e implementarlo en el tutorial, [Entrenar un modelo de clasificación de imágenes con Azure Machine Learning](tutorial-train-models-with-aml.md).
-

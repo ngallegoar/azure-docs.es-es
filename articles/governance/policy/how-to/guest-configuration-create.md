@@ -3,12 +3,12 @@ title: Creación de directivas de Configuración de invitado para Windows
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 563b178b9ba92125967c779b59a78a8e105ec744
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542869"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348889"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Creación de directivas de Configuración de invitado para Windows
 
@@ -23,8 +23,12 @@ Solo se puede usar la [configuración de invitados de Azure Policy](../concepts/
 Use las siguientes acciones para crear su propia configuración para validar el estado de una máquina de Azure o que no sea de Azure.
 
 > [!IMPORTANT]
+> Las definiciones de directivas personalizadas con configuración de invitado en los entornos de Azure Government y Azure China es una característica en versión preliminar.
+>
 > La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure.
 > Para implementar la extensión a gran escala en todas las máquinas Windows, asigne las siguientes definiciones de directiva: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> No use secretos ni información confidencial en paquetes de contenido personalizado.
 
 ## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
 
@@ -487,9 +491,13 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida de la directiva
 
-Si desea publicar una actualización de la directiva, hay dos campos que requieren atención.
+Si desea publicar una actualización de la directiva, hay tres campos que requieren atención.
 
-- **Versión** : al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente. La propiedad actualiza la versión de la asignación de Configuración de invitado para que el agente reconozca el paquete actualizado.
+> [!NOTE]
+> La propiedad `version` de la asignación de configuración de invitado solo afecta a los paquetes hospedados por Microsoft. El procedimiento recomendado para el control de versiones del contenido personalizado es incluir la versión en el nombre de archivo.
+
+- **Versión** : al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente.
+- **contentUri** : Al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un URI para la ubicación del paquete. La inclusión de una versión del paquete en el nombre de archivo garantiza que el valor de esta propiedad cambie en cada versión.
 - **contentHash** : el cmdlet `New-GuestConfigurationPolicy` actualiza automáticamente esta propiedad. Es un valor hash del paquete que creó `New-GuestConfigurationPackage`. La propiedad debe ser correcta para el archivo `.zip` que se publica. Si solo se actualiza la propiedad **contentUri** , la extensión no aceptará el paquete de contenido.
 
 La manera más fácil de publicar un paquete actualizado es repetir el proceso que se describe en este artículo y proporcionar un número de versión actualizado. Este proceso garantiza que todas las propiedades se hayan actualizado correctamente.

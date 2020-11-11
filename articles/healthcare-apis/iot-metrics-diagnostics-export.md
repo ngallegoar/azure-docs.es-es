@@ -1,33 +1,33 @@
 ---
-title: Exportación de las métricas de Azure IoT Connector para FHIR (versión preliminar) a través de la configuración de diagnóstico
-description: En este artículo se explica cómo exportar las métricas de Azure IoT Connector for FHIR (versión preliminar) mediante la configuración de diagnóstico.
+title: Exportación de las métricas de Azure IoT Connector for FHIR (versión preliminar) mediante la configuración de diagnóstico
+description: En este artículo se explica cómo exportar las métricas de Azure IoT Connector for FHIR (versión preliminar) mediante la configuración de diagnóstico
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/30/2020
 ms.author: jasteppe
-ms.openlocfilehash: d7779c74a562e1237db863d7759b2adcffa2bddf
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 2c10dc05775739a55267dd3766e533b73e12b3a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558557"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322367"
 ---
-# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportación de las métricas de Azure IoT Connector para FHIR (versión preliminar) a través de la configuración de diagnóstico
+# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportación de las métricas de Azure IoT Connector for FHIR (versión preliminar) mediante la configuración de diagnóstico
 
 En este artículo, aprenderá a exportar registros de métricas de Azure IoT Connector for FHIR*. La característica que permite el registro de métricas es la [**configuración de diagnóstico**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) de Azure Portal. 
 
 > [!TIP]
 > Para configurar el registro de auditoría, siga las instrucciones que se indican en [Habilitación del registro de diagnóstico en Azure API for FHIR y Azure IoT Connector for FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir).
 
-## <a name="enable-metric-logging-for-the-azure-iot-connector-for-fhir-preview"></a>Habilitación del registro de métricas para Azure IoT Connector for FHIR (versión preliminar)
+## <a name="enable-metrics-logging-for-the-azure-iot-connector-for-fhir-preview"></a>Habilitación del registro de métricas para Azure IoT Connector for FHIR (versión preliminar)
 1. Para habilitar el registro de métricas para Azure IoT Connector for FHIR, seleccione el servicio Azure API for FHIR en Azure Portal. 
 
-2. Vaya a **Configuración de diagnóstico** . 
+2. Vaya a **Configuración de diagnóstico**. 
 
-3. Seleccione **+ Agregar configuración de diagnóstico** .
+3. Seleccione **+ Agregar configuración de diagnóstico**.
 
    :::image type="content" source="media/iot-metrics-export/diagnostic-settings-main.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-export/diagnostic-settings-main.png"::: 
 
@@ -39,11 +39,11 @@ En este artículo, aprenderá a exportar registros de métricas de Azure IoT Con
     2. **Transmitir a un centro de eventos** para la ingesta en un servicio de terceros o una solución de análisis personalizado. Tendrá que crear un espacio de nombres de centro de eventos y una directiva de centro de eventos para poder configurar este paso.
     3. **Transmitir al área de trabajo de Log Analytics** en Azure Monitor. Tendrá que crear el área de trabajo de Log Analytics para poder seleccionar esta opción.
 
-6. Seleccione **Errors, Traffic, and Latency** (Errores, tráfico y latencia) para Azure IoT Connector for FHIR y las categorías de métricas adicionales que quiera capturar para Azure API for FHIR.
+6. Seleccione **Errors, Traffic, and Latency** (Errores, tráfico y latencia) para Azure IoT Connector for FHIR.  Seleccione todas las categorías de métricas adicionales que quiera capturar para Azure API for FHIR.
 
-7. Seleccione **Guardar** .
+7. Seleccione **Guardar**.
 
-   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="IoT Connector2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
 
 > [!Note] 
 > Los primeros registros de métricas pueden tardar hasta 15 minutos en mostrarse en el repositorio de su elección.  

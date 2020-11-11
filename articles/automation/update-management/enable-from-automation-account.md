@@ -2,15 +2,15 @@
 title: Habilitación de Update Management de Azure Automation desde una cuenta de Automation
 description: En este artículo se indica cómo habilitar Update Management desde una cuenta de Automation.
 services: automation
-ms.date: 10/26/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 9630b29def0c450ef907219895d1488d72fd78d1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6f14516f36975d84256f9bb1bd3b4949dbf80448
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669901"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348838"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Habilitación de Update Management desde una cuenta de Automation
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo puede usar su cuenta de Automation para habi
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una [cuenta de Automation](../index.yml) para administrar máquinas.
-* Una [máquina virtual de Azure](../../virtual-machines/windows/quick-create-portal.md) o máquina virtual o servidor registrados con servidores habilitados para Arc (versión preliminar). Los servidores o máquinas virtuales que no son de Azure deben tener el [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows o Linux instalado e informar al área de trabajo vinculada a la cuenta de Automation en la que está habilitado Update Management. Se recomienda instalar el agente de Log Analytics para Windows o Linux. Para ello, primero debe conectar la máquina a los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, a continuación, debe usar Azure Policy para asignar el [agente de Log Analytics a la directiva integrada de las máquinas de Azure Arc de *Linux* o de *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Si también planea supervisar las máquinas con Azure Monitor para VM, en su lugar, use la iniciativa [Habilitar Azure Monitor para VM](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+* Una [máquina virtual de Azure](../../virtual-machines/windows/quick-create-portal.md), o VM o servidor registrados con servidores habilitados para Arc. Los servidores o máquinas virtuales que no son de Azure deben tener el [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows o Linux instalado e informar al área de trabajo vinculada a la cuenta de Automation en la que está habilitado Update Management. Se recomienda instalar el agente de Log Analytics para Windows o Linux. Para ello, primero debe conectar la máquina a los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, a continuación, use Azure Policy para asignar el [agente de Log Analytics a la directiva integrada de las máquinas de Azure Arc de *Linux* o de *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Como alternativa, si planea supervisar las máquinas con Azure Monitor para VM, en su lugar, use la iniciativa [Habilitar Azure Monitor para VM](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

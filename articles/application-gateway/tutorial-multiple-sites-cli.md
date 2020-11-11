@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e72a98ddd5219662c8850326b4f43b25e545177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595866"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348175"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones que hospede varios sitios web mediante la CLI de Azure
 
@@ -97,11 +97,11 @@ az network application-gateway create \
 
 La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Después de crear la puerta de enlace de aplicaciones, puede ver estas nuevas características de ella:
 
-- *appGatewayBackendPool*: una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
-- *appGatewayBackendHttpSettings*: especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
-- *appGatewayHttpListener*: agente de escucha predeterminado asociado con *appGatewayBackendPool*.
-- *appGatewayFrontendIP*: asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
-- *rule1*: la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
+- *appGatewayBackendPool* : una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
+- *appGatewayBackendHttpSettings* : especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
+- *appGatewayHttpListener* : agente de escucha predeterminado asociado con *appGatewayBackendPool*.
+- *appGatewayFrontendIP* : asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
+- *rule1* : la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
 
 ### <a name="add-the-backend-pools"></a>Adición de grupos de back-end
 
@@ -124,7 +124,7 @@ Agregue los clientes de escucha que sean necesarios para enrutar el tráfico med
 
 >[!NOTE]
 > Con la SKU de Application Gateway o WAF v2, también puede configurar hasta cinco nombres de host por cliente de escucha y puede usar caracteres comodín en el nombre de host. Consulte los [nombres de host comodín en el cliente de escucha](multiple-site-overview.md#wildcard-host-names-in-listener-preview) para obtener más información.
->Para usar varios nombres de host y caracteres comodín en un cliente de escucha mediante la CLI de Azure, debe usar `--host-names` en lugar de `--host-name`. Con los nombres de host, puede mencionar hasta cinco nombres de host como valores separados por comas. Por ejemplo: `--host-names "*.contoso.com,*.fabrikam.com"`
+>Para usar varios nombres de host y caracteres comodín en un cliente de escucha mediante la CLI de Azure, debe usar `--host-names` en lugar de `--host-name`. Con los nombres de host, puede mencionar hasta cinco nombres de host como valores separados por espacios. Por ejemplo: `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -175,7 +175,7 @@ az network application-gateway rule delete \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales
 
-En este ejemplo, creará tres conjuntos de escalado de máquinas virtuales que admiten los tres grupos de back-end en la puerta de enlace de aplicaciones. Los conjuntos de escalado que crea se llaman *myvmss1*, *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instala IIS.
+En este ejemplo, creará tres conjuntos de escalado de máquinas virtuales que admiten los tres grupos de back-end en la puerta de enlace de aplicaciones. Los conjuntos de escalado que crea se llaman *myvmss1* , *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instala IIS.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

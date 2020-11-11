@@ -1,7 +1,7 @@
 ---
 title: Implementación sin código (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Aprenda a implementar un modelo sin un script de entrada.
+description: Ninguna implementación de código le permite implementar un modelo como servicio web sin tener que crear manualmente un script de entrada.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 32b2afe036b443846199b5e9d74e690859fb581d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: a17126695aa5138d1df7fd17cfaa2f5f75ad1004
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998851"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324924"
 ---
 # <a name="preview-no-code-model-deployment"></a>(Versión preliminar) Implementación de modelo sin código
 
@@ -63,7 +63,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Para puntuar un modelo, consulte [Consumir un modelo de Azure Machine Learning que está implementado como un servicio web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Muchos proyectos de ONNX usan archivos protobuf para almacenar de forma compacta datos de entrenamiento y validación, lo que puede hacer que sea difícil saber cuál es el formato de datos esperado por el servicio. Como desarrollador de modelos, debe documentar para los desarrolladores:
+Para puntuar un modelo, consulte [Consumir un modelo de Azure Machine Learning que está implementado como un servicio web](./how-to-consume-web-service.md). Muchos proyectos de ONNX usan archivos protobuf para almacenar de forma compacta datos de entrenamiento y validación, lo que puede hacer que sea difícil saber cuál es el formato de datos esperado por el servicio. Como desarrollador de modelos, debe documentar para los desarrolladores:
 
 * El formato de entrada (JSON o binario)
 * La forma y el tipo de los datos de entrada (por ejemplo, una matriz de floats de forma [100,100,3])

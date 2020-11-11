@@ -1,6 +1,6 @@
 ---
 title: Uso de transacciones
-description: Sugerencias para implementar transacciones en el grupo de SQL (almacenamiento de datos) para el desarrollo de soluciones.
+description: Sugerencias para implementar transacciones con un grupo de SQL dedicado en Azure Synapse Analytics para desarrollar soluciones.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,20 +10,20 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288620"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323841"
 ---
-# <a name="use-transactions-in-sql-pool"></a>Uso de transacciones en un grupo de SQL
+# <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Uso de transacciones con un grupo de SQL dedicado en Azure Synapse Analytics
 
-Sugerencias para implementar transacciones en el grupo de SQL (almacenamiento de datos) para el desarrollo de soluciones.
+Sugerencias para implementar transacciones con un grupo de SQL dedicado en Azure Synapse Analytics para desarrollar soluciones.
 
 ## <a name="what-to-expect"></a>Qué esperar
 
-Como cabría esperar, el grupo de SQL admite transacciones como parte de la carga de trabajo de almacenamiento de datos. Sin embargo, para garantizar que se mantiene a escala el rendimiento del grupo de SQL, algunas características están limitadas en comparación con SQL Server. En este artículo se destacan las diferencias entre las características y se enumeran las demás.
+Como cabría esperar, un grupo de SQL dedicado admite transacciones como parte de la carga de trabajo de almacenamiento de datos. Sin embargo, para garantizar que se mantenga a escala el rendimiento del grupo de SQL dedicado, algunas características están limitadas en comparación con SQL Server. En este artículo se destacan las diferencias entre las características y se enumeran las demás.
 
 ## <a name="transaction-isolation-levels"></a>Niveles de aislamiento de transacciones
 
@@ -92,7 +92,7 @@ Para optimizar y minimizar la cantidad de datos que se escriben en el registro, 
 El grupo de SQL usa la función XACT_STATE() para notificar una transacción errónea con el valor -2. Este valor indica que la transacción no se ha realizado y que solo se marca para reversión.
 
 > [!NOTE]
-> El uso de -2 por la función XACT_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar algunos errores en una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, `SELECT 1/0` produciría un error pero no forzaría una transacción a un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, el grupo de SQL no permite hacer esto. Si se produce un error dentro de una transacción del grupo de SQL, especificará automáticamente el estado -2 y no podrá realizar más instrucciones SELECT hasta que la instrucción se haya revertido. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT_STATE() cuando necesite realizar modificaciones de código.
+> El uso de -2 por la función XACT_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar algunos errores en una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, `SELECT 1/0` produciría un error pero no forzaría una transacción a un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, el grupo de SQL dedicado no permite hacer esto. Si se produce un error dentro de una transacción del grupo de SQL dedicado, especificará automáticamente el estado -2 y no podrá realizar más instrucciones SELECT hasta que la instrucción se haya revertido. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT_STATE() cuando necesite realizar modificaciones de código.
 
 Por ejemplo, puede que vea una transacción con el siguiente aspecto en SQL Server:
 
@@ -138,7 +138,7 @@ Msg 111233, Level 16, State 1, Line 1 111233; La transacción actual se ha anula
 
 Tampoco obtendrá el resultado de las funciones ERROR_*.
 
-En el grupo de SQL, el código se debe alterar ligeramente:
+En el grupo de SQL dedicado, el código se debe alterar ligeramente:
 
 ```sql
 SET NOCOUNT ON;
@@ -181,11 +181,11 @@ Lo único que ha cambiado es que la operación ROLLBACK de la transacción tení
 
 ## <a name="error_line-function"></a>Función Error_Line()
 
-También cabe destacar que el grupo de SQL no implementa o admite la función ERROR_LINE(). Si tiene esta función en el código, tendrá que quitarla para que sea compatible con el grupo de SQL. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Para más información, consulte el artículo sobre las [etiquetas](develop-label.md).
+También cabe destacar que el grupo de SQL dedicado no implementa ni admite la función ERROR_LINE(). Si tiene esta función en el código, tendrá que quitarla para que sea compatible con el grupo de SQL dedicado. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Para más información, consulte el artículo sobre las [etiquetas](develop-label.md).
 
 ## <a name="use-of-throw-and-raiserror"></a>Uso de THROW y RAISERROR
 
-THROW es la implementación más moderna para producir excepciones en el grupo de SQL, pero también se admite RAISERROR. Sin embargo, hay algunas diferencias a las que se debe prestar atención.
+THROW es la implementación más moderna para producir excepciones en el grupo de SQL dedicado, pero también se admite RAISERROR. Sin embargo, hay algunas diferencias a las que se debe prestar atención.
 
 * Los números de mensajes de error definidos por el usuario no pueden encontrarse en el intervalo de 100 000 a 150 000 para THROW.
 * Los mensajes de error RAISERROR se fijan en 50.000.
@@ -204,4 +204,4 @@ El grupo de SQL tiene algunas otras restricciones relacionadas con las transacci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la optimización de transacciones, vea [Procedimientos recomendados relacionados con las transacciones](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). También se proporcionan guías de procedimientos recomendados adicionales para el [grupo de SQL](best-practices-sql-pool.md) y [SQL a petición (versión preliminar)](best-practices-sql-on-demand.md).
+Para obtener más información sobre la optimización de transacciones, vea [Procedimientos recomendados relacionados con las transacciones](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). También se proporcionan guías de procedimientos recomendados adicionales para un [grupo de SQL](best-practices-sql-pool.md) y un [grupo de SQL sin servidor (versión preliminar)](best-practices-sql-on-demand.md).

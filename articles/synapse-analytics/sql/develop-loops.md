@@ -1,6 +1,6 @@
 ---
 title: Uso de bucles de T-SQL
-description: Sugerencias para usar bucles de T-SQL, reemplazar cursores y desarrollar soluciones relacionadas con el grupo de SQL en SQL de Synapse.
+description: Sugerencias para usar bucles de T-SQL, reemplazar cursores y desarrollar soluciones relacionadas con Synapse SQL en Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,23 +10,24 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33e1ebc2269ef1db6bb0646f845b09be1a01c724
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99ee41de7ffd66191ff712a5ffbda65f3233196f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289062"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324444"
 ---
-# <a name="use-t-sql-loops-in-synapse-sql"></a>Uso de bucles de T-SQL en Synapse SQL
-En este artículo encontrará sugerencias para usar bucles de T-SQL, reemplazar cursores y desarrollar soluciones relacionadas con el grupo de SQL en SQL de Synapse.
+# <a name="use-t-sql-loops-with-synapse-sql-in-azure-synapse-analytics"></a>Uso de bucles de T-SQL con Synapse SQL en Azure Synapse Analytics
+
+En este artículo encontrará sugerencias para usar bucles de T-SQL, reemplazar cursores y desarrollar soluciones relacionadas con Synapse SQL.
 
 ## <a name="purpose-of-while-loops"></a>Propósito de los bucles WHILE
 
 SQL de Synapse admite el bucle [WHILE](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15&preserve-view=true) para ejecutar bloques de instrucciones de forma repetida. El bucle WHILE continúa siempre y cuando las condiciones especificadas se cumplan o hasta que el código termine específicamente el bucle con la palabra clave BREAK. 
 
-Los bucles en un grupo de SQL son útiles para reemplazar los cursores definidos en código SQL. Afortunadamente, casi todos los cursores que están escritos en código SQL son de la variedad avance rápido y solo lectura. Por lo tanto, los bucles WHILE son una buena alternativa para reemplazar los cursores.
+Los bucles en Synapse SQL son útiles para reemplazar los cursores definidos en código SQL. Afortunadamente, casi todos los cursores que están escritos en código SQL son de la variedad avance rápido y solo lectura. Por lo tanto, los bucles WHILE son una buena alternativa para reemplazar los cursores.
 
-## <a name="replace-cursors-in-sql-pool"></a>Sustitución de cursores en un grupo de SQL
+## <a name="replace-cursors-in-synapse-sql"></a>Sustitución de cursores en Synapse SQL
 
 Antes de profundizar, se debe tener en cuenta la siguiente pregunta: "¿Se podría reescribir este cursor para usar operaciones basadas en conjuntos?". En muchos casos, la respuesta es afirmativa y este suele ser el mejor enfoque. Una operación basada en conjunto a menudo se ejecuta más rápido que un enfoque iterativo, fila a fila.
 

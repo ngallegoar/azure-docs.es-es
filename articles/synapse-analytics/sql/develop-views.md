@@ -1,6 +1,6 @@
 ---
-title: Vistas T-SQL con SQL de Synapse
-description: Sugerencias para usar las vistas T-SQL y desarrollar soluciones con SQL de Synapse.
+title: Vistas T-SQL con grupos de SQL
+description: Sugerencias para usar las vistas de T-SQL y desarrollar soluciones con un grupo de SQL dedicado y un grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,15 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fafa0c2e1b02cc49bfb852ed7770b0927b0e9334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e416974d1326415e9a459e39d7bdea8e3fd8a84c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032731"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323815"
 ---
-# <a name="t-sql-views-using-synapse-sql"></a>Vistas T-SQL con SQL de Synapse
-En este artículo, encontrará sugerencias para usar vistas T-SQL y desarrollar soluciones con SQL de Synapse. 
+# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-preview--in-azure-synapse-analytics"></a>Vistas de T-SQL con grupos de SQL dedicados y grupos de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
+
+En este artículo, encontrará sugerencias para usar las vistas de T-SQL y desarrollar soluciones con un grupo de SQL dedicado y un grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics.
 
 ## <a name="why-use-views"></a>Razones para usar las vistas
 
@@ -26,12 +27,7 @@ Las vista se pueden usar de formas diferentes para mejorar la calidad de la solu
 ### <a name="sql-pool---create-view"></a>Grupo de SQL: creación de una vista
 
 > [!NOTE]
-> **Grupo de SQL**: En este artículo no se explica la sintaxis de CREATE VIEW. Para más información, consulte la documentación de [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
-
-### <a name="sql-on-demand-preview---create-view"></a>SQL a petición (versión preliminar): creación de una vista
-
-> [!NOTE]
-> **SQL a petición**: En este artículo no se explica la sintaxis de CREATE VIEW. Para más información, consulte la documentación de [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+> En este artículo no se explica la sintaxis de CREATE VIEW. Para más información, consulte la documentación de [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="architectural-abstraction"></a>Abstracción de arquitectura
 
@@ -54,7 +50,6 @@ FROM   dbo.DimDate_stg AS stg
 
 RENAME OBJECT DimDate TO DimDate_Old;
 RENAME OBJECT DimDate_New TO DimDate;
-
 ```
 
 Tenga en cuenta que este enfoque puede provocar que las tablas aparezcan y desaparezcan de la vista del usuario, así como mensajes de error del tipo "la tabla no existe". Las vistas pueden utilizarse para proporcionar a los usuarios una capa de presentación coherente mientras se cambia el nombre de los objetos subyacentes.

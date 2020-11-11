@@ -199,6 +199,8 @@
           href: bookmarks.md
         - name: Uso de LiveStream para la búsqueda
           href: livestream.md
+        - name: Administración de consultas de búsqueda con API REST
+          href: hunting-with-rest-api.md
     - name: Eliminación de Azure Sentinel
       href: offboard.md
 - name: Referencia (nuevo)

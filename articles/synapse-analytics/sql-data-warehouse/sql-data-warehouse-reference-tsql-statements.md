@@ -1,6 +1,6 @@
 ---
-title: Instrucciones T-SQL
-description: Vínculos a la documentación de las instrucciones T-SQL admitidas en el grupo de SQL de Synapse.
+title: Instrucciones T-SQL en un grupo de SQL dedicado
+description: Vínculos a la documentación de las instrucciones T-SQL admitidas para un grupo de SQL dedicado en Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7a52049dc08b0a8170acc4d15860db69aea44a2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 390907eaf529df3f9adfd481e96ff166be543d01
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86276454"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324624"
 ---
-# <a name="t-sql-statements-supported-in-synapse-sql-pool"></a>Instrucciones T-SQL admitidas en el grupo de SQL de Synapse
+# <a name="t-sql-statements-supported-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Instrucciones T-SQL admitidas para un grupo de SQL dedicado en Azure Synapse Analytics 
 
-Vínculos a la documentación de las instrucciones T-SQL admitidas en el grupo de SQL de Synapse.
+Vínculos a la documentación de las instrucciones T-SQL admitidas en un grupo de SQL dedicado.
 
 ## <a name="data-definition-language-ddl-statements"></a>Instrucciones del Lenguaje de definición de datos (DDL)
 
@@ -131,4 +131,4 @@ Vínculos a la documentación de las instrucciones T-SQL admitidas en el grupo d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información de referencia, consulte [Elementos de lenguaje T-SQL en el grupo de SQL de Synapse](sql-data-warehouse-reference-tsql-language-elements.md) y [Vistas del sistema en el grupo de SQL de Synapse](../sql/reference-tsql-system-views.md).
+Para obtener más información de referencia, consulte [Elementos de lenguaje T-SQL en un grupo de SQL dedicado](sql-data-warehouse-reference-tsql-language-elements.md) y [Vistas del sistema en un grupo de SQL dedicado](../sql/reference-tsql-system-views.md).

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500358"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313644"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escalabilidad automática de grupos de Apache Spark de Azure Synapse Analytics
 
@@ -49,11 +49,11 @@ Para la reducción vertical, en función del número de ejecutores, de patrones 
 
 ## <a name="get-started"></a>Introducción
 
-### <a name="create-a-spark-pool-with-autoscaling"></a>Creación de un grupo de Spark con la escalabilidad automática
+### <a name="create-a-serverless-apache-spark-pool-with-autoscaling"></a>Creación de un grupo de Apache Spark sin servidor con la escalabilidad automática
 
 Para habilitar la característica de escalabilidad automática, complete estos pasos como parte del proceso de creación de grupos normal:
 
-1. En la pestaña **Datos básicos**, marque la casilla **Habilitar escalabilidad automática**.
+1. En la pestaña **Datos básicos** , marque la casilla **Habilitar escalabilidad automática**.
 1. Escriba los valores deseados para estas propiedades:  
 
     * Número **mínimo** de nodos.

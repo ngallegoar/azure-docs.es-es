@@ -3,14 +3,14 @@ title: Procesamiento de eventos fiable de Azure Functions
 description: Evite que falten mensajes del Centro de eventos en Azure Functions
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506033"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287231"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Procesamiento de eventos fiable de Azure Functions
 
@@ -50,7 +50,7 @@ Azure Functions consume eventos de Event Hubs mientras se realizan los pasos si
 
 Este comportamiento revela algunos puntos importantes:
 
-- *Las excepciones no controladas pueden provocar la pérdida de mensajes.* Las ejecuciones que producen una excepción seguirán haciendo avanzar el puntero.
+- *Las excepciones no controladas pueden provocar la pérdida de mensajes.* Las ejecuciones que producen una excepción seguirán haciendo avanzar el puntero.  Configurar una [directiva de reintentos](./functions-bindings-error-pages.md#retry-policies) retrasará el progreso del puntero hasta que se haya evaluado toda la directiva de reintentos.
 - *Las funciones garantizan la entrega al menos una vez.* Es posible que el código y sus sistemas dependientes necesiten [tener en cuenta el hecho de que el mismo mensaje podría recibirse dos veces](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Control de excepciones
@@ -59,9 +59,9 @@ Como regla general, cada función debe incluir un [bloque de tipo try o catch](.
 
 ### <a name="retry-mechanisms-and-policies"></a>Mecanismos de reintento y directivas
 
-Algunas excepciones son transitorias por naturaleza y no vuelven a aparecer cuando se vuelve a intentar una operación más tarde. Este es el motivo por el que el primer paso que se aconseja dar es volver a intentar la operación. Puede escribir las reglas de procesamiento de reintentos usted mismo, pero son tan habituales que tiene herramientas disponibles para ello. El uso de estas bibliotecas le permite definir directivas de reintento sólidas, que también le pueden ayudar a conservar el orden de procesamiento.
+Algunas excepciones son transitorias por naturaleza y no vuelven a aparecer cuando se vuelve a intentar una operación más tarde. Este es el motivo por el que el primer paso que se aconseja dar es volver a intentar la operación.  Puede aprovechar las [directivas de reintento](./functions-bindings-error-pages.md#retry-policies) de la aplicación de funciones o crear una lógica de reintento dentro de la ejecución de la función.
 
-Si introduce las bibliotecas de control de errores en las funciones, podrá definir directivas de reintento básicas y avanzadas. Por ejemplo, puede implementar una directiva que siga un flujo de trabajo basado en las siguientes reglas:
+Si introduce los comportamientos de control de errores en las funciones, podrá definir directivas de reintento básicas y avanzadas. Por ejemplo, puede implementar una directiva que siga un flujo de trabajo basado en las siguientes reglas:
 
 - Intente insertar un mensaje tres veces (esta opción tendrá potencialmente un retraso entre los reintentos).
 - Si el resultado eventual de todos los reintentos es un error, agregue un mensaje a una cola para que el procesamiento pueda continuar en el flujo.
@@ -69,10 +69,6 @@ Si introduce las bibliotecas de control de errores en las funciones, podrá defi
 
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) es un ejemplo de una biblioteca de capacidad de recuperación y administración de errores transitorios para aplicaciones de C#.
-
-Al trabajar con bibliotecas precompiladas de clase C#, los [filtros de excepción](/dotnet/csharp/language-reference/keywords/try-catch) le permiten ejecutar código cada vez que se produce una excepción no controlada.
-
-Los ejemplos que muestran cómo usar filtros de excepción están disponibles en el repositorio del [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 ## <a name="non-exception-errors"></a>Errores que no son de excepción
 

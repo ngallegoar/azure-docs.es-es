@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e0534fa6eaccbfb9318369e0a4224d84fa8de7c8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048090"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347716"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Vista previa: uso de claves administradas por el cliente para el cifrado de imágenes
 
@@ -25,7 +25,7 @@ El cifrado del lado servidor mediante claves administradas por el cliente usa Az
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para este artículo, es necesario que ya disponga de un conjunto de cifrado de disco para su imagen.
+Para este artículo, es necesario que ya disponga de un conjunto de cifrado de disco en cada región donde quiera replicar la imagen.
 
 - Para usar solo una clave administrada por el cliente, consulte **Habilitación de claves administradas por el cliente con el cifrado del lado servidor** mediante [Azure Portal](./disks-enable-customer-managed-keys-portal.md) o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
@@ -134,7 +134,7 @@ En el caso de los discos de datos, debe agregar el parámetro `-DiskEncryptionSe
 
 ## <a name="cli"></a>CLI 
 
-En la versión preliminar pública, primero debe registrar la característica.
+En la versión preliminar pública, primero debe registrar la característica. El registro tarda aproximadamente 30 minutos.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SIGEncryption
@@ -209,13 +209,13 @@ Al crear la versión de la imagen en el portal, puede usar la pestaña **Cifrado
 > Para usar el cifrado doble, debe usar este vínculo [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para tener acceso a Azure Portal. El cifrado doble en reposo no está visible actualmente en Azure Portal público sin usar el vínculo.
 
 
-1. En la página **Crear una versión de imagen**, seleccione la pestaña **Cifrado**.
-2. En **Tipo de cifrado**, seleccione **Cifrado en reposo con una clave administrada por el cliente** o **Cifrado doble con claves administradas por el cliente y la plataforma**. 
+1. En la página **Crear una versión de imagen** , seleccione la pestaña **Cifrado**.
+2. En **Tipo de cifrado** , seleccione **Cifrado en reposo con una clave administrada por el cliente** o **Cifrado doble con claves administradas por el cliente y la plataforma**. 
 3. En cada disco de la imagen, seleccione en la lista desplegable el **conjunto de cifrado de disco** que se va a usar. 
 
 ### <a name="create-the-vm"></a>Creación de la máquina virtual
 
-Puede crear una máquina virtual a partir de una versión de imagen y usar claves administradas por el cliente para cifrar los discos. Al crear la máquina virtual en el portal, en la pestaña **Discos**, seleccione **Cifrado en reposo con claves administradas por el cliente** o **Cifrado doble con claves administradas por el cliente y la plataforma** para **Tipo de cifrado**. Después puede seleccionar el conjunto de cifrado en la lista desplegable.
+Puede crear una máquina virtual a partir de una versión de imagen y usar claves administradas por el cliente para cifrar los discos. Al crear la máquina virtual en el portal, en la pestaña **Discos** , seleccione **Cifrado en reposo con claves administradas por el cliente** o **Cifrado doble con claves administradas por el cliente y la plataforma** para **Tipo de cifrado**. Después puede seleccionar el conjunto de cifrado en la lista desplegable.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

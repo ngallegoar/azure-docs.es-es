@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 6a272294ca602e3f482156a7334084bf041f683e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1570bd9dfa62caa749d5a3983b93c2555be058ec
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307558"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348738"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configuración de la recuperación ante desastres en máquinas virtuales de Azure mediante Azure PowerShell
 
@@ -249,6 +249,15 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
+#### <a name="fabric-and-container-creation-when-enabling-zone-to-zone-replication"></a>Creación de un tejido y un contenedor al habilitar la replicación de zona a zona
+
+Al habilitar la replicación de zona a zona, solo se creará un tejido. Pero habrá dos contenedores. Suponiendo que la región sea Oeste de Europa, use los siguientes comandos para obtener los contenedores principal y de protección:
+
+```azurepowershell
+$primaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-container"
+$recoveryPprotectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-t-container"
+```
+
 ### <a name="create-a-replication-policy"></a>Creación de una directiva de replicación
 
 ```azurepowershell
@@ -287,6 +296,14 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
+#### <a name="protection-container-mapping-creation-when-enabling-zone-to-zone-replication"></a>Creación de una asignación de contenedor de protección al habilitar la replicación de zona a zona
+
+Al habilitar la replicación de zona a zona, use el comando siguiente para crear la asignación de contenedor de protección. Suponiendo que la región sea Oeste de Europa, el comando será:
+
+```azurepowershell
+$protContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimprotectionContainer -Name "westeurope-westeurope-24-hour-retention-policy-s"
+```
+
 ### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Creación de una asignación de contenedor de protección para la conmutación por recuperación (replicación inversa después de una conmutación por error)
 
 Después de una conmutación por error, cuando esté listo para devolver la máquina virtual conmutada por error a la región de Azure original, realice una conmutación por recuperación. Para ello, la máquina virtual conmutada por error se replica a la inversa desde la región de conmutación por error a la región original. En la replicación inversa, los roles de la región original y la región de recuperación se intercambian. La región original se convierte ahora en la nueva región de recuperación y la que originalmente era la región de recuperación se convierte ahora en la región primaria. La asignación de contenedor de protección para la replicación inversa representa los roles intercambiados de las regiones original y de recuperación.
@@ -316,7 +333,7 @@ Una cuenta de almacenamiento en caché es una cuenta de almacenamiento estándar
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-En máquinas virtuales **que no usan discos administrados**, la cuenta de almacenamiento de destino es la cuenta de almacenamiento de la región de recuperación en la que se replican los discos de la máquina virtual. La cuenta de almacenamiento de destino puede ser una cuenta de almacenamiento estándar o una cuenta de almacenamiento premium. Seleccione el tipo de cuenta de almacenamiento necesario según la velocidad de cambio de los datos (velocidad de escritura de E/S) de los discos y los límites de renovación admitidos de Azure Site Recovery para el tipo de almacenamiento.
+En máquinas virtuales **que no usan discos administrados** , la cuenta de almacenamiento de destino es la cuenta de almacenamiento de la región de recuperación en la que se replican los discos de la máquina virtual. La cuenta de almacenamiento de destino puede ser una cuenta de almacenamiento estándar o una cuenta de almacenamiento premium. Seleccione el tipo de cuenta de almacenamiento necesario según la velocidad de cambio de los datos (velocidad de escritura de E/S) de los discos y los límites de renovación admitidos de Azure Site Recovery para el tipo de almacenamiento.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account

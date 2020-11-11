@@ -4,62 +4,30 @@ description: Aprenda a usar los grupos con ubicación por proximidad para dismin
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 07/10/2020
-author: jluk
-ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: fa81e293bc5e53a852bdb404f9e6d41c4297647b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986719"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349042"
 ---
-# <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Reducción de la latencia con grupos con ubicación por proximidad (versión preliminar)
+# <a name="reduce-latency-with-proximity-placement-groups"></a>Reducción de la latencia con grupos con ubicación por proximidad
 
 > [!Note]
 > Cuando se usan los grupos con ubicación por proximidad en AKS, la coubicación solo se aplica a los nodos agente. Se mejora la latencia nodo a nodo y la latencia pod a pod hospedado correspondiente. La coubicación no afecta la selección de ubicación del plano de control de un clúster.
 
 Al implementar la aplicación en Azure, la propagación de instancias de máquina virtual (VM) entre regiones o zonas de disponibilidad crea una latencia de red, lo que puede afectar al rendimiento general de la aplicación. Un grupo con ubicación por proximidad es una agrupación lógica que se usa para asegurarse de que los recursos de proceso de Azure se encuentran físicamente cercanos entre sí. Algunas aplicaciones como juegos, simulaciones de ingeniería y operaciones bursátiles de alta frecuencia (HFT) requieren una latencia baja y tareas que se completen rápidamente. En escenarios de informática de alto rendimiento (HPC), como estos, considere la posibilidad de usar [grupos con ubicación por proximidad](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) en los grupos de nodos del clúster.
 
-## <a name="limitations"></a>Limitaciones
+## <a name="before-you-begin"></a>Antes de comenzar
+
+Para este artículo es preciso usar la versión 2.14 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
+
+### <a name="limitations"></a>Limitaciones
 
 * Un grupo con ubicación por proximidad se puede asignar a una zona de disponibilidad como máximo.
 * Un grupo de nodos debe usar Virtual Machine Scale Sets para asociar un grupo con ubicación por proximidad.
 * Un grupo de nodos puede asociar un grupo con ubicación por proximidad solo en el momento de la creación del grupo de nodos.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="before-you-begin"></a>Antes de empezar
-
-Debe tener instalados los siguientes recursos:
-
-- La extensión aks-preview 0.4.53
-
-### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>Configuración de la característica en vista previa (GB) para los grupos con ubicación por proximidad
-
-> [!IMPORTANT]
-> Cuando se usan grupos con ubicación por proximidad con grupos de nodos de AKS, la coubicación solo se aplica a los nodos agente. Se mejora la latencia nodo a nodo y la latencia pod a pod hospedado correspondiente. La coubicación no afecta la selección de ubicación del plano de control de un clúster.
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "ProximityPlacementGroupPreview"
-```
-
-Puede tardar varios minutos en registrarse. Use el siguiente comando para comprobar que la característica está registrada:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/ProximityPlacementGroupPreview')].{Name:name,State:properties.state}"
-```
-
-Durante la versión preliminar, necesita la extensión *aks-preview* de la CLI para usar los grupos con ubicación por proximidad. Use el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles mediante el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## <a name="node-pools-and-proximity-placement-groups"></a>Grupos de nodos y grupos con ubicación por proximidad
 

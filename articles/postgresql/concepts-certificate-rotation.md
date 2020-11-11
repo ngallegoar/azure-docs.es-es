@@ -1,17 +1,17 @@
 ---
 title: Rotación de certificados para servidor único de Azure Database for PostgreSQL
 description: Obtenga información sobre los próximos cambios del certificado raíz que afectarán al servidor único de Azure Database for PostgreSQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 0eec1538814b93c024fe6a5aa34ee73c4c09184c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 96720e156963a5fb542e72823a602aa2cc6a0ead
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740427"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349008"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Descripción de los cambios en la CA raíz para servidor único de Azure Database for PostgreSQL
 
@@ -31,15 +31,15 @@ El nuevo certificado se va a usar a partir del 15 de febrero de 2021 (15/02/20
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>¿Cómo sé si mi base de datos se verá afectada?
 
 Todas las aplicaciones que usan SSL/TLS y comprueban el certificado raíz tienen que actualizar el certificado raíz. Para saber si las conexiones comprueban el certificado raíz, puede revisar la cadena de conexión.
--   Si la cadena de conexión incluye `sslmode=verify-ca` o `sslmode=verify-full`, tiene que actualizar el certificado.
--   Si la cadena de conexión incluye `sslmode=disable`, `sslmode=allow`, `sslmode=prefer` o `sslmode=require`, no tiene que actualizar los certificados. 
--   Si la cadena de conexión no especifica sslmode, no tiene que actualizar los certificados.
+-    Si la cadena de conexión incluye `sslmode=verify-ca` o `sslmode=verify-full`, tiene que actualizar el certificado.
+-    Si la cadena de conexión incluye `sslmode=disable`, `sslmode=allow`, `sslmode=prefer` o `sslmode=require`, no tiene que actualizar los certificados. 
+-    Si la cadena de conexión no especifica sslmode, no tiene que actualizar los certificados.
 
-Si utiliza un cliente que abstrae la cadena de conexión, revise la documentación del cliente para saber si comprueba los certificados.
+Si usa un cliente que abstrae la cadena de conexión, revise la documentación del cliente para saber si comprueba los certificados.
 
 Para entender sslmode de PostgreSQL, consulte las [descripciones del modo SSL](https://www.postgresql.org/docs/11/libpq-ssl.html#ssl-mode-descriptions) en la documentación de PostgreSQL.
 
-Para evitar que se interrumpa la disponibilidad de la aplicación debido a la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, consulte la sección [ **"¿Qué tengo que hacer para mantener la conectividad?"**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity).
+Para evitar que se interrumpa la disponibilidad de la aplicación debido a la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, consulte la sección [ **"¿Qué tengo que hacer para mantener la conectividad?"** ](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity).
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>¿Qué tengo que hacer para mantener la conectividad?
 
@@ -49,7 +49,7 @@ Para evitar que se interrumpa la disponibilidad de la aplicación debido a la re
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
     *   https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem
 
-*   Genere un almacén de certificados de CA combinado que incluya los certificados tanto de **BaltimoreCyberTrustRoot** como de **DigiCertGlobalRootG2** .
+*   Genere un almacén de certificados de CA combinado que incluya los certificados tanto de **BaltimoreCyberTrustRoot** como de **DigiCertGlobalRootG2**.
     *   Para los usuarios de Java (PostgreSQL JDBC) que usan DefaultJavaSSLFactory, se debe ejecute:
 
           ```console
@@ -80,19 +80,19 @@ Para evitar que se interrumpa la disponibilidad de la aplicación debido a la re
  </br>-----END CERTIFICATE-----
 
 *   Reemplace el archivo PEM de la CA raíz original por el archivo de CA raíz combinado y reinicie la aplicación o el cliente.
-*   En el futuro, después de que se implemente el nuevo certificado en el servidor, puede cambiar el archivo PEM de la CA a DigiCertGlobalRootG2.crt.pem.
+*    En el futuro, después de que se implemente el nuevo certificado en el servidor, puede cambiar el archivo PEM de la CA a DigiCertGlobalRootG2.crt.pem.
 
 ## <a name="what-can-be-the-impact-of-not-updating-the-certificate"></a>¿Cuál puede ser el impacto de no actualizar el certificado?
 Si usa el certificado de BaltimoreCyberTrustRoot para comprobar la conexión SSL a Azure Database for PostgreSQL tal y como se documenta aquí, la disponibilidad de la aplicación puede verse interrumpida, ya que no se podrá acceder a la base de datos. Según la aplicación, puede recibir distintos mensajes de error, entre los que se incluyen los siguientes:
-*   Certificado no válido o certificado revocado
-*   Se agotó el tiempo de espera de la conexión
+*    Certificado no válido o certificado revocado
+*    Se agotó el tiempo de espera de la conexión
 
 > [!NOTE]
 > No elimine ni modifique el **certificado de Baltimore** hasta que se realice el cambio de certificado. Una vez realizado el cambio se va a enviar una comunicación, después de lo cual es seguro eliminar el certificado de Baltimore. 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. Si no utilizo SSL/TLS, ¿aún tengo que actualizar la CA raíz?
+###    <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. Si no utilizo SSL/TLS, ¿aún tengo que actualizar la CA raíz?
 No se requiere ninguna acción si no se usa SSL/TLS. 
 
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. Si uso SSL/TLS, ¿es necesario reiniciar el servidor de base de datos para actualizar la CA raíz?
@@ -104,7 +104,7 @@ Si no actualiza el certificado raíz antes del 15 de febrero de 2021 (15/02/20
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-postgresql"></a>4. ¿Qué consecuencia tendrá si se usa App Service con Azure Database for PostgreSQL?
 En el caso de los servicios de aplicaciones de Azure que se conectan a Azure Database for PostgreSQL, podemos tener dos escenarios posibles y depende de cómo se use SSL con la aplicación.
 *   Este nuevo certificado se ha agregado a App Service en el nivel de la plataforma. Si usa en la aplicación los certificados SSL incluidos en la plataforma de App Service, no es necesario realizar ninguna acción.
-*   Si va a incluir explícitamente la ruta de acceso al archivo de certificado SSL en el código, debería descargar el nuevo certificado y actualizar el código para usar el nuevo certificado. Un buen ejemplo de este escenario es cuando se usan contenedores personalizados de App Service como compartidos en la [documentación de App Service](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md).
+*   Si va a incluir explícitamente la ruta de acceso al archivo de certificado SSL en el código, debería descargar el nuevo certificado y actualizar el código para usar el nuevo certificado. Un buen ejemplo de este escenario es cuando se usan contenedores personalizados de App Service como compartidos en la [documentación de App Service](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress).
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-postgresql"></a>5. ¿Qué consecuencia tendrá si se usa Azure Kubernetes Service (AKS) con Azure Database for PostgreSQL?
 Si está intentando conectarse a Azure Database for PostgreSQL con Azure Kubernetes Services (AKS), es similar a acceder desde un entorno de host de clientes dedicados. Consulte los pasos [aquí](../aks/ingress-own-tls.md).
@@ -123,20 +123,20 @@ Dado que los clientes usados para conectarse al servidor deben actualizar la inf
 ### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Si creo un nuevo servidor después del 15 de febrero de 2021 (15/02/2021), ¿me afectará este cambio?
 En los servidores creados después del 15 de febrero de 2021 (15/02/2021), puede usar el certificado recién emitido para que las aplicaciones se conecten mediante SSL.
 
-### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. ¿Con qué frecuencia actualiza Microsoft sus certificados o cuál es la directiva de expiración?
+###    <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. ¿Con qué frecuencia actualiza Microsoft sus certificados o cuál es la directiva de expiración?
 Los certificados utilizados por Azure Database for PostgreSQL provienen de entidades de certificación (CA) de confianza. Por lo tanto, la compatibilidad de estos certificados en Azure Database for PostgreSQL está ligada a la compatibilidad de estos certificados por parte de la CA. Sin embargo, como en este caso, puede haber errores imprevistos en estos certificados predefinidos, que deben corregirse lo antes posible.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-the-primary-server-or-the-read-replicas"></a>11. Si utilizo réplicas de lectura, ¿tengo que realizar esta actualización solo en el servidor principal o en las réplicas de lectura?
+###    <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-the-primary-server-or-the-read-replicas"></a>11. Si utilizo réplicas de lectura, ¿tengo que realizar esta actualización solo en el servidor principal o en las réplicas de lectura?
 Puesto que esta actualización es un cambio en el lado cliente, si el cliente leía los datos del servidor réplica, deberá aplicar también los cambios para esos clientes. 
 
 ### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. ¿Tenemos que consultar en el lado servidor para comprobar si se está utilizando SSL?
 Para comprobar si está usando la conexión SSL para conectarse al servidor, consulte [Comprobación de la conexión SSL](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity).
 
 ### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. ¿Debo hacer algo si ya tengo DigiCertGlobalRootG2 en el archivo de certificado?
-No. No es necesario realizar ninguna acción si el archivo de certificado ya contiene **DigiCertGlobalRootG2** .
+No. No es necesario realizar ninguna acción si el archivo de certificado ya contiene **DigiCertGlobalRootG2**.
 
 ### <a name="14-what-is-you-are-using-docker-image-of-pgbouncer-sidecar-provided-by-microsoft"></a>14. ¿Qué ocurre si se está usando la imagen de Docker de sidecar PgBouncer proporcionada por Microsoft?
 Se ha publicado una nueva imagen de Docker compatible con [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) y [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) [aquí](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (etiqueta más reciente). Puede extraer esta nueva imagen para evitar cualquier interrupción de conectividad a partir del 15 de febrero de 2021. 
 
-### <a name="15-what-if-i-have-further-questions"></a>15. ¿Qué hago si tengo más preguntas?
+###    <a name="15-what-if-i-have-further-questions"></a>15. ¿Qué hago si tengo más preguntas?
 Si tiene alguna pregunta, obtenga respuestas de expertos de la comunidad en [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). Si tiene un plan de soporte técnico y necesita ayuda técnica, [póngase en contacto con nosotros](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: e00ab059c68d7a3f2288d94894199773cab63ac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1826b66b0548b7567af59de64549c7eb700025c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039303"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130908"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Uso de datos de referencia de una instancia de SQL Database para un trabajo de Azure Stream Analytics
 
@@ -79,9 +79,9 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 ### <a name="choose-your-subscription"></a>Elija una suscripción
 
-1. En Visual Studio, en el menú **Ver**, seleccione **Explorador de servidores**.
+1. En Visual Studio, en el menú **Ver** , seleccione **Explorador de servidores**.
 
-2. Haga clic con el botón derecho en **Azure**, seleccione **Connect to Microsoft Azure Subscription** (Conectarse a la suscripción de Microsoft Azure) e inicie sesión con su cuenta de Azure.
+2. Haga clic con el botón derecho en **Azure** , seleccione **Connect to Microsoft Azure Subscription** (Conectarse a la suscripción de Microsoft Azure) e inicie sesión con su cuenta de Azure.
 
 ### <a name="create-a-stream-analytics-project"></a>Creación de un trabajo de Stream Analytics
 
@@ -173,7 +173,36 @@ Cuando se usa la consulta delta, se recomiendan las [tablas temporales de Azure 
    Tenga en cuenta que el tiempo de ejecución de Stream Analytics puede ejecutar periódicamente la consulta de instantánea, además de la consulta delta para almacenar los puntos de control.
 
 ## <a name="test-your-query"></a>Prueba de la consulta
-   Es importante comprobar que la consulta devuelve el conjunto de datos esperado que el trabajo de Stream Analytics usará como datos de referencia. Para probar la consulta, vaya a Entrada en la sección Topología de trabajo en el portal. Luego, puede seleccionar los datos de ejemplo en la entrada Referencia de base de datos SQL. Una vez que el ejemplo está disponible, puede descargar el archivo y comprobar si los datos se devuelven según lo esperado. Si quiere optimizar las iteraciones de prueba y desarrollo, le recomendamos usar las [Herramientas de Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). También puede usar cualquier otra herramienta que prefiera para asegurarse primero de que la consulta devuelve los resultados adecuados desde la base de datos de Azure SQL y, luego, usarla en el trabajo de Stream Analytics. 
+   Es importante comprobar que la consulta devuelve el conjunto de datos esperado que el trabajo de Stream Analytics usará como datos de referencia. Para probar la consulta, vaya a Entrada en la sección Topología de trabajo en el portal. Luego, puede seleccionar los datos de ejemplo en la entrada Referencia de base de datos SQL. Una vez que el ejemplo está disponible, puede descargar el archivo y comprobar si los datos se devuelven según lo esperado. Si quiere optimizar las iteraciones de prueba y desarrollo, le recomendamos usar las [Herramientas de Stream Analytics para Visual Studio](./stream-analytics-tools-for-visual-studio-install.md). También puede usar cualquier otra herramienta que prefiera para asegurarse primero de que la consulta devuelve los resultados adecuados desde la base de datos de Azure SQL y, luego, usarla en el trabajo de Stream Analytics. 
+
+### <a name="test-your-query-with-visual-studio-code"></a>Prueba de la consulta con Visual Studio Code
+
+   Instale las [Herramientas de Azure Stream Analytics](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) y [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) en Visual Studio Code y configure su proyecto de ASA. Para más información, consulte [Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code](./quick-create-visual-studio-code.md) y el [tutorial de la extensión de SQL Server (mssql)](/sql/tools/visual-studio-code/sql-server-develop-use-vscode).
+
+1. Configure la entrada de datos de referencia de SQL.
+   
+   ![Configuración de entrada de datos de referencia de SQL](./media/sql-reference-data/configure-sql-reference-data-input.png)
+
+2. Seleccione el icono de SQL Server y haga clic en **Agregar conexión**.
+   
+   ![Haga clic en el icono de SQL Server y en Agregar conexión.](./media/sql-reference-data/add-sql-connection.png)
+
+3. Rellene la información de conexión.
+   
+   ![Configuración de entrada de Stream Analytics en Visual Studio](./media/sql-reference-data/fill-connection-information.png)
+
+4. Haga clic con el botón derecho en SQL de referencia y seleccione **Ejecutar consulta**.
+   
+   ![Configuración de entrada de Stream Analytics en Visual Studio](./media/sql-reference-data/execute-query.png)
+
+5. Elija la conexión.
+   
+   ![Configuración de entrada de Stream Analytics en Visual Studio](./media/sql-reference-data/choose-connection.png)
+
+6. Revise y compruebe el resultado de la consulta.
+   
+   ![Configuración de entrada de Stream Analytics en Visual Studio](./media/sql-reference-data/verify-result.png)
+
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 

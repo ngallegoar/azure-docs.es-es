@@ -1,6 +1,6 @@
 ---
 title: Guía de diseño de tablas distribuidas
-description: Recomendaciones para diseñar tablas distribuidas por hash y tablas distribuidas por round robin en el grupo de SQL de Synapse.
+description: Recomendaciones para diseñar tablas distribuidas por hash y por round robin mediante un grupo de SQL dedicado en Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487014"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323614"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Instrucciones para diseñar tablas distribuidas en un grupo de SQL de Synapse
+# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Guía de diseño de tablas distribuidas mediante un grupo de SQL dedicado en Azure Synapse Analytics
 
-Recomendaciones para diseñar tablas distribuidas por hash y tablas distribuidas por round robin en grupos de SQL de Synapse.
+Recomendaciones para diseñar tablas distribuidas por hash y por round robin en grupos de SQL dedicados.
 
-En este artículo se asume que está familiarizado con los conceptos de distribución y movimiento de datos en Synapse SQL.  Para obtener más información, vea [Arquitectura de Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
+En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en un grupo de SQL dedicado.  Para obtener más información, vea [Arquitectura de Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>¿Qué es una tabla distribuida?
 
@@ -36,7 +36,7 @@ Como parte del diseño de tablas, comprenda tanto como sea posible sobre los dat
 
 - ¿Qué tamaño tiene la tabla?
 - ¿Con qué frecuencia se actualiza la tabla?
-- ¿Tiene tablas de hechos y dimensiones en un grupo de SQL de Synapse?
+- ¿Se tienen tablas de hechos y de dimensiones en un de grupo de SQL dedicado?
 
 ### <a name="hash-distributed"></a>Distribución por hash
 
@@ -44,7 +44,7 @@ Una tabla distribuida por hash distribuye filas de tabla entre todos los nodos d
 
 ![Tabla distribuida](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabla distribuida")  
 
-Como los valores idénticos siempre se distribuyen por hash a la misma distribución, el almacenamiento de datos tiene conocimiento integrado de las ubicaciones de las filas. En un grupo de SQL de Synapse, este conocimiento se usa para minimizar el movimiento de datos durante las consultas, lo que mejora el rendimiento de estas.
+Como los valores idénticos siempre se distribuyen por hash a la misma distribución, el almacenamiento de datos tiene conocimiento integrado de las ubicaciones de las filas. En un grupo de SQL dedicado, este conocimiento se usa para minimizar el movimiento de datos durante las consultas, lo que mejora el rendimiento de estas.
 
 Las tablas distribuidas por hash funcionan bien para las tablas de hechos de gran tamaño en un esquema de estrella. Pueden tener un gran número de filas y lograr aún así un alto rendimiento. Por supuesto, hay algunas consideraciones de diseño que le ayudarán a obtener el rendimiento que el sistema distribuido está diseñado para proporcionar. La elección de una columna de distribución óptima es una consideración de este tipo que se describe en este artículo.
 
@@ -113,7 +113,7 @@ Para equilibrar el procesamiento en paralelo, seleccione una columna de distribu
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Elección de una columna de distribución que minimiza el movimiento de datos
 
-Para obtener el resultado de la consulta correcto, las consultas pueden mover datos de un nodo de proceso a otro. El movimiento de datos suele ocurrir cuando las consultas tienen combinaciones y agregaciones en tablas distribuidas. La elección de una columna de distribución que ayuda a minimizar el movimiento de datos es una de las estrategias más importantes para optimizar el rendimiento del grupo de SQL de Synapse.
+Para obtener el resultado de la consulta correcto, las consultas pueden mover datos de un nodo de proceso a otro. El movimiento de datos suele ocurrir cuando las consultas tienen combinaciones y agregaciones en tablas distribuidas. La elección de una columna de distribución que ayuda a minimizar el movimiento de datos es una de las estrategias más importantes para optimizar el rendimiento del grupo de SQL dedicado.
 
 Para minimizar el movimiento de datos, seleccione una columna de distribución que:
 
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Para crear una tabla distribuida, use una de estas instrucciones:
 
-- [CREATE TABLE (grupo de SQL de Synapse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (grupo de SQL de Synapse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (grupo de SQL dedicado)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE AS SELECT (grupo de SQL dedicado)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

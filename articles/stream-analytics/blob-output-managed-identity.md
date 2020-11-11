@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 99b23b65a0ce1693bcd04d5828fe062f2f43ea73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044233"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348583"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Uso de identidad administrada para autenticar su trabajo de Azure Stream Analytics en la salida de Azure Blob Storage
 
@@ -21,7 +21,7 @@ En este artículo se muestra cómo habilitar la identidad administrada para las 
 
 ## <a name="create-the-stream-analytics-job-using-the-azure-portal"></a>Creación de un trabajo de Stream Analytics mediante Azure Portal
 
-1. Cree un nuevo trabajo de Stream Analytics o abra un trabajo existente en Azure Portal. En la barra de menús situada a la izquierda de la pantalla, seleccione **Identidad administrada**, que se encuentra en **Configurar**. Asegúrese de que está seleccionada la opción "Usar la identidad administrada asignada por el sistema" y, a continuación, haga clic en el botón **Guardar** en la parte inferior de la pantalla.
+1. Cree un nuevo trabajo de Stream Analytics o abra un trabajo existente en Azure Portal. En la barra de menús situada a la izquierda de la pantalla, seleccione **Identidad administrada** , que se encuentra en **Configurar**. Asegúrese de que está seleccionada la opción "Usar la identidad administrada asignada por el sistema" y, a continuación, haga clic en el botón **Guardar** en la parte inferior de la pantalla.
 
    ![Configuración de la Identidad administrada de Stream Analytics](./media/common/stream-analytics-enable-managed-identity.png)
 
@@ -33,7 +33,7 @@ En este artículo se muestra cómo habilitar la identidad administrada para las 
 
 ## <a name="azure-resource-manager-deployment"></a>Implementación de Azure Resource Manager
 
-El uso de Azure Resource Manager permite automatizar completamente la implementación de su trabajo de Stream Analytics. Puede implementar las plantillas de Resource Manager mediante Azure PowerShell o la [CLI de Azure.](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) Los ejemplos siguientes usan la CLI de Azure.
+El uso de Azure Resource Manager permite automatizar completamente la implementación de su trabajo de Stream Analytics. Puede implementar las plantillas de Resource Manager mediante Azure PowerShell o la [CLI de Azure.](/cli/azure/) Los ejemplos siguientes usan la CLI de Azure.
 
 
 1. Para crear un recurso **Microsoft.StreamAnalytics/streamingjobs** con una identidad administrada, puede incluir la siguiente propiedad en la sección de recursos de la plantilla de Resource Manager:
@@ -218,9 +218,9 @@ Para proporcionar acceso a la cuenta completa, ejecute el siguiente comando medi
 
 Al configurar el panel **Firewalls y redes virtuales** de la cuenta de almacenamiento, si quiere, puede permitir el tráfico de red desde otros servicios de Microsoft de confianza. Cuando Stream Analytics se autentica mediante la identidad administrada, proporciona una prueba de que la solicitud se origina en un servicio de confianza. A continuación, le proporcionamos instrucciones para habilitar esta excepción de acceso a la red virtual.
 
-1.  Navegue hasta el panel "Firewalls y redes virtuales" dentro del panel de configuración de la cuenta de almacenamiento.
-2.  Asegúrese de que la opción "Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento" esté habilitada.
-3.  Si la habilitó, haga clic en **Guardar**.
+1.    Navegue hasta el panel "Firewalls y redes virtuales" dentro del panel de configuración de la cuenta de almacenamiento.
+2.    Asegúrese de que la opción "Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento" esté habilitada.
+3.    Si la habilitó, haga clic en **Guardar**.
 
    ![Habilitación del acceso a la red virtual](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
 

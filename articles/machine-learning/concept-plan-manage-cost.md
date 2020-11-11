@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8554bf4385c7ddad540b8ba807988618fe80b53
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704735"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322993"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planeamiento y administración de los costos de Azure Machine Learning
 
@@ -53,15 +53,17 @@ Para más información, consulte [Precios de Azure Machine Learning](https://azu
 
 ## <a name="get-cost-alerts"></a>Obtención de alertas sobre los costos
 
-Cree [presupuestos](../cost-management/tutorial-acm-create-budgets.md) para administrar los costos y cree [alertas](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) que envíen notificaciones automáticamente a las partes interesadas sobre anomalías en los gastos y riesgos de gastos adicionales. Las alertas se basan en el gasto comparado con los umbrales de presupuesto y costo. Los presupuestos y las alertas se crean para las suscripciones y los grupos de recursos de Azure, por lo que son útiles como parte de una estrategia general de supervisión de costos. Sin embargo, los presupuestos y las alertas pueden tener una funcionalidad limitada para administrar los costos de servicios individuales de Azure porque están diseñados para realizar un seguimiento de los costos en un nivel más alto.
+Cree [presupuestos](../cost-management-billing/costs/tutorial-acm-create-budgets.md) para administrar los costos y cree [alertas](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) que envíen notificaciones automáticamente a las partes interesadas sobre anomalías en los gastos y riesgos de gastos adicionales. Las alertas se basan en el gasto comparado con los umbrales de presupuesto y costo. Los presupuestos y las alertas se crean para las suscripciones y los grupos de recursos de Azure, por lo que son útiles como parte de una estrategia general de supervisión de costos. Sin embargo, los presupuestos y las alertas pueden tener una funcionalidad limitada para administrar los costos de servicios individuales de Azure porque están diseñados para realizar un seguimiento de los costos en un nivel más alto.
 
 ## <a name="monitor-costs"></a>Supervisión de costos
 
-A medida que se usan recursos con Azure Machine Learning, se incurre en costos. Los costos de la unidad de uso de recursos de Azure varían en función de intervalos de tiempo (segundos, minutos, horas y días) o en función del uso de unidades de solicitud. Tan pronto como empieza el uso de Azure Machine Learning, se incurre en costos. Vea estos costos en el panel [Análisis de costos](../cost-management/quick-acm-cost-analysis.md) de Azure Portal.
+A medida que se usan recursos con Azure Machine Learning, se incurre en costos. Los costos de la unidad de uso de recursos de Azure varían en función de intervalos de tiempo (segundos, minutos, horas y días) o en función del uso de unidades de solicitud. Tan pronto como empieza el uso de Azure Machine Learning, se incurre en costos. Vea estos costos en el panel [Análisis de costos](../cost-management-billing/costs/quick-acm-cost-analysis.md) de Azure Portal.
 
 Puede ver los costos en gráficos y tablas para diferentes intervalos de tiempo. También puede ver los costos comparados con los presupuestos y los costos previstos. Cambiar a vistas más largas en el tiempo ayuda a identificar las tendencias de gasto y ver dónde podría haber ocurrido un gasto excesivo. Si ha creado presupuestos, consulte dónde se superaron.  
 
-No verá un área de servicio independiente para Machine Learning.  En su lugar, verá los distintos recursos que ha agregado a las áreas de trabajo de Machine Learning.
+No verá un área de servicio independiente para Machine Learning.  En su lugar, verá los distintos recursos que ha agregado a las áreas de trabajo de Machine Learning. 
+
+Tenga en cuenta que aunque el área de trabajo de Machine Learning no tiene costo directo, se le facturará por los recursos de proceso administrados. Por lo tanto, si agregó etiquetas a las áreas de trabajo, ya que esto no implica ningún costo directo, el panel Análisis de costos así lo reflejará en el área de trabajo. Para una administración de costos precisa a través de las etiquetas, debe etiquetar los recursos de proceso asociados.  
 
 ## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Uso del clúster de proceso de Azure Machine Learning (AmlCompute)
 
@@ -84,7 +86,7 @@ También puede configurar la cantidad de tiempo que el nodo está inactivo antes
 + Si realiza una experimentación menos iterativa, reduzca este tiempo para ahorrar costos.
 + Si realiza experimentación de desarrollo y pruebas de gran iteración, es posible que tenga que aumentar este tiempo para no pagar por el escalado y la reducción vertical constante después de cada cambio en el entorno o el script de entrenamiento.
 
-Los clústeres de AmlCompute se pueden configurar para los cambios en los requisitos de carga de trabajo de Azure Portal, mediante la [clase SDK de AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true), [la CLI de AmlCompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), con las [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+Los clústeres de AmlCompute se pueden configurar para los cambios en los requisitos de carga de trabajo de Azure Portal, mediante la [clase SDK de AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py), [la CLI de AmlCompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), con las [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
@@ -94,7 +96,7 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 AmlCompute incluye una [configuración de cuota (o límite)](how-to-manage-quotas.md#azure-machine-learning-compute). Esta cuota se establece para cada familia de máquinas virtuales (por ejemplo, serie Dv2, serie NCv3) y varía en función de la región de cada suscripción. Las suscripciones se inician con valores predeterminados pequeños para empezar a trabajar, pero esta opción le permite controlar la cantidad de recursos de Amlcompute disponibles para poner en marcha en su suscripción. 
 
-Configure también la [cuota de nivel de área de trabajo por familia de máquinas virtuales](how-to-manage-quotas.md#workspace-level-quota) para cada área de trabajo de una suscripción. Esto le permite tener un control más detallado sobre los costos que cada área de trabajo podría provocar potencialmente y restringir determinadas familias de VM. 
+Configure también la [cuota de nivel de área de trabajo por familia de máquinas virtuales](how-to-manage-quotas.md#workspace-level-quotas) para cada área de trabajo de una suscripción. Esto le permite tener un control más detallado sobre los costos que cada área de trabajo podría provocar potencialmente y restringir determinadas familias de VM. 
 
 Para establecer cuotas en el nivel de área de trabajo, empiece en [Azure Portal](https://portal.azure.com).  Seleccione cualquier área de trabajo de la suscripción y seleccione **Usos y cuotas** en el panel izquierdo. A continuación, seleccione la pestaña **Configurar cuotas** para ver las cuotas. Necesita privilegios en el ámbito de la suscripción para establecer esta cuota, ya que se trata de una configuración que afecta a varias áreas de trabajo.
 

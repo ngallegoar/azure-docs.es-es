@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b4755d1d2e14b8ce3b05cfef6d30d7f6102905d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288110"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318831"
 ---
-# <a name="use-file-metadata-in-queries"></a>Uso de metadatos de archivo en consultas
+# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Uso de metadatos de archivo en consultas de grupo de SQL sin servidor
 
-SQL a petición puede tratar varios archivos y carpetas, tal y como se describe en el artículo [Consulta de carpetas y varios archivos](query-folders-multiple-csv-files.md). En este artículo, aprenderá a usar la información de los metadatos sobre los nombres de archivos y carpetas en las consultas.
+El grupo de SQL sin servidor puede tratar varios archivos y carpetas, tal y como se describe en el artículo [Consulta de carpetas y varios archivos](query-folders-multiple-csv-files.md). En este artículo, aprenderá a usar la información de los metadatos sobre los nombres de archivos y carpetas en las consultas.
 
 A veces, puede que necesite saber qué origen de archivo o carpeta se correlaciona con una fila específica en el conjunto de resultados.
 

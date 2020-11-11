@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790889"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308333"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -156,7 +156,7 @@ Es posible que alguien con los derechos de acceso suficientes al almacén de cla
 
 - Eliminar la identidad administrada del servidor en Azure Active Directory.
 
-Obtenga más información sobre los [errores comunes que hacen que las bases de datos dejen de estar accesibles](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible).
+Obtenga más información sobre los [errores comunes que hacen que las bases de datos dejen de estar accesibles](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible).
 
 ## <a name="monitoring-of-the-customer-managed-tde"></a>Supervisión del TDE administrado por el cliente
 
@@ -179,7 +179,7 @@ Si la clave necesaria para restaurar una copia de seguridad ya no está disponib
 
 Para mitigarlo, ejecute el cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para el servidor de destino o [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) para la instancia administrada de destino para devolver la lista de claves disponibles e identificar las que faltan. Para asegurarse de que se pueden restaurar las copias de seguridad, asegúrese de que el servidor de destino para la restauración tiene acceso a todas las claves necesarias. No es necesario que estas claves estén marcadas como protector de TDE.
 
-Para obtener más información sobre la recuperación de copia de seguridad de SQL Database, consulte [Recuperación de una base de datos de SQL Database](recovery-using-backups.md). Para más información sobre la recuperación de copia de seguridad del grupo de SQL, consulte [Recuperación de un grupo de SQL](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Para realizar una copia de seguridad o una restauración nativa de SQL Server con Instancia administrada de SQL, consulte [Inicio rápido: Restauración de una base de datos en SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
+Para obtener más información sobre la recuperación de copia de seguridad de SQL Database, consulte [Recuperación de una base de datos de SQL Database](recovery-using-backups.md). Para obtener más información sobre la recuperación de copia de seguridad de un grupo de SQL dedicado en Azure Synapse Analytics, consulte [Recuperación de un grupo de SQL dedicado](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Para realizar una copia de seguridad o una restauración nativa de SQL Server con Instancia administrada de SQL, consulte [Inicio rápido: Restauración de una base de datos en SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
 
 Una consideración adicional para los archivos de registro: las copias de seguridad de archivos de registro permanecen cifradas con el protector de TDE original, incluso si este se ha rotado y la base de datos usa ahora un nuevo protector de TDE.  Durante la restauración, se necesitarán ambas claves para restaurar la base de datos.  Si el archivo de registro está usando un protector de TDE almacenado en Azure Key Vault, se necesitará esta clave durante la restauración, incluso si la base de datos se ha cambiado para usar TDE administrado por el servicio durante el proceso.
 

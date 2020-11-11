@@ -2,13 +2,13 @@
 title: 'Azure Event Hubs: excepciones (heredadas)'
 description: En este artículo se proporciona una lista de las excepciones de mensajería y acciones sugeridas de Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 5a7ca32893a106cd59df548ae3118665acaea654
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 11/02/2020
+ms.openlocfilehash: adaf7242530727a1f77a9662110a43341e57e80a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318490"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289333"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Excepciones de mensajería de Event Hubs: .NET (heredadas)
 En esta sección se enumeran las excepciones de .NET generadas por API de .NET Framework. 
@@ -70,7 +70,7 @@ En la tabla siguiente se describen los tipos de excepción de mensajería, sus c
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | La entidad asociada a la operación no existe o se eliminó. | Asegúrese de que la entidad exista. | El reintento no le será de ayuda. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | El cliente no puede establecer una conexión al Centro de eventos. |Asegúrese de que el nombre de host proporcionado sea correcto y que este sea accesible. | El reintento podría resultar útil si hay problemas de conectividad intermitente. |
 | [Microsoft.ServiceBus.Messaging ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | El servicio no puede procesar la solicitud en este momento. | El cliente puede esperar durante un período de tiempo y volver a intentar realizar la operación. <br /> Consulte [ServerBusyException](#serverbusyexception). | El cliente puede volver a intentarlo tras un determinado intervalo de tiempo. Si el reintento genera otra excepción, compruebe el comportamiento de reintento de esa excepción. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Excepción de mensajería genérica que puede producirse en los siguientes casos: Se intentó crear [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) con un nombre o una ruta de acceso que pertenece a un tipo de entidad diferente (por ejemplo, un tema). Intento de enviar un mensaje mayor de 1 MB. El servidor o servicio encontró un error durante el procesamiento de la solicitud. Consulte el mensaje de excepción para obtener detalles. Por lo general, se trata de una excepción transitoria. | Compruebe el código y asegúrese de que solo se usan objetos serializables en el cuerpo del mensaje (o use un serializador personalizado). Consulte la documentación de los tipos de valor de las propiedades admitidos y use solo los tipos compatibles. Compruebe la propiedad [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Si es **true**, puede volver a intentar la operación. | El comportamiento de reintento es indefinido y quizá no resulte útil. |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Excepción de mensajería genérica que puede producirse en los siguientes casos: Se intentó crear [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) con un nombre o una ruta de acceso que pertenece a un tipo de entidad diferente (por ejemplo, un tema). Intento de enviar un mensaje mayor de 1 MB. El servidor o servicio encontró un error durante el procesamiento de la solicitud. Consulte el mensaje de excepción para obtener detalles. Por lo general, se trata de una excepción transitoria. | Compruebe el código y asegúrese de que solo se usan objetos serializables en el cuerpo del mensaje (o use un serializador personalizado). Consulte la documentación de los tipos de valor de las propiedades admitidos y use solo los tipos compatibles. Compruebe la propiedad [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Si es **true** , puede volver a intentar la operación. | El comportamiento de reintento es indefinido y quizá no resulte útil. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) | Se intenta crear una entidad con un nombre que ya se usa en otra entidad de ese espacio de nombres de servicio. | Elimine la entidad existente o elija un nombre diferente para la entidad que quiere crear. | El reintento no le será de ayuda. |
 | [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) | La entidad de mensajería alcanzó su tamaño máximo permitido. Esta excepción puede suceder si ya ha abierto el número máximo de destinatarios (que es cinco) en un nivel de grupo por consumidor. | Cree espacio en la entidad recibiendo mensajes de esta o de sus subcolas. <br /> Consulte [QuotaExceededException](#quotaexceededexception). | El reintento podría resultar útil si los mensajes se eliminan mientras este se lleva a cabo. |
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.servicebus.messaging.messagingentitydisabledexception) | Solicitud para realizar una operación en tiempo de ejecución en una entidad deshabilitada. |Active la entidad. | El reintento podría ser útil si la entidad se activa mientras este se lleva a cabo. |
@@ -96,7 +96,7 @@ Se espera que se produzcan tiempos de espera durante o entre operaciones de mant
 Hay dos causas comunes de este error: configuración incorrecta o un error de servicio transitorio.
 
 - **Configuración incorrecta** : es posible que el tiempo de espera de la operación sea demasiado breve para la condición operativa. El valor predeterminado para el tiempo de espera de la operación en el SDK de cliente es 60 segundos. Compruebe si su código tiene el valor establecido en algo demasiado pequeño. La condición de la red y el uso de CPU pueden afectar al tiempo que tarda en completarse una operación particular, por lo que el tiempo de espera de esta no debe establecerse en un valor pequeño.
-- **Error de servicio transitorio**: a veces, el servicio Event Hubs puede experimentar retrasos en el procesamiento de solicitudes; por ejemplo, durante períodos de tráfico elevado. En tales casos, puede reintentar su operación después de un retraso hasta que la operación se realice correctamente. Si la misma operación aún experimenta errores después de varios intentos, visite el [sitio de estado del servicio de Azure](https://azure.microsoft.com/status/) para ver si hay interrupciones del servicio conocidas.
+- **Error de servicio transitorio** : a veces, el servicio Event Hubs puede experimentar retrasos en el procesamiento de solicitudes; por ejemplo, durante períodos de tráfico elevado. En tales casos, puede reintentar su operación después de un retraso hasta que la operación se realice correctamente. Si la misma operación aún experimenta errores después de varios intentos, visite el [sitio de estado del servicio de Azure](https://azure.microsoft.com/status/) para ver si hay interrupciones del servicio conocidas.
 
 ## <a name="serverbusyexception"></a>ServerBusyException
 
@@ -111,7 +111,19 @@ Este error puede producirse por uno de estos dos motivos:
 
 - El espacio de nombres de Event Hubs no tiene suficientes unidades de rendimiento (puede comprobar la pantalla **Métrica** en la ventana de espacio de nombres de Event Hubs en [Azure Portal](https://portal.azure.com) para confirmar). El portal muestra información agregada (un minuto), pero el rendimiento se mide en tiempo real, por lo que esto es solo una estimación.
 
-    **Solución:** aumentar las unidades de rendimiento en el espacio de nombres puede resultar útil. Puede hacer esta operación en este portal, en la ventana **Escala** de la pantalla de espacio de nombres de Event Hubs. O bien, puede usar el [inflado automático](event-hubs-auto-inflate.md).
+    **Solución:** aumentar las unidades de rendimiento en el espacio de nombres puede resultar útil. 
+
+    Puede configurar unidades de procesamiento en la página **Escala** o en la página de **Información general** de la página **Espacio de nombres de Event Hubs** de Azure Portal. También puede usar la característica de [inflado automático](event-hubs-auto-inflate.md) que escala verticalmente y de forma automática mediante el aumento del número de unidades de procesamiento para responder a las necesidades de utilización.
+
+    Las unidades de procesamiento (TU) se aplican a todos los centros de eventos de un espacio de nombres de Event Hubs. Significa que las TU se compran en el nivel de espacio de nombres y se comparten entre los centros de eventos de ese espacio de nombres. Cada TU da al espacio de nombres derecho a las siguientes funcionalidades:
+
+    - Hasta 1 MB por segundo de eventos de entrada (eventos enviados a un centro de eventos), pero no más de 1000 eventos de entrada, operaciones de administración o llamadas a la API de control por segundo.
+    - Hasta 2 MB por segundo de eventos de salida (eventos consumidos de un centro de eventos), pero no más de 4096 eventos de salida.
+    - Hasta 84 GB de almacenamiento de eventos (suficiente para el período de retención predeterminado de 24 horas).
+    
+    En la página **Información general** , en la sección **Mostrar métricas** , cambie a la pestaña **Rendimiento**. Seleccione el gráfico para abrirlo en una ventana más grande con intervalos de 1 minuto en el eje X. Examine los valores máximos y divídalos por 60 para obtener los bytes entrantes por segundo o los bytes salientes por segundo. Use un enfoque similar para calcular el número de solicitudes por segundo en las horas punta desde la pestaña **Solicitudes**. 
+
+    Si ve valores mayores que el número TU x límites (1 MB por segundo para la entrada o 1000 solicitudes para entrada/segundo, 2 MB por segundo para la salida), aumente el número de TU a través de la página **Escala** (en el menú izquierdo) de un espacio de nombres de Event Hubs para realizar un escalado superior manualmente o para usar la característica [inflado automático](event-hubs-auto-inflate.md) de Event Hubs. Tenga en cuenta que el inflado automático solo puede aumentar hasta 20 TU. Para elevarlo a exactamente 40 unidades de procesamiento, envíe una [solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ### <a name="error-code-50001"></a>Código de error 50001
 

@@ -1,6 +1,6 @@
 ---
-title: Consulta de tipos anidados de Parquet con SQL a petición (versión preliminar)
-description: En este artículo, aprenderá a consultar tipos anidados de Parquet con SQL a petición (versión preliminar).
+title: Consulta de tipos anidados de Parquet con un grupo de SQL sin servidor (versión preliminar)
+description: En este artículo, aprenderá a consultar tipos anidados de Parquet con un grupo de SQL sin servidor (versión preliminar).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08502704515c791bf63f4803b7446a0471c0a869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3463e4dfc423a3f12ce7a42cb0def36574bcb2d3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288263"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312012"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta de tipos anidados en Parquet y archivos JSON mediante SQL a petición (versión preliminar) en Azure Synapse Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consulta de tipos anidados en Parquet y archivos JSON mediante el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
 
-En este artículo, aprenderá a escribir una consulta mediante SQL a petición (versión preliminar) en Azure Synapse Analytics. La consulta leerá los tipos anidados de Parquet.
+En este artículo, aprenderá a escribir una consulta mediante un grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics. La consulta leerá los tipos anidados de Parquet.
 Los tipos anidados son estructuras complejas que representan objetos o matrices. Los tipos anidados se pueden almacenar en: 
 - [Parquet](query-parquet-files.md), donde puede tener varias columnas complejas que contengan matrices y objetos.
 - Los [archivos JSON](query-json-files.md) jerárquicos, donde puede leer un documento JSON complejo como una sola columna.
 - Colecciones de Azure Cosmos DB (actualmente en versión preliminar pública controlada), donde todos los documentos pueden contener propiedades anidadas complejas.
 
-Azure Synapse SQL a petición da formato a todos los tipos anidados como matrices y objetos JSON. Por lo tanto, puede [extraer o modificar objetos complejos mediante el uso de funciones JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) o [analizar datos JSON mediante la función OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+El grupo de SQL sin servidor da formato a todos los tipos anidados como matrices y objetos JSON. Por lo tanto, puede [extraer o modificar objetos complejos mediante el uso de funciones JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) o [analizar datos JSON mediante la función OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 A continuación se muestra un ejemplo de una consulta que extrae valores escalares y de objetos del archivo JSON [Conjunto de datos de investigación abierto para la COVID-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/), que contiene objetos anidados: 
 

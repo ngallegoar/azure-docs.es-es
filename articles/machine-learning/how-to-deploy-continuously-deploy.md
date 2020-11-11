@@ -1,7 +1,7 @@
 ---
 title: Implementación continua de modelos de Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo implementar modelos continuamente con la extensión DevOps de Azure Machine Learning.
+description: Obtenga información sobre cómo implementar modelos continuamente con la extensión DevOps de Azure Machine Learning. Busque e implemente automáticamente las nuevas versiones de modelos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 08/03/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: how-to, tracking-python, deploy
-ms.openlocfilehash: ab4551f64919dad711967b33f85962a5c607d1c5
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 6043ea4e1366890033571c2ba78ecdb2e59f64e1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999147"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325205"
 ---
 # <a name="continuously-deploy-models"></a>Implementación de modelos de forma continuada
 
@@ -30,17 +30,17 @@ En este artículo se da por supuesto que ya ha registrado un modelo en el área 
 
 Puede implementar continuamente modelos mediante la extensión de Machine Learning para [Azure DevOps](https://azure.microsoft.com/services/devops/). Puede usar la extensión de Machine Learning para Azure DevOps para desencadenar una canalización de implementación cuando se registra un nuevo modelo de aprendizaje automático en el área de trabajo de Azure Machine Learning.
 
-1. Regístrese en [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), lo que hace posible la integración continua y la entrega de la aplicación en cualquier plataforma o nube. (Tenga en cuenta que Azure Pipelines no es lo mismo que las [canalizaciones de Machine Learning](concept-ml-pipelines.md#compare)).
+1. Regístrese en [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), lo que hace posible la integración continua y la entrega de la aplicación en cualquier plataforma o nube. (Tenga en cuenta que Azure Pipelines no es lo mismo que las [canalizaciones de Machine Learning](concept-ml-pipelines.md#compare)).
 
-1. [Cree un proyecto de Azure DevOps.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+1. [Cree un proyecto de Azure DevOps.](/azure/devops/organizations/projects/create-project?view=azure-devops)
 
 1. Instale la [extensión de Machine Learning para Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList).
 
-1. Use las conexiones de servicio para configurar una conexión de entidad de servicio para el área de trabajo de Azure Machine Learning para tener acceso a los artefactos. Vaya a configuración del proyecto, seleccione **Conexiones de servicio** y, luego, seleccione **Azure Resource Manager**:
+1. Use las conexiones de servicio para configurar una conexión de entidad de servicio para el área de trabajo de Azure Machine Learning para tener acceso a los artefactos. Vaya a configuración del proyecto, seleccione **Conexiones de servicio** y, luego, seleccione **Azure Resource Manager** :
 
     [![Selección de Azure Resource Manager](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
 
-1. En la lista **Nivel de ámbito**, seleccione **AzureMLWorkspace** y luego escriba el resto de los valores:
+1. En la lista **Nivel de ámbito** , seleccione **AzureMLWorkspace** y luego escriba el resto de los valores:
 
     ![Selección de AzureMLWorkspace](media/how-to-deploy-and-where/resource-manager-connection.png)
 

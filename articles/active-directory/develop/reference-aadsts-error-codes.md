@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115108"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241334"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -156,7 +156,7 @@ Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha 
 | AADSTS50136 | RedirectMsaSessionToApp: se ha detectado una única sesión de MSA. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken: la sesión no es válida debido a un token de actualización externo que falta. |
 | AADSTS50140 | KmsiInterrupt: este error se ha producido debido a una interrupción en "Mantener la sesión iniciada" cuando el usuario estaba iniciando sesión. [Abra un vale de soporte](../fundamentals/active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el de solicitud y el código de error para conocer más detalles. |
-| AADSTS50143 | Error de coincidencia de sesión: la sesión no es válida porque el inquilino del usuario no coincide con la sugerencia de dominio debido a un recurso diferente.  [Abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el identificador de solicitud y el código de error para más detalles. |
+| AADSTS50143 | Error de coincidencia de sesión: la sesión no es válida porque el inquilino de usuario no coincide con la sugerencia de dominio debido a que el recurso es diferente. [Abra un vale de soporte](../fundamentals/active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el de solicitud y el código de error para conocer más detalles. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword: la contraseña de Active Directory del usuario ha expirado. Genere una nueva contraseña para el usuario o solicite al usuario que restablezca la contraseña con la herramienta de autoservicio de restablecimiento. |
 | AADSTS50146 | MissingCustomSigningKey: es necesario que esta aplicación esté configurada con una clave de firma específica de la aplicación. En este momento no tiene configurada ninguna o ha expirado o ya no es válida. |
 | AADSTS50147 | MissingCodeChallenge: el tamaño del parámetro de desafío de código no es válido. |
@@ -200,7 +200,7 @@ Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha 
 | AADSTS70007 | UnsupportedResponseMode: la aplicación ha devuelto un valor no admitido de `response_mode` al solicitar un token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant: el token de actualización ha expirado debido por inactividad. El token se emitió en XXX y estuvo inactivo durante un período de tiempo. |
 | AADSTS70011 | InvalidScope: el ámbito solicitado por la aplicación no es válido. |
-| AADSTS70012 | MsaServerError: se ha producido un error de servidor al autenticar un usuario (consumidor) de MSA. Inténtelo de nuevo. Si el error persiste, [abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError: se ha producido un error de servidor al autenticar un usuario (consumidor) de MSA. Inténtelo de nuevo. Si el error persiste, [abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending: error de flujo de dispositivo de OAuth 2.0. La autorización está pendiente. El dispositivo volverá a intentar sondear la solicitud. |
 | AADSTS70018 | BadVerificationCode: el código de verificación no es válido porque el usuario ha escrito un código de usuario incorrecto en el flujo de códigos del dispositivo. No se ha aprobado la autorización. |
 | AADSTS70019 | CodeExpired: el código de verificación ha expirado. Pida al usuario que vuelva a iniciar sesión. |
@@ -251,7 +251,7 @@ Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha 
 | AADSTS90051 | InvalidNationalCloudId: el identificador de la nube nacional contiene un identificador de la nube no válido. |
 | AADSTS90055 | TenantThrottlingError: hay demasiadas solicitudes entrantes. Esta excepción se produce para los inquilinos bloqueados. |
 | AADSTS90056 | BadResourceRequest: para canjear el código por un token de acceso, la aplicación debe enviar una solicitud POST al punto de conexión `/token`. Además, antes de esto, debe proporcionar un código de autorización y enviarlo en la solicitud POST al punto de conexión `/token`. Consulte este artículo para una introducción al flujo de código de autorización de OAuth 2.0: [../azuread-dev/v1-protocols-oauth-code.md](../azuread-dev/v1-protocols-oauth-code.md). Dirija al usuario al punto de conexión `/authorize`, que devolverá un código de autorización. Al publicar una solicitud para el punto de conexión `/token`, el usuario obtiene el token de acceso. Inicie sesión en Azure Portal y compruebe **Registros de aplicaciones > Puntos de conexión** para confirmar que los dos puntos de conexión se configuraron correctamente. |
-| AADSTS90072 | PassThroughUserMfaError: la cuenta externa con la que el usuario inicia sesión no existe en el inquilino en el que inició sesión; así pues, el usuario no puede satisfacer los requisitos de MFA para el inquilino. La cuenta debe agregarse primero como un usuario externo en el inquilino. Cierre e inicie sesión con otra cuenta de usuario de Azure AD. |
+| AADSTS90072 | PassThroughUserMfaError: la cuenta externa con la que el usuario inicia sesión no existe en el inquilino en el que inició sesión; así pues, el usuario no puede satisfacer los requisitos de MFA para el inquilino. Este error también puede producirse si los usuarios se sincronizan pero hay una discrepancia en el atributo ImmutableID (sourceAnchor) entre Active Directory y Azure AD. La cuenta debe agregarse primero como un usuario externo en el inquilino. Cierre e inicie sesión con otra cuenta de usuario de Azure AD. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid: se produjo un error cuando el servicio intentó procesar un mensaje de WS-Federation. El mensaje no es válido. |
 | AADSTS90082 | OrgIdWsFederationNotSupported: la directiva de autenticación seleccionada para la solicitud no se admite actualmente. |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed: las cuentas de invitado no están permitidas para este sitio. |
@@ -320,6 +320,7 @@ Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha 
 | AADSTS1000000 | UserNotBoundError: la API de Bind requiere que el usuario de Azure AD también se autentique con un IDP externo, que aún no se ha producido. |
 | AADSTS1000002 | BindCompleteInterruptError: el enlace se completó correctamente, pero debe informarse al usuario. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled: la aplicación está deshabilitada. |
+| AADSTS7000114| No se permite que la aplicación "appIdentifier" realice llamadas en nombre de aplicación.|
 | AADSTS7500529 | El valor "SAMLId-Guid" no es un identificador de SAML válido. Azure AD usa este atributo para rellenar el atributo InResponseTo de la respuesta devuelta. El id. no debe empezar con un número. La estrategia habitual consiste en anteponer una cadena como "id" en la representación de cadena de un GUID. Por ejemplo, id6c1c178c166d486687be4aaf5e482730 es un identificador válido. |
 
 ## <a name="next-steps"></a>Pasos siguientes

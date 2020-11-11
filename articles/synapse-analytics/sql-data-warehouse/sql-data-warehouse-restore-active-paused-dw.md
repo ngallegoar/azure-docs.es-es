@@ -1,6 +1,6 @@
 ---
-title: Restauración de un almacenamiento de datos existente
-description: Guía para la restauración de un grupo de SQL eliminado.
+title: Restauración de un grupo de SQL dedicado
+description: Guía para la restauración de un grupo de SQL dedicado eliminado.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: dead71d08b5a7a16871816580107c8aed8a0a77c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b5ced43e1277ffbb1c9988af08ee032ab93a15e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405112"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313494"
 ---
-# <a name="restore-an-existing-sql-pool"></a>Restauración de un grupo de SQL existente
+# <a name="restore-an-existing-dedicated-sql-pool-in-azure-synapse-analytics"></a>Restauración de un grupo de SQL dedicado existente en Azure Synapse Analytics
 
-En este artículo, aprenderá a restaurar un grupo de SQL existente en Azure Synapse Analytics mediante Azure Portal y PowerShell.
+En este artículo, aprenderá a restaurar un grupo de SQL dedicado existente en Azure Synapse Analytics mediante Azure Portal y PowerShell.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,9 +31,9 @@ En este artículo, aprenderá a restaurar un grupo de SQL existente en Azure Syn
 1. Asegúrese de [instalar Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Tenga un punto de restauración existente desde el que desee realizar la restauración. Si desea crear una restauración, consulte [el tutorial para crear un de restauración definido por el usuario](sql-data-warehouse-restore-points.md).
 
-## <a name="restore-an-existing-sql-pool-through-powershell"></a>Restauración de un grupo de SQL existente mediante PowerShell
+## <a name="restore-an-existing-dedicated-sql-pool-through-powershell"></a>Restauración de un grupo de SQL dedicado existente mediante PowerShell
 
-Para restaurar un grupo de SQL existente a partir de un punto de restauración, use el cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) de PowerShell.
+Para restaurar un grupo de SQL dedicado existente a partir de un punto de restauración, use el cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) de PowerShell.
 
 1. Abra PowerShell.
 
@@ -41,18 +41,18 @@ Para restaurar un grupo de SQL existente a partir de un punto de restauración, 
 
 3. Seleccione la suscripción que contiene la base de datos que se va a restaurar.
 
-4. Enumere los puntos de restauración del grupo de SQL.
+4. Enumere los puntos de restauración del grupo de SQL dedicado.
 
 5. Elija el punto de restauración deseado mediante RestorePointCreationDate.
 
-6. Restaure el grupo de SQL al punto de restauración deseado mediante el comando [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) de PowerShell.
+6. Restaure el grupo de SQL dedicado al punto de restauración deseado mediante el comando [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) de PowerShell.
 
-    1. Para restaurar el grupo de SQL en un servidor diferente, asegúrese de especificar el nombre del otro servidor.  Este servidor también puede estar en un grupo de recursos y una región diferentes.
+    1. Para restaurar el grupo de SQL dedicado en un servidor diferente, asegúrese de especificar el nombre del otro servidor.  Este servidor también puede estar en un grupo de recursos y una región diferentes.
     2. Para realizar la restauración en otra suscripción, use el botón Mover para mover el servidor a otra suscripción.
 
-7. Compruebe que el grupo de SQL restaurado está en línea.
+7. Compruebe que el grupo de SQL dedicado restaurado está en línea.
 
-8. Una vez finalizada la restauración, puede configurar el grupo de SQL recuperado siguiendo la guía [Configuración de la base de datos después de realizar la recuperación](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. Una vez finalizada la restauración, puede configurar el grupo de SQL dedicado recuperado si sigue la guía [Configuración de la base de datos después de realizar la recuperación](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -89,19 +89,19 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-an-existing-sql-pool-through-the-azure-portal"></a>Restauración de un grupo de SQL existente mediante Azure Portal
+## <a name="restore-an-existing-dedicated-sql-pool-through-the-azure-portal"></a>Restauración de un grupo de SQL dedicado existente mediante Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Vaya al grupo de SQL desde el que desea restaurar.
+2. Vaya al grupo dedicado desde el que quiere realizar la restauración.
 3. En la parte superior de la hoja de información general, seleccione **Restaurar**.
 
     ![ Introducción a la restauración](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Seleccione **Puntos de restauración automáticos** o **Puntos de restauración definidos por el usuario**. Si el grupo de SQL no tiene ningún punto de restauración automática, espere unas horas o cree un punto de restauración definido por el usuario antes de llevar a cabo la restauración. En el caso de los puntos de restauración definidos por el usuario, seleccione uno existente o cree uno nuevo. En **Servidor**, puede elegir un servidor de otro grupo de recursos y región, o bien crear uno nuevo. Después de proporcionar todos los parámetros, haga clic en **Revisar y restaurar**.
+4. Seleccione **Puntos de restauración automáticos** o **Puntos de restauración definidos por el usuario**. Si el grupo de SQL dedicado no tiene ningún punto de restauración automática, espere unas horas o cree un punto de restauración definido por el usuario antes de llevar a cabo la restauración. En el caso de los puntos de restauración definidos por el usuario, seleccione uno existente o cree uno nuevo. En **Servidor** , puede elegir un servidor de otro grupo de recursos y región, o bien crear uno nuevo. Después de proporcionar todos los parámetros, haga clic en **Revisar y restaurar**.
 
     ![Puntos de restauración automáticos](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Restauración de un grupo de SQL eliminado](sql-data-warehouse-restore-deleted-dw.md)
-- [Restauración de un grupo de SQL a partir de una copia de seguridad de replicación geográfica](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restauración de un grupo de SQL dedicado eliminado](sql-data-warehouse-restore-deleted-dw.md)
+- [Restauración desde una copia de seguridad geográfica para un grupo de SQL dedicado](sql-data-warehouse-restore-from-geo-backup.md)

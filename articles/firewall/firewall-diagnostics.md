@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 784459282007edab599d54edff0d2b38eed07b34
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2899121db4b6a3f202be4860e2e4f43027cdef7c
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320649"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348776"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Supervisión de métricas y registros de Azure Firewall
 
@@ -33,7 +33,7 @@ Antes de comenzar debe leer el artículo acerca de las [métricas y registros de
 Puede tardar algunos minutos en que los datos aparezcan en los registros después de completar este procedimiento para activar el registro de diagnóstico. Si no ve nada a primera vista, vuelva a comprobarlo en unos minutos.
 
 1. En Azure Portal, abra el grupo de recursos de firewall y seleccione el firewall.
-2. En **Supervisión**, seleccione **Configuración de diagnóstico**.
+2. En **Supervisión** , seleccione **Configuración de diagnóstico**.
 
    En Azure Firewall, hay cuatro registros específicos del servicio disponibles:
 
@@ -43,9 +43,9 @@ Puede tardar algunos minutos en que los datos aparezcan en los registros despué
    * AzureFirewallDnsProxy
 
 
-3. Seleccione **Agregar configuración de diagnóstico**. En la página **Configuración de diagnóstico**, se encuentran las opciones de configuración de los registros de diagnóstico.
+3. Seleccione **Agregar configuración de diagnóstico**. En la página **Configuración de diagnóstico** , se encuentran las opciones de configuración de los registros de diagnóstico.
 5. En este ejemplo, los registros de Azure Monitor almacenan los registros, de modo que escriba **Análisis de registros de firewall** como nombre.
-6. En **Registro**, seleccione **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog** y **AzureFirewallDnsProxy** para recopilar los registros.
+6. En **Registro** , seleccione **AzureFirewallApplicationRule** , **AzureFirewallNetworkRule** , **AzureFirewallThreatIntelLog** y **AzureFirewallDnsProxy** para recopilar los registros.
 7. Seleccione **Enviar a Log Analytics** para configurar el área de trabajo.
 8. Seleccione su suscripción.
 9. Seleccione **Guardar**.
@@ -75,13 +75,57 @@ Para habilitarlo, siga estos pasos:
 > [!TIP]
 >Los registros de diagnóstico no requieren una cuenta de almacenamiento independiente. El uso del almacenamiento para el registro de acceso y rendimiento supondrá un costo adicional de servicio.
 
+## <a name="enable-diagnostic-logging-by-using-azure-cli"></a>Habilitación del registro de diagnóstico con la CLI de Azure
+
+El registro de actividades se habilita automáticamente para todos los recursos de Resource Manager. Se debe habilitar el registro de diagnóstico para empezar a recopilar los datos disponibles mediante esos registros.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="enable-diagnostic-logging"></a>Activación del registro de diagnóstico
+
+Use los comandos siguientes para habilitar el registro de diagnóstico.
+
+1. Ejecute el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) para habilitar el registro de diagnóstico.
+
+   ```azurecli
+   az monitor diagnostic-settings create –name AzureFirewallApplicationRule \
+     --resource Firewall07 --storage-account MyStorageAccount
+   ```
+
+   Ejecute el comando [az monitor diagnostic-settings list](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_list) para ver la configuración de diagnóstico de un recurso:
+
+   ```azurecli
+   az monitor diagnostic-settings list --resource Firewall07
+   ```
+
+   Use el comando [az monitor diagnostic-settings show](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_show) para ver la configuración de diagnóstico activa de un recurso:
+
+   ```azurecli
+   az monitor diagnostic-settings show --name AzureFirewallApplicationRule --resource Firewall07
+   ```
+
+1. Ejecute el comando [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) para actualizar la configuración.
+
+   ```azurecli
+   az monitor diagnostic-settings update --name AzureFirewallApplicationRule --resource Firewall07 --set retentionPolicy.days=365
+   ```
+
+   Use el comando [az monitor diagnostic-settings delete](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_delete) para eliminar la configuración de diagnóstico.
+
+   ```azurecli
+   az monitor diagnostic-settings delete --name AzureFirewallApplicationRule --resource Firewall07
+   ```
+
+> [!TIP]
+>Los registros de diagnóstico no requieren una cuenta de almacenamiento independiente. El uso del almacenamiento para el registro de acceso y rendimiento supondrá un costo adicional de servicio.
+
 ## <a name="view-and-analyze-the-activity-log"></a>Visualización y análisis del registro de actividades
 
 Puede ver y analizar los datos del registro de actividades con cualquiera de los métodos siguientes:
 
-* **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
-* **Power BI**: si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de actividades de Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), puede analizar sus datos con los paneles preconfigurados que puede personalizar o usar tal cual.
-* **Azure Sentinel**: Los registros de Azure Firewall se pueden conectar a Azure Sentinel, de forma que es posible ver los datos de registro en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar su investigación. El conector de datos de Azure Firewall en Azure Sentinel se encuentra actualmente en versión preliminar pública. Para más información, consulte [Conexión de datos desde Azure Firewall](../sentinel/connect-azure-firewall.md).
+* **Herramientas de Azure** : permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
+* **Power BI** : si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de actividades de Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), puede analizar sus datos con los paneles preconfigurados que puede personalizar o usar tal cual.
+* **Azure Sentinel** : Los registros de Azure Firewall se pueden conectar a Azure Sentinel, de forma que es posible ver los datos de registro en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar su investigación. El conector de datos de Azure Firewall en Azure Sentinel se encuentra actualmente en versión preliminar pública. Para más información, consulte [Conexión de datos desde Azure Firewall](../sentinel/connect-azure-firewall.md).
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Ver y analizar los registros de la regla de red y de aplicación
 

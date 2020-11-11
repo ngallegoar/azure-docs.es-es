@@ -10,13 +10,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sashan
 ms.reviewer: ''
-ms.date: 07/29/2020
-ms.openlocfilehash: 7a80f6ef918ac42f43eee2ccc8acae09c5008129
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 10/30/2020
+ms.openlocfilehash: 53e62d790514bd3fb5bef93788fa78944db28c2c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748888"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127746"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Creación de una copia transaccionalmente coherente de una base de datos de Azure SQL Database
 
@@ -29,7 +29,7 @@ Azure SQL Database proporciona varios métodos para crear una copia de una [bas
 Una copia de base de datos es una instantánea coherente con las transacciones de la base de datos de origen a partir de un momento dado después de iniciarse la solicitud de copia. Puede seleccionar el mismo servidor u otro distinto para la copia. También puede optar por conservar la redundancia de copia de seguridad , el nivel de servicio y el tamaño de proceso de la base de datos de origen, o usar una redundancia de almacenamiento de copia de seguridad o tamaño de proceso diferentes dentro del mismo nivel de servicio o uno diferente. Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Los inicios de sesión, los usuarios y los permisos de la base de datos copiada se administran independientemente de la base de datos de origen. La copia se crea mediante la tecnología de replicación geográfica. Una vez completada la propagación de réplicas, el vínculo de replicación geográfica finaliza automáticamente. Todos los requisitos para usar la replicación geográfica se aplican a la operación de copia de la base de datos. Consulte [Información general de la replicación geográfica activa](active-geo-replication-overview.md) para obtener más información.
 
 > [!NOTE]
-> La redundancia de almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente con carácter general en la región Sudeste de Asia de Azure. En la versión preliminar, si la base de datos de origen se crea con redundancia de almacenamiento de copia de seguridad local o de copia de seguridad de zona, no se admitirá la copia de una base de datos en un servidor de una región de Azure distinta. 
+> La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente en versión preliminar pública en la región Sur de Brasil y con carácter general en la región Sudeste de Asia de Azure. En la versión preliminar, si la base de datos de origen se crea con redundancia de almacenamiento de copia de seguridad local o de copia de seguridad de zona, no se admitirá la copia de una base de datos en un servidor de una región de Azure distinta. 
 
 ## <a name="logins-in-the-database-copy"></a>Inicios de sesión en la copia de la base de datos
 

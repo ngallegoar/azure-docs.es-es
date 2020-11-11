@@ -1,5 +1,5 @@
 ---
-title: Ejemplos de bases de datos, proyectos y códigos de Azure Analysis Services | Microsoft Docs
+title: Ejemplos de bases de datos, proyectos y códigos de Azure Analysis Services
 description: En este artículo se describen los recursos para obtener información sobre ejemplos de base de datos, proyectos y códigos para Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b63581b5192c93a8377a642c21eacbd291579b22
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 920cc5142d14308fce412ad44543ddc46dc1663e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013685"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324370"
 ---
 # <a name="azure-analysis-services-samples"></a>Ejemplos de Azure Analysis Services
 
@@ -28,7 +28,7 @@ El repositorio de [Analysis Services](https://github.com/Microsoft/Analysis-Serv
 
 ## <a name="sample-database-on-azure"></a>Base de datos de ejemplo de Azure
 
-Azure Synapse Analytics (SQL Data Warehouse) cuenta con la base de datos AdventureWorksDW de ejemplo que se puede incluir en un recurso aprovisionado. Para más información, vea esta [Inicio rápido: creación y consulta de un grupo de SQL de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+Azure Synapse Analytics (anteriormente SQL Data Warehouse) cuenta con la base de datos AdventureWorksDW de ejemplo que se puede incluir en un recurso aprovisionado. Para más información, vea esta [Inicio rápido: Creación y consulta de un grupo de SQL dedicado en Azure Synapse Analytics](/azure/sql-data-warehouse/create-data-warehouse-portal).
 
 ## <a name="sample-databases-on-github"></a>Bases de datos de ejemplo en GitHub
 
@@ -40,7 +40,7 @@ Estas bases de datos de ejemplo en GitHub pueden usarse para la creación y prue
 
 ## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Modelo de ejemplo de Adventure Works Internet Sales en Azure Portal
 
-Si tiene un servidor de Analysis Services en Azure Portal, puede crear rápida y fácilmente un modelo de ejemplo. En la página de información general de su servidor en Azure Portal, haga clic en **Nuevo modelo** y, luego, en **Elegir un origen de datos**, seleccione **Datos de ejemplo**.
+Si tiene un servidor de Analysis Services en Azure Portal, puede crear rápida y fácilmente un modelo de ejemplo. En la página de información general de su servidor en Azure Portal, haga clic en **Nuevo modelo** y, luego, en **Elegir un origen de datos** , seleccione **Datos de ejemplo**.
 
 
 

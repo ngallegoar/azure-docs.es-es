@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c13b71858915ab262ab3e0e99ab8c482d19160ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217548"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318503"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Uso compartido y recepción de datos de Azure SQL Database y Azure Synapse Analytics
 
@@ -36,7 +36,7 @@ Cuando se reciben los datos en la tabla y si la tabla de destino no existe todav
 A continuación se muestra la lista de requisitos previos para compartir datos desde el origen de SQL. También puede seguir la [demostración paso a paso](https://youtu.be/hIE-TjJD8Dc) para configurar los requisitos previos.
 
 * Una instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente SQL Data Warehouse) con las tablas y vistas que desea compartir.
-* Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write* . Este permiso existe en el rol de colaborador.
+* Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de colaborador.
 * Permiso para que el recurso compartido acceda al almacenamiento de datos. Esto se puede hacer mediante los siguientes pasos: 
     1. En Azure Portal, vaya al servidor SQL Server y establézcase como administrador de Azure Active Directory.
     1. Conéctese a Azure SQL Database/Data Warehouse con el [Editor de consultas](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) o SQL Server Management Studio mediante la autenticación de Azure Active Directory. 
@@ -51,9 +51,9 @@ A continuación se muestra la lista de requisitos previos para compartir datos d
 * Un usuario de Azure SQL Database con acceso "db_datareader" para explorar y seleccionar las tablas o vistas que desea compartir. 
 
 * Acceso al firewall de SQL Server. Esto se puede hacer mediante los siguientes pasos: 
-    1. En SQL Server en Azure Portal, vaya a *Firewalls y redes virtuales* .
-    1. Haga clic en **Sí** en *Permitir que los servicios y recursos de Azure accedan a este servidor* .
-    1. Haga clic en **+Agregar IP de cliente** . La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que comparta datos de SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP.
+    1. En SQL Server en Azure Portal, vaya a *Firewalls y redes virtuales*.
+    1. Haga clic en **Sí** en *Permitir que los servicios y recursos de Azure accedan a este servidor*.
+    1. Haga clic en **+Agregar IP de cliente**. La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que comparta datos de SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP.
     1. Haga clic en **Save** (Guardar). 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
@@ -64,11 +64,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
-1. Seleccione el botón de menú de la esquina superior izquierda del portal y, a continuación, seleccione **Crear un recurso** .
+1. Seleccione el botón de menú de la esquina superior izquierda del portal y, a continuación, seleccione **Crear un recurso**.
 
-1. Busque *Data Share* .
+1. Busque *Data Share*.
 
-1. Seleccione Data Share y, después, **Crear** .
+1. Seleccione Data Share y, después, **Crear**.
 
 1. Rellene los detalles básicos del recurso de Azure Data Share con la siguiente información. 
 
@@ -82,7 +82,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
 1. Seleccione **Revisar + Crear** y, después, **Crear** para aprovisionar la cuenta del recurso compartido de datos. El aprovisionamiento de una nueva cuenta de Azure Data Share normalmente tarda aproximadamente 2 minutos, o menos. 
 
-1. Cuando la implementación se complete, seleccione **Ir al grupo de recursos** .
+1. Cuando la implementación se complete, seleccione **Ir al grupo de recursos**.
 
 ### <a name="create-a-share"></a>Creación de un recurso compartido
 
@@ -92,15 +92,15 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
 1. Seleccione **Start sharing your data** (Empezar a compartir datos).
 
-1. Seleccione **Crear** .   
+1. Seleccione **Crear**.   
 
 1. Rellene los detalles del recurso compartido. Especifique un nombre, un tipo de recurso compartido, una descripción del contenido de los recursos compartidos y las condiciones de uso (opcional). 
 
     ![EnterShareDetails](./media/enter-share-details.png "Introducción de detalles del recurso compartido") 
 
-1. Seleccione **Continuar** .
+1. Seleccione **Continuar**.
 
-1. Para agregar conjuntos de datos al recurso compartido, seleccione **Agregar conjuntos de datos** . 
+1. Para agregar conjuntos de datos al recurso compartido, seleccione **Agregar conjuntos de datos**. 
 
     ![Adición de conjuntos de datos al recurso compartido](./media/datasets.png "Conjuntos de datos")
 
@@ -116,7 +116,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
     ![AddRecipients](./media/add-recipient.png "Adición de destinatarios") 
 
-1. Seleccione **Continuar** .
+1. Seleccione **Continuar**.
 
 1. Si ha seleccionado el tipo de recurso compartido de instantáneas, puede configurar la programación de instantáneas para proporcionar actualizaciones de los datos al consumidor de datos. 
 
@@ -124,9 +124,9 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
 1. Seleccione una hora de inicio y un intervalo de periodicidad. 
 
-1. Seleccione **Continuar** .
+1. Seleccione **Continuar**.
 
-1. En la pestaña Revisar y crear, examine el contenido del paquete, la configuración, los destinatarios y la configuración de la sincronización. Seleccione **Crear** .
+1. En la pestaña Revisar y crear, examine el contenido del paquete, la configuración, los destinatarios y la configuración de la sincronización. Seleccione **Crear**.
 
 Ya se ha creado Azure Data Share y el destinatario de Data Share ya está listo para aceptar la invitación. 
 
@@ -145,13 +145,13 @@ Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una i
 Si elige recibir datos en Azure Storage, a continuación se muestra la lista de requisitos previos.
 
 * Una cuenta de Azure Storage: si no la tiene, puede crear una cuenta de [Azure Storage](../storage/common/storage-account-create.md). 
-* Permisos para escribir en la cuenta de almacenamiento, que se encuentra en *Microsoft.Storage/storageAccounts/write* . Este permiso existe en el rol de colaborador. 
-* Permisos para agregar la asignación de roles a la cuenta de almacenamiento, que se encuentra en *Microsoft.Authorization/role assignments/write* . Este permiso existe en el rol de propietario.  
+* Permisos para escribir en la cuenta de almacenamiento, que se encuentra en *Microsoft.Storage/storageAccounts/write*. Este permiso existe en el rol de colaborador. 
+* Permisos para agregar la asignación de roles a la cuenta de almacenamiento, que se encuentra en *Microsoft.Authorization/role assignments/write*. Este permiso existe en el rol de propietario.  
 
 ### <a name="prerequisites-for-sql-target"></a>Requisitos previos para un destino de SQL
 Si opta por recibir datos en Azure SQL Database, Azure Synapse Analytics, esta es la lista de requisitos previos. También puede seguir la [demostración paso a paso](https://youtu.be/aeGISgK1xro) para configurar los requisitos previos.
 
-* Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write* . Este permiso existe en el rol de colaborador. 
+* Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de colaborador. 
 * Permisos para que la identidad administrada del recurso compartido de datos acceda a Azure SQL Database o Azure Synapse Analytics. Esto se puede hacer mediante los siguientes pasos: 
     1. En Azure Portal, vaya al servidor SQL Server y establézcase como administrador de Azure Active Directory.
     1. Conéctese a Azure SQL Database/Data Warehouse con el [Editor de consultas](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) o SQL Server Management Studio mediante la autenticación de Azure Active Directory. 
@@ -166,9 +166,9 @@ Si opta por recibir datos en Azure SQL Database, Azure Synapse Analytics, esta e
         Tenga en cuenta que *<share_acc_name>* es el nombre del recurso de Data Share. Si aún no ha creado un recurso de Data Share, puede volver a este requisito previo más adelante.         
 
 * Acceso al firewall de SQL Server. Esto se puede hacer mediante los siguientes pasos: 
-    1. En SQL Server en Azure Portal, vaya a *Firewalls y redes virtuales* .
-    1. Haga clic en **Sí** en *Permitir que los servicios y recursos de Azure accedan a este servidor* .
-    1. Haga clic en **+Agregar IP de cliente** . La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que comparta datos de SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP.
+    1. En SQL Server en Azure Portal, vaya a *Firewalls y redes virtuales*.
+    1. Haga clic en **Sí** en *Permitir que los servicios y recursos de Azure accedan a este servidor*.
+    1. Haga clic en **+Agregar IP de cliente**. La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que comparta datos de SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP.
     1. Haga clic en **Save** (Guardar). 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
@@ -188,7 +188,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Seleccione el recurso compartido que desea ver. 
 
 ### <a name="accept-invitation"></a>Aceptación de la invitación
-1. Asegúrese de que se han revisado todos los campos, incluido el de **condiciones de uso** . Si acepta las condiciones de uso, se le solicitará que seleccione la casilla para indicarlo. 
+1. Asegúrese de que se han revisado todos los campos, incluido el de **condiciones de uso**. Si acepta las condiciones de uso, se le solicitará que seleccione la casilla para indicarlo. 
 
    ![Condiciones de uso](./media/terms-of-use.png "Términos de uso") 
 
@@ -209,7 +209,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 ### <a name="configure-received-share"></a>Configuración del recurso compartido recibido
 Siga los pasos que se indican a continuación para configurar dónde quiere recibir los datos.
 
-1. Seleccione la pestaña **Conjuntos de datos** . Active la casilla situada junto al conjunto de datos al que desearía asignar un destino. Seleccione **+ Asignar a destino** para elegir un almacén de datos de destino. 
+1. Seleccione la pestaña **Conjuntos de datos**. Active la casilla situada junto al conjunto de datos al que desearía asignar un destino. Seleccione **+ Asignar a destino** para elegir un almacén de datos de destino. 
 
    ![Asignación a destino](./media/dataset-map-target.png "Asignar a destino") 
 
@@ -217,14 +217,14 @@ Siga los pasos que se indican a continuación para configurar dónde quiere reci
 
    ![Cuenta de almacenamiento de destino](./media/dataset-map-target-sql.png "Almacén de datos de destino") 
 
-1. En el caso del uso compartido basado en instantáneas, si el proveedor de datos ha creado una programación de instantáneas para proporcionar una actualización periódica de los datos, también puede habilitarla seleccionando la pestaña **Programación de instantáneas** . Active la casilla situada junto a la programación de instantáneas y seleccione **+ Habilitar** .
+1. En el caso del uso compartido basado en instantáneas, si el proveedor de datos ha creado una programación de instantáneas para proporcionar una actualización periódica de los datos, también puede habilitarla seleccionando la pestaña **Programación de instantáneas**. Active la casilla situada junto a la programación de instantáneas y seleccione **+ Habilitar**.
 
    ![Habilitación de la programación de instantáneas](./media/enable-snapshot-schedule.png "Habilitación de la programación de instantáneas")
 
 ### <a name="trigger-a-snapshot"></a>Desencadenamiento de una instantánea
 Estos pasos solo se aplican al uso compartido basado en instantáneas.
 
-1. Para desencadenar una instantánea, seleccione la pestaña **Detalles** y, luego, **Desencadenar instantánea** . En este caso, puede desencadenar una instantánea completa o incremental de los datos. Si es la primera vez que recibe datos del proveedor de datos, seleccione una copia completa. En el caso de los orígenes de SQL, solo se admite la instantánea completa.
+1. Para desencadenar una instantánea, seleccione la pestaña **Detalles** y, luego, **Desencadenar instantánea**. En este caso, puede desencadenar una instantánea completa o incremental de los datos. Si es la primera vez que recibe datos del proveedor de datos, seleccione una copia completa. En el caso de los orígenes de SQL, solo se admite la instantánea completa.
 
    ![Desencadenamiento de instantánea](./media/trigger-snapshot.png "Desencadenamiento de instantánea") 
 
@@ -233,7 +233,7 @@ Estos pasos solo se aplican al uso compartido basado en instantáneas.
    ![Conjuntos de datos de consumidor](./media/consumer-datasets.png "Asignación de conjunto de datos de consumidor") 
 
 ### <a name="view-history"></a>Visualización del historial
-Este paso solo se aplica al uso compartido basado en instantáneas. Para ver el historial de las instantáneas, seleccione la pestaña **Historial** . Aquí encontrará un historial de todas las instantáneas que se generaron en los últimos 30 días. 
+Este paso solo se aplica al uso compartido basado en instantáneas. Para ver el historial de las instantáneas, seleccione la pestaña **Historial**. Aquí encontrará un historial de todas las instantáneas que se generaron en los últimos 30 días. 
 
 ## <a name="supported-data-types"></a>Tipos de datos admitidos
 Al compartir datos desde el origen de SQL, se usa la siguiente asignación de los tipos de datos de SQL Server a los tipos de datos provisionales de Azure Data Share durante el proceso de instantánea. 
@@ -275,7 +275,7 @@ Al compartir datos desde el origen de SQL, se usa la siguiente asignación de lo
 
 >[!NOTE]
 > 1. En el caso de los tipos de datos que se asignan al tipo decimal provisional, la instantánea actualmente admite una precisión de hasta 28. Si tiene datos que requieren una precisión mayor que 28, considere la posibilidad de convertir a una cadena. 
-> 1.  Si va a compartir datos de Azure SQL Database en Azure Synapse Analytics, no se admiten todos los tipos de datos. Vea [Tipos de datos de tabla en el grupo de Synapse SQL](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) para obtener información. 
+> 1.  Si va a compartir datos de Azure SQL Database en Azure Synapse Analytics, no se admiten todos los tipos de datos. Vea [Tipos de datos de tabla en el grupo de SQL dedicado](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) para obtener información. 
 
 ## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>Always Encrypted o enmascaramiento dinámico de datos de SQL
 Actualmente, Azure Data Share no es compatible con las bases de datos de Azure SQL con Always Encrypted configurado. 

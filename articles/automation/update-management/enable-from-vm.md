@@ -2,19 +2,19 @@
 title: Habilitación de Update Management de Azure Automation desde una máquina virtual de Azure
 description: En este artículo se indica cómo habilitar Update Management desde una máquina virtual de Azure.
 services: automation
-ms.date: 09/16/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 2d81b822986f641e64b9211300f83e3b254f316d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221878"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347087"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Habilitación de Update Management desde una maquina virtual de Azure
 
-En este artículo se describe cómo puede usar una máquina virtual de Azure para habilitar la característica [Update Management](overview.md) en otras máquinas. Para habilitar máquinas virtuales de Azure a escala, debe habilitar una máquina virtual existente mediante Update Management.
+En este artículo se describe cómo puede habilitar la característica [Update Management](overview.md) en una o más máquinas virtuales (VM) de Azure. Para habilitar máquinas virtuales de Azure a escala, debe habilitar una máquina virtual de Azure existente mediante Update Management.
 
 > [!NOTE]
 > Al habilitar Update Management, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](../how-to/region-mappings.md).
@@ -35,7 +35,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Seleccione la máquina virtual para la que desea habilitar Update Management. Las máquina virtuales pueden existir en cualquier región, independientemente de la ubicación de la cuenta de Automation. Los
 
-3. En la página de la VM, en **Operaciones**, seleccione **Guest + host updates** (Actualizaciones de invitado y host).
+3. En la página de la VM, en **Operaciones** , seleccione **Guest + host updates** (Actualizaciones de invitado y host).
 
     ![Seleccionar Guest + host updates (Actualizaciones de invitado y host) en el panel izquierdo](media/enable-from-vm/select-guest-and-os-updates.png)
 

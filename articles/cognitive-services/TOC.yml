@@ -44,7 +44,7 @@
   items:
     - name: Compatibilidad con los contenedores
       href: cognitive-services-container-support.md
-    - name: Etiquetas de imágenes de contenedor
+    - name: Etiquetas de imagen de contenedor y notas de la versión
       href: ./containers/container-image-tags.md
     - name: Preguntas frecuentes acerca del contenedor
       href: ./containers/container-faq.md

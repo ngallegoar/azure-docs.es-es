@@ -9,39 +9,42 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: b986832e5febbb2a0f88b65213f9acf0dd4c5ab5
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d4a2d9e43dadc53008c04b44ea1dda9cb337da99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996893"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308359"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Registro automático del proveedor de recursos de VM con SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Habilite la característica de registro automático en Azure Portal para registrar automáticamente todas las VM con SQL Server en Azure pasadas y futuras en el proveedor de recursos de VM con SQL en modo ligero.
+Habilite la característica de registro automático en Azure Portal para registrar automáticamente todas las máquinas de Azure Virtual Machines con SQL Server pasadas y futuras en el proveedor de recursos de VM con SQL en modo ligero. Al registrarse con el proveedor de recursos de VM con SQL, se instala la [extensión del Agente de IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md).
 
 En este artículo se enseña a habilitar la característica de registro automático. Como alternativa, puede [registrar una única VM](sql-vm-resource-provider-register.md)o [registrar las VM de forma masiva](sql-vm-resource-provider-bulk-register.md) en el proveedor de recursos de VM de SQL. 
 
 ## <a name="overview"></a>Introducción
 
-El [proveedor de recursos de VM de SQL](sql-vm-resource-provider-register.md#overview) le permite administrar la VM con SQL Server desde Azure Portal. Además, el proveedor de recursos habilita un conjunto sólido de características, incluida la [aplicación automática de revisiones](automated-patching.md), la [copia de seguridad automática](automated-backup.md) y las funcionalidades de supervisión y administración. También se desbloquean las [licencias](licensing-model-azure-hybrid-benefit-ahb-change.md) y la flexibilidad de [ediciones](change-sql-server-edition.md). Anteriormente, estas características solo estaban disponibles para las imágenes de máquina virtual con SQL Server implementadas desde Azure Marketplace. 
+Al registrar la VM de SQL Server con el proveedor de recursos de VM con SQL, se instala la [extensión del Agente de IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md). 
 
-La característica de registro automático permite a los clientes registrar automáticamente todas las VM con SQL Server pasadas y futuras en su suscripción de Azure en el proveedor de recursos de VM con SQL. Esto difiere del registro manual, que solo se centra en las VM con SQL Server actuales. 
+Cuando el registro automático está habilitado, un trabajo se ejecuta diariamente para detectar si SQL Server está instalado en todas las máquinas virtuales no registradas de la suscripción. Para ello, copie los archivos binarios de extensión del agente de IaaS de SQL en la máquina virtual y, a continuación, ejecute una utilidad puntual que compruebe el subárbol del Registro de SQL Server. Si se detecta el subárbol de SQL Server, la máquina virtual se registra con el [proveedor de recursos de VM de SQL](sql-vm-resource-provider-register.md) en modo ligero. Si no existe ningún subárbol de SQL Server en el Registro, se quitan los archivos binarios.
 
-El registro automático permite registrar las VM con SQL Server en modo ligero. Aún debe [actualizar manualmente al modo de administración completo](sql-vm-resource-provider-register.md#upgrade-to-full) para aprovechar todo el conjunto de características. 
+Una vez que el registro automático esté habilitado para una suscripción, todas las máquinas virtuales actuales y futuras que tengan SQL Server instalado se registrarán con el proveedor de recursos de máquina virtual de SQL en modo ligero. Aún debe [actualizar manualmente al modo de administración completo](sql-vm-resource-provider-register.md#upgrade-to-full) para aprovechar todo el conjunto de características. 
+
+> [!IMPORTANT]
+> La extensión del Agente de IaaS de SQL recopila datos con el fin de ofrecer a los clientes ventajas opcionales al usar SQL Server en Azure Virtual Machines. Microsoft no usará estos datos para auditorías de licencias sin el consentimiento previo del cliente. Para obtener más información, consulte [Complemento de privacidad de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para registrar una máquina virtual con SQL Server con el proveedor de recursos, necesita lo siguiente: 
 
-- Una [suscripción de Azure](https://azure.microsoft.com/free/).
-- Un modelo de recursos de Azure [máquina virtual Windows ](../../../virtual-machines/windows/quick-create-portal.md) con [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) implementado en la nube pública o de Azure Government. 
+- Un [suscripción de Azure](https://azure.microsoft.com/free/) y, como mínimo, permisos del [rol colaborador](../../../role-based-access-control/built-in-roles.md#all).
+- Una [máquina virtual Windows Server 2008 R2 (o posterior)](../../../virtual-machines/windows/quick-create-portal.md) del modelo de recursos de Azure con [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) implementado en la nube pública o de Azure Government. No se admite Windows Server 2008. 
 
 
 ## <a name="enable"></a>Habilitar
 
-Para habilitar el registro automático de las VM con SQL Server en Azure Portal, siga los pasos que se indican a continuación:
+Para habilitar el registro automático de las VM con SQL Server en Azure Portal, siga los pasos que se indican a continuación:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Vaya a la página del recurso [**Máquinas virtuales SQL**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
@@ -67,7 +70,7 @@ Para deshabilitar el registro automático mediante la CLI de Azure, ejecute el s
 az feature unregister --namespace Microsoft.SqlVirtualMachine --name BulkRegistration
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Para deshabilitar el registro automático mediante Azure PowerShell, ejecute el siguiente comando: 
 

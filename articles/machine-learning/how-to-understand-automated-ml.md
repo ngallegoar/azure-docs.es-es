@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: d27c65938d10f9061961ebb585327bc77d8b2859
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092467"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311474"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Evaluación de los resultados del experimento de aprendizaje automático automatizado
 
@@ -41,7 +41,7 @@ Por ejemplo, AutoML proporciona distintos gráficos para los modelos de clasific
 
 Una vez completado un experimento de aprendizaje automático automatizado, puede encontrar un historial de las ejecuciones en el área de trabajo de aprendizaje automático a través de [Estudio de Azure Machine Learning](overview-what-is-machine-learning-studio.md). 
 
-En el caso de los experimentos de SDK, podrá ver estos mismos resultados durante una ejecución si usa el [widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) `RunDetails`.
+En el caso de los experimentos de SDK, podrá ver estos mismos resultados durante una ejecución si usa el [widget de Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) `RunDetails`.
 
 Los pasos y la animación siguientes muestran cómo ver el historial de ejecución, así como las métricas y gráficos de rendimiento de un modelo específico en el estudio.
 
@@ -50,9 +50,9 @@ Los pasos y la animación siguientes muestran cómo ver el historial de ejecuci�
 Para ver el historial de ejecución, así como los gráficos y las métricas de rendimiento del modelo en el estudio, haga lo siguiente: 
 
 1. [Inicie sesión en el estudio](https://ml.azure.com/) y vaya al área de trabajo.
-1. En el panel izquierdo del área de trabajo, seleccione **Ejecuciones** .
+1. En el panel izquierdo del área de trabajo, seleccione **Ejecuciones**.
 1. En la lista de experimentos, seleccione el que quiere explorar.
-1. En la tabla inferior, seleccione la **ejecución** .
+1. En la tabla inferior, seleccione la **ejecución**.
 1. En la pestaña **Modelos** , seleccione el **nombre del algoritmo** correspondiente al modelo que quiere explorar.
 1. En la pestaña **Métricas** , seleccione qué métricas y gráficos quiere evaluar para ese modelo. 
 
@@ -159,7 +159,7 @@ Puede comparar la elevación del modelo creado automáticamente con Azure Machin
 
 ### <a name="what-does-a-good-model-look-like"></a>¿Qué aspecto tiene un buen modelo?
 
-Una curva de elevación superior; es decir, cuanto mayor sea el modelo en relación con la línea de base, el modelo tendrá un mejor rendimiento. 
+Un modelo de mejor rendimiento tendrá una curva de elevación más elevada en el gráfico y superará la línea de base. 
 
 #### <a name="example-1-a-classification-model-that-performs-poorly-compared-to-a-random-selection-model"></a>Ejemplo 1: modelo de clasificación con peor rendimiento que un modelo de selección aleatoria
 ![modelo de clasificación que lo hace peor que un modelo de selección aleatoria](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -234,12 +234,12 @@ Predicho frente a True (Predicho frente verdadero), muestra la relación entre u
 Después de cada ejecución, puede ver un gráfico de predicción frente a verdadero para cada modelo de regresión. Para proteger la privacidad de los datos, los valores se agrupan juntos y el tamaño de cada ubicación se muestra como un gráfico de barras en la parte inferior del área del gráfico. Puede comparar el modelo predictivo, donde el área de sombreado más claro muestra los márgenes de error, con el valor ideal donde se debería ubicar el modelo.
 
 ### <a name="what-does-a-good-model-look-like"></a>¿Qué aspecto tiene un buen modelo?
-Este gráfico se puede usar para medir el rendimiento de un modelo, ya que cuanto más se acerquen los valores predichos a la línea y=x, mejor será la precisión de un modelo predictivo.
+Este gráfico se puede usar para medir el rendimiento de un modelo, ya que cuanto más se acerquen los valores predichos a la línea y=x, mejor será el rendimiento de un modelo predictivo.
 
-#### <a name="example-1-a-classification-model-with-low-accuracy"></a>Ejemplo 1: modelo de clasificación con baja precisión
+#### <a name="example-1-a-regression-model-with-low-performance"></a>Ejemplo 1: modelo de regresión con bajo rendimiento
 ![Modelo de regresión con baja precisión en las predicciones](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-#### <a name="example-2-a-regression-model-with-high-accuracy"></a>Ejemplo 2: modelo de regresión con alta precisión 
+#### <a name="example-2-a-regression-model-with-high-performance"></a>Ejemplo 2: modelo de regresión con alto rendimiento
 ![Modelo de regresión con alta precisión en sus predicciones](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a> 
@@ -254,7 +254,7 @@ Para mostrar un margen de error con poco sesgo, el histograma de valores residua
 #### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Ejemplo 1: modelo de regresión con sesgo en sus errores
 ![Modelo de regresión de SA con sesgo en sus errores](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-#### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Ejemplo 2: modelo de regresión con una distribución más uniforme de los errores
+#### <a name="example-2-a-regression-model-with-a-more-even-distribution-of-errors"></a>Ejemplo 2: modelo de regresión con una distribución más uniforme de los errores
 ![modelo de regresión con una distribución más uniforme de los errores](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 <a name="explain-model"></a>

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827911"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288374"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Preguntas más frecuentes sobre Identity Protection en Azure Active Directory
 
@@ -28,23 +28,18 @@ ms.locfileid: "91827911"
 
 Actualmente hay un problema conocido que provoca latencia en el flujo de descarte de riesgo de usuario. Si tiene una "directiva de riesgo de usuario", esta directiva dejará de aplicarse a los usuarios descartados a los pocos minutos de hacer clic en "Descartar el riesgo de usuario". Sin embargo, se han constatado retrasos en la experiencia de usuario al actualizar el "Estado de riesgo" de los usuarios descartados. Como alternativa, actualice la página a nivel del explorador para ver el "Estado de riesgo" más reciente del usuario.
 
-## <a name="risky-users-report-known-issues"></a>Problemas conocidos del informes de usuarios en riesgo
-
-Las consultas en el campo **Nombre de usuario** distinguen mayúsculas de minúsculas, mientras que las consultas en el campo **Nombre** no lo hacen.
-
-Si activa o desactiva **Show dates as (Mostrar fechas como)** se ocultará o mostrará la columna **RISK LAST UPDATED** (ÚLTIMA ACTUALIZACIÓN DE RIESGO). Para volver a agregar la columna, haga clic en **Columnas** en la parte superior de la hoja Usuarios de riesgo.
-
-**Descartar todos los eventos** en la versión clásica de Identity Protection establece el estado de las detecciones de riesgo en **Cerrada (resuelta)** .
-
-## <a name="risky-sign-ins-report-known-issues"></a>Problemas conocidos del informe de inicios de sesión en riesgo
-
-**Resolver** en una detección de riesgo establece el estado en **Los usuarios superaron el proceso de MFA según una directiva basada en riesgo**.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 ### <a name="why-is-a-user-is-at-risk"></a>¿Por qué un usuario está en riesgo?
 
 Si es un cliente de Azure AD Identity Protection, vaya a la vista [de usuarios de riesgo](howto-identity-protection-investigate-risk.md#risky-users) y haga clic en un usuario en riesgo. En el cajón de la parte inferior, la pestaña "Historial de riesgos" mostrará todos los eventos que provocaron un cambio de riesgo del usuario. Para ver todos los inicios de sesión de riesgo para el usuario, haga clic en "Inicios de sesión de riesgo del usuario". Para ver todas las detecciones de riesgo del usuario, haga clic en "Detecciones de riesgos del usuario".
+
+## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>¿Por qué se bloqueó mi inicio de sesión, pero Identity Protection no generó una detección de riesgos?
+Los inicios de sesión se pueden bloquear por varios motivos. Debe tener en cuenta que Identity Protection solo genera detecciones de riesgo cuando se usan las credenciales correctas en la solicitud de autenticación. Si un usuario usa credenciales incorrectas, no se marcará con Identity Protection, ya que no hay riesgo de que las credenciales se pongan en peligro a menos que un infiltrado use las credenciales correctas. Algunos de los motivos por los que se podría bloquear a un usuario sin generar una detección de Identity Protection incluyen:
+* La **IP se puede bloquear** debido a actividad malintencionada de la dirección IP. El mensaje IP bloqueada no distingue si las credenciales son correctas o no. Si la dirección IP está bloqueada y no se usan credenciales correctas, no se generará una detección de Identity Protection.
+* El **[bloqueo inteligente](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** puede impedir que la cuenta inicie sesión después de varios intentos erróneos.
+* Se puede aplicar una **directiva de acceso condicional** que use condiciones distintas del nivel de riesgo para bloquear una solicitud de autenticación.
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>¿Cómo puedo obtener un informe de las detecciones de un tipo específico?
 
@@ -81,7 +76,7 @@ Todas las detecciones de riesgo se documentan en el artículo [¿Qué es el ries
 - Además, se proporcionará la información a los sistemas de aprendizaje automático para futuras mejoras en la evaluación de riesgos.
 
     > [!NOTE]
-    > Si el usuario ya se ha corregido, no haga clic en **Confirmar que se encuentra en peligro**, ya que pasará el estado de riesgo del inicio de sesión y del usuario a **Confirmado (en peligro)** y el nivel de riesgo a **Alto**.
+    > Si el usuario ya se ha corregido, no haga clic en **Confirmar que se encuentra en peligro** , ya que pasará el estado de riesgo del inicio de sesión y del usuario a **Confirmado (en peligro)** y el nivel de riesgo a **Alto**.
 
 **Confirmar que es seguro** (en un inicio de sesión): informa a Azure AD Identity Protection de que el inicio de sesión lo realizó el propietario de la identidad y no indica un peligro.
 

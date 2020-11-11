@@ -1,6 +1,6 @@
 ---
 title: Consulta de datos de Azure Cosmos DB mediante un grupo de SQL sin servidor en Azure Synapse Link (versión preliminar)
-description: En este artículo, aprenderá a consultar Azure Cosmos DB mediante SQL a petición en Azure Synapse Link (versión preliminar).
+description: En este artículo, aprenderá a consultar Azure Cosmos DB mediante un grupo de SQL sin servidor en Azure Synapse Link (versión preliminar).
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737831"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310298"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consulta de datos de Azure Cosmos DB con un grupo de SQL sin servidor en Azure Synapse Link (versión preliminar)
 
 El grupo de SQL sin servidor de Synapse permite analizar los datos de los contenedores de Azure Cosmos DB que están habilitados con [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) casi en tiempo real, sin afectar al rendimiento de las cargas de trabajo transaccionales. Ofrece una sintaxis T-SQL familiar para consultar los datos del [almacén analítico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) y la conectividad integrada en una amplia gama de herramientas de consulta ad hoc y de inteligencia empresarial a través de la interfaz de T-SQL.
 
-Para consultar Azure Cosmos DB, se admite el área expuesta de [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) completa a través de la función [OPENROWSET](develop-openrowset.md), incluida la mayoría de las [funciones y operadores de SQL](overview-features.md). También puede almacenar los resultados de la consulta que lee los datos de Azure Cosmos DB junto con los de Azure Blob Storage o Azure Data Lake Storage mediante [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand). Actualmente no se pueden almacenar los resultados de las consultas de un grupo de SQL sin servidor en Azure Cosmos DB mediante [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+Para consultar Azure Cosmos DB, se admite el área expuesta de [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) completa a través de la función [OPENROWSET](develop-openrowset.md), incluida la mayoría de las [funciones y operadores de SQL](overview-features.md). También puede almacenar los resultados de la consulta que lee los datos de Azure Cosmos DB junto con los de Azure Blob Storage o Azure Data Lake Storage mediante [create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool). Actualmente no se pueden almacenar los resultados de las consultas de un grupo de SQL sin servidor en Azure Cosmos DB mediante CETAS. 
 
 En este artículo, aprenderá a escribir una consulta con un grupo de SQL sin servidor que consultará datos de contenedores de Azure Cosmos DB que están habilitados para Synapse Link. Después, puede obtener más información sobre la creación de vistas de un grupo de SQL sin servidor en contenedores de Azure Cosmos DB y cómo conectarlas a modelos de Power BI en [este](./tutorial-data-analyst.md) tutorial. 
 
@@ -358,6 +358,6 @@ Puede informar sugerencias y problemas en la [página de comentarios de Azure Sy
 
 Para más información, consulte los siguientes artículos.
 
-- [Uso de Power BI y el grupo Synapse SQL sin servidor con Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
-- [Procedimiento para crear y usar vistas en SQL a petición](create-use-views.md) 
-- [Tutorial sobre la creación de vistas de SQL a petición en Azure Cosmos DB y su conexión a modelos de Power BI a través de DirectQuery](./tutorial-data-analyst.md)
+- [Uso de Power BI y el grupo de SQL sin servidor con Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
+- [Procedimiento para crear y usar vistas en el grupo de SQL sin servidor](create-use-views.md) 
+- [Tutorial sobre la creación de vistas del grupo de SQL sin servidor en Azure Cosmos DB y su conexión a modelos de Power BI a través de DirectQuery](./tutorial-data-analyst.md)

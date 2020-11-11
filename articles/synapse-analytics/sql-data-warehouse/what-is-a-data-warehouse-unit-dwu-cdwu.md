@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b0df359a25810f09d530b5f0cca9cabbd485c795
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfcd9c6430deea948804ba8c1d37e404b1897c5f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461993"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311895"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unidades de almacenamiento de datos (DWU)
 
@@ -24,7 +24,7 @@ Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades 
 
 ## <a name="what-are-data-warehouse-units"></a>Qué son las unidades de almacenamiento de datos
 
-Un [grupo de SQL de Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representa una colección de recursos analíticos que se aprovisionan. Los recursos analíticos se definen como una combinación de CPU, memoria y E/S.
+Un [grupo de SQL de Synapse](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) representa una colección de recursos analíticos que se aprovisionan. Los recursos analíticos se definen como una combinación de CPU, memoria y E/S.
 
 Estos tres recursos se agrupan en unidades de escalado de proceso denominadas Unidades de almacenamiento de datos (DWU). Una DWU representa una medida abstracta y normalizada de recursos de proceso y rendimiento.
 
@@ -34,8 +34,8 @@ Para obtener un mayor rendimiento, puede aumentar el número de unidades de alma
 
 El rendimiento de las unidades de almacenamiento de datos se basa en estas métricas de carga de trabajo de almacenamiento de datos:
 
-- Con qué rapidez una consulta del grupo de SQL estándar puede examinar un gran número de filas y, después, realizar una agregación compleja. Esta es una operación de gran consumo de E/S y de CPU.
-- Con qué rapidez el grupo de SQL puede ingerir datos de Azure Storage Blob o Azure Data Lake. Esta es una operación de gran consumo de red y CPU.
+- Con qué rapidez una consulta del grupo de SQL dedicado estándar puede examinar un gran número de filas y, después, realizar una agregación compleja. Esta es una operación de gran consumo de E/S y de CPU.
+- Con qué rapidez el grupo de SQL dedicado puede ingerir datos de Azure Storage Blob o Azure Data Lake. Esta es una operación de gran consumo de red y CPU.
 - Con qué rapidez el comando T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) puede copiar una tabla. Esta operación implica la lectura de datos del almacenamiento, su distribución entre los nodos del dispositivo y su nueva escritura en el almacenamiento. Esta es una operación de gran consumo de CPU, E/S y red.
 
 Aumentar las DWU:
@@ -48,12 +48,12 @@ Aumentar las DWU:
 
 El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determina el nivel de costo y el rendimiento del almacenamiento de datos. Los niveles de servicio de Gen2 se miden en unidades de almacenamiento de datos de proceso (cDWU); por ejemplo, DW2000c. Los niveles de servicio de Gen1 se miden en DWU; por ejemplo, DW2000.
 
-El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determina el nivel de costo y rendimiento del grupo de SQL. Los niveles de servicio del grupo SQL Gen2 se miden en unidades de almacenamiento de datos (DWU); por ejemplo, DW2000c.
+El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determina el nivel de costo y rendimiento del grupo de SQL dedicado. Los niveles de servicio del grupo de SQL dedicado Gen2 se miden en unidades de almacenamiento de datos (DWU); por ejemplo, DW2000c.
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2 ha agregado recientemente funcionalidades de escalado adicionales compatibles con niveles de proceso tan bajos como 100 cDWU. Los almacenes de datos existentes actualmente en Gen1 que requieren los niveles de proceso más bajos ahora pueden actualizarse a Gen2 en las regiones que están actualmente disponibles sin ningún costo adicional.  Si esto no se admite aún en su región, aún puede actualizar a una región admitida. Para obtener más información, vea [Actualización a Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-En T-SQL, el valor de SERVICE_OBJECTIVE determina el nivel de servicio y el nivel de rendimiento del grupo SQL.
+En T-SQL, el valor de SERVICE_OBJECTIVE determina el nivel de servicio y el nivel de rendimiento del grupo de SQL dedicado.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -88,7 +88,7 @@ Pasos para encontrar la mejor DWU para la carga de trabajo:
 2. Supervise el rendimiento de su aplicación a medida que prueba cargas de datos en el sistema, observando el número de DWU seleccionadas en comparación con el rendimiento que observe.
 3. Identifique los requisitos adicionales para períodos de máxima actividad periódicos. Puede que las cargas de trabajo que muestran picos y aumentos de actividad significativos se deban escalar con frecuencia.
 
-Un grupo de SQL es un sistema de escalado horizontal que puede aprovisionar grandes cantidades de procesos y consultar cantidades considerables de datos.
+Un grupo de SQL dedicado es un sistema de escalado horizontal que puede aprovisionar grandes cantidades de procesos y consultar cantidades considerables de datos.
 
 Para ver sus verdaderas capacidades de escalado, especialmente en DWU más grandes, se recomienda escalar el conjunto de datos para asegurar que tiene suficientes datos como para alimentar las CPU. Para probar la escala, se recomienda usar al menos 1 TB.
 
@@ -98,7 +98,7 @@ Para ver sus verdaderas capacidades de escalado, especialmente en DWU más grand
 
 ## <a name="permissions"></a>Permisos
 
-Para cambiar las unidades de almacenamiento de datos es necesario disponer de los permisos descritos en [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para cambiar las unidades de almacenamiento de datos es necesario disponer de los permisos descritos en [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Los roles integrados de Azure, como Colaborador de SQL DB y Colaborador de SQL Server, pueden cambiar la configuración de DWU.
 
@@ -127,9 +127,9 @@ Para cambiar DWU:
 
 1. Abra [Azure Portal](https://portal.azure.com), abra la base de datos y haga clic en **Escalar**.
 
-2. En **Escalar**, mueva el control deslizante izquierdo o derecho para cambiar el valor de DWU.
+2. En **Escalar** , mueva el control deslizante izquierdo o derecho para cambiar el valor de DWU.
 
-3. Haga clic en **Save**(Guardar). Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
+3. Haga clic en **Save** (Guardar). Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -150,7 +150,7 @@ Con T-SQL, puede ver la configuración actual de DWU, modificarla y comprobar el
 Para cambiar las DWU:
 
 1. Conéctese a la base de datos maestra asociada al servidor.
-2. Use la instrucción TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000c para la base de datos MySQLDW.
+2. Use la instrucción TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000c para la base de datos MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -204,7 +204,7 @@ FROM      sys.databases
     ;
     ```
 
-Esta DMV devuelve información sobre varias operaciones de administración en el grupo SQL, como la operación y el estado de esta, que es IN_PROGRESS o COMPLETED.
+Esta DMV devuelve información sobre varias operaciones de administración en el grupo de SQL dedicado, como la operación y el estado de esta, que es IN_PROGRESS o COMPLETED.
 
 ## <a name="the-scaling-workflow"></a>Flujo de trabajo de escalado
 

@@ -1,38 +1,39 @@
 ---
 title: Uso de procedimientos almacenados
-description: Sugerencias para implementar procedimientos almacenados en Synapse SQL con fines de desarrollo de soluciones.
+description: Sugerencias para implementar procedimientos almacenados mediante Synapse SQL en Azure Synapse Analytics para el desarrollo de soluciones.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3940d762dbc249e0303ddf905acbeeed7f96aa4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737856"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315551"
 ---
-# <a name="use-stored-procedures-in-synapse-sql"></a>Uso de procedimientos almacenados en Synapse SQL
+# <a name="stored-procedures-using-synapse-sql-in-azure-synapse-analytics"></a>Procedimientos almacenados mediante Synapse SQL en Azure Synapse Analytics
 
-Sugerencias para implementar procedimientos almacenados en un grupo de Synapse SQL para desarrollar soluciones.
+Los grupos de Synapse SQL aprovisionados y sin servidor permiten incluir lógica compleja de procesamiento de datos en los procedimientos almacenados de SQL. Los procedimientos almacenados son una excelente manera de encapsular el código SQL y almacenarlo cerca de los datos, en el almacenamiento de datos. Los procedimientos almacenados ayudan a los desarrolladores a encapsular el código en unidades administrables para modularizar sus soluciones. Y esto propicia una mayor reutilización del código. Cada procedimiento almacenado también puede aceptar parámetros para que sean todavía más flexibles.
+En este artículo, encontrará algunas sugerencias para implementar procedimientos almacenados en un grupo de Synapse SQL para soluciones de desarrollo.
 
 ## <a name="what-to-expect"></a>Qué esperar
 
-Synapse SQL admite muchas de las características de T-SQL que se usan en SQL Server. Más importante aún, hay características específicas de escalabilidad horizontal que puede utilizar para maximizar el rendimiento de la solución.
+Synapse SQL admite muchas de las características de T-SQL que se usan en SQL Server. Más importante aún, hay características específicas de escalabilidad horizontal que puede utilizar para maximizar el rendimiento de la solución. En este artículo, obtendrá información sobre las características que puede implementar en los procedimientos almacenados.
 
 > [!NOTE]
-> En el cuerpo del procedimiento puede usar solo las características que se admiten en el área expuesta de Synapse SQL. Consulte [este artículo](overview-features.md) para identificar objetos y la instrucción que se puede usar en procedimientos almacenados. En los ejemplos de estos artículos se usan características genéricas que están disponibles en el área de superficie aprovisionada y sin servidor.
+> En el cuerpo del procedimiento puede usar solo las características que se admiten en el área expuesta de Synapse SQL. Consulte [este artículo](overview-features.md) para identificar objetos y la instrucción que se puede usar en procedimientos almacenados. Los ejemplos de estos artículos usan características genéricas que están disponibles en el área de superficie dedicada y sin servidor. Consulte las [limitaciones adicionales en los grupos de Synapse SQL aprovisionados y sin servidor](#limitations) al final de este artículo.
 
 Para mantener la escalabilidad y el rendimiento del grupo de SQL, también hay algunas características y funcionalidad que tienen diferencias de comportamiento y otras que no son compatibles.
 
 ## <a name="stored-procedures-in-synapse-sql"></a>Procedimientos almacenados en Synapse SQL
 
-Los procedimientos almacenados son una excelente manera de encapsular el código SQL y almacenarlo cerca de los datos, en el almacenamiento de datos. Los procedimientos almacenados ayudan a los desarrolladores a encapsular el código en unidades administrables para modularizar sus soluciones. De este modo, propician una mayor reutilización del código. Cada procedimiento almacenado también puede aceptar parámetros para que sean todavía más flexibles. En el ejemplo siguiente, puede ver los procedimientos que quitan objetos externos si existen en la base de datos:
+En el ejemplo siguiente, puede ver los procedimientos que quitan objetos externos si existen en la base de datos:
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -184,23 +185,26 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
-Synapse SQL no permite utilizar el conjunto de resultados de un procedimiento almacenado con una instrucción INSERT. Sin embargo, se puede utilizar un enfoque alternativo. Para obtener un ejemplo, vea el artículo sobre [tablas temporales](develop-tables-temporary.md) de un grupo aprovisionado de Synapse SQL.
+El grupo de Synapse SQL aprovisionado no permite utilizar el conjunto de resultados de un procedimiento almacenado con una instrucción INSERT. Sin embargo, se puede utilizar un enfoque alternativo. Para obtener un ejemplo, vea el artículo sobre [tablas temporales](develop-tables-temporary.md) de un grupo aprovisionado de Synapse SQL.
 
 ## <a name="limitations"></a>Limitaciones
 
 Algunos aspectos de los procedimientos almacenados de Transact-SQL no se han implementado en Synapse SQL, como los siguientes:
 
-* Procedimientos almacenados temporales
-* Procedimientos almacenados numerados
-* Procedimientos almacenados extendidos
-* Procedimientos almacenados CLR
-* Opción de cifrado
-* Opción de replicación
-* Parámetros con valores de tabla
-* Parámetros de solo lectura
-* parámetros predeterminados (en el grupo aprovisionado)
-* Contextos de ejecución
-* Instrucción de devolución
+| Característica/opción | aprovisionado | Sin servidor |
+| --- | --- |
+| Procedimientos almacenados temporales | No | Sí |
+| Procedimientos almacenados numerados | No | No |
+| Procedimientos almacenados extendidos | No | No |
+| Procedimientos almacenados CLR | No | No |
+| Opción de cifrado | No | Sí |
+| Opción Replicación | No | No |
+| Parámetros con valores de tabla | No | No |
+| Parámetros de solo lectura | No | No |
+| Parámetros predeterminados | No | Sí |
+| Contextos de ejecución | No | No |
+| Return (instrucción) | No | Sí |
+| INSERT INTO... EXEC | No | Sí |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

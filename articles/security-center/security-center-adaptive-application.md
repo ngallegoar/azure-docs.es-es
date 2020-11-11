@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 95c3ad6f689893195e0e5c17c59ab31143cf238d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339720"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346526"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas
 
@@ -71,18 +71,18 @@ Seleccione la recomendación o abra la página de controles de aplicaciones adap
 
     Se abre la página **Controles de aplicaciones adaptables** con las máquinas virtuales agrupadas en las siguientes pestañas:
 
-    - **Configuradas**: grupos de máquinas que ya tienen una lista de aplicaciones permitidas. Para cada grupo, en la pestaña Configuradas se muestra:
+    - **Configuradas** : grupos de máquinas que ya tienen una lista de aplicaciones permitidas. Para cada grupo, en la pestaña Configuradas se muestra:
         - el número de máquinas en el grupo
         - las alertas recientes
 
-    - **Recomendadas**: grupos de máquinas que ejecutan de forma sistemática las mismas aplicaciones y no tienen configurada una lista de permitidos. Se recomienda habilitar los controles de aplicaciones adaptables para estos grupos.
+    - **Recomendadas** : grupos de máquinas que ejecutan de forma sistemática las mismas aplicaciones y no tienen configurada una lista de permitidos. Se recomienda habilitar los controles de aplicaciones adaptables para estos grupos.
     
       > [!TIP]
       > Si ve un nombre de grupo con el prefijo "REVIEWGROUP", contiene máquinas con una lista de aplicaciones parcialmente coherente. Security Center no puede encontrar un patrón, pero recomienda revisar este grupo para ver si _puede_ definir manualmente algunas reglas de controles de aplicaciones adaptables, como se describe en [Edición de una regla de controles de aplicaciones adaptables de un grupo](#edit-a-groups-adaptive-application-controls-rule).
       >
       > También puede mover máquinas de este grupo a otro, como se describe en [Movimiento de una máquina virtual de un grupo a otro](#move-a-machine-from-one-group-to-another).
 
-    - **Ninguna recomendación**: máquinas sin una lista de aplicaciones permitidas definida y que no admiten la característica. Es posible que su máquina virtual esté en esta pestaña por las siguientes razones:
+    - **Ninguna recomendación** : máquinas sin una lista de aplicaciones permitidas definida y que no admiten la característica. Es posible que su máquina virtual esté en esta pestaña por las siguientes razones:
       - Falta un agente de Log Analytics
       - El agente de Log Analytics no envía eventos
       - Es una máquina Windows con una directiva de [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) ya existente habilitada por un GPO o una directiva de seguridad local.
@@ -101,11 +101,11 @@ Seleccione la recomendación o abra la página de controles de aplicaciones adap
 
    ![Configuración de una nueva regla](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
 
-   1. **Seleccionar máquinas**: de forma predeterminada, se seleccionan todas las máquinas del grupo identificado. Para excluir alguna de ellas de esta regla, anule su selección.
+   1. **Seleccionar máquinas** : de forma predeterminada, se seleccionan todas las máquinas del grupo identificado. Para excluir alguna de ellas de esta regla, anule su selección.
    
-   1. **Aplicaciones recomendadas**: revise esta lista de aplicaciones que son comunes a las máquinas de este grupo y que se recomienda que tengan permiso para ejecutarse.
+   1. **Aplicaciones recomendadas** : revise esta lista de aplicaciones que son comunes a las máquinas de este grupo y que se recomienda que tengan permiso para ejecutarse.
    
-   1. **Más aplicaciones**: revise esta lista de aplicaciones que se ven con menos frecuencia en las máquinas de este grupo o que tienen vulnerabilidades conocidas. Un icono de advertencia indica que un atacante podría usar una determinada aplicación para pasar por alto una lista de aplicaciones permitidas. Se recomienda que revise atentamente estas aplicaciones.
+   1. **Más aplicaciones** : revise esta lista de aplicaciones que se ven con menos frecuencia en las máquinas de este grupo o que tienen vulnerabilidades conocidas. Un icono de advertencia indica que un atacante podría usar una determinada aplicación para pasar por alto una lista de aplicaciones permitidas. Se recomienda que revise atentamente estas aplicaciones.
 
       > [!TIP]
       > Ambas listas de aplicaciones incluyen la opción de restringir una aplicación específica a determinados usuarios. Adopte el principio de privilegios mínimos siempre que sea posible.
@@ -125,7 +125,7 @@ Para editar las reglas de un grupo de máquinas:
 
 1. Abra el panel de Azure Defender y, en el área de protección avanzada, seleccione **Controles de aplicaciones adaptables**.
 
-1. En la pestaña **Configuradas**, seleccione el grupo con la regla que quiere editar.
+1. En la pestaña **Configuradas** , seleccione el grupo con la regla que quiere editar.
 
 1. Revise las distintas secciones de la página **Configure application control rules** (Configurar reglas de control de aplicaciones), como se describe en [Habilitación de controles de aplicaciones adaptables en un grupo de máquinas](#enable-application-controls-on-a-group-of-machines).
 
@@ -135,7 +135,7 @@ Para editar las reglas de un grupo de máquinas:
 
       ![Adición de una regla personalizada](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. Si va a definir una ruta de acceso segura conocida, cambie **Tipo de regla** a "Ruta de acceso". Puede incluir caracteres comodín en la ruta de acceso.
+   1. Si va a definir una ruta de acceso segura conocida, cambie **Tipo de regla** a "Ruta de acceso" y escriba una ruta única. Puede incluir caracteres comodín en la ruta de acceso.
    
       > [!TIP]
       > Algunos escenarios en los que pueden resultar útiles los caracteres comodín en una ruta de acceso son:
@@ -156,12 +156,12 @@ Para editar las reglas de un grupo de máquinas:
 
     En este panel se muestra el nombre del grupo (que se puede modificar), el tipo de sistema operativo, la ubicación y otros detalles pertinentes.
 
-    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Apertura de controles de aplicaciones adaptables desde el panel de Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Página Configuración de grupo para controles de aplicaciones adaptables" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
-    > La opción **Forzar**, en la configuración del modo de protección de tipos de archivo, está atenuada en **todos** los escenarios. No hay opciones para forzar disponibles en estos momentos. 
+    > La opción **Forzar** , en la configuración del modo de protección de tipos de archivo, está atenuada en **todos** los escenarios. No hay opciones para forzar disponibles en estos momentos. 
     >
-    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Apertura de controles de aplicaciones adaptables desde el panel de Azure":::
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="El modo Forzar para la protección de archivos está atenuado de forma permanente. No hay opciones para forzar disponibles.":::
 
 1. Opcionalmente, puede modificar el nombre del grupo o los modos de protección de tipos de archivo.
 
@@ -206,7 +206,7 @@ Cuando se mueve una máquina de un grupo a otro, la directiva de control de apli
 
 1. Abra el panel de Azure Defender y, en el área de protección avanzada, seleccione **Controles de aplicaciones adaptables**.
 
-1. En la página **Controles de aplicaciones adaptables**, en la pestaña **Configurados**, seleccione el grupo que contiene la máquina que se va a mover.
+1. En la página **Controles de aplicaciones adaptables** , en la pestaña **Configurados** , seleccione el grupo que contiene la máquina que se va a mover.
 
 1. Abra la lista de **Máquinas configuradas**.
 

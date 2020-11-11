@@ -4,17 +4,17 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255266"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93235888"
 ---
 La característica es fácil de configurar, aunque eso no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que quiere, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Dispone de dos consolas que puede usar. Una es la consola Kudu y la otra es la consola a la que se accede en Azure Portal. Para acceder a la consola Kudu desde la aplicación, vaya a **Herramientas** > **Kudu**. También puede tener acceso a la consola de Kudo en [sitename].scm.azurewebsites.net. Después de que se cargue el sitio web, vaya a la pestaña **Consola de depuración**. Para llegar a la consola hospedada en Azure Portal desde su aplicación, vaya a **Herramientas** > **Consola**.
 
 #### <a name="tools"></a>Herramientas
-En las aplicaciones nativas de Windows, las herramientas **ping**, **nslookup**y **tracert** no funcionarán a través de la consola debido a las restricciones de seguridad (funcionan en [contenedores de Windows personalizados](../articles/app-service/quickstart-custom-container.md)). Para suplir esta carencia, se agregaron dos herramientas diferentes. Para probar la funcionalidad de DNS, se agregó una herramienta denominada **nameresolver.exe**. La sintaxis es:
+En las aplicaciones nativas de Windows, las herramientas **ping** , **nslookup** y **tracert** no funcionarán a través de la consola debido a las restricciones de seguridad (funcionan en [contenedores de Windows personalizados](../articles/app-service/quickstart-custom-container.md)). Para suplir esta carencia, se agregaron dos herramientas diferentes. Para probar la funcionalidad de DNS, se agregó una herramienta denominada **nameresolver.exe**. La sintaxis es:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
@@ -46,7 +46,7 @@ Si estos elementos no resuelven el problema, plantéese cuestiones como las sigu
 * ¿El destino no es una dirección RFC 1918 y el valor WEBSITE_VNET_ROUTE_ALL no está establecido en 1?
 * ¿Hay un NSG que bloquea la salida de la subred de integración?
 * Si está usando una VPN o Azure ExpressRoute, ¿la puerta de enlace local está configurada para enrutar el tráfico de vuelta a Azure? Si puede acceder a los puntos de conexión de la red virtual pero no a los del entorno local, compruebe las rutas.
-* ¿Tiene permisos suficientes para configurar la delegación en la subred de integración? Al configurar la versión de Integración con red virtual que necesita una puerta de enlace, la subred de integración se delega en Microsoft.Web. La interfaz de usuario de integración de la red virtual delega la subred en Microsoft.Web automáticamente. Si la cuenta no tiene suficientes permisos de red para establecer la delegación, necesitará que un usuario que pueda configurar atributos en la subred de integración delegue la subred. Para delegar manualmente la subred de integración, vaya a la interfaz de usuario de la subred de Azure Virtual Network y establezca la delegación para Microsoft.Web.
+* ¿Tiene permisos suficientes para configurar la delegación en la subred de integración? Al configurar la versión de Integración con red virtual que necesita una puerta de enlace, la subred de integración se delega en Microsoft.Web/serverFarms. La interfaz de usuario de integración de la red virtual delega la subred en Microsoft.Web/serverFarms automáticamente. Si la cuenta no tiene suficientes permisos de red para establecer la delegación, necesitará que un usuario que pueda configurar atributos en la subred de integración delegue la subred. Para delegar manualmente la subred de integración, vaya a la interfaz de usuario de la subred de Azure Virtual Network y establezca la delegación para Microsoft.Web/serverFarms.
 
 **Integración con red virtual con requisito de puerta de enlace**
 * ¿El intervalo de direcciones de punto a sitio se encuentra en los intervalos de RFC 1918 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?

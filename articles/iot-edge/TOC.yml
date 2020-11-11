@@ -1,5 +1,7 @@
 - name: Documentación de Azure IoT Edge
   href: index.yml
+- name: Versiones de Azure IoT Edge
+  href: version-history.md
 - name: Información general
   items:
     - name: Acerca de Azure IoT Edge
@@ -13,13 +15,13 @@
       href: quickstart.md
 - name: Tutoriales
   items:
-    - name: 1. Configuración del entorno de desarrollo
+    - name: Configuración del entorno de desarrollo
       items:
         - name: Desarrollo para dispositivos Linux
           href: tutorial-develop-for-linux.md
         - name: Desarrollo para dispositivos Windows
           href: tutorial-develop-for-windows.md
-    - name: 2. Desarrollo de módulos de código personalizados
+    - name: Desarrollo de módulos de código personalizados
       items:
         - name: C
           items:
@@ -39,7 +41,7 @@
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
-    - name: 3. Implementación de servicios de Azure como módulos
+    - name: Implementación de servicios de Azure como módulos
       items:
         - name: Filtrado de datos con Azure Functions
           href: tutorial-deploy-function.md
@@ -51,7 +53,11 @@
           href: tutorial-deploy-custom-vision.md
         - name: Almacenamiento local de datos con SQL
           href: tutorial-store-data-sql-server.md
-    - name: 4. Ejemplo global de aprendizaje automático en el perímetro
+    - name: Uso de IoT Edge como puerta de enlace
+      items:
+        - name: Creación de jerarquías de dispositivos IoT Edge
+          href: tutorial-nested-iot-edge.md
+    - name: Ejemplo global de aprendizaje automático en el perímetro
       items:
         - name: Introducción
           href: tutorial-machine-learning-edge-01-intro.md
@@ -187,16 +193,26 @@
           href: how-to-access-built-in-metrics.md
     - name: Uso de dispositivos de IoT Edge como puertas de enlace
       items:
-        - name: Configuración de una puerta de enlace transparente
-          href: how-to-create-transparent-gateway.md
-        - name: Autenticación de un dispositivo de bajada
-          href: how-to-authenticate-downstream-device.md
-        - name: Conexión de un dispositivo de bajada
-          href: how-to-connect-downstream-device.md
-        - name: Puerta de enlace de protocolo ModBus
-          href: deploy-modbus-gateway.md
+        - name: Puertas de enlace para dispositivos IoT
+          items:
+            - name: Configuración de una puerta de enlace transparente
+              href: how-to-create-transparent-gateway.md
+            - name: Autenticación de un dispositivo de bajada
+              href: how-to-authenticate-downstream-device.md
+            - name: Conexión de un dispositivo de bajada
+              href: how-to-connect-downstream-device.md
+            - name: Puerta de enlace de protocolo ModBus
+              href: deploy-modbus-gateway.md
+        - name: Puertas de enlace para dispositivos IoT Edge
+          items:
+            - name: Configuración de puertas de enlace para dispositivos IoT Edge
+              href: how-to-connect-downstream-iot-edge-device.md
+            - name: Configuración del módulo de proxy de API
+              href: how-to-configure-api-proxy-module.md
     - name: Configuración de la compatibilidad de proxy
       href: how-to-configure-proxy-support.md
+    - name: Publicación y suscripción con IoT Edge
+      href: how-to-publish-subscribe.md
     - name: Azure Blob Storage en IoT Edge
       items:
         - name: Descripción de Blob Storage en el perímetro

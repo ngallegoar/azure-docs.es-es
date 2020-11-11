@@ -6,21 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657466"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348073"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
-Para procesar una matriz en la aplicación lógica, puede crear un [bucle "Foreach"](#foreach-loop). Este bucle repite una o varias acciones en cada elemento de la matriz. Para conocer los límites del número de elementos de matriz que los bucles "Foreach" pueden procesar, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
+Para procesar una matriz en la aplicación lógica, puede crear un [bucle "Foreach"](#foreach-loop). Este bucle repite una o varias acciones en cada elemento de la matriz. Para conocer el límite del número de elementos de matriz que puede procesar un bucle "Foreach", consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Para repetir las acciones hasta que se cumpla una condición o cambie un estado, puede crear un [bucle "Until"](#until-loop). La aplicación lógica ejecuta primero todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el número de bucles "Until" en una ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
+Para repetir las acciones hasta que se cumpla una condición o cambie un estado, puede crear un [bucle "Until"](#until-loop). La aplicación lógica ejecuta primero todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el límite del número de bucles "Until" que puede tener la ejecución de una aplicación lógica, consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
-> Si tiene un desencadenador que recibe una matriz y desea ejecutar un flujo de trabajo para cada elemento de matriz, puede *desagrupar* esa matriz con la propiedad de desencadenador [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
+> Si tiene un desencadenador que recibe una matriz y desea ejecutar un flujo de trabajo para cada elemento de matriz, puede *desagrupar* esa matriz con la propiedad de desencadenador [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,6 +33,8 @@ Para repetir las acciones hasta que se cumpla una condición o cambie un estado,
 ## <a name="foreach-loop"></a>Bucle "Foreach"
 
 Un bucle "Foreach" repite una o varias acciones en cada elemento de la matriz y solo funciona en matrices. Estas son algunas consideraciones que debe tener en cuenta al usar bucles "Foreach":
+
+* El bucle "Foreach" puede procesar un número limitado de elementos de matriz. Para conocer los límites, consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 * De forma predeterminada, las iteraciones de un bucle "Para cada uno" se ejecutan al mismo tiempo o en paralelo. Este comportamiento difiere del del [bucle **Aplicar a cada uno** de Power Automate](/power-automate/apply-to-each), donde las iteraciones ejecutan uno a la vez o secuencialmente. Sin embargo, puede [configurar iteraciones de bucles "Para cada uno" secuenciales](#sequential-foreach-loop). Por ejemplo, si desea pausar la siguiente iteración en un bucle "Para cada uno" mediante la [acción de retraso](../connectors/connectors-native-delay.md), debe establecer el bucle para que se ejecute secuencialmente.
 
@@ -58,7 +60,7 @@ Esta aplicación lógica de ejemplo envía un resumen diario de una fuente RSS d
 
       ![Incorporación de un bucle "para cada uno"](media/logic-apps-control-flow-loops/select-for-each.png)
 
-3. Ahora, compile el bucle. En **Select an output from previous steps** (Seleccionar una salida de los pasos anteriores) después de que aparezca la lista **Agregar contenido dinámico**, seleccione la matriz **Vínculos de fuente**, que es la salida del desencadenador RSS. 
+3. Ahora, compile el bucle. En **Select an output from previous steps** (Seleccionar una salida de los pasos anteriores) después de que aparezca la lista **Agregar contenido dinámico** , seleccione la matriz **Vínculos de fuente** , que es la salida del desencadenador RSS. 
 
    ![Seleccionar de la lista de contenido dinámico](media/logic-apps-control-flow-loops/for-each-loop-dynamic-content-list.png)
 
@@ -126,7 +128,7 @@ De forma predeterminada, los ciclos de un bucle "Foreach" se ejecutan en paralel
 
    ![En bucle "Foreach", elija "..." > "Configuración"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. En **Control de simultaneidad**, establezca la opción **Control de simultaneidad** en **Activar**. Arrastre el control deslizante **Grado de paralelismo** a **1** y elija **Listo**.
+1. En **Control de simultaneidad** , establezca la opción **Control de simultaneidad** en **Activar**. Arrastre el control deslizante **Grado de paralelismo** a **1** y elija **Listo**.
 
    ![Activación del control de simultaneidad](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -150,7 +152,7 @@ Si está trabajando con la definición de JSON de la aplicación lógica, puede 
 
 ## <a name="until-loop"></a>Bucle "Until"
   
-Para ejecutar y repetir las acciones hasta que se cumpla una condición o cambie un estado, coloque esas acciones en un bucle "Until". La aplicación lógica ejecuta primero todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle.
+Para ejecutar y repetir las acciones hasta que se cumpla una condición o cambie un estado, coloque esas acciones en un bucle "Until". La aplicación lógica ejecuta primero todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el límite del número de bucles "Until" que puede tener la ejecución de una aplicación lógica, consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Estos son algunos escenarios comunes en los que puede utilizar un bucle "Until":
 
@@ -189,14 +191,14 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
    ![Establecer propiedades de las variables](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Propiedad | Value | Descripción |
+   | Propiedad | Valor | Descripción |
    | -------- | ----- | ----------- |
    | **Nombre** | Límite | El nombre de la variable | 
    | **Tipo** | Entero | El tipo de datos de la variable | 
    | **Valor** | 0 | El valor de inicio de la variable | 
    |||| 
 
-1. En la acción **Inicializar variable**, elija **Nuevo paso**. 
+1. En la acción **Inicializar variable** , elija **Nuevo paso**. 
 
 1. En el cuadro de búsqueda, elija **Todas**. Busque "hasta" y seleccione esta acción: **Hasta: control**
 
@@ -213,7 +215,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
    ![Agregar acción para incrementar la variable](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. En **Nombre**, seleccione la variable **Limit**. En **Valor**, escriba "1". 
+1. En **Nombre** , seleccione la variable **Limit**. En **Valor** , escriba "1". 
 
      ![Aumentar "Límite" en 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -230,7 +232,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
       ![Configurar las propiedades del correo electrónico](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Propiedad | Value | Descripción |
+      | Propiedad | Valor | Descripción |
       | -------- | ----- | ----------- | 
       | **To** | *\<email-address\@domain>* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
       | **Subject** | El valor actual de "Límite" es **Limit** | Especifique el asunto del correo electrónico. En este ejemplo, asegúrese de que incluye la variable **Limit**. | 

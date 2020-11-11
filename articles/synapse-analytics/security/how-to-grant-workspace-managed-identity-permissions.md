@@ -8,27 +8,27 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08ead12c99ae4919a2daf523065cfe332c644df1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 54612bee5715cdb78141a8aacfa5d24c814269d1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487201"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312377"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Concesión de permisos a una identidad administrada de área de trabajo (versión preliminar)
 
-En este artículo se muestra cómo conceder permisos a la identidad administrada en el área de trabajo de Azure Synapse. Los permisos, a su vez, permiten acceder a los grupos de SQL en el área de trabajo y la cuenta de almacenamiento de ADLS Gen2 a través de Azure Portal.
+En este artículo se muestra cómo conceder permisos a la identidad administrada en el área de trabajo de Azure Synapse. Los permisos, a su vez, permiten acceder a los grupos de SQL dedicados en el área de trabajo y la cuenta de almacenamiento de ADLS Gen2 a través de Azure Portal.
 
 >[!NOTE]
 >En el resto de este documento, se hará referencia a la identidad administrada del área de trabajo como “identidad administrada”.
 
-## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Concesión de permisos de identidad administrada en el grupo de SQL
+## <a name="grant-managed-identity-permissions-to-the-dedicated-sql-pool"></a>Concesión de permisos de identidad administrada en el grupo de SQL dedicado
 
-La identidad administrada concede permisos a los grupos de SQL en el área de trabajo. Con los permisos concedidos, puede orquestar canalizaciones que realicen las actividades relacionadas con el grupo de SQL. Al crear un área de trabajo de Azure Synapse mediante Azure Portal, puede conceder los permisos de CONTROL de identidad administrada en los grupos de SQL.
+La identidad administrada concede permisos a los grupos de SQL dedicados en el área de trabajo. Con los permisos concedidos, puede orquestar canalizaciones que realicen las actividades relacionadas con el grupo de SQL dedicado. Al crear un área de trabajo de Azure Synapse mediante Azure Portal, puede conceder los permisos de CONTROL de identidad administrada en los grupos de SQL dedicados.
 
-Seleccione **Seguridad y redes** al crear el área de trabajo de Azure Synapse. Después, seleccione **Grant CONTROL to the workspace's managed identity on SQL pools** (Conceder el permiso CONTROL a la identidad administrada del área de trabajo en los grupos de SQL).
+Seleccione **Seguridad** al crear el área de trabajo de Azure Synapse. Después, seleccione **Permitir canalizaciones (en ejecución como identidad asignada por el sistema del área de trabajo) para obtener acceso a los grupos de SQL**.
 
-![Permiso CONTROL en los grupos de SQL](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
+![Permiso CONTROL en los grupos de SQL dedicados](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
 ## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Concesión de permisos de la cuenta de almacenamiento de ADLS Gen2 a la identidad administrada
 

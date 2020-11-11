@@ -1,37 +1,37 @@
 ---
-title: Ingesta de datos en un grupo de SQL
-description: Aprenda a ingerir datos en un grupo de SQL en Azure Synapse Analytics
+title: Ingesta de datos en un grupo de SQL dedicado
+description: Aprenda a ingerir datos en un grupo de SQL dedicado en Azure Synapse Analytics
 services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02efaf3f0382a7af63717e777036637de2bbec25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033207"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317779"
 ---
-# <a name="ingest-data-into-a-sql-pool"></a>Ingesta de datos en un grupo de SQL
+# <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingesta de datos en un grupo de SQL dedicado
 
-En este artículo, aprenderá a ingerir datos desde una cuenta de almacenamiento de Azure Data Lake Gen2 en un grupo de SQL mediante Azure Synapse Analytics.
+En este artículo, aprenderá a ingerir datos desde una cuenta de almacenamiento de Azure Data Lake Gen2 en un grupo de SQL dedicado en Azure Synapse Analytics.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* **Cuenta de Azure Storage**: Puede usar Azure Data Lake Storage Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para crear una.
-* **Azure Synapse Analytics**: Puede usar un grupo de SQL como almacén de datos *receptor*. Si no tiene una instancia de Azure Synapse Analytics, consulte [Creación de un grupo de SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para ver los pasos para crear una.
+* **Suscripción de Azure** : Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+* **Cuenta de Azure Storage** : Puede usar Azure Data Lake Storage Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para crear una.
+* **Azure Synapse Analytics** : Puede usar un grupo de SQL dedicado como almacén de datos *receptor*. Si no tiene una instancia de Azure Synapse Analytics, consulte [Creación de un grupo de SQL dedicado](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para ver los pasos para crear una.
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 
 En Azure Synapse Analytics, un servicio vinculado es donde se define la información de conexión a otros servicios. En esta sección, agregará un servicio vinculado de Azure Synapse Analytics y Azure Data Lake Storage Gen2.
 
 1. Abra la experiencia del usuario de Azure Synapse Studio y vaya a la pestaña **Administrar**.
-1. En **Conexiones externas**, seleccione **Servicios vinculados**.
+1. En **Conexiones externas** , seleccione **Servicios vinculados**.
 1. Para agregar un servicio vinculado, seleccione **Nuevo**.
 1. Seleccione el icono de Azure Data Lake Storage Gen2 de la lista y seleccione **Continuar**.
 1. Especifique las credenciales de autenticación. Actualmente, la clave de cuenta, la entidad de servicio y la identidad administrada son los tipos de autenticación admitidos. Seleccione Probar conexión para verificar que las credenciales son correctas. Cuando haya terminado, seleccione **Crear**.
@@ -39,9 +39,9 @@ En Azure Synapse Analytics, un servicio vinculado es donde se define la informac
 
 ## <a name="create-pipeline"></a>Creación de una canalización
 
-Una canalización contiene el flujo lógico para una ejecución de un conjunto de actividades. En esta sección, creará una canalización que contiene una actividad de copia que ingiere datos de ADLS Gen2 en un grupo de SQL.
+Una canalización contiene el flujo lógico para una ejecución de un conjunto de actividades. En esta sección, creará una canalización que contiene una actividad de copia que ingiere datos de ADLS Gen2 en un grupo de SQL dedicado.
 
-1. Vaya a la pestaña **Orchestrate** (Orquestar). Seleccione el icono de signo de más situado junto al encabezado de canalizaciones y seleccione **Canalización**.
+1. Vaya a la ficha **Integrar**. Seleccione el icono de signo de más situado junto al encabezado de canalizaciones y seleccione **Canalización**.
 1. En **Mover y transformar** en el panel de actividades, arrastre **Copiar datos** al lienzo de la canalización.
 1. Seleccione la actividad de copia y vaya a la pestaña **Origen**. Seleccione **Nuevo** para crear un conjunto de datos de origen.
 1. Seleccione Azure Data Lake Storage Gen2 como almacén de datos y después seleccione Continuar.
@@ -68,7 +68,7 @@ En este paso, desencadenará manualmente la canalización que publicó en el pas
 1. Seleccione **Add Trigger** (Agregar desencadenador) en la barra de herramientas y, después, seleccione **Trigger Now** (Desencadenar ahora). En la página **Pipeline Run** (Ejecución de canalización), seleccione **Finish** (Finalizar).  
 1. Vaya a la pestaña **Supervisar** que se encuentra en la barra lateral izquierda. Verá una ejecución de canalización que se desencadena de forma manual. Puede usar los vínculos de la columna **Actions** (Acciones) para ver los detalles de la actividad y volver a ejecutar la canalización.
 1. Para ver las ejecuciones de actividad asociadas con la ejecución de canalización, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en la columna **Actions** (Acciones). En este ejemplo, solo hay una actividad, así que solo verá una entrada en la lista. Para ver detalles sobre la operación de copia, seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna **Actions** (Acciones). Seleccione **Pipeline Runs** (Ejecuciones de canalización) en la parte superior para volver a la vista Pipeline Runs (Ejecuciones de canalización). Para actualizar la vista, seleccione **Refresh** (Actualizar).
-1. Verifique que los datos se han escrito correctamente en el grupo de SQL.
+1. Verifique que los datos se han escrito correctamente en el grupo de SQL dedicado.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

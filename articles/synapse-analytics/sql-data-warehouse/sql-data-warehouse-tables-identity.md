@@ -1,6 +1,6 @@
 ---
 title: Uso de IDENTITY para crear claves suplentes
-description: Recomendaciones y ejemplos de uso de la propiedad IDENTITY para crear claves suplentes en tablas del grupo de SQL de Synapse.
+description: Recomendaciones y ejemplos de uso de la propiedad IDENTITY para crear claves suplentes en tablas del grupo de SQL dedicado.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 96e81b3d7781f1c6f7bf5743a083e9640dd6c831
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876012"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323596"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Uso de IDENTITY para crear claves suplentes en el grupo de SQL de Synapse
+# <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>Uso de la propiedad IDENTITY para crear claves suplentes mediante un grupo de SQL dedicado en AzureSynapse Analytics
 
-En este artículo, encontrará recomendaciones y ejemplos de uso de la propiedad IDENTITY para crear claves suplentes en tablas del grupo de Synapse SQL.
+En este artículo, encontrará recomendaciones y ejemplos de uso de la propiedad IDENTITY para crear claves suplentes en tablas del grupo de SQL dedicado.
 
 ## <a name="what-is-a-surrogate-key"></a>¿Qué es una clave suplente?
 
@@ -31,7 +31,7 @@ Una clave suplente en una tabla es una columna con un identificador único para 
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Creación de una tabla con una columna IDENTITY
 
-La propiedad IDENTITY está diseñada para escalar horizontalmente en todas las distribuciones en el grupo de SQL de Synapse sin afectar al rendimiento de carga. Por consiguiente, la implementación de IDENTITY está orientada a la consecución de estos objetivos.
+La propiedad IDENTITY está diseñada para escalar horizontalmente en todas las distribuciones en el grupo de SQL dedicado sin afectar al rendimiento de carga. Por consiguiente, la implementación de IDENTITY está orientada a la consecución de estos objetivos.
 
 Puede definir una tabla que tenga la propiedad IDENTITY al crear la tabla mediante una sintaxis similar a la de la siguiente instrucción:
 
@@ -53,7 +53,7 @@ En el resto de esta sección se resaltan los matices de la implementación para 
 
 ### <a name="allocation-of-values"></a>Asignación de valores
 
-La propiedad IDENTITY no garantiza el orden en que se asignan los valores suplentes debido a la arquitectura distribuida del almacenamiento de datos. La propiedad IDENTITY está diseñada para escalar horizontalmente en todas las distribuciones en el grupo de SQL de Synapse sin afectar al rendimiento de carga. 
+La propiedad IDENTITY no garantiza el orden en que se asignan los valores suplentes debido a la arquitectura distribuida del almacenamiento de datos. La propiedad IDENTITY está diseñada para escalar horizontalmente en todas las distribuciones en el grupo de SQL dedicado sin afectar al rendimiento de carga. 
 
 El ejemplo siguiente sirve de muestra:
 
@@ -103,7 +103,7 @@ CREATE TABLE AS SELECT (CTAS) sigue el mismo comportamiento de SQL Server que se
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserción explícita de valores en una columna IDENTITY
 
-El grupo de SQL de Synapse admite la sintaxis `SET IDENTITY_INSERT <your table> ON|OFF`. Puede usarse esta sintaxis para insertar valores explícitamente en la columna IDENTITY.
+El grupo de SQL dedicado admite la sintaxis `SET IDENTITY_INSERT <your table> ON|OFF`. Puede usarse esta sintaxis para insertar valores explícitamente en la columna IDENTITY.
 
 A muchos modeladores de datos les gusta usar valores negativos predefinidos para determinadas filas en las dimensiones. Un ejemplo es el valor -1 de la fila de "miembro desconocido".
 
@@ -164,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Actualmente no se puede usar `CREATE TABLE AS SELECT` al cargar datos en una tabla con una columna IDENTITY.
 >
 
-Para obtener más información sobre la carga de datos, vea [Diseño de un proceso de extracción, carga y transformación (ELT) para el grupo de SQL de Synapse](design-elt-data-loading.md) y [Procedimientos recomendados para la carga de datos](guidance-for-loading-data.md).
+Para obtener más información sobre la carga de datos, consulte [Diseño de un proceso de extracción, carga y transformación (ELT) para el grupo de SQL dedicado](design-elt-data-loading.md) y [Procedimientos recomendados para la carga de datos](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Vistas del sistema
 
@@ -198,7 +198,7 @@ No se puede usar la propiedad IDENTITY:
 - Cuando la columna es también la clave de distribución
 - Cuando la tabla es una tabla externa
 
-No se admiten las siguientes funciones relacionadas en el grupo de SQL de Synapse:
+No se admiten las siguientes funciones relacionadas en el grupo de SQL dedicado:
 
 - [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

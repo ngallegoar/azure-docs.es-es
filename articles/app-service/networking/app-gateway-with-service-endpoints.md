@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 837a57ee6ce836fb781f5bf5d5362d7c56cba31e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746197"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127831"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integración de Application Gateway con puntos de conexión de servicio
 Hay tres variaciones de App Service que requieren una configuración ligeramente diferente de la integración con Azure Application Gateway. Por ejemplo, la versión normal de App Service, también conocida como "multiinquilino", el equilibrador de carga interno (ILB) y el ASE externo. En este artículo se explica cómo configurarlo con App Service (multiinquilino) y se explican las consideraciones sobre ILB y el ASE externo.
@@ -27,7 +27,7 @@ Hay tres variaciones de App Service que requieren una configuración ligerament
 ## <a name="integration-with-app-service-multi-tenant"></a>Integración con App Service (multiinquilino)
 App Service (multiinquilino) tiene un punto de conexión público accesible desde Internet. Con los [puntos de conexión de servicio](../../virtual-network/virtual-network-service-endpoints-overview.md) puede permitir el tráfico solo desde una subred específica en una instancia de Azure Virtual Network y bloquear todo lo demás. En el siguiente escenario, usaremos esta funcionalidad para garantizar que una instancia de App Service solo pueda recibir tráfico de una instancia específica de Application Gateway.
 
-![Integración de Application Gateway con App Service](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+![En el diagrama se muestra el flujo de Internet a una instancia de Application Gateway en una red virtual de Azure y el flujo desde allí a través de un icono de firewall a instancias de aplicaciones de App Service.](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
 
 Esta configuración tiene dos partes, además, crearemos las instancias de App Service y Application Gateway. La primera parte consiste en habilitar los puntos de conexión de servicio en la subred de Virtual Network donde se implementó Application Gateway. Los puntos de conexión de servicio garantizarán que todo el tráfico de red que sale de la subred hacia App Service se etiquete con el identificador de subred específico. La segunda parte consiste en establecer una restricción de acceso de la aplicación web específica para garantizar que solo se permita el tráfico etiquetado con este identificador de subred específico. Puede establecer la configuración con distintas herramientas en función de sus preferencias.
 
@@ -40,7 +40,7 @@ Con Azure Portal, siga estos cuatro pasos para aprovisionar y realizar la confi
 
 Ahora puede acceder a App Service a través de Application Gateway, pero si trata de obtener acceso a App Service directamente, debería recibir un error HTTP 403 que indica que el sitio web está detenido.
 
-![Integración de Application Gateway con App Service](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![Captura de pantalla que muestra el texto de un error 403: esta aplicación web se ha detenido.](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Uso de la plantilla de Azure Resource Manager
 La [plantilla de implementación de Resource Manager][template-app-gateway-app-service-complete] aprovisionará un escenario completo. El escenario consta de una instancia de App Service bloqueada con puntos de conexión de servicio y restricciones de acceso para recibir únicamente el tráfico de Application Gateway. La plantilla incluye muchos valores predeterminados inteligentes y versiones de reparación únicas agregadas a los nombres de recursos para que sea simple. Para invalidarlos, tendrá que clonar el repositorio o descargar la plantilla y editarla. 

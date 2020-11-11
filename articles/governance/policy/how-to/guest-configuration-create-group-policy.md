@@ -3,25 +3,25 @@ title: Cómo crear definiciones de directivas de configuración de invitado a pa
 description: Obtenga información sobre cómo convertir una directiva de grupo de la línea base de seguridad de Windows Server 2019 en una definición de directiva.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893380"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348651"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Cómo crear definiciones de directivas de configuración de invitado a partir de la directiva de grupo línea de base para Windows
 
 Antes de crear definiciones de directivas personalizadas, es conveniente leer la información conceptual general en [Información sobre Guest Configuration de Azure Policy](../concepts/guest-configuration.md). Para obtener información sobre cómo crear definiciones de directivas de configuración de invitado personalizadas para Linux, consulte la página [Cómo crear una directiva de configuración de invitados para Linux](./guest-configuration-create-linux.md). Para obtener información sobre cómo crear definiciones de directivas de configuración de invitado personalizadas para Windows, consulte la página [Cómo crear una directiva de configuración de invitados para Windows](./guest-configuration-create.md).
 
-Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear el archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina. Si la evaluación de la configuración es **no compatible**, se desencadena el efecto *auditIfNotExists* de la directiva.
+Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear el archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina. Si la evaluación de la configuración es **no compatible** , se desencadena el efecto *auditIfNotExists* de la directiva.
 La [configuración de invitado de Azure Policy](../concepts/guest-configuration.md) solo realiza la auditoría de la configuración dentro de máquinas.
 
 > [!IMPORTANT]
-> Las definiciones de directivas personalizadas con la configuración de invitados son una característica en vista previa (GB).
->
 > La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas Windows, asigne las siguientes definiciones de directiva:
 > - [Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM de Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> 
+> No use secretos ni información confidencial en paquetes de contenido personalizado.
 
 La comunidad de DSC ha publicado el [módulo BaselineManagement](https://github.com/microsoft/BaselineManagement) para convertir las plantillas exportadas de la directiva de grupo al formato DSC. Junto con el cmdlet GuestConfiguration, el módulo BaselineManagement crea el paquete de configuración de invitado de Azure Policy para Windows a partir del contenido de directiva de grupo. Para obtener más información sobre el uso del módulo BaselineManagement, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
@@ -29,7 +29,7 @@ En esta guía, recorremos el proceso de creación de un paquete de configuració
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Descargue la línea de base de seguridad de Windows Server 2019 e instale los módulos de PowerShell relacionados
 
-Para instalar el **DSC**, **GuestConfiguration**, **administración de línea de base** y los módulos de Azure relacionados en PowerShell:
+Para instalar el **DSC** , **GuestConfiguration** , **administración de línea de base** y los módulos de Azure relacionados en PowerShell:
 
 1. En una secuencia de comandos de PowerShell, ejecute el siguiente comando:
 
@@ -87,78 +87,12 @@ Después, convierta la línea de base de la instancia de Server 2019 descargada
 
 ## <a name="create-azure-policy-guest-configuration"></a>Creación de configuración de invitado de Azure Policy
 
-El siguiente paso consiste en publicar el archivo en Azure Blob Storage. 
-
-1. El script siguiente contiene una función que puede usar para automatizar esta tarea. Nota: Los comandos usados en la función `publish` requieren el módulo `Az.Storage`.
+1. El siguiente paso consiste en publicar el archivo en Azure Blob Storage. El comando `Publish-GuestConfigurationPackage` requiere el módulo `Az.Storage`.
 
    ```azurepowershell-interactive
-    function Publish-Configuration {
-        param(
-        [Parameter(Mandatory=$true)]
-        $resourceGroup,
-        [Parameter(Mandatory=$true)]
-        $storageAccountName,
-        [Parameter(Mandatory=$true)]
-        $storageContainerName,
-        [Parameter(Mandatory=$true)]
-        $filePath,
-        [Parameter(Mandatory=$true)]
-        $blobName
-        )
-
-        # Get Storage Context
-        $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-            -Name $storageAccountName | `
-            ForEach-Object { $_.Context }
-
-        # Upload file
-        $Blob = Set-AzStorageBlobContent -Context $Context `
-            -Container $storageContainerName `
-            -File $filePath `
-            -Blob $blobName `
-            -Force
-
-        # Get url with SAS token
-        $StartTime = (Get-Date)
-        $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-        $SAS = New-AzStorageBlobSASToken -Context $Context `
-            -Container $storageContainerName `
-            -Blob $blobName `
-            -StartTime $StartTime `
-            -ExpiryTime $ExpiryTime `
-            -Permission rl `
-            -FullUri
-
-        # Output
-        return $SAS
-    }
+   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
    ```
 
-1. Cree parámetros para definir el grupo de recursos único, la cuenta de almacenamiento y el contenedor. 
-   
-   ```azurepowershell-interactive
-    # Replace the $resourceGroup, $storageAccount, and $storageContainer values below.
-    $resourceGroup = 'rfc_customguestconfig'
-    $storageAccount = 'guestconfiguration'
-    $storageContainer = 'content'
-    $path = 'c:\git\policyfiles\Server2019Baseline\Server2019Baseline.zip'
-    $blob = 'Server2019Baseline.zip' 
-    ```
-
-1. Use la función Publish con los parámetros asignados para publicar el paquete de configuración de invitado en la instancia pública de Blob Storage.
-
-
-   ```azurepowershell-interactive
-   $PublishConfigurationSplat = @{
-       resourceGroup = $resourceGroup
-       storageAccountName = $storageAccount
-       storageContainerName = $storageContainer
-       filePath = $path
-       blobName = $blob
-       FullUri = $true
-   }
-   $uri = Publish-Configuration @PublishConfigurationSplat
-    ```
 1. Una vez que se ha creado y cargado un paquete de directivas personalizadas de Configuración de invitado, cree la definición de la directiva de Configuración de invitado. Use el cmdlet `New-GuestConfigurationPolicy` para crear la configuración de invitado.
 
    ```azurepowershell-interactive
@@ -183,7 +117,7 @@ El siguiente paso consiste en publicar el archivo en Azure Blob Storage.
 Con la directiva creada en Azure, el último paso es asignar la iniciativa. Consulte cómo puede asignar la iniciativa con el [portal](../assign-policy-portal.md), la [CLI de Azure](../assign-policy-azurecli.md) y [Azure PowerShell](../assign-policy-powershell.md).
 
 > [!IMPORTANT]
-> Las definiciones de directivas de configuración de invitados **siempre** se deben asignar mediante la iniciativa que combina las directivas _AuditIfNotExists_ y _DeployIfNotExists_. Si solo se asigna la directiva _AuditIfNotExists_, los requisitos previos no se implementan y la directiva siempre muestra que los servidores "0" son compatibles.
+> Las definiciones de directivas de configuración de invitados **siempre** se deben asignar mediante la iniciativa que combina las directivas _AuditIfNotExists_ y _DeployIfNotExists_. Si solo se asigna la directiva _AuditIfNotExists_ , los requisitos previos no se implementan y la directiva siempre muestra que los servidores "0" son compatibles.
 
 La asignación de una definición de directiva con el efecto _DeployIfNotExists_ requiere un nivel de acceso adicional. Para conceder el privilegio mínimo, puede crear una definición de rol personalizada que amplíe **Colaborador de la directiva de recursos**. En el ejemplo siguiente se crea un rol denominado **Resource Policy Contributor DINE** con el permiso adicional _Microsoft.Authorization/roleAssignments/write_.
 

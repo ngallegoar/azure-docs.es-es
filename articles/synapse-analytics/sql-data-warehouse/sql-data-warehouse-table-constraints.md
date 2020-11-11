@@ -1,6 +1,6 @@
 ---
 title: Claves principales, externas y únicas
-description: Compatibilidad con las restricciones de tabla del grupo de SQL de Synapse en Azure Synapse Analytics
+description: Compatibilidad con las restricciones de tabla del grupo de SQL dedicado en Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,33 +11,33 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 562e2cce317d8774ecf72971d53be4f66f9c3da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd1d92dd6be47b2bdf6b8ca2f9a99c62e35eb12a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212775"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313056"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Clave principal, clave externa y clave única en el grupo de SQL de Synapse
+# <a name="primary-key-foreign-key-and-unique-key-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Clave principal, clave externa y clave única mediante un grupo de SQL dedicado en Azure Synapse Analytics
 
-Conozca las restricciones de tabla del grupo de SQL de Synapse, incluida la clave principal, la clave externa y la clave única.
+Conozca las restricciones de tabla del grupo de SQL dedicado, incluida la clave principal, la clave externa y la clave única.
 
 ## <a name="table-constraints"></a>Restricciones de tabla
 
-El grupo de SQL de Synapse admite estas restricciones de tabla: 
+El grupo de SQL dedicado admite estas restricciones de tabla: 
 - PRIMARY KEY solo se admite cuando se usan NONCLUSTERED y NOT ENFORCED.    
 - Solo se admite la restricción UNIQUE cuando se usa NOT ENFORCED.
 
 Para conocer la sintaxis, consulte [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) y [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
-No se admite la restricción FOREIGN KEY en el grupo de SQL de Synapse.  
+No se admite la restricción FOREIGN KEY en el grupo de SQL dedicado.  
 
 
 ## <a name="remarks"></a>Observaciones
 
-Tener una clave principal o una clave única permite que el motor del grupo de SQL de Synapse genere un plan de ejecución óptimo para una consulta.  Todos los valores de una columna de clave principal o de una columna de restricción única deben ser únicos.
+Tener una clave principal o una clave única permite que el motor del grupo de SQL dedicado genere un plan de ejecución óptimo para una consulta.  Todos los valores de una columna de clave principal o de una columna de restricción única deben ser únicos.
 
-Después de crear una tabla con una clave principal o una restricción única en el grupo de SQL de Synapse, los usuarios deben asegurarse de que todos los valores de esas columnas sean únicos.  En caso contrario, la consulta podría devolver resultados inexactos.  En este ejemplo se muestra cómo una consulta puede devolver resultados inexactos si la columna de restricción única o de clave principal incluye valores duplicados.  
+Después de crear una tabla con una clave principal o una restricción única en el grupo de SQL dedicado, los usuarios deben asegurarse de que todos los valores de esas columnas sean únicos.  En caso contrario, la consulta podría devolver resultados inexactos.  En este ejemplo se muestra cómo una consulta puede devolver resultados inexactos si la columna de restricción única o de clave principal incluye valores duplicados.  
 
 ```sql
  -- Create table t1
@@ -164,12 +164,13 @@ a1          total
 
 ## <a name="examples"></a>Ejemplos
 
-Cree una tabla de grupo de SQL de Synapse con una clave principal: 
+Cree una tabla de grupo de SQL dedicado con una clave principal: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Cree una tabla de grupo de SQL de Synapse con una restricción única:
+
+Cree una tabla de grupo de SQL dedicado con una restricción única:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -177,4 +178,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de crear las tablas para el grupo de SQL de Synapse, el paso siguiente es cargar datos en la tabla. Para obtener un tutorial de carga, consulte [Carga de datos en el grupo de SQL de Synapse](load-data-wideworldimportersdw.md).
+Después de crear las tablas para el grupo de SQL dedicado, el paso siguiente es cargar datos en la tabla. Para ver un tutorial de carga, consulte [Carga de datos en un grupo de SQL dedicado](load-data-wideworldimportersdw.md).

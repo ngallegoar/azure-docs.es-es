@@ -11,21 +11,23 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: e8f78d6031e57da42e1d69587aedca0763c9fec2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0b2c03c5c7ea8c65cb1cde3cbdb73b6bb838dc06
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289079"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324456"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Uso de etiquetas de consulta en SQL de Synapse
+
 En este artículo se incluyen sugerencias esenciales para el uso de etiquetas de consulta en SQL de Synapse.
 
 > [!NOTE]
-> SQL a petición (versión preliminar) no admite el etiquetado de consultas.
+> Un grupo de SQL sin servidor (versión preliminar) no admite el etiquetado de consultas.
 
 ## <a name="what-are-query-labels"></a>¿Qué son las etiquetas de consulta?
-El grupo de SQL admite un concepto conocido como etiquetas de consulta. Antes de entrar en materia, vamos a ver un ejemplo:
+
+Un grupo de SQL dedicado admite un concepto conocido como "etiquetas de consulta". Antes de entrar en materia, vamos a ver un ejemplo:
 
 ```sql
 SELECT *

@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d4ab3bccf281928be2b55eb5a36ae20a0aa8a08a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c12727e08c6ec9075aa6c1e256279ab7596417b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288722"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324523"
 ---
-# <a name="design-tables-using-synapse-sql"></a>Diseño de tablas mediante SQL de Synapse
+# <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Diseño de tablas mediante Synapse SQL en Azure Synapse Analytics
 
-En este documento se incluyen conceptos clave para diseñar tablas con un grupo de SQL y SQL a petición (versión preliminar).  
+En este documento se incluyen conceptos clave para diseñar tablas con un grupo de SQL dedicado y un grupo de SQL sin servidor (versión preliminar).  
 
-[SQL a petición (versión preliminar)](on-demand-workspace-overview.md) es un servicio de consulta de los datos del lago de datos. No tiene almacenamiento local ni ingesta de datos. El [grupo de SQL](best-practices-sql-pool.md) representa una colección de recursos de análisis que se aprovisionan al usar SQL de Synapse. El tamaño del grupo de SQL lo determinan las unidades de almacenamiento de datos (DWU).
+Un [grupo de SQL sin servidor (versión preliminar)](on-demand-workspace-overview.md) es un servicio de consulta de los datos del lago de datos. No tiene almacenamiento local ni ingesta de datos. El [grupo de SQL dedicado](best-practices-sql-pool.md) representa una colección de recursos de análisis que se aprovisionan al usar Synapse SQL. El tamaño de un grupo de SQL dedicado se determina mediante las unidades de almacenamiento de datos (DWU).
 
-En la tabla siguiente se enumeran los temas que son pertinentes para el grupo de SQL frente a SQL a petición:
+En la tabla siguiente se enumeran los temas que son pertinentes para un grupo de SQL dedicado frente a un grupo de SQL sin servidor:
 
-| Tema                                                        | Grupo de SQL | SQL a petición |
+| Tema                                                        | Grupo de SQL dedicado | Grupo de SQL sin servidor |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
 | [Determinación de la categoría de tabla](#determine-table-category)        | Sí                | No                      |
 | [Nombres de esquemas](#schema-names)                                | Sí                | Sí                     |
@@ -69,11 +69,11 @@ CREATE SCHEMA wwi;
 
 ## <a name="table-names"></a>Nombres de tabla
 
-Si está migrando varias bases de datos de una solución local al grupo de SQL, el procedimiento recomendado es migrar todas las tablas de hechos, dimensiones e integración a un esquema del grupo de SQL. Por ejemplo, podría almacenar todas las tablas en el almacenamiento de datos de ejemplo [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dentro de un esquema denominado wwi.
+Si está migrando varias bases de datos de una solución local al grupo de SQL dedicado, el procedimiento recomendado es migrar todas las tablas de hechos, dimensiones e integración a un esquema del grupo de SQL. Por ejemplo, podría almacenar todas las tablas en el almacenamiento de datos de ejemplo [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dentro de un esquema denominado wwi.
 
-Para mostrar la organización de las tablas en el grupo de SQL, puede utilizar fact, dim e int como prefijos para los nombres de tabla. En la tabla a continuación se muestran algunos de los nombres de esquema y tabla para WideWorldImportersDW.  
+Para mostrar la organización de las tablas en el grupo de SQL dedicado, puede utilizar fact, dim e int como prefijos para los nombres de tabla. En la tabla a continuación se muestran algunos de los nombres de esquema y tabla para WideWorldImportersDW.  
 
-| Tabla WideWorldImportersDW  | Tipo de tabla. | Grupo de SQL |
+| Tabla WideWorldImportersDW  | Tipo de tabla. | Grupo de SQL dedicado |
 |:-----|:-----|:------|:-----|
 | City | Dimensión | wwi.DimCity |
 | Pedido de | Fact | wwi.FactOrder |
@@ -92,9 +92,9 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 ### <a name="temporary-table"></a>Tabla temporal
 
-Una tabla temporal solo existe mientras dura la sesión. Puede usar una tabla temporal para evitar que otros usuarios vean los resultados temporales. El uso de tablas temporales también reduce la necesidad de limpieza.  Las tablas temporales utilizan el almacenamiento local, en el grupo de SQL, para ofrecer un rendimiento más rápido.  
+Una tabla temporal solo existe mientras dura la sesión. Puede usar una tabla temporal para evitar que otros usuarios vean los resultados temporales. El uso de tablas temporales también reduce la necesidad de limpieza.  Las tablas temporales utilizan el almacenamiento local y, en los grupos de SQL dedicados, pueden ofrecer un rendimiento más rápido.  
 
-SQL a petición admite tablas temporales. Sin embargo, su uso está limitado, ya que usted puede seleccionar de una tabla temporal, pero no puede unirla con los archivos en el almacenamiento.
+El grupo de SQL sin servidor admite tablas temporales. Sin embargo, su uso está limitado, ya que puede seleccionar de una tabla temporal, pero no puede unirla con los archivos en el almacenamiento.
 
 Para más información, consulte [Tablas temporales](develop-tables-temporary.md).
 
@@ -102,17 +102,17 @@ Para más información, consulte [Tablas temporales](develop-tables-temporary.md
 
 Las [tablas externas](develop-tables-external-tables.md) apuntan a datos ubicados en Azure Storage Blob o Azure Data Lake Storage.
 
-Importe los datos de tablas externas al grupo de SQL mediante la instrucción [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para un tutorial sobre la carga, consulte [Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Importe los datos de tablas externas a grupos de SQL dedicados mediante la instrucción [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para un tutorial sobre la carga, consulte [Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-En el caso de SQL a petición, puede utilizar [CETAS](develop-tables-cetas.md) para guardar el resultado de la consulta en una tabla externa en Azure Storage.
+En el caso de un grupo de SQL sin servidor, puede utilizar [CETAS](develop-tables-cetas.md) para guardar el resultado de la consulta en una tabla externa en Azure Storage.
 
 ## <a name="data-types"></a>Tipos de datos
 
-El grupo de SQL admite los tipos de datos más usados habitualmente. Para obtener una lista de los tipos de datos admitidos, consulte los [tipos de datos en la referencia de CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes&preserve-view=true) de la instrucción CREATE TABLE. Para obtener más información sobre el uso de los tipos de datos, consulte [Tipos de datos](../sql/develop-tables-data-types.md).
+El grupo de SQL dedicado admite los tipos de datos usados más comúnmente. Para obtener una lista de los tipos de datos admitidos, consulte los [tipos de datos en la referencia de CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes&preserve-view=true) de la instrucción CREATE TABLE. Para obtener más información sobre el uso de los tipos de datos, consulte [Tipos de datos](../sql/develop-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Tablas distribuidas
 
-Una característica fundamental del grupo de SQL es la forma en que puede almacenar y operar en tablas de varias [distribuciones](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions).  El grupo de SQL admite tres métodos para distribuir datos:
+Una característica fundamental de un grupo de SQL dedicado es la forma en que puede almacenar y operar en tablas de varias [distribuciones](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions).  El grupo de SQL dedicado admite tres métodos para distribuir datos:
 
 - Round robin (método predeterminado)
 - Hash
@@ -148,9 +148,9 @@ La categoría de tabla suele determinar la opción óptima para la distribución
 
 ## <a name="partitions"></a>Particiones
 
-En un grupo de SQL, una tabla con particiones almacena y ejecuta operaciones en las filas de la tabla según los intervalos de datos. Por ejemplo, una tabla puede tener particiones por día, mes o año. Puede mejorar el rendimiento de las consultas mediante la eliminación de particiones, ya que limita el examen de una consulta a los datos dentro de una partición.
+En los grupos de SQL dedicados, una tabla con particiones almacena y ejecuta operaciones en las filas de la tabla según los intervalos de datos. Por ejemplo, una tabla puede tener particiones por día, mes o año. Puede mejorar el rendimiento de las consultas mediante la eliminación de particiones, ya que limita el examen de una consulta a los datos dentro de una partición.
 
-También puede mantener los datos a través de modificación de particiones. Puesto que los datos del grupo de SQL ya están distribuidos, demasiadas particiones pueden ralentizar el rendimiento de las consultas. Para más información, consulte [Creación de particiones de tablas en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
+También puede mantener los datos a través de modificación de particiones. Puesto que los datos de un grupo de SQL dedicado ya están distribuidos, demasiadas particiones pueden ralentizar el rendimiento de las consultas. Para más información, consulte [Creación de particiones de tablas en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
 
 > [!TIP]
 > Cuando cambie de partición a otras particiones de tabla que no estén vacías, puede usar la opción TRUNCATE_TARGET en la instrucción [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) si se deben truncar los datos existentes.
@@ -161,7 +161,7 @@ En el código siguiente se cambian los datos diarios transformados a una partici
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
 ```
 
-En SQL a petición, puede limitar los archivos o carpetas (particiones) que leerá la consulta. La creación de particiones por ruta de acceso se admite mediante las funciones filepath y fileinfo descritas en [Consulta de archivos de almacenamiento](develop-storage-files-overview.md). En el ejemplo siguiente se lee una carpeta con datos del año 2017:
+En un grupo de SQL sin servidor, puede limitar los archivos o carpetas (particiones) que leerá la consulta. La creación de particiones por ruta de acceso se admite mediante las funciones filepath y fileinfo descritas en [Consulta de archivos de almacenamiento](develop-storage-files-overview.md). En el ejemplo siguiente se lee una carpeta con datos del año 2017:
 
 ```sql
 SELECT
@@ -185,7 +185,7 @@ ORDER BY
 
 ## <a name="columnstore-indexes"></a>Índices de almacén de columnas
 
-De forma predeterminada, el grupo de SQL almacena una tabla como índice de almacén de columnas agrupado. Esta forma de almacenamiento de datos logra una compresión de datos y rendimiento de las consultas altos en tablas grandes.  El índice de almacén de columnas agrupado suele ser la mejor opción, pero en algunos casos un índice agrupado o un montón es la estructura de almacenamiento adecuada.  
+De manera predeterminada, el grupo de SQL dedicado almacena una tabla como índice de almacén de columnas agrupado. Esta forma de almacenamiento de datos logra una compresión de datos y rendimiento de las consultas altos en tablas grandes.  El índice de almacén de columnas agrupado suele ser la mejor opción, pero en algunos casos un índice agrupado o un montón es la estructura de almacenamiento adecuada.  
 
 > [!TIP]
 > Una tabla de montón puede ser sumamente útil para cargar datos transitorios, como una tabla de almacenamiento provisional que se transforma en una tabla final.
@@ -194,38 +194,37 @@ Para una lista de características de almacén de columnas, vea [Novedades de lo
 
 ## <a name="statistics"></a>Estadísticas
 
-
 El optimizador de consultas utiliza estadísticas de columna cuando crea el plan de ejecución de una consulta. Para mejorar el rendimiento de las consultas, es importante crear estadísticas en columnas individuales, especialmente en las columnas que se usan en combinaciones de consultas. SQL de Synapse admite la creación automática de estadísticas. 
 
 La actualización estadística no se realiza automáticamente. Actualice las estadísticas cuando se agregue o cambie un número significativo de filas. Por ejemplo, actualice las estadísticas después de una carga. En el artículo con la [guía de estadísticas](develop-tables-statistics.md) encontrará información adicional.
 
 ## <a name="primary-key-and-unique-key"></a>Clave principal y clave única
 
-PRIMARY KEY solo se admite cuando se usan NONCLUSTERED y NOT ENFORCED.  Solo se admite la restricción UNIQUE cuando se usa NOT ENFORCED.  Para obtener más información, consulte el artículo [Restricciones de tablas del grupo de SQL](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para un grupo de SQL dedicado, PRIMARY KEY solo se admite cuando se usa tanto NONCLUSTERED como NOT ENFORCED.  Solo se admite la restricción UNIQUE cuando se usa NOT ENFORCED.  Para obtener más información, consulte el artículo [Restricciones de tablas del grupo de SQL](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="commands-for-creating-tables"></a>Comandos para la creación de tablas
 
-Puede crear una tabla como una nueva tabla vacía. También puede crear y rellenar una tabla con los resultados de una instrucción SELECT. A continuación se muestran los comandos de T-SQL para crear una tabla.
+Para un grupo de SQL dedicado, puede crear una tabla como una nueva tabla vacía. También puede crear y rellenar una tabla con los resultados de una instrucción SELECT. A continuación se muestran los comandos de T-SQL para crear una tabla.
 
 | Instrucción T-SQL | Descripción |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Crea una tabla vacía mediante la definición de todas las opciones y columnas de la tabla. |
-| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Crea una tabla externa. La definición de la tabla se almacena en el grupo de SQL. Los datos de la tabla se almacenan en Azure Blob Storage o Azure Data Lake Storage. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Crea una tabla externa. La definición de la tabla se almacena en el grupo de SQL dedicado. Los datos de la tabla se almacenan en Azure Blob Storage o Azure Data Lake Storage. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Rellena una nueva tabla con los resultados de una instrucción SELECT. Las columnas de tabla y los tipos de datos se basan en los resultados de la instrucción SELECT. Para importar datos, puede seleccionar esta instrucción en una tabla externa. |
 | [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Crea una nueva tabla externa mediante la exportación de los resultados de una instrucción SELECT a una ubicación externa.  La ubicación es Azure Blob Storage o Azure Data Lake Storage. |
 
 ## <a name="align-source-data-with-the-data-warehouse"></a>Alineación de los datos de origen con el almacenamiento de datos
 
-Las tablas del almacenamiento de datos se rellenan cargando datos desde otro origen de datos. Para lograr una carga correcta, el número y los tipos de datos de las columnas de los datos de origen se deben alinear con la definición de tabla en el almacenamiento de datos.
+Las tablas del grupo de SQL dedicado se rellenan cargando datos desde otro origen de datos. Para lograr una carga correcta, el número y los tipos de datos de las columnas de los datos de origen se deben alinear con la definición de tabla en el almacenamiento de datos.
 
 > [!NOTE]
 > Obtener los datos que se van a alinear podría ser la parte más complicada de diseñar las tablas.
 
-Si los datos proceden de varios almacenamientos de datos, puede portar dichos datos en el almacenamiento de datos y almacenarlos en una tabla de integración. Una vez que los datos estén en la tabla de integración, podrá utilizar la eficacia del grupo de SQL para implementar operaciones de transformación. Una vez que los datos están preparados, puede insertarlos en tablas de producción.
+Si los datos proceden de varios almacenamientos de datos, puede portar dichos datos en el almacenamiento de datos y almacenarlos en una tabla de integración. Una vez que los datos estén en la tabla de integración, podrá utilizar la eficacia del grupo de SQL dedicado para implementar operaciones de transformación. Una vez que los datos están preparados, puede insertarlos en tablas de producción.
 
 ## <a name="unsupported-table-features"></a>Características no compatibles de las tablas
 
-El grupo de SQL admite muchas, pero no todas, de las características de tabla que ofrecen otras bases de datos.  En la lista siguiente se muestran algunas de las características de tabla que no se admiten en el grupo de SQL.
+El grupo de SQL dedicado admite muchas, pero no la totalidad, de las características de tabla que ofrecen otras bases de datos.  En la lista siguiente se muestran algunas de las características de tabla que no se admiten en el grupo de SQL dedicado.
 
 - Clave externa, compruebe [Restricciones de tabla](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [Columnas calculadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
@@ -240,7 +239,7 @@ El grupo de SQL admite muchas, pero no todas, de las características de tabla q
 
 ## <a name="table-size-queries"></a>Consultas de tamaño de tabla
 
-Una forma sencilla de identificar el espacio y las filas que consume una tabla en cada una de las 60 distribuciones es usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+En un grupo de SQL dedicado, una forma sencilla de identificar el espacio y las filas que consume una tabla en cada una de las 60 distribuciones es usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -441,4 +440,4 @@ ORDER BY    distribution_id
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de crear las tablas para el almacenamiento de datos, el paso siguiente es cargar datos en la tabla.  Para obtener un tutorial de carga, consulte [Carga de datos en el grupo de SQL](../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#load-the-data-into-sql-pool).
+Después de crear las tablas para el almacenamiento de datos, el paso siguiente es cargar datos en la tabla.  Para obtener un tutorial de carga, consulte [Carga de datos en un grupo de SQL dedicado](../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#load-the-data-into-sql-pool).

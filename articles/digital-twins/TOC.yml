@@ -111,7 +111,7 @@
       items:
         - name: Visualización de métricas en Azure Monitor
           href: troubleshoot-metrics.md
-        - name: Habilitación del registro de diagnósticos
+        - name: Habilitación y consulta de registros de diagnóstico
           href: troubleshoot-diagnostics.md
         - name: Habilitación de alertas
           href: troubleshoot-alerts.md

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fda153d4c48ced17d1a9ba5f060b435b161542e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89612152"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127644"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Prueba de un trabajo de Azure Stream Analytics en el portal
 
@@ -27,7 +27,7 @@ Azure Stream Analytics captura automáticamente los eventos de las entradas de s
 
 2. Busque y seleccione el trabajo de Stream Analytics existente.
 
-3. En la página del trabajo de Stream Analytics, en el encabezado **Topología del trabajo**, seleccione **Consulta** para abrir la ventana del editor de consultas. 
+3. En la página del trabajo de Stream Analytics, en el encabezado **Topología del trabajo** , seleccione **Consulta** para abrir la ventana del editor de consultas. 
 
 4. Para ver una lista de ejemplos de eventos de entrada, seleccione la entrada con el icono de archivo, y los eventos de ejemplo aparecerán automáticamente en la **vista previa de entrada**.
 
@@ -37,11 +37,11 @@ Azure Stream Analytics captura automáticamente los eventos de las entradas de s
     
    c. Si los datos que aparecen no están actualizados, seleccione **Actualizar** para ver los eventos más recientes.
 
-   La siguiente tabla es un ejemplo de datos en **formato de tabla**:
+   La siguiente tabla es un ejemplo de datos en **formato de tabla** :
 
    ![Entrada de ejemplo de Azure Stream Analytics en formato de tabla](./media/stream-analytics-test-query/asa-sample-table.png)
 
-   La tabla siguiente es un ejemplo de datos en **formato sin procesar**:
+   La tabla siguiente es un ejemplo de datos en **formato sin procesar** :
 
    ![Entrada de ejemplo de Azure Stream Analytics en formato sin procesar](./media/stream-analytics-test-query/asa-sample-raw.png)
 
@@ -75,15 +75,15 @@ En lugar de usar datos en vivo, puede usar datos de ejemplo de un archivo local 
    
 2. Busque el trabajo de Stream Analytics existente y selecciónelo.
 
-3. En la página del trabajo de Stream Analytics, en el encabezado **Topología del trabajo**, seleccione **Consulta** para abrir la ventana del editor de consultas.
+3. En la página del trabajo de Stream Analytics, en el encabezado **Topología del trabajo** , seleccione **Consulta** para abrir la ventana del editor de consultas.
 
 4. Para probar la consulta con un archivo local, seleccione **Upload sample input** (Cargar entrada de ejemplo) en la pestaña **Input preview** (Vista previa de entrada). 
 
-   ![Carga del archivo de ejemplo de Azure Stream Analytics](./media/stream-analytics-test-query/asa-upload-sample-file.png)
+   ![Captura de pantalla que muestra la opción Cargar entrada de ejemplo.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
 5. Cargue el archivo local para probar la consulta. Solo se pueden cargar archivos con los formatos JSON, CSV o AVRO. Seleccione **Aceptar**.
 
-   ![Carga del archivo de ejemplo de Azure Stream Analytics](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo Cargar datos de ejemplo en el que puede seleccionar un archivo.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
 6. En cuanto cargue el archivo, también puede ver su contenido en formato de tabla o en su formato sin procesar. Si selecciona **Reset** (Restablecer), los datos de ejemplo volverán a los datos de entrada entrantes explicados en la sección anterior. Puede cargar cualquier otro archivo para probar la consulta en cualquier momento.
 
@@ -113,9 +113,9 @@ En lugar de usar datos en vivo, puede usar datos de ejemplo de un archivo local 
 5.  No se admite el aprendizaje automático.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Compilación de una solución de IoT con Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): este tutorial le guiará a la hora de compilar una solución de un extremo a otro con un generador de datos que simulará el tráfico en una cabina de peaje.
+* [Compilación de una solución de IoT con Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md): este tutorial le guiará a la hora de compilar una solución de un extremo a otro con un generador de datos que simulará el tráfico en una cabina de peaje.
 
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [Ejemplos de consulta para patrones de uso comunes de Stream Analytics](stream-analytics-stream-analytics-query-patterns.md)
 

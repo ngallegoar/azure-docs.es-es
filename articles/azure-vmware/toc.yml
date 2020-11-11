@@ -100,7 +100,7 @@
   items:
     - name: Solución de problemas
       items:
-        - name: Obtención de ayuda con los errores de implementación o aprovisionamiento
+        - name: Abrir una solicitud de soporte técnico para los errores de implementación
           href: fix-deployment-provisioning-failures.md
     - name: Preguntas más frecuentes
       href: faq.md

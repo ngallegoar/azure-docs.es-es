@@ -1,6 +1,6 @@
 ---
 title: Indexación de tablas
-description: Recomendaciones y ejemplos para indexar tablas en un grupo de SQL de Synapse.
+description: Recomendaciones y ejemplos para indexar tablas en un grupo de SQL dedicado.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 605c3320b0fcc7ac9663acc1578740e2cb3f3174
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05551f39203f2c070dd2ede0740135d6963aedcf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797605"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323563"
 ---
-# <a name="indexing-tables-in-synapse-sql-pool"></a>Indexación de tablas en el grupo de SQL de Synapse
+# <a name="indexing-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Indexación de tablas mediante un grupo de SQL dedicado en Azure Synapse Analytics
 
-Recomendaciones y ejemplos para indexar tablas en un grupo de SQL de Synapse.
+Recomendaciones y ejemplos para indexar tablas en un grupo de SQL dedicado.
 
 ## <a name="index-types"></a>Tipos de índice
 
-El grupo de SQL de Synapse ofrece varias opciones de indexación, entre las que se incluyen [índices de almacén de columnas agrupados](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [índices agrupados e índices no agrupados](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y una opción que no es de índice también conocida como [montón](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+El grupo de SQL dedicado ofrece varias opciones de indexación, entre las que se incluyen [índices de almacén de columnas agrupados](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [índices agrupados e índices no agrupados](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y una opción que no es de índice también conocida como [montón](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 
-Para crear una tabla con un índice, consulte la documentación de [CREATE TABLE (grupo de SQL de Synapse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para crear una tabla con un índice, consulte la documentación de [CREATE TABLE (grupo de SQL dedicado)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="clustered-columnstore-indexes"></a>Índices de almacén de columnas en clúster
 
-De forma predeterminada, el grupo de SQL de Synapse crea un índice de almacén de columnas agrupado cuando no se especifican opciones de índice en una tabla. Las tablas del almacén de columnas en clúster ofrecen el máximo nivel de compresión de datos, así como el mejor rendimiento general de las consultas.  Por lo general, las tablas del almacén de columnas en clúster funcionan mejor que las tablas de montón o de índice agrupado, y suelen ser la mejor opción para tablas grandes.  Por estos motivos, el almacén de columnas agrupado es el mejor lugar por el que empezar cuando no se sabe cómo indexar una tabla.  
+De forma predeterminada, el grupo de SQL dedicado crea un índice de almacén de columnas agrupado cuando no se especifican opciones de índice en una tabla. Las tablas del almacén de columnas en clúster ofrecen el máximo nivel de compresión de datos, así como el mejor rendimiento general de las consultas.  Por lo general, las tablas del almacén de columnas en clúster funcionan mejor que las tablas de montón o de índice agrupado, y suelen ser la mejor opción para tablas grandes.  Por estos motivos, el almacén de columnas agrupado es el mejor lugar por el que empezar cuando no se sabe cómo indexar una tabla.  
 
 Para crear una tabla de almacén de columnas en clúster, simplemente especifique CLUSTERED COLUMNSTORE INDEX en la cláusula WITH u omita la cláusula WITH:
 
@@ -52,7 +52,7 @@ Hay algunos escenarios en los que un almacén de columnas en clúster puede que 
 
 ## <a name="heap-tables"></a>Tablas de montón
 
-Cuando almacene datos temporalmente en el grupo de SQL de Synapse, puede encontrarse con que el uso de tablas de montón agilizan el proceso global. Esto se debe a que las cargas en montones son más rápidas que la indexación de tablas y, en algunos casos, la posterior lectura se puede realizar desde la memoria caché.  Si solo carga datos para transformarlos después, cargar la tabla de apilamiento es mucho más rápido que cargar los datos en una tabla de almacén de columnas agrupadas. Además, la carga de datos en una [tabla temporal](sql-data-warehouse-tables-temporary.md) es una operación mucho más rápida que la carga de una tabla en un almacenamiento permanente.  Después de cargar los datos, puede crear índices en la tabla para obtener un mejor rendimiento de las consultas.  
+Cuando almacene datos temporalmente en el grupo de SQL dedicado, puede encontrarse con que el uso de tablas de montón agiliza el proceso global. Esto se debe a que las cargas en montones son más rápidas que la indexación de tablas y, en algunos casos, la posterior lectura se puede realizar desde la memoria caché.  Si solo carga datos para transformarlos después, cargar la tabla de apilamiento es mucho más rápido que cargar los datos en una tabla de almacén de columnas agrupadas. Además, la carga de datos en una [tabla temporal](sql-data-warehouse-tables-temporary.md) es una operación mucho más rápida que la carga de una tabla en un almacenamiento permanente.  Después de cargar los datos, puede crear índices en la tabla para obtener un mejor rendimiento de las consultas.  
 
 Las tablas de almacén de columnas en clúster empiezan a lograr una compresión óptima cuando hay más de 60 millones de filas.  En el caso de tablas de búsqueda pequeñas, menos de 60 millones filas, considere la posibilidad de usar HEAP o el índice agrupado para mejorar el rendimiento de las consultas. 
 
@@ -204,13 +204,13 @@ Las operaciones de actualización e inserción por lotes que superen el umbral e
 
 ### <a name="small-or-trickle-load-operations"></a>Operaciones de carga pequeña o lenta
 
-Las cargas pequeñas que fluyen al grupo de SQL de Synapse también se denominan cargas lentas. Normalmente, representan una transmisión prácticamente constante de los datos que ingiere el sistema. Pero como esta transmisión es casi continua, el volumen de filas no es especialmente grande. Con frecuencia los datos están significativamente por debajo del umbral necesario para una carga directa en formato de almacén de columnas.
+Las cargas pequeñas que fluyen al grupo de SQL dedicado también se denominan cargas lentas. Normalmente, representan una transmisión prácticamente constante de los datos que ingiere el sistema. Pero como esta transmisión es casi continua, el volumen de filas no es especialmente grande. Con frecuencia los datos están significativamente por debajo del umbral necesario para una carga directa en formato de almacén de columnas.
 
 En estas situaciones, a menudo es preferible que los datos vayan primero a Almacenamiento de blobs de Azure y dejar que se acumulen antes de cargarlos. A menudo, esta técnica se conoce como *procesamiento por microlotes*.
 
 ### <a name="too-many-partitions"></a>Demasiadas particiones
 
-Otra cosa que se debe tener en cuenta es el impacto de la creación de particiones en las tablas de almacén de columnas en clúster.  Antes de crear particiones, el grupo de SQL de Synapse ya divide los datos en 60 bases de datos.  La creación de particiones divide aún más los datos.  Si crea particiones de los datos, debe considerar que **cada** partición debe tener un mínimo de un millón de filas para beneficiarse de un índice de almacén de columnas en clúster.  Si crea 100 particiones en una tabla, esta deberá tener al menos 6000 millones de filas para beneficiarse de un índice de almacén de columnas en clúster (60 distribuciones *100 particiones* 1 millón de filas). Si la tabla de 100 particiones no tiene 6000 millones de filas, reduzca el número de particiones o considere la posibilidad de usar una tabla de montón en su lugar.
+Otra cosa que se debe tener en cuenta es el impacto de la creación de particiones en las tablas de almacén de columnas en clúster.  Antes de crear particiones, el grupo de SQL dedicado ya ha dividido los datos en 60 bases de datos.  La creación de particiones divide aún más los datos.  Si crea particiones de los datos, debe considerar que **cada** partición debe tener un mínimo de un millón de filas para beneficiarse de un índice de almacén de columnas en clúster.  Si crea 100 particiones en una tabla, esta deberá tener al menos 6000 millones de filas para beneficiarse de un índice de almacén de columnas en clúster (60 distribuciones *100 particiones* 1 millón de filas). Si la tabla de 100 particiones no tiene 6000 millones de filas, reduzca el número de particiones o considere la posibilidad de usar una tabla de montón en su lugar.
 
 Una vez que las tablas se hayan cargado las tablas con datos, siga los pasos que se indican a continuación para identificar las tablas y volver a crearlas con índices de almacén de columnas agrupadas que no llegan a ser óptimas.
 
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-La regeneración de un índice en el grupo de SQL de Synapse es una operación que se realiza sin conexión.  Para más información sobre cómo volver a crear los índices, consulte la sección ALTER INDEX REBUILD de [Desfragmentación de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+La regeneración de un índice en el grupo de SQL dedicado es una operación que se realiza sin conexión.  Para más información sobre cómo volver a crear los índices, consulte la sección ALTER INDEX REBUILD de [Desfragmentación de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Paso 3: Comprobación de que ha mejorado la calidad de los segmentos de almacén de columnas en clúster
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-Para más información sobre cómo volver a crear particiones mediante CTAS, consulte [Uso de particiones en el grupo de SQL de Synapse](sql-data-warehouse-tables-partition.md).
+Para más información sobre cómo volver a crear particiones mediante CTAS, consulte [Uso de particiones en el grupo de SQL dedicado](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b59c7d2af33efd82f27af9e13fc9c1f36ca788ee
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787472"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348600"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introducción al Almacenamiento en cola de Azure mediante .NET
 
@@ -50,8 +50,8 @@ En Visual Studio, cree una nueva aplicación de consola de Windows. Los siguient
 1. Seleccione **Archivo** > **Nuevo** > **Proyecto**
 2. Seleccione **Plataforma** > **Windows**
 3. Seleccione **Aplicación de consola (.NET Framework)**
-4. Seleccione **Siguiente** .
-5. Escriba el nombre de la aplicación en el campo **Nombre del proyecto** .
+4. Seleccione **Siguiente**.
+5. Escriba el nombre de la aplicación en el campo **Nombre del proyecto**.
 6. Seleccione **Crear**
 
 Todos los ejemplos de código de este tutorial se pueden agregar al método **Main()** del archivo **Program.cs** de la aplicación de consola.
@@ -65,13 +65,13 @@ Las bibliotecas cliente de Azure Storage se pueden usar en cualquier tipo de apl
 Para completar este tutorial, es preciso que haga referencia a los siguientes cuatro paquetes en el proyecto:
 
 - [Biblioteca de Azure Core para .NET](https://www.nuget.org/packages/Azure.Core/): este paquete proporciona primitivas, abstracciones y aplicaciones auxiliares compartidas para las bibliotecas de cliente modernas de Azure SDK de .NET.
-- [Biblioteca cliente de Azure Storage Common para .NET](https://www.nuget.org/packages/Azure.Storage.Common/): este paquete proporciona una infraestructura que comparte el resto de bibliotecas de cliente de Azure Storage.
+- [Biblioteca cliente de Azure Storage Common para .NET](https://www.nuget.org/packages/Azure.Storage.Common/): Este paquete proporciona una infraestructura que comparte el resto de bibliotecas de cliente de Azure Storage.
 - [Biblioteca de Azure Storage Queue para .NET](https://www.nuget.org/packages/Azure.Storage.Queues/): este paquete permite trabajar con el servicio Azure Storage Queue para almacenar los mensajes a los que puede acceder un cliente.
 - [Biblioteca de Configuration Manager para .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): este paquete proporciona acceso a los archivos de configuración de las aplicaciones cliente.
 
 Puede usar NuGet para obtener estos paquetes. Siga estos pasos:
 
-1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones** , y elija **Administrar paquetes NuGet** .
+1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones** , y elija **Administrar paquetes NuGet**.
 1. Seleccione **Examinar**
 1. Busque "Azure.Storage.Queues" en línea y seleccione **Instalar** para instalar la biblioteca cliente de Storage y sus dependencias. También se instalarán las bibliotecas Azure.Storage.Common y Azure.Core, que son dependencias de la biblioteca de colas.
 1. Busque "System.Configuration.ConfigurationManager" en línea y seleccione **Instalar** para instalar Configuration Manager.
@@ -86,7 +86,7 @@ Para completar este tutorial, es preciso que haga referencia a los siguientes tr
 
 Puede usar NuGet para obtener estos paquetes. Siga estos pasos:
 
-1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones** , y elija **Administrar paquetes NuGet** .
+1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones** , y elija **Administrar paquetes NuGet**.
 1. Seleccione **Examinar**
 1. Busque "Microsoft.Azure.Storage.Queue" en línea y seleccione **Instalar** para instalar la biblioteca cliente de Storage y sus dependencias. Esto instalará también la biblioteca Microsoft.Azure.Storage.Common, que es una dependencia de la biblioteca de Queue.
 1. Busque "Microsoft.Azure.ConfigurationManager" en línea y seleccione **Instalar** para instalar Azure Configuration Manager.
@@ -113,7 +113,7 @@ El código de ejemplo debe autorizar el acceso a su cuenta de almacenamiento. Pa
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
 2. Busque su cuenta de almacenamiento.
-3. En la sección **Configuración** de la información general de la cuenta de almacenamiento, seleccione **Claves de acceso** . Aparecen las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
+3. En la sección **Configuración** de la información general de la cuenta de almacenamiento, seleccione **Claves de acceso**. Aparecen las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
 4. Busque el valor de **Cadena de conexión** en **key1** y haga clic en el botón **Copiar** para copiar la cadena de conexión. En el paso siguiente, agregará el valor de la cadena de conexión a una variable de entorno.
 
     ![Captura de pantalla que muestra cómo copiar una cadena de conexión desde Azure Portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)

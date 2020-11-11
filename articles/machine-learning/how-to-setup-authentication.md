@@ -1,7 +1,7 @@
 ---
 title: Configuración de la autenticación
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo instalar y configurar la autenticación para varios recursos y flujos de trabajo en Azure Machine Learning. Hay varias maneras de configurar y usar la autenticación dentro del servicio, que van desde la autenticación simple basada en la interfaz de usuario con fines de desarrollo o prueba, hasta la autenticación de entidad de servicio de Azure Active Directory completa.
+description: Obtenga información sobre cómo instalar y configurar la autenticación para varios recursos y flujos de trabajo en Azure Machine Learning.
 services: machine-learning
 author: cjgronlund
 ms.author: cgronlun
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8eb042b214ba1e4aea1eda1c65996d55ddde216e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fd6f933e1b3c1e7c003f62e03215273e3d28ea5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741889"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318527"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning
 
@@ -38,7 +38,7 @@ Independientemente del tipo de autenticación que se use, el control de acceso b
 ## <a name="interactive-authentication"></a>Autenticación interactiva
 
 > [!IMPORTANT]
-> En la autenticación interactiva se usa el explorador y se necesitan cookies (por ejemplo, cookies de terceros). Si ha deshabilitado las cookies, es posible que reciba un error del tipo "no se pudo iniciar sesión". Este error también puede producirse si ha habilitado la [autenticación multifactor de Azure](/azure/active-directory/authentication/concept-mfa-howitworks).
+> En la autenticación interactiva se usa el explorador y se necesitan cookies (por ejemplo, cookies de terceros). Si ha deshabilitado las cookies, es posible que reciba un error del tipo "no se pudo iniciar sesión". Este error también puede producirse si ha habilitado la [autenticación multifactor de Azure](../active-directory/authentication/concept-mfa-howitworks.md).
 
 La mayoría de los ejemplos de la documentación usan la autenticación interactiva. Por ejemplo, al usar el SDK hay dos llamadas de función que muestran automáticamente un flujo de autenticación basada en la interfaz de usuario:
 
@@ -77,7 +77,7 @@ Para usar la autenticación de entidad de servicio, primero debe crear la entida
 >
 > La razón para conceder el menor acceso es que una entidad de servicio usa una contraseña para autenticarse y la contraseña se puede almacenar como parte de un script de automatización. Si se pierde la contraseña, tener el acceso mínimo necesario para una tarea específica minimiza el uso malintencionado de la entidad de servicio.
 
-La forma más fácil de crear una entidad de servicio y de conceder acceso al área de trabajo es mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Para crear una entidad de servicio y concederle acceso al área de trabajo, siga estos pasos:
+La forma más fácil de crear una entidad de servicio y de conceder acceso al área de trabajo es mediante la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Para crear una entidad de servicio y concederle acceso al área de trabajo, siga estos pasos:
 
 > [!NOTE]
 > Debe ser un administrador de la suscripción para realizar todos estos pasos.
@@ -92,7 +92,7 @@ La forma más fácil de crear una entidad de servicio y de conceder acceso al á
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    Para obtener otros métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
+    Para obtener otros métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 1. Instale la extensión de Azure Machine Learning:
 
@@ -190,11 +190,11 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Uso de una entidad de servicio desde la CLI de Azure
 
-Puede usar una entidad de servicio para los comandos de la CLI de Azure. Para más información, vea [Inicio de sesión mediante una entidad de servicio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
+Puede usar una entidad de servicio para los comandos de la CLI de Azure. Para más información, vea [Inicio de sesión mediante una entidad de servicio](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Uso de una entidad de servicio con la API REST (versión preliminar)
 
-La entidad de servicio también se puede usar para autenticar en la [API REST](https://docs.microsoft.com/rest/api/azureml/) de Azure Machine Learning (versión preliminar). Use el [flujo de concesión de credenciales de cliente](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) de Azure Active Directory, que permiten llamadas de servicio a servicio para la autenticación sin periféricos en flujos de trabajo automatizados. Los ejemplos se implementan con la [biblioteca de ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) tanto en Python como en Node.js, pero también puede usar cualquier biblioteca de código abierto que admita OpenID Connect 1.0.
+La entidad de servicio también se puede usar para autenticar en la [API REST](/rest/api/azureml/) de Azure Machine Learning (versión preliminar). Use el [flujo de concesión de credenciales de cliente](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) de Azure Active Directory, que permiten llamadas de servicio a servicio para la autenticación sin periféricos en flujos de trabajo automatizados. Los ejemplos se implementan con la [biblioteca de ADAL](../active-directory/azuread-dev/active-directory-authentication-libraries.md) tanto en Python como en Node.js, pero también puede usar cualquier biblioteca de código abierto que admita OpenID Connect 1.0.
 
 > [!NOTE]
 > MSAL.js es una biblioteca más reciente que ADAL, pero no puede realizar la autenticación de servicio a servicio mediante las credenciales de cliente con MSAL.js, ya que es principalmente una biblioteca del lado cliente diseñada para la autenticación interactiva o de interfaz de usuario asociada a un usuario específico. Se recomienda usar ADAL como se muestra a continuación para crear flujos de trabajo automatizados con la API REST.
@@ -280,6 +280,62 @@ La variable `token_response` es un diccionario que incluye el token y los metada
 ```
 
 Use `token_response["accessToken"]` para capturar el token de autenticación. Consulte la [documentación de la API REST](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) para ejemplos sobre cómo usar el token para realizar llamadas API.
+
+#### <a name="java"></a>Java
+
+En Java, recupere el token de portador mediante una llamada REST estándar:
+
+```java
+String tenantId = "your-tenant-id";
+String clientId = "your-client-id";
+String clientSecret = "your-client-secret";
+String resourceManagerUrl = "https://management.azure.com";
+
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+
+HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
+HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+if (response.statusCode == 200)
+{
+     body = gson.fromJson(body, AuthenticationBody.class);
+
+    // ... etc ... 
+}
+// ... etc ...
+
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl){
+    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
+    String clientIdParam = String.format("client_id=%s", clientId);
+    String resourceParam = String.format("resource=%s", resourceManagerUrl);
+    String clientSecretParam = String.format("client_secret=%s", clientSecret);
+
+    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
+
+    HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create(authUrl))
+            .POST(HttpRequest.BodyPublishers.ofString(bodyString))
+            .build();
+    return request;
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
+}
+```
+
+El código anterior debería controlar las excepciones y los códigos de estado distintos de `200 OK`, pero muestra el siguiente patrón: 
+
+- Uso del identificador y secreto de cliente para validar que el programa debe tener acceso
+- Uso del identificador de inquilino para especificar dónde debe realizar la búsqueda `login.microsoftonline.com`
+- Uso de Azure Resource Manager como origen del token de autorización
 
 ## <a name="web-service-authentication"></a>Autenticación de servicio web
 

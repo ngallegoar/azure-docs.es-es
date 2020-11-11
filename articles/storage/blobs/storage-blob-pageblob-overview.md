@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: add94fe05eecd2fb77ba0d6d79fe6765afe3baaa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091022"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288335"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Introducción a blobs en páginas de Azure
 
@@ -24,6 +24,10 @@ Azure Storage ofrece tres tipos de almacenamiento en blobs: Blobs en bloques, en
 Los blobs en páginas son una colección de páginas de 512 bytes que proporcionan la capacidad de leer y escribir intervalos arbitrarios de bytes. Por lo tanto, son ideales para almacenar estructuras de datos esparcidos basadas en índices, como discos de datos y de sistema operativo para máquinas virtuales y bases de datos. Por ejemplo, Azure SQL DB usa blobs en páginas como almacenamiento persistente subyacente para sus bases de datos. Además, los blobs en páginas suelen usarse para archivos con actualizaciones basadas en intervalos.  
 
 Las características clave de los blobs en páginas de Azure son la interfaz REST, la durabilidad del almacenamiento subyacente y las excepcionales funcionalidades de migración a Azure. En la sección siguiente, analizaremos detalladamente estas características. Además, los blobs en páginas de Azure se admiten actualmente en dos tipos de almacenamiento: Premium Storage y Standard Storage. La opción Premium Storage está diseñada específicamente para cargas de trabajo que requieren alto rendimiento coherente y baja latencia, lo que hace que los blobs en páginas premium sean perfectos para escenarios de almacenamiento de alto rendimiento. Las cuentas de Standard Storage son más rentables para cargas de trabajo que se ejecutan sin tener en cuenta la latencia.
+
+## <a name="restrictions"></a>Restricciones
+
+Los blobs en páginas solo pueden usar el **nivel de acceso frecuente** , no pueden usar los niveles de acceso **esporádico** o **de archivo**. Para más información sobre los niveles de acceso, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
 
 ## <a name="sample-use-cases"></a>Casos de uso de ejemplo
 
@@ -59,7 +63,7 @@ En primer lugar, obtenga una referencia a un contenedor. Para crear un blob en p
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
-Para crear un blob en páginas, primero debe crear un objeto **CloudBlobClient**, con el URI base para acceder al almacenamiento de blobs de la cuenta de almacenamiento (*pbaccount* en la figura 1) junto con el objeto **StorageCredentialsAccountAndKey**, tal y como se muestra en el ejemplo siguiente. El ejemplo muestra cómo crear una referencia a un objeto **CloudBlobContainer** y, a continuación, cómo crear el contenedor (*testvhds*) si aún no existe. A continuación, con el objeto **CloudBlobContainer**, cree una referencia a un objeto **CloudPageBlob** especificando el nombre de blob en página (os4.vhd) al que se quiere acceder. Para crear el blob en páginas, llame a [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create) pasando el tamaño máximo del blob que se va a crear. *blobSize* debe ser un múltiplo de 512 bytes.
+Para crear un blob en páginas, primero debe crear un objeto **CloudBlobClient** , con el URI base para acceder al almacenamiento de blobs de la cuenta de almacenamiento ( *pbaccount* en la figura 1) junto con el objeto **StorageCredentialsAccountAndKey** , tal y como se muestra en el ejemplo siguiente. El ejemplo muestra cómo crear una referencia a un objeto **CloudBlobContainer** y, a continuación, cómo crear el contenedor ( *testvhds* ) si aún no existe. A continuación, con el objeto **CloudBlobContainer** , cree una referencia a un objeto **CloudPageBlob** especificando el nombre de blob en página (os4.vhd) al que se quiere acceder. Para crear el blob en páginas, llame a [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create) pasando el tamaño máximo del blob que se va a crear. *blobSize* debe ser un múltiplo de 512 bytes.
 
 ```csharp
 using Microsoft.Azure;

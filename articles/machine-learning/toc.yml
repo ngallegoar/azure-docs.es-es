@@ -160,6 +160,8 @@
         - name: Introducción sobre la seguridad en la empresa
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Cifrado de datos
+          href: concept-data-encryption.md
         - name: Línea de base de seguridad
           href: security-baseline.md
     - name: Aprendizaje automático responsable
@@ -182,14 +184,17 @@
       items:
         - name: Administración de identidad y acceso
           items:
-            - name: Configuración de la autenticación
+            - name: Autenticación de áreas de trabajo
               displayName: 'authentication, auth, oauth'
               href: how-to-setup-authentication.md
-            - name: Administración de los usuarios y los roles.
+            - name: Autenticación de servicio web
+              displayName: 'authentication, model, web service'
+              href: how-to-authenticate-web-service.md
+            - name: Administración de accesos (autorización)
               href: how-to-assign-roles.md
-            - name: Uso de identidades administradas para el control de acceso
+            - name: Identidades administradas para el control de acceso
               href: how-to-use-managed-identities.md
-            - name: "Uso de la identidad de Azure\_AD en implementaciones de AKS"
+            - name: "Identidad de Azure\_AD en implementaciones de AKS"
               href: how-to-use-azure-ad-identity.md
         - name: Seguridad de las redes
           items:

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 6dfee84c44643823a4ec76c32e750febc6646be5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908062"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323784"
 ---
 # <a name="evaluate-model-module"></a>Módulo Evaluate Model
 
@@ -30,7 +30,7 @@ Use este módulo para medir la precisión de un modelo entrenado. Hay que propor
 
 
 > [!TIP]
-> Si no está familiarizado con la evaluación de modelos, le recomendamos la serie de vídeos del Dr. Stephen Elston, como parte del [curso de aprendizaje automático](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) de EdX. 
+> Si no está familiarizado con la evaluación de modelos, le recomendamos la serie de vídeos del Dr. Stephen Elston, como parte del [curso de aprendizaje automático](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials) de EdX. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>Cómo usar Evaluar modelo
@@ -39,6 +39,14 @@ Use este módulo para medir la precisión de un modelo entrenado. Hay que propor
     > Si se usan módulos como "Seleccionar columnas en conjunto de datos" para seleccionar parte del conjunto de datos de entrada, asegúrese de que la columna de etiqueta Real (usada en el entrenamiento) y las columnas "Probabilidades puntuadas" y "Etiquetas puntuadas" existen para calcular métricas como AUC o Precisión para la clasificación binaria/detección de anomalías.
     > La columna de etiqueta Real y la columna "Etiquetas puntuadas" existen para calcular las métricas para la clasificación o regresión de varias clases.
     > La columna "Assignments" y las columnas "DistancesToClusterCenter no.X" (X es índice centroide, que va de 0, ..., a número de centroides -1) existen para calcular las métricas de la agrupación en clústeres.
+
+    > [!IMPORTANT]
+    > + Para evaluar los resultados, el conjunto de datos de resultados debe contener nombres de columnas de puntuación específicos que cumplan con los requisitos del módulo Evaluación del modelo.
+    > + La columna `Labels` se considerará como etiquetas reales.
+    > + En la tarea de regresión, el conjunto de datos que se va a evaluar debe tener una columna, denominada `Regression Scored Labels`, que representa las etiquetas con puntuación.
+    > + En la tarea de clasificación binaria, el conjunto de datos que se va a evaluar debe tener dos columnas, denominadas `Binary Class Scored Labels` y `Binary Class Scored Probabilities`, que representan las etiquetas con puntuación y las probabilidades, respectivamente.
+    > + En la tarea de clasificación múltiple, el conjunto de datos que se va a evaluar debe tener una columna, denominada `Multi Class Scored Labels`, que representa las etiquetas con puntuación.
+    > Si las salidas del módulo ascendente no tienen estas columnas, debe modificarse según los requisitos anteriores.
 
 2. [Opcional] Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](./score-model.md) (Puntuar modelo) o la salida del conjunto de datos Resultado de Assign Data to Clusters (Asignar datos a los clústeres) del segundo modelo al puerto de entrada **derecho** de **Evaluate Model** (Evaluar modelo). Puede comparar fácilmente los resultados de dos modelos distintos con los mismos datos. Los dos algoritmos de entrada deben ser del mismo tipo. O bien, puede comparar las puntuaciones de las dos ejecuciones diferentes con los mismos datos con parámetros diferentes.
 
@@ -51,12 +59,12 @@ Use este módulo para medir la precisión de un modelo entrenado. Hay que propor
 
 Después de ejecutar **Evaluate Model** (Evaluar modelo), seleccione el módulo para abrir el panel de navegación **Evaluate Model** (Evaluar modelo) a la derecha.  Luego, elija la pestaña **Outputs + Logs** (Salidas y registros) y, en esa pestaña, la sección **Data Outputs** (Salidas de datos) tiene varios iconos. El icono **Visualizar** tiene un icono gráfico de barras y es una primera forma de ver los resultados.
 
-En el caso de la clasificación binaria, después de hacer clic en el icono **Visualizar**, puede visualizar la matriz de confusión binaria.
-En el caso de la clasificación múltiple, puede encontrar el archivo de trazado de la matriz de confusión en la pestaña **Salidas y registros**, como se muestra a continuación:
+En el caso de la clasificación binaria, después de hacer clic en el icono **Visualizar** , puede visualizar la matriz de confusión binaria.
+En el caso de la clasificación múltiple, puede encontrar el archivo de trazado de la matriz de confusión en la pestaña **Salidas y registros** , como se muestra a continuación:
 > [!div class="mx-imgBorder"]
 > ![Vista previa de la imagen cargada](media/module/multi-class-confusion-matrix.png)
 
-Si conecta los conjuntos de datos a las dos entradas de **Evaluate Model**, los resultados contendrán las métricas para ambos conjuntos de datos, o ambos modelos.
+Si conecta los conjuntos de datos a las dos entradas de **Evaluate Model** , los resultados contendrán las métricas para ambos conjuntos de datos, o ambos modelos.
 El modelo o los datos conectados al puerto izquierdo aparecen en primer lugar en el informe, seguido de las métricas del conjunto de datos, o el modelo conectado al puerto derecho.  
 
 Por ejemplo, la imagen siguiente representa una comparación de los resultados de dos modelos de agrupación en clústeres que se crearon con los mismos datos, pero con distintos parámetros.  
@@ -67,7 +75,7 @@ Debido a que se trata de un modelo de agrupación en clústeres, los resultados 
 
 ## <a name="metrics"></a>Métricas
 
-Esta sección describe las métricas devueltas para los tipos específicos de los modelos admitidos para su uso con **Evaluate Model**:
+Esta sección describe las métricas devueltas para los tipos específicos de los modelos admitidos para su uso con **Evaluate Model** :
 
 + [Modelos de clasificación](#metrics-for-classification-models)
 + [Modelos de regresión](#metrics-for-regression-models)
@@ -105,7 +113,7 @@ Las métricas devueltas para los modelos de regresión están diseñadas para es
   
 
   
-- **Coeficiente de determinación**: a menudo conocido como R<sup>2</sup>, representa la eficacia predictiva del modelo como un valor entre 0 y 1. Cero significa que el modelo es aleatorio (no explica nada); 1 significa que hay un ajuste perfecto. Pero hay que tener precaución al interpretar los valores de R<sup>2</sup>, ya que los valores bajos pueden ser completamente normales y los valores altos pueden ser sospechosos.
+- **Coeficiente de determinación** : a menudo conocido como R <sup>2</sup>, representa la eficacia predictiva del modelo como un valor entre 0 y 1. Cero significa que el modelo es aleatorio (no explica nada); 1 significa que hay un ajuste perfecto. Pero hay que tener precaución al interpretar los valores de R<sup>2</sup>, ya que los valores bajos pueden ser completamente normales y los valores altos pueden ser sospechosos.
 
 ###  <a name="metrics-for-clustering-models"></a>Métricas para modelos de agrupación en clústeres
 
@@ -134,4 +142,4 @@ Se notifican las siguientes métricas para evaluar los modelos de agrupación en
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

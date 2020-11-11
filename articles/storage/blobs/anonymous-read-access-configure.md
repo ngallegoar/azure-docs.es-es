@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931077"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313976"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configuración de acceso de lectura público anónimo a contenedores y blobs
 
@@ -53,10 +53,7 @@ No permitir el acceso público para la cuenta de almacenamiento impide el acceso
 
 Para permitir o denegar el acceso público a una cuenta de almacenamiento, configure la propiedad **AllowBlobPublicAccess** de la cuenta. Esta propiedad está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Para más información, consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
 
-> [!NOTE]
-> La propiedad **AllowBlobPublicAccess** no se establece de forma predeterminada y no devuelve un valor hasta que se establece de forma explícita. La cuenta de almacenamiento permite el acceso público cuando el valor de la propiedad es **NULL** o **true**.
->
-> La propiedad **AllowBlobPublicAccess** solo está disponible para las cuentas de almacenamiento de la nube pública de Azure y en las nubes de Azure Government.
+La propiedad **AllowBlobPublicAccess** no se establece de forma predeterminada y no devuelve un valor hasta que se establece de forma explícita. La cuenta de almacenamiento permite el acceso público cuando el valor de la propiedad es **NULL** o **true**.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -135,7 +132,7 @@ az storage account show \
 Para permitir o denegar el acceso público de una cuenta de almacenamiento con una plantilla, cree una plantilla con la propiedad **AllowBlobPublicAccess** establecida en **true** o **false**. En los siguientes pasos se muestra cómo crear una plantilla en Azure Portal.
 
 1. En Azure Portal, elija **Crear un recurso**.
-1. En **Buscar en Marketplace**, escriba **implementación de plantillas** y, después, presione **ENTRAR**.
+1. En **Buscar en Marketplace** , escriba **implementación de plantillas** y, después, presione **ENTRAR**.
 1. Elija la opción de **implementación de plantillas (implementación con plantillas personalizadas; versión preliminar)** , seleccione **Crear** y, a continuación, elija **Compilar su propia plantilla en el editor**.
 1. En el editor de plantillas, pegue el siguiente código JSON para crear una cuenta nueva y establecer la propiedad **AllowBlobPublicAccess** en **true** o **false**. No olvide reemplazar los valores de los marcadores de posición entre corchetes angulares con sus propios valores.
 
@@ -207,7 +204,7 @@ Para actualizar el nivel de acceso público en uno o varios contenedores desde A
 
 Cuando el acceso público no está permitido en la cuenta de almacenamiento, no es posible establecer el nivel de acceso público de ningún contenedor. Si intenta establecer el nivel de acceso público del contenedor, verá que el valor está deshabilitado porque el acceso público no está permitido para la cuenta.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Captura de pantalla que muestra cómo permitir o no permitir el acceso público a blobs en una cuenta":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Captura de pantalla que muestra que el valor del nivel de acceso público del contenedor está bloqueado cuando no se permite el acceso público":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

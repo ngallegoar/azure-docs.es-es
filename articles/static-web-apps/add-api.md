@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: c84367a5e3ab57090f59196e8474c14cba87f32b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e90c023fa74711246c2e6e69eb576695e86a457
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250154"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128511"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Incorporación de una API en la versión preliminar de Azure Static Web Apps con Azure Functions
 
@@ -33,7 +33,7 @@ Puede agregar API sin servidor a Azure Static Web Apps a través de la integraci
 En los pasos siguientes se muestra cómo crear un nuevo repositorio y clonar los archivos en el equipo.
 
 1. Asegúrese de que ha iniciado sesión en GitHub y, a continuación, vaya a https://github.com/staticwebdev/vanilla-basic/generate para crear un nuevo repositorio.
-1. En el cuadro _Nombre del repositorio_, escriba **my-vanilla-api**.
+1. En el cuadro _Nombre del repositorio_ , escriba **my-vanilla-api**.
 1. Haga clic en **Create repository from template** (Crear repositorio a partir de plantilla).
 
    :::image type="content" source="media/add-api/create-repository.png" alt-text="Creación de un nuevo repositorio a partir de vanilla-basic":::
@@ -43,7 +43,7 @@ Una vez creado el proyecto, copie la dirección URL en el explorador del nuevo r
 1. Presione **F1** para abrir un comando en la paleta de comandos.
 1. Pegue la dirección URL en el cuadro _Git: Clone_ (Git: Clonar) y presione **Entrar**.
 
-   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Creación de un nuevo repositorio a partir de vanilla-basic":::
+   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Clonación de un proyecto de GitHub con Visual Studio Code":::
 
     Siga las indicaciones para seleccionar una ubicación del repositorio para clonar el proyecto.
 
@@ -51,7 +51,7 @@ Una vez creado el proyecto, copie la dirección URL en el explorador del nuevo r
 
 A continuación, cree un proyecto de Azure Functions como la API de la aplicación. 
 
-1. Dentro del proyecto _my-vanilla-api_, cree una subcarpeta denominada **api**.
+1. Dentro del proyecto _my-vanilla-api_ , cree una subcarpeta denominada **api**.
 1. Presione **F1** para abrir la paleta de comandos.
 1. Escriba **Azure Functions: Crear nuevo proyecto...**
 1. Presione **Entrar**.
@@ -59,14 +59,14 @@ A continuación, cree un proyecto de Azure Functions como la API de la aplicaci�
 1. Seleccione la carpeta **api** como directorio del área de trabajo del proyecto.
 1. Elija **Seleccionar**.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Creación de un nuevo repositorio a partir de vanilla-basic":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Captura de pantalla que muestra la carpeta API y el botón Seleccionar.":::
 
 1. Escriba la siguiente información cuando se le indique:
 
-    - _Seleccione un lenguaje_: Elija **JavaScript**.
-    - _Seleccione una plantilla para la primera función del proyecto_: Elija **desencadenador HTTP**.
-    - _Especifique un nombre de función_: escriba **GetMessage**.
-    - _Nivel de autorización_: Elija **Anonymous** (anónimo), que permite que cualquiera llame al punto de conexión de la función.
+    - _Seleccione un lenguaje_ : Elija **JavaScript**.
+    - _Seleccione una plantilla para la primera función del proyecto_ : Elija **desencadenador HTTP**.
+    - _Especifique un nombre de función_ : escriba **GetMessage**.
+    - _Nivel de autorización_ : Elija **Anonymous** (anónimo), que permite que cualquiera llame al punto de conexión de la función.
         - Para obtener información sobre los niveles de autorización, consulte [Claves de autorización](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 Visual Studio Code genera un proyecto de Azure Functions con una función de desencadenador de HTTP.
@@ -145,13 +145,13 @@ Visual Studio Code se integra con [Azure Functions Core Tools](../azure-functio
 
     Core Tools muestra la salida de la aplicación en ejecución en el panel _Terminal_. Como parte de la salida, puede ver el punto de conexión de la dirección URL de la función desencadenada por HTTP que se ejecuta localmente.
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Creación de un nuevo repositorio a partir de vanilla-basic":::
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Captura de pantalla que muestra la pestaña TERMINAL en la que puede ver la dirección URL.":::
 
 1. Con las herramientas principales en ejecución, vaya a la siguiente dirección URL para comprobar que la API se está ejecutando correctamente: `http://localhost:7071/api/message`.
 
    La respuesta en el explorador debe ser similar a la del ejemplo siguiente:
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Creación de un nuevo repositorio a partir de vanilla-basic":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Texto Alternativo Captura de pantalla que muestra una respuesta de texto en un explorador.":::
 
 1. Para detener la sesión de depuración, presione **Mayús+F5**.
 
@@ -199,7 +199,7 @@ Cuando se implementan en Azure, las solicitudes a la API se enrutan automáticam
 
     Ahora debería ver el mensaje de la API en la página web.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Creación de un nuevo repositorio a partir de vanilla-basic":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Captura de pantalla que muestra el mensaje de la API en un explorador.":::
 
    > [!NOTE]
    > Puede usar otros servidores proxy o HTTP para proporcionar el archivo `index.html`. No podrá acceder a `index.html` desde `file:///`.
@@ -245,17 +245,17 @@ A continuación, agregue los siguientes detalles de compilación.
 1. Haga clic en **Revisar + crear**.
 1. Haga clic en el botón **Crear**.
 
-    Una vez que haga clic en el botón _Crear_, Azure realizará dos acciones. En primer lugar, se crean los servicios en la nube subyacentes para admitir la aplicación. Después, un proceso en segundo plano comienza a compilar e implementar la aplicación.
+    Una vez que haga clic en el botón _Crear_ , Azure realizará dos acciones. En primer lugar, se crean los servicios en la nube subyacentes para admitir la aplicación. Después, un proceso en segundo plano comienza a compilar e implementar la aplicación.
 
 1. Haga clic en el botón **Ir al recurso** para acceder a la página _Información general_ de la aplicación web.
 
     Mientras que la aplicación se está generando en segundo plano, puede hacer clic en el banner que contiene un vínculo para ver el estado de la compilación.
 
-    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Creación de un nuevo repositorio a partir de vanilla-basic":::
+    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Flujo de trabajo de GitHub":::
 
 1. Una vez completada la implementación, puede navegar a la aplicación web haciendo clic en el vínculo _URL_ que se muestra en la página _Información general_.
 
-    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Creación de un nuevo repositorio a partir de vanilla-basic":::
+    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Acceso a la dirección URL de la aplicación estática desde Azure Portal":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -265,7 +265,7 @@ Si no quiere conservar esta aplicación para usos adicionales, puede usar los pa
 1. En la barra de búsqueda de la parte superior, escriba **Grupos de recursos**.
 1. Haga clic en **Grupos de recursos**.
 1. Seleccione **myResourceGroup**.
-1. En la página _myResourceGroup_, asegúrese de que los recursos enumerados sean los que desea eliminar.
+1. En la página _myResourceGroup_ , asegúrese de que los recursos enumerados sean los que desea eliminar.
 1. Seleccionar **Eliminar**
 1. Escriba **myResourceGroup** en el cuadro de texto.
 1. Seleccione **Eliminar**.

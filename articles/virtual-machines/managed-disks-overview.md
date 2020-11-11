@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972040"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289357"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introducción a los discos administrados de Azure
 
@@ -59,7 +59,7 @@ Para aprender a transferir un disco duro virtual a Azure, consulte los artículo
 
 ### <a name="private-links"></a>Vínculos privados
 
-La compatibilidad de Private Link con discos administrados se encuentra actualmente en versión preliminar y se puede usar para importar o exportar un disco administrado interno a la red. Los vínculos privados le permiten generar un identificador URI de firma de acceso compartido (SAS) con límite de tiempo para los discos administrados no conectados y las instantáneas que puede usar para exportar los datos a otras regiones para la expansión regional, la recuperación ante desastres y el análisis forense. También puede usar el identificador URI de SAS para cargar directamente un VHD en un disco vacío desde su entorno local. Ahora puede aprovechar los [vínculos privados](../private-link/private-link-overview.md) para restringir la exportación e importación de discos administrados para que solo pueda realizarse desde la red virtual de Azure. Los vínculos privados permiten garantizar que los datos solo viajan dentro de la red troncal segura de Microsoft.
+La compatibilidad de Private Link con discos administrados se puede usar para importar o exportar un disco administrado interno a la red. Los vínculos privados le permiten generar un identificador URI de firma de acceso compartido (SAS) con límite de tiempo para los discos administrados no conectados y las instantáneas que puede usar para exportar los datos a otras regiones para la expansión regional, la recuperación ante desastres y el análisis forense. También puede usar el identificador URI de SAS para cargar directamente un VHD en un disco vacío desde su entorno local. Ahora puede aprovechar los [vínculos privados](../private-link/private-link-overview.md) para restringir la exportación e importación de discos administrados para que solo pueda realizarse desde la red virtual de Azure. Los vínculos privados permiten garantizar que los datos solo viajan dentro de la red troncal segura de Microsoft.
 
 Para obtener información sobre cómo habilitar los vínculos privados para importar o exportar un disco administrado, consulte los artículos sobre la [CLI](linux/disks-export-import-private-links-cli.md) o el [portal](disks-enable-private-links-for-import-export-portal.md).
 

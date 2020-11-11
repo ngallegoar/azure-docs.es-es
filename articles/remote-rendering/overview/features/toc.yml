@@ -18,6 +18,8 @@
   href: color-materials.md
 - name: Representación de esquemas
   href: outlines.md
+- name: Representación del shell
+  href: shell-effect.md
 - name: Representación en una sola cara
   href: single-sided-rendering.md
 - name: Consultas espaciales

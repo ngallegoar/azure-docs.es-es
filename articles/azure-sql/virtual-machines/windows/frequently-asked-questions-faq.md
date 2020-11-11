@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3d8908739d6dda76f4c3d44540c36b36115d6f5
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786503"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289397"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Preguntas más frecuentes sobre SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -169,7 +169,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Puedo desinstalar la instancia predeterminada de SQL Server?**
 
-   Sí, pero debe tener en cuenta algunas consideraciones. En primer lugar, es posible que sigan aplicándose cargos por facturación asociada con SQL Server en función del modelo de licencia de la máquina virtual. En segundo lugar, tal como se ha mencionado en la respuesta anterior, hay características que dependen de la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). Si desinstala la instancia predeterminada sin haber eliminado la extensión IaaS, la extensión continuará buscando la instancia predeterminada y puede generar errores de registro de eventos. Estos errores proceden de los dos orígenes siguientes: **Administración de credenciales de Microsoft SQL Server** y **Agente de IaaS de Microsoft SQL Server** . Es posible que uno de los errores sea similar al siguiente:
+   Sí, pero debe tener en cuenta algunas consideraciones. En primer lugar, es posible que sigan aplicándose cargos por facturación asociada con SQL Server en función del modelo de licencia de la máquina virtual. En segundo lugar, tal como se ha mencionado en la respuesta anterior, hay características que dependen de la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). Si desinstala la instancia predeterminada sin haber eliminado la extensión IaaS, la extensión continuará buscando la instancia predeterminada y puede generar errores de registro de eventos. Estos errores proceden de los dos orígenes siguientes: **Administración de credenciales de Microsoft SQL Server** y **Agente de IaaS de Microsoft SQL Server**. Es posible que uno de los errores sea similar al siguiente:
 
       Se ha producido un error relacionado con la red o específico de la instancia al establecer una conexión en SQL Server. No se encontró el servidor o no era accesible.
 
@@ -177,7 +177,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Puedo usar una instancia con nombre de SQL Server con la extensión IaaS?**
    
-   Sí, en caso de que la instancia con nombre sea la única instancia de SQL Server y que la instancia predeterminada original se haya [desinstalado correctamente](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Si no hay ninguna instancia predeterminada y hay varias instancias con nombre en una única máquina virtual con SQL Server, no se podrá instalar la extensión Agente de IaaS de SQL Server. 
+   Sí, en caso de que la instancia con nombre sea la única instancia de SQL Server y que la instancia predeterminada original se haya [desinstalado correctamente](sql-server-iaas-agent-extension-automate-management.md#named-instance-support). Si no hay ninguna instancia predeterminada y hay varias instancias con nombre en una única máquina virtual con SQL Server, no se podrá instalar la extensión Agente de IaaS de SQL Server.  
 
 1. **¿Puedo quitar SQL Server y la facturación de licencias asociada de una VM con SQL Server?**
 
@@ -210,7 +210,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Puedo actualizar mi instancia de SQL Server 2008/2008 R2 después de registrarla con el proveedor de recursos de máquina virtual con SQL Server?**
 
-   Sí. Puede usar cualquier soporte de instalación para actualizar la versión y edición de SQL Server y, a continuación, puede actualizar el [modo de la extensión IaaS de SQL](sql-vm-resource-provider-register.md#management-modes)) de _sin agente_ a _completo_ . Esto le dará acceso a todas las ventajas de la extensión IaaS de SQL, como la capacidad de administración de portal, las copias de seguridad automáticas y la aplicación de revisiones automatizada. 
+   Si el sistema operativo es Windows Server 2008 R2 o una versión posterior, sí. Puede usar cualquier soporte de instalación para actualizar la versión y edición de SQL Server y, a continuación, puede actualizar el [modo de la extensión IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md#management-modes)) de _sin agente_ a _completo_. Esto le dará acceso a todas las ventajas de la extensión IaaS de SQL, como la capacidad de administración de portal, las copias de seguridad automáticas y la aplicación de revisiones automatizada. Si la versión del sistema operativo es Windows Server 2008, solo se admite el modo NoAgent. 
 
 1. **¿Cómo puedo obtener actualizaciones de seguridad ampliadas gratuitas para el fin del soporte de mis instancias de SQL Server 2008 y SQL Server 2008 R2?**
 
@@ -225,7 +225,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    Sí. Puede instalar una instancia del clúster de conmutación por error mediante [recursos compartidos de archivos Premium (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) o de [espacios de almacenamiento directo (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) para el subsistema de almacenamiento. Los recursos compartidos de archivos Premium proporcionan funcionalidades de IOPS y rendimiento para responder a las necesidades de varias cargas de trabajo. Sin embargo, en el caso de cargas de trabajo con un uso intensivo de E/S, considere el uso de espacios de almacenamiento directo basado en discos o ultradiscos Premium administrados. También puede usar soluciones de agrupación en clústeres o almacenamiento de terceros como se describe en [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
-   > En este momento, la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md) _completa_ no es compatible con FCI de SQL Server en Azure. Recomendamos que desinstale la extensión _completa_ de las máquinas virtuales que participan en la FCI y que, en su lugar, instale la extensión en modo _ligero_ . Esta extensión admite características, como las copias de seguridad automáticas y la aplicación de revisiones automatizada y algunas características del portal de SQL Server. Estas características no funcionarán para las máquinas virtuales con SQL Server después de desinstalar el agente _completo_ .
+   > En este momento, la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md) _completa_ no es compatible con FCI de SQL Server en Azure. Recomendamos que desinstale la extensión _completa_ de las máquinas virtuales que participan en la FCI y que, en su lugar, instale la extensión en modo _ligero_. Esta extensión admite características, como las copias de seguridad automáticas y la aplicación de revisiones automatizada y algunas características del portal de SQL Server. Estas características no funcionarán para las máquinas virtuales con SQL Server después de desinstalar el agente _completo_.
 
 1. **¿Cuál es la diferencia entre las máquinas virtuales con SQL Server y el servicio SQL Database?**
 

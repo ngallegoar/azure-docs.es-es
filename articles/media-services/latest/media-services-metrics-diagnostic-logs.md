@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296658"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309062"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Supervisión de métricas y registros de diagnóstico de Media Services a través de Azure Monitor
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Supervisión de métricas y registros de diagnóstico de Media Services con Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -67,8 +67,10 @@ Se admiten estas métricas de [Puntos de conexión de streaming](/rest/api/media
 |Requests|Requests|Proporciona el número total de solicitudes HTTP atendidas por el punto de conexión de streaming.|
 |Salida|Salida|Bytes de salida totales por minuto por punto de conexión de streaming.|
 |SuccessE2ELatency|Latencia correcta de extremo a extremo|Tiempo que transcurre desde que el punto de conexión de streaming recibió la solicitud hasta el momento en que se envió el último byte de la respuesta.|
+|Uso de CPU| Uso de CPU para puntos de conexión de streaming prémium. Estos datos no están disponibles para los puntos de conexión de streaming estándar. |
+|Ancho de banda de salida | Ancho de banda de salida en bits por segundo.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>¿Por qué querría usar las métricas?
+### <a name="metrics-are-useful"></a>Las métricas son útiles.
 
 Estos son algunos ejemplos de cómo la supervisión de las métricas de Media Services puede ayudarle a comprender el rendimiento de las aplicaciones. Algunas preguntas que se pueden solucionar con Media Services métricas son:
 
@@ -79,6 +81,8 @@ Estos son algunos ejemplos de cómo la supervisión de las métricas de Media Se
 * ¿Cómo puedo ver el desglose de las solicitudes con errores y qué está causando el error?
 * ¿Cómo puedo ver cuántas solicitudes HLS o DASH se extraen del empaquetador?
 * ¿Cómo puedo establecer una alerta para saber cuándo se alcanza el umbral de n.º de solicitudes erróneas?
+
+La simultaneidad se convierte en un problema para el número de puntos de conexión de streaming que se usan en una sola cuenta a lo largo del tiempo. Debe tener en cuenta la relación entre el número de flujos de streaming simultáneos con parámetros de publicación complejos, como el empaquetado dinámico para varios protocolos, varios cifrados DRM, etc. Cada streaming en vivo publicado adicional se agrega a la CPU y al ancho de banda de salida del punto de conexión de streaming. Teniendo esto en cuenta, debe usar Azure Monitor para supervisar de cerca la utilización del punto de conexión de streaming (CPU y capacidad de salida) para asegurarse de que lo está escalando correctamente (o dividir el tráfico entre varios puntos de conexión de streaming si está obteniendo una simultaneidad muy alta).
 
 ### <a name="example"></a>Ejemplo
 

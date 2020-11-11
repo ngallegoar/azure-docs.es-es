@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341556"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312042"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Protección del área de trabajo de Synapse (versión preliminar) 
 
@@ -51,8 +51,6 @@ Cree y rellene tres grupos de seguridad para el área de trabajo:
 - **WS1\_WSAdmins** : para los usuarios que necesitan control completo sobre el área de trabajo.
 - **WS1\_SparkAdmins** : para aquellos usuarios que necesitan control completo sobre las características de Spark del área de trabajo.
 - **WS1\_SQLAdmins** : para aquellos usuarios que necesitan control completo sobre las características de SQL del área de trabajo.
-- Agregue **WS1\_WSAdmins** a **WS1\_SQLAdmins**
-- Agregue **WS1\_WSAdmins** a **WS1\_SparkAdmins**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASO 2: Preparación de una cuenta de Azure Data Lake Storage Gen2
 
@@ -65,16 +63,16 @@ Identifique esta información sobre su instancia de almacenamiento:
 
 - Mediante Azure Portal, asigne los grupos de seguridad a los siguientes roles de CNT1.
 
-  - Asigne el grupo **WS1\_WSAdmins** al rol **Colaborador de datos de Storage Blob** .
-  - Asigne el grupo **WS1\_SparkAdmins** al rol **Colaborador de datos de Storage Blob** .
-  - Asigne el grupo **WS1\_SQLAdmins** al rol **Colaborador de datos de Storage Blob** .
+  - Asigne el grupo **WS1\_WSAdmins** al rol **Colaborador de datos de Storage Blob**.
+  - Asigne el grupo **WS1\_SparkAdmins** al rol **Colaborador de datos de Storage Blob**.
+  - Asigne el grupo **WS1\_SQLAdmins** al rol **Colaborador de datos de Storage Blob**.
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>PASO 3: Creación y configuración del área de trabajo de Synapse
 
  En Azure Portal, cree un área de trabajo de Synapse:
 
 - Seleccione su suscripción.
-- Seleccione el grupo de recursos: debe tener acceso a un grupo de recursos en el que tenga asignado el rol **Propietario** .
+- Seleccione el grupo de recursos: debe tener acceso a un grupo de recursos en el que tenga asignado el rol **Propietario**.
 - Asigne el nombre WS1 al área de trabajo.
 - Seleccione STG1 en la cuenta de almacenamiento. Elija CNT1 para el contenedor que se usará como "sistema de archivos".
 - Abra WS1 en Synapse Studio.
@@ -94,11 +92,11 @@ El área de trabajo de Synapse necesita acceso a STG1 y CNT1 para que ejecutar c
   - Si no lo está, asígnelo.
   - El MSI tiene el mismo nombre que el área de trabajo. En este caso, sería &quot;WS1&quot;.
 
-## <a name="step-5-configure-admin-access-for-sql-pools"></a>PASO 5: Configuración del acceso de administrador para los grupos de SQL
+## <a name="step-5-configure-admin-access-for-synapse-sql"></a>PASO 5: Configuración del acceso de administrador para Synapse SQL
 
 - Abra Azure Portal.
 - Vaya a al área de trabajo WS1.
-- En **Configuración** , seleccione **Administrador de SQL Active Directory** .
+- En **Configuración** , seleccione **Administrador de SQL Active Directory**.
 - Seleccione **Establecer administrador** y seleccione WS1\_SQLAdmins.
 
 ## <a name="step-6-maintain-access-control"></a>PASO 6: Mantenimiento del control de acceso
@@ -116,11 +114,11 @@ Los usuarios de cada rol deben completar los siguientes pasos:
 | Number | Paso | Administradores de áreas de trabajo | Administradores de Spark | Administradores de SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Cargar un archivo Parquet en CNT1 | SÍ | SÍ | SÍ |
-| 2 | Leer el archivo Parquet mediante SQL a petición | SÍ | No | SÍ |
-| 3 | Crear un grupo de Spark | SÍ [1] | SÍ [1] | No  |
+| 2 | Leer el archivo Parquet mediante un grupo de SQL sin servidor | SÍ | No | SÍ |
+| 3 | Crear un grupo de Apache Spark sin servidor | SÍ [1] | SÍ [1] | No  |
 | 4 | Leer el archivo Parquet con una instancia de Notebook | SÍ | SÍ | No |
 | 5 | Crear una canalización desde la instancia de Notebook y desencadenar la canalización para ejecutarse ahora | SÍ | No | No |
-| 6 | Crear un grupo de SQL y ejecutar un script de SQL como &quot;SELECT 1&quot; | SÍ [1] | No | SÍ [1] |
+| 6 | Crear un grupo de SQL dedicado y ejecutar un script de SQL como &quot;SELECT 1&quot; | SÍ [1] | No | SÍ [1] |
 
 > [!NOTE]
 > [1] Para crear grupos de SQL o Spark, el usuario debe tener como mínimo el rol de Colaborador en el área de trabajo de Synapse.
@@ -150,8 +148,8 @@ Synapse Studio se comportará de forma diferente en función de los roles de usu
 | Centro de datos / ver los contenedores y las cuentas de ADLS Gen2 vinculados | SÍ [1] | SÍ [1] | SÍ [1] |
 | Centro de datos: ver las bases de datos | SÍ | SÍ | SÍ |
 | Centro de datos: ver los objetos en las bases de datos | SÍ | SÍ | SÍ |
-| Centro de datos: acceso a datos en las bases de datos del grupo de SQL | SÍ   | No   | SÍ   |
-| Centro de datos: acceso a datos en las bases de datos de SQL a petición | SÍ [2]  | No  | SÍ [2]  |
+| Centro de datos: acceso a datos en las bases de datos de Synapse SQL | SÍ   | No   | SÍ   |
+| Centro de datos: acceso a datos en las bases de datos del grupo de SQL sin servidor | SÍ [2]  | No  | SÍ [2]  |
 | Centro de datos: acceso a datos en las bases de datos de Spark | SÍ [2] | SÍ [2] | SÍ [2] |
 | Usar el centro de desarrollo | SÍ | SÍ | SÍ |
 | Centro de desarrollo: crear scripts de SQL | SÍ | No | SÍ |
@@ -161,7 +159,7 @@ Synapse Studio se comportará de forma diferente en función de los roles de usu
 | Usar el centro de orquestación | SÍ | SÍ | SÍ |
 | Centro de orquestación: usar las canalizaciones | SÍ | No | No |
 | Usar el centro de administración | SÍ | SÍ | SÍ |
-| Centro de administración: grupos de SQL | SÍ | No | SÍ |
+| Centro de administración: Synapse SQL | SÍ | No | SÍ |
 | Centro de administración: grupos de Spark | SÍ | SÍ | No |
 | Centro de administración: desencadenadores | SÍ | No | No |
 | Centro de administración: servicios vinculados | SÍ | SÍ | SÍ |

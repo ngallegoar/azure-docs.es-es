@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 991e81c46a0cd6c587ac3366b63ba4da6a07f7e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336520"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312338"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: Uso de clústeres de Azure HDInsight Hadoop
 En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop para Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el muestreo de los datos. Para controlar las tareas predictivas de clasificación binaria y de clases múltiples, así como las de regresión, se generan modelos de datos con Azure Machine Learning. 
@@ -59,14 +59,14 @@ Los datos de NYC Taxi Trip son aproximadamente 20 GB de archivos de valores sep
 La clave única para unir trip\_data and trip\_fare se compone de los campos: medallion, hack\_license and pickup\_datetime. Para obtener todos los detalles correspondientes a una carrera concreta, es suficiente con combinar estas tres claves.
 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Ejemplos de tareas de predicción
-Determine el tipo de predicciones que quiere realizar según el análisis de datos para ayudar a clarificar las tareas de proceso necesarias. Estos son tres ejemplos de problemas de predicción que se abordan en este tutorial, todos basados en el importe de la propina, *tip\_amount*:
+Determine el tipo de predicciones que quiere realizar según el análisis de datos para ayudar a clarificar las tareas de proceso necesarias. Estos son tres ejemplos de problemas de predicción que se abordan en este tutorial, todos basados en el importe de la propina, *tip\_amount* :
 
-- **Clasificación binaria**: permite predecir si se dio propina en una carrera o no. Es decir, un *importe\_ de propina* que sea mayor que 0 $ es un ejemplo positivo, mientras que un *importe\_ de propina* de 0 $ es un ejemplo negativo.
+- **Clasificación binaria** : permite predecir si se dio propina en una carrera o no. Es decir, un *importe\_ de propina* que sea mayor que 0 $ es un ejemplo positivo, mientras que un *importe\_ de propina* de 0 $ es un ejemplo negativo.
 
   - Clase 0: tip_amount = 0 $
   - Clase 1: tip_amount > $0
 
-- **Clasificación multiclase**: permite predecir el rango de importes de propina pagados por la carrera. Dividimos *tip\_amount* en cinco clases:
+- **Clasificación multiclase** : permite predecir el rango de importes de propina pagados por la carrera. Dividimos *tip\_amount* en cinco clases:
 
   - Clase 0: tip_amount = 0 $
   - Clase 1: tip_amount > 0 $ y tip_amount < = 5 $
@@ -74,7 +74,7 @@ Determine el tipo de predicciones que quiere realizar según el análisis de dat
   - Clase 3: tip_amount > 10 $ y tip_amount < = 20 $
   - Clase 4: tip_amount > 20 $
 
-- **Tarea de regresión**: permite predecir el importe de la propina pagada por una carrera.  
+- **Tarea de regresión** : permite predecir el importe de la propina pagada por una carrera.  
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>Configuración de un clúster de Hadoop de HDInsight para el análisis avanzado
 > [!NOTE]
@@ -85,7 +85,7 @@ Determine el tipo de predicciones que quiere realizar según el análisis de dat
 Puede configurar un entorno de Azure para análisis avanzado que emplee un clúster de HDInsight en tres pasos:
 
 1. [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md): esta cuenta de almacenamiento se utiliza para almacenar datos en Azure Blob Storage. Los datos utilizados en los clústeres de HDInsight también se encuentran aquí.
-2. [Personalice los clústeres de Hadoop de HDInsight de Azure para la tecnología y procesos de análisis avanzado](customize-hadoop-cluster.md). Este paso crea un clúster de Hadoop de HDInsight con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Hay dos pasos importantes que debe recordar al personalizar el clúster de HDInsight.
+2. [Personalice los clústeres de Hadoop de HDInsight de Azure para la tecnología y procesos de análisis avanzado](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Este paso crea un clúster de Hadoop de HDInsight con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Hay dos pasos importantes que debe recordar al personalizar el clúster de HDInsight.
    
    * Recuerde vincular la cuenta de almacenamiento que creó en el paso 1 con el clúster de HDInsight en el momento de crearlo. Esta cuenta de almacenamiento tiene acceso a los datos que se procesan en el clúster.
    * Después de crear el clúster, debe habilitar el acceso remoto a su nodo principal. Navegue hasta la pestaña **Configuración** y haga clic en **Habilitar de forma remota**. Este paso especifica las credenciales de usuario usadas para el inicio de sesión remoto.
@@ -99,7 +99,7 @@ Puede configurar un entorno de Azure para análisis avanzado que emplee un clús
 
 Para copiar el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) en su equipo desde una ubicación pública, use cualquiera de los métodos descritos en [Mover datos hacia y desde Azure Blob Storage](move-azure-blob.md).
 
-Aquí se describe cómo utilizar AzCopy para transferir los archivos que contienen datos. Para descargar e instalar AzCopy, siga las indicaciones de [Introducción a la utilidad de línea de comandos AzCopy](../../storage/common/storage-use-azcopy.md).
+Aquí se describe cómo utilizar AzCopy para transferir los archivos que contienen datos. Para descargar e instalar AzCopy, siga las indicaciones de [Introducción a la utilidad de línea de comandos AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 
 1. Desde una ventana de símbolo del sistema, ejecute los siguientes comandos de AzCopy, donde debe reemplazar *\<path_to_data_folder>* por el destino deseado:
 
@@ -117,23 +117,23 @@ Aquí se describe cómo utilizar AzCopy para transferir los archivos que contien
 
 En los siguientes comandos de AzCopy, reemplace los siguientes parámetros con los valores reales que se especificó al crear el clúster de Hadoop y descomprimir los archivos de datos.
 
-* ***\<path_to_data_folder>***: el directorio (junto con la ruta de acceso) de la máquina que contiene los archivos de datos sin comprimir.  
-* ***\<storage account name of Hadoop cluster>***: cuenta de almacenamiento asociada al clúster de HDInsight.
-* ***\<default container of Hadoop cluster>***: contenedor predeterminado utilizado por el clúster. El nombre del contenedor predeterminado suele ser el mismo que el del propio clúster. Por ejemplo, si el clúster se llama "abc123.azurehdinsight.net", el contenedor predeterminado es abc123.
-* ***\<storage account key>***: clave para la cuenta de almacenamiento usada por el clúster.
+* * **\<path_to_data_folder>** _ el directorio (junto con la ruta de acceso) de la máquina que contiene los archivos de datos sin comprimir.  
+_* **\<storage account name of Hadoop cluster>** : cuenta de almacenamiento asociada al clúster de HDInsight.
+_* **\<default container of Hadoop cluster>** _: contenedor predeterminado utilizado por el clúster. El nombre del contenedor predeterminado suele ser el mismo que el del propio clúster. Por ejemplo, si el clúster se llama "abc123.azurehdinsight.net", el contenedor predeterminado es abc123.
+_* **\<storage account key>** _: clave para la cuenta de almacenamiento usada por el clúster.
 
 Desde un símbolo del sistema o una ventana de Windows PowerShell, ejecute los dos comandos siguientes de AzCopy.
 
-Este comando permite cargar los datos de carrera en el directorio ***nyctaxitripraw*** del contenedor predeterminado del clúster de Hadoop.
+Este comando permite cargar los datos de carrera en el directorio _*_nyctaxitripraw_*_ del contenedor predeterminado del clúster de Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
 ```
 
-Este comando permite cargar los datos de tarifas en el directorio ***nyctaxifareraw*** del contenedor predeterminado del clúster de Hadoop.
+Este comando permite cargar los datos de tarifas en el directorio * **nyctaxifareraw** _ del contenedor predeterminado del clúster de Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
 ```
 
 Los datos deben estar ahora en Azure Blob Storage, listos para usarse dentro del clúster de HDInsight.
@@ -144,7 +144,7 @@ Los datos deben estar ahora en Azure Blob Storage, listos para usarse dentro del
 > 
 > 
 
-Para tener acceso al nodo principal del clúster para el análisis de exploración de datos y la reducción de estos, siga el procedimiento descrito en [Acceso al nodo principal del clúster de Hadoop](customize-hadoop-cluster.md).
+Para tener acceso al nodo principal del clúster para el análisis de exploración de datos y la reducción de estos, siga el procedimiento descrito en [Acceso al nodo principal del clúster de Hadoop](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 En este tutorial se usan principalmente las consultas escritas en [Hive](https://hive.apache.org/), un lenguaje de consultas de tipo SQL, para realizar exploraciones preliminares de los datos. Las consultas de Hive se almacenan en archivos ".hql". A continuación, se reducen estos datos para su uso en Machine Learning con el fin de generar modelos.
 
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-Estos dos comandos descargan todos los archivos ".hql" necesarios en este tutorial en el directorio local ***C:\temp&#92;*** del nodo principal.
+Estos dos comandos descargan todos los archivos ".hql" necesarios en este tutorial en el directorio local * **C:\temp&#92;** _ del nodo principal.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Creación de base de datos y tablas de Hive con particiones por mes
 > [!NOTE]
@@ -182,7 +182,7 @@ Desde el símbolo del sistema del directorio de Hive, ejecute el siguiente coman
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-Este es el contenido del archivo **C:\temp\sample\_hive\_create\_db\_and\_tables.hql** que crea la base de datos de Hive **nyctaxidb** y las tablas **trip** y **fare**.
+Este es el contenido del archivo _ *C:\temp\sample\_hive\_create\_db\_and\_tables.hql* * que crea la base de datos de Hive **nyctaxidb** y las tablas **trip** y **fare**.
 
 ```hiveql
 create database if not exists nyctaxidb;
@@ -244,7 +244,7 @@ El conjunto de datos de taxis de Nueva York tiene una partición natural por mes
 for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 ```
 
-El archivo **sample\_hive\_load\_data\_by\_partitions.hql** contiene los siguientes comandos **LOAD**:
+El archivo **sample\_hive\_load\_data\_by\_partitions.hql** contiene los siguientes comandos **LOAD** :
 
 ```hiveql
 LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
@@ -261,7 +261,7 @@ hive -e "show databases;"
 ```
 
 ### <a name="show-the-hive-tables-in-the-nyctaxidb-database"></a><a name="#show-tables"></a>Visualización de las tablas de Hive en la base de datos **nyctaxidb**
-Para mostrar las tablas de la base de datos **nyctaxidb**, ejecute el siguiente comando en la línea de comandos de Hadoop:
+Para mostrar las tablas de la base de datos **nyctaxidb** , ejecute el siguiente comando en la línea de comandos de Hadoop:
 
 ```console
 hive -e "show tables in nyctaxidb;"
@@ -491,7 +491,7 @@ hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.
 
 Al explorar un conjunto de datos, con frecuencia se quieren examinar las distribuciones de grupos de valores. En esta sección se ofrece un ejemplo de cómo llevar a cabo este análisis para los taxis y los conductores.
 
-El archivo **sample\_hive\_trip\_count\_by\_medallion\_license.hql** agrupa el conjunto de datos de tarifas en función de los valores de **medallion** y **hack_license**, y devuelve los recuentos de cada combinación. A continuación se muestra su contenido:
+El archivo **sample\_hive\_trip\_count\_by\_medallion\_license.hql** agrupa el conjunto de datos de tarifas en función de los valores de **medallion** y **hack_license** , y devuelve los recuentos de cada combinación. A continuación se muestra su contenido:
 
 ```hiveql
 SELECT medallion, hack_license, COUNT(*) as trip_count
@@ -647,7 +647,7 @@ Para ver el tamaño de los blobs individuales, se ejecuta el siguiente comando d
 hdfs dfs -ls wasb:///queryoutputdir
 ```
 
-Para ver el contenido de un archivo determinado, por ejemplo, **000000\_0**, se usa el comando `copyToLocal` de Hadoop.
+Para ver el contenido de un archivo determinado, por ejemplo, **000000\_0** , se usa el comando `copyToLocal` de Hadoop.
 
 ```hiveql
 hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
@@ -669,11 +669,11 @@ Una ventaja clave de tener estos datos en un blob de Azure es que se pueden expl
 Después de la fase de análisis de exploración de datos, estamos preparados para reducir los datos y crear modelos en Machine Learning. En esta sección, se muestra cómo usar una consulta de Hive para reducir la muestra de datos. Después, Machine Learning accede a ellos desde el módulo [Importar datos][import-data].
 
 ### <a name="down-sampling-the-data"></a>Reducción de tamaño de los datos
-Este procedimiento incluye dos pasos. En primer lugar, se unen las tablas **nyctaxidb.trip** y **nyctaxidb.fare** en función de tres claves incluidas en todos los registros: **medallion**, **hack\_license** y **pickup\_datetime**. Después se genera una etiqueta de clasificación binaria **tipped** y una etiqueta de clasificación de múltiples clases **tip\_class**.
+Este procedimiento incluye dos pasos. En primer lugar, se unen las tablas **nyctaxidb.trip** y **nyctaxidb.fare** en función de tres claves incluidas en todos los registros: **medallion** , **hack\_license** y **pickup\_datetime**. Después se genera una etiqueta de clasificación binaria **tipped** y una etiqueta de clasificación de múltiples clases **tip\_class**.
 
 Para usar los datos muestreados directamente desde el módulo [Importar datos][import-data] de Machine Learning, debe almacenar los resultados de la consulta anterior en una tabla interna de Hive. En el paso siguiente, se crea una tabla interna de Hive y se rellena su contenido con los datos con muestreo reducido y combinados.
 
-La consulta aplica funciones estándar de Hive directamente para generar los siguientes parámetros de hora a partir del campo **pickup\_datetime**:
+La consulta aplica funciones estándar de Hive directamente para generar los siguientes parámetros de hora a partir del campo **pickup\_datetime** :
 - Hora del día
 - Semana del año
 - weekday ("1" equivale a lunes y "7" a domingo)
@@ -813,24 +813,24 @@ Para ejecutar esta consulta, escriba en el símbolo del sistema del directorio d
 hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 ```
 
-Ahora hay una tabla interna, **nyctaxidb.nyctaxi_downsampled_dataset**, a la que se puede acceder mediante el módulo [Importar datos][import-data] de Machine Learning. También se puede utilizar este conjunto de datos para generar modelos de Machine Learning.  
+Ahora hay una tabla interna, **nyctaxidb.nyctaxi_downsampled_dataset** , a la que se puede acceder mediante el módulo [Importar datos][import-data] de Machine Learning. También se puede utilizar este conjunto de datos para generar modelos de Machine Learning.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Uso del módulo Importar datos de Machine Learning para acceder a los datos muestreados
 Para la emisión de consultas de Hive en el módulo [Importar datos][import-data] de Machine Learning, se necesita acceso a un área de trabajo de Machine Learning. También se necesita acceso a las credenciales del clúster y su cuenta de almacenamiento asociada.
 
 Aquí se indican algunos detalles sobre el módulo [Importar datos][import-data] y los parámetros de entrada:
 
-**URI del servidor de HCatalog** : Si el nombre del clúster es **abc123**, sería: https:\//abc123.azurehdinsight.net.
+**URI del servidor de HCatalog** : Si el nombre del clúster es **abc123** , sería: https:\//abc123.azurehdinsight.net.
 
-**Nombre de la cuenta de usuario de Hadoop**: nombre de usuario elegido para el clúster (no es el nombre de usuario de acceso remoto).
+**Nombre de la cuenta de usuario de Hadoop** : nombre de usuario elegido para el clúster (no es el nombre de usuario de acceso remoto).
 
-**Contraseña de cuenta de usuario de Hadoop**: contraseña elegida para el clúster (no es la contraseña de acceso remoto).
+**Contraseña de cuenta de usuario de Hadoop** : contraseña elegida para el clúster (no es la contraseña de acceso remoto).
 
-**Ubicación de los datos de salida**: se elige para que sea Azure.
+**Ubicación de los datos de salida** : se elige para que sea Azure.
 
-**Nombre de la cuenta de Azure Storage**: nombre de la cuenta de almacenamiento predeterminada asociada al clúster.
+**Nombre de la cuenta de Azure Storage** : nombre de la cuenta de almacenamiento predeterminada asociada al clúster.
 
-**Nombre del contenedor de Azure**: nombre del contenedor predeterminado del clúster, que suele ser el mismo que el del clúster. En un clúster denominado **abc123**, el nombre es abc123.
+**Nombre del contenedor de Azure** : nombre del contenedor predeterminado del clúster, que suele ser el mismo que el del clúster. En un clúster denominado **abc123** , el nombre es abc123.
 
 > [!IMPORTANT]
 > Cualquier tabla que se quiera consultar mediante el módulo [Importar datos][import-data] de Machine Learning debe ser una tabla interna.
@@ -858,11 +858,11 @@ Ahora el conjunto de datos se puede usar como punto de partida para la creación
 ### <a name="build-models-in-machine-learning"></a><a name="mlmodel"></a>Creación de modelos en Machine Learning
 Ya puede pasar a la creación del modelo y la implementación del mismo en [Machine Learning](https://studio.azureml.net). Los datos ya están listos para usarlos con el fin de abordar los problemas de predicción identificados anteriormente:
 
-- **Clasificación binaria**: permite predecir si se dio propina en una carrera o no.
+- **Clasificación binaria** : permite predecir si se dio propina en una carrera o no.
 
   **Mecanismo de aprendizaje utilizado:** regresión logística de dos clases
 
-  a. En este problema la etiqueta de destino (o clase) es **tipped**. El conjunto de datos con muestreo reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de **tip\_class**, **tip\_amount** y **total\_amount**, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Estas columnas se quitan mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
+  a. En este problema la etiqueta de destino (o clase) es **tipped**. El conjunto de datos con muestreo reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de **tip\_class** , **tip\_amount** y **total\_amount** , que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Estas columnas se quitan mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
   El siguiente diagrama muestra nuestro experimento para predecir si se pagó o no una propina por una carrera determinada:
 
@@ -878,11 +878,11 @@ Ya puede pasar a la creación del modelo y la implementación del mismo en [Mach
 
   ![Gráfica del valor de AUC](./media/hive-walkthrough/8JDT0F8.png)
 
-- **Clasificación multiclase**: Permite predecir el intervalo de importes de propina pagadas por la carrera mediante las clases definidas anteriormente.
+- **Clasificación multiclase** : Permite predecir el intervalo de importes de propina pagadas por la carrera mediante las clases definidas anteriormente.
 
   **Mecanismo de aprendizaje utilizado:** regresión logística multiclase
 
-  a. En este problema, la etiqueta de destino (o clase) es **tip\_class**, que puede adoptar uno de cinco valores (0,1,2,3,4). Como en el caso de clasificación binaria, tenemos algunas columnas que son pérdidas de destino para este experimento. Se trata, en concreto, de: **tipped**, **tip\_amount** y **total\_amount**, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Estas columnas se quitan mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
+  a. En este problema, la etiqueta de destino (o clase) es **tip\_class** , que puede adoptar uno de cinco valores (0,1,2,3,4). Como en el caso de clasificación binaria, tenemos algunas columnas que son pérdidas de destino para este experimento. Se trata, en concreto, de: **tipped** , **tip\_amount** y **total\_amount** , que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Estas columnas se quitan mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
   En el siguiente diagrama se muestra el experimento para predecir en qué intervalo es probable que se sitúe una propina. Los intervalos son: Clase 0: propina = 0 USD, Clase 1: propina > 0 USD y propina <= 5 USD, Clase 2: propina > 5 USD y propina <= 10 USD, Clase 3: propina > 10 USD y propina <= 20 USD y Clase 4: propina > 20 USD.
 
@@ -898,11 +898,11 @@ Ya puede pasar a la creación del modelo y la implementación del mismo en [Mach
 
   Aunque la precisión en las clases frecuentes es buena, el modelo no hace un buen trabajo de "aprendizaje" en las clases menos frecuentes.
 
-- **Tarea de regresión**: Permite predecir el importe de la propina pagada por una carrera.
+- **Tarea de regresión** : Permite predecir el importe de la propina pagada por una carrera.
 
   **Mecanismo de aprendizaje utilizado:** árbol de decisión ampliado
 
-  a. En este problema, la etiqueta de destino (o clase) es **tip\_amount**. En este caso, las pérdidas de destino son: **tipped**, **tip\_class** y **total\_amount**. Todas estas variables ofrecen información sobre el importe de la propina, que no suele estar disponible en el momento de la prueba. Estas columnas se quitan mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
+  a. En este problema, la etiqueta de destino (o clase) es **tip\_amount**. En este caso, las pérdidas de destino son: **tipped** , **tip\_class** y **total\_amount**. Todas estas variables ofrecen información sobre el importe de la propina, que no suele estar disponible en el momento de la prueba. Estas columnas se quitan mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
   El diagrama siguiente muestra nuestro experimento para predecir el importe de una propina determinada:
 
@@ -935,5 +935,5 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 [15]: ./media/hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

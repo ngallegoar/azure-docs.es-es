@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 09/01/2020
+ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 167c2f091d4d8a7d7d5c32009b484125d7275796
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282348"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348345"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribución de uso de partners y clientes de marketplace comercial
 
@@ -33,15 +33,18 @@ La atribución de uso del cliente admite tres opciones de implementación:
 >- La atribución de uso de clientes es para implementaciones nuevas y NO admite el etiquetado de recursos existentes que ya se hayan implementado.
 >
 >- Se requiere la atribución de uso de clientes en las ofertas de [aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md) publicadas en Azure Marketplace.
+>
+>- No todos los servicios de Azure son compatibles con la atribución de uso del cliente. Actualmente, Azure Kubernetes Services (AKS) y VM Scale Sets tienen problemas conocidos que provocan que se informe un subregistro del uso.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-guids"></a>Creación de los identificadores únicos globales
 
-Un GUID es un identificador de referencia único que tiene 32 dígitos hexadecimales. Para crear identificadores únicos globales para el seguimiento, debe usar un generador de GUID. El equipo de Azure Storage ha creado un [formulario de generación de GUID](https://aka.ms/StoragePartners) que enviará por correo electrónico un GUID en el formato correcto. Este GUID se puede reutilizar en los distintos sistemas de seguimiento.
+Un GUID es un identificador de referencia único que tiene 32 dígitos hexadecimales. Para crear GUID para el seguimiento, debe usar un generador de GUID, por ejemplo, mediante PowerShell.
 
-> [!NOTE]
-> Es muy recomendable usar el [formulario del generador de GUID de Azure Storage](https://aka.ms/StoragePartners) para crear el identificador único global. Para más información, consulte las [P+F](#faq).
+```powershell
+[guid]::NewGuid()]
+```
 
 Se recomienda crear un GUID único para todos los canales de distribución y oferta de cada producto. Puede optar por usar un solo GUID para los múltiples canales de distribución del producto si no quiere que los informes se dividan.
 
@@ -67,15 +70,15 @@ Después de agregar un GUID a la plantilla o en el agente de usuario, y registra
 
 1. Regístrese como [publicador comercial de Marketplace](https://aka.ms/JoinMarketplace).
 
-   * Los partners deben [tener un perfil en el Centro de partners](become-publisher.md). Le recomendamos que vea la oferta en Azure Marketplace o AppSource.
+   * Los partners deben [tener un perfil en el Centro de partners](./partner-center-portal/create-account.md). Le recomendamos que vea la oferta en Azure Marketplace o AppSource.
    * Los asociados pueden registrar varios identificadores únicos globales.
    * Los partners pueden registrar los GUID para las plantillas de solución que no son de marketplace y las ofertas.
 
 1. En la esquina superior derecha, seleccione el icono de engranaje de la configuración y, a continuación, **Configuración de desarrollador**.
 
-1. En la **página de configuración de la cuenta**, seleccione **Add Tracking GUID** (Agregar GUID de seguimiento).
+1. En la **página de configuración de la cuenta** , seleccione **Add Tracking GUID** (Agregar GUID de seguimiento).
 
-1. En el cuadro **GUID**, escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo `pid-`. En el cuadro **Descripción**, escriba el nombre o la descripción de la oferta.
+1. En el cuadro **GUID** , escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo `pid-`. En el cuadro **Descripción** , escriba el nombre o la descripción de la oferta.
 
 1. Para registrar varios identificadores únicos globales, vuelva a seleccionar **Add Tracking GUID** (Agregar GUID de seguimiento). Aparecen más cuadros en la página.
 
@@ -97,7 +100,7 @@ Para agregar un identificador único global (GUID), se realizas una modificació
 
 1. Abra la plantilla de Resource Manager.
 
-1. Agregue un nuevo recurso de tipo [Microsoft.Resources/deployments](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) en el archivo de plantilla principal. El recurso solo debe estar en los archivos **mainTemplate.json** o **azuredeploy.json**, no en ninguna de las plantillas vinculadas o anidadas.
+1. Agregue un nuevo recurso de tipo [Microsoft.Resources/deployments](/azure/templates/microsoft.resources/deployments) en el archivo de plantilla principal. El recurso solo debe estar en los archivos **mainTemplate.json** o **azuredeploy.json** , no en ninguna de las plantillas vinculadas o anidadas.
 
 1. Como nombre del recurso, escriba el valor de GUID después del prefijo `pid-`. Por ejemplo, si el GUID es eb7927c8-dd66-43e1-b0cf-c346a422063, el nombre del recurso será _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
@@ -110,7 +113,7 @@ Para agregar un identificador único global (GUID), se realizas una modificació
 ### <a name="sample-resource-manager-template-code"></a>Código de ejemplo de plantilla de Resource Manager
 
 Para habilitar el seguimiento de recursos de la plantilla, deberá agregar los siguientes recursos adicionales en la sección de recursos. Asegúrese de modificar el siguiente código de ejemplo con sus propias entradas cuando lo agregue al archivo de plantilla principal.
-El recurso solo se debe agregar al archivo **mainTemplate.json** o **azuredeploy.json**, y no a plantillas vinculadas o anidadas.
+El recurso solo se debe agregar al archivo **mainTemplate.json** o **azuredeploy.json** , y no a plantillas vinculadas o anidadas.
 
 ```json
 // Make sure to modify this sample code with your own inputs where applicable
@@ -132,7 +135,7 @@ El recurso solo se debe agregar al archivo **mainTemplate.json** o **azuredeploy
 
 ## <a name="use-the-resource-manager-apis"></a>Uso de las API de Resource Manager
 
-En algunos casos, es posible que prefiera realizar llamadas directamente a las API REST de Resource Manager para implementar los servicios de Azure. [Azure admite varios SDK](https://docs.microsoft.com/azure/?pivot=sdkstools) para habilitar estas llamadas. Puede usar uno de los SDK, o llamar a las API REST directamente para implementar los recursos.
+En algunos casos, es posible que prefiera realizar llamadas directamente a las API REST de Resource Manager para implementar los servicios de Azure. [Azure admite varios SDK](../index.yml?pivot=sdkstools) para habilitar estas llamadas. Puede usar uno de los SDK, o llamar a las API REST directamente para implementar los recursos.
 
 Si usa una plantilla de Resource Manager, para etiquetar la solución debe seguir las instrucciones que se han proporcionado anteriormente. Si no usa una plantilla de Resource Manager y realiza llamadas API directas, puede etiquetar la implementación para asociar el uso de los recursos de Azure.
 
@@ -156,7 +159,7 @@ Para Python, use el atributo **config**. El atributo solo se puede agregar a un 
 
 #### <a name="example-the-net-sdk"></a>Ejemplo: SDK de .NET
 
-Para .NET, asegúrese de establecer el agente de usuario. La biblioteca [Microsoft.Azure.Management.Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) puede usarse para establecer el agente de usuario con el código siguiente (ejemplo en C#):
+Para .NET, asegúrese de establecer el agente de usuario. La biblioteca [Microsoft.Azure.Management.Fluent](/dotnet/api/microsoft.azure.management.fluent) puede usarse para establecer el agente de usuario con el código siguiente (ejemplo en C#):
 
 ```csharp
 
@@ -183,7 +186,7 @@ Cuando use la CLI de Azure para anexar un identificador único global, establezc
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Para más información, consulte [Azure SDK para Go](https://docs.microsoft.com/azure/developer/go/).
+Para más información, consulte [Azure SDK para Go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Uso de Terraform
 

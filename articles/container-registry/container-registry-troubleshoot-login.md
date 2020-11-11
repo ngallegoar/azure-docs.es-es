@@ -3,12 +3,12 @@ title: Solución de problemas de inicio de sesión en el registro
 description: Síntomas, causas y resolución de problemas comunes al iniciar sesión en un registro de contenedor de Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148442"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348906"
 ---
 # <a name="troubleshoot-registry-login"></a>Solución de problemas de inicio de sesión del registro
 
@@ -56,7 +56,7 @@ Vínculos relacionados:
 
 ### <a name="specify-correct-registry-name"></a>Especificar el nombre de registro correcto
 
-Al usar `docker login`, proporcione el nombre completo del servidor de inicio de sesión del registro, por ejemplo, *myregistry.azurecr.io* . Asegúrese de usar solo letras minúsculas. Ejemplo:
+Al usar `docker login`, proporcione el nombre completo del servidor de inicio de sesión del registro, por ejemplo, *myregistry.azurecr.io*. Asegúrese de usar solo letras minúsculas. Ejemplo:
 
 ```console
 docker login myregistry.azurecr.io
@@ -81,6 +81,7 @@ Compruebe la validez de las credenciales que usa para su escenario o que le prop
   * Contraseña: contraseña de la entidad de servicio (también denominada *secreto de cliente* )
 * Si usa un servicio de Azure, como Azure Kubernetes Service o Azure DevOps, para acceder al registro, confirme la configuración del registro del servicio.
 * Si ejecutó `az acr login` con la opción `--expose-token`, que habilita el inicio de sesión del registro sin usar el demonio de Docker, asegúrese de autenticarse con el nombre de usuario `00000000-0000-0000-0000-000000000000`.
+* Si el registro está configurado para el [acceso de extracción anónimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), las credenciales de Docker existentes almacenadas desde un inicio de sesión de Docker anterior pueden impedir el acceso anónimo. Ejecute `docker logout` antes de intentar realizar una operación de extracción anónima en el registro.
 
 Vínculos relacionados:
 

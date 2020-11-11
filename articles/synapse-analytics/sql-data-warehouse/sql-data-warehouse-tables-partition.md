@@ -1,6 +1,6 @@
 ---
 title: Creación de particiones de tablas
-description: Recomendaciones y ejemplos para usar particiones de tablas en el grupo de SQL de Synapse.
+description: Recomendaciones y ejemplos para usar particiones de tablas en el grupo de SQL dedicado
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ed5c0a140c69e9042fc9b85589719a54b65e985e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88763140"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314509"
 ---
-# <a name="partitioning-tables-in-synapse-sql-pool"></a>Creación de particiones de tablas en el grupo de SQL de Synapse
+# <a name="partitioning-tables-in-dedicated-sql-pool"></a>Creación de particiones de tablas en el grupo de SQL dedicado
 
-Recomendaciones y ejemplos para usar particiones de tablas en el grupo de SQL de Synapse.
+Recomendaciones y ejemplos para usar particiones de tablas en el grupo de SQL dedicado.
 
 ## <a name="what-are-table-partitions"></a>¿Qué son las particiones de tablas?
 
-Las particiones de tablas permiten dividir los datos en grupos más pequeños de datos. En la mayoría de los casos, se crean particiones de tablas en una columna de fecha. La creación de particiones es compatible con todos los tipos de tabla del grupo de SQL de Synapse, entre los que se incluyen el almacén de columnas en clúster, el índice agrupado y el montón. La creación de particiones también es compatible con todos los tipos de distribución, incluidos la distribución por hash o la distribución Round Robin.  
+Las particiones de tablas permiten dividir los datos en grupos más pequeños de datos. En la mayoría de los casos, se crean particiones de tablas en una columna de fecha. La creación de particiones es compatible con todos los tipos de tabla del grupo de SQL dedicado, entre los que se incluyen el almacén de columnas en clúster, el índice agrupado y el montón. La creación de particiones también es compatible con todos los tipos de distribución, incluidos la distribución por hash o la distribución Round Robin.  
 
 La creación de particiones puede beneficiar el mantenimiento de datos y el rendimiento de las consultas. El hecho de que beneficie a ambos aspectos, o solo a uno de ellos, dependerá de la forma en que se carguen los datos y de la misma columna se puede usar para ambos propósitos, ya que la creación de particiones solo se puede hacer en una columna.
 
 ### <a name="benefits-to-loads"></a>Ventajas para las cargas
 
-La principal ventaja de la creación de particiones en el grupo de SQL de Synapse es que se mejora la eficiencia y el rendimiento de la carga de datos mediante el uso de la eliminación, la conmutación y la combinación de particiones. En la mayoría de los casos, la creación de particiones de los datos se realiza en una columna de fecha que está estrechamente relacionada con el orden con el que se cargan los datos en la base de datos. Una de las mayores ventajas de utilizar particiones para mantener los datos es que se evita el registro de transacciones. Aunque la mera inserción, actualización o eliminación de datos puede ser el enfoque más sencillo, con un poco de esfuerzo, el uso de la creación de particiones durante el proceso de carga puede mejorar considerablemente el rendimiento.
+La principal ventaja de la creación de particiones en el grupo de SQL dedicado es que se mejora la eficiencia y el rendimiento de la carga de datos mediante el uso de la eliminación, la conmutación y la combinación de particiones. En la mayoría de los casos, la creación de particiones de los datos se realiza en una columna de fecha que está estrechamente relacionada con el orden con el que se cargan los datos en la base de datos. Una de las mayores ventajas de utilizar particiones para mantener los datos es que se evita el registro de transacciones. Aunque la mera inserción, actualización o eliminación de datos puede ser el enfoque más sencillo, con un poco de esfuerzo, el uso de la creación de particiones durante el proceso de carga puede mejorar considerablemente el rendimiento.
 
 La conmutación de particiones se puede utilizar para quitar o reemplazar rápidamente cualquier sección de una tabla.  Por ejemplo, una tabla de datos de ventas podría contener datos solo de los últimos 36 meses. Al final de cada mes, el mes más antiguo de datos de ventas se elimina de la tabla.  Estos datos pueden eliminarse mediante el uso de una instrucción delete para eliminar los datos del mes más antiguo. 
 
@@ -48,17 +48,17 @@ Aunque la creación de particiones se puede usar para mejorar el rendimiento en 
 
 Para que la creación de particiones sea útil, es importante saber cuándo usarla y el número de particiones que se deben crear. No hay ninguna regla inamovible con respecto a cuántas particiones son demasiadas, depende de los datos y del número de particiones que se cargan de manera simultánea. Normalmente, un esquema de partición correcta tiene decenas o centenas de particiones, no miles.
 
-Al crear particiones en tablas de **almacén de columnas en clúster**, es importante considerar el número de filas que pertenece a cada partición. Para que tanto la compresión como el rendimiento de las tablas de almacén de columnas en clúster sean óptimos, se necesita un mínimo de un millón de filas por partición y distribución. Antes de que se creen particiones, el grupo de SQL de Synapse ya divide cada tabla en 60 bases de datos distribuidas. 
+Al crear particiones en tablas de **almacén de columnas en clúster** , es importante considerar el número de filas que pertenece a cada partición. Para que tanto la compresión como el rendimiento de las tablas de almacén de columnas en clúster sean óptimos, se necesita un mínimo de un millón de filas por partición y distribución. Antes de que se creen particiones, el grupo de SQL dedicado ya divide cada tabla en 60 bases de datos distribuidas. 
 
-Todas las particiones que se agreguen a una tabla se sumarán a las distribuciones creadas en segundo plano. Usando este ejemplo, si la tabla de datos de ventas contenía 36 particiones mensuales, y dado que un grupo de SQL de Synapse tiene 60 distribuciones, la tabla de datos de ventas debería contener 60 millones de filas por mes, o 2 100 millones de filas cuando se rellenen todos los meses. Si una tabla contiene menos filas que el número mínimo recomendado de filas por partición, considere utilizar menos particiones para hacer que aumente el número de filas por partición. 
+Todas las particiones que se agreguen a una tabla se sumarán a las distribuciones creadas en segundo plano. Usando este ejemplo, si la tabla de datos de ventas contenía 36 particiones mensuales, y dado que un grupo de SQL dedicado tiene 60 distribuciones, la tabla de datos de ventas debería contener 60 millones de filas por mes, o 2100 millones de filas cuando se rellenen todos los meses. Si una tabla contiene menos filas que el número mínimo recomendado de filas por partición, considere utilizar menos particiones para hacer que aumente el número de filas por partición. 
 
 Para obtener más información, consulte el artículo [Indexación](sql-data-warehouse-tables-index.md), que incluye las consultas que pueden evaluar la calidad de los índices de almacén de columnas en clúster.
 
 ## <a name="syntax-differences-from-sql-server"></a>Diferencias de sintaxis con respecto a SQL Server
 
-El grupo de SQL de Synapse introduce una manera más sencilla de definir particiones que SQL Server. Las funciones y los esquemas de la creación de particiones no se usan igual en el grupo de SQL de Synapse que en SQL Server. En su lugar, lo único que se debe hacer es identificar la columna con particiones y los puntos limítrofes. 
+El grupo de SQL dedicado introduce una manera más sencilla de definir particiones que SQL Server. Las funciones y los esquemas de la creación de particiones no se usan igual en el grupo de SQL dedicado que en SQL Server. En su lugar, lo único que se debe hacer es identificar la columna con particiones y los puntos limítrofes. 
 
-Aunque la sintaxis de la creación de particiones puede variar ligeramente con respecto a la de SQL Server, los conceptos básicos son los mismos. SQL Server y el grupo de SQL de Synapse admiten una columna de partición por tabla, que puede ser una partición por rangos. Para obtener más información sobre las particiones, consulte [Tablas e índices con particiones](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Aunque la sintaxis de la creación de particiones puede variar ligeramente con respecto a la de SQL Server, los conceptos básicos son los mismos. SQL Server y el grupo de SQL dedicado admiten una columna de partición por tabla, que puede ser una partición por rangos. Para obtener más información sobre las particiones, consulte [Tablas e índices con particiones](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 En el siguiente ejemplo se usa una instrucción [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para crear particiones en la tabla FactInternetSales en la columna OrderDateKey:
 
@@ -88,12 +88,12 @@ WITH
 
 ## <a name="migrating-partitioning-from-sql-server"></a>Migración de particiones de SQL Server
 
-Para migrar las definiciones de particiones de SQL Server al grupo de SQL de Synapse, basta con que haga lo siguiente:
+Para migrar las definiciones de particiones de SQL Server al grupo de SQL dedicado, basta con que haga lo siguiente:
 
 - Elimine el [esquema de particiones](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de SQL Server.
 - Agregue la definición de [función de partición](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) a CREATE TABLE.
 
-Si va a migrar una tabla con particiones de una instancia de SQL Server, la instrucción SQL siguiente puede ayudarle a consultar el número de filas que se encuentran en cada partición. Tenga en cuenta que si se usa la misma granularidad de particiones en el grupo de SQL de Synapse, el número de filas por partición se reduce en un factor de 60.  
+Si va a migrar una tabla con particiones de una instancia de SQL Server, la instrucción SQL siguiente puede ayudarle a consultar el número de filas que se encuentran en cada partición. Tenga en cuenta que si se usa la misma granularidad de particiones en el grupo de SQL dedicado, el número de filas por partición se reduce en un factor de 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -131,7 +131,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>Modificación de particiones
 
-El grupo de SQL de Synapse admite la separación, la combinación y la modificación de particiones. Cada una de estas funciones se ejecuta mediante la instrucción [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+El grupo de SQL dedicado admite la separación, la combinación y la modificación de particiones. Cada una de estas funciones se ejecuta mediante la instrucción [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Para cambiar particiones entre dos tablas, debe asegurarse de que las particiones se alinean en sus límites correspondientes y que las definiciones de tablas coinciden. Como las restricciones CHECK no están disponibles para aplicar el intervalo de valores en una tabla, la tabla de origen debe contener los mismos límites de partición que la tabla de destino. Si los límites de partición no son iguales, el cambio de partición genera un error dado que los metadatos de la partición no se sincronizan.
 
@@ -253,7 +253,7 @@ La carga de datos en particiones mediante el cambio de partición es una forma m
 
 Para borrar los datos existentes en una partición, solía requerirse un `ALTER TABLE` para cambiar los datos.  Luego se requería otro `ALTER TABLE` para cambiar a los nuevos datos.  
 
-En el grupo de SQL de Synapse, la opción `TRUNCATE_TARGET` se admite en el comando `ALTER TABLE`.  Con `TRUNCATE_TARGET` el comando `ALTER TABLE` sobrescribe los datos existentes en la partición con datos nuevos.  A continuación se muestra un ejemplo que usa `CTAS` para crear una nueva tabla con los datos existentes, inserta datos nuevos y luego cambia todos los datos de nuevo a la tabla de destino, sobrescribiendo los datos existentes.
+En el grupo de SQL dedicado, la opción `TRUNCATE_TARGET` se admite en el comando `ALTER TABLE`.  Con `TRUNCATE_TARGET` el comando `ALTER TABLE` sobrescribe los datos existentes en la partición con datos nuevos.  A continuación se muestra un ejemplo que usa `CTAS` para crear una nueva tabla con los datos existentes, inserta datos nuevos y luego cambia todos los datos de nuevo a la tabla de destino, sobrescribiendo los datos existentes.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

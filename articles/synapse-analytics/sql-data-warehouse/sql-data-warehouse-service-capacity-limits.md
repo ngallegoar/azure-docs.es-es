@@ -1,6 +1,6 @@
 ---
-title: 'Límites de capacidad: Azure Synapse Analytics (anteriormente SQL DW)'
-description: Valores máximos permitidos para los distintos componentes del grupo de SQL de Synapse en Azure Synapse.
+title: Límites de capacidad para un grupo de SQL dedicado
+description: Valores máximos permitidos para los distintos componentes del grupo de SQL dedicado en Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dac2a60b6b9db082a10d2473eb22b86d8097eee0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742469"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313140"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Límites de capacidad de Azure Synapse Analytics (anteriormente SQL DW)
+# <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Límites de capacidad para el grupo de SQL dedicado en Azure Synapse Analytics
 
-Valores máximos permitidos para los distintos componentes de Azure Synapse.
+Valores máximos permitidos para los distintos componentes del grupo de SQL dedicado en Azure Synapse Analytics.
 
 ## <a name="workload-management"></a>Administración de cargas de trabajo
 
 | Category | Descripción | Máxima |
 |:--- |:--- |:--- |
-| [Unidades de almacenamiento de datos (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Máximo de DWU para una sola unidad de grupo de SQL (almacenamiento de datos) | Gen1: DW6000<br></br>Gen2: DW30000c |
+| [Unidades de almacenamiento de datos (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Máximo de DWU para una sola unidad de grupo de SQL dedicado (almacenamiento de datos) | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Unidades de almacenamiento de datos (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Valor predeterminado de la DTU por servidor |54 000<br></br>De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una cuota de DTU de 54 000, lo que permite un máximo de DW5000c. Esta cuota es simplemente un límite de seguridad. Puede aumentar su cuota mediante la [creación de una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) y la selección de *Cuota* como el tipo de solicitud.  Para calcular las necesidades de la DTU, multiplique 7,5 por el total de DWU necesarias o multiplique 9,5 por el total de cDWU necesarias. Por ejemplo:<br></br>DW6000 x 7,5 = 45 000 DTU<br></br>DW5000c x 9,5 = 47 500 DTU<br></br>Puede ver el consumo de DTU actual en la opción de SQL Server en el portal. Tanto las bases de datos en pausa como las no pausadas cuentan en la cuota de DTU. |
 | Conexión de base de datos |Número máximo de sesiones abiertas simultáneas |1024<br/><br/>El número de sesiones abiertas simultáneas variará en función de la DWU seleccionada. DWU600c y versiones posteriores admiten 1024 sesiones abiertas como máximo. DWU500c y las versiones anteriores admiten un límite máximo de 512 sesiones abiertas simultáneas. Tenga en cuenta que no hay límite en el número de consultas que se pueden ejecutar a la vez. Cuando se supera el límite de simultaneidad, la solicitud entra en una cola interna donde espera para su proceso. |
 | Conexión de base de datos |Memoria máxima para instrucciones preparadas |20 MB |

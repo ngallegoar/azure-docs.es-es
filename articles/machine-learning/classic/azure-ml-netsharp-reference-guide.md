@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: f3bbab14152f16515c93972e6b41ef34693e1143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f16ed3c455067ff2fa185bff023a6993ccda58c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367961"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311972"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 NET # es un lenguaje desarrollado por Microsoft que se utiliza para definir arquitecturas de redes neuronales complejas, como las redes neuronales profundas o las convoluciones de dimensiones arbitrarias. Puede usar estructuras complejas para mejorar el aprendizaje en datos, como imágenes, vídeo o audio.
 
 Puede usar una especificación de arquitectura de Net # en estos contextos:
 
-+ Puede usar todos los módulos de red neuronal de Microsoft Azure Machine Learning Studio (clásico): [Red neuronal multiclase](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Red neuronal de dos clases](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) y [Regresión de red neuronal](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Funciones de red neuronal en Microsoft Machine Learning Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) y [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet) para el lenguaje R, y [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
++ Puede usar todos los módulos de red neuronal de Microsoft Azure Machine Learning Studio (clásico): [Red neuronal multiclase](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Red neuronal de dos clases](/azure/machine-learning/studio-module-reference/two-class-neural-network) y [Regresión de red neuronal](/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Funciones de red neuronal en Microsoft Machine Learning Server: [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) y [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet) para el lenguaje R, y [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
 En este artículo se describen los conceptos básicos y la sintaxis necesaria para desarrollar una red neuronal personalizada con Net#:
@@ -44,7 +44,7 @@ Cada una de las capas entrenables (una capa oculta o de salida) tiene uno o vari
 
 Net# admite varios tipos de conjuntos de conexiones, lo que le permite personalizar la forma en que las entradas se asignan tanto a capas ocultas como a las salidas.
 
-El conjunto estándar o predeterminado es un **conjunto completo**, en el cual cada nodo de la capa de origen se conecta a cada uno de los nodos de la capa de destino.
+El conjunto estándar o predeterminado es un **conjunto completo** , en el cual cada nodo de la capa de origen se conecta a cada uno de los nodos de la capa de destino.
 
 Además, Net# admite los siguientes cuatro tipos de conjuntos de conexiones avanzados:
 
@@ -80,7 +80,7 @@ Para consultar ejemplos de definición de redes neuronales para algunas tareas h
 
 ## <a name="structure-specifications"></a>Especificación de estructura
 
-Una especificación de la estructura de red neuronal se compone de tres secciones: la **declaración de constante**, la **declaración de capa** y la **declaración de conexión**. También hay una sección de **declaración de uso compartido** opcional. Estas secciones se pueden especificar en cualquier orden.
+Una especificación de la estructura de red neuronal se compone de tres secciones: la **declaración de constante** , la **declaración de capa** y la **declaración de conexión**. También hay una sección de **declaración de uso compartido** opcional. Estas secciones se pueden especificar en cualquier orden.
 
 ## <a name="constant-declaration"></a>Declaración constante
 
@@ -140,7 +140,7 @@ Se admiten las siguientes funciones de salida:
 + tanh
 + brlinear
 
-Por ejemplo, la siguiente declaración usa la función **softmax**:
+Por ejemplo, la siguiente declaración usa la función **softmax** :
 
 `output Result [100] softmax from Hidden all;`
 
@@ -150,10 +150,10 @@ Inmediatamente después de definir la capa entrenable, debe declarar conexiones 
 
 Actualmente se admiten cinco tipos de conjuntos de conexiones:
 
-+ Conjuntos **completos**, indicados mediante la palabra clave `all`
-+ Conjuntos **filtrados**, indicados por la palabra clave `where`, seguida por una expresión de predicado
-+ Conjuntos **convolucionales**, indicados por la palabra clave `convolve`, seguida de los atributos de convolución
-+ Conjuntos de **agrupación**, indicados por las palabras clave **max pool** o **mean pool**
++ Conjuntos **completos** , indicados mediante la palabra clave `all`
++ Conjuntos **filtrados** , indicados por la palabra clave `where`, seguida por una expresión de predicado
++ Conjuntos **convolucionales** , indicados por la palabra clave `convolve`, seguida de los atributos de convolución
++ Conjuntos de **agrupación** , indicados por las palabras clave **max pool** o **mean pool**
 + Conjuntos de **normalización de respuesta** indicados por la palabra clave **response norm**
 
 ## <a name="full-bundles"></a>Conjuntos completos
@@ -192,21 +192,21 @@ Los conjuntos convolucionales admiten los siguientes atributos:
 
 **InputShape** define la dimensionalidad de la capa de origen para los fines de este conjunto convolucional. El valor debe ser una tupla de enteros positivos. El producto de los enteros debe equivaler al número de nodos de la capa de origen, pero no es necesario que coincida con la dimensionalidad declarada para la capa de origen. La longitud de esta tupla se convierte en el valor de **aridad** del conjunto convolucional. La aridad normalmente hace referencia al número de argumentos u operandos que puede asumir una función.
 
-Para definir la forma y las ubicaciones de los kernels, use los atributos **KernelShape**, **Stride**, **Padding**, **LowerPad** y **UpperPad**:
+Para definir la forma y las ubicaciones de los kernels, use los atributos **KernelShape** , **Stride** , **Padding** , **LowerPad** y **UpperPad** :
 
-+ **KernelShape**: (obligatorio) define la dimensionalidad de cada kernel para el conjunto convolucional. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ninguno de los componentes de esta tupla debe superar en tamaño al componente correspondiente de **InputShape**.
++ **KernelShape** : (obligatorio) define la dimensionalidad de cada kernel para el conjunto convolucional. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ninguno de los componentes de esta tupla debe superar en tamaño al componente correspondiente de **InputShape**.
 
-+ **Stride**: (opcional) define los tamaños de los pasos de deslizamiento de la convolución (un tamaño de paso para cada dimensión), es decir, la distancia entre los nodos centrales. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ningún componente de esta tupla debe superar en tamaño al componente correspondiente de **KernelShape**. El valor predeterminado es una tupla con todos los componentes iguales a uno.
++ **Stride** : (opcional) define los tamaños de los pasos de deslizamiento de la convolución (un tamaño de paso para cada dimensión), es decir, la distancia entre los nodos centrales. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ningún componente de esta tupla debe superar en tamaño al componente correspondiente de **KernelShape**. El valor predeterminado es una tupla con todos los componentes iguales a uno.
 
-+ **Sharing**: (opcional) define el uso compartido de las ponderaciones de cada dimensión de la convolución. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. El valor predeterminado es una tupla que consta de todos los valores True.
++ **Sharing** : (opcional) define el uso compartido de las ponderaciones de cada dimensión de la convolución. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. El valor predeterminado es una tupla que consta de todos los valores True.
 
-+ **MapCount**: (opcional) define el número de mapas de características para el conjunto convolucional. El valor puede ser un número entero positivo o una tupla de enteros positivos con una longitud que sea la aridad de la agrupación. Un valor entero sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado y todos los componentes restantes equivalen a uno. El valor predeterminado es uno. El número total de mapas de características es el producto de los componentes de la tupla. La factorización de este número total entre los componentes determina cómo se agrupan los valores de mapas de características en los nodos de destino.
++ **MapCount** : (opcional) define el número de mapas de características para el conjunto convolucional. El valor puede ser un número entero positivo o una tupla de enteros positivos con una longitud que sea la aridad de la agrupación. Un valor entero sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado y todos los componentes restantes equivalen a uno. El valor predeterminado es uno. El número total de mapas de características es el producto de los componentes de la tupla. La factorización de este número total entre los componentes determina cómo se agrupan los valores de mapas de características en los nodos de destino.
 
-+ **Weights**: (opcional) define las ponderaciones iniciales del conjunto. El valor debe ser una tupla de valores de punto flotante con una longitud que es el número de kernel, el número de pesos por kernel, tal como se define más adelante en este artículo. De manera predeterminada, las ponderaciones se generan de manera aleatoria.
++ **Weights** : (opcional) define las ponderaciones iniciales del conjunto. El valor debe ser una tupla de valores de punto flotante con una longitud que es el número de kernel, el número de pesos por kernel, tal como se define más adelante en este artículo. De manera predeterminada, las ponderaciones se generan de manera aleatoria.
 
 Hay dos conjuntos de propiedades que controlan el completado y que se excluyen mutuamente:
 
-+ **Padding**: (opcional) determina si la entrada debe completarse usando un **esquema de relleno predeterminado**. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación.
++ **Padding** : (opcional) determina si la entrada debe completarse usando un **esquema de relleno predeterminado**. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación.
 
     Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado.
 
@@ -214,14 +214,14 @@ Hay dos conjuntos de propiedades que controlan el completado y que se excluyen m
 
     Si el valor de una dimensión es falso, los kernels se definen de manera que el número de nodos que quedan en cada lado sea el mismo (con una diferencia máxima de 1). El valor predeterminado de este atributo es una tupla con todos los componentes iguales a falso.
 
-+ **UpperPad** y **LowerPad**: (opcional) proporcionan mayor control sobre la cantidad de completado que se usa. **Importante:** Estos atributos pueden definirse si, y solo si, la propiedad **Padding** anterior ***no*** está definida. Los valores deben ser las tuplas con valores enteros con longitudes que sean la aridad de la agrupación. Cuando se especifican estos atributos, se agregan nodos "ficticios" a los extremos inferior y superior de cada dimensión de la capa de entrada- El número de nodos agregados a los extremos inferior y superior en cada dimensión está determinado por **LowerPad**[i] y **UpperPad**[i], respectivamente.
++ **UpperPad** y **LowerPad** : (opcional) proporcionan mayor control sobre la cantidad de completado que se usa. **Importante:** Estos atributos pueden definirse si, y solo si, la propiedad **Padding** anterior **_no_ *_ está definida. Los valores deben ser las tuplas con valores enteros con longitudes que sean la aridad de la agrupación. Cuando se especifican estos atributos, se agregan nodos "ficticios" a los extremos inferior y superior de cada dimensión de la capa de entrada- El número de nodos agregados a los extremos inferior y superior en cada dimensión está determinado por _* LowerPad** [i] y **UpperPad[i]** , respectivamente.
 
     Para asegurarse de que los kernels se corresponden solo a nodos "reales" y no a nodos "ficticios", deben cumplirse las condiciones siguientes:
   - Cada componente de **LowerPad** debe ser estrictamente inferior a `KernelShape[d]/2`.
   - Ningún componente de **UpperPad** puede ser superior a `KernelShape[d]/2`.
   - El valor predeterminado de estos atributos es una tupla con todos los componentes iguales a 0.
 
-    La configuración de **Padding** = true permite todo el relleno que sea necesario para mantener el "centro" del kernel dentro de la entrada "real". Cambia la expresión matemática un poco para calcular el tamaño de salida. Por lo general, el tamaño de salida *D* se calcula como `D = (I - K) / S + 1`, donde `I` es el tamaño de entrada, `K` es el tamaño del kernel, `S` es el intervalo y `/` es la división de enteros (redondear hacia cero). Si establece UpperPad = [1, 1], el tamaño de entrada `I` es efectivamente 29 y, por lo tanto, `D = (29 - 5) / 2 + 1 = 13`. Sin embargo, cuando **Padding** = true, esencialmente `I` aumenta en `K - 1`; por lo tanto, `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Al especificar valores para **UpperPad** y **LowerPad**, obtendrá un mayor control sobre el relleno que si simplemente establece **Padding** = true.
+    La configuración de **Padding** = true permite todo el relleno que sea necesario para mantener el "centro" del kernel dentro de la entrada "real". Cambia la expresión matemática un poco para calcular el tamaño de salida. Por lo general, el tamaño de salida *D* se calcula como `D = (I - K) / S + 1`, donde `I` es el tamaño de entrada, `K` es el tamaño del kernel, `S` es el intervalo y `/` es la división de enteros (redondear hacia cero). Si establece UpperPad = [1, 1], el tamaño de entrada `I` es efectivamente 29 y, por lo tanto, `D = (29 - 5) / 2 + 1 = 13`. Sin embargo, cuando **Padding** = true, esencialmente `I` aumenta en `K - 1`; por lo tanto, `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Al especificar valores para **UpperPad** y **LowerPad** , obtendrá un mayor control sobre el relleno que si simplemente establece **Padding** = true.
 
 Para obtener más información acerca de las redes convolucionales y sus aplicaciones, consulte estos artículos:
 
@@ -230,7 +230,7 @@ Para obtener más información acerca de las redes convolucionales y sus aplicac
 
 ## <a name="pooling-bundles"></a>Conjuntos de agrupación
 
-Un **conjunto de agrupación** aplica una geometría similar a la conectividad convolucional, pero usa funciones predefinidas sobre los valores de los nodos de origen para derivar el valor del nodo de destino. Por tanto, los conjuntos de agrupación no tienen estado entrenable (ponderaciones o sesgos). Los paquetes de agrupación admiten todos los atributos convolucionales, excepto **Sharing**, **MapCount** y **Weights**.
+Un **conjunto de agrupación** aplica una geometría similar a la conectividad convolucional, pero usa funciones predefinidas sobre los valores de los nodos de origen para derivar el valor del nodo de destino. Por tanto, los conjuntos de agrupación no tienen estado entrenable (ponderaciones o sesgos). Los paquetes de agrupación admiten todos los atributos convolucionales, excepto **Sharing** , **MapCount** y **Weights**.
 
 Normalmente, los kernel resumidos por las unidades de agrupación adyacentes no se superponen. Si Stride[d] es igual a KernelShape[d] en cada dimensión, la capa obtenida es la capa de agrupación local tradicional, utilizada habitualmente en redes neuronales convolucionales. Cada nodo de destino calcula el valor máximo o la media de las actividades de su kernel en la capa de origen.
 
@@ -260,15 +260,15 @@ Para obtener más información acerca de las capas de agrupación, consulte esto
 
 La **normalización de respuesta** es un esquema de normalización local que presentó Geoffrey Hinton, y otros, en el documento [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Clasificación de ImageNet con redes neuronales convolucionales profundas).
 
-La normalización de respuesta se utiliza para ayudar a la generalización en redes neuronales. Cuando una neurona se activa a un nivel muy alto, una capa de normalización de respuesta local suprime la capa de activación de las neuronas circundantes. Esto se realiza mediante tres parámetros (`α`, `β` y `k`) y una estructura convolucional (o forma de entorno). Cada neurona de la capa de destino **y** se corresponde con una neurona **x** de la capa de origen. El nivel de activación de **y** se determina mediante la fórmula siguiente, donde `f` es el nivel de activación de una neurona y `Nx` es el kernel (o el conjunto que contiene las neuronas en el entorno de **x**) como se define en la siguiente estructura convolucional:
+La normalización de respuesta se utiliza para ayudar a la generalización en redes neuronales. Cuando una neurona se activa a un nivel muy alto, una capa de normalización de respuesta local suprime la capa de activación de las neuronas circundantes. Esto se realiza mediante tres parámetros (`α`, `β` y `k`) y una estructura convolucional (o forma de entorno). Cada neurona de la capa de destino **y** se corresponde con una neurona **x** de la capa de origen. El nivel de activación de **y** se determina mediante la fórmula siguiente, donde `f` es el nivel de activación de una neurona y `Nx` es el kernel (o el conjunto que contiene las neuronas en el entorno de **x** ) como se define en la siguiente estructura convolucional:
 
 ![fórmula para estructura convolucional](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 
-Las agrupaciones de normalización de respuesta admiten todos los atributos convolucionales excepto **Sharing**, **MapCount** y **Weights**.
+Las agrupaciones de normalización de respuesta admiten todos los atributos convolucionales excepto **Sharing** , **MapCount** y **Weights**.
 
-+ Si el kernel contiene neuronas en el mismo mapa que ***x***, se hace referencia al esquema de normalización como **normalización de mismo mapa**. Para definir la normalización de mismo mapa, la primera coordenada de **InputShape** debe tener un valor de 1.
++ Si el kernel contiene neuronas en el mismo mapa que **_x_ *_, se hace referencia al esquema de normalización como _* normalización de mismo mapa**. Para definir la normalización de mismo mapa, la primera coordenada de **InputShape** debe tener un valor de 1.
 
-+ Si el kernel contiene neuronas en la misma posición espacial que ***x***, pero las neuronas se encuentran en otros mapas, el esquema de normalización recibe el nombre de **normalización entre mapas**. El tipo de normalización de respuesta implementa una forma de inhibición lateral inspirada en el tipo encontrado en las neuronas reales, creando competencia para los grandes niveles de activación entre los resultados neuronales calculados en los diferentes mapas. Para definir la normalización entre mapas, el primer coordinado debe ser un entero mayor que uno y no mayor que el número de mapas, y el resto de coordinados debe tener el valor 1.
++ Si el kernel contiene neuronas en la misma posición espacial que **_x_ *_, pero las neuronas se encuentran en otros mapas, el esquema de normalización recibe el nombre de _* normalización entre mapas**. El tipo de normalización de respuesta implementa una forma de inhibición lateral inspirada en el tipo encontrado en las neuronas reales, creando competencia para los grandes niveles de activación entre los resultados neuronales calculados en los diferentes mapas. Para definir la normalización entre mapas, el primer coordinado debe ser un entero mayor que uno y no mayor que el número de mapas, y el resto de coordinados debe tener el valor 1.
 
 Dado que los conjuntos de normalización de respuesta aplican una función predefinida a los valores del nodo de origen para determinar el valor del nodo de destino, no tienen un estado entrenable (ponderaciones o sesgos).
 
@@ -277,9 +277,9 @@ Dado que los conjuntos de normalización de respuesta aplican una función prede
 
 Además de los cuatro atributos que se han descrito anteriormente, las agrupaciones de normalización de respuesta también admiten los siguientes atributos:
 
-+ **Alpha**: (obligatorio) especifica un valor de punto flotante que corresponde a `α` en la fórmula anterior.
-+ **Beta**: (obligatorio) especifica un valor de punto flotante que corresponde a `β` en la fórmula anterior.
-+ **Offset**: (opcional) especifica un valor de punto flotante que corresponde a `k` en la fórmula anterior. De manera predeterminada, su valor es 1.
++ **Alpha** : (obligatorio) especifica un valor de punto flotante que corresponde a `α` en la fórmula anterior.
++ **Beta** : (obligatorio) especifica un valor de punto flotante que corresponde a `β` en la fórmula anterior.
++ **Offset** : (opcional) especifica un valor de punto flotante que corresponde a `k` en la fórmula anterior. De manera predeterminada, su valor es 1.
 
 En el ejemplo siguiente se define un conjunto de normalización de respuesta que utiliza estos atributos:
 
@@ -463,4 +463,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Agradecimientos
 
-El lenguaje de Net# para personalizar la arquitectura de redes neuronales fue desarrollado en Microsoft por Shon Katzenberger (arquitecto, Machine Learning) y Alexey Kamenev (ingeniero de software, Microsoft Research). Se usa internamente para proyectos y aplicaciones de aprendizaje automático que abarcan desde la detección de imágenes para el análisis de texto. Para más información, vea [Neural Nets in Azure Machine Learning studio - Introduction to Net#](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Redes neuronales en Azure Machine Learning Studio: Introducción a Net#).
+El lenguaje de Net# para personalizar la arquitectura de redes neuronales fue desarrollado en Microsoft por Shon Katzenberger (arquitecto, Machine Learning) y Alexey Kamenev (ingeniero de software, Microsoft Research). Se usa internamente para proyectos y aplicaciones de aprendizaje automático que abarcan desde la detección de imágenes para el análisis de texto. Para más información, vea [Neural Nets in Azure Machine Learning studio - Introduction to Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net) (Redes neuronales en Azure Machine Learning Studio: Introducción a Net#).

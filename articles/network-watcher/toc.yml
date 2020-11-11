@@ -13,7 +13,7 @@
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: 'Diagnóstico de problemas de filtro de tráfico de máquinas virtuales: CLI de Azure'
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
-    - name: Configuración de los registros de flujo de NSG mediante la plantilla de Azure Resource Manager
+    - name: Configuración de los registros de flujo de un grupo de seguridad de red mediante la plantilla de Azure Resource Manager
       displayName: Resource Manager
       href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutoriales
@@ -29,7 +29,7 @@
 - name: Conceptos
   items:
     - name: Monitor de conexión (versión preliminar)
-      href: connection-monitor-preview.md
+      href: connection-monitor-overview.md
     - name: Diagnóstico de problemas de filtro de tráfico de red de máquinas virtuales
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnóstico de reglas del grupo de seguridad de red y filtrado del tráfico
@@ -61,9 +61,9 @@
     - name: Creación de una instancia de Connection Monitor (versión preliminar)
       items:
         - name: Uso de Azure Portal
-          href: connection-monitor-preview-create-using-portal.md
+          href: connection-monitor-create-using-portal.md
         - name: Uso de ARMClient
-          href: connection-monitor-preview-create-using-arm-client.md
+          href: connection-monitor-create-using-template.md
         - name: Usar PowerShell
           href: connection-monitor-create-using-powershell.md
     - name: Migración a Connection Monitor (versión preliminar)
@@ -191,7 +191,7 @@
           href: resource-move.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
       href: /powershell/module/az.network/#network_watcher

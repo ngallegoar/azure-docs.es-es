@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea765ae5ff93625cc6a0ed36776a8925e5fce836
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738751"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311133"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse Studio (versión preliminar) en Azure Synapse Analytics
 
@@ -112,7 +112,7 @@ No puede hacer referencia a datos o variables directamente en distintos lenguaje
 
 Los cuadernos de Azure Synapse Studio se integran en el editor Monaco para incluir IntelliSense de estilo IDE en el editor de celdas. El resaltado de la sintaxis, el marcador de errores y la finalización automática de código le ayudan a escribir código y a identificar problemas más rápido.
 
-Las características de IntelliSense tienen distintos niveles de madurez para distintos lenguajes. Use la tabla a continuación para ver lo que se admite.
+Las características de IntelliSense tienen distintos niveles de madurez para distintos lenguajes. Use la siguiente tabla para ver lo que se admite.
 
 |Lenguajes| Resaltado de sintaxis | Creador de errores de sintaxis  | Finalización de código de sintaxis | Finalización de código de sintaxis| Finalización de código de funciones del sistema| Finalización de código de funciones del usuario| Sangría inteligente | Plegado de código|
 |--|--|--|--|--|--|--|--|--|
@@ -203,7 +203,7 @@ Debajo de la celda se muestra un estado de ejecución detallado de la celda para
 
 ### <a name="spark-progress-indicator"></a>Indicador de progreso de Spark
 
-Un cuaderno de Azure Synapse Studio se basa únicamente en Spark. Las celdas de código se ejecutan en el grupo de Spark de manera remota. Aparece un indicador de progreso del trabajo de Spark con una barra de progreso en tiempo real que le ayudará a entender el estado de ejecución del trabajo.
+Un cuaderno de Azure Synapse Studio se basa únicamente en Spark. Las celdas de código se ejecutan en el grupo de Apache Spark sin servidor de manera remota. Aparece un indicador de progreso del trabajo de Spark con una barra de progreso en tiempo real que le ayudará a entender el estado de ejecución del trabajo.
 El número de tareas por cada trabajo o etapa ayuda a identificar el nivel paralelo del trabajo de Spark. También puede profundizar en la interfaz de usuario de Spark de un trabajo o fase específicos a través de la selección del vínculo del nombre del trabajo o de la fase.
 
 
@@ -277,7 +277,7 @@ Puede tener acceso directamente a los datos de la cuenta de almacenamiento princ
 
 Se proporciona una vista tabular de resultados con la opción de crear un gráfico de barras, un gráfico de líneas, un gráfico circular, un gráfico de dispersión y un gráfico de áreas. Puede visualizar los datos sin tener que escribir código. Los gráficos pueden personalizarse en **Opciones de gráfico**. 
 
-De forma predeterminada, la salida de los comandos magic **%%sql** aparece en la vista de tabla representada. Puede llamar a <code>display(df)</code> en DataFrames de Spark, DataFrames de Pandas, lista o a una función de Resilient Distributed Datasets (RDD) para generar la vista tabular representada.
+De forma predeterminada, la salida de los comandos magic **%%sql** aparece en la vista de tabla representada. Puede llamar a <code>display(df)</code> en DataFrames de Spark, DataFrames de Pandas, listas o una función de Resilient Distributed Datasets (RDD) para generar la vista tabular representada.
 
    [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
@@ -294,7 +294,7 @@ Puede usar <code>display(df, summary = True)</code> para comprobar el resumen de
 
 ### <a name="render-html-or-interactive-libraries"></a>Representación de bibliotecas HTML o interactivas
 
-Puede representar código HTML, incluidos Javascript, CSS, D3 o bibliotecas interactivas, como **bokeh** , mediante **displayHTML()** .
+Puede representar código HTML, incluidos JavaScript, CSS, D3 o bibliotecas interactivas, como **bokeh** , mediante **displayHTML()** .
 
 La imagen siguiente es un ejemplo del trazado de glifos en un mapa mediante **bokeh**.
 

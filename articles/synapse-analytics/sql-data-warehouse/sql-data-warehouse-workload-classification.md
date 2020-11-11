@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 266eebc8322b5fc648180c0524abc973a4b60373
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b66b8a9fb3b5eb7dc78c00ba084e8609877dec7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212384"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323874"
 ---
 # <a name="azure-synapse-analytics-workload-classification"></a>Clasificación de la carga de trabajo de Azure Synapse Analytics
 
-En este artículo se explica el proceso de clasificación de la carga de trabajo de asignar un grupo de cargas de trabajo y la importancia a las solicitudes entrantes con grupos de SQL de Synapse en Azure Synapse.
+En este artículo se explica el proceso de clasificación de la carga de trabajo de asignar un grupo de cargas de trabajo y la importancia a las solicitudes entrantes con grupos de SQL dedicados en Azure Synapse.
 
 ## <a name="classification"></a>clasificación
 
@@ -36,7 +36,7 @@ No todas las instrucciones se clasifican, ya que no requieren recursos ni necesi
 
 ## <a name="classification-process"></a>Proceso de clasificación
 
-Hoy en día, la clasificación de grupos de SQL de Synapse en Azure Synapse se logra mediante la asignación de usuarios a un rol que tiene una clase de recursos correspondiente asignada mediante [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Con esta funcionalidad, se limita la capacidad para caracterizar las consultas más allá de un inicio de sesión en una clase de recursos. Ahora hay un método más completo disponible para la clasificación mediante la sintaxis [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Con esta sintaxis, los usuarios de grupos de SQL de Synapse pueden asignar importancia y el número de recursos del sistema que se asignan a una solicitud a través del parámetro `workload_group`.
+Hoy en día, la clasificación de grupos de SQL dedicados en Azure Synapse se logra mediante la asignación de usuarios a un rol que tiene una clase de recursos correspondiente asignada mediante [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Con esta funcionalidad, se limita la capacidad para caracterizar las consultas más allá de un inicio de sesión en una clase de recursos. Ahora hay un método más completo disponible para la clasificación mediante la sintaxis [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Con esta sintaxis, los usuarios de grupos de SQL dedicados pueden asignar importancia y el número de recursos del sistema que se asignan a una solicitud a través del parámetro `workload_group`.
 
 > [!NOTE]
 > La clasificación se evalúa en función de la solicitud. Varias solicitudes en una única sesión se pueden clasificar de forma diferente.
