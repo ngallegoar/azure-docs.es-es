@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9dbed0de3cf6cc911111825a75430d0c616f4dc4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d391586ade9e9a58344f9b1666802a453770152a
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217588"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386507"
 ---
 La biblioteca cliente de Bing Web Search facilita la integración de Bing Web Search en la aplicación de C#. En esta guía de inicio rápido, aprenderá a crear una instancia de un cliente, enviar una solicitud e imprimir la respuesta.
 
@@ -36,7 +36,7 @@ Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio r
 > [!TIP]
 > Obtenga el código más reciente como solución de Visual Studio desde [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-El primer paso es crear un proyecto de consola. Si necesita ayuda para configurar un proyecto de consola, consulte [Hola mundo, su primer programa (Guía de programación de C#)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Para usar el SDK de Bing Web Search en la aplicación, necesita instalar `Microsoft.Azure.CognitiveServices.Search.WebSearch` con el Administrador de paquetes NuGet.
+El primer paso es crear un proyecto de consola. Si necesita ayuda para configurar un proyecto de consola, consulte [Hola mundo, su primer programa (Guía de programación de C#)](/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Para usar el SDK de Bing Web Search en la aplicación, necesita instalar `Microsoft.Azure.CognitiveServices.Search.WebSearch` con el Administrador de paquetes NuGet.
 
 El [paquete del SDK de Web Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) también instala:
 
@@ -424,4 +424,3 @@ Cuando haya terminado con este proyecto, asegúrese de quitar la clave de suscri
 
 > [!div class="nextstepaction"]
 > [Ejemplos del SDK de Cognitive Services para Node.js](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
-                                    

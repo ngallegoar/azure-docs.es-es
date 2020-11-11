@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 029cb1e59876eb01c609ef8b7ba0412ed35a2a1b
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8a877e1773431053c5ad7344209076cb868a0ee3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940757"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424791"
 ---
 En este inicio rápido, aprenderá a convertir texto a voz mediante el servicio de voz y cURL.
 
@@ -26,7 +26,7 @@ En el símbolo del sistema, ejecute el siguiente comando. Tendrá que insertar l
 - Región del servicio de voz.
 
 Es posible que también quiera cambiar los siguientes valores.
-- El valor del encabezado `X-Microsoft-OutputFormat`, que controla el formato de la salida de audio. Puede encontrar una lista de formatos de salida de audio compatibles en la [referencia de la API REST de texto a voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech#audio-outputs).
+- El valor del encabezado `X-Microsoft-OutputFormat`, que controla el formato de la salida de audio. Puede encontrar una lista de formatos de salida de audio compatibles en la [referencia de la API REST de texto a voz](../../../rest-text-to-speech.md#audio-outputs).
 - Voz de salida. Para obtener una lista de las voces disponibles para el punto de conexión de Voz, consulte la sección siguiente.
 - Archivo de salida. En este ejemplo, la respuesta del servidor se dirige a un archivo denominado `output.wav`.
 

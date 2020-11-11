@@ -158,6 +158,8 @@
           items:
             - name: Administración de copias de seguridad de máquinas virtuales de Azure
               href: backup-azure-manage-vms.md
+            - name: Administración de puntos de recuperación
+              href: manage-recovery-points.md
     - name: "Base de datos de SQL\_Server datos en la copia de seguridad de una máquina virtual de Azure"
       items:
         - name: Información general

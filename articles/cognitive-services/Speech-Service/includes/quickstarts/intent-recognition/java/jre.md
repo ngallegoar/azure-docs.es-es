@@ -6,14 +6,14 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 8bcc3e41f87570822f48a111fe98d1fdaf72679f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 09b537d82ce4e9e44c36df628d120623e69abfaf
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470668"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424897"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar:
 
@@ -41,14 +41,14 @@ Para poder inicializar un objeto `IntentRecognizer`, es preciso crear una config
 Inserte este código en el bloque try/catch en `main()`. Asegúrese de actualizar estos valores:
 
 * Reemplace `"YourLanguageUnderstandingSubscriptionKey"` por la clave de predicción de LUIS.
-* Reemplace `"YourLanguageUnderstandingServiceRegion"` por la ubicación de LUIS. Use **Identificador de región** en [Región](https://aka.ms/speech/sdkregion).
+* Reemplace `"YourLanguageUnderstandingServiceRegion"` por la ubicación de LUIS. Use **Identificador de región** en [Región](../../../../regions.md).
 
 >[!TIP]
 > Si necesita ayuda para encontrar estos valores, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition).
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-En este ejemplo se usa el método `FromSubscription()` para compilar la clase `SpeechConfig`. Para ver una lista completa de los métodos disponibles, consulte [Clase SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
+En este ejemplo se usa el método `FromSubscription()` para compilar la clase `SpeechConfig`. Para ver una lista completa de los métodos disponibles, consulte [Clase SpeechConfig](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet).
 
 El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
 
@@ -104,7 +104,7 @@ En este momento, el código debe tener esta apariencia:
 
 ## <a name="build-and-run-your-app"></a>Compilación y ejecución de la aplicación
 
-Presione <kbd>F11</kbd>, o seleccione **Ejecutar** > **Depurar** .
+Presione <kbd>F11</kbd>, o seleccione **Ejecutar** > **Depurar**.
 Los próximos 15 segundos de la entrada de voz del micrófono se reconocen y se registran en la ventana de consola.
 
 ## <a name="next-steps"></a>Pasos siguientes

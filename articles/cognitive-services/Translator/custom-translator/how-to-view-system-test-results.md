@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 542f62f04adc7d4858e4b4621b0ae85e906434ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220863"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369331"
 ---
 # <a name="view-system-test-results"></a>Ver resultados de pruebas del sistema
 
@@ -86,14 +86,14 @@ Para solicitar una implementación, haga lo siguiente:
 
 Para actualizar la configuración de implementación:
 
-1.  Seleccione un proyecto y vaya a la pestaña **Modelos** .
+1.  Seleccione un proyecto y vaya a la pestaña **Modelos**.
 
-2. En el caso de un modelo implementado correctamente, se muestra un botón **Actualizar** .
+2. En el caso de un modelo implementado correctamente, se muestra un botón **Actualizar**.
 
     ![Captura de pantalla que resalta el botón Actualizar para actualizar la configuración de la implementación.](media/how-to/how-to-update-undeploy-model.png)
 
-3.  Seleccione **Actualizar** .
-4.  Seleccione **Implementado** o **No implementado** para las regiones donde quiere que se implemente el modelo o se anule su implementación y, a continuación, haga clic en **Guardar** .
+3.  Seleccione **Actualizar**.
+4.  Seleccione **Implementado** o **No implementado** para las regiones donde quiere que se implemente el modelo o se anule su implementación y, a continuación, haga clic en **Guardar**.
 
     ![Implementación de un modelo](media/how-to/how-to-undeploy-model.png)
 
@@ -102,6 +102,6 @@ Para actualizar la configuración de implementación:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Comience a utilizar el modelo de traducción personalizado implementado mediante [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comience a utilizar el modelo de traducción personalizado implementado mediante [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl).
 - Obtenga información sobre [cómo administrar la configuración](how-to-manage-settings.md) para compartir el área de trabajo y administrar la clave de suscripción.
 - Obtenga información sobre [cómo migrar áreas de trabajo y proyectos](how-to-migrate.md) desde [Microsoft Translator Hub](https://hub.microsofttranslator.com)

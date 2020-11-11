@@ -10,18 +10,18 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2eab79d79a287bc8a92133c6901c420dfaee2fd5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 50db66d54993a4b5ee8afb4756be6b1f4387a1d0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082052"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369348"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>¿Qué es Bing Visual Search API?
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
-> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Bing Visual Search API devuelve información de una imagen. Puede cargar una imagen o especificar la dirección URL a una imagen. Entre la información devuelta puede haber imágenes visualmente similares, orígenes de compra, páginas web que incluyen la imagen y mucho más. La información devuelta por Bing Visual Search API es similar a la que se muestra en Bing.com/images. 
@@ -53,7 +53,7 @@ Los resultados de Bing Visual Search también incluyen rectángulos de selecció
 
 Bing Visual Search API es un servicio web RESTful, por lo que resulta muy fácil llamarlo desde cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar código JSON. Puede la API REST o el SDK para el servicio.
 
-1. Cree una [cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para acceder a las API de Bing Search. Si no tiene una suscripción de Azure, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
+1. Cree una [cuenta de Cognitive Services](../cognitive-services-apis-create-account.md) para acceder a las API de Bing Search. Si no tiene una suscripción de Azure, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
 2. Envíe una solicitud a la API con una consulta de búsqueda válida.
 3. Analice el mensaje JSON devuelto para procesar la respuesta de API.
 
@@ -74,8 +74,8 @@ Para empezar a trabajar rápidamente con la primera solicitud, consulte los art�
 
 ## <a name="see-also"></a>Consulte también
 
-* La referencia de [Images - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) (Imágenes: búsqueda visual) describe definiciones e información sobre los puntos de conexión, los encabezados de solicitud, las respuestas y los parámetros de consulta que puede usar para solicitar resultados de búsqueda basados en imágenes.
+* La referencia de [Images - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) (Imágenes: búsqueda visual) describe definiciones e información sobre los puntos de conexión, los encabezados de solicitud, las respuestas y los parámetros de consulta que puede usar para solicitar resultados de búsqueda basados en imágenes.
 
 * En los [requisitos de uso y visualización de Bing Search API](../bing-web-search/use-display-requirements.md) se especifican usos aceptables del contenido y la información adquirida mediante las API de Bing Search.
 
-* Visite la [página central de Bing Search API](../bing-web-search/search-the-web.md) para explorar las otras API disponibles.
+* Visite la [página central de Bing Search API](../bing-web-search/overview.md) para explorar las otras API disponibles.

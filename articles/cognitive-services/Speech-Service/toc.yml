@@ -41,8 +41,6 @@
           href: batch-transcription.md
     - name: Tutoriales
       items:
-        - name: Reconocimiento de voz almacenada en Blob Storage
-          href: quickstarts/from-blob.md
         - name: Mejora de la precisión con modelos de inquilino
           href: tutorial-tenant-model.md
     - name: Personalización

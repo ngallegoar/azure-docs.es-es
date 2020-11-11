@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 95e80907220a58243844b80d81dc187f8dc4c8bc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39848bcaded1669c6a6efd5b649ecf8e8343a596
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078703"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381123"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Actualizar Bing Web Search API v5 a v7
 
@@ -80,14 +80,14 @@ Bloqueado|InvalidRequest.Blocked
 
 ### <a name="headers"></a>encabezados
 
-- Se ha agregado el encabezado de solicitud [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) opcional. De forma predeterminada, Bing devuelve contenido almacenado en caché, si está disponible. Para que Bing no devuelva contenido almacenado en caché, establezca el encabezado Pragma en no-cache (por ejemplo, Pragma: no-cache).
+- Se ha agregado el encabezado de solicitud [Pragma](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) opcional. De forma predeterminada, Bing devuelve contenido almacenado en caché, si está disponible. Para que Bing no devuelva contenido almacenado en caché, establezca el encabezado Pragma en no-cache (por ejemplo, Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Parámetros de consulta
 
-- Se ha agregado el parámetro de consulta [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Utilice este parámetro para especificar el número de respuestas que quiere que incluya la respuesta. Las respuestas se eligen en función de la clasificación. Por ejemplo, si establece este parámetro en tres (3), la respuesta incluye las tres primeras respuestas clasificadas.  
+- Se ha agregado el parámetro de consulta [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Utilice este parámetro para especificar el número de respuestas que quiere que incluya la respuesta. Las respuestas se eligen en función de la clasificación. Por ejemplo, si establece este parámetro en tres (3), la respuesta incluye las tres primeras respuestas clasificadas.  
 
-- Se ha agregado el parámetro de consulta [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Utilice este parámetro junto con `answerCount` incluir explícitamente uno o más tipos de respuesta, independientemente de su clasificación. Por ejemplo, para promover vídeos e imágenes en la respuesta, habría que establecer promote en *videos, images*. La lista de respuestas que quiere promover no se tiene en cuenta para el límite de `answerCount`. Por ejemplo, si `answerCount` es 2 y `promote` está establecido en *videos, images* , la respuesta puede incluir páginas web, noticias, vídeos e imágenes.
+- Se ha agregado el parámetro de consulta [promote](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Utilice este parámetro junto con `answerCount` incluir explícitamente uno o más tipos de respuesta, independientemente de su clasificación. Por ejemplo, para promover vídeos e imágenes en la respuesta, habría que establecer promote en *videos, images*. La lista de respuestas que quiere promover no se tiene en cuenta para el límite de `answerCount`. Por ejemplo, si `answerCount` es 2 y `promote` está establecido en *videos, images* , la respuesta puede incluir páginas web, noticias, vídeos e imágenes.
 
 ### <a name="object-changes"></a>Cambios en objetos
 
-- Se ha agregado el campo `someResultsRemoved` al objeto [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer). El campo contiene un valor booleano que indica si la respuesta excluyó algunos resultados de la respuesta web.  
+- Se ha agregado el campo `someResultsRemoved` al objeto [WebAnswer](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer). El campo contiene un valor booleano que indica si la respuesta excluyó algunos resultados de la respuesta web.

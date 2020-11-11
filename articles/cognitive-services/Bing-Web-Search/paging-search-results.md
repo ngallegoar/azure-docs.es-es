@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: e7613f4b6bb301c603ae5ded98f271f3cb98b340
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1a52471240ca80335690568faed7849eabc30baf
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074104"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381072"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Cómo navegar por los resultados desde Bing Search API
 
@@ -73,15 +73,15 @@ Host: api.cognitive.microsoft.com
 Al usar las API Bing Image y Video, puede usar el valor `nextOffset` para evitar resultados de búsqueda duplicados. Obtenga el valor de los objetos de respuesta `Images` o `Videos` y úselo en las solicitudes con el parámetro `offset`.  
 
 > [!NOTE]
-> La API Bing Web Search devuelve resultados de búsqueda que pueden incluir páginas web y pueden incluir imágenes, vídeos y noticias. Cuando navegue por los resultados de la búsqueda desde la API Bing Web Search, solo se paginan [WebPages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) y no otros tipos de respuesta, como imágenes o noticias. Los resultados de la búsqueda de los objetos `WebPage` pueden incluir también los resultados que aparecen en otros tipos de respuesta.
+> La API Bing Web Search devuelve resultados de búsqueda que pueden incluir páginas web y pueden incluir imágenes, vídeos y noticias. Cuando navegue por los resultados de la búsqueda desde la API Bing Web Search, solo se paginan [WebPages](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) y no otros tipos de respuesta, como imágenes o noticias. Los resultados de la búsqueda de los objetos `WebPage` pueden incluir también los resultados que aparecen en otros tipos de respuesta.
 >
 > Si usa el parámetro de consulta `responseFilter` sin especificar ningún valor de filtro, no utilice los parámetros `count` y `offset`. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué son las API Bing Web Search?](bing-api-comparison.md)
-* [Referencia de Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
-* [Referencia de la API Bing Custom Search, versión 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-* [Referencia de la API Bing News Search, versión 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
-* [Referencia de la API Bing Video Search, versión 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
-* [Referencia de la API Bing Image Search, versión 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Referencia de Bing Web Search API v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Referencia de la API Bing Custom Search, versión 7](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+* [Referencia de la API Bing News Search, versión 7](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+* [Referencia de la API Bing Video Search, versión 7](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
+* [Referencia de la API Bing Image Search, versión 7](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

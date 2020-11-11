@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: 331b2ffde8d034ba94f5b1adcae5efa223f57594
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e8a8b843345d21d38c11789b09003a4b82f768f5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095125"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369501"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envío de consultas de búsqueda a Bing Visual Search API
 
@@ -28,7 +28,7 @@ En este artículo se describen los parámetros y atributos de las solicitudes en
 
 Puede obtener información acerca de una imagen de tres maneras:
 
-- Mediante un token de conclusión que obtiene de una imagen en una llamada anterior a uno de los puntos de conexión de [Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+- Mediante un token de conclusión que obtiene de una imagen en una llamada anterior a uno de los puntos de conexión de [Bing Image Search API](/rest/api/cognitiveservices/bing-images-api-v7-reference).
 - Enviando la dirección URL de una imagen.
 - Carga de una imagen (en formato binario).
 

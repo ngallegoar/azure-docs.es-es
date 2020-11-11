@@ -10,17 +10,17 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 6bcfb9057739277c1f57b5ebd98b99877f759e9b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8362f5b4d3436e83cbd033fcc3cd088d52122b58
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094105"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379861"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Inicio rápido: Búsqueda de vídeos con Bing Video Search API y PHP
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
 > El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
@@ -36,7 +36,7 @@ Aunque esta aplicación está escrita en PHP, la API es un servicio web RESTful 
 
 ## <a name="running-the-application"></a>Ejecución de la aplicación
 
-[Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devuelve resultados relacionados con los vídeos desde el motor de búsqueda de Bing.
+[Bing Video Search API](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devuelve resultados relacionados con los vídeos desde el motor de búsqueda de Bing.
 
 1. Para habilitar la compatibilidad segura con HTTP en el archivo `php.ini`, quite la marca de comentario de la línea `;extension=php_openssl.dll`, tal y como se describe en el código siguiente.
 2. Cree un nuevo proyecto de PHP en su IDE o editor favorito.

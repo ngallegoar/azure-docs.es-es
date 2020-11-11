@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: ea9cd9cf064b9c07016bc5e166cc4ec4c041b146
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5c0bed04fccfba1ac06a54d5ddba9033ef05761b
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078550"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380715"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Uso de marcadores de decoración para resaltar texto
 
@@ -39,7 +39,7 @@ Antes de mostrar la cadena en la interfaz de usuario, reemplace los caracteres U
 
 ## <a name="marker-formatting"></a>Formato del marcador
 
-Bing ofrece la opción de usar caracteres Unicode o etiquetas HTML como marcadores. Para especificar los marcadores que se van a usar, incluya el parámetro de consulta [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat): 
+Bing ofrece la opción de usar caracteres Unicode o etiquetas HTML como marcadores. Para especificar los marcadores que se van a usar, incluya el parámetro de consulta [textFormat](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat): 
 
 | Valor             | Marcador                       |
 |-------------------|------------------------------|

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd0dbe5912b7c4df3c666c648dbf9a92d5398cf1
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83588622"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369518"
 ---
 # <a name="translator-v20"></a>Traductor versión 2.0
 
@@ -25,7 +25,7 @@ ms.locfileid: "83588622"
 La versión 2 de Traductor puede integrarse perfectamente en las aplicaciones, sitios web, herramientas u otras soluciones para proporcionar experiencias de usuario con varios idiomas. Se puede utilizar en cualquier plataforma de hardware y con cualquier sistema operativo para realizar la traducción de idiomas y otras operaciones lingüísticas relacionadas, como la detección del idioma de texto y texto a voz, según los estándares del sector. Para obtener más información, consulte [Traductor](../translator-info-overview.md).
 
 ## <a name="getting-started"></a>Introducción
-Para acceder a Traductor, debe [suscribirse a Microsoft Azure](../translator-text-how-to-signup.md).
+Para acceder a Traductor, debe [suscribirse a Microsoft Azure](../translator-how-to-signup.md).
 
 ## <a name="authentication"></a>Authentication 
 Todas las llamadas a Traductor requieren una clave de suscripción para la autenticación. La API admite tres métodos de autenticación:
@@ -804,5 +804,3 @@ Tipo de contenido de la respuesta: application/xml
 
 > [!div class="nextstepaction"]
 > [Migración a Traductor versión 3](../migrate-to-v3.md)
-
-

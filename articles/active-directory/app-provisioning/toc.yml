@@ -12,6 +12,8 @@
   items:
     - name: Compilación de un punto de conexión de SCIM y configuración del aprovisionamiento
       href: use-scim-to-provision-users-and-groups.md
+    - name: Personalización de asignaciones de atributos
+      href: customize-application-attributes.md
     - name: Tutoriales de aprovisionamiento específicos de aplicaciones
       href: /azure/active-directory/saas-apps
 - name: Conceptos
@@ -30,8 +32,6 @@
   items:
     - name: Configuración del aprovisionamiento en una aplicación de la galería
       href: configure-automatic-user-provisioning-portal.md
-    - name: Personalización de asignaciones de atributos
-      href: customize-application-attributes.md
     - name: Inclusión o exclusión de usuarios y grupos del ámbito
       items:
         - name: Asignación de ámbito a los usuarios o grupos que se van a aprovisionar

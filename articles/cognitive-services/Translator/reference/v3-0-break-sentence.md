@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27069cf38da2567a3af3ed0fb65baead43665186
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904010"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369484"
 ---
 # <a name="translator-30-breaksentence"></a>Traductor 3.0: BreakSentence
 
@@ -43,7 +43,7 @@ Los encabezados de solicitud incluyen lo siguiente:
 
 | encabezados | Descripción |
 | ------- | ----------- |
-| Encabezados de autenticación <img width=200/>  | **Encabezado de solicitud obligatorio**.<br/>Consulte las <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opciones disponibles para la autenticación</a>. |
+| Encabezados de autenticación <img width=200/>  | **Encabezado de solicitud obligatorio**.<br/>Consulte las <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opciones disponibles para la autenticación</a>. |
 | Content-Type | **Encabezado de solicitud obligatorio**.<br/>Especifica el tipo de contenido de la carga. Los valores posibles son: `application/json`. |
 | Content-Length    | **Encabezado de solicitud obligatorio**.<br/>Longitud del cuerpo de la solicitud.  | 
 | X-ClientTraceId   | **Opcional**.<br/>GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`.  | 
@@ -141,7 +141,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
 </table> 
 
-Si se produce un error, la solicitud también devolverá una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. En la [página de referencia de Traductor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) pueden encontrarse los códigos de error comunes. 
+Si se produce un error, la solicitud también devolverá una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. En la [página de referencia de Traductor v3](./v3-0-reference.md#errors) pueden encontrarse los códigos de error comunes. 
 
 ## <a name="examples"></a>Ejemplos
 
@@ -150,4 +150,3 @@ En el siguiente ejemplo se muestra cómo obtener límites de oraciones para una 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-

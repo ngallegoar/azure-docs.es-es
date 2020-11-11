@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: local, Docker, contenedor, Kubernetes
-ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 56d88b9223a80ea9981e8830cac44bac7c6edb3b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677455"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413044"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenedores de Azure Cognitive Services
 
@@ -58,7 +58,7 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 
 | Servicio | Plan de tarifa compatible | Contenedor | Descripción |
 |--|--|--|--|
-| [Anomaly Detector][ad-containers] | F0, S0 | **Anomaly Detector** ( [imagen](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Anomaly Detector API permite supervisar y detectar anomalías en datos de serie temporal con aprendizaje automático.<br>[Solicitar acceso][request-access] |
+| [Anomaly Detector][ad-containers] | F0, S0 | **Anomaly Detector** ( [imagen](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))  | Anomaly Detector API permite supervisar y detectar anomalías en datos de serie temporal con aprendizaje automático.<br>[Solicitar acceso][request-access] |
 | [Computer Vision][cv-containers] | F0, S1 | **Read** OCR ( [imagen](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | El contenedor Read OCR permite extraer texto impreso y manuscrito de imágenes y documentos con compatibilidad con los formatos de archivo JPEG, PNG, BMP, PDF y TIFF. Para obtener más información, consulte la [documentación de la API Read](./computer-vision/concept-recognizing-text.md).<br>[Solicitar acceso][request-access] |
 | [Face][fa-containers] | F0, S0 | **Face** | Detecta caras humanas en imágenes e identifica atributos, incluidos faciales (como narices y ojos), sexo, edad y otras características faciales previstas por la máquina. Además de la detección, Face puede comprobar si dos caras en la misma o en diferentes imágenes son iguales mediante una puntuación de confianza, o bien comparar caras en una base de datos para ver si ya existe un aspecto similar o una cara idéntica. También puede organizar caras similares en grupos mediante rasgos visuales compartidos. |
 | [Form Recognizer][fr-containers] | F0, S0 | **Form Recognizer** | Form Understanding aplica tecnología de aprendizaje automático para identificar y extraer pares clave-valor de los formularios. |
@@ -75,7 +75,7 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 | [Análisis espacial][spa-containers] | S0 | **Análisis espacial** | Analiza vídeo en streaming en tiempo real para comprender las relaciones espaciales entre los usuarios, su movimiento y las interacciones con objetos de los entornos físicos. |
 
 <!--
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
 Además, se admiten algunos contenedores en las claves del recurso de la [**oferta todo en uno**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) de Cognitive Services. Puede crear un único recurso todo en uno de Cognitive Services y usar la misma clave de facturación en los servicios compatibles para los siguientes servicios:
@@ -132,7 +132,7 @@ Instale y explore la funcionalidad proporcionada por los contenedores en Azure C
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
+[spa-containers]: ./computer-vision/spatial-analysis-container.md
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

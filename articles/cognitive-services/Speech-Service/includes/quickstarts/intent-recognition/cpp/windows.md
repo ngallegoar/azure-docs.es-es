@@ -6,14 +6,14 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9c0c2673acf12ddf80b77be57acc5af55e7f160c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1fab57adfb675e8cc4ea604980e6f04a3f4a89f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298884"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425286"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar:
 
@@ -46,14 +46,14 @@ Para poder inicializar un objeto `IntentRecognizer`, es preciso crear una config
 Inserte este código en el método `recognizeIntent()`. Asegúrese de actualizar estos valores:
 
 * Reemplace `"YourLanguageUnderstandingSubscriptionKey"` por la clave de predicción de LUIS.
-* Reemplace `"YourLanguageUnderstandingServiceRegion"` por la ubicación de LUIS.  Use **Identificador de región** en [Región](https://aka.ms/speech/sdkregion).
+* Reemplace `"YourLanguageUnderstandingServiceRegion"` por la ubicación de LUIS.  Use **Identificador de región** en [Región](../../../../regions.md).
 
 >[!TIP]
 > Si necesita ayuda para encontrar estos valores, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition).
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
 
-En este ejemplo se usa el método `FromSubscription()` para compilar la clase `SpeechConfig`. Para ver una lista completa de los métodos disponibles, consulte [Clase SpeechConfig](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
+En este ejemplo se usa el método `FromSubscription()` para compilar la clase `SpeechConfig`. Para ver una lista completa de los métodos disponibles, consulte [Clase SpeechConfig](/cpp/cognitive-services/speech/speechconfig).
 
 El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
 
@@ -105,9 +105,9 @@ En este momento, el código debe tener esta apariencia:
 
 Ya está listo para compilar la aplicación y probar el reconocimiento de voz con el servicio Voz.
 
-1. **Compile el código**: en la barra de menús de Visual Studio, elija **Compilar** > **Compilar solución**.
-2. **Inicie la aplicación**: en la barra de menús, elija **Depurar** > **Iniciar depuración** o presione <kbd>F5</kbd>.
-3. **Inicie el reconocimiento**: se le pedirá que diga una frase en inglés. La voz se envía al servicio Voz, se transcribe como texto y se representa en la consola.
+1. **Compile el código** : en la barra de menús de Visual Studio, elija **Compilar** > **Compilar solución**.
+2. **Inicie la aplicación** : en la barra de menús, elija **Depurar** > **Iniciar depuración** o presione <kbd>F5</kbd>.
+3. **Inicie el reconocimiento** : se le pedirá que diga una frase en inglés. La voz se envía al servicio Voz, se transcribe como texto y se representa en la consola.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
