@@ -3,21 +3,102 @@ title: Facturas de inscripciones de Azure Enterprise
 description: En este artículo se explica cómo administrar y actuar en su factura de Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq1
+ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316144"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410975"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Facturas de inscripciones de Azure Enterprise
 
 En este artículo se explica cómo administrar y actuar en su factura de Contrato Enterprise de Azure (Azure EA). La factura es una representación del recibo. Revise que esté correcta. También debe familiarizarse con otras tareas que podrían ser necesarias para administrar la factura.
+
+## <a name="view-usage-summary-and-download-reports"></a>Visualización de resumen de uso e informes de las descargas
+
+Los administradores de empresa pueden ver un resumen de sus datos de uso, el pago por adelantado de Azure consumido y los cargos asociados con el uso adicional en Azure Enterprise Portal. Los cargos se presentan en el nivel de resumen en todas las cuentas y suscripciones.
+
+Para ver el uso detallado para cuentas específicas, descargue el informe de detalles de uso:
+
+1. Inicie sesión en Azure Enterprise Portal.
+1. Seleccione **Informes**.
+1. Seleccione la pestaña **Descargar uso**.
+1. En la lista de informes, seleccione **Descargar** en el informe mensual que desee obtener.
+
+   > [!NOTE]
+   > El informe de detalles de uso no incluye ningún impuesto aplicable.
+   >
+   > Puede haber una latencia de hasta ocho horas desde el momento en que se realizó el uso hasta el momento en que se refleja en el informe.
+
+Para ver los informes y gráficos del resumen de uso:
+
+1. Inicie sesión en Azure Enterprise Portal.
+
+1. Seleccione un plazo de pago por adelantado.
+
+   Para cambiar el rango de fechas de **Resumen de uso** , puede alternar entre **M** (mensual) y **C** (personalizado) en la parte superior derecha de la página y, a continuación, especificar fechas de inicio y de finalización personalizadas.
+
+   ![Crear y ver el resumen de uso y descargar informes en la vista personalizada](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. Para ver detalles adicionales, puede seleccionar un periodo o un mes en el gráfico.
+
+   - El gráfico muestra el uso mes a mes con un desglose del uso realizado, el cargo extra por los servicios, los cargos facturados por separado y los cargos por Azure Marketplace.
+   - En el mes seleccionado, puede usar los campos debajo del gráfico para filtrar por departamentos, cuentas y suscripciones.
+   - Puede alternar entre **Charge by Services** (Cargo por servicios) y **Charge by Hierarchy** (Cargo por jerarquía).
+   - Expanda las secciones pertinentes para ver los detalles de **Servicio de Azure** , **Gastos facturados por separado** y **Azure Marketplace**.
+
+Consulte este vídeo para conocer cómo ver el uso:
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### <a name="download-csv-reports"></a>Descarga de informes CSV
+
+Los administradores de empresa usan la página de descarga de informes mensuales para descargar los informes siguientes como archivos CSV:
+
+- Saldo y cargo
+- Detalles de uso
+- Cargos de Azure Marketplace
+- Hoja de precios
+
+Para descargar informes:
+
+1. En Azure Enterprise Portal, seleccione **Informes**.
+2. Seleccione **Descargar uso** en la parte superior de la página.
+3. Seleccione **Download** (Descargar) junto al informe del mes.
+
+   > [!NOTE]
+   > Puede haber una latencia de hasta cinco días entre la fecha en que se realizó el uso y el momento en que el uso se muestra en los informes.
+   >
+   > Los usuarios que descarguen archivos CSV con Safari en Excel pueden encontrarse con errores de formato. Para evitar errores, abra el archivo con un editor de texto.
+
+![Ejemplo que muestra la página Descargar uso](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+Vea este vídeo para ver cómo descargar la información de uso:
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### <a name="advanced-report-download"></a>Descarga de informes avanzada
+
+Puede usar la descarga de informes avanzados para obtener informes que cubran cuentas o rangos de fechas específicos. El archivo de salida está en formato CSV para admitir grandes conjuntos de registros.
+
+1. En Azure Enterprise Portal, seleccione **Descarga de informes avanzada**.
+1. Seleccione un rango de fechas adecuado y las cuentas adecuadas.
+1. Seleccione **Request Usage Data** (Solicitar datos de uso).
+1. Seleccione el botón **Actualizar** hasta que el estado del informe se actualice a **Descargar**.
+1. Descargue el informe.
+
+### <a name="download-usage-reports-and-billing-information-for-a-prior-enrollment"></a>Descargar informes de uso e información de facturación de una inscripción anterior
+
+Puede descargar los informes de uso y la información de facturación para una inscripción anterior después de que haya tenido lugar la transferencia de una inscripción. Los informes históricos están disponibles en Azure Enterprise Portal y en Cost Management.
+
+Azure Enterprise Portal filtra las inscripciones inactivas para excluirlas. Tendrá que desactivar la casilla **Activa** para ver las inscripciones transferidas inactivas.  
+
+![Al desactivar la casilla activa, el usuario puede ver las inscripciones inactivas.](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Cambio de un número de pedido de compra en una próxima factura de uso por encima del límite
 
@@ -31,7 +112,7 @@ Azure Enterprise Portal genera automáticamente un número de pedido de compra p
 1. Seleccione un **período de facturación** en el menú desplegable de intervalos de fechas.
 
    Puede editar un número de pedido de compra durante un período de siete días después de recibir una notificación de factura, pero antes de haber pagado la factura.
-1. Escriba un número de pedido de compra nuevo en el campo**PO Number** (Número de pedido de compra).
+1. Escriba un número de pedido de compra nuevo en el campo **PO Number** (Número de pedido de compra).
 1. Seleccione **Guardar** para enviar el cambio.
 
 ### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Para actualizar el número de pedido de compra de Azure Marketplace:
@@ -42,7 +123,7 @@ Azure Enterprise Portal genera automáticamente un número de pedido de compra p
 1. Seleccione un **período de facturación** en el menú desplegable de intervalos de fechas.
 
    Puede editar un número de pedido de compra durante un período de siete días después de recibir una notificación de factura, pero antes de haber pagado la factura.
-1. Escriba un número de pedido de compra nuevo en el campo**PO Number** (Número de pedido de compra).
+1. Escriba un número de pedido de compra nuevo en el campo **PO Number** (Número de pedido de compra).
 1. Seleccione **Guardar** para enviar el cambio.
 
 ## <a name="azure-enterprise-billing-frequency"></a>Frecuencia de facturación de Azure Enterprise
@@ -61,20 +142,20 @@ El intervalo de facturación depende de cómo decida hacer sus compras de prepag
 
 La fecha en que reciba la factura de uso por encima del límite depende de la fecha de inicio de su inscripción y de su configuración:
 
-- **Inscripciones directas con una fecha de inicio anterior al 1 de mayo de 2018**:
+- **Inscripciones directas con una fecha de inicio anterior al 1 de mayo de 2018** :
   - En el caso de un Contrato Enterprise (EA) directo, se encuentra en un período de facturación anual para los servicios de Azure, excepto los servicios de Azure Marketplace. El período de facturación se basa en la fecha de aniversario, la fecha en la que el contrato entró en vigor.
   - Si supera el 150 % del umbral de su prepago de Azure de EA, se convertirá automáticamente en un período de facturación trimestral basado en la fecha de su aniversario. También recibirá una factura por uso por encima del límite de los servicios de Azure.
   - Si no supera el 150 % del umbral del prepago de Azure, la inscripción permanecerá en un período de facturación anual. La factura de uso por encima del límite se recibirá al final del año del prepago.
 
-- **Inscripciones directas con una fecha de inicio posterior al 1 de mayo de 2018**:
+- **Inscripciones directas con una fecha de inicio posterior al 1 de mayo de 2018** :
   - Las facturas de consumo y cargos de Azure facturados por separado tendrán un período de facturación mensual.
   - Los cargos que no cubra el prepago de Azure se deben como pago de uso por encima del límite.  
 
-- **Inscripciones indirectas con una inscripción iniciada antes del 1 de mayo de 2018**:
+- **Inscripciones indirectas con una inscripción iniciada antes del 1 de mayo de 2018** :
 
   Si es cliente de un Contrato Enterprise (EA) indirecto con una fecha de inicio anterior al 1 de mayo de 2018, se encuentra en un período de facturación trimestral. El partner de canal (CP) le factura directamente.  
 
-- **Inscripciones indirectas con una fecha de inicio posterior al 1 de mayo de 2018**:
+- **Inscripciones indirectas con una fecha de inicio posterior al 1 de mayo de 2018** :
 
   Se encuentra en un período de facturación mensual.  
 

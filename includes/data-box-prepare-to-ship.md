@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 07/01/2020
 ms.author: alkohli
-ms.openlocfilehash: d099e33e7b35381f5404c9f8964d3ea90d4f3908
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a78bce9f6e714aa5564791f6bb63996554beabf1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959483"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376082"
 ---
 El paso final consiste en preparar el dispositivo para el envío. En este paso, se desconectan todos los recursos compartidos de dispositivo. Una vez que empieza este proceso, no se puede acceder a los recursos compartidos.
 
@@ -20,7 +20,7 @@ El paso final consiste en preparar el dispositivo para el envío. En este paso, 
    
     ![Preparación para el envío 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
-    Si por algún motivo desea detener la preparación del dispositivo, haga clic en **Detener preparación** . Puede reanudar la preparación para el envío más adelante.
+    Si por algún motivo desea detener la preparación del dispositivo, haga clic en **Detener preparación**. Puede reanudar la preparación para el envío más adelante.
         
     ![Preparación para el envío 2](media/data-box-prepare-to-ship/prepare-to-ship2.png)
     
@@ -30,18 +30,18 @@ El paso final consiste en preparar el dispositivo para el envío. En este paso, 
 
     Si desea copiar más datos en el dispositivo, puede desbloquearlo, copiar más datos y ejecutar la preparación para el envío de nuevo.
 
-    Si hay errores en este paso, el estado se actualiza a *Exploración completada con errores* . Desbloquee el dispositivo y vaya a la página **Conectar y copiar** , descargue la lista de problemas y resuelva los errores.
+    Si hay errores en este paso, el estado se actualiza a *Exploración completada con errores*. Desbloquee el dispositivo y vaya a la página **Conectar y copiar** , descargue la lista de problemas y resuelva los errores.
 
-    ![Preparación para el envío 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
+    ![Preparación para el envío 4](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 
-    Una vez hecho esto, ejecute **Preparación para el envío** .
+    Una vez hecho esto, ejecute **Preparación para el envío**.
 
 4. Una vez que la preparación para el envío haya finalizado correctamente (sin errores), siga estos pasos:
 
     1. Anote el número de referencia de finalización. En función del país en el que se encuentre, este número puede ser necesario para distintas operaciones.
     2. Descargue la lista de archivos (conocido también como manifiesto) que se han copiado en este proceso. Más adelante, puede usar esta lista para comprobar los archivos se cargaron en Azure. Para más información, consulte [Inspeccionar BOM durante la preparación para el envío](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
-        ![Preparación para el envío 1](media/data-box-prepare-to-ship/prepare-to-ship5.png)
+        ![Preparación para el envío 5](media/data-box-prepare-to-ship/prepare-to-ship5.png)
     3. Seleccione y descargue las instrucciones de envío para el dispositivo. Las instrucciones de envío varían en función del país en el que se encuentre.
     4. Si E-ink no muestra la etiqueta de envío, puede descargar aquí la etiqueta de envío inverso aquí. 
 

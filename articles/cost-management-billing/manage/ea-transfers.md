@@ -6,14 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/05/2020
 ms.author: banders
-ms.openlocfilehash: 140fc450623f0dcb6c7cf1bf08a8cfc43b094763
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperfq1
+ms.openlocfilehash: 3222c934998febe79c36121ca816f949b78d374e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371905"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411565"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferencias de Azure Enterprise
 
@@ -93,21 +94,25 @@ El prepago de Azure no se transfiere entre inscripciones. Los saldos de prepago 
 
 No hay ningún tiempo de inactividad durante la transferencia de la cuenta o inscripción. Se puede completar el mismo día de la solicitud si se proporciona toda la información necesaria.
 
+## <a name="transfer-an-enterprise-subscription-to-a-pay-as-you-go-subscription"></a>Transferencia de una suscripción de Enterprise a una suscripción de pago por uso
+
+Para transferir una suscripción de Enterprise a una suscripción individual con tarifas de pago por uso, debe crear una nueva solicitud de soporte técnico en Azure Enterprise Portal. Para crear una solicitud de soporte técnico, seleccione **+ Nueva solicitud de soporte técnico** en el área **Ayuda y soporte técnico**.
+
 ## <a name="change-account-owner"></a>Cambiar el propietario de la cuenta
 
-El portal del Contrato Enterprise de Azure puede transferir suscripciones de un propietario de cuenta a otro. Para más información, consulte [Cambio del propietario de la cuenta](ea-portal-get-started.md#change-account-owner).
+El portal del Contrato Enterprise de Azure puede transferir suscripciones de un propietario de cuenta a otro. Para más información, consulte [Cambio del propietario de la cuenta](ea-portal-administration.md#change-account-owner).
 
 ## <a name="subscription-transfer-effects"></a>Efectos de la transferencia de la suscripción
 
 Si se transfiere una suscripción de Azure a una cuenta que se encuentra en el mismo inquilino de Azure Active Directory, todos los usuarios, grupos y entidades de servicio que tenían [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md) para administrar recursos mantendrán su acceso.
 
-Para ver los usuarios con acceso Azure RBAC a la suscripción:
+Para ver los usuarios con acceso RBAC a la suscripción:
 
 1. En Azure Portal, abra **Suscripciones**.
 2. Seleccione la suscripción que desee ver y, después, seleccione **Control de acceso (IAM)** .
-3. Seleccione **Asignaciones de roles**. La página de asignaciones de roles enumera todos los usuarios que tienen acceso Azure RBAC a la suscripción.
+3. Seleccione **Asignaciones de roles**. La página de asignación de roles enumera todos los usuarios que tienen acceso RBAC a la suscripción.
 
-Si transfiere la suscripción a una cuenta en otro inquilino de Azure AD, todos los usuarios, grupos y entidades de servicio que tenían [Azure RBAC](../../role-based-access-control/overview.md) para administrar recursos _perderán_ el acceso. Aunque el acceso Azure RBAC no está presente, el acceso a la suscripción puede estar disponible mediante mecanismos de seguridad, entre los que se incluyen:
+Si transfiere la suscripción a una cuenta en otro inquilino de Azure AD, todos los usuarios, grupos y entidades de servicio que tenían [RBAC](../../role-based-access-control/overview.md) para administrar recursos _perderán_ el acceso. Aunque el acceso con RBAC no está presente, el acceso a la suscripción puede estar disponible mediante mecanismos de seguridad, entre los que se incluyen:
 
 - Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../../cloud-services/cloud-services-certs-create.md).
 - Claves de acceso para servicios como Almacenamiento. Para más información, vea [Introducción a las cuentas de Azure Storage](../../storage/common/storage-account-overview.md).

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 53309023a838f4b256327a37866408f556c81d29
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ac87d5040cd572635d81be51308f48a57ddd38e3
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924163"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335475"
 ---
 ::: zone target="docs"
 
@@ -119,7 +119,7 @@ Realice los pasos siguientes para configurar el dispositivo mediante la interfaz
 2. Conéctese al puerto MGMT del dispositivo y acceda a la interfaz de usuario web local en https\://192.168.100.10. Esto puede tardar hasta 5 minutos tras encender el dispositivo.
 3. Haga clic en **Details** (Detalles) y haga clic en **Go on to the webpage** (Continuar a la página web).
 
-   ![Conexión a la interfaz de usuario web local](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
+   ![Conexión a la interfaz de usuario web local](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
 4. Verá la página de **inicio de sesión** de la interfaz de usuario web local. Asegúrese de que el número de serie del dispositivo coincide tanto en la interfaz de usuario del portal como en la interfaz de usuario web local. En este momento, el dispositivo está bloqueado.
 5. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
@@ -129,7 +129,7 @@ Realice los pasos siguientes para configurar el dispositivo mediante la interfaz
     
     
 7. Proporcione la contraseña del dispositivo que obtuvo en Azure Portal en el paso anterior para iniciar sesión en la interfaz de usuario web local del dispositivo. Haga clic en **Iniciar sesión**.
-8. En el **Panel**, asegúrese de que las interfaces de red están configuradas. 
+8. En el **Panel** , asegúrese de que las interfaces de red están configuradas. 
    - Si DHCP está habilitado en el entorno, las interfaces de red se configuran automáticamente. 
    - Si DHCP no está habilitado, vaya a **Set network interfaces** (Establecer interfaces de red) y asigne direcciones IP estáticas si es necesario.
 
