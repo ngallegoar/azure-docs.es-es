@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017665"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368719"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Detección de anomalías en datos transmitidos con Azure Databricks
 
@@ -47,7 +47,7 @@ Cree una [suscripción a Azure](https://azure.microsoft.com/free/cognitive-servi
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Un [espacio de nombres de Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) y un centro de eventos.
+- Un [espacio de nombres de Azure Event Hubs](../../../event-hubs/event-hubs-create.md) y un centro de eventos.
 
 - La [cadena de conexión](../../../event-hubs/event-hubs-get-connection-string.md) para acceder al espacio de nombres de Event Hubs. El formato de la cadena de conexión debe ser similar a este:
 
@@ -65,7 +65,7 @@ En esta sección, se crea un área de trabajo de Azure Databricks desde [Azure P
 
     ![Azure Databricks en el portal](../media/tutorials/azure-databricks-on-portal.png "Databricks de Azure Portal")
 
-3. En **Azure Databricks Service**, proporcione los valores siguientes para crear un área de trabajo de Databricks.
+3. En **Azure Databricks Service** , proporcione los valores siguientes para crear un área de trabajo de Databricks.
 
 
     |Propiedad  |Descripción  |
@@ -88,7 +88,7 @@ En esta sección, se crea un área de trabajo de Azure Databricks desde [Azure P
 
     ![Databricks en Azure](../media/tutorials/databricks-on-azure.png "Databricks en Azure")
 
-3. En la página **Nuevo clúster**, especifique los valores necesarios para crear un clúster.
+3. En la página **Nuevo clúster** , especifique los valores necesarios para crear un clúster.
 
     ![Creación de clústeres de Spark para Databricks en Azure](../media/tutorials/create-databricks-spark-cluster.png "Creación de clústeres de Spark para Databricks en Azure")
 
@@ -172,11 +172,11 @@ En este tutorial, las [API Anomaly Detector de Azure Cognitive Services](../over
 
      Seleccione **Crear**.
 
-5. Después de crear el recurso, en la pestaña **Información general**, copie y guarde la dirección URL de **Punto de conexión**, como se muestra en la captura de pantalla. Luego, seleccione **Mostrar claves de acceso**.
+5. Después de crear el recurso, en la pestaña **Información general** , copie y guarde la dirección URL de **Punto de conexión** , como se muestra en la captura de pantalla. Luego, seleccione **Mostrar claves de acceso**.
 
     ![Mostrar claves de acceso](../media/tutorials/cognitive-services-get-access-keys.png "Mostrar claves de acceso")
 
-6. En **Claves**, seleccione el icono de copia en la clave que desee usar. Guarde la clave de acceso.
+6. En **Claves** , seleccione el icono de copia en la clave que desee usar. Guarde la clave de acceso.
 
     ![Copia de las claves de acceso](../media/tutorials/cognitive-services-copy-access-keys.png "Copia de las claves de acceso")
 
@@ -184,8 +184,8 @@ En este tutorial, las [API Anomaly Detector de Azure Cognitive Services](../over
 
 En esta sección, se crearán dos cuadernos en el área de trabajo de Databricks con los nombres siguientes:
 
-- **SendTweetsToEventHub**: un cuaderno de productor que se usa para obtener tweets de Twitter y transmitirlos a Event Hubs.
-- **AnalyzeTweetsFromEventHub**: un cuaderno de consumidor que se usa para leer los tweets de Event Hubs y ejecutar la detección de anomalías.
+- **SendTweetsToEventHub** : un cuaderno de productor que se usa para obtener tweets de Twitter y transmitirlos a Event Hubs.
+- **AnalyzeTweetsFromEventHub** : un cuaderno de consumidor que se usa para leer los tweets de Event Hubs y ejecutar la detección de anomalías.
 
 1. En el área de trabajo de Azure Databricks, seleccione **Workspace** (Área de trabajo) en el panel izquierdo. En la lista desplegable **Workspace** (Área de trabajo), seleccione **Create** (Crear) y, a continuación, haga clic en **Notebook** (Cuaderno).
 
@@ -201,7 +201,7 @@ En esta sección, se crearán dos cuadernos en el área de trabajo de Databricks
 
 ## <a name="send-tweets-to-event-hubs"></a>Envío de tweets a Event Hubs
 
-En el cuaderno **SendTweetsToEventHub**, pegue el código siguiente y reemplace el marcador de posición por los valores del espacio de nombres de Event Hubs y la aplicación de Twitter que creó anteriormente. Este cuaderno extrae la hora de creación y el número de "Me gusta" de los tweets con la palabra clave "Azure" y los transmite como eventos a Event Hubs en tiempo real.
+En el cuaderno **SendTweetsToEventHub** , pegue el código siguiente y reemplace el marcador de posición por los valores del espacio de nombres de Event Hubs y la aplicación de Twitter que creó anteriormente. Este cuaderno extrae la hora de creación y el número de "Me gusta" de los tweets con la palabra clave "Azure" y los transmite como eventos a Event Hubs en tiempo real.
 
 ```scala
 //
@@ -323,7 +323,7 @@ Presione **MAYÚS + ENTRAR** para ejecutar el cuaderno. Verá una salida similar
 
 ## <a name="read-tweets-from-event-hubs"></a>Lectura de tweets desde Event Hubs
 
-En el cuaderno **AnalyzeTweetsFromEventHub**, pegue el código siguiente y reemplace el marcador de posición por los valores del recurso de Anomaly Detector que creó anteriormente. Este cuaderno lee los tweets que transmitió anteriormente a Event Hubs usando el cuaderno **SendTweetsToEventHub**.
+En el cuaderno **AnalyzeTweetsFromEventHub** , pegue el código siguiente y reemplace el marcador de posición por los valores del recurso de Anomaly Detector que creó anteriormente. Este cuaderno lee los tweets que transmitió anteriormente a Event Hubs usando el cuaderno **SendTweetsToEventHub**.
 
 En primer lugar, escriba un cliente para llamar a Anomaly Detector.
 ```scala

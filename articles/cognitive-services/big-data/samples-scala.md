@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 4546ef03c82f19d188a71a86f6964ca87c0f834e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c47aa803774343b39efeabe3452f1b256cc64c0d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90524970"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363279"
 ---
 # <a name="quick-examples"></a>Ejemplos rápidos
 
@@ -49,7 +49,7 @@ val location = "eastus"
 
 ## <a name="text-analytics"></a>Text Analytics
 
-El servicio [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) proporciona varios algoritmos para extraer conclusiones inteligentes de un texto. Por ejemplo, podemos encontrar la opinión de un texto de entrada determinado. El servicio devolverá una puntuación entre `0.0` y `1.0`, donde las puntuaciones bajas indican una opinión negativa y una puntuación alta indica una opinión positiva.  El ejemplo siguiente utiliza tres frases simples y devuelve la puntuación de la opinión de cada una.
+El servicio [Text Analytics](../text-analytics/index.yml) proporciona varios algoritmos para extraer conclusiones inteligentes de un texto. Por ejemplo, podemos encontrar la opinión de un texto de entrada determinado. El servicio devolverá una puntuación entre `0.0` y `1.0`, donde las puntuaciones bajas indican una opinión negativa y una puntuación alta indica una opinión positiva.  El ejemplo siguiente utiliza tres frases simples y devuelve la puntuación de la opinión de cada una.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -81,7 +81,7 @@ display(sentiment.transform(df).select(col("text"), col("sentiment")(0).getItem(
 
 ## <a name="computer-vision"></a>Computer Vision
 
-[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analiza las imágenes para identificar estructuras como caras, objetos y descripciones en lenguaje natural.
+[Computer Vision](../computer-vision/index.yml) analiza las imágenes para identificar estructuras como caras, objetos y descripciones en lenguaje natural.
 En este ejemplo, se etiqueta una lista de imágenes. Las etiquetas son descripciones de una sola palabra de las cosas que hay en la imagen, como objetos reconocibles, personas, escenarios y acciones.
 
 ```scala
@@ -118,7 +118,7 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 
 ## <a name="bing-image-search"></a>Bing Image Search
 
-[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) busca en la Web para recuperar las imágenes relacionadas con una consulta en lenguaje natural del usuario. En este ejemplo, usamos una consulta de texto que busca imágenes con citas de un personaje célebre. Devuelve una lista de direcciones URL de las imágenes que contienen fotos relacionadas con la consulta.
+[Bing Image Search](../bing-image-search/overview.md) busca en la Web para recuperar las imágenes relacionadas con una consulta en lenguaje natural del usuario. En este ejemplo, usamos una consulta de texto que busca imágenes con citas de un personaje célebre. Devuelve una lista de direcciones URL de las imágenes que contienen fotos relacionadas con la consulta.
 
 
 ```scala
@@ -163,7 +163,7 @@ display(pipeline.fit(df).transform(df))
 
 ## <a name="speech-to-text"></a>Voz a texto
 
-El servicio [Speech to Text](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) convierte secuencias o archivos de audio hablado en texto. En este ejemplo, se transcriben dos archivos de audio. El primer archivo es fácil de entender y el segundo es más desafiante.
+El servicio [Speech to Text](../speech-service/index-speech-to-text.yml) convierte secuencias o archivos de audio hablado en texto. En este ejemplo, se transcriben dos archivos de audio. El primer archivo es fácil de entender y el segundo es más desafiante.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -196,7 +196,7 @@ display(speechToText.transform(df).select(col("url"), col("text").getItem("Displ
 
 ## <a name="anomaly-detector"></a>Anomaly Detector
 
-[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) es ideal para detectar irregularidades en los datos de series temporales. En este ejemplo, usamos el servicio para buscar anomalías en toda la serie temporal.
+[Anomaly Detector](../anomaly-detector/index.yml) es ideal para detectar irregularidades en los datos de series temporales. En este ejemplo, usamos el servicio para buscar anomalías en toda la serie temporal.
 
 ```scala
 import org.apache.spark.sql.functions.{col, lit}

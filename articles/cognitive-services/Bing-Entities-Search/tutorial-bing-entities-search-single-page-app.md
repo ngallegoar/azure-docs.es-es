@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 7fa09ee40ca646be6ee104c7b2d4428c92934337
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f725a4095103a7dcfc3dcdbdcefdc84d16501632
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084636"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366540"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicación web de una sola página
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Bing Entity Search API le permite buscar en Internet información acerca de *entidades* y *lugares.* Puede solicitar cualquier tipo de resultado, o ambos, en una consulta determinada. Las definiciones de lugares y entidades se proporcionan a continuación.
 
@@ -57,7 +57,7 @@ En la aplicación del tutorial se muestra cómo:
 
 La página del tutorial es completamente independiente: no utiliza marcos, hojas de estilo ni archivos de imagen externos. Usa solo características del lenguaje JavaScript ampliamente compatibles y funciona con las versiones actuales de los principales exploradores web.
 
-En este tutorial, solo se describen determinadas partes del código fuente. El código fuente completo está disponible [en otra página](tutorial-bing-entities-search-single-page-app-source.md). Copie y pegue este código en un editor de texto y guárdelo como `bing.html`.
+En este tutorial, solo se describen determinadas partes del código fuente. El código fuente completo está disponible [en otra página](). Copie y pegue este código en un editor de texto y guárdelo como `bing.html`.
 
 > [!NOTE]
 > Este tutorial es bastante similar al [tutorial de la aplicación Bing Web Search de una sola página](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), pero solo se centra en los resultados de búsqueda de imágenes.
@@ -405,7 +405,7 @@ Los errores se controlan mediante una llamada a `renderErrorMessage()` con los d
 
 ## <a name="displaying-search-results"></a>Presentación de los resultados de la búsqueda
 
-Bing Entity Search API [le solicitará mostrar los resultados en un orden específico](use-display-requirements.md). Como la API puede devolver dos tipos diferentes de respuestas, no es suficiente iterar a través de las colecciones `Entities` o `Places` de nivel superior en la respuesta JSON y mostrar esos resultados. (Si solo quiere un tipo de resultado, use el parámetro de consulta `responseFilter`).
+Bing Entity Search API [le solicitará mostrar los resultados en un orden específico](../bing-web-search/use-display-requirements.md). Como la API puede devolver dos tipos diferentes de respuestas, no es suficiente iterar a través de las colecciones `Entities` o `Places` de nivel superior en la respuesta JSON y mostrar esos resultados. (Si solo quiere un tipo de resultado, use el parámetro de consulta `responseFilter`).
 
 En su lugar, usamos la colección `rankingResponse` en los resultados de la búsqueda para ordenar los resultados que se mostrarán. Este objeto se refiere a los artículos en las colecciones `Entitiess` o `Places`.
 

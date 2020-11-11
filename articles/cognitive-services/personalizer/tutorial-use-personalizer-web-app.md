@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777265"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363925"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Incorporación de Personalizer a una aplicación web de .NET
 
@@ -158,7 +158,7 @@ La aplicación web usa Personalizer para seleccionar la mejor acción de la list
 * **acciones** con sus características como `taste` y `spiceLevel`
 * características de **contexto** como `time` del día, preferencias de `taste` del usuario y la información del agente de usuario del explorador.
 * **acciones a excluir** como, por ejemplo, zumo
-* **eventId**, que es diferente para cada llamada a la API Rank.
+* **eventId** , que es diferente para cada llamada a la API Rank.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Características del modelo de Personalizer en una aplicación web
 
@@ -216,7 +216,7 @@ Instale el siguiente software:
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1): el servidor back-end de ejemplo usa .NET Core.
 * [Node.js](https://nodejs.org/): el cliente o front-end depende de esta aplicación.
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) o la [CLI de .NET Core](https://docs.microsoft.com/dotnet/core/tools/): use el entorno para desarrolladores de Visual Studio 2019 o la CLI de .NET Core para compilar y ejecutar la aplicación.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) o la [CLI de .NET Core](/dotnet/core/tools/): use el entorno para desarrolladores de Visual Studio 2019 o la CLI de .NET Core para compilar y ejecutar la aplicación.
 
 ### <a name="set-up-the-sample"></a>Configuración del ejemplo
 1. Clone el repositorio de ejemplos de Azure Personalizer.
@@ -235,7 +235,7 @@ Instale el siguiente software:
 
 1. En Azure Portal, busque `Endpoint` y `Key1` o `Key2` (cualquiera de estos funcionará) en la pestaña **Claves y puntos de conexión**. En este caso, se trata de `PersonalizerServiceEndpoint` y `PersonalizerApiKey`.
 1. Rellene `PersonalizerServiceEndpoint` en **appsettings.json**.
-1. Configure `PersonalizerApiKey` como un [secreto de aplicación](https://docs.microsoft.com/aspnet/core/security/app-secrets) de una de las siguientes maneras:
+1. Configure `PersonalizerApiKey` como un [secreto de aplicación](/aspnet/core/security/app-secrets) de una de las siguientes maneras:
 
     * Si va a utilizar la CLI de .NET Core, puede usar el comando `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"`.
     * Si va a usar Visual Studio, puede hacer clic con el botón derecho en el proyecto y seleccionar la opción de menú **Administrar secretos de usuario** para configurar las claves de Personalizer. Al hacerlo, Visual Studio abrirá un archivo `secrets.json` en el que puede agregar las claves de la siguiente manera:

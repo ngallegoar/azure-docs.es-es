@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: 73084f5116083b190b6fa31e504ffc5e8f6f39f6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: d8ee6b2344f0c953233195a693e774e410a8a8ea
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636500"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368209"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutorial: Creación de una aplicación iOS que inicia el Lector inmersivo con contenido de una foto (Swift)
 
 El [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de forma inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora.
 
-La [API Read de Computer Vision de Microsoft Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) detecta el contenido de texto de una imagen con los últimos modelos de reconocimiento de Microsoft y convierte el texto identificado en una secuencia de caracteres legible por una máquina.
+La [API Read de Computer Vision de Microsoft Cognitive Services](../computer-vision/concept-recognizing-text.md) detecta el contenido de texto de una imagen con los últimos modelos de reconocimiento de Microsoft y convierte el texto identificado en una secuencia de caracteres legible por una máquina.
 
 En este tutorial, creará una aplicación iOS desde cero e integrará la API Read, así como el Lector inmersivo mediante su SDK. Se puede encontrar un completo ejemplo funcional [aquí](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 1a76c753cdf22d2c9b8b56893017cdc3cee9c8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d987797c2c25f685a3c9250afeb17cec3ad3cb2e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90527299"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369552"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integración de Power BI con Text Analytics de Cognitive Services
 
@@ -68,7 +68,7 @@ Puede que necesite transformar los datos de Power BI Desktop antes de que estén
 
 Los datos de ejemplo contienen una columna `subject` y una columna `comment`. Con la función Combinar columnas de Power BI Desktop, puede extraer frases clave de los datos de ambas columnas, en lugar de solo la columna `comment`.
 
-En Power BI Desktop, seleccione la cinta de opciones **Inicio**. En el grupo **Datos externos**, haga clic en **Editar consultas**.
+En Power BI Desktop, seleccione la cinta de opciones **Inicio**. En el grupo **Datos externos** , haga clic en **Editar consultas**.
 
 ![[El grupo Datos externos de la cinta Inicio]](../media/tutorials/power-bi/edit-queries.png)
 
@@ -103,15 +103,15 @@ También podría considerar el filtrado de mensajes en blanco con el filtro Quit
 Ahora está listo para crear la función personalizada que integrará Power BI y Text Analytics. La función recibe el texto que se va a procesar como un parámetro. Convierte los datos a y desde el formato JSON requerido y realiza la solicitud HTTP a Key Phrases API. La función analiza entonces la respuesta de la API y devuelve una cadena que contiene una lista de valores separados por comas de las frases clave extraídas.
 
 > [!NOTE]
-> Las funciones personalizadas de Power BI Desktop se escriben en el [lenguaje de fórmulas M de Power Query](https://docs.microsoft.com/powerquery-m/power-query-m-reference), o simplemente "M" para abreviar. M es un lenguaje de programación funcional basado en [F#](https://docs.microsoft.com/dotnet/fsharp/). Para finalizar este tutorial no es necesario ser programador, si bien, se incluye el código necesario a continuación.
+> Las funciones personalizadas de Power BI Desktop se escriben en el [lenguaje de fórmulas M de Power Query](/powerquery-m/power-query-m-reference), o simplemente "M" para abreviar. M es un lenguaje de programación funcional basado en [F#](/dotnet/fsharp/). Para finalizar este tutorial no es necesario ser programador, si bien, se incluye el código necesario a continuación.
 
-En Power BI Desktop, asegúrese de que todavía se encuentra en la ventana del Editor de consultas. Si no, seleccione la cinta de opciones **Inicio** y, en el grupo **Datos externos**, haga clic en **Editar consultas**.
+En Power BI Desktop, asegúrese de que todavía se encuentra en la ventana del Editor de consultas. Si no, seleccione la cinta de opciones **Inicio** y, en el grupo **Datos externos** , haga clic en **Editar consultas**.
 
-Ahora, en la cinta de opciones **Inicio**, en el grupo **Nueva consulta**, abra el menú desplegable **Nuevo origen** y seleccione **Consulta en blanco**. 
+Ahora, en la cinta de opciones **Inicio** , en el grupo **Nueva consulta** , abra el menú desplegable **Nuevo origen** y seleccione **Consulta en blanco**. 
 
 Aparece una nueva consulta, denominada inicialmente `Query1`, en la lista de consultas. Haga doble clic en esta entrada y asígnele el nombre `KeyPhrases`.
 
-Ahora, en la cinta de opciones **Inicio**, en el grupo **Consulta**, haga clic en **Editor avanzado** para abrir la ventana Editor avanzado. Elimine el código que ya está en esa ventana y pegue el código siguiente. 
+Ahora, en la cinta de opciones **Inicio** , en el grupo **Consulta** , haga clic en **Editor avanzado** para abrir la ventana Editor avanzado. Elimine el código que ya está en esa ventana y pegue el código siguiente. 
 
 > [!NOTE]
 > Reemplace el punto de conexión de ejemplo siguiente (que contiene `<your-custom-subdomain>`) por el punto de conexión generado para el recurso de Text Analytics. Para encontrar este punto de conexión, inicie sesión en [Azure Portal](https://azure.microsoft.com/features/azure-portal/), selecciona la suscripción de Text Analytics y elija `Quick start`.
@@ -139,11 +139,11 @@ Reemplace `YOUR_API_KEY_HERE` con la clave de acceso de Text Analytics. Puede en
 
 Ahora puede usar la función personalizada para extraer las frases clave de cada uno de los comentarios de los clientes y almacenarlas en una nueva columna de la tabla. 
 
-En Power BI Desktop, en la ventana del Editor de consultas, cambie a la consulta `FabrikamComments`. Seleccione la cinta de opciones **Agregar columna**. En el grupo **General**, haga clic en **Invocar función personalizada**.
+En Power BI Desktop, en la ventana del Editor de consultas, cambie a la consulta `FabrikamComments`. Seleccione la cinta de opciones **Agregar columna**. En el grupo **General** , haga clic en **Invocar función personalizada**.
 
 ![[Botón Invocar función personalizada]](../media/tutorials/power-bi/invoke-custom-function-button.png)<br><br>
 
-Aparece el cuadro de diálogo Invocar función personalizada. En **Nuevo nombre de columna**, escriba `keyphrases`. En **Consulta de función**, seleccione la función personalizada que creó, `KeyPhrases`.
+Aparece el cuadro de diálogo Invocar función personalizada. En **Nuevo nombre de columna** , escriba `keyphrases`. En **Consulta de función** , seleccione la función personalizada que creó, `KeyPhrases`.
 
 Aparece un nuevo campo en el cuadro de diálogo, **Texto (opcional)** . Este campo pregunta qué columna desea usar para proporcionar valores para el parámetro `text` de Key Phrases API. (Recuerde que ya ha codificado de forma rígida los valores para los parámetros `language` y `id`). Seleccione `Merged` (la columna que se creó [anteriormente](#PreparingData) mediante la combinación de los campos de asunto y mensaje) en el menú desplegable.
 
@@ -296,7 +296,7 @@ Más información sobre el servicio Text Analytics, el lenguaje de fórmulas M d
 > [Referencia de Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0)
 
 > [!div class="nextstepaction"]
-> [Referencia de Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
+> [Referencia de Power Query M](/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Documentación de Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

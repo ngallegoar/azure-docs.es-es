@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0afee57eaaa0708ebde2a2aeaced76f008ebd9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102211"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366135"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutorial: Carga de imágenes en Bing Visual Search API
 
@@ -477,7 +477,7 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>Visualización de conclusiones para distintas acciones
 
-Las siguientes funciones muestran conclusiones para distintas acciones. Las funciones proporcionan una imagen en la que se puede hacer clic o un vínculo en el que se puede hacer clic que le envía a una página web con más información sobre la imagen. Esta página está hospedada en Bing.com o en el sitio web original de la imagen. No todos los datos de las conclusiones se muestran en esta aplicación. Para ver todos los campos disponibles para una conclusión, consulte la referencia [Images - Visual Search](https://aka.ms/bingvisualsearchreferencedoc) (Imágenes: Visual Search).
+Las siguientes funciones muestran conclusiones para distintas acciones. Las funciones proporcionan una imagen en la que se puede hacer clic o un vínculo en el que se puede hacer clic que le envía a una página web con más información sobre la imagen. Esta página está hospedada en Bing.com o en el sitio web original de la imagen. No todos los datos de las conclusiones se muestran en esta aplicación. Para ver todos los campos disponibles para una conclusión, consulte la referencia [Images - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) (Imágenes: Visual Search).
 
 > [!NOTE]
 > Hay una cantidad mínima de información de conclusiones que debe mostrar en la página. Para más información, consulte [Requisitos de uso y visualización de Bing Search API](../bing-web-search/use-display-requirements.md).

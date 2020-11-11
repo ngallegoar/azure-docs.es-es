@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166937"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366764"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedimientos: Detección de opiniones mediante la API Text Analytics
 
@@ -23,7 +23,7 @@ La característica Análisis de sentimiento de la API Text Analytics evalúa el 
 
 Después de enviar una solicitud de análisis de sentimiento, la API devuelve etiquetas de sentimiento (como "negative", "neutral" y "positive") y puntuaciones de confianza en el nivel de oración y de documento.
 
-Análisis de sentimiento admite una amplia gama de idiomas, y hay más en la versión preliminar. Para más información, consulte [Lenguajes admitidos](../text-analytics-supported-languages.md).
+Análisis de sentimiento admite una amplia gama de idiomas, y hay más en la versión preliminar. Para más información, consulte [Lenguajes admitidos](../language-support.md).
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versiones y características de Análisis de sentimiento
 
@@ -40,7 +40,7 @@ Análisis de sentimiento admite una amplia gama de idiomas, y hay más en la ver
 
 La versión 3 de Análisis de sentimiento aplica etiquetas de sentimiento al texto, que se devuelven en el nivel de oración y de documento, con una puntuación de confianza para cada una de ellas. 
 
-Las etiquetas son *positive*, *negative* y *neutral*. En el nivel de documento, también se puede devolver la etiqueta de opinión *mixed*. La opinión del documento se determina a continuación:
+Las etiquetas son *positive* , *negative* y *neutral*. En el nivel de documento, también se puede devolver la etiqueta de opinión *mixed*. La opinión del documento se determina a continuación:
 
 | Opiniones de frases                                                                            | Etiqueta de documento devuelta |
 |-----------------------------------------------------------------------------------------------|-------------------------|

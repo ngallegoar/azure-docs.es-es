@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 1b750554ec231cddd0403c89a33f2af4349ff188
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b6d9ec0760cc8d95f712cfc7a5478de1a99465ef
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099004"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379878"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicación de Video Search de página única
 
@@ -47,7 +47,7 @@ En esta aplicación de tutorial se muestra cómo:
 
 La página del tutorial es completamente independiente: no utiliza marcos, hojas de estilo ni archivos de imagen externos. Usa solo características del lenguaje JavaScript ampliamente compatibles y funciona con las versiones actuales de los principales exploradores web.
 
-En este tutorial, solo se describen determinadas partes del código fuente. Tiene disponible todo el [código fuente](tutorial-bing-video-search-single-page-app-source.md). Para ejecutar el ejemplo, copie y pegue el código fuente en un editor de texto y guárdelo como `bing.html`.
+En este tutorial, solo se describen determinadas partes del código fuente. Tiene disponible todo el [código fuente](). Para ejecutar el ejemplo, copie y pegue el código fuente en un editor de texto y guárdelo como `bing.html`.
 
 ## <a name="app-components"></a>Componentes de la aplicación
 Igual que sucede con cualquier aplicación web de una sola página, la aplicación del tutorial incluye tres partes:
