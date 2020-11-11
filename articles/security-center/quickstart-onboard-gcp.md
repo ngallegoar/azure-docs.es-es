@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 71f1de7b4ff265a5740181a2bb2032f33a83abe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbaa44fb64becee85b29cd44bee44e593ec55bf6
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448995"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372649"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Conexión de las cuentas de GCP a Azure Security Center
 
@@ -36,7 +36,7 @@ En la captura de pantalla siguiente puede ver que se muestran proyectos de GCP e
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Versión preliminar|
+|Estado de la versión:|Versión preliminar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
 |Roles y permisos necesarios:|**propietario** o **colaborador** en la suscripción de Azure en cuestión|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
@@ -68,26 +68,26 @@ Obtenga más información sobre la [API del centro de comandos de seguridad](htt
 
 ### <a name="step-3-create-a-dedicated-service-account-for-the-security-configuration-integration"></a>Paso 3. Crear una cuenta de servicio dedicada para la integración de la configuración de seguridad
 
-1. En la **consola de GCP**, seleccione el proyecto que desea conectar a Security Center.
-1. En el **menú de navegación**, en las opciones **IAM y administrador**, seleccione **Cuentas de servicio**.
+1. En la **consola de GCP** , seleccione el proyecto que desea conectar a Security Center.
+1. En el **menú de navegación** , en las opciones **IAM y administrador** , seleccione **Cuentas de servicio**.
 1. Seleccione **CREACIÓN DE LA CUENTA DE SERVICIO**.
 1. Especifique un nombre de cuenta y seleccione **Crear**.
 1. Especifique el **Rol** como **Visor del administrador de Security Center** y seleccione **Continuar**.
 1. La sección sobre la **concesión a los usuarios de acceso a esta cuenta de servicio** es opcional. Seleccione **Listo**.
 1. Copie el **valor Correo electrónico** de la cuenta de servicio creada y guárdelo para usarlo posteriormente.
-1. En el **menú de navegación**, en las opciones **IAM y administrador**, seleccione **IAM**.
+1. En el **menú de navegación** , en las opciones **IAM y administrador** , seleccione **IAM**.
     1. Cambie al nivel de organización.
     1. Seleccione **AGREGAR**.
-    1. En el campo **Nuevos miembros**, pegue el **valor Correo electrónico** que copió anteriormente.
+    1. En el campo **Nuevos miembros** , pegue el **valor Correo electrónico** que copió anteriormente.
     1. Especifique el rol como **Visor del administrador de Security Center** y, a continuación, seleccione Guardar.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="3 proyectos de GCP mostrados en el panel de información general de Security Center":::
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Establecimiento de los permisos de GCP pertinentes":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Paso 4. Crear una clave privada para la cuenta de servicio dedicada
 1. Cambie al nivel de proyecto.
-1. En el **menú de navegación**, en las opciones **IAM y administrador**, seleccione **Cuentas de servicio**.
+1. En el **menú de navegación** , en las opciones **IAM y administrador** , seleccione **Cuentas de servicio**.
 1. Abra la cuenta de servicio dedicada y seleccione Editar.
-1. En la sección **Claves**, seleccione **AGREGAR CLAVE** y, a continuación, **Creación de una clave nueva**.
+1. En la sección **Claves** , seleccione **AGREGAR CLAVE** y, a continuación, **Creación de una clave nueva**.
 1. En la pantalla Creación de una clave privada, seleccione **JSON** y, a continuación, seleccione **CREAR**.
 1. Guarde este archivo JSON para su uso posterior.
 
@@ -97,9 +97,9 @@ Obtenga más información sobre la [API del centro de comandos de seguridad](htt
 1. Seleccione Agregar cuenta de GCP.
 1. En la página Incorporación, haga lo siguiente y, a continuación, seleccione **Siguiente**.
     1. Valide la suscripción elegida.
-    1. En el campo **Nombre para mostrar**, escriba un nombre para mostrar para el conector.
-    1. En el campo **Id. de la organización**, escriba el identificador de la organización. Si no lo sabe, consulte el artículo sobre [creación y administración de organizaciones](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
-    1. En el cuadro Archivo de **clave privada**, vaya al archivo JSON que descargó en el [paso 4. Cree una clave privada para la cuenta de servicio dedicada](#step-4-create-a-private-key-for-the-dedicated-service-account).
+    1. En el campo **Nombre para mostrar** , escriba un nombre para mostrar para el conector.
+    1. En el campo **Id. de la organización** , escriba el identificador de la organización. Si no lo sabe, consulte el artículo sobre [creación y administración de organizaciones](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
+    1. En el cuadro Archivo de **clave privada** , vaya al archivo JSON que descargó en el [paso 4. Cree una clave privada para la cuenta de servicio dedicada](#step-4-create-a-private-key-for-the-dedicated-service-account).
 
 
 ### <a name="step-6-confirmation"></a>Paso 6. Confirmación
@@ -107,7 +107,7 @@ Obtenga más información sobre la [API del centro de comandos de seguridad](htt
 Cuando el conector se ha creado correctamente y el centro de comandos de seguridad GCP se ha configurado correctamente:
 
 - El estándar CIS de GCP se mostrará en el panel de cumplimiento de normativas de Security Center.
-- Las recomendaciones de seguridad para sus recursos de GCP aparecerán en el portal de Security Center y en el panel de cumplimiento de normativas entre 5 y 10 minutos después de que finalice la incorporación:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="3 proyectos de GCP mostrados en el panel de información general de Security Center":::
+- Las recomendaciones de seguridad para sus recursos de GCP aparecerán en el portal de Security Center y en el panel de cumplimiento de normativas entre 5 y 10 minutos después de que finalice la incorporación:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="Recursos y recomendaciones de GCP en la página de recomendaciones de Security Center":::
 
 
 ## <a name="monitoring-your-gcp-resources"></a>Supervisión de los recursos de GCP
@@ -116,7 +116,7 @@ Como se mostró anteriormente, en la página de recomendaciones de seguridad de 
 
 Para ver todas las recomendaciones activas de los recursos por tipo de recurso, use la página de inventario de recursos de Security Center y filtre por el tipo de recurso de GCP que le interesa:
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="3 proyectos de GCP mostrados en el panel de información general de Security Center"::: 
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtro de tipo de recurso de la página de inventario de recursos que muestra las opciones de GCP"::: 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

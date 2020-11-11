@@ -2,13 +2,13 @@
 title: 'Configuración de registros de diagnóstico: Azure Event Hub | Microsoft Docs'
 description: Obtenga información sobre cómo configurar registros de actividad y registros de diagnóstico para centros de eventos en Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88927738"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912606"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
 
@@ -28,8 +28,8 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 2. Seleccione **Configuración de diagnóstico** en **Supervisión** en el panel izquierdo y, luego, elija **+ Agregar configuración de diagnóstico**. 
 
     ![Página Configuración de diagnóstico: Agregar configuración de diagnóstico](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
-4. En la sección **Detalles de la categoría**, seleccione los **tipos de registros de diagnóstico** que quiere habilitar. Más adelante en este artículo encontrará información sobre estas categorías. 
-5. En la sección **Detalles de destino**, establezca el destino de archivo que prefiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics.
+4. En la sección **Detalles de la categoría** , seleccione los **tipos de registros de diagnóstico** que quiere habilitar. Más adelante en este artículo encontrará información sobre estas categorías. 
+5. En la sección **Detalles de destino** , establezca el destino de archivo que prefiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics.
 
     ![Agregar página de configuración de diagnóstico](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
 6.  Seleccione **Guardar** en la barra de herramientas para guardar la configuración de diagnóstico.
@@ -188,7 +188,6 @@ Las cadenas JSON del registro de errores de Kafka incluyen los elementos enumera
 | `Message` | Mensaje informativo, que proporciona detalles sobre un error. |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Esquema de eventos de conexión de red virtual de Event Hubs
-
 Las cadenas JSON del evento de conexión de red virtual (VNet) de Event Hubs contienen los elementos enumerados en la tabla siguiente:
 
 | Nombre | Descripción |
@@ -200,6 +199,8 @@ Las cadenas JSON del evento de conexión de red virtual (VNet) de Event Hubs con
 | `Reason` | Proporciona el motivo de que se haya realizado la acción. |
 | `Count` | Número de repeticiones de una acción dada. |
 | `ResourceId` | Identificador de recursos de Azure Resource Manager. |
+
+Los registros de red virtual solo se generan si el espacio de nombres permite el acceso desde **redes seleccionadas** o desde **direcciones IP específicas** (reglas de filtro de IP). Si no desea restringir el acceso al espacio de nombres mediante estas características y desea obtener registros de red virtual para realizar el seguimiento de las direcciones IP de los clientes que se conectan al espacio de nombres de Event Hubs, puede usar la siguiente alternativa. Habilite el filtrado de IP y agregue el intervalo IPv4 direccionable total (1.0.0.0/1 - 255.0.0.0/1). Event Hubs no admite intervalos IPv6. 
 
 ### <a name="example"></a>Ejemplo
 
@@ -227,7 +228,7 @@ Las cadenas JSON del registro de usuario de claves administradas por el cliente 
 | `Key` | Nombre de la clave de Key Vault. |
 | `Version` | Versión de la clave de Key Vault. |
 | `Operation` | El nombre de una operación realizada para atender solicitudes. |
-| `Code` | status code |
+| `Code` | Código de estado |
 | `Message` | Mensaje, que proporciona detalles sobre un error o un mensaje informativo. |
 
 

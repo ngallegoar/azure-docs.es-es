@@ -2,18 +2,18 @@
 title: Acceso seguro a Key Vault con Batch
 description: Obtenga información sobre cómo tener acceso mediante programación a las credenciales de Key Vault mediante Azure Batch.
 ms.topic: how-to
-ms.date: 02/13/2020
+ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6938d0fcd2357efcf03053b0c9b2bde3954270b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71e647c05a84c70fe61a66458801bf7390dcb653
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079445"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913218"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Acceso seguro a Key Vault con Batch
 
-En este artículo, aprenderá a configurar nodos de Batch para acceder de forma segura a las credenciales almacenadas en Azure Key Vault. No tiene sentido poner las credenciales de administrador en Key Vault y, a continuación, codificar de forma rígida las credenciales para tener acceso a Key Vault desde un script. La solución consiste en usar un certificado que conceda a los nodos de Batch acceso a Key Vault. Con unos pocos pasos, podemos implementar el almacenamiento de claves seguro para Batch.
+En este artículo, aprenderá a configurar nodos de Batch para acceder de forma segura a las credenciales almacenadas en [Azure Key Vault](../key-vault/general/overview.md). No tiene sentido poner las credenciales de administrador en Key Vault y, a continuación, codificar de forma rígida las credenciales para tener acceso a Key Vault desde un script. La solución consiste en usar un certificado que conceda a los nodos de Batch acceso a Key Vault.
 
 Para autenticarse en Azure Key Vault desde un nodo de Batch, necesita:
 
@@ -22,7 +22,7 @@ Para autenticarse en Azure Key Vault desde un nodo de Batch, necesita:
 - Una cuenta de Batch
 - Un grupo de Batch con al menos un nodo
 
-## <a name="obtain-a-certificate"></a>Obtención de un certificado
+## <a name="obtain-a-certificate"></a>Obtener un certificado
 
 Si aún no tiene un certificado, la forma más sencilla de obtenerlo es generar un certificado autofirmado mediante la herramienta de línea de comandos `makecert`.
 
@@ -46,12 +46,7 @@ pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificat
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
-El acceso a Key Vault se concede a un **usuario** o a una **entidad de servicio**. Para acceder a Key Vault mediante programación, use una entidad de servicio con el certificado que se creó en el paso anterior.
-
-Para más información sobre las entidades de servicio de Azure, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
-
-> [!NOTE]
-> La entidad de servicio debe estar en el mismo inquilino de Azure AD que Key Vault.
+El acceso a Key Vault se concede a un **usuario** o a una **entidad de servicio**. Para acceder a Key Vault mediante programación, use una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con el certificado que creó en el paso anterior. La entidad de servicio debe estar en el mismo inquilino de Azure AD que Key Vault.
 
 ```powershell
 $now = [System.DateTime]::Parse("2020-02-10")
@@ -72,7 +67,7 @@ Las direcciones URL de la aplicación no son importantes, ya que solo se usan pa
 
 ## <a name="grant-rights-to-key-vault"></a>Concesión de derechos a Key Vault
 
-La entidad de servicio creada en el paso anterior necesita permiso para recuperar los secretos de Key Vault. Los permisos se pueden conceder mediante Azure Portal o con el siguiente comando de PowerShell.
+La entidad de servicio creada en el paso anterior necesita permiso para recuperar los secretos de Key Vault. Los permisos se pueden conceder mediante [Azure Portal](/key-vault/general/assign-access-policy-portal.md) o con el siguiente comando de PowerShell.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -82,13 +77,13 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"
 
 Cree un grupo de Batch y, a continuación, vaya a la pestaña Certificado del grupo y asigne el certificado que creó. El certificado está ahora en todos los nodos de Batch.
 
-A continuación, es necesario asignar el certificado a la cuenta de Batch. La asignación del certificado a la cuenta nos permite asignarlo a los grupos y, a continuación, a los nodos. La forma más fácil de hacerlo es ir a la cuenta de Batch en el portal, ir a **Certificados** y seleccionar **Agregar**. Cargue el archivo `.pfx` generado en el paso [Obtención de un certificado](#obtain-a-certificate) y proporcione la contraseña. Una vez completado, el certificado se agrega a la lista y puede comprobar la huella digital.
+A continuación, asigne el certificado a la cuenta de Batch. La asignación del certificado a la cuenta permite a Batch asignarlo a los grupos y, a continuación, a los nodos. La forma más fácil de hacerlo es ir a la cuenta de Batch en el portal, ir a **Certificados** y seleccionar **Agregar**. Cargue el archivo `.pfx` que ha generado anteriormente y proporcione la contraseña. Una vez completado, el certificado se agrega a la lista y puede comprobar la huella digital.
 
 Ahora, cuando cree un grupo de Batch, puede ir a **Certificados** dentro del grupo y asignar el certificado que creó a ese grupo. Al hacerlo, asegúrese de seleccionar **LocalMachine** para la ubicación del almacén. El certificado se carga en todos los nodos de Batch del grupo.
 
 ## <a name="install-azure-powershell"></a>Instalar Azure Powershell
 
-Si planea acceder a Key Vault mediante scripts de PowerShell en los nodos, deberá tener instalada la biblioteca de Azure PowerShell. Hay varias maneras de hacerlo; si los nodos tienen instalado Windows Management Framework (WMF) 5, puede usar el comando install-module para descargarlo. Si usa nodos que no tienen WMF 5, la forma más fácil de instalarlo es agrupar el archivo `.msi` de Azure PowerShell con los archivos de Batch y, a continuación, llamar al instalador como la primera parte del script de inicio de Batch. Para más información, vea este ejemplo:
+Si planea acceder a Key Vault mediante scripts de PowerShell en los nodos, deberá tener instalada la biblioteca de Azure PowerShell. Si los nodos tienen instalado Windows Management Framework (WMF) 5, puede usar el comando install-module para descargarlo. Si usa nodos que no tienen WMF 5, la forma más fácil de instalarlo es agrupar el archivo `.msi` de Azure PowerShell con los archivos de Batch y, a continuación, llamar al instalador como la primera parte del script de inicio de Batch. Para más información, vea este ejemplo:
 
 ```powershell
 $psModuleCheck=Get-Module -ListAvailable -Name Azure -Refresh
@@ -99,7 +94,7 @@ if($psModuleCheck.count -eq 0) {
 
 ## <a name="access-key-vault"></a>Acceda a Key Vault.
 
-Ahora ya está todo listo para acceder a Key Vault en scripts que se ejecutan en nodos de Batch. Para acceder a Key Vault desde un script, lo único que necesita es que el script se autentique en Azure AD mediante el certificado. Para hacer esto en PowerShell, use los siguientes comandos de ejemplo. Especifique el GUID adecuado para **Huella digital**, **Id. de aplicación** (el identificador de la entidad de servicio) e **Id. del inquilino** (el inquilino en el que existe la entidad de servicio).
+Ahora ya está todo listo para acceder a Key Vault en scripts que se ejecutan en los nodos de Batch. Para acceder a Key Vault desde un script, lo único que necesita es que el script se autentique en Azure AD mediante el certificado. Para hacer esto en PowerShell, use los siguientes comandos de ejemplo. Especifique el GUID adecuado para **Huella digital** , **Id. de aplicación** (el identificador de la entidad de servicio) e **Id. del inquilino** (el inquilino en el que existe la entidad de servicio).
 
 ```powershell
 Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint -ApplicationId
@@ -112,3 +107,9 @@ $adminPassword=Get-AzureKeyVaultSecret -VaultName BatchVault -Name batchAdminPas
 ```
 
 Estas son las credenciales que se usan en el script.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Obtenga más información sobre [Azure Key Vault](../key-vault/general/overview.md).
+- Revise la [Línea de base de seguridad de Azure para Batch](security-baseline.md).
+- Obtenga información acerca de las características de Batch, como la [configuración del acceso a los nodos de proceso](pool-endpoint-configuration.md), el [uso nodos de proceso de Linux](batch-linux-nodes.md)y [uso de puntos de conexión privados](private-connectivity.md).

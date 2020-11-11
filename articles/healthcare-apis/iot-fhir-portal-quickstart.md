@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.author: punagpal
-ms.openlocfilehash: 3b6db74d637ac17ef5d09e1d9c5d3dac30ba8ba9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594380"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394516"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Inicio rápido: Implementación del conector de Azure IoT para FHIR (versión preliminar): Azure Portal
 
@@ -71,11 +71,11 @@ Para cargar plantillas de asignación, haga clic en el conector de Azure IoT par
 
 #### <a name="device-mapping"></a>Asignación de dispositivos
 
-La plantilla de asignación de dispositivos transforma los datos del dispositivo en un esquema normalizado. En la página **Conector de IoT**, haga clic en el botón **Configure device mapping** (Configurar asignación de dispositivos) para ir a la página de **Asignación de dispositivos**. 
+La plantilla de asignación de dispositivos transforma los datos del dispositivo en un esquema normalizado. En la página **Conector de IoT** , haga clic en el botón **Configure device mapping** (Configurar asignación de dispositivos) para ir a la página de **Asignación de dispositivos**. 
 
 [![Clic en la opción Configurar asignación de dispositivos del conector de IoT](media/quickstart-iot-fhir-portal/portal-iot-connector-click-device-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-device-mapping.jpg#lightbox)
 
-En la página **Asignación de dispositivos**, agregue el siguiente script al editor de JSON y haga clic en **Guardar**.
+En la página **Asignación de dispositivos** , agregue el siguiente script al editor de JSON y haga clic en **Guardar**.
 
 ```json
 {
@@ -104,11 +104,11 @@ En la página **Asignación de dispositivos**, agregue el siguiente script al ed
 
 #### <a name="fhir-mapping"></a>Asignación de FHIR
 
-La plantilla de asignación de FHIR transforma un mensaje normalizado en un recurso de tipo Observation basado en FHIR. En la página **Conector de IoT**, haga clic en el botón **Configure FHIR mapping** (Configurar asignación de FHIR) para ir a la página de **Asignación de FHIR**.  
+La plantilla de asignación de FHIR transforma un mensaje normalizado en un recurso de tipo Observation basado en FHIR. En la página **Conector de IoT** , haga clic en el botón **Configure FHIR mapping** (Configurar asignación de FHIR) para ir a la página de **Asignación de FHIR**.  
 
 [![Clic en la opción Configurar asignación de FHIR del conector de IoT](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg#lightbox)
 
-En la página **Asignación de FHIR**, agregue el siguiente script al editor de JSON y haga clic en **Guardar**.
+En la página **Asignación de FHIR** , agregue el siguiente script al editor de JSON y haga clic en **Guardar**.
 
 ```json
 {
@@ -145,7 +145,7 @@ El dispositivo IoMT necesita una cadena de conexión para conectarse y enviar me
 
 [![Clic en la opción Administrar conexiones de cliente del conector de IoT](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg#lightbox)
 
-Una vez en la página **Conexiones**, haga clic en el botón **Agregar** para crear una nueva conexión. 
+Una vez en la página **Conexiones** , haga clic en el botón **Agregar** para crear una nueva conexión. 
 
 [![Conexiones del conector de IoT](media/quickstart-iot-fhir-portal/portal-iot-connections.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connections.jpg#lightbox)
 
@@ -163,16 +163,16 @@ Conserve esta cadena de conexión para usarla en un paso posterior.
 
 Azure ofrece un amplio conjunto de productos de IoT para conectar y administrar sus dispositivos de IoT. Puede crear su propia solución basada en PaaS mediante Azure IoT Hub o empezar con una plataforma de administración de aplicaciones de IoT con Azure IoT Central. En este tutorial, aprovecharemos Azure IoT Central, que tiene plantillas de soluciones centradas en el sector como introducción.
 
-Implemente la [plantilla de aplicación de supervisión continua de pacientes](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template). Esta plantilla incluye dos dispositivos simulados que producen datos en tiempo real para ayudarle a comenzar: **Smart Vitals Patch** (parche de signos vitales inteligente) y **Smart Knee Brace** (rodillera inteligente).
+Implemente la [plantilla de aplicación de supervisión continua de pacientes](../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-an-application-template). Esta plantilla incluye dos dispositivos simulados que producen datos en tiempo real para ayudarle a comenzar: **Smart Vitals Patch** (parche de signos vitales inteligente) y **Smart Knee Brace** (rodillera inteligente).
 
 > [!NOTE]
-> Cada vez que los dispositivos reales estén listos, puede usar la misma aplicación de IoT Central para [incorporar sus dispositivos](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) y reemplazar los simuladores de dispositivos. Los datos del dispositivo también comenzarán a fluir automáticamente a FHIR. 
+> Cada vez que los dispositivos reales estén listos, puede usar la misma aplicación de IoT Central para [incorporar sus dispositivos](../iot-central/core/howto-set-up-template.md) y reemplazar los simuladores de dispositivos. Los datos del dispositivo también comenzarán a fluir automáticamente a FHIR. 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Conexión de los datos de IoT con el conector de Azure IoT para FHIR (versión preliminar)
 > [!WARNING]
 > La plantilla de asignación de dispositivos que se proporciona en esta guía está diseñada para funcionar con la exportación de datos (heredada) dentro de IoT Central.
 
-Una vez que haya implementado la aplicación de IoT Central, los dos dispositivos simulados listos para usar comenzarán a generar telemetría. En este tutorial, se ingerirá la telemetría del simulador *Smart Vitals Patch* en FHIR a través del conector de Azure IoT para FHIR. Para exportar los datos de IoT al conector de Azure IoT para FHIR, queremos [configurar una exportación de datos continua en IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-legacy). En la página Exportación de datos continua:
+Una vez que haya implementado la aplicación de IoT Central, los dos dispositivos simulados listos para usar comenzarán a generar telemetría. En este tutorial, se ingerirá la telemetría del simulador *Smart Vitals Patch* en FHIR a través del conector de Azure IoT para FHIR. Para exportar los datos de IoT al conector de Azure IoT para FHIR, queremos [configurar una exportación de datos continua en IoT Central](../iot-central/core/howto-export-data-legacy.md). En la página Exportación de datos continua:
 - Elija *Azure Event Hubs* como destino de exportación.
 - Seleccione el valor *Usar una cadena de conexión* para el campo **Espacio de nombres de Event Hubs**.
 - Proporcione la cadena de conexión del conector de Azure IoT para FHIR que obtuvo en un paso anterior en el campo **Cadena de conexión**.

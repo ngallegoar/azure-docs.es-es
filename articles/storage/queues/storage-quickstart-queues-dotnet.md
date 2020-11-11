@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ca3b218da7835ee9f3e9e8653f4829767a1ffb07
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a62aa9df818bb6ff7026d95daa625acabe66b990
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783477"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345642"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para .NET
 
@@ -21,26 +21,26 @@ Comience a trabajar con la biblioteca cliente de Azure Queue Storage versión 12
 
 Use la biblioteca cliente de Azure Queue Storage v12 para .NET para realizar lo siguiente:
 
-* Creación de una cola
-* Adición de mensajes a una cola
-* Lectura de los mensajes de una cola
-* Eliminación de un mensaje de una cola
-* mensajes de una cola
-* Eliminación de mensajes de una cola
-* Eliminación de una cola
+- Creación de una cola
+- Adición de mensajes a una cola
+- Lectura de los mensajes de una cola
+- Eliminación de un mensaje de una cola
+- mensajes de una cola
+- Eliminación de mensajes de una cola
+- Eliminación de una cola
 
 Recursos adicionales:
 
-* [Documentación de referencia de API](/dotnet/api/azure.storage.queues)
-* [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
-* [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Muestras](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Documentación de referencia de API](/dotnet/api/azure.storage.queues)
+- [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
+- [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
+- [Muestras](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-* Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)
-* El [SDK de NET Core](https://dotnet.microsoft.com/download/dotnet-core) actual del sistema operativo. Asegúrese de obtener el SDK y no el entorno de ejecución.
+- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+- Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)
+- El [SDK de NET Core](https://dotnet.microsoft.com/download/dotnet-core) actual del sistema operativo. Asegúrese de obtener el SDK y no el entorno de ejecución.
 
 ## <a name="setting-up"></a>Instalación
 
@@ -48,9 +48,9 @@ En esta sección se explica cómo preparar un proyecto para que funcione con la 
 
 ### <a name="create-the-project"></a>Creación del proyecto
 
-Cree una aplicación de .NET Core llamada *QueuesQuickstartV12* .
+Cree una aplicación de .NET Core llamada *QueuesQuickstartV12*.
 
-1. En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use el comando `dotnet new` para crear una nueva aplicación de consola con el nombre *QueuesQuickstartV12* . Este comando crea un sencillo proyecto "Hola mundo" de C# con un solo archivo de origen: *Program.cs* .
+1. En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use el comando `dotnet new` para crear una nueva aplicación de consola con el nombre *QueuesQuickstartV12*. Este comando crea un sencillo proyecto "Hola mundo" de C# con un solo archivo de origen: *Program.cs*.
 
    ```console
    dotnet new console -n QueuesQuickstartV12
@@ -79,8 +79,6 @@ Desde el directorio del proyecto:
 1. Agregue directivas `using`.
 1. Actualice la declaración del método `Main` para [admitir código asincrónico](/dotnet/csharp/whats-new/csharp-7#async-main).
 
-
-
 Este es el código:
 
 ```csharp
@@ -107,9 +105,9 @@ namespace QueuesQuickstartV12
 
 Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes, Un mensaje de la cola puede llegar a tener hasta 64 KB. Una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Las colas se utilizan normalmente para crear un trabajo pendiente del trabajo que se va a procesar de forma asincrónica. Queue Storage ofrece tres tipos de recursos:
 
-* La cuenta de almacenamiento
-* Cola en la cuenta de almacenamiento
-* Mensajes dentro de la cola
+- La cuenta de almacenamiento
+- Cola en la cuenta de almacenamiento
+- Mensajes dentro de la cola
 
 En el siguiente diagrama se muestra la relación entre estos recursos.
 
@@ -117,22 +115,22 @@ En el siguiente diagrama se muestra la relación entre estos recursos.
 
 Use las siguientes clases de .NET para interactuar con estos recursos:
 
-* [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): La clase `QueueServiceClient` permite administrar todas las colas de la cuenta de almacenamiento.
-* [QueueClient](/dotnet/api/azure.storage.queues.queueclient): La clase `QueueClient` permite administrar y manipular una cola individual y sus mensajes.
-* [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): La clase `QueueMessage` representa los objetos individuales devueltos al llamar a [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) en una cola.
+- [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): La clase `QueueServiceClient` permite administrar todas las colas de la cuenta de almacenamiento.
+- [QueueClient](/dotnet/api/azure.storage.queues.queueclient): La clase `QueueClient` permite administrar y manipular una cola individual y sus mensajes.
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): La clase `QueueMessage` representa los objetos individuales devueltos al llamar a [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) en una cola.
 
 ## <a name="code-examples"></a>Ejemplos de código
 
 Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes acciones con la biblioteca cliente de Azure Queue Storage para .NET:
 
-* [Obtención de la cadena de conexión](#get-the-connection-string)
-* [Creación de una cola](#create-a-queue)
-* [Adición de mensajes a una cola](#add-messages-to-a-queue)
-* [Leer los mensajes de una cola](#peek-at-messages-in-a-queue)
-* [Eliminación de un mensaje de una cola](#update-a-message-in-a-queue)
-* [Recepción de mensajes de una cola](#receive-messages-from-a-queue)
-* [Eliminación de mensajes de una cola](#delete-messages-from-a-queue)
-* [Eliminación de una cola](#delete-a-queue)
+- [Obtención de la cadena de conexión](#get-the-connection-string)
+- [Creación de una cola](#create-a-queue)
+- [Adición de mensajes a una cola](#add-messages-to-a-queue)
+- [Leer los mensajes de una cola](#peek-at-messages-in-a-queue)
+- [Eliminación de un mensaje de una cola](#update-a-message-in-a-queue)
+- [Recepción de mensajes de una cola](#receive-messages-from-a-queue)
+- [Eliminación de mensajes de una cola](#delete-messages-from-a-queue)
+- [Eliminación de una cola](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Obtención de la cadena de conexión
 
@@ -158,7 +156,6 @@ Decida un nombre para la nueva cola. El código siguiente anexa un valor de GUID
 
 > [!IMPORTANT]
 > Los nombres de la cola solo puede incluir letras minúsculas, números y guiones y debe empezar por una letra o un número. Antes y después de cada guion debe ir un carácter que no sea otro guión. El nombre debe tener entre 3 y 63 caracteres. Para más información sobre la nomenclatura de las colas, consulte [Asignación de nombres a colas y metadatos](/rest/api/storageservices/naming-queues-and-metadata).
-
 
 Cree una instancia de la clase [QueueClient](/dotnet/api/azure.storage.queues.queueclient). A continuación, llame al método [CreateAsync](/dotnet/api/azure.storage.queues.queueclient.createasync) para crear la cola en la cuenta de almacenamiento.
 
@@ -336,6 +333,6 @@ Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentació
 > [!div class="nextstepaction"]
 > [Azure para desarrolladores de .NET y .NET Core](/dotnet/azure/)
 
-* Para más información, consulte [Bibliotecas de Azure Storage para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
-* Para ver más aplicaciones de ejemplo de Azure Queue Storage, continúe con los [ejemplos de la biblioteca cliente de Azure Queue Storage para .NET v12](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
-* Para más información sobre .NET Core, consulte [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/) (Introducción a .NET en 10 minutos).
+- Para más información, consulte [Bibliotecas de Azure Storage para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
+- Para ver más aplicaciones de ejemplo de Azure Queue Storage, continúe con los [ejemplos de la biblioteca cliente de Azure Queue Storage para .NET v12](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
+- Para más información sobre .NET Core, consulte [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/) (Introducción a .NET en 10 minutos).

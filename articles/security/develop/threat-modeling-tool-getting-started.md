@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 6ddb2ecef3a70ed6a56b404e64cef5b78b7abd13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980464"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913031"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introducción a Threat Modeling Tool
 
@@ -101,7 +101,7 @@ En primer lugar, se ha mejorado la interacción entre las dos galerías de símb
 
 En segundo lugar, aparece información adicional sobre la amenaza en la ventana Threat Properties (Propiedades de amenaza)
 
-![Información de interacción](./media/threat-modeling-tool-getting-started/interactioninfo.png)
+![Captura de pantalla que muestra la ventana Threat Properties (Propiedades de amenaza), que contiene las opciones Title (Título), Category (Categoría), Description (Descripción), Interaction (Interacción) y Priority (Prioridad).](./media/threat-modeling-tool-getting-started/interactioninfo.png)
 
 La amenaza generada le ayuda a comprender los posibles errores de diseño. La categorización STRIDE le da una idea de los posibles vectores de ataque, mientras que la descripción adicional le indica exactamente cuál es el problema, junto con las formas posibles de mitigarlo. Puede utilizar los campos modificables para escribir notas en los detalles de justificación o cambiar las clasificaciones de prioridad según la barra de error de su organización.
 
@@ -118,7 +118,7 @@ Las amenazas no aplicables al diseño debido a las mitigaciones existentes o a g
 
 Una vez que Ricardo examina la lista con Cristina y agrega algunas notas importantes, mitigaciones o justificaciones, los cambios de estado y prioridad, selecciona Informes -> Crear informe completo -> Guardar informe, con lo que se imprime un informe muy útil para repasarlo con sus compañeros y asegurarse de implementar el trabajo de seguridad apropiado.
 
-![Información de interacción](./media/threat-modeling-tool-feature-overview/report.png)
+![Captura de pantalla que muestra un informe de modelado de amenazas representativo.](./media/threat-modeling-tool-feature-overview/report.png)
 
 Si Ricardo desea compartir el archivo en su lugar, puede hacerlo fácilmente guardándolo en la cuenta de OneDrive de su organización. Cuando lo haga, podrá copiar el vínculo de documento y compartirlo con sus compañeros. 
 

@@ -7,24 +7,24 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: faa4df8633c34b23703a3fe9fa405bad959ec894
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b4381c4acbea8a3b7d86d9c32aaf9cea24cf15fa
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167209"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422661"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conexión de la función de Java a Azure Storage
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-En este artículo se muestra cómo integrar la función que creó en el [artículo de inicio rápido anterior](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser) con una cola de Azure Storage. El enlace de salida que se agrega a esta función escribe datos de una solicitud HTTP en un mensaje de la cola.
+En este artículo se muestra cómo integrar la función que creó en el [artículo de inicio rápido anterior](./create-first-function-cli-java.md?tabs=bash,browser) con una cola de Azure Storage. El enlace de salida que se agrega a esta función escribe datos de una solicitud HTTP en un mensaje de la cola.
 
 La mayoría de los enlaces requieren una cadena de conexión almacenada que se usa en Functions para acceder al servicio enlazado. Para facilitar la conexión, usará la cuenta de almacenamiento que creó con la aplicación de funciones. La conexión a esta cuenta ya está almacenada en una configuración de aplicación llamada `AzureWebJobsStorage`.  
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de empezar este artículo, realice los pasos de la [parte 1 del inicio rápido de Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser).
+Antes de empezar este artículo, realice los pasos de la [parte 1 del inicio rápido de Java](./create-first-function-cli-java.md?tabs=bash,browser).
 
 ## <a name="download-the-function-app-settings"></a>Descarga de la configuración de la aplicación de función
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b16ee98b44e52482423229a0940c8927a94d4c83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f4ad8db5b750a8e75a921a6d459a1a294a4bad0
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88118678"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910039"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicación web que inicia sesión de usuarios: Registro de aplicación
 
@@ -47,35 +47,35 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
+1. Cuando aparece la página **Registrar una aplicación** , escriba la información de registro de la aplicación:
    1. Elija los tipos de cuenta admitidos para la aplicación. (Consulte [Tipos de cuenta admitidos](./v2-supported-account-types.md)).
-   1. En la sección **Nombre**, escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **AspNetCore-WebApp**.
-   1. En **URI de redireccionamiento**, agregue el tipo de aplicación y el destino de URI que aceptará las respuestas de token devueltas después de una autenticación correcta. Por ejemplo, escriba: **https://localhost:44321** . Después, seleccione **Registrar**.
-   ![registro](media/scenario-webapp/scenario-webapp-app-registration-1.png)
+   1. En la sección **Nombre** , escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **AspNetCore-WebApp**.
+   1. En **URI de redireccionamiento** , agregue el tipo de aplicación y el destino de URI que aceptará las respuestas de token devueltas después de una autenticación correcta. Por ejemplo, escriba: **https://localhost:44321** . Después, seleccione **Registrar**.
+   ![Captura de pantalla que muestra la página Registrar una aplicación, donde puede seleccionar la opción Registrar.](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. Seleccione el menú **Autenticación** y, a continuación, agregue la siguiente información:
-   1. En **URL de respuesta**, agregue **https://localhost:44321/signin-oidc** de tipo **Web**.
-   1. En la sección **Configuración avanzada**, establezca **Dirección URL de cierre de sesión** en **https://localhost:44321/signout-oidc** .
-   1. En **Concesión implícita**, seleccione **Tokens de id.** .
+   1. En **URL de respuesta** , agregue **https://localhost:44321/signin-oidc** de tipo **Web**.
+   1. En la sección **Configuración avanzada** , establezca **Dirección URL de cierre de sesión** en **https://localhost:44321/signout-oidc** .
+   1. En **Concesión implícita** , seleccione **Tokens de id.** .
    1. Seleccione **Guardar**.
-  ![registro](media/scenario-webapp/scenario-webapp-app-registration-2.png)
+  ![Captura de pantalla donde se muestran las opciones de autenticación, donde puede realizar los cambios descritos.](media/scenario-webapp/scenario-webapp-app-registration-2.png)
  
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
+1. Cuando aparece la página **Registrar una aplicación** , escriba la información de registro de la aplicación:
    1. Elija los tipos de cuenta admitidos para la aplicación. (Consulte [Tipos de cuenta admitidos](./v2-supported-account-types.md)).
-   1. En la sección **Nombre**, escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **MailApp-openidconnect-v2**.
+   1. En la sección **Nombre** , escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **MailApp-openidconnect-v2**.
    1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los siguientes URI de redirección: **https://localhost:44326/** .
 1. Seleccione **Registrar** para crear la aplicación.
 1. Seleccione el menú **Autenticación**.
-1. En la sección **Configuración avanzada** | **Concesión implícita**, seleccione **Tokens de id.** Para este ejemplo, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md).
+1. En la sección **Configuración avanzada** | **Concesión implícita** , seleccione **Tokens de id.** Para este ejemplo, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md).
 1. Seleccione **Guardar**.
 
 # <a name="java"></a>[Java](#tab/java)
 
-1. Cuando aparezca la página **Registrar una aplicación**, escriba un nombre para mostrar de la aplicación. Por ejemplo, escriba **java-webapp**.
+1. Cuando aparezca la página **Registrar una aplicación** , escriba un nombre para mostrar de la aplicación. Por ejemplo, escriba **java-webapp**.
 1. Seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** y luego seleccione **Aplicación web o API** para **Tipo de aplicación**.
 1. Seleccione **Registrar** para registrar la aplicación.
-1. En el menú izquierdo, seleccione **Autenticación**. En **URI de redirección**, seleccione **Web**.
+1. En el menú izquierdo, seleccione **Autenticación**. En **URI de redirección** , seleccione **Web**.
 
 1. Escriba dos URI de redirección: uno para la página de inicio de sesión y otro para la página de gráfico. En ambos casos, use el mismo host y número de puerto, seguido de **/msal4jsample/secure/aad** para la página de inicio de sesión y de **msal4jsample/graph/me** para la página de información de usuario.
 
@@ -87,7 +87,7 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
   Después, seleccione **Guardar**.
 
 1. Seleccione **Certificados y secretos** en el menú.
-1. En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente** y, a continuación, haga lo siguiente:
+1. En la sección **Secretos de cliente** , seleccione **Nuevo secreto de cliente** y, a continuación, haga lo siguiente:
 
    1. Escriba una descripción de la clave.
    1. Seleccione la duración de clave **En 1 año**.
@@ -96,14 +96,14 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
 
 # <a name="python"></a>[Python](#tab/python)
 
-1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
-   1. En la sección **Nombre**, escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **python-webapp**.
+1. Cuando aparece la página **Registrar una aplicación** , escriba la información de registro de la aplicación:
+   1. En la sección **Nombre** , escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **python-webapp**.
    1. Cambie **Supported account types** (Tipos de cuenta compatibles) por **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** .
    1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los siguientes URI de redirección: **http://localhost:5000/getAToken** .
 1. Seleccione **Registrar** para crear la aplicación.
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Lo necesitará para configurar el archivo de configuración de Visual Studio para este proyecto.
 1. En el menú izquierdo, seleccione **Certificados y secretos**.
-1. En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente** y, a continuación, haga lo siguiente:
+1. En la sección **Secretos de cliente** , seleccione **Nuevo secreto de cliente** y, a continuación, haga lo siguiente:
 
    1. Escriba una descripción de la clave.
    1. Seleccione una duración de la clave de **En 1 año**.

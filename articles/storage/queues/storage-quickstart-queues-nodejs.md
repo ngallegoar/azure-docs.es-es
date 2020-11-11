@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1446b501b9d91c94c12c82755d0e31f361f8cd8f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f72d8b332f00b3d298f4d5a1a04937f562647f9e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783426"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347172"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para JavaScript
 
@@ -21,26 +21,26 @@ Comience a trabajar con la biblioteca cliente de Azure Queue Storage versión 12
 
 Use la biblioteca cliente de Azure Queue Storage v12 para JavaScript para realizar lo siguiente:
 
-* Creación de una cola
-* Adición de mensajes a una cola
-* Lectura de los mensajes de una cola
-* Eliminación de un mensaje de una cola
-* mensajes de una cola
-* Eliminación de mensajes de una cola
-* Eliminación de una cola
+- Creación de una cola
+- Adición de mensajes a una cola
+- Lectura de los mensajes de una cola
+- Eliminación de un mensaje de una cola
+- mensajes de una cola
+- Eliminación de mensajes de una cola
+- Eliminación de una cola
 
 Recursos adicionales:
 
-* [Documentación de referencia de API](/javascript/api/@azure/storage-queue/)
-* [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
-* [Paquete (Administrador de paquetes de Node)](https://www.npmjs.com/package/@azure/storage-queue)
-* [Muestras](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Documentación de referencia de API](/javascript/api/@azure/storage-queue/)
+- [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
+- [Paquete (Administrador de paquetes de Node)](https://www.npmjs.com/package/@azure/storage-queue)
+- [Muestras](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-* Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)
-* [Node.js](https://nodejs.org/en/download/) actual del sistema operativo.
+- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+- Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)
+- [Node.js](https://nodejs.org/en/download/) actual del sistema operativo.
 
 ## <a name="setting-up"></a>Instalación
 
@@ -48,7 +48,7 @@ En esta sección se explica cómo preparar un proyecto para que funcione con la 
 
 ### <a name="create-the-project"></a>Creación del proyecto
 
-Cree una aplicación Node.js llamada *queues-quickstart-v12* .
+Cree una aplicación Node.js llamada *queues-quickstart-v12*.
 
 1. En una ventana de la consola (como cmd, PowerShell o Bash), cree un directorio para el proyecto.
 
@@ -62,7 +62,7 @@ Cree una aplicación Node.js llamada *queues-quickstart-v12* .
     cd queues-quickstart-v12
     ```
 
-1. Cree un nuevo archivo de texto denominado *package.json* . Este archivo define el proyecto de Node.js. Guarde este archivo en el directorio *queues-quickstart-v12* . A continuación encontrará el contenido del archivo:
+1. Cree un nuevo archivo de texto denominado *package.json*. Este archivo define el proyecto de Node.js. Guarde este archivo en el directorio *queues-quickstart-v12*. A continuación encontrará el contenido del archivo:
 
     ```json
     {
@@ -118,7 +118,7 @@ Desde el directorio del proyecto:
 
     ```
 
-1. Guarde el nuevo archivo como *queues-quickstart-v12.js* en el directorio *queues-quickstart-v12* .
+1. Guarde el nuevo archivo como *queues-quickstart-v12.js* en el directorio *queues-quickstart-v12*.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -126,9 +126,9 @@ Desde el directorio del proyecto:
 
 Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes, Un mensaje de la cola puede llegar a tener hasta 64 KB. Una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Las colas se utilizan normalmente para crear un trabajo pendiente del trabajo que se va a procesar de forma asincrónica. Queue Storage ofrece tres tipos de recursos:
 
-* La cuenta de almacenamiento
-* Cola en la cuenta de almacenamiento
-* Mensajes dentro de la cola
+- La cuenta de almacenamiento
+- Cola en la cuenta de almacenamiento
+- Mensajes dentro de la cola
 
 En el siguiente diagrama se muestra la relación entre estos recursos.
 
@@ -136,22 +136,22 @@ En el siguiente diagrama se muestra la relación entre estos recursos.
 
 Use las siguientes clases de JavaScript para interactuar con estos recursos:
 
-* [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): La clase `QueueServiceClient` permite administrar todas las colas de la cuenta de almacenamiento.
-* [QueueClient](/javascript/api/@azure/storage-queue/queueclient): La clase `QueueClient` permite administrar y manipular una cola individual y sus mensajes.
-* [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage): La clase `QueueMessage` representa los objetos individuales devueltos al llamar a [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) en una cola.
+- [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): La clase `QueueServiceClient` permite administrar todas las colas de la cuenta de almacenamiento.
+- [QueueClient](/javascript/api/@azure/storage-queue/queueclient): La clase `QueueClient` permite administrar y manipular una cola individual y sus mensajes.
+- [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage): La clase `QueueMessage` representa los objetos individuales devueltos al llamar a [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) en una cola.
 
 ## <a name="code-examples"></a>Ejemplos de código
 
 Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes acciones con la biblioteca cliente de Azure Queue Storage para JavaScript:
 
-* [Obtención de la cadena de conexión](#get-the-connection-string)
-* [Creación de una cola](#create-a-queue)
-* [Adición de mensajes a una cola](#add-messages-to-a-queue)
-* [Leer los mensajes de una cola](#peek-at-messages-in-a-queue)
-* [Eliminación de un mensaje de una cola](#update-a-message-in-a-queue)
-* [Recepción de mensajes de una cola](#receive-messages-from-a-queue)
-* [Eliminación de mensajes de una cola](#delete-messages-from-a-queue)
-* [Eliminación de una cola](#delete-a-queue)
+- [Obtención de la cadena de conexión](#get-the-connection-string)
+- [Creación de una cola](#create-a-queue)
+- [Adición de mensajes a una cola](#add-messages-to-a-queue)
+- [Leer los mensajes de una cola](#peek-at-messages-in-a-queue)
+- [Eliminación de un mensaje de una cola](#update-a-message-in-a-queue)
+- [Recepción de mensajes de una cola](#receive-messages-from-a-queue)
+- [Eliminación de mensajes de una cola](#delete-messages-from-a-queue)
+- [Eliminación de una cola](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Obtención de la cadena de conexión
 
@@ -249,7 +249,7 @@ console.log("Message updated, requestId:", updateMessageResponse.requestId);
 
 ### <a name="receive-messages-from-a-queue"></a>mensajes de una cola
 
-Descargue los mensajes agregados anteriormente mediante la llamada al método [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-).  En el campo `numberOfMessages`, pase el número máximo de mensajes que se van a recibir para esta llamada.
+Descargue los mensajes agregados anteriormente mediante la llamada al método [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-). En el campo `numberOfMessages`, pase el número máximo de mensajes que se van a recibir para esta llamada.
 
 Agregue este código al final de la función `main`:
 
@@ -356,5 +356,5 @@ Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentació
 > [!div class="nextstepaction"]
 > [Documentación de Azure para JavaScript](/azure/developer/javascript/)
 
-* Para más información, consulte [Biblioteca cliente de Azure Queue Storage para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
-* Para ver las aplicaciones de ejemplo de Azure Queue Storage, continúe con los [ejemplos de la biblioteca cliente de Azure Queue Storage para JavaScript v12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).
+- Para más información, consulte [Biblioteca cliente de Azure Queue Storage para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
+- Para ver las aplicaciones de ejemplo de Azure Queue Storage, continúe con los [ejemplos de la biblioteca cliente de Azure Queue Storage para JavaScript v12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

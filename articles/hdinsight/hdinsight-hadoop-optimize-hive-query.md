@@ -1,27 +1,35 @@
 ---
 title: Optimización de las consultas de Hive en Azure HDInsight
-description: En este artículos se describe cómo optimizar sus consultas de Apache Hive para Hadoop en HDInsight.
+description: En este artículos se describe cómo optimizar sus consultas de Apache Hive en Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: how-to
+ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: 89c276ffe6059a61323755eaf928d525ab5ea416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 840c481a54451e1f8374aec4799df10b96fb2e4d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085300"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910889"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimización de las consultas de Azure Hive en Azure HDInsight
 
-En Azure HDInsight, hay varios tipos de clúster y tecnologías que pueden ejecutar consultas de Apache Hive. Elija el tipo de clúster adecuado para ayudar a optimizar el rendimiento de sus necesidades de carga de trabajo.
+En este artículo se describen algunas de las optimizaciones de rendimiento más comunes que puede usar para mejorar el rendimiento de las consultas de Apache Hive.
 
-Por ejemplo, elija el tipo de clúster **Interactive Query** para optimizar las consultas interactivas `ad hoc`. Elija el tipo de clúster Apache **Hadoop** para optimizar la consultas de Hive utilizadas como un proceso por lotes. Los tipos de clúster **Spark** y **HBase** también pueden ejecutar consultas de Hive. Para más información sobre la ejecución de consultas de Hive en diversos tipos de clúster de HDInsight, vea [¿Qué son Apache Hive y HiveQL en Azure HDInsight?](hadoop/hdinsight-use-hive.md)
+## <a name="cluster-type-selection"></a>Selección del tipo de clúster
 
-Los clústeres de HDInsight del tipo clúster de Hadoop no están optimizados para el rendimiento de forma predeterminada. En este artículo se describen algunos de los métodos de optimización de rendimiento de Hive más comunes que se pueden aplicar a nuestras consultas.
+En Azure HDInsight, puede ejecutar consultas de Apache Hive en unos cuantos tipos de clústeres. 
+
+Elija el tipo de clúster adecuado para ayudar a optimizar el rendimiento de sus necesidades de carga de trabajo:
+
+* Elija el tipo de clúster **Interactive Query** para optimizar las consultas interactivas `ad hoc`. 
+* Elija el tipo de clúster Apache **Hadoop** para optimizar la consultas de Hive utilizadas como un proceso por lotes. 
+* Los tipos de clúster de **Spark** y **HBase** también pueden ejecutar consultas de Hive y pueden ser adecuados si va a ejecutar esas cargas de trabajo. 
+
+Para más información sobre la ejecución de consultas de Hive en diversos tipos de clúster de HDInsight, vea [¿Qué son Apache Hive y HiveQL en Azure HDInsight?](hadoop/hdinsight-use-hive.md)
 
 ## <a name="scale-out-worker-nodes"></a>Escalar horizontalmente nodos de trabajo
 
@@ -69,8 +77,8 @@ La creación de particiones de Hive se implementa mediante la reorganización de
 
 Algunas consideraciones de particiones:
 
-* **No cree particiones insuficientes**: la creación de particiones en columnas con solo unos pocos valores puede generar pocas particiones. Por ejemplo, la creación de particiones por sexo solo crea dos particiones (hombres y mujeres); por lo que solo se reduce la latencia a un máximo de la mitad.
-* **No cree particiones en exceso**: por el contrario, la creación de una partición en una columna con un valor único (por ejemplo, id. de usuario) da lugar a varias particiones. La creación de particiones en exceso provoca mucho esfuerzo en el nodo de nombre del clúster, ya que tiene que administrar una gran cantidad de directorios.
+* **No cree particiones insuficientes** : la creación de particiones en columnas con solo unos pocos valores puede generar pocas particiones. Por ejemplo, la creación de particiones por sexo solo crea dos particiones (hombres y mujeres); por lo que solo se reduce la latencia a un máximo de la mitad.
+* **No cree particiones en exceso** : por el contrario, la creación de una partición en una columna con un valor único (por ejemplo, id. de usuario) da lugar a varias particiones. La creación de particiones en exceso provoca mucho esfuerzo en el nodo de nombre del clúster, ya que tiene que administrar una gran cantidad de directorios.
 * **Evite el sesgo de datos** : elija su clave de creación de particiones con cuidado de manera que todas las particiones tengan el mismo tamaño. Por ejemplo, la creación de particiones en la columna *Estado* puede sesgar la distribución de datos. Puesto que el estado de California tiene una población treinta veces mayor que Vermont, el tamaño de la partición puede estar sesgado y el rendimiento puede variar significativamente.
 
 Para crear una tabla de particiones, use la cláusula *Particionado por* :
@@ -124,9 +132,9 @@ Para obtener más información, consulte [Partitioned Tables](https://cwiki.apac
 
 Hive admite diferentes formatos de archivo. Por ejemplo:
 
-* **Texto**: el formato de archivo predeterminado y funciona con la mayoría de escenarios.
-* **Avro**: funciona bien en escenarios de interoperabilidad.
-* **ORC/Parquet**: idóneo para el rendimiento.
+* **Texto** : el formato de archivo predeterminado y funciona con la mayoría de escenarios.
+* **Avro** : funciona bien en escenarios de interoperabilidad.
+* **ORC/Parquet** : idóneo para el rendimiento.
 
 El formato ORC (Optimized Row Columnar) es una manera muy eficaz de almacenar datos de Hive. En comparación con otros formatos, ORC tiene las siguientes ventajas:
 
@@ -135,7 +143,7 @@ El formato ORC (Optimized Row Columnar) es una manera muy eficaz de almacenar da
 * realiza una indexación cada 10 000 filas, lo que permite omitir filas.
 * una reducción importante en el tiempo de ejecución.
 
-Para habilitar el formato ORC, debe crear primero una tabla con la cláusula *Almacenados como ORC*:
+Para habilitar el formato ORC, debe crear primero una tabla con la cláusula *Almacenados como ORC* :
 
 ```sql
 CREATE TABLE lineitem_orc_part
@@ -197,7 +205,6 @@ Hay más métodos de optimización que puede considerar, por ejemplo:
 
 En este artículo, ha aprendido varios métodos comunes de optimización de consultas de Hive. Para más información, vea los siguientes artículos:
 
-* [Uso de Apache Hive en HDInsight](hadoop/hdinsight-use-hive.md)
 * [Optimización de Apache Hive](./optimize-hive-ambari.md)
 * [Análisis de datos de retraso de vuelos con Interactive Query en HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Análisis de datos de Twitter con Apache Hive en HDInsight](hdinsight-analyze-twitter-data-linux.md)

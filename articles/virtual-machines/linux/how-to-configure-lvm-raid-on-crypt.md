@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: b65c37ab06092be63cbb2ad9fb5e23cdb8324e80
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476168"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911824"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configuración de LVM y RAID en dispositivos cifrados
 
@@ -46,7 +46,7 @@ De forma similar, el dispositivo RAID se crea sobre la capa cifrada en los disco
 
 Se recomienda utilizar LVM-on-crypt. RAID es una opción cuando LVM no se puede utilizar debido a limitaciones específicas del entorno o de la aplicación.
 
-Usará la opción **EncryptFormatAll** . Para obtener más información acerca de esta opción, consulte [Uso de la característica EncryptFormatAll para discos de datos en máquinas virtuales Linux](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Usará la opción **EncryptFormatAll**. Para obtener más información acerca de esta opción, consulte [Uso de la característica EncryptFormatAll para discos de datos en máquinas virtuales Linux](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 Si bien puede usar este método también al cifrar el sistema operativo, aquí solo se van a cifrar unidades de datos.
 
@@ -298,7 +298,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![Verificación de que se ha creado un volumen físico](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->Aquí, los nombres de /dev/mapper/device se deben reemplazar por los valores reales en función de la salida de **lsblk** .
+>Aquí, los nombres de /dev/mapper/device se deben reemplazar por los valores reales en función de la salida de **lsblk**.
 
 #### <a name="verify-the-information-for-physical-volumes"></a>Verificación de la información de los volúmenes físicos
 ```bash
@@ -368,7 +368,7 @@ mount -a
 lsblk -fs
 df -h
 ```
-![Información para sistemas de archivos montados](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![Captura de pantalla que muestra una ventana de consola con sistemas de archivos montados como data0 y data1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
 En esta variación de **lsblk** , se enumeran los dispositivos que muestran las dependencias en orden inverso. Esta opción ayuda a identificar los dispositivos agrupados por el volumen lógico, en lugar de los nombres de dispositivo de /dev/sd[disk] originales.
 
@@ -406,7 +406,7 @@ mdadm --create /dev/md10 \
 ![Información para RAID configurado mediante el comando mdadm](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
 >[!NOTE] 
->Aquí, los nombres de /dev/mapper/device se deben reemplazar por los valores reales en función de la salida de **lsblk** .
+>Aquí, los nombres de /dev/mapper/device se deben reemplazar por los valores reales en función de la salida de **lsblk**.
 
 ### <a name="checkmonitor-raid-creation"></a>Comprobación/supervisión de la creación de RAID
 ```bash
@@ -437,7 +437,7 @@ Verifique que el nuevo sistema de archivos se ha montado:
 lsblk -fs
 df -h
 ```
-![Información para sistemas de archivos montados](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![Captura de pantalla que muestra una ventana de consola con un sistema de archivos montado como raiddata.](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 Es importante asegurarse de que se agrega la opción **nofail** a las opciones de punto de montaje de los volúmenes RAID creados sobre un dispositivo cifrado mediante Azure Disk Encryption. Esto evita que el sistema operativo se bloquee durante el proceso de arranque (o en modo de mantenimiento).
 

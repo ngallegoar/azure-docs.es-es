@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 14a532e7809db3359d90a03c169c27a19cf89a9a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164234"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911640"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -21,7 +21,7 @@ Este artículo está diseñado para ayudarle a solucionar problemas que podrían
 
 1. [Página de preguntas y respuestas de Microsoft sobre Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 2. [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Soporte técnico de Microsoft. Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda** , seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico** .
+3. Soporte técnico de Microsoft. Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda** , seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Tengo un problema con Azure File Sync en mi servidor (sincronización, niveles en la nube, etc.). ¿Debería quitar y volver a crear el punto de conexión del servidor?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -102,6 +102,9 @@ Si un servidor no aparece en los **servidores registrados** de un servicio de si
 3. Ejecute ServerRegistration.exe y complete el asistente para registrar el servidor en un servicio de sincronización de almacenamiento.
 
 ## <a name="sync-group-management"></a>Administración de grupos de sincronización
+
+### <a name="cloud-endpoint-creation-errors"></a>Errores de creación de puntos de conexión de nube
+
 <a id="cloud-endpoint-using-share"></a>**Falla la creación de puntos de conexión de nube, con este error: "El recurso compartido de archivos de Azure especificado ya está siendo usado por un punto de conexión de nube diferente"**  
 Este error se produce si el recurso compartido de Azure Files ya está en uso por otro punto de conexión de nube. 
 
@@ -111,8 +114,8 @@ Si ve este mensaje y el recurso compartido de archivos de Azure no está siendo 
 > Si se eliminan los metadatos en un recurso compartido de archivos de Azure que está siendo utilizado por un punto de conexión de nube, las operaciones de Azure File Sync producirán un error. 
 
 1. Vaya al recurso compartido de archivos de Azure en Azure Portal.  
-2. Haga clic con el botón derecho en el recurso compartido de archivos de Azure y seleccione **Editar metadatos** .
-3. Haga clic con el botón derecho en **SyncService** y, a continuación, seleccione **Eliminar** .
+2. Haga clic con el botón derecho en el recurso compartido de archivos de Azure y seleccione **Editar metadatos**.
+3. Haga clic con el botón derecho en **SyncService** y, a continuación, seleccione **Eliminar**.
 
 <a id="cloud-endpoint-authfailed"></a>**Falla la creación de puntos de conexión de nube, con este error: "AuthorizationFailed"**  
 Este error se produce si la cuenta de usuario no tiene derechos suficientes para crear un punto de conexión de nube. 
@@ -128,13 +131,15 @@ Los siguientes roles integrados tienen los permisos necesarios de autorización 
 * Administrador de acceso de usuario
 
 Para determinar si su rol de la cuenta de usuario tiene los permisos necesarios:  
-1. En Azure Portal, seleccione **Grupos de recursos** .
+1. En Azure Portal, seleccione **Grupos de recursos**.
 2. Seleccione el grupo de recursos donde se encuentra la cuenta de almacenamiento y seleccione en **Control de acceso (IAM)** .
-3. Seleccione la pestaña **Asignaciones de roles** .
+3. Seleccione la pestaña **Asignaciones de roles**.
 4. Seleccione el **rol** (por ejemplo, propietario o colaborador) para su cuenta de usuario.
-5. En la lista **Proveedor de recursos** , seleccione **Autorización de Microsoft** . 
-    * **Asignación de roles** debe tener permisos de **lectura** y **escritura** .
-    * **Definición de roles** debe tener permisos de **lectura** y **escritura** .
+5. En la lista **Proveedor de recursos** , seleccione **Autorización de Microsoft**. 
+    * **Asignación de roles** debe tener permisos de **lectura** y **escritura**.
+    * **Definición de roles** debe tener permisos de **lectura** y **escritura**.
+
+### <a name="server-endpoint-creation-and-deletion-errors"></a>Errores de creación y eliminación de puntos de conexión del servidor
 
 <a id="-2134375898"></a>**Falla la creación de puntos de conexión de servidor, con este error: "MgmtServerJobFailed" (Código de error: -2134375898 o 0x80c80226)**  
 Este error se produce si la ruta de acceso del punto de conexión de servidor se encuentra en el volumen del sistema y los niveles de la nube están habilitados. Los niveles de nube no se admiten en el volumen del sistema. Para crear un punto de conexión de servidor en el volumen del sistema, deshabilite los niveles de la nube al crear el punto de conexión de servidor.
@@ -165,6 +170,8 @@ Este error se produce si la ruta de acceso del punto de conexión del servidor c
 
 <a id="-2134347757"></a>**Falla la eliminación de puntos de conexión de servidor, con este error: "MgmtServerJobExpired" (Código de error: -2134347757 o 0x80c87013)**  
 Este problema se produce si el servidor está sin conexión o no tiene conectividad de red. Si el servidor ya no está disponible, anule el registro del servidor en el portal, lo que eliminará los puntos de conexión de servidor. Para eliminar los puntos de conexión de servidor, siga los pasos que se describen en [Anular el registro de un servidor de Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+### <a name="server-endpoint-health"></a>Estado del punto de conexión del servidor
 
 <a id="server-endpoint-provisioningfailed"></a>**No se puede abrir la página de propiedades de puntos de conexión del servidor o actualizar la directiva de niveles en la nube**  
 Este problema puede producirse si hay un error en una operación de administración en el punto de conexión del servidor. Si la página de propiedades de puntos de conexión del servidor no se abre en Azure Portal, actualizar el punto de conexión del servidor con comandos de PowerShell desde el servidor puede solucionar este problema. 
@@ -338,16 +345,18 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | No se puede sincronizar el archivo porque se ha alcanzado el número máximo de archivos de conflicto. Azure File Sync admite 100 archivos de conflicto por archivo. Para más información sobre los archivos de conflicto, consulte las [preguntas más frecuentes](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution) sobre Azure File Sync. | Para resolver este problema, reduzca el número de archivos de conflicto. El archivo se sincronizará una vez que el número de archivos de conflicto sea inferior a 100. |
 
 #### <a name="handling-unsupported-characters"></a>Tratamiento de caracteres no admitidos
-Si el script de PowerShell **FileSyncErrorsReport.ps1** muestra errores de sincronización por elemento debido a caracteres no admitidos (código de error 0x8007007b o 0x80c80255), debe quitar los caracteres erróneos de los nombres de los archivos afectados o cambiarles el nombre. PowerShell probablemente imprimirá estos caracteres como signos de interrogación o rectángulos vacíos, ya que la mayoría de estos caracteres no tienen codificación visual estándar. Puede usar la [herramienta de evaluación](storage-sync-files-planning.md#evaluation-cmdlet) para identificar los caracteres que no son compatibles. Si el conjunto de datos tiene varios archivos con caracteres no válidos, utilice el script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) para cambiar el nombre de los archivos que contienen caracteres no admitidos.
+Si el script de PowerShell **FileSyncErrorsReport.ps1** muestra errores de sincronización por elemento debido a caracteres no admitidos (código de error 0x8007007b o 0x80c80255), debe quitar los caracteres erróneos de los nombres de los archivos afectados o cambiarles el nombre. PowerShell probablemente imprimirá estos caracteres como signos de interrogación o rectángulos vacíos, ya que la mayoría de estos caracteres no tienen codificación visual estándar. 
+> [!Note]  
+> Puede usar la [herramienta de evaluación](storage-sync-files-planning.md#evaluation-cmdlet) para identificar los caracteres que no son compatibles. Si el conjunto de datos tiene varios archivos con caracteres no válidos, utilice el script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) para cambiar el nombre de los archivos que contienen caracteres no admitidos.
 
 La siguiente tabla contiene todos los caracteres Unicode que Azure File Sync aún no admite.
 
 | Juego de caracteres | Número de caracteres |
 |---------------|-----------------|
 | <ul><li>0x0000009D ( cosc operating system command)</li><li>0x00000090 (dcs device control string)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (high octet preset)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverse line feed)</li></ul> | 6 |
-| 0x0000FDD0 - 0x0000FDEF (Arabic presentation forms-a) | 32 |
+| 0x0000FDD0 - 0x0000FDEF (Arabic presentation forms-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (specials) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2 (noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2 (supplementary private use area)</li></ul> | 30 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2 (noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2 (supplementary private use area)</li></ul> | 30 |
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>Errores de sincronización comunes
@@ -520,7 +529,7 @@ Este error se produce cuando se ha alcanzado el límite de almacenamiento de los
 
 5. Seleccione **Archivos** para ver la lista de recursos compartidos de archivos.
 6. Haga clic en los tres puntos al final de la fila para el recurso compartido de archivos de Azure al que hace referencia el punto de conexión de nube.
-7. Compruebe que el **uso** es menor que la **cuota** . Tenga en cuenta que a menos que se haya especificado una cuota alternativa, la cuota coincidirá con el [tamaño máximo del recurso compartido de archivos de Azure](storage-files-scale-targets.md).
+7. Compruebe que el **uso** es menor que la **cuota**. Tenga en cuenta que a menos que se haya especificado una cuota alternativa, la cuota coincidirá con el [tamaño máximo del recurso compartido de archivos de Azure](storage-files-scale-targets.md).
 
     ![Captura de pantalla de las propiedades de los recursos compartidos de archivos de Azure.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
@@ -750,7 +759,7 @@ Si hay muchos archivos que no se sincronizan por errores por elemento, no se pue
 
 Asegúrese de que la ruta de acceso existe, está en un volumen NTFS local y no es un punto de reanálisis o un punto de conexión de servidor existente.
 
-<a id="-2134375817"></a>**Se produjo un error en la sincronización porque la versión del controlador del filtro no es compatible con la versión del agente** .  
+<a id="-2134375817"></a>**Se produjo un error en la sincronización porque la versión del controlador del filtro no es compatible con la versión del agente**.  
 
 | | |
 |-|-|
@@ -996,15 +1005,15 @@ if ($fileShare -eq $null) {
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Haga clic en **Control de acceso (IAM)** en la tabla de contenido de la izquierda.
 1. Haga clic en la pestaña **Asignaciones de roles** de la lista de los usuarios y las aplicaciones ( *entidades de servicio* ) que tienen acceso a su cuenta de almacenamiento.
-1. Confirme que **Microsoft.StorageSync** o **Hybrid File Sync Service** (nombre anterior de la aplicación) figuran en la lista con el rol **Lector y acceso a los datos** . 
+1. Confirme que **Microsoft.StorageSync** o **Hybrid File Sync Service** (nombre anterior de la aplicación) figuran en la lista con el rol **Lector y acceso a los datos**. 
 
     ![Captura de pantalla de la entidad de servicio de Hybrid File Sync Service en la pestaña de control de acceso de la cuenta de almacenamiento](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     Si **Microsoft.StorageSync** o **Hybrid File Sync Service** no aparecen en la lista, haga lo siguiente:
 
-    - Haga clic en **Agregar** .
-    - En el campo **Rol** , seleccione **Lector y acceso a los datos** .
-    - En el campo **Seleccionar** , escriba **Microsoft.StorageSync** , seleccione el rol y haga clic en **Guardar** .
+    - Haga clic en **Agregar**.
+    - En el campo **Rol** , seleccione **Lector y acceso a los datos**.
+    - En el campo **Seleccionar** , escriba **Microsoft.StorageSync** , seleccione el rol y haga clic en **Guardar**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
@@ -1045,17 +1054,17 @@ Los errores en la organización en niveles en la nube pueden producirse de dos f
 Hay dos clases principales de errores que pueden producirse de alguno de esos modos:
 
 - Errores de almacenamiento en la nube
-    - *Problemas transitorios de disponibilidad del servicio de almacenamiento* . Para más información, consulte el [Acuerdo de Nivel de Servicio (SLA) para Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
-    - *Recurso compartido de archivos de Azure inaccesible* . Este error normalmente ocurre al eliminarse el recurso compartido de archivos de Azure cuando sigue siendo un punto de conexión de nube en un grupo de sincronización.
-    - *Cuenta de almacenamiento inaccesible* . Este error suele ocurrir cuando se elimina la cuenta de almacenamiento mientras aún tiene un recurso compartido de archivos de Azure que es un punto de conexión en la nube en un grupo de sincronización. 
+    - *Problemas transitorios de disponibilidad del servicio de almacenamiento*. Para más información, consulte el [Acuerdo de Nivel de Servicio (SLA) para Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+    - *Recurso compartido de archivos de Azure inaccesible*. Este error normalmente ocurre al eliminarse el recurso compartido de archivos de Azure cuando sigue siendo un punto de conexión de nube en un grupo de sincronización.
+    - *Cuenta de almacenamiento inaccesible*. Este error suele ocurrir cuando se elimina la cuenta de almacenamiento mientras aún tiene un recurso compartido de archivos de Azure que es un punto de conexión en la nube en un grupo de sincronización. 
 - Errores del servidor 
   - *No está cargado el filtro de sistema de archivos de Azure File Sync (StorageSync.sys)* . Para responder a solicitudes de organización por niveles o recuperación, debe haber cargado el filtro del sistema de archivos de Azure File Sync. El filtro puede no cargarse por varios motivos, pero el más común es que un administrador lo descargue manualmente. El filtro del sistema de archivos de Azure File Sync se debe cargar en todo momento para que este funcione de forma adecuada.
-  - *El punto de reanálisis falta, está dañado o ha sufrido algún otro problema* . Un punto de reanálisis es una estructura de datos especial en un archivo que consta de dos partes:
+  - *El punto de reanálisis falta, está dañado o ha sufrido algún otro problema*. Un punto de reanálisis es una estructura de datos especial en un archivo que consta de dos partes:
     1. Una etiqueta de reanálisis, que indica al sistema operativo que el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) puede necesitar realizar alguna acción de E/S en el archivo. 
     2. Repita el análisis de los datos, lo que indica al sistema de archivos que filtre el URI del archivo en el punto de conexión en la nube asociado (el recurso compartido de archivos de Azure). 
         
        La manera más común de que un punto de reanálisis pueda resultar dañado es que un administrador intente modificar la etiqueta o sus datos. 
-  - *Problemas de conectividad de red* . Con el fin organizar en niveles un archivo o de recuperarlo, el servidor debe tener conectividad a Internet.
+  - *Problemas de conectividad de red*. Con el fin organizar en niveles un archivo o de recuperarlo, el servidor debe tener conectividad a Internet.
 
 En las secciones siguientes se indica cómo solucionar problemas de los niveles en la nube y determinar si se trata de un problema de almacenamiento en la nube o del servidor.
 
@@ -1092,7 +1101,7 @@ Si no se pueden apilar archivos en Azure Files:
 
 ### <a name="tiering-errors-and-remediation"></a>Establecimiento en capas de errores y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | El archivo se pudo organizar en niveles debido a que la carga inicial está en curso. | No es necesaria ninguna acción. El archivo se almacenarán en capas una vez que se complete la carga inicial. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | No se pudo establecer en capas el archivo porque está en uso. | No es necesaria ninguna acción. El archivo se establecerá en capas cuando ya no esté en uso. |
@@ -1135,7 +1144,7 @@ Si no se pueden recuperar archivos:
 
 ### <a name="recall-errors-and-remediation"></a>Errores de coincidencia y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070079 | -2147942521 | ERROR_SEM_TIMEOUT | El archivo no se recuperó debido a un tiempo de expiración de E/S. Este problema puede aparecer por varias razones: las restricciones de recursos del servidor, una conectividad de red deficiente o un problema de Azure Storage (por ejemplo, la limitación). | No es necesaria ninguna acción. Si el error persiste durante varias horas, abra una incidencia de soporte técnico. |
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | El archivo no se recuperó debido a una incidencia en la red.  | Si el error no desaparece, compruebe la conectividad de red con el recurso compartido de archivos de Azure. |
@@ -1271,7 +1280,7 @@ Para ejecutar AFSDiag, realice los siguientes pasos:
 
 3. Para el nivel de seguimiento del modo de kernel de Azure File Sync, escriba **1** (a menos que se especifique lo contrario, para crear seguimientos más detallados) y presione Entrar.
 4. Para el nivel de seguimiento del modo de usuario de Azure File Sync, escriba **1** (a menos que se especifique lo contrario, para crear seguimientos más detallados) y presione Entrar.
-5. Reproduzca el problema. Cuando haya terminado, escriba **D** .
+5. Reproduzca el problema. Cuando haya terminado, escriba **D**.
 6. Un archivo .zip que contiene los archivos de seguimiento y registros se guarda en el directorio de salida que especificó.
 
 ## <a name="see-also"></a>Consulte también

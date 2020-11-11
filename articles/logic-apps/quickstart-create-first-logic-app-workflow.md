@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 7ec4515d5f1d096cfb83f06c398da4c1254279f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7433c51b45b0d8459ad1959b29f61660537b8851
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099154"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337464"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Inicio rápido: Creación del primer flujo de trabajo de Logic Apps en Azure Portal
 
@@ -112,7 +112,7 @@ La aplicación lógica está activa ahora, pero no hace nada salvo comprobar la 
 
 ## <a name="add-the-send-email-action"></a>Adición de la acción "enviar correo electrónico"
 
-Después de [agregar un desencadenador para la aplicación lógica](#add-rss-trigger), debe agregar una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) para determinar la respuesta cuando la aplicación lógica comprueba la fuente RSS y aparece un nuevo elemento. También puede crear aplicaciones lógicas con acciones mucho más complejas, como en el tutorial [Automatización de tareas para procesar correos electrónicos mediante Azure Logic Apps, Azure Functions y Azure Storage](/tutorial-process-email-attachments-workflow.md).
+Después de [agregar un desencadenador para la aplicación lógica](#add-rss-trigger), debe agregar una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) para determinar la respuesta cuando la aplicación lógica comprueba la fuente RSS y aparece un nuevo elemento. También puede crear aplicaciones lógicas con acciones mucho más complejas, como en el tutorial [Automatización de tareas para procesar correos electrónicos mediante Azure Logic Apps, Azure Functions y Azure Storage](/azure/logic-apps/tutorial-process-email-attachments-workflow).
 
 > [!NOTE]
 > En este ejemplo se usa Outlook de Office 365 como servicio de correo electrónico. Si usa otro servicio de correo electrónico admitido en la aplicación lógica, la interfaz de usuario podría tener un aspecto diferente. Sin embargo, los conceptos básicos para conectarse a otro servicio de correo electrónico son los mismos.

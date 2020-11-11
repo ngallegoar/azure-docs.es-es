@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 78dec9180da2a78903ae5d5e87bca515b212f167
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 12635979d90dcc4be5b45bf7d64ceb602119faf7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87843443"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394771"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>¿Qué es Azure API for FHIR&reg;?
 
@@ -86,7 +86,7 @@ Para aquellos casos de uso que requieran la ampliación o personalización del s
 
 El conector de Azure IoT para FHIR es una característica opcional de Azure API for FHIR que proporciona la funcionalidad de ingesta de datos de dispositivos de Internet de las cosas médicas (IoMT). Internet de las cosas médicas es una categoría de dispositivos IoT que capturan e intercambian datos de salud y bienestar con otros sistemas informáticos de salud a través de una red. Algunos ejemplos de dispositivos IoMT son: dispositivos ponibles para uso deportivo y clínico, sensores de supervisión, seguimiento de la actividad, quioscos de punto de atención o incluso una píldora inteligente. La característica Conector de Azure IoT para FHIR permite configurar rápidamente un servicio para ingerir datos de IoMT en Azure API for FHIR de una manera escalable, segura y compatible.
 
-El conector de Azure IoT para FHIR puede aceptar cualquier mensaje basado en JSON que envíe un dispositivo IoMT. Estos datos se transforman en primer lugar en recursos adecuados de [observación](https://www.hl7.org/fhir/observation.html) basados en FHIR y luego se guardan en Azure API for FHIR. La lógica de transformación de datos se define a través de un par de plantillas de asignación que se configuran según el esquema del mensaje y los requisitos de FHIR. Los datos del dispositivo se pueden insertar directamente en el conector de Azure IoT para FHIR o usarse sin problemas junto con otras soluciones de Azure Iot ([Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) y [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/)). El conector de IoT para FHIR proporciona una canalización de datos segura, al tiempo que permite que las soluciones de Azure IoT administren el aprovisionamiento y mantenimiento de los dispositivos físicos.
+El conector de Azure IoT para FHIR puede aceptar cualquier mensaje basado en JSON que envíe un dispositivo IoMT. Estos datos se transforman en primer lugar en recursos adecuados de [observación](https://www.hl7.org/fhir/observation.html) basados en FHIR y luego se guardan en Azure API for FHIR. La lógica de transformación de datos se define a través de un par de plantillas de asignación que se configuran según el esquema del mensaje y los requisitos de FHIR. Los datos del dispositivo se pueden insertar directamente en el conector de Azure IoT para FHIR o usarse sin problemas junto con otras soluciones de Azure Iot ([Azure IoT Hub](../iot-hub/index.yml) y [Azure IoT Central](../iot-central/index.yml)). El conector de IoT para FHIR proporciona una canalización de datos segura, al tiempo que permite que las soluciones de Azure IoT administren el aprovisionamiento y mantenimiento de los dispositivos físicos.
 
 ### <a name="applications-of-azure-iot-connector-for-fhir-preview"></a>Aplicaciones del conector de Azure IoT para FHIR (versión preliminar)
 

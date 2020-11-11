@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6e86950581255bd4e3a78b0b4a3f599a24a3cad0
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787387"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345761"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de comprobación de rendimiento y escalabilidad para Queue Storage
 
@@ -60,18 +60,17 @@ Si se aproxima al número máximo de cuentas de almacenamiento permitido para un
 
 ### <a name="capacity-and-transaction-targets"></a>Objetivos de capacidad y transacción
 
-Si su aplicación se aproxima a los objetivos de escalabilidad para una sola cuenta de almacenamiento, plantéese la adopción de uno de los siguientes enfoques:  
+Si su aplicación se aproxima a los objetivos de escalabilidad para una sola cuenta de almacenamiento, plantéese la adopción de uno de los siguientes enfoques:
 
 - Si los objetivos de escalabilidad de las colas no son suficientes para su aplicación, use varias colas y distribuya los mensajes entre ellas.
 - Reconsidere la carga de trabajo que hace que su aplicación se aproxime al objetivo de escalabilidad o lo supere. ¿Puede designarla de forma diferente para que use menos ancho de banda o capacidad, o menos transacciones?
 - Si su aplicación debe superar uno de los objetivos de escalabilidad, cree varias cuentas de almacenamiento y realice particiones de los datos de su aplicación entre esas cuentas. Si usa este patrón, entonces debe asegurarse de designar la aplicación de forma que pueda agregar más cuentas de almacenamiento en el futuro para equilibrio de carga. Las propias cuentas de almacenamiento no tienen ningún costo aparte del de su uso en términos de datos almacenados, transacciones realizadas o datos transferidos.
-- Si la aplicación se aproxima a los objetivos de ancho de banda, considere la posibilidad de comprimir los datos en el cliente para reducir el ancho de banda necesario para enviar los datos a Azure Storage.
-    Aunque comprimir datos puede ahorrar ancho de banda y mejorar el rendimiento de la red, también puede tener efectos negativos en el rendimiento. Evalúe el impacto en el rendimiento de los requisitos de procesamiento adicionales para la compresión y descompresión de datos en el cliente. Tenga en cuenta que el almacenamiento de los datos comprimidos puede dificultar la solución de problemas, ya que es muy probable que sea más complicado ver los datos con herramientas estándar.
+- Si la aplicación se aproxima a los objetivos de ancho de banda, considere la posibilidad de comprimir los datos en el cliente para reducir el ancho de banda necesario para enviar los datos a Azure Storage. Aunque comprimir datos puede ahorrar ancho de banda y mejorar el rendimiento de la red, también puede tener efectos negativos en el rendimiento. Evalúe el impacto en el rendimiento de los requisitos de procesamiento adicionales para la compresión y descompresión de datos en el cliente. Tenga en cuenta que el almacenamiento de los datos comprimidos puede dificultar la solución de problemas, ya que es muy probable que sea más complicado ver los datos con herramientas estándar.
 - Si la aplicación se acerca a los objetivos de escalabilidad, asegúrese de que usa un retroceso exponencial para los reintentos. Es recomendable que intente evitar llegar a los objetivos de escalabilidad mediante la implementación de las recomendaciones que se describen en este artículo. Sin embargo, el uso de un retroceso exponencial para los reintentos impedirá que la aplicación vuelva a intentarlo rápidamente, lo que podría empeorar la limitación. Para más información, consulte la sección [Errores de tiempo de expiración y servidor ocupado](#timeout-and-server-busy-errors).
 
 ## <a name="networking"></a>Redes
 
-Las restricciones de red físicas de la aplicación pueden tener un impacto considerable en el rendimiento. En las siguientes secciones se describen algunas de las limitaciones que pueden encontrar los usuarios.  
+Las restricciones de red físicas de la aplicación pueden tener un impacto considerable en el rendimiento. En las siguientes secciones se describen algunas de las limitaciones que pueden encontrar los usuarios.
 
 ### <a name="client-network-capability"></a>Capacidad de red del cliente
 
@@ -83,11 +82,11 @@ Para el ancho de banda, el problema suele residir en las capacidades del cliente
 
 #### <a name="link-quality"></a>Calidad del vínculo
 
-Como siempre que se usa la red, tenga en cuenta que las condiciones de la red generan errores y la pérdida de paquetes reducirá el rendimiento efectivo.  El uso de WireShark o NetMon puede ayudar a diagnosticar este problema.  
+Como siempre que se usa la red, tenga en cuenta que las condiciones de la red generan errores y la pérdida de paquetes reducirá el rendimiento efectivo. El uso de WireShark o NetMon puede ayudar a diagnosticar este problema.
 
 ### <a name="location"></a>Location
 
-En cualquier entorno distribuido, la ubicación del cliente cerca del servidor ofrece el mejor rendimiento. Para acceder a Azure Storage con la mínima latencia, la mejor ubicación para el cliente es dentro de la misma región de Azure. Por ejemplo, si tiene una aplicación web de Azure que usa Azure Storage, coloque ambas en una sola región, como Oeste de EE. UU. o Sudeste de Asia. La colocalización reduce la latencia y el costo, ya que el uso del ancho de banda dentro de una sola región es gratuito.  
+En cualquier entorno distribuido, la ubicación del cliente cerca del servidor ofrece el mejor rendimiento. Para acceder a Azure Storage con la mínima latencia, la mejor ubicación para el cliente es dentro de la misma región de Azure. Por ejemplo, si tiene una aplicación web de Azure que usa Azure Storage, coloque ambas en una sola región, como Oeste de EE. UU. o Sudeste de Asia. La colocalización reduce la latencia y el costo, ya que el uso del ancho de banda dentro de una sola región es gratuito.
 
 Si las aplicaciones cliente acceden a Azure Storage, pero no están hospedadas en Azure, como por ejemplo las aplicaciones de dispositivos móviles o los servicios empresariales locales, la colocación de la cuenta de almacenamiento en una región próxima a los clientes puede reducir la latencia. Si los clientes están distribuidos en sitios distantes (por ejemplo, algunos en Norteamérica y otros en Europa), considere la posibilidad de usar una cuenta de almacenamiento por región. Este enfoque es más sencillo de implementar si los datos que almacena la aplicación son específicos de usuarios individuales y no se requiere la replicación de datos entre cuentas de almacenamiento.
 
@@ -95,17 +94,17 @@ Si las aplicaciones cliente acceden a Azure Storage, pero no están hospedadas e
 
 Supongamos que necesita autorizar código, como JavaScript, que se ejecuta en el explorador web de un usuario o en una aplicación de teléfono móvil para acceder a los datos de Azure Storage. Un enfoque consiste en crear una aplicación de servicio que actúe como proxy. El dispositivo del usuario se autentica con el servicio, que a su vez autoriza el acceso a los recursos de Azure Storage. De esta forma, puede evitar la exposición de sus claves de cuenta de almacenamiento en dispositivos no seguros. Sin embargo, este enfoque supone una importante sobrecarga para la aplicación de servicio, ya que todos los datos transferidos entre el dispositivo del usuario y Azure Storage deben pasar por la aplicación de servicio.
 
-El uso de firmas de acceso compartido (SAS) le permite evitar el uso de una aplicación de servicio como proxy para Azure Storage. Mediante SAS se puede permitir que el dispositivo del usuario realice solicitudes directamente en Azure Storage mediante un token de acceso limitado. Por ejemplo, si un usuario desea cargar una foto en la aplicación, la aplicación de servicio puede generar una SAS y enviarla al dispositivo del usuario. El token de SAS puede conceder permiso para escribir en un recurso de Azure Storage durante un intervalo de tiempo especificado, después del cual expirará el token. Para obtener más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md).  
+El uso de firmas de acceso compartido (SAS) le permite evitar el uso de una aplicación de servicio como proxy para Azure Storage. Mediante SAS se puede permitir que el dispositivo del usuario realice solicitudes directamente en Azure Storage mediante un token de acceso limitado. Por ejemplo, si un usuario desea cargar una foto en la aplicación, la aplicación de servicio puede generar una SAS y enviarla al dispositivo del usuario. El token de SAS puede conceder permiso para escribir en un recurso de Azure Storage durante un intervalo de tiempo especificado, después del cual expirará el token. Para obtener más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md).
 
 Por lo general, los exploradores web no permiten que haya código JavaScript en una página hospedada por un sitio web de un dominio que realiza operaciones concretas, como operaciones de escritura, en otro dominio. Esta directiva, que se conoce como directiva de mismo origen, impide que un script malintencionado de una página acceda a los datos de otra página web. Sin embargo, la directiva de mismo origen puede ser una limitación al compilar una solución en la nube. El uso compartido de recursos entre orígenes (CORS) es una característica del explorador que permite al dominio de destino comunicarle al explorador en el que confía solicitudes que se originan en el dominio de origen.
 
-Por ejemplo, supongamos que una aplicación web que se ejecuta en Azure realiza una solicitud de un recurso en una cuenta de Azure Storage. La aplicación web es el dominio de origen y la cuenta de almacenamiento es el dominio de destino. Puede configurar CORS para que cualquiera de los servicios de Azure Storage comunique al explorador web que Azure Storage confía en las solicitudes del dominio de origen. Para más información sobre CORS, consulte [Soporte técnico del uso compartido de recursos entre orígenes (CORS) para Azure Storage](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
-  
-Tanto SAS como CORS pueden evitar una carga innecesaria en la aplicación web.  
+Por ejemplo, supongamos que una aplicación web que se ejecuta en Azure realiza una solicitud de un recurso en una cuenta de Azure Storage. La aplicación web es el dominio de origen y la cuenta de almacenamiento es el dominio de destino. Puede configurar CORS para que cualquiera de los servicios de Azure Storage comunique al explorador web que Azure Storage confía en las solicitudes del dominio de origen. Para más información sobre CORS, consulte [Soporte técnico del uso compartido de recursos entre orígenes (CORS) para Azure Storage](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).
+
+Tanto SAS como CORS pueden evitar una carga innecesaria en la aplicación web.
 
 ## <a name="net-configuration"></a>Configuración de .NET
 
-Si usa .NET Framework, esta sección enumera varias configuraciones rápidas que puede usar para realizar mejoras de rendimiento significativas.  Si usa otros lenguajes, compruebe si se aplican conceptos similares en el lenguaje elegido.  
+Si usa .NET Framework, esta sección enumera varias configuraciones rápidas que puede usar para realizar mejoras de rendimiento significativas. Si usa otros lenguajes, compruebe si se aplican conceptos similares en el lenguaje elegido.
 
 ### <a name="use-net-core"></a>Uso de .NET Core
 
@@ -118,17 +117,17 @@ Para más información sobre las mejoras en el rendimiento en .NET Core, consul
 
 ### <a name="increase-default-connection-limit"></a>Aumento del límite de conexiones predeterminado
 
-En .NET, el siguiente código aumenta el límite de conexiones predeterminado (que normalmente es 2 en un entorno cliente o 10 en un entorno servidor) a 100. Normalmente, debe establecer el valor en aproximadamente el número de subprocesos usados por su aplicación.  
+En .NET, el siguiente código aumenta el límite de conexiones predeterminado (que normalmente es 2 en un entorno cliente o 10 en un entorno servidor) a 100. Normalmente, debe establecer el valor en aproximadamente el número de subprocesos usados por su aplicación.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 ```
 
-Establezca el límite de conexiones antes de abrir cualquier conexión.  
+Establezca el límite de conexiones antes de abrir cualquier conexión.
 
-En el caso de otros lenguajes de programación, consulte la documentación del lenguaje en cuestión para determinar cómo establecer el límite de conexiones.  
+En el caso de otros lenguajes de programación, consulte la documentación del lenguaje en cuestión para determinar cómo establecer el límite de conexiones.
 
-Para obtener más información, vea la entrada de blog [Servicios web: conexiones simultáneas](/archive/blogs/darrenj/web-services-concurrent-connections).  
+Para obtener más información, vea la entrada de blog [Servicios web: conexiones simultáneas](/archive/blogs/darrenj/web-services-concurrent-connections).
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumento del número mínimo de subprocesos
 
@@ -138,11 +137,11 @@ Si utiliza llamadas sincrónicas junto con tareas asincrónicas, puede que desee
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Para más información, consulte el método [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).  
+Para más información, consulte el método [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).
 
 ## <a name="unbounded-parallelism"></a>Paralelismo sin enlazar
 
-Aunque el paralelismo puede ser excelente para el rendimiento, tenga cuidado al usar el paralelismo sin enlazar, lo que significa que no se aplica ningún límite en cuanto al número de subprocesos o solicitudes paralelas. Asegúrese de limitar las solicitudes paralelas para cargar o descargar datos, para acceder a varias particiones de la misma cuenta de almacenamiento o para acceder a varios elementos de la misma partición. Si el paralelismo está sin enlazar, la aplicación puede superar las funcionalidades del dispositivo cliente o los objetivos de escalabilidad de la cuenta de almacenamiento, lo que puede provocar latencias y limitaciones mayores.  
+Aunque el paralelismo puede ser excelente para el rendimiento, tenga cuidado al usar el paralelismo sin enlazar, lo que significa que no se aplica ningún límite en cuanto al número de subprocesos o solicitudes paralelas. Asegúrese de limitar las solicitudes paralelas para cargar o descargar datos, para acceder a varias particiones de la misma cuenta de almacenamiento o para acceder a varios elementos de la misma partición. Si el paralelismo está sin enlazar, la aplicación puede superar las funcionalidades del dispositivo cliente o los objetivos de escalabilidad de la cuenta de almacenamiento, lo que puede provocar latencias y limitaciones mayores.
 
 ## <a name="client-libraries-and-tools"></a>Herramientas y bibliotecas cliente
 
@@ -154,9 +153,9 @@ Azure Storage devuelve un error cuando el servicio no puede procesar una solicit
 
 ### <a name="timeout-and-server-busy-errors"></a>Errores debidos al tiempo de expiración y a que el servidor está ocupado
 
-Azure Storage puede limitar la aplicación si se aproxima a los límites de escalabilidad. En algunos casos, es posible que Azure Storage no pueda controlar una solicitud debido a alguna condición transitoria. En ambos casos, el servicio puede devolver un error 503 (servidor ocupado) o 500 (tiempo de expiración). Estos errores también pueden producirse si el servicio reequilibra las particiones de datos para permitir un mayor rendimiento. Normalmente, la aplicación cliente debería reintentar la operación que provoca cualquiera de estos errores. Sin embargo, si Azure Storage está limitando la aplicación porque está superando los objetivos de escalabilidad, o incluso si el servicio no ha podido atender a la solicitud por alguna otra razón, los intentos agresivos pueden empeorar el problema. Se recomienda usar una directiva de reintentos de retroceso exponencial y las bibliotecas cliente se comportan así de forma predeterminada. Por ejemplo, su aplicación puede llevar a cabo los reintentos después de 2 segundos, luego 4 segundos, después 10 segundos, luego 30 segundos y, después, renunciar. De esta forma, la aplicación reduce considerablemente su carga en el servicio, en lugar de exagerar el comportamiento que puede provocar la limitación.  
+Azure Storage puede limitar la aplicación si se aproxima a los límites de escalabilidad. En algunos casos, es posible que Azure Storage no pueda controlar una solicitud debido a alguna condición transitoria. En ambos casos, el servicio puede devolver un error 503 (servidor ocupado) o 500 (tiempo de expiración). Estos errores también pueden producirse si el servicio reequilibra las particiones de datos para permitir un mayor rendimiento. Normalmente, la aplicación cliente debería reintentar la operación que provoca cualquiera de estos errores. Sin embargo, si Azure Storage está limitando la aplicación porque está superando los objetivos de escalabilidad, o incluso si el servicio no ha podido atender a la solicitud por alguna otra razón, los intentos agresivos pueden empeorar el problema. Se recomienda usar una directiva de reintentos de retroceso exponencial y las bibliotecas cliente se comportan así de forma predeterminada. Por ejemplo, su aplicación puede llevar a cabo los reintentos después de 2 segundos, luego 4 segundos, después 10 segundos, luego 30 segundos y, después, renunciar. De esta forma, la aplicación reduce considerablemente su carga en el servicio, en lugar de exagerar el comportamiento que puede provocar la limitación.
 
-Los errores de conectividad se pueden reintentar inmediatamente porque no se derivan de la limitación y se espera que sean transitorios.  
+Los errores de conectividad se pueden reintentar inmediatamente porque no se derivan de la limitación y se espera que sean transitorios.
 
 ### <a name="non-retryable-errors"></a>Errores que no se pueden reintentar
 
@@ -170,17 +169,17 @@ El algoritmo de Nagle está ampliamente implementado en redes TCP/IP como medio 
 
 ## <a name="message-size"></a>Tamaño del mensaje
 
-El rendimiento y la escalabilidad de las colas se reducen a medida que aumenta el tamaño de los mensajes. Coloque solo la información que necesita el receptor en un mensaje.  
+El rendimiento y la escalabilidad de las colas se reducen a medida que aumenta el tamaño de los mensajes. Coloque solo la información que necesita el receptor en un mensaje.
 
 ## <a name="batch-retrieval"></a>Recuperación por lotes
 
-Puede recuperar hasta 32 mensajes de una cola en una sola operación. La recuperación por lotes puede reducir el número de recorridos de ida y vuelta de la aplicación cliente, lo que es especialmente útil para entornos con alta latencia como, por ejemplo, dispositivos móviles.  
+Puede recuperar hasta 32 mensajes de una cola en una sola operación. La recuperación por lotes puede reducir el número de recorridos de ida y vuelta de la aplicación cliente, lo que es especialmente útil para entornos con alta latencia como, por ejemplo, dispositivos móviles.
 
 ## <a name="queue-polling-interval"></a>Intervalo de sondeo de la cola
 
-La mayoría de aplicaciones sondean los mensajes de una cola, que puede ser uno de los principales orígenes de las transacciones de la aplicación. Seleccione el intervalo de sondeo con cuidado: un sondeo demasiado frecuente puede provocar que la aplicación alcance los objetivos de escalabilidad para la cola. Sin embargo, a 200.000 transacciones por 0,01 USD (en el momento de redactar), un solo procesador que sondeara una vez cada pocos segundos durante un mes costaría menos de 15 centavos, así que el coste de sondeo no suele ser un factor que afecte a la elección del intervalo de sondeo.  
+La mayoría de aplicaciones sondean los mensajes de una cola, que puede ser uno de los principales orígenes de las transacciones de la aplicación. Seleccione el intervalo de sondeo con cuidado: un sondeo demasiado frecuente puede provocar que la aplicación alcance los objetivos de escalabilidad para la cola. Sin embargo, a 200.000 transacciones por 0,01 USD (en el momento de redactar), un solo procesador que sondeara una vez cada pocos segundos durante un mes costaría menos de 15 centavos, así que el coste de sondeo no suele ser un factor que afecte a la elección del intervalo de sondeo.
 
-Para obtener información de costo actualizada, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
+Para obtener información de costo actualizada, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="use-update-message"></a>Uso de Actualizar mensaje
 
@@ -188,10 +187,10 @@ Puede usar la operación **Actualizar mensaje** para aumentar el tiempo de expir
 
 ## <a name="application-architecture"></a>Arquitectura de la aplicación
 
-Use colas para que la arquitectura de la aplicación sea escalable. A continuación se enumeran algunas formas de usar colas para que la aplicación sea más escalable:  
+Use colas para que la arquitectura de la aplicación sea escalable. A continuación se enumeran algunas formas de usar colas para que la aplicación sea más escalable:
 
 - Puede usar colas para crear trabajos pendientes para el procesamiento y aliviar las cargas de la aplicación. Por ejemplo, podría poner en cola solicitudes de usuarios para realizar un trabajo que requiere muchos recursos de procesador, como, por ejemplo, cambiar el tamaño de las imágenes cargadas.
-- Puede usar colas para desacoplar partes de la aplicación para poder escalarlas por separado. Por ejemplo, un front-end web podría poner resultados de encuesta de usuarios en una cola para analizarlos y almacenarlos posteriormente. Podría agregar más instancias de rol de trabajo para procesar los datos de cola según sea necesario.  
+- Puede usar colas para desacoplar partes de la aplicación para poder escalarlas por separado. Por ejemplo, un front-end web podría poner resultados de encuesta de usuarios en una cola para analizarlos y almacenarlos posteriormente. Podría agregar más instancias de rol de trabajo para procesar los datos de cola según sea necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

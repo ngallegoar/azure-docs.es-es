@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 999966192d92481a9d3eec68cfe804566a27f71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c446a7f05dce2ea6979e9810e729bdac479ae153
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513475"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910498"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Incorporación de un destinatario a un recurso compartido de datos existente en Azure Data Share
 
@@ -23,11 +23,11 @@ Para información sobre cómo agregar destinatarios a medida que crea un recurso
 
 En Azure Data Share, vaya a su recurso compartido enviado y seleccione la pestaña **Invitaciones**. Aquí se enumeran todos los destinatarios de invitaciones a este recurso compartido de datos. Para agregar uno nuevo, haga clic en **Agregar destinatario**.
 
-![Incorporación de un destinatario](./media/how-to/how-to-add-recipients/add-recipient.png)
+![Captura de pantalla que muestra la opción para agregar destinatario seleccionada.](./media/how-to/how-to-add-recipients/add-recipient.png)
 
 Emergerá un panel en el lado derecho de la página. Haga clic en **Agregar destinatario** y rellene el correo electrónico del nuevo destinatario en la línea en blanco. Agregue todos los destinatarios que quiera.
 
-![Incorporación de un destinatario](./media/how-to/how-to-add-recipients/add-recipient-side.png)
+![Captura de pantalla que muestra el panel Agregar destinatario, donde puede agregar y enviar una invitación.](./media/how-to/how-to-add-recipients/add-recipient-side.png)
 
 Haga clic en **Add and send invitation** (Agregar y enviar invitación). Los nuevos destinatarios recibirán correos electrónicos de invitación para este recurso compartido de datos.
 

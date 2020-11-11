@@ -4,21 +4,22 @@ description: HSM administrado de Azure es un servicio en la nube que protege las
 services: key-vault
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: d2d5d6ad23f5e6a2cac2dc97904154d5912573b0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 95feeebf009cae22cf3952df80596c12e75cbe4b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787931"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357579"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>¿Qué es HSM administrado de Azure Key Vault (versión preliminar)?
 
-HSM administrado de Azure Key Vault es un servicio en la nube que cumple los estándares totalmente administrado, de alta disponibilidad y de un solo inquilino que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de **FIPS 140-2 de nivel 3** .  
+HSM administrado de Azure Key Vault es un servicio en la nube que cumple los estándares totalmente administrado, de alta disponibilidad y de un solo inquilino que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de **FIPS 140-2 de nivel 3**.  
 
 ## <a name="why-use-managed-hsm"></a>Motivos para usar Managed HSM
 

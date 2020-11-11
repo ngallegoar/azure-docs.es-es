@@ -9,16 +9,16 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d73f225f0e6f230509c856af0d15bc02e80fcd98
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f7368025993c91490d808ef0ae5f5f66233fe666
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425885"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345625"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Inicio rápido: Uso del SDK de Azure Storage v11 para .NET para administrar una cola
 
-En este inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Storage versión 11 para .NET a fin de crear una cola y agregarle mensajes. A continuación, aprenderá a leer y procesar los mensajes de la cola. 
+En este inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Storage versión 11 para .NET a fin de crear una cola y agregarle mensajes. A continuación, aprenderá a leer y procesar los mensajes de la cola.
 
 > [!NOTE]
 > Este inicio rápido usa una versión heredada de la biblioteca cliente de Azure Queue Storage. Para empezar a trabajar con la versión más reciente, consulte [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para .NET](storage-quickstart-queues-dotnet.md).
@@ -32,7 +32,7 @@ A continuación, descargue e instale .NET Core 2.0 para su sistema operativo. Si
 ### <a name="windows"></a>Windows
 
 - Instale [.NET Core para Windows](https://www.microsoft.com/net/download/windows) o [.NET Framework](https://www.microsoft.com/net/download/windows) (se incluye con Visual Studio para Windows).
-- Instale [Visual Studio para Windows](https://www.visualstudio.com/). Si usa .NET Core, la instalación de Visual Studio es opcional.  
+- Instale [Visual Studio para Windows](https://www.visualstudio.com/). Si usa .NET Core, la instalación de Visual Studio es opcional.
 
 Para obtener información acerca de cuándo elegir .NET Core o .NET Framework, consulte [Selección entre .NET Core y .NET Framework para aplicaciones de servidor](/dotnet/standard/choosing-core-framework-server).
 
@@ -50,13 +50,13 @@ Para obtener información acerca de cuándo elegir .NET Core o .NET Framework, c
 
 La aplicación de ejemplo utilizada en este tutorial de inicio rápido es una aplicación de consola básica. Puede explorar la aplicación de ejemplo en [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
 
-Use [git](https://git-scm.com/) para descargar una copia de la aplicación en su entorno de desarrollo. 
+Use [git](https://git-scm.com/) para descargar una copia de la aplicación en su entorno de desarrollo.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 ```
 
-Este comando clona el repositorio en la carpeta git local. Para abrir la solución de Visual Studio, busque la carpeta *storage-queues-dotnet-quickstart* , ábrala y haga doble clic en *storage-queues-dotnet-quickstart.sln* . 
+Este comando clona el repositorio en la carpeta git local. Para abrir la solución de Visual Studio, busque la carpeta *storage-queues-dotnet-quickstart* , ábrala y haga doble clic en *storage-queues-dotnet-quickstart.sln*.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -72,7 +72,7 @@ Una vez que haya copiado la cadena de conexión, escríbala en una variable de e
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-Después de agregar la variable de entorno, puede que tenga que reiniciar todos los programas en ejecución que necesiten leer la variable de entorno, incluida la ventana de consola. Por ejemplo, si usa Visual Studio como editor, reinícielo antes de ejecutar el ejemplo. 
+Después de agregar la variable de entorno, puede que tenga que reiniciar todos los programas en ejecución que necesiten leer la variable de entorno, incluida la ventana de consola. Por ejemplo, si usa Visual Studio como editor, reinícielo antes de ejecutar el ejemplo.
 
 ### <a name="linux"></a>Linux
 
@@ -98,7 +98,7 @@ La aplicación de ejemplo crea una cola y le agrega un mensaje. En primer lugar,
 
 ### <a name="windows"></a>Windows
 
-Si utiliza Visual Studio como editor, puede presionar **F5** para ejecutarlo. 
+Si utiliza Visual Studio como editor, puede presionar **F5** para ejecutarlo.
 
 Otra opción es ir al directorio de la aplicación y ejecutar la aplicación con el comando `dotnet run`.
 
@@ -148,7 +148,7 @@ Después, explore el código de ejemplo para poder saber cómo funciona.
 
 ### <a name="try-parsing-the-connection-string"></a>Pruebe a analizar la cadena de conexión
 
-En el ejemplo, en primer lugar se comprueba que la variable de entorno contiene una cadena de conexión que se pueda analizar para crear un objeto [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) que señala a la cuenta de almacenamiento. Para comprobar que la cadena de conexión es válida, use el método [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Si **TryParse** funciona correctamente, inicializa la variable *storageAccount* y devuelve el valor **true** .
+En el ejemplo, en primer lugar se comprueba que la variable de entorno contiene una cadena de conexión que se pueda analizar para crear un objeto [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) que señala a la cuenta de almacenamiento. Para comprobar que la cadena de conexión es válida, use el método [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Si **TryParse** funciona correctamente, inicializa la variable *storageAccount* y devuelve el valor **true**.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -161,7 +161,7 @@ string storageConnectionString = Environment.GetEnvironmentVariable("storageconn
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with calls to Azure Queues here.
-    ...    
+    ...
 }
 else
 {
@@ -174,11 +174,11 @@ else
 
 ### <a name="create-the-queue"></a>Creación de la cola
 
-En primer lugar, en el ejemplo se crea una cola y se le agrega un mensaje. 
+En primer lugar, en el ejemplo se crea una cola y se le agrega un mensaje.
 
 ```csharp
-// Create a queue called 'quickstartqueues' and append a GUID value so that the queue name 
-// is unique in your storage account. 
+// Create a queue called 'quickstartqueues' and append a GUID value so that the queue name
+// is unique in your storage account.
 queue = cloudQueueClient.GetQueueReference("quickstartqueues-" + Guid.NewGuid().ToString());
 await queue.CreateAsync();
 
@@ -188,7 +188,7 @@ Console.WriteLine();
 
 ### <a name="add-a-message"></a>Agregar un mensaje
 
-A continuación, en el ejemplo se agrega un mensaje al final de la cola. 
+A continuación, en el ejemplo se agrega un mensaje al final de la cola.
 
 El mensaje debe estar en un formato que pueda incluirse en una solicitud XML con codificación UTF-8 y puede tener hasta 64 KB de tamaño. Si un mensaje contiene datos binarios, se recomienda codificarlo en Base64.
 
@@ -215,8 +215,8 @@ await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null)
 El ejemplo muestra cómo inspeccionar un mensaje de una cola. Al inspeccionar un mensaje, puede leer su contenido. Sin embargo, el mensaje permanece visible para otros clientes, de modo que otro cliente pueda recuperarlo y procesarlo posteriormente.
 
 ```csharp
-// Peek at the message at the front of the queue. Peeking does not alter the message's 
-// visibility, so that another client can still retrieve and process it. 
+// Peek at the message at the front of the queue. Peeking does not alter the message's
+// visibility, so that another client can still retrieve and process it.
 CloudQueueMessage peekedMessage = await queue.PeekMessageAsync();
 
 // Display the ID and contents of the peeked message.
@@ -231,7 +231,7 @@ En el ejemplo también se muestra cómo quitar un mensaje de la cola. Cuando un 
 Si se produce un error en el código al procesar un mensaje debido a un error de hardware o de software, el mensaje se vuelve visible una vez que haya transcurrido el período de invisibilidad. Otro cliente puede recuperar el mismo mensaje e intentarlo de nuevo.
 
 ```csharp
-// Retrieve the message at the front of the queue. The message becomes invisible for 
+// Retrieve the message at the front of the queue. The message becomes invisible for
 // a specified interval, during which the client attempts to process it.
 CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
 
@@ -267,8 +267,8 @@ Consulte estos recursos adicionales para el desarrollo de .NET con Azure Queues:
 ### <a name="binaries-and-source-code"></a>Archivos binarios y código fuente
 
 - Descargue los paquetes NuGet para la versión más reciente de la [Biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage)
-    - [Común](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-    - [Colas](https://www.nuget.org/packages/Azure.Storage.Queues/)
+  - [Común](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+  - [Colas](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Vea el [código fuente de la biblioteca de cliente de .NET](https://github.com/Azure/azure-storage-net) en GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Referencia a la biblioteca de clientes y ejemplos
@@ -278,7 +278,7 @@ Consulte estos recursos adicionales para el desarrollo de .NET con Azure Queues:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a agregar mensajes a una cola, a inspeccionar los mensajes de una cola y a quitar de la cola y a procesar los mensajes mediante. NET. 
+En este inicio rápido, ha aprendido a agregar mensajes a una cola, a inspeccionar los mensajes de una cola y a quitar de la cola y a procesar los mensajes mediante. NET.
 
 > [!div class="nextstepaction"]
 > [Comunicación entre las aplicaciones con Azure Queue storage](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)

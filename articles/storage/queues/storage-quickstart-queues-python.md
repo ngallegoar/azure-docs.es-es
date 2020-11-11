@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 57fc0ebc10158b41539d4802aa6a8ebdd466dd90
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 50f15d041f9bcea66400eda0877e9d7914335d74
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783307"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345728"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Python
 
@@ -21,26 +21,26 @@ Comience a trabajar con la biblioteca cliente de Azure Queue Storage versión 12
 
 Use la biblioteca cliente de Azure Queue Storage v12 para Python para realizar lo siguiente:
 
-* Creación de una cola
-* Adición de mensajes a una cola
-* Lectura de los mensajes de una cola
-* Eliminación de un mensaje de una cola
-* mensajes de una cola
-* Eliminación de mensajes de una cola
-* Eliminación de una cola
+- Creación de una cola
+- Adición de mensajes a una cola
+- Lectura de los mensajes de una cola
+- Eliminación de un mensaje de una cola
+- mensajes de una cola
+- Eliminación de mensajes de una cola
+- Eliminación de una cola
 
 Recursos adicionales:
 
-* [Documentación de referencia de API](/python/api/azure-storage-queue/index)
-* [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
-* [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-queue/)
-* [Muestras](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Documentación de referencia de API](/python/api/azure-storage-queue/index)
+- [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
+- [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-queue/)
+- [Muestras](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-* Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)
-* [Python](https://www.python.org/downloads/) para su sistema operativo: 2.7, 3.5 o superior
+- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+- Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)
+- [Python](https://www.python.org/downloads/) para su sistema operativo: 2.7, 3.5 o superior
 
 ## <a name="setting-up"></a>Instalación
 
@@ -48,7 +48,7 @@ En esta sección se explica cómo preparar un proyecto para que funcione con la 
 
 ### <a name="create-the-project"></a>Creación del proyecto
 
-Cree una aplicación Python llamada *queues-quickstart-v12* .
+Cree una aplicación Python llamada *queues-quickstart-v12*.
 
 1. En una ventana de la consola (como cmd, PowerShell o Bash), cree un directorio para el proyecto.
 
@@ -93,7 +93,7 @@ Este comando instala el paquete de la biblioteca cliente de Azure Queue Storage 
 
     ```
 
-1. Guarde el nuevo archivo como *queues-quickstart-v12.py* en el directorio *queues-quickstart-v12* .
+1. Guarde el nuevo archivo como *queues-quickstart-v12.py* en el directorio *queues-quickstart-v12*.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -101,9 +101,9 @@ Este comando instala el paquete de la biblioteca cliente de Azure Queue Storage 
 
 Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes, Un mensaje de la cola puede llegar a tener hasta 64 KB. Una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Las colas se utilizan normalmente para crear un trabajo pendiente del trabajo que se va a procesar de forma asincrónica. Queue Storage ofrece tres tipos de recursos:
 
-* La cuenta de almacenamiento
-* Cola en la cuenta de almacenamiento
-* Mensajes dentro de la cola
+- La cuenta de almacenamiento
+- Cola en la cuenta de almacenamiento
+- Mensajes dentro de la cola
 
 En el siguiente diagrama se muestra la relación entre estos recursos.
 
@@ -111,22 +111,22 @@ En el siguiente diagrama se muestra la relación entre estos recursos.
 
 Use las siguientes clases de Python para interactuar con estos recursos:
 
-* [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): La clase `QueueServiceClient` permite administrar todas las colas de la cuenta de almacenamiento.
-* [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): La clase `QueueClient` permite administrar y manipular una cola individual y sus mensajes.
-* [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): La clase `QueueMessage` representa los objetos individuales devueltos al llamar a [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) en una cola.
+- [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): La clase `QueueServiceClient` permite administrar todas las colas de la cuenta de almacenamiento.
+- [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): La clase `QueueClient` permite administrar y manipular una cola individual y sus mensajes.
+- [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): La clase `QueueMessage` representa los objetos individuales devueltos al llamar a [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) en una cola.
 
 ## <a name="code-examples"></a>Ejemplos de código
 
 Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes acciones con la biblioteca cliente de Azure Queue Storage para Python:
 
-* [Obtención de la cadena de conexión](#get-the-connection-string)
-* [Creación de una cola](#create-a-queue)
-* [Adición de mensajes a una cola](#add-messages-to-a-queue)
-* [Leer los mensajes de una cola](#peek-at-messages-in-a-queue)
-* [Eliminación de un mensaje de una cola](#update-a-message-in-a-queue)
-* [Recepción de mensajes de una cola](#receive-messages-from-a-queue)
-* [Eliminación de mensajes de una cola](#delete-messages-from-a-queue)
-* [Eliminación de una cola](#delete-a-queue)
+- [Obtención de la cadena de conexión](#get-the-connection-string)
+- [Creación de una cola](#create-a-queue)
+- [Adición de mensajes a una cola](#add-messages-to-a-queue)
+- [Leer los mensajes de una cola](#peek-at-messages-in-a-queue)
+- [Eliminación de un mensaje de una cola](#update-a-message-in-a-queue)
+- [Recepción de mensajes de una cola](#receive-messages-from-a-queue)
+- [Eliminación de mensajes de una cola](#delete-messages-from-a-queue)
+- [Eliminación de una cola](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Obtención de la cadena de conexión
 
@@ -316,5 +316,5 @@ Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentació
 > [!div class="nextstepaction"]
 > [Azure para desarrolladores de Python](/azure/python/)
 
-* Para más información, consulte [Bibliotecas de Azure Storage para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
-* Para ver más aplicaciones de ejemplo de Azure Queue Storage, continúe con los [ejemplos de la biblioteca cliente de Python v12 de Azure Queue Storage](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
+- Para más información, consulte [Bibliotecas de Azure Storage para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
+- Para ver más aplicaciones de ejemplo de Azure Queue Storage, continúe con los [ejemplos de la biblioteca cliente de Python v12 de Azure Queue Storage](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
