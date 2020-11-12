@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 08c1b415ac075429a9bc89098233fffb8c25b710
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760400"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369263"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Recuperación ante desastres de Managed HSM
 
@@ -48,7 +48,7 @@ Para crear un recurso de HSM administrado, es preciso que proporcione lo siguien
 - La ubicación de Azure.
 - Una lista de administradores iniciales.
 
-En el ejemplo siguiente se crea un HSM denominado **ContosoMHSM**, en el grupo de recursos **ContosoResourceGroup**, que reside en la ubicación **Este de EE. UU. 2**, con **el usuario actual con sesión iniciada** como único administrador.
+En el ejemplo siguiente se crea un HSM denominado **ContosoMHSM** , en el grupo de recursos **ContosoResourceGroup** , que reside en la ubicación **Este de EE. UU. 2** , con **el usuario actual con sesión iniciada** como único administrador.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
@@ -60,8 +60,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 
 La salida de este comando muestra las propiedades del HSM administrado que ha creado. Las dos propiedades más importantes son:
 
-* **name**: en el ejemplo, el nombre es ContosoMHSM. Usará este nombre para otros comandos de Key Vault.
-* **hsmUri**: en el ejemplo, el URI es "https://contosohsm.managedhsm.azure.net". Las aplicaciones que utilizan el HSM a través de su API REST deben usar este identificador URI.
+* **name** : en el ejemplo, el nombre es ContosoMHSM. Usará este nombre para otros comandos de Key Vault.
+* **hsmUri** : en el ejemplo, el URI es "https://contosohsm.managedhsm.azure.net". Las aplicaciones que utilizan el HSM a través de su API REST deben usar este identificador URI.
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este HSM administrado. Hasta ahora, nadie más está autorizado.
 
@@ -86,7 +86,7 @@ El comando `az keyvault security-domain upload` realiza las siguientes operacion
 - Crea un blob de carga del dominio de seguridad cifrado con la clave de intercambio del dominio de seguridad que descargó en el paso anterior.
 - Carga el blob de carga del dominio de seguridad en el HSM para completar la recuperación del dominio de seguridad.
 
-En el ejemplo siguiente, se usa el dominio de seguridad de **ContosoMHSM**, la segunda de las claves privadas correspondientes, y lo cargamos en **ContosoMHSM2**, que está esperando a recibir un dominio de seguridad. 
+En el ejemplo siguiente, se usa el dominio de seguridad de **ContosoMHSM** , la segunda de las claves privadas correspondientes, y lo cargamos en **ContosoMHSM2** , que está esperando a recibir un dominio de seguridad. 
 
 ```azurecli-interactive
 az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
@@ -107,6 +107,7 @@ En el ejemplo siguiente, se usa el comando `az keyvault backup` para la copia de
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
+az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
 az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
 

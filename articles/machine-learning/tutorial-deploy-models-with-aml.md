@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de clasificación de imágenes: Implementación de modelos'
 titleSuffix: Azure Machine Learning
-description: En este tutorial, que es el segundo de una serie de dos partes, se muestra cómo usar Azure Machine Learning para implementar un modelo de clasificación de imágenes con scikit-learn en un cuaderno de Jupyter en Python.
+description: En este tutorial se muestra cómo usar Azure Machine Learning para implementar un modelo de clasificación de imágenes con scikit-learn en un cuaderno de Jupyter en Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0d78fc55ca60fa883c742885acf2fa98ede61ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee6529f36c302cba1dc7b5a4b53aaf96ce58e4a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896583"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532790"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementación de un modelo de clasificación de imágenes en Azure Container Instances
 
@@ -358,6 +358,6 @@ service.delete()
 
 + Más información sobre todas las [opciones de implementación de Azure Machine Learning](how-to-deploy-and-where.md).
 + Obtenga información sobre cómo [crear clientes para el servicio web](how-to-consume-web-service.md).
-+  [Realización de predicciones sobre grandes cantidades de datos](how-to-use-parallel-run-step.md) asincrónicamente.
++  [Realización de predicciones sobre grandes cantidades de datos](./tutorial-pipeline-batch-scoring-classification.md) asincrónicamente.
 + Supervise los modelos de Azure Machine Learning con [Application Insights](how-to-enable-app-insights.md).
-+ Consulte el tutorial sobre [selección automática del algoritmo](tutorial-auto-train-models.md). 
++ Consulte el tutorial sobre [selección automática del algoritmo](tutorial-auto-train-models.md).

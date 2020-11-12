@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Diseño de un servidor de Azure Database for MySQL con la CLI de Azure'
 description: Este tutorial explica cómo crear y administrar servidores y bases de datos de Azure Database for MySQL mediante la CLI de Azure desde la línea de comandos.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3e851c47e67ac6e42d81b7688e457c2f9e17725b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 06d8b7cdd6edb6ae3dad27a8a5f50443e3fc8969
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543957"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533623"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Diseño de una base de datos de Azure Database for MySQL con la CLI de Azure
 
@@ -27,6 +27,8 @@ Azure Database for MySQL es un servicio de base de datos relacional de Microsoft
 > * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -85,7 +87,7 @@ Para conectarse al servidor, debe proporcionar las credenciales de acceso y la i
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin** .
+El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -174,10 +176,10 @@ Imagine que eliminó accidentalmente esta tabla. No se puede recuperar con facil
 
 Para realizar la restauración, necesita la información siguiente:
 
-- Punto de restauración: seleccione el momento antes de que se modificara el servidor. Debe ser mayor o igual que el valor de la copia de seguridad más antigua de la base de datos de origen.
-- Servidor de destino: especifique el nombre del nuevo servidor donde desea restaurar.
-- Servidor de origen: especifique el nombre del servidor desde donde desea restaurar.
-- Ubicación: no se puede seleccionar la región; de forma predeterminada, es la misma que la del servidor de origen.
+- Punto de restauración: seleccione el momento antes de que se modificara la base de datos. Debe ser mayor o igual que el valor de la copia de seguridad más antigua de la base de datos de origen.
+- Servidor de destino: especifique el nombre del nuevo servidor donde desea restaurar
+- Servidor de origen: especifique el nombre del servidor desde donde desea restaurar
+- Ubicación: no se puede seleccionar la región; de forma predeterminada, es la misma que la del servidor de origen
 
 ```azurecli-interactive
 az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver
@@ -196,12 +198,25 @@ Al restaurar un servidor a un momento dado, se crea un servidor que se copia com
 
 El comando es sincrónico y se devolverá después de que se haya restaurado el servidor. Una vez finalizada la restauración, busque el servidor que se ha creado. Compruebe que los datos se han restaurado del modo esperado.
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+Si no necesita estos recursos para otra guía de inicio rápido o tutorial, puede eliminarlos con el siguiente comando: 
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+Si solo desea eliminar el servidor recién creado, puede ejecutar el comando [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete).
+
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
 > * Creación de un servidor de Azure Database for MySQL
 > * Configuración del firewall del servidor
-> * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
+> * Uso de la herramienta de línea de comandos mysql para crear una base de datos
 > * Carga de datos de muestra
 > * Consultar datos
 > * Actualización de datos

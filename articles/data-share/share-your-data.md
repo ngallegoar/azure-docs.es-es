@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: adc3b4542b6eba0cc0df7d93ac2cabbf7c1c144a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 232f50c05182799c93a636baa2aec8ed93419be8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216596"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489478"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Uso compartido de datos mediante Azure Data Share  
 
@@ -137,8 +137,15 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
 1. En la pestaña Revisar y crear, examine el contenido del paquete, la configuración, los destinatarios y la configuración de la sincronización. Seleccione **Crear**.
 
-Ya se ha creado Azure Data Share y el destinatario de Data Share ya está listo para aceptar la invitación. 
+Ya se ha creado Azure Data Share y el destinatario de Data Share ya está listo para aceptar la invitación.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando el recurso ya no sea necesario, vaya a la página **Información general de Azure Data Share** y seleccione **Eliminar** para quitarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a crear una instancia de Azure Data Share y a invitar a destinatarios. Para obtener información acerca de la forma en que in consumidor de datos puede aceptar y recibir un recurso compartido de datos, vaya al tutorial para [aceptar y recibir datos](subscribe-to-data-share.md).
+En este tutorial, ha aprendido a crear una instancia de Azure Data Share y a invitar a destinatarios. Para obtener información acerca de la forma en que in consumidor de datos puede aceptar y recibir un recurso compartido de datos, vaya al tutorial para aceptar y recibir datos.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Aceptación y recepción de datos con Azure Data Share](subscribe-to-data-share.md)

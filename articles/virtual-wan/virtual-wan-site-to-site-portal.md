@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a25ead5983e56f56ba0daea23c2775b3332fb8b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7ba0f1b6f37da923e389964b99a02295dc3d6050
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057916"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359534"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -41,13 +41,7 @@ En este tutorial, aprenderá a:
 
 Antes de comenzar con la configuración, compruebe que se cumplen los criterios siguientes:
 
-* Tiene una red virtual a la que quiere conectarse. Compruebe que ninguna de las subredes de sus redes locales se superpone a las redes virtuales a las que quiere conectarse. Para crear una red virtual en Azure Portal consulte este [Inicio rápido](../virtual-network/quick-create-portal.md).
-
-* Su red virtual no tiene ninguna puerta de enlace de red virtual. Si la red virtual tiene alguna puerta de enlace (ya sea VPN o ExpressRoute), tiene que quitarla. Esta configuración requiere que las redes virtuales estén conectadas a la puerta de enlace del centro de conectividad de Virtual WAN.
-
-* Obtenga un intervalo de direcciones IP para la región del concentrador. El centro de conectividad es una red virtual que Virtual WAN crea y usa. El intervalo de direcciones que especifique para el centro de conectividad no se puede superponer a ninguna de las redes virtuales existentes a las que ya esté conectado. Igualmente no se puede superponer a los intervalos de direcciones con las que esté conectadas en el entorno local. Si no está familiarizado con los intervalos de direcciones IP ubicados en la configuración de la red local, póngase de acuerdo con alguien que pueda proporcionarle estos detalles.
-
-* Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
 
 ## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Creación de una instancia de Virtual WAN
 
@@ -80,7 +74,7 @@ En este paso, conectará el sitio VPN al centro de conectividad.
 Use la configuración del dispositivo VPN para configurar el dispositivo VPN local.
 
 1. En la página de la red virtual WAN, haga clic en **Introducción**.
-2. En la parte superior de la página **Centro de conectividad ->VPNSite**, haga clic en **Descargar la configuración de VPN**. Azure crea una cuenta de almacenamiento en el grupo de recursos "microsoft - network-[ubicación]", donde ubicación es la ubicación de la red WAN. Una vez que haya aplicado la configuración a los dispositivos VPN, puede eliminar esta cuenta de almacenamiento.
+2. En la parte superior de la página **Centro de conectividad ->VPNSite** , haga clic en **Descargar la configuración de VPN**. Azure crea una cuenta de almacenamiento en el grupo de recursos "microsoft - network-[ubicación]", donde ubicación es la ubicación de la red WAN. Una vez que haya aplicado la configuración a los dispositivos VPN, puede eliminar esta cuenta de almacenamiento.
 3. Una vez el archivo se haya terminado de crear, puede hacer clic en el vínculo para descargarlo.
 4. Aplique la configuración al dispositivo VPN local.
 
@@ -88,8 +82,8 @@ Use la configuración del dispositivo VPN para configurar el dispositivo VPN loc
 
 El archivo de configuración de dispositivo contiene la configuración que se debe usar al configurar el dispositivo VPN local. Cuando visualice este archivo, tenga en cuenta la siguiente información:
 
-* **vpnSiteConfiguration**: en esta sección se indica la configuración de los detalles del dispositivo como un sitio de conexión a la red virtual WAN. Incluye el nombre y la dirección IP pública del dispositivo de rama.
-* **vpnSiteConnections**: en esta sección se proporciona información sobre la siguiente configuración:
+* **vpnSiteConfiguration** : en esta sección se indica la configuración de los detalles del dispositivo como un sitio de conexión a la red virtual WAN. Incluye el nombre y la dirección IP pública del dispositivo de rama.
+* **vpnSiteConnections** : en esta sección se proporciona información sobre la siguiente configuración:
 
     * **Espacio de direcciones** de la red virtual de concentradores virtuales<br>Ejemplo:
  
@@ -233,14 +227,14 @@ Puede ver y configurar los valores de la puerta de enlace de VPN en cualquier mo
 
 :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Captura de pantalla que muestra la página &quot;VPN (sitio a sitio)&quot; con una flecha que apunta a la acción &quot;Ver/configurar&quot;." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
-En la página **Editar VPN Gateway**, puede ver los valores siguientes:
+En la página **Editar VPN Gateway** , puede ver los valores siguientes:
 
 * Dirección IP pública de VPN Gateway (la asigna Azure).
 * Dirección IP privada de VPN Gateway (la asigna Azure).
 * Dirección IP de BGP predeterminada de VPN Gateway (la asigna Azure).
 * Opción de configuración para la dirección IP de BGP personalizada: Este campo está reservado para APIPA (direcciones IP privadas automáticas). Azure admite IP de BGP en los intervalos 169.254.21.* y 169.254.22.*. Azure acepta conexiones BGP en estos intervalos, pero marcará la conexión con la IP de BGP predeterminada.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Captura de pantalla que muestra la página &quot;VPN (sitio a sitio)&quot; con una flecha que apunta a la acción &quot;Ver/configurar&quot;." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Ver configuración" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpieza de recursos
 

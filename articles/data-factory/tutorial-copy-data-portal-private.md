@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: c08dd1b5b2f90e874f36c6cf01c4cc5f5ae74d17
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636262"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505995"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copia de datos de forma segura desde Azure Blob Storage a SQL Database mediante puntos de conexión privados
 
@@ -35,9 +35,9 @@ En este tutorial, realizará los siguientes pasos:
 
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Suscripción de Azure** . Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* **Cuenta de Azure Storage** . Usará Blob Storage como almacén de datos de *origen* . Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md?tabs=azure-portal) para crear una. *Asegúrese de que la cuenta de almacenamiento solo permita el acceso desde las redes seleccionadas.* 
-* **Azure SQL Database** . Usará la base de datos como un almacén de datos *receptor* . Si no tiene una base de datos de Azure SQL, consulte [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos para crear una. *Asegúrese de que la cuenta de SQL Database solo permite el acceso desde las redes seleccionadas.* 
+* **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+* **Cuenta de Azure Storage**. Usará Blob Storage como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md?tabs=azure-portal) para crear una. *Asegúrese de que la cuenta de almacenamiento solo permita el acceso desde las redes seleccionadas.* 
+* **Azure SQL Database**. Usará la base de datos como un almacén de datos *receptor*. Si no tiene una base de datos de Azure SQL, consulte [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos para crear una. *Asegúrese de que la cuenta de SQL Database solo permite el acceso desde las redes seleccionadas.* 
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creación de un blob y una tabla SQL
 
@@ -53,34 +53,34 @@ Ahora, prepare su instancia de Blob Storage y su base de datos SQL para el tutor
     Jane,Doe
     ```
 
-1. Cree un contenedor denominado **adftutorial** en su instancia de Blob Storage. Cree una carpeta denominada **input** en este contenedor. A continuación, cargue el archivo **emp.txt** en la carpeta **input** . Use Azure Portal o herramientas como [Explorador de Azure Storage](https://storageexplorer.com/) para realizar estas tareas.
+1. Cree un contenedor denominado **adftutorial** en su instancia de Blob Storage. Cree una carpeta denominada **input** en este contenedor. A continuación, cargue el archivo **emp.txt** en la carpeta **input**. Use Azure Portal o herramientas como [Explorador de Azure Storage](https://storageexplorer.com/) para realizar estas tareas.
 
 #### <a name="create-a-sink-sql-table"></a>Creación de una tabla SQL receptora
 
 Use el siguiente script de SQL para crear la tabla **dbo.emp** en la base de datos SQL:
 
-    ```sql
-    CREATE TABLE dbo.emp
-    (
-        ID int IDENTITY(1,1) NOT NULL,
-        FirstName varchar(50),
-        LastName varchar(50)
-    )
-    GO
+```sql
+CREATE TABLE dbo.emp
+(
+    ID int IDENTITY(1,1) NOT NULL,
+    FirstName varchar(50),
+    LastName varchar(50)
+)
+GO
 
-    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
-    ```
+CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+```
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 En este paso, creará una factoría de datos e iniciará la interfaz de usuario de Data Factory para crear una canalización en la factoría de datos.
 
 1. Abra Microsoft Edge o Google Chrome. Actualmente, solo los exploradores web Microsoft Edge y Google Chrome admiten la interfaz de usuario de Data Factory.
 
-1. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory** .
+1. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory**.
 
-1. En la página **Nueva factoría de datos** , en **Nombre** , escriba **ADFTutorialDataFactory** .
+1. En la página **Nueva factoría de datos** , en **Nombre** , escriba **ADFTutorialDataFactory**.
 
-   El nombre de la instancia de Azure Data Factory debe ser *único de forma global* . Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos (por ejemplo, yournameADFTutorialDataFactory). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Azure Data Factory: reglas de nomenclatura](./naming-rules.md).
+   El nombre de la instancia de Azure Data Factory debe ser *único de forma global*. Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos (por ejemplo, yournameADFTutorialDataFactory). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Azure Data Factory: reglas de nomenclatura](./naming-rules.md).
 
 1. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos.
 
@@ -91,13 +91,13 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
      
     Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md). 
 
-1. En **Versión** , seleccione **V2** .
+1. En **Versión** , seleccione **V2**.
 
 1. En **Ubicación** , seleccione la ubicación de la factoría de datos. En la lista desplegable solo aparecen las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa la factoría de datos pueden estar en otras regiones.
 
-1. Seleccione **Crear** .
+1. Seleccione **Crear**.
 
-1. Una vez finalizada la creación, verá el aviso en el centro de notificaciones. Seleccione **Ir al recurso** para ir a la página de **Data Factory** .
+1. Una vez finalizada la creación, verá el aviso en el centro de notificaciones. Seleccione **Ir al recurso** para ir a la página de **Data Factory**.
 
 1. Haga clic en **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
 
@@ -107,13 +107,13 @@ En este paso se crea una instancia de Azure Integration Runtime y se habilita un
 1. En el portal de Data Factory, vaya a **Administrar** y seleccione **Nuevo** para crear una instancia nueva de Azure Integration Runtime.
 
    ![Captura de pantalla que muestra la creación de una nueva instancia de Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Elija crear un entorno de ejecución de integración de **Azure** .
+1. Elija crear un entorno de ejecución de integración de **Azure**.
 
    ![Captura de pantalla que muestra una nueva instancia de Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/azure-ir.png)
-1. En **Configuración de red virtual (versión preliminar)** , seleccione **Habilitar** .
+1. En **Configuración de red virtual (versión preliminar)** , seleccione **Habilitar**.
 
    ![Captura de pantalla que muestra la habilitación de una nueva instancia de Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
-1. Seleccione **Crear** .
+1. Seleccione **Crear**.
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 En este paso, creará una canalización con una actividad de copia en la factoría de datos. La actividad de copia realiza la copia de los datos de Blob Storage a SQL Database. En el [tutorial de inicio rápido](./quickstart-create-data-factory-portal.md),creó una canalización mediante estos pasos:
@@ -146,11 +146,11 @@ En este tutorial, comenzará por crear una canalización. A continuación, crear
 
 1. En el cuadro de diálogo **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage** y, después, seleccione **Continue** (Continuar). Los datos de origen están en Blob Storage, así que seleccionará **Azure Blob Storage** como conjunto de datos de origen.
 
-1. En el cuadro de diálogo **Seleccionar formato** , elija el tipo de formato de los datos y, después, seleccione **Continuar** .
+1. En el cuadro de diálogo **Seleccionar formato** , elija el tipo de formato de los datos y, después, seleccione **Continuar**.
 
-1. En el cuadro de diálogo **Establecer propiedades** , escriba **SourceBlobDataset** como **Nombre** . Active la casilla **First row as header** (Primera fila como encabezado). En el cuadro de texto **Linked service** (Servicio vinculado), seleccione **+ New** (+ Nuevo).
+1. En el cuadro de diálogo **Establecer propiedades** , escriba **SourceBlobDataset** como **Nombre**. Active la casilla **First row as header** (Primera fila como encabezado). En el cuadro de texto **Linked service** (Servicio vinculado), seleccione **+ New** (+ Nuevo).
 
-1. En el cuadro de diálogo **New linked service (Azure Blob Storage)** [Nuevo servicio vinculado (Azure Blob Storage)], escriba **AzureStorageLinkedService** como **Nombre** y seleccione su cuenta de almacenamiento en la lista **Nombre de la cuenta de almacenamiento** . 
+1. En el cuadro de diálogo **New linked service (Azure Blob Storage)** [Nuevo servicio vinculado (Azure Blob Storage)], escriba **AzureStorageLinkedService** como **Nombre** y seleccione su cuenta de almacenamiento en la lista **Nombre de la cuenta de almacenamiento**. 
 
 1. Asegúrese de habilitar **Interactive Authoring** (Creación interactiva). Puede tardar aproximadamente un minuto en habilitarse.
 
@@ -159,18 +159,18 @@ En este tutorial, comenzará por crear una canalización. A continuación, crear
 1. Seleccione **Test connection** (Probar conexión). Se debería producir un error cuando la cuenta de almacenamiento solo permite el acceso desde las **Redes seleccionadas** y requiere que Data Factory cree un punto de conexión privado que debe aprobarse antes de su uso. En el mensaje de error, debería ver un vínculo para crear un punto de conexión privado que puede usar para crear un punto de conexión privado administrado. Una alternativa es ir directamente a la pestaña **Administrar** y seguir las instrucciones de la [siguiente sección](#create-a-managed-private-endpoint) para crear un punto de conexión privado administrado.
 
    > [!NOTE]
-   > Es posible que dicha pestaña **Administrar** no esté disponible para todas las instancias de Data Factory. Si no se muestra, puede tener acceso a los puntos de conexión privados al seleccionar **Autor** > **Conexiones** > **Punto de conexión privado** .
+   > Es posible que dicha pestaña **Administrar** no esté disponible para todas las instancias de Data Factory. Si no se muestra, puede tener acceso a los puntos de conexión privados al seleccionar **Autor** > **Conexiones** > **Punto de conexión privado**.
 1. Mantenga abierto el cuadro de diálogo y, después, vaya a la cuenta de almacenamiento.
 
 1. Siga las instrucciones de [esta sección](#approval-of-a-private-link-in-a-storage-account) para aprobar el vínculo privado.
 
 1. Vuelva al cuadro de diálogo. Seleccione de nuevo **Probar conexión** y seleccione **Crear** para implementar el servicio vinculado.
 
-1. Una vez creado el servicio vinculado, se dirige a la página **Establecer propiedades** . Junto a **File path** (Ruta de acceso del archivo), seleccione **Browse** (Examinar).
+1. Una vez creado el servicio vinculado, se dirige a la página **Establecer propiedades**. Junto a **File path** (Ruta de acceso del archivo), seleccione **Browse** (Examinar).
 
-1. Vaya a la carpeta **adftutorial/input** , seleccione el archivo **emp.txt** y, luego, **Finalizar** .
+1. Vaya a la carpeta **adftutorial/input** , seleccione el archivo **emp.txt** y, luego, **Finalizar**.
 
-1. Seleccione **Aceptar** . Se dirige automáticamente a la página de canalización. En la pestaña **Origen** , confirme que se selecciona **SourceBlobDataset** . Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos).
+1. Seleccione **Aceptar**. Se dirige automáticamente a la página de canalización. En la pestaña **Origen** , confirme que se selecciona **SourceBlobDataset**. Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos).
 
     ![Captura de pantalla que muestra el panel Conjunto de datos de origen.](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
 
@@ -178,22 +178,22 @@ En este tutorial, comenzará por crear una canalización. A continuación, crear
 
 Si no seleccionó el hipervínculo al probar la conexión, siga la ruta de acceso. Ahora debe crear un punto de conexión privado administrado que conectará al servicio vinculado que creó anteriormente.
 
-1. Vaya a la pestaña **Administrar** .
+1. Vaya a la pestaña **Administrar**.
 
    > [!NOTE]
-   > Es posible que la pestaña **Administrar** no esté disponible para todas las instancias de Data Factory. Si no se muestra, puede tener acceso a los puntos de conexión privados al seleccionar **Autor** > **Conexiones** > **Punto de conexión privado** .
+   > Es posible que la pestaña **Administrar** no esté disponible para todas las instancias de Data Factory. Si no se muestra, puede tener acceso a los puntos de conexión privados al seleccionar **Autor** > **Conexiones** > **Punto de conexión privado**.
 
-1. Vaya a la sección **Puntos de conexión privados administrados** .
+1. Vaya a la sección **Puntos de conexión privados administrados**.
 
-1. Seleccione **+ Nuevo** debajo de **Puntos de conexión privados administrados** .
+1. Seleccione **+ Nuevo** debajo de **Puntos de conexión privados administrados**.
 
     ![Captura de pantalla que muestra el botón Nuevo debajo de los Puntos de conexión privados administrados.](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
 
-1. Seleccione el icono de **Azure Blob Storage** de la lista y seleccione **Continuar** .
+1. Seleccione el icono de **Azure Blob Storage** de la lista y seleccione **Continuar**.
 
 1. Escriba el nombre de la cuenta de almacenamiento que ha creado.
 
-1. Seleccione **Crear** .
+1. Seleccione **Crear**.
 
 1. Después de unos segundos, debería ver que el vínculo privado creado necesita aprobación.
 
@@ -202,13 +202,13 @@ Si no seleccionó el hipervínculo al probar la conexión, siga la ruta de acces
     ![Captura de pantalla que muestra el panel Punto de conexión privado administrado.](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png) 
 
 #### <a name="approval-of-a-private-link-in-a-storage-account"></a>Aprobación de un vínculo privado en una cuenta de almacenamiento
-1. En la cuenta de almacenamiento, vaya a **Conexiones de punto de conexión privado** en la sección **Configuración** .
+1. En la cuenta de almacenamiento, vaya a **Conexiones de punto de conexión privado** en la sección **Configuración**.
 
-1. Seleccione la casilla del punto de conexión privado que creó y seleccione **Aprobar** .
+1. Seleccione la casilla del punto de conexión privado que creó y seleccione **Aprobar**.
 
     ![Captura de pantalla que muestra el botón Aprobar para el punto de conexión privado.](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
 
-1. Agregue una descripción y seleccione **Sí** .
+1. Agregue una descripción y seleccione **Sí**.
 1. Vuelva a la sección **Puntos de conexión privados administrados** de la pestaña **Administrar** de Data Factory.
 1. Tras aproximadamente uno o dos minutos, debería asegurarse de que la aprobación del punto de conexión privado aparezca en la interfaz de usuario de Data Factory.
 
@@ -222,13 +222,13 @@ Si no seleccionó el hipervínculo al probar la conexión, siga la ruta de acces
 #### <a name="create-a-sink-dataset-and-linked-service"></a>Creación de un conjunto de datos receptor y un servicio vinculado
 1. Vaya a la pestaña **Sink** (Receptor) y seleccione **+ New** (+Nuevo) para crear un conjunto de datos del receptor.
 
-1. En el cuadro de diálogo **Nuevo conjunto de datos** , escriba **SQL** en el cuadro de búsqueda para filtrar los conectores. Seleccione **Azure SQL Database** y luego **Continuar** . En este tutorial, copiará los datos en una base de datos SQL.
+1. En el cuadro de diálogo **Nuevo conjunto de datos** , escriba **SQL** en el cuadro de búsqueda para filtrar los conectores. Seleccione **Azure SQL Database** y luego **Continuar**. En este tutorial, copiará los datos en una base de datos SQL.
 
-1. En el cuadro de diálogo **Establecer propiedades** , escriba **OutputSqlDataset** como **Nombre** . En la lista desplegable **Servicio vinculado** , seleccione **+ Nuevo** . Un conjunto de datos debe estar asociado con un servicio vinculado. El servicio vinculado tiene la cadena de conexión que usa Data Factory para conectarse a la base de datos SQL en tiempo de ejecución. El conjunto de datos especifica el contenedor, la carpeta y el archivo (opcional) donde se copian los datos.
+1. En el cuadro de diálogo **Establecer propiedades** , escriba **OutputSqlDataset** como **Nombre**. En la lista desplegable **Servicio vinculado** , seleccione **+ Nuevo**. Un conjunto de datos debe estar asociado con un servicio vinculado. El servicio vinculado tiene la cadena de conexión que usa Data Factory para conectarse a la base de datos SQL en tiempo de ejecución. El conjunto de datos especifica el contenedor, la carpeta y el archivo (opcional) donde se copian los datos.
 
 1. En el cuadro de diálogo **New linked service (Azure SQL Database)** [Nuevo servicio vinculado (Azure SQL Database)], realice los siguientes pasos:
 
-    1. En **Name** (Nombre), escriba **AzureSqlDatabaseLinkedService** .
+    1. En **Name** (Nombre), escriba **AzureSqlDatabaseLinkedService**.
     1. En **Server name** (Nombre del servidor), seleccione su instancia de SQL Server.
     1. Asegúrese de habilitar **Interactive Authoring** (Creación interactiva).
     1. En **Database name** (Nombre de la base de datos), seleccione la base de datos SQL.
@@ -239,9 +239,9 @@ Si no seleccionó el hipervínculo al probar la conexión, siga la ruta de acces
     1. Siga las instrucciones de [esta sección](#approval-of-a-private-link-in-sql-server) para aprobar el vínculo privado.
     1. Vuelva al cuadro de diálogo. Seleccione de nuevo **Probar conexión** y seleccione **Crear** para implementar el servicio vinculado.
 
-1. Se dirigirá automáticamente al cuadro de diálogo **Establecer propiedades** . En **Table** (Tabla), seleccione **[dbo].[emp]** . Después, seleccione **Aceptar** .
+1. Se dirigirá automáticamente al cuadro de diálogo **Establecer propiedades**. En **Table** (Tabla), seleccione **[dbo].[emp]** . Después, seleccione **Aceptar**.
 
-1. Vaya a la pestaña con la canalización y, en **Sink dataset** (Conjunto de datos del receptor), confirme que se ha seleccionado **OutputSqlDataset** .
+1. Vaya a la pestaña con la canalización y, en **Sink dataset** (Conjunto de datos del receptor), confirme que se ha seleccionado **OutputSqlDataset**.
 
     ![Captura de pantalla que muestra la pestaña Canalización.](./media/tutorial-copy-data-portal-private/pipeline-tab-2.png)
 
@@ -251,23 +251,23 @@ Opcionalmente, puede asignar el esquema del origen al esquema de destino corresp
 
 Si no seleccionó el hipervínculo al probar la conexión, siga la ruta de acceso. Ahora debe crear un punto de conexión privado administrado que conectará al servicio vinculado que creó anteriormente.
 
-1. Vaya a la pestaña **Administrar** .
-1. Vaya a la sección **Puntos de conexión privados administrados** .
-1. Seleccione **+ Nuevo** debajo de **Puntos de conexión privados administrados** .
+1. Vaya a la pestaña **Administrar**.
+1. Vaya a la sección **Puntos de conexión privados administrados**.
+1. Seleccione **+ Nuevo** debajo de **Puntos de conexión privados administrados**.
 
     ![Captura de pantalla que muestra el botón Nuevo debajo de los Puntos de conexión privados administrados.](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
 
-1. Seleccione el icono de **Azure SQL Database** de la lista y seleccione **Continuar** .
+1. Seleccione el icono de **Azure SQL Database** de la lista y seleccione **Continuar**.
 1. Escriba el nombre de la instancia de SQL Server que seleccionó.
-1. Seleccione **Crear** .
+1. Seleccione **Crear**.
 1. Después de unos segundos, debería ver que el vínculo privado creado necesita aprobación.
 1. Seleccione el punto de conexión privado que creó. Puede ver un hipervínculo que le llevará a la página para aprobar el punto de conexión privado en el nivel de instancia de SQL Server.
 
 
 #### <a name="approval-of-a-private-link-in-sql-server"></a>Aprobación de un vínculo privado en SQL Server
-1. En la instancia de SQL Server, vaya a **Conexiones de punto de conexión privado** en la sección **Configuración** .
-1. Seleccione la casilla del punto de conexión privado que creó y seleccione **Aprobar** .
-1. Agregue una descripción y seleccione **Sí** .
+1. En la instancia de SQL Server, vaya a **Conexiones de punto de conexión privado** en la sección **Configuración**.
+1. Seleccione la casilla del punto de conexión privado que creó y seleccione **Aprobar**.
+1. Agregue una descripción y seleccione **Sí**.
 1. Vuelva a la sección **Puntos de conexión privados administrados** de la pestaña **Administrar** de Data Factory.
 1. La aprobación para el punto de conexión privado debe tardar uno o dos minutos en aparecer.
 
@@ -276,7 +276,7 @@ Si no seleccionó el hipervínculo al probar la conexión, siga la ruta de acces
 Puede depurar una canalización antes de publicar artefactos (servicios vinculados, conjuntos de datos y canalizaciones) en Data Factory o en su propio repositorio Git de Azure Repos.
 
 1. Para depurar la canalización, seleccione **Depurar** en la barra de herramientas. Verá el estado de ejecución de la canalización en la pestaña **Output** (Salida) en la parte inferior de la ventana.
-1. Después de que la canalización se puede ejecutar correctamente, en la barra de herramientas superior, seleccione **Publicar todo** . Esta acción publica las entidades (conjuntos de datos y canalizaciones) que creó para Data Factory.
+1. Después de que la canalización se puede ejecutar correctamente, en la barra de herramientas superior, seleccione **Publicar todo**. Esta acción publica las entidades (conjuntos de datos y canalizaciones) que creó para Data Factory.
 1. Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente). Para ver los mensajes de notificación, seleccione **Mostrar notificaciones** en la esquina superior derecha (botón de campana).
 
 
