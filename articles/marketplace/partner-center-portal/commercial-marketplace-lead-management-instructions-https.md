@@ -4,15 +4,15 @@ description: Aprenda a usar Power Automate y un punto de conexión HTTPS para ad
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4dabee6a725fd02b7be6dd12c8a032e3d816835
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120382"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489376"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Uso de un punto de conexión HTTPS para administrar clientes potenciales de marketplace comercial
 
@@ -31,11 +31,11 @@ En este artículo se explica cómo crear un nuevo flujo en Power Automate para g
 
     ![Iniciar sesión Mis flujos](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. En **+ Nuevo**, seleccione **+ Instantáneo: desde cero**.
+1. En **+ Nuevo** , seleccione **+ Instantáneo: desde cero**.
 
     ![Mis flujos + Automatizado: desde cero](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-1. Asigne un nombre al flujo y, en **Elija cómo se desencadena este flujo**, seleccione **Cuando se reciba una solicitud HTTP**.
+1. Asigne un nombre al flujo y, en **Elija cómo se desencadena este flujo** , seleccione **Cuando se reciba una solicitud HTTP**.
 
     ![Botón Omitir de la ventana Crear un flujo automatizado.](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
@@ -43,10 +43,10 @@ En este artículo se explica cómo crear un nuevo flujo en Power Automate para g
 
     ![Expansión del paso del flujo](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-1. Use uno de los métodos siguientes para configurar el **esquema JSON del cuerpo de la solicitud**:
+1. Use uno de los métodos siguientes para configurar el **esquema JSON del cuerpo de la solicitud** :
 
     - Copie el esquema JSON en el cuadro de texto **Esquema JSON de cuerpo de solicitud**.
-    - Seleccione **Usar una carga de ejemplo para generar el esquema**. En el cuadro de texto **Escriba o pegue una carga JSON de ejemplo**, pegue el ejemplo JSON. Seleccione **Listo** para crear el esquema.
+    - Seleccione **Usar una carga de ejemplo para generar el esquema**. En el cuadro de texto **Escriba o pegue una carga JSON de ejemplo** , pegue el ejemplo JSON. Seleccione **Listo** para crear el esquema.
 
     **Esquema JSON**
 
@@ -132,8 +132,8 @@ En este artículo se explica cómo crear un nuevo flujo en Power Automate para g
 
 ### <a name="connect-to-a-crm-system"></a>Conexión a un sistema CRM
 
-1. Seleccione **+ New step**(+ Nuevo paso).
-1. En **Buscar todos los conectores y acciones**, busque y seleccione el sistema CRM que desee. Selecciónelo en la pestaña **Acciones** con la acción para crear un nuevo registro. La siguiente pantalla muestra **Crear un nuevo registro (Dynamics 365)** como ejemplo.
+1. Seleccione **+ New step** (+ Nuevo paso).
+1. En **Buscar todos los conectores y acciones** , busque y seleccione el sistema CRM que desee. Selecciónelo en la pestaña **Acciones** con la acción para crear un nuevo registro. La siguiente pantalla muestra **Crear un nuevo registro (Dynamics 365)** como ejemplo.
 
     ![Crear un nuevo registro](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
 
@@ -152,25 +152,25 @@ En este artículo se explica cómo crear un nuevo flujo en Power Automate para g
 ### <a name="set-up-email-notification"></a>Configuración de notificaciones de correo electrónico
 
 1. Ahora que ha completado el esquema JSON, seleccione **+ Nuevo paso**.
-1. En **Elegir una acción**, seleccione **Acciones**.
-1. En la pestaña **Acciones**, seleccione **Enviar un correo electrónico (Office 365 Outlook)** .
+1. En **Elegir una acción** , seleccione **Acciones**.
+1. En la pestaña **Acciones** , seleccione **Enviar un correo electrónico (Office 365 Outlook)** .
 
     >[!NOTE]
     >Si desea usar otro proveedor de correo electrónico, busque y seleccione **Enviarme una notificación por correo electrónico (Correo)** como acción en su lugar.
 
     ![Adición de una acción de correo electrónico](./media/commercial-marketplace-lead-management-instructions-https/https-request-received-send-email.png)
 
-1. En la ventana **Enviar un correo electrónico**, configure los siguientes campos obligatorios:
+1. En la ventana **Enviar un correo electrónico** , configure los siguientes campos obligatorios:
 
-   - **Para**: especifique al menos una dirección de correo electrónico válida, adonde se enviarán los clientes potenciales.
-   - **Firmante**: Power Automate le ofrece la opción de agregar contenido dinámico como, por ejemplo, **LeadSource** en la siguiente pantalla. Empiece por escribir un nombre de campo. A continuación, seleccione la lista de selección de contenido dinámico en la ventana emergente. 
+   - **Para** : especifique al menos una dirección de correo electrónico válida, adonde se enviarán los clientes potenciales.
+   - **Firmante** : Power Automate le ofrece la opción de agregar contenido dinámico como, por ejemplo, **LeadSource** en la siguiente pantalla. Empiece por escribir un nombre de campo. A continuación, seleccione la lista de selección de contenido dinámico en la ventana emergente. 
 
         >[!NOTE] 
         > Al agregar nombres de campo, puede agregar dos puntos (:) después de cada nombre y seleccionar **Entrar** para crear una nueva fila. Una vez que haya agregado los nombres de campos, puede agregar cada parámetro asociado desde la lista desplegable dinámica.
 
         ![Agregar una acción de correo electrónico mediante contenido dinámico](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **Cuerpo**: en la lista de selección Contenido dinámico, agregue la información que desee en el cuerpo del correo electrónico. Por ejemplo, nombre, apellidos, correo electrónico y empresa. Cuando haya terminado de configurar la notificación por correo electrónico, tendrá un aspecto similar al ejemplo de la siguiente pantalla.
+   - **Cuerpo** : en la lista de selección Contenido dinámico, agregue la información que desee en el cuerpo del correo electrónico. Por ejemplo, nombre, apellidos, correo electrónico y empresa. Cuando haya terminado de configurar la notificación por correo electrónico, tendrá un aspecto similar al ejemplo de la siguiente pantalla.
 
 
        ![Ejemplo de notificación por correo electrónico](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
@@ -229,14 +229,14 @@ Cuando esté listo para configurar la información de administración de cliente
 
 1. Seleccione la oferta y vaya a la pestaña **Configuración de la oferta**.
 
-1. En la sección **Clientes potenciales**, seleccione **Conectar**.
+1. En la sección **Clientes potenciales** , seleccione **Conectar**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-https/customer-leads.png" alt-text="Clientes potenciales":::
 
-1. En la ventana emergente **Detalles de conexión**, seleccione **Punto de conexión HTTPS** como **Destino de clientes potenciales**. Pegue la dirección URL de HTTP POST del flujo que creó siguiendo los pasos anteriores en el campo **Dirección URL del punto de conexión HTTPS**.
+1. En la ventana emergente **Detalles de conexión** , seleccione **Punto de conexión HTTPS** como **Destino de clientes potenciales**. Pegue la dirección URL de HTTP POST del flujo que creó siguiendo los pasos anteriores en el campo **Dirección URL del punto de conexión HTTPS**.
     ![Detalles de la conexión: Correo electrónico de contacto](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 
-1. En **Correo electrónico de contacto**, escriba las direcciones de correo electrónico de las personas de su empresa que deban recibir notificaciones por correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con un punto y coma.
+1. En **Correo electrónico de contacto** , escriba las direcciones de correo electrónico de las personas de su empresa que deban recibir notificaciones por correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con un punto y coma.
 
 1. Seleccione **Aceptar**.
 

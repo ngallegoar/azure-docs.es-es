@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: ab3f3765a0e988c7e93cca5782b47b3f2d32aef4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312546"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445632"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creación y administración de áreas de trabajo de Azure Machine Learning 
 
@@ -193,7 +193,7 @@ Azure Security Center proporciona administración unificada de la seguridad y pr
 
 De forma predeterminada, las métricas y los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft.
 
-Para limitar los datos que Microsoft recopila sobre el área de trabajo, seleccione __Área de trabajo de alto impacto de negocio__ en el portal o establezca `hbi_workspace=true ` en Python. Para más información sobre esta configuración, consulte [Cifrado en reposo](concept-enterprise-security.md#encryption-at-rest).
+Para limitar los datos que Microsoft recopila sobre el área de trabajo, seleccione __Área de trabajo de alto impacto de negocio__ en el portal o establezca `hbi_workspace=true ` en Python. Para más información sobre esta configuración, consulte [Cifrado en reposo](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]  
 > La selección de un alto impacto de negocio solo puede realizarse al crear un área de trabajo. Este valor no se puede cambiar tras la creación del área de trabajo.   

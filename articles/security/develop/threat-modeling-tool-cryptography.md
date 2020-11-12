@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7de0cad91e01187a1ed84257c9e3a7cd8106951a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7af115d8f1244253e461f796c5665609d3b84b21
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87539958"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517451"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Marco de seguridad: Criptografía | Mitigaciones 
 
@@ -119,7 +119,7 @@ ms.locfileid: "87539958"
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Elegir un algoritmo de cifrado](https://technet.microsoft.com/library/ms345262(v=sql.130).aspx) |
+| **Referencias**              | [Elegir un algoritmo de cifrado](/sql/relational-databases/security/encryption/choose-an-encryption-algorithm) |
 | **Pasos** | Los algoritmos de cifrado definen las transformaciones de datos que los usuarios no autorizados no pueden revertir fácilmente. SQL Server permite a los administradores y programadores elegir entre varios algoritmos, incluidos DES, Triple DES, TRIPLE_DES_3KEY, RC2, RC4, RC4 de 128 bits, DESX, AES de 128 bits, AES de 192 bits y AES de 256 bits |
 
 ## <a name="ssis-packages-should-be-encrypted-and-digitally-signed"></a><a id="ssis-signed"></a>Los paquetes SSIS deben cifrarse y firmarse digitalmente
@@ -130,7 +130,7 @@ ms.locfileid: "87539958"
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Identificar el origen de paquetes con firmas digitales](https://msdn.microsoft.com/library/ms141174.aspx), [Amenaza y mitigación de vulnerabilidades (Integration Services)](https://msdn.microsoft.com/library/bb522559.aspx) |
+| **Referencias**              | [Identificar el origen de paquetes con firmas digitales](/sql/integration-services/security/identify-the-source-of-packages-with-digital-signatures), [Amenaza y mitigación de vulnerabilidades (Integration Services)](/sql/integration-services/security/security-overview-integration-services) |
 | **Pasos** | El origen de un paquete es el individuo o la organización que creó el paquete. La ejecución de un paquete desde un origen desconocido o que no sea de confianza puede ser arriesgado. Para evitar la modificación no autorizada de paquetes SSIS, deben usarse firmas digitales. Además, para garantizar la confidencialidad de los paquetes durante el tránsito o almacenamiento, los paquetes SSIS tienen que cifrarse |
 
 ## <a name="add-digital-signature-to-critical-database-securables"></a><a id="securables-db"></a>Agregue una firma digital a los elementos protegibles críticos de base de datos
@@ -141,7 +141,7 @@ ms.locfileid: "87539958"
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [ADD SIGNATURE (Transact-SQL)](https://msdn.microsoft.com/library/ms181700)[Agregar firma (Transact-SQL)] |
+| **Referencias**              | [ADD SIGNATURE (Transact-SQL)](/sql/t-sql/statements/add-signature-transact-sql)[Agregar firma (Transact-SQL)] |
 | **Pasos** | En casos donde la integridad de una base de datos crítica protegible tiene que comprobarse, deben usarse firmas digitales. Los elementos protegibles de una base de datos, como un procedimiento almacenado, una función, un ensamblado o un desencadenador pueden firmarse digitalmente. A continuación se muestra un ejemplo de cuándo una firma digital puede ser útil: supongamos que un ISV (fabricante de software independiente) ha proporcionado soporte técnico para un software entregado a uno de sus clientes. Antes de proporcionar soporte técnico, el ISV debería asegurarse de que un elemento protegible en la base de datos del software no se alteró por error o a través de un intento malicioso. Si el elemento protegible está firmado digitalmente, el ISV puede comprobar la firma digital y validar su integridad.| 
 
 ## <a name="use-sql-server-ekm-to-protect-encryption-keys"></a><a id="ekm-keys"></a>Use la administración extensible de claves (EKM) de SQL Server para proteger las claves de cifrado
@@ -152,7 +152,7 @@ ms.locfileid: "87539958"
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Administración extensible de claves (EKM) de SQL Server](https://msdn.microsoft.com/library/bb895340), [Administración extensible de claves con Azure Key Vault (SQL Server)](https://msdn.microsoft.com/library/dn198405) |
+| **Referencias**              | [Administración extensible de claves (EKM) de SQL Server](/sql/relational-databases/security/encryption/extensible-key-management-ekm), [Administración extensible de claves con Azure Key Vault (SQL Server)](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server) |
 | **Pasos** | La Administración extensible de claves de SQL Server permite que las claves de cifrado que protegen los archivos de base de datos se almacenen en un dispositivo externo, como una tarjeta inteligente, un dispositivo USB o un módulo EKM/HSM. Esto también habilita la protección de datos para los administradores de bases de datos (exceptuando a los miembros del grupo de sysadmin). Los datos se pueden cifrar utilizando claves de cifrado a las que solo tiene acceso el usuario de la base de datos en el módulo EKM/HSM externo. |
 
 ## <a name="use-alwaysencrypted-feature-if-encryption-keys-should-not-be-revealed-to-database-engine"></a><a id="keys-engine"></a>Use la característica AlwaysEncrypted si las claves de cifrado no deben mostrarse al motor de base de datos
@@ -163,7 +163,7 @@ ms.locfileid: "87539958"
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | SQL Azure, OnPrem |
 | **Atributos**              | Versión de SQL: V12, MsSQL2016 |
-| **Referencias**              | [Always Encrypted (motor de base de datos)](https://msdn.microsoft.com/library/mt163865) |
+| **Referencias**              | [Always Encrypted (motor de base de datos)](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |
 | **Pasos** | Always Encrypted es una característica creada para proteger la información confidencial, como números de tarjetas de crédito o números de identificación nacionales (por ejemplo, números de la seguridad social de EE. UU.), almacenados en bases de datos de Azure SQL Database o SQL Server. Always Encrypted permite a los clientes cifrar información confidencial dentro de aplicaciones cliente y no revelar las claves de cifrado al motor de base de datos (SQL Database o SQL Server). En consecuencia, Always Encrypted proporciona una separación entre quienes poseen los datos (y pueden verlos) y quienes administran los datos (pero no deben tener acceso a los mismos) |
 
 ## <a name="store-cryptographic-keys-securely-on-iot-device"></a><a id="keys-iot"></a>Almacene las claves criptográficas de forma segura en dispositivos IoT
@@ -174,7 +174,7 @@ ms.locfileid: "87539958"
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Sistema operativo del dispositivo: Windows IoT Core, Conectividad de dispositivos: SDK de dispositivo IoT de Azure |
-| **Referencias**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm) (TPM en Windows IoT Core), [Configuración de TPM en Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [TPM con SDK de dispositivo IoT de Azure](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
+| **Referencias**              | [TPM on Windows IoT Core](/windows/iot-core/secure-your-device/TPM) (TPM en Windows IoT Core), [Configuración de TPM en Windows IoT Core](/windows/iot-core/secure-your-device/setuptpm), [TPM con SDK de dispositivo IoT de Azure](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
 | **Pasos** | Claves privadas de certificado o simétricas en un almacenamiento protegido de hardware como chips TPM o de tarjeta inteligente. Windows 10 IoT Core es compatible con el usuario de un TPM y se pueden usar varios TPM compatibles: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. Se recomienda usar un TPM discreto o de firmware. Un TPM de software solo se debe usar con fines de desarrollo y prueba. Una vez que un TPM está disponible y se aprovisiona con las claves, se debe escribir el código que genera el token sin codificar de forma rígida ninguna información confidencial en él. | 
 
 ### <a name="example"></a>Ejemplo

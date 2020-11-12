@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0d02532f39d676772e5ee5d6414b802faffba7c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899708"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505944"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU mediante plantillas
 
@@ -149,7 +149,7 @@ En un entorno típico, tendría configurado el DNS para que todas las cuentas de
 
 ### <a name="optional-install-certificates"></a>(Opcional) Instalación de certificados
 
-Omita este paso si va a conectarse a través del Explorador de Storage con *http*. Si usa *https*, deberá instalar los certificados adecuados en el Explorador de Storage. En este caso, instale el certificado del punto de conexión de blob. Para más información, consulte cómo crear y cargar certificados en [Administración de certificados](azure-stack-edge-j-series-manage-certificates.md). 
+Omita este paso si va a conectarse a través del Explorador de Storage con *http*. Si usa *https* , deberá instalar los certificados adecuados en el Explorador de Storage. En este caso, instale el certificado del punto de conexión de blob. Para más información, consulte cómo crear y cargar certificados en [Administración de certificados](azure-stack-edge-j-series-manage-certificates.md). 
 
 ### <a name="create-and-upload-a-vhd"></a>Creación y carga de un disco duro virtual
 
@@ -189,13 +189,13 @@ Copie las imágenes de disco que se van a usar en los blobs en páginas en la cu
 
     ![Conectar a Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. En **Conectarse con el nombre y la clave**, indique los valores de **Nombre para mostrar**, **Nombre de cuenta** de almacenamiento, **Clave de cuenta** de Azure Storage. Seleccione el valor **Otros** en Dominio de almacenamiento y especifique la cadena de conexión `<device name>.<DNS domain>`. Si no ha instalado un certificado en el Explorador de Storage, marque la opción **Usar HTTP**. Seleccione **Next** (Siguiente).
+6. En **Conectarse con el nombre y la clave** , indique los valores de **Nombre para mostrar** , **Nombre de cuenta** de almacenamiento, **Clave de cuenta** de Azure Storage. Seleccione el valor **Otros** en Dominio de almacenamiento y especifique la cadena de conexión `<device name>.<DNS domain>`. Si no ha instalado un certificado en el Explorador de Storage, marque la opción **Usar HTTP**. Seleccione **Next** (Siguiente).
 
     ![Conectarse con el nombre y la clave](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
 7. Revise el **Resumen de conexiones** y seleccione **Conectar**.
 
-8. La cuenta de almacenamiento aparece en el panel izquierdo. Seleccione y expanda la cuenta de almacenamiento. Seleccione **Contenedores de blob**, haga clic con el botón derecho y seleccione **Crear contenedor de blobs**. Escriba el nombre del contenedor de blobs.
+8. La cuenta de almacenamiento aparece en el panel izquierdo. Seleccione y expanda la cuenta de almacenamiento. Seleccione **Contenedores de blob** , haga clic con el botón derecho y seleccione **Crear contenedor de blobs**. Escriba el nombre del contenedor de blobs.
 
 9. Seleccione el contenedor que acaba de crear y, en el panel de la derecha, seleccione **Cargar > Cargar archivos**. 
 
@@ -209,7 +209,7 @@ Copie las imágenes de disco que se van a usar en los blobs en páginas en la cu
 
     ![Carga de archivo de disco duro virtual 3](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-3.png)
 
-12. Copie y guarde el identificador **URI**, ya que lo usará en los pasos posteriores.
+12. Copie y guarde el identificador **URI** , ya que lo usará en los pasos posteriores.
 
     ![Copia de URI](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/copy-uri-1.png)
 
@@ -441,7 +441,7 @@ Asigne los parámetros adecuados en `CreateVM.parameters.json` para el dispositi
 
 1. Proporcione un nombre único, un nombre de interfaz de red y un nombre de ipconfig. 
 1. Escriba un nombre de usuario, una contraseña y un tamaño de máquina virtual admitido.
-1. Asigne el mismo nombre en **VnetName**, **subnetName** e **ImageName** que se indica en los parámetros de `CreateImageAndVnet.parameters.json`. Por ejemplo, si ha especificado los valores de VnetName, subnetName e ImageName como **vnet1**, **subnet1** e **image1**, utilice también esos valores en los parámetros de esta plantilla.
+1. Asigne el mismo nombre en **VnetName** , **subnetName** e **ImageName** que se indica en los parámetros de `CreateImageAndVnet.parameters.json`. Por ejemplo, si ha especificado los valores de VnetName, subnetName e ImageName como **vnet1** , **subnet1** e **image1** , utilice también esos valores en los parámetros de esta plantilla.
 1. Ahora necesitará una dirección IP estática para asignarla a la máquina virtual que se encuentra en la red de subred definida anteriormente. Reemplace **PrivateIPAddress** por esta dirección en el archivo de parámetros. Para que la máquina virtual obtenga una dirección IP del servidor DCHP local, deje en blanco el valor `privateIPAddress`.  
     
     ```json
@@ -550,7 +550,8 @@ Implemente la plantilla de creación de máquinas virtuales `CreateVM.json`. Est
         
         PS C:\07-30-2020>
     ```   
-También puede ejecutar el comando `New-AzureRmResourceGroupDeployment` de forma asincrónica con el parámetro `–AsJob`. Este es un ejemplo de salida cuando el cmdlet se ejecuta en segundo plano. Después, puede consultar el estado del trabajo que se crea mediante el cmdlet `Get-Job` .
+
+    También puede ejecutar el comando `New-AzureRmResourceGroupDeployment` de forma asincrónica con el parámetro `–AsJob`. Este es un ejemplo de salida cuando el cmdlet se ejecuta en segundo plano. Después, puede consultar el estado del trabajo que se crea mediante el cmdlet `Get-Job` .
 
     ```powershell   
     PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
@@ -568,7 +569,6 @@ También puede ejecutar el comando `New-AzureRmResourceGroupDeployment` de forma
      
     Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
     --     ----            -------------   -----         -----------     --------             -------
-    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
     ```
 
 7. Compruebe si la máquina virtual se ha aprovisionado correctamente. Ejecute el siguiente comando:
@@ -615,7 +615,7 @@ On the client used to access your Azure Stack Edge Pro device, set up a global v
 
 ### On Windows client 
 
-`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
+`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
 
 ### On Linux client
 

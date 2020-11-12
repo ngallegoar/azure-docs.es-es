@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098763"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490362"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sin servidor (versión preliminar)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -50,9 +50,6 @@ Consulte el artículo sobre la [elección entre el rendimiento aprovisionado y e
 ## <a name="using-serverless-resources"></a>Uso de recursos sin servidor
 
 Sin servidor es un nuevo tipo de cuenta de Azure Cosmos, lo que significa que tiene que elegir entre el **rendimiento aprovisionado** y el modo **sin servidor** al crear una nueva cuenta. Debe crear una nueva cuenta sin servidor para empezar a trabajar sin servidor. Durante la versión preliminar, la única manera admitida para crear una nueva cuenta sin servidor es mediante [Azure Portal](create-cosmosdb-resources-portal.md). Actualmente no se admite la migración de las cuentas existentes a o desde el modo sin servidor.
-
-> [!NOTE]
-> De momento, el modo sin servidor se admite solo en la API de Azure Cosmos DB Core (SQL).
 
 Cualquier contenedor que se cree en una cuenta sin servidor será un contenedor sin servidor. Los contenedores sin servidor exponen las mismas funcionalidades que los contenedores creados en el modo de rendimiento aprovisionado, por lo que puede leer, escribir y consultar los datos de la misma manera. Sin embargo, las cuentas y los contenedores sin servidor también tienen características específicas:
 

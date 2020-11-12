@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f68bc5e4604f35f9c4c45cd3e38ddaf8d24cd03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41532e554623c47e9728c6ccab92d99500e42021
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89004466"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517434"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Marco de seguridad: Administración de excepciones: mitigaciones 
 | Producto o servicio | Artículo |
@@ -38,7 +38,7 @@ ms.locfileid: "89004466"
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
+| **Referencias**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Pasos** | Los servicios de Windows Communication Framework (WCF) pueden configurarse para exponer información de depuración. La información de depuración no debe usarse en entornos de producción. La etiqueta `<serviceDebug>` define si la característica de información de depuración está habilitada para un servicio WCF. Si el atributo includeExceptionDetailInFaults se establece en True, la información de excepción de la aplicación se devolverá a los clientes. Los atacantes pueden aprovechar la información adicional que obtengan del resultado de la depuración para montar los ataques dirigidos en el marco de trabajo, la base de datos u otros recursos usados por la aplicación. |
 
 ### <a name="example"></a>Ejemplo
@@ -62,7 +62,7 @@ Deshabilite la información de depuración en el servicio. Puede hacerlo elimina
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Genérico, .NET Framework 3 |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
+| **Referencias**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Pasos** | Exponer públicamente información acerca de un servicio puede proporcionar a los atacantes valiosos detalles sobre cómo podrían aprovechar el servicio. La etiqueta `<serviceMetadata>` habilita la característica de publicación de metadatos. Los metadatos del servicio pueden contener información confidencial que no debe estar accesible públicamente. Como mínimo, permita solo a los usuarios de confianza acceder a los metadatos, y asegúrese de que no se expone información innecesaria. Mejor aún, deshabilite completamente la capacidad de publicar los metadatos. Una configuración segura de WCF no contendrá la etiqueta `<serviceMetadata>`. |
 
 ## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>Asegúrese de que se realiza un tratamiento adecuado de las excepciones en ASP.NET Web API
@@ -202,7 +202,7 @@ Compruebe los vínculos en la sección de referencias para obtener información 
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Modificar configuración de páginas de errores ASP.NET (Cuadro de diálogo)](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
+| **Referencias**              | [Modificar configuración de páginas de errores ASP.NET (Cuadro de diálogo)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569096(v=ws.10)) |
 | **Pasos** | <p>Cuando se produce un error en una aplicación ASP.NET que provoca un error 1.x 500 o HTTP 500 Error interno del servidor, o la configuración de una característica (por ejemplo, el filtrado de solicitudes) impide que se muestre una página, se generará un mensaje de error. Los administradores pueden elegir si la aplicación debe mostrar un mensaje descriptivo al cliente, un mensaje de error detallado al cliente o un mensaje de error detallado solamente al host local. La etiqueta `<customErrors>` en el archivo web.config tiene tres modos:</p><ul><li>**On:** especifica que los errores personalizados están habilitados. Si no se especifica ningún atributo defaultRedirect, los usuarios verán un error genérico. Los errores personalizados se muestran a los clientes remotos y al host local</li><li>**Off:** especifica que los errores personalizados están deshabilitados. Los errores detallados de ASP.NET se muestran a los clientes remotos y al host local</li><li>**RemoteOnly:** especifica que los errores personalizados se muestran solo a los clientes remotos y que los errores de ASP.NET se muestran al host local. Este es el valor predeterminado</li></ul><p>Abra el archivo `web.config` de la aplicación o el sitio y asegúrese de que la etiqueta tiene definido `<customErrors mode="RemoteOnly" />` o `<customErrors mode="On" />`.</p>|
 
 ## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Establezca el método de implementación como deployment retail en IIS
@@ -213,7 +213,7 @@ Compruebe los vínculos en la sección de referencias para obtener información 
 | **Fase de SDL**               | Implementación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [deployment (Elemento, Esquema de configuración de ASP.NET)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
+| **Referencias**              | [deployment (Elemento, Esquema de configuración de ASP.NET)](/previous-versions/dotnet/netframework-2.0/ms228298(v=vs.80)) |
 | **Pasos** | <p>El conmutador `<deployment retail>` está diseñado para su uso en servidores IIS de producción. Este conmutador se usa para ayudar a las aplicaciones a ejecutarse con el mejor rendimiento y las mínimas fugas de información de seguridad posibles, esto se consigue deshabilitando la capacidad de la aplicación para generar el resultado de un seguimiento en una página y para mostrar mensajes de error detallados a los usuarios finales, y deshabilitando también el conmutador de depuración.</p><p>A menudo, los conmutadores y opciones que están enfocadas hacia en el desarrollador, como los errores de solicitud de seguimiento y depuración, se habilitan durante el desarrollo activo. Se recomienda que el método de implementación en cualquier servidor de producción se establezca como deployment retail. Abra el archivo machine.config y asegúrese de que `<deployment retail="true" />` permanece establecido en True.</p>|
 
 ## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Las excepciones deben generar un error con seguridad
@@ -268,4 +268,4 @@ Compruebe los vínculos en la sección de referencias para obtener información 
             }
         }
 ```
-El método anterior siempre devolverá True, si se produce alguna excepción. Si el usuario final proporciona una dirección URL con formato incorrecto que el explorador respeta, pero el constructor `Uri()` no, se producirá una excepción y se dirigirá a la víctima a la dirección URL válida pero con formato incorrecto. 
+El método anterior siempre devolverá True, si se produce alguna excepción. Si el usuario final proporciona una dirección URL con formato incorrecto que el explorador respeta, pero el constructor `Uri()` no, se producirá una excepción y se dirigirá a la víctima a la dirección URL válida pero con formato incorrecto.

@@ -3,12 +3,12 @@ title: Creación de directivas mediante programación
 description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación con la CLI de Azure, Azure PowerShell y API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047063"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491807"
 ---
 # <a name="programmatically-create-policies"></a>Creación de directivas mediante programación
 
@@ -74,8 +74,8 @@ El primer paso hacia una mejor visibilidad de los recursos es crear y asignar di
 
    Cuando se llama sin parámetros de ubicación, `New-AzPolicyDefinition` elige de forma predeterminada guardar la definición de directiva en la suscripción seleccionada del contexto de sesiones. Para guardar la definición en una ubicación diferente, use los siguientes parámetros:
 
-   - **SubscriptionId**: se guarda en una suscripción diferente. Requiere un valor de _GUID_.
-   - **ManagementGroupName**: se guarda en un grupo de administración. Requiere un valor de _cadena_.
+   - **SubscriptionId** : se guarda en una suscripción diferente. Requiere un valor de _GUID_.
+   - **ManagementGroupName** : se guarda en un grupo de administración. Requiere un valor de _cadena_.
 
 1. Después de crear la definición de directiva, puede crear una asignación de directiva mediante la ejecución de los siguientes comandos:
 
@@ -92,7 +92,7 @@ El primer paso hacia una mejor visibilidad de los recursos es crear y asignar di
 
    - Recurso `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Suscripción `/subscriptions/{subId}/`
+   - Suscripción `/subscriptions/{subId}`
    - Grupo de administración `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Para más información acerca de cómo administrar las directivas de recursos mediante el módulo PowerShell de Resource Manager, consulte [Az.Resources](/powershell/module/az.resources/#policies).
@@ -207,8 +207,8 @@ Use el procedimiento siguiente para crear una definición de directiva:
 
    Cuando se llama sin parámetros de ubicación, `az policy definition creation` elige de forma predeterminada guardar la definición de directiva en la suscripción seleccionada del contexto de sesiones. Para guardar la definición en una ubicación diferente, use los siguientes parámetros:
 
-   - **subscription**: se guarda en otra suscripción. Requiere un valor de _GUID_ como identificador de suscripción o un valor de _cadena_ como nombre.
-   - **management-group**: se guarda en un grupo de administración. Requiere un valor de _cadena_.
+   - **subscription** : se guarda en otra suscripción. Requiere un valor de _GUID_ como identificador de suscripción o un valor de _cadena_ como nombre.
+   - **management-group** : se guarda en un grupo de administración. Requiere un valor de _cadena_.
 
 1. Use el siguiente comando para crear una asignación de directiva. Reemplace la información de ejemplo de los símbolos &lt;&gt; por sus propios valores.
 

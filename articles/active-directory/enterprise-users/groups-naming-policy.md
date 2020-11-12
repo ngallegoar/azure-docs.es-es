@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9456d663eb1600bf73b1fe253560c2d9f29205ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374016"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489461"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Aplicación de una directiva de nomenclatura en los grupos de Microsoft 365 en Azure Active Directory
 
@@ -91,20 +91,20 @@ Algunos administradores pueden quedar excluidos de estas directivas, en todas la
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visualización o edición de la directiva de nomenclatura de prefijo-sufijo
 
-1. En la página **Directiva de nomenclatura** , seleccione **Directiva de nomenclatura de grupos** .
+1. En la página **Directiva de nomenclatura** , seleccione **Directiva de nomenclatura de grupos**.
 1. Puede ver o editar las directivas de nomenclatura de prefijo o sufijo actuales individualmente seleccionando los atributos o cadenas que desea aplicar como parte de la directiva de nomenclatura.
-1. Para quitar un prefijo o sufijo de la lista, seleccione el prefijo o sufijo y luego seleccione **Eliminar** . Se pueden eliminar varios elementos al mismo tiempo.
-1. Guarde los cambios para que la nueva directiva entre en vigor; para ello, seleccione **Guardar** .
+1. Para quitar un prefijo o sufijo de la lista, seleccione el prefijo o sufijo y luego seleccione **Eliminar**. Se pueden eliminar varios elementos al mismo tiempo.
+1. Guarde los cambios para que la nueva directiva entre en vigor; para ello, seleccione **Guardar**.
 
 ### <a name="edit-custom-blocked-words"></a>Edición de las palabras bloqueadas personalizadas
 
-1. En la página **Directiva de nomenclatura** , seleccione **Palabras bloqueadas** .
+1. En la página **Directiva de nomenclatura** , seleccione **Palabras bloqueadas**.
 
     ![edición y carga de la lista de palabras bloqueadas para la directiva de nomenclatura](./media/groups-naming-policy/blockedwords.png)
 
-1. Vea o edite la lista actual de palabras bloqueadas personalizadas seleccionando **Descargar** .
+1. Vea o edite la lista actual de palabras bloqueadas personalizadas seleccionando **Descargar**.
 1. Cargue la nueva lista de palabras bloqueadas personalizadas seleccionando el icono del archivo.
-1. Guarde los cambios para que la nueva directiva entre en vigor; para ello, seleccione **Guardar** .
+1. Guarde los cambios para que la nueva directiva entre en vigor; para ello, seleccione **Guardar**.
 
 ## <a name="install-powershell-cmdlets"></a>Instalación de los cmdlets de PowerShell
 
@@ -206,7 +206,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>Eliminación de la directiva de nomenclatura mediante Azure Portal
 
-1. En la página **Directiva de nomenclatura** , seleccione **Eliminar directiva** .
+1. En la página **Directiva de nomenclatura** , seleccione **Eliminar directiva**.
 1. Después de confirmar la eliminación, se quita la directiva de nomenclatura, incluida toda la directiva de nomenclatura de prefijos y sufijos y cualquier palabra bloqueada personalizada.
 
 ### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Eliminación de la directiva de nomenclatura mediante Azure AD PowerShell
@@ -249,7 +249,6 @@ Aplicación móvil Grupos | Los grupos creados en la aplicación móvil Grupos s
 Planner | Planner es compatible con la directiva de nomenclatura. Planner muestra la versión preliminar de la directiva de nomenclatura al escribir el nombre del plan. Cuando un usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error al crear el plan.
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement es compatible con la directiva de nomenclatura. Dynamics 365 muestra el nombre aplicado por la directiva de nomenclatura cuando el usuario escribe el nombre o el alias de correo electrónico de un grupo. Cuando el usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error con la palabra bloqueada para que el usuario pueda quitarla.
 School Data Sync (SDS) | Los grupos creados mediante SDS cumplen la directiva de nomenclatura, pero esta no se aplica automáticamente. Los administradores de SDS tienen que anexar los prefijos y sufijos a los nombres de clase para los que es necesario crear grupos y luego cargarlos en SDS. De lo contrario, la creación o edición de los grupos produciría error.
-Outlook Customer Manager (OCM) | Outlook Customer Manager es compatible con la directiva de nomenclatura, que se aplica automáticamente al grupo creado en Outlook Customer Manager. Si se detecta una palabra bloqueada personalizada, la creación de grupos en OCM se bloquea y se impide al usuario usar la aplicación OCM.
 Aplicación Aula | Los grupos creados en la aplicación Aula cumplen la directiva de nomenclatura, pero esta no se aplica automáticamente y los usuarios no tienen una vista previa de ella al escribir el nombre de un grupo del aula. Los usuarios deben escribir el nombre de grupo del aula aplicado con prefijos y sufijos. Si no, las operaciones para crear o editar el grupo del aula producirán error.
 Power BI | Las áreas de trabajo de Power BI son compatibles con la directiva de nomenclatura.    
 Yammer | Cuando un usuario que ha iniciado sesión en Yammer con su cuenta de Azure Active Directory crea un grupo o edita un nombre de grupo, el nombre del grupo cumplirá la directiva de nomenclatura. Esto se aplica tanto a los grupos conectados de Microsoft 365 como a todos los demás grupos de Yammer.<br>Si se ha creado un grupo conectado de Microsoft 365 antes de aplicar la directiva de nomenclatura, el nombre del grupo no seguirá automáticamente las directivas de nomenclatura. Cuando un usuario edita el nombre del grupo, se le pedirá que agregue el prefijo y el sufijo.

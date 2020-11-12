@@ -6,12 +6,12 @@ ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: fa89ffcfd37629f95fbf281a6a703a173acd5d48
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9f9b162460cd2e7a624c1ad3f992011487d1b795
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317929"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516941"
 ---
 # <a name="threat-modeling-tool-update-release-73002061---02112020"></a>Threat Modeling Tool, versión actualizada 7.3.00206.1: 11 de febrero de 2020
 
@@ -44,7 +44,7 @@ Este problema se resolvió en esta versión.
 
 ## <a name="documentation-and-feedback"></a>Documentación y comentarios
 
-- La documentación de Threat Modeling Tool se encuentra en [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) e incluye información [sobre el uso de la herramienta](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- La documentación de Threat Modeling Tool se encuentra en [docs.microsoft.com](./threat-modeling-tool.md) e incluye información [sobre el uso de la herramienta](./threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

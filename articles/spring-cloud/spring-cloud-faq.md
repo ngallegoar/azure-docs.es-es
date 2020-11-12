@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f034cd07b481f9d72cb3f753b30e1779bf672ac2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900273"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491943"
 ---
 # <a name="azure-spring-cloud-faq"></a>Preguntas frecuentes de Azure Spring Cloud
 
@@ -73,9 +73,9 @@ Azure Spring Cloud es compatible con Java 8 y 11. Consulte las [versiones del s
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>¿Dónde puedo ver mis métricas y registros de aplicaciones de Spring Cloud?
 
-Busque las métricas en la pestaña Información general de la aplicación y en la pestaña [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics).
+Busque las métricas en la pestaña Información general de la aplicación y en la pestaña [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer).
 
-Azure Spring Cloud admite la exportación de las métricas y los registros de aplicaciones de Spring Cloud a Azure Storage, EventHub y [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). El nombre de la tabla en Log Analytics es *AppPlatformLogsforSpring*. Para obtener más información sobre cómo habilitarlo, consulte [Servicios de diagnóstico](diagnostic-services.md).
+Azure Spring Cloud admite la exportación de las métricas y los registros de aplicaciones de Spring Cloud a Azure Storage, EventHub y [Log Analytics](../azure-monitor/platform/data-platform-logs.md). El nombre de la tabla en Log Analytics es *AppPlatformLogsforSpring*. Para obtener más información sobre cómo habilitarlo, consulte [Servicios de diagnóstico](diagnostic-services.md).
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>¿Admite Azure Spring Cloud el seguimiento distribuido?
 

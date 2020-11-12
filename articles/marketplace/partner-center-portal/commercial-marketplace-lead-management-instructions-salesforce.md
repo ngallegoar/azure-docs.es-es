@@ -4,15 +4,15 @@ description: Aprenda a usar Salesforce para configurar clientes potenciales para
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: c3667de6a9bf85109a94201aa8e144869e4b033f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73caf848ab5c6f8e973469066ce4612a075a52f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86117122"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489325"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configuración de la administración de clientes potenciales en Salesforce
 
@@ -70,15 +70,15 @@ Cuando esté listo para configurar la información de administración de cliente
 
 1. Seleccione la oferta y vaya a la pestaña **Configuración de la oferta**.
 
-1. En la sección **Clientes potenciales**, seleccione **Conectar**.
+1. En la sección **Clientes potenciales** , seleccione **Conectar**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-salesforce/customer-leads.png" alt-text="Clientes potenciales":::
 
-1. En la ventana emergente **Detalles de la conexión**, seleccione **Salesforce** como **Destino de clientes potenciales** y, en el campo **Identificador de la organización**, pegue el valor `oid` del formulario web para clientes potenciales que creó.
+1. En la ventana emergente **Detalles de la conexión** , seleccione **Salesforce** como **Destino de clientes potenciales** y, en el campo **Identificador de la organización** , pegue el valor `oid` del formulario web para clientes potenciales que creó.
 
     ![Ventana emergente Detalles de la conexión: cuadro para validar el correo electrónico de contacto](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)
 
-1. En **Correo electrónico de contacto**, escriba las direcciones de correo electrónico de las personas de su empresa que deban recibir notificaciones por correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con un punto y coma.
+1. En **Correo electrónico de contacto** , escriba las direcciones de correo electrónico de las personas de su empresa que deban recibir notificaciones por correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con un punto y coma.
 
 1. Seleccione **Aceptar**.
 

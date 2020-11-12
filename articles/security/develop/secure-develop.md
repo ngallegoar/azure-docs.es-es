@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283493"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517094"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
-En este artículo se presentan las actividades de seguridad y los controles que debe tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de implementación y comprobación del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir las actividades y los servicios de Azure que puede usar para desarrollar una aplicación más segura.
+En este artículo se presentan las actividades de seguridad y los controles que debe tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de implementación y comprobación del [ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) de Microsoft. El objetivo es ayudarle a definir las actividades y los servicios de Azure que puede usar para desarrollar una aplicación más segura.
 
 En este artículo se tratan las siguientes fases del SDL:
 
@@ -34,11 +34,11 @@ Suponga que su aplicación se usará de maneras inesperadas. Este pensamiento le
 
 ### <a name="perform-code-reviews"></a>Realización de revisiones de código
 
-Antes de insertar el código en el repositorio, realice [revisiones de código](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar la calidad general del código y reducir el riesgo de que se produzcan errores. Puede usar [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para administrar el proceso de revisión de código.
+Antes de insertar el código en el repositorio, realice [revisiones de código](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar la calidad general del código y reducir el riesgo de que se produzcan errores. Puede usar [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para administrar el proceso de revisión de código.
 
 ### <a name="perform-static-code-analysis"></a>Realización de análisis de código estático
 
-El [análisis de código estático](https://owasp.org/www-community/controls/Static_Code_Analysis) (también conocido como *análisis de código fuente*) normalmente se realiza como parte de la revisión de código. El análisis de código estático se refiere normalmente a la ejecución de herramientas de análisis de código estático para encontrar posibles vulnerabilidades en el código que no se está ejecutando mediante técnicas como la [comprobación de objetos corruptos](https://en.wikipedia.org/wiki/Taint_checking) y el [análisis de flujo de datos](https://en.wikipedia.org/wiki/Data-flow_analysis).
+El [análisis de código estático](https://owasp.org/www-community/controls/Static_Code_Analysis) (también conocido como *análisis de código fuente* ) normalmente se realiza como parte de la revisión de código. El análisis de código estático se refiere normalmente a la ejecución de herramientas de análisis de código estático para encontrar posibles vulnerabilidades en el código que no se está ejecutando mediante técnicas como la [comprobación de objetos corruptos](https://en.wikipedia.org/wiki/Taint_checking) y el [análisis de flujo de datos](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace ofrece [herramientas de desarrollo](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) que realizan análisis de código estático y le ayudan con las revisiones de código.
 
@@ -62,7 +62,7 @@ Estas tareas deben realizarse en el servidor, no en el lado cliente (o en el ser
 
 ### <a name="verify-your-applications-outputs"></a>Verificación de las salidas de la aplicación
 
-Cualquier salida que muestre visualmente o dentro de un documento siempre debe codificarse e incluir caracteres de escape. El [proceso de escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), también conocido como *codificación de salida*, se usa para ayudar a garantizar que los datos que no son de confianza no sean un vehículo para los ataques por inyección de código. El proceso de escape, combinado con la validación de datos, proporciona defensas por niveles para aumentar la seguridad del sistema como un todo.
+Cualquier salida que muestre visualmente o dentro de un documento siempre debe codificarse e incluir caracteres de escape. El [proceso de escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), también conocido como *codificación de salida* , se usa para ayudar a garantizar que los datos que no son de confianza no sean un vehículo para los ataques por inyección de código. El proceso de escape, combinado con la validación de datos, proporciona defensas por niveles para aumentar la seguridad del sistema como un todo.
 
 El proceso de escape garantiza que todo se muestra como *salida.* El proceso de escape también permite que el intérprete sepa que los datos no está diseñados para ejecutarse, y esto impide que los ataques funcionen. Es otra técnica de ataque común denominada *ataque de scripts entre sitios*.
 
@@ -99,7 +99,7 @@ Si la aplicación debe generar contraseñas automáticamente, asegúrese de que 
 
 Si la aplicación permite [cargar archivos](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), considere la posibilidad de tomar medidas para esta actividad de riesgo. El primer paso en muchos ataques es insertar código malintencionado en un sistema que está sufriendo un ataque. El uso de la carga de archivos ayuda al atacante a llevarlo a cabo. OWASP ofrece soluciones para validar un archivo a fin de garantizar que el archivo que va a cargar es seguro.
 
-La protección antimalware ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Puede instalar [Microsoft Antimalware](../fundamentals/antimalware.md) o una solución de protección de puntos de conexión de un asociado de Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) y [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
+La protección antimalware ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Puede instalar [Microsoft Antimalware](../fundamentals/antimalware.md) o una solución de protección de puntos de conexión de un asociado de Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) y [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Microsoft Antimalware](../fundamentals/antimalware.md) incluye características como la protección en tiempo real, los análisis programados, la corrección de malware, las actualizaciones de firmas, las actualizaciones del motor, los ejemplos de informes y la colección de eventos de exclusión. Puede integrar soluciones de asociados y Microsoft Antimalware con [Azure Security Center](../../security-center/security-center-partner-integration.md) para facilitar la implementación y la integración de detecciones (alertas e incidentes).
 

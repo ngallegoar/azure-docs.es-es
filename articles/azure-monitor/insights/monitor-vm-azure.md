@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029468"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491637"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervisión de máquinas virtuales de Azure con Azure Monitor
 En este artículo se describe cómo usar Azure Monitor para recopilar y analizar datos de supervisión de máquinas virtuales de Azure para mantener su estado. Las máquinas virtuales se pueden supervisar en términos de disponibilidad y rendimiento con Azure Monitor como cualquier [otro](monitor-azure-resource.md) recurso de Azure, pero se diferencian de otros recursos en cuanto que también debe supervisar el sistema operativo invitado y las cargas de trabajo que se ejecutan en él. 
@@ -139,7 +139,7 @@ Una vez configurada la recopilación de los datos de supervisión para una máqu
 | Métricas | Abra el [explorador de métricas](../platform/metrics-getting-started.md) con el ámbito establecido en la máquina virtual actual. |
 | Configuración de diagnóstico | Habilite y configure la [extensión de diagnóstico](../platform/diagnostics-extension-overview.md) para la máquina virtual actual. |
 | Recomendaciones de Advisor | Recomendaciones para la máquina virtual actual desde [Azure Advisor](../../advisor/index.yml). |
-| Registros | Abra [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) con el [ámbito](../log-query/scope.md) establecido en la máquina virtual actual. |
+| Registros | Abra [Log Analytics](../log-query/log-analytics-overview.md) con el [ámbito](../log-query/scope.md) establecido en la máquina virtual actual. |
 | Monitor de conexión | Abra la [supervisión de conexiones de Network Watcher](../../network-watcher/connection-monitor-preview.md) para supervisar las conexiones entre la máquina virtual actual y otras máquinas virtuales. |
 
 
@@ -170,7 +170,7 @@ Azure Monitor para VM habilita la recopilación de un conjunto predeterminado de
 
 
 > [!NOTE]
-> Los datos de rendimiento recopilados por el agente de Log Analytics escriben en la tabla *Perf*, mientras que Azure Monitor para VM los recopilará en la tabla *InsightsMetrics*. Se trata de los mismos datos, pero las tablas tienen una estructura diferente. Si tiene consultas existentes basadas en *Perf*, deberá volver a escribirlas para usar *InsightsMetrics*.
+> Los datos de rendimiento recopilados por el agente de Log Analytics escriben en la tabla *Perf* , mientras que Azure Monitor para VM los recopilará en la tabla *InsightsMetrics*. Se trata de los mismos datos, pero las tablas tienen una estructura diferente. Si tiene consultas existentes basadas en *Perf* , deberá volver a escribirlas para usar *InsightsMetrics*.
 
 
 ## <a name="alerts"></a>Alertas

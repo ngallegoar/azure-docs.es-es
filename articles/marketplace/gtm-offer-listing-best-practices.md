@@ -4,15 +4,15 @@ description: Obtenga información sobre los procedimientos recomendados sobre la
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 07/06/2020
-ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708652"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492096"
 ---
 # <a name="offer-listing-best-practices"></a>Procedimientos recomendados para la publicación de ofertas
 
@@ -130,8 +130,8 @@ Pueden ayudar a los clientes a encontrar su oferta cuando realicen búsquedas Id
 ## <a name="link-to-your-offer-page-from-your-website"></a>Vinculación a la página de la oferta desde su sitio web
 
 Al vincular el distintivo de AppSource o de Azure Marketplace del sitio web a la publicación en el marketplace comercial, puede incluir los siguientes parámetros de consulta al final de la dirección URL para obtener análisis e informes detallados:
-* **src**: incluya el origen desde donde se enruta el tráfico a AppSource; por ejemplo, el sitio web, LinkedIn o Facebook.
-* **mktcmpid**: el identificador de la campaña de marketing, que puede contener hasta 16 caracteres en cualquier combinación de letras, números, guiones bajos y guiones (por ejemplo, *blogpost_12*).
+* **src** : incluya el origen desde donde se enruta el tráfico a AppSource; por ejemplo, el sitio web, LinkedIn o Facebook.
+* **mktcmpid** : el identificador de la campaña de marketing, que puede contener hasta 16 caracteres en cualquier combinación de letras, números, guiones bajos y guiones (por ejemplo, *blogpost_12* ).
 
 La siguiente dirección URL de ejemplo contiene los dos parámetros de consulta anteriores: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

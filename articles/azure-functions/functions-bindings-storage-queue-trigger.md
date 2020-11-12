@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376645"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491450"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Queue Storage para Azure Functions
 
@@ -19,7 +19,7 @@ El desencadenador de Queue Storage ejecuta una función a medida que se agregan 
 
 ## <a name="encoding"></a>Encoding
 
-Las funciones esperan una cadena codificada en *base64*. Cualquier ajuste al tipo de codificación (para preparar los datos como una cadena codificada en *base64*) debe implementarse en el servicio de llamada.
+Las funciones esperan una cadena codificada en *base64*. Cualquier ajuste al tipo de codificación (para preparar los datos como una cadena codificada en *base64* ) debe implementarse en el servicio de llamada.
 
 ## <a name="example"></a>Ejemplo
 
@@ -46,7 +46,7 @@ public static class QueueFunctions
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de cola de un archivo *function.json* y código de [script de C# (.csx)](functions-reference-csharp.md) que usa el enlace. La función sondea la cola `myqueue-items` y escribe un registro cada vez que se procesa un elemento de cola.
 
-Este es el archivo *function.json*:
+Este es el archivo *function.json* :
 
 ```json
 {
@@ -101,7 +101,7 @@ En la sección acerca del [uso](#usage) se explica `myQueueItem`, que recibe el 
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de cola de un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función sondea la cola `myqueue-items` y escribe un registro cada vez que se procesa un elemento de cola.
 
-Este es el archivo *function.json*:
+Este es el archivo *function.json* :
 
 ```json
 {
@@ -146,7 +146,7 @@ En la sección acerca del [uso](#usage) se explica `myQueueItem`, que recibe el 
 
 En el ejemplo siguiente se muestra cómo leer un mensaje en cola pasado a una función a través de un desencadenador.
 
-Un desencadenador de cola de almacenamiento se define en *function.json*, donde *type* está establecido en `queueTrigger`.
+Un desencadenador de cola de almacenamiento se define en *function.json* , donde *type* está establecido en `queueTrigger`.
 
 ```json
 {
@@ -408,7 +408,7 @@ El archivo [host.json](functions-host-json.md#queues) contiene opciones de confi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Escritura de mensajes de Blob Storage (enlace de salida)](./functions-bindings-storage-blob-output.md)
+- [Escritura de mensajes de Queue Storage (enlace de salida)](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

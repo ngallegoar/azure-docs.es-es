@@ -4,12 +4,12 @@ description: Escalado automático en Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd7c1582cdb4b2b1b72d3f969ad08879d208785f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567271"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505844"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Información general sobre el escalado automático en Microsoft Azure
 En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  
@@ -63,9 +63,9 @@ El escalado automático utiliza la siguiente terminología y estructura.
 
   - Un **perfil de escalado automático** es una combinación de:
 
-    - Una **configuración de capacidad**, que indica los valores mínimos, máximos y predeterminados para el número de instancias.
-    - Un **conjunto de reglas**, cada una de las cuales incluye un desencadenador (tiempo o métrica) y una acción de escalado (escalado o reducción vertical).
-    - Una **periodicidad**, que indica cuándo el escalado automático debe hacer entrar en vigor el perfil.
+    - Una **configuración de capacidad** , que indica los valores mínimos, máximos y predeterminados para el número de instancias.
+    - Un **conjunto de reglas** , cada una de las cuales incluye un desencadenador (tiempo o métrica) y una acción de escalado (escalado o reducción vertical).
+    - Una **periodicidad** , que indica cuándo el escalado automático debe hacer entrar en vigor el perfil.
 
       Puede tener varios perfiles, lo cual le permitirá ocuparse de diferentes requisitos coincidentes. Puede tener perfiles de escalado automático diferentes, por ejemplo, para distintos momentos del día o días de la semana.
 
@@ -102,13 +102,13 @@ Puede configurar el escalado automático en los siguientes lugares:
 | Virtual Machines: Clásico |[Escalado de conjuntos de disponibilidad clásicos de máquina virtual](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Virtual Machines: Conjuntos de escalado de Windows |[Escalado de conjuntos de escalado de máquinas virtuales en Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtual Machines: Conjuntos de escalado de Linux |[Escalado de conjuntos de escalado de máquinas virtuales en Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Virtual Machines: Ejemplo de Windows |[Configuración avanzada de escalado automático con plantillas de Resource Manager para VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Virtual Machines: Ejemplo de Windows |[Configuración avanzada de escalado automático con plantillas de Resource Manager para VM Scale Sets](autoscale-virtual-machine-scale-sets.md) |
 | Azure App Service |[Escalado de una aplicación en Azure App Service](../../app-service/manage-scale-up.md)|
 | Servicio API Management|[Escalado automático de una instancia de Azure API Management](../../api-management/api-management-howto-autoscale.md)
 | Clústeres de Azure Data Explorer|[Administración del escalado de clústeres de Azure Data Explorer para ajustarse a los cambios en la demanda](/azure/data-explorer/manage-cluster-horizontal-scaling)|
 | Logic Apps |[Incorporación de capacidad del Entorno del servicio de integración (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
 | Spring Cloud |[Configuración de la escalabilidad automática para aplicaciones de microservicios](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
-| Azure Service Bus |[Actualización automática de las unidades de mensajería de un espacio de nombres de Azure Service Bus](../../service-bus-messaging/automate-update-messaging-units.md)|
+| Service Bus |[Actualización automática de las unidades de mensajería de un espacio de nombres de Azure Service Bus](../../service-bus-messaging/automate-update-messaging-units.md)|
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el escalado automático, consulte los tutoriales de escalado automático anteriores o los siguientes recursos:

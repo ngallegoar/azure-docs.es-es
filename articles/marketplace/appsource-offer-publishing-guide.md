@@ -4,21 +4,21 @@ description: Guía paso a paso y listas de comprobación de publicación para pu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 68b11c672d362e7af7dfc01e2679d035d9e1e4c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b500a87613dee094c63e71fc76fb751d72aa049
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484823"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491161"
 ---
 # <a name="offer-publishing-guide-for-microsoft-365-dynamics-365-power-apps-and-power-bi"></a>Guía de publicación de ofertas de Microsoft 365, Dynamics 365, Power Apps y Power BI
 
 Microsoft AppSource incluye ofertas que se basan en Microsoft 365, Dynamics 365, Power BI y Power Apps o los amplían. Cada uno de estos productos tiene documentación específica para orientarlo durante el proceso de publicación. 
 
-AppSource tiene ofertas de pago, lista y prueba, con las opciones de lista *Obtener ahora*, *Ponerse en contacto conmigo* o *Probar ahora*.
+AppSource tiene ofertas de pago, lista y prueba, con las opciones de lista *Obtener ahora* , *Ponerse en contacto conmigo* o *Probar ahora*.
 
 ## <a name="product-specific-guides"></a>Guías específicas del producto
 

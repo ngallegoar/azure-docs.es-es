@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: af4797d7d7d7cb866674747ea8871bebb059207d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3af3307892e82ecd0697124954e99837ad5eb9e
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031252"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515700"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Acerca de Análisis de código de seguridad de Microsoft
 
@@ -39,7 +39,7 @@ Agregar herramientas de Análisis de código de seguridad de Microsoft a la cana
 
 ### <a name="clean-builds"></a>Compilaciones limpias
 
-Después de solucionar los problemas iniciales informados por las herramientas, puede configurar la extensión para interrumpir las compilaciones en los nuevos problemas. Es fácil configurar la compilación de integración continua en cada solicitud de incorporación de cambios.
+Después de solucionar los problemas iniciales informados por las herramientas, puede configurar la extensión para interrumpir las compilaciones en los nuevos problemas.  Es fácil configurar la compilación de integración continua en cada solicitud de incorporación de cambios.
 
 ### <a name="set-it-and-forget-it"></a>Establézcalas y olvídese
 
@@ -73,7 +73,7 @@ Las contraseñas y otros secretos almacenados en el código fuente actualmente s
 
 ### <a name="roslyn-analyzers"></a>Analizadores basados en Roslyn
 
-Los analizadores basados en Roslyn son herramientas integradas por el compilador de Microsoft para analizar de forma estática el código administrado de C# y Visual Basic. Para más información, consulte [Analizadores basados en Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer).
+Los analizadores basados en Roslyn son herramientas integradas por el compilador de Microsoft para analizar de forma estática el código administrado de C# y Visual Basic. Para más información, consulte [Analizadores basados en Roslyn](/dotnet/fundamentals/code-analysis/quality-rules/security-warnings).
 
 ### <a name="tslint"></a>TSLint
 

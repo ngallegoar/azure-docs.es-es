@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 322f5f6a79bdce23706b2211ccc04ef2451675d0
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913031"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515734"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introducción a Threat Modeling Tool
 
 Microsoft Threat Modeling Tool 2018 2018 se lanzó para que tuviese disponibilidad general en septiembre de 2018, como una opción gratuita de **[hacer clic para descargar](https://aka.ms/threatmodelingtool)** . El cambio en el mecanismo de entrega nos permite insertar las mejoras y correcciones de errores más recientes para los clientes cada vez que abran la herramienta, facilitando el mantenimiento y el uso.
 Este artículo le guía por el proceso de empezar a usar la solución de modelado de amenazas SDL de Microsoft y le muestra cómo utilizar la herramienta para desarrollar modelos de amenazas excepcionales como columna vertebral del proceso de seguridad.
 
-Este artículo se basa en los conocimientos actuales de la solución de modelado de amenazas SDL. Para una revisión rápida, consulte **[Aplicaciones web de modelado de amenazas](https://msdn.microsoft.com/library/ms978516.aspx)** y una versión archivada del artículo de MSDN sobre el **[descubrimiento de defectos de seguridad con el enfoque STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** publicado en 2006.
+Este artículo se basa en los conocimientos actuales de la solución de modelado de amenazas SDL. Para una revisión rápida, consulte **[Aplicaciones web de modelado de amenazas](/previous-versions/msp-n-p/ff648006(v=pandp.10))** y una versión archivada del artículo de MSDN sobre el **[descubrimiento de defectos de seguridad con el enfoque STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** publicado en 2006.
 
 En resumen, la solución implica la creación de un diagrama, la identificación de las amenazas, su mitigación y la validación de cada una. Este es un diagrama que esquematiza este proceso:
 

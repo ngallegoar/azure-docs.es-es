@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 181cae525845e7cae5e8f6f178b01ee33999b8b5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312474"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442147"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creación de un área de trabajo para Azure Machine Learning con la CLI de Azure
 
@@ -177,7 +177,7 @@ Para limitar los datos que Microsoft recopila sobre el área de trabajo, use el 
 > [!IMPORTANT]
 > La selección de un alto impacto de negocio solo puede realizarse al crear un área de trabajo. Este valor no se puede cambiar tras la creación del área de trabajo.
 
-Para obtener más información sobre las claves administradas por el cliente y el área de trabajo de alto impacto de negocio, vea [Seguridad Enterprise para Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
+Para obtener más información sobre las claves administradas por el cliente y el área de trabajo de alto impacto de negocio, vea [Seguridad Enterprise para Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
 
 ### <a name="use-existing-resources"></a>Uso de recursos existentes
 

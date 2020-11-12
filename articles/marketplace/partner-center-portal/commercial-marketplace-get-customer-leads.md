@@ -4,15 +4,15 @@ description: Aprenda a generar y recibir clientes potenciales a partir de sus of
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/01/2020
-ms.openlocfilehash: 5627d6afab22defebeebd3f04695ef95390f1163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d5f2248d94796d5e3ee76301642a95abddebfe4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653322"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489342"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Clientes potenciales a partir de la oferta en el marketplace comercial
 
@@ -50,9 +50,9 @@ Estos son los lugares en los que se genera un cliente potencial:
 
 Todos los clientes potenciales que recibe durante el proceso de adquisición de clientes tienen datos en campos específicos. El primer campo donde buscar es `LeadSource`, que sigue este formato: **Origen-Acción** | **Oferta**.
 
-**Orígenes**: El valor de este campo se rellena en función del Marketplace que generó el cliente potencial. Los valores posibles son `"AzureMarketplace"`, `"AzurePortal"` y `"AppSource (SPZA)"`.
+**Orígenes** : El valor de este campo se rellena en función del Marketplace que generó el cliente potencial. Los valores posibles son `"AzureMarketplace"`, `"AzurePortal"` y `"AppSource (SPZA)"`.
 
-**Acciones**: El valor de este campo se rellena en función de la acción realizada por el cliente en el marketplace que generó el cliente potencial.
+**Acciones** : El valor de este campo se rellena en función de la acción realizada por el cliente en el marketplace que generó el cliente potencial.
 
 Los valores posibles son:
 
@@ -62,7 +62,7 @@ Los valores posibles son:
 - **"Create"** : esta acción aparece solo en Azure Portal y se genera cada vez que un cliente adquiere su oferta para su cuenta.
 - **"StartTestDrive"** : esta acción solo está destinada a la opción **Versión de prueba** y se genera cuando un cliente inicia su versión de prueba.
 
-**Ofertas**: Es posible que tenga varias ofertas en el marketplace comercial. El valor de este campo se rellena en función de la oferta que generó el cliente potencial. El identificador del publicador y el de la oferta se envían en este campo y son los valores que usted proporcionó al publicar la oferta en el marketplace.
+**Ofertas** : Es posible que tenga varias ofertas en el marketplace comercial. El valor de este campo se rellena en función de la oferta que generó el cliente potencial. El identificador del publicador y el de la oferta se envían en este campo y son los valores que usted proporcionó al publicar la oferta en el marketplace.
 
 A continuación se muestran los valores en el formato esperado `publisherid.offerid`: 
 
@@ -89,10 +89,10 @@ La información del cliente se envía a través de varios campos. En el ejemplo 
 
 Aquí le presentamos algunas recomendaciones para generar clientes potenciales a lo largo del ciclo de ventas:
 
-- **Proceso**: defina un proceso de ventas claro, con hitos, análisis y una clara propiedad del equipo.
-- **Calificación**: defina los requisitos previos, que indican si un cliente potencial se ha calificado por completo. Asegúrese de que los representantes de ventas o marketing califiquen a los clientes potenciales con cuidado antes de hacerlos pasar por el proceso de ventas completo.
-- **Seguimiento**: no olvide hacer un seguimiento en 24 horas. Incluya al cliente potencial en la herramienta CRM de su elección inmediatamente después de que el cliente implemente la versión de prueba. Envíele un correo electrónico mientras aún tenga el recuerdo reciente. Solicite la programación de una llamada telefónica para comprender mejor si el producto es una buena solución para su problema. Cabe esperar que la transacción típica requiera muchas llamadas de seguimiento.
-- **Consolidación**: consolide a los clientes potenciales para encaminarse hacia un aumento del margen de ganancias. Póngase en contacto con ellos, pero no los bombardee. Le recomendamos que les envíe un correo electrónico varias veces antes de cerrarlos: no abandone al primer intento. Recuerde que estos clientes conocieron directamente el producto y emplearon un tiempo en una evaluación gratuita. Son posibles interesados.
+- **Proceso** : defina un proceso de ventas claro, con hitos, análisis y una clara propiedad del equipo.
+- **Calificación** : defina los requisitos previos, que indican si un cliente potencial se ha calificado por completo. Asegúrese de que los representantes de ventas o marketing califiquen a los clientes potenciales con cuidado antes de hacerlos pasar por el proceso de ventas completo.
+- **Seguimiento** : no olvide hacer un seguimiento en 24 horas. Incluya al cliente potencial en la herramienta CRM de su elección inmediatamente después de que el cliente implemente la versión de prueba. Envíele un correo electrónico mientras aún tenga el recuerdo reciente. Solicite la programación de una llamada telefónica para comprender mejor si el producto es una buena solución para su problema. Cabe esperar que la transacción típica requiera muchas llamadas de seguimiento.
+- **Consolidación** : consolide a los clientes potenciales para encaminarse hacia un aumento del margen de ganancias. Póngase en contacto con ellos, pero no los bombardee. Le recomendamos que les envíe un correo electrónico varias veces antes de cerrarlos: no abandone al primer intento. Recuerde que estos clientes conocieron directamente el producto y emplearon un tiempo en una evaluación gratuita. Son posibles interesados.
 
 Una vez implementada la configuración técnica, incorpore estos clientes potenciales a la estrategia actual de ventas y marketing, así como a los procesos operativos. Estamos interesados en comprender mejor el proceso de ventas global, y queremos trabajar en estrecha colaboración con usted para conseguir clientes potenciales de alta calidad y una cantidad suficiente de datos que le permitan tener éxito. Agradecemos sus comentarios acerca de cómo podemos optimizar y mejorar los clientes potenciales que le enviamos con datos adicionales para obtener los mejores resultados de estos clientes. Díganos si está interesado en [ofrecer comentarios](mailto:AzureMarketOnboard@microsoft.com) y sugerencias para ayudar a que su equipo de ventas tenga mayor éxito con los clientes potenciales del marketplace comercial.
 

@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
-author: keferna
-ms.author: keferna
-ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+author: trkeya
+ms.author: trkeya
+ms.openlocfilehash: 6faecdd561d7c434d2948e70886d6f1b19115d9f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125689"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504839"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuración técnica de la versión de prueba
 
@@ -93,14 +93,10 @@ La opción **Anuncios de versión de prueba** de la pestaña **Versión de prueb
 
 Si está creando la versión de prueba en el Centro de partners, seleccione **Guardar borrador** antes de continuar.
 
+## <a name="additional-resources"></a>Recursos adicionales
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Prácticas recomendadas de la versión de prueba](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Información general](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; asegúrese de que el bloqueador de elementos emergentes está desactivado)
 - [Actualización de una oferta existente en Marketplace comercial](partner-center-portal/update-existing-offer.md)
-
-## <a name="additional-resources"></a>Recursos adicionales
-
-## <a name="feedback"></a>Comentarios
-
-Enviar y ver comentarios de [este producto](https://feedback.azure.com/forums/216369-azure-marketplace)

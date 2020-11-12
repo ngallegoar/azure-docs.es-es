@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bc811ab3cab4b79b81b16dd94a2c72225046e35a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042633"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488285"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de acceso condicional en una directiva personalizada de Azure Active Directory B2C
 
@@ -130,7 +130,7 @@ El elemento **InputClaimsTransformations** puede contener una colección de los 
 
 ### <a name="output-claims"></a>Notificaciones de salida
 
-El proveedor del protocolo de acceso condicional no devuelve ningún valor **OutputClaims**, por lo que no es necesario especificar las notificaciones de salida. Sin embargo, puede incluir notificaciones que el proveedor del protocolo de acceso condicional no devuelva, siempre que establezca el atributo `DefaultValue`.
+El proveedor del protocolo de acceso condicional no devuelve ningún valor **OutputClaims** , por lo que no es necesario especificar las notificaciones de salida. Sin embargo, puede incluir notificaciones que el proveedor del protocolo de acceso condicional no devuelva, siempre que establezca el atributo `DefaultValue`.
 
 El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
 
@@ -428,7 +428,7 @@ Agregue un recorrido del usuario que use las nuevas notificaciones, tal como se 
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
               <Value>CAChallengeIsMfa</Value>
-              <Value>false</Value>
+              <Value>False</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>
@@ -458,7 +458,7 @@ Agregue un recorrido del usuario que use las nuevas notificaciones, tal como se 
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
-              <Value>true</Value>
+              <Value>True</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>

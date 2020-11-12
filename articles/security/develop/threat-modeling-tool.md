@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 02/16/2017
-ms.openlocfilehash: dcf782a41dbb09135f7a4cd767a94ff90578b6ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a637dc431b0f9cd8c40cfa1c048559a56a6b97f
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87169368"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518063"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool
 
@@ -49,7 +49,7 @@ La tabla siguiente contiene vínculos importantes para ayudarle a comenzar con T
 
 A continuación encontrará algunos artículos antiguos que siguen siendo pertinentes para el modelado de amenazas de hoy en día:
 
-* [Artículo sobre la importancia del modelado de amenazas](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
+* [Artículo sobre la importancia del modelado de amenazas](/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
 * [Aprendizaje publicado por Trustworthy Computing](https://www.microsoft.com/download/details.aspx?id=16420)
 
 Consulte lo que han hecho algunos expertos de Threat Modeling Tool:

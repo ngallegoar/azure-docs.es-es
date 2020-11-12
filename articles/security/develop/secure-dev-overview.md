@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baaa311620f5c10948aa3494002ce359cc5dab28
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68934862"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517179"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Procedimientos recomendados para un desarrollo seguro en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan las fases del Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft así como conceptos y preguntas de seguridad que se han de tener en cuenta durante cada fase del ciclo de vida. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse en cada fase del ciclo de vida para diseñar, desarrollar e implementar una aplicación más segura.
@@ -37,7 +37,7 @@ El seguimiento de procedimientos recomendados para el desarrollo de software seg
 
 Cuanto más tarde corrija un problema en su ciclo de vida de desarrollo, más le costará la corrección. Los problemas de seguridad no son una excepción. Si pasa por alto los problemas de seguridad en las primeras fases del desarrollo de software, es posible que cada una de las fases siguientes herede las vulnerabilidades de la fase anterior. El producto final habrá acumulado varios problemas de seguridad y una posible infracción de seguridad. La incorporación de seguridad en cada fase del ciclo de vida de desarrollo le ayuda a detectar problemas antes y a reducir los costos de desarrollo.
 
-Seguimos las fases del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft para introducir actividades y servicios de Azure que pueden usarse para cumplir las prácticas de desarrollo de software seguro en cada fase del ciclo de vida.
+Seguimos las fases del [ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) de Microsoft para introducir actividades y servicios de Azure que pueden usarse para cumplir las prácticas de desarrollo de software seguro en cada fase del ciclo de vida.
 
 Las fases del SDL son:
 
@@ -63,7 +63,7 @@ Entendemos que es posible que muchos de los lectores no tengan un equipo de segu
 
 Utilice los siguientes recursos para obtener más información sobre el desarrollo de aplicaciones seguras y como ayuda para proteger sus aplicaciones en Azure:
 
-[Ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx): el SDL es un proceso de desarrollo de software de Microsoft que ayuda a los desarrolladores a compilar software más seguro. Le ayuda a abordar requisitos de cumplimiento de seguridad al tiempo que reduce los costos de desarrollo.
+[Ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)): el SDL es un proceso de desarrollo de software de Microsoft que ayuda a los desarrolladores a compilar software más seguro. Le ayuda a abordar requisitos de cumplimiento de seguridad al tiempo que reduce los costos de desarrollo.
 
 [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page): OWASP es una comunidad en línea que produce artículos, metodologías, documentación, herramientas y tecnologías disponibles gratuitamente en el ámbito de seguridad de aplicaciones web.
 

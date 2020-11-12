@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9a68ec82ea5e924916cbe8b07c11a4f8f62199a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cbe6b39bda0815c4981c497c07750136bcc9dba
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317963"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517491"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -88,7 +88,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [ASP.NET Debugging Overview](https://msdn.microsoft.com/library/ms227556.aspx)(Información general de depuración ASP.NET), [ASP.NET Tracing Overview](https://msdn.microsoft.com/library/bb386420.aspx) (Información general de seguimiento ASP.NET), [How to: Enable Tracing for an ASP.NET Application](https://msdn.microsoft.com/library/0x5wc973.aspx) (Habilitación del seguimiento para una aplicación ASP.NET), [How to: Enable Debugging for ASP.NET Applications](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) (Habilitación de la depuración para aplicaciones ASP.NET). |
+| **Referencias**              | [ASP.NET Debugging Overview](/previous-versions/ms227556(v=vs.140))(Información general de depuración ASP.NET), [ASP.NET Tracing Overview](/previous-versions/bb386420(v=vs.140)) (Información general de seguimiento ASP.NET), [How to: Enable Tracing for an ASP.NET Application](/previous-versions/0x5wc973(v=vs.140)) (Habilitación del seguimiento para una aplicación ASP.NET), [How to: Enable Debugging for ASP.NET Applications](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) (Habilitación de la depuración para aplicaciones ASP.NET). |
 | **Pasos** | Cuando el seguimiento está habilitado para la página, cada explorador que lo solicite también obtiene la información de seguimiento con los datos del estado interno del servidor y del flujo de trabajo. Esta información podría ser confidencial. Cuando está habilitada la depuración en la página, los errores que se producen en el servidor provocan el seguimiento de pila completo de los datos que se presenta al explorador. Esos datos pueden exponer información confidencial del flujo de trabajo del servidor. |
 
 ## <a name="access-third-party-javascripts-from-trusted-sources-only"></a><a id="js-trusted"></a>Acceso exclusivo a archivos JavaScript de terceros de orígenes de confianza
@@ -110,7 +110,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [OWASP click-jacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html) (Hoja de referencia rápida de OWASP sobre la defensa ante el secuestro de clic), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) (Elementos internos de Internet Explorer: combatir el secuestro de clic con X-Frame-Options) |
+| **Referencias**              | [OWASP click-jacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html) (Hoja de referencia rápida de OWASP sobre la defensa ante el secuestro de clic), [IE Internals - Combating click-jacking With X-Frame-Options](/archive/blogs/ieinternals/combating-clickjacking-with-x-frame-options) (Elementos internos de Internet Explorer: combatir el secuestro de clic con X-Frame-Options) |
 | **Pasos** | <p>el secuestro de clic, también conocido como "clickjacking" o "ataque UI redress", se produce cuando un atacante utiliza varias capas transparentes u opacas para engañar al usuario para que haga clic en un botón o vínculo de otra página al intentar hacer clic en la página del nivel superior.</p><p>Estas capas se logran al elaborar una página malintencionada con un iframe, que carga la página de la víctima. Por lo tanto, el atacante "secuestra" el clic destinado a su página y los enruta a otra página, muy probablemente propiedad de otra aplicación, dominio o ambos. Para evitar el secuestro de clic, establezca los encabezados de respuesta HTTP X-Frame-Options adecuados que indiquen al explorador que no permita enmarcar a otros dominios</p>|
 
 ### <a name="example"></a>Ejemplo
@@ -213,7 +213,7 @@ Tenga en cuenta que esta característica de validación de solicitud no es compa
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [IE8 Security Part V: Comprehensive Protection](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection) (Seguridad de IE8 [parte V]: protección total), [MIME types](https://en.wikipedia.org/wiki/Mime_type) (Tipos de MIME) |
+| **Referencias**              | [IE8 Security Part V: Comprehensive Protection](/archive/blogs/ie/ie8-security-part-v-comprehensive-protection) (Seguridad de IE8 [parte V]: protección total), [MIME types](https://en.wikipedia.org/wiki/Mime_type) (Tipos de MIME) |
 | **Pasos** | El encabezado X-Content-Type-Options es un encabezado HTTP que permite a los desarrolladores especificar que su contenido no se debe someter a un rastreo de MIME. Este encabezado se ha diseñado para mitigar los ataques de rastreo de MIME. Para cada página que podría incluir contenido controlable por el usuario, debe usar el encabezado HTTP X-Content-Type-Options:nosniff. Para habilitar el encabezado necesario globalmente para todas las páginas de la aplicación, puede realizar una de las siguientes acciones|
 
 ### <a name="example"></a>Ejemplo
@@ -289,7 +289,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | SQL Azure, OnPrem |
 | **Atributos**              | N/A, SQL Version: V12 |
-| **Referencias**              | [Procedimientos para configurar un firewall de Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configuración de firewall de Windows para el acceso al motor de base de datos](https://msdn.microsoft.com/library/ms175043) |
+| **Referencias**              | [Procedimientos para configurar un firewall de Azure SQL Database](../../azure-sql/database/firewall-configure.md), [Configuración de firewall de Windows para el acceso al motor de base de datos](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) |
 | **Pasos** | Los sistemas de firewall ayudan a evitar el acceso no autorizado a los recursos de los equipos. Si desea acceder a una instancia del motor de base de datos de SQL Server a través de un firewall, debe configurar el firewall en el equipo que ejecuta SQL Server para que lo permita |
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>Comprobación de que solo se permiten orígenes de confianza si CORS está activado en ASP.NET Web API
@@ -300,7 +300,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | MVC 5 |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Enabling Cross-Origin Requests in ASP.NET Web API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) (Habilitación de solicitudes de origen cruzado en ASP-NET Web API 2), [Funciones para CORS en ASP.NET Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
+| **Referencias**              | [Enabling Cross-Origin Requests in ASP.NET Web API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) (Habilitación de solicitudes de origen cruzado en ASP-NET Web API 2), [Funciones para CORS en ASP.NET Web API 2](/archive/msdn-magazine/2013/december/asp-net-web-api-cors-support-in-asp-net-web-api-2) |
 | **Pasos** | <p>La seguridad del explorador impide que una página web realice solicitudes AJAX a otro dominio. Esta restricción se conoce como la directiva de mismo origen y evita que un sitio malintencionado lea datos confidenciales de otro sitio. Sin embargo, a veces puede ser necesario exponer las API de forma segura para que las consuman otros sitios. Uso compartido de recursos de origen cruzado (CORS) es una norma de W3C que permite mayor flexibilidad a los servidores en la directiva de mismo origen.</p><p>Con CORS, un servidor puede permitir explícitamente algunas solicitudes de origen cruzado y rechazar otras. CORS es más seguro y más flexible que las técnicas anteriores, como JSONP.</p>|
 
 ### <a name="example"></a>Ejemplo
@@ -488,7 +488,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Implementación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Cómo: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](https://msdn.microsoft.com/library/ff647398.aspx) (Procedimiento para cifrar secciones de configuración en ASP.NET 2.0 mediante DPAPI), [Especificar un proveedor de configuración protegida](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Uso de Azure Key Vault para proteger los secretos de la aplicación](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **Referencias**              | [Cómo: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](/previous-versions/msp-n-p/ff647398(v=pandp.10)) (Procedimiento para cifrar secciones de configuración en ASP.NET 2.0 mediante DPAPI), [Especificar un proveedor de configuración protegida](/previous-versions/68ze1hb2(v=vs.140)), [Uso de Azure Key Vault para proteger los secretos de la aplicación](/azure/architecture/multitenant-identity/web-api) |
 | **Pasos** | Los archivos de configuración tales como web.config y appsettings.json se suelen usar para almacenar información confidencial, como nombres de usuario, contraseñas, cadenas de conexión a la base de datos y claves de cifrado. Si no protege esta información, la aplicación es vulnerable a atacantes o usuarios malintencionados que obtienen información confidencial, como nombres de usuario y contraseñas de cuentas, nombres de bases de datos y nombres de servidores. Según el tipo de implementación (Azure o local), cifre las secciones confidenciales de los archivos de configuración mediante DPAPI o servicios como Azure Key Vault. |
 
 ## <a name="ensure-that-all-admin-interfaces-are-secured-with-strong-credentials"></a><a id="admin-strong"></a>Comprobación de que todas las interfaces de administración están protegidas con credenciales seguras
@@ -510,7 +510,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) (Habilitación del arranque seguro y del cifrado de dispositivos de BitLocker en Windows 10 IoT Core) |
+| **Referencias**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](/windows/iot-core/secure-your-device/securebootandbitlocker) (Habilitación del arranque seguro y del cifrado de dispositivos de BitLocker en Windows 10 IoT Core) |
 | **Pasos** | El arranque seguro de UEFI restringe el sistema para permitir solo la ejecución de archivos binarios firmados por una entidad determinada. Esta característica evita que se ejecute código desconocido en la plataforma y pueda debilitar su seguridad. Habilite el arranque seguro de UEFI y restrinja la lista de entidades emisoras de certificados de confianza para la firma de código. Firme todo el código que se implementa en el dispositivo a través de una de las entidades de confianza. |
 
 ## <a name="encrypt-os-and-additional-partitions-of-iot-device-with-bit-locker"></a><a id="partition-iot"></a>Cifrado del sistema operativo y particiones adicionales en los dispositivos IoT con Bitlocker
@@ -565,7 +565,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Elección de puerta de enlace: Azure IoT Hub |
-| **Referencias**              | [Introducción a la administración de dispositivos con IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [Cómo actualizar firmware de dispositivo](../../iot-hub/tutorial-firmware-update.md) |
+| **Referencias**              | [Introducción a la administración de dispositivos con IoT Hub](../../iot-hub/iot-hub-device-management-overview.md), [Cómo actualizar firmware de dispositivo](../../iot-hub/tutorial-firmware-update.md) |
 | **Pasos** | LWM2M es un protocolo de Open Mobile Alliance para la administración de dispositivos IoT. La administración de dispositivos IoT de Azure permite interactuar con dispositivos físicos mediante trabajos de dispositivo. Asegúrese de que la puerta de enlace de la nube implementa un proceso para mantener al día de forma rutinaria el dispositivo y otros datos de configuración mediante la administración de dispositivos de Azure IoT Hub. |
 
 ## <a name="ensure-that-devices-have-end-point-security-controls-configured-as-per-organizational-policies"></a><a id="controls-policies"></a>Comprobación de que los dispositivos tienen controles de seguridad de punto de conexión configurados según las directivas organizativas
@@ -587,7 +587,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Implementación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Guía de seguridad de Azure Storage: administración de las claves de la cuenta de almacenamiento](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_managing-your-storage-account-keys) |
+| **Referencias**              | [Guía de seguridad de Azure Storage: administración de las claves de la cuenta de almacenamiento](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Pasos** | <p>Almacenamiento de claves: se recomienda almacenar las claves de acceso de Azure Storage en Azure Key Vault como secreto y hacer que las aplicaciones recuperen la clave del almacén. Se recomienda esto por los siguientes motivos:</p><ul><li>La aplicación nunca tendrá la clave de almacenamiento codificada de manera rígida en un archivo de configuración, lo que elimina la posibilidad de que alguien acceda a las claves sin permiso específico</li><li>El acceso a las claves se controla con Azure Active Directory. Esto significa que el propietario de la cuenta puede conceder acceso a la serie de aplicaciones que necesitan recuperar las claves de Azure Key Vault. Las demás aplicaciones no podrán acceder a las claves si no se les concede específicamente el permiso</li><li>Regeneración de claves: por motivos de seguridad, se recomienda disponer de un proceso para volver a generar las claves de acceso de almacenamiento de Azure. Los detalles sobre por qué y cómo planear la regeneración de claves se documentan en el artículo de referencia de la Guía de seguridad de Azure Storage</li></ul>|
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-azure-storage"></a><a id="cors-storage"></a>Comprobación de que solo se permiten orígenes de confianza si CORS está activado en Azure Storage
@@ -598,7 +598,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [CORS Support for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dn535601.aspx) (Compatibilidad de CORS para los servicios de Azure Storage) |
+| **Referencias**              | [CORS Support for the Azure Storage Services](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services) (Compatibilidad de CORS para los servicios de Azure Storage) |
 | **Pasos** | Azure Storage permite habilitar el uso compartido de recursos entre orígenes. Puede especificar los dominios que pueden tener acceso a los recursos de cada una de las cuentas de almacenamiento. De forma predeterminada, el uso compartido de recursos entre orígenes está deshabilitado en todos los servicios. Puede habilitarlo mediante la API de REST o la biblioteca de clientes de Storage para llamar a uno de los métodos a fin de establecer las directivas del servicio. |
 
 ## <a name="enable-wcfs-service-throttling-feature"></a><a id="throttling"></a>Habilitación de la característica de limitación del servicio de WCF
@@ -609,7 +609,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
+| **Referencias**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Pasos** | <p>No limitar el uso de recursos del sistema podría provocar el agotamiento de estos y, en última instancia, la denegación del servicio.</p><ul><li>**EXPLICACIÓN:** Windows Communication Foundation (WCF) ofrece la posibilidad de limitar las solicitudes de servicio. Permitir demasiadas solicitudes de cliente puede superar al sistema y agotar sus recursos. Por otra parte, permitir solo un pequeño número de solicitudes a un servicio puede impedir que los usuarios legítimos lo usen. Cada servicio debe ajustarse y configurarse individualmente para permitir la cantidad adecuada de recursos.</li><li>**RECOMENDACIONES** Habilite la característica de limitación del servicio de WCF y establezca los límites adecuados para la aplicación.</li></ul>|
 
 ### <a name="example"></a>Ejemplo
@@ -632,7 +632,7 @@ El siguiente es un ejemplo de configuración con la limitación habilitada:
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
+| **Referencias**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Pasos** | Los metadatos pueden ayudar a los atacantes a obtener información sobre el sistema y a planear la forma de ataque. Los servicios de WCF pueden configurarse para exponer los metadatos. Los metadatos proporcionan información descriptiva detallada del servicio y no se deben difundir en entornos de producción. Las propiedades `HttpGetEnabled` / `HttpsGetEnabled` de la clase de ServiceMetaData definen si un servicio va a exponer los metadatos | 
 
 ### <a name="example"></a>Ejemplo

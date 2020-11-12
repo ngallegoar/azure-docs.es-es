@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bac17073650736df9ec48e951290852e082e9417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3f3ca7b5d4516c2ad5dc9cb19a2eaed0a8a4a8
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543000"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518284"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Marco de seguridad: Auditoría y registro | Mitigaciones 
 
@@ -131,7 +131,7 @@ ms.locfileid: "87543000"
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Configuración de la auditoría de inicio de sesión](https://msdn.microsoft.com/library/ms175850.aspx) |
+| **Referencias**              | [Configuración de la auditoría de inicio de sesión](/sql/ssms/configure-login-auditing-sql-server-management-studio) |
 | **Pasos** | <p>La auditoría de inicio de sesión del servidor de base de datos debe estar habilitada para detectar y confirmar ataques para averiguar la contraseña. Es importante capturar los intentos de inicio de sesión incorrectos. Capturar los intentos de inicio de sesión correctos e incorrectos proporciona una ventaja adicional durante las investigaciones</p>|
 
 ## <a name="enable-threat-detection-on-azure-sql"></a><a id="threat-detection"></a>Habilitamiento de la detección de amenazas en Azure SQL
@@ -142,7 +142,7 @@ ms.locfileid: "87543000"
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | SQL Azure |
 | **Atributos**              | Versión de SQL: V12 |
-| **Referencias**              | [Introducción a Detección de amenazas de SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
+| **Referencias**              | [Introducción a Detección de amenazas de SQL Database](../../azure-sql/database/threat-detection-configure.md)|
 | **Pasos** |<p>Detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad a la base de datos. La detección de amenazas ofrece un nuevo nivel de seguridad, que permite a los clientes detectar amenazas potenciales y responder a ellas a medida que se producen, gracias a las alertas de seguridad sobre actividades anómalas que se proporcionan.</p><p>Los usuarios pueden explorar los eventos sospechosos mediante la auditoría de Azure SQL Database para determinar si proceden de un intento de acceder a los datos en la base de datos, infringir su seguridad o aprovecharlos.</p><p>Detección de amenazas facilita la solución de las posibles amenazas a la base de datos sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de seguridad avanzada.</p>|
 
 ## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Uso de Análisis de Azure Storage para auditar el acceso de Azure Storage
@@ -153,7 +153,7 @@ ms.locfileid: "87543000"
 | **Fase de SDL**               | Implementación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D |
-| **Referencias**              | [Uso de Análisis de Storage para supervisar el tipo de autorización](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **Referencias**              | [Uso de Análisis de Storage para supervisar el tipo de autorización](../../storage/blobs/security-recommendations.md#loggingmonitoring) |
 | **Pasos** | <p>Para cada cuenta de almacenamiento, se puede habilitar el Análisis de Azure Storage para realizar el registro y almacenar datos de métricas. Los registros de análisis de almacenamiento proporcionan información importante como, por ejemplo, el método de autenticación utilizado por un usuario al acceder al almacenamiento.</p><p>Esto puede resultar muy útil si se está esforzando por proteger el acceso al almacenamiento. Por ejemplo, en Blob Storage puede configurar todos los contenedores para que sean privados e implementar el uso de un servicio de Firma de acceso compartido en sus aplicaciones. Luego puede comprobar los registros periódicamente para ver si se ha accedido a los blobs mediante las claves de la cuenta de almacenamiento, lo que podría indicar una infracción de seguridad, o si los blobs son públicos pero no deberían serlo.</p>|
 
 ## <a name="implement-sufficient-logging"></a><a id="sufficient-logging"></a>Implementación de suficientes registros
@@ -164,7 +164,7 @@ ms.locfileid: "87543000"
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | .NET Framework |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
+| **Referencias**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Pasos** | <p>La falta de una traza de auditoría después de un incidente de seguridad, puede dificultar los esfuerzos de investigación. Windows Communication Foundation (WCF) ofrece la capacidad de registrar los intentos de autenticación correctos e incorrectos.</p><p>Si registra los intentos de autenticación incorrectos puede advertir a los administradores de posibles ataques de fuerza bruta. Del mismo modo, el registro de eventos de autenticación correctos puede proporcionar una traza de auditoría útil cuando está en peligro una cuenta legítima. Habilite la característica de auditoría de seguridad del servicio de WCF. |
 
 ### <a name="example"></a>Ejemplo
@@ -193,7 +193,7 @@ El siguiente es un ejemplo de configuración con la auditoría habilitada
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | .NET Framework |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
+| **Referencias**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Pasos** | <p>La solución desarrollada se ha configurado para que no genere una excepción cuando se produce un error al escribir en un registro de auditoría. Si WCF está configurado para que no genere una excepción cuando no puede escribir en un registro de auditoría, el programa no recibirá la notificación del error y puede que no se produzca la auditoría de eventos de seguridad críticos.</p>|
 
 ### <a name="example"></a>Ejemplo
@@ -242,5 +242,5 @@ Configure WCF para que informe al programa siempre que no pueda escribir en un r
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Introducción a la supervisión de operaciones de IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **Referencias**              | [Introducción a la supervisión de operaciones de IoT Hub](../../iot-hub/iot-hub-operations-monitoring.md) |
 | **Pasos** | <p>Diseño para recopilar y almacenar datos de auditoría recopilados mediante la supervisión de operaciones de IoT Hub. Habilite las siguientes categorías de supervisión:</p><ul><li>Operaciones de identidad de dispositivos</li><li>Comunicaciones de dispositivo a nube</li><li>Comunicaciones de nube a dispositivo</li><li>Conexiones</li><li>Cargas de archivos</li></ul>|

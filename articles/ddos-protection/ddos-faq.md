@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 040e99e767ad81c4fc240a8765c854f998f3a395
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0873705e105710873be5d024269d40deb1c85e2b
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102769"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505434"
 ---
-# <a name="azure-ddos-protection-standard-overview"></a>Introducción a Protección contra DDoS de Azure estándar
+# <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Preguntas frecuentes de Azure DDoS Protection Standard
 
 En este artículo se responden las preguntas más frecuentes sobre Azure DDoS Protection Standard. 
 

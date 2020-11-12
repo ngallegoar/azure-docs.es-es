@@ -13,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c4f054259aa7c3f2a9fdfaeeadd64f26dd9bea
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116978"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444918"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Control de los cambios de cookies de SameSite en el explorador Chrome
 
@@ -26,7 +26,7 @@ ms.locfileid: "88116978"
 
 `SameSite` es una propiedad que se puede establecer en las cookies HTTP para evitar los ataques de falsificación de solicitud entre sitios (CSRF) en las aplicaciones web:
 
-- Cuando `SameSite` se establece en **Lax**, la cookie se envía en las solicitudes del mismo sitio y en las solicitudes GET de otros sitios. No se envía en las solicitudes GET entre dominios.
+- Cuando `SameSite` se establece en **Lax** , la cookie se envía en las solicitudes del mismo sitio y en las solicitudes GET de otros sitios. No se envía en las solicitudes GET entre dominios.
 - Un valor **Strict** garantiza que la cookie se envíe solo en las solicitudes dentro del mismo sitio.
 
 De forma predeterminada, el valor de la propiedad `SameSite` no está establecido en los exploradores. Por ese motivo, no hay restricciones al enviar cookies en las solicitudes. Una aplicación deberá habilitar la protección CSRF al establecer el valor en **Lax** o **Strict** según sus requisitos.
@@ -35,7 +35,7 @@ De forma predeterminada, el valor de la propiedad `SameSite` no está establecid
 
 [Actualizaciones recientes de los estándares de SameSite](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) proponen proteger las aplicaciones al configurar `SameSite` como Lax de forma predeterminada cuando no se haya establecido ningún valor. Esta mitigación significa que las cookies se restringirán en las solicitudes HTTP (a excepción de las solicitudes GET) que se realicen desde otros sitios. Además, se introduce un valor **None** para quitar las restricciones de las cookies que se envían. Estas actualizaciones se publicarán pronto en una versión próxima del explorador Chrome.
 
-Cuando las aplicaciones web se autentican con la plataforma de identidad de Microsoft mediante el modo de respuesta "form_post", el servidor de inicio de sesión responde a estas con una solicitud HTTP POST para enviar los tokens o el código de autenticación. Dado que esta es una solicitud entre dominios (de `login.microsoftonline.com` a su dominio; por ejemplo, `https://contoso.com/auth`), las cookies que se establecieron en la aplicación ahora se rigen por las nuevas reglas de Chrome. Las cookies que deben usarse en escenarios entre sitios contienen los valores *state* y *nonce*, que también se envían en la solicitud de inicio de sesión. Azure AD genera otras cookies para almacenar la sesión.
+Cuando las aplicaciones web se autentican con la plataforma de identidad de Microsoft mediante el modo de respuesta "form_post", el servidor de inicio de sesión responde a estas con una solicitud HTTP POST para enviar los tokens o el código de autenticación. Dado que esta es una solicitud entre dominios (de `login.microsoftonline.com` a su dominio; por ejemplo, `https://contoso.com/auth`), las cookies que se establecieron en la aplicación ahora se rigen por las nuevas reglas de Chrome. Las cookies que deben usarse en escenarios entre sitios contienen los valores *state* y *nonce* , que también se envían en la solicitud de inicio de sesión. Azure AD genera otras cookies para almacenar la sesión.
 
 Si no actualiza las aplicaciones web, este nuevo comportamiento generará errores de autenticación.
 
@@ -81,11 +81,8 @@ Para obtener más información sobre cómo administrar las cookies de SameSite e
 
 Obtenga más información sobre SameSite y el escenario de una aplicación web:
 
-> [!div class="nextstepaction"]
-> [Preguntas más frecuentes de Google Chrome sobre SameSite](https://www.chromium.org/updates/same-site/faq)
+- [Preguntas más frecuentes de Google Chrome sobre SameSite](https://www.chromium.org/updates/same-site/faq)
 
-> [!div class="nextstepaction"]
-> [Página de SameSite de Chromium](https://www.chromium.org/updates/same-site)
+- [Página de SameSite de Chromium](https://www.chromium.org/updates/same-site)
 
-> [!div class="nextstepaction"]
-> [Escenario: Aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md)
+- [Escenario: Aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md)

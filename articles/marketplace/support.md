@@ -4,15 +4,15 @@ description: Obtenga información acerca de las opciones de soporte técnico en 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: navits09
+ms.author: navits
 ms.date: 09/18/2020
-ms.openlocfilehash: 983f7e400a33cb36f30505e5a8a28811d9d4cdfb
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b042d1e1f38b2a4a84522d58ad482d4262f69a4a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283354"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488900"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Soporte técnico para el programa de marketplace comercial en el Centro de partners
 
@@ -25,13 +25,13 @@ Microsoft ofrece soporte para una amplia variedad de productos y servicios. Enco
 
 1. Inicie sesión en el [programa de marketplace comercial en el Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) con su cuenta profesional (si aún no lo ha hecho, necesitará [crear una cuenta del Centro de partners](partner-center-portal/create-account.md).
 
-2. En el menú superior del lado derecho de la página, seleccione el icono **Soporte técnico** .
+2. En el menú superior del lado derecho de la página, seleccione el icono **Soporte técnico**.
 
 3. El panel **Ayuda y soporte técnico** aparecerá el panel desde el lado derecho de la página.
 
    ![Menú desplegable de soporte técnico](./media/support/commercial-marketplace-support-pane.png)
 
-    También puede ir al panel **Página principal** y seleccionar **Ayuda y soporte técnico** .
+    También puede ir al panel **Página principal** y seleccionar **Ayuda y soporte técnico**.
 
    ![Ayuda y soporte técnico desde la página principal](./media/support/homepage-help-support.png)
 
@@ -39,11 +39,11 @@ Microsoft ofrece soporte para una amplia variedad de productos y servicios. Enco
 
 5. Seleccione **[Foro de la Comunidad de partners de Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder sus preguntas aprovechando el conocimiento de otros anunciantes de Microsoft.
 
-6. Seleccione **[Ayuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir un vale **Nueva solicitud de soporte técnico** .  
+6. Seleccione **[Ayuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir un vale **Nueva solicitud de soporte técnico**.  
 
 ## <a name="how-to-open-a-support-ticket"></a>Cómo abrir una incidencia de soporte técnico
 
-Ahora está listo para abrir una incidencia de soporte técnico en la pantalla **Ayuda y soporte técnico** .
+Ahora está listo para abrir una incidencia de soporte técnico en la pantalla **Ayuda y soporte técnico**.
 
 ![Ayuda y soporte técnico](./media/support/help-and-support.png)
 
@@ -52,7 +52,7 @@ Ahora está listo para abrir una incidencia de soporte técnico en la pantalla *
 
 **Opción 1:** Escriba palabras clave como: Marketplace, aplicación de Azure, oferta de SaaS, administración de cuentas, administración de clientes potenciales, problema de implementación, pago, etc.
 
-**Opción 2:** Examine temas -> seleccione **Categoría** = Marketplace comercial -> seleccione el **tema** adecuado y, a continuación, el **subtema** .
+**Opción 2:** Examine temas -> seleccione **Categoría** = Marketplace comercial -> seleccione el **tema** adecuado y, a continuación, el **subtema**.
 
 Una vez que haya encontrado el tema que desea, seleccione **Review Solutions** (Revisar soluciones).
 
@@ -61,20 +61,20 @@ Una vez que haya encontrado el tema que desea, seleccione **Review Solutions** (
 Las opciones siguientes estarán disponibles:
 
 - Para seleccionar otro tema, seleccione un vínculo de tema diferente en **selected issue** (problema seleccionado).
-- Revise la descripción de este problema, si está disponible.  Es el texto que se muestra sobre los **pasos recomendados** .
+- Revise la descripción de este problema, si está disponible.  Es el texto que se muestra sobre los **pasos recomendados**.
 - Revise los **pasos recomendados** , si están disponibles.
 - Revise los **documentos recomendados** , si están disponibles.
 
 ![Soluciones recomendadas](./media/support/recommended-solutions.png)
 
-Si no encuentra la respuesta que busca en las **soluciones recomendadas** , seleccione **Provide issue details** (Proporcionar detalles del problema). Complete todos los campos obligatorios para acelerar el proceso de resolución y seleccione **Enviar** .
+Si no encuentra la respuesta que busca en las **soluciones recomendadas** , seleccione **Provide issue details** (Proporcionar detalles del problema). Complete todos los campos obligatorios para acelerar el proceso de resolución y seleccione **Enviar**.
 
 >[!Note]
 >Si no ha iniciado sesión en el Centro de partners y el tema requiere autenticación, se le pedirá que inicie sesión para poder continuar.  Para los temas públicos, no se requiere autenticación.
 
 ## <a name="track-your-existing-support-requests"></a>Realizar un seguimiento de las solicitudes de soporte técnico existentes
 
-Para revisar todas sus incidencias abiertas y cerradas, vaya a **Marketplace comercial** en la barra de navegación izquierda y, a continuación, seleccione **Soporte técnico** .
+Para revisar todas sus incidencias abiertas y cerradas, vaya a **Marketplace comercial** en la barra de navegación izquierda y, a continuación, seleccione **Soporte técnico**.
 
 ## <a name="record-issue-details-with-a-har-file"></a>Registro de los detalles del problema con un archivo HAR
 
@@ -88,8 +88,8 @@ Para ayudar a los agentes de soporte técnico a solucionar el problema, consider
 Para generar un archivo HAR mediante **Microsoft Edge** o **Google Chrome** :
 
 1. Vaya a la página web donde está experimentando el problema.
-2. En la esquina superior derecha de la ventana, seleccione el icono de puntos suspensivos y, a continuación, **Más herramientas** > **Herramientas de desarrollo** . Puede presionar F12 como método abreviado de teclado.
-3. En el panel Herramientas de desarrollo, seleccione la pestaña **Red** .
+2. En la esquina superior derecha de la ventana, seleccione el icono de puntos suspensivos y, a continuación, **Más herramientas** > **Herramientas de desarrollo**. Puede presionar F12 como método abreviado de teclado.
+3. En el panel Herramientas de desarrollo, seleccione la pestaña **Red**.
 4. Seleccione **Stop recording network log** (Dejar de grabar el registro de red) y **Borrar** para quitar los registros existentes. El icono de registro cambiará a gris.
 
     ![Cómo quitar registros existentes en Microsoft Edge o Google Chrome](media/support/chromium-stop-clear-session.png)
@@ -109,13 +109,13 @@ Para generar un archivo HAR mediante **Microsoft Edge** o **Google Chrome** :
 Para generar un archivo HAR mediante **Mozilla Firefox** :
 
 1. Vaya a la página web donde está experimentando el problema.
-1. En la esquina superior derecha de la ventana, seleccione el icono de puntos suspensivos y, a continuación, **Desarrollador web** > **Alternar herramientas** . Puede presionar F12 como método abreviado de teclado.
+1. En la esquina superior derecha de la ventana, seleccione el icono de puntos suspensivos y, a continuación, **Desarrollador web** > **Alternar herramientas**. Puede presionar F12 como método abreviado de teclado.
 1. Seleccione la pestaña **Red** y **Limpiar** para quitar los registros existentes.
 
     ![Cómo quitar los registros existentes en Mozilla Firefox](media/support/firefox-clear-session.png)
 
 1. Reproduzca el problema que desea solucionar.
-1. Una vez que haya reproducido el problema, seleccione la opción de **exportación o importación de HAR** > **Guardar todo como HAR** .
+1. Una vez que haya reproducido el problema, seleccione la opción de **exportación o importación de HAR** > **Guardar todo como HAR**.
 
     ![Cómo exportar un archivo HAR en Mozilla Firefox](media/support/firefox-network-export-har.png)
 
@@ -123,9 +123,9 @@ Para generar un archivo HAR mediante **Mozilla Firefox** :
 
 Para generar un archivo HAR mediante **Safari** :
 
-1. Habilite las herramientas de desarrollo en Safari: seleccione **Safari** > **Preferencias** . Diríjase a la pestaña **Avanzadas** y, a continuación, seleccione **Mostrar menú Desarrollar en la barra de menús** .
+1. Habilite las herramientas de desarrollo en Safari: seleccione **Safari** > **Preferencias**. Diríjase a la pestaña **Avanzadas** y, a continuación, seleccione **Mostrar menú Desarrollar en la barra de menús**.
 1. Vaya a la página web donde está experimentando el problema.
-1. Seleccione **Desarrollar** y, a continuación, seleccione **Mostrar inspector web** .
+1. Seleccione **Desarrollar** y, a continuación, seleccione **Mostrar inspector web**.
 1. Seleccione la pestaña **Red** y **Borrar elementos de red** para quitar los registros existentes.
 
     ![Cómo quitar los registros existentes en Safari](media/support/safari-clear-session.png)

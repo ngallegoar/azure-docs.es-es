@@ -5,17 +5,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e8623ecb351fa99a437de70a9b74a70fb6228cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5f2d3ba12fa65beb7156e056c23e44b028cbb520
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151153"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445071"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -174,7 +174,7 @@ Los usuarios pueden habilitar opcionalmente un modo de operación en el que se d
 
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
-Cree un objeto **ClientSideEncryptionOptions** y establézcalo en la creación de cliente con **SpecializedBlobClientOptions** . No se pueden establecer opciones de cifrado por API. Todo lo demás lo controlará la biblioteca de cliente internamente.
+Cree un objeto **ClientSideEncryptionOptions** y establézcalo en la creación de cliente con **SpecializedBlobClientOptions**. No se pueden establecer opciones de cifrado por API. Todo lo demás lo controlará la biblioteca de cliente internamente.
 
 ```csharp
 // Your key and key resolver instances, either through KeyVault SDK or an external implementation
@@ -207,7 +207,7 @@ MemoryStream outputStream = new MemoryStream();
 blob.DownloadTo(outputStream);
 ```
 
-No es necesario un **BlobServiceClient** para aplicar las opciones de cifrado. También se pueden pasar a las construcciones **BlobContainerClient**/**BlobClient** que aceptan objetos **BlobClientOptions** .
+No es necesario un **BlobServiceClient** para aplicar las opciones de cifrado. También se pueden pasar a las construcciones **BlobContainerClient**/**BlobClient** que aceptan objetos **BlobClientOptions**.
 
 Si ya hay un objeto **BlobClient** deseado, pero sin las opciones de cifrado del lado cliente, existe un método de extensión para crear una copia de ese objeto con las **ClientSideEncryptionOptions** especificadas. Este método de extensión evita la sobrecarga que implica construir un objeto **BlobClient** desde cero.
 
@@ -247,7 +247,7 @@ blob.DownloadToStream(outputStream, null, options, null);
 
 ### <a name="queue-service-encryption"></a>Cifrado del servicio Cola
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
-Cree un objeto **ClientSideEncryptionOptions** y establézcalo en la creación de cliente con **SpecializedQueueClientOptions** . No se pueden establecer opciones de cifrado por API. Todo lo demás lo controlará la biblioteca de cliente internamente.
+Cree un objeto **ClientSideEncryptionOptions** y establézcalo en la creación de cliente con **SpecializedQueueClientOptions**. No se pueden establecer opciones de cifrado por API. Todo lo demás lo controlará la biblioteca de cliente internamente.
 
 ```csharp
 // Your key and key resolver instances, either through KeyVault SDK or an external implementation
@@ -277,7 +277,7 @@ queue.SendMessage("Hello, World!");
 QueueMessage[] queue.ReceiveMessages(); 
 ```
 
-No es necesario un **QueueServiceClient** para aplicar las opciones de cifrado. También se pueden pasar a las construcciones **QueueClient** que aceptan objetos **QueueClientOptions** .
+No es necesario un **QueueServiceClient** para aplicar las opciones de cifrado. También se pueden pasar a las construcciones **QueueClient** que aceptan objetos **QueueClientOptions**.
 
 Si ya hay un objeto **QueueClient** deseado, pero sin las opciones de cifrado del lado cliente, existe un método de extensión para crear una copia de ese objeto con las **ClientSideEncryptionOptions** especificadas. Este método de extensión evita la sobrecarga que implica construir un objeto **QueueClient** desde cero.
 
@@ -292,7 +292,7 @@ ClientSideEncryptionOptions encryptionOptions;
 QueueClient clientSideEncryptionQueue = plaintextQueue.WithClientSideEncryptionOptions(encryptionOptions);
 ```
 
-Algunos usuarios pueden tener colas donde no todos los mensajes recibidos se pueden descifrar correctamente y se debe iniciar la clave o la resolución. En este caso, se generará la línea final del ejemplo anterior y no se podrá acceder a ninguno de los mensajes recibidos. En estos escenarios, se puede usar la subclase **QueueClientSideEncryptionOptions** para ofrecer opciones de cifrado a los clientes. Expone un evento **DecryptionFailed** que se desencadenará cada vez que no se pueda descifrar un mensaje de la cola, siempre que se haya agregado al menos una invocación al evento. Los mensajes con errores individuales se pueden administrar de esta manera y se filtrarán del **QueueMessage[]** final devuelto por **ReceiveMessages** .
+Algunos usuarios pueden tener colas donde no todos los mensajes recibidos se pueden descifrar correctamente y se debe iniciar la clave o la resolución. En este caso, se generará la línea final del ejemplo anterior y no se podrá acceder a ninguno de los mensajes recibidos. En estos escenarios, se puede usar la subclase **QueueClientSideEncryptionOptions** para ofrecer opciones de cifrado a los clientes. Expone un evento **DecryptionFailed** que se desencadenará cada vez que no se pueda descifrar un mensaje de la cola, siempre que se haya agregado al menos una invocación al evento. Los mensajes con errores individuales se pueden administrar de esta manera y se filtrarán del **QueueMessage[]** final devuelto por **ReceiveMessages**.
 
 ```csharp
 // Create your encryption options using the sub-class.
@@ -383,7 +383,7 @@ Además de crear una directiva de cifrado y configurarla en las opciones de soli
 ```
 
 #### <a name="using-attributes"></a>Uso de atributos
-Tal como se mencionó anteriormente, si la entidad implementa TableEntity, las propiedades se pueden completar con el atributo [EncryptProperty] en lugar de especificar **EncryptionResolver** .
+Tal como se mencionó anteriormente, si la entidad implementa TableEntity, las propiedades se pueden completar con el atributo [EncryptProperty] en lugar de especificar **EncryptionResolver**.
 
 ```csharp
 [EncryptProperty]

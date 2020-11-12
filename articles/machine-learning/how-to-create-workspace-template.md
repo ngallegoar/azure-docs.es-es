@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305481"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442062"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -34,7 +34,7 @@ Para obtener más información, consulte [Implementación de una aplicación con
 
 * Algunos escenarios requieren abrir una incidencia de soporte técnico. Dichos escenarios son:
 
-    * __Área de trabajo habilitada para Private Link con una clave administrada por el cliente (CMK)__
+    * __Área de trabajo habilitada para Private Link con una clave administrada por el cliente__
     * __Azure Container Registry para el área de trabajo detrás de la red virtual__
 
     Para obtener más información, consulte [Administración y configuración de cuotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
@@ -170,7 +170,7 @@ En la plantilla de ejemplo siguiente se muestra cómo crear un área de trabajo 
 > [!IMPORTANT]
 > Una vez que se ha creado un área de trabajo, no se puede cambiar la configuración de datos confidenciales, cifrado, identificador de almacén de claves o identificadores de claves. Para cambiar estos valores, debe crear una nueva área de trabajo con los nuevos valores.
 
-Para obtener más información, consulte [Cifrado en reposo](concept-enterprise-security.md#encryption-at-rest).
+Para obtener más información, consulte [Cifrado en reposo](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]
 > Hay algunos requisitos específicos que la suscripción debe cumplir antes de usar esta plantilla:
@@ -252,7 +252,7 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-Cuando se usa una clave administrada por el cliente, Azure Machine Learning crea un grupo de recursos secundario que contiene la instancia de Cosmos DB. Para más información, consulte [Cifrado en reposo: Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
+Cuando se usa una clave administrada por el cliente, Azure Machine Learning crea un grupo de recursos secundario que contiene la instancia de Cosmos DB. Para más información, consulte [Cifrado en reposo: Cosmos DB](concept-data-encryption.md#encryption-at-rest).
 
 Una configuración adicional que puede proporcionar para los datos es establecer el parámetro **confidential_data** en **true**. Con ello, hace lo siguiente:
 
@@ -264,7 +264,7 @@ Una configuración adicional que puede proporcionar para los datos es establecer
     > [!IMPORTANT]
     > Una vez que se ha creado un área de trabajo, no se puede cambiar la configuración de datos confidenciales, cifrado, identificador de almacén de claves o identificadores de claves. Para cambiar estos valores, debe crear una nueva área de trabajo con los nuevos valores.
 
-  Para obtener más información, consulte [Cifrado en reposo](concept-enterprise-security.md#encryption-at-rest).
+  Para obtener más información, consulte [Cifrado en reposo](concept-data-encryption.md#encryption-at-rest).
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>Implementación del área de trabajo detrás de una red virtual
 

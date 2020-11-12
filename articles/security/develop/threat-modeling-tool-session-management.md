@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: c26acb1460516781b34a5dcc861164e9ef87a37a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1f4d4a3bb78da82753d651e1a73cf244096d5df
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331631"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518108"
 ---
 # <a name="security-frame-session-management"></a>Marco de seguridad: Administración de sesiones
 | Producto o servicio | Artículo |
@@ -159,7 +159,7 @@ También debe destruir la sesión del usuario llamando al método Session.Abando
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | EnvironmentType - OnPrem |
-| **Referencias**              | [httpCookies (Elemento, Esquema de configuración de ASP.NET)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [Propiedad HttpCookie.Secure](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **Referencias**              | [httpCookies (Elemento, Esquema de configuración de ASP.NET)](/previous-versions/dotnet/netframework-4.0/ms228262(v=vs.100)), [Propiedad HttpCookie.Secure](/dotnet/api/system.web.httpcookie.secure) |
 | **Pasos** | Normalmente, las cookies solo son accesibles para el dominio a cuyo ámbito se limitaron. Lamentablemente, la definición de "dominio" no incluye el protocolo, así que las cookies que se crean a través de HTTPS son accesibles a través de HTTP. El atributo "secure" indica al explorador que la cookie solo debe estar disponible a través de HTTPS. Asegúrese de que todas las cookies establecidas a través de HTTPS usen el atributo **secure**. Para aplicar el requisito en el archivo Web.config, establezca el atributo requireSSL en true. Se trata del método preferido porque aplicará el atributo **secure** para todas las cookies actuales y futuras sin necesidad de que se realice ningún otro cambio en el código.|
 
 ### <a name="example"></a>Ejemplo
@@ -221,7 +221,7 @@ Todas las aplicaciones basadas en HTTP que usen cookies deben especificar HttpOn
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Formularios Web Forms |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Propiedad FormsAuthentication.RequireSSL](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
+| **Referencias**              | [Propiedad FormsAuthentication.RequireSSL](/dotnet/api/system.web.security.formsauthentication.requiressl) |
 | **Pasos** | El valor de la propiedad RequireSSL se establece en el archivo de configuración para una aplicación ASP.NET mediante el atributo requireSSL del elemento de configuración. Puede especificar en el archivo Web.config de la aplicación ASP.NET si se requiere Seguridad de la capa de transporte (TLS), conocido anteriormente como SSL (Capa de sockets seguros), para devolver la cookie de autenticación de formularios al servidor estableciendo el atributo requireSSL.|
 
 ### <a name="example"></a>Ejemplo 
@@ -238,7 +238,7 @@ En el ejemplo de código siguiente, se establece el atributo requireSSL en el ar
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | MVC5 |
 | **Atributos**              | EnvironmentType - OnPrem |
-| **Referencias**              | [Windows Identity Foundation (WIF) Configuration – Part II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) (Configuración de Windows Identity Foundation: parte II) |
+| **Referencias**              | [Windows Identity Foundation (WIF) Configuration – Part II](/archive/blogs/alikl/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler) (Configuración de Windows Identity Foundation: parte II) |
 | **Pasos** | Para establecer el atributo httpOnly para las cookies FedAuth, el valor del atributo hideFromScript se debe establecer en True. |
 
 ### <a name="example"></a>Ejemplo
@@ -358,7 +358,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Formularios Web Forms |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Cómo aprovechar las ventajas de las características integradas de ASP.NET para rechazar los ataques a través de Internet](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
+| **Referencias**              | [Cómo aprovechar las ventajas de las características integradas de ASP.NET para rechazar los ataques a través de Internet](/previous-versions/dotnet/articles/ms972969(v=msdn.10)#securitybarriers_topic2) |
 | **Pasos** | Los ataques CSRF en aplicaciones basadas en formularios Web Forms se pueden mitigar si se establece ViewStateUserKey en una cadena aleatoria que varíe para cada usuario, como el id. de usuario o, mejor aún, el identificador de sesión. Por diversas razones técnicas y sociales, el id. de sesión es mucho más adecuado porque es imprevisible, agota el tiempo de espera y varía para cada usuario.|
 
 ### <a name="example"></a>Ejemplo
@@ -378,7 +378,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Propiedad HttpSessionState.Timeout](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
+| **Referencias**              | [Propiedad HttpSessionState.Timeout](/dotnet/api/system.web.sessionstate.httpsessionstate.timeout) |
 | **Pasos** | El tiempo de espera de la sesión representa el evento que se produce cuando un usuario no realiza ninguna acción en un sitio web durante un intervalo (definido por el servidor web). El evento, en el lado servidor, cambia el estado de la sesión del usuario a "invalid" (por ejemplo, "ya no se usa") e indica al servidor web que lo destruirá (y eliminará todos los datos que contiene). En el ejemplo de código siguiente, se establece el atributo de sesión de tiempo de espera en 15 minutos en el archivo Web.config.|
 
 ### <a name="example"></a>Ejemplo
@@ -398,7 +398,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Formularios Web Forms |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Elemento forms para authentication (Esquema de configuración de ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Referencias**              | [Elemento forms para authentication (Esquema de configuración de ASP.NET)](/previous-versions/dotnet/netframework-4.0/1d3t3c61(v=vs.100)) |
 | **Pasos** | Establezca el tiempo de espera de la cookie para el vale de autenticación de formularios en 15 minutos.|
 
 ### <a name="example"></a>Ejemplo
