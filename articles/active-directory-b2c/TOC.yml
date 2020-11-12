@@ -7,6 +7,8 @@
       href: overview.md
     - name: Información técnica y sobre características
       href: technical-overview.md
+    - name: Novedades de la documentación
+      href: whats-new-docs.md
 - name: Guías de inicio rápido
   expanded: true
   items:
