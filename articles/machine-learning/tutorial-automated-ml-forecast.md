@@ -10,12 +10,13 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: 6ad3e0f3077e6f65642496d4da097fa713bddd53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: automl
+ms.openlocfilehash: 5577a0d9270f3e4566bf57876b8abc3d1a3ae4be
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979082"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356508"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsión de la demanda con aprendizaje automático automatizado
 
@@ -144,7 +145,7 @@ Complete la configuración del experimento de ML automatizado especificando el t
     Métrica principal| Métrica de evaluación por la que se medirá el algoritmo de aprendizaje automático.|Error cuadrático medio normalizado
     Explicación del mejor modelo| Muestra automáticamente la posible explicación relativa al mejor modelo creado mediante ML automatizado.| Habilitar
     Algoritmos bloqueados | Algoritmos que desea excluir del trabajo de entrenamiento.| Árboles aleatorios extremos
-    Configuración adicional de la previsión| Esta configuración ayuda a mejorar la precisión del modelo. <br><br> _**Forecast target lags**_ (Retrasos de objetivo de previsión): cuánto quiere retroceder en el tiempo para construir los retrasos de la variable de destino. <br> _**Periodos acumulados de destino**_: especifica la duración de los periodos acumulados en la que se generarán características como *max, min* (máx., mín.) y *sum* (suma). | <br><br>Retardos de&nbsp;destino&nbsp;para la previsión: None <br> Periodos&nbsp;acumulados&nbsp;de destino&nbsp;: None
+    Configuración adicional de la previsión| Esta configuración ayuda a mejorar la precisión del modelo. <br><br> _**Forecast target lags**_ (Retrasos de objetivo de previsión): cuánto quiere retroceder en el tiempo para construir los retrasos de la variable de destino. <br> _**Periodos acumulados de destino**_ : especifica la duración de los periodos acumulados en la que se generarán características como *max, min* (máx., mín.) y *sum* (suma). | <br><br>Retardos de&nbsp;destino&nbsp;para la previsión: None <br> Periodos&nbsp;acumulados&nbsp;de destino&nbsp;: None
     Criterios de exclusión| Si se cumplen los criterios, se detiene el trabajo de entrenamiento. |Tiempo del&nbsp;trabajo de&nbsp;entrenamiento (en horas): 3 <br> Umbral de&nbsp;puntuación&nbsp;de métrica: None
     Validación | Elija un tipo de validación cruzada y un número de pruebas.|Tipo de validación:<br>validación cruzada de&nbsp;k iteraciones&nbsp; <br> <br> Número de validaciones: 5
     Simultaneidad| Número máximo de iteraciones paralelas ejecutadas por iteración| Máximo de iteraciones&nbsp;simultáneas&nbsp;: 6

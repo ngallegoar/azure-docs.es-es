@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de servicios compartidos ISO 27001
 description: Asignación de controles del ejemplo de plano técnico de servicios compartidos ISO 27001. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 7b13440db5574da84c296e27380739e58e640a67
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: bb1cfbc09e8a6209b9e6d0cb2970dc66ee05ba6d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930125"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420349"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Asignación de control del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 
@@ -37,8 +37,6 @@ El [servicio de evaluación de vulnerabilidad de SQL](../../../../azure-sql/data
 El [control de acceso basado en roles (RBAC) de Azure](../../../../role-based-access-control/overview.md) ayuda a administrar quién tiene acceso a los recursos de Azure. Este plano técnico ayuda a controlar el acceso a los recursos de Azure mediante la asignación de siete definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas auditan el uso de los tipos de recursos y las configuraciones que pueden permitir un acceso más flexible a los recursos.
 Conocer los recursos que infringen estas directivas ayuda a tomar medidas correctivas para garantizar que el acceso a los recursos de Azure se limita a los usuarios autorizados.
 
-- implementar los requisitos previos para realizar una auditoría de las máquinas virtuales Linux que tengan cuentas sin contraseña.
-- implementar los requisitos previos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
 - mostrar los resultados de las auditorías de las máquinas virtuales Linux que tengan cuentas sin contraseña
 - mostrar los resultados de las auditorías de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
 - Se deben migrar las cuentas de almacenamiento a los nuevos recursos de Azure Resource Manager
@@ -65,7 +63,6 @@ Este plano técnico asigna tres definiciones de [Azure Policy](../../../policy/o
 - MFA debe estar habilitada en las cuentas con permisos de lectura en la suscripción
 - MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción
 - mostrar los resultados de las auditorías de las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
-- Implementar los requisitos previos para realizar una auditoría de las VM Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644.
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisión de los derechos de acceso de los usuarios
 
@@ -100,11 +97,6 @@ Este plano técnico ayuda a instaurar contraseñas seguras mediante la asignaci�
 - mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
 - mostrar los resultados de las auditorías de las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
 - mostrar los resultados de las auditorías de las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
-- implementar los requisitos previos para auditar las máquinas virtuales que no tengan habilitada la configuración de complejidad de la contraseña
-- implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
-- implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
-- implementar los requisitos previos para auditar las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas a 14 caracteres
-- implementar los requisitos previos para auditar las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Directiva sobre el uso de controles criptográficos
 
@@ -113,7 +105,6 @@ Este plano técnico ayuda a instaurar la directiva sobre el uso de controles cri
 - Acceso a Function App solo a través de HTTPS
 - Acceso a la aplicación web solo a través de HTTPS
 - Acceso a API App solo a través de HTTPS
-- implementar los requisitos previos para auditar las máquinas virtuales Windows que no almacenen las contraseñas mediante el cifrado reversible
 - mostrar los resultados de las auditorías de las máquinas virtuales Windows que no almacenen contraseñas mediante el cifrado reversible
 - El cifrado de discos debe aplicarse en máquinas virtuales
 - Las variables de cuenta de automatización deben cifrarse

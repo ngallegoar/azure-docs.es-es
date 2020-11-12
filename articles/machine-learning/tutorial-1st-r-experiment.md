@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e94288b49cd57b59c126c95ca507477f1c56946
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913286"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321527"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Uso de R para crear un modelo de Machine Learning (versión preliminar)
 
@@ -289,7 +289,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>Implementación como servicio web
 
-Con el modelo puede predecir el riesgo de muerte en una colisión. Use Azure Machine Learning para implementar el modelo como servicio de predicción. Ahora ya está listo para implementar el servicio web en [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
+Con el modelo puede predecir el riesgo de muerte en una colisión. Use Azure Machine Learning para implementar el modelo como servicio de predicción. Ahora ya está listo para implementar el servicio web en [Azure Container Instances](../container-instances/index.yml) (ACI).
 
 ### <a name="register-the-model"></a>Registro del modelo
 

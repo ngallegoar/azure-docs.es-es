@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 6/7/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8bf19052c11301412a299c31a2cd73ed2f9ffc7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 312f052671036d8153dd19fcf4e559e825fd8464
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079904"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396998"
 ---
 # <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>Creación de reglas personalizadas del firewall de aplicaciones web (WAF) con Azure PowerShell
 
@@ -70,6 +70,6 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de las reglas personalizadas de un firewall de aplicaciones web, consulte [Reglas personalizadas para el firewall de aplicaciones web](../custom-waf-rules-overview.md).
+- Para más información acerca de las reglas personalizadas de un firewall de aplicaciones web, consulte [Reglas personalizadas para el firewall de aplicaciones web](../../web-application-firewall/ag/custom-waf-rules-overview.md).
 - Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/).
 - Se pueden encontrar más ejemplos de script de PowerShell de la puerta de enlace de aplicaciones en la [documentación de Azure Application Gateway](../powershell-samples.md).

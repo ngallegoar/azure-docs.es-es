@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: e9bbfd311d6a05d0dd328a63c7d11e14ab0d7e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca9ce27583168dfee1a597fce559afad38a3a8c7
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069619"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422933"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicación de modelos de aprendizaje automático en Azure Functions con Python y TensorFlow
 
@@ -116,7 +116,7 @@ Ejecute todos los comandos siguientes en este entorno virtual activado. (Para sa
 
 En Azure Functions, un proyecto de función es un contenedor para una o varias funciones individuales que responden a un desencadenador específico. Todas las funciones de un proyecto comparten las mismas configuraciones locales y de hospedaje. En esta sección, creará un proyecto de función que contiene una sola función reutilizable llamada `classify`, que proporciona un punto de conexión HTTP. Agregará código más específico en una sección posterior.
 
-1. En la carpeta *start*, use Azure Functions Core Tools para inicializar una aplicación de funciones de Python:
+1. En la carpeta *start* , use Azure Functions Core Tools para inicializar una aplicación de funciones de Python:
 
     ```
     func init --worker-runtime python
@@ -133,12 +133,12 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
     func new --name classify --template "HTTP trigger"
     ```
 
-    Este comando crea una carpeta que coincide con el nombre de la función *classify*. En esa carpeta hay dos archivos: *\_\_init\_\_.py*, que contiene el código de la función, y *function.json*, que describe el desencadenador de la función y sus enlaces de entrada y salida. Para obtener información detallada sobre el contenido de estos archivos, consulte [Examen del contenido del archivo](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) en la guía de inicio rápido de Python.
+    Este comando crea una carpeta que coincide con el nombre de la función *classify*. En esa carpeta hay dos archivos: *\_\_init\_\_.py* , que contiene el código de la función, y *function.json* , que describe el desencadenador de la función y sus enlaces de entrada y salida. Para obtener información detallada sobre el contenido de estos archivos, consulte [Examen del contenido del archivo](./create-first-function-cli-python.md#optional-examine-the-file-contents) en la guía de inicio rápido de Python.
 
 
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
 
-1. Inicie la función, iniciando para ello el host del entorno de ejecución de Azure Functions local en la carpeta *start*:
+1. Inicie la función, iniciando para ello el host del entorno de ejecución de Azure Functions local en la carpeta *start* :
 
     ```
     func start
@@ -158,7 +158,7 @@ Para crear su propio modelo con el nivel gratuito de Custom Vision Service, siga
 > [!TIP]
 > Si desea hospedar el modelo de TensorFlow de modo independiente respecto de la aplicación de función, puede montar un recurso compartido de archivos que contenga el modelo en la aplicación de funciones de Linux. Para más información, consulte [Montaje de un recurso compartido de archivos en una aplicación de funciones de Python mediante la CLI de Azure](./scripts/functions-cli-mount-files-storage-linux.md).
 
-1. En la carpeta *start*, ejecute el siguiente comando para copiar los archivos del modelo en la carpeta *classify*. Asegúrese de incluir `\*` en el comando. 
+1. En la carpeta *start* , ejecute el siguiente comando para copiar los archivos del modelo en la carpeta *classify*. Asegúrese de incluir `\*` en el comando. 
 
     # <a name="bash"></a>[bash](#tab/bash)
     
@@ -182,7 +182,7 @@ Para crear su propio modelo con el nivel gratuito de Custom Vision Service, siga
     
 1. Compruebe que la carpeta *classify* contiene los archivos llamados *model.pb* y *labels.txt*. Si no es así, compruebe que ejecutó el comando en la carpeta *start*.
 
-1. En la carpeta *start*, ejecute el siguiente comando para copiar un archivo con el código auxiliar en la carpeta *classify*:
+1. En la carpeta *start* , ejecute el siguiente comando para copiar un archivo con el código auxiliar en la carpeta *classify* :
 
     # <a name="bash"></a>[bash](#tab/bash)
     
@@ -229,7 +229,7 @@ Para crear su propio modelo con el nivel gratuito de Custom Vision Service, siga
 
 ## <a name="update-the-function-to-run-predictions"></a>Actualización de la función para ejecutar predicciones
 
-1. Abra *classify/\_\_init\_\_.py* en un editor de texto y agregue las siguientes líneas después de las instrucciones `import` existentes para importar la biblioteca JSON estándar y las aplicaciones auxiliares *predict*:
+1. Abra *classify/\_\_init\_\_.py* en un editor de texto y agregue las siguientes líneas después de las instrucciones `import` existentes para importar la biblioteca JSON estándar y las aplicaciones auxiliares *predict* :
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="1-6" highlight="5-6":::
 

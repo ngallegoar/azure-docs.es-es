@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535076"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321289"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn 
 
@@ -37,7 +37,7 @@ En la [segunda parte de este tutorial](tutorial-deploy-models-with-aml.md), apre
 Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 >[!NOTE]
-> El código de este artículo se probó con la versión 1.13.0 del [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
+> El código de este artículo se probó con la versión 1.13.0 del [SDK de Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -159,7 +159,7 @@ Antes de entrenar un modelo, deberá comprender los datos que usa para entrenarl
 
 ### <a name="download-the-mnist-dataset"></a>Descargar el conjunto de datos de MNIST
 
-Use Azure Open Datasets para obtener los archivos de datos de MNIST sin procesar. [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) son conjuntos de datos públicos mantenidos que puede usar para agregar características de escenarios específicos a soluciones de aprendizaje automático a fin de obtener modelos más precisos. Cada conjunto de datos tiene una clase correspondiente, `MNIST` en este caso, para recuperar los datos de maneras diferentes.
+Use Azure Open Datasets para obtener los archivos de datos de MNIST sin procesar. [Azure Open Datasets](../open-datasets/overview-what-are-open-datasets.md) son conjuntos de datos públicos mantenidos que puede usar para agregar características de escenarios específicos a soluciones de aprendizaje automático a fin de obtener modelos más precisos. Cada conjunto de datos tiene una clase correspondiente, `MNIST` en este caso, para recuperar los datos de maneras diferentes.
 
 Este código recupera los datos como objeto `FileDataset`, una subclase de `Dataset`. `FileDataset` hace referencia a uno o varios archivos (en cualquier formato) de sus almacenes de archivos o direcciones URL públicas. La clase permite descargar o montar los archivos en el proceso mediante la creación de una referencia a la ubicación de origen de los datos. Además, el conjunto de registros se registra en el área de trabajo para facilitar su recuperación durante el entrenamiento.
 
@@ -309,7 +309,7 @@ Tenga en cuenta cómo el script obtiene los datos y guarda los modelos:
 
 ### <a name="configure-the-training-job"></a>Configuración del trabajo de entrenamiento
 
-Cree un objeto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para especificar los detalles de configuración del trabajo de entrenamiento, incluido el script de entrenamiento, el entorno que se va a usar y el destino de proceso en el que se ejecutará. Configure el objeto ScriptRunConfig especificando lo siguiente:
+Cree un objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para especificar los detalles de configuración del trabajo de entrenamiento, incluido el script de entrenamiento, el entorno que se va a usar y el destino de proceso en el que se ejecutará. Configure el objeto ScriptRunConfig especificando lo siguiente:
 
 * El directorio que contiene los scripts. Todos los archivos de este directorio se cargan en los nodos del clúster para su ejecución.
 * El destino de proceso. En este caso, se usará el clúster de proceso de Azure Machine Learning que creó.
@@ -368,21 +368,21 @@ En total, la primera ejecución tarda **aproximadamente 10 minutos**. Pero para
 
 ¿Qué sucede mientras espera?:
 
-- **Creación de imágenes**: se crea una imagen de Docker que coincide con el entorno de Python especificado por el entorno de Azure Machine Learning. La imagen se carga en el área de trabajo. La creación y carga de la imagen tarda **aproximadamente 5 minutos**.
+- **Creación de imágenes** : se crea una imagen de Docker que coincide con el entorno de Python especificado por el entorno de Azure Machine Learning. La imagen se carga en el área de trabajo. La creación y carga de la imagen tarda **aproximadamente 5 minutos**.
 
   Esta fase se produce una vez para cada entorno de Python, puesto que el contenedor se almacena en caché para las ejecuciones posteriores. Durante la creación de la imagen, los registros se transmiten al historial de ejecución. Puede supervisar el progreso de la creación de la imagen con estos registros.
 
-- **Escalado**: si el clúster remoto requiere más nodos para la ejecución que los que hay disponibles actualmente, se agregan nodos adicionales de manera automática. El escalado suele tardar **aproximadamente 5 minutos.**
+- **Escalado** : si el clúster remoto requiere más nodos para la ejecución que los que hay disponibles actualmente, se agregan nodos adicionales de manera automática. El escalado suele tardar **aproximadamente 5 minutos.**
 
-- **En ejecución**: En esta fase, los archivos y scripts necesarios se envían al destino de proceso. A continuación, se montan o copian almacenes de datos. Y, luego, se ejecuta **entry_script**. Mientras se ejecuta el trabajo, **stdout** y el directorio **./logs** se transmiten al historial de ejecución. Puede supervisar el progreso de la ejecución con estos registros.
+- **En ejecución** : En esta fase, los archivos y scripts necesarios se envían al destino de proceso. A continuación, se montan o copian almacenes de datos. Y, luego, se ejecuta **entry_script**. Mientras se ejecuta el trabajo, **stdout** y el directorio **./logs** se transmiten al historial de ejecución. Puede supervisar el progreso de la ejecución con estos registros.
 
-- **Posprocesamiento**: el directorio **./outputs** de la ejecución se copia en el historial de ejecución del área de trabajo para que pueda acceder a estos resultados.
+- **Posprocesamiento** : el directorio **./outputs** de la ejecución se copia en el historial de ejecución del área de trabajo para que pueda acceder a estos resultados.
 
 Puede comprobar el progreso de un trabajo en ejecución de varias maneras. En este tutorial se usa un widget de Jupyter, así como un método `wait_for_completion`.
 
 ### <a name="jupyter-widget"></a>Widget de Jupyter
 
-Vea el progreso de la ejecución con un [widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Al igual que el envío de ejecución, el widget es asincrónico y proporciona las actualizaciones directas cada 10 a 15 segundos hasta que se completa el trabajo:
+Vea el progreso de la ejecución con un [widget de Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Al igual que el envío de ejecución, el widget es asincrónico y proporciona las actualizaciones directas cada 10 a 15 segundos hasta que se completa el trabajo:
 
 ```python
 from azureml.widgets import RunDetails
@@ -393,7 +393,7 @@ El widget tendrá un aspecto similar al siguiente al final del entrenamiento:
 
 ![Widget del cuaderno](./media/tutorial-train-models-with-aml/widget.png)
 
-Si necesita cancelar una ejecución, puede seguir [estas instrucciones](https://aka.ms/aml-docs-cancel-run).
+Si necesita cancelar una ejecución, puede seguir [estas instrucciones](./how-to-manage-runs.md).
 
 ### <a name="get-log-results-upon-completion"></a>Obtener los resultados de registros tras la finalización
 

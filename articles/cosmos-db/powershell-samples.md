@@ -3,17 +3,19 @@ title: Ejemplos de Azure PowerShell para Core (SQL) API de Azure Cosmos DB
 description: Obtenga ejemplos de Azure PowerShell para realizar tareas comunes en Azure Cosmos DB para Core (SQL) API.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 174458d9e5be24de669060ea8264f62017489c7a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 95b3bdf7c0f232655b4f64f3700579f3672eb3b8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279308"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341984"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-core-sql-api"></a>Ejemplos de Azure PowerShell para Core (SQL) API de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell usados habitualmente para Azure Cosmos DB. Use los vínculos de la derecha para ir a ejemplos específicos de la API. Los ejemplos comunes son los mismos en todas las API. En la [referencia de Azure PowerShell](/powershell/module/az.cosmosdb) hay páginas de referencia para todos los cmdlets de PowerShell de Azure Cosmos DB disponibles. Compruebe periódicamente si hay actualizaciones para `Az.CosmosDB`. También puede bifurcar estos ejemplos de PowerShell para Cosmos DB desde nuestro repositorio de GitHub, [Ejemplos de PowerShell para Cosmos DB en GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
 

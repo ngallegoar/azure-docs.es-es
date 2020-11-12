@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ca0f1e82b81c8aad53938a5475f1ece68c0e33
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906701"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321558"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Entrenamiento e implementación de un modelo de TensorFlow de clasificación de imágenes con la extensión Azure Machine Learning para Visual Studio Code (versión preliminar)
 
@@ -97,7 +97,7 @@ Para crear un destino de proceso:
     > ![Creación de un destino de proceso](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. Seleccione **Proceso de Azure Machine Learning (AmlCompute)** . Proceso de Azure Machine Learning es una infraestructura de proceso administrado que permite al usuario crear fácilmente un proceso de uno o varios nodos que puede usarse con otros usuarios en el área de trabajo.
-1. Elija el tamaño de la máquina virtual. Seleccione **Standard_F2s_v2** en la lista de opciones. El tamaño de la máquina virtual afecta a la cantidad de tiempo que se tarda en entrenar los modelos. Para más información sobre los tamaños de máquina virtual, consulte [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+1. Elija el tamaño de la máquina virtual. Seleccione **Standard_F2s_v2** en la lista de opciones. El tamaño de la máquina virtual afecta a la cantidad de tiempo que se tarda en entrenar los modelos. Para más información sobre los tamaños de máquina virtual, consulte [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/sizes.md).
 1. Asígnele el nombre "TeamWkspc-com" al proceso y presione **Entrar** para crear el proceso.
 
     Aparece un archivo en VS Code con un contenido similar al siguiente:
@@ -414,4 +414,3 @@ En este momento, se envía una solicitud a Azure para implementar el servicio we
 
 * Para ver un tutorial sobre cómo entrenar con Azure Machine Learning fuera de Visual Studio Code, consulte [Tutorial: Entrenamiento de modelos con Azure Machine Learning](tutorial-train-models-with-aml.md).
 * Para ver un tutorial sobre cómo editar, ejecutar y depurar código de forma local, consulte el [tutorial de hello world de Python](https://code.visualstudio.com/docs/Python/Python-tutorial).
-

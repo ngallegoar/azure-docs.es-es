@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: 3f131e1f8d5604e566c8d7b41fa9d45cb7d2a7a2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f7d1cffb44914535fe218980c750270ebba14445
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054889"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309450"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes
 
@@ -63,7 +63,7 @@ ws = Workspace.from_config()
 
 En la cuenta `pipelinedata`, obtenga el ejemplo de datos públicos de evaluación de ImageNet del contenedor de blobs público `sampledata`. Una llamada a `register_azure_blob_container()` hace que los datos estén disponibles en el área de trabajo con el nombre `images_datastore`. A continuación, establezca el almacén de datos predeterminado del área de trabajo como almacén de datos de salida y úselo para puntuar las salidas de la canalización.
 
-Para obtener más información sobre el acceso a los datos, consulte [cómo acceder a los datos](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#python-sdk).
+Para obtener más información sobre el acceso a los datos, consulte [cómo acceder a los datos](./how-to-access-data.md).
 
 ```python
 from azureml.core.datastore import Datastore
@@ -142,7 +142,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Las canalizaciones de aprendizaje automático no se pueden ejecutar en un entorno local, por lo que debe ejecutarlas en recursos en la nube o *destinos de proceso remotos*. Un destino de proceso remoto es un entorno de proceso virtual reutilizable en el que se ejecutan los experimentos y los flujos de trabajo de aprendizaje automático. 
 
-Ejecute el código siguiente para crear un destino [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) habilitado para GPU y asócielo al área de trabajo. Consulte el [artículo conceptual](https://docs.microsoft.com/azure/machine-learning/concept-compute-target) para más información sobre los destinos de proceso.
+Ejecute el código siguiente para crear un destino [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) habilitado para GPU y asócielo al área de trabajo. Consulte el [artículo conceptual](./concept-compute-target.md) para más información sobre los destinos de proceso.
 
 
 ```python
@@ -305,7 +305,7 @@ Un paso de canalización es un objeto que encapsula todo lo que necesita para ej
 * Los datos de entrada y salida, y cualquier parámetro personalizado
 * Referencia a un script o a una lógica del SDK que se ejecutará durante el paso
 
-Varias clases heredan de la clase primaria [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py&preserve-view=true). Puede elegir clases para usar marcos o pilas concretos para compilar un paso. En este ejemplo, se usa la clase `ParallelRunStep` para definir la lógica del paso con un script de Python personalizado. Si un argumento del script es una entrada al paso o una salida del paso, se debe definir el argumento *tanto* en la matriz `arguments`, *como* en el parámetro `input` o `output`, respectivamente. 
+Varias clases heredan de la clase primaria [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py). Puede elegir clases para usar marcos o pilas concretos para compilar un paso. En este ejemplo, se usa la clase `ParallelRunStep` para definir la lógica del paso con un script de Python personalizado. Si un argumento del script es una entrada al paso o una salida del paso, se debe definir el argumento *tanto* en la matriz `arguments`, *como* en el parámetro `input` o `output`, respectivamente. 
 
 En escenarios con más de un paso, las referencias a un objeto de la matriz `outputs` estarán disponibles como *entrada* en un paso posterior de la canalización.
 
@@ -329,7 +329,7 @@ batch_score_step = ParallelRunStep(
 )
 ```
 
-Para ver una lista de todas las clases que se pueden usar para los diferentes tipos de pasos, consulte el [paquete de pasos](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true).
+Para ver una lista de todas las clases que se pueden usar para los diferentes tipos de pasos, consulte el [paquete de pasos](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py).
 
 ## <a name="submit-the-pipeline"></a>Enviar la canalización
 
@@ -386,9 +386,9 @@ published_pipeline
 
 Para ejecutar la canalización desde el punto de conexión REST, necesita un encabezado de autenticación de tipo portador de OAuth2. En el ejemplo siguiente se usa la autenticación interactiva, con fines ilustrativos; en la mayoría de los escenarios de producción que requieren autenticación automatizada o desatendida, use la autenticación de la entidad de servicio tal y como se [describe en este artículo](how-to-setup-authentication.md).
 
-La autenticación de la entidad de servicio implica la creación de un *Registro de aplicación* en *Azure Active Directory*. Primero genere un secreto de cliente y, a continuación, conceda a la entidad de servicio el *acceso de rol* al área de trabajo de aprendizaje automático. Use la clase [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) para administrar el flujo de autenticación. 
+La autenticación de la entidad de servicio implica la creación de un *Registro de aplicación* en *Azure Active Directory*. Primero genere un secreto de cliente y, a continuación, conceda a la entidad de servicio el *acceso de rol* al área de trabajo de aprendizaje automático. Use la clase [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) para administrar el flujo de autenticación. 
 
-Tanto [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) como `ServicePrincipalAuthentication` heredan de `AbstractAuthentication`. En ambos caso, use la función [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-authentication-header--) de la misma manera para capturar el encabezado:
+Tanto [`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?preserve-view=true&view=azure-ml-py) como `ServicePrincipalAuthentication` heredan de `AbstractAuthentication`. En ambos caso, use la función [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-authentication-header--) de la misma manera para capturar el encabezado:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

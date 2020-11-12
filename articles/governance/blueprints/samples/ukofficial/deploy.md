@@ -1,14 +1,14 @@
 ---
 title: Implementación de ejemplos de planos técnicos de UK OFFICIAL y UK NHS
 description: Pasos de implementación de los ejemplos de plano técnico de UK OFFICIAL y UK NHS, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 07/13/2020
+ms.date: 11/02/2020
 ms.topic: sample
-ms.openlocfilehash: a4512eb982943664afc8217c5332e5e3b6e62fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14e832397c21f183c94720bc71f06530d9caaf14
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86521452"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420332"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Implementación de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS
 
@@ -33,8 +33,8 @@ En primer lugar, implemente el ejemplo de plano técnico mediante la creación d
 
 1. Escriba los _Aspectos básicos_ del ejemplo de plano técnico:
 
-   - **Nombre del plano técnico**: proporcione un nombre para su copia del ejemplo de plano técnico.
-   - **Ubicación de definición**: use los puntos suspensivos y seleccione el grupo de administración donde guardar la copia del ejemplo.
+   - **Nombre del plano técnico** : proporcione un nombre para su copia del ejemplo de plano técnico.
+   - **Ubicación de definición** : use los puntos suspensivos y seleccione el grupo de administración donde guardar la copia del ejemplo.
 
 1. Seleccione la pestaña _Artefactos_ en la parte superior de la página **Siguiente: Artefactos** en la parte inferior de la página.
 
@@ -64,11 +64,11 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
    - Aspectos básicos
 
-     - **Suscripciones**: seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
-     - **Nombre de asignación**: el nombre se rellena de antemano de forma automática en función del nombre del plano técnico.
+     - **Suscripciones** : seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
+     - **Nombre de asignación** : el nombre se rellena de antemano de forma automática en función del nombre del plano técnico.
        Cámbielo si fuera necesario o déjelo tal cual.
-     - **Ubicación**: seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versión de definición de Blueprint**: Elija una versión **publicada** de la copia del ejemplo de plano técnico.
+     - **Ubicación** : seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versión de definición de Blueprint** : Elija una versión **publicada** de la copia del ejemplo de plano técnico.
 
    - Asignación de bloqueo
 

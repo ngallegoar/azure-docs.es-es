@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: dd8de1b56927e158a181df952ce0dbeed140d6b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8891c29e5d8d06df6292d06ec06e5e57fb9880e7
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078663"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422848"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Tutorial: Implementación de un modelo de clasificación de imágenes previamente entrenado en Azure Functions con PyTorch
 
@@ -98,7 +98,7 @@ Ejecute todos los comandos siguientes en este entorno virtual activado. (Para sa
 
 En Azure Functions, un proyecto de función es un contenedor para una o varias funciones individuales que responden a un desencadenador específico. Todas las funciones de un proyecto comparten las mismas configuraciones locales y de hospedaje. En esta sección, creará un proyecto de función que contiene una sola función reutilizable llamada `classify`, que proporciona un punto de conexión HTTP. Agregará código más específico en una sección posterior.
 
-1. En la carpeta *start*, use Azure Functions Core Tools para inicializar una aplicación de funciones de Python:
+1. En la carpeta *start* , use Azure Functions Core Tools para inicializar una aplicación de funciones de Python:
 
     ```
     func init --worker-runtime python
@@ -115,12 +115,12 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
     func new --name classify --template "HTTP trigger"
     ```
 
-    Este comando crea una carpeta que coincide con el nombre de la función *classify*. En esa carpeta hay dos archivos: *\_\_init\_\_.py*, que contiene el código de la función, y *function.json*, que describe el desencadenador de la función y sus enlaces de entrada y salida. Para obtener información detallada sobre el contenido de estos archivos, consulte [Examen del contenido del archivo](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) en la guía de inicio rápido de Python.
+    Este comando crea una carpeta que coincide con el nombre de la función *classify*. En esa carpeta hay dos archivos: *\_\_init\_\_.py* , que contiene el código de la función, y *function.json* , que describe el desencadenador de la función y sus enlaces de entrada y salida. Para obtener información detallada sobre el contenido de estos archivos, consulte [Examen del contenido del archivo](./create-first-function-cli-python.md#optional-examine-the-file-contents) en la guía de inicio rápido de Python.
 
 
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
 
-1. Inicie la función, iniciando para ello el host del entorno de ejecución de Azure Functions local en la carpeta *start*:
+1. Inicie la función, iniciando para ello el host del entorno de ejecución de Azure Functions local en la carpeta *start* :
 
     ```
     func start
@@ -135,7 +135,7 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
 
 Para modificar la función `classify` para clasificar una imagen en base a su contenido, se usa un modelo previamente entrenado [ResNet](https://arxiv.org/abs/1512.03385). El modelo previamente entrenado, que procede de [PyTorch](https://pytorch.org/hub/pytorch_vision_resnet/), clasifica una imagen en 1 de 1000 [clases ImageNet](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a). A continuación, agregue el código auxiliar y las dependencias al proyecto.
 
-1. En la carpeta *start*, ejecute el siguiente comando para copiar el código de predicción y las etiquetas en la carpeta de *classify*.
+1. En la carpeta *start* , ejecute el siguiente comando para copiar el código de predicción y las etiquetas en la carpeta de *classify*.
 
     # <a name="bash"></a>[bash](#tab/bash)
 
@@ -172,7 +172,7 @@ Para modificar la función `classify` para clasificar una imagen en base a su co
     torchvision==0.6.0+cpu
     ```
 
-1. Guarde *requirements. txt*y, después, ejecute el siguiente comando desde la carpeta *start* para instalar las dependencias.
+1. Guarde *requirements. txt* y, después, ejecute el siguiente comando desde la carpeta *start* para instalar las dependencias.
 
 
     ```
@@ -185,7 +185,7 @@ La instalación puede tardar unos minutos. Durante este tiempo, puede continuar 
 
 ## <a name="update-the-function-to-run-predictions"></a>Actualización de la función para ejecutar predicciones
 
-1. Abra *classify/\_\_init\_\_.py* en un editor de texto y agregue las siguientes líneas después de las instrucciones `import` existentes para importar la biblioteca JSON estándar y las aplicaciones auxiliares *predict*:
+1. Abra *classify/\_\_init\_\_.py* en un editor de texto y agregue las siguientes líneas después de las instrucciones `import` existentes para importar la biblioteca JSON estándar y las aplicaciones auxiliares *predict* :
 
     :::code language="python" source="~/functions-pytorch/end/classify/__init__.py" range="1-6" highlight="5-6":::
 

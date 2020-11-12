@@ -1,14 +1,14 @@
 ---
 title: Implementación de ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos
 description: Pasos de implementación para el ejemplo de plano técnico de servicios compartidos ISO 27001, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 07/13/2020
+ms.date: 11/02/2020
 ms.topic: sample
-ms.openlocfilehash: 0f2fa71e56deadba1188ab0fa69898c261861eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acce9ecf906430047fa1e687f719fd4e04daf756
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86521469"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420302"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementación del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 
@@ -33,8 +33,8 @@ En primer lugar, implemente el ejemplo de plano técnico mediante la creación d
 
 1. Escriba los _Aspectos básicos_ del ejemplo de plano técnico:
 
-   - **Nombre del plano técnico**: proporcione un nombre para su copia del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001.
-   - **Ubicación de definición**: use los puntos suspensivos y seleccione el grupo de administración donde guardar la copia del ejemplo.
+   - **Nombre del plano técnico** : proporcione un nombre para su copia del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001.
+   - **Ubicación de definición** : use los puntos suspensivos y seleccione el grupo de administración donde guardar la copia del ejemplo.
 
 1. Seleccione la pestaña _Artefactos_ en la parte superior de la página **Siguiente: Artefactos** en la parte inferior de la página.
 
@@ -64,11 +64,11 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
    - Aspectos básicos
 
-     - **Suscripciones**: seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
-     - **Nombre de asignación**: el nombre se rellena de antemano de forma automática en función del nombre del plano técnico.
+     - **Suscripciones** : seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
+     - **Nombre de asignación** : el nombre se rellena de antemano de forma automática en función del nombre del plano técnico.
        Cámbielo si fuera necesario o déjelo tal cual.
-     - **Ubicación**: seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versión de definición de Blueprint**: Elija una versión **publicada** de la copia del ejemplo de plano técnico.
+     - **Ubicación** : seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versión de definición de Blueprint** : Elija una versión **publicada** de la copia del ejemplo de plano técnico.
 
    - Asignación de bloqueo
 
@@ -82,9 +82,9 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
      Muchos de los artefactos de la definición de plano técnico usan los parámetros definidos en esta sección para proporcionar coherencia.
 
-     - **Nombre de la organización**: Escriba un nombre corto para su organización. Esta propiedad se utiliza principalmente para asignar nombres a los recursos.
-     - **Prefijo de la dirección de subred de los servicios compartidos**: Proporcione el valor de la notación CIDR para conectar en red los recursos implementados.
-     - **Ubicación de los servicios compartidos**: determina en qué ubicación se implementan los artefactos. No todos los servicios están disponibles en todas las ubicaciones. Los artefactos que implementan tales servicios proporcionan una opción de parámetro para la ubicación en la que se va a implementar ese artefacto.
+     - **Nombre de la organización** : Escriba un nombre corto para su organización. Esta propiedad se utiliza principalmente para asignar nombres a los recursos.
+     - **Prefijo de la dirección de subred de los servicios compartidos** : Proporcione el valor de la notación CIDR para conectar en red los recursos implementados.
+     - **Ubicación de los servicios compartidos** : determina en qué ubicación se implementan los artefactos. No todos los servicios están disponibles en todas las ubicaciones. Los artefactos que implementan tales servicios proporcionan una opción de parámetro para la ubicación en la que se va a implementar ese artefacto.
      - **Ubicación permitida (Directiva: Iniciativa de plano técnico para ISO 27001)** : Valor que indica las ubicaciones permitidas para los grupos de recursos y los recursos.
      - **Área de trabajo de Log Analytics para los agentes de máquina virtual (directiva: Iniciativa de plano técnico para ISO 27001)** : Especifica el identificador de recurso de un área de trabajo. Este parámetro utiliza una función `concat` para construir el identificador de recurso.
 
@@ -111,13 +111,13 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |SKU de cuenta de almacenamiento permitida|Asignación de directiva|SKU de almacenamiento permitidas|Lista de SKU de cuenta de almacenamiento de registros de diagnóstico permitidas. El valor predeterminado es _["Standard_LRS"]_ .|
 |SKU de máquina virtual permitida|Asignación de directiva|Lista de SKU de máquinas virtuales que se pueden implementar. El valor predeterminado es _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
 |Iniciativa de plano técnico para ISO 27001|Asignación de directiva|Tipos de recursos para auditar registros de diagnóstico|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
-|Grupo de recursos de Log Analytics|Resource group|Nombre|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvsc-log-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de Log Analytics|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de Log Analytics|Resource group|Nombre|**Bloqueado** : concatena el **nombre de la organización** con `-sharedsvsc-log-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Log Analytics|Resource group|Location|**Bloqueado** : utiliza el parámetro del plano técnico.|
 |Plantilla de Log Analytics|Plantilla de Resource Manager|Nivel de servicio|Establece el nivel de servicio del área de trabajo de Log Analytics. El valor predeterminado es _PerNode_.|
 |Plantilla de Log Analytics|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 |Plantilla de Log Analytics|Plantilla de Resource Manager|Location|Región que se usa para crear el área de trabajo de Log Analytics. El valor predeterminado es _Oeste de EE. UU. 2_.|
-|Grupo de recursos de red|Resource group|Nombre|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-net-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de red|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de red|Resource group|Nombre|**Bloqueado** : concatena el **nombre de la organización** con `-sharedsvcs-net-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de red|Resource group|Location|**Bloqueado** : utiliza el parámetro del plano técnico.|
 |Plantilla de Azure Firewall|Plantilla de Resource Manager|IP privada del firewall de Azure|Configura la dirección IP privada del [firewall de Azure](../../../../firewall/overview.md). Este valor también se usa como tabla de rutas predeterminadas en la subred de servicios compartidos. Debe ser parte de la notación CIDR definida en **Prefijo de la dirección de subred de Azure Firewall**. El valor predeterminado es: _10.0.4.4_.|
 |Plantilla de Azure Firewall|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 |Plantilla del grupo de seguridad de red|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
@@ -128,23 +128,23 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de dirección de subred de Application Gateway|La notación CIDR de la subred de Application Gateway. El valor predeterminado es _10.0.2.0/24_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de dirección de subred de la puerta de enlace de Virtual Network|La notación CIDR de la subred de la puerta de enlace de red virtual. El valor predeterminado es _10.0.3.0/24_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de la dirección de subred de Azure Firewall|La notación CIDR de la subred de [Azure Firewall](../../../../firewall/overview.md). Debe incluir el parámetro de **dirección IP privada de Azure Firewall**.|
-|Grupo de recursos de Key Vault|Resource group|Nombre|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-kv-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de Key Vault|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de Key Vault|Resource group|Nombre|**Bloqueado** : concatena el **nombre de la organización** con `-sharedsvcs-kv-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Key Vault|Resource group|Location|**Bloqueado** : utiliza el parámetro del plano técnico.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Nombre de usuario del administrador de jumpbox|Nombre de usuario de jumpbox. Debe coincidir con el mismo valor de propiedad de la **plantilla de jumpbox**. El valor predeterminado es _jb-admin-user_.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Contraseña o clave SSH del administrador de jumpbox|Clave o contraseña de la cuenta en el jumpbox. Debe coincidir con el mismo valor de propiedad de la **plantilla de jumpbox**. No hay ningún valor predeterminado y no se puede dejar en blanco.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Nombre de usuario del administrador de dominio|Nombre de usuario que se usa para acceder a la máquina virtual de Active Directory y unir otras máquinas virtuales a un dominio. Debe coincidir con el valor de propiedad del **usuario administrador de dominio** de la **plantilla de Active Directory Domain Services**. El valor predeterminado es _domain-admin-user_.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Contraseña del administrador de dominio|Contraseña del usuario administrador de dominio. No hay ningún valor predeterminado y no se puede dejar en blanco.|
-|Plantilla de Key Vault|Plantilla de Resource Manager|Identificador de objeto de AAD|El identificador de objeto de AAD de la cuenta que requiere acceso a la instancia de Key Vault. No hay ningún valor predeterminado y no se puede dejar en blanco. Para buscar este valor en Azure Portal, busque y seleccione "Usuarios" en _Servicios_. Use el cuadro _Nombre_ para filtrar por el nombre de cuenta y seleccione esa cuenta. En la página _Perfil de usuario_, seleccione el icono "Haga clic para copiar" que está situado junto al _identificador de objeto_.  |
+|Plantilla de Key Vault|Plantilla de Resource Manager|Identificador de objeto de AAD|El identificador de objeto de AAD de la cuenta que requiere acceso a la instancia de Key Vault. No hay ningún valor predeterminado y no se puede dejar en blanco. Para buscar este valor en Azure Portal, busque y seleccione "Usuarios" en _Servicios_. Use el cuadro _Nombre_ para filtrar por el nombre de cuenta y seleccione esa cuenta. En la página _Perfil de usuario_ , seleccione el icono "Haga clic para copiar" que está situado junto al _identificador de objeto_.  |
 |Plantilla de Key Vault|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|SKU de Key Vault|Especifica la SKU de Key Vault que se crea. El valor predeterminado es _Premium_.|
-|Grupo de recursos de jumpbox|Resource group|Nombre|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-jb-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de jumpbox|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de jumpbox|Resource group|Nombre|**Bloqueado** : concatena el **nombre de la organización** con `-sharedsvcs-jb-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de jumpbox|Resource group|Location|**Bloqueado** : utiliza el parámetro del plano técnico.|
 |Plantilla de jumpbox|Plantilla de Resource Manager|Nombre de usuario del administrador de jumpbox|Nombre de usuario que se usa para acceder a las máquinas virtuales de jumpbox. Debe coincidir con el mismo valor de propiedad de la **plantilla de Key Vault**. El valor predeterminado es _jb-admin-user_.|
 |Plantilla de jumpbox|Plantilla de Resource Manager|Contraseña del administrador de Jumpbox (identificador de recurso de Key Vault)|Identificador de recurso de Key Vault. Use "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" y sustituya `{subscriptionId}` por el identificador de la suscripción y `{orgName}` por el parámetro del plano técnico de **nombre de la organización**.|
 |Plantilla de jumpbox|Plantilla de Resource Manager|Contraseña del administrador de jumpbox (nombre del secreto de Key Vault)|Nombre de usuario del administrador de jumpbox. El valor debe coincidir con el del **nombre de usuario del administrador de jumpbox** de la propiedad **plantilla de Key Vault**.|
 |Plantilla de jumpbox|Plantilla de Resource Manager|Sistema operativo de jumpbox|Determina el sistema operativo de la máquina virtual de jumpbox. El valor predeterminado es _Windows_.|
-|Grupo de recursos de Active Directory Domain Services|Resource group|Nombre|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-adds-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de Active Directory Domain Services|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de Active Directory Domain Services|Resource group|Nombre|**Bloqueado** : concatena el **nombre de la organización** con `-sharedsvcs-adds-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Active Directory Domain Services|Resource group|Location|**Bloqueado** : utiliza el parámetro del plano técnico.|
 |Plantilla de Active Directory Domain Services|Plantilla de Resource Manager|Nombre de usuario del administrador de dominio|Nombre de usuario de jumpbox de ADDS. Debe coincidir con el mismo valor de propiedad de la **plantilla de Key Vault**. El valor predeterminado es _adds-admin-user_.|
 |Plantilla de Active Directory Domain Services|Plantilla de Resource Manager|Contraseña del administrador de dominio (identificador de recurso de Key Vault)|Identificador de recurso de Key Vault. Use "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" y sustituya `{subscriptionId}` por el identificador de la suscripción y `{orgName}` por el parámetro del plano técnico de **nombre de la organización**.|
 |Plantilla de Active Directory Domain Services|Plantilla de Resource Manager|Contraseña del administrador de dominio (nombre del secreto de Key Vault)|Nombre de usuario del administrador de dominio. El valor debe coincidir con el del **nombre de usuario del administrador de dominio** de la propiedad **plantilla de Key Vault**.|

@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 66c725e8d6c28137db5c3220e0a6548714da0911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da6d02e620c33610770c71f0c0e3ae68e70ee317
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959602"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397067"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: Creación de una puerta de enlace de aplicaciones con redirección basada en rutas de dirección URL con la CLI de Azure
 
-Puede usar la CLI de Azure para configurar [reglas de enrutamiento basadas en rutas de dirección URL](tutorial-url-route-cli.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). A continuación, creará reglas de enrutamiento de direcciones URL que garanticen que el tráfico web se redirija a los grupos de back-end adecuados.
+Puede usar la CLI de Azure para configurar [reglas de enrutamiento basadas en rutas de dirección URL](tutorial-url-route-cli.md) cuando se crea una [puerta de enlace de aplicaciones](./overview.md). En este tutorial, creará grupos de back-end mediante [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md). A continuación, creará reglas de enrutamiento de direcciones URL que garanticen que el tráfico web se redirija a los grupos de back-end adecuados.
 
 En este tutorial, aprenderá a:
 
@@ -100,11 +100,11 @@ az network application-gateway create \
 
  La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Después de crear la puerta de enlace de aplicaciones, podrá ver estas nuevas características:
 
-- *appGatewayBackendPool*: una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
-- *appGatewayBackendHttpSettings*: especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
-- *appGatewayHttpListener*: agente de escucha predeterminado asociado con *appGatewayBackendPool*.
-- *appGatewayFrontendIP*: asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
-- *rule1*: la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
+- *appGatewayBackendPool* : una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
+- *appGatewayBackendHttpSettings* : especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
+- *appGatewayHttpListener* : agente de escucha predeterminado asociado con *appGatewayBackendPool*.
+- *appGatewayFrontendIP* : asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
+- *rule1* : la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
 
 
 ### <a name="add-backend-pools-and-ports"></a>Incorporación de grupos de back-end y puertos
@@ -236,7 +236,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales
 
-En este ejemplo, creará tres conjuntos de escalado de máquinas virtuales que admiten los tres grupos de back-end que ha creado. Los conjuntos de escalado que crea se llaman *myvmss1*, *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instalará NGINX.
+En este ejemplo, creará tres conjuntos de escalado de máquinas virtuales que admiten los tres grupos de back-end que ha creado. Los conjuntos de escalado que crea se llaman *myvmss1* , *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instalará NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -318,4 +318,4 @@ az group delete --name myResourceGroupAG
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información acerca de lo que se puede hacer con la puerta de enlace de aplicaciones](application-gateway-introduction.md)
+> [Más información acerca de lo que se puede hacer con la puerta de enlace de aplicaciones](./overview.md)

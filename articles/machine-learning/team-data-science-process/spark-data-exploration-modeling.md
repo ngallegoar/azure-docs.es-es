@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7a361319c3fc6c80c6dac80c48fb10155a3ff5b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027518"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314842"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploración y modelado de datos con Spark
 
 Aprenda a usar HDInsight Spark para entrenar modelos de aprendizaje automático para la predicción de tarifas de taxi mediante Spark MLlib.
 
-En este ejemplo se muestran los distintos pasos del [proceso de ciencia de datos en equipo](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). Se usa un subconjunto del conjunto de datos de carreras y tarifas de taxi de 2013 en la ciudad de Nueva York para cargar, explorar y preparar los datos. A continuación, con Spark MLlib, se entrenan los modelos de clasificación binaria y regresión para predecir si se pagará una propina por el viaje y se calculará el importe de esta.
+En este ejemplo se muestran los distintos pasos del [proceso de ciencia de datos en equipo](./index.yml). Se usa un subconjunto del conjunto de datos de carreras y tarifas de taxi de 2013 en la ciudad de Nueva York para cargar, explorar y preparar los datos. A continuación, con Spark MLlib, se entrenan los modelos de clasificación binaria y regresión para predecir si se pagará una propina por el viaje y se calculará el importe de esta.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -91,7 +91,7 @@ Los kernels de PySpark que se proporcionan con cuadernos de Jupyter Notebook tie
 
 El kernel PySpark proporciona algunas “instrucciones mágicas” predefinidas, que son comandos especiales que se pueden llamar con %%. Hay dos comandos de este tipo que se utilizan en estos ejemplos de código.
 
-* **%%local**: especifica que el código de las líneas siguientes se ejecutará localmente. El código debe ser un código de Python válido.
+* **%%local** : especifica que el código de las líneas siguientes se ejecutará localmente. El código debe ser un código de Python válido.
 * **%%sql -o \<variable name>** Ejecuta una consulta de Hive en sqlContext. Si se pasa el parámetro -o, el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos de Pandas.
 
 Para más información sobre los kernels de los cuadernos de Jupyter Notebook y las instrucciones mágicas predefinidas, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres de Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -697,7 +697,7 @@ Tiempo empleado en ejecutar la celda anterior: 57,61 segundos
 
 **Trazado de la curva ROC.**
 
-*predictionAndLabelsDF* está registrado como una tabla, *tmp_results*, en la celda anterior. *tmp_results* puede utilizarse para hacer consultas y mostrar los resultados en la trama de datos de sqlResults para el trazado. Este es el código.
+*predictionAndLabelsDF* está registrado como una tabla, *tmp_results* , en la celda anterior. *tmp_results* puede utilizarse para hacer consultas y mostrar los resultados en la trama de datos de sqlResults para el trazado. Este es el código.
 
 ```python
 # QUERY RESULTS                              
@@ -1119,4 +1119,4 @@ Ahora que ha creado los modelos de clasificación y regresión con Spark MlLib, 
 
 **Consumo de modelos:** Para saber cómo puntuar y evaluar los modelos de clasificación y regresión creados en este tema, consulte [Puntuación y evaluación de modelos de aprendizaje automático creados con Spark](spark-model-consumption.md).
 
-**Validación cruzada y barrido de hiperparámetros**: Consulte [Exploración y modelado avanzados de datos con Spark](spark-advanced-data-exploration-modeling.md) para saber cómo se pueden entrenar modelos con el barrido de hiperparámetros y la validación cruzada.
+**Validación cruzada y barrido de hiperparámetros** : Consulte [Exploración y modelado avanzados de datos con Spark](spark-advanced-data-exploration-modeling.md) para saber cómo se pueden entrenar modelos con el barrido de hiperparámetros y la validación cruzada.

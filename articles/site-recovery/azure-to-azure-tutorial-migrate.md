@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 076adbfd4cecf7dae9ffc490e911fcb7ffce48e6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045353"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394839"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Traslado de máquinas virtuales a otra región de Azure
 
@@ -68,7 +68,7 @@ En este tutorial, aprenderá a:
 - En las máquinas virtuales Linux, para obtener los últimos certificados raíz de confianza y la lista de revocación de certificados en la máquina virtual, siga las instrucciones proporcionadas por su distribuidor de Linux.
 - Asegúrese de que no utiliza un proxy de autenticación para controlar la conectividad de red de las máquinas virtuales que quiere trasladar.
 
-- Si la máquina virtual que está intentando trasladar no tiene acceso a Internet, o utiliza un proxy de firewall para controlar el acceso de salida, [compruebe los requisitos](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+- Si la máquina virtual que está intentando trasladar no tiene acceso a Internet, o utiliza un proxy de firewall para controlar el acceso de salida, [compruebe los requisitos](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 - Identifique el diseño de red de origen y todos los recursos que está usando actualmente. Esto incluye, pero no se limita a los equilibradores de carga, grupos de seguridad de red (NSG), e IP públicas.
 
@@ -97,12 +97,12 @@ En los pasos siguientes se muestra cómo preparar la máquina virtual para el mo
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
 1. En Buscar, escriba Recovery Services y haga clic en Almacenes de Recovery Services.
 1. En el menú Almacenes de Recovery Services, haga clic en +Agregar.
-1. En el apartado **Nombre**, especifique el nombre descriptivo **ContosoVMVault**. Si tiene más de una suscripción, seleccione la apropiada.
+1. En el apartado **Nombre** , especifique el nombre descriptivo **ContosoVMVault**. Si tiene más de una suscripción, seleccione la apropiada.
 1. Cree un grupo de recursos denominado **ContosoRG**.
 1. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. En los **Almacenes de Recovery Services**, seleccione **ContosoVMVault** > **Elementos replicados** >  **+Replicar**.
+1. En los **Almacenes de Recovery Services** , seleccione **ContosoVMVault** > **Elementos replicados** >  **+Replicar**.
 1. En el menú desplegable, seleccione **Azure Virtual Machines**.
-1. En **Ubicación de origen**, seleccione la región de Azure de origen donde se ejecutan actualmente sus máquinas virtuales.
+1. En **Ubicación de origen** , seleccione la región de Azure de origen donde se ejecutan actualmente sus máquinas virtuales.
 1. Seleccione el modelo de implementación de Resource Manager. A continuación, seleccione la **suscripción de origen** y el **grupo de recursos de origen**.
 1. Seleccione **Aceptar** para guardar la configuración.
 
@@ -111,31 +111,31 @@ En los pasos siguientes se muestra cómo preparar la máquina virtual para el mo
 Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscripción y el grupo de recursos.
 
 1. En el paso siguiente, seleccione la máquina virtual que desee mover y, después, seleccione **Aceptar**.
-1. En **Configuración**, haga clic en **Recuperación ante desastres**.
-1. En **Configurar la recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación.
+1. En **Configuración** , haga clic en **Recuperación ante desastres**.
+1. En **Configurar la recuperación ante desastres** > **Región de destino** , seleccione la región de destino en la que quiere realizar la replicación.
 1. Para este tutorial, acepte los valores predeterminados.
 1. Seleccione **Habilitar replicación**. Este paso inicia un trabajo para habilitar la replicación de la máquina virtual.
 
-    ![Habilitar replicación](media/tutorial-migrate-azure-to-azure/settings.png)
+
 
 ## <a name="move"></a>Move
 
 En los pasos siguientes se muestra cómo realizar el traslado a la región de destino.
 
-1. Vaya al almacén. En **Configuración** > **Elementos replicados**, seleccione la máquina virtual y luego seleccione **Conmutación por error**.
-2. En **Conmutación por error**, seleccione **Más reciente**.
+1. Vaya al almacén. En **Configuración** > **Elementos replicados** , seleccione la máquina virtual y luego seleccione **Conmutación por error**.
+2. En **Conmutación por error** , seleccione **Más reciente**.
 3. Seleccione **Apague la máquina antes de comenzar con la conmutación por error**. A continuación, Site Recovery intentará apagar la máquina virtual de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
 4. Una vez finalizado el trabajo, compruebe que la máquina virtual aparece en la región de Azure de destino como se esperaba.
 
 
 ## <a name="discard"></a>Discard (Descartar) 
 
-En caso de que haya comprobado la máquina virtual que se ha trasladado y tenga que cambiarla al punto de conmutación por error o desee volver a un punto anterior, en los **Elementos replicados**, haga clic con el botón de derecho para seleccionar la máquina virtual y **cambie el punto de recuperación**. Este paso le ofrece la opción de especificar un punto de recuperación diferente y conmutar por error a ese mismo. 
+En caso de que haya comprobado la máquina virtual que se ha trasladado y tenga que cambiarla al punto de conmutación por error o desee volver a un punto anterior, en los **Elementos replicados** , haga clic con el botón de derecho para seleccionar la máquina virtual y **cambie el punto de recuperación**. Este paso le ofrece la opción de especificar un punto de recuperación diferente y conmutar por error a ese mismo. 
 
 
 ## <a name="commit"></a>Commit 
 
-Una vez que haya comprobado la máquina virtual que se ha trasladado y esté preparado para confirmar el cambio **, en los**elementos replicados, seleccione con el botón derecho la máquina virtual y **confirme**. Esto finaliza el proceso de traslado a la región de destino. Espere hasta que el trabajo de confirmación finalice.
+Una vez que haya comprobado la máquina virtual que se ha trasladado y esté preparado para confirmar el cambio **, en los** elementos replicados, seleccione con el botón derecho la máquina virtual y **confirme**. Esto finaliza el proceso de traslado a la región de destino. Espere hasta que el trabajo de confirmación finalice.
 
 ## <a name="clean-up"></a>Limpieza
 

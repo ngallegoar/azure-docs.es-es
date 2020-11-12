@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b32ff0926aa2b797bdb8dfcbb01cf845080a0ce9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186907"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376253"
 ---
 1. Navegue a la [consola de Google Cloud](https://console.developers.google.com/cloud-resource-manager)e inicie sesión con las credenciales de su cuenta de Google+. 
 2. Seleccione **Create Project** (Crear proyecto) en la barra de herramientas. 
@@ -29,7 +29,7 @@ ms.locfileid: "67186907"
 6. En el icono **API** del panel, seleccione **Go to APIs overview** (Ir a información general de API). 
 
     ![Vínculo a información general de API](./media/mobile-services-enable-google-cloud-messaging/go-to-api-overview.png)
-7. En la página **API**, seleccione **ENABLE APIS AND SERVICES** (HABILITAR API Y SERVICIOS). 
+7. En la página **API** , seleccione **ENABLE APIS AND SERVICES** (HABILITAR API Y SERVICIOS). 
 
     ![Botón para habilitar API y servicios](./media/mobile-services-enable-google-cloud-messaging/enable-api-services-button.png)
 8. Busque y seleccione **Google Cloud Messaging**. 
@@ -43,7 +43,7 @@ ms.locfileid: "67186907"
     ![Botón para la creación de credenciales](./media/mobile-services-enable-google-cloud-messaging/create-credentials-button.png)
 11. En la página **Add credentials to your project** (Agregar credenciales al proyecto), seleccione el vínculo **API key** (Clave de API). 
 
-    ![Botón para la creación de credenciales](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
+    ![Adición de credenciales](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
 12. En la página **API key** (Clave de API), seleccione **Create/Save** (Crear o guardar). En el ejemplo siguiente, se selecciona la opción **IP addresses** (Direcciones IP) y se escribe **0.0.0.0/0** como direcciones IP permitidas. Debe restringir la clave de API de la manera adecuada. 
 
     ![Clave de API: botón de creación](./media/mobile-services-enable-google-cloud-messaging/api-key-create-button.png)

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 16ad757fc00439bb390a7e0dea902901c468dd1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929682"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395298"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Implementación de un contenedor de Azure SQL Edge en Kubernetes
 
@@ -48,7 +48,7 @@ En el diagrama siguiente, se ha producido un error en el nodo que hospeda el con
 * **Clúster de Kubernetes**
    - El tutorial requiere un clúster de Kubernetes. En los pasos se usa [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) para administrar el clúster. 
 
-   - En este tutorial, usaremos Azure Kubernetes Service para implementar Azure SQL Edge. Consulte [Implementación de un clúster de Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-deploy-cluster) para crear un clúster de Kubernetes de un solo nodo en AKS con `kubectl` y conectarse a él. 
+   - En este tutorial, usaremos Azure Kubernetes Service para implementar Azure SQL Edge. Consulte [Implementación de un clúster de Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-deploy-cluster.md) para crear un clúster de Kubernetes de un solo nodo en AKS con `kubectl` y conectarse a él. 
 
    >[!NOTE]
    >Para protegerse frente a errores de nodo, un clúster de Kubernetes requiere más de un nodo.
@@ -108,7 +108,7 @@ Configure un [volumen persistente](https://kubernetes.io/docs/concepts/storage/p
          storage: 8Gi
    ```
 
-   Guarde el archivo (por ejemplo, **pvc.yaml**).
+   Guarde el archivo (por ejemplo, **pvc.yaml** ).
 
 2. Cree la notificación de volumen persistente en Kubernetes.
 
@@ -241,7 +241,7 @@ spec:
    >[!NOTE]
    >Al usar el tipo de servicio `LoadBalancer`, se puede acceder a la instancia de Azure SQL Edge de forma remota (mediante Internet) en el puerto 1433.
 
-   Guarde el archivo (por ejemplo, **sqledgedeploy.yaml**).
+   Guarde el archivo (por ejemplo, **sqledgedeploy.yaml** ).
 
 2. Cree la implementación.
 
@@ -318,8 +318,7 @@ En este tutorial, ha aprendido a implementar contenedores de Azure SQL Edge en u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Introducción a Kubernetes](../aks/intro-kubernetes.md)
 - [Aprendizaje automático e inteligencia artificial con ONNX en SQL Edge](onnx-overview.md).
 - [Creación de una solución de IoT de un extremo a otro con SQL Edge mediante IoT Edge](tutorial-deploy-azure-resources.md).
 - [Streaming de datos en Azure SQL Edge](stream-data.md)
-

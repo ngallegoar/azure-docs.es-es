@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 73f5dc6bdc976bd0166cfb1f2621f57f558f944c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 70edf224494fdf1395d59d1c591d0369b9b20557
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478599"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333025"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Tutorial: Diseño de una instancia de Azure Database for PostgreSQL: servidor único con PowerShell
 
@@ -38,7 +38,7 @@ Si decide usar PowerShell de forma local, para este artículo es preciso que ins
 > Mientras el módulo Az.PostgreSql PowerShell se encuentre en versión preliminar, debe instalarlo por separado del módulo Az PowerShell con el siguiente comando: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.
 > Una vez que el módulo Az.PostgreSql PowerShell esté disponible con carácter general, formará parte de las futuras versiones del módulo Az PowerShell y estará disponible de forma nativa en Azure Cloud Shell.
 
-Si esta es la primera vez que usa el servicio Azure Database for PostgreSQL, debe registrar el proveedor de recursos **Microsoft.DBforPostgreSQL** .
+Si esta es la primera vez que usa el servicio Azure Database for PostgreSQL, debe registrar el proveedor de recursos **Microsoft.DBforPostgreSQL**.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
@@ -66,7 +66,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 Cree un servidor Azure Database for PostgreSQL con el cmdlet `New-AzPostgreSqlServer`. Un servidor puede administrar varias bases de datos. Normalmente se usa una base de datos independiente para cada proyecto o para cada usuario.
 
-En el ejemplo siguiente se crea un servidor PostgreSQL en la región **Oeste de EE. UU.** denominado **mydemoserver** en el grupo de recursos **myresourcegroup** con el inicio de sesión del administrador del servidor de **myadmin** . Es un servidor de generación 5 en el plan de tarifa de uso general con dos núcleos virtuales y con copias de seguridad con redundancia geográfica habilitadas. Documente la contraseña usada en la primera línea del ejemplo, ya que se trata de la contraseña de la cuenta de administrador del servidor PostgreSQL.
+En el ejemplo siguiente se crea un servidor PostgreSQL en la región **Oeste de EE. UU.** denominado **mydemoserver** en el grupo de recursos **myresourcegroup** con el inicio de sesión del administrador del servidor de **myadmin**. Es un servidor de generación 5 en el plan de tarifa de uso general con dos núcleos virtuales y con copias de seguridad con redundancia geográfica habilitadas. Documente la contraseña usada en la primera línea del ejemplo, ya que se trata de la contraseña de la cuenta de administrador del servidor PostgreSQL.
 
 > [!TIP]
 > Un nombre de servidor se asigna a un nombre DNS y debe ser único en todo el mundo en Azure.
@@ -104,7 +104,7 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 
 ## <a name="get-the-connection-information"></a>Obtención de la información de conexión
 
-Para conectarse al servidor, debe proporcionar las credenciales de acceso y la información del host. Use el ejemplo siguiente para determinar la información de conexión. Tome nota de los valores de **FullyQualifiedDomainName** y **AdministratorLogin** .
+Para conectarse al servidor, debe proporcionar las credenciales de acceso y la información del host. Use el ejemplo siguiente para determinar la información de conexión. Tome nota de los valores de **FullyQualifiedDomainName** y **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -216,6 +216,10 @@ Los valores de ubicación y plan de tarifa del servidor restaurado son los mismo
 Una vez finalizada la restauración, busque el servidor nuevo y compruebe que los datos se restauraron según lo previsto. El nuevo servidor tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
 
 El servidor creado durante una restauración no tiene los puntos de conexión de servicio de red virtual que existían en el servidor original. Estas reglas deben configurarse por separado para el nuevo servidor. Se restauran las reglas de firewall del servidor original.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+En los pasos anteriores, creó recursos de Azure en un grupo de servidores. Si no cree que vaya a necesitar estos recursos en el futuro, elimine el grupo de servidores. Presione el botón *Eliminar* en la página *Información general* del grupo de servidores. Cuando aparezca una página emergente en la que se le pida hacerlo, confirme el nombre del grupo de servidores y haga clic en el botón *Eliminar* final.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

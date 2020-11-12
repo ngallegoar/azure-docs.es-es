@@ -1,14 +1,14 @@
 ---
 title: Implementación de un ejemplo de plano técnico de Canada Federal PBMM
 description: Pasos de implementación para el ejemplo de plano técnico Canada Federal PBMM, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 07/31/2020
+ms.date: 11/02/2020
 ms.topic: sample
-ms.openlocfilehash: 0b7e0467fbc43ea83a0aa4ff40e9b0be4c69b41e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da83ec775b953f064444c0c97687a506d66de57f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500119"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420468"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implementación de los ejemplos de plano técnico Canada Federal PBMM
 
@@ -25,7 +25,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 En primer lugar, implemente el ejemplo de plano técnico mediante la creación de un plano técnico en su entorno tomando el ejemplo como punto de partida.
 
-1. Seleccione **Todos los servicios**, busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva**, seleccione **Planos técnicos**.
+1. Seleccione **Todos los servicios** , busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva** , seleccione **Planos técnicos**.
 
 1. En la página **Introducción** de la izquierda, seleccione el botón **Crear** en _Crear un plano técnico_.
 
@@ -33,8 +33,8 @@ En primer lugar, implemente el ejemplo de plano técnico mediante la creación d
 
 1. Escriba los _Aspectos básicos_ del ejemplo de plano técnico:
 
-   - **Nombre del plano técnico**: proporcione un nombre para su copia del ejemplo de plano técnico.
-   - **Ubicación de definición**: use los puntos suspensivos y seleccione el grupo de administración donde guardar la copia del ejemplo.
+   - **Nombre del plano técnico** : proporcione un nombre para su copia del ejemplo de plano técnico.
+   - **Ubicación de definición** : use los puntos suspensivos y seleccione el grupo de administración donde guardar la copia del ejemplo.
 
 1. Seleccione la pestaña _Artefactos_ en la parte superior de la página **Siguiente: Artefactos** en la parte inferior de la página.
 
@@ -44,17 +44,17 @@ En primer lugar, implemente el ejemplo de plano técnico mediante la creación d
 
 La copia del ejemplo de plano técnico ahora se ha creado en el entorno. Se crea en el modo **Borrador** y debe **publicarse** antes de que se pueda asignar e implementar. La copia del ejemplo de plano técnico se puede personalizar para adecuarla a su entorno y necesidades, pero esa modificación puede apartarla del estándar establecido.
 
-1. Seleccione **Todos los servicios**, busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva**, seleccione **Planos técnicos**.
+1. Seleccione **Todos los servicios** , busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva** , seleccione **Planos técnicos**.
 
 1. En la parte izquierda, seleccione la página **Definiciones del plano técnico**. Use los filtros para buscar su copia del ejemplo de plano técnico y, a continuación, selecciónela.
 
-1. Seleccione **Publicar plano técnico** en la parte superior de la página. En la nueva página de la derecha, especifique una **versión** para la copia del ejemplo de plano técnico. Esta propiedad es útil si realiza una modificación posteriormente. En **Notas de cambios**, escriba "Primera versión publicada del ejemplo de plano técnico Canada Federal PBMM". A continuación, seleccione **Publicar** en la parte inferior de la página.
+1. Seleccione **Publicar plano técnico** en la parte superior de la página. En la nueva página de la derecha, especifique una **versión** para la copia del ejemplo de plano técnico. Esta propiedad es útil si realiza una modificación posteriormente. En **Notas de cambios** , escriba "Primera versión publicada del ejemplo de plano técnico Canada Federal PBMM". A continuación, seleccione **Publicar** en la parte inferior de la página.
 
 ## <a name="assign-the-sample-copy"></a>Asignación de la copia de ejemplo
 
 Una vez que la copia del ejemplo de plano técnico se haya **publicado** correctamente, se podrá asignar a una suscripción dentro del grupo de administración donde se guardó. En este paso se proporcionan los parámetros para hacer que cada implementación de la copia del ejemplo de plano técnico sea única.
 
-1. Seleccione **Todos los servicios**, busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva**, seleccione **Planos técnicos**.
+1. Seleccione **Todos los servicios** , busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva** , seleccione **Planos técnicos**.
 
 1. En la parte izquierda, seleccione la página **Definiciones del plano técnico**. Use los filtros para buscar su copia del ejemplo de plano técnico y, a continuación, selecciónela.
 
@@ -64,11 +64,11 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
    - Aspectos básicos
 
-     - **Suscripciones**: seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
-     - **Nombre de asignación**: el nombre se rellena de antemano de forma automática en función del nombre del plano técnico.
+     - **Suscripciones** : seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
+     - **Nombre de asignación** : el nombre se rellena de antemano de forma automática en función del nombre del plano técnico.
        Cámbielo si fuera necesario o déjelo tal cual.
-     - **Ubicación**: seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versión de definición de Blueprint**: Elija una versión **publicada** de la copia del ejemplo de plano técnico.
+     - **Ubicación** : seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versión de definición de Blueprint** : Elija una versión **publicada** de la copia del ejemplo de plano técnico.
 
    - Asignación de bloqueo
 

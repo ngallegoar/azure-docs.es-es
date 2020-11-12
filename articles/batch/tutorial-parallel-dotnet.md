@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 8c8dcd01c7e97f77e994d021e39ce6a5e591ff9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ea68b8a6cf26db2e4ba440140cfa900cebbb4aa
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537589"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335662"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de .NET
 
@@ -35,7 +35,7 @@ En este tutorial, convertiremos archivos multimedia MP4 a formato MP3 en paralel
 
 * Una cuenta de Batch y una cuenta de Azure Storage vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
-* [Versión de 64 bits de Windows de ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip) (.zip). Descargue el archivo zip en el equipo local. Para este tutorial solo se necesita el archivo zip. No es necesario descomprimir el archivo ni instalarlo localmente.
+* [Versión de 64 bits de Windows de ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z) (.zip). Descargue el archivo zip en el equipo local. Para este tutorial solo se necesita el archivo zip. No es necesario descomprimir el archivo ni instalarlo localmente.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -47,7 +47,7 @@ Use Azure Portal para agregar ffmpeg a la cuenta de Batch como [paquete de aplic
 
 1. En Azure Portal, haga clic en **Más servicios** > **Cuentas de Batch** y en el nombre de la cuenta de Batch.
 3. Haga clic en **Aplicaciones** > **Agregar**.
-4. Escriba *ffmpeg* como **identificador de aplicación** y especifique *4.3.1* como versión de paquete. Seleccione el archivo zip de ffmpeg que ha descargado y haga clic en **Aceptar**. El paquete de aplicación de ffmpeg se agrega a la cuenta de Batch.
+4. Escriba *ffmpeg* como **identificador de aplicación** y especifique  *4.3.1* como versión de paquete. Seleccione el archivo zip de ffmpeg que ha descargado y haga clic en **Aceptar**. El paquete de aplicación de ffmpeg se agrega a la cuenta de Batch.
 
 ![Incorporación del paquete de aplicación](./media/tutorial-parallel-dotnet/add-application.png)
 

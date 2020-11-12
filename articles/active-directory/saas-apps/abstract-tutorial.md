@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 233af68e4109e53b6bd841f298e9c2728ca5b116
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: baae0f89165e292408150dd419c6de8dc41a320c
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313494"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335565"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Tutorial: Integración de Abstract con Azure Active Directory
 
@@ -49,7 +49,7 @@ Para configurar la integración de Abstract en Azure AD, será preciso agregar A
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Abstract** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería** , escriba **Abstract** en el cuadro de búsqueda.
 1. Seleccione **Abstract** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
@@ -70,19 +70,19 @@ Para configurar y probar el inicio de sesión único de Azure AD con Abstract, 
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Abstract**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Abstract** , busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único** , seleccione **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada en el modo iniciado por **IDP** y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
+1. En la sección **Configuración básica de SAML** , la aplicación está preconfigurada en el modo iniciado por **IDP** y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://app.abstract.com/signin`
+    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL: `https://app.abstract.com/signin`
 
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+4. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
@@ -90,7 +90,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 Asegúrese de recuperar los valores de `App Federation Metadata Url` y `Azure AD Identifier` de Azure Portal, ya que los necesitará para configurar el inicio de sesión único en Abstract.
 
-Encontrará esta información en la página **Configuración del inicio de sesión único con SAML**:
+Encontrará esta información en la página **Configuración del inicio de sesión único con SAML** :
 
 * El valor de `App Federation Metadata Url` se encuentra en la sección **Certificado de firma de SAML**.
 * El valor de `Azure AD Identifier` se encuentra en la sección **Configurar Abstract**.
@@ -114,11 +114,11 @@ Ahora está listo para configurar el inicio de sesión único en Abstract:
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Haga clic en **Crear**.
 
@@ -132,13 +132,13 @@ En esta sección, va a permitir que B. Simon acceda a Abstract utilizando el ini
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
 
 ### <a name="create-abstract-test-user"></a>Creación de un usuario de prueba de Abstract
 
@@ -146,7 +146,7 @@ Para probar el inicio de sesión único en Abstract:
 
 1. Abra la [aplicación web Abstract](https://app.abstract.com/).
 2. Vaya a la página **Permissions** (Permisos) en la barra lateral izquierda.
-3. Haga clic en **Test with my Account** (Probar con mi cuenta). Si se produce un error en la prueba, [póngase en contacto con nuestro equipo de soporte técnico](https://www.abstract.com/help/contact/).
+3. Haga clic en **Test with my Account** (Probar con mi cuenta). Si se produce un error en la prueba, [póngase en contacto con nuestro equipo de soporte técnico](https://help.abstract.com/hc/).
 
 >[!Note]
 >Tendrá que autenticarse con una cuenta de administrador de organización para tener acceso a la configuración de inicio de sesión único en Abstract.

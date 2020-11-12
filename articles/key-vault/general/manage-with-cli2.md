@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504541"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289895"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Administración de Key Vault mediante la CLI de Azure 
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 Utilice el comando `az keyvault create` para crear un Almacén de claves. Este script tiene tres parámetros obligatorios: el nombre del grupo de recursos, el nombre del Almacén de claves y la ubicación geográfica.
 
-Para crear un nuevo almacén con el nombre **ContosoKeyVault**, en el grupo de recursos **ContosoResourceGroup**, que reside en la ubicación **Este de Asia**, escriba: 
+Para crear un nuevo almacén con el nombre **ContosoKeyVault** , en el grupo de recursos **ContosoResourceGroup** , que reside en la ubicación **Este de Asia** , escriba: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 La salida de este comando muestra las propiedades del almacén de claves que ha creado. Las dos propiedades más importantes son:
 
-* **name**: en el ejemplo, el nombre es ContosoKeyVault. Usará este nombre para otros comandos de Key Vault.
-* **vaultUri**: en el ejemplo, el URI es https://contosokeyvault.vault.azure.net. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+* **name** : en el ejemplo, el nombre es ContosoKeyVault. Usará este nombre para otros comandos de Key Vault.
+* **vaultUri** : en el ejemplo, el URI es https://contosokeyvault.vault.azure.net. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este Almacén de claves. Hasta ahora, nadie más está autorizado.
 
@@ -194,7 +194,7 @@ Las aplicaciones que utilizan un Almacén de claves deben autenticarse utilizand
 
 Para obtener un token, la aplicación debe presentar estos dos valores a Azure Active Directory. La configuración de una aplicación para obtener un token dependerá de la aplicación. Para la [aplicación de ejemplo de Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), el propietario de la aplicación establece estos valores en el archivo app.config.
 
-Para obtener los pasos detallados para registrar una aplicación en Azure Active Directory, debería revisar los artículos titulados [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md), [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md) y [Creación de una entidad de servicio de Azure con la CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
+Para obtener los pasos detallados para registrar una aplicación en Azure Active Directory, debería revisar los artículos titulados [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/quickstart-register-app.md), [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md) y [Creación de una entidad de servicio de Azure con la CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Para registrar una aplicación en Azure Active Directory:
 

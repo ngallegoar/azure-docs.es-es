@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 7690977f23b193bb3ba282df14d348b3fac0ad6b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fe83a012cac68f705bc9fabc7748f5a7c7c61bbb
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457544"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330566"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integración de Atlassian Cloud con Azure Active Directory
 
@@ -49,15 +49,15 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 Para configurar la integración de Atlassian Cloud en Azure AD, necesita agregar Atlassian Cloud desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería** , escriba **Atlassian Cloud** en el cuadro de búsqueda.
 1. Seleccione **Atlassian Cloud** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD
 
-Configure y pruebe el inicio de sesión único de Azure AD con Atlassian Cloud utilizando un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Atlassian Cloud.
+Configure y pruebe el inicio de sesión único de Azure AD con Atlassian Cloud utilizando un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Atlassian Cloud.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Atlassian Cloud, siga estos pasos:
 
@@ -71,7 +71,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Atlassian 
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. Para automatizar la configuración en Atlassian Cloud, debe instalar la **extensión de explorador de inicio de sesión seguro de Mis aplicaciones** . Para ello, haga clic en **Install the extension** (Instalar la extensión).
+1. Para automatizar la configuración en Atlassian Cloud, debe instalar la **extensión de explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Install the extension** (Instalar la extensión).
 
     ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
 
@@ -106,11 +106,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Add SAML Configuration 2 (Agregar configuración de SAML 2)](./media/atlassian-cloud-tutorial/add-saml-configuration.png)
 
-1. En Azure Portal, en la página de integración de la aplicación **Atlassian Cloud** , busque la sección **Administrar** y seleccione **Configurar inicio de sesión único** .
+1. En Azure Portal, en la página de integración de la aplicación **Atlassian Cloud** , busque la sección **Administrar** y seleccione **Configurar inicio de sesión único**.
 
    ![configuración del inicio de sesión único](./media/atlassian-cloud-tutorial/set-up-sso.png)
 
-1. En la página **Seleccione un método de inicio de sesión único** , seleccione **SAML** .
+1. En la página **Seleccione un método de inicio de sesión único** , seleccione **SAML**.
 
    ![saml en azure](./media/atlassian-cloud-tutorial/saml-in-azure.png)
 
@@ -156,9 +156,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![dirección url de inicio de sesión](./media/atlassian-cloud-tutorial/sign-on-URL.png)
    
-1. La aplicación Atlassian Cloud espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. Para editar la asignación de atributos, haga clic en el icono de **edición** . 
+1. La aplicación Atlassian Cloud espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. Para editar la asignación de atributos, haga clic en el icono de **edición**. 
 
-   ![attributes](./media/atlassian-cloud-tutorial/default-attributes.png)
+   ![attributes](./media/atlassian-cloud-tutorial/edit-attribute.png)
    
    1. Asignación de atributos para un inquilino de Azure AD con una licencia de Microsoft 365
       
@@ -166,13 +166,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
       ![atributos y reclamaciones](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
       
-      b. Atlassian Cloud espera que este **id. de nombre** ( **Identificador de usuario único** ) se asigne al correo electrónico del usuario ( **user.email** ). Edite el **atributo de origen** y cámbielo a **user.mail** . Guarde los cambios de la notificación.
+      b. Atlassian Cloud espera que este **id. de nombre** ( **Identificador de usuario único** ) se asigne al correo electrónico del usuario ( **user.email** ). Edite el **atributo de origen** y cámbielo a **user.mail**. Guarde los cambios de la notificación.
 
       ![identificador de usuario único](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
       
       c. Las asignaciones de atributo finales deben tener el aspecto siguiente.
 
-      ![imagen 2](common/default-attributes.png)
+      ![imagen 2](./media/atlassian-cloud-tutorial/default-attributes-1.png)
       
    1. Asignación de atributos para un inquilino de Azure AD sin una licencia de Microsoft 365 
 
@@ -180,47 +180,47 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
       ![imagen 3](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Aunque Azure no rellena el atributo **user.mail** de los usuarios creados en inquilinos de Azure AD sin licencias de Microsoft 365 y almacena el correo electrónico de esos usuarios en el atributo **userprincipalname** , Atlassian Cloud espera que este **id. de nombre** ( **Identificador de usuario único** ) se asigne al correo electrónico del usuario ( **user.userprincipalname** ).  Edite el **atributo de origen** y cámbielo a **user.userprincipalname** . Guarde los cambios de la notificación.
+      b. Aunque Azure no rellena el atributo **user.mail** de los usuarios creados en inquilinos de Azure AD sin licencias de Microsoft 365 y almacena el correo electrónico de esos usuarios en el atributo **userprincipalname** , Atlassian Cloud espera que este **id. de nombre** ( **Identificador de usuario único** ) se asigne al correo electrónico del usuario ( **user.userprincipalname** ).  Edite el **atributo de origen** y cámbielo a **user.userprincipalname**. Guarde los cambios de la notificación.
 
       ![definición de correo electrónico](./media/atlassian-cloud-tutorial/set-email.png)
          
       c. Las asignaciones de atributo finales deben tener el aspecto siguiente.
 
-      ![imagen 4](common/default-attributes.png)
+      ![imagen 4](./media/atlassian-cloud-tutorial/default-attributes-2.png)
      
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 1. En las propiedades del **usuario** , siga estos pasos:
    1. En el campo **Nombre** , escriba `B.Simon`.  
    1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
-   1. Haga clic en **Crear** .
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a conceder acceso a B.Simon a Atlassian Cloud para que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **Atlassian Cloud** .
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
-1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Atlassian Cloud**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos**.
 1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol** . Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
-1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
 
 ### <a name="create-atlassian-cloud-test-user"></a>Creación de un usuario de prueba de Atlassian Cloud
 
 Para permitir que los usuarios de Azure AD inicien sesión en Atlassian Cloud, aprovisione las cuentas de usuario manualmente en Atlassian Cloud haciendo lo siguiente:
 
-1. En el panel **Administración** , seleccione **Usuarios** .
+1. En el panel **Administración** , seleccione **Usuarios**.
 
     ![Vínculo de usuarios de Atlassian Cloud](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-14.png)
 
-1. Para crear un usuario en Atlassian Cloud, seleccione **Invitar usuario** .
+1. Para crear un usuario en Atlassian Cloud, seleccione **Invitar usuario**.
 
     ![Creación de un usuario de Atlassian Cloud](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-15.png)
 
@@ -228,10 +228,10 @@ Para permitir que los usuarios de Azure AD inicien sesión en Atlassian Cloud, a
 
     ![usuario de Atlassian Cloud](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-16.png)
 
-1. Para enviar una invitación por correo electrónico al usuario, seleccione **Invitar a usuarios** . Se envía una invitación por correo electrónico al usuario y, después de aceptar la invitación, el usuario se activa en el sistema.
+1. Para enviar una invitación por correo electrónico al usuario, seleccione **Invitar a usuarios**. Se envía una invitación por correo electrónico al usuario y, después de aceptar la invitación, el usuario se activa en el sistema.
 
 > [!NOTE]
-> También puede crear usuarios de forma masiva mediante la selección del botón **Bulk Create** (Crear de forma masiva) en la sección **Usuarios** .
+> También puede crear usuarios de forma masiva mediante la selección del botón **Bulk Create** (Crear de forma masiva) en la sección **Usuarios**.
 
 ### <a name="test-sso"></a>Prueba de SSO
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b7ae2543cfa9226064a2890b95dcc96be85fe56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81c936acc00801f8473c1ec74aa50dbf2abb4936
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497229"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397032"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Administrar el tráfico web mediante la CLI de Azure
 
@@ -45,16 +45,16 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Crea una red virtual. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Crea una subred en una red virtual. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | Crea la dirección IP pública de la puerta de enlace de aplicaciones. |
-| [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | Crear una puerta de enlace de aplicaciones. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Crea un conjunto de escalado de máquinas virtuales. |
-| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip) | Obtiene la dirección IP pública de la puerta de enlace de aplicaciones. |
+| [az group create](/cli/azure/group) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az network vnet create](/cli/azure/network/vnet) | Crea una red virtual. |
+| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Crea una subred en una red virtual. |
+| [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest) | Crea la dirección IP pública de la puerta de enlace de aplicaciones. |
+| [az network application-gateway create](/cli/azure/network/application-gateway?view=azure-cli-latest) | Crear una puerta de enlace de aplicaciones. |
+| [az vmss create](/cli/azure/vmss) | Crea un conjunto de escalado de máquinas virtuales. |
+| [az network public-ip show](/cli/azure/network/public-ip) | Obtiene la dirección IP pública de la puerta de enlace de aplicaciones. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
+Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure/overview).
 
 Encontrará más ejemplos de scripts de la CLI de la puerta de enlace de aplicaciones en la [documentación sobre VM de Windows de Azure](../cli-samples.md).
