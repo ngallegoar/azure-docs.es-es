@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: caeff5be83e02948baab4ecbcf05630eacff74df
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ebee5d986007e07d497056620f0cfc437b2da4d1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459380"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356406"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configuración de Jive para aprovisionar usuarios automáticamente
 
@@ -55,13 +55,13 @@ Esta sección le guía en la conexión de Azure AD a la API de aprovisionamiento
 El objetivo de esta sección es describir cómo habilitar el aprovisionamiento de cuentas de usuario de Active Directory para Jive.
 Como parte de este procedimiento, es necesario proporcionar un token de seguridad de usuario que deberá solicitar a Jive.com.
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones** .
+1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
 
 1. Si ya ha configurado Jive para el inicio de sesión único, busque la instancia de Jive mediante el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **Jive** en la Galería de aplicaciones. Seleccione Jive en los resultados de búsqueda y agréguelo a la lista de aplicaciones.
 
-1. Seleccione la instancia de Jive y, después, seleccione la pestaña **Aprovisionamiento** .
+1. Seleccione la instancia de Jive y, después, seleccione la pestaña **Aprovisionamiento**.
 
-1. Establezca el **modo de aprovisionamiento** en **Automático** . 
+1. Establezca el **modo de aprovisionamiento** en **Automático**. 
 
     ![Captura de pantalla que muestra la página de aprovisionamiento de espacio aislado de Jive, con el modo de aprovisionamiento establecido en automático y otros valores que se pueden establecer.](./media/jive-provisioning-tutorial/provisioning.png)
 
@@ -75,13 +75,13 @@ Como parte de este procedimiento, es necesario proporcionar un token de segurida
       
       > [!NOTE]
       > La dirección URL del inquilino de Jive es la que se usa en su organización para iniciar sesión en Jive.  
-      > Normalmente, la dirección URL tiene el formato siguiente: **www.\<organization\>.jive.com** .          
+      > Normalmente, la dirección URL tiene el formato siguiente: **www.\<organization\>.jive.com**.          
 
 1. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de Jive.
 
 1. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla que aparece a continuación.
 
-1. Haga clic en **Guardar** .
+1. Haga clic en **Guardar**.
 
 1. En la sección Asignaciones, seleccione **Sincronizar usuarios de Azure Active Directory con Jive.**
 
@@ -89,7 +89,7 @@ Como parte de este procedimiento, es necesario proporcionar un token de segurida
 
 1. Para habilitar el servicio de aprovisionamiento de Azure AD para Jive, cambie el **Estado de aprovisionamiento** a **Activado** en la sección Configuración
 
-1. Haga clic en **Guardar** .
+1. Haga clic en **Guardar**.
 
 Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a Jive en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos a los registros de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de Jive.
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902506"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395162"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Habilitación y deshabilitación de directivas de retención de datos
 
@@ -22,7 +22,7 @@ En este tema se describe cómo habilitar y deshabilitar las directivas de retenc
 
 ## <a name="enable-data-retention-for-a-database"></a>Habilitación de la retención de datos para una base de datos
 
-En el siguiente ejemplo se muestra cómo habilitar la retención de datos mediante [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
+En el siguiente ejemplo se muestra cómo habilitar la retención de datos mediante [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -38,9 +38,9 @@ FROM sys.databases;
 
 ## <a name="enable-data-retention-for-a-table"></a>Habilitación de la retención de datos para una tabla
 
-La retención de datos debe estar habilitada para cada tabla cuyos datos quiere que se purguen automáticamente. Cuando se habilita la retención de información en la base de datos y en la tabla, una tarea de sistema en segundo plano examinará periódicamente la tabla para identificar y eliminar las filas obsoletas (antiguas). La retención de datos se puede habilitar en una tabla durante la creación de la tabla mediante [Crear tabla](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) o [Modificar tabla](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+La retención de datos debe estar habilitada para cada tabla cuyos datos quiere que se purguen automáticamente. Cuando se habilita la retención de información en la base de datos y en la tabla, una tarea de sistema en segundo plano examinará periódicamente la tabla para identificar y eliminar las filas obsoletas (antiguas). La retención de datos se puede habilitar en una tabla durante la creación de la tabla mediante [Crear tabla](/sql/t-sql/statements/create-table-transact-sql) o [Modificar tabla](/sql/t-sql/statements/alter-table-transact-sql).
 
-En el siguiente ejemplo se muestra cómo habilitar la retención de datos para una tabla mediante [Crear tabla](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql). 
+En el siguiente ejemplo se muestra cómo habilitar la retención de datos para una tabla mediante [Crear tabla](/sql/t-sql/statements/create-table-transact-sql). 
 
 ```sql
 CREATE TABLE [dbo].[data_retention_table] 
@@ -63,7 +63,7 @@ La parte `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PE
     - DateTimeOffset
 - RETENTION_PERIOD: valor entero seguido de un descriptor de unidad. Las unidades permitidas son DAY, DAYS, WEEK, WEEKS, MONTH, MONTHS, YEAR y YEARS.
 
-En el siguiente ejemplo se muestra cómo habilitar la retención de datos para una tabla mediante [Modificar tabla](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
+En el siguiente ejemplo se muestra cómo habilitar la retención de datos para una tabla mediante [Modificar tabla](/sql/t-sql/statements/alter-table-transact-sql).  
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -101,7 +101,7 @@ La configuración de la retención de la información en la base de datos y la t
 
 ## <a name="disable-data-retention-on-a-table"></a>Deshabilitación de la retención de datos en una tabla 
 
-La retención de datos se puede deshabilitar en una tabla mediante [Modificar tabla](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql). El siguiente comando se puede usar para deshabilitar la retención de datos en una tabla.
+La retención de datos se puede deshabilitar en una tabla mediante [Modificar tabla](/sql/t-sql/statements/alter-table-transact-sql). El siguiente comando se puede usar para deshabilitar la retención de datos en una tabla.
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -110,7 +110,7 @@ Set (DATA_DELETION = OFF)
 
 ## <a name="disable-data-retention-on-a-database"></a>Deshabilitación de la retención de la información en una base de datos
 
-La retención de la información se puede deshabilitar en una base de datos mediante [Modificar base de datos](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options). El siguiente comando se puede usar para deshabilitar la retención de la información en una base de datos.
+La retención de la información se puede deshabilitar en una base de datos mediante [Modificar base de datos](/sql/t-sql/statements/alter-database-transact-sql-set-options). El siguiente comando se puede usar para deshabilitar la retención de la información en una base de datos.
 
 ```sql
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;

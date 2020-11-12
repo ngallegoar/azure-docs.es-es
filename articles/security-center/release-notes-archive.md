@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 2d156887416fb9a587c9690c3b275229e91f1dbe
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e802f798ade5e6bfe0b40b17bbf15df5387ef7c3
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339805"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357851"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
 
@@ -28,6 +28,143 @@ En este página se proporciona información acerca de lo siguiente:
 - Nuevas características
 - Corrección de errores
 - Funciones obsoletas
+
+
+
+
+## <a name="may-2020"></a>Mayo de 2020
+
+Las actualizaciones de mayo incluyen:
+- [Reglas de supresión de alertas (versión preliminar)](#alert-suppression-rules-preview)
+- [La evaluación de vulnerabilidades de la máquina virtual ya está disponible con carácter general](#virtual-machine-vulnerability-assessment-is-now-generally-available)
+- [Cambios en el acceso a la máquina virtual (VM) Just-in-Time (JIT)](#changes-to-just-in-time-jit-virtual-machine-vm-access)
+- [Las recomendaciones personalizadas se han migrado a un control de seguridad independiente](#custom-recommendations-have-been-moved-to-a-separate-security-control)
+- [Alternancia agregada para ver las recomendaciones en controles o como una lista plana](#toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list)
+- [Control de seguridad expandido "implementar prácticas recomendadas de seguridad"](#expanded-security-control-implement-security-best-practices)
+- [Las directivas personalizadas con metadatos personalizados ya están disponibles con carácter general](#custom-policies-with-custom-metadata-are-now-generally-available)
+- [Migración de funcionalidades de análisis de volcado de memoria a detección de ataques sin archivos](#crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection)
+
+
+### <a name="alert-suppression-rules-preview"></a>Reglas de supresión de alertas (versión preliminar)
+
+Esta nueva característica (actualmente en versión preliminar) ayuda a reducir la fatiga de la alerta. Use reglas para ocultar automáticamente las alertas que se sabe que son inocuas o relacionadas con las actividades normales de su organización. Esto le permite centrarse en las amenazas más importantes. 
+
+Todavía se generarán alertas que coincidan con las reglas de supresión habilitadas, pero su estado se establecerá en descartado. Puede ver el estado en el Azure Portal o tener acceso a las alertas de seguridad de Security Center.
+
+Las reglas de supresión definen los criterios para los que se deben descartar automáticamente las alertas. Normalmente, se usaría una regla de supresión para:
+
+- Eliminar las alertas identificadas como falsos positivos
+
+- suprimir las alertas que se desencadenan con demasiada frecuencia para ser útiles
+
+Más información sobre la [supresión de alertas de protección contra amenazas de Azure Security Center](alerts-suppression-rules.md).
+
+
+### <a name="virtual-machine-vulnerability-assessment-is-now-generally-available"></a>La evaluación de vulnerabilidades de la máquina virtual ya está disponible con carácter general
+
+El nivel estándar de Security Center ahora incluye una evaluación de vulnerabilidades integrada para máquinas virtuales sin precio adicional. Esta extensión está basada en Qualys pero notifica sus hallazgos directamente de nuevo a Security Center. No se necesita ninguna licencia ni cuenta de Qualys, ya que todo se administra sin problemas en Security Center.
+
+La nueva solución puede examinar continuamente las máquinas virtuales para encontrar vulnerabilidades y presentar las conclusiones en Security Center. 
+
+Para implementar la solución, use la nueva recomendación de seguridad:
+
+"Habilitar la solución de evaluación de vulnerabilidades integrada en las máquinas virtuales (con tecnología de Qualys)"
+
+Más información sobre la [evaluación de vulnerabilidades integradas de Security Center para máquinas virtuales](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
+
+
+
+### <a name="changes-to-just-in-time-jit-virtual-machine-vm-access"></a>Cambios en el acceso a la máquina virtual (VM) Just-in-Time (JIT)
+
+Security Center incluye una característica opcional para proteger los puertos de administración de las máquinas virtuales. Esto proporciona una defensa contra la forma más común de ataques por fuerza bruta.
+
+Esta actualización lleva a cabo los siguientes cambios en esta característica:
+
+- Se ha cambiado el nombre de la recomendación que le aconseja habilitar JIT en una máquina virtual. Anteriormente, "el control de acceso a red Just-in-Time se debe aplicar a las máquinas virtuales" ahora es: "Los puertos de administración de las máquinas virtuales deben protegerse con el control de acceso de red Just-In-Time".
+
+- La recomendación se desencadena solo si hay puertos de administración abiertos.
+
+Más información acerca de [la característica de acceso JIT](security-center-just-in-time.md).
+
+
+### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>Las recomendaciones personalizadas se han migrado a un control de seguridad independiente
+
+Uno de los controles de seguridad incluidos con la puntuación segura mejorada fue "Implementación de procedimientos recomendados de seguridad". Las recomendaciones personalizadas creadas para las suscripciones se colocan automáticamente en ese control. 
+
+Para que sea más fácil encontrar las recomendaciones personalizadas, las hemos pasado a un control de seguridad dedicado, "recomendaciones personalizadas". Este control no afecta a la puntuación segura.
+
+Más información sobre los controles de seguridad en [puntuación de seguridad mejorada (versión preliminar) de Azure Security Center](secure-score-security-controls.md).
+
+
+### <a name="toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list"></a>Alternancia agregada para ver las recomendaciones en controles o como una lista plana
+
+Los controles de seguridad son grupos lógicos de recomendaciones de seguridad relacionadas. Reflejan las superficies de ataque vulnerables. Un control es un conjunto de recomendaciones de seguridad con instrucciones que le ayudan a implementar esas recomendaciones.
+
+Para ver de inmediato cómo protege su organización cada superficie de ataque individual, revise las puntuaciones de cada control de seguridad.
+
+De forma predeterminada, las recomendaciones se muestran en los controles de seguridad. A partir de esta actualización también se pueden mostrar como una lista. Para verlos como una lista simple ordenada por el estado de mantenimiento de los recursos afectados, use el nuevo comando de alternancia "agrupar por controles". El comando de alternancia está encima de la lista en el portal.
+
+Los controles de seguridad y esta alternancia forman parte de la nueva experiencia de puntuación segura. No se olvide de enviarnos sus comentarios desde dentro del portal.
+
+Más información sobre los controles de seguridad en [puntuación de seguridad mejorada (versión preliminar) de Azure Security Center](secure-score-security-controls.md).
+
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Alternancia &quot;agrupar por controles&quot; para recomendaciones":::
+
+### <a name="expanded-security-control-implement-security-best-practices"></a>Control de seguridad expandido "implementar prácticas recomendadas de seguridad" 
+
+Uno de los controles de seguridad que incluye con la puntuación segura mejorada es "Implementación de procedimientos recomendados de seguridad". Cuando una recomendación está en este control, no afecta a la puntuación segura. 
+
+Con esta actualización, se han sacado tres recomendaciones de los controles en los que se colocaron originalmente y en este control de prácticas recomendadas. Hemos realizado este paso porque hemos determinado que el riesgo de estas tres recomendaciones es menor de lo que se pensó inicialmente.
+
+Además, se han incorporado dos nuevas recomendaciones y se han agregado a este control.
+
+Las tres recomendaciones que se movieron son:
+
+- **MFA debe estar habilitada en las cuentas con permisos de lectura en la suscripción** (originalmente en el control "habilitar MFA")
+- **Las cuentas externas con permisos de lectura deben quitarse de la suscripción** (originalmente en el control "administrar acceso y permisos")
+- **Se debe designar un máximo de 3 propietarios para la suscripción** (originalmente en el control "administrar acceso y permisos")
+
+Las dos nuevas recomendaciones que se han agregado al control son:
+
+- **La extensión de configuración de invitado debe instalarse en máquinas virtuales Windows (versión preliminar):** el uso de la [configuración de invitado de Azure Policy](../governance/policy/concepts/guest-configuration.md) proporciona visibilidad dentro de las máquinas virtuales a la configuración de servidor y de aplicación (solo Windows).
+
+- **Protección contra vulnerabilidades de seguridad de Windows Defender debe estar habilitada en las máquinas (versión preliminar)** : Protección contra vulnerabilidades de seguridad de Windows Defender aprovecha el agente de configuración de invitado de Azure Policy. La protección contra vulnerabilidades de seguridad tiene cuatro componentes diseñados para bloquear dispositivos en una amplia variedad de vectores de ataque y comportamientos de bloque utilizados habitualmente en ataques de malware, al tiempo que permiten a las empresas equilibrar los requisitos de productividad y riesgo de seguridad (solo Windows).
+
+Más información sobre la protección contra vulnerabilidades de seguridad de Windows Defender en [Crear e implementar una directiva de protección contra vulnerabilidades](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
+
+Obtenga más información sobre los controles de seguridad en [Puntuación de seguridad mejorada (versión preliminar)](secure-score-security-controls.md).
+
+
+
+### <a name="custom-policies-with-custom-metadata-are-now-generally-available"></a>Las directivas personalizadas con metadatos personalizados ya están disponibles con carácter general
+
+Las directivas personalizadas ahora forman parte de la experiencia de recomendaciones de Security Center, la puntuación segura y el panel de normas de cumplimiento normativo. Esta característica ya está disponible con carácter general y permite ampliar la cobertura de evaluación de seguridad de la organización en Security Center. 
+
+Cree una iniciativa personalizada en Azure Policy, agréguele directivas e incorpore a Azure Security Center y visualice como recomendaciones.
+
+Ahora también hemos agregado la opción para editar los metadatos de recomendación personalizados. Las opciones de metadatos incluyen gravedad, pasos de corrección, información de amenazas y mucho más.  
+
+Más información sobre [mejora de las recomendaciones personalizadas con información detallada](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information).
+
+
+
+### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>Migración de funcionalidades de análisis de volcado de memoria a detección de ataques sin archivos 
+
+Estamos integrando las capacidades de detección del análisis de volcado de memoria de Windows (CDA) en [detección de ataques sin archivos](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers). El análisis de detección de ataques sin archivos no proporciona versiones mejoradas de las siguientes alertas de seguridad para máquinas Windows: Inyección de código detectada, se detectó un módulo de Windows enmascarado, shellcode detectado y segmento de código sospechoso.
+
+Algunas de las ventajas de esta transición son:
+
+- **Detección de malware proactiva y oportuna** : el enfoque de CDA implicaba esperar a que se produjera un bloqueo y, después, ejecutar el análisis para encontrar artefactos malintencionados. El uso de la detección de ataques sin archivos proporciona una identificación proactiva de las amenazas en memoria mientras se ejecutan. 
+
+- **Alertas enriquecidas** : las alertas de seguridad de la detección de ataques sin archivos no están disponibles en CDA, como la información de las conexiones de red activas. 
+
+- **Agregación de alertas** : cuando CDA detectó varios patrones de ataque en un solo volcado de memoria, desencadenó varias alertas de seguridad. Detección de ataques sin archivos combina todos los patrones de ataque identificados del mismo proceso en una única alerta, lo que elimina la necesidad de poner en correlación varias alertas.
+
+- **Requisitos reducidos en el área de trabajo de Log Analytics** : los volcados que contienen datos potencialmente confidenciales ya no se cargarán en el área de trabajo de Log Analytics.
+
+
+
+
 
 
 ## <a name="april-2020"></a>Abril de 2020
@@ -51,7 +188,7 @@ Ahora, puede agregar estándares como:
 - **Canada Federal PBMM**
 - **Azure CIS 1.1.0 (nuevo)** (que es una representación más completa de Azure CIS 1.1.0)
 
-Además, recientemente hemos agregado el **Azure Security Benchmark**, las instrucciones específicas de Azure creadas por Microsoft para las prácticas recomendadas de seguridad y cumplimiento basadas en los marcos de cumplimiento comunes. Se admitirán estándares adicionales en el panel a medida que estén disponibles.  
+Además, recientemente hemos agregado el **Azure Security Benchmark** , las instrucciones específicas de Azure creadas por Microsoft para las prácticas recomendadas de seguridad y cumplimiento basadas en los marcos de cumplimiento comunes. Se admitirán estándares adicionales en el panel a medida que estén disponibles.  
  
 Más información sobre [cómo personalizar el conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
 
@@ -116,9 +253,9 @@ La popular plataforma de código abierto Kubernetes se ha adoptado tan ampliamen
 
 La defensa de Security Center incluye:
 
-- **Detección y visibilidad**: detección continua de instancias de AKS administradas dentro de las suscripciones registradas de Security Center.
-- **Recomendaciones de seguridad**: recomendaciones útiles para ayudarle a cumplir los procedimientos recomendados de seguridad para AKS. Estas recomendaciones se incluyen en su puntuación segura para asegurarse de que se ven como parte de la postura de seguridad de su organización. Un ejemplo de una recomendación relacionada con AKS que podría ver es que "se debe usar el control de acceso basado en roles para restringir el acceso a un clúster de servicio de Kubernetes".
-- **Protección contra amenazas**: gracias al análisis continuo de la implementación de AKS, Security Center le alerta de las amenazas y actividades malintencionadas que se detectan en el host y el nivel de clúster de AKS.
+- **Detección y visibilidad** : detección continua de instancias de AKS administradas dentro de las suscripciones registradas de Security Center.
+- **Recomendaciones de seguridad** : recomendaciones útiles para ayudarle a cumplir los procedimientos recomendados de seguridad para AKS. Estas recomendaciones se incluyen en su puntuación segura para asegurarse de que se ven como parte de la postura de seguridad de su organización. Un ejemplo de una recomendación relacionada con AKS que podría ver es que "se debe usar el control de acceso basado en roles para restringir el acceso a un clúster de servicio de Kubernetes".
+- **Protección contra amenazas** : gracias al análisis continuo de la implementación de AKS, Security Center le alerta de las amenazas y actividades malintencionadas que se detectan en el host y el nivel de clúster de AKS.
 
 Más información acerca de [integración de Azure Kubernetes Services con Security Center](defender-for-kubernetes-introduction.md).
 
@@ -129,8 +266,8 @@ Más información sobre [las características de seguridad de los contenedores e
 
 Las características, la operación y la interfaz de usuario de las herramientas Just-in-Time de Azure Security Center que protegen los puertos de administración se han mejorado de la manera siguiente: 
 
-- **Campo de justificación**: al solicitar acceso a una máquina virtual (VM) a través de la página Just-in-Time del Azure Portal, hay un nuevo campo opcional disponible para especificar una justificación para la solicitud. Se puede realizar un seguimiento de la información especificada en este campo en el registro de actividad. 
-- **Limpieza automática de reglas Just-In-Time (JIT) redundantes**: siempre que se actualiza una directiva JIT, se ejecuta automáticamente una herramienta de limpieza para comprobar la validez de todo el conjunto de reglas. La herramienta busca discrepancias entre las reglas de la directiva y las reglas del grupo de seguridad de red. Si la herramienta de limpieza encuentra una discrepancia, determina la causa y, cuando es seguro hacerlo, quita las reglas integradas que ya no son necesarias. El limpiador no elimina nunca las reglas que ha creado. 
+- **Campo de justificación** : al solicitar acceso a una máquina virtual (VM) a través de la página Just-in-Time del Azure Portal, hay un nuevo campo opcional disponible para especificar una justificación para la solicitud. Se puede realizar un seguimiento de la información especificada en este campo en el registro de actividad. 
+- **Limpieza automática de reglas Just-In-Time (JIT) redundantes** : siempre que se actualiza una directiva JIT, se ejecuta automáticamente una herramienta de limpieza para comprobar la validez de todo el conjunto de reglas. La herramienta busca discrepancias entre las reglas de la directiva y las reglas del grupo de seguridad de red. Si la herramienta de limpieza encuentra una discrepancia, determina la causa y, cuando es seguro hacerlo, quita las reglas integradas que ya no son necesarias. El limpiador no elimina nunca las reglas que ha creado. 
 
 Más información acerca de [la característica de acceso JIT](security-center-just-in-time.md).
 
@@ -254,9 +391,9 @@ Kubernetes se convierte rápidamente en el nuevo estándar para implementar y ad
 
 Las nuevas capacidades de esta versión preliminar pública incluyen:
 
-- **Detección y visibilidad**: detección continua de instancias de AKS administradas dentro de las suscripciones registradas de Security Center.
-- **Recomendaciones de puntuación segura**: elementos procesables para ayudar a los clientes a cumplir los procedimientos recomendados de seguridad de AKS como parte de la puntuación segura del cliente, como "El control de acceso basado en roles debe usarse para restringir el acceso a un clúster de servicio de Kubernetes".
-- **Detección de amenazas**: análisis basados en host y en clúster, como "Se ha detectado un contenedor con privilegios".
+- **Detección y visibilidad** : detección continua de instancias de AKS administradas dentro de las suscripciones registradas de Security Center.
+- **Recomendaciones de puntuación segura** : elementos procesables para ayudar a los clientes a cumplir los procedimientos recomendados de seguridad de AKS como parte de la puntuación segura del cliente, como "El control de acceso basado en roles debe usarse para restringir el acceso a un clúster de servicio de Kubernetes".
+- **Detección de amenazas** : análisis basados en host y en clúster, como "Se ha detectado un contenedor con privilegios".
 
 
 ### <a name="virtual-machine-vulnerability-assessment-preview"></a>Evaluación de vulnerabilidades de máquinas virtuales (versión preliminar)

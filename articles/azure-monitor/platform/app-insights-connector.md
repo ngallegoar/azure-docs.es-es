@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e426962310417fdca56ea2f7d45a6ea820d41981
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449414"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335883"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solución de administración de Application Insights Connector (en desuso)
 
@@ -57,10 +57,10 @@ A diferencia de la mayoría de las demás soluciones de Log Analytics, los agent
 
 ## <a name="configuration"></a>Configuración
 
-1. Habilite la solución Azure Web Apps Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) o mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../insights/solutions.md).
+1. Habilite la solución Azure Web Apps Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) o mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../insights/solutions.md).
 2. Vaya a [Azure Portal](https://portal.azure.com). Seleccione **Todos los servicios** para abrir Application Insights. Después, busque “Application Insights”. 
-3. En **Seleccionar una suscripción**, seleccione una suscripción que tenga recursos de Application Insights y, después, en **Nombre**, seleccione una o más aplicaciones.
-4. Haga clic en **Save**(Guardar).
+3. En **Seleccionar una suscripción** , seleccione una suscripción que tenga recursos de Application Insights y, después, en **Nombre** , seleccione una o más aplicaciones.
+4. Haga clic en **Save** (Guardar).
 
 Aproximadamente en 30 minutos, los datos quedan disponibles y el icono de Application Insights se actualiza con los datos, como se ve en la imagen siguiente:
 
@@ -113,15 +113,15 @@ La hoja **Disponibilidad** muestra una vista de perspectiva distinta en la que p
 
 ![Perspectiva Disponibilidad de Application Insights](./media/app-insights-connector/availability-blade-drill-search.png)
 
-Cuando hace clic en cualquier parte de las hojas **Solicitudes de servidor** o **Errores**, los componentes de la perspectiva cambian para ofrecer una visualización relacionada con las solicitudes.
+Cuando hace clic en cualquier parte de las hojas **Solicitudes de servidor** o **Errores** , los componentes de la perspectiva cambian para ofrecer una visualización relacionada con las solicitudes.
 
 ![Hoja Errores de Application Insights](./media/app-insights-connector/server-requests-failures-drill-search.png)
 
-Cuando hace clic en cualquier parte de la hoja **Excepciones**, ve una visualización adaptada a las excepciones.
+Cuando hace clic en cualquier parte de la hoja **Excepciones** , ve una visualización adaptada a las excepciones.
 
 ![Hoja Excepciones de Application Insights](./media/app-insights-connector/exceptions-blade-drill-search.png)
 
-Independientemente de si hace clic en algún elemento del panel **Application Insights Connector**, en la página **Búsqueda** misma, cualquier consulta que devuelva datos de Application Insights muestra la perspectiva de Application Insights. Por ejemplo, si ve los datos de Application Insights, una consulta **&#42;** también muestra la pestaña de perspectivas, como se muestra en la imagen siguiente:
+Independientemente de si hace clic en algún elemento del panel **Application Insights Connector** , en la página **Búsqueda** misma, cualquier consulta que devuelva datos de Application Insights muestra la perspectiva de Application Insights. Por ejemplo, si ve los datos de Application Insights, una consulta **&#42;** también muestra la pestaña de perspectivas, como se muestra en la imagen siguiente:
 
 ![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
@@ -144,7 +144,7 @@ Para hacer lo último, haga clic en los tres puntos suspensivos ( **…** ) que 
 
 ### <a name="sample-corrected-data"></a>Datos de ejemplo corregidos
 
-Application Insights proporciona *[corrección de muestreo](../app/sampling.md)* para ayudar a disminuir el tráfico de telemetría. Cuando se habilita el muestreo en la aplicación de Application Insights, obtiene un número reducido de entradas almacenadas en Application Insights y en Log Analytics. Si bien la coherencia de los datos se conserva en las perspectivas y en la página **Application Insights Connector**, debe corregir manualmente los datos muestreados para las consultas personalizadas.
+Application Insights proporciona *[corrección de muestreo](../app/sampling.md)* para ayudar a disminuir el tráfico de telemetría. Cuando se habilita el muestreo en la aplicación de Application Insights, obtiene un número reducido de entradas almacenadas en Application Insights y en Log Analytics. Si bien la coherencia de los datos se conserva en las perspectivas y en la página **Application Insights Connector** , debe corregir manualmente los datos muestreados para las consultas personalizadas.
 
 A continuación, se muestra un ejemplo de una corrección de muestreo en una consulta de búsqueda de registros:
 
@@ -154,7 +154,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 El campo **Sampled Count** aparece en todas las entradas y muestra el número de puntos de datos que representa la entrada. Si activa el muestreo para la aplicación de Application Insights, el campo **Sampled Count** es mayor que 1. Para registrar el número real de entradas que genera la aplicación, sume los campos **Sampled Count**.
 
-El muestreo afecta solo el número total de entradas que la aplicación genera. No necesita corregir el muestreo para campos de métrica como **RequestDuration** o **AvailabilityDuration**, porque esos campos muestran el promedio de las entradas representadas.
+El muestreo afecta solo el número total de entradas que la aplicación genera. No necesita corregir el muestreo para campos de métrica como **RequestDuration** o **AvailabilityDuration** , porque esos campos muestran el promedio de las entradas representadas.
 
 ## <a name="input-data"></a>Datos de entrada
 

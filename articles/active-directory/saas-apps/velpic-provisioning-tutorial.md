@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: fbed4b888c48a518d9f10a91ff0494aa7bdc1843
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdd4fb96a42d154ccd8b508950283978ddf58ef4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532371"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354910"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Tutorial: Configuración de Velpic para el aprovisionamiento automático de usuarios
 
@@ -66,7 +66,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
     ![Aprovisionamiento de Velpic](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. En la sección **Credenciales de administrador**, introduzca la **dirección URL de inquilino y el token secreto** de Velpic (puede encontrar estos valores en la cuenta de Velpic): **Manage** > **Integration** > **Plugin** > **SCIM** [Administrar > Integración > Complemento > SCIM]).
+5. En la sección **Credenciales de administrador** , introduzca la **dirección URL de inquilino y el token secreto** de Velpic (puede encontrar estos valores en la cuenta de Velpic): **Manage** > **Integration** > **Plugin** > **SCIM** [Administrar > Integración > Complemento > SCIM]).
 
     ![Valores de autorización](./media/velpic-provisioning-tutorial/Velpic2.png)
 
@@ -74,15 +74,15 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 7. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla que aparece a continuación.
 
-8. Haga clic en **Save**(Guardar).
+8. Haga clic en **Save** (Guardar).
 
 9. En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to Velpic** (Sincronizar usuarios de Azure Active Directory con Velpic).
 
-10. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizarán de Azure AD con Velpic. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para establecer coincidencias con las cuentas de usuario de Velpic con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+10. En la sección **Asignaciones de atributos** , revise los atributos de usuario que se sincronizarán de Azure AD con Velpic. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para establecer coincidencias con las cuentas de usuario de Velpic con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
 11. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para Velpic, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-12. Haga clic en **Save**(Guardar).
+12. Haga clic en **Save** (Guardar).
 
 Esta acción iniciará la sincronización inicial de todos los usuarios y grupos asignados a Velpic en la sección Usuarios y grupos. Tenga en cuenta que la sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los informes de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento.
 

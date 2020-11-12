@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85a0618dc5c99b662bbe5520615b5983da5aec91
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9330c6d34dcf5a799d65ebba176565ff031cb956
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374078"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376789"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualización y asignación de roles de administrador en Azure Active Directory
 
@@ -26,7 +26,7 @@ Ahora puede ver y administrar todos los miembros de los roles de administrador e
 
 ## <a name="view-all-roles"></a>Ver todos los roles
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory**.
 
 1. Seleccione **Roles y administradores** para ver la lista de todos los roles disponibles.
 
@@ -59,13 +59,13 @@ Cuando esté viendo los miembros de un rol, haga clic en **Descripción** para v
 
 ## <a name="download-role-assignments"></a>Descarga de asignaciones de rol
 
-Para descargar todas las asignaciones de un rol específico, en la página **Roles y administradores** , seleccione un rol y luego **Descargar asignaciones de roles** . Se descargará un archivo CSV en el que se enumeran las asignaciones en todos los ámbitos para ese rol.
+Para descargar todas las asignaciones de un rol específico, en la página **Roles y administradores** , seleccione un rol y luego **Descargar asignaciones de roles**. Se descargará un archivo CSV en el que se enumeran las asignaciones en todos los ámbitos para ese rol.
 
 ![Descarga de todas las asignaciones de un rol](./media/manage-roles-portal/download-role-assignments.png)
 
 ## <a name="assign-a-role"></a>Asignar un rol
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con los permisos de administrador global o administrador de roles con privilegios y seleccione **Azure Active Directory** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con los permisos de administrador global o administrador de roles con privilegios y seleccione **Azure Active Directory**.
 
 1. Seleccione **Roles y administradores** para ver la lista de todos los roles disponibles.
 

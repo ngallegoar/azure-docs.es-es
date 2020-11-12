@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: c6b65c97fd87d4e3ed84c837d2702395091097fa
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a7d55c6e550000d2dd6c2930d95086ec433c246b
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308063"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361104"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de Keras a gran escala con Azure Machine Learning
 
@@ -60,6 +60,7 @@ En primer lugar, importe las bibliotecas de Python necesarias.
 import os
 import azureml
 from azureml.core import Experiment
+from azureml.core import Environment
 from azureml.core import Workspace, Run
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
@@ -147,8 +148,6 @@ Cree un entorno de Azure ML a partir de esta especificación de entorno de Conda
 De forma predeterminada, si no se especifica ninguna imagen de base, Azure ML usará la imagen con CPU `azureml.core.environment.DEFAULT_CPU_IMAGE` como imagen de base. Dado que en este ejemplo el entrenamiento se ejecuta en un clúster con GPU, deberá especificar una imagen de base con GPU que tenga los controladores y las dependencias de GPU necesarios. Azure ML mantiene un conjunto de imágenes de base publicadas en Microsoft Container Registry (MCR) que puede usar; consulte el repositorio de GitHub [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) para más información.
 
 ```python
-from azureml.core import Environment
-
 keras_env = Environment.from_conda_specification(name='keras-env', file_path='conda_dependencies.yml')
 
 # Specify a GPU base image

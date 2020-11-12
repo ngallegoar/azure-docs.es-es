@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 76b5f279294dda0d2b1c01bf8cdd803390b04cec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 53b1db1a8c4da59055c0af5f448fa0c8a6933daf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520037"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354313"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Tutorial: Configuración de Wrike para el aprovisionamiento automático de usuarios
 
@@ -52,7 +52,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 Antes de configurar Wrike para el aprovisionamiento automático de usuarios con Azure AD, debe habilitar el aprovisionamiento del sistema de administración de identidades entre dominios (SCIM) en Wrike.
 
-1. Inicie sesión en la [consola de administración de Wrike](https://www.Wrike.com/login/). Vaya al identificador de inquilino. Seleccione **Aplicaciones e integraciones** .
+1. Inicie sesión en la [consola de administración de Wrike](https://www.Wrike.com/login/). Vaya al identificador de inquilino. Seleccione **Aplicaciones e integraciones**.
 
     ![Aplicaciones e integraciones](media/Wrike-provisioning-tutorial/admin.png)
 
@@ -60,11 +60,11 @@ Antes de configurar Wrike para el aprovisionamiento automático de usuarios con 
 
     ![Azure AD](media/Wrike-provisioning-tutorial/Capture01.png)
 
-3.  Seleccione SCIM. Copie la **dirección URL base** .
+3.  Seleccione SCIM. Copie la **dirección URL base**.
 
     ![URL base](media/Wrike-provisioning-tutorial/Wrike-tenanturl.png)
 
-4. Seleccione **API** > **Azure SCIM** .
+4. Seleccione **API** > **Azure SCIM**.
 
     ![Azure SCIM](media/Wrike-provisioning-tutorial/Wrike-add-scim.png)
 
@@ -83,11 +83,11 @@ Antes de configurar Wrike para el aprovisionamiento automático de usuarios con 
 
 Para agregar Wrike desde la galería de aplicaciones de Azure AD, siga estos pasos.
 
-1. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** .
+1. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -109,43 +109,43 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Configuración del aprovisionamiento automático de usuarios para Wrike en Azure AD
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 
     ![Todas las aplicaciones](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Wrike** .
+2. En la lista de aplicaciones, seleccione **Wrike**.
 
     ![Vínculo a Wrike en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento** .
+3. Seleccione la pestaña **Aprovisionamiento**.
 
     ![Pestaña Aprovisionamiento](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático** .
+4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Modo de aprovisionamiento establecido en Automático](common/provisioning-automatic.png)
 
-5. En la sección Credenciales de administrador, escriba los valores de **URL base** y **Token de acceso permanente** que recuperó anteriormente en **URL de inquilino** y **Token secreto** respectivamente. Para asegurarse de que Azure AD puede conectarse a Wrike, seleccione **Probar conexión** . Si la conexión no se establece, asegúrese de que la cuenta de Wrike tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección Credenciales de administrador, escriba los valores de **URL base** y **Token de acceso permanente** que recuperó anteriormente en **URL de inquilino** y **Token secreto** respectivamente. Para asegurarse de que Azure AD puede conectarse a Wrike, seleccione **Probar conexión**. Si la conexión no se establece, asegúrese de que la cuenta de Wrike tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino y token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. En el cuadro **Dirección de correo electrónico para notificaciones** , escriba la dirección de correo electrónico de la persona o grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
+7. En el cuadro **Dirección de correo electrónico para notificaciones** , escriba la dirección de correo electrónico de la persona o grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Dirección de correo electrónico para notificaciones](common/provisioning-notification-email.png)
 
-8. Seleccione **Guardar** .
+8. Seleccione **Guardar**.
 
 9. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Wrike** (Sincronizar usuarios de Azure Active Directory con Wrike).
 
     ![Asignaciones de usuario de Wrike](media/Wrike-provisioning-tutorial/Wrike-user-mappings.png)
 
-10. Revise los atributos de usuario que se sincronizan entre Azure AD y Wrike en la sección **Asignaciones de atributos** . Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Wrike con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar** .
+10. Revise los atributos de usuario que se sincronizan entre Azure AD y Wrike en la sección **Asignaciones de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Wrike con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
 
     ![Atributos de usuario de Wrike](media/Wrike-provisioning-tutorial/Wrike-user-attributes.png)
 
 11. Para configurar filtros de ámbito, consulte las instrucciones del [tutorial sobre filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Para habilitar el servicio de aprovisionamiento de Azure AD para Wrike, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
+12. Para habilitar el servicio de aprovisionamiento de Azure AD para Wrike, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
@@ -153,11 +153,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-14. Cuando esté listo para realizar el aprovisionamiento, seleccione **Guardar** .
+14. Cuando esté listo para realizar el aprovisionamiento, seleccione **Guardar**.
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las sincronizaciones posteriores. Para más información sobre el tiempo que se tarda en aprovisionar los usuarios o los grupos, consulte [¿Cuánto tiempo se tarda en aprovisionar usuarios?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las sincronizaciones posteriores. Para más información sobre el tiempo que se tarda en aprovisionar los usuarios o los grupos, consulte [¿Cuánto tiempo se tarda en aprovisionar usuarios?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
 Puede usar la sección **Estado actual** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Wrike. Para obtener más información, vea [Comprobación del estado de aprovisionamiento](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 

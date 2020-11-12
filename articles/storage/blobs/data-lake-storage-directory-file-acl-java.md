@@ -9,12 +9,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 94696eacd9a75129f493a97bca201ad5ffb3456c
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 2526f8a79cb9f9bc312c6338e3a005244a4a901c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131571"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359143"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de Java para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -108,7 +108,7 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno llamando al método **DataLakeServiceClient.createFileSystem** .
+Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno llamando al método **DataLakeServiceClient.createFileSystem**.
 
 En este ejemplo se crea un contenedor denominado `my-file-system`. 
 
@@ -122,7 +122,7 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 ## <a name="create-a-directory"></a>Creación de un directorio
 
-Cree una referencia de directorio llamando al método **DataLakeFileSystemClient.createDirectory** .
+Cree una referencia de directorio llamando al método **DataLakeFileSystemClient.createDirectory**.
 
 En este ejemplo se agrega un directorio denominado `my-directory` a un contenedor y luego se agrega un subdirectorio denominado `my-subdirectory`. 
 
@@ -142,7 +142,7 @@ static public DataLakeDirectoryClient CreateDirectory
 
 ## <a name="rename-or-move-a-directory"></a>Cambio de nombre o traslado de un directorio
 
-Cambie el nombre de un directorio o muévalo llamando al método **DataLakeDirectoryClient.rename** . Pase la ruta de acceso del directorio que busca a un parámetro. 
+Cambie el nombre de un directorio o muévalo llamando al método **DataLakeDirectoryClient.rename**. Pase la ruta de acceso del directorio que busca a un parámetro. 
 
 En este ejemplo se cambia el nombre de un subdirectorio a `my-subdirectory-renamed`.
 
@@ -174,7 +174,7 @@ static public DataLakeDirectoryClient MoveDirectory
 
 ## <a name="delete-a-directory"></a>Eliminación de un directorio
 
-Elimine un directorio llamando al método **DataLakeDirectoryClient.deleteWithResponse** .
+Elimine un directorio llamando al método **DataLakeDirectoryClient.deleteWithResponse**.
 
 En este ejemplo se elimina un directorio denominado `my-directory`.   
 
@@ -190,7 +190,7 @@ static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
 
 ## <a name="upload-a-file-to-a-directory"></a>Carga de un archivo en un directorio
 
-En primer lugar, cree una referencia de archivo en el directorio de destino creando una instancia de la clase **DataLakeFileClient** . Cargue un archivo llamando al método **DataLakeFileClient.append** . Asegúrese de completar la carga llamando al método **DataLakeFileClient.FlushAsync** .
+En primer lugar, cree una referencia de archivo en el directorio de destino creando una instancia de la clase **DataLakeFileClient**. Cargue un archivo llamando al método **DataLakeFileClient.append**. Asegúrese de completar la carga llamando al método **DataLakeFileClient.FlushAsync**.
 
 En este ejemplo se carga un archivo de texto en un directorio denominado `my-directory`.
 
@@ -216,13 +216,13 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 ```
 
 > [!TIP]
-> Si el tamaño del archivo es grande, el código tendrá que realizar varias llamadas al método **DataLakeFileClient.append** . Considere la posibilidad de usar en su lugar el método **DataLakeFileClient.uploadFromFile** . De este modo, puede cargar todo el archivo en una sola llamada. 
+> Si el tamaño del archivo es grande, el código tendrá que realizar varias llamadas al método **DataLakeFileClient.append**. Considere la posibilidad de usar en su lugar el método **DataLakeFileClient.uploadFromFile**. De este modo, puede cargar todo el archivo en una sola llamada. 
 >
 > Vea la sección siguiente para obtener un ejemplo.
 
 ## <a name="upload-a-large-file-to-a-directory"></a>Carga de un archivo de grand tamaño en un directorio
 
-Use el método **DataLakeFileClient.uploadFromFile** para cargar archivos grandes sin tener que realizar varias llamadas al método **DataLakeFileClient.append** .
+Use el método **DataLakeFileClient.uploadFromFile** para cargar archivos grandes sin tener que realizar varias llamadas al método **DataLakeFileClient.append**.
 
 ```java
 static public void UploadFileBulk(DataLakeFileSystemClient fileSystemClient) 
@@ -350,7 +350,7 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 
 ```
 
-También puede obtener y establecer la ACL del directorio raíz de un contenedor. Para obtener el directorio raíz, pase una cadena vacía (`""`) en el método **DataLakeFileSystemClient.getDirectoryClient** .
+También puede obtener y establecer la ACL del directorio raíz de un contenedor. Para obtener el directorio raíz, pase una cadena vacía (`""`) en el método **DataLakeFileSystemClient.getDirectoryClient**.
 
 ### <a name="manage-a-file-acl"></a>Administración de una lista de control de acceso de archivo
 
@@ -398,6 +398,10 @@ static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 
 }
 ```
+
+### <a name="set-an-acl-recursively"></a>Establecimiento de una ACL de forma recursiva
+
+Puede agregar, actualizar y quitar las ACL de forma recursiva para los elementos secundarios existentes de un directorio primario sin tener que realizar estos cambios individualmente para cada elemento secundario. Para obtener más información, consulte [Establecimiento de listas de control de acceso (ACL) de forma recursiva para Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 
 ## <a name="see-also"></a>Consulte también
 

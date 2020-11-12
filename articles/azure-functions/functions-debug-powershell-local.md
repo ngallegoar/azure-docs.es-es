@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a668024db126c82f96756555aba513b77f7d7366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89177098"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422967"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Depuración local de Azure Functions de PowerShell
 
@@ -38,7 +38,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Esta aplicación de funciones es similar a la que obtiene al completar el [inicio rápido de PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+Esta aplicación de funciones es similar a la que obtiene al completar el [inicio rápido de PowerShell](./create-first-function-vs-code-powershell.md).
 
 El código de función de `run.ps1` es similar al siguiente script:
 
@@ -95,10 +95,10 @@ Con `Wait-Debugger` en su lugar, ya puede depurar las funciones con Visual Studi
 Para depurar sus funciones de PowerShell en Visual Studio Code, debe tener instalado lo siguiente:
 
 * [Extensión de PowerShell para Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
-* [Extensión de Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md)
+* [Extensión de Azure Functions para Visual Studio Code](./create-first-function-cli-powershell.md)
 * [PowerShell Core 6.2 o una versión posterior](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-Después de instalar estas dependencias, cargue un proyecto existente de Functions de PowerShell o [cree su primer proyecto de Functions de PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+Después de instalar estas dependencias, cargue un proyecto existente de Functions de PowerShell o [cree su primer proyecto de Functions de PowerShell](./create-first-function-vs-code-powershell.md).
 
 >[!NOTE]
 > Si el proyecto no tiene los archivos de configuración necesarios, se le pedirá que los agregue.
@@ -111,7 +111,7 @@ PowerShell Core se instala en paralelo con Windows PowerShell. Establezca PowerS
 
 1. Elija **PowerShell: Show Session Menu** (PowerShell: Mostrar menú de sesión).
 
-1. Si su **sesión actual** no es **PowerShell Core 6**, elija **Cambiar a: PowerShell Core 6**.
+1. Si su **sesión actual** no es **PowerShell Core 6** , elija **Cambiar a: PowerShell Core 6**.
 
 Cuando haya abierto un archivo de PowerShell, la versión se muestra en verde en la parte inferior derecha de la ventana. Al seleccionar este texto, también se muestra el menú de sesiones. Para obtener más información, consulte [Elección de una versión de PowerShell para usarla con la extensión](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 

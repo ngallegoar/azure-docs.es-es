@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8dc4087d1a10b4c4af7477a02f397c5a2bc547c2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459397"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integración de Azure Active Directory con Jobscience
 
@@ -55,11 +55,11 @@ Para configurar la integración de Jobscience en Azure AD, deberá agregar Jobsc
 
 **Para agregar Jobscience desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** . 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-1. Vaya a **Aplicaciones empresariales** . A continuación, vaya a **Todas las aplicaciones** .
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Captura de pantalla que muestra la opción Aplicaciones empresariales seleccionada en Azure Portal, bajo Administrar y, a su vez, aparece seleccionada la opción Todas las aplicaciones.][2]
     
@@ -67,7 +67,7 @@ Para configurar la integración de Jobscience en Azure AD, deberá agregar Jobsc
 
     ![Captura de pantalla que muestra seleccionada la opción Nueva aplicación.][3]
 
-1. En el cuadro de búsqueda, escriba **Jobscience** .
+1. En el cuadro de búsqueda, escriba **Jobscience**.
 
     ![Captura de pantalla que muestra la sección Agregar desde la galería, donde se ha escrito jobscience.](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
@@ -80,7 +80,7 @@ En esta sección, podrá configurar y probar el inicio de sesión único de Azur
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Jobscience para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Jobscience.
 
-Para establecer la relación de vínculo, en Jobscience, asigne el valor de **nombre de usuario** de Azure AD como valor de **Nombre de usuario** .
+Para establecer la relación de vínculo, en Jobscience, asigne el valor de **nombre de usuario** de Azure AD como valor de **Nombre de usuario**.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Jobscience, es preciso completar los siguientes bloques de creación:
 
@@ -96,7 +96,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 **Para configurar el inicio de sesión único de Azure AD con Jobscience, realice los pasos siguientes:**
 
-1. En Azure Portal, en la página de integración de la aplicación **Jobscience** , haga clic en **Inicio de sesión único** .
+1. En Azure Portal, en la página de integración de la aplicación **Jobscience** , haga clic en **Inicio de sesión único**.
 
     ![Captura de pantalla que muestra que se ha seleccionado Inicio de sesión único en Administrar en Azure Portal.][4]
 
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Captura de pantalla que muestra el botón Guardar.](./media/jobscience-tutorial/tutorial_general_400.png)
 
-1. En la sección **Configuración de Jobscience** , haga clic en **Configurar Jobscience** para abrir la ventana **Configurar inicio de sesión** . Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida** .
+1. En la sección **Configuración de Jobscience** , haga clic en **Configurar Jobscience** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Captura de pantalla que muestra la ventana Configuración de Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
 
@@ -147,9 +147,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Configuración de inicio de sesión único](./media/jobscience-tutorial/ic781026.png "Configuración de inicio de sesión único")
     
-    a. Seleccione **SAML habilitado** .
+    a. Seleccione **SAML habilitado**.
 
-    b. Haga clic en **Nueva** .
+    b. Haga clic en **Nueva**.
 
 1. En el cuadro de diálogo **SAML Single Sign-On Setting Edit** (Edición de la configuración de inicio de sesión único de SAML), realice los pasos siguientes:
     
@@ -185,7 +185,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Captura de pantalla que muestra la sección Login Page Branding (Personalización de marca de la página de inicio de sesión) con la casilla PPE y el botón Save (Guardar) seleccionados.](./media/jobscience-tutorial/ic784366.png "Personalización de marca de la página de inicio de sesión")
 
-1. Para obtener la dirección URL de inicio de sesión único iniciado por el proveedor de servicios, haga clic en **Configuración de inicio de sesión único** en la sección del menú **Controles de seguridad** .
+1. Para obtener la dirección URL de inicio de sesión único iniciado por el proveedor de servicios, haga clic en **Configuración de inicio de sesión único** en la sección del menú **Controles de seguridad**.
 
     ![Captura de pantalla que muestra la opción de administración de controles de seguridad con el inicio de sesión único seleccionado.](./media/jobscience-tutorial/ic784368.png "Controles de seguridad")
     
@@ -202,11 +202,11 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo de **Azure Portal** , haga clic en el icono de **Azure Active Directory** .
+1. En el panel de navegación izquierdo de **Azure Portal** , haga clic en el icono de **Azure Active Directory**.
 
     ![La captura de pantalla muestra el icono de Azure AD en Azure Portal.](./media/jobscience-tutorial/create_aaduser_01.png) 
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** .
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Captura de pantalla que muestra los usuarios y grupos seleccionados en el menú Administrar, con la opción Todos los usuarios seleccionada.](./media/jobscience-tutorial/create_aaduser_02.png) 
 
@@ -218,13 +218,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Captura de pantalla que muestra el cuadro de diálogo Usuario, donde puede especificar los valores en este paso.](./media/jobscience-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre** , escriba **BrittaSimon** .
+    a. En el cuadro de texto **Nombre** , escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario** , escriba la **dirección de correo electrónico** de Britta Simon.
 
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña** .
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear** .
+    d. Haga clic en **Crear**.
  
 ### <a name="creating-a-jobscience-test-user"></a>Creación de un usuario de prueba de Jobscience
 
@@ -244,7 +244,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben 
 1. Vaya a **Manage Users \> (Administrar usuarios) Users** (Usuarios).
    
    ![Usuarios](./media/jobscience-tutorial/ic784369.png "Usuarios")
-1. Haga clic en **Nuevo usuario** .
+1. Haga clic en **Nuevo usuario**.
    
    ![Todos los usuarios](./media/jobscience-tutorial/ic784370.png "Todos los usuarios")
 1. En el cuadro de diálogo **Editar usuario** , realice los siguientes pasos:
@@ -277,27 +277,27 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar a Britta Simon a Jobscience, realice los pasos siguientes:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales** . Luego, haga clic en **Todas las aplicaciones** .
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
 
     ![Captura de pantalla que muestra la opción Aplicaciones empresariales en el menú de Azure Portal con la opción Todas las aplicaciones seleccionadas.][201] 
 
-1. En la lista de aplicaciones, seleccione **Jobscience** .
+1. En la lista de aplicaciones, seleccione **Jobscience**.
 
     ![Captura de pantalla que muestra Jobscience seleccionado.](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos** .
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Captura de pantalla que muestra la opción Usuarios y grupos seleccionada en el menú de Azure Portal.][202] 
 
-1. Haga clic en el botón **Agregar** . Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Captura de pantalla que muestra el botón Agregar, que se usa para agregar asignaciones.][203]
 
 1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista de usuarios.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos** .
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación** .
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
 

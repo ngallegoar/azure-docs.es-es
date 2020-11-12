@@ -8,23 +8,16 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: bf2531536796965f145a9ac3e6a23cbb6634852a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3882aae0fb1ecf330917f886555208c3937dd9a5
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88817236"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358225"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Uso de Azure Portal para habilitar el cifrado doble en reposo para discos administrados
 
-Azure Disk Storage admite el cifrado doble en reposo para los discos administrados. Para obtener información conceptual sobre el cifrado doble en reposo, así como otros tipos de cifrado de discos administrados, consulte la sección **Doble cifrado en reposo** de nuestro artículo sobre el cifrado de discos:
-
-- Para Linux: [Cifrado doble en reposo](./linux/disk-encryption.md#double-encryption-at-rest)
-- Para Windows: [Cifrado doble en reposo](./windows/disk-encryption.md#double-encryption-at-rest)
-
-## <a name="supported-regions"></a>Regiones admitidas
-
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+Azure Disk Storage admite el cifrado doble en reposo para los discos administrados. Para obtener información conceptual sobre el cifrado doble en reposo, así como otros tipos de cifrado de discos administrados, consulte la sección [Doble cifrado en reposo](disk-encryption.md#double-encryption-at-rest) de nuestro artículo sobre el cifrado de discos.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -39,29 +32,29 @@ Azure Disk Storage admite el cifrado doble en reposo para los discos administrad
 
 1. Seleccione **+Agregar**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Captura de pantalla de Azure Portal principal, Conjuntos de cifrado de disco está resaltado en la barra de búsqueda.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Captura de pantalla de la hoja Conjunto de cifrado de disco, + Agregar está resaltado.":::
 
 1. Seleccione alguna de las regiones admitidas.
-1. Para **Tipo de cifrado**, seleccione **Cifrado doble con claves administradas por el cliente y la plataforma**.
+1. Para **Tipo de cifrado** , seleccione **Cifrado doble con claves administradas por el cliente y la plataforma**.
 
     > [!NOTE]
     > Una vez que cree un conjunto de cifrado de disco con un tipo de cifrado en particular, no se puede cambiar. Si desea usar otro tipo de cifrado, debe crear un nuevo conjunto de cifrado de disco.
 
 1. Rellene la información restante.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-create-disk-encryption-set-blade.png" alt-text="Captura de pantalla de Azure Portal principal, Conjuntos de cifrado de disco está resaltado en la barra de búsqueda.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-create-disk-encryption-set-blade.png" alt-text="Captura de pantalla de la hoja de creación de conjunto de cifrado de disco, la región y el cifrado doble con claves administradas por el cliente y la plataforma están resaltados.":::
 
 1. Seleccione una instancia de Azure Key Vault y una clave, o cree una nueva si es necesario.
 
     > [!NOTE]
     > Si crea una instancia de Key Vault, debe habilitar la eliminación temporal y la protección de purgas. Esta configuración es obligatoria al usar una instancia de Key Vault para cifrar discos administrados, y le protege contra la pérdida de datos debido a la eliminación accidental.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="Captura de pantalla de Azure Portal principal, Conjuntos de cifrado de disco está resaltado en la barra de búsqueda.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="Captura de pantalla de la hoja de creación de Key Vault.":::
 
 1. Seleccione **Crear**.
 1. Navegue hasta el conjunto de cifrado de disco que creó y seleccione el error que se muestra. Esto configurará el conjunto de cifrado de disco para que funcione.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="Captura de pantalla de Azure Portal principal, Conjuntos de cifrado de disco está resaltado en la barra de búsqueda.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="Captura de pantalla del error del conjunto de cifrado de disco, el texto del error muestra: Para asociar un disco, una imagen o una instantánea a este conjunto de cifrado de disco, debe conceder permisos al almacén de claves.":::
 
     Una notificación debería aparecer y completarse correctamente. Esto le permitirá usar el conjunto de cifrado de disco con el almacén de claves.
     
@@ -69,11 +62,11 @@ Azure Disk Storage admite el cifrado doble en reposo para los discos administrad
 
 1. Vaya al disco.
 1. Seleccione **Cifrado**.
-1. Para **Tipo de cifrado**, seleccione **Cifrado doble con claves administradas por el cliente y la plataforma**.
+1. Para **Tipo de cifrado** , seleccione **Cifrado doble con claves administradas por el cliente y la plataforma**.
 1. Seleccione el conjunto de cifrado de disco.
 1. Seleccione **Guardar**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Captura de pantalla de Azure Portal principal, Conjuntos de cifrado de disco está resaltado en la barra de búsqueda.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Captura de pantalla de la hoja cifrado del disco administrado, el tipo de cifrado mencionado está resaltado.":::
 
 Ha habilitado el cifrado doble en reposo en el disco administrado.
 
@@ -82,4 +75,4 @@ Ha habilitado el cifrado doble en reposo en el disco administrado.
 
 - [Azure PowerShell: habilitación de claves administradas por el cliente con el cifrado del lado servidor para discos administrados](./windows/disks-enable-customer-managed-keys-powershell.md)
 - [Ejemplos de plantillas de Azure Resource Manager](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
-- [Habilitación de claves administradas por el cliente con el cifrado del lado servidor: ejemplos](./linux/disks-enable-customer-managed-keys-cli.md#examples)
+- [Habilitación de claves administradas por el cliente con el cifrado del lado servidor: Ejemplos](./linux/disks-enable-customer-managed-keys-cli.md#examples)

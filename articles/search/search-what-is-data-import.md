@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 148310419ad4f760219003514dbc078b7c675be6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: b57d55e91918ba612ad42acd5e6059ae0dbd0090
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538794"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422457"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Introducción a la importación de datos: Azure Cognitive Search
 
@@ -35,7 +35,7 @@ Este enfoque es más flexible que el modelo de extracción, ya que los documento
 Puede usar las siguientes API para cargar uno o varios documentos en un índice:
 
 + [Agregar, Actualizar o Eliminar documentos (API de REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Clase indexAction](/dotnet/api/microsoft.azure.search.models.indexaction) o [clase indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch) 
++ [Clase IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction) o [clase IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) 
 
 Actualmente no se admite ninguna herramienta para insertar datos mediante el portal.
 
@@ -63,7 +63,7 @@ En el SDK de .NET, empaquete los datos en un objeto `IndexBatch`. Un `IndexBatch
 
 Hay dos maneras de [realizar búsquedas en el índice mediante la API de REST](/rest/api/searchservice/Search-Documents). Una de ellas es emitir una solicitud HTTP POST en la que los parámetros de consulta se definen en un objeto JSON del cuerpo de la solicitud. La otra es emitir una solicitud HTTP GET en la que los parámetros de la consulta se definen en la dirección URL de la solicitud. POST tiene unos [límites más flexibles](/rest/api/searchservice/Search-Documents) en relación con el tamaño de los parámetros de la consulta que GET. Por este motivo, se recomienda usar la solicitud POST a menos que haya circunstancias especiales en las que utilizar la solicitud GET sea más adecuado.
 
-Tanto en POST como en GET, debe indicar su *nombre del servicio*, el *nombre del índice*y una *versión de la API* en la dirección URL de la solicitud. 
+Tanto en POST como en GET, debe indicar su *nombre del servicio* , el *nombre del índice* y una *versión de la API* en la dirección URL de la solicitud. 
 
 En el caso de GET, la *cadena de consulta* del final de la dirección URL es donde se proporcionar los parámetros de la consulta. Consulte a continuación el formato de dirección URL:
 
@@ -75,19 +75,18 @@ El formato de la solicitud POST es el mismo, pero con `api-version` en los pará
 
 ## <a name="pulling-data-into-an-index"></a>Extracción de datos en un índice
 
-El modelo de extracción rastrea un origen de datos compatible y carga automáticamente los datos en el índice. En Azure Cognitive Search, esta funcionalidad se implementa a través de *indizadores*, que en este momento se encuentran disponibles en las siguientes plataformas:
+El modelo de extracción rastrea un origen de datos compatible y carga automáticamente los datos en el índice. En Azure Cognitive Search, esta funcionalidad se implementa a través de *indizadores* , que en este momento se encuentran disponibles en las siguientes plataformas:
 
 + [Blob Storage](search-howto-indexing-azure-blob-storage.md)
 + [Table storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure SQL Database, Instancia administrada de SQL y SQL Server en máquinas virtuales de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
-Los indexadores conectan un índice a un origen de datos (normalmente una tabla, vista o estructura equivalente) y asignan campos de origen a los campos equivalentes del índice. Durante la ejecución, el conjunto de filas se transforma automáticamente en JSON y se carga en el índice especificado. Todos los indexadores admiten la programación, de modo que se puede especificar con qué frecuencia se deben actualizar los datos. La mayoría de los indexadores proporcionan seguimiento de cambios, siempre el origen de datos lo admita. Mediante el seguimiento de cambios y eliminaciones en documentos existentes, además de reconocer nuevos documentos, los indexadores eliminan la necesidad de administrar activamente los datos del índice. 
-
+Los indexadores conectan un índice a un origen de datos (normalmente una tabla, vista o estructura equivalente) y asignan campos de origen a los campos equivalentes del índice. Durante la ejecución, el conjunto de filas se transforma automáticamente en JSON y se carga en el índice especificado. Todos los indexadores admiten la programación, de modo que se puede especificar con qué frecuencia se deben actualizar los datos. La mayoría de los indexadores proporcionan seguimiento de cambios, siempre el origen de datos lo admita. Mediante el seguimiento de cambios y eliminaciones en documentos existentes, además de reconocer nuevos documentos, los indexadores eliminan la necesidad de administrar activamente los datos del índice.
 
 ### <a name="how-to-pull-data-into-an-azure-cognitive-search-index"></a>Extracción de datos en un índice de Azure Cognitive Search
 
-La funcionalidad del indexador se expone en [Azure Portal](search-import-data-portal.md) así como en la [API de REST](/rest/api/searchservice/Indexer-operations) y el [SDK de .NET](/dotnet/api/microsoft.azure.search.indexersoperationsextensions). 
+La funcionalidad del indexador se expone en [Azure Portal](search-import-data-portal.md) así como en la [API de REST](/rest/api/searchservice/Indexer-operations) y el [SDK de .NET](/dotnet/api/azure.search.documents.indexes.searchindexerclient).
 
 Una ventaja del uso el portal es que Azure Cognitive Search normalmente puede generar automáticamente un esquema de índice predeterminado mediante la lectura de los metadatos del conjunto de datos de origen. El índice generado se puede modificar hasta que se procese, tras lo cual las únicas modificaciones de esquema que se permiten son las que no requieren volver a indexar. Si los cambios que desea realizar afectan directamente el esquema, necesitaría volver a generar el índice. 
 

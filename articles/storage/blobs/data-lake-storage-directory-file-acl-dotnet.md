@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7c830641b0e76a7d63229b68a8ab2bf60cab4015
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 31b37435426e9550aef625540d8334fccc003e88
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173877"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358362"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de .NET para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -371,7 +371,7 @@ public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
 }
 ```
 
-### <a name="set-an-acl-recursively-preview"></a>Establecimiento de una ACL de forma recursiva (versión preliminar)
+### <a name="set-an-acl-recursively"></a>Establecimiento de una ACL de forma recursiva
 
 Puede agregar, actualizar y quitar las ACL de forma recursiva para los elementos secundarios existentes de un directorio primario sin tener que realizar estos cambios individualmente para cada elemento secundario. Para obtener más información, consulte [Establecimiento de listas de control de acceso (ACL) de forma recursiva para Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 

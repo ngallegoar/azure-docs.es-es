@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d283a5bec804696a1243005a37bf73b087677d09
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d0e2f520f55b9664d2d0b039867ef7670b190fed
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374119"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377078"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Permisos de los registros de aplicaciones para roles personalizados de Azure Active Directory
 
@@ -28,7 +28,7 @@ Este artículo contiene los permisos del registro de aplicaciones disponibles ac
 
 Al elegir los permisos para el rol personalizado, tiene la opción de conceder acceso para administrar únicamente las aplicaciones de un solo inquilino. Las aplicaciones de un solo inquilino únicamente están disponibles para los usuarios de la organización Azure AD en la que se registra la aplicación. Las aplicaciones de un solo inquilino se definen como las que tienen la opción **Tipos de cuenta admitidos** establecida en "Solo las cuentas de este directorio organizativo". En Graph API, las aplicaciones de un solo inquilino tienen la propiedad signInAudience establecida en "AzureADMyOrg".
 
-Para conceder acceso para administrar únicamente aplicaciones de un solo inquilino, use los permisos siguientes con el subtipo **applications.myOrganization** . Por ejemplo, microsoft.directory/applications.myOrganization/basic/update.
+Para conceder acceso para administrar únicamente aplicaciones de un solo inquilino, use los permisos siguientes con el subtipo **applications.myOrganization**. Por ejemplo, microsoft.directory/applications.myOrganization/basic/update.
 
 Vea la [información general sobre los roles personalizados](custom-overview.md) para una explicación de lo que significa el subtipo de términos generales, el permiso y el conjunto de propiedades. La siguiente información es específica de los registros de aplicaciones.
 
@@ -46,7 +46,7 @@ Al asignar este permiso, el creador no se agrega como el primer propietario del 
 
 Si se asignan ambos permisos, el permiso /create tendrá prioridad. Aunque el permiso /createAsOwner no agrega automáticamente el creador como primer propietario, los propietarios se pueden especificar durante la creación del registro de aplicaciones al usar Graph API o los cmdlets de PowerShell.
 
-La creación de permisos concede acceso al comando **Nuevo registro** .
+La creación de permisos concede acceso al comando **Nuevo registro**.
 
 [Estos permisos conceden acceso al comando del portal Nuevo registro](./media/custom-available-permissions/new-custom-role.png)
 

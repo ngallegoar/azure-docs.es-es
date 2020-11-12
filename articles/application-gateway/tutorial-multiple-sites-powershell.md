@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c5c5be89f8a318de8690430d4d248817961fc2
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595881"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360316"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Crear una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure PowerShell
 
@@ -127,7 +127,7 @@ Cree el primer agente de escucha mediante [New-AzApplicationGatewayHttpListener]
 
 >[!NOTE]
 > Con la SKU de Application Gateway o WAF v2, también puede configurar hasta cinco nombres de host por cliente de escucha y puede usar caracteres comodín en el nombre de host. Consulte los [nombres de host comodín en el cliente de escucha](multiple-site-overview.md#wildcard-host-names-in-listener-preview) para obtener más información.
->Para usar varios nombres de host y caracteres comodín en un cliente de escucha mediante Azure PowerShell, debe usar `-HostNames`, en lugar de `-HostName`. Con los nombres de host, puede mencionar un máximo de cinco nombres de host como valores separados por comas. Por ejemplo: `-HostNames "*.contoso.com,*.fabrikam.com"`
+>Para usar varios nombres de host y caracteres comodín en un cliente de escucha mediante Azure PowerShell, debe usar `-HostNames`, en lugar de `-HostName`. Con los nombres de host, puede mencionar un máximo de cinco nombres de host como valores separados por comas. Por ejemplo: `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

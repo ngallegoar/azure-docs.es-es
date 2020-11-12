@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1163f4b0992afe03f5bbdc38cad4e3cbca060dd2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3fe13d2fad2382e0e9fa8b93b79c5f27695ad898
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459786"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355199"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutorial: Configuración de iProva para el aprovisionamiento automático de usuarios
 
@@ -58,7 +58,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
     ![Incorporación de SCIM en iProva](media/iprova-provisioning-tutorial/external.png)
 
-3. Para agregar un nuevo proveedor, haga clic en el icono **más** . En el cuadro de diálogo **Add provider** (Agregar proveedor), indique un valor en **Title** (Título). Puede optar por agregar un valor en **IP-based access restriction** (Restricción de acceso basada en IP). Haga clic en el botón **OK** (Aceptar).
+3. Para agregar un nuevo proveedor, haga clic en el icono **más**. En el cuadro de diálogo **Add provider** (Agregar proveedor), indique un valor en **Title** (Título). Puede optar por agregar un valor en **IP-based access restriction** (Restricción de acceso basada en IP). Haga clic en el botón **OK** (Aceptar).
 
     ![Incorporación en iProva](media/iprova-provisioning-tutorial/add.png)
 
@@ -76,7 +76,7 @@ Para empezar a administrar el aprovisionamiento de iProva, agregue iProva desde 
 
 El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Al asignar usuarios y grupos a para empezar a administrar el aprovisionamiento en iProva, debe seleccionar un rol que no sea **Acceso predeterminado** . Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
+* Al asignar usuarios y grupos a para empezar a administrar el aprovisionamiento en iProva, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
 
 * Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -86,19 +86,19 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-iprova-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para iProva en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **iProva** .
+2. En la lista de aplicaciones, seleccione **iProva**.
 
     ![Vínculo a iProva en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento** .
+3. Seleccione la pestaña **Aprovisionamiento**.
 
     ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático** .
+4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
@@ -106,7 +106,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
@@ -114,7 +114,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to iProva** (Sincronizar usuarios de Azure Active Directory con iProva).
 
-9. Revise los atributos de usuario que se sincronizan entre Azure AD e iProva en la sección **Asignación de atributos** . Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de iProva con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+9. Revise los atributos de usuario que se sincronizan entre Azure AD e iProva en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de iProva con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
    |Atributo|Tipo|
    |---|---|
@@ -150,7 +150,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to iProva** (Sincronizar grupos de Azure Active Directory con iProva).
 
-11. Revise los atributos de grupo que se sincronizan entre Azure AD e iProva en la sección **Asignación de atributos** . Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer correspondencia con los grupos en iProva con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+11. Revise los atributos de grupo que se sincronizan entre Azure AD e iProva en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer correspondencia con los grupos en iProva con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
       |Atributo|Tipo|
       |---|---|
@@ -159,7 +159,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar el servicio de aprovisionamiento de Azure AD para iProva, cambie el valor de **Estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
+13. Para habilitar el servicio de aprovisionamiento de Azure AD para iProva, cambie el valor de **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
@@ -167,11 +167,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
+15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
 
 
 ## <a name="step-6-monitor-your-deployment"></a>Paso 6. Supervisión de la implementación

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b60be1b3d30ab462f89dd4d72ab67d43393740b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740159"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393377"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de la Plataforma de identidad de Microsoft
 
@@ -33,7 +33,7 @@ Consulte las secciones siguientes para saber cómo un recurso puede validar y ut
 > [!IMPORTANT]
 > Los tokens de acceso se crean según la *audiencia* del token, es decir la aplicación que posee los ámbitos en el token.  Así es cómo la configuración de un recurso `accessTokenAcceptedVersion` en el [manifiesto de la aplicación](reference-app-manifest.md#manifest-reference) para `2` permite que un cliente llame al punto de conexión de la versión 1.0 para recibir un token de acceso de la versión 2.0.  De forma similar, este es el motivo por el que al cambiar las [notificaciones opcionales](active-directory-optional-claims.md) del token de acceso, no se modifica el token de acceso que se recibe al solicitar un token para `user.read`, que es propiedad del recurso.
 >
-> Por la misma razón, al probar la aplicación cliente con una API de Microsoft que admite una cuenta personal (como outlook.com o hotmail.com), comprobará que el token de acceso que ha recibido el cliente es una cadena opaca. Esto se debe a que el recurso al que se accede ha utilizado tokens cifrados y el cliente no puede entenderlos.  Esto es normal y no debería ser un problema para la aplicación; las aplicaciones cliente nunca deben depender del formato del token de acceso. 
+> Por la misma razón, al probar la aplicación cliente con una API de Microsoft que admite una cuenta personal (como outlook.com o hotmail.com), comprobará que el token de acceso que ha recibido el cliente es una cadena opaca. Esto se debe a que el recurso al que se accede ha utilizado tokens cifrados y el cliente no puede entenderlos.  Esto es normal y no debería ser un problema para la aplicación; las aplicaciones cliente nunca deben depender del formato del token de acceso.
 
 ## <a name="sample-tokens"></a>Tokens de ejemplo
 
@@ -245,7 +245,7 @@ Los tokens de actualización se pueden invalidar o revocar en cualquier momento 
 
 ### <a name="token-timeouts"></a>Tiempos de espera de token
 
-Con la [configuración de vigencia de los tokens](active-directory-configurable-token-lifetimes.md), se puede modificar la duración de los tokens de actualización.  Es normal y habitual que algunos tokens no se usen (por ejemplo, si el usuario no abre la aplicación durante tres meses) y, por lo tanto, expiran.  Las aplicaciones se pueden encontrar escenarios en los que el servidor de inicio de sesión rechaza un token de actualización debido a su antigüedad. 
+Con la [configuración de vigencia de los tokens](active-directory-configurable-token-lifetimes.md), se puede modificar la duración de los tokens de actualización.  Es normal y habitual que algunos tokens no se usen (por ejemplo, si el usuario no abre la aplicación durante tres meses) y, por lo tanto, expiran.  Las aplicaciones se pueden encontrar escenarios en los que el servidor de inicio de sesión rechaza un token de actualización debido a su antigüedad.
 
 * MaxInactiveTime: si el token de actualización no se ha utilizado en el tiempo determinado por MaxInactiveTime, el token de actualización ya no será válido.
 * MaxSessionAge: si MaxAgeSessionMultiFactor o MaxAgeSessionSingleFactor se han establecido en un valor distinto de su valor predeterminado (Hasta que se revoca), la reautenticación será obligatoria después de que transcurra el tiempo establecido en el MaxAgeSession*.
@@ -255,7 +255,7 @@ Con la [configuración de vigencia de los tokens](active-directory-configurable-
 
 ### <a name="revocation"></a>Revocación
 
-El servidor puede revocar los tokens de actualización debido a un cambio en las credenciales o a una acción de administración o uso.  Los tokens de actualización se dividen en dos clases: emitidos para clientes confidenciales (la columna situada más a la derecha) y emitidos para clientes públicos (el resto de columnas).   
+El servidor puede revocar los tokens de actualización debido a un cambio en las credenciales o a una acción de administración o uso.  Los tokens de actualización se dividen en dos clases: emitidos para clientes confidenciales (la columna situada más a la derecha) y emitidos para clientes públicos (el resto de columnas).
 
 | Change | Cookie basada en contraseñas | Token basado en contraseñas | Cookie no basada en contraseñas | Token no basado en contraseñas | Token de cliente confidencial |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -275,12 +275,12 @@ Un *inicio de sesión no basado en contraseña* es aquel en el que el usuario no
 - Clave FIDO2
 - SMS
 - Voz
-- PIN 
+- PIN
 
 > [!NOTE]
 > Los tokens de actualización principales (PRT) en Windows 10 se segregan en función de la credencial. Por ejemplo, Windows Hello y la contraseña tienen sus respectivos PRT, aislados entre sí. Cuando un usuario inicia sesión con una credencial de Hello (PIN o biométrica) y, a continuación, cambia la contraseña, se revocará el PRT basado en la contraseña obtenido previamente. Al volver a iniciar sesión con una contraseña, se invalida el PRT antiguo y se solicita uno nuevo.
 >
-> Los tokens de actualización no se invalidan ni revocan cuando se utilizan para capturar un token de acceso y un token de actualización nuevos.  Sin embargo, la aplicación debe descartar el token antiguo en cuanto se use y reemplazarlo por el nuevo, ya que el nuevo token tiene una nueva fecha de expiración. 
+> Los tokens de actualización no se invalidan ni revocan cuando se utilizan para capturar un token de acceso y un token de actualización nuevos.  Sin embargo, la aplicación debe descartar el token antiguo en cuanto se use y reemplazarlo por el nuevo, ya que el nuevo token tiene una nueva fecha de expiración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

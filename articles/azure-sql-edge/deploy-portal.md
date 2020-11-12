@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973587"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395095"
 ---
 # <a name="deploy-azure-sql-edge"></a>Implementación de Azure SQL Edge 
 
@@ -50,14 +50,14 @@ Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que 
    |IoT Hub   |  Nombre del IoT Hub en el que está registrado el dispositivo IoT Edge y, a continuación, seleccione la opción "Implementar en un dispositivo"|
    |Nombre de dispositivo IoT Edge  |  Nombre del dispositivo IoT Edge en el que se implementará SQL Edge |
 
-4. En la página **Establecer módulos en el dispositivo**, haga clic en el módulo de Azure SQL Edge en **Módulos de IoT Edge**. El nombre del módulo predeterminado se establece en *AzureSQLEdge*. 
+4. En la página **Establecer módulos en el dispositivo** , haga clic en el módulo de Azure SQL Edge en **Módulos de IoT Edge**. El nombre del módulo predeterminado se establece en *AzureSQLEdge*. 
 
-5. En la sección *configuración del módulo de*  de la hoja **Actualizar módulo IoT Edge**, especifique los valores que desee para *Nombre del módulo IoT Edge*, *Directiva de reinicio* y *Estado deseado*. 
+5. En la sección *configuración del módulo de*  de la hoja **Actualizar módulo IoT Edge** , especifique los valores que desee para *Nombre del módulo IoT Edge* , *Directiva de reinicio* y *Estado deseado*. 
 
    > [!IMPORTANT]    
    > No cambie ni actualice la configuración de **URI de la imagen** del módulo.
 
-6. En la sección *Variables de entorno* de la hoja **Actualizar módulo IoT Edge**, especifique los valores que desee para las variables de entorno. Para obtener una lista completa de las variables de entorno de Azure SQL Edge, consulte [Configuración mediante variables de entorno](configure.md#configure-by-using-environment-variables). Se han definido las siguientes variables de entorno predeterminadas para el módulo. 
+6. En la sección *Variables de entorno* de la hoja **Actualizar módulo IoT Edge** , especifique los valores que desee para las variables de entorno. Para obtener una lista completa de las variables de entorno de Azure SQL Edge, consulte [Configuración mediante variables de entorno](configure.md#configure-by-using-environment-variables). Se han definido las siguientes variables de entorno predeterminadas para el módulo. 
 
    |**Parámetro**  |**Descripción**|
    |---------|---------|
@@ -68,7 +68,7 @@ Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que 
    > [!IMPORTANT]    
    > No cambie ni actualice la variable de entorno **ACCEPT_EULA** para el módulo.
 
-7. En la sección *Opciones de creación del contenedor* de la hoja **Actualizar módulo IoT Edge**, actualice las siguientes opciones según sea necesario. 
+7. En la sección *Opciones de creación del contenedor* de la hoja **Actualizar módulo IoT Edge** , actualice las siguientes opciones según sea necesario. 
    - **Puerto de host:**  Asigne el puerto de host especificado al puerto 1433 (puerto SQL predeterminado) en el contenedor.
    - **Enlaces** y **Montajes:** Si necesita implementar más de un módulo de SQL Edge, asegúrese de actualizar la opción de montajes a fin de crear un nuevo par de origen y destino para el volumen persistente. Para obtener más información sobre los montajes y el volumen, consulte el artículo sobre cómo [usar volúmenes](https://docs.docker.com/storage/volumes/) en la documentación de Docker. 
 
@@ -106,13 +106,13 @@ Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que 
    > [!IMPORTANT]    
    > No cambie la variable de entorno `PlanId` definida en la opción de crear configuración. Si se cambia este valor, el contenedor de Azure SQL Edge no se iniciará. 
    
-8. En el panel **Actualizar módulo IoT Edge**, haga clic en **Actualizar**.
-9. En la página **Establecer módulos en el dispositivo**, haga clic en **Siguiente: Rutas >** si necesita definir rutas para su implementación. De lo contrario, haga clic en **Revisar + crear**. Para obtener más información sobre la configuración de rutas, vea [Implementación de módulos y establecimiento de rutas en IoT Edge](../iot-edge/module-composition.md).
-11. En la página **Establecer módulos en el dispositivo**, haga clic en **Crear**.
+8. En el panel **Actualizar módulo IoT Edge** , haga clic en **Actualizar**.
+9. En la página **Establecer módulos en el dispositivo** , haga clic en **Siguiente: Rutas >** si necesita definir rutas para su implementación. De lo contrario, haga clic en **Revisar + crear**. Para obtener más información sobre la configuración de rutas, vea [Implementación de módulos y establecimiento de rutas en IoT Edge](../iot-edge/module-composition.md).
+11. En la página **Establecer módulos en el dispositivo** , haga clic en **Crear**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Conexión a Azure SQL Edge
 
-En los pasos siguientes, se usa la herramienta de línea de comandos de Azure SQL Edge, **sqlcmd**, dentro del contenedor para conectarse a Azure SQL Edge.
+En los pasos siguientes, se usa la herramienta de línea de comandos de Azure SQL Edge, **sqlcmd** , dentro del contenedor para conectarse a Azure SQL Edge.
 
 > [!NOTE]      
 > Las herramientas de línea de comandos (sqlcmd) de SQL no están disponibles en la versión ARM64 de los contenedores perimetrales de Azure SQL Edge.
@@ -132,7 +132,7 @@ En los pasos siguientes, se usa la herramienta de línea de comandos de Azure SQ
    > [!TIP]    
    > Puede omitir la contraseña en la línea de comandos para que se le solicite escribirla.
 
-3. Si se realiza correctamente, debe ver un símbolo de sistema de **sqlcmd**: `1>`.
+3. Si se realiza correctamente, debe ver un símbolo de sistema de **sqlcmd** : `1>`.
 
 ## <a name="create-and-query-data"></a>Creación y consulta de datos
 
@@ -142,7 +142,7 @@ En las secciones siguientes se le guía por el uso de **sqlcmd** y Transact-SQL 
 
 En los pasos siguientes se crea una base de datos denominada `TestDB`.
 
-1. En el símbolo del sistema de **sqlcmd**, pegue el comando Transact-SQL siguiente para crear una base de datos de prueba:
+1. En el símbolo del sistema de **sqlcmd** , pegue el comando Transact-SQL siguiente para crear una base de datos de prueba:
 
    ```sql
    CREATE DATABASE TestDB
@@ -160,7 +160,7 @@ En los pasos siguientes se crea una base de datos denominada `TestDB`.
 
 Luego cree una tabla, `Inventory`, e inserte dos filas nuevas.
 
-1. En el símbolo del sistema de **sqlcmd**, cambie el contexto a la nueva base de datos `TestDB`:
+1. En el símbolo del sistema de **sqlcmd** , cambie el contexto a la nueva base de datos `TestDB`:
 
    ```sql
    USE TestDB
@@ -188,7 +188,7 @@ Luego cree una tabla, `Inventory`, e inserte dos filas nuevas.
 
 Ahora ejecute una consulta para devolver datos desde la tabla `Inventory`.
 
-1. En el símbolo del sistema **sqlcmd**, escriba una consulta que devuelva filas desde la tabla `Inventory` donde la cantidad sea mayor que 152:
+1. En el símbolo del sistema **sqlcmd** , escriba una consulta que devuelva filas desde la tabla `Inventory` donde la cantidad sea mayor que 152:
 
    ```sql
    SELECT * FROM Inventory WHERE quantity > 152;
@@ -202,7 +202,7 @@ Ahora ejecute una consulta para devolver datos desde la tabla `Inventory`.
 
 ### <a name="exit-the-sqlcmd-command-prompt"></a>Salida del símbolo del sistema de sqlcmd
 
-1. Para finalizar la sesión de **sqlcmd**, escriba `QUIT`:
+1. Para finalizar la sesión de **sqlcmd** , escriba `QUIT`:
 
    ```sql
    QUIT
@@ -212,7 +212,7 @@ Ahora ejecute una consulta para devolver datos desde la tabla `Inventory`.
 
 ## <a name="connect-from-outside-the-container"></a> Conectarse desde fuera del contenedor
 
-Puede conectarse a la instancia de Azure SQL Edge y ejecutar en ella consultas SQL desde cualquier herramienta externa de Linux, Windows o macOS compatible con las conexiones de SQL. Para más información sobre cómo conectarse a un contenedor de SQL Edge desde fuera, vea [Conexión a Azure SQL Edge y consulta (versión preliminar)](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+Puede conectarse a la instancia de Azure SQL Edge y ejecutar en ella consultas SQL desde cualquier herramienta externa de Linux, Windows o macOS compatible con las conexiones de SQL. Para más información sobre cómo conectarse a un contenedor de SQL Edge desde fuera, vea [Conexión a Azure SQL Edge y consulta (versión preliminar)](./connect.md).
 
 Con esta guía de inicio rápido, ha implementado un módulo de SQL Edge en un dispositivo IoT Edge. 
 

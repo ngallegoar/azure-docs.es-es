@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 98e3eb4927b8eb9e52fd974c1ef7c417aff2ad54
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789631"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422797"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: Implementación de una base de datos distribuida geográficamente (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,7 @@ Para completar el tutorial, asegúrese de que instaló los elementos siguientes:
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
-  > El tutorial usa la base de datos de ejemplo de *AdventureWorksLT* .
+  > El tutorial usa la base de datos de ejemplo de *AdventureWorksLT*.
 
 - Java y Maven, consulte [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/)(Compilar una aplicación con SQL Server), resalte **Java** , seleccione su entorno y, después, siga los pasos.
 
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-Las opciones de configuración de replicación geográfica también pueden cambiarse en Azure Portal mediante la selección de la base de datos y, después, **Configuración** > **Replicación geográfica** .
+Las opciones de configuración de replicación geográfica también pueden cambiarse en Azure Portal mediante la selección de la base de datos y, después, **Configuración** > **Replicación geográfica**.
 
 ![Configuración de la replicación geográfica](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -132,7 +132,7 @@ Las opciones de configuración de replicación geográfica también pueden cambi
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Escriba **Y** y presione **ENTRAR** .
+1. Escriba **Y** y presione **ENTRAR**.
 
 1. Cambie los directorios al nuevo proyecto.
 
@@ -182,7 +182,7 @@ Las opciones de configuración de replicación geográfica también pueden cambi
    </build>
    ```
 
-1. Guarde y cierre el archivo *pom.xml* .
+1. Guarde y cierre el archivo *pom.xml*.
 
 1. Abra el archivo *App.java* ubicado en ..\SqlDbSample\src\main\java\com\sqldbsamples y sustituya el contenido por el código siguiente:
 
@@ -290,7 +290,7 @@ Las opciones de configuración de replicación geográfica también pueden cambi
    }
    ```
 
-1. Guarde y cierre el archivo *App.java* .
+1. Guarde y cierre el archivo *App.java*.
 
 1. En la consola de comandos, ejecute el siguiente comando:
 
@@ -333,7 +333,7 @@ Para probar una conmutación por error:
 1. Inicie la conmutación por error manual del grupo de conmutación por error:
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
     -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
 

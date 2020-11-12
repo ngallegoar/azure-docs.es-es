@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 889972f7d94ab960354982275d45bdc5d5726d6e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850700"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356831"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutorial: Configuración de Looop para aprovisionar usuarios automáticamente
 
@@ -59,7 +59,7 @@ Antes de configurar Looop para el aprovisionamiento automático de usuarios con 
 
 2. Para generar un nuevo token, haga clic en **Reset Token** (Restablecer token) en **SCIM Integration** (Integración de SCIM).
 
-    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Captura de pantalla de la consola de administración de Looop. La pestaña Cuenta está resaltada y abierta. En Configuración de la cuenta, se resalta Autenticación." border="false":::
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Captura de pantalla de la sección de integración SCIM de una página en la consola de administración de Looop. El botón Reset token (Restablecer token) está resaltado." border="false":::
 
 3. Copie los valores de **SCIM Endpoint** (Punto de conexión SCIM) y **Token**. Estos valores se escriben en el campo **URL de inquilino** y **Token secreto** de la pestaña Aprovisionamiento de la aplicación Looop en Azure Portal. 
 
@@ -85,7 +85,7 @@ Para configurar Looop para el aprovisionamiento automático de usuarios con Azur
 
     ![Looop en la lista de resultados](common/search-new-app.png)
 
-5. Seleccione el botón **Registrarse en Looop**; se le redirigirá a la página de inicio de sesión de Looop. 
+5. Seleccione el botón **Registrarse en Looop** ; se le redirigirá a la página de inicio de sesión de Looop. 
 
     ![Looop OIDC Add](media/looop-provisioning-tutorial/signup.png)
 
@@ -119,17 +119,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://<organisation_domain>.looop.co/scim/v2` en la **URL de inquilino**. Por ejemplo, `https://demo.looop.co/scim/v2`. Escriba el valor que recuperó y guardó anteriormente de Looop en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Looop. Si no se establece la conexión, asegúrese de que la cuenta de Looop tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://<organisation_domain>.looop.co/scim/v2` en la **URL de inquilino**. Por ejemplo, `https://demo.looop.co/scim/v2`. Escriba el valor que recuperó y guardó anteriormente de Looop en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Looop. Si no se establece la conexión, asegúrese de que la cuenta de Looop tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Looop** (Sincronizar usuarios de Azure Active Directory con Looop).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Looop** (Sincronizar usuarios de Azure Active Directory con Looop).
 
     ![Asignaciones de usuario de Looop](media/looop-provisioning-tutorial/usermappings.png)
 
@@ -137,7 +137,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Atributos de usuario de Looop](media/looop-provisioning-tutorial/userattributes.png)
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Meta Networks Connector** (Sincronizar grupos de Azure Active Directory con Meta Networks Connector).
+10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Meta Networks Connector** (Sincronizar grupos de Azure Active Directory con Meta Networks Connector).
 
     ![Asignaciones de grupo de Looop](media/looop-provisioning-tutorial/groupmappings.png)
 
@@ -151,7 +151,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Seleccione los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere aprovisionar en Looop.
+12. Seleccione los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere aprovisionar en Looop.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

@@ -10,12 +10,12 @@ ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 22d048b15cc097cd8a24e5ed57bbe4d5a6183e2f
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: ee461193be81297c6577ce4c264cabbf08e72417
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131605"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359449"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de la CLI de Azure para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -249,7 +249,7 @@ En este ejemplo, el usuario propietario tiene permisos de lectura, escritura y e
 
 ### <a name="set-an-acl"></a>Establecimiento de una ACL
 
-Use el comando `az storage fs access set` para establecer la ACL de un **directorio** . 
+Use el comando `az storage fs access set` para establecer la ACL de un **directorio**. 
 
 En este ejemplo se establece la ACL en un directorio del usuario propietario, el grupo propietario o de otros usuarios, y luego se imprime la ACL en la consola.
 
@@ -263,7 +263,7 @@ En este ejemplo, se establece la ACL *predeterminada* en un directorio del usuar
 az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Use el comando `az storage fs access set` para establecer la ACL de un **archivo** . 
+Use el comando `az storage fs access set` para establecer la ACL de un **archivo**. 
 
 En este ejemplo se establece la ACL en un archivo del usuario propietario, el grupo propietario o de otros usuarios, y luego se imprime la ACL en la consola.
 
@@ -283,13 +283,13 @@ Otra manera de establecer este permiso es usar el comando `az storage fs access 
 
 Actualice la ACL de un directorio o archivo estableciendo el parámetro `-permissions` en el formato abreviado de una ACL.
 
-En este ejemplo se actualiza la ACL de un **directorio** .
+En este ejemplo se actualiza la ACL de un **directorio**.
 
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-En este ejemplo se actualiza la ACL de un **archivo** .
+En este ejemplo se actualiza la ACL de un **archivo**.
 
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -307,7 +307,12 @@ En este ejemplo se cambia el propietario de un archivo.
 
 ```azurecli
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
+
 ```
+
+### <a name="set-an-acl-recursively"></a>Establecimiento de una ACL de forma recursiva
+
+Puede agregar, actualizar y quitar las ACL de forma recursiva para los elementos secundarios existentes de un directorio primario sin tener que realizar estos cambios individualmente para cada elemento secundario. Para obtener más información, consulte [Establecimiento de listas de control de acceso (ACL) de forma recursiva para Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 
 ## <a name="see-also"></a>Consulte también
 

@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f229c52b62c740c9d955f745a6922e59163b907
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fe2f35708f6a148f8db9ef6fd0a598e19e746fbd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348566"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358633"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para una canalización de ingesta de datos
 
@@ -211,18 +211,18 @@ Los valores del archivo JSON son valores predeterminados configurados en la defi
 
 El proceso de entrega continua toma los artefactos y los implementa en el primer entorno de destino. Para garantizar que la solución funcione, se ejecutan pruebas. Si se superan, se pasa al entorno siguiente. 
 
-La canalización de Azure de CD consta de varias fases que representan los entornos. Cada fase contiene [implementaciones](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) y [trabajos](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) que realizan los siguientes pasos:
+La canalización de Azure de CD consta de varias fases que representan los entornos. Cada fase contiene [implementaciones](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) y [trabajos](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) que realizan los siguientes pasos:
 
 _ Implementación de un cuaderno de Python en un área de trabajo de Azure Databricks
 * Implementación de una canalización de Azure Data Factory 
 * Ejecución de la canalización
 * Comprobación del resultado de la ingesta de datos
 
-Las fases de canalización se pueden configurar con [aprobaciones](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops) y [puertas](/azure/devops/pipelines/release/approvals/gates?view=azure-devops) que ofrecen control adicional sobre cómo evoluciona el proceso de implementación a través de la cadena de entornos.
+Las fases de canalización se pueden configurar con [aprobaciones](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops&preserve-view=true) y [puertas](/azure/devops/pipelines/release/approvals/gates?view=azure-devops&preserve-view=true) que ofrecen control adicional sobre cómo evoluciona el proceso de implementación a través de la cadena de entornos.
 
 ### <a name="deploy-a-python-notebook"></a>Implementación de un cuaderno de Python
 
-El siguiente fragmento de código define una [implementación](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) de canalización de Azure que copia un cuaderno de Python en un clúster de Databricks:
+El siguiente fragmento de código define una [implementación](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) de canalización de Azure que copia un cuaderno de Python en un clúster de Databricks:
 
 ```yaml
 - stage: 'Deploy_to_QA'
@@ -258,7 +258,7 @@ El siguiente fragmento de código define una [implementación](/azure/devops/pip
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-Los artefactos generados en el proceso de CI se copian automáticamente en el agente de implementación y están disponibles en la carpeta `$(Pipeline.Workspace)`. En este caso, la tarea de implementación hace referencia al artefacto `di-notebooks` que contiene el cuaderno de Python. Esta [implementación](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) usa la [extensión de Azure DevOps para Databricks](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) para copiar los archivos de cuaderno en el área de trabajo de Databricks.
+Los artefactos generados en el proceso de CI se copian automáticamente en el agente de implementación y están disponibles en la carpeta `$(Pipeline.Workspace)`. En este caso, la tarea de implementación hace referencia al artefacto `di-notebooks` que contiene el cuaderno de Python. Esta [implementación](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) usa la [extensión de Azure DevOps para Databricks](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) para copiar los archivos de cuaderno en el área de trabajo de Databricks.
 
 La fase `Deploy_to_QA` contiene una referencia al grupo de variables `devops-ds-qa-vg` definido en el proyecto de Azure DevOps. Los pasos de esta fase hacen referencia a las variables de este grupo de variables (por ejemplo, `$(DATABRICKS_URL)` y `$(DATABRICKS_TOKEN)`). La idea es que la siguiente fase (por ejemplo, `Deploy_to_UAT`) funcione con los mismos nombres de variable definidos en su propio grupo de variables con ámbito de UAT.
 
@@ -339,7 +339,7 @@ La canalización de Azure de CI/CD consta de las siguientes fases: _ CI
     * Implementar en Databricks + implementar en ADF
     * Prueba de integración
 
-Contiene una serie de fases de * **implementación** _ igual al número de entornos de destino que tiene. Cada fase de _*_implementación_*_ contiene dos [implementaciones](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) que se ejecutan en paralelo y un [trabajo](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) que se ejecuta después de las implementaciones para probar la solución en el entorno.
+Contiene una serie de fases de * **implementación** _ igual al número de entornos de destino que tiene. Cada fase de _*_implementación_*_ contiene dos [implementaciones](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) que se ejecutan en paralelo y un [trabajo](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) que se ejecuta después de las implementaciones para probar la solución en el entorno.
 
 Una implementación de ejemplo de la canalización se ensambla en el siguiente fragmento de código _*_yaml_*_ :
 

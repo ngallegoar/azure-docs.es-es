@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 35985404d5ac97940c324c3ad7f7d46c959b4902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02f22883a0989714d8b74f778cacf1ba2c65d0b4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932565"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392018"
 ---
 # <a name="performance-best-practices-and-configuration-guidelines"></a>Procedimientos recomendados de rendimiento e instrucciones de configuración
 
@@ -28,13 +28,13 @@ Azure SQL Edge crea de forma predeterminada un solo archivo de datos tempdb com
 
 ### <a name="use-clustered-columnstore-indexes-where-possible"></a>Uso de índices de almacén de columnas agrupados siempre que sea posible
 
-Los dispositivos IoT y Edge tienden a generar un gran volumen de datos que normalmente se agregan durante un período de tiempo para su análisis. Para el análisis rara vez se usan filas de datos individuales. Los índices de almacén de columnas son idóneos para almacenar y consultar este tipo de conjuntos de datos grandes. Este índice usa el almacenamiento de datos basado en columnas y el procesamiento de consultas para lograr ganancias de rendimiento de las consultas de hasta 10 veces superior al almacenamiento tradicional orientado a filas. También puede lograr ganancias de hasta 10 veces la compresión de datos sobre el tamaño de los datos sin comprimir. Para obtener más información, vea [Índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview).
+Los dispositivos IoT y Edge tienden a generar un gran volumen de datos que normalmente se agregan durante un período de tiempo para su análisis. Para el análisis rara vez se usan filas de datos individuales. Los índices de almacén de columnas son idóneos para almacenar y consultar este tipo de conjuntos de datos grandes. Este índice usa el almacenamiento de datos basado en columnas y el procesamiento de consultas para lograr ganancias de rendimiento de las consultas de hasta 10 veces superior al almacenamiento tradicional orientado a filas. También puede lograr ganancias de hasta 10 veces la compresión de datos sobre el tamaño de los datos sin comprimir. Para obtener más información, vea [Índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-overview).
 
 Además, otras características de Azure SQL Edge como el streaming y la retención de datos se benefician de las optimizaciones de almacén de columnas relacionadas con la inserción y eliminación de datos. 
 
 ### <a name="simple-recovery-model"></a>Modelo de recuperación simple
 
-Como el almacenamiento se puede restringir en dispositivos perimetrales, en todas las bases de datos de usuario de Azure SQL Edge se usa de forma predeterminada el modelo de recuperación simple. Este modelo recupera de forma automática el espacio de registro para mantener al mínimo los requisitos de espacio, lo que elimina, en esencia, la necesidad de administrar el espacio del registro de transacciones. Esto puede resultar útil en dispositivos perimetrales con almacenamiento limitado disponible. Para obtener más información sobre el modelo de recuperación simple y otros disponibles, vea [Modelos de recuperación](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server).
+Como el almacenamiento se puede restringir en dispositivos perimetrales, en todas las bases de datos de usuario de Azure SQL Edge se usa de forma predeterminada el modelo de recuperación simple. Este modelo recupera de forma automática el espacio de registro para mantener al mínimo los requisitos de espacio, lo que elimina, en esencia, la necesidad de administrar el espacio del registro de transacciones. Esto puede resultar útil en dispositivos perimetrales con almacenamiento limitado disponible. Para obtener más información sobre el modelo de recuperación simple y otros disponibles, vea [Modelos de recuperación](/sql/relational-databases/backup-restore/recovery-models-sql-server).
 
 El modelo de recuperación simple no admite operaciones como el trasvase de registros y las de restauración a un momento dado, para las que se necesitan copias de seguridad del registro de transacciones.  
 
@@ -56,16 +56,9 @@ En Azure SQL Edge, las transacciones pueden ser totalmente durables (el valor p
 
 Las confirmaciones de transacciones totalmente durables son sincrónicas y notifican una instrucción COMMIT como correcta para devolver el control al cliente únicamente tras escribir en disco los registros de la transacción. Las confirmaciones de transacciones durables diferidas son asincrónicas y notifican una instrucción COMMIT como correcta antes de escribir en disco los registros de la transacción. Para que una transacción sea durable, es necesario escribir las entradas del registro de transacciones en el disco. Las transacciones durables diferidas pasan a ser durables cuando las entradas del registro de transacciones se vacían en el disco. 
 
-En las implementaciones en las que se puede tolerar **cierta pérdida de datos** o en dispositivos perimetrales con almacenamiento lento, se puede usar la durabilidad diferida para optimizar la ingesta de datos y la limpieza basada en la retención de datos. Para saber más, vea [Control de la durabilidad de las transacciones](https://docs.microsoft.com/sql/relational-databases/logs/control-transaction-durability).
+En las implementaciones en las que se puede tolerar **cierta pérdida de datos** o en dispositivos perimetrales con almacenamiento lento, se puede usar la durabilidad diferida para optimizar la ingesta de datos y la limpieza basada en la retención de datos. Para saber más, vea [Control de la durabilidad de las transacciones](/sql/relational-databases/logs/control-transaction-durability).
 
 
 ### <a name="linux-os-configurations"></a>Configuraciones del sistema operativo Linux 
 
-Considere la posibilidad de usar las siguientes opciones de [configuración del sistema operativo Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration) para experimentar el mejor rendimiento en una instalación de SQL.
-
-
-
-
-
-
-
+Considere la posibilidad de usar las siguientes opciones de [configuración del sistema operativo Linux](/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration) para experimentar el mejor rendimiento en una instalación de SQL.

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8f027ccc577df79e561fca7194c20b6cc7ef2c6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544237"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356797"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Tutorial: Configuración de Elium para el aprovisionamiento automático de usuarios
 
@@ -55,7 +55,7 @@ Antes de configurar Elium para el aprovisionamiento automático de usuarios con 
 
     ![Elemento de menú Configuración en Elium](media/Elium-provisioning-tutorial/setting.png)
 
-1. En la esquina inferior izquierda en **AVANZADO**, seleccione **Seguridad**.
+1. En la esquina inferior izquierda en **AVANZADO** , seleccione **Seguridad**.
 
     ![Vínculo a Seguridad en Elium](media/Elium-provisioning-tutorial/security.png)
 
@@ -79,7 +79,7 @@ Para configurar Elium para el aprovisionamiento automático de usuarios con Azur
 
     ![Vínculo a la aplicación nueva](common/add-new-app.png)
 
-1. En el cuadro de búsqueda, escriba **Elium**, seleccione **Elium** en la lista de resultados y luego seleccione **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **Elium** , seleccione **Elium** en la lista de resultados y luego seleccione **Agregar** para agregar la aplicación.
 
     ![Cuadro de búsqueda de la galería](common/search-new-app.png)
 
@@ -108,17 +108,17 @@ Para configurar el aprovisionamiento automático de usuarios para Elium en Azure
 
     ![Configuración automática para el modo de aprovisionamiento](common/provisioning-automatic.png)
 
-1. En la sección **Credenciales de administrador**, escriba **\<tenantURL\>/scim/v2** en el campo **URL de inquilino**. (**tenantURL** es el valor recuperado anteriormente de la consola de administración de Elium). Escriba también el valor de **Token secreto** en el campo **Token secreto**. Por último, seleccione **Prueba de conexión** para comprobar si Azure AD se puede conectar a Elium. Si la conexión no se establece, asegúrese de que la cuenta de Elium tiene permisos de administrador e inténtelo de nuevo.
+1. En la sección **Credenciales de administrador** , escriba **\<tenantURL\>/scim/v2** en el campo **URL de inquilino**. ( **tenantURL** es el valor recuperado anteriormente de la consola de administración de Elium). Escriba también el valor de **Token secreto** en el campo **Token secreto**. Por último, seleccione **Prueba de conexión** para comprobar si Azure AD se puede conectar a Elium. Si la conexión no se establece, asegúrese de que la cuenta de Elium tiene permisos de administrador e inténtelo de nuevo.
 
     ![Campos URL de inquilino y Token secreto en Credenciales de administrador](common/provisioning-testconnection-tenanturltoken.png)
 
-1. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que recibirá las notificaciones de error de aprovisionamiento. A continuación, seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+1. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que recibirá las notificaciones de error de aprovisionamiento. A continuación, seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-1. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save** (Guardar).
 
-1. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Elium** (Sincronizar usuarios de Azure Active Directory con Elium).
+1. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Elium** (Sincronizar usuarios de Azure Active Directory con Elium).
 
     ![Vínculo a Sincronizar para asignar usuarios de Azure AD en Elium](media/Elium-provisioning-tutorial/usermapping.png)
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: f1ad698ccacc2fee94c797a20a43744d4cafba76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bbf9b199b15815127f0ecb26ae027ef7bfa52d2
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305688"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355471"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutorial: Configuración de Dropbox for Business para el aprovisionamiento automático de usuarios
 
@@ -54,7 +54,7 @@ Antes de configurar Dropbox Business para el aprovisionamiento automático de us
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Dropbox Business**, seleccione **Dropbox Business** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Dropbox Business** , seleccione **Dropbox Business** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Dropbox for Business en la lista de resultados](common/search-new-app.png)
 
@@ -97,7 +97,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En **Credenciales de administrador**, haga clic en **Autorizar**. Se abre un cuadro de diálogo de inicio de sesión de Dropbox for Business en una nueva ventana del explorador.
+5. En **Credenciales de administrador** , haga clic en **Autorizar**. Se abre un cuadro de diálogo de inicio de sesión de Dropbox for Business en una nueva ventana del explorador.
 
     ![Aprovisionamiento ](common/provisioning-oauth.png)
 
@@ -109,13 +109,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Token](common/provisioning-testconnection-oauth.png)
 
-8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-9. Haga clic en **Save**(Guardar).
+9. Haga clic en **Save** (Guardar).
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Dropbox** (Sincronizar usuarios de Azure Active Directory con Dropbox).
+10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Dropbox** (Sincronizar usuarios de Azure Active Directory con Dropbox).
 
     ![Asignaciones de usuario en Dropbox](media/dropboxforbusiness-provisioning-tutorial/dropbox-user-mapping.png)
 
@@ -137,7 +137,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-16. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Dropbox.
+16. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Dropbox.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

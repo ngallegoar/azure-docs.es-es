@@ -10,12 +10,13 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: c73a5c5339403ecd91d45968405682c59f2f23b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: data4ml
+ms.openlocfilehash: 77edac14ef13901725eed656835e1a937d4f4ddf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88719281"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360826"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimización del procesamiento de datos con Azure Machine Learning
 
@@ -63,9 +64,9 @@ Si no puede agregar más RAM a la máquina, puede aplicar las técnicas siguient
 
 Técnica | Descripción
 ----|----
-Compresión | Use una representación diferente para los datos, de forma que use menos memoria y no afecte significativamente a los resultados del cálculo.<br><br>*Ejemplo*: En lugar de almacenar las entradas como cadena con unos 10 bytes o más por cada entrada, guárdelas como valor booleano, true o false, que puede almacenar en 1 byte.
-Fragmentación | Cargue datos en la memoria en subconjuntos (fragmentos), y procesar los datos de a un subconjunto a la vez, o varios subconjuntos en paralelo. Este método funciona mejor si tiene que procesar todos los datos, pero no necesita cargar en la memoria todos los datos a la vez. <br><br>*Ejemplo*: En lugar de procesar a la vez los datos de todo un año, cargue y procese los datos un mes cada vez.
-Indización | Aplique y usa un índice, un resumen que le indica dónde encontrar los datos que le interesan. La indexación es útil cuando solo necesita usar un subconjunto de los datos, en lugar del conjunto completo.<br><br>*Ejemplo*: Si tiene datos de ventas de todo un año ordenados por mes, un índice le ayuda a buscar rápidamente el mes deseado que quiere procesar.
+Compresión | Use una representación diferente para los datos, de forma que use menos memoria y no afecte significativamente a los resultados del cálculo.<br><br>*Ejemplo* : En lugar de almacenar las entradas como cadena con unos 10 bytes o más por cada entrada, guárdelas como valor booleano, true o false, que puede almacenar en 1 byte.
+Fragmentación | Cargue datos en la memoria en subconjuntos (fragmentos), y procesar los datos de a un subconjunto a la vez, o varios subconjuntos en paralelo. Este método funciona mejor si tiene que procesar todos los datos, pero no necesita cargar en la memoria todos los datos a la vez. <br><br>*Ejemplo* : En lugar de procesar a la vez los datos de todo un año, cargue y procese los datos un mes cada vez.
+Indización | Aplique y usa un índice, un resumen que le indica dónde encontrar los datos que le interesan. La indexación es útil cuando solo necesita usar un subconjunto de los datos, en lugar del conjunto completo.<br><br>*Ejemplo* : Si tiene datos de ventas de todo un año ordenados por mes, un índice le ayuda a buscar rápidamente el mes deseado que quiere procesar.
 
 ## <a name="scale-data-processing"></a>Escalado del procesamiento de datos
 

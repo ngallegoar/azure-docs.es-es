@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2f694c5a089245a29aaf0e493542fc7f4fce46f7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5cdc36c20cbba148bb68bda700f5fdccbc593caf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675452"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353006"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Tutorial: Configuración de SolarWinds Service Desk (anteriormente Samanage) para el aprovisionamiento automático de usuarios
 
@@ -24,21 +24,21 @@ En este tutorial, se describen los pasos que debe realizar en SolarWinds Service
 
 ## <a name="migrate-to-the-new-solarwinds-service-desk-application"></a>Migración a la nueva aplicación de SolarWinds Service Desk
 
-Si tiene una integración existente con SolarWinds Service Desk, consulte la siguiente sección sobre los próximos cambios. Si está configurando SolarWinds Service Desk por primera vez, puede omitir esta sección y pasar a **Funcionalidades admitidas** .
+Si tiene una integración existente con SolarWinds Service Desk, consulte la siguiente sección sobre los próximos cambios. Si está configurando SolarWinds Service Desk por primera vez, puede omitir esta sección y pasar a **Funcionalidades admitidas**.
 
 #### <a name="whats-changing"></a>¿Qué está cambiando?
 
-* Cambios en Azure AD: el método de autorización para aprovisionar usuarios en Samanage ha sido históricamente la **autorización básica** . Pronto verá que el método de autorización cambia a **token secreto de larga duración** .
+* Cambios en Azure AD: el método de autorización para aprovisionar usuarios en Samanage ha sido históricamente la **autorización básica**. Pronto verá que el método de autorización cambia a **token secreto de larga duración**.
 
 
 #### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>¿Qué tengo que hacer para migrar mi integración personalizada existente a la nueva aplicación?
 
-Si tiene una integración de SolarWinds Service Desk existente con credenciales de administrador válidas, **no es necesario realizar ninguna acción** . La migración de los clientes se realizará automáticamente a la nueva aplicación. Este proceso se realiza por completo en segundo plano. Si las credenciales existentes expiran, o si necesita volver a autorizar el acceso a la aplicación, debe generar un token secreto de larga duración. Para generar un nuevo token, consulte el paso 2 de este artículo.
+Si tiene una integración de SolarWinds Service Desk existente con credenciales de administrador válidas, **no es necesario realizar ninguna acción**. La migración de los clientes se realizará automáticamente a la nueva aplicación. Este proceso se realiza por completo en segundo plano. Si las credenciales existentes expiran, o si necesita volver a autorizar el acceso a la aplicación, debe generar un token secreto de larga duración. Para generar un nuevo token, consulte el paso 2 de este artículo.
 
 
 #### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>¿Cómo puedo saber si se ha migrado mi aplicación? 
 
-Una vez migrada la aplicación, en la sección **Credenciales de administrador** , los campos **Nombre de usuario de administrador** y **Contraseña de administrador** se reemplazarán por un único campo **Token secreto** .
+Una vez migrada la aplicación, en la sección **Credenciales de administrador** , los campos **Nombre de usuario de administrador** y **Contraseña de administrador** se reemplazarán por un único campo **Token secreto**.
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
 
@@ -75,7 +75,7 @@ Agregue SolarWinds Service Desk desde la galería de aplicaciones de Azure AD p
 
 El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Al asignar usuarios y grupos a SolarWinds Service Desk, debe seleccionar un rol que no sea **de acceso predeterminado** . Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
+* Al asignar usuarios y grupos a SolarWinds Service Desk, debe seleccionar un rol que no sea **de acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
 
 * Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -86,29 +86,29 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-solarwinds-service-desk-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para SolarWinds Service Desk en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **SolarWinds Service Desk** .
+2. En la lista de aplicaciones, seleccione **SolarWinds Service Desk**.
 
-3. Seleccione la pestaña **Aprovisionamiento** .
+3. Seleccione la pestaña **Aprovisionamiento**.
 
     ![Captura de pantalla que muestra la pestaña Aprovisionamiento seleccionada.](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático** .
+4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Captura de pantalla que muestra Modo de aprovisionamiento establecido en Automático.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://api.samanage.com` en la **URL de inquilino** .  Escriba el valor del token secreto recuperado anteriormente en **Token secreto** . Seleccione **Probar conexión** para asegurarse de que Azure AD pueda conectarse a SolarWinds Service Desk. Si la conexión no se establece, asegúrese de que la cuenta de SolarWinds Service Desk tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://api.samanage.com` en la **URL de inquilino**.  Escriba el valor del token secreto recuperado anteriormente en **Token secreto**. Seleccione **Probar conexión** para asegurarse de que Azure AD pueda conectarse a SolarWinds Service Desk. Si la conexión no se establece, asegúrese de que la cuenta de SolarWinds Service Desk tiene permisos de administrador e inténtelo de nuevo.
 
     ![Captura de pantalla que muestra el botón Probar conexión seleccionado.](./media/samanage-provisioning-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Seleccione **Guardar** .
+7. Seleccione **Guardar**.
 
 8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to SolarWinds Service Desk** (Sincronizar usuarios de Azure Active Directory con SolarWinds Service Desk).
 
@@ -124,7 +124,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para SolarWinds Service Desk, cambie el **estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
+13. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para SolarWinds Service Desk, cambie el **estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
@@ -132,11 +132,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-15. Cuando esté listo para realizar el aprovisionamiento, seleccione **Guardar** .
+15. Cuando esté listo para realizar el aprovisionamiento, seleccione **Guardar**.
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia el ciclo de sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración** . El ciclo de sincronización inicial tarda más tiempo en realizarse que los ciclos posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
+Esta operación inicia el ciclo de sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración**. El ciclo de sincronización inicial tarda más tiempo en realizarse que los ciclos posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Paso 6. Supervisión de la implementación
 Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:

@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108480"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422542"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de PowerShell para Azure Functions
 
@@ -20,7 +20,7 @@ Una función de Azure de PowerShell (función) se representa como un script de P
 
 Al igual que otros tipos de funciones, las funciones de script de PowerShell toman parámetros que coinciden con los nombres de todos los enlaces de entrada definidos en el archivo `function.json`. También se pasa un parámetro `TriggerMetadata` que contiene información adicional sobre el desencadenador que inició la función.
 
-En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md). Debe haber completado también el [inicio rápido de Functions para PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para crear su primera función de PowerShell.
+En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md). Debe haber completado también el [inicio rápido de Functions para PowerShell](./create-first-function-vs-code-powershell.md) para crear su primera función de PowerShell.
 
 ## <a name="folder-structure"></a>Estructura de carpetas
 
@@ -418,7 +418,7 @@ Siga estos pasos para cambiar la versión de PowerShell que usa la aplicación d
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la aplicación de función.
 
-1. En las **opciones de configuración** haga clic en **Configuración**. En la pestaña **Configuración general**, busque la versión de **PowerShell**. 
+1. En las **opciones de configuración** haga clic en **Configuración**. En la pestaña **Configuración general** , busque la versión de **PowerShell**. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Elección de la versión de PowerShell usada por la aplicación de funciones"::: 
 
@@ -525,7 +525,7 @@ El trabajo de lenguaje de PowerShell usa varios módulos frecuentemente. Estos m
 La lista actual de módulos es como sigue:
 
 * [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): módulo usadas para trabajar con archivos, como `.zip`, `.nupkg` y otros.
-* **ThreadJob**: implementación basada en subprocesos de las API de trabajo de PowerShell.
+* **ThreadJob** : implementación basada en subprocesos de las API de trabajo de PowerShell.
 
 De manera predeterminada, Functions usa la versión más reciente de estos módulos. Para usar una versión específica del módulo, coloque esa versión específica en la carpeta `Modules` de la aplicación de funciones.
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre las novedades de Azure Blockchain Servic
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 47e0da5a729519f2af3c5b2a2fd3e0f7485624cf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948466"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335033"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Novedades de Azure Blockchain Service
 
@@ -27,7 +27,7 @@ Azure Blockchain Service recibe las mejoras de manera continua. Para mantenerse 
 
 ### <a name="version-upgrades"></a>Actualizaciones de versiones
 
-- Versión de Quorum actualizada a 2.6.0. Con la versión 2.6.0, puede enviar transacciones privadas firmadas. Para más información sobre el envío de transacciones privadas, consulte la [documentación de la API Quorum](https://docs.goquorum.com/en/latest/Getting%20Started/api/).
+- Versión de Quorum actualizada a 2.6.0. Con la versión 2.6.0, puede enviar transacciones privadas firmadas. Para más información sobre el envío de transacciones privadas, consulte la [documentación de la API Quorum](https://docs.goquorum.consensys.net/en/latest/Reference/APIs/ContractExtensionAPIs/#apis).
 - Actualización de la versión de Tessera a 0.10.5.
 
 ### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>El tamaño del contrato y el de la transacción aumentaron a 128 KB
@@ -38,7 +38,7 @@ El tamaño del contrato (MaxCodeSize) aumentó a 128 KB para poder implementar 
 
 ### <a name="trietimeout-value-reduced"></a>Valor de TrieTimeout reducido
 
-Escriba:  Cambio de configuración
+Escriba:  Cambio de configuración
 
 El valor de TrieTimeout se ha reducido para que el estado en memoria se escriba en el disco con más frecuencia. El menor valor garantiza una recuperación más rápida de un nodo en el caso excepcional de que se produzca un bloqueo de nodo.
 
@@ -68,8 +68,8 @@ Las dos fases ayudan a optimizar los escenarios en los que se crea un miembro en
 
 En Quorum v2.6.0, las llamadas a la función *eth.estimateGas* sin proporcionar el parámetro *value* adicional provocan una excepción de *bloqueo del controlador del método*. Se ha notificado al equipo de Quorum y se espera una corrección a finales de julio del 2020. Puede usar las siguientes soluciones alternativas hasta que esté disponible una corrección:
 
-- Evite usar *eth.estimateGas*, ya que puede afectar al rendimiento. Para más información sobre los problemas de rendimiento de eth.estimateGas, consulte [La llamada a la función eth.estimateGs reduce el rendimiento](#calling-ethestimategas-function-reduces-performance). Incluya un valor de gas para cada transacción. La mayoría de las bibliotecas llamarán a eth.estimateGas si no se proporciona un valor de gas, lo que ocasiona que Quorum v2.6.0 se bloquee.
-- Si tiene que llamar a *eth.estimateGas*, como solución alternativa, el equipo de Quorum le sugiere que pase el parámetro adicional *value* como *0*.
+- Evite usar *eth.estimateGas* , ya que puede afectar al rendimiento. Para más información sobre los problemas de rendimiento de eth.estimateGas, consulte [La llamada a la función eth.estimateGs reduce el rendimiento](#calling-ethestimategas-function-reduces-performance). Incluya un valor de gas para cada transacción. La mayoría de las bibliotecas llamarán a eth.estimateGas si no se proporciona un valor de gas, lo que ocasiona que Quorum v2.6.0 se bloquee.
+- Si tiene que llamar a *eth.estimateGas* , como solución alternativa, el equipo de Quorum le sugiere que pase el parámetro adicional *value* como *0*.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>La minería de datos se detiene si hay menos de cuatro nodos de validador
 
@@ -117,7 +117,7 @@ Use el nivel *Estándar* si va a enviar un gran volumen de transacciones privada
 
 ### <a name="calling-ethestimategas-function-reduces-performance"></a>La llamada a la función eth.estimateGas reduce el rendimiento.
 
-Al llamar varias veces a la función *eth.estimateGas*, se reducen drásticamente las transacciones por segundo. No utilice la función *eth.estimateGas* para cada envío de transacción. La función *eth.estimateGas* consume mucha memoria.
+Al llamar varias veces a la función *eth.estimateGas* , se reducen drásticamente las transacciones por segundo. No utilice la función *eth.estimateGas* para cada envío de transacción. La función *eth.estimateGas* consume mucha memoria.
 
 Si es posible, use un valor de gas moderado para el envío de transacciones y reduzca al mínimo el uso de *eth.estimateGas*.
 
@@ -127,5 +127,5 @@ Evite su uso en los contratos inteligentes, ya que pueden reducir el rendimiento
 
 - [Evitar bucles ilimitados](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [Procedimientos recomendados de seguridad para contratos inteligentes](https://github.com/ConsenSys/smart-contract-best-practices)
-- [Instrucciones para los contratos inteligentes proporcionadas por Quorum](http://docs.goquorum.com/en/latest/Security/Framework/Decentralized%20Application/Smart%20Contracts%20Security/)
+- [Instrucciones para los contratos inteligentes proporcionadas por Quorum](https://docs.goquorum.consensys.net/en/stable/Concepts/Security/Framework/DecentralizedApplication/SmartContractsSecurity/)
 - [Directrices sobre los límites de gas y los bucles proporcionados por Solidity](https://solidity.readthedocs.io/en/develop/security-considerations.html#gas-limit-and-loops)

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55f7b64c9ade91bb2923161d60568e3ea14ee034
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850513"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353526"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: Configuración de myPolicies para el aprovisionamiento automático de usuarios
 
@@ -74,7 +74,7 @@ Para configurar myPolicies para el aprovisionamiento automático de usuarios con
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **myPolicies**, seleccione **myPolicies** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **myPolicies** , seleccione **myPolicies** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![myPolicies en la lista de resultados](common/search-new-app.png)
 
@@ -103,20 +103,20 @@ En esta sección se le guía por los pasos necesarios para configurar el servici
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://<myPoliciesCustomDomain>.mypolicies.com/scim` en **URL de inquilino**, donde `<myPoliciesCustomDomain>` es su dominio personalizado de myPolicies. Puede recuperar el dominio de cliente de myPolicies desde su URL.
+5. En la sección **Credenciales de administrador** , escriba `https://<myPoliciesCustomDomain>.mypolicies.com/scim` en **URL de inquilino** , donde `<myPoliciesCustomDomain>` es su dominio personalizado de myPolicies. Puede recuperar el dominio de cliente de myPolicies desde su URL.
 Por ejemplo: `<demo0-qa>`.mypolicies.com.
 
-6. En **Token secreto**, escriba el valor del token que ha recuperado anteriormente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a myPolicies. Si la conexión no se establece, asegúrese de que la cuenta de myPolicies tenga permisos de administrador y vuelva a intentarlo.
+6. En **Token secreto** , escriba el valor del token que ha recuperado anteriormente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a myPolicies. Si la conexión no se establece, asegúrese de que la cuenta de myPolicies tenga permisos de administrador y vuelva a intentarlo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+7. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-8. Haga clic en **Save**(Guardar).
+8. Haga clic en **Save** (Guardar).
 
-9. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con myPolicies**.
+9. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con myPolicies**.
 
     :::image type="content" source="media/mypolicies-provisioning-tutorial/usermapping.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la sincronización de los usuarios de Azure Active Directory con customappsso." border="false":::
 
@@ -141,7 +141,7 @@ Por ejemplo: `<demo0-qa>`.mypolicies.com.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-13. Defina los usuarios o grupos que quiere que se aprovisionen en myPolicies; para ello, elija los valores deseados en **Ámbito**, en la sección **Configuración**.
+13. Defina los usuarios o grupos que quiere que se aprovisionen en myPolicies; para ello, elija los valores deseados en **Ámbito** , en la sección **Configuración**.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
@@ -155,7 +155,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 ## <a name="connector-limitations"></a>Limitaciones del conector
 
-* myPolicies siempre requiere **userName**, **email** y **externalId**.
+* myPolicies siempre requiere **userName** , **email** y **externalId**.
 * myPolicies no admite las eliminaciones permanentes de los atributos de usuario.
 
 ## <a name="change-log"></a>Registro de cambios

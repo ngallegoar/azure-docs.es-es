@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: d57afbe2ebdde7755eec659f56e402315a60ec7d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 53707261070e8efbd014614ee700df63a0925ef8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676623"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352734"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory 
 El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovisionar usuarios de SuccessFactors Employee Central a Active Directory (AD) y Azure AD, con escritura diferida opcional de la dirección de correo electrónico en SuccessFactors. 
@@ -106,14 +106,14 @@ Trabaje con el equipo de administración de SuccessFactors o con el asociado de 
 * En Permission settings (Configuración de los permisos), haga clic en **Permission...** (Permiso), desplácese hacia abajo en la lista de permisos y haga clic en **Manage Integration Tools** (Administrar herramientas de integración). Active la casilla **Allow Admin to Access to OData API through Basic Authentication** (Permitir que el administrador acceda a la API OData mediante autenticación básica).
   > [!div class="mx-imgBorder"]
   > ![Administración de herramientas de integración](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Desplácese hacia abajo en el mismo cuadro y seleccione **Employee Central API** . Agregue permisos, tal como se muestra a continuación, de lectura y edición mediante la API ODATA. Seleccione la opción de edición si tiene previsto usar la misma cuenta para el escenario de escritura diferida en SuccessFactors. 
+* Desplácese hacia abajo en el mismo cuadro y seleccione **Employee Central API**. Agregue permisos, tal como se muestra a continuación, de lectura y edición mediante la API ODATA. Seleccione la opción de edición si tiene previsto usar la misma cuenta para el escenario de escritura diferida en SuccessFactors. 
   > [!div class="mx-imgBorder"]
   > ![Permisos de lectura y escritura](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
   >[!NOTE]
   >Para obtener la lista completa de atributos recuperados por esta aplicación de aprovisionamiento, consulte [Referencia de atributos de SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md).
 
-* Haga clic en **Done** (Acabado). Haga clic en **Guardar cambios** .
+* Haga clic en **Done** (Acabado). Haga clic en **Guardar cambios**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Creación de un grupo de permisos para el usuario de la API
 
@@ -142,7 +142,7 @@ Trabaje con el equipo de administración de SuccessFactors o con el asociado de 
 * Revise la concesión del rol de permisos al grupo de permisos. 
   > [!div class="mx-imgBorder"]
   > ![Detalles de rol y grupo de permisos](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Haga clic en **Guardar cambios** .
+* Haga clic en **Guardar cambios**.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>Configuración del aprovisionamiento de usuarios de SuccessFactors a Active Directory
 
@@ -160,7 +160,7 @@ En esta sección se describen los pasos para el aprovisionamiento de cuentas de 
 
 1. Vaya a <https://portal.azure.com>.
 
-2. En la barra de navegación de la izquierda, seleccione **Azure Active Directory** .
+2. En la barra de navegación de la izquierda, seleccione **Azure Active Directory**.
 
 3. Seleccione **Enterprise Applications** (Aplicaciones empresariales) y **All Applications** (Todas las aplicaciones).
 
@@ -168,9 +168,9 @@ En esta sección se describen los pasos para el aprovisionamiento de cuentas de 
 
 5. Busque **SuccessFactors to Active Directory User Provisioning** y agregue esa aplicación desde la galería.
 
-6. Una vez que se haya agregado la aplicación y se muestre la pantalla de detalles de la aplicación, seleccione **Aprovisionamiento** .
+6. Una vez que se haya agregado la aplicación y se muestre la pantalla de detalles de la aplicación, seleccione **Aprovisionamiento**.
 
-7. Cambie el **Modo de** **aprovisionamiento** a **Automático** .
+7. Cambie el **Modo de** **aprovisionamiento** a **Automático**.
 
 8. Haga clic en el banner de información que se muestra para descargar el agente de aprovisionamiento. 
    > [!div class="mx-imgBorder"]
@@ -189,11 +189,11 @@ Transfiera el instalador del agente descargado al host del servidor y siga los p
 
 1. Inicie sesión en el servidor Windows Server donde quiera instalar el nuevo agente.
 
-1. Inicie el instalador del agente de aprovisionamiento, acepte los términos y haga clic en el botón **Instalar** .
+1. Inicie el instalador del agente de aprovisionamiento, acepte los términos y haga clic en el botón **Instalar**.
 
    ![Pantalla de instalación](./media/workday-inbound-tutorial/pa_install_screen_1.png "Pantalla de instalación")
    
-1. Una vez completada la instalación, se iniciará el asistente y verá la pantalla **Conectar a Azure AD** . Haga clic en el botón **Autenticar** para conectarse a su instancia de Azure AD.
+1. Una vez completada la instalación, se iniciará el asistente y verá la pantalla **Conectar a Azure AD**. Haga clic en el botón **Autenticar** para conectarse a su instancia de Azure AD.
 
    ![Conexión de Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Conexión de Azure AD")
    
@@ -204,7 +204,7 @@ Transfiera el instalador del agente descargado al host del servidor y siga los p
    > [!NOTE]
    > Las credenciales de administrador de Azure AD se usan solo para conectarse al inquilino de Azure AD. El agente no almacena las credenciales localmente en el servidor.
 
-1. Tras una autenticación correcta con Azure AD, verá la pantalla **Conectar a Active Directory** . En este paso, escriba su nombre de dominio de AD y haga clic en el botón **Agregar directorio** .
+1. Tras una autenticación correcta con Azure AD, verá la pantalla **Conectar a Active Directory**. En este paso, escriba su nombre de dominio de AD y haga clic en el botón **Agregar directorio**.
 
    ![Agregar directorio](./media/workday-inbound-tutorial/pa_install_screen_4.png "Agregar directorio")
   
@@ -247,9 +247,9 @@ En este paso, se establece la conectividad con SuccessFactors y Active Director
 
    * **Contraseña de administrador:** escriba la contraseña de la cuenta de usuario de SuccessFactors API. 
 
-   * **URL de inquilino:** escriba el nombre del punto de conexión de servicios de la API OData de SuccessFactors. Especifique solo el nombre de host del servidor sin http o https. Este valor se parecerá a este: **<api-server-name>.successfactors.com** .
+   * **URL de inquilino:** escriba el nombre del punto de conexión de servicios de la API OData de SuccessFactors. Especifique solo el nombre de host del servidor sin http o https. Este valor se parecerá a este: **<api-server-name>.successfactors.com**.
 
-   * **Bosque de Active Directory** : el nombre de su dominio de Active Directory, según se ha registrado con el agente. Use la lista desplegable para seleccionar el dominio de destino para el aprovisionamiento. Este valor suele ser una cadena como: *contoso.com* .
+   * **Bosque de Active Directory** : el nombre de su dominio de Active Directory, según se ha registrado con el agente. Use la lista desplegable para seleccionar el dominio de destino para el aprovisionamiento. Este valor suele ser una cadena como: *contoso.com*.
 
    * **Contenedor de Active Directory:** escriba el DN del contenedor donde el agente debe crear cuentas de usuario de forma predeterminada.
         Ejemplo: *OU=Users,DC=contoso,DC=com*
@@ -260,7 +260,7 @@ En este paso, se establece la conectividad con SuccessFactors y Active Director
     > [!NOTE]
     > El servicio de aprovisionamiento de Azure AD envía la notificación por correo electrónico si el trabajo de aprovisionamiento entra en un estado de[cuarentena](../app-provisioning/application-provisioning-quarantine-status.md).
 
-   * Haga clic en el botón **Probar conexión** . Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que las credenciales de SuccessFactors y las credenciales de AD configuradas en la instalación del agente sean válidas.
+   * Haga clic en el botón **Probar conexión**. Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que las credenciales de SuccessFactors y las credenciales de AD configuradas en la instalación del agente sean válidas.
     >[!div class="mx-imgBorder"]
     >![Azure Portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
@@ -340,7 +340,7 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
 > [!TIP]
 > De forma predeterminada, al activar el servicio de aprovisionamiento, se iniciarán las operaciones de aprovisionamiento para todos los usuarios del ámbito. Si hay errores en la asignación o problemas con los datos de SuccessFactors, puede que se produzcan errores con el trabajo de aprovisionamiento y que entre en estado de cuarentena. Para evitar esto, como procedimiento recomendado, es conveniente configurar el filtro **Ámbito de objeto de origen** y probar las asignaciones de atributos con algunos usuarios de prueba antes de iniciar la sincronización completa de todos los usuarios. Una vez haya verificado que las asignaciones funcionan y que obtiene los resultados deseados, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
 
-1. En la pestaña **Aprovisionamiento** , establezca **Estado de aprovisionamiento** en **Activado** .
+1. En la pestaña **Aprovisionamiento** , establezca **Estado de aprovisionamiento** en **Activado**.
 
 2. Haga clic en **Save** (Guardar).
 

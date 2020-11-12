@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7b4a5e76ec8dad66bf300cc3e1d55471383f83ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7e0db1b0bc1e7aef68ee06f3bdd5e5e0f83b73e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285849"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354740"
 ---
 # <a name="tutorial-configure-symantec-web-security-service-wss-for-automatic-user-provisioning"></a>Tutorial: Configuración de Symantec Web Security Service (WSS) para el aprovisionamiento automático de usuarios
 
@@ -86,7 +86,7 @@ Para configurar Symantec Web Security Service (WSS) para el aprovisionamiento au
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Symantec Web Security Service**, seleccione **Symantec Web Security Service** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Symantec Web Security Service** , seleccione **Symantec Web Security Service** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Symantec Web Security Service (WSS) en la lista de resultados](common/search-new-app.png)
 
@@ -119,13 +119,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Symantec Web Security Service (WSS) [Sincronizar usuarios de Azure Active Directory con Symantec Web Security Service (WSS)]** .
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Symantec Web Security Service (WSS) [Sincronizar usuarios de Azure Active Directory con Symantec Web Security Service (WSS)]** .
 
     ![Captura de pantalla de la sección Asignaciones con la opción Synchronize Azure Active Directory Users to Symantec Web Security Service (WSS) (Sincronizar usuarios de Azure Active Directory con Symantec Web Security Service [WSS]) seleccionada.](media/symantec-web-security-service/usermapping.png)
 
@@ -133,7 +133,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la sección Asignación de atributos que muestra 16 propiedades coincidentes.](media/symantec-web-security-service/userattribute.png)
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Symantec Web Security Service** (Sincronizar grupos de Azure Active Directory con Symantec Web Security Service).
+10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Symantec Web Security Service** (Sincronizar grupos de Azure Active Directory con Symantec Web Security Service).
 
     ![Captura de pantalla de la sección Asignaciones con la opción Synchronize Azure Active Directory Groups to Symantec Web Security Service (WSS) (Sincronizar grupos de Azure Active Directory con Symantec Web Security Service [WSS]) seleccionada.](media/symantec-web-security-service/groupmapping.png)
 
@@ -147,7 +147,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Symantec Web Security Service (WSS).
+14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Symantec Web Security Service (WSS).
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

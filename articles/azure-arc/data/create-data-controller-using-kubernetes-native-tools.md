@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 051a7f506d351a17764e38c760ffba06d224cc38
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91661064"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422576"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Creación de un controlador de datos de Azure Arc mediante las herramientas de Kubernetes
 
@@ -102,7 +102,7 @@ containers:
       - env:
         - name: ACCEPT_EULA
           value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-sep-2020 <-- template value to change
+        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-oct-2020  <-- template value to change
         image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
         imagePullPolicy: IfNotPresent
         name: bootstrapper
@@ -170,21 +170,21 @@ En primer lugar, cree una copia del [archivo de plantilla](https://raw.githubuse
 Edite los valores siguientes, según sea necesario:
 
 **OBLIGATORIO**
-- **location**: cámbielo para que sea la ubicación de Azure donde se almacenarán los _metadatos_ sobre el controlador de datos.  Puede ver la lista de ubicaciones de Azure disponibles en el artículo de [información general sobre controladores de datos](create-data-controller.md).
-- **resourceGroup**: el grupo de recursos de Azure donde desea crear el recurso de Azure del controlador de datos en Azure Resource Manager.  Normalmente, este grupo de recursos ya debería existir, pero no se necesita hasta el momento en que se cargan los datos en Azure.
-- **subscription**: el GUID de suscripción de Azure de la suscripción en la que desea crear los recursos de Azure.
+- **location** : cámbielo para que sea la ubicación de Azure donde se almacenarán los _metadatos_ sobre el controlador de datos.  Puede ver la lista de ubicaciones de Azure disponibles en el artículo de [información general sobre controladores de datos](create-data-controller.md).
+- **resourceGroup** : el grupo de recursos de Azure donde desea crear el recurso de Azure del controlador de datos en Azure Resource Manager.  Normalmente, este grupo de recursos ya debería existir, pero no se necesita hasta el momento en que se cargan los datos en Azure.
+- **subscription** : el GUID de suscripción de Azure de la suscripción en la que desea crear los recursos de Azure.
 
 **SE RECOMIENDA REVISAR Y POSIBLEMENTE CAMBIAR LOS VALORES PREDETERMINADOS**
-- **storage..className**: la clase de almacenamiento que se va a utilizar para los archivos de registro y datos del controlador de datos.  Si no sabe con seguridad cuáles son las clases de almacenamiento disponibles en el clúster de Kubernetes, puede ejecutar el siguiente comando: `kubectl get storageclass`.  El valor predeterminado es `default`, que da por sentado que hay una clase de almacenamiento que existe y que se denomina `default`, y no que hay una clase de almacenamiento que _es_ la predeterminada.  Nota: Hay dos valores de configuración de className que debe establecer en la clase de almacenamiento deseada: una para los datos y otra para los registros.
-- **serviceType**: cambie el tipo de servicio a `NodePort` si no usa un equilibrador de carga.  Nota: Hay dos valores de configuración de serviceType que deben cambiarse.
+- **storage..className** : la clase de almacenamiento que se va a utilizar para los archivos de registro y datos del controlador de datos.  Si no sabe con seguridad cuáles son las clases de almacenamiento disponibles en el clúster de Kubernetes, puede ejecutar el siguiente comando: `kubectl get storageclass`.  El valor predeterminado es `default`, que da por sentado que hay una clase de almacenamiento que existe y que se denomina `default`, y no que hay una clase de almacenamiento que _es_ la predeterminada.  Nota: Hay dos valores de configuración de className que debe establecer en la clase de almacenamiento deseada: una para los datos y otra para los registros.
+- **serviceType** : cambie el tipo de servicio a `NodePort` si no usa un equilibrador de carga.  Nota: Hay dos valores de configuración de serviceType que deben cambiarse.
 
 **OPCIONAL**
-- **name**: el nombre predeterminado del controlador de datos es `arc`, pero puede cambiarlo si lo desea.
-- **displayName**: establézcalo en el mismo valor que el atributo name situado en la parte superior del archivo.
-- **registry**: Microsoft Container Registry es el valor predeterminado.  Si extrae las imágenes de Microsoft Container Registry y las [inserta en un registro de contenedor privado](offline-deployment.md), escriba aquí la dirección IP o el nombre DNS del registro.
-- **dockerRegistry**: el secreto de extracción de imagen que se va a usar para extraer las imágenes de un registro de contenedor privado, si es necesario.
-- **repository**: el repositorio predeterminado de Microsoft Container Registry es `arcdata`.  Si usa un registro de contenedor privado, escriba la ruta de acceso de la carpeta o repositorio que contiene las imágenes de contenedor de los servicios de datos habilitados para Azure Arc.
-- **imageTag**: la etiqueta de versión más reciente actual está predeterminada en la plantilla, pero puede cambiarla si desea utilizar una versión anterior.
+- **name** : el nombre predeterminado del controlador de datos es `arc`, pero puede cambiarlo si lo desea.
+- **displayName** : establézcalo en el mismo valor que el atributo name situado en la parte superior del archivo.
+- **registry** : Microsoft Container Registry es el valor predeterminado.  Si extrae las imágenes de Microsoft Container Registry y las [inserta en un registro de contenedor privado](offline-deployment.md), escriba aquí la dirección IP o el nombre DNS del registro.
+- **dockerRegistry** : el secreto de extracción de imagen que se va a usar para extraer las imágenes de un registro de contenedor privado, si es necesario.
+- **repository** : el repositorio predeterminado de Microsoft Container Registry es `arcdata`.  Si usa un registro de contenedor privado, escriba la ruta de acceso de la carpeta o repositorio que contiene las imágenes de contenedor de los servicios de datos habilitados para Azure Arc.
+- **imageTag** : la etiqueta de versión más reciente actual está predeterminada en la plantilla, pero puede cambiarla si desea utilizar una versión anterior.
 
 Ejemplo de un archivo YAML de controlador de datos completado:
 ```yaml
@@ -200,7 +200,7 @@ spec:
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-sep-2020
+    imageTag: public-preview-oct-2020 
     registry: mcr.microsoft.com
     repository: arcdata
   security:

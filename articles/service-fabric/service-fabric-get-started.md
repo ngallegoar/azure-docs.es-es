@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: f32bc444ba753f48955de4a4c16bde8dfb7a05fc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8593858580da1358dc84d9c25420fe2a95680251
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316644"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330230"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 
@@ -53,12 +53,6 @@ Las herramientas de Service Fabric forman parte de la carga de trabajo de Azure 
 Además, debe instalar el SDK de Microsoft Azure Service Fabric y el entorno en tiempo de ejecución mediante el Instalador de plataforma web.
 
 * [Instale el SDK de Microsoft Azure Service Fabric][core-sdk].
-
-### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Para utilizar Visual Studio 2015 (es necesario usar Visual Studio 2015 Update 2 o versiones posteriores)
-
-En Visual Studio 2015, las herramientas de Service Fabric se instalan junto con el SDK y el entorno de tiempo de ejecución mediante el Instalador de plataforma web:
-
-* [Instalación del SDK y las Herramientas de Microsoft Azure Service Fabric][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>Para instalar solamente el SDK
 

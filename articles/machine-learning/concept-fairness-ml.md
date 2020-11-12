@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 459cb1f7ea6c756b8cf6eba70af5ebabe76cc8b0
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88689684"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335765"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Mitigación de la equidad en los modelos de aprendizaje automático (versión preliminar)
 
 Aprenda sobre la equidad en el aprendizaje automático y cómo el paquete de Python de código abierto [Fairlearn](https://fairlearn.github.io/) puede ayudarle a mitigar los problemas relacionados. Si no realiza ningún esfuerzo para comprender los problemas de equidad y evaluar la equidad al crear modelos de aprendizaje automático, puede crear modelos que produzcan resultados no equitativos.
 
-En el siguiente resumen de la [guía de usuario](https://fairlearn.github.io/user_guide/index.html) para el paquete de código abierto de Fairlearn, se describe cómo utilizarlo para evaluar la equidad de los sistemas de inteligencia artificial que está compilando.  El paquete de código abierto de Fairlearn también puede ofrecer opciones para ayudar a mitigar o ayudar a reducir los problemas de equidad que observe.  Consulte los [procedimientos](how-to-machine-learning-fairness-aml.md) y [los cuadernos de muestra](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para habilitar la evaluación de equidad de los sistemas de AI durante el entrenamiento en Azure Machine Learning.
+En el siguiente resumen de la [guía de usuario](https://fairlearn.github.io/master/user_guide/index.html) para el paquete de código abierto de Fairlearn, se describe cómo utilizarlo para evaluar la equidad de los sistemas de inteligencia artificial que está compilando.  El paquete de código abierto de Fairlearn también puede ofrecer opciones para ayudar a mitigar o ayudar a reducir los problemas de equidad que observe.  Consulte los [procedimientos](how-to-machine-learning-fairness-aml.md) y [los cuadernos de muestra](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para habilitar la evaluación de equidad de los sistemas de AI durante el entrenamiento en Azure Machine Learning.
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>¿Qué es la equidad en los sistemas de aprendizaje automático?
@@ -51,7 +51,7 @@ Juntos, estos componentes permiten a los científicos de datos y a los líderes 
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Acceso a la equidad en los modelos de aprendizaje automático
 
-En el paquete de código abierto de Fairlearn, la equidad se conceptualiza a través de un enfoque conocido como **equidad de grupo**, que pregunta: ¿Qué grupos de usuarios están en riesgo de experimentar daños? Los grupos pertinentes, también conocidos como subpoblaciónes, se definen a través de **características confidenciales** o atributos confidenciales. Las características confidenciales se pasan a un estimador en el paquete de código abierto de Fairlearn como un vector o una matriz denominada `sensitive_features`. El término sugiere que el diseñador del sistema debe mantener la confidencialidad de estas características al evaluar la imparcialidad del grupo. 
+En el paquete de código abierto de Fairlearn, la equidad se conceptualiza a través de un enfoque conocido como **equidad de grupo** , que pregunta: ¿Qué grupos de usuarios están en riesgo de experimentar daños? Los grupos pertinentes, también conocidos como subpoblaciónes, se definen a través de **características confidenciales** o atributos confidenciales. Las características confidenciales se pasan a un estimador en el paquete de código abierto de Fairlearn como un vector o una matriz denominada `sensitive_features`. El término sugiere que el diseñador del sistema debe mantener la confidencialidad de estas características al evaluar la imparcialidad del grupo. 
 
 Algo que se debe tener en cuenta es si estas características contienen implicaciones de privacidad debido a datos privados. De todos modos, la palabra "confidencial" no implica que estas características no se utilicen para realizar predicciones.
 
@@ -108,6 +108,6 @@ El paquete de código abierto de Fairlearn proporciona algoritmos de mitigación
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a usar los diferentes componentes al consultar [GitHub](https://github.com/fairlearn/fairlearn/), la [guía del usuario](https://fairlearn.github.io/user_guide/index.html), [ejemplos](https://fairlearn.github.io/auto_examples/) y [cuadernos de muestra](https://github.com/fairlearn/fairlearn/tree/master/notebooks) de Fairlearn.
+- Aprenda a usar los diferentes componentes al consultar [GitHub](https://github.com/fairlearn/fairlearn/), la [guía del usuario](https://fairlearn.github.io/master/user_guide/index.html), [ejemplos](https://fairlearn.github.io/master/auto_examples/) y [cuadernos de muestra](https://github.com/fairlearn/fairlearn/tree/master/notebooks) de Fairlearn.
 - Aprenda [cómo](how-to-machine-learning-fairness-aml.md) habilitar la evaluación de equidad de los modelos de aprendizaje automático en Azure Machine Learning.
 - Consulte los [cuadernos de muestra](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para ver escenarios adicionales de evaluación de equidad en Azure Machine Learning. 

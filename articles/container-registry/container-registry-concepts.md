@@ -3,12 +3,12 @@ title: Acerca de los repositorios y las imágenes
 description: Una introducción a los conceptos clave de los registros de contenedor, repositorios e imágenes de contenedor de Azure.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390455"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335901"
 ---
 # <a name="about-registries-repositories-and-images"></a>Acerca de los registros, repositorios e imágenes
 
@@ -26,9 +26,9 @@ La dirección de un artefacto en un registro de contenedor de Azure incluye los 
 
 `[loginUrl]/[repository:][tag]`
 
-* **loginUrl**: el nombre completo del host del registro. El host del registro de un registro de contenedor de Azure tiene el formato *myregistry*.azurecr.io (todo en minúsculas). Debe especificar el valor de loginUrl cuando utilice Docker u otras herramientas de cliente para extraer o insertar artefactos a un registro de contenedor de Azure. 
-* **repository**: el nombre de una agrupación lógica de una o varias imágenes o artefactos relacionados; por ejemplo, las imágenes de una aplicación o un sistema operativo base. Puede incluir la ruta de acceso al *espacio de nombres*. 
-* **tag**: un identificador de una versión específica de una imagen o un artefacto que se almacenan en un repositorio.
+* **loginUrl** : el nombre completo del host del registro. El host del registro de un registro de contenedor de Azure tiene el formato *myregistry*.azurecr.io (todo en minúsculas). Debe especificar el valor de loginUrl cuando utilice Docker u otras herramientas de cliente para extraer o insertar artefactos a un registro de contenedor de Azure. 
+* **repository** : el nombre de una agrupación lógica de una o varias imágenes o artefactos relacionados; por ejemplo, las imágenes de una aplicación o un sistema operativo base. Puede incluir la ruta de acceso al *espacio de nombres*. 
+* **tag** : un identificador de una versión específica de una imagen o un artefacto que se almacenan en un repositorio.
 
 Por ejemplo, el nombre completo de una imagen de un registro de contenedor de Azure puede tener este aspecto:
 
@@ -73,7 +73,7 @@ Para obtener información sobre las reglas de nomenclatura de etiquetas, vea la 
 
 ### <a name="layer"></a>Nivel
 
-Las imágenes de contenedor se componen de una o más *capas*, cada una correspondiente a una línea en el archivo de Docker que define la imagen. Las imágenes de un registro comparten capas comunes para aumentar la eficacia de almacenamiento. Por ejemplo, varias imágenes en distintos repositorios pueden compartir la misma capa base de Alpine Linux, pero solo se almacena en el registro una copia de esa capa.
+Las imágenes de contenedor se componen de una o más *capas* , cada una correspondiente a una línea en el archivo de Docker que define la imagen. Las imágenes de un registro comparten capas comunes para aumentar la eficacia de almacenamiento. Por ejemplo, varias imágenes en distintos repositorios pueden compartir la misma capa base de Alpine Linux, pero solo se almacena en el registro una copia de esa capa.
 
 El uso compartido de las capas optimiza la distribución de la capa en nodos con varias imágenes que comparten capas comunes. Por ejemplo, si una imagen que ya se encuentra en un nodo incluye la capa de Alpine Linux como su base, la extracción posterior de una imagen distinta que haga referencia a la misma capa no transfiere la capa al nodo. En su lugar, hace referencia a la capa que ya existe en el nodo.
 

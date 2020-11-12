@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e578c90a05085df33c2d547402256cfc38229aa3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f8fdfd99b2ef5c1578bc9e87534461d68398c9f6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374079"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378285"
 ---
 # <a name="view-roles-assigned-to-a-group-in-azure-active-directory"></a>Visualización de los roles asignados a un grupo en Azure Active Directory
 
@@ -28,7 +28,7 @@ En esta sección se describe cómo se pueden ver los roles asignados a un grupo 
 
 1. Seleccione el grupo que le interese.
 
-1. Seleccione **Roles asignados** . Así podrá ver todos los roles de Azure AD asignados a este grupo.
+1. Seleccione **Roles asignados**. Así podrá ver todos los roles de Azure AD asignados a este grupo.
 
    ![Visualización de todos los roles asignados a un grupo seleccionado](./media/groups-view-assignments/view-assignments.png)
 

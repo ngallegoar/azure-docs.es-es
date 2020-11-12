@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: fa187d9f7ee2b4b91c8559a185f55f0015f0b441
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 69a9b9401f25893ec94b282f52730d92d372268d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455636"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355709"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cofense Recipient Sync para el aprovisionamiento automático de usuarios
 
@@ -53,7 +53,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
     ![TNC de sincronización de destinatarios](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. Copie los valores de los campos **URL** y **Token** .
+3. Copie los valores de los campos **URL** y **Token**.
 
     ![Sincronización de destinatarios](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 
@@ -66,7 +66,7 @@ Agregue Cofense Recipient Sync desde la galería de aplicaciones de Azure AD pa
 
 El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Al asignar usuarios y grupos a Cofense Recipient Sync, debe seleccionar un rol que no sea **Acceso predeterminado** . Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
+* Al asignar usuarios y grupos a Cofense Recipient Sync, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
 
 * Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -77,19 +77,19 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-cofense-recipient-sync-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Cofense Recipient Sync en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Cofense Recipient Sync** .
+2. En la lista de aplicaciones, seleccione **Cofense Recipient Sync**.
 
     ![Vínculo a Cofense en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento** .
+3. Seleccione la pestaña **Aprovisionamiento**.
 
     ![Pestaña Aprovisionamiento](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático** .
+4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
 
@@ -97,15 +97,15 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Token de URL de inquilino](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Seleccione **Guardar** .
+7. Seleccione **Guardar**.
 
 8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Coda** (Sincronizar usuarios de Azure Active Directory con Cofense Recipient Sync).
 
-9. Examine los atributos de usuario que se sincronizan entre Azure AD y Cofense Recipient Sync en la sección **Asignación de atributos** . Los atributos seleccionados como propiedades **Coincidentes** se usan para hacer coincidir las cuentas de usuario de Cofense Recipient Sync a fin de realizar operaciones de actualización.  Seleccione el botón **Guardar** para confirmar los cambios.
+9. Examine los atributos de usuario que se sincronizan entre Azure AD y Cofense Recipient Sync en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para hacer coincidir las cuentas de usuario de Cofense Recipient Sync a fin de realizar operaciones de actualización.  Seleccione el botón **Guardar** para confirmar los cambios.
 
    |Atributo|Tipo|
    |---|---|
@@ -148,7 +148,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar el servicio de aprovisionamiento de Azure AD para Cofense Recipient Sync, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
+11. Para habilitar el servicio de aprovisionamiento de Azure AD para Cofense Recipient Sync, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
@@ -156,11 +156,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-13. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
+13. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia el ciclo de sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración** . El ciclo de sincronización inicial tarda más tiempo en realizarse que los ciclos posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
+Esta operación inicia el ciclo de sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración**. El ciclo de sincronización inicial tarda más tiempo en realizarse que los ciclos posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Paso 6. Supervisión de la implementación
 Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:

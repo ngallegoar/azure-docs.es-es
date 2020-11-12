@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3c2fba1cba2c06e07b262e37eac651afb5c102cf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f465438a6be80a1b487a4df7d3ee8bd38be9c102
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317552"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354235"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Tutorial: Configuración de Workteam para el aprovisionamiento automático de usuarios
 
@@ -83,7 +83,7 @@ Para configurar from Workteam para el aprovisionamiento automático de usuarios 
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Workteam**, seleccione **Workteam** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Workteam** , seleccione **Workteam** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Workteam en la lista de resultados](common/search-new-app.png)
 
@@ -116,13 +116,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Workteam** (Sincronizar usuarios de Azure Active Directory con Workteam).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Workteam** (Sincronizar usuarios de Azure Active Directory con Workteam).
 
     ![Asignaciones de usuario de Workteam](media/workteam-provisioning-tutorial/usermapping.png)
 
@@ -136,7 +136,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-13. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Workteam.
+13. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Workteam.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

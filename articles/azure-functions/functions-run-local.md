@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 17daef18d87c4b5c906694ab1394694b32b6b130
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 78c6e4dffb35980b73fbc09bdc07d55215e659ae
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164877"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422593"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Java utiliza un arquetipo de Maven para crear el proyecto de funciones local, junto con la primera función desencadenada por HTTP. Utilice el comando siguiente para crear el proyecto de Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype`. Para obtener un ejemplo del uso del arquetipo de Maven, consulte la [guía de inicio rápido de línea de comandos](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).  
+> Java utiliza un arquetipo de Maven para crear el proyecto de funciones local, junto con la primera función desencadenada por HTTP. Utilice el comando siguiente para crear el proyecto de Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype`. Para obtener un ejemplo del uso del arquetipo de Maven, consulte la [guía de inicio rápido de línea de comandos](./create-first-function-cli-java.md).  
 
 Al especificar un nombre de proyecto, se crea una carpeta con dicho nombre y posteriormente se inicializa. En caso contrario, se inicializa la carpeta actual.  
 En la versión 3.x o 2.x, cuando ejecute el comando, debe elegir un entorno de ejecución para el proyecto. 
@@ -247,10 +247,10 @@ Cuando no se establece ninguna cadena de conexión de almacenamiento válida par
 
 Incluso cuando se usa el Emulador de Microsoft Azure Storage para tareas de desarrollo, recomendamos probar con una conexión de almacenamiento real. Suponiendo que ya [creó una cuenta de almacenamiento](../storage/common/storage-account-create.md), puede obtener una cadena de conexión de almacenamiento válida de una de las maneras siguientes:
 
-- En [Azure Portal], busque y seleccione **Cuentas de almacenamiento** . 
+- En [Azure Portal], busque y seleccione **Cuentas de almacenamiento**. 
   ![Selección de cuentas de almacenamiento desde Azure Portal](./media/functions-run-local/select-storage-accounts.png)
   
-  Seleccione la cuenta de almacenamiento, elija **Claves de acceso** en **Configuración** y, a continuación, copie uno de los valores de **Cadena de conexión** .
+  Seleccione la cuenta de almacenamiento, elija **Claves de acceso** en **Configuración** y, a continuación, copie uno de los valores de **Cadena de conexión**.
   ![Copia de una cadena de conexión desde Azure Portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
 - Use [Explorador de Azure Storage](https://storageexplorer.com/) para conectarse a su cuenta de almacenamiento de Azure. En el **Explorador** , expanda su suscripción, expanda **Cuentas de almacenamiento** , seleccione la cuenta de almacenamiento y copie la cadena de conexión principal o secundaria.
@@ -357,7 +357,7 @@ func start
 ```
 func start
 ```
-Este comando debe [ejecutarse en un entorno virtual](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
+Este comando debe [ejecutarse en un entorno virtual](./create-first-function-cli-python.md).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 

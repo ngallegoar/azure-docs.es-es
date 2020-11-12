@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 3f1e2e12b7ba0a47c20614065510ffd1ae8bf195
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6508db654cd27ca4b3844f6037f13fb504173e11
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325352"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361172"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Protección de un entorno de inferencia de Azure Machine Learning con redes virtuales
 
@@ -115,35 +115,10 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Cuando finalice el proceso de creación, puede ejecutar una inferencia, o puntuación de modelos, en un clúster de AKS detrás de una red virtual. Para más información, consulte [Implementación en AKS](how-to-deploy-and-where.md).
 
-## <a name="secure-vnet-traffic"></a>Tráfico de red virtual seguro
-
-Hay dos métodos para aislar el tráfico hacia y desde el clúster de AKS a la red virtual:
-
-* __Clúster privado de AKS__ : este enfoque usa Azure Private Link para proteger las comunicaciones con el clúster para las operaciones de implementación y administración.
-* __Equilibrador de carga interno de AKS__ : Este enfoque configura el punto de conexión de las implementaciones en AKS para usar una dirección IP privada en la red virtual.
-
-> [!WARNING]
-> El equilibrador de carga interno no funciona con un clúster de AKS que usa kubenet. Si quiere usar un equilibrador de carga interno y un clúster de AKS privado al mismo tiempo, configure el clúster de AKS privado con Azure Container Networking Interface (CNI). Para obtener más información, consulte [Configuración de redes de Azure CNI en Azure Kubernetes Service](../aks/configure-azure-cni.md).
-
-### <a name="private-aks-cluster"></a>Clúster privado de AKS
-
-De manera predeterminada, los clústeres de AKS tienen un plano de control o un servidor de API con las direcciones IP públicas. Puede configurar AKS para usar un plano de control privado mediante la creación de un clúster privado de AKS. Para obtener más información, consulte [Creación de un clúster privado de Azure Kubernetes Service](../aks/private-clusters.md).
-
-Después de crear el clúster privado de AKS, [adjunte el clúster a la red virtual](how-to-create-attach-kubernetes.md) para usarlo con Azure Machine Learning.
+## <a name="network-contributor-role"></a>Rol de colaborador de red
 
 > [!IMPORTANT]
-> Antes de usar un clúster de AKS habilitado para Private Link con Azure Machine Learning, debe abrir una incidencia de soporte técnico para habilitar esta funcionalidad. Para obtener más información, consulte [Administración y configuración de cuotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
-### <a name="internal-aks-load-balancer"></a>Equilibrador de carga interno de AKS
-
-De manera predeterminada, las implementaciones de AKS usan un [equilibrador de carga público](../aks/load-balancer-standard.md). En esta sección, aprenderá a configurar AKS para usar un equilibrador de carga interno. Un equilibrador de carga interno (o privado) se usa cuando solo se admiten direcciones IP privadas como front-end. Los equilibradores de carga internos se usan para equilibrar la carga del tráfico dentro de una red virtual.
-
-Un equilibrador de carga privado se habilita mediante la configuración de AKS para usar un _equilibrador de carga interno_. 
-
-#### <a name="network-contributor-role"></a>Rol de colaborador de red
-
-> [!IMPORTANT]
-> Si crea o asocia un clúster de AKS al proporcionar una red virtual creada anteriormente, debe conceder a la entidad de servicio (SP) o la identidad administrada del clúster de AKS el rol _Colaborador de la red_ del grupo de recursos que contiene la red virtual. Debe hacerlo antes de intentar cambiar el equilibrador de carga interno a una dirección IP privada.
+> Si crea o asocia un clúster de AKS al proporcionar una red virtual creada anteriormente, debe conceder a la entidad de servicio (SP) o la identidad administrada del clúster de AKS el rol _Colaborador de la red_ del grupo de recursos que contiene la red virtual.
 >
 > Para agregar la identidad como colaborador de red, siga estos pasos:
 
@@ -171,6 +146,31 @@ Un equilibrador de carga privado se habilita mediante la configuración de AKS p
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
 Para más información sobre el uso del equilibrador de carga interno con AKS, consulte [Uso del equilibrador de carga interno con Azure Kubernetes Service](../aks/internal-lb.md).
+
+## <a name="secure-vnet-traffic"></a>Tráfico de red virtual seguro
+
+Hay dos métodos para aislar el tráfico hacia y desde el clúster de AKS a la red virtual:
+
+* __Clúster privado de AKS__ : este enfoque usa Azure Private Link para proteger las comunicaciones con el clúster para las operaciones de implementación y administración.
+* __Equilibrador de carga interno de AKS__ : Este enfoque configura el punto de conexión de las implementaciones en AKS para usar una dirección IP privada en la red virtual.
+
+> [!WARNING]
+> El equilibrador de carga interno no funciona con un clúster de AKS que usa kubenet. Si quiere usar un equilibrador de carga interno y un clúster de AKS privado al mismo tiempo, configure el clúster de AKS privado con Azure Container Networking Interface (CNI). Para obtener más información, consulte [Configuración de redes de Azure CNI en Azure Kubernetes Service](../aks/configure-azure-cni.md).
+
+### <a name="private-aks-cluster"></a>Clúster privado de AKS
+
+De manera predeterminada, los clústeres de AKS tienen un plano de control o un servidor de API con las direcciones IP públicas. Puede configurar AKS para usar un plano de control privado mediante la creación de un clúster privado de AKS. Para obtener más información, consulte [Creación de un clúster privado de Azure Kubernetes Service](../aks/private-clusters.md).
+
+Después de crear el clúster privado de AKS, [adjunte el clúster a la red virtual](how-to-create-attach-kubernetes.md) para usarlo con Azure Machine Learning.
+
+> [!IMPORTANT]
+> Antes de usar un clúster de AKS habilitado para Private Link con Azure Machine Learning, debe abrir una incidencia de soporte técnico para habilitar esta funcionalidad. Para obtener más información, consulte [Administración y configuración de cuotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+
+### <a name="internal-aks-load-balancer"></a>Equilibrador de carga interno de AKS
+
+De manera predeterminada, las implementaciones de AKS usan un [equilibrador de carga público](../aks/load-balancer-standard.md). En esta sección, aprenderá a configurar AKS para usar un equilibrador de carga interno. Un equilibrador de carga interno (o privado) se usa cuando solo se admiten direcciones IP privadas como front-end. Los equilibradores de carga internos se usan para equilibrar la carga del tráfico dentro de una red virtual.
+
+Un equilibrador de carga privado se habilita mediante la configuración de AKS para usar un _equilibrador de carga interno_. 
 
 #### <a name="enable-private-load-balancer"></a>Habilitación del equilibrador de carga privado
 

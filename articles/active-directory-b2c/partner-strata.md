@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: e3f067647eb7bdb33b06a9ebdefd8fdd0485e4c6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 6276bd0db9bfb93897f7350b87d208ac2951c859
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294217"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330332"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Tutorial para ampliar Azure AD B2C para proteger Strata
 
@@ -65,12 +65,10 @@ En el siguiente diagrama de arquitectura se muestra la implementación.
 | 4. | El proveedor de identidades desafía al usuario para pedir sus credenciales. Según el proveedor de identidades, el usuario puede requerir la autenticación multifactor (MFA).|
 | 5. | El proveedor de identidades devuelve la respuesta de autenticación a Azure AD B2C. Opcionalmente, el usuario puede crear una cuenta local en el directorio de Azure AD B2C durante este paso.|
 | 6. | Azure AD B2C envía la solicitud del usuario al punto de conexión especificado durante el registro de la aplicación Orchestrator en el inquilino de Azure AD B2C.|
-| 7. | Orchestrator evalúa las directivas de acceso y calcula los valores de atributo que se van a incluir en los encabezados HTTP reenviados a la aplicación. Durante este paso, Orchestrator puede llamar a proveedores de atributos adicionales para recuperar la información necesaria para establecer los valores de encabezado correctamente.|
-| 8. | Orchestrator establece los valores de encabezado y envía la solicitud a la aplicación.|
-| 9. | El usuario ya está autenticado y tiene acceso a la aplicación.|
+| 7. | Orchestrator evalúa las directivas de acceso y calcula los valores de atributo que se van a incluir en los encabezados HTTP reenviados a la aplicación. Durante este paso, Orchestrator puede llamar a proveedores de atributos adicionales para recuperar la información necesaria para establecer los valores de encabezado correctamente. Orchestrator establece los valores de encabezado y envía la solicitud a la aplicación.|
+| 8. | El usuario ya está autenticado y tiene acceso a la aplicación.|
 
 ## <a name="get-maverics-identity-orchestrator"></a>Obtención de Maverics Identity Orchestrator
-
 Para obtener el software que usará para integrar su aplicación local heredada con Azure AD B2C, póngase en contacto con [Strata](https://www.strata.io/contact/). Después de obtener el software, siga los pasos que se indican a continuación para determinar los requisitos previos específicos de Orchestrator y realizar los pasos de instalación y configuración necesarios.
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>Configuración del inquilino de Azure AD B2C

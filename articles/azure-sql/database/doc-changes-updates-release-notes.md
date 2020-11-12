@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4fbd410a7d2a7374303e637ca81c34dbea90fcb7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791042"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392000"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novedades de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -104,7 +104,7 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 |[La entidad de servicio no puede acceder a Azure AD y AKV](#service-principal-cannot-access-azure-ad-and-akv)|Agosto de 2020|Tiene solución alternativa||
 |[La restauración de la copia de seguridad manual sin CHECKSUM puede devolver un error](#restoring-manual-backup-without-checksum-might-fail)|Mayo de 2020|Resuelto|Junio de 2020|
 |[El agente deja de responder al modificar, deshabilitar o habilitar los trabajos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Mayo de 2020|Resuelto|Junio de 2020|
-|[Permisos en el grupo de recursos no aplicados a Instancia administrada de SQL](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Febrero de 2020|Tiene solución alternativa||
+|[Permisos en el grupo de recursos no aplicados a Instancia administrada de SQL](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Febrero de 2020|Resuelto|Noviembre de 2020|
 |[Limitación de la conmutación por error manual a través del portal para grupos de conmutación por error](#limitation-of-manual-failover-via-portal-for-failover-groups)|Enero de 2020|Tiene solución alternativa||
 |[Los roles del Agente SQL necesitan permisos de ejecución (EXECUTE) explícitos para los inicios de sesión que no sean sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Diciembre de 2019|Tiene solución alternativa||
 |[Los trabajos del Agente SQL pueden ser interrumpidos por el reinicio del proceso del agente](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Diciembre de 2019|Resuelto|Marzo de 2020|
