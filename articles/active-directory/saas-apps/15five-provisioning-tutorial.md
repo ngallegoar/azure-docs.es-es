@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: eaf54b7f7336619d03ce0fb6ea7fa032d0fcdff7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 528ab93d1cf47d64338ef186a120695681f48e55
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319165"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357222"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutorial: Configuración de 15Five para aprovisionar usuarios automáticamente
 
@@ -58,15 +58,15 @@ Antes de configurar 15Five para el aprovisionamiento automático de usuarios con
 
 2.  Haga clic en **SCIM 2.0**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Captura de pantalla de la consola de administración de 15Five. Las integraciones aparecen en Características en un menú, y se resaltan tanto las características como las integraciones." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Captura de pantalla de la página de integraciones en la consola de administración de 15Five. En Herramienta, SCIM 2.0 está resaltado." border="false":::
 
 3.  Vaya a **SCIM integration > Generate OAuth token** (Integración de SCIM > Generar token de OAuth).
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Captura de pantalla de la consola de administración de 15Five. Las integraciones aparecen en Características en un menú, y se resaltan tanto las características como las integraciones." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Captura de pantalla de la página de integraciones SCIM en la consola de administración de 15Five. La opción Generate OAuth token (Generar token de OAuth) está resaltada." border="false":::
 
 4.  Copie los valores de **URL base de SCIM 2.0** y **token de acceso**. Estos valores se escriben en el campo **URL de inquilino** y **Token secreto** de la pestaña Aprovisionamiento de la aplicación 15Five en Azure Portal.
     
-    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Captura de pantalla de la consola de administración de 15Five. Las integraciones aparecen en Características en un menú, y se resaltan tanto las características como las integraciones." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Captura de pantalla de la página de integración de SCIM. En la tabla de tokens, se resaltan los valores que se encuentran junto a SCIM 2.0 base U R L y Token de acceso." border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de 15Five desde la galería de aplicaciones de Azure AD
 
@@ -106,13 +106,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to 15Five** (Sincronizar usuarios de Azure Active Directory con 15Five).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to 15Five** (Sincronizar usuarios de Azure Active Directory con 15Five).
 
 9. Examine los atributos de usuario que se sincronizan entre Azure AD y 15Five en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de 15Five con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -131,7 +131,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |urn:ietf:params:scim:schemas:extension:15Five:2.0:User:location|String|
    |urn:ietf:params:scim:schemas:extension:15Five:2.0:User:startDate|String|
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to 15Five** (Sincronizar grupos de Azure Active Directory con 15Five).
+10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to 15Five** (Sincronizar grupos de Azure Active Directory con 15Five).
 
 11. Examine los atributos de grupo que se sincronizan entre Azure AD y 15Five en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en 15Five a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -147,7 +147,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en 15Five.
+14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en 15Five.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

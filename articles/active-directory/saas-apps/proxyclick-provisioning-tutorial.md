@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 8fdb89e4e85e18e00179b894f2587bcf4127dc22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7d2a6f01e891a7fb1c14cde552d66679e474139
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255934"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359177"
 ---
 # <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Tutorial: configuración de Proxyclick para el aprovisionamiento automático de usuarios
 
@@ -53,7 +53,7 @@ Antes de configurar Proxyclick para el aprovisionamiento automático de usuarios
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Proxyclick**, seleccione **Proxyclick** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Proxyclick** , seleccione **Proxyclick** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Proxyclick en la lista de resultados](common/search-new-app.png)
 
@@ -128,13 +128,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-9. Haga clic en **Save**(Guardar).
+9. Haga clic en **Save** (Guardar).
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Proxyclick** (Sincronizar usuarios de Azure Active Directory con Proxyclick).
+10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Proxyclick** (Sincronizar usuarios de Azure Active Directory con Proxyclick).
 
     ![Asignaciones de usuario de Proxyclick](media/proxyclick-provisioning-tutorial/Proxyclick-user-mappings.png)
 
@@ -148,7 +148,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-15. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Proxyclick.
+15. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Proxyclick.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

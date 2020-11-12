@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 145793d7e451e7db9598118fb3adbd49d1d9c650
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68d084b7fde7d4c28b1c9b1da1e1c66cb6a63dd8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850683"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359449"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Tutorial: Configuración de MindTickle para el aprovisionamiento automático de usuarios
 
@@ -74,7 +74,7 @@ Para configurar MindTickle para el aprovisionamiento automático de usuarios con
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **MindTickle**, seleccione **MindTickle** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **MindTickle** , seleccione **MindTickle** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![MindTickle en la lista de resultados](common/search-new-app.png)
 
@@ -103,23 +103,23 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://admin.mindtickle.com/scim` en la **URL de inquilino**. Escriba el valor de **token JWT** recuperado anteriormente en el cuadro de texto Token secreto y especifique el proporcionado por el equipo de soporte técnico de MindTickle. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a myPolicies. Si la conexión no se establece, asegúrese de que la cuenta de MindTickle tenga permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://admin.mindtickle.com/scim` en la **URL de inquilino**. Escriba el valor de **token JWT** recuperado anteriormente en el cuadro de texto Token secreto y especifique el proporcionado por el equipo de soporte técnico de MindTickle. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a myPolicies. Si la conexión no se establece, asegúrese de que la cuenta de MindTickle tenga permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con MindTickle**.
+8. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con MindTickle**.
 
     :::image type="content" source="media/mindtickle-provisioning-tutorial/usermapping.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la sincronización de los usuarios de Azure Active Directory con MindTickle." border="false":::
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y MindTickle en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de MindTickle con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    :::image type="content" source="media/mindtickle-provisioning-tutorial/userattribute.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la sincronización de los usuarios de Azure Active Directory con MindTickle." border="false":::
+    :::image type="content" source="media/mindtickle-provisioning-tutorial/userattribute.png" alt-text="Captura de pantalla de la página Asignaciones de atributos. En una tabla se enumeran los atributos de Azure Active Directory y MindTickle y la precedencia coincidente." border="false":::
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -127,7 +127,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en MindTickle.
+14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en MindTickle.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

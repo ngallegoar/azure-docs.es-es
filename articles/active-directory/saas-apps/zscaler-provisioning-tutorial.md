@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5858e785b2105d8357ebd478699e2d17768fc25f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2c7f4aebc70ff831459fe111bcc30f5385088028
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519731"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357698"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler para el aprovisionamiento automático de usuarios
 
@@ -43,11 +43,11 @@ Antes de configurar Zscaler para el aprovisionamiento automático de usuarios co
 
 **Para agregar Zscaler desde la galería de aplicaciones de Azure AD, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -82,19 +82,19 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Zscaler en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y, a continuación, **Zscaler** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y, a continuación, **Zscaler**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Zscaler** .
+2. En la lista de aplicaciones, seleccione **Zscaler**.
 
     ![El vínculo de Zscaler en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento** .
+3. Seleccione la pestaña **Aprovisionamiento**.
 
     ![Captura de pantalla de la barra lateral de Zscaler - Aprovisionamiento Aplicación empresarial con la opción Aprovisionamiento seleccionada.](./media/zscaler-provisioning-tutorial/provisioning-tab.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático** .
+4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Captura de pantalla de la página Aprovisionamiento con el modo de aprovisionamiento establecido en Automático.](./media/zscaler-provisioning-tutorial/provisioning-credentials.png)
 
@@ -104,7 +104,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la página Configuración de autenticación.](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
-    Haga clic en **Configure SAML** (Configurar SAML) para abrir las opciones de **configuración de SAML** .
+    Haga clic en **Configure SAML** (Configurar SAML) para abrir las opciones de **configuración de SAML**.
 
     ![Captura de pantalla del cuadro de diálogo Configure S A M L (Configurar S A M L) con los cuadros de texto BASE U R L (U R L base) y BEARER TOKEN (TOKEN DE PORTADOR) seleccionados.](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
@@ -114,7 +114,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la sección Credenciales de administrador con la opción Probar conexión seleccionada.](./media/zscaler-provisioning-tutorial/test-connection.png)
 
-8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
+8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Captura de pantalla del cuadro de texto Notificación por correo electrónico.](./media/zscaler-provisioning-tutorial/notification.png)
 
@@ -146,11 +146,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la opción de configuración Ámbito con la opción Sincronizar solo los usuarios y grupos asignados resaltada.](./media/zscaler-provisioning-tutorial/scoping.png)
 
-17. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
+17. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
     ![Captura de pantalla de la barra lateral de Zscaler - Aprovisionamiento Aplicación empresarial con la opción Guardar seleccionada.](./media/zscaler-provisioning-tutorial/save-provisioning.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Zscaler.
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Zscaler.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 

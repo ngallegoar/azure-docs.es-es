@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e85d2ef9d75bbff6357466e76ffcf60e3716e78
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b5a22c904d72f09656480be6009e3832fde72b89
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273681"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408641"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migración de la federación a la sincronización de hash de contraseña para Azure Active Directory
 
@@ -74,7 +74,7 @@ Para entender qué método debe usar, siga los pasos de las próximas secciones.
 Para comprobar la configuración del inicio de sesión del usuario actual:
 
 1. Inicie sesión en el [portal de Azure AD](https://aad.portal.azure.com/) con una cuenta de administrador global.
-2. En la sección **Inicio de sesión de usuario**, compruebe la configuración siguiente:
+2. En la sección **Inicio de sesión de usuario** , compruebe la configuración siguiente:
    * **Federación** está establecido en **Habilitado**.
    * **Inicio de sesión único de conexión directa** está establecido en **Deshabilitado**.
    * **Autenticación de paso a través** está establecido en **Deshabilitado**.
@@ -84,14 +84,14 @@ Para comprobar la configuración del inicio de sesión del usuario actual:
 #### <a name="verify-the-azure-ad-connect-configuration"></a>Comprobación de la configuración de Azure AD Connect
 
 1. En el servidor de Azure AD Connect, abra Azure AD Connect. Seleccione **Configurar**.
-2. En la página **Tareas adicionales**, seleccione **Ver configuración actual** y, después, seleccione **Siguiente**.<br />
+2. En la página **Tareas adicionales** , seleccione **Ver configuración actual** y, después, seleccione **Siguiente**.<br />
 
    ![Captura de pantalla de la opción Ver configuración actual seleccionada en la página Tareas adicionales](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image2.png)<br />
-3. En la pantalla **Revisar su solución**, tome nota del estado de **Sincronización de hash de contraseña**.<br /> 
+3. En la pantalla **Revisar su solución** , tome nota del estado de **Sincronización de hash de contraseña**.<br /> 
 
-   * Si **Sincronización de hash de contraseña** está establecido en **Deshabilitado**, complete los pasos de este artículo para habilitarlo.
-   * Si **Sincronización de hash de contraseña** está establecido en **Habilitado**, puede omitir la sección **Paso 1: Habilitación de la sincronización de hash de contraseñas** de este artículo.
-4. En la página **Revisar su solución**, desplácese hasta **Servicios de federación de Active Directory (AD FS)** .<br />
+   * Si **Sincronización de hash de contraseña** está establecido en **Deshabilitado** , complete los pasos de este artículo para habilitarlo.
+   * Si **Sincronización de hash de contraseña** está establecido en **Habilitado** , puede omitir la sección **Paso 1: Habilitación de la sincronización de hash de contraseñas** de este artículo.
+4. En la página **Revisar su solución** , desplácese hasta **Servicios de federación de Active Directory (AD FS)** .<br />
 
    * ‎Si la configuración de AD FS aparece en esta sección, puede suponer con seguridad que AD FS se configuró originalmente con Azure AD Connect. Puede convertir los dominios de identidad federada a identidad administrada mediante la opción **Cambiar inicio de sesión de usuario** de Azure AD Connect. El proceso se detalla en la sección **Opción A: Cambio de la federación a la sincronización de hash de contraseña mediante Azure AD Connect**.
    * Si AD FS no aparece en la configuración actual, debe convertir manualmente los dominios de identidad federada a identidad administrada mediante PowerShell. Para obtener más información sobre este proceso, consulte la sección **Opción B: Cambio de la federación a la sincronización de hash de contraseña mediante Azure AD Connect y PowerShell**.
@@ -110,7 +110,7 @@ Ejemplo:
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 ```
 
-Compruebe los valores de configuración que podrían haberse personalizado para su documentación de diseño e implementación de federación. En concreto, busque las personalizaciones en **PreferredAuthenticationProtocol**, **SupportsMfa** y **PromptLoginBehavior**.
+Compruebe los valores de configuración que podrían haberse personalizado para su documentación de diseño e implementación de federación. En concreto, busque las personalizaciones en **PreferredAuthenticationProtocol** , **SupportsMfa** y **PromptLoginBehavior**.
 
 Para obtener más información, consulte estos artículos:
 
@@ -118,7 +118,7 @@ Para obtener más información, consulte estos artículos:
 * [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Si el valor **SupportsMfa** está establecido en **True**, está usando una solución de autenticación multifactor local para insertar un segundo factor en el flujo de autenticación del usuario. Esta configuración ya no funciona para los escenarios de autenticación de Azure AD después de convertir este dominio de la autenticación federada a la administrada. Después de deshabilitar la federación, interrumpe la relación con la federación en el entorno local y esto incluye los adaptadores MFA en el entorno local. 
+> Si el valor **SupportsMfa** está establecido en **True** , está usando una solución de autenticación multifactor local para insertar un segundo factor en el flujo de autenticación del usuario. Esta configuración ya no funciona para los escenarios de autenticación de Azure AD después de convertir este dominio de la autenticación federada a la administrada. Después de deshabilitar la federación, interrumpe la relación con la federación en el entorno local y esto incluye los adaptadores MFA en el entorno local. 
 >
 > Use en su lugar el servicio en la nube de Azure Multi-factor Authentication para realizar la misma función. Valore detenidamente los requisitos de la autenticación multifactor antes de continuar. Antes de convertir los dominios, asegúrese de que sabe cómo usar Azure Multi-factor Authentication, las implicaciones en cuanto a licencias y el proceso de registro del usuario.
 
@@ -144,9 +144,9 @@ Antes de realizar la conversión de identidad federada a identidad administrada,
 |-|-|
 | Tiene previsto seguir usando AD FS con otras aplicaciones (que no sean Azure AD y Microsoft 365). | Después de convertir los dominios, deberá usar AD FS y Azure AD. Tenga en cuenta la experiencia del usuario. En algunos escenarios, es posible que los usuarios tengan que autenticarse dos veces: una vez en Azure AD (donde obtendrán acceso de inicio de sesión único para otras aplicaciones, como Microsoft 365) y otra para todas las aplicaciones que aún están enlazadas a AD FS como una relación de confianza para usuario autenticado. |
 | La instancia de AD FS está muy personalizada y depende de valores de configuración concretos del archivo onload.js (por ejemplo, ha cambiado la forma en que se inicia sesión para que los usuarios solo especifiquen un formato **SamAccountName** para su nombre de usuario, en lugar de un nombre principal de usuario, o su organización ha personalizado con marca la experiencia de inicio de sesión). El archivo onload.js no se puede duplicar en Azure AD. | Antes de continuar, debe comprobar que Azure AD puede cumplir los requisitos de personalización actuales. Para más información e instrucciones, consulte las secciones sobre personalización de marca de AD FS y personalización de AD FS.|
-| Usará AD FS para bloquear las versiones anteriores de clientes de autenticación.| Considere la posibilidad de reemplazar los controles de AD FS que bloquean las versiones anteriores de clientes de autenticación mediante una combinación de [controles de acceso condicionales](../conditional-access/concept-conditional-access-conditions.md) y [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR). |
+| Usará AD FS para bloquear las versiones anteriores de clientes de autenticación.| Considere la posibilidad de reemplazar los controles de AD FS que bloquean las versiones anteriores de clientes de autenticación mediante una combinación de [controles de acceso condicionales](../conditional-access/concept-conditional-access-conditions.md) y [reglas de acceso de cliente de Exchange Online](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules). |
 | Necesita que los usuarios realicen la autenticación multifactor en una solución de servidor de autenticación multifactor local cuando los usuarios se autentican en AD FS.| En un dominio de identidad administrada, no puede insertar un desafío de autenticación multifactor a través de la solución de autenticación multifactor local en el flujo de autenticación. Sin embargo, puede usar el servicio Azure Multi-factor Authentication para la autenticación multifactor después de convertir el dominio.<br /><br /> Si los usuarios no usan actualmente Azure Multi-factor Authentication, es necesario un paso de registro puntual del usuario. Debe prepararse para el registro planeado y comunicárselo a los usuarios. |
-| Actualmente usa directivas de control de acceso (reglas de AuthZ) en AD FS para controlar el acceso a Microsoft 365.| Considere la posibilidad de reemplazarlas por las [directivas de acceso condicional](../conditional-access/overview.md) de Azure AD equivalentes y las [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR).|
+| Actualmente usa directivas de control de acceso (reglas de AuthZ) en AD FS para controlar el acceso a Microsoft 365.| Considere la posibilidad de reemplazarlas por las [directivas de acceso condicional](../conditional-access/overview.md) de Azure AD equivalentes y las [reglas de acceso de cliente de Exchange Online](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules).|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizaciones de AD FS comunes
 
@@ -239,10 +239,10 @@ Para habilitar la sincronización de hash de contraseña:
 
 1. En el servidor de Azure AD Connect, abra el Asistente de Azure AD Connect y seleccione **Configurar**.
 2. Seleccione **Personalizar las opciones de sincronización** y, después, seleccione **Siguiente**.
-3. En la pantalla **Conectar a Azure AD**, indique el nombre de usuario y la contraseña de una cuenta de administrador global.
-4. En la página **Conectar sus directorios**, haga clic en **Siguiente**.
-5. En la pantalla **Filtrado de dominios y unidades organizativas**, seleccione **Siguiente**.
-6. En la pantalla **Características opcionales**, seleccione **Sincronización de contraseña** y seleccione **Siguiente**.
+3. En la pantalla **Conectar a Azure AD** , indique el nombre de usuario y la contraseña de una cuenta de administrador global.
+4. En la página **Conectar sus directorios** , haga clic en **Siguiente**.
+5. En la pantalla **Filtrado de dominios y unidades organizativas** , seleccione **Siguiente**.
+6. En la pantalla **Características opcionales** , seleccione **Sincronización de contraseña** y seleccione **Siguiente**.
  
    ![Captura de pantalla de la opción Sincronización de contraseña seleccionada en la página Características opcionales](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image6.png)<br />
 7. Seleccione **Siguiente** en las páginas restantes. En la última página, seleccione **Configurar**.
@@ -257,8 +257,8 @@ Para validar que la sincronización de hash de contraseña funciona correctament
 1. Abra una nueva sesión de Windows PowerShell en el servidor de Azure AD Connect mediante la opción Ejecutar como administrador.
 2. Ejecute `Set-ExecutionPolicy RemoteSigned` o `Set-ExecutionPolicy Unrestricted`.
 3. Inicie el asistente de Azure AD Connect.
-4. Vaya a la página **Tareas adicionales**, seleccione **Solucionar problemas** y haga clic en **Siguiente**.
-5. En la página de **solución de problemas**, haga clic en **Iniciar** para iniciar el menú de solución de problemas en PowerShell.
+4. Vaya a la página **Tareas adicionales** , seleccione **Solucionar problemas** y haga clic en **Siguiente**.
+5. En la página de **solución de problemas** , haga clic en **Iniciar** para iniciar el menú de solución de problemas en PowerShell.
 6. En el menú principal, seleccione **Solución de problemas de sincronización de contraseñas**.
 7. En el submenú, seleccione **Password Synchronization does not work at all** (La sincronización de hash de contraseñas no funciona en absoluto).
 
@@ -289,8 +289,8 @@ En primer lugar, cambie el método de inicio de sesión:
 2. Seleccione **Cambiar inicio de sesión de usuario** y, después, seleccione **Siguiente**. 
 
    ![Captura de pantalla de la opción Cambiar inicio de sesión de usuario en la página Tareas adicionales](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image7.png)<br />
-3. En la pantalla **Conectar a Azure AD**, indique el nombre de usuario y la contraseña de una cuenta de administrador global.
-4. En la página **Inicio de sesión de usuario**, seleccione el **botón de sincronización de hash de contraseña**. Asegúrese de activar la casilla **No convertir las cuentas de usuario**. La opción está en desuso. Seleccione **Habilitar inicio de sesión único** y, después, **Siguiente**.
+3. En la pantalla **Conectar a Azure AD** , indique el nombre de usuario y la contraseña de una cuenta de administrador global.
+4. En la página **Inicio de sesión de usuario** , seleccione el **botón de sincronización de hash de contraseña**. Asegúrese de activar la casilla **No convertir las cuentas de usuario**. La opción está en desuso. Seleccione **Habilitar inicio de sesión único** y, después, **Siguiente**.
 
    ![Captura de pantalla de la página Habilitar el inicio de sesión único](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image8.png)<br />
 
@@ -300,7 +300,7 @@ En primer lugar, cambie el método de inicio de sesión:
    > [!IMPORTANT]
    > Puede ignorar sin riesgo alguno las advertencias que indican que la conversión del usuario y la sincronización de hash de contraseña total son pasos obligatorios para realizar la conversión de federación a autenticación en la nube. Tenga en cuenta que estos pasos ya no son necesarios. Si aún ve dichas advertencias, compruebe que ejecuta la versión más reciente de Azure AD Connect y que usa la versión más reciente de esta guía. Para más información, consulte la sección [Actualización de Azure AD Connect](#update-azure-ad-connect).
 
-5. En la página **Habilitar el inicio de sesión único**, escriba las credenciales de la cuenta del administrador del dominio y, después, seleccione **Siguiente**.
+5. En la página **Habilitar el inicio de sesión único** , escriba las credenciales de la cuenta del administrador del dominio y, después, seleccione **Siguiente**.
 
    ![Captura de pantalla de la página Habilitar el inicio de sesión único donde puede escribir las credenciales de la cuenta del administrador del dominio.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
@@ -311,7 +311,7 @@ En primer lugar, cambie el método de inicio de sesión:
    > 2. La clave de descifrado de Kerberos de la cuenta de equipo se comparte de manera segura con Azure AD.
    > 3. Se crean dos nombres de entidad de seguridad de servicio (SPN) de Kerberos que representan las dos direcciones URL que se usan en el inicio de sesión de Azure AD.
 
-6. En la página **Listo para configurar**, asegúrese de que la casilla **Inicie el proceso de sincronización cuando se complete la configuración** esté activada. A continuación, seleccione **Configurar**.
+6. En la página **Listo para configurar** , asegúrese de que la casilla **Inicie el proceso de sincronización cuando se complete la configuración** esté activada. A continuación, seleccione **Configurar**.
 
       ![Captura de pantalla de la página Listo para configurar](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image10.png)<br />
 
@@ -337,8 +337,8 @@ Use esta opción si no configuró inicialmente los dominios federados con Azure 
 
 1. En el servidor de Azure AD Connect, abra el asistente de Azure AD Connect.
 2. Seleccione **Cambiar inicio de sesión de usuario** y, después, seleccione **Siguiente**.
-3. En la pantalla **Conectar a Azure AD**, indique el nombre de usuario y la contraseña de una cuenta de administrador global.
-4. En la página **Inicio de sesión de usuario**, seleccione el botón de **sincronización de hash de contraseña**. Seleccione **Habilitar inicio de sesión único** y, después, **Siguiente**.
+3. En la pantalla **Conectar a Azure AD** , indique el nombre de usuario y la contraseña de una cuenta de administrador global.
+4. En la página **Inicio de sesión de usuario** , seleccione el botón de **sincronización de hash de contraseña**. Seleccione **Habilitar inicio de sesión único** y, después, **Siguiente**.
 
    Antes de habilitar la sincronización de hash de contraseña: ![Captura de pantalla que muestra la opción No configurar en la página Inicio de sesión de usuario](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
@@ -347,7 +347,7 @@ Use esta opción si no configuró inicialmente los dominios federados con Azure 
    > [!NOTE]
    > A partir de la versión 1.1.880.0 de Azure AD Connect, la casilla **Inicio de sesión único de conexión directa** está activa de forma predeterminada.
 
-5. En la página **Habilitar el inicio de sesión único**, escriba las credenciales de la cuenta del administrador del dominio y, después, seleccione **Siguiente**.
+5. En la página **Habilitar el inicio de sesión único** , escriba las credenciales de la cuenta del administrador del dominio y, después, seleccione **Siguiente**.
 
    > [!NOTE]
    > Las credenciales de la cuenta de administrador de dominio son necesarias para habilitar el inicio de sesión único de conexión directa. Durante el proceso se realizan las acciones siguientes, que requieren estos permisos elevados. Las credenciales de la cuenta de administrador de dominio no se almacenan en Azure AD Connect ni en Azure AD. Las credenciales de la cuenta de administrador de dominio se usan solo para activar la característica. Cuando el proceso finaliza correctamente, estas credenciales se descartan.
@@ -356,10 +356,10 @@ Use esta opción si no configuró inicialmente los dominios federados con Azure 
    > 2. La clave de descifrado de Kerberos de la cuenta de equipo se comparte de manera segura con Azure AD.
    > 3. Se crean dos nombres de entidad de seguridad de servicio (SPN) de Kerberos que representan las dos direcciones URL que se usan en el inicio de sesión de Azure AD.
 
-6. En la página **Listo para configurar**, asegúrese de que la casilla **Inicie el proceso de sincronización cuando se complete la configuración** esté activada. A continuación, seleccione **Configurar**.
+6. En la página **Listo para configurar** , asegúrese de que la casilla **Inicie el proceso de sincronización cuando se complete la configuración** esté activada. A continuación, seleccione **Configurar**.
 
    ![Captura de pantalla que muestra el botón Configurar en la página Listo para configurar](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image15.png)<br />
-   Cuando se selecciona el botón **Configurar**, el inicio de sesión único de conexión directa se configura como se indica en el paso anterior. No se modifica la configuración de la sincronización de hash de contraseña porque se ha habilitado anteriormente.
+   Cuando se selecciona el botón **Configurar** , el inicio de sesión único de conexión directa se configura como se indica en el paso anterior. No se modifica la configuración de la sincronización de hash de contraseña porque se ha habilitado anteriormente.
 
    > [!IMPORTANT]
    > No se realiza ningún cambio en la forma en que los usuarios inician sesión en este momento.
@@ -412,7 +412,7 @@ Para probar la sincronización de hash de contraseña:
 
    ![Captura de pantalla que muestra la página de inicio de sesión en la que se escribe una contraseña](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image19.png)
 
-4. Después de escribir la contraseña y seleccionar **Iniciar sesión**, se le redirigirá al portal de Office 365.
+4. Después de escribir la contraseña y seleccionar **Iniciar sesión** , se le redirigirá al portal de Office 365.
 
    ![Captura de pantalla que muestra el portal de Office 365](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image20.png)
 
@@ -453,7 +453,7 @@ Consulte la documentación acerca del diseño y la implementación de la federac
 
 ### <a name="sync-userprincipalname-updates"></a>Sincronización de actualizaciones de userPrincipalName
 
-Históricamente, las actualizaciones para el atributo **UserPrincipalName**, que usa el servicio de sincronización desde el entorno local, han estado bloqueadas, a menos que se cumplieran las siguientes condiciones:
+Históricamente, las actualizaciones para el atributo **UserPrincipalName** , que usa el servicio de sincronización desde el entorno local, han estado bloqueadas, a menos que se cumplieran las siguientes condiciones:
 
 * El usuario está en un dominio de identidad administrada (no federada).
 * Al usuario no se le ha asignado una licencia.

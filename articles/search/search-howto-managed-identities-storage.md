@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b877ff912470cc19082410fddab64c84824eb269
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519561"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358378"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada
 
@@ -65,7 +65,7 @@ En este paso, concederá permiso a su servicio de Azure Cognitive Search para le
 
 ### <a name="3---create-the-data-source"></a>3 - Crear el origen de datos
 
-La [API REST](/rest/api/searchservice/create-data-source), Azure Portal y el [SDK de .NET](/dotnet/api/microsoft.azure.search.models.datasource) admiten la cadena de conexión de identidad administrada. A continuación, se muestra un ejemplo de cómo crear un origen de datos para indexar datos desde una cuenta de almacenamiento mediante la [API REST](/rest/api/searchservice/create-data-source) y una cadena de conexión de identidad administrada. El formato de la cadena de conexión de identidad administrada es el mismo en la API REST, el SDK de .NET y Azure Portal.
+La [API REST](/rest/api/searchservice/create-data-source), Azure Portal y el [SDK de .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) admiten la cadena de conexión de identidad administrada. A continuación, se muestra un ejemplo de cómo crear un origen de datos para indexar datos desde una cuenta de almacenamiento mediante la [API REST](/rest/api/searchservice/create-data-source) y una cadena de conexión de identidad administrada. El formato de la cadena de conexión de identidad administrada es el mismo en la API REST, el SDK de .NET y Azure Portal.
 
 Al realizar la indexación desde una cuenta de almacenamiento, el origen de datos debe tener las siguientes propiedades obligatorias:
 

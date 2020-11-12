@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 1b6fcf38f9f69976e6ed8d64040cfbcf44f090e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03035f0ddb2499fb922581855878bc061bf57946
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85124058"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412857"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedimientos recomendados de cifrado y seguridad de datos en Azure
 En este artículo se describen los procedimientos recomendados para el cifrado y la seguridad de datos.
@@ -37,7 +37,7 @@ Para contribuir a proteger los datos en la nube, debe tener en cuenta los posibl
 
 Proteger las claves es esencial para proteger los datos en la nube.
 
-[Azure Key Vault](/azure/key-vault/key-vault-overview) ayuda a proteger las claves criptográficas y los secretos que usan los servicios y aplicaciones en la nube. Key Vault agiliza el proceso de administración de claves y le permite mantener el control de claves que obtienen acceso a sus datos y los cifran. Los desarrolladores pueden crear claves para desarrollo y prueba en minutos y, a continuación, migrarlas a claves de producción. Los administradores de seguridad pueden conceder (y revocar) permisos a las claves según sea necesario.
+[Azure Key Vault](../../key-vault/general/overview.md) ayuda a proteger las claves criptográficas y los secretos que usan los servicios y aplicaciones en la nube. Key Vault agiliza el proceso de administración de claves y le permite mantener el control de claves que obtienen acceso a sus datos y los cifran. Los desarrolladores pueden crear claves para desarrollo y prueba en minutos y, a continuación, migrarlas a claves de producción. Los administradores de seguridad pueden conceder (y revocar) permisos a las claves según sea necesario.
 
 Puedes usar Key Vault para crear múltiples contenedores seguros denominados almacenes. Estos almacenes están respaldados por HSM. Los almacenes ayudan a reducir las posibilidades de que se produzca una pérdida accidental de información de seguridad centralizando el almacenamiento de los secretos de aplicación. Los almacenes de claves también permiten controlar y registrar el acceso a todo lo que está almacenado en ellos. Azure Key Vault puede administrar la solicitud y renovación de certificados de Seguridad de la capa de transporte (TLS). Proporciona características para una solución sólida para la administración del ciclo de vida de certificados.
 
@@ -45,19 +45,19 @@ Azure Key Vault está diseñado para admitir secretos y claves de aplicación. K
 
 A continuación se indican los procedimientos recomendados de seguridad para el uso de Key Vault.
 
-**Procedimiento recomendado**: conceda acceso a usuarios, grupos y aplicaciones en un ámbito concreto.   
-**Detalles**: use los roles predefinidos de RBAC. Por ejemplo, para conceder acceso a un usuario para administrar los almacenes de claves, se asignaría el rol predefinido [Colaborador de Key Vault](/azure/role-based-access-control/built-in-roles) a este usuario en un ámbito específico. En este caso, el ámbito caso sería una suscripción, un grupo de recursos o, simplemente, un almacén de claves específico. Si los roles predefinidos no se ajustan a sus necesidades, puede [definir sus propios roles](/azure/role-based-access-control/custom-roles).
+**Procedimiento recomendado** : conceda acceso a usuarios, grupos y aplicaciones en un ámbito concreto.   
+**Detalles** : use los roles predefinidos de RBAC. Por ejemplo, para conceder acceso a un usuario para administrar los almacenes de claves, se asignaría el rol predefinido [Colaborador de Key Vault](../../role-based-access-control/built-in-roles.md) a este usuario en un ámbito específico. En este caso, el ámbito caso sería una suscripción, un grupo de recursos o, simplemente, un almacén de claves específico. Si los roles predefinidos no se ajustan a sus necesidades, puede [definir sus propios roles](../../role-based-access-control/custom-roles.md).
 
-**Procedimiento recomendado**: controle a qué tienen acceso los usuarios.   
-**Detalles**: El acceso a un almacén de claves se controla a través de dos interfaces diferentes: plano de administración y plano de datos. Los controles de acceso del plano de administración y del plano de datos funcionan de forma independiente.
+**Procedimiento recomendado** : controle a qué tienen acceso los usuarios.   
+**Detalles** : El acceso a un almacén de claves se controla a través de dos interfaces diferentes: plano de administración y plano de datos. Los controles de acceso del plano de administración y del plano de datos funcionan de forma independiente.
 
 Use RBAC para controlar a qué tienen acceso los usuarios. Por ejemplo, si desea conceder a una aplicación acceso para usar las claves de un almacén de claves, solo necesita conceder permisos de acceso al plano de datos mediante directivas de acceso de Key Vault y no se necesita acceso a ningún plano de administración para esta aplicación. Por el contrario, si desea que un usuario pueda leer las propiedades y etiquetas del almacén, pero no tenga acceso a las claves, los secretos o los certificados, puede concederle acceso de lectura mediante RBAC y no se requiere acceso al plano de datos.
 
-**Procedimiento recomendado**: almacene los certificados en el almacén de claves. Los certificados son de gran valor. En las manos equivocadas, la seguridad de los datos o la aplicación puede estar en peligro.   
-**Detalles**: Azure Resource Manager puede implementar de manera segura los certificados almacenados en Azure Key Vault para las máquinas virtuales de Azure cuando estas se implementan. Al establecer directivas de acceso adecuadas para el almacén de claves, también controla quién obtiene acceso al certificado. Otra ventaja es que administra todos los certificados desde el mismo sitio en Azure Key Vault. Consulte [Deploy Certificates to VMs from customer-managed Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) (Implementar certificados en VM desde una instancia de Key Vault administrada por el usuario) para obtener más información.
+**Procedimiento recomendado** : almacene los certificados en el almacén de claves. Los certificados son de gran valor. En las manos equivocadas, la seguridad de los datos o la aplicación puede estar en peligro.   
+**Detalles** : Azure Resource Manager puede implementar de manera segura los certificados almacenados en Azure Key Vault para las máquinas virtuales de Azure cuando estas se implementan. Al establecer directivas de acceso adecuadas para el almacén de claves, también controla quién obtiene acceso al certificado. Otra ventaja es que administra todos los certificados desde el mismo sitio en Azure Key Vault. Consulte [Deploy Certificates to VMs from customer-managed Key Vault](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault) (Implementar certificados en VM desde una instancia de Key Vault administrada por el usuario) para obtener más información.
 
-**Procedimiento recomendado**: asegúrese de que puede recuperar almacenes de claves u objetos de almacén de claves si se eliminan.   
-**Detalles**: la eliminación de almacenes de claves u objetos de almacén de claves puede ser involuntaria o malintencionada. Habilite las características de protección de purga y eliminación temporal de Key Vault, especialmente para las claves que se usan para cifrar datos en reposo. La eliminación de estas claves es equivalente a la pérdida de datos, así que, si es necesario, puede recuperar almacenes eliminados y objetos de almacén. Practique las operaciones de recuperación de Key Vault de forma periódica.
+**Procedimiento recomendado** : asegúrese de que puede recuperar almacenes de claves u objetos de almacén de claves si se eliminan.   
+**Detalles** : la eliminación de almacenes de claves u objetos de almacén de claves puede ser involuntaria o malintencionada. Habilite las características de protección de purga y eliminación temporal de Key Vault, especialmente para las claves que se usan para cifrar datos en reposo. La eliminación de estas claves es equivalente a la pérdida de datos, así que, si es necesario, puede recuperar almacenes eliminados y objetos de almacén. Practique las operaciones de recuperación de Key Vault de forma periódica.
 
 > [!NOTE]
 > Si un usuario tiene permisos de colaborador (RBAC) en un plano de administración de Key Vault, se puede conceder a sí mismo acceso al plano de datos estableciendo la directiva de acceso al almacén de claves. Se recomienda controlar de forma estricta quién tiene acceso de colaborador a los almacenes de claves, con el fin de garantizar que las personas autorizadas son las únicas que pueden acceder a los almacenes de claves, las claves, los secretos y los certificados, y administrarlos.
@@ -73,23 +73,23 @@ Use RBAC para controlar a qué tienen acceso los usuarios. Por ejemplo, si desea
 
 Puesto que la mayoría de los ataques van destinados al usuario final, el punto de conexión se convierte en uno de los principales puntos de ataque. Un atacante que ponga en peligro el punto de conexión puede aprovechar las credenciales del usuario para acceder a los datos de la organización. La mayoría de los ataques a los puntos de conexión aprovechan el hecho de que los usuarios finales son administradores en sus estaciones de trabajo locales.
 
-**Procedimiento recomendado**: use una estación de trabajo de administración segura para proteger los datos, las tareas y las cuentas confidenciales.   
-**Detalles**: use una [estación de trabajo con privilegios](https://technet.microsoft.com/library/mt634654.aspx) para reducir la superficie expuesta a ataques de las estaciones de trabajo. Estas estaciones de trabajo de administración seguras pueden ayudar a mitigar algunos de estos ataques y a garantizar la mayor seguridad de sus datos.
+**Procedimiento recomendado** : use una estación de trabajo de administración segura para proteger los datos, las tareas y las cuentas confidenciales.   
+**Detalles** : use una [estación de trabajo con privilegios](/windows-server/identity/securing-privileged-access/privileged-access-workstations) para reducir la superficie expuesta a ataques de las estaciones de trabajo. Estas estaciones de trabajo de administración seguras pueden ayudar a mitigar algunos de estos ataques y a garantizar la mayor seguridad de sus datos.
 
-**Procedimiento recomendado**: asegúrese de que los puntos de conexión están protegidos.   
-**Detalles**: aplique directivas de seguridad en todos los dispositivos que se usen para consumir datos, independientemente de la ubicación de dichos datos (nube o entorno local).
+**Procedimiento recomendado** : asegúrese de que los puntos de conexión están protegidos.   
+**Detalles** : aplique directivas de seguridad en todos los dispositivos que se usen para consumir datos, independientemente de la ubicación de dichos datos (nube o entorno local).
 
 ## <a name="protect-data-at-rest"></a>Protección de los datos en reposo
 
 El [cifrado de los datos en reposo](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos.
 
-**Procedimiento recomendado**: cifre los discos para proteger los datos.   
-**Detalles**: use [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview). Permite que los administradores de TI cifren discos de VM IaaS Windows y Linux. Disk Encryption combina la característica BitLocker de Windows estándar del sector y la característica dm-crypt de Linux para ofrecer el cifrado de volumen para el sistema operativo y los discos de datos.
+**Procedimiento recomendado** : cifre los discos para proteger los datos.   
+**Detalles** : use [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md). Permite que los administradores de TI cifren discos de VM IaaS Windows y Linux. Disk Encryption combina la característica BitLocker de Windows estándar del sector y la característica dm-crypt de Linux para ofrecer el cifrado de volumen para el sistema operativo y los discos de datos.
 
 Azure Storage y Azure SQL Database cifran los datos en reposo de forma predeterminada y muchos servicios ofrecen el cifrado como opción. Puede usar Azure Key Vault para mantener el control de las claves que se usan para acceder a los datos y cifrarlos. Consulte [Compatibilidad con modelo de cifrado de proveedores de recursos de Azure](encryption-atrest.md#azure-resource-providers-encryption-model-support) para obtener más información.
 
-**Procedimientos recomendados**: use el cifrado para mitigar los riesgos relacionados con el acceso no autorizado a los datos.   
-**Detalles**: cifre las unidades antes de escribir información confidencial en ellas.
+**Procedimientos recomendados** : use el cifrado para mitigar los riesgos relacionados con el acceso no autorizado a los datos.   
+**Detalles** : cifre las unidades antes de escribir información confidencial en ellas.
 
 Las organizaciones que no aplican el cifrado de datos están más expuestas a problemas de confidencialidad de los datos. Por ejemplo, los usuarios no autorizados pueden robar datos de las cuentas en peligro u obtener acceso no autorizado a los datos codificados en ClearFormat. Las compañías también tienen que demostrar que son diligentes y que usan los controles de seguridad adecuados para mejorar la seguridad de los datos a fin de cumplir las normas del sector.
 
@@ -101,19 +101,19 @@ Para los datos que se desplazan entre la infraestructura local y Azure, debe pla
 
 Estos son los procedimientos recomendados específicos para usar Azure VPN Gateway, SSL/TLS y HTTPS.
 
-**Procedimiento recomendado**: proteja el acceso a una red virtual de Azure desde varias estaciones de trabajo situadas en el entorno local.   
-**Detalles**: use [VPN de sitio a sitio](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
+**Procedimiento recomendado** : proteja el acceso a una red virtual de Azure desde varias estaciones de trabajo situadas en el entorno local.   
+**Detalles** : use [VPN de sitio a sitio](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-**Procedimiento recomendado**: proteja el acceso a una red virtual de Azure desde una estación de trabajo situada en el entorno local.   
-**Detalles**: use [VPN de punto a sitio](/azure/vpn-gateway/vpn-gateway-point-to-site-create).
+**Procedimiento recomendado** : proteja el acceso a una red virtual de Azure desde una estación de trabajo situada en el entorno local.   
+**Detalles** : use [VPN de punto a sitio](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
-**Procedimiento recomendado**: mueva los conjuntos de datos grandes a través de un vínculo WAN de alta velocidad dedicado.   
-**Detalles**: use [ExpressRoute](/azure/expressroute/expressroute-introduction). Si decide usar ExpressRoute, también puede cifrar los datos en el nivel de aplicación mediante SSL/TLS u otros protocolos para una mayor protección.
+**Procedimiento recomendado** : mueva los conjuntos de datos grandes a través de un vínculo WAN de alta velocidad dedicado.   
+**Detalles** : use [ExpressRoute](../../expressroute/expressroute-introduction.md). Si decide usar ExpressRoute, también puede cifrar los datos en el nivel de aplicación mediante SSL/TLS u otros protocolos para una mayor protección.
 
-**Procedimiento recomendado**: interactúe con Azure Storage a través de Azure Portal.   
-**Detalles**: todas las transacciones se realizan a través de HTTPS. También se puede usar la [API de REST Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) a través de HTTPS para interactuar con [Azure Storage](https://azure.microsoft.com/services/storage/).
+**Procedimiento recomendado** : interactúe con Azure Storage a través de Azure Portal.   
+**Detalles** : todas las transacciones se realizan a través de HTTPS. También se puede usar la [API de REST Storage](/rest/api/storageservices/) a través de HTTPS para interactuar con [Azure Storage](https://azure.microsoft.com/services/storage/).
 
-Las organizaciones que no protegen los datos en tránsito son más susceptibles a los [ataques del tipo "Man in the middle"](https://technet.microsoft.com/library/gg195821.aspx), a la [interceptación](https://technet.microsoft.com/library/gg195641.aspx) y al secuestro de sesión. Estos ataques pueden ser el primer paso para obtener acceso a datos confidenciales.
+Las organizaciones que no protegen los datos en tránsito son más susceptibles a los [ataques del tipo "Man in the middle"](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), a la [interceptación](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14)) y al secuestro de sesión. Estos ataques pueden ser el primer paso para obtener acceso a datos confidenciales.
 
 ## <a name="secure-email-documents-and-sensitive-data"></a>Proteger el correo electrónico, los documentos y los datos confidenciales
 
@@ -138,5 +138,5 @@ Las organizaciones con puntos débiles en la [clasificación de datos](https://d
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.
 
 En los siguientes recursos se ofrece más información general sobre la seguridad de Azure y los servicios de Microsoft relacionados:
-* [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/): ofrece información actualizada sobre lo último en seguridad de Azure
+* [Blog del equipo de seguridad de Azure](/archive/blogs/azuresecurity/): ofrece información actualizada sobre lo último en seguridad de Azure
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx): aquí podrá notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o también mediante correo electrónico a secure@microsoft.com.

@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c65fddcc90b25f70759fb038a72dad0facfa99a9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072040"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359738"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Configuración de la escritura diferida de atributos de Azure AD en Workday
 El objetivo de este tutorial es mostrar los pasos que debe realizar para la escritura diferida de atributos de Azure AD en Workday. La aplicación de aprovisionamiento de escritura diferida de Workday admite la asignación de valores a los siguientes atributos de Workday:
@@ -68,13 +68,13 @@ Siga estas instrucciones para configurar la escritura diferida de direcciones de
 
 8. Cumplimente la sección **Credenciales de administrador** del siguiente modo:
 
-   * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta del sistema de integración de Workday, anexando el nombre de dominio del inquilino. Debe tener un aspecto similar al siguiente: *username\@contoso4*
+   * **Nombre de usuario de administrador** : escriba el nombre de usuario de la cuenta del sistema de integración de Workday, anexando el nombre de dominio del inquilino. Debe tener un aspecto similar al siguiente: *username\@contoso4*
 
-   * **Contraseña de administrador**: escriba la contraseña de la cuenta del sistema de integración de Workday.
+   * **Contraseña de administrador** : escriba la contraseña de la cuenta del sistema de integración de Workday.
 
-   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Este valor debería ser similar a `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`, donde *contoso4* se reemplaza por el nombre correcto del inquilino y *wd3-impl* se reemplaza por la cadena de entorno correcta (si es necesario).
+   * **URL de inquilino** : escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Este valor debería ser similar a `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`, donde *contoso4* se reemplaza por el nombre correcto del inquilino y *wd3-impl* se reemplaza por la cadena de entorno correcta (si es necesario).
 
-   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Send email if failure occurs" (Enviar una notificación por correo electrónico cuando se produzca un error).
+   * **Correo electrónico de notificación** : escriba su dirección de correo electrónico y marque la casilla "Send email if failure occurs" (Enviar una notificación por correo electrónico cuando se produzca un error).
 
    * Haga clic en el botón **Probar conexión**. Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que la dirección URL y las credenciales de Workday sean válidas en Workday.
 
@@ -82,11 +82,11 @@ Siga estas instrucciones para configurar la escritura diferida de direcciones de
 
 En esta sección, va a configurar cómo los atributos de escritura diferida fluyen desde Azure AD a Workday. 
 
-1. En la pestaña Aprovisionamiento de **Asignaciones**, haga clic en el nombre de asignación.
+1. En la pestaña Aprovisionamiento de **Asignaciones** , haga clic en el nombre de asignación.
 
 2. En el campo **Ámbito de objeto de origen** tiene la opción de filtrar los conjuntos de usuarios de Azure Active Directory que deben formar parte de la escritura diferida. El ámbito predeterminado es "todos los usuarios de Azure AD".
 
-3. En la sección **Asignaciones de atributos**, actualice el identificador coincidente para indicar el atributo en Azure Active Directory donde se almacena el identificador de trabajo o el identificador de empleado de Workday. Un método de búsqueda de coincidencias conocido consiste en sincronizar el Id. de trabajador de Workday o el Id. de empleado con el atributo extensionAttribute1-15 en Azure AD y, luego, usar dicho atributo en Azure AD para hacer coincidir los usuarios en Workday.
+3. En la sección **Asignaciones de atributos** , actualice el identificador coincidente para indicar el atributo en Azure Active Directory donde se almacena el identificador de trabajo o el identificador de empleado de Workday. Un método de búsqueda de coincidencias conocido consiste en sincronizar el Id. de trabajador de Workday o el Id. de empleado con el atributo extensionAttribute1-15 en Azure AD y, luego, usar dicho atributo en Azure AD para hacer coincidir los usuarios en Workday.
 
 4. Normalmente, se asigna el atributo *userPrincipalName* de Azure AD al atributo *UserID* de Workday y el atributo *mail* de Azure AD al atributo *EmailAddress* de Workday. 
 
@@ -142,9 +142,9 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
 > [!TIP]
 > De forma predeterminada, al activar el servicio de aprovisionamiento, se iniciarán las operaciones de aprovisionamiento para todos los usuarios del ámbito. Si hay errores en la asignación o problemas con los datos de Workday, puede que se produzcan errores con el trabajo de aprovisionamiento y que entre en estado de cuarentena. Para evitar esto, como procedimiento recomendado, es conveniente configurar el filtro **Ámbito de objeto de origen** y probar las asignaciones de atributos con algunos usuarios de prueba antes de iniciar la sincronización completa de todos los usuarios. Una vez haya verificado que las asignaciones funcionan y que obtiene los resultados deseados, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
 
-1. En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
+1. En la pestaña **Aprovisionamiento** , establezca **Estado de aprovisionamiento** en **Activado**.
 
-1. En la lista desplegable **Ámbito**, seleccione **Sincronizar todos los usuarios y grupos**. Con esta opción, la aplicación de escritura diferida escribirá de manera diferida atributos asignado de todos los usuarios de Azure AD a Workday, de acuerdo con las reglas de ámbito definidas en **Asignaciones** -> **Ámbito de objeto de origen**. 
+1. En la lista desplegable **Ámbito** , seleccione **Sincronizar todos los usuarios y grupos**. Con esta opción, la aplicación de escritura diferida escribirá de manera diferida atributos asignado de todos los usuarios de Azure AD a Workday, de acuerdo con las reglas de ámbito definidas en **Asignaciones** -> **Ámbito de objeto de origen**. 
 
    > [!div class="mx-imgBorder"]
    > ![Selección del ámbito de escritura diferida](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
@@ -153,13 +153,13 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
    > La aplicación de aprovisionamiento de escritura diferida de Workday no admite la opción **Sincronizar solo los usuarios y grupos asignados**.
  
 
-2. Haga clic en **Save**(Guardar).
+2. Haga clic en **Save** (Guardar).
 
 3. Esta operación iniciará la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en el directorio de origen. Puede consultar en la barra de progreso el seguimiento del progreso del ciclo de sincronización. 
 
 4. En cualquier momento, compruebe la pestaña **Registros de aprovisionamiento** en Azure Portal para ver las acciones que ha realizado el servicio de aprovisionamiento. En los registros de auditoría se enumeran todos los eventos de sincronización individuales realizados por el servicio de aprovisionamiento, como, por ejemplo, qué usuarios se importan desde el origen y se exportan a la aplicación de destino.  
 
-5. Una vez completada la sincronización inicial, se escribe un informe resumido en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
+5. Una vez completada la sincronización inicial, se escribe un informe resumido en la pestaña **Aprovisionamiento** , tal y como se muestra a continuación.
 
      > [!div class="mx-imgBorder"]
      > ![Barra de progreso de aprovisionamiento](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

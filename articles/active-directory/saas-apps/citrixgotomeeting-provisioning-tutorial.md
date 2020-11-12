@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4abd16d6b5c9593cb1a4df52a7135a658c513410
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ff377b0f93968eb6743187e4e659f4e888e5010e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455944"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358906"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configuración de GoToMeeting para el aprovisionamiento automático de usuarios
 
@@ -52,13 +52,13 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 ### <a name="to-configure-automatic-user-account-provisioning"></a>Para configurar el aprovisionamiento automático de cuentas de usuario, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones** .
+1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
 
 1. Si ya ha configurado GoToMeeting para el inicio de sesión único, busque la instancia de GoToMeeting con el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **GoToMeeting** en la galería de aplicaciones. Seleccione GoToMeeting en los resultados de búsqueda y agréguelo a la lista de aplicaciones.
 
-1. Seleccione la instancia de GoToMeeting y después la pestaña **Aprovisionamiento** .
+1. Seleccione la instancia de GoToMeeting y después la pestaña **Aprovisionamiento**.
 
-1. Establezca el **modo de aprovisionamiento** en **Automático** . 
+1. Establezca el **modo de aprovisionamiento** en **Automático**. 
 
     ![Captura de pantalla de la pestaña Aprovisionamiento de GoToMeeting en Azure Portal. El modo de aprovisionamiento se establece en Automático y Nombre de usuario de administrador, Contraseña y Probar conexión se resaltan.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
@@ -72,7 +72,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 1. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla.
 
-1. Haga clic en **Guardar** .
+1. Haga clic en **Guardar**.
 
 1. En la sección Asignaciones seleccione **Synchronize Azure Active Directory Users to GoToMeeting** (Sincronizar usuarios de Azure Active Directory con GoToMeeting).
 
@@ -80,7 +80,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 1. Para habilitar el servicio de aprovisionamiento de Azure AD para GoToMeeting, cambie el **Estado de aprovisionamiento** a **Activado** en la sección Configuración
 
-1. Haga clic en **Guardar** .
+1. Haga clic en **Guardar**.
 
 Comienza la sincronización inicial de todos los usuarios y grupos asignados a GoToMeeting en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de GoToMeeting.
 

@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016085"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413197"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronización de Azure AD Connect: Atributos sincronizados con Azure Active Directory
 En este tema se enumeran los atributos que se sincronizan mediante la sincronización de Azure AD Connect.  
@@ -373,7 +373,7 @@ En este caso, comience con la lista de atributos de este tema e identifique aque
 Este grupo es un conjunto de atributos que se usan como atributos mínimos necesarios para una carga de trabajo o aplicación genérica. Se puede emplear para cargas de trabajo que no figuren en otra sección o para una aplicación que no sea de Microsoft. Se usa explícitamente para lo siguiente:
 
 * Yammer (solo se consume User)
-* [Escenarios híbridos de colaboración entre organizaciones negocio a negocio (B2B) ofrecidos por recursos como SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [Escenarios híbridos de colaboración entre organizaciones negocio a negocio (B2B) ofrecidos por recursos como SharePoint](/sharepoint/create-b2b-extranet)
 
 Este grupo es un conjunto de atributos que se pueden usar si no se emplea el directorio de Azure AD para admitir Microsoft 365, Dynamics o Intune. Tiene un pequeño conjunto de atributos principales. Tenga en cuenta que, en algunas aplicaciones de terceros, el inicio de sesión único o el aprovisionamiento requieren la configuración de la sincronización de atributos además de los atributos que se describen aquí. Los requisitos de la aplicación se describen en el [tutorial de aplicaciones SaaS](../saas-apps/tutorial-list.md) para cada aplicación.
 

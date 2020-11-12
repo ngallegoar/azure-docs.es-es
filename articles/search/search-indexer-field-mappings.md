@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532507"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358939"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
 
@@ -28,7 +28,7 @@ Algunas situaciones donde las asignaciones de campos son útiles:
 * El origen de datos tiene un campo llamado `_id`, pero Azure Cognitive Search no permite los nombres de campo que empiezan por un carácter de subrayado. Una asignación de campo permite cambiar el nombre de un campo de forma eficaz.
 * Desea rellenar varios campos en el índice con datos del mismo origen de datos. Por ejemplo, puede querer aplicar diferentes analizadores a esos campos.
 * Desea rellenar un campo de índice con los datos de más de un origen de datos, y cada origen de datos usa nombres de campo diferentes.
-* Necesita codificar o descodificar sus datos con Base64. Las asignaciones de campos admiten varias **funciones de asignación**, incluidas las funciones de codificación y descodificación Base64.
+* Necesita codificar o descodificar sus datos con Base64. Las asignaciones de campos admiten varias **funciones de asignación** , incluidas las funciones de codificación y descodificación Base64.
 
 > [!NOTE]
 > Las asignaciones de campos en los indexadores son una manera sencilla de asignar campos de datos a campos de índice, con cierta capacidad para la conversión de datos ligeros. Los datos más complejos pueden requerir un procesamiento previo para transformarlos en un formato que favorezca la indexación. Una opción que se puede considerar es [Azure Data Factory](../data-factory/index.yml).
@@ -81,7 +81,7 @@ Se puede hacer referencia a un campo de origen en varias asignaciones de campos.
 
 ## <a name="map-fields-using-the-net-sdk"></a>Asignación de campos usando el SDK de .NET
 
-Las asignaciones de campos en el SDK de .NET se definen con la clase [FieldMapping](/dotnet/api/microsoft.azure.search.models.fieldmapping), que tiene las propiedades `SourceFieldName` y `TargetFieldName` y una referencia a `MappingFunction` opcional.
+Las asignaciones de campos en el SDK de .NET se definen con la clase [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping), que tiene las propiedades `SourceFieldName` y `TargetFieldName` y una referencia a `MappingFunction` opcional.
 
 Se pueden especificar asignaciones de campos al crear el indexador o posteriormente estableciendo directamente la propiedad `Indexer.FieldMappings`.
 

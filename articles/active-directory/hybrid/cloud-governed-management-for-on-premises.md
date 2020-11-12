@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369801"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413452"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Cómo proporciona Azure AD administración regulada por la nube para cargas de trabajo locales
 
@@ -77,7 +77,7 @@ Cada vez es más habitual que en la colaboración de negocio a negocio sea neces
 
 Azure AD puede [crear de forma automática cuentas de AD para usuarios invitados](../external-identities/hybrid-cloud-to-on-premises.md) según sea necesario, lo que permite a los invitados empresariales acceder a aplicaciones locales integradas en AD sin necesidad de otra contraseña. Las organizaciones pueden configurar directivas de [autenticación multifactor (MFA) para usuarios invitados](../external-identities/conditional-access.md), de forma que las comprobaciones de MFA se realicen durante la autenticación del proxy de aplicación. Además, todas [las revisiones de acceso](../governance/manage-guest-access-with-access-reviews.md) que se realizan en los usuarios de B2B en la nube se aplican a los usuarios locales. Por ejemplo, si el usuario en la nube se elimina mediante directivas de administración del ciclo de vida, también se elimina el usuario local.
 
-**Administración de credenciales para cuentas de Active Directory** El autoservicio de restablecimiento de contraseña de Azure AD permite que los usuarios que han olvidado sus contraseñas se vuelvan a autenticar y restablezcan sus contraseñas, y las contraseñas cambiadas [se escriben en Active Directory local](../authentication/concept-sspr-writeback.md). El proceso de restablecimiento de contraseña también puede usar las directivas de contraseña de Active Directory locales: cuando un usuario restablece su contraseña, se comprueba que cumpla la directiva de Active Directory local antes de confirmarla en ese directorio. En el [plan de implementación](https://aka.ms/deploymentplans/sspr) del autoservicio de restablecimiento de contraseña se describen los procedimientos recomendados para implementarlo a los usuarios mediante experiencias web y de integración en Windows.
+**Administración de credenciales para cuentas de Active Directory** El autoservicio de restablecimiento de contraseña de Azure AD permite que los usuarios que han olvidado sus contraseñas se vuelvan a autenticar y restablezcan sus contraseñas, y las contraseñas cambiadas [se escriben en Active Directory local](../authentication/concept-sspr-writeback.md). El proceso de restablecimiento de contraseña también puede usar las directivas de contraseña de Active Directory locales: cuando un usuario restablece su contraseña, se comprueba que cumpla la directiva de Active Directory local antes de confirmarla en ese directorio. En el [plan de implementación](../authentication/howto-sspr-deployment.md) del autoservicio de restablecimiento de contraseña se describen los procedimientos recomendados para implementarlo a los usuarios mediante experiencias web y de integración en Windows.
 
 ![Arquitectura SSPR de Azure AD](media/cloud-governed-management-for-on-premises/image3.png)
 
@@ -97,7 +97,7 @@ Para comenzar a migrar aplicaciones federadas a Azure AD como proveedor de ident
 
 * El informe [Migración de las aplicaciones a Azure Active Directory](https://aka.ms/migrateapps/whitepaper), en el que se presentan las ventajas de la migración y se describe cómo planearla en cuatro fases bien definidas: detección, clasificación, migración y administración continua. Se le guiará sobre cómo debe pensar en el proceso y desglosar el proyecto en partes fáciles de consumir. Este documento incluye vínculos a recursos importantes que le ayudarán a lo largo de este proceso.
 
-* La guía de soluciones [Migración de la autenticación de aplicaciones desde Servicios de federación de Active Directory a Azure Active Directory](https://aka.ms/migrateapps/adfssolutionguide), en la que se exploran con más detalle las mismas cuatro fases de planeamiento y ejecución de un proyecto de migración de aplicaciones. En esta guía, aprenderá a aplicar estas fases al objetivo concreto de mover una aplicación desde Servicios de federación de Active Directory (AD FS) a Azure AD.
+* La guía de soluciones [Migración de la autenticación de aplicaciones desde Servicios de federación de Active Directory a Azure Active Directory](../manage-apps/migrate-adfs-apps-to-azure.md), en la que se exploran con más detalle las mismas cuatro fases de planeamiento y ejecución de un proyecto de migración de aplicaciones. En esta guía, aprenderá a aplicar estas fases al objetivo concreto de mover una aplicación desde Servicios de federación de Active Directory (AD FS) a Azure AD.
 
 * El [script de preparación para la migración de Servicios de federación de Active Directory](https://aka.ms/migrateapps/adfstools) se puede ejecutar en servidores de Servicios de federación de Active Directory (AD FS) locales existentes para determinar la preparación de las aplicaciones para la migración a Azure AD.
 

@@ -5,12 +5,12 @@ description: Aprenda a actualizar o restablecer las credenciales de la entidad d
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: e787322f421094cf9ac6681df0119ba820b654ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c787f172bc03e11c574c4de967aee05da9df18aa
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871231"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427520"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Actualización o modificación de las credenciales de un clúster de Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ También puede usar una identidad administrada para los permisos en lugar de una
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Es preciso que esté instalada y configurada la versión 2.0.65 de la CLI de Azure, o cualquier otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+Es preciso que esté instalada y configurada la versión 2.0.65 de la CLI de Azure, o cualquier otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Actualización o creación de una entidad de servicio nueva para el clúster de AKS
 
@@ -32,7 +32,7 @@ Cuando quiera actualizar las credenciales de un clúster de AKS, puede hacer alg
 * Crear a una entidad de servicio y actualizar el clúster para usar estas nuevas credenciales. 
 
 > [!WARNING]
-> Si elige crear una entidad de servicio *nueva*, la actualización de un clúster de AKS de gran tamaño para usar estas credenciales puede tardar mucho en completarse.
+> Si elige crear una entidad de servicio *nueva* , la actualización de un clúster de AKS de gran tamaño para usar estas credenciales puede tardar mucho en completarse.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Comprobación de la fecha de expiración de la entidad de servicio
 
@@ -82,7 +82,7 @@ La salida será similar al del ejemplo siguiente: Tome nota de sus valores `appI
 }
 ```
 
-A continuación, defina las variables del identificador de la entidad de servicio y el secreto de cliente; para ello, use el resultado del comando [az ad sp create-for-rbac][az-ad-sp-create], tal como se muestra en el ejemplo siguiente. El valor de *SP_ID* es su *id. de aplicación* y el valor de *SP_SECRET* es su *contraseña*:
+A continuación, defina las variables del identificador de la entidad de servicio y el secreto de cliente; para ello, use el resultado del comando [az ad sp create-for-rbac][az-ad-sp-create], tal como se muestra en el ejemplo siguiente. El valor de *SP_ID* es su *id. de aplicación* y el valor de *SP_SECRET* es su *contraseña* :
 
 ```console
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -104,7 +104,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret "$SP_SECRET"
+    --client-secret $SP_SECRET
 ```
 
 Para pequeños y medianos clústeres, las credenciales de la entidad de servicio tardan unos minutos en actualizarse en AKS.

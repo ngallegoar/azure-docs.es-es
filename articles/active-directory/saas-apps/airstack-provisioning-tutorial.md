@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/18/2019
 ms.author: Zhchia
-ms.openlocfilehash: fcb971cd0bd0addd3190e2a3a5f9c6740494b7fd
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3bfcd652572b989e98bf4c7cb717cb314dfbaaeb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318962"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359891"
 ---
 # <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Airstack para el aprovisionamiento automático de usuarios
 
@@ -80,7 +80,7 @@ Antes de configurar Airstack para el aprovisionamiento automático de usuarios c
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Airstack**, seleccione **Airstack** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Airstack** , seleccione **Airstack** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Airstack en la lista de resultados](common/search-new-app.png)
 
@@ -109,17 +109,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://api-as.lenovosoftware.com/0/as/common/scim` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Airstack. Si la conexión no se establece, asegúrese de que la cuenta de Airstack tenga permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://api-as.lenovosoftware.com/0/as/common/scim` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Airstack. Si la conexión no se establece, asegúrese de que la cuenta de Airstack tenga permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Airstack** (Sincronizar usuarios de Azure Active Directory con Airstack).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Airstack** (Sincronizar usuarios de Azure Active Directory con Airstack).
 
     ![Asignaciones de usuario de Airstack](media/airstack-provisioning-tutorial/mappings.png)
 
@@ -133,7 +133,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Airstack.
+12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Airstack.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

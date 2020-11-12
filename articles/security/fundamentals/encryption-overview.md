@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458627"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410222"
 ---
 # <a name="azure-encryption-overview"></a>Información general del cifrado de Azure
 
@@ -45,15 +45,15 @@ Con el cifrado de cliente, los proveedores de servicios en la nube no tienen acc
 
 Los tres modelos de cifrado del servidor ofrecen características de administración de claves diferentes, que se pueden elegir según sus requisitos:
 
-- **Claves administradas del servicio**: proporcionan una combinación de control y comodidad con una sobrecarga reducida.
+- **Claves administradas del servicio** : proporcionan una combinación de control y comodidad con una sobrecarga reducida.
 
-- **Claves administradas por el cliente**: le permiten controlar las claves, con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
+- **Claves administradas por el cliente** : le permiten controlar las claves, con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
 
-- **Claves administradas del servicio en el hardware controlado por el cliente**: le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
+- **Claves administradas del servicio en el hardware controlado por el cliente** : le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Para proteger las máquinas virtuales Windows y Linux, puede usar [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), que usa la tecnología de [BitLocker de Windows](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para proteger los discos del sistema operativo y los discos de datos con el cifrado de volumen completo.
+Para proteger las máquinas virtuales Windows y Linux, puede usar [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md), que usa la tecnología de [BitLocker de Windows](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)) y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para proteger los discos del sistema operativo y los discos de datos con el cifrado de volumen completo.
 
 Las claves de cifrado y secretos se protegen en la [suscripción a Azure Key Vault](../../key-vault/general/overview.md). El servicio Azure Backup permite hacer copias de seguridad y restauraciones de máquinas virtuales (VM) cifradas que usan la configuración de clave de cifrado de claves (KEK).
 
@@ -83,13 +83,13 @@ Por último, también puede usar la biblioteca cliente de Azure Storage para Jav
 
 #### <a name="transparent-data-encryption"></a>Cifrado de datos transparente
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) se utiliza para cifrar archivos de datos de [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) y [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en tiempo real, con una clave de cifrado de base de datos (DEK) que se almacena en el registro de arranque de base de datos para la disponibilidad durante la recuperación.
+[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) se utiliza para cifrar archivos de datos de [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) y [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en tiempo real, con una clave de cifrado de base de datos (DEK) que se almacena en el registro de arranque de base de datos para la disponibilidad durante la recuperación.
 
 TDE protege los archivos de registro y los datos con los algoritmos de cifrado de AES y el estándar de cifrado de datos triple (3DES). El cifrado del archivo de base de datos se realiza en el nivel de página. Las páginas en una base de datos cifrada se cifran antes de que se escriban en disco y se descifran cuando se leen en la memoria. TDE ahora está habilitado de forma predeterminada en las bases de datos de Azure SQL recién creadas.
 
 #### <a name="always-encrypted-feature"></a>Característica Always Encrypted
 
-Con la característica [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) de Azure SQL, puede cifrar los datos dentro de aplicaciones de cliente antes de almacenarlos en Azure SQL Database. También puede habilitar la delegación de la administración de la base de datos local a terceros y mantener la separación entre aquellos que poseen y pueden ver los datos y aquellos que los administran, pero no deben tener acceso a ellos.
+Con la característica [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) de Azure SQL, puede cifrar los datos dentro de aplicaciones de cliente antes de almacenarlos en Azure SQL Database. También puede habilitar la delegación de la administración de la base de datos local a terceros y mantener la separación entre aquellos que poseen y pueden ver los datos y aquellos que los administran, pero no deben tener acceso a ellos.
 
 #### <a name="cell-level-or-column-level-encryption"></a>Cifrado de nivel de celda o columna
 
@@ -125,9 +125,9 @@ Microsoft usa el protocolo [Seguridad de la capa de transporte](https://en.wikip
 
 Si interactúa con Azure Storage a través de Azure Portal, todas las transacciones se realizan a través de HTTPS. También se puede usar la API de REST de Storage a través de HTTPS para interactuar con Azure Storage. Puede exigir el uso de HTTPS al llamar a las API de REST para acceder a objetos de cuentas de almacenamiento mediante la habilitación de la transferencia segura para la cuenta de almacenamiento.
 
-Las firmas de acceso compartido ([SAS](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)), que pueden utilizarse para delegar el acceso a objetos de Azure Storage, incluyen una opción para especificar que se pueda utilizar solo el protocolo HTTPS cuando se usen las firmas de acceso compartido. Este enfoque garantiza que cualquier usuario que envíe vínculos con tokens SAS use el protocolo adecuado.
+Las firmas de acceso compartido ([SAS](../../storage/common/storage-sas-overview.md)), que pueden utilizarse para delegar el acceso a objetos de Azure Storage, incluyen una opción para especificar que se pueda utilizar solo el protocolo HTTPS cuando se usen las firmas de acceso compartido. Este enfoque garantiza que cualquier usuario que envíe vínculos con tokens SAS use el protocolo adecuado.
 
-[SMB 3.0](https://technet.microsoft.com/library/dn551363(v=ws.11).aspx#BKMK_SMBEncryption), que solía acceder a recursos compartidos de Azure Files, admite cifrado y está disponible en Windows Server 2012 R2, Windows 8, Windows 8.1 y Windows 10. Permite el acceso entre regiones e incluso el acceso en el escritorio.
+[SMB 3.0](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn551363(v=ws.11)#BKMK_SMBEncryption), que solía acceder a recursos compartidos de Azure Files, admite cifrado y está disponible en Windows Server 2012 R2, Windows 8, Windows 8.1 y Windows 10. Permite el acceso entre regiones e incluso el acceso en el escritorio.
 
 El cifrado de cliente cifra los datos antes de enviarlos a la instancia de Azure Storage, por lo que se cifra a medida que pasa por la red.
 
@@ -143,7 +143,7 @@ Los datos en tránsito de destino, de origen y entre VM que ejecutan Windows, se
 
 ### <a name="rdp-sessions"></a>Sesiones RDP
 
-Puede conectarse e iniciar sesión en una VM mediante el [Protocolo de escritorio remoto](https://msdn.microsoft.com/library/aa383015(v=vs.85).aspx) (RDP) desde un equipo cliente de Windows o desde un equipo Mac con un cliente RDP instalado. Los datos en tránsito a través de la red en las sesiones RDP se pueden proteger mediante TLS.
+Puede conectarse e iniciar sesión en una VM mediante el [Protocolo de escritorio remoto](/windows/win32/termserv/remote-desktop-protocol) (RDP) desde un equipo cliente de Windows o desde un equipo Mac con un cliente RDP instalado. Los datos en tránsito a través de la red en las sesiones RDP se pueden proteger mediante TLS.
 
 Puede usar el escritorio remoto para conectarse a una VM Linux en Azure.
 
@@ -163,7 +163,7 @@ Las VPN de sitio a sitio usan [IPsec](https://en.wikipedia.org/wiki/IPsec) para 
 
 ### <a name="point-to-site-vpns"></a>VPN de punto a sitio
 
-Las VPN de punto a sitio permiten a los equipos cliente individuales acceder a una instancia de Azure Virtual Network. [El protocolo de túnel de sockets de seguros (SSTP)](https://technet.microsoft.com/library/2007.06.cableguy.aspx) se utiliza para crear el túnel VPN. Puede atravesar firewalls (el túnel aparece como conexión HTTPS). Puede usar su propia entidad de certificación (CA) de raíz de infraestructura de clave pública (PKI) interna para la conectividad de punto a sitio.
+Las VPN de punto a sitio permiten a los equipos cliente individuales acceder a una instancia de Azure Virtual Network. [El protocolo de túnel de sockets de seguros (SSTP)](/previous-versions/technet-magazine/cc162322(v=msdn.10)) se utiliza para crear el túnel VPN. Puede atravesar firewalls (el túnel aparece como conexión HTTPS). Puede usar su propia entidad de certificación (CA) de raíz de infraestructura de clave pública (PKI) interna para la conectividad de punto a sitio.
 
 Puede configurar una conexión de VPN de punto a sitio a una red virtual con Azure Portal con autenticación de certificados o PowerShell.
 
@@ -201,9 +201,9 @@ Key Vault libera a las empresas de la necesidad de configurar, aplicar revisione
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información general de seguridad de Azure](get-started-overview.md)
+- [Información general de seguridad de Azure](./overview.md)
 - [Azure Network Security Overview (Información general sobre Azure Network Security)](network-overview.md)
-- [Introducción a la seguridad de base de datos de Azure](database-security-overview.md)
+- [Introducción a la seguridad de base de datos de Azure](../../azure-sql/database/security-overview.md)
 - [Información general de seguridad de Azure Virtual Machines](virtual-machines-overview.md)
 - [Cifrado de datos en reposo](encryption-atrest.md)
 - [Procedimientos recomendados de seguridad de datos y cifrado](data-encryption-best-practices.md)

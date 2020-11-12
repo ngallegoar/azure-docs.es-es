@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: 7958ef9195c9dcef65fab70fbf48edf2021ff94b
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: ff55528013ac89be48454c25e1fc86deac2bca6f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91355829"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357239"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configuración de ThousandEyes para el aprovisionamiento automático de usuarios
 
@@ -65,7 +65,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
     ![Captura de pantalla que muestra la pestaña Aprovisionamiento de ThousandEyes con la opción Automático seleccionada para el modo de aprovisionamiento.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. En la sección **Credenciales de administrador**, escriba el **token de portador de OAuth** generado por la cuenta de ThousandEyes (puede buscar el token o generar uno en la sección **Perfil** de la cuenta de ThousandEyes).
+5. En la sección **Credenciales de administrador** , escriba el **token de portador de OAuth** generado por la cuenta de ThousandEyes (puede buscar el token o generar uno en la sección **Perfil** de la cuenta de ThousandEyes).
 
     ![Captura de pantalla que muestra dónde encontrar el vínculo de configuración de la cuenta para el grupo de cuentas actual.](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
@@ -73,7 +73,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 7. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
 
-8. Haga clic en **Save**(Guardar).
+8. Haga clic en **Save** (Guardar).
 
 9. En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to ThousandEyes** (Sincronizar usuarios de Azure Active Directory con ThousandEyes).
 
@@ -81,7 +81,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 11. Para habilitar el servicio de aprovisionamiento de Azure AD para ThousandEyes, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-12. Haga clic en **Save**(Guardar).
+12. Haga clic en **Save** (Guardar).
 
 Esta operación inicia la sincronización inicial de todos los usuarios y grupos asignados a ThousandEyes en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento.
 

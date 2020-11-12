@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6bc8b6cc18f4a4bc41cabf7f8fefe78a5aaf7827
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479582"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427892"
 ---
 1. En [Azure Portal](https://portal.azure.com), en **Buscar recursos, servicios y documentos (G+/)** escriba **puerta de enlace de red virtual**. Busque la **puerta de enlace de red virtual** en los resultados de la búsqueda y selecciónela.
 
@@ -52,6 +52,6 @@ ms.locfileid: "92479582"
      * **Habilitar el modo activo/activo** : Seleccione **Habilitar el modo activo/activo** solo si va a crear una configuración de puerta de enlace activa/activa. En caso contrario, deje este valor **Deshabilitado**.
      * Mantenga **Configurar BGP** en **Deshabilitado** , a menos que su configuración requiera específicamente este valor. Si necesita esta configuración, el valor predeterminado del ASN es 65515, aunque esto se puede cambiar.
 1. Seleccione **Revisar y crear** para ejecutar la validación.
-1. Una vez superada la validación, seleccione **Crear** para implementar VPN Gateway. Una puerta de enlace puede tardar hasta 45 minutos en crearse e implementarse completamente. Puede ver el estado de implementación en la página Información general de la puerta de enlace.
+1. Una vez superada la validación, seleccione **Crear** para implementar VPN Gateway.
 
-Una vez creada la puerta de enlace, puede ver la dirección IP que se le ha asignado consultando la red virtual en el portal. La puerta de enlace aparece como un dispositivo conectado.
+Una puerta de enlace puede tardar hasta 45 minutos en crearse e implementarse completamente. Puede ver el estado de implementación en la página Información general de la puerta de enlace. Una vez creada la puerta de enlace, puede ver la dirección IP que se le ha asignado consultando la red virtual en el portal. La puerta de enlace aparece como un dispositivo conectado.

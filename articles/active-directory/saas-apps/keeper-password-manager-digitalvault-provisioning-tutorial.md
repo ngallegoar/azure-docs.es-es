@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 26f12b18e2199fb45e6eb94f2a136d2af2b1576c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2670dc0cb56805a2afa966bee1d2aa52b6c8e46a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317606"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358990"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Tutorial: Configurar Keeper Password Manager & Digital Vault para el aprovisionamiento de usuario automático
 
@@ -53,7 +53,7 @@ Antes de configurar Keeper Password Manager & Digital Vault para el aprovisionam
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Keeper Password Manager & Digital Vault**, seleccione **Keeper Password Manager & Digital Vault** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Keeper Password Manager & Digital Vault** , seleccione **Keeper Password Manager & Digital Vault** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Keeper Password Manager & Digital Vault en la lista de resultados](common/search-new-app.png)
 
@@ -96,7 +96,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, especifique los valores de **URL de inquilino** y **Token secreto** de la cuenta de Keeper Password Manager & Digital Vault, como se describe en el paso 6.
+5. En la sección **Credenciales de administrador** , especifique los valores de **URL de inquilino** y **Token secreto** de la cuenta de Keeper Password Manager & Digital Vault, como se describe en el paso 6.
 
 6. Inicie sesión en la [consola de administración de Keeper](https://keepersecurity.com/console/#login). Haga clic en **Administrador** y seleccione un nodo existente o cree uno nuevo. Navegue hasta la pestaña **Aprovisionamiento** y haga clic en **Agregar método**.
 
@@ -118,13 +118,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-9. Haga clic en **Save**(Guardar).
+9. Haga clic en **Save** (Guardar).
 
-10. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Keeper Password Manager & Digital Vault**.
+10. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Keeper Password Manager & Digital Vault**.
 
     ![Keeper Asignaciones de usuario](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-mappings.png)
 
@@ -132,7 +132,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Keeper Atributos de usuario](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-attributes.png)
 
-12. En la sección **Asignaciones**, seleccione **Sincronizar grupos de Azure Active Directory con Keeper Password Manager & Digital Vault**.
+12. En la sección **Asignaciones** , seleccione **Sincronizar grupos de Azure Active Directory con Keeper Password Manager & Digital Vault**.
 
     ![Keeper Asignaciones de grupos](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-mappings.png)
 
@@ -146,7 +146,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-16. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Keeper Password Manager & Digital Vault.
+16. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Keeper Password Manager & Digital Vault.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 6a14ef6f75d5939501c6bd8ca84620a7a5619a54
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 04c532ceb5f40e9a5b7fa5fd5b75f60182f54580
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369070"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427792"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor    
 
@@ -50,7 +50,7 @@ Los clústeres dedicados de Log Analytics son colecciones de áreas de trabajo e
 
 El nivel de reserva de capacidad del clúster se configura mediante programación con Azure Resource Manager con el parámetro `Capacity` en `Sku`. El parámetro `Capacity` se especifica en unidades de GB y puede tener valores de 1000 GB/día o más en incrementos de 100 GB/día. Esto se detalla en [Clave administrada por el cliente de Azure Monitor](customer-managed-keys.md#create-cluster). Si el clúster necesita una reserva superior a 2000 GB/día, póngase en contacto con nosotros en [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
-Hay dos modos de facturación para el uso en un clúster. Estos pueden especificarse mediante el parámetro `billingType` al [configurar el clúster](customer-managed-keys.md#cmk-management). Los dos modos son: 
+Hay dos modos de facturación para el uso en un clúster. Estos pueden especificarse mediante el parámetro `billingType` al [configurar el clúster](customer-managed-keys.md#customer-managed-key-operations). Los dos modos son: 
 
 1. **Clúster** : en este caso (que es el modo predeterminado), la facturación de los datos ingeridos se realiza en el nivel de clúster. Las cantidades de datos ingeridas desde cada área de trabajo asociada a un clúster se suman para calcular la factura diaria del clúster. Tenga en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) que se aplican en el nivel de área de trabajo antes de esta agregación de datos agregados en todas las áreas de trabajo del clúster. 
 

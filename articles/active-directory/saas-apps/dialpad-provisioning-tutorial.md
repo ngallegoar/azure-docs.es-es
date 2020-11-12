@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b88e618da3f8a23c0517aaeb251e54bf559fc468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848983"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358497"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Tutorial: Configuración de Dialpad para el aprovisionamiento automático de usuarios
 
@@ -58,9 +58,9 @@ Antes de configurar Dialpad para el aprovisionamiento automático de usuarios co
 
 2. Haga clic en **Add a key** (Agregar una clave) para generar una clave nueva y configure las propiedades de su token secreto.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Captura de pantalla de la página de claves A P I en la consola de administración de Dialpad. La opción para agregar una clave está resaltada." border="false":::
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Captura de pantalla de la página para editar una clave A P I en la consola de administración de Dialpad. El botón Guardar está resaltado." border="false":::
 
 3. Haga clic en el botón **Click to show value** (Hacer clic para ver el valor) para que aparezca la clave de API creada recientemente y copie el valor mostrado. Este valor se escribe en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Dialpad en Azure Portal. 
 
@@ -89,19 +89,19 @@ Para configurar Dialpad para el aprovisionamiento automático de usuarios con Az
 
 5. Vaya a la **dirección URL** resaltada a continuación desde un explorador diferente. 
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Captura de pantalla de una página que muestra información sobre la aplicación Dialpad. Bajo la U R L, se muestra una dirección que está resaltada." border="false":::
 
 6. En la esquina superior derecha, seleccione **Iniciar sesión > Use Dialpad online** (Usar Dialpad en línea).
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Captura de pantalla del sitio web de Dialpad. La opción de iniciar sesión está resaltada y la pestaña para iniciar sesión está abierta. La opción para usar Dialpad en línea también está resaltada." border="false":::
 
 7. Como Dialpad es una aplicación de OpenIDConnect, inicie sesión en Dialpad con su cuenta Microsoft profesional.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Captura de pantalla de la página para realizar llamadas en el sitio web de Dialpad. El botón para iniciar sesión con Office 365 está resaltado." border="false":::
 
 8. Después de autenticarse, acepte la petición de consentimiento de la página de consentimiento. La aplicación se agregará automáticamente a su inquilino y será redirigido a su cuenta de Dialpad.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Captura de pantalla que muestra una página de autenticación de Microsoft que indica que la aplicación Dialpad ha solicitado acceso a algunos datos. El botón Aceptar está resaltado." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Configuración del aprovisionamiento automático de usuarios en Dialpad
 
@@ -125,17 +125,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://dialpad.com/scim` en la **URL de inquilino**. Escriba el valor que recuperó y guardó anteriormente de Dialpad en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a Dialpad. Si la conexión no se establece, asegúrese de que la cuenta de Dialpad tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://dialpad.com/scim` en la **URL de inquilino**. Escriba el valor que recuperó y guardó anteriormente de Dialpad en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a Dialpad. Si la conexión no se establece, asegúrese de que la cuenta de Dialpad tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Dialpad** (Sincronizar usuarios de Azure Active Directory con Dialpad).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Dialpad** (Sincronizar usuarios de Azure Active Directory con Dialpad).
 
     ![Asignaciones de usuarios en Dialpad](media/dialpad-provisioning-tutorial/dialpad-user-mappings-new.png)
 
@@ -149,7 +149,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Dialpad.
+12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Dialpad.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

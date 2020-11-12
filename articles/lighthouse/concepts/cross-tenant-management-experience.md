@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 10/22/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460672"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413129"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -104,7 +104,6 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 [Azure Policy](../../governance/policy/index.yml):
 
-- las instantáneas de cumplimiento muestran detalles para las directivas asignadas en las suscripciones delegadas
 - Creación y edición de definiciones de directivas en una suscripción delegada
 - Asignación de definiciones de directivas definidas por el cliente en suscripciones delegadas
 - Los clientes ven las directivas creadas por el proveedor de servicios junto con las directivas que hayan creado ellos mismos.

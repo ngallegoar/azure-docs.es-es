@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: Zhchia
-ms.openlocfilehash: 43f5b96c7029da6b49bc9df40d92fbd250145715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e79f21300325c6b451dd564bf2c69830f003f55c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326038"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357868"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Tutorial: Configuración de Priority Matrix para el aprovisionamiento automático de usuarios
 
@@ -83,7 +83,7 @@ Para configurar Priority Matrix para el aprovisionamiento automático de usuario
 
     ![Priority Matrix en la lista de resultados](common/search-new-app.png)
 
-5. Seleccione el botón **Registrarse en Priority Matrix**; se le redirigirá a la página de inicio de sesión de Priority Matrix. 
+5. Seleccione el botón **Registrarse en Priority Matrix** ; se le redirigirá a la página de inicio de sesión de Priority Matrix. 
 
     ![Incorporación de OIDC de Priority Matrix](media/priority-matrix-provisioning-tutorial/signup.png)
 
@@ -120,17 +120,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://sync.appfluence.com/scim/v2/` en la **URL de inquilino**. Escriba el valor que recuperó y guardó anteriormente de Priority Matrix en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Priority Matrix. Si la conexión no se establece, asegúrese de que la cuenta de Priority Matrix tenga permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://sync.appfluence.com/scim/v2/` en la **URL de inquilino**. Escriba el valor que recuperó y guardó anteriormente de Priority Matrix en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Priority Matrix. Si la conexión no se establece, asegúrese de que la cuenta de Priority Matrix tenga permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Priority Matrix** (Sincronizar usuarios de Azure Active Directory con Priority Matrix).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Priority Matrix** (Sincronizar usuarios de Azure Active Directory con Priority Matrix).
 
     ![Asignaciones de usuario de Priority Matrix](media/priority-matrix-provisioning-tutorial/usermappings.png)
 
@@ -144,7 +144,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Priority Matrix.
+12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Priority Matrix.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

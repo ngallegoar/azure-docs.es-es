@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533910"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410584"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 
@@ -86,11 +86,11 @@ Otras funcionalidades de Azure Active Directory incluyen:
 
 - Azure AD habilita SSO para las aplicaciones SaaS, independientemente de donde estén hospedadas. Algunas aplicaciones están federadas con Azure AD y otras usan SSO con contraseña. Las aplicaciones federadas también pueden admitir aprovisionamiento de usuarios y [almacén de contraseñas](https://www.techopedia.com/definition/31415/password-vault).
 
-- El acceso a datos en [Azure Storage](https://azure.microsoft.com/services/storage/) se controla mediante la autenticación. Cada cuenta de almacenamiento tiene una clave principal ([clave de la cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md), o SAK) y una clave secreta secundaria (la firma de acceso compartido, o SAS).
+- El acceso a datos en [Azure Storage](https://azure.microsoft.com/services/storage/) se controla mediante la autenticación. Cada cuenta de almacenamiento tiene una clave principal ([clave de la cuenta de almacenamiento](../../storage/common/storage-account-create.md), o SAK) y una clave secreta secundaria (la firma de acceso compartido, o SAS).
 
-- Azure AD proporciona identidad como servicio a través de la federación (mediante los [Servicios de federación de Active Directory](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)), sincronización y replicación de directorios locales.
+- Azure AD proporciona identidad como servicio a través de la federación (mediante los [Servicios de federación de Active Directory](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)), sincronización y replicación de directorios locales.
 
-- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) es el servicio de autenticación multifactor que requiere que los usuarios también comprueben los inicios de sesión mediante una aplicación móvil, una llamada de teléfono o un mensaje de texto. Se puede usar con Azure AD como ayuda para proteger los recursos locales con el servidor de Azure Multi-Factor Authentication, y también con aplicaciones y directorios personalizados mediante el SDK.
+- [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) es el servicio de autenticación multifactor que requiere que los usuarios también comprueben los inicios de sesión mediante una aplicación móvil, una llamada de teléfono o un mensaje de texto. Se puede usar con Azure AD como ayuda para proteger los recursos locales con el servidor de Azure Multi-Factor Authentication, y también con aplicaciones y directorios personalizados mediante el SDK.
 
 - [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) permite unir máquinas virtuales de Azure a un dominio de Active Directory sin implementar controladores de dominio. Puede conectarse a estas máquinas virtuales con sus credenciales corporativas de Active Directory y administrar las máquinas virtuales unidas a un dominio mediante una directiva de grupo para aplicar una base de referencia de seguridad en todas sus máquinas virtuales de Azure.
 
@@ -119,7 +119,7 @@ Microsoft Azure proporciona diversos servicios de computación en la nube que in
 
 ### <a name="dedicated-hosts"></a>Hosts dedicados
 
-Además de los hosts aislados descritos en la sección anterior, Azure también ofrece hosts dedicados. Los hosts dedicados de Azure son un servicio que proporciona servidores físicos capaces de hospedar una o varias máquinas virtuales, y que están dedicados a una única suscripción de Azure. Los hosts dedicados ofrecen aislamiento del hardware a nivel de servidor físico. No se colocarán otras máquinas virtuales en los hosts. Los hosts dedicados se implementan en los mismos centros de datos y comparten la misma red y la misma infraestructura de almacenamiento subyacente que otros hosts no aislados. Para obtener más información, consulte la introducción detallada a los [hosts dedicados de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+Además de los hosts aislados descritos en la sección anterior, Azure también ofrece hosts dedicados. Los hosts dedicados de Azure son un servicio que proporciona servidores físicos capaces de hospedar una o varias máquinas virtuales, y que están dedicados a una única suscripción de Azure. Los hosts dedicados ofrecen aislamiento del hardware a nivel de servidor físico. No se colocarán otras máquinas virtuales en los hosts. Los hosts dedicados se implementan en los mismos centros de datos y comparten la misma red y la misma infraestructura de almacenamiento subyacente que otros hosts no aislados. Para obtener más información, consulte la introducción detallada a los [hosts dedicados de Azure](../../virtual-machines/dedicated-hosts.md).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Aislamiento de Hyper-V y sistema operativo raíz entre la máquina virtual raíz y las máquinas virtuales invitadas
 
@@ -194,7 +194,7 @@ Por tanto, Azure Storage se ejecuta en hardware independiente sin conectividad d
 
 ![Aislamiento con Storage Access Control](./media/isolation-choices/azure-isolation-fig9.png)
 
-**El acceso a los datos de Azure Storage (incluidas las tablas)** se puede controlar con un token [SAS (Firma de acceso compartido)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md), que concede acceso de ámbito. El token SAS se crea mediante una plantilla de consulta (URL) firmada con la [SAK (Clave de la cuenta de almacenamiento)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Esta [URL firmada](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) se puede entregar a otro proceso (delegado), que puede completar los detalles de la consulta y hacer la petición al servicio de almacenamiento. Un token SAS le permite conceder acceso temporal a los clientes sin revelar la clave secreta de la cuenta de almacenamiento.
+**El acceso a los datos de Azure Storage (incluidas las tablas)** se puede controlar con un token [SAS (Firma de acceso compartido)](../../storage/common/storage-sas-overview.md), que concede acceso de ámbito. El token SAS se crea mediante una plantilla de consulta (URL) firmada con la [SAK (Clave de la cuenta de almacenamiento)](/previous-versions/azure/reference/ee460785(v=azure.100)). Esta [URL firmada](../../storage/common/storage-sas-overview.md) se puede entregar a otro proceso (delegado), que puede completar los detalles de la consulta y hacer la petición al servicio de almacenamiento. Un token SAS le permite conceder acceso temporal a los clientes sin revelar la clave secreta de la cuenta de almacenamiento.
 
 Esto significa que puede conceder permisos limitados a los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos. Se pueden conceder estos permisos limitados sin tener que compartir las claves de acceso de su cuenta.
 
@@ -225,13 +225,13 @@ Para muchas organizaciones, el [cifrado de los datos en reposo](isolation-choice
 
 - [Cifrado del servicio de almacenamiento](../../storage/blobs/security-recommendations.md) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
 - [Cifrado de cliente](../../storage/blobs/security-recommendations.md) también proporciona la característica de cifrado en reposo.
-- [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
+- [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) para máquinas virtuales le ayuda solucionar los aspectos de seguridad y cumplimiento normativo de su organización, ya que cifra los discos de las máquinas virtuales (incluidos los discos de inicio y de datos) con claves y directivas que se controlan en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) para máquinas virtuales le ayuda solucionar los aspectos de seguridad y cumplimiento normativo de su organización, ya que cifra los discos de las máquinas virtuales (incluidos los discos de inicio y de datos) con claves y directivas que se controlan en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-La solución Cifrado de discos para Windows se basa en la tecnología de [Cifrado de unidad BitLocker de Microsoft](https://technet.microsoft.com/library/cc732774.aspx), y la solución de Linux se basa en [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+La solución Cifrado de discos para Windows se basa en la tecnología de [Cifrado de unidad BitLocker de Microsoft](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)), y la solución de Linux se basa en [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 La solución admite los siguientes escenarios para las máquinas virtuales IaaS cuando se habilitan en Microsoft Azure:
 
@@ -243,7 +243,7 @@ La solución admite los siguientes escenarios para las máquinas virtuales IaaS 
 - Habilitación del cifrado en máquinas virtuales IaaS que ejecutan el sistema operativo cliente de Windows
 - Habilitación del cifrado en volúmenes con rutas de montaje
 - Habilitación del cifrado en máquinas virtuales Linux configuradas con seccionamiento de disco (RAID) mediante [mdadm](https://en.wikipedia.org/wiki/Mdadm)
-- Habilitación del cifrado en máquinas virtuales Linux mediante el uso de [LVM (administrador de discos lógicos)](https://msdn.microsoft.com/library/windows/desktop/bb540532) en los discos de datos
+- Habilitación del cifrado en máquinas virtuales Linux mediante el uso de [LVM (administrador de discos lógicos)](/windows/win32/fileio/about-volume-management) en los discos de datos
 - Habilitación del cifrado en máquinas virtuales con Windows configuradas mediante Espacios de almacenamiento
 - Se admiten todas las regiones públicas de Azure.
 

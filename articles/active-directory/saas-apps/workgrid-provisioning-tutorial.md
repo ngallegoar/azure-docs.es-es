@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: f5f7ed8a905aad873ecfc878979ac32af1e21730
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee656f147bd27ff782121f088a239a7337d81075
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312250"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359772"
 ---
 # <a name="tutorial-configure-workgrid--for-automatic-user-provisioning"></a>Tutorial: Configuración de Workgrid para el aprovisionamiento automático de usuarios
 
@@ -83,7 +83,7 @@ Para configurar Workgrid para el aprovisionamiento automático de usuarios con A
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Workgrid**, seleccione **Workgrid** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Workgrid** , seleccione **Workgrid** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Workgrid en la lista de resultados](common/search-new-app.png)
 
@@ -116,13 +116,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Workgrid** (Sincronizar usuarios de Azure Active Directory con Workgrid).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Workgrid** (Sincronizar usuarios de Azure Active Directory con Workgrid).
 
     ![Captura de pantalla de la sección Mappings (Asignaciones) con la opción Synchronize Azure Active Directory Users to Workgrid (Sincronizar usuarios de Azure Active Directory con Workgrid) seleccionada.](media/Workgrid-provisioning-tutorial/usermapping.png)
 
@@ -130,7 +130,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Atributos de usuario de Workgrid](media/Workgrid-provisioning-tutorial/userattribute.png)
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Workgrid** (Sincronizar grupos de Azure Active Directory con Workgrid).
+10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Workgrid** (Sincronizar grupos de Azure Active Directory con Workgrid).
 
     ![Captura de pantalla de la sección Mappings (Asignaciones) con la opción Synchronize Azure Active Directory Groups to Workgrid (Sincronizar grupos de Azure Active Directory con Workgrid) seleccionada.](media/Workgrid-provisioning-tutorial/groupmapping.png)
 
@@ -144,7 +144,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-15. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Workgrid.
+15. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Workgrid.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

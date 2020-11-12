@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: jeedes
-ms.openlocfilehash: e08c748dec6d21e1ff5d848257c65aa3f8f5aa63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0165e5191a8cd499b42c14704fdf4f0d79b3f6b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300038"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358548"
 ---
 # <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>Tutorial: Configuración de Leapsome para el aprovisionamiento automático de usuarios
 
@@ -82,7 +82,7 @@ Antes de configurar Leapsome para el aprovisionamiento automático de usuarios c
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Leapsome**, seleccione **Leapsome** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Leapsome** , seleccione **Leapsome** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Leapsome en la lista de resultados](common/search-new-app.png)
 
@@ -111,17 +111,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://www.leapsome.com/api/scim` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a Leapsome. Si la conexión no se establece, asegúrese de que la cuenta de Leapsome tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://www.leapsome.com/api/scim` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a Leapsome. Si la conexión no se establece, asegúrese de que la cuenta de Leapsome tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Leapsome** (Sincronizar usuarios de Azure Active Directory con Leapsome).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Leapsome** (Sincronizar usuarios de Azure Active Directory con Leapsome).
 
     ![Leapsome: Asignaciones de usuarios](media/Leapsome-provisioning-tutorial/Leapsome-user-mappings.png)
 
@@ -129,7 +129,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Leapsome: Atributos de usuario](media/Leapsome-provisioning-tutorial/Leapsome-user-attributes.png)
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Leapsome** (Sincronizar grupos de Azure Active Directory con Leapsome).
+10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Leapsome** (Sincronizar grupos de Azure Active Directory con Leapsome).
 
     ![Leapsome: Asignaciones de grupos](media/Leapsome-provisioning-tutorial/Leapsome-group-mappings.png)
 
@@ -143,7 +143,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Leapsome.
+14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Leapsome.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

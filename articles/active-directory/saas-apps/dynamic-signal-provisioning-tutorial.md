@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 263a67fd8fba2c336d1ed4d91475386a8ae175dd
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851244"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359024"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutorial: Configurar Dynamic Signal para el aprovisionamiento automático de usuarios
 
@@ -53,7 +53,7 @@ Antes de configurar Dynamic Signal para el aprovisionamiento automático de usua
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Dynamic Signal**, seleccione **Dynamic Signal** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Dynamic Signal** , seleccione **Dynamic Signal** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Dynamic Signal en la lista de resultados](common/search-new-app.png)
 
@@ -96,7 +96,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, especifique los valores de **URL de inquilino** y **Token secreto** de la cuenta de Dynamic Signal, como se describe en el paso 6.
+5. En la sección **Credenciales de administrador** , especifique los valores de **URL de inquilino** y **Token secreto** de la cuenta de Dynamic Signal, como se describe en el paso 6.
 
 6. En la consola de administración de Dynamic Signal, vaya a **Admin > Avanzado > API**.
 
@@ -104,19 +104,19 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     Copie la **dirección URL de la API de SCIM** en **URL de inquilino**. Haga clic en **Generar nuevo token** para generar un **token de portador** y copie el valor a **Token secreto**.
 
-    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Captura de pantalla de la consola de administración de Dynamic Signal. Se resalta la opción Avanzado en el menú de administración. El menú Avanzado también está visible, con la opción API resaltada." border="false":::
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Captura de pantalla de la página Tokens, con las opciones SCIM API URL (Dirección URL de la API de SCIM), Generar nuevo token y Bearer token (Token de portador) resaltadas, y un marcador de posición en el cuadro Bearer token (Token de portador)." border="false":::
 
 7. Tras rellenar los campos que se muestran en el paso 5, haga clic en **Probar conexión** para asegurarse de que Azure AD se puede conectar a Dynamic Signal. Si la conexión no se establece, asegúrese de que la cuenta de Dynamic Signal tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-9. Haga clic en **Save**(Guardar).
+9. Haga clic en **Save** (Guardar).
 
-10. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Dynamic Signal**.
+10. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Dynamic Signal**.
 
     ![Asignaciones de usuario de Dynamic Signal](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 

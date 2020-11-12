@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397256"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412789"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado de datos en reposo de Azure
 
@@ -48,7 +48,7 @@ El cifrado en reposo proporciona protección de datos para los datos almacenados
 
 El cifrado en reposo está diseñado para evitar que el atacante obtenga acceso a los datos sin cifrar asegurándose de que los datos se cifran en el disco. Si un atacante obtiene una unidad de disco duro con datos cifrados pero no las claves de cifrado, el atacante debe anular el cifrado para leer los datos. Este ataque es mucho más complejo y consume más recursos que el acceso a datos no cifrados en una unidad de disco duro. Por este motivo, el cifrado en reposo es muy recomendable y es un requisito de alta prioridad para muchas organizaciones.
 
-También se requiere el cifrado en reposo por necesidad de la organización de los esfuerzos de cumplimiento y gobierno de datos. Las normas gubernamentales y del sector, como HIPAA, PCI y FedRAMP, diseñan las medidas de seguridad específicas a través de los requisitos de cifrado y la protección de datos. El cifrado en reposo es una medida obligatoria necesaria para el cumplimiento de algunas de esas regulaciones. Para más información sobre el enfoque de Microsoft en relación con la validación de FIPS 140-2, consulte [Publicación del estándar federal de procesamiento de información (FIPS) 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2).
+También se requiere el cifrado en reposo por necesidad de la organización de los esfuerzos de cumplimiento y gobierno de datos. Las normas gubernamentales y del sector, como HIPAA, PCI y FedRAMP, diseñan las medidas de seguridad específicas a través de los requisitos de cifrado y la protección de datos. El cifrado en reposo es una medida obligatoria necesaria para el cumplimiento de algunas de esas regulaciones. Para más información sobre el enfoque de Microsoft en relación con la validación de FIPS 140-2, consulte [Publicación del estándar federal de procesamiento de información (FIPS) 140-2](/microsoft-365/compliance/offering-fips-140-2).
 
 Además de satisfacer los requisitos de cumplimiento y regulatorios, el cifrado en reposo proporciona protección de defensa en profundidad. Microsoft Azure proporciona una plataforma compatible para servicios, aplicaciones y datos. También proporciona servicios completos y seguridad física, control de acceso a los datos y auditoría. Sin embargo, es importante proporcionar medidas de seguridad "superpuestas" adicionales en caso de que se produzca un error en una de las otras medidas de seguridad y el cifrado en reposo proporciona dicha medida de seguridad.
 
@@ -115,22 +115,22 @@ Los servicios de Microsoft Azure admitir uno o más modelos de cifrado en reposo
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Cualquier cliente mediante las características de la infraestructura de Azure como servicio (IaaS) puede lograr el cifrado en reposo para sus discos y máquinas virtuales de IaaS y discos mediante Azure Disk Encryption. Para más información sobre Azure Disk Encryption, vea la [documentación de Azure Disk Encryption](../azure-security-disk-encryption-overview.md).
+Cualquier cliente mediante las características de la infraestructura de Azure como servicio (IaaS) puede lograr el cifrado en reposo para sus discos y máquinas virtuales de IaaS y discos mediante Azure Disk Encryption. Para más información sobre Azure Disk Encryption, vea la [documentación de Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md).
 
 #### <a name="azure-storage"></a>Almacenamiento de Azure
 
 Todos los servicios de Azure Storage (Blob Storage, Queue Storage, Table Storage y Azure Files) admiten el cifrado en reposo en el lado servidor; algunos servicios admiten además el cifrado de las claves administradas por el cliente y el cifrado del lado cliente.
 
-- Lado servidor: de forma predeterminada, todos los servicios de Azure Storage admiten el cifrado en el lado servidor mediante claves administradas por el servicio, lo que es transparente para la aplicación. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](../../storage/common/storage-service-encryption.md). Azure Blob Storage y Azure Files también admiten las claves RSA de 2048 bits administradas por el cliente en Azure Key Vault. Para más información, consulte [Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
+- Lado servidor: de forma predeterminada, todos los servicios de Azure Storage admiten el cifrado en el lado servidor mediante claves administradas por el servicio, lo que es transparente para la aplicación. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](../../storage/common/storage-service-encryption.md). Azure Blob Storage y Azure Files también admiten las claves RSA de 2048 bits administradas por el cliente en Azure Key Vault. Para más información, consulte [Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).
 - Lado cliente: Azure Blobs, Tables y Queues admiten el cifrado en el lado cliente. Cuando se usa el cifrado del lado cliente, los clientes cifran los datos y los cargan como un blob cifrado. El cliente se encarga de la administración de claves. Consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md) para más información.
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
 Azure SQL Database admite actualmente el cifrado en reposo para escenarios de cifrado en el lado cliente y en el lado servicio administrados por Microsoft.
 
-Actualmente, la compatibilidad con el cifrado del servidor se proporciona a través de una característica de SQL denominada Cifrado de datos transparente. Una vez que un cliente de Azure SQL Database habilita la clave TDE, se crea y administra automáticamente para él. El cifrado en reposo puede habilitarse en los niveles de base de datos y servidor. Desde junio de 2017, el [cifrado de datos transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) se habilita de forma predeterminada en las bases de datos recién creadas. Azure SQL Database admite claves RSA de 2048 bits administradas por el cliente en Azure Key Vault. Para más información, consulte [Cifrado de datos transparente con BYOK (Bring Your Own Key) para Azure SQL Database y Azure SQL Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+Actualmente, la compatibilidad con el cifrado del servidor se proporciona a través de una característica de SQL denominada Cifrado de datos transparente. Una vez que un cliente de Azure SQL Database habilita la clave TDE, se crea y administra automáticamente para él. El cifrado en reposo puede habilitarse en los niveles de base de datos y servidor. Desde junio de 2017, el [cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) se habilita de forma predeterminada en las bases de datos recién creadas. Azure SQL Database admite claves RSA de 2048 bits administradas por el cliente en Azure Key Vault. Para más información, consulte [Cifrado de datos transparente con BYOK (Bring Your Own Key) para Azure SQL Database y Azure SQL Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
-Se admite el cifrado del lado cliente de los datos de Azure SQL Database a través de la característica [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). Always Encrypted utiliza una clave que el cliente crea y almacena. Los clientes pueden almacenar la clave maestra en el almacén de certificados de Windows, Azure Key Vault, o un módulo de seguridad de hardware. Al usar SQL Server Management Studio, los usuarios de SQL eligen qué clave les gustaría usar para cifrar cada columna.
+Se admite el cifrado del lado cliente de los datos de Azure SQL Database a través de la característica [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted utiliza una clave que el cliente crea y almacena. Los clientes pueden almacenar la clave maestra en el almacén de certificados de Windows, Azure Key Vault, o un módulo de seguridad de hardware. Al usar SQL Server Management Studio, los usuarios de SQL eligen qué clave les gustaría usar para cifrar cada columna.
 
 ## <a name="conclusion"></a>Conclusión
 

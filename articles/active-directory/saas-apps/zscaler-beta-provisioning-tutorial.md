@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 001d139e7fc140f41fa94ea0c6f32d0b08036a9a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: de42230639351c0dc1e7986156a33b178386d1a4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519784"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357749"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler Beta para el aprovisionamiento automático de usuarios
 
@@ -44,11 +44,11 @@ Antes de configurar Zscaler Beta para el aprovisionamiento automático de usuari
 
 **Para agregar Zscaler Beta desde la galería de aplicaciones de Azure AD, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -83,19 +83,19 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Zscaler Beta en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y, a continuación, **Zscaler Beta** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y, a continuación, **Zscaler Beta**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Zscaler Beta** .
+2. En la lista de aplicaciones, seleccione **Zscaler Beta**.
 
     ![El vínculo de Zscaler Beta en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento** .
+3. Seleccione la pestaña **Aprovisionamiento**.
 
     ![Aprovisionamiento de Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/provisioning-tab.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático** .
+4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Aprovisionamiento de Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/provisioning-credentials.png)
 
@@ -105,7 +105,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Aprovisionamiento de Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
 
-    Haga clic en **Configure SAML** (Configurar SAML) para abrir las opciones de **configuración de SAML** .
+    Haga clic en **Configure SAML** (Configurar SAML) para abrir las opciones de **configuración de SAML**.
 
     ![Aprovisionamiento de Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
@@ -115,7 +115,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Aprovisionamiento de Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/test-connection.png)
 
-8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
+8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Aprovisionamiento de Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/notification.png)
 
@@ -147,11 +147,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Aprovisionamiento de Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/scoping.png)
 
-17. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
+17. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
     ![Aprovisionamiento de Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/save-provisioning.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Zscaler Beta.
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Zscaler Beta.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 

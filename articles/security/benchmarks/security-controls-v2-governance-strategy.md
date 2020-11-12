@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 420ab87591e230592ec8f728c6acb155266b5912
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0930e0845e8e8bd6dc4571dc3e8e27491a7be6
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403533"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408799"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Control de seguridad V2: Gobernanza y estrategia
 
@@ -45,19 +45,19 @@ Esta estrategia debe incluir instrucciones, directivas y estándares documentado
 - Normas criptográficas adecuadas
 
 Para más información, consulte las siguientes referencias:
-- [Recomendación para la arquitectura de seguridad de Azure: almacenamiento, datos y cifrado](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Recomendación para la arquitectura de seguridad de Azure: almacenamiento, datos y cifrado](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%252fsecurity%252fcompass%252fbreadcrumb%252ftoc.json&toc=%252fsecurity%252fcompass%252ftoc.json)
 
 - [Aspectos básicos de la seguridad de Azure: seguridad, cifrado y almacenamiento de datos de Azure](../fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework: procedimientos recomendados de cifrado y seguridad de los datos de Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework: procedimientos recomendados de cifrado y seguridad de los datos de Azure](../fundamentals/data-encryption-best-practices.md?amp;bc=%252fazure%252fcloud-adoption-framework%252f_bread%252ftoc.json&toc=%252fazure%252fcloud-adoption-framework%252ftoc.json)
 
 - [Azure Security Benchmark: administración de recursos](security-controls-v2-asset-management.md)
 
 - [Azure Security Benchmark: protección de datos](security-controls-v2-data-protection.md)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Todas las partes interesadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -79,9 +79,9 @@ Asegúrese de que la estrategia de segmentación se implementa de forma coherent
 
 - [Alineación de la segmentación de red con la estrategia de segmentación empresarial](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Todas las partes interesadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -95,9 +95,9 @@ Mida y mitigue continuamente los riesgos de los recursos individuales y el entor
 
 - [Azure Security Benchmark: administración de posturas y vulnerabilidades](security-controls-v2-posture-vulnerability-management.md)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Todas las partes interesadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -109,15 +109,15 @@ Mida y mitigue continuamente los riesgos de los recursos individuales y el entor
 
 Asegúrese de documentar y comunicar una estrategia clara para los roles y las responsabilidades de la organización de seguridad. Dé prioridad a ofrecer una responsabilidad clara en las decisiones de seguridad, a proporcionar a todos los usuarios formación sobre el modelo de responsabilidad compartida y a los equipos técnicos sobre la tecnología para proteger la nube.
 
-- [Procedimiento recomendado de seguridad de Azure 1. Personas: Formación del equipo sobre el recorrido de seguridad de la nube](https://aka.ms/AzSec1)
+- [Procedimiento recomendado de seguridad de Azure 1. Personas: Formación del equipo sobre el recorrido de seguridad de la nube](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
-- [Procedimiento recomendado de seguridad de Azure 2. Personas: Formación del equipo en tecnología de seguridad de la nube](https://aka.ms/AzSec2)
+- [Procedimiento recomendado de seguridad de Azure 2. Personas: Formación del equipo en tecnología de seguridad de la nube](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
 
-- [Procedimiento recomendado de seguridad de Azure 3. Proceso: Asignación de responsabilidades por las decisiones de seguridad en la nube](https://aka.ms/AzSec3)
+- [Procedimiento recomendado de seguridad de Azure 3. Proceso: Asignación de responsabilidades por las decisiones de seguridad en la nube](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Todas las partes interesadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -145,7 +145,7 @@ Esta estrategia debe incluir instrucciones, directivas y estándares documentado
 
 Para más información, consulte las siguientes referencias:
 
-- [Procedimiento recomendado de seguridad de Azure 11. Arquitectura: Establecimiento de una estrategia de seguridad unificada](https://aka.ms/AzSec11)
+- [Procedimiento recomendado de seguridad de Azure 11. Arquitectura: Establecimiento de una estrategia de seguridad unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure Security Benchmark: seguridad de red](security-controls-v2-network-security.md)
 
@@ -153,9 +153,9 @@ Para más información, consulte las siguientes referencias:
 
 - [Estrategia para la arquitectura de red empresarial](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Todas las partes interesadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -185,13 +185,13 @@ Para más información, consulte las siguientes referencias:
 
 - [Azure Security Benchmark: acceso con privilegios](security-controls-v2-privileged-access.md)
 
-- [Procedimiento recomendado de seguridad de Azure 11. Arquitectura: Establecimiento de una estrategia de seguridad unificada](https://aka.ms/AzSec11)
+- [Procedimiento recomendado de seguridad de Azure 11. Arquitectura: Establecimiento de una estrategia de seguridad unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Información general sobre seguridad de administración de identidades de Azure](../fundamentals/identity-management-overview.md)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Todas las partes interesadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -224,15 +224,15 @@ Para más información, consulte las siguientes referencias:
 
 - [Azure Security Benchmark: respuesta a incidentes](security-controls-v2-incident-response.md)
 
-- [Procedimiento recomendado de seguridad de Azure 4. Proceso: Actualización de los procesos de respuesta a incidentes para la nube](https://aka.ms/AzSec4)
+- [Procedimiento recomendado de seguridad de Azure 4. Proceso: Actualización de los procesos de respuesta a incidentes para la nube](/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
 
 - [Guía de decisiones sobre registros e informes en Azure Adoption Framework](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
 - [Escala, administración y supervisión empresarial de Azure](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Todas las partes interesadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -259,9 +259,8 @@ Para más información, consulte las siguientes referencias:
 
 - [Azure Adoption Framework: continuidad empresarial y recuperación ante desastres](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Todas las partes interesadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
-

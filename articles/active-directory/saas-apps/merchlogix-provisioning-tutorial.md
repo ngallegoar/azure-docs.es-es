@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: 9be2205ad0664d58c7a2ef0c07481b1c7aa02402
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4d0a52f06a751fba57a00615e2d57485ff740d04
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273354"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359704"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Tutorial: Configuración de MerchLogix para el aprovisionamiento automático de usuarios
 
@@ -90,23 +90,23 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la sección MerchLogix - Prisioning con la opción de aprovisionamiento resaltada, el modo de aprovisionamiento establecido en automático y la opción para probar la conexión resaltada.](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
-5. En la sección **Credenciales de administrador**:
+5. En la sección **Credenciales de administrador** :
 
-    * En el campo **URL de inquilino**, escriba la dirección URL de punto de conexión de SCIM proporcionada por el contacto técnico de MerchLogix.
+    * En el campo **URL de inquilino** , escriba la dirección URL de punto de conexión de SCIM proporcionada por el contacto técnico de MerchLogix.
 
-    * En el campo **Token secreto**, escriba el token secreto proporcionada por el contacto técnico de MerchLogix.
+    * En el campo **Token secreto** , escriba el token secreto proporcionada por el contacto técnico de MerchLogix.
 
 6. Tras rellenar los campos que se muestran en el paso 5, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a MerchLogix. Si la conexión no se establece, asegúrese de que la cuenta de MerchLogix tenga permisos de administrador y pruebe otra vez.
 
-7. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+7. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
-8. Haga clic en **Save**(Guardar).
+8. Haga clic en **Save** (Guardar).
 
-9. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con MerchLogix**.
+9. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con MerchLogix**.
 
 10. Revise los atributos de usuario que se sincronizan entre Azure AD y MerchLogix en la sección **Attribute Mapping** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de MerchLogix con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-11. En la sección **Asignaciones**, seleccione **Sincronizar grupos de Azure Active Directory con MerchLogix**.
+11. En la sección **Asignaciones** , seleccione **Sincronizar grupos de Azure Active Directory con MerchLogix**.
 
 12. Revise los atributos de grupo que se sincronizan entre Azure AD y MerchLogix en la sección **Attribute Mapping** (Asignación de atributos). Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con los grupos de MerchLogix para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 

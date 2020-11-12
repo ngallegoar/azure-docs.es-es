@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 54c14f1ef78694055c567ded0fdccede062605ba
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 48d0483247f610a1e8c7491e13ea86883bf8f341
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400322"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410375"
 ---
 # <a name="azure-identity-management-security-overview"></a>Información general sobre seguridad de administración de identidades de Azure
 
- La administración de identidades es el proceso de autenticación y autorización de las [entidades de seguridad](/windows/security/identity-protection/access-control/security-principals). También implica controlar información acerca de esas entidades de seguridad (identidades). Las entidades de seguridad (identidades) pueden incluir servicios, aplicaciones, usuarios, grupos, etc. Las soluciones de administración de identidades y acceso de Microsoft ayudan al departamento de TI a proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube. Esta protección permite que haya más niveles de validación, como Multi-Factor Authentication y las directivas de acceso condicional. La supervisión de actividades sospechosas mediante auditorías, alertas e informes de seguridad avanzados contribuye a minimizar los posibles problemas de seguridad. [Azure Active Directory Premium](/azure/active-directory/active-directory-editions) ofrece un inicio de sesión único (SSO) para miles de aplicaciones de software como servicio (SaaS) en la nube y acceso a aplicaciones web que se ejecutan de forma local.
+ La administración de identidades es el proceso de autenticación y autorización de las [entidades de seguridad](/windows/security/identity-protection/access-control/security-principals). También implica controlar información acerca de esas entidades de seguridad (identidades). Las entidades de seguridad (identidades) pueden incluir servicios, aplicaciones, usuarios, grupos, etc. Las soluciones de administración de identidades y acceso de Microsoft ayudan al departamento de TI a proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube. Esta protección permite que haya más niveles de validación, como Multi-Factor Authentication y las directivas de acceso condicional. La supervisión de actividades sospechosas mediante auditorías, alertas e informes de seguridad avanzados contribuye a minimizar los posibles problemas de seguridad. [Azure Active Directory Premium](../../active-directory/fundamentals/active-directory-whatis.md) ofrece un inicio de sesión único (SSO) para miles de aplicaciones de software como servicio (SaaS) en la nube y acceso a aplicaciones web que se ejecutan de forma local.
  
 Si aprovecha las ventajas en materia de seguridad de Azure Active Directory (Azure AD), podrá:
 
@@ -68,12 +68,12 @@ Más información:
 
 ## <a name="reverse-proxy"></a>Proxy inverso
 
-El proxy de aplicación de Azure AD permite publicar aplicaciones locales (como sitios de [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US), [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx) y aplicaciones basadas en [IIS](https://www.iis.net/)) en la red privada y proporciona un acceso seguro a los usuarios externos a la red. El proxy de aplicación ofrece acceso remoto y de SSO para muchos tipos de aplicaciones web locales, junto con las miles de aplicaciones SaaS que Azure AD admite. Los empleados pueden iniciar sesión en sus aplicaciones desde casa, en sus propios dispositivos, y autenticarse a través de este proxy basado en la nube.
+El proxy de aplicación de Azure AD permite publicar aplicaciones locales (como sitios de [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US), [Outlook Web App](/Exchange/clients/outlook-on-the-web/outlook-on-the-web) y aplicaciones basadas en [IIS](https://www.iis.net/)) en la red privada y proporciona un acceso seguro a los usuarios externos a la red. El proxy de aplicación ofrece acceso remoto y de SSO para muchos tipos de aplicaciones web locales, junto con las miles de aplicaciones SaaS que Azure AD admite. Los empleados pueden iniciar sesión en sus aplicaciones desde casa, en sus propios dispositivos, y autenticarse a través de este proxy basado en la nube.
 
 Más información:
 
-* [Habilitación del proxy de la aplicación de Azure AD](/azure/active-directory/manage-apps/application-proxy-enable)
-* [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](/azure/active-directory/active-directory-application-proxy-publish)
+* [Habilitación del proxy de la aplicación de Azure AD](../../active-directory/manage-apps/application-proxy-add-on-premises-application.md)
+* [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](../../active-directory/manage-apps/application-proxy-add-on-premises-application.md)
 * [Inicio de sesión único con el proxy de aplicación](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Uso del acceso condicional](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
@@ -84,22 +84,22 @@ Azure Multi-factor Authentication es un método de autenticación que requiere e
 Más información:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [¿Qué es Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
+* [¿Qué es Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [Cómo funciona Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Azure RBAC
 
 RBAC de Azure es un sistema de autorización basado en Azure Resource Manager que proporciona administración pormenorizada del acceso a los recursos de Azure. RBAC de Azure permite controlar de forma pormenorizada el nivel de acceso que tienen los usuarios. Por ejemplo, puede limitar a un usuario para que solo administre redes virtuales y otro usuario para que administre todos los recursos de un grupo de recursos. Azure incluye varios roles integrados que puede usar. A continuación se enumeran cuatros roles integrados fundamentales. Los tres primeros se aplican a todos los tipos de recursos.
 
-- [Propietario](/azure/role-based-access-control/built-in-roles#owner): tiene acceso total a todos los recursos, incluido el derecho a delegar este acceso a otros. 
-- [Colaborador](/azure/role-based-access-control/built-in-roles#contributor): puede crear y administrar todos los tipos de recursos de Azure, pero no puede conceder acceso a otros.
-- [Lector](/azure/role-based-access-control/built-in-roles#reader): puede ver los recursos existentes de Azure.
-- [Administrador de acceso de usuario](/azure/role-based-access-control/built-in-roles#user-access-administrator): permite administrar el acceso de los usuarios a los recursos de Azure.
+- [Propietario](../../role-based-access-control/built-in-roles.md#owner): tiene acceso total a todos los recursos, incluido el derecho a delegar este acceso a otros. 
+- [Colaborador](../../role-based-access-control/built-in-roles.md#contributor): puede crear y administrar todos los tipos de recursos de Azure, pero no puede conceder acceso a otros.
+- [Lector](../../role-based-access-control/built-in-roles.md#reader): puede ver los recursos existentes de Azure.
+- [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator): permite administrar el acceso de los usuarios a los recursos de Azure.
 
 Más información:
 
-* [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](/azure/role-based-access-control/overview)
-* [Roles integrados en los recursos de Azure](/azure/role-based-access-control/built-in-roles)
+* [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md)
+* [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Supervisión de seguridad, alertas e informes basados en aprendizaje automático
 
@@ -107,17 +107,17 @@ La supervisión de seguridad, las alertas y los informes basados en aprendizaje 
 
 En Azure Portal, los informes se dividen en las siguientes categorías:
 
-* **Informes de anomalías**: contienen eventos de inicio de sesión que se consideran anómalos. Nuestro objetivo es que sea consciente de dicha actividad y que pueda tomar una decisión sobre si un evento es sospechoso.
-* **Informes de aplicaciones integradas**: proporciona información sobre cómo se usan en la organización las aplicaciones en la nube. Azure AD ofrece integración con miles de aplicaciones en la nube.
-* **Informes de errores**: indican errores que se pueden producir al aprovisionar cuentas en aplicaciones externas.
-* **Informes específicos del usuario**: muestran los datos de actividad de dispositivo o de inicio de sesión de un usuario concreto.
-* **Registros de actividad**: contienen un registro de todos los eventos auditados en las últimas 24 horas, los últimos 7 días o los últimos 30 días, así como los cambios en la actividad del grupo y la actividad de registro y de restablecimiento de contraseña.
+* **Informes de anomalías** : contienen eventos de inicio de sesión que se consideran anómalos. Nuestro objetivo es que sea consciente de dicha actividad y que pueda tomar una decisión sobre si un evento es sospechoso.
+* **Informes de aplicaciones integradas** : proporciona información sobre cómo se usan en la organización las aplicaciones en la nube. Azure AD ofrece integración con miles de aplicaciones en la nube.
+* **Informes de errores** : indican errores que se pueden producir al aprovisionar cuentas en aplicaciones externas.
+* **Informes específicos del usuario** : muestran los datos de actividad de dispositivo o de inicio de sesión de un usuario concreto.
+* **Registros de actividad** : contienen un registro de todos los eventos auditados en las últimas 24 horas, los últimos 7 días o los últimos 30 días, así como los cambios en la actividad del grupo y la actividad de registro y de restablecimiento de contraseña.
 
 Más información:
 
-* [Visualización de los informes de acceso y uso](/azure/active-directory/active-directory-view-access-usage-reports)
-* [Introducción a los informes de Azure Active Directory](/azure/active-directory/active-directory-reporting-getting-started)
-* [Guía de informes de Azure Active Directory](/azure/active-directory/active-directory-reporting-guide)
+* [Visualización de los informes de acceso y uso](../../active-directory/reports-monitoring/overview-reports.md)
+* [Introducción a los informes de Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)
+* [Guía de informes de Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)
 
 ## <a name="consumer-identity-and-access-management"></a>Administración de identidades y acceso de consumidores
 
@@ -135,15 +135,15 @@ Más información:
 
 ## <a name="device-registration"></a>Registro de dispositivos
 
-El registro de dispositivos de Azure AD es la base de los escenarios de [acceso condicional](/azure/active-directory/active-directory-conditional-access-device-registration-overview) basado en dispositivos. Cuando se registra un dispositivo, el Registro de dispositivos de Azure AD le proporciona una identidad que se utiliza para autenticar el dispositivo cuando el usuario inicia sesión. El dispositivo autenticado y los atributos del dispositivo pueden utilizarse para aplicar directivas de acceso condicional tanto a las aplicaciones que se hospedan en la nube como en el entorno local.
+El registro de dispositivos de Azure AD es la base de los escenarios de [acceso condicional](../../active-directory/devices/device-management-azure-portal.md) basado en dispositivos. Cuando se registra un dispositivo, el Registro de dispositivos de Azure AD le proporciona una identidad que se utiliza para autenticar el dispositivo cuando el usuario inicia sesión. El dispositivo autenticado y los atributos del dispositivo pueden utilizarse para aplicar directivas de acceso condicional tanto a las aplicaciones que se hospedan en la nube como en el entorno local.
 
 Cuando se combina con una solución de administración de dispositivos móviles como Intune, los atributos del dispositivo en Azure AD se actualizan con información adicional sobre este. Luego se pueden crear reglas de acceso condicional que exijan que el acceso desde los dispositivos cumpla las normas de seguridad y cumplimiento.
 
 Más información:
 
-* [Introducción al Registro de dispositivos de Azure Active Directory](/azure/active-directory/active-directory-conditional-access-device-registration-overview)
-* [Registro automático de dispositivos en Azure AD para dispositivos Windows unidos a un dominio](/azure/active-directory/active-directory-conditional-access-automatic-device-registration)
-* [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
+* [Introducción al Registro de dispositivos de Azure Active Directory](../../active-directory/devices/device-management-azure-portal.md)
+* [Registro automático de dispositivos en Azure AD para dispositivos Windows unidos a un dominio](../../active-directory/devices/hybrid-azuread-join-plan.md)
+* [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](../../active-directory/devices/hybrid-azuread-join-plan.md)
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
@@ -169,7 +169,7 @@ Azure AD Identity Protection es un servicio de seguridad que proporciona una vis
 
 Más información:
 
-* [Azure AD Identity Protection](/azure/active-directory/identity-protection/overview)
+* [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Administración de identidades híbridas/Azure AD Connect

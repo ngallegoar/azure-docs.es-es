@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: bf779918dbfb9f7b95096f3a5efcc8e64f09c403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 397aab743da25da3882c66d0fdf32c4c4d202586
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850520"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357001"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutorial: Configuración de iPass SmartConnect para aprovisionar usuarios automáticamente
 
@@ -73,7 +73,7 @@ Para configurar Smartsheet para el aprovisionamiento automático de usuarios con
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **iPass SmartConnect**, seleccione **iPass SmartConnect** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **iPass SmartConnect** , seleccione **iPass SmartConnect** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![iPass SmartConnect en la lista de resultados](common/search-new-app.png)
 
@@ -102,23 +102,23 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://openmobile.ipass.com/moservices/scim/v1` en la **URL de inquilino**. Escriba el token de portador recuperado anteriormente en el **token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a iPass SmartConnect. Si se produce un error en la conexión, asegúrese de que la cuenta de iPass SmartConnect tiene permisos de administrador y vuelva a intentarlo.
+5. En la sección **Credenciales de administrador** , escriba `https://openmobile.ipass.com/moservices/scim/v1` en la **URL de inquilino**. Escriba el token de portador recuperado anteriormente en el **token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a iPass SmartConnect. Si se produce un error en la conexión, asegúrese de que la cuenta de iPass SmartConnect tiene permisos de administrador y vuelva a intentarlo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to iPass SmartConnect** (Sincronizar los usuarios de Azure Active Directory para iPass SmartConnect).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to iPass SmartConnect** (Sincronizar los usuarios de Azure Active Directory para iPass SmartConnect).
 
     :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/usermapping.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la sincronización de usuarios de Azure Active Directory con iPass SmartConnect." border="false":::
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD e iPass SmartConnect en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de iPass SmartConnect con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la sincronización de usuarios de Azure Active Directory con iPass SmartConnect." border="false":::
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Captura de pantalla de la página Asignaciones de atributos. En una tabla se enumeran los atributos de Azure Active Directory e iPass SmartConnect y la precedencia coincidente." border="false":::
 
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -127,7 +127,7 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en iPass SmartConnect.
+12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en iPass SmartConnect.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

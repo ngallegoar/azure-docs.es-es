@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7253e257f9d721c09f2e041c1473a9d81d09a321
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094182"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427469"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Linux en Azure
 
@@ -84,7 +84,7 @@ En las siguientes instrucciones se supone que ya ha implementado la [red virtual
 
 3. Configure el grupo de capacidad de Azure NetApp Files según disponibles en [Configuración en un grupo de capacidad de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
-   - La arquitectura de la plataforma de inteligencia empresarial SAP que se presenta en este artículo utiliza un único grupo de capacidad de Azure NetApp Files, el nivel de servicio *Premium* . En el caso del servidor de repositorio de archivos de inteligencia empresarial SAP en Azure, se recomienda usar un [nivel de servicio](../../../azure-netapp-files/azure-netapp-files-service-levels.md) *Premium* o *Ultra* de Azure NetApp Files.
+   - La arquitectura de la plataforma de inteligencia empresarial SAP que se presenta en este artículo utiliza un único grupo de capacidad de Azure NetApp Files, el nivel de servicio *Premium*. En el caso del servidor de repositorio de archivos de inteligencia empresarial SAP en Azure, se recomienda usar un [nivel de servicio](../../../azure-netapp-files/azure-netapp-files-service-levels.md) *Premium* o *Ultra* de Azure NetApp Files.
 
 4. Delegue una subred en Azure NetApp Files tal como se describe en las instrucciones de [Delegación de una subred en Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
@@ -196,7 +196,7 @@ En los pasos de esta sección se usan los siguientes prefijos:
 
    **Comprobación de la configuración del dominio NFS**
 
-   Asegúrese de que el dominio esté configurado como dominio predeterminado de Azure NetApp Files, es decir, **defaultv4iddomain.com** , y de que la asignación se haya establecido en **nobody** .
+   Asegúrese de que el dominio esté configurado como dominio predeterminado de Azure NetApp Files, es decir, **defaultv4iddomain.com** , y de que la asignación se haya establecido en **nobody**.
 
    ```bash
    sudo cat /etc/idmapd.conf
@@ -210,9 +210,9 @@ En los pasos de esta sección se usan los siguientes prefijos:
 
    > [!Important]
    >
-   > Asegúrese de establecer el dominio NFS en /etc/idmapd.conf en la máquina virtual para que coincida con la configuración de dominio predeterminada en Azure NetApp Files: **defaultv4iddomain.com** . Si hay alguna discrepancia entre la configuración de dominio del cliente NFS (es decir, la máquina virtual) y el servidor NFS (es decir la configuración de Azure NetApp), los permisos de archivos en volúmenes de Azure NetApp que estén montados en las máquinas virtuales se mostrarán como "nobody".
+   > Asegúrese de establecer el dominio NFS en /etc/idmapd.conf en la máquina virtual para que coincida con la configuración de dominio predeterminada en Azure NetApp Files: **defaultv4iddomain.com**. Si hay alguna discrepancia entre la configuración de dominio del cliente NFS (es decir, la máquina virtual) y el servidor NFS (es decir la configuración de Azure NetApp), los permisos de archivos en volúmenes de Azure NetApp que estén montados en las máquinas virtuales se mostrarán como "nobody".
 
-   Comprobar `nfs4_disable_idmapping` Debe establecerse en **S** . Para crear la estructura de directorio en la que se encuentra `nfs4_disable_idmapping`, ejecute el comando mount. No podrá crear manualmente el directorio en /sys/modules, ya que el acceso está reservado para el kernel o los controladores.
+   Comprobar `nfs4_disable_idmapping` Debe establecerse en **S**. Para crear la estructura de directorio en la que se encuentra `nfs4_disable_idmapping`, ejecute el comando mount. No podrá crear manualmente el directorio en /sys/modules, ya que el acceso está reservado para el kernel o los controladores.
 
    ```bash
    # Check nfs4_disable_idmapping
@@ -274,7 +274,7 @@ Las instrucciones solo se aplican si usa Azure DB for MySQL. En el caso de otras
 
 ### <a name="create-an-azure-database-for-mysql"></a>Creación de una instancia de Azure Database for MySQL
 
-Inicie sesión en Azure Portal y siga los pasos que se mencionan en esta [Guía de inicio rápido de Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#create-an-azure-database-for-mysql-server). Durante el aprovisionamiento Azure Database for MySQL hay unos puntos que se deben tener en cuenta:
+Inicie sesión en Azure Portal y siga los pasos que se mencionan en esta [Guía de inicio rápido de Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Durante el aprovisionamiento Azure Database for MySQL hay unos puntos que se deben tener en cuenta:
 
 1. Seleccione la misma región para Azure Database for MySQL donde se ejecutan los servidores de aplicaciones de la plataforma de inteligencia empresarial SAP.
 
@@ -286,7 +286,7 @@ Inicie sesión en Azure Portal y siga los pasos que se mencionan en esta [Guía 
 
 5. De manera predeterminada, el **período de retención de la copia de seguridad** es de siete días, pero se puede [configurar opcionalmente](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) hasta 35 días.
 
-6. Las copias de seguridad de Azure Database for MySQL son redundantes localmente de manera predeterminada, por lo que si quiere realizar copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en las **opciones de redundancia de copia de seguridad** .
+6. Las copias de seguridad de Azure Database for MySQL son redundantes localmente de manera predeterminada, por lo que si quiere realizar copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en las **opciones de redundancia de copia de seguridad**.
 
 > [!NOTE]
 > No se admite el cambio de las [opciones de redundancia de copia de seguridad](../../../mysql/concepts-backup.md#backup-redundancy-options) después de la creación del servidor.
@@ -296,9 +296,9 @@ Inicie sesión en Azure Portal y siga los pasos que se mencionan en esta [Guía 
 De manera predeterminada, el servidor creado está protegido con un firewall y no se puede acceder a él públicamente. Para proporcionar acceso a la red virtual en la que se ejecutan los servidores de aplicaciones de la plataforma de inteligencia empresarial SAP, siga estos pasos:  
 
 1. Vaya a los recursos de servidor en Azure Portal y seleccione **Seguridad de la conexión** en el menú izquierdo del recurso de servidor.
-2. Seleccione **Sí** en **Permitir el acceso a servicios de Azure** .
-3. En las reglas de red virtual, seleccione **Agregar red virtual existente** . Seleccione la red virtual y la subred del servidor de aplicaciones de la plataforma de inteligencia empresarial SAP. También debe proporcionar acceso al cuadro de salto u otros servidores desde donde puede conectar [MySQL Workbench](../../../mysql/connect-workbench.md) a Azure Database for MySQL. MySQL Workbench se usará para crear la base de datos CMS y de auditoría.
-4. Una vez agregadas las redes virtuales, seleccione **Guardar** .
+2. Seleccione **Sí** en **Permitir el acceso a servicios de Azure**.
+3. En las reglas de red virtual, seleccione **Agregar red virtual existente**. Seleccione la red virtual y la subred del servidor de aplicaciones de la plataforma de inteligencia empresarial SAP. También debe proporcionar acceso al cuadro de salto u otros servidores desde donde puede conectar [MySQL Workbench](../../../mysql/connect-workbench.md) a Azure Database for MySQL. MySQL Workbench se usará para crear la base de datos CMS y de auditoría.
+4. Una vez agregadas las redes virtuales, seleccione **Guardar**.
 
 ### <a name="create-cms-and-audit-database"></a>Creación de la base de datos CMS y de auditoría
 
@@ -471,11 +471,11 @@ Siga el manual de instalación de la [plataforma SAP BOBI](https://help.sap.com/
 
 - Seleccione las opciones adecuadas en la **pantalla Seleccionar servidor de aplicaciones web de Java** según la arquitectura de SAP BOBI. En este ejemplo, se ha seleccionado la opción 1, que instala el servidor de Tomcat en la misma plataforma SAP BOBI.
 
-- Escriba la información de la base de datos CMS en **Configurar la base de datos del repositorio de CMS: MySQL** . Entrada de ejemplo para la información de la base de datos CMS para la instalación de Linux. Azure Database for MySQL se usa en el puerto 3306 predeterminado.
+- Escriba la información de la base de datos CMS en **Configurar la base de datos del repositorio de CMS: MySQL**. Entrada de ejemplo para la información de la base de datos CMS para la instalación de Linux. Azure Database for MySQL se usa en el puerto 3306 predeterminado.
   
   ![Implementación de SAP BOBI en Linux: base de datos CMS](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cms.png)
 
-- (Opcional) Escriba la información de la base de datos de auditoría en **Configurar la base de datos del repositorio de auditoría: MySQL** . Entrada de ejemplo para la información de la base de datos de auditoría para la instalación de Linux.
+- (Opcional) Escriba la información de la base de datos de auditoría en **Configurar la base de datos del repositorio de auditoría: MySQL**. Entrada de ejemplo para la información de la base de datos de auditoría para la instalación de Linux.
 
   ![Implementación de SAP BOBI en Linux: base de datos de auditoría](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-audit.png)
 

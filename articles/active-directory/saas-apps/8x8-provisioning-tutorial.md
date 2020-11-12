@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5ea7211ea895c5f6db3e84e382632737468898fb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25767a7ddb83acf3ad10698f9f2ff8949a0ad55f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319089"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357205"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutorial: Configuración de 8x8 para el aprovisionamiento automático de usuarios
 
@@ -58,7 +58,7 @@ Esta sección le guía por los pasos para configurar 8x8 para asistir el aprovis
 
    ![Mostrar aprovisionamiento de usuarios](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
-3. Copie los valores de **dirección URL de 8x8** y **Token de API de 8x8**. Estos valores se escribirán en los campos **Dirección URL de inquilino** y **Token secreto**, respectivamente, de la pestaña Aprovisionamiento de la aplicación 8x8 en Azure Portal.
+3. Copie los valores de **dirección URL de 8x8** y **Token de API de 8x8**. Estos valores se escribirán en los campos **Dirección URL de inquilino** y **Token secreto** , respectivamente, de la pestaña Aprovisionamiento de la aplicación 8x8 en Azure Portal.
 
    ![Copiar dirección URL y token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
 
@@ -102,17 +102,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, copie la **dirección URL de 8x8** desde Configuration Manager a **URL de inquilino**. Copie el **Token de API de 8x8** desde Configuration Manager en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a 8x8. Si la conexión no se establece, asegúrese de que la cuenta de 8x8 tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador** , copie la **dirección URL de 8x8** desde Configuration Manager a **URL de inquilino**. Copie el **Token de API de 8x8** desde Configuration Manager en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a 8x8. Si la conexión no se establece, asegúrese de que la cuenta de 8x8 tiene permisos de administrador y pruebe de nuevo.
 
     ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/8x8-provisioning-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones**, seleccione **Aprovisionar usuarios de Azure Active Directory**.
+8. En la sección **Asignaciones** , seleccione **Aprovisionar usuarios de Azure Active Directory**.
 
 9. Examine los atributos de usuario que se sincronizan entre Azure AD y 8x8 en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en 8x8 a fin de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de 8x8 admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -138,7 +138,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en 8x8.
+12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en 8x8.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

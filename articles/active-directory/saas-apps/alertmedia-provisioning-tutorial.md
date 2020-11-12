@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 98cca99ab0e088bbae047fa64ec52429e531dfed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 086f79239fd4f6b01f4b76d1385598bac52bb471
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096094"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358980"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Tutorial: Configuración de AlertMedia para el aprovisionamiento automático de usuarios
 
@@ -95,9 +95,9 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
     ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador** , escriba la **dirección URL del inquilino** de AlertMedia como una de las siguientes opciones.
-      * (dominio no personalizado) https://docs.gitlab.com/ee/api/scim.html
+      * (dominio no personalizado) https://dashboard.alertmedia.com/api/scim/v3
 
-      * (dominio personalizado) https://developer.github.com/v3/scim/
+      * (dominio personalizado) https://subdomain.alertmedia.com/api/scim/v3
 
       Escriba el **Token secreto** como se recuperó en el paso 2 anterior. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a AlertMedia. Si la conexión no se establece, asegúrese de que la cuenta de AlertMedia tiene permisos de administrador y vuelva a intentarlo.
 

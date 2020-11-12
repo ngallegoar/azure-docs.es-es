@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8310d5941916ed3e4a9d7c66af96779be8f939
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602377"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410300"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory
 
@@ -102,7 +102,7 @@ Detalles sobre las preguntas de decisión:
 * **Consideraciones**. Actualmente, la sincronización de hash de contraseñas no aplica inmediatamente los cambios en los estados de la cuenta local. En esta situación, un usuario tendrá acceso a las aplicaciones en la nube hasta que el estado de la cuenta del usuario se sincronice con Azure AD. Si las organizaciones quieren superar esta limitación, es recomendable ejecutar un nuevo ciclo de sincronización después de que los administradores realicen actualizaciones masivas en los estados de las cuentas de los usuarios locales. Por ejemplo, pueden deshabilitar las cuentas.
 
 > [!NOTE]
-> Los estados de contraseña expirada y cuenta bloqueada no se sincronizan actualmente con Azure AD mediante Azure AD Connect. Al cambiar una contraseña de usuario y establecer la marca *el usuario debe cambiar la contraseña en el siguiente inicio de sesión*, el hash de contraseña no se sincronizará con Azure AD a través de Azure AD Connect hasta que el usuario cambie su contraseña.
+> Los estados de contraseña expirada y cuenta bloqueada no se sincronizan actualmente con Azure AD mediante Azure AD Connect. Al cambiar una contraseña de usuario y establecer la marca *el usuario debe cambiar la contraseña en el siguiente inicio de sesión* , el hash de contraseña no se sincronizará con Azure AD a través de Azure AD Connect hasta que el usuario cambie su contraseña.
 
 Para ver los pasos de implementación, consulte [Implementación de la sincronización de hash de contraseñas](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -221,4 +221,4 @@ En la actualidad, las amenazas están presentes 24 horas al día y proceden de c
 
 [Comience a trabajar](../fundamentals/active-directory-whatis.md) con Azure AD e implemente la solución de autenticación adecuada para su organización.
 
-Si está pensando cambiar de la autenticación federada a la autenticación en la nube, consulte la información acerca de [cómo cambiar el método de inicio de sesión](../../active-directory/hybrid/plan-connect-user-signin.md). Para ayudarle a planear e implementar la migración, use [estos planes de implementación de proyectos](https://aka.ms/deploymentplans) o considere la posibilidad de usar la nueva característica de [lanzamiento por fases](../../active-directory/hybrid/how-to-connect-staged-rollout.md) para migrar usuarios federados al uso de la autenticación en la nube en un enfoque por fases.
+Si está pensando cambiar de la autenticación federada a la autenticación en la nube, consulte la información acerca de [cómo cambiar el método de inicio de sesión](../../active-directory/hybrid/plan-connect-user-signin.md). Para ayudarle a planear e implementar la migración, use [estos planes de implementación de proyectos](../fundamentals/active-directory-deployment-plans.md) o considere la posibilidad de usar la nueva característica de [lanzamiento por fases](../../active-directory/hybrid/how-to-connect-staged-rollout.md) para migrar usuarios federados al uso de la autenticación en la nube en un enfoque por fases.

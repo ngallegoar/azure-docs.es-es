@@ -3,12 +3,12 @@ title: Diseño de flujos de trabajo de Azure Policy as Code
 description: Aprenda a diseñar flujos de trabajo para implementar sus definiciones de Azure Policy como código y validar automáticamente los recursos.
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320605"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359687"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>Diseño de flujos de trabajo de Azure Policy as Code
 
@@ -38,8 +38,6 @@ Los ejemplos de estos formatos de archivo están disponibles en el [repositorio 
 
 - Definición de directiva: [Agregar una etiqueta a los recursos](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Definición de iniciativa: [Etiquetas de facturación](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
-
-Además, revise [Exportación de recursos de Azure Policy](../how-to/export-resources.md) para obtener las definiciones y las asignaciones existentes en el entorno de administración de código fuente, en [GitHub](https://www.github.com).
 
 ## <a name="workflow-overview"></a>Introducción al flujo de trabajo
 
@@ -74,6 +72,8 @@ Las definiciones de directiva se crean mediante JSON y se almacenan en el contro
 
 Cuando se agrega una nueva directiva o se actualiza una existente, el flujo de trabajo debe actualizar automáticamente la definición de la directiva en Azure. Las pruebas de la definición de la directiva nueva o actualizada se incluyen en un paso posterior.
 
+Además, revise [Exportación de recursos de Azure Policy](../how-to/export-resources.md) para obtener las definiciones y las asignaciones existentes en el entorno de administración de código fuente, en [GitHub](https://www.github.com).
+
 ### <a name="create-and-update-initiative-definitions"></a>Creación y actualización de definiciones de iniciativas
 
 Del mismo modo, las iniciativas tienen su propio archivo JSON y archivos relacionados que se deben almacenar en la misma carpeta. La definición de la iniciativa requiere que ya exista la definición de la directiva, por lo que no se puede crear ni actualizar hasta que el origen de la directiva se haya actualizado en el control de código fuente y se haya actualizado luego en Azure. La estructura siguiente es una manera recomendada de mantener las definiciones de iniciativa en el control de código fuente:
@@ -102,7 +102,7 @@ Al igual que las definiciones de directiva, al agregar o actualizar una iniciati
 
 ### <a name="test-and-validate-the-updated-definition"></a>Prueba y validación de la definición actualizada
 
-Una vez que la automatización ha tomado las definiciones de directivas o de iniciativas recién creadas o actualizadas, y ha realizado la actualización del objeto en Azure, es el momento de probar los cambios realizados. La directiva o las iniciativas a las que pertenece deben asignarse a los recursos del entorno más alejado de producción. Este entorno suele ser _Dev_ .
+Una vez que la automatización ha tomado las definiciones de directivas o de iniciativas recién creadas o actualizadas, y ha realizado la actualización del objeto en Azure, es el momento de probar los cambios realizados. La directiva o las iniciativas a las que pertenece deben asignarse a los recursos del entorno más alejado de producción. Este entorno suele ser _Dev_.
 
 La asignación debe utilizar [enforcementMode](./assignment-structure.md#enforcement-mode) en _disabled_ para que la creación de recursos y las actualizaciones no se bloqueen, pero que los recursos existentes sigan siendo auditados para el cumplimiento de la definición de directiva actualizada. Incluso con enforcementMode, se recomienda que el ámbito de asignación sea un grupo de recursos o una suscripción específica para validar directivas.
 
@@ -129,7 +129,7 @@ Probar los resultados de la evaluación de la directiva actualizada y el entorno
 
 ### <a name="update-to-enforced-assignments"></a>Actualizar a asignaciones aplicadas
 
-Una vez completadas todas las validaciones, actualice la asignación para utilizar **enforcementMode** en _enabled_ . Se recomienda realizar este cambio inicialmente en el mismo entorno alejado de producción. Una vez que se valida que ese entorno funciona según lo previsto, se debe definir el ámbito del cambio para que incluya el siguiente entorno, y así sucesivamente, hasta que la directiva se implemente en los recursos de producción.
+Una vez completadas todas las validaciones, actualice la asignación para utilizar **enforcementMode** en _enabled_. Se recomienda realizar este cambio inicialmente en el mismo entorno alejado de producción. Una vez que se valida que ese entorno funciona según lo previsto, se debe definir el ámbito del cambio para que incluya el siguiente entorno, y así sucesivamente, hasta que la directiva se implemente en los recursos de producción.
 
 ## <a name="process-integrated-evaluations"></a>Procesamiento de evaluaciones integradas
 

@@ -2,13 +2,13 @@
 title: Compatibilidad con la operación de traslado por tipo de recurso
 description: Enumera los tipos de recursos de Azure que se pueden trasladar a un nuevo grupo de recursos o suscripción.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 5b71c991136533096604c8a35af7989a227b6d2a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627115"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364236"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 
@@ -792,7 +792,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datafactories | Sí | Sí |
-> | datafactoryschema | No | No |
 > | factories | Sí | Sí |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
@@ -1257,7 +1256,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
+> | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
 > | workspaces | No | No |
 
@@ -1433,7 +1432,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | privatednszones/virtualnetworklinks | Sí | Sí |
 > | privatednszonesinternal | No | No |
 > | privateendpointredirectmaps | No | No |
-> | privateendpoints | Sí | Sí |
+> | privateendpoints | No | No |
 > | privatelinkservices | No | No |
 > | publicipaddresses | Sí: SKU básico<br>Sí: SKU estándar | Sí: SKU básico<br>No: SKU estándar |
 > | publicipprefixes | Sí | Sí |
@@ -1572,7 +1571,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftquantum"></a>Microsoft.Quantum
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
+> | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
 > | workspaces | No | No |
 

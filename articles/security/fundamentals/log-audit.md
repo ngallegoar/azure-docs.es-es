@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: c5ac9daeb741d400a759603c7a3e3e462cc9294f
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 79c15f2df82125f20dcfaf9992d9047b632c253d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398876"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412806"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Registro y auditoría de seguridad de Azure
 
@@ -42,7 +42,7 @@ Los registros de Azure se clasifican en los tipos siguientes:
 
 * Los **registros del plano de datos** proporcionan información sobre los eventos desencadenados como parte del uso de los recursos de Azure. Ejemplos de este tipo de registro son los registros de eventos del sistema de Windows, de seguridad y de aplicaciones en una máquina virtual, así como los [registros de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md) que se han configurado mediante Azure Monitor.
 
-* Los **eventos procesados** proporcionan información sobre eventos y alertas analizados que se han procesado en su nombre. Ejemplos de este tipo son las [alertas de Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md), donde [Azure Security Center](../../security-center/security-center-intro.md) ha procesado y analizado su suscripción y proporciona unas alertas de seguridad concisas.
+* Los **eventos procesados** proporcionan información sobre eventos y alertas analizados que se han procesado en su nombre. Ejemplos de este tipo son las [alertas de Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md), donde [Azure Security Center](../../security-center/security-center-introduction.md) ha procesado y analizado su suscripción y proporciona unas alertas de seguridad concisas.
 
 En la tabla siguiente se enumeran los tipos más importante de registros disponibles en Azure.
 
@@ -50,15 +50,15 @@ En la tabla siguiente se enumeran los tipos más importante de registros disponi
 | ------------ | -------- | ------ | ----------- |
 |[Registros de actividad](../../azure-monitor/platform/platform-logs-overview.md)|Eventos de plano de control de los recursos de Azure Resource Manager|  Proporciona información detallada sobre las operaciones que se realizaron en los recursos de la suscripción.|    API REST y [Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)|
 |[Registros de recursos de Azure](../../azure-monitor/platform/platform-logs-overview.md)|Datos frecuentes acerca del funcionamiento de los recursos de Azure Resource Manager de la suscripción|   Proporciona información detallada sobre las operaciones que el mismo recurso realiza.| Azure Monitor|
-|[Informes de Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)|Registros e informes | Informa sobre las actividades de inicio de sesión de usuario e información de actividades del sistema acerca de la administración de grupos y usuarios.|[Graph API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
-|[Máquinas virtuales y servicios en la nube](../../azure-monitor/learn/quick-collect-azurevm.md)|Servicio de Registro de eventos de Windows y Syslog de Linux|  Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|   Windows con [WAD](../../monitoring-and-diagnostics/azure-diagnostics.md) (almacenamiento de Windows Azure Diagnostics) y Linux en Azure Monitor|
-|[Análisis de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|El registro de almacenamiento proporciona datos de métricas de una cuenta de almacenamiento|Proporciona información detallada sobre seguimiento de solicitudes, análisis de tendencias de uso y diagnóstico de problemas con la cuenta de almacenamiento.|   API de REST o [biblioteca de cliente](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
+|[Informes de Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)|Registros e informes | Informa sobre las actividades de inicio de sesión de usuario e información de actividades del sistema acerca de la administración de grupos y usuarios.|[Graph API](../../active-directory/develop/microsoft-graph-intro.md)|
+|[Máquinas virtuales y servicios en la nube](../../azure-monitor/learn/quick-collect-azurevm.md)|Servicio de Registro de eventos de Windows y Syslog de Linux|  Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|   Windows con [WAD](../../azure-monitor/platform/diagnostics-extension-overview.md) (almacenamiento de Windows Azure Diagnostics) y Linux en Azure Monitor|
+|[Análisis de Azure Storage](/rest/api/storageservices/fileservices/storage-analytics)|El registro de almacenamiento proporciona datos de métricas de una cuenta de almacenamiento|Proporciona información detallada sobre seguimiento de solicitudes, análisis de tendencias de uso y diagnóstico de problemas con la cuenta de almacenamiento.| API de REST o [biblioteca de cliente](/dotnet/api/overview/azure/storage)|
 |[Registros de flujo de los grupos de seguridad de red (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)|Tiene formato JSON y muestra flujos entrantes y salientes por cada regla|Muestra información sobre el tráfico IP de entrada y salida a través de un grupo de seguridad de red.|[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)|
 |[Application Insights](../../azure-monitor/app/app-insights-overview.md)|Registros, excepciones y diagnósticos personalizados|  Proporciona un servicio de supervisión de rendimiento de aplicaciones (APM) para desarrolladores web en varias plataformas.| API de REST, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|[Datos de proceso y alertas de seguridad](../../security-center/security-center-intro.md)|  Alertas de Azure Security Center, alertas de registro de Azure Monitor|    Proporciona información y alertas de seguridad.|  API de REST, JSON|
+|[Datos de proceso y alertas de seguridad](../../security-center/security-center-introduction.md)|   Alertas de Azure Security Center, alertas de registro de Azure Monitor|    Proporciona información y alertas de seguridad.|  API de REST, JSON|
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Integración de registros con sistemas locales de SIEM
-En [Integración de alertas de Security Center](../../security-center/security-center-export-data-to-siem.md) se describe cómo sincronizar las alertas de Security Center, los eventos de seguridad de máquina virtual recopilados por los registros de diagnóstico de Azure y los registros de auditoría de Azure, con los registros de Azure Monitor o una solución SIEM.
+En [Integración de alertas de Security Center](../../security-center/security-center-partner-integration.md) se describe cómo sincronizar las alertas de Security Center, los eventos de seguridad de máquina virtual recopilados por los registros de diagnóstico de Azure y los registros de auditoría de Azure, con los registros de Azure Monitor o una solución SIEM.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

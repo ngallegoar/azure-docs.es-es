@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7b92c84234432320aa08017a15fbf8a5a4630eb3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a00dc5beb2bde02f71b40f6eb374502136c37c67
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019739"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410494"
 ---
 # <a name="data-encryption-models"></a>Modelos de cifrado de datos
 
@@ -91,7 +91,7 @@ Cuando se usa el cifrado del lado servidor con las claves administradas del serv
 
 Para escenarios donde el requisito es cifrar los datos en reposo y controlar los clientes de las claves de cifrado, los clientes pueden usar el cifrado de lado servidor mediante las claves almacenadas por el cliente en Key Vault. Algunos servicios solo pueden almacenar la clave de cifrado de clave de raíz en Azure Key Vault y almacenar la clave de cifrado de datos cifrada en una ubicación interna cercana a los datos. En este escenario, los clientes pueden aportar sus propias claves a Key Vault (BYOK: aportar su propia clave), o generar nuevas y usarlas para cifrar los recursos deseados. Mientras que el proveedor de recursos realiza las operaciones de cifrado y descifrado, usa la clave de cifrado de claves configurada como clave raíz para todas las operaciones de cifrado.
 
-La pérdida de claves de cifrado de claves significa también la pérdida de los datos. Por esta razón, no se deben eliminar las claves. Se debe realizar una copia de seguridad de las claves cada vez que se creen o giren. La [eliminación temporal](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) debe estar habilitada en cualquier almacén que almacene claves de cifrado de claves. En lugar de eliminar una clave, establezca la opción Habilitado en "false" o defina la fecha de expiración.
+La pérdida de claves de cifrado de claves significa también la pérdida de los datos. Por esta razón, no se deben eliminar las claves. Se debe realizar una copia de seguridad de las claves cada vez que se creen o giren. La [eliminación temporal](../../key-vault/general/soft-delete-overview.md) debe estar habilitada en cualquier almacén que almacene claves de cifrado de claves. En lugar de eliminar una clave, establezca la opción Habilitado en "false" o defina la fecha de expiración.
 
 ### <a name="key-access"></a>Acceso a la clave
 

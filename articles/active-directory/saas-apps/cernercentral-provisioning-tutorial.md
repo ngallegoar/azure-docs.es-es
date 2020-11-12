@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: d82aca50ce57a09697d389197bf2b102bb5df457
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1f82cab1172e7293e2a5910d35280eefb30ed49e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456343"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357460"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cerner Central para el aprovisionamiento automático de usuarios
 
@@ -82,13 +82,13 @@ Para aprovisionar cuentas de usuario en Cerner Central, debe crear una cuenta de
 
 4. Por último, para completar la configuración, tiene que adquirir identificadores de dominio kerberos de lista de usuarios tanto para el espacio aislado como para los entornos de producción en Cerner. Para obtener información sobre cómo adquirirlo, consulte https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
-5. Ahora puede configurar Azure AD para aprovisionar cuentas de usuario para Cerner. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones** .
+5. Ahora puede configurar Azure AD para aprovisionar cuentas de usuario para Cerner. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
 
 6. Si ya ha configurado Cerner Central para el inicio de sesión único, busque la instancia de Cerner Central con el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **Cerner Central** en la galería de aplicaciones. Seleccione Cerner Central en los resultados de búsqueda y agréguelo a la lista de aplicaciones.
 
-7. Seleccione la instancia de Cerner Central y la pestaña **Aprovisionamiento** .
+7. Seleccione la instancia de Cerner Central y la pestaña **Aprovisionamiento**.
 
-8. Establezca el **modo de aprovisionamiento** en **Automático** .
+8. Establezca el **modo de aprovisionamiento** en **Automático**.
 
    ![Aprovisionamiento de Cerner Central](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
@@ -100,7 +100,7 @@ Para aprovisionar cuentas de usuario en Cerner Central, debe crear una cuenta de
     > 
     > Producción: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-   * En el campo **Token secreto** , escriba el token de portador de OAuth que generó en el paso 3 y haga clic en **Prueba de conexión** .
+   * En el campo **Token secreto** , escriba el token de portador de OAuth que generó en el paso 3 y haga clic en **Prueba de conexión**.
 
    * Debería ver una notificación que le indica que el proceso se ha realizado correctamente en el lado superior derecho del portal.
 
@@ -110,7 +110,7 @@ Para aprovisionar cuentas de usuario en Cerner Central, debe crear una cuenta de
 
 1. En la sección **Asignaciones de atributos** , revise los atributos de usuario y de grupo que se van a sincronizar desde Azure AD con Cerner Central. Los atributos seleccionados como propiedades **Matching** se usarán para establecer coincidencias con las cuentas de usuario y los grupos de Cerner Central para las operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
-1. Para habilitar el servicio de aprovisionamiento de Azure AD para Cerner Central, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
+1. Para habilitar el servicio de aprovisionamiento de Azure AD para Cerner Central, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
 1. Haga clic en **Save** (Guardar).
 

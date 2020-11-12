@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: celested
-ms.openlocfilehash: 11e0606568fdaad20f996a7ae20a622576acea15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4abc117ae0e983cf684f0e70a363758f9be196aa
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549473"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359433"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configuración de Asana para el aprovisionamiento automático de usuarios
 
@@ -64,7 +64,7 @@ Esta sección le guía en el proceso de conexión de Azure AD a la API de aprovi
 
     ![Aprovisionamiento de Asana](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-1. En la sección **Credenciales de administrador**, siga estas instrucciones para generar el token y escríbalo en el cuadro de texto **Token secreto**:
+1. En la sección **Credenciales de administrador** , siga estas instrucciones para generar el token y escríbalo en el cuadro de texto **Token secreto** :
 
     a. Inicie sesión en [Asana](https://app.asana.com) mediante la cuenta de administrador.
 
@@ -82,9 +82,9 @@ Esta sección le guía en el proceso de conexión de Azure AD a la API de aprovi
 
 1. Seleccione **Guardar**.
 
-1. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Box** (Sincronizar usuarios de Azure Active Directory con Asana).
+1. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Box** (Sincronizar usuarios de Azure Active Directory con Asana).
 
-1. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se van a sincronizar entre Azure AD y Asana. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Asana con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**. Para más información, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios](../app-provisioning/customize-application-attributes.md).
+1. En la sección **Asignaciones de atributos** , revise los atributos de usuario que se van a sincronizar entre Azure AD y Asana. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Asana con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**. Para más información, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios](../app-provisioning/customize-application-attributes.md).
 
 1. Para habilitar el servicio de aprovisionamiento de Azure AD para Asana, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 

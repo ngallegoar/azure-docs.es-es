@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 452b1a33520309ae696ab318c034f0186c993fdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e74994847608b7fb59a1bf507691f02cf02b714a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91402929"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408896"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Control de seguridad V2: seguridad de los puntos de conexión
 
@@ -34,9 +34,9 @@ Protección contra amenazas avanzada de Microsoft Defender proporciona la funcio
 
 - [Servicio ATP de Microsoft Defender para servidores que no son de Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -60,11 +60,11 @@ Microsoft Antimalware para Azure Cloud Services es el antimalware predeterminado
 
 - [Configuración de Microsoft Antimalware para Cloud Services y Virtual Machines](../fundamentals/antimalware.md)
 
-- [Soluciones de protección de punto de conexión compatibles](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
+- [Soluciones de protección de punto de conexión compatibles](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -86,9 +86,9 @@ Siga las recomendaciones en Azure Security Center: "Proceso y aplicaciones" para
 
 - [Implementación de Microsoft Antimalware para Azure Cloud Services y Virtual Machines](../fundamentals/antimalware.md)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security)
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: a3c2567cf1799bca5750e90fbe5d89f6da952ff5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 79fa480e0cca590446a0251f43c45b2e04c97cd5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514899"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359347"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutorial: Configuración de Smartsheet para el aprovisionamiento automático de usuarios
 
@@ -51,7 +51,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 Antes de configurar Smartsheet para el aprovisionamiento automático de usuarios con Azure AD, deberá habilitar el aprovisionamiento SCIM en Smartsheet.
 
-1. Inicie sesión como **SysAdmin** en el **[portal de Smartsheet](https://app.smartsheet.com/b/home)** y vaya a **Administrador de cuenta** .
+1. Inicie sesión como **SysAdmin** en el **[portal de Smartsheet](https://app.smartsheet.com/b/home)** y vaya a **Administrador de cuenta**.
 
     ![Administrador de cuenta de Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-accountadmin.png)
 
@@ -71,11 +71,11 @@ Antes de configurar Smartsheet para el aprovisionamiento automático de usuarios
 
     ![Captura de pantalla de la página de administración de Smartsheet con el avatar de usuario y la opción de aplicaciones e integraciones resaltados.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
 
-6. Elija el **acceso a la API** . Haga clic en **Generate new access token** (Generar nuevo token de acceso).
+6. Elija el **acceso a la API**. Haga clic en **Generate new access token** (Generar nuevo token de acceso).
 
     ![Captura de pantalla del cuadro de diálogo Configuración personal con las opciones de acceso de API y de generación de un nuevo token de acceso resaltadas.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
-7. Defina el nombre del token de acceso de la API. Haga clic en **OK** .
+7. Defina el nombre del token de acceso de la API. Haga clic en **OK**.
 
     ![Captura de pantalla del paso 1 de 2: generación de token de acceso de API con la opción Aceptar resaltada.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
@@ -107,19 +107,19 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 ### <a name="to-configure-automatic-user-provisioning-for-smartsheet-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Smartsheet en Azure AD, siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Smartsheet** .
+2. En la lista de aplicaciones, seleccione **Smartsheet**.
 
     ![Vínculo a Smartsheet en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento** .
+3. Seleccione la pestaña **Aprovisionamiento**.
 
     ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático** .
+4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
@@ -127,7 +127,7 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
@@ -160,7 +160,7 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar el servicio de aprovisionamiento de Azure AD para Smartsheet, cambie el **estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
+11. Para habilitar el servicio de aprovisionamiento de Azure AD para Smartsheet, cambie el **estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
@@ -168,11 +168,11 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-13. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
+13. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Paso 6. Supervisión de la implementación
 Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:

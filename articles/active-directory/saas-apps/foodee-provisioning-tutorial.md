@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 78ba57d485f9842ad8531ce22a2b932aa1a1d28b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b4bfa7e9bf457d79c6c4a0b5255bce4fe36dff4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850462"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358698"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: Tutorial: Configuración de Foodee para aprovisionar usuarios automáticamente
 
@@ -57,13 +57,13 @@ Antes de configurar Foodee para el aprovisionamiento automático de usuarios con
 
     :::image type="content" source="media/Foodee-provisioning-tutorial/tenant.png" alt-text="Captura de pantalla del menú principal del portal de la empresa Foodee. El marcador de posición de un id. de inquilino se puede ver en el menú." border="false":::
 
-1. En **Enterprise Portal**, seleccione **Inicio de sesión único**.
+1. En **Enterprise Portal** , seleccione **Inicio de sesión único**.
 
     ![Menú del panel izquierdo de Enterprise Portal de Foodee](media/Foodee-provisioning-tutorial/scim.png)
 
 1. Copie el valor del cuadro **Token de API** para su uso posterior. Lo escribirá en el campo **Token secreto** de la pestaña **Aprovisionamiento** de la aplicación Foodee en Azure Portal.
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Captura de pantalla del menú principal del portal de la empresa Foodee. El marcador de posición de un id. de inquilino se puede ver en el menú." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Captura de pantalla de una página en el portal de la empresa Foodee. Se resalta un valor de token A P I." border="false":::
 
 ## <a name="add-foodee-from-the-gallery"></a>Incorporación de Foodee desde la galería
 
@@ -83,7 +83,7 @@ Para agregar Foodee desde la galería de aplicaciones de Azure AD, haga lo sigu
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-1. En el cuadro de búsqueda, escriba **Foodee**, seleccione **Foodee** en el panel de resultados y luego seleccione **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **Foodee** , seleccione **Foodee** en el panel de resultados y luego seleccione **Agregar** para agregar la aplicación.
 
     ![Foodee en la lista de resultados](common/search-new-app.png)
 
@@ -100,7 +100,7 @@ Para configurar el aprovisionamiento automático de usuarios para Foodee en Azur
 
     ![Panel Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En la lista **Aplicaciones**, seleccione **Foodee**.
+1. En la lista **Aplicaciones** , seleccione **Foodee**.
 
     ![Vínculo a Foodee en la lista de aplicaciones](common/all-applications.png)
 
@@ -108,51 +108,51 @@ Para configurar el aprovisionamiento automático de usuarios para Foodee en Azur
 
     ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
-1. En la lista desplegable **Modo de aprovisionamiento**, seleccione **Automático**.
+1. En la lista desplegable **Modo de aprovisionamiento** , seleccione **Automático**.
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-1. En **Credenciales de administrador**, haga lo siguiente:
+1. En **Credenciales de administrador** , haga lo siguiente:
 
-   a. En el cuadro **URL de inquilino**, escriba el valor **https:\//concierge.food.ee/scim/v2** que recuperó antes.
+   a. En el cuadro **URL de inquilino** , escriba el valor **https:\//concierge.food.ee/scim/v2** que recuperó antes.
 
-   b. En el cuadro **Token secreto**, escriba el valor de **Token de API** que recuperó antes.
+   b. En el cuadro **Token secreto** , escriba el valor de **Token de API** que recuperó antes.
    
    c. Para asegurarse de que Azure AD puede conectarse a Foodee, seleccione **Probar conexión**. Si la conexión no se establece, asegúrese de que la cuenta de Foodee tiene permisos de administrador y pruebe de nuevo.
 
     ![Vínculo Probar conexión](common/provisioning-testconnection-tenanturltoken.png)
 
-1. En el cuadro **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+1. En el cuadro **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Cuadro de texto Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 1. Seleccione **Guardar**.
 
-1. En **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Foodee** (Sincronizar usuarios de Azure Active Directory con Foodee).
+1. En **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Foodee** (Sincronizar usuarios de Azure Active Directory con Foodee).
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Captura de pantalla del menú principal del portal de la empresa Foodee. El marcador de posición de un id. de inquilino se puede ver en el menú." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Captura de pantalla de la sección de asignaciones. En el nombre, está resaltada la sincronización de los usuarios de Azure Active Directory con Foodee." border="false":::
 
-1. En **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan desde Azure AD a Foodee. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las *cuentas de usuario* de Foodee con el objetivo de realizar operaciones de actualización. 
+1. En **Asignaciones de atributos** , revise los atributos de usuario que se sincronizan desde Azure AD a Foodee. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las *cuentas de usuario* de Foodee con el objetivo de realizar operaciones de actualización. 
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Captura de pantalla del menú principal del portal de la empresa Foodee. El marcador de posición de un id. de inquilino se puede ver en el menú." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Captura de pantalla de la página de asignaciones de atributos. En una tabla se enumeran los atributos de Azure Active Directory y Foodee y la precedencia coincidente." border="false":::
 
 1. Para confirmar los cambios, seleccione **Guardar**.
-1. En **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Foodee** (Sincronizar grupos de Azure Active Directory con Foodee).
+1. En **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Foodee** (Sincronizar grupos de Azure Active Directory con Foodee).
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Captura de pantalla del menú principal del portal de la empresa Foodee. El marcador de posición de un id. de inquilino se puede ver en el menú." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Captura de pantalla de la sección de asignaciones. En el nombre, se resalta la opción para sincronizar los grupos de Azure Active Directory con Foodee." border="false":::
 
-1. En **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan desde Azure AD a Foodee. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las *cuentas de grupo* de Foodee con el objetivo de realizar operaciones de actualización.
+1. En **Asignaciones de atributos** , revise los atributos de usuario que se sincronizan desde Azure AD a Foodee. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las *cuentas de grupo* de Foodee con el objetivo de realizar operaciones de actualización.
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Captura de pantalla del menú principal del portal de la empresa Foodee. El marcador de posición de un id. de inquilino se puede ver en el menú." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Captura de pantalla de la página de asignaciones de atributos. En una tabla se enumeran los atributos de Azure Active Directory y Foodee y la precedencia coincidente." border="false":::
 
 1. Para confirmar los cambios, seleccione **Guardar**.
 1. Configure los filtros de ámbito. Para aprender a hacerlo, consulte las instrucciones del artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. Para habilitar el servicio de aprovisionamiento de Azure AD para Foodee, en la sección **Configuración**, cambie el **Estado de aprovisionamiento** a **Activado**.
+1. Para habilitar el servicio de aprovisionamiento de Azure AD para Foodee, en la sección **Configuración** , cambie el **Estado de aprovisionamiento** a **Activado**.
 
     ![El conmutador Estado de aprovisionamiento](common/provisioning-toggle-on.png)
 
-1. En **Configuración**, en la lista desplegable **Ámbito**, defina los usuarios o grupos que desea aprovisionar para Foodee.
+1. En **Configuración** , en la lista desplegable **Ámbito** , defina los usuarios o grupos que desea aprovisionar para Foodee.
 
     ![Lista desplegable Ámbito de aprovisionamiento](common/provisioning-scope.png)
 

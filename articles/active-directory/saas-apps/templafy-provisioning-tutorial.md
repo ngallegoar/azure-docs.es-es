@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 98eae8b63b9eaaa8cff800bade091f4b5d36d005
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 754e23a7d3f4bdf27f273927a5bc3b3658940d90
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255718"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359272"
 ---
 # <a name="tutorial-configure-templafy-for-automatic-user-provisioning"></a>Tutorial: Configuración de Templafy para el aprovisionamiento automático de usuarios
 
@@ -82,7 +82,7 @@ Para configurar Templafy para el aprovisionamiento automático de usuarios con A
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Templafy**, seleccione **Templafy** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Templafy** , seleccione **Templafy** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Templafy en la lista de resultados](common/search-new-app.png)
 
@@ -111,17 +111,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://scim.templafy.com/scim` en la **URL de inquilino**. Escriba el valor de la **clave de API de SCIM** recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Templafy. Si la conexión no se establece, asegúrese de que la cuenta de Templafy tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://scim.templafy.com/scim` en la **URL de inquilino**. Escriba el valor de la **clave de API de SCIM** recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Templafy. Si la conexión no se establece, asegúrese de que la cuenta de Templafy tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Templafy** (Sincronizar usuarios de Azure Active Directory con Templafy).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Templafy** (Sincronizar usuarios de Azure Active Directory con Templafy).
 
     ![Asignaciones de usuario de Templafy](media/templafy-provisioning-tutorial/usermapping.png)
 
@@ -129,7 +129,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Atributos de usuario de Templafy](media/templafy-provisioning-tutorial/userattribute.png)
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Templafy** (Sincronizar grupos de Azure Active Directory a Templafy).
+10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Templafy** (Sincronizar grupos de Azure Active Directory a Templafy).
 
     ![Asignaciones de grupos de Templafy](media/templafy-provisioning-tutorial/groupmapping.png)
 
@@ -143,7 +143,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Templafy.
+14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Templafy.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

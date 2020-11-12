@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: 429ccacea8eb4fd66336543615b11179af3e9276
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e972475530ad36a188f73990bb9eca35748c36c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361591"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358956"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configuración de LinkedIn Elevate para aprovisionar usuarios automáticamente
 
@@ -91,25 +91,25 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
     ![Captura de pantalla que muestra la página de aprovisionamiento de LinkedIn Elevate.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
-11. Rellene los campos siguientes en **Credenciales de administrador**:
+11. Rellene los campos siguientes en **Credenciales de administrador** :
 
-    * En el campo **URL de inquilino**, escriba `https://api.linkedin.com`.
+    * En el campo **URL de inquilino** , escriba `https://api.linkedin.com`.
 
-    * En el campo **Token secreto**, escriba el token de acceso que ha generado en el paso 1 y haga clic en **Probar conexión**.
+    * En el campo **Token secreto** , escriba el token de acceso que ha generado en el paso 1 y haga clic en **Probar conexión**.
 
     * Debería ver una notificación que le indica que el proceso se ha realizado correctamente en el lado superior derecho del portal.
 
 12. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla que aparece a continuación.
 
-13. Haga clic en **Save**(Guardar).
+13. Haga clic en **Save** (Guardar).
 
-14. En la sección **Asignaciones de atributos**, revise los atributos de usuario y de grupo que se sincronizarán de Azure AD a LinkedIn Elevate. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para establecer coincidencias con las cuentas de usuario y grupos de LinkedIn Elevate con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+14. En la sección **Asignaciones de atributos** , revise los atributos de usuario y de grupo que se sincronizarán de Azure AD a LinkedIn Elevate. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para establecer coincidencias con las cuentas de usuario y grupos de LinkedIn Elevate con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
     ![La captura de pantalla muestra las asignaciones, incluidas las asignaciones de atributos.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
 15. Para habilitar el servicio de aprovisionamiento de Azure AD para LinkedIn Elevate, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-16. Haga clic en **Save**(Guardar).
+16. Haga clic en **Save** (Guardar).
 
 Esta acción iniciará la sincronización inicial de todos los usuarios y grupos asignados a LinkedIn Elevate en la sección Usuarios y grupos. Tenga en cuenta que la sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de LinkedIn Elevate.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b2e54545fb79120a3f9d66067da267df3b151b3f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c3812cef9b90a15870733441c9e830daf32e0b18
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322128"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408947"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Control de seguridad V2: Copia de seguridad y recuperación
 
@@ -32,13 +32,13 @@ Para un nivel más alto de protección, puede habilitar la opción de almacenami
 
 - [Continuidad empresarial y recuperación ante desastres](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-- [Habilitación de Azure Backup](/azure/backup/)
+- [Habilitación de Azure Backup](../../backup/index.yml)
 
-- [Habilitación de la restauración entre regiones](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore)
+- [Habilitación de la restauración entre regiones](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Directivas y estándares](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
@@ -60,17 +60,17 @@ En el caso de las copias de seguridad locales mediante Azure Backup, se proporc
 
 Use el control de acceso basado en rol en Azure Backup, Azure Key Vault u otros recursos para proteger las copias de seguridad y las claves administradas por el cliente. Además, puede habilitar características de seguridad avanzadas para requerir MFA antes de modificar o eliminar copias de seguridad.
 
-- [Introducción a las características de seguridad de Azure Backup](/azure/backup/security-overview)
+- [Introducción a las características de seguridad de Azure Backup](../../backup/security-overview.md)
 
-- [Cifrado de datos de copia de seguridad mediante claves administradas por el cliente](/azure/backup/encryption-at-rest-with-cmk) 
+- [Cifrado de datos de copia de seguridad mediante claves administradas por el cliente](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Copias de seguridad de las claves de Key Vault en Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Copias de seguridad de las claves de Key Vault en Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-- [Características de seguridad que ayudan a proteger las copias de seguridad híbridas frente a ataques](/azure/backup/backup-azure-security-feature#prevent-attacks)
+- [Características de seguridad que ayudan a proteger las copias de seguridad híbridas frente a ataques](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitectura de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -86,13 +86,13 @@ Use el control de acceso basado en rol en Azure Backup, Azure Key Vault u otr
 
 Realice periódicamente la restauración de los datos de la copia de seguridad. Asegúrese de que puede restaurar las claves administradas por el cliente de las que se hizo una copia de seguridad.
 
-- [Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure](/azure/backup/backup-azure-restore-files-from-vm)
+- [Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Restauración de las claves de Key Vault en Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Restauración de las claves de Key Vault en Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Preparación de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -106,15 +106,14 @@ Realice periódicamente la restauración de los datos de la copia de seguridad. 
 
 Asegúrese de aplicar medidas para evitar la pérdida de claves y para recuperarse de ella. Habilite la eliminación temporal y la protección de purga de Azure Key Vault para proteger las claves frente a una eliminación accidental o malintencionada.  
 
-- [Procedimiento para habilitar la eliminación temporal y la protección de purga en Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Procedimiento para habilitar la eliminación temporal y la protección de purga en Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitectura de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Preparación de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [Seguridad de los datos](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

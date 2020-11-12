@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 38c5df6a05d327e0b057501846e70d1f3c6c4896
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ed9c3c86336a7b0a2fe989cbe9bd0dd825c5575b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091158"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372638"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protección de las cargas de trabajo de Kubernetes
 
@@ -35,7 +35,7 @@ Security Center ofrece más características de seguridad del contenedor si habi
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Versión preliminar|
+|Estado de la versión:|Versión preliminar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Precios:|Gratuito|
 |Roles y permisos necesarios:|**Propietario** o **administrador de seguridad** para editar una asignación<br>**Lector** para ver las recomendaciones|
 |Clústeres admitidos:|Se requiere la versión 1.14 (o posterior) de Kubernetes<br>Ningún recurso PodSecurityPolicy (antiguo modelo de PSP) en los clústeres<br>No se admiten nodos de Windows|
@@ -45,20 +45,20 @@ Security Center ofrece más características de seguridad del contenedor si habi
 
 ## <a name="set-up-your-workload-protection"></a>Configuración de la protección de cargas de trabajo
 
-Azure Security Center incluye un conjunto de recomendaciones que están disponibles cuando ha instalado el **complemento de Azure Policy para Kubernetes** .
+Azure Security Center incluye un conjunto de recomendaciones que están disponibles cuando ha instalado el **complemento de Azure Policy para Kubernetes**.
 
 1. Para configurar las recomendaciones, primero debe instalar el complemento:
 
-    1. En la página de recomendaciones, busque la recomendación llamada **Debe tener el complemento de Azure Policy para Kubernetes instalado y habilitado en sus clústeres** .
+    1. En la página de recomendaciones, busque la recomendación llamada **Debe tener el complemento de Azure Policy para Kubernetes instalado y habilitado en sus clústeres**.
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
 
         > [!TIP]
         > La recomendación se incluye en cinco controles de seguridad diferentes y no importa cuál seleccione en el siguiente paso.
 
-    1. En cualquiera de los controles de seguridad, seleccione la recomendación para ver los recursos en los que puede instalar el complemento y seleccione **Corregir** . 
+    1. En cualquiera de los controles de seguridad, seleccione la recomendación para ver los recursos en los que puede instalar el complemento y seleccione **Corregir**. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Página de detalles de recomendación para **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
 
 1. Aproximadamente 30 minutos después de completarse la instalación del complemento, Security Center muestra el estado de mantenimiento de los clústeres de las siguientes recomendaciones, cada uno en el control de seguridad pertinente como se muestra a continuación:
 
@@ -86,20 +86,20 @@ Azure Security Center incluye un conjunto de recomendaciones que están disponib
 
 1. Para las recomendaciones con parámetros que deben personalizarse, establezca los parámetros:
 
-    1. En el menú de Security Center, seleccione **Directiva de seguridad** .
+    1. En el menú de Security Center, seleccione **Directiva de seguridad**.
     1. Seleccione la suscripción correspondiente.
-    1. En la sección **Directiva predeterminada de Security Center** , seleccione **Ver directiva efectiva** .
+    1. En la sección **Directiva predeterminada de Security Center** , seleccione **Ver directiva efectiva**.
     1. Seleccione "Valor predeterminado de ASC".
     1. Abra la pestaña **Parámetros** y modifique los valores según sea necesario.
-    1. Seleccione **Revisar y guardar** .
-    1. Seleccione **Guardar** .
+    1. Seleccione **Revisar y guardar**.
+    1. Seleccione **Guardar**.
 
 
 1. Para aplicar cualquiera de las recomendaciones, 
 
     1. abra la página de detalles de recomendaciones y haga clic en **Denegar** :
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opción Denegar del parámetro de Azure Policy":::
 
         Se abrirá el panel donde se establece el ámbito. 
 
@@ -107,13 +107,13 @@ Azure Security Center incluye un conjunto de recomendaciones que están disponib
 
 1. Para ver qué recomendaciones se aplican a los clústeres:
 
-    1. Abra la página [Inventario de recursos](asset-inventory.md) de Security Center y use el filtro de tipo de recurso en **Servicios de Kubernetes** .
+    1. Abra la página [Inventario de recursos](asset-inventory.md) de Security Center y use el filtro de tipo de recurso en **Servicios de Kubernetes**.
 
     1. Seleccione un clúster para investigar y revise las recomendaciones disponibles para este. 
 
-1. Al ver una recomendación de la protección de cargas de trabajo establecida, verá el número de pods afectados ("componentes de Kubernetes") mostrados junto con el clúster. Para ver una lista de los pods específicos, seleccione el clúster y, a continuación, seleccione **Realizar acción** .
+1. Al ver una recomendación de la protección de cargas de trabajo establecida, verá el número de pods afectados ("componentes de Kubernetes") mostrados junto con el clúster. Para ver una lista de los pods específicos, seleccione el clúster y, a continuación, seleccione **Realizar acción**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Visualización de los pods afectados para una recomendación de K8s"::: 
 
 1. Para probar la aplicación, use las dos implementaciones de Kubernetes siguientes:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 087147038286bd7363fcc0eb3812abccc6ef9206
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c553652d4d8abd16b4e5fd4ff896e42bdba103ad
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201841"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408981"
 ---
 # <a name="security-control-v2-asset-management"></a>Control de seguridad v. 2: Administración de recursos
 
@@ -36,9 +36,9 @@ Nota: Es posible que se requieran permisos adicionales para obtener visibilidad 
 
 - [Información general sobre los grupos de administración de Azure](../../governance/management-groups/overview.md)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -60,11 +60,11 @@ Organice de forma lógica los recursos según la taxonomía de su organización 
 
 - [Administración del inventario de recursos de Azure Security Center](../../security-center/asset-inventory.md)
 
-- [Para más información sobre el etiquetado de recursos, vea la guía de decisiones de nomenclatura y etiquetado de recursos](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
+- [Para más información sobre el etiquetado de recursos, vea la guía de decisiones de nomenclatura y etiquetado de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json).
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -80,13 +80,13 @@ Use Azure Policy para auditar y restringir qué servicios pueden aprovisionar lo
 
 - [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Denegación de un tipo de recurso específico con Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Denegación de un tipo de recurso específico con Azure Policy](../../governance/policy/samples/index.md)
 
 - [Creación de consultas con Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Administración del cumplimiento de la seguridad](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -104,9 +104,9 @@ Quite los recursos de Azure cuando ya no los necesite.
 
 - [Eliminación de recursos y grupos de recursos de Azure](../../azure-resource-manager/management/delete-resource-group.md)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -124,9 +124,9 @@ Use el acceso condicional de Azure AD para limitar la capacidad de los usuarios
 
 - [Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
@@ -152,15 +152,14 @@ También puede usar una solución de terceros para descubrir e identificar softw
 
 - [Información general de Change Tracking e Inventario en Azure Automation](../../automation/change-tracking/overview.md)
 
-- [Control de la ejecución de scripts de PowerShell en entornos Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [Control de la ejecución de scripts de PowerShell en entornos Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-**Responsabilidad**: Customer
+**Responsabilidad** : Customer
 
-**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
 - [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
 - [Administración del cumplimiento de la seguridad](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
-

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 347a63cc77c565d800328c19d1d543c2c9efafc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 349456b0a4de65520dd633efe0573d24ea1c89c4
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400099"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409032"
 ---
 # <a name="security-control-secure-configuration"></a>Control de seguridad: Configuración segura
 
@@ -30,13 +30,13 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 También puede usar las recomendaciones de Azure Security Center como línea de base de configuración segura para los recursos de Azure.
 
-- [Visualización de los alias de Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Tutorial: Creación y administración de directivas para aplicar el cumplimiento](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Tutorial: Creación y administración de directivas para aplicar el cumplimiento](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Exportación de uno y varios recursos a una plantilla en Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+- [Exportación de uno y varios recursos a una plantilla en Azure Portal](../../azure-resource-manager/templates/export-template-portal.md)
 
-- [Guía de referencia sobre las recomendaciones de seguridad](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Guía de referencia sobre las recomendaciones de seguridad](../../security-center/recommendations-reference.md)
 
 ## <a name="72-establish-secure-operating-system-configurations"></a>7.2: Establezca configuraciones del sistema operativo seguras
 
@@ -46,15 +46,15 @@ También puede usar las recomendaciones de Azure Security Center como línea de 
 
 Use las recomendaciones de Azure Security Center para mantener las configuraciones de seguridad de todos los recursos de proceso.  Además, puede usar imágenes de sistema operativo personalizado o la configuración de estado de Azure Automation para establecer la configuración de seguridad del sistema operativo que requiere su organización.
 
-- [Cómo supervisar las recomendaciones de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+- [Cómo supervisar las recomendaciones de Azure Security Center](../../security-center/security-center-recommendations.md)
 
-- [Guía de referencia sobre las recomendaciones de seguridad](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Guía de referencia sobre las recomendaciones de seguridad](../../security-center/recommendations-reference.md)
 
-- [Introducción a Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+- [Introducción a Azure Automation State Configuration](../../automation/automation-dsc-overview.md)
 
-- [Carga de un VHD y su uso para crear máquinas virtuales Windows nuevas en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)
+- [Carga de un VHD y su uso para crear máquinas virtuales Windows nuevas en Azure](../../virtual-machines/windows/upload-generalized-managed.md)
 
-- [Creación de una VM Linux desde un disco personalizado con la CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd)
+- [Creación de una VM Linux desde un disco personalizado con la CLI de Azure](../../virtual-machines/linux/upload-vhd.md)
 
 ## <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
@@ -64,11 +64,11 @@ Use las recomendaciones de Azure Security Center para mantener las configuracion
 
 Utilice las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.  Además, puede usar plantillas de Azure Resource Manager para mantener la configuración de seguridad de los recursos de Azure que requiere su organización. 
 
-- [Descripción de los efectos de Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Descripción de los efectos de Azure Policy](../../governance/policy/concepts/effects.md)
 
-- [Creación y administración de directivas para aplicar el cumplimiento](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Creación y administración de directivas para aplicar el cumplimiento](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Información general sobre plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Información general sobre plantillas de Azure Resource Manager](../../azure-resource-manager/templates/overview.md)
 
 ## <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Mantenga configuraciones del sistema operativo seguras
 
@@ -80,17 +80,17 @@ Siga las recomendaciones de Azure Security Center sobre cómo realizar evaluacio
 
 Además, tenga en cuenta que las imágenes de máquinas virtuales de Azure Marketplace que publica Microsoft, las administra y mantiene Microsoft mismo. 
 
-- [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](../../security-center/deploy-vulnerability-assessment-vm.md)
 
-- [Creación de una máquina virtual de Azure desde una plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+- [Creación de una máquina virtual de Azure desde una plantilla de Azure Resource Manager](../../virtual-machines/windows/ps-template.md)
 
-- [Introducción a State Configuration de Azure Automation](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+- [Introducción a State Configuration de Azure Automation](../../automation/automation-dsc-overview.md)
 
-- [Creación de una máquina virtual de Windows en Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+- [Creación de una máquina virtual de Windows en Azure Portal](../../virtual-machines/windows/quick-create-portal.md)
 
-- [Información sobre cómo descargar la plantilla de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
+- [Información sobre cómo descargar la plantilla de máquina virtual](../../virtual-machines/windows/download-template.md)
 
-- [Script de ejemplo para cargar un disco duro virtual en Azure y crear una máquina virtual nueva](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
+- [Script de ejemplo para cargar un disco duro virtual en Azure y crear una máquina virtual nueva](../../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 
 ## <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
@@ -100,9 +100,9 @@ Además, tenga en cuenta que las imágenes de máquinas virtuales de Azure Marke
 
 Use Azure DevOps para almacenar y administrar de forma segura el código, como directivas de Azure personalizadas, plantillas de Azure Resource Manager y scripts de Desired State Configuration. Para acceder a los recursos que administra en Azure DevOps, puede conceder o denegar permisos a usuarios específicos, grupos de seguridad integrados o grupos definidos en Azure Active Directory (Azure AD) si se integran con Azure DevOps, o Active Directory si se integran con TFS.
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Acerca de los permisos y los grupos en Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+- [Acerca de los permisos y los grupos en Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 ## <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
@@ -112,13 +112,13 @@ Use Azure DevOps para almacenar y administrar de forma segura el código, como d
 
 Si usa imágenes personalizadas, use el control de acceso basado en rol de Azure (Azure RBAC) para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes. Uso de una galería de imágenes compartidas para compartir imágenes con diferentes usuarios, entidades de servicio o grupos de AD dentro de su organización.  En el caso de las imágenes de contenedor, almacénelas en Azure Container Registry y aproveche Azure RBAC para asegurarse de que solo los usuarios autorizados puedan acceder a las imágenes.  
 
-- [Descripción de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Descripción de Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Descripción de Azure RBAC para Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- [Descripción de Azure RBAC para Container Registry](../../container-registry/container-registry-roles.md)
 
-- [Configuración de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [Configuración de Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Introducción a la galería de imágenes compartidas](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
+- [Introducción a la galería de imágenes compartidas](../../virtual-machines/windows/shared-image-galleries.md)
 
 ## <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Implementación de herramientas de administración de configuración para recursos de Azure
 
@@ -128,9 +128,9 @@ Si usa imágenes personalizadas, use el control de acceso basado en rol de Azure
 
 defina e implemente configuraciones de seguridad estándar para los recursos de Azure con Azure Policy. Use alias de Azure Policy para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de los recursos de Azure. También puede usar definiciones de directivas integradas relacionadas con recursos concretos.  Además, puede usar Azure Automation para implementar los cambios de configuración.
 
-- [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Uso de alias](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Uso de alias](../../governance/policy/concepts/definition-structure.md#aliases)
 
 ## <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8: Implementación de herramientas de administración de la configuración para sistemas operativos
 
@@ -140,7 +140,7 @@ defina e implemente configuraciones de seguridad estándar para los recursos de 
 
 Azure Automation State Configuration es un servicio de administración de configuración para los nodos de Desired State Configuration (DSC) de cualquier centro de datos local o en la nube. Puede incorporar fácilmente máquinas, asignarles configuraciones declarativas y ver informes que muestran el cumplimiento por parte de cada máquina del estado deseado especificado. 
 
-- [Incorporación de máquinas para su administración mediante Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+- [Incorporación de máquinas para su administración mediante Azure Automation State Configuration](../../automation/automation-dsc-onboarding.md)
 
 ## <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Implementación de la supervisión de la configuración automatizada para los recursos de Azure
 
@@ -150,7 +150,7 @@ Azure Automation State Configuration es un servicio de administración de config
 
 Use Azure Security Center para realizar análisis de base de referencia para los recursos de Azure.  Además, use Azure Policy para alertar y auditar las configuraciones de recursos de Azure.
 
-- [Corrección de recomendaciones en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [Corrección de recomendaciones en Azure Security Center](../../security-center/security-center-remediate-recommendations.md)
 
 ## <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
@@ -160,7 +160,7 @@ Use Azure Security Center para realizar análisis de base de referencia para los
 
 Use Azure Security Center para realizar exámenes de base de referencia para la configuración del sistema operativo y de Docker para los contenedores.
 
-- [Descripción de las recomendaciones sobre contenedores de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-container-recommendations)
+- [Descripción de las recomendaciones sobre contenedores de Azure Security Center](../../security-center/container-security.md)
 
 ## <a name="711-manage-azure-secrets-securely"></a>7.11: Administre los secretos de Azure de forma segura
 
@@ -170,9 +170,9 @@ Use Azure Security Center para realizar exámenes de base de referencia para la 
 
 Use Managed Service Identity junto con Azure Key Vault para simplificar y proteger la administración de secretos para las aplicaciones en la nube.
 
-- [Integración con identidades administradas de Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+- [Integración con identidades administradas de Azure](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Creación de un almacén de claves](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+- [Creación de un almacén de claves](../../key-vault/secrets/quick-create-portal.md)
 
 - [Autenticación en Key Vault](../../key-vault/general/authentication.md)
 
@@ -186,7 +186,7 @@ Use Managed Service Identity junto con Azure Key Vault para simplificar y proteg
 
 Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
 
-- [Configuración de las identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+- [Configuración de las identidades administradas](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 ## <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Elimine la exposición de credenciales no intencionada
 

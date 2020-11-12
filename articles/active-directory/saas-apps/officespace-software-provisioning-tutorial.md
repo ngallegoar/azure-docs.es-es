@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/02/2019
 ms.author: Zhchia
-ms.openlocfilehash: fe48cef0fb235d217f95012e81d7daf501928300
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fc67d649e3a7cd094eb2c3d633244077abcab308
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518575"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359937"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Tutorial: Configuración de OfficeSpace Software para el aprovisionamiento automático de usuarios
 
@@ -50,11 +50,11 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 ## <a name="set-up-officespace-software-for-provisioning"></a>Configuración de OfficeSpace Software para el aprovisionamiento
 
-1. Inicie sesión en la [consola de administración de OfficeSpace Software](https://support.officespacesoftware.com/hc). Vaya a **Configuración > conectores** .
+1. Inicie sesión en la [consola de administración de OfficeSpace Software](https://support.officespacesoftware.com/hc). Vaya a **Configuración > conectores**.
 
     ![Consola de administración de OfficeSpace Software](media/officespace-software-provisioning-tutorial/settings.png)
 
-2.  Vaya a **Sincronización de directorios > SCIM** .
+2.  Vaya a **Sincronización de directorios > SCIM**.
 
     ![OfficeSpace Software Add SCIM](media/officespace-software-provisioning-tutorial/scim.png)
 
@@ -68,11 +68,11 @@ Antes de configurar OfficeSpace Software para el aprovisionamiento automático d
 
 **Para agregar OfficeSpace Software desde la galería de aplicaciones de Azure AD, siga estos pasos:**
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory** .
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -93,27 +93,27 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
 ### <a name="to-configure-automatic-user-provisioning-for-officespace-software-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para OfficeSpace Software en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **OfficeSpace Software** .
+2. En la lista de aplicaciones, seleccione **OfficeSpace Software**.
 
     ![Vínculo a OfficeSpace Software en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento** .
+3. Seleccione la pestaña **Aprovisionamiento**.
 
     ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático** .
+4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba la dirección URL `https://<subdomain>.officespacesoftware.com/api/scim/v2/` en la **URL de inquilino** . Por ejemplo, `https://contoso.officespacesoftware.com/api/scim/v2/`. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto** . Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a OfficeSpace Software. Si se produce un error en la conexión, asegúrese de que la cuenta de OfficeSpace Software tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador** , escriba la dirección URL `https://<subdomain>.officespacesoftware.com/api/scim/v2/` en la **URL de inquilino**. Por ejemplo, `https://contoso.officespacesoftware.com/api/scim/v2/`. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a OfficeSpace Software. Si se produce un error en la conexión, asegúrese de que la cuenta de OfficeSpace Software tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
@@ -129,19 +129,19 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
 11. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Para habilitar el servicio de aprovisionamiento de Azure AD para OfficeSpace Software, cambie el valor de **Estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
+12. Para habilitar el servicio de aprovisionamiento de Azure AD para OfficeSpace Software, cambie el valor de **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-13. Para definir los usuarios o grupos que quiere aprovisionar en OfficeSpace Software, seleccione los valores deseados en **Ámbito** , en la sección **Configuración** .
+13. Para definir los usuarios o grupos que quiere aprovisionar en OfficeSpace Software, seleccione los valores deseados en **Ámbito** , en la sección **Configuración**.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-14. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
+14. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en OfficeSpace Software.
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en OfficeSpace Software.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 

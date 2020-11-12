@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: de4962326a06080ff2bf81954cf85d3b6bbfefd5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dfde9bbbeb7f6b349ecbdc4c2da605d39a0708da
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104791"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutorial: Integración de Azure Active Directory con Printix
 
@@ -55,11 +55,11 @@ Para configurar la integración de Printix en Azure AD, deberá agregar Printix 
 
 **Para agregar Printix desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** . 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-1. Vaya a **Aplicaciones empresariales** . A continuación, vaya a **Todas las aplicaciones** .
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Captura de pantalla que muestra la opción Aplicaciones empresariales seleccionada en Azure Portal, bajo Administrar y, a su vez, aparece seleccionada la opción Todas las aplicaciones.][2]
     
@@ -67,7 +67,7 @@ Para configurar la integración de Printix en Azure AD, deberá agregar Printix 
 
     ![Captura de pantalla que muestra seleccionada la opción Nueva aplicación.][3]
 
-1. En el cuadro de búsqueda, escriba **Printix** .
+1. En el cuadro de búsqueda, escriba **Printix**.
 
     ![Captura de pantalla que muestra la búsqueda de Printix en el cuadro de diálogo Agregar desde la galería.](./media/printix-tutorial/tutorial_printix_search.png)
 
@@ -96,7 +96,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 **Para configurar el inicio de sesión único de Azure AD con Printix, realice los pasos siguientes:**
 
-1. En la página de integración de la aplicación **Printix** de Azure Portal, haga clic en **Inicio de sesión único** .
+1. En la página de integración de la aplicación **Printix** de Azure Portal, haga clic en **Inicio de sesión único**.
 
     ![Captura de pantalla que muestra que se ha seleccionado Inicio de sesión único en Administrar en Azure Portal.][4]
 
@@ -157,11 +157,11 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo de **Azure Portal** , haga clic en el icono de **Azure Active Directory** .
+1. En el panel de navegación izquierdo de **Azure Portal** , haga clic en el icono de **Azure Active Directory**.
 
     ![Captura de pantalla que muestra un nombre y un nombre de usuario que se van a crear.](./media/printix-tutorial/create_aaduser_01.png) 
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** .
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![La captura de pantalla muestra el icono de Azure AD en Azure Portal.](./media/printix-tutorial/create_aaduser_02.png) 
 
@@ -173,13 +173,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Captura de pantalla que muestra el cuadro de diálogo Usuario, donde puede especificar los valores descritos.](./media/printix-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre** , escriba **BrittaSimon** .
+    a. En el cuadro de texto **Nombre** , escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario** , escriba la **dirección de correo electrónico** de Britta Simon.
 
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña** .
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear** .
+    d. Haga clic en **Crear**.
  
 ### <a name="creating-a-printix-test-user"></a>Creación de un usuario de prueba de Printix
 
@@ -199,27 +199,27 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar a Britta Simon a Printix, realice los pasos siguientes:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales** . Luego, haga clic en **Todas las aplicaciones** .
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
 
     ![Captura de pantalla que muestra la opción Aplicaciones empresariales seleccionada en Administrar con la opción Todas las aplicaciones seleccionada.][201] 
 
-1. En la lista de aplicaciones, seleccione **Printix** .
+1. En la lista de aplicaciones, seleccione **Printix**.
 
     ![Captura de pantalla en la que se muestra la lista de aplicaciones, donde se puede seleccionar Printix.](./media/printix-tutorial/tutorial_printix_app.png) 
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos** .
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Captura de pantalla que muestra la opción Usuarios y grupos seleccionada en el menú Administrar.][202] 
 
-1. Haga clic en el botón **Agregar** . Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Captura de pantalla que muestra el botón Agregar y la página Agregar asignación, donde puede seleccionar Usuarios y Grupos.][203]
 
 1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista de usuarios.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos** .
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación** .
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
 

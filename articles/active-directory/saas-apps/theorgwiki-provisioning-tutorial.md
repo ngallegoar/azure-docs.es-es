@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8238b9902aafcabc079c551a0eabc7170042209a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255881"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357630"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Tutorial: Configuración de OrgWiki para el aprovisionamiento automático de usuarios
 
@@ -65,7 +65,7 @@ Antes de configurar OrgWiki para el aprovisionamiento automático de usuarios co
 
     ![Captura de pantalla de la página Cuentas de servicio en la consola de administración de OrgWiki.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Haga clic en **+Service Account** (+Cuenta de servicio). En **Service Account Type** (Tipo de cuenta de servicio), seleccione **Token Based** (Basada en token). Haga clic en **Save**(Guardar).
+4. Haga clic en **+Service Account** (+Cuenta de servicio). En **Service Account Type** (Tipo de cuenta de servicio), seleccione **Token Based** (Basada en token). Haga clic en **Save** (Guardar).
 
     ![Captura de pantalla del cuadro de diálogo Cuenta de servicio con las opciones Tipo de cuenta de servicio, Basada en token y Guardar resaltadas.](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -93,7 +93,7 @@ Para configurar OrgWiki para el aprovisionamiento automático de usuarios con Az
 
     ![OrgWiki en la lista de resultados](common/search-new-app.png)
 
-5. Seleccione el botón **Registrarse para OrgWiki**; se le redirigirá a la página de inicio de sesión de OrgWiki. 
+5. Seleccione el botón **Registrarse para OrgWiki** ; se le redirigirá a la página de inicio de sesión de OrgWiki. 
 
     ![Captura de pantalla de la página de inicio de sesión de OrgWiki con la dirección URL resaltada](media/theorgwiki-provisioning-tutorial/image00.png)
 
@@ -132,24 +132,24 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` en la **URL de inquilino**. 
+5. En la sección **Credenciales de administrador** , escriba `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` en la **URL de inquilino**. 
 
     Ejemplo: `https://test1.theorgwiki.com/api/v2/scim/v2/`
 
 > [!NOTE]
 > La opción **Subdomain Value** (Valor de subdominio) solo se puede establecer durante el proceso de registro inicial de OrgWiki.
  
-6. Escriba el valor del token en el campo **Token secreto**, que recuperó anteriormente de OrgWiki. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a OrgWiki. Si la conexión no se establece, asegúrese de que la cuenta de OrgWiki tenga permisos de administrador y pruebe de nuevo.
+6. Escriba el valor del token en el campo **Token secreto** , que recuperó anteriormente de OrgWiki. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a OrgWiki. Si la conexión no se establece, asegúrese de que la cuenta de OrgWiki tenga permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+7. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-8. Haga clic en **Save**(Guardar).
+8. Haga clic en **Save** (Guardar).
 
-9. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to TheOrgWiki** (Sincronizar usuarios de Azure Active Directory con OrgWiki).
+9. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to TheOrgWiki** (Sincronizar usuarios de Azure Active Directory con OrgWiki).
 
     ![Asignaciones de usuarios de OrgWiki](media/theorgwiki-provisioning-tutorial/usermapping.png)
 
@@ -163,7 +163,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-13. Seleccione los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere aprovisionar en OrgWiki.
+13. Seleccione los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere aprovisionar en OrgWiki.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b0cd8245b6d8298ae1d99e2dbe1e8457a40dc7d6
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 3dbfcacb6ea5922a01d52dfe39189f09f48d4b4a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330417"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368753"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
@@ -361,7 +361,7 @@ Para que funcione bien con la aplicación lógica, el punto de conexión debe cu
 
 Este desencadenador hace que la aplicación lógica sea invocable mediante la creación de un punto de conexión que puede registrar una suscripción llamando a la dirección URL especificada de este. Cuando se crea este desencadenador en el flujo de trabajo, una solicitud saliente realiza la llamada para registrar la suscripción. De este modo, el desencadenador puede iniciar la escucha de eventos. Cuando una operación hace que este desencadenador no sea válido, una solicitud saliente realiza automáticamente la llamada para cancelar la suscripción. Para más información, consulte [Suscripciones del punto de conexión](#subscribe-unsubscribe).
 
-También puede especificar [límites asincrónicos](#asynchronous-limits) en un desencadenador **HTTPWebhook** . El comportamiento del desencadenador depende de las secciones que se usen o se omitan.
+También puede especificar [límites asincrónicos](#asynchronous-limits) en un desencadenador **HTTPWebhook**. El comportamiento del desencadenador depende de las secciones que se usen o se omitan.
 
 ```json
 "HTTP_Webhook": {
@@ -1169,7 +1169,7 @@ Cuando se guarda la aplicación lógica, el motor de Logic Apps realiza algunas 
 
 * El flujo de trabajo solo puede usar un desencadenador HTTP estándar o webhook JSON genérico. 
 
-  El motor de Logic Apps obtiene y almacena en caché la dirección URL del desencadenador, que se utiliza en tiempo de ejecución. Sin embargo, si una operación invalida la dirección URL almacenada en caché, se produce un error en tiempo de ejecución en la acción **Function** . Para corregir este problema, vuelva a guardar la aplicación lógica de forma que esta obtenga y almacene en caché la dirección URL del desencadenador de nuevo.
+  El motor de Logic Apps obtiene y almacena en caché la dirección URL del desencadenador, que se utiliza en tiempo de ejecución. Sin embargo, si una operación invalida la dirección URL almacenada en caché, se produce un error en tiempo de ejecución en la acción **Function**. Para corregir este problema, vuelva a guardar la aplicación lógica de forma que esta obtenga y almacene en caché la dirección URL del desencadenador de nuevo.
 
 * La función no puede tener ninguna ruta definida.
 
@@ -2401,7 +2401,6 @@ Puede cambiar el comportamiento predeterminado de los desencadenadores y accione
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | Ejecuta acciones basadas en HTTP sincrónicamente en lugar de hacerlo de forma asincrónica. <p><p>Para establecer esta opción, consulte [Ejecutar acciones sincrónicamente](#disable-asynchronous-pattern). | Acciones: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Respuesta](#response-action) | 
 | `IncludeAuthorizationHeadersInOutputs` | String | En el caso de las aplicaciones lógicas que [permiten la autenticación abierta de Azure Active Directory (OAuth de Azure AD)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) para autorizar el acceso a las llamadas entrantes a un punto de conexión de desencadenador basado en solicitudes, incluya el encabezado `Authorization` del token de acceso de OAuth en las salidas del desencadenador. Para más información, consulte [Inclusión del encabezado "Authorization" en las salidas del desencadenador de solicitudes](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Desencadenadores: <p>[Solicitud](#request-trigger), <br>[Webhook HTTP](#http-webhook-trigger) | 
-| `OptimizedForHighThroughput` | String | Cambia el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) del número de ejecuciones de acciones por cada 5 minutos al [límite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para establecer esta opción, consulte [Ejecutar en modo de alto rendimiento](#run-high-throughput-mode). | Todas las acciones | 
 | `Sequential` | String | Ejecuta iteraciones de bucles "for each" una a una, en lugar de todas al mismo tiempo en paralelo. <p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.repetitions` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p><p>Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each).| Acción: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Ejecuta secuencialmente el desencadenador de cada instancia de aplicación lógica y espera a que termine la ejecución anteriormente activa antes de desencadenar la siguiente instancia de aplicación lógica. <p><p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.runs` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p>Para establecer esta opción, consulte [Desencadenamiento secuencial de instancias](#sequential-trigger). | Todos los desencadenadores | 
 ||||
@@ -2422,24 +2421,24 @@ Estas son algunas consideraciones que debe plantearse cuando quiera usar el cont
 
 * Cuando la simultaneidad está habilitada, una instancia de aplicación lógica de larga duración puede provocar que las nuevas instancias de aplicación lógica entren en un estado de espera. Este estado impide que Azure Logic Apps cree instancias y se produce incluso cuando el número de ejecuciones simultáneas es menor que el número máximo de ejecuciones simultáneas especificado.
 
-  * Para interrumpir este estado, cancele las instancias más tempranas que estén *todavía en ejecución* .
+  * Para interrumpir este estado, cancele las instancias más tempranas que estén *todavía en ejecución*.
 
-    1. En el menú de la aplicación lógica, seleccione **Introducción** .
+    1. En el menú de la aplicación lógica, seleccione **Introducción**.
 
     1. En la sección **Historial de ejecuciones** , seleccione la instancia más temprana que esté todavía en ejecución, por ejemplo:
 
        ![Selección de la instancia más temprana en ejecución](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
 
        > [!TIP]
-       > Para ver solo las instancias que siguen en ejecución, abra la lista **Todas** y seleccione **En ejecución** .
+       > Para ver solo las instancias que siguen en ejecución, abra la lista **Todas** y seleccione **En ejecución**.
 
-    1. En **Ejecución de aplicación lógica** , seleccione **Cancelar ejecución** .
+    1. En **Ejecución de aplicación lógica** , seleccione **Cancelar ejecución**.
 
        ![Búsqueda de la instancia más temprana en ejecución](./media/logic-apps-workflow-actions-triggers/cancel-run.png)
 
   * Para evitar esta posibilidad, agregue un tiempo de expiración a cualquier acción que pueda contener estas ejecuciones. Si está trabajando en el editor de código, consulte [Cambio de la duración asincrónica](#asynchronous-limits). En caso contrario, si usa el diseñador, siga estos pasos:
 
-    1. En la aplicación lógica, en la acción donde quiere agregar un tiempo de expiración, en la esquina superior derecha, seleccione el botón de puntos suspensivos ( **…** ) y, luego, seleccione **Configuración** .
+    1. En la aplicación lógica, en la acción donde quiere agregar un tiempo de expiración, en la esquina superior derecha, seleccione el botón de puntos suspensivos ( **…** ) y, luego, seleccione **Configuración**.
 
        ![Abrir la configuración de la acción](./media/logic-apps-workflow-actions-triggers/action-settings.png)
 
@@ -2474,11 +2473,11 @@ Para más información, consulte [Opciones de configuración del entorno en tiem
 
 #### <a name="edit-in-logic-apps-designer"></a>Edición en el diseñador de Logic Apps
 
-1. En la esquina superior derecha del desencadenador, elija el botón de los puntos suspensivos ( **...** ) y, después, elija **Configuración** .
+1. En la esquina superior derecha del desencadenador, elija el botón de los puntos suspensivos ( **...** ) y, después, elija **Configuración**.
 
-1. En **Control de simultaneidad** , establezca **Límite** en **Activado** . 
+1. En **Control de simultaneidad** , establezca **Límite** en **Activado**. 
 
-1. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. Para ejecutar la aplicación lógica de manera secuencial, arrastre el valor del control deslizante a **1** .
+1. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. Para ejecutar la aplicación lógica de manera secuencial, arrastre el valor del control deslizante a **1**.
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2515,11 +2514,11 @@ Para más información, consulte [Opciones de configuración del entorno en tiem
 
 #### <a name="edit-in-logic-apps-designer"></a>Edición en el diseñador de Logic Apps
 
-1. En la acción **For each** , en la esquina superior derecha, seleccione el botón de puntos suspensivos ( **...** ) y luego seleccione **Configuración** .
+1. En la acción **For each** , en la esquina superior derecha, seleccione el botón de puntos suspensivos ( **...** ) y luego seleccione **Configuración**.
 
-1. En **Control de simultaneidad** , establezca **Control de simultaneidad** en **Activado** .
+1. En **Control de simultaneidad** , establezca **Control de simultaneidad** en **Activado**.
 
-1. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. Para ejecutar la aplicación lógica de manera secuencial, arrastre el valor del control deslizante a **1** .
+1. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. Para ejecutar la aplicación lógica de manera secuencial, arrastre el valor del control deslizante a **1**.
 
 <a name="change-waiting-runs"></a>
 
@@ -2597,9 +2596,9 @@ Para más información, consulte [Opciones de configuración del entorno en tiem
 
 #### <a name="edit-in-logic-apps-designer"></a>Edición en el diseñador de Logic Apps
 
-1. En la esquina superior derecha del desencadenador, elija el botón de los puntos suspensivos ( **...** ) y, después, elija **Configuración** .
+1. En la esquina superior derecha del desencadenador, elija el botón de los puntos suspensivos ( **...** ) y, después, elija **Configuración**.
 
-1. En **Control de simultaneidad** , establezca **Límite** en **Activado** . 
+1. En **Control de simultaneidad** , establezca **Límite** en **Activado**. 
 
 1. Arrastre el control deslizante **Grado de paralelismo** al número `1`. 
 
@@ -2650,9 +2649,9 @@ Para más información, consulte [Opciones de configuración del entorno en tiem
 
 #### <a name="edit-in-logic-apps-designer"></a>Edición en el diseñador de Logic Apps
 
-1. En la esquina superior derecha de la acción **For each** , seleccione el botón de puntos suspensivos ( **...** ) y luego seleccione **Configuración** .
+1. En la esquina superior derecha de la acción **For each** , seleccione el botón de puntos suspensivos ( **...** ) y luego seleccione **Configuración**.
 
-1. En **Control de simultaneidad** , establezca **Control de simultaneidad** en **Activado** .
+1. En **Control de simultaneidad** , establezca **Control de simultaneidad** en **Activado**.
 
 1. Arrastre el control deslizante **Grado de paralelismo** al número `1`.
 
@@ -2660,13 +2659,13 @@ Para más información, consulte [Opciones de configuración del entorno en tiem
 
 ### <a name="run-actions-in-a-synchronous-operation-pattern"></a>Ejecución de acciones en un modelo de operación sincrónica
 
-De forma predeterminada, la acción HTTP y las acciones APIConnection de Azure Logic Apps siguen el [*modelo de operación asincrónica*](/azure/architecture/patterns/async-request-reply) estándar, mientras que la acción de respuesta sigue el *modelo de operación sincrónica* . El modelo asincrónico especifica que, después de que una acción llame a o envíe una solicitud al punto de conexión, servicio, sistema o API especificados, el receptor devolverá inmediatamente una respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Este código confirma que el receptor aceptó la solicitud, pero no ha finalizado el procesamiento. La respuesta puede incluir un encabezado `location` que especifica la dirección URL y un id. de actualización que el autor de la llamada puede usar para sondear o comprobar continuamente el estado de la solicitud asincrónica hasta que el receptor detenga el procesamiento y devuelva una respuesta de operación correcta ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) u otra respuesta que no sea 202. Para más información, vea [La integración de microservicio asincrónico aplica la autonomía de microservicios](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+De forma predeterminada, la acción HTTP y las acciones APIConnection de Azure Logic Apps siguen el [*modelo de operación asincrónica*](/azure/architecture/patterns/async-request-reply) estándar, mientras que la acción de respuesta sigue el *modelo de operación sincrónica*. El modelo asincrónico especifica que, después de que una acción llame a o envíe una solicitud al punto de conexión, servicio, sistema o API especificados, el receptor devolverá inmediatamente una respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Este código confirma que el receptor aceptó la solicitud, pero no ha finalizado el procesamiento. La respuesta puede incluir un encabezado `location` que especifica la dirección URL y un id. de actualización que el autor de la llamada puede usar para sondear o comprobar continuamente el estado de la solicitud asincrónica hasta que el receptor detenga el procesamiento y devuelva una respuesta de operación correcta ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) u otra respuesta que no sea 202. Para más información, vea [La integración de microservicio asincrónico aplica la autonomía de microservicios](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
-* En el Diseñador de aplicación lógica, la acción HTTP, las acciones APIConnection y la acción de respuesta tienen la configuración **Modelo asincrónico** . Cuando está habilitada, esta configuración especifica que el autor de la llamada no espera a que finalice el procesamiento y puede pasar a la siguiente acción, pero continúa comprobando el estado hasta que se detiene el procesamiento. Si está deshabilitada, esta configuración especifica que el autor de la llamada espera a que finalice el procesamiento antes de pasar a la siguiente acción. Para buscar esta configuración, siga estos pasos:
+* En el Diseñador de aplicación lógica, la acción HTTP, las acciones APIConnection y la acción de respuesta tienen la configuración **Modelo asincrónico**. Cuando está habilitada, esta configuración especifica que el autor de la llamada no espera a que finalice el procesamiento y puede pasar a la siguiente acción, pero continúa comprobando el estado hasta que se detiene el procesamiento. Si está deshabilitada, esta configuración especifica que el autor de la llamada espera a que finalice el procesamiento antes de pasar a la siguiente acción. Para buscar esta configuración, siga estos pasos:
 
   1. En la barra de título de la acción HTTP, seleccione el botón de puntos suspensivos ( **...** ), que abre la configuración de la acción.
 
-  1. Busque la configuración **Modelo asincrónico** .
+  1. Busque la configuración **Modelo asincrónico**.
 
      ![Configuración "Modelo asincrónico"](./media/logic-apps-workflow-actions-triggers/asynchronous-pattern-setting.png)
 
@@ -2693,7 +2692,7 @@ En estos casos, puede hacer que una acción se ejecute de forma sincrónica medi
 
 1. En el Diseñador de aplicación lógica, en la barra de título de la acción, seleccione el botón de puntos suspensivos ( **...** ), que abre la configuración de la acción.
 
-1. Busque la configuración **Modelo asincrónico** , establézcala en **Desactivada** si está habilitada y seleccione **Listo** .
+1. Busque la configuración **Modelo asincrónico** , establézcala en **Desactivada** si está habilitada y seleccione **Listo**.
 
    ![Desactivación de la configuración "Modelo asincrónico"](./media/logic-apps-workflow-actions-triggers/disable-asynchronous-pattern-setting.png)
 
@@ -2708,24 +2707,6 @@ En la definición JSON subyacente de la acción, agregue y establezca la [propie
    "type": "Http",
    "inputs": { "<action-inputs>" },
    "operationOptions": "DisableAsyncPattern",
-   "runAfter": {}
-}
-```
-
-<a name="run-high-throughput-mode"></a>
-
-### <a name="run-in-high-throughput-mode"></a>Ejecutar en modo de alto rendimiento
-
-Para una única definición de aplicación lógica, el número de acciones que se ejecutan cada cinco minutos tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar este límite al [máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) posible, establezca la propiedad `operationOptions` en `OptimizedForHighThroughput`. Esta opción pone a la aplicación lógica en modo de "alto rendimiento".
-
-> [!NOTE]
-> El modo de alto rendimiento se encuentra en versión preliminar. También puede distribuir una carga de trabajo entre varias aplicaciones lógicas, según sea necesario.
-
-```json
-"<action-name>": {
-   "type": "<action-type>",
-   "inputs": { "<action-inputs>" },
-   "operationOptions": "OptimizedForHighThroughput",
    "runAfter": {}
 }
 ```

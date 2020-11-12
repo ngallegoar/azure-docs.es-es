@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 5596dfab98f6826cd61241441a9ddade72e36674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca7654d930247f70d85cbc20fbbeb961223f05f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851278"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359806"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Tutorial: Configuración de Federated Directory para el aprovisionamiento automático de usuarios
 
@@ -57,20 +57,20 @@ Antes de configurar Federated Directory para el aprovisionamiento automático de
 
 2. Vaya a **Directories > User directories** (Directorios > Directorios del usuario) y seleccione el inquilino. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Captura de pantalla de la consola de administración de Federated Directory con un campo para escribir el nombre de la empresa. Los botones de inicio de sesión también están visibles." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Captura de pantalla de la consola de administración de Federated Directory, con las opciones Directorios y Federated Directory Azure AD Test (Prueba de Azure AD de Federated Directory) resaltadas." border="false":::
 
 3.  Para generar un token de portador permanente, vaya a **Directory Keys > Create New Key** (Claves del directorio > Crear clave). 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Captura de pantalla de la consola de administración de Federated Directory con un campo para escribir el nombre de la empresa. Los botones de inicio de sesión también están visibles." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Captura de pantalla de la página Directory keys (Claves del directorio) de la consola de administración de Federated Directory. El botón Create new key (Crear clave) está resaltado." border="false":::
 
 4. Cree una clave de directorio. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Captura de pantalla de la consola de administración de Federated Directory con un campo para escribir el nombre de la empresa. Los botones de inicio de sesión también están visibles." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Captura de pantalla de la página Create directory key (Crear clave de directorio) de la consola de administración de Federated Directory, con los campos para el nombre y la descripción y un botón para crear la clave." border="false":::
     
 
 5. Copie el valor de **Access Token** (Token de acceso). Este valor se escribe en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Federated Directory en Azure Portal. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Captura de pantalla de la consola de administración de Federated Directory con un campo para escribir el nombre de la empresa. Los botones de inicio de sesión también están visibles." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Captura de pantalla de una página de la consola de administración de Federated Directory. Aparecen un marcador de posición del token de acceso y el nombre, la descripción y el emisor de una clave." border="false":::
     
 ## <a name="add-federated-directory-from-the-gallery"></a>Incorporación de Federated Directory desde la galería
 
@@ -96,15 +96,15 @@ Para configurar Federated Directory para el aprovisionamiento automático de usu
 
 5. Vaya a la **dirección URL** resaltada a continuación desde un explorador diferente. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Captura de pantalla de la consola de administración de Federated Directory con un campo para escribir el nombre de la empresa. Los botones de inicio de sesión también están visibles." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Captura de pantalla de una página de Azure Portal en la que se muestra información sobre Federated Directory. El valor de la dirección URL está resaltado." border="false":::
 
 6. Haga clic en **INICIAR SESIÓN**.
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Captura de pantalla de la consola de administración de Federated Directory con un campo para escribir el nombre de la empresa. Los botones de inicio de sesión también están visibles." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Captura de pantalla del menú principal del sitio de Federated Directory. El botón para iniciar sesión está resaltado." border="false":::
 
 7.  Como Federated Directory es una aplicación de OpenIDConnect, inicie sesión en Federated Directory con su cuenta Microsoft profesional.
     
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Captura de pantalla de la consola de administración de Federated Directory con un campo para escribir el nombre de la empresa. Los botones de inicio de sesión también están visibles." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Captura de pantalla de la página SCIM AD test (Prueba de AD de SCIM) del sitio de Federated Directory. La opción para iniciar sesión con la cuenta de Microsoft está resaltada." border="false":::
  
 8. Después de autenticarse, acepte la petición de consentimiento de la página de consentimiento. La aplicación se agregará automáticamente a su inquilino y se le redirigirá a su cuenta de Federated Directory.
 
@@ -134,24 +134,24 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://api.federated.directory/v2/` en la URL de inquilino. Escriba el valor de Federated Directory que recuperó y guardó en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Federated Directory. Si la conexión no se establece, asegúrese de que la cuenta de Federated Directory tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://api.federated.directory/v2/` en la URL de inquilino. Escriba el valor de Federated Directory que recuperó y guardó en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Federated Directory. Si la conexión no se establece, asegúrese de que la cuenta de Federated Directory tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-9. Haga clic en **Save**(Guardar).
+9. Haga clic en **Save** (Guardar).
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Federated Directory** (Sincronizar usuarios de Azure Active Directory con Federated Directory).
+10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Federated Directory** (Sincronizar usuarios de Azure Active Directory con Federated Directory).
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Captura de pantalla de la consola de administración de Federated Directory con un campo para escribir el nombre de la empresa. Los botones de inicio de sesión también están visibles." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Captura de pantalla de la sección Asignaciones. En Nombre, se resalta la opción para sincronizar usuarios de Azure Active Directory con Federated Directory." border="false":::
     
     
 11. Examine los atributos de usuario que se sincronizan entre Azure AD y Federated Directory en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Matching** (Coincidente) se usan para buscar coincidencias con las cuentas de usuario de Federated Directory para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Captura de pantalla de la consola de administración de Federated Directory con un campo para escribir el nombre de la empresa. Los botones de inicio de sesión también están visibles." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Captura de pantalla de la página Asignaciones de atributos. En la tabla se enumeran los atributos de Azure Active Directory y de Federated Directory y el estado de coincidencia." border="false":::
     
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -160,7 +160,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Federated Directory.
+14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Federated Directory.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

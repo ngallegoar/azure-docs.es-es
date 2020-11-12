@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 875fd40fea315269f7fe72032942c40551a6b144
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c49a85c71c9b877be7e143f5caf27dc307fe0c12
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078976"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381276"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Conexión de redes virtuales entre inquilinos a un centro de conectividad de Virtual Wan
 
@@ -54,7 +54,7 @@ Para que la suscripción primaria con el centro de conectividad virtual pueda mo
 1. Ahora agregue la suscripción del inquilino remoto y la del inquilino primario a la sesión actual de PowerShell. Ejecute el siguiente comando: Si ha iniciado sesión en el inquilino primario, solo tiene que ejecutar el comando para el inquilino remoto.
 
    ```azurepowershell-interactive
-   Add-AzAccount "xxxxx-b34a-4df9-9451-4402dcaecc5b"
+   Add-AzAccount -SubscriptionId "xxxxx-b34a-4df9-9451-4402dcaecc5b"
    ```
 
 1. Inicie sesión en Azure PowerShell con las credenciales primarias y ejecute el siguiente comando para comprobar que la asignación de roles se ha realizado correctamente:

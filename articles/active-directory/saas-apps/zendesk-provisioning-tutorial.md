@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c038cc309d8f1f13a04de01ed83e04afa70ba6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620dd8fd586352ebeaf097a8f870a606f8e06c01
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546176"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359721"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zendesk para el aprovisionamiento automático de usuarios
 
@@ -94,13 +94,13 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Modo de aprovisionamiento de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk1.png)
 
-5. En la sección **Credenciales del administrador**, escriba el nombre del usuario administrador, el token secreto y el dominio de la cuenta de Zendesk. Algunos ejemplos de estos valores son:
+5. En la sección **Credenciales del administrador** , escriba el nombre del usuario administrador, el token secreto y el dominio de la cuenta de Zendesk. Algunos ejemplos de estos valores son:
 
-   * En el cuadro **Nombre de usuario administrador**, rellene el nombre de usuario de la cuenta de administrador del inquilino de Zendesk. Un ejemplo es admin@contoso.com.
+   * En el cuadro **Nombre de usuario administrador** , rellene el nombre de usuario de la cuenta de administrador del inquilino de Zendesk. Un ejemplo es admin@contoso.com.
 
-   * En el cuadro **Token secreto**, rellene el token secreto tal y como se describe en el paso 6.
+   * En el cuadro **Token secreto** , rellene el token secreto tal y como se describe en el paso 6.
 
-   * En el cuadro **Dominio**, rellene el subdominio del inquilino de Zendesk. Por ejemplo, para una cuenta con una dirección URL de inquilino con el valor `https://my-tenant.zendesk.com`, el subdominio es **my-tenant**.
+   * En el cuadro **Dominio** , rellene el subdominio del inquilino de Zendesk. Por ejemplo, para una cuenta con una dirección URL de inquilino con el valor `https://my-tenant.zendesk.com`, el subdominio es **my-tenant**.
 
 6. El token secreto para su cuenta de Zendesk está ubicado en **Administración** > **API** > **Configuración**. Asegúrese de que **Token de acceso** está establecido en **Habilitado**.
 
@@ -112,7 +112,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Conexión de prueba de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk19.png)
 
-8. En el cuadro **Correo electrónico de notificación**, escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el cuadro **Correo electrónico de notificación** , escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk9.png)
 
@@ -122,11 +122,11 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Sincronización del usuario de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk10.png)
 
-11. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y ZenDesk. Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de Zendesk para las operaciones de actualización. Para guardar los cambios, seleccione **Guardar**.
+11. En la sección **Asignaciones de atributos** , revise los atributos de usuario que se sincronizan entre Azure AD y ZenDesk. Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de Zendesk para las operaciones de actualización. Para guardar los cambios, seleccione **Guardar**.
 
     ![Atributos de usuario coincidentes de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk11.png)
 
-12. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Zendesk** (Sincronizar grupos de Azure Active Directory con Zendesk).
+12. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Zendesk** (Sincronizar grupos de Azure Active Directory con Zendesk).
 
     ![Sincronización del grupo de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk12.png)
 
@@ -136,11 +136,11 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
 14. Para configurar filtros de ámbito, consulte las instrucciones del [tutorial sobre filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Para habilitar el servicio de aprovisionamiento de Azure AD para Zendesk, en la sección **Configuración**, cambie **Estado de aprovisionamiento** a **Activado**.
+15. Para habilitar el servicio de aprovisionamiento de Azure AD para Zendesk, en la sección **Configuración** , cambie **Estado de aprovisionamiento** a **Activado**.
 
     ![Estado de aprovisionamiento de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk14.png)
 
-16. Defina los usuarios o grupos que quiere que se aprovisionen en Zendesk. En la sección **Configuración**, seleccione los valores que quiere incluir en el **Ámbito**.
+16. Defina los usuarios o grupos que quiere que se aprovisionen en Zendesk. En la sección **Configuración** , seleccione los valores que quiere incluir en el **Ámbito**.
 
     ![Ámbito de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk15.png)
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322062"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410562"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creación de flujos de trabajo con estado o sin estado en Visual Studio Code con la extensión Azure Logic Apps (versión preliminar)
 
@@ -109,8 +109,6 @@ Para esta versión preliminar pública, estas funcionalidades no están disponib
   Excepto en el caso de los desencadenadores especificados anteriormente, los flujos de trabajo *con estado* pueden usar tanto desencadenadores como acciones con los [conectores administrados](../connectors/apis-list.md#managed-api-connectors) que se implementan en Azure, frente a los desencadenadores y las acciones integrados que se ejecutan de forma nativa con el entorno de ejecución de Logic Apps. Sin embargo, los flujos de trabajo *sin estado* solo admiten actualmente *acciones* para conectores administrados, no para desencadenadores. Aunque puede habilitar conectores en Azure para el flujo de trabajo sin estado, el diseñador no muestra ningún desencadenador de conector administrado para que pueda seleccionarlo.
 
 * Solo puede implementar el nuevo tipo de recurso **Aplicación lógica (versión preliminar)** en un plan de hospedaje [Premium o de App Service en Azure](#publish-azure), o en un [contenedor de Docker](#deploy-docker), y no en [entornos de servicios de integración (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Los planes de hospedaje de **consumo** no son compatibles ni están disponibles para implementar este tipo de recurso.
-
-* En Azure Portal, no se pueden crear nuevas aplicaciones lógicas con el nuevo tipo de recurso **Logic Apps (versión preliminar)** . Solo puede crear estas aplicaciones lógicas en Visual Studio Code. Sin embargo, después de implementar las aplicaciones lógicas con este tipo de recurso desde Visual Studio Code en Azure, puede [agregar nuevos flujos de trabajo a esas aplicaciones lógicas](#add-workflows).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -774,12 +772,7 @@ En Visual Studio Code, puede ver todas las aplicaciones lógicas implementadas e
 
 ## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>Búsqueda y administración de aplicaciones lógicas implementadas en el portal
 
-En Azure Portal, puede ver todas las aplicaciones lógicas implementadas en la suscripción a Azure, independientemente de si son del tipo de recurso **Logic Apps** original o del tipo de recurso **Logic Apps (versión preliminar)** . Actualmente, cada tipo de recurso se organiza y administra como categoría independiente en Azure.
-
-> [!NOTE]
-> En el caso de la versión preliminar pública, en Azure Portal solo puede ver los recursos **Logic Apps (versión preliminar)** implementados, no crear nuevos recursos **Logic Apps (versión preliminar)** . Puede crear estas aplicaciones lógicas solo en Visual Studio Code. Sin embargo, puede [agregar flujos de trabajo](#add-workflows) a aplicaciones lógicas implementadas con este tipo de recurso.
-
-Para buscar aplicaciones lógicas que tengan el tipo de recurso **Logic Apps (versión preliminar)** , siga estos pasos:
+En Azure Portal, puede ver todas las aplicaciones lógicas implementadas en la suscripción a Azure, independientemente de si son del tipo de recurso **Logic Apps** original o del tipo de recurso **Logic Apps (versión preliminar)** . Actualmente, cada tipo de recurso se organiza y administra como categoría independiente en Azure. Para buscar aplicaciones lógicas que tengan el tipo de recurso **Logic Apps (versión preliminar)** , siga estos pasos:
 
 1. En el cuadro de búsqueda de Azure Portal, escriba `logic app preview`. Cuando aparezca la lista de resultados, en **Servicios** , seleccione **Logic Apps (versión preliminar)** .
 

@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dddfb8426b769c06cb5b7494431b7eee34dbf9e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144717"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410902"
 ---
 # <a name="adsync-service-account"></a>Cuenta del servicio ADSync
 Azure AD Connect instala un servicio local que coordina la sincronización entre Active Directory y Azure Active Directory.  El servicio de sincronización de Microsoft Azure AD Sync (ADSync) se ejecuta en un servidor en su entorno local.  Las credenciales del servicio se establecen de forma predeterminada en las instalaciones rápidas, pero se pueden personalizar para satisfacer los requisitos de seguridad de su organización.  Estas credenciales no se usan para conectarse a los bosques locales ni a Azure Active Directory.
@@ -61,7 +61,7 @@ Las claves de cifrado del servicio AdSync no se han encontrado y se han vuelto a
 
 Solución del problema Las claves de cifrado de Microsoft Azure AD Sync dejarán de estar accesibles si se cambian las credenciales de inicio de sesión del servicio AdSync.  Si se han cambiado las credenciales, utilice la aplicación Servicios para volver a cambiar la cuenta de inicio de sesión al valor configurado en un principio (p. ej. NT SERVICE\AdSync) y reinicie el servicio.  De esta forma, se restaurará de inmediato el funcionamiento correcto del servicio AdSync.
 
-Consulte el siguiente [artículo](https://go.microsoft.com/fwlink/?linkid=2086764) para obtener más información.
+Consulte el siguiente [artículo](./whatis-hybrid-identity.md) para obtener más información.
 
 ### <a name="example-2"></a>Ejemplo 2
 
@@ -69,7 +69,7 @@ El servicio no pudo iniciarse porque no se pudo establecer una conexión a la ba
 
 Solución de este problema El servicio Microsoft Azure AD Sync perderá el permiso para acceder al proveedor de bases de datos local si cambian las credenciales de inicio de sesión del servicio AdSync.  Si se han cambiado las credenciales, utilice la aplicación Servicios para volver a cambiar la cuenta de inicio de sesión al valor configurado en un principio (p. ej. NT SERVICE\AdSync) y reinicie el servicio.  De esta forma, se restaurará de inmediato el funcionamiento correcto del servicio AdSync.
 
-Consulte el siguiente [artículo](https://go.microsoft.com/fwlink/?linkid=2086764) para obtener más información.
+Consulte el siguiente [artículo](./whatis-hybrid-identity.md) para obtener más información.
 
 Detalles adicionales El proveedor ha devuelto la información de error siguiente:
  

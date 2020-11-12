@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086447"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366060"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Solución de problemas de limitación (429 - "Demasiadas solicitudes") en Azure Logic Apps
 
@@ -35,11 +35,11 @@ Para buscar eventos de limitación en este nivel, consulte el panel **Métricas*
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 
-1. En el menú de la aplicación lógica, en **Supervisión**, seleccione **Métricas**.
+1. En el menú de la aplicación lógica, en **Supervisión** , seleccione **Métricas**.
 
-1. En **Título del gráfico**, seleccione **Agregar métrica** para agregar otra métrica a la existente.
+1. En **Título del gráfico** , seleccione **Agregar métrica** para agregar otra métrica a la existente.
 
-1. En la primera barra de métricas, en la lista **MÉTRICA**, seleccione **Eventos limitados de acciones**. En la segunda barra de métricas, en la lista **MÉTRICA**, seleccione **Eventos limitados del desencadenador**.
+1. En la primera barra de métricas, en la lista **MÉTRICA** , seleccione **Eventos limitados de acciones**. En la segunda barra de métricas, en la lista **MÉTRICA** , seleccione **Eventos limitados del desencadenador**.
 
 Para controlar la limitación en este nivel, tiene estas opciones:
 
@@ -51,7 +51,7 @@ Para controlar la limitación en este nivel, tiene estas opciones:
 
 * Habilite el modo de alto rendimiento.
 
-  Una aplicación lógica tiene un [límite predeterminado para el número de acciones que se pueden ejecutar en un intervalo gradual de 5 minutos](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar este límite para el número máximo de acciones, active el [modo de alto rendimiento](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) en la aplicación lógica.
+  Una aplicación lógica tiene un [límite predeterminado para el número de acciones que se pueden ejecutar en un intervalo gradual de 5 minutos](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar este límite para el número máximo de acciones, active el [modo de alto rendimiento](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) en la aplicación lógica.
 
 * Deshabilite el comportamiento de desagrupación de matrices ("división") en los desencadenadores.
 
@@ -59,7 +59,7 @@ Para controlar la limitación en este nivel, tiene estas opciones:
 
 * Refactorice acciones en aplicaciones lógicas más pequeñas.
 
-  Como se mencionó anteriormente, una aplicación lógica está limitada a un [número predeterminado de acciones que pueden ejecutarse durante un período de 5 minutos](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Aunque puede aumentar este límite habilitando el [modo de alto rendimiento](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), también puede considerar si desea desglosar las acciones de la aplicación lógica en aplicaciones lógicas más pequeñas para que el número de acciones que se ejecutan en cada aplicación lógica permanezca bajo el límite. De este modo, reducirá la carga en un único recurso de aplicación lógica y distribuirá la carga entre varias aplicaciones lógicas. Esta solución funciona mejor para las acciones que administran grandes conjuntos de datos o establecen tantas acciones en ejecución, iteraciones de bucle o acciones dentro de cada iteración de bucle a la vez que superan el límite de ejecución de la acción.
+  Como se mencionó anteriormente, una aplicación lógica está limitada a un [número predeterminado de acciones que pueden ejecutarse durante un período de 5 minutos](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Aunque puede aumentar este límite habilitando el [modo de alto rendimiento](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode), también puede considerar si desea desglosar las acciones de la aplicación lógica en aplicaciones lógicas más pequeñas para que el número de acciones que se ejecutan en cada aplicación lógica permanezca bajo el límite. De este modo, reducirá la carga en un único recurso de aplicación lógica y distribuirá la carga entre varias aplicaciones lógicas. Esta solución funciona mejor para las acciones que administran grandes conjuntos de datos o establecen tantas acciones en ejecución, iteraciones de bucle o acciones dentro de cada iteración de bucle a la vez que superan el límite de ejecución de la acción.
 
   Por ejemplo, esta aplicación lógica realiza todo el trabajo para obtener tablas de una base de datos de SQL Server y obtiene las filas de cada tabla. El bucle **For Each** recorre en iteración simultáneamente cada tabla para que la acción **Obtener filas** devuelva las filas de cada tabla. En función de las cantidades de datos de esas tablas, estas acciones pueden superar el límite en las ejecuciones de acciones.
 
@@ -97,11 +97,11 @@ Para controlar la limitación en este nivel, tiene estas opciones:
 
   Por ejemplo, supongamos que la aplicación lógica obtiene las tablas de una base de datos de SQL Server y, a continuación, obtiene las filas de cada tabla. En función del número de filas que se deban procesar, puede usar varias conexiones y varios bucles **For Each** para dividir el número total de filas en conjuntos más pequeños para su procesamiento. En este escenario se utilizan dos bucles **For Each** para dividir el número total de filas en la mitad. El primer bucle **For Each** usa una expresión que obtiene la primera mitad. El otro bucle **For Each** utiliza una expresión diferente que obtiene la segunda mitad, por ejemplo:<p>
 
-    * Expresión 1: La función `take()` obtiene la parte delantera de una colección. Para obtener más información, vea [Función **`take()`** ](workflow-definition-language-functions-reference.md#take).
+    * Expresión 1: La función `take()` obtiene la parte delantera de una colección. Para obtener más información, vea [Función **`take()`**](workflow-definition-language-functions-reference.md#take).
 
       `@take(collection-or-array-name, div(length(collection-or-array-name), 2))`
 
-    * Expresión 2: La función `skip()` quita la parte delantera de una colección y devuelve todos los demás elementos. Para obtener más información, vea [Función **`skip()`** ](workflow-definition-language-functions-reference.md#skip).
+    * Expresión 2: La función `skip()` quita la parte delantera de una colección y devuelve todos los demás elementos. Para obtener más información, vea [Función **`skip()`**](workflow-definition-language-functions-reference.md#skip).
 
       `@skip(collection-or-array-name, div(length(collection-or-array-name), 2))`
 

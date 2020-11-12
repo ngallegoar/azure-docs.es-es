@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01c3f6429d2a5c8443ac128d763033dc8c53cbc7
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850914"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359415"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Tutorial: Configuración de Flock para aprovisionar usuarios automáticamente
 
@@ -58,11 +58,11 @@ Antes de configurar Flock para el aprovisionamiento automático de usuarios con 
 
 2. Seleccione **Auth and Provisioning** (Autenticación y aprovisionamiento).
 
-    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Captura de pantalla del sitio web de Flock. El icono de configuración está resaltado y se ve su menú contextual. En ese menú, se resalta la opción Manage your team (Administración equipo)." border="false":::
+    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Captura de pantalla de un menú del sitio web de Flock. Se resalta el elemento Auth and Provisioning (Autenticación y aprovisionamiento)." border="false":::
 
 3. Copie el **token de API**. Estos valores se escriben en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Flock en Azure Portal.
 
-    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Captura de pantalla del sitio web de Flock. El icono de configuración está resaltado y se ve su menú contextual. En ese menú, se resalta la opción Manage your team (Administración equipo)." border="false":::
+    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Captura de pantalla de una pestaña de aprovisionamiento en el sitio web de Flock. En Token de API, se resalta un valor. Junto al token hay un botón Copiar token." border="false":::
 
 
 ## <a name="add-flock--from-the-gallery"></a>Incorporación de Flock desde la galería
@@ -83,7 +83,7 @@ Para configurar Flock para el aprovisionamiento automático de usuarios con Azur
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Flock**, seleccione **Flock** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Flock** , seleccione **Flock** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Flock en la lista de resultados](common/search-new-app.png)
 
@@ -116,13 +116,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Flock** (Sincronizar usuarios de Azure Active Directory con Flock).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Flock** (Sincronizar usuarios de Azure Active Directory con Flock).
 
     ![Flock: asignaciones de usuario](media/flock-provisioning-tutorial/usermapping.png)
 
@@ -136,7 +136,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-13. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Flock.
+13. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Flock.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

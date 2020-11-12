@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: f87a2347890f8d17e3901c6d8fc168c1d96c7661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d17d4dd88e29440304989b8c37eaa81125d1812
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849355"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357562"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Tutorial: Configuración de BitaBIZ para el aprovisionamiento automático de usuarios
 
@@ -58,7 +58,7 @@ Antes de configurar BitaBIZ para el aprovisionamiento automático de usuarios co
 
 2.  Vaya a **INTEGRACIÓN**.
 
-    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Captura de pantalla de la consola de administración de BitaBIZ, con el administrador de configuración resaltado." border="false":::
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Captura de pantalla de la consola de administración de BitaBIZ, con la integración resaltada." border="false":::
 
 2.  Vaya a **Aprovisionamiento de Azure AD**.  Seleccione **Habilitado** en el aprovisionamiento automático de usuarios. Copie los valores de **Dirección URL del extremo de aprovisionamiento de SCIM** y **Token de portador**. Estos valores se escriben en el campo URL de inquilino y Token secreto de la pestaña Aprovisionamiento de la aplicación BitaBIZ en Azure Portal.
 
@@ -83,7 +83,7 @@ Para configurar BitaBIZ para el aprovisionamiento automático de usuarios con Az
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **BitaBIZ**, seleccione **BitaBIZ** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **BitaBIZ** , seleccione **BitaBIZ** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![BitaBIZ en la lista de resultados](common/search-new-app.png)
 
@@ -116,13 +116,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to BitaBIZ** (Sincronizar usuarios de Azure Active Directory con BitaBIZ).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to BitaBIZ** (Sincronizar usuarios de Azure Active Directory con BitaBIZ).
 
     ![BitaBIZ: Asignaciones de usuario](media/bitabiz-provisioning-tutorial/usermapping.png)
 
@@ -137,7 +137,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en BitaBIZ.
+12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en BitaBIZ.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
@@ -151,7 +151,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 ## <a name="connector-limitations"></a>Limitaciones del conector
 
-* BitaBIZ requiere **userName**, **email**, **firstName** y **lastName** como atributos obligatorios. 
+* BitaBIZ requiere **userName** , **email** , **firstName** y **lastName** como atributos obligatorios. 
 * BitaBIZ no admite las eliminaciones permanentes de los usuarios.
 
 ## <a name="additional-resources"></a>Recursos adicionales

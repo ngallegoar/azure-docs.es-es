@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789dafc61c89515f4b2ef64933262252d1232f16
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850921"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357035"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutorial: Configuración de Figma para el aprovisionamiento automático de usuarios
 
@@ -57,19 +57,19 @@ Antes de configurar Figma para el aprovisionamiento automático de usuarios con 
 
 2. Vaya a **General > Actualizar el registro en la configuración**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Captura de pantalla de la consola de administración de Figma. Se ve un inquilino denominado AAD Scim Test (Prueba de SCIM de AAD). Junto al inquilino, se resalta un icono de engranaje." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Captura de pantalla de la pestaña General de la consola de administración de Figma. En Log in and provisioning (Inicio de sesión y aprovisionamiento), se resalta la opción Update log in settings (Actualizar configuración de inicio de sesión)." border="false":::
 
 3. Copie el **Id. de inquilino**. Este valor se usa para construir la dirección URL del punto de conexión SCIM que se va a especificar en el campo **URL de inquilino** de la pestaña Aprovisionamiento de la aplicación Figma en Azure Portal.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Captura de pantalla de la consola de administración de Figma. Se ve un inquilino denominado AAD Scim Test (Prueba de SCIM de AAD). Junto al inquilino, se resalta un icono de engranaje." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Captura de pantalla de la sección SAML SSO (SSO de SAML) en la consola de administración de Figma. Se resaltan una etiqueta Tenant ID (Identificador de inquilino) y un vínculo adyacente que pone Copy (Copiar)." border="false":::
 
 4. Desplácese hacia abajo y haga clic en **Generar token de API**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Captura de pantalla de la consola de administración de Figma. Se ve un inquilino denominado AAD Scim Test (Prueba de SCIM de AAD). Junto al inquilino, se resalta un icono de engranaje." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Captura de pantalla de la sección SCIM provisioning (Aprovisionamiento de SCIM) en la consola de administración de Figma. Se resalta un vínculo con la etiqueta Generar token de API." border="false":::
 
 5. Copie el valor **Token de API**. Este valor se escribe en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Figma en Azure Portal. 
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Captura de pantalla de la consola de administración de Figma. Se ve un inquilino denominado AAD Scim Test (Prueba de SCIM de AAD). Junto al inquilino, se resalta un icono de engranaje." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Captura de pantalla de una página de la consola de administración de Figma. En Your provisioning API token (Su token de aprovisionamiento de API), se resalta un marcador de posición para el token." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Agregar Figma desde la galería
 
@@ -87,7 +87,7 @@ Para configurar Figma para el aprovisionamiento automático de usuarios con Azur
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Figma**, seleccione **Figma** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Figma** , seleccione **Figma** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Figma en la lista de resultados](common/search-new-app.png)
 
@@ -116,17 +116,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://www.figma.com/scim/v2/<TenantID>` en **URL de inquilino**, donde **TenantID** es el valor que se ha recuperado anteriormente desde Figma. Escriba el valor **Token de API** en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Figma. Si la conexión no se establece, asegúrese de que la cuenta de Figma tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://www.figma.com/scim/v2/<TenantID>` en **URL de inquilino** , donde **TenantID** es el valor que se ha recuperado anteriormente desde Figma. Escriba el valor **Token de API** en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Figma. Si la conexión no se establece, asegúrese de que la cuenta de Figma tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-9. Haga clic en **Save**(Guardar).
+9. Haga clic en **Save** (Guardar).
 
-10. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Figma**.
+10. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Figma**.
 
     ![Figma: Asignaciones de usuario](media/Figma-provisioning-tutorial/figma05.png)
 
@@ -140,7 +140,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Seleccione los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere aprovisionar en Figma.
+14. Seleccione los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere aprovisionar en Figma.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f4c6bf8b203f9721436ab3dde1f80837df92234d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b1fbedf45514455f0e19461e5ee0558bb2914c58
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518269"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427724"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Línea de base de seguridad de Azure para Azure Sentinel
 
@@ -21,7 +21,7 @@ Esta línea de base de seguridad aplica las instrucciones de [Azure Security Ben
 
 ## <a name="network-security"></a>Seguridad de las redes
 
-*Para más información, consulte [Azure Security Benchmark: Seguridad de redes](../security/benchmarks/security-control-network-security.md).*
+*Para obtener más información, consulte [Azure Security Benchmark: Seguridad de redes](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Protección de los recursos de Azure dentro de las redes virtuales
 
@@ -341,7 +341,7 @@ Además, cada libro de Sentinel es un recurso de Azure, y se pueden asignar role
 
 **Guía** : Actualmente, las áreas de trabajo de Azure Sentinel y Log Analytics de Azure Monitor usan claves administradas por Microsoft para cifrar los datos en reposo incluidos. La posibilidad de aportar su propia clave todavía no se admite por completo en Sentinel, pero se hará en breve.
 
-- [Introducción a las claves administradas por el cliente de Azure Monitor](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview)
+- [Introducción a las claves administradas por el cliente de Azure Monitor](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Uso de las claves administradas por el cliente en Azure Sentinel (versión preliminar)](customer-managed-keys.md)
 

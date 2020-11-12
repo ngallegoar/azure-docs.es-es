@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/18/2019
-ms.author: azcspmt;ayshak;cynthn
+ms.date: 11/05/2020
+ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: 4f6a6dd28662c98c89dad39da3fd5c967f227dc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d65b574fc1479d000d347020823166a4d4b968b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87084063"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410585"
 ---
 Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente. Los tamaños aislados viven y funcionan en una generación de hardware específica y quedarán en desuso cuando se retire la generación de hardware.
 
@@ -34,6 +34,7 @@ Las ofertas de máquinas virtuales aisladas actuales incluyen:
 > Los tamaños de VM aislados tienen una duración limitada de hardware. Vea los detalles a continuación.
 
 ## <a name="deprecation-of-isolated-vm-sizes"></a>Desuso de los tamaños de VM aislados
+
 Como los tamaños de VM aislados son tamaños vinculados al hardware, Azure proporcionará recordatorios doce meses antes de que los tamaños estén oficialmente en desuso.  Azure también ofrecerá un tamaño aislado actualizado en la siguiente versión de hardware a la que el cliente podría considerar trasladar su carga de trabajo.
 
 | Size | Fecha de retirada del aislamiento | 
@@ -58,14 +59,19 @@ Como los tamaños de VM aislados son tamaños vinculados al hardware, Azure prop
 **R.** : Se enviarán recordatorios doce meses antes de que el tamaño aislado esté oficialmente en desuso.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>P: Soy un cliente de Azure Service Fabric que se basa en los niveles de durabilidad Silver o Gold. ¿Me afectará este cambio?
-**R.** : No. Las garantías proporcionadas por los [niveles de durabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) de Service Fabric seguirán funcionando incluso después de este cambio. Si necesita aislamiento de hardware físico por otras razones, es posible que tenga que realizar una de las acciones descritas anteriormente. 
+**R.** : No. Las garantías proporcionadas por los [niveles de durabilidad](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric seguirán funcionando incluso después de este cambio. Si necesita aislamiento de hardware físico por otras razones, es posible que tenga que realizar una de las acciones descritas anteriormente. 
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>P: ¿Cuáles son los hitos para la retirada del aislamiento D15_v2 o DS15_v2? 
 **R.** : 
-| Date | Acción | 
-| --- | --- |
-| 18 de noviembre de 2019 | Disponibilidad de D/DS15i_v2 (pago por uso, instancia reservada de un año) |
-| 14 de mayo de 2020  | Último día para comprar la instancia reservada de un año de D/DS15i_v2 | 
-| 15 de mayo de 2020   | Se ha quitado la garantía de aislamiento de D/DS15_v2 | 
-| 15 de mayo de 2021  | Retirada de D/DS15i_v2 (todos los clientes, excepto los que compraron una instancia reservada de tres años de D/DS15_v2 antes del 18 de noviembre de 2019)| 
-| 17 de noviembre de 2022  | Retirada de D/DS15i_v2 cuando se realizan instancias reservadas de tres años (para los clientes que compraron instancias reservadas de tres años de D/DS15_v2 antes del 18 de noviembre de 2019) | 
+ 
+| Date | Acción |
+|---|---| 
+| 18 de noviembre de 2019 | Disponibilidad de D/DS15i_v2 (pago por uso, instancia reservada de un año) | 
+| 14 de mayo de 2020 | Último día para comprar la instancia reservada de un año de D/DS15i_v2 | 
+| 15 de mayo de 2020 | Se ha quitado la garantía de aislamiento de D/DS15_v2 | 
+| 15 de mayo de 2021 | Retirada de D/DS15i_v2 (todos los clientes, excepto los que compraron una instancia reservada de tres años de D/DS15_v2 antes del 18 de noviembre de 2019)| 
+| 17 de noviembre de 2022 | Retirada de D/DS15i_v2 cuando se realizan instancias reservadas de tres años (para los clientes que compraron instancias reservadas de tres años de D/DS15_v2 antes del 18 de noviembre de 2019) |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Los clientes también puede elegir subdividir aún más los recursos de estas máquinas virtuales aisladas mediante la [compatibilidad de Azure para máquinas virtuales anidadas](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).

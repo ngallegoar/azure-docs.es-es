@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: Zhchia
-ms.openlocfilehash: 786e99cec4999eef0af92fe2be18bcf0e48ed379
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 31631209a16024e4414cc19bca37166332b427de
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519000"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359238"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Tutorial: Configuración de Miro para el aprovisionamiento automático de usuarios
 
@@ -58,11 +58,11 @@ Antes de configurar Miro para el aprovisionamiento automático de usuarios con A
 
 **Para agregar Miro desde la galería de aplicaciones de Azure AD, siga estos pasos:**
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory** .
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -86,51 +86,51 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-miro-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Miro en Azure AD
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Miro** .
+2. En la lista de aplicaciones, seleccione **Miro**.
 
     ![Vínculo a Miro en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento** .
+3. Seleccione la pestaña **Aprovisionamiento**.
 
     ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático** .
+4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://miro.com/api/v1/scim` en la **URL de inquilino** . Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto** . Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Miro. Si la conexión no se establece, asegúrese de que la cuenta de Miro tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://miro.com/api/v1/scim` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Miro. Si la conexión no se establece, asegúrese de que la cuenta de Miro tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Miro** .
+8. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Miro**.
 
     ![Asignaciones de usuario de Miro](media/miro-provisioning-tutorial/usermappings.png)
 
-9. Examine los atributos de grupo que se sincronizan entre Azure AD y Miro en la sección **Asignación de atributos** . Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Miro con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+9. Examine los atributos de grupo que se sincronizan entre Azure AD y Miro en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Miro con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
     ![Atributos de usuario de Miro](media/miro-provisioning-tutorial/userattributes.png)
 
-10. En la sección **Asignaciones** , seleccione **Sincronizar grupos de Azure Active Directory con Miro** .
+10. En la sección **Asignaciones** , seleccione **Sincronizar grupos de Azure Active Directory con Miro**.
 
     ![Asignaciones de grupos de Miro](media/miro-provisioning-tutorial/groupmappings.png)
 
-11. Examine los atributos de grupo que se sincronizan entre Azure AD y Miro en la sección **Asignación de atributos** . Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer correspondencia con los grupos de Miro a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios. Desactive **Crear** y **Eliminar** en **Acciones del objeto de destino** , ya que la API SCIM de Miro no admite la creación y eliminación de grupos.
+11. Examine los atributos de grupo que se sincronizan entre Azure AD y Miro en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer correspondencia con los grupos de Miro a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios. Desactive **Crear** y **Eliminar** en **Acciones del objeto de destino** , ya que la API SCIM de Miro no admite la creación y eliminación de grupos.
 
     ![Atributos de grupos de Miro](media/miro-provisioning-tutorial/groupattributes.png)
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar el servicio de aprovisionamiento de Azure AD para Miro, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
+13. Para habilitar el servicio de aprovisionamiento de Azure AD para Miro, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
@@ -138,11 +138,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
+15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Miro.
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Miro.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 

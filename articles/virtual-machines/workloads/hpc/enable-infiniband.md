@@ -4,15 +4,15 @@ description: Aprenda a habilitar InfiniBand en VM de Azure HPC.
 author: vermagit
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 08/01/2020
+ms.date: 11/06/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b5f4cbd2fc09b2c42c232eafd63edb1217e4dacb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 264cfd98e69ad7bdd2fb8d5f9f98eb1eb1fd8f6c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996306"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358361"
 ---
 # <a name="enable-infiniband"></a>Habilitar InfiniBand
 
@@ -60,7 +60,7 @@ Para Windows, descargue e instale los [controladores OFED de Mellanox para Windo
 Si tiene previsto ejecutar trabajos de MPI, normalmente no se necesita IPoIB. La biblioteca MPI usará la interfaz de verbos para la comunicación de IB (a menos que use explícitamente el canal TCP/IP de la biblioteca MPI). Sin embargo, si tiene una aplicación que usa TCP/IP para la comunicación y quiere realizar la ejecución sobre IB, puede usar IPoIB sobre la interfaz de IB. Use los siguientes comandos (para RHEL/CentOS) para habilitar IP sobre InfiniBand.
 
 ```bash
-sudo sed -i -e 's/# OS.EnableRDMA=y/OS.EnableRDMA=y/g' /etc/waagent.conf
+sudo sed -i -e 's/# OS.EnableRDMA=n/OS.EnableRDMA=y/g' /etc/waagent.conf
 sudo systemctl restart waagent
 ```
 

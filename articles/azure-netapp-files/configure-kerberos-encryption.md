@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 1ffbcc24a2ee386be1a8ce50b55375d5bd458df1
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217055"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410103"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configuración del cifrado Kerberos de NFSv4.1 para Azure NetApp Files
 
@@ -40,7 +40,7 @@ Los siguientes requisitos se aplican al cifrado de cliente de NFSv4.1:
 
 1.  Siga los pasos de [Creación de un volumen de NFS para Azure NetApp Files](azure-netapp-files-create-volumes.md) para crear el volumen de NFSv4.1.   
 
-    En la página Crear un volumen, establezca la versión de NFS en **NFSv4.1** y establezca Kerberos en **Habilitado** .
+    En la página Crear un volumen, establezca la versión de NFS en **NFSv4.1** y establezca Kerberos en **Habilitado**.
 
     > [!IMPORTANT] 
     > No se puede modificar la selección de habilitación de Kerberos una vez creado el volumen.
@@ -61,7 +61,7 @@ Los siguientes requisitos se aplican al cifrado de cliente de NFSv4.1:
 
     Kerberos requiere la creación de al menos una cuenta de equipo en Active Directory. La información de la cuenta que proporcione se usa para crear las cuentas de los volúmenes de Kerberos SMB *y* NFSv4.1. Esta máquina se crea automáticamente durante la creación del volumen.
 
-2.  En **Dominio Kerberos** , escriba el **Nombre del servidor de AD** y la dirección **IP de KDC** .
+2.  En **Dominio Kerberos** , escriba el **Nombre del servidor de AD** y la dirección **IP de KDC**.
 
     El servidor de AD y la dirección IP del KDC pueden ser el mismo servidor. Esta información se usa para crear la cuenta de la máquina del SPN usada por Azure NetApp Files. Una vez creada la cuenta de equipo, Azure NetApp Files usará los registros del servidor DNS para buscar servidores KDC adicionales según sea necesario. 
 

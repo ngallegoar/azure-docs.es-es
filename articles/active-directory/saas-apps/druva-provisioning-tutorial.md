@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 9163c64370e0718d6b9acf37bb7a9fc28c936948
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5579a9d96828caa1453547e7c2e11b8f0d717d2a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851193"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359313"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutorial: Configuración de Druva para aprovisionar usuarios automáticamente
 
@@ -62,11 +62,11 @@ Antes de configurar Druva para el aprovisionamiento automático de usuarios con 
 
 3.  Navegue a **Settings** (Configuración). Haga clic en **Generate Token** (Generar token).
 
-    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Captura de pantalla de la consola de administración de Druva. Manage (Administrar) está resaltado y el menú Manage (Administrar) está visible. En ese menú, en Deployments (Implementaciones), la opción Users (Usuarios) está resaltada." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Captura de pantalla de una página de la consola de administración de Druva. La pestaña Settings (Configuración) está resaltada y abierta. El botón Generate token (Generar token) está resaltado." border="false":::
 
 4.  Copie el valor de **Auth token** (Token de autenticación). Este valor se escribirá en el campo **Token secreto** de la pestaña Aprovisionamiento en la aplicación Druva en Azure Portal.
     
-    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Captura de pantalla de la consola de administración de Druva. Manage (Administrar) está resaltado y el menú Manage (Administrar) está visible. En ese menú, en Deployments (Implementaciones), la opción Users (Usuarios) está resaltada." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Captura de pantalla de la página Create token (Crear token) de la consola de administración de Druva. Un vínculo con la etiqueta Copy Token (Copiar token) está disponible para copiar el valor del token de autenticación." border="false":::
 
 ## <a name="add-druva-from-the-gallery"></a>Adición de Druva desde la galería
 
@@ -86,7 +86,7 @@ Para configurar Druva para el aprovisionamiento automático de usuarios con Azur
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Druva**, seleccione **Druva** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Druva** , seleccione **Druva** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Druva en la lista de resultados](common/search-new-app.png)
 
@@ -119,13 +119,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y seleccione **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y seleccione **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Druva** (Sincronizar usuarios de Azure Active Directory con Druva).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Druva** (Sincronizar usuarios de Azure Active Directory con Druva).
 
     ![Asignaciones de usuario de Druva](media/druva-provisioning-tutorial/usermapping.png)
 
@@ -140,7 +140,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Seleccione los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere aprovisionar en Druva.
+12. Seleccione los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere aprovisionar en Druva.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

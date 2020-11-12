@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: df993aae4e6c572c8f99688fd0053bdd07aefd56
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c06595b683092abf52300481068daab26394c4cb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453936"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358752"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integración de Azure Active Directory con E Sales Manager Remix
 
@@ -56,19 +56,19 @@ El escenario descrito en este tutorial consta de dos bloques de creación princi
 ## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Adición de E Sales Manager Remix desde la galería
 Para configurar la integración de Azure AD con E Sales Manager Remix, será preciso que haga lo siguiente para agregar E Sales Manager Remix desde la galería a la lista de aplicaciones SaaS administradas:
 
-1. En el panel izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** . 
+1. En el panel izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**. 
 
     ![Botón Azure Active Directory][1]
 
-1. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** .
+1. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 
     ![Ventana Aplicaciones empresariales][2]
     
-1. Para agregar una aplicación nueva, en la parte superior de la ventana, seleccione **Nueva aplicación** .
+1. Para agregar una aplicación nueva, en la parte superior de la ventana, seleccione **Nueva aplicación**.
 
     ![Botón Nueva aplicación][3]
 
-1. En el cuadro de búsqueda, escriba **E Sales Manager Remix** , seleccione **E Sales Manager Remix** en la lista de resultados y, a continuación, seleccione **Agregar** .
+1. En el cuadro de búsqueda, escriba **E Sales Manager Remix** , seleccione **E Sales Manager Remix** en la lista de resultados y, a continuación, seleccione **Agregar**.
 
     ![E Sales Manager Remix en la lista de resultados](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
@@ -84,11 +84,11 @@ Para configurar y probar el inicio de sesión único de Azure AD con E Sales Man
 
 Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azure Portal y configurarlo en la aplicación E Sales Manager Remix:
 
-1. En Azure Portal, en la página de integración de aplicaciones **E Sales Manager Remix** , seleccione **Inicio de sesión único** .
+1. En Azure Portal, en la página de integración de aplicaciones **E Sales Manager Remix** , seleccione **Inicio de sesión único**.
 
     ![Vínculo Inicio de sesión único][4]
 
-1. En la ventana **Inicio de sesión único** , en el cuadro **Modo de inicio de sesión único** , seleccione **Inicio de sesión basado en SAML** .
+1. En la ventana **Inicio de sesión único** , en el cuadro **Modo de inicio de sesión único** , seleccione **Inicio de sesión basado en SAML**.
  
     ![Ventana Inicio de sesión único](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
@@ -96,7 +96,7 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Información de dominio y direcciones URL de inicio de sesión único de E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. En el cuadro **Dirección URL de inicio de sesión** , escriba una dirección URL con el siguiente formato: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc* .
+    a. En el cuadro **Dirección URL de inicio de sesión** , escriba una dirección URL con el siguiente formato: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
 
     b. En el cuadro **Identificador** , escriba una dirección URL con el siguiente formato: *https://\<Server-Based-URL>/\<sub-domain>/* .
 
@@ -109,7 +109,7 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Vínculo de descarga del certificado (Base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
-1. Seleccione la casilla **View and edit all other user attributes** (Ver y editar todos los demás atributos de usuario) y seleccione el atributo **emailaddress** .
+1. Seleccione la casilla **View and edit all other user attributes** (Ver y editar todos los demás atributos de usuario) y seleccione el atributo **emailaddress**.
     
     ![Ventana Atributos de usuario](./media/esalesmanagerremix-tutorial/configure1.png)
 
@@ -127,7 +127,7 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Quick Reference** (Referencia rápida), copie la dirección URL de cierre de sesión y la dirección URL del servicio de inicio de sesión único SAML.
 
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
     ![Botón Guardar](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
@@ -141,7 +141,7 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Vínculos a "System settings" y "Cooperation with external system"](./media/esalesmanagerremix-tutorial/configure5.png)
     
-1. En la ventana **Cooperation with external system** , seleccione **SAML** .
+1. En la ventana **Cooperation with external system** , seleccione **SAML**.
 
     ![Ventana "Cooperation with external system"](./media/esalesmanagerremix-tutorial/configure6.png)
 
@@ -151,7 +151,7 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
     
     a. Seleccione la casilla **PC version** (Versión de PC).
     
-    b. En la sección **Collaboration item** (Elemento de colaboración), en la lista desplegable, seleccione **email** .
+    b. En la sección **Collaboration item** (Elemento de colaboración), en la lista desplegable, seleccione **email**.
 
     c. En el cuadro de texto **Collaboration item** (Elemento de colaboración), pegue el valor de notificación que ha copiado de Azure Portal (es decir, **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** ).
 
@@ -175,31 +175,31 @@ En esta sección, creará el usuario de prueba Britta Simon en Azure Portal sigu
 
 ![Creación de un usuario de prueba de Azure AD][100]
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**.
 
     ![Vínculo de Azure Active Directory](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-1. Para mostrar una lista de usuarios actuales, seleccione **Usuarios y grupos** > **Todos los usuarios** .
+1. Para mostrar una lista de usuarios actuales, seleccione **Usuarios y grupos** > **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-1. En la parte superior de la ventana **Todos los usuarios** , seleccione **Agregar** .
+1. En la parte superior de la ventana **Todos los usuarios** , seleccione **Agregar**.
 
     ![Botón Agregar](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
-    Se abre la ventana **Usuario** .
+    Se abre la ventana **Usuario**.
 
 1. En la ventana **Usuario** , haga lo siguiente:
 
     ![Ventana Usuario](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre** , escriba **BrittaSimon** .
+    a. En el cuadro **Nombre** , escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario** , escriba la dirección de correo electrónico del usuario Britta Simon.
 
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    d. Seleccione **Crear** .
+    d. Seleccione **Crear**.
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>Creación de un usuario de prueba de E Sales Manager Remix
 
@@ -235,27 +235,27 @@ En esta sección, concederá a la usuaria Britta Simon acceso a E Sales Manager 
 
 ![Asignación de rol de usuario][200] 
 
-1. En Azure Portal, abra la vista **Aplicaciones** , vaya a la vista **Directorio** y seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** .
+1. En Azure Portal, abra la vista **Aplicaciones** , vaya a la vista **Directorio** y seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 
     ![Vínculos "Aplicaciones empresariales" y "Todas las aplicaciones"][201] 
 
-1. En la lista **Aplicaciones** , seleccione **E Sales Manager Remix** .
+1. En la lista **Aplicaciones** , seleccione **E Sales Manager Remix**.
 
     ![Vínculo de E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
-1. En el panel izquierdo, seleccione **Usuarios y grupos** .
+1. En el panel izquierdo, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-1. Seleccione **Agregar** y, después, en el panel **Agregar asignación** , seleccione **Usuarios y grupos** .
+1. Seleccione **Agregar** y, después, en el panel **Agregar asignación** , seleccione **Usuarios y grupos**.
 
     ![Panel Agregar asignación][203]
 
-1. En la ventana **Usuarios y grupos** , en la lista **Usuarios** , seleccione **Britta Simon** .
+1. En la ventana **Usuarios y grupos** , en la lista **Usuarios** , seleccione **Britta Simon**.
 
-1. Seleccione el botón **Seleccionar** .
+1. Seleccione el botón **Seleccionar**.
 
-1. En la ventana **Agregar asignación** , seleccione **Asignar** .
+1. En la ventana **Agregar asignación** , seleccione **Asignar**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

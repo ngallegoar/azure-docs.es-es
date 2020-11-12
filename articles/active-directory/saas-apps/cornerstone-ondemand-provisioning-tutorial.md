@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4200bc9879aba5e18282123be03576cc617a5e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59c599167089d222324ed880c18e68d763f5e468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549236"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358463"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cornerstone OnDemand para el aprovisionamiento automático de usuarios
 
@@ -92,29 +92,29 @@ Para configurar el aprovisionamiento automático de usuarios para Cornerstone On
 
     ![Modo de aprovisionamiento de Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningCredentials.png)
 
-5. En la sección **Credenciales de administrador**, escriba el nombre de usuario de administrador, la contraseña de administrador y el dominio de la cuenta de Cornerstone OnDemand:
+5. En la sección **Credenciales de administrador** , escriba el nombre de usuario de administrador, la contraseña de administrador y el dominio de la cuenta de Cornerstone OnDemand:
 
-    * En el cuadro **Nombre de usuario de administrador**, rellene el dominio o nombre de usuario de la cuenta de administrador de su inquilino de Cornerstone OnDemand. Un ejemplo en contoso\admin.
+    * En el cuadro **Nombre de usuario de administrador** , rellene el dominio o nombre de usuario de la cuenta de administrador de su inquilino de Cornerstone OnDemand. Un ejemplo en contoso\admin.
 
-    * En el cuadro **Contraseña de administrador**, rellene la contraseña correspondiente al nombre de usuario de administrador.
+    * En el cuadro **Contraseña de administrador** , rellene la contraseña correspondiente al nombre de usuario de administrador.
 
-    * En el cuadro **Dominio**, rellene la dirección URL del servicio web del inquilino de Cornerstone OnDemand. Por ejemplo, el servicio se encuentra en `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx` y para Contoso el dominio es `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Para obtener más información sobre cómo recuperar la dirección URL del servicio web, consulte [este PDF](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    * En el cuadro **Dominio** , rellene la dirección URL del servicio web del inquilino de Cornerstone OnDemand. Por ejemplo, el servicio se encuentra en `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx` y para Contoso el dominio es `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Para obtener más información sobre cómo recuperar la dirección URL del servicio web, consulte [este PDF](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
 6. Después de rellenar los cuadros que se muestran en el paso 5, seleccione **Probar conexión** para asegurarse de que Azure AD puede conectarse a Cornerstone OnDemand. Si la conexión no se establece, asegúrese de que la cuenta de Cornerstone OnDemand tiene permisos de administrador e inténtelo de nuevo.
 
     ![Prueba de conexión de Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/TestConnection.png)
 
-7. En el cuadro **Correo electrónico de notificación**, escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+7. En el cuadro **Correo electrónico de notificación** , escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Notificación por correo electrónico de Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/EmailNotification.png)
 
 8. Seleccione **Guardar**.
 
-9. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Cornerstone OnDemand (Sincronizar usuarios de Azure Active Directory con Cornerstone OnDemand)** .
+9. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Cornerstone OnDemand (Sincronizar usuarios de Azure Active Directory con Cornerstone OnDemand)** .
 
     ![Sincronización de Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/UserMapping.png)
 
-10. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y Cornerstone OnDemand. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Cornerstone OnDemand con el objetivo de realizar operaciones de actualización. Para guardar los cambios, seleccione **Guardar**.
+10. En la sección **Asignaciones de atributos** , revise los atributos de usuario que se sincronizan entre Azure AD y Cornerstone OnDemand. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Cornerstone OnDemand con el objetivo de realizar operaciones de actualización. Para guardar los cambios, seleccione **Guardar**.
 
     ![Asignaciones de atributos de Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/UserMappingAttributes.png)
 
@@ -124,7 +124,7 @@ Para configurar el aprovisionamiento automático de usuarios para Cornerstone On
 
     ![Estado de aprovisionamiento de Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningStatus.png)
 
-13. Defina los usuarios o grupos que quiere que se aprovisionen en Cornerstone OnDemand. En la sección **Configuración**, seleccione los valores que quiere incluir en el **Ámbito**.
+13. Defina los usuarios o grupos que quiere que se aprovisionen en Cornerstone OnDemand. En la sección **Configuración** , seleccione los valores que quiere incluir en el **Ámbito**.
 
     ![Ámbito de Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/SyncScope.png)
 

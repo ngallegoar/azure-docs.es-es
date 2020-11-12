@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: bf75c4fe2053483b94c5f645816422909645854a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 07c476c0de644ac63c577d466f4691b5cf415334
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286011"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357948"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Tutorial: Configuración de StarLeaf para el aprovisionamiento automático de usuarios
 
@@ -54,7 +54,7 @@ Antes de configurar StarLeaf para aprovisionar automáticamente usuarios con Azu
 
     ![Captura de pantalla de la consola de administración de StarLeaf con las opciones Integraciones y Agregar integración.](media/starleaf-provisioning-tutorial/image00.png)
 
-2. En **Tipo**, seleccione Microsoft Azure Active Directory. Escriba un nombre adecuado en **Nombre**. Haga clic en **Aplicar**.
+2. En **Tipo** , seleccione Microsoft Azure Active Directory. Escriba un nombre adecuado en **Nombre**. Haga clic en **Aplicar**.
 
     ![Captura de pantalla del cuadro de diálogo Agregar integración con los cuadros de texto Tipo y Nombre seleccionados.](media/starleaf-provisioning-tutorial/image01.png)
 
@@ -107,13 +107,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to StarLeaf** (Sincronizar usuarios de Azure Active Directory con StarLeaf).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to StarLeaf** (Sincronizar usuarios de Azure Active Directory con StarLeaf).
 
     ![Captura de pantalla de la sección Asignaciones con la opción para sincronizar usuarios de Azure Active Directory con StarLeaf.](media/starleaf-provisioning-tutorial/usermapping.png)
 
@@ -129,7 +129,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en StarLeaf.
+12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en StarLeaf.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

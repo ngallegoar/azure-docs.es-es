@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: bc3da6f0d82adab2d21d4dbd91dee8654145b896
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ecb4203c822f5b72068e11d0ad4b988d294aab0d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951492"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427061"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configuración de claves administradas por el cliente en Azure Sentinel
 
@@ -36,7 +36,7 @@ En este artículo se proporciona información general y pasos para configurar un
 
 La solución Azure Sentinel usa varios recursos y características de almacenamiento para la recopilación de registros, como Log Analytics. Como parte de la configuración de CMK de Azure Sentinel, también tiene que configurar los valores de CMK en los recursos de almacenamiento relacionados. Los datos guardados en recursos de almacenamiento distintos de Log Analytics también se cifran.
 
-Obtenga más información sobre [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview).
+Obtenga más información sobre [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview).
 
 > [!NOTE]
 > Si habilita CMK en Azure Sentinel, no se habilita ninguna característica de versión preliminar pública que no admita CMK.
@@ -114,7 +114,7 @@ La única operación posible una vez revocada o eliminada la clave de cifrado es
 
 Si se restaura el acceso después de la revocación, Azure Sentinel restaura el acceso a los datos en una hora.
 
-Para más información sobre el funcionamiento de este proceso en Azure Monitor, consulte [Revocación de CMK de Azure Monitor](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-revocation).
+Para más información sobre el funcionamiento de este proceso en Azure Monitor, consulte [Revocación de CMK de Azure Monitor](../azure-monitor/platform/customer-managed-keys.md#key-revocation).
 
 ## <a name="key-encryption-key-rotation"></a>Rotación de claves de cifrado de claves
 
@@ -127,7 +127,7 @@ En Key Vault, puede realizar la rotación de claves mediante la creación de una
 
 Puede deshabilitar la versión anterior de la clave tras 24 horas, o bien después de que los registros de auditoría de Azure Key Vault ya no muestren ninguna actividad que use la versión anterior.
 
-Si usa la misma clave en Azure Sentinel y en Log Analytics, para realizar una rotación de claves debe actualizar explícitamente el recurso de clúster de Log Analytics con la nueva versión de clave de Azure Key Vault. Para más información, consulte [Rotación de CMK de Azure Monitor](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-rotation).
+Si usa la misma clave en Azure Sentinel y en Log Analytics, para realizar una rotación de claves debe actualizar explícitamente el recurso de clúster de Log Analytics con la nueva versión de clave de Azure Key Vault. Para más información, consulte [Rotación de CMK de Azure Monitor](../azure-monitor/platform/customer-managed-keys.md#key-rotation).
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento ha aprendido a configurar una clave administrada por el cliente en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:

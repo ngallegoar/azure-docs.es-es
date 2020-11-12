@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369784"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412381"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -147,7 +147,7 @@ Del mismo modo, el [informe de autoservicio de administración de contraseñas](
 
 ### <a name="self-service-app-management"></a>Autoservicio de administración de aplicaciones
 
-Para que los usuarios puedan detectar automáticamente aplicaciones en su panel de acceso, debe habilitar el [autoservicio de acceso a las aplicaciones](../manage-apps/access-panel-manage-self-service-access.md) para las aplicaciones que quiera que los usuarios detecten automáticamente y puedan solicitar acceso. El autoservicio de acceso a las aplicaciones es una excelente manera de permitir que los usuarios detecten automáticamente las aplicaciones y, si lo desea, permitir que el grupo de negocios apruebe el acceso a esas aplicaciones. Puede permitir que el grupo de negocios administre las credenciales asignadas a esos usuarios para que puedan realizar un [inicio de sesión único con contraseña en las aplicaciones](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) directamente desde sus paneles de acceso.
+Para que los usuarios puedan detectar automáticamente aplicaciones en su panel de acceso, debe habilitar el [autoservicio de acceso a las aplicaciones](../manage-apps/access-panel-manage-self-service-access.md) para las aplicaciones que quiera que los usuarios detecten automáticamente y puedan solicitar acceso. El autoservicio de acceso a las aplicaciones es una excelente manera de permitir que los usuarios detecten automáticamente las aplicaciones y, si lo desea, permitir que el grupo de negocios apruebe el acceso a esas aplicaciones. Puede permitir que el grupo de negocios administre las credenciales asignadas a esos usuarios para que puedan realizar un [inicio de sesión único con contraseña en las aplicaciones](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) directamente desde sus paneles de acceso.
 
 ### <a name="self-service-group-management"></a>Self-service group management (Administración de grupos de autoservicio)
 
@@ -267,6 +267,6 @@ Se recomienda imprimir la lista de comprobación siguiente como referencia cuand
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Descubra cómo puede mejorar su posición de seguridad mediante las funcionalidades de Azure Active Directory y esta lista de comprobación de cinco pasos: [Cinco pasos para asegurar su infraestructura de identidad](https://aka.ms/securitysteps).
+Descubra cómo puede mejorar su posición de seguridad mediante las funcionalidades de Azure Active Directory y esta lista de comprobación de cinco pasos: [Cinco pasos para asegurar su infraestructura de identidad](../../security/fundamentals/steps-secure-identity.md).
 
-Conozca cómo las características de identidad de Azure AD pueden ayudarle a acelerar la transición a la administración regulada por la nube al proporcionar las soluciones y funcionalidades que permiten a las organizaciones adoptarla rápidamente y mover una mayor parte de administración de identidades desde sistemas tradicionales locales hasta Azure AD: [Cómo Azure AD ofrece administración regulada por la nube para cargas de trabajo locales](https://aka.ms/cloudgoverned).
+Conozca cómo las características de identidad de Azure AD pueden ayudarle a acelerar la transición a la administración regulada por la nube al proporcionar las soluciones y funcionalidades que permiten a las organizaciones adoptarla rápidamente y mover una mayor parte de administración de identidades desde sistemas tradicionales locales hasta Azure AD: [Cómo Azure AD ofrece administración regulada por la nube para cargas de trabajo locales](./cloud-governed-management-for-on-premises.md).
