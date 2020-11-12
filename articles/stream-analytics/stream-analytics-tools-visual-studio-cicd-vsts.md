@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 18ab9a4108d6d9effaa25fe69ce42a18ca4ba0dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e87432ad4437f41e70d988e7e2b3cd82aa3bd82
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903839"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123394"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implementación de un trabajo de Azure Stream Analytics con CI/CD mediante Azure Pipelines
 En este tutorial se describe cómo configurar la integración y la implementación continuas de un trabajo de Azure Stream Analytics mediante Azure Pipelines. 
@@ -35,7 +35,7 @@ Antes de empezar, asegúrese de que ha realizado los siguientes pasos:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) y las cargas de trabajo de **desarrollo de Azure** o de **almacenamiento y procesamiento de datos**.
-* Cree un [proyecto de Stream Analytics en Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
+* Cree un [proyecto de Stream Analytics en Visual Studio](./stream-analytics-quick-create-vs.md).
 * Cree una organización de [Azure DevOps](https://visualstudio.microsoft.com/team-services/).
 
 ## <a name="configure-nuget-package-dependency"></a>Configuración de dependencias de paquetes NuGet
@@ -56,7 +56,7 @@ Comparta sus archivos de origen de la aplicación en un proyecto de Azure DevOps
 
 1. Cree un repositorio de Git local para el proyecto; para ello, seleccione **Add to Source Control** (Agregar al control de código fuente) y luego **Git** en la barra de estado de la esquina inferior derecha de Visual Studio. 
 
-2. En la vista **Sincronización** de **Team Explorer**, seleccione el botón **Publicar repositorio Git** en **Insertar en Azure DevOps Services**.
+2. En la vista **Sincronización** de **Team Explorer** , seleccione el botón **Publicar repositorio Git** en **Insertar en Azure DevOps Services**.
 
    ![Botón Publicar repositorio Git de Insertar en Azure DevOps Services](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
 
@@ -64,12 +64,12 @@ Comparta sus archivos de origen de la aplicación en un proyecto de Azure DevOps
 
    ![Botón Publicar repositorio del repositorio Git de inserción](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
-    La publicación del repositorio crea un proyecto en su organización con el mismo nombre que el repositorio local. Para crear el repositorio en un proyecto existente, haga clic en **Avanzado**, junto al nombre del **repositorio**, y seleccione un proyecto. Para ver el código en el explorador, seleccione **See it on the web** (Verlo en la Web).
+    La publicación del repositorio crea un proyecto en su organización con el mismo nombre que el repositorio local. Para crear el repositorio en un proyecto existente, haga clic en **Avanzado** , junto al nombre del **repositorio** , y seleccione un proyecto. Para ver el código en el explorador, seleccione **See it on the web** (Verlo en la Web).
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Configuración de la entrega continua con Azure DevOps
-Una canalización de compilación de Azure Pipelines describe un flujo de trabajo compuesto por pasos de compilación que se ejecutan de manera secuencial. Más información sobre las [canalizaciones de compilación de Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav&preserve-view=true).
+Una canalización de compilación de Azure Pipelines describe un flujo de trabajo compuesto por pasos de compilación que se ejecutan de manera secuencial. Más información sobre las [canalizaciones de compilación de Azure Pipelines](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts).
 
-Una canalización de versión de Azure Pipelines describe un flujo de trabajo que implementa un paquete de aplicación en un clúster. Cuando se usan juntas, la canalización de compilación y la de versión ejecutan el flujo de trabajo completo empezando por los archivos de origen y terminando por una aplicación en el clúster. Más información sobre las [canalizaciones de versión de Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts&preserve-view=true).
+Una canalización de versión de Azure Pipelines describe un flujo de trabajo que implementa un paquete de aplicación en un clúster. Cuando se usan juntas, la canalización de compilación y la de versión ejecutan el flujo de trabajo completo empezando por los archivos de origen y terminando por una aplicación en el clúster. Más información sobre las [canalizaciones de versión de Azure Pipelines](/azure/devops/pipelines/release/define-multistage-release-process?preserve-view=true&view=vsts).
 
 ### <a name="create-a-build-pipeline"></a>Creación de una canalización de compilación
 Abra un explorador web y vaya hasta el proyecto que acaba de crear en [Azure DevOps](https://app.vsaex.visualstudio.com/). 
@@ -78,17 +78,17 @@ Abra un explorador web y vaya hasta el proyecto que acaba de crear en [Azure Dev
     
     ![Selección del origen de Git de DevOps en Azure DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
 
-2. En **Seleccionar una plantilla**, haga clic en **Proceso vacío** para comenzar con una canalización vacía.
+2. En **Seleccionar una plantilla** , haga clic en **Proceso vacío** para comenzar con una canalización vacía.
     
     ![Selección de un proceso vacío entre las opciones de plantilla en DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
-3. En **Desencadenadores**, active el estado del desencadenador **Habilitar la integración continua** para habilitar la integración continua.  Seleccione **Guardar y poner en cola** para iniciar manualmente una compilación. 
+3. En **Desencadenadores** , active el estado del desencadenador **Habilitar la integración continua** para habilitar la integración continua.  Seleccione **Guardar y poner en cola** para iniciar manualmente una compilación. 
     
     ![Habilitación del estado del desencadenador de integración continua](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
 4. Las compilaciones se desencadenan también tras el envío de cambios o la inserción en el repositorio. Para comprobar el progreso de la compilación, vaya a la pestaña **Compilaciones**.  Cuando haya verificado que la compilación se ejecuta correctamente, debe determinar una canalización de versión que implemente la aplicación en un clúster. Haga clic con el botón derecho en el botón de puntos suspensivos situado junto a la canalización de compilación y seleccione **Editar**.
 
-5.  En **Tareas**, escriba "Hospedado" como **Cola de agentes**.
+5.  En **Tareas** , escriba "Hospedado" como **Cola de agentes**.
     
     ![Selección de la cola de agentes en el menú Tareas](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
@@ -158,7 +158,7 @@ La inserción de los cambios en Azure DevOps Services desencadena automáticamen
 Cuando no los necesite, elimine el grupo de recursos, el trabajo de streaming y todos los recursos relacionados. La eliminación del trabajo evita la facturación de las unidades de streaming utilizadas por el trabajo. Si piensa utilizar el trabajo en el futuro, puede detenerlo y volver a iniciarlo más adelante cuando sea necesario. Si no va a seguir usando este trabajo, siga estos pasos para eliminar todos los recursos creados en este tutorial:
 
 1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó.  
-2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
+2. En la página del grupo de recursos, haga clic en **Eliminar** , escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

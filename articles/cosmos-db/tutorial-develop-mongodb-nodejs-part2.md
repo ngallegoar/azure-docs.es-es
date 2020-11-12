@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3af713d6e120e66a0cde5116f4556bb8caedf55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523492"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097862"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Creación de una aplicación de Node.js Express
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 En este tutorial de varias partes se muestra cómo crear una nueva aplicación escrita en Node.js con Express y Angular y cómo conectarla a la [cuenta de Cosmos configurada con la API de Cosmos DB para MongoDB](mongodb-introduction.md).
 
@@ -81,9 +82,9 @@ En este tutorial también se necesita:
 
 ## <a name="build-the-app-using-the-express-framework"></a>Creación de aplicación mediante la plataforma Express
 
-1. En Visual Studio Code, en el panel **Explorer**, haga clic con el botón derecho en la carpeta **src**, haga clic en **Nueva carpeta** y asigne el nombre *server* a la nueva carpeta.
+1. En Visual Studio Code, en el panel **Explorer** , haga clic con el botón derecho en la carpeta **src** , haga clic en **Nueva carpeta** y asigne el nombre *server* a la nueva carpeta.
 
-2. En el panel **Explorer**, haga clic con el botón derecho en la carpeta **server**, haga clic en **Nuevo archivo** y asigne el nombre *index.js* al nuevo archivo.
+2. En el panel **Explorer** , haga clic con el botón derecho en la carpeta **server** , haga clic en **Nuevo archivo** y asigne el nombre *index.js* al nuevo archivo.
 
 3. En el símbolo del sistema, utilice el siguiente comando para instalar el analizador de cuerpo. Esto ayuda a la aplicación a analizar los datos JSON que se pasan a través de las API.
 
@@ -125,7 +126,7 @@ En este tutorial también se necesita:
    app.listen(port, () => console.log(`API running on localhost:${port}`));
    ```
 
-5. En Visual Studio Code, en el panel **Explorer**, haga clic con el botón derecho en la carpeta **server** y, a continuación, haga clic en **Nuevo archivo**. Asigne el nombre *routes.js* al archivo nuevo. 
+5. En Visual Studio Code, en el panel **Explorer** , haga clic con el botón derecho en la carpeta **server** y, a continuación, haga clic en **Nuevo archivo**. Asigne el nombre *routes.js* al archivo nuevo. 
 
 6. Copie el código siguiente en **routes.js**. Este código:
    * Hace referencia el enrutador de Express

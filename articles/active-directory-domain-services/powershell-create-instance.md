@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 10/02/2020
 ms.author: joflore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4b2ea0806f70d9f99982b9d9af9c462ff0099966
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 46fdaed4a3e1dbbe5575cd573061a480bf330389
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967977"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041948"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitación de Azure Active Directory Domain Services mediante PowerShell
 
@@ -44,12 +44,12 @@ Para completar este artículo, necesita los siguientes recursos:
 
 Azure AD DS requiere una entidad de servicio y un grupo de Azure AD. Estos recursos permiten al dominio administrado de Azure AD DS sincronizar los datos y definir qué usuarios tienen permisos administrativos en él.
 
-En primer lugar, cree una entidad de servicio de Azure AD para Azure AD DS para comunicarse y autenticarse. Se usa un identificador de aplicación específico denominado *Servicios de controlador de dominio* con un identificador de *2565bd9d-da50-47d4-8b85-4c97f669dc36*. No cambie este identificador de aplicación.
+En primer lugar, cree una entidad de servicio de Azure AD para Azure AD DS para comunicarse y autenticarse. Se usa un identificador de aplicación específico denominado *Servicios de controlador de dominio* con un identificador de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. No cambie este identificador de aplicación.
 
 Cree una entidad de servicio de Azure AD con el cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal]:
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 Ahora, cree un grupo de Azure AD denominado *Administradores de controlador de dominio de AAD*. A los usuarios agregados a este grupo se les conceden permisos para realizar tareas de administración en el dominio administrado.
@@ -75,9 +75,9 @@ else {
 }
 ```
 
-Después de crear el grupo *Administradores de DC de AAD*, obtenga el identificador de objeto del usuario deseado mediante el cmdlet [Get-AzureADUser][Get-AzureADUser] y, luego, agregue el usuario al grupo mediante el cmdlet [Add-AzureADGroupMember][Add-AzureADGroupMember].
+Después de crear el grupo *Administradores de DC de AAD* , obtenga el identificador de objeto del usuario deseado mediante el cmdlet [Get-AzureADUser][Get-AzureADUser] y, luego, agregue el usuario al grupo mediante el cmdlet [Add-AzureADGroupMember][Add-AzureADGroupMember].
 
-En el ejemplo siguiente, el identificador de objeto de usuario de la cuenta con un UPN de `admin@contoso.onmicrosoft.com`. Reemplace esta cuenta de usuario por el UPN del usuario que quiere agregar al grupo *Administradores de controlador de dominio de AAD*:
+En el ejemplo siguiente, el identificador de objeto de usuario de la cuenta con un UPN de `admin@contoso.onmicrosoft.com`. Reemplace esta cuenta de usuario por el UPN del usuario que quiere agregar al grupo *Administradores de controlador de dominio de AAD* :
 
 ```powershell
 # Retrieve the object ID of the user you'd like to add to the group.
@@ -226,7 +226,7 @@ Tarda unos minutos hasta que se crea el recurso y se devuelve el control al sím
 Cuando en Azure Portal se muestra que el dominio administrado ha terminado de aprovisionarse, es necesario realizar las siguientes tareas:
 
 * Actualice la configuración de DNS para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios.
-    * Para configurar DNS, seleccione el dominio administrado en el portal. En la ventana **Información general**, se le pedirá que configure automáticamente estos valores de DNS.
+    * Para configurar DNS, seleccione el dominio administrado en el portal. En la ventana **Información general** , se le pedirá que configure automáticamente estos valores de DNS.
 * [Habilite la sincronización de contraseñas en Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de manera que los usuarios finales puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
 ## <a name="complete-powershell-script"></a>Script completo de PowerShell
@@ -252,7 +252,7 @@ Connect-AzureAD
 Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 
 # First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `
@@ -373,7 +373,7 @@ Tarda unos minutos hasta que se crea el recurso y se devuelve el control al sím
 Cuando en Azure Portal se muestra que el dominio administrado ha terminado de aprovisionarse, es necesario realizar las siguientes tareas:
 
 * Actualice la configuración de DNS para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios.
-    * Para configurar DNS, seleccione el dominio administrado en el portal. En la ventana **Información general**, se le pedirá que configure automáticamente estos valores de DNS.
+    * Para configurar DNS, seleccione el dominio administrado en el portal. En la ventana **Información general** , se le pedirá que configure automáticamente estos valores de DNS.
 * [Habilite la sincronización de contraseñas en Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de manera que los usuarios finales puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
 ## <a name="next-steps"></a>Pasos siguientes

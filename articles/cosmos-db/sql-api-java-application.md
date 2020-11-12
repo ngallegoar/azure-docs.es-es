@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 74a4178cc6b9645f3cb22bf3d1c7c0ee942c3f5f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 774c829b3f9c36cef33f8f334825440b92582f4e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485297"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097318"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -67,15 +68,15 @@ Para crear la aplicación JSP:
 
 1. En primer lugar, empezaremos por la creación de un proyecto de Java. Inicie Eclipse, haga clic en **File** (Archivo), haga clic en **New** (Nuevo) y luego haga clic en **Dynamic Web Project** (Proyecto web dinámico). Si **Dynamic Web Project** (Proyecto web dinámico) no aparece como proyecto disponible, haga lo siguiente: haga clic en **File** (Archivo), **New** (Nuevo), **Project** (Proyecto), expanda **Web** , haga clic en **Dynamic Web Project** (Proyecto web dinámico) y haga clic en **Next** (Siguiente).
    
-    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Aplicación Java My ToDo List":::
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Desarrollo de aplicaciones Java JSP":::
 
 1. Escriba un nombre de proyecto en el cuadro **Project name** (Nombre de proyecto) y en el menú desplegable **Target Runtime** (Tiempo de ejecución de destino), seleccione opcionalmente un valor (por ejemplo, Apache Tomcat v7.0) y, a continuación, haga clic en **Finish** (Finalizar). Si selecciona un tiempo de ejecución de destino, puede ejecutar el proyecto localmente a través de Eclipse.
 
 1. En Eclipse, en la vista del explorador de proyectos, expanda el proyecto. Haga clic con el botón derecho en **WebContent** , haga clic en **New** (Nuevo) y, después, en **JSP File** (Archivo JSP).
 
-1. En el cuadro de diálogo **New JSP File** (Nuevo archivo JSP), asigne al archivo el nombre **index.jsp** . Mantenga la carpeta principal como **WebContent** , como se muestra en la ilustración siguiente y, a continuación, haga clic en **Next** (Siguiente).
+1. En el cuadro de diálogo **New JSP File** (Nuevo archivo JSP), asigne al archivo el nombre **index.jsp**. Mantenga la carpeta principal como **WebContent** , como se muestra en la ilustración siguiente y, a continuación, haga clic en **Next** (Siguiente).
    
-    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Aplicación Java My ToDo List":::
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Tutorial de creación de un nuevo archivo JSP: aplicación web de Java":::
 
 1. En el cuadro de diálogo **Select JSP Template** (Seleccionar plantilla JSP), para cumplir con el objetivo de este tutorial, seleccione **New JSP File (html)** (Nuevo archivo JSP [html]) y haga clic en **Finish** (Finalizar).
 
@@ -87,11 +88,11 @@ Para crear la aplicación JSP:
    </body>
    ```
 
-1. Guarde el archivo *index.jsp* .
+1. Guarde el archivo *index.jsp*.
 
 1. Si ha establecido un tiempo de ejecución de destino en el paso 2, puede hacer clic en **Project** (Proyecto) y, a continuación, en **Run** (Ejecutar) para ejecutar su aplicación de JSP localmente:
 
-   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Aplicación Java My ToDo List":::
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Hola mundo – Tutorial de aplicación de Java":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Instalación del SDK de SQL para Java
 
@@ -99,11 +100,11 @@ La manera más sencilla de insertar el SDK de Java para SQL y sus dependencias e
 
 1. Haga clic con el botón derecho en el proyecto en el explorador de proyectos, haga clic en **Configure** (Configurar) y en **Convert to Maven Project** (Convertir en proyecto Maven).
 
-1. En la ventana **Crear nueva POM** , acepte los valores predeterminados y haga clic en **Finalizar** .
+1. En la ventana **Crear nueva POM** , acepte los valores predeterminados y haga clic en **Finalizar**.
 
 1. En **Explorador de proyectos** , abra el archivo pom.xml.
 
-1. En la ficha **Dependencias** , en el panel **Dependencias** , haga clic en **Agregar** .
+1. En la ficha **Dependencias** , en el panel **Dependencias** , haga clic en **Agregar**.
 
 1. En la ventana **Seleccionar dependencia** , haga lo siguiente:
    
@@ -129,7 +130,7 @@ Ahora vamos a agregar los modelos, las vistas y los controladores a la aplicaci�
 
 ### <a name="add-a-model"></a>Adición de un modelo
 
-En primer lugar, vamos a definir un modelo en un nuevo archivo *TodoItem. Java* . La clase `TodoItem` define el esquema de un elemento junto con los métodos Getter y Setter:
+En primer lugar, vamos a definir un modelo en un nuevo archivo *TodoItem. Java*. La clase `TodoItem` define el esquema de un elemento junto con los métodos Getter y Setter:
 
 :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/model/TodoItem.java":::
 
@@ -183,13 +184,13 @@ Ahora que hemos terminado la parte divertida, todo lo que queda por hacer es cre
 
    :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/WebContent/assets/todo.js":::
 
-1. Ahora todo lo que queda por hacer es probar la aplicación. Ejecute la aplicación localmente y agregue algunos elementos Todo rellenando el nombre del elemento y la categoría y haciendo clic en **Agregar tarea** . Una vez que aparece el elemento, puede actualizar si está completo. Para ello, alterne la casilla y haga clic en **Actualizar tareas** .
+1. Ahora todo lo que queda por hacer es probar la aplicación. Ejecute la aplicación localmente y agregue algunos elementos Todo rellenando el nombre del elemento y la categoría y haciendo clic en **Agregar tarea**. Una vez que aparece el elemento, puede actualizar si está completo. Para ello, alterne la casilla y haga clic en **Actualizar tareas**.
 
 ## <a name="deploy-your-java-application-to-azure-web-sites"></a><a id="Deploy"></a>Implementación de la aplicación Java en Azure Web Sites
 
 Azure WebSites consigue que la implementación de aplicaciones de Java sea tan sencilla como exportar su aplicación como un archivo WAR y cargarla mediante el control de código fuente (por ejemplo, Git) o FTP.
 
-1. Para exportar la aplicación como un archivo WAR, haga clic con el botón derecho en el proyecto en **Explorador de proyectos** , haga clic en **Exportar** y, a continuación, haga clic en **Archivo WAR** .
+1. Para exportar la aplicación como un archivo WAR, haga clic con el botón derecho en el proyecto en **Explorador de proyectos** , haga clic en **Exportar** y, a continuación, haga clic en **Archivo WAR**.
 
 1. En la ventana **Exportar WAR** , haga lo siguiente:
    
@@ -215,7 +216,7 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 
 1. En la pantalla **Select Repository Source** (Seleccionar origen del repositorio), haga clic en **Clone URI** (Clonar URI).
 
-1. En la pantalla **Source Git Repository** (Repositorio GIT de origen), en el cuadro **URI** , escriba https://github.com/Azure-Samples/documentdb-java-todo-app.git y, a continuación, haga clic en **Siguiente** .
+1. En la pantalla **Source Git Repository** (Repositorio GIT de origen), en el cuadro **URI** , escriba https://github.com/Azure-Samples/documentdb-java-todo-app.git y, a continuación, haga clic en **Siguiente**.
 
 1. En la pantalla **Branch Selection** (Selección de rama), asegúrese de que está seleccionado **master** (principal) y luego haga clic en **Next** (Siguiente).
 
@@ -229,21 +230,21 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 
 1. En **Project Explorer** (Explorador de proyectos), haga clic con el botón derecho en **azure-documentdb-java-sample** , haga clic en **Build Path** (Ruta de acceso de compilación) y luego haga clic en **Configure Build Path** (Configurar ruta de acceso de compilación).
 
-1. En la pantalla **Java Build Path** (Ruta de compilación de Java), en el panel derecho, seleccione la pestaña **Bibliotecas** y luego haga clic en **Add External JARs** (Agregar JAR externos). Desplácese hasta la ubicación del archivo lombok.jar y haga clic en **Abrir** y, a continuación, en **Aceptar** .
+1. En la pantalla **Java Build Path** (Ruta de compilación de Java), en el panel derecho, seleccione la pestaña **Bibliotecas** y luego haga clic en **Add External JARs** (Agregar JAR externos). Desplácese hasta la ubicación del archivo lombok.jar y haga clic en **Abrir** y, a continuación, en **Aceptar**.
 
 1. Use el paso 12 para abrir la ventana **Propiedades** de nuevo y, a continuación, en el panel izquierdo haga clic en **Targeted Runtimes** (Tiempos de ejecución de destino).
 
-1. En la pantalla **Targeted Runtimes** (Tiempos de ejecución de destino), haga clic en **Nuevo** , seleccione **Apache Tomcat v7.0** y luego haga clic en **Aceptar** .
+1. En la pantalla **Targeted Runtimes** (Tiempos de ejecución de destino), haga clic en **Nuevo** , seleccione **Apache Tomcat v7.0** y luego haga clic en **Aceptar**.
 
 1. Use el paso 12 para abrir de nuevo la ventana **Propiedades** y, a continuación, en el panel izquierdo, haga clic en **Project Facets** (Facetas del proyecto).
 
-1. En la pantalla **Project Facets** (Facetas del proyecto), seleccione **Dynamic Web Module** (Módulo web dinámico) y **Java** y luego haga clic en **Aceptar** .
+1. En la pantalla **Project Facets** (Facetas del proyecto), seleccione **Dynamic Web Module** (Módulo web dinámico) y **Java** y luego haga clic en **Aceptar**.
 
 1. En la ficha **Servidores** en la parte inferior de la pantalla, haga clic con el botón derecho en **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server en localhost) y luego haga clic en **Add and Remove** (Agregar y quitar).
 
-1. En la ventana **Agregar y quitar** , mueva **azure-documentdb-java-sample** al cuadro **Configurado** y luego haga clic en **Finalizar** .
+1. En la ventana **Agregar y quitar** , mueva **azure-documentdb-java-sample** al cuadro **Configurado** y luego haga clic en **Finalizar**.
 
-1. En la pestaña **Servidor** , haga clic en **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server en localhost) y luego haga clic en **Reiniciar** .
+1. En la pestaña **Servidor** , haga clic en **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server en localhost) y luego haga clic en **Reiniciar**.
 
 1. En un explorador, vaya a `http://localhost:8080/azure-documentdb-java-sample/` y empiece a agregar a la lista de tareas. Tenga en cuenta que si ha cambiado los valores de puerto predeterminados, debe cambiar 8080 por el valor seleccionado.
 

@@ -4,15 +4,15 @@ description: Aprenda a compilar una aplicación de varios contenedores en Azure 
 keywords: servicio de aplicación de azure, aplicación web, linux, docker, compose, multicontenedor, varios contenedores, aplicación web para contenedores, contenedor, wordpress, azure db for mysql, base de datos de producción con contenedores
 author: msangapu-msft
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f2f1713866eb06b4b514ff988ef3e010491e1efc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743456"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131350"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Creación de una aplicación de varios contenedores (versión preliminar) en Web App for Containers
 
@@ -151,7 +151,7 @@ Cree un servidor de Azure Database for MySQL con el comando [`az mysql server cr
 En el siguiente comando, reemplace el nombre del servidor MySQL en el lugar en el que vea el marcador de posición _&lt;mysql-server-name>_ (los caracteres válidos son `a-z`, `0-9` y `-`). Este nombre forma parte del nombre de host del servidor MySQL (`<mysql-server-name>.database.windows.net`), por lo que es preciso que sea globalmente único.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen5_1 --version 5.7
 ```
 
 La creación del servidor puede tardar unos minutos en llevarse a cabo. Cuando se haya creado el servidor MySQL, Cloud Shell muestra información similar a la del siguiente ejemplo:
@@ -262,14 +262,14 @@ Los siguientes cambios se realizaron para Redis (para su uso en una sección pos
 * [Agrega el complemento Redis Object Cache 1.3.8 WordPress.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Usa la configuración de aplicación para el nombre de host de Redis en WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-Para usar la imagen personalizada, deberá actualizar el archivo docker-compose-wordpress.yml. En Cloud Shell, escriba `nano docker-compose-wordpress.yml` para abrir el editor de texto nano. Cambie `image: wordpress` para usar `image: microsoft/multicontainerwordpress`. Ya no necesita el contenedor de la base de datos. Elimine las secciones `db`, `environment`, `depends_on`, y `volumes` del archivo de configuración. El archivo debería tener el aspecto del siguiente código:
+Para usar la imagen personalizada, deberá actualizar el archivo docker-compose-wordpress.yml. En Cloud Shell, escriba `nano docker-compose-wordpress.yml` para abrir el editor de texto nano. Cambie `image: wordpress` para usar `image: mcr.microsoft.com/azuredocs/multicontainerwordpress`. Ya no necesita el contenedor de la base de datos. Elimine las secciones `db`, `environment`, `depends_on`, y `volumes` del archivo de configuración. El archivo debería tener el aspecto del siguiente código:
 
 ```yaml
 version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
@@ -345,7 +345,7 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      volumes:
       - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
      ports:
@@ -401,13 +401,15 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
 
    redis:
-     image: redis:3-alpine
+     image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+     environment: 
+      - ALLOW_EMPTY_PASSWORD=yes
      restart: always
 ```
 
@@ -464,21 +466,21 @@ Complete los pasos e instale WordPress.
 
 ### <a name="connect-wordpress-to-redis"></a>Conexión de WordPress a Redis
 
-Inicie sesión en el administrador de WordPress. En el panel de navegación izquierdo, seleccione **Plugins** y, a continuación, **Plugins instalados** .
+Inicie sesión en el administrador de WordPress. En el panel de navegación izquierdo, seleccione **Plugins** y, a continuación, **Plugins instalados**.
 
 ![Selección Plugins de WordPress][2]
 
 Mostrar todos los complementos aquí
 
-En la página Plugins, busque **Redis Object Cache** y haga clic en **Activar** .
+En la página Plugins, busque **Redis Object Cache** y haga clic en **Activar**.
 
 ![Activación de Redis][3]
 
-Haga clic en **Configuración** .
+Haga clic en **Configuración**.
 
 ![Haga clic en Configuración][4]
 
-Haga clic en el botón **Enable Object Cache** .
+Haga clic en el botón **Enable Object Cache**.
 
 ![Haga clic en el botón "Enable Object Cache"][5]
 
@@ -486,7 +488,7 @@ WordPress se conecta al servidor de Redis. El **estado** de la conexión aparece
 
 ![WordPress se conecta al servidor de Redis. El **estado** de la conexión aparece en la misma página.][6]
 
-**Enhorabuena** , ha conectado WordPress a Redis. La aplicación preparada para el entorno de producción está utilizando ahora **Azure Database for MySQL, el almacenamiento persistente y Redis** . Ahora puede escalar horizontalmente su Plan de App Service para varias instancias.
+**Enhorabuena** , ha conectado WordPress a Redis. La aplicación preparada para el entorno de producción está utilizando ahora **Azure Database for MySQL, el almacenamiento persistente y Redis**. Ahora puede escalar horizontalmente su Plan de App Service para varias instancias.
 
 ## <a name="find-docker-container-logs"></a>Búsqueda de registros de Docker Container
 

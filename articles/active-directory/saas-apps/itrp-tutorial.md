@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 2dff68f98e2922d5fc7a4fca1e6de8740bc2ae68
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92459686"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integración de Azure Active Directory con ITRP
@@ -60,7 +60,7 @@ Para configurar la integración de ITRP en Azure AD, tiene que agregar ITRP desd
 
     ![Seleccionar Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **ITRP** . Seleccione **ITRP** en los resultados de búsqueda y, a continuación, seleccione **Agregar** .
+4. En el cuadro de búsqueda, escriba **ITRP**. Seleccione **ITRP** en los resultados de búsqueda y, a continuación, seleccione **Agregar**.
 
      ![Search Results](common/search-new-app.png)
 
@@ -125,7 +125,7 @@ Para configurar el inicio de sesión único de Azure AD con ITRP, haga lo sigui
 
     1. **Dirección URL de inicio de sesión**
 
-    1. **Identificador de Azure AD** .
+    1. **Identificador de Azure AD**.
 
     1. **Dirección URL de cierre de sesión**
 
@@ -147,7 +147,7 @@ Para configurar el inicio de sesión único de Azure AD con ITRP, haga lo sigui
 
     ![Captura de pantalla que muestra la sección Single Sign-on (Inicio de sesión único), donde puede especificar la información de este paso.](./media/itrp-tutorial/ic775573.png "Sección Inicio de sesión único")
 
-    1. Seleccione **Habilitado** .
+    1. Seleccione **Habilitado**.
 
     1. En el cuadro **Remote Logout URL** (URL de cierre de sesión remota), pegue el valor de la **dirección URL de cierre de sesión** que copió de Azure Portal.
 
@@ -155,7 +155,7 @@ Para configurar el inicio de sesión único de Azure AD con ITRP, haga lo sigui
 
     1. En el cuadro de texto **Certificate Fingerprint** (Huella digital de certificado), pegue el valor de **huella digital** del certificado que copió de Azure Portal.
 
-    1. Seleccione **Guardar** .
+    1. Seleccione **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -173,23 +173,23 @@ En esta sección creará un usuario de prueba llamado Britta Simon en Azure Por
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    1. En el cuadro **Nombre** , escriba **BrittaSimon** .
+    1. En el cuadro **Nombre** , escriba **BrittaSimon**.
   
     1. En el cuadro **Nombre de usuario** , escriba **BrittaSimon@\<yourcompanydomain>.\<extension>** (Por ejemplo, BrittaSimon@contoso.com).
 
-    1. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+    1. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    1. Seleccione **Crear** .
+    1. Seleccione **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a ITRP.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** , **Todas las aplicaciones** , **ITRP** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** , **Todas las aplicaciones** , **ITRP**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **ITRP** .
+2. En la lista de aplicaciones, seleccione **ITRP**.
 
     ![Lista de aplicaciones](common/all-applications.png)
 
@@ -197,7 +197,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Seleccionar Usuarios y grupos](common/users-groups-blade.png)
 
-4. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
+4. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Selección de Agregar usuario](common/add-assign-user.png)
 
@@ -205,7 +205,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** de la parte inferior de la ventana.
 
-7. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
+7. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar**.
 
 ### <a name="create-an-itrp-test-user"></a>Creación de un usuario de prueba de ITRP
 
@@ -233,7 +233,7 @@ Para crear una cuenta de usuario, siga estos pasos:
 
     1. Escriba el nombre y la dirección de correo electrónico de una cuenta de Azure AD válida que quiera agregar.
 
-    1. Seleccione **Guardar** .
+    1. Seleccione **Guardar**.
 
 > [!NOTE]
 > Puede usar cualquier API o herramienta de creación de cuentas de usuario que proporcione ITRP para aprovisionar cuentas de usuario de AAD.

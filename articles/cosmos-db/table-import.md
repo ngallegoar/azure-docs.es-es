@@ -8,14 +8,15 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f99d7430b76c0b1c4e9c07835267a4a0807efdb1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e876ca028532bb3721146e90a91d68c4c12bf79f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481370"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096087"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migración de los datos a una cuenta de Table API de Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 En este tutorial se proporcionan instrucciones sobre cómo importar datos para su uso con [Table API](table-introduction.md) de Azure Cosmos DB. Si tiene datos almacenados en Azure Table Storage, puede usar la Herramienta de migración de datos o AzCopy para importar los datos en Table API de Azure Cosmos DB. Si tiene datos almacenados en una cuenta de Table API de Azure Cosmos DB (versión preliminar), debe usar la Herramienta de migración de datos para migrar los datos. 
 
@@ -66,13 +67,13 @@ Utilice las siguientes opciones de origen al definir la versión preliminar de T
 * **/s.Filter:** Opcional. Cadena de filtro que se va a aplicar.
 * **/s.Projection:** Opcional. Lista de columnas para seleccionar.
 
-Para recuperar la cadena de conexión de origen al importar desde Azure Table Storage, abra Azure Portal y haga clic en **Cuentas de almacenamiento** > **Cuenta** > **Claves de acceso** y, a continuación, utilice el botón Copiar para copiar la **cadena de conexión** .
+Para recuperar la cadena de conexión de origen al importar desde Azure Table Storage, abra Azure Portal y haga clic en **Cuentas de almacenamiento** > **Cuenta** > **Claves de acceso** y, a continuación, utilice el botón Copiar para copiar la **cadena de conexión**.
 
 :::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Captura de pantalla que muestra las opciones Cuentas de almacenamiento > Cuenta > Claves de acceso y resalta el botón Copiar.":::
 
-Para recuperar la cadena de conexión de origen al importar desde una cuenta de Table API de Azure Cosmos DB (versión preliminar), abra Azure Portal, haga clic en **Azure Cosmos DB** > **Cuenta** > **Cadena de conexión** y, a continuación, utilice el botón Copiar para copiar la **cadena de conexión** .
+Para recuperar la cadena de conexión de origen al importar desde una cuenta de Table API de Azure Cosmos DB (versión preliminar), abra Azure Portal, haga clic en **Azure Cosmos DB** > **Cuenta** > **Cadena de conexión** y, a continuación, utilice el botón Copiar para copiar la **cadena de conexión**.
 
-:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Captura de pantalla que muestra las opciones Cuentas de almacenamiento > Cuenta > Claves de acceso y resalta el botón Copiar.":::
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Captura de pantalla de opciones de origen de HBase":::
 
 [Comando de Azure Table Storage de ejemplo](#azure-table-storage)
 

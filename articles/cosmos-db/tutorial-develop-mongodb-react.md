@@ -10,14 +10,15 @@ ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 06c309de5054887a64e61d61345190c776835709
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cdb8612bb04d52df3603aa4520cad4cbacb661da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476593"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074087"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Creación de una aplicación de MongoDB con React y Azure Cosmos DB  
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 En este videotutorial de varias partes, se muestra cómo crear una aplicación de seguimiento de héroes con un front-end React. La aplicación utiliza Node y Express para el servidor, se conecta a la base de datos de Cosmos configurada con la [API de Azure Cosmos DB para MongoDB](mongodb-introduction.md) y, a continuación, conecta el front-end de React a la parte del servidor de la aplicación. El tutorial también muestra cómo escalar Cosmos DB mediante apuntar y hacer clic en Azure Portal y cómo implementar la aplicación en Internet, de modo que todos puedan realizar un seguimiento de sus héroes favoritos. 
 
@@ -91,7 +92,7 @@ Este vídeo muestra cómo completar la aplicación y finalizar enlazando la inte
 Si no va a seguir usando esta aplicación, use los pasos siguientes para borrar todos los recursos que se crearon en este tutorial en Azure Portal. 
 
 1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
-2. En la página del grupo de recursos, haga clic en **Eliminar** , escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar** .
+2. En la página del grupo de recursos, haga clic en **Eliminar** , escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73161784"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040795"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Creación de un clúster de Pivotal Cloud Foundry en Azure
 
@@ -36,13 +36,13 @@ Hay varias maneras de generar una clave pública de Secure Shell (SSH) mediante 
 ssh-keygen -t rsa -b 2048
 ```
 
-Para más información, consulte [Uso de claves SSH con Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+Para más información, consulte [Uso de claves SSH con Windows en Azure](../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
 > [!NOTE]
 >
-> Para crear una entidad de servicio, necesita un permiso del propietario de cuenta. Además, puede escribir un script para automatizar la creación de la entidad de servicio. Por ejemplo, puede usar [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) de la CLI de Azure.
+> Para crear una entidad de servicio, necesita un permiso del propietario de cuenta. Además, puede escribir un script para automatizar la creación de la entidad de servicio. Por ejemplo, puede usar [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest) de la CLI de Azure.
 
 1. Inicie sesión en la cuenta de Azure.
 
@@ -84,7 +84,7 @@ Para más información, consulte [Uso de claves SSH con Windows en Azure](https:
 
     `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
-7. Cree un archivo .json con el formato siguiente. Utilice los valores del **identificador de suscripción**, **tenantID**, **clientID** y **clientSecret** que ha copiado anteriormente. Guarde el archivo.
+7. Cree un archivo .json con el formato siguiente. Utilice los valores del **identificador de suscripción** , **tenantID** , **clientID** y **clientSecret** que ha copiado anteriormente. Guarde el archivo.
 
     ```json
     {
@@ -128,4 +128,3 @@ Especifique los parámetros y cree el clúster de Pivotal Cloud Foundry.
 5. La instancia de PCF Ops Manager muestra las instancias de Azure implementadas. Ahora puede implementar y administrar aquí las aplicaciones.
                
     ![Instancia de Azure implementada en Pivotal](media/deploy/ops-mgr.png )
- 

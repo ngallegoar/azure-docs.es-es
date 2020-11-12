@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: 4b855f8d967e2812884f5be79652fcd33cd080ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a3097fa539f460ef5e8ffe73598fa5d55516717e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476644"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097811"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Creación de una aplicación de Angular con API de Azure Cosmos DB para MongoDB: uso de Mongoose para conectarse a Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 En este tutorial de varias partes se muestra cómo crear una aplicación Node.js con Express y Angular y conectarla a la [cuenta de Cosmos configurada con la API de Cosmos DB para MongoDB](mongodb-introduction.md). En este artículo se describe la parte 5 del tutorial, que se basa en la [parte 4](tutorial-develop-mongodb-nodejs-part4.md).
 
@@ -50,9 +51,9 @@ Mongoose es una biblioteca de modelado de datos de objeto (ODM) para MongoDB y N
     npm i mongoose --save
     ```
 
-1. En la carpeta **server** , cree un archivo denominado **mongo.js** . Va a agregar los detalles de conexión de la cuenta de Azure Cosmos DB a este archivo.
+1. En la carpeta **server** , cree un archivo denominado **mongo.js**. Va a agregar los detalles de conexión de la cuenta de Azure Cosmos DB a este archivo.
 
-1. Copie el código siguiente en el archivo **mongo.js** . Este código proporciona la funcionalidad siguiente:
+1. Copie el código siguiente en el archivo **mongo.js**. Este código proporciona la funcionalidad siguiente:
 
    * Requiere Mongoose.
    * Invalida la promesa de Mongo para utilizar la promesa básica que se integra en ES6/ES2015 y versiones posteriores.
@@ -84,7 +85,7 @@ Mongoose es una biblioteca de modelado de datos de objeto (ODM) para MongoDB y N
      };
      ```
     
-1. En el panel Explorador, en **server** , cree una carpeta denominada **entorno** . En la carpeta **environment** , cree un archivo denominado **environment.js** .
+1. En el panel Explorador, en **server** , cree una carpeta denominada **entorno**. En la carpeta **environment** , cree un archivo denominado **environment.js**.
 
 1. En el archivo mongo.js, hay que incluir valores para los parámetros `dbName`, `key` y `cosmosPort`. Copie el código siguiente en el archivo **environment.js** :
 
@@ -128,9 +129,9 @@ La aplicación tiene ahora toda la información necesaria para conectarse a Azur
 
 Luego tiene que definir el esquema de los datos que se van a almacenar en Azure Cosmos DB definiendo un archivo de modelo. Siga estos pasos para crear un _modelo de Hero_ que define el esquema de los datos:
 
-1. En el panel Explorador, cree un archivo denominado **hero.model.js** en la carpeta **server** .
+1. En el panel Explorador, cree un archivo denominado **hero.model.js** en la carpeta **server**.
 
-1. Copie el código siguiente en el archivo **hero.model.js** . Este código proporciona la funcionalidad siguiente:
+1. Copie el código siguiente en el archivo **hero.model.js**. Este código proporciona la funcionalidad siguiente:
 
    * Requiere Mongoose.
    * Crea un nuevo esquema con un identificador, un nombre y un mensaje.
@@ -163,9 +164,9 @@ Luego tiene que definir el esquema de los datos que se van a almacenar en Azure 
 
 Cuando haya creado el modelo de Hero, tendrá que definir un servicio para leer los datos y realizar operaciones de lista, creación, eliminación y actualización. Siga estos pasos para crear un _servicio Hero_ que consulta los datos de Azure Cosmos DB:
 
-1. En el panel Explorador, cree un archivo denominado **hero.service.js** en la carpeta **server** .
+1. En el panel Explorador, cree un archivo denominado **hero.service.js** en la carpeta **server**.
 
-1. Copie el código siguiente en el archivo **hero.service.js** . Este código proporciona la funcionalidad siguiente:
+1. Copie el código siguiente en el archivo **hero.service.js**. Este código proporciona la funcionalidad siguiente:
 
    * Obtiene el modelo que se ha creado.
    * Se conecta a la base de datos.
@@ -232,7 +233,7 @@ Siga luego estos pasos para ejecutar la aplicación:
 
 1. En Visual Studio Code, guarde todos los cambios. A la izquierda, seleccione el botón **Depurar** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png":::y **Iniciar depuración** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png":::.
 
-1. Ahora cambie al explorador. Abra las **Herramientas de desarrollo** y la **pestaña Red** . Vaya a `http://localhost:3000` y verá la aplicación.
+1. Ahora cambie al explorador. Abra las **Herramientas de desarrollo** y la **pestaña Red**. Vaya a `http://localhost:3000` y verá la aplicación.
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png" alt-text="Nueva cuenta de Azure Cosmos DB en Azure Portal":::
 
@@ -243,8 +244,8 @@ No hay ningún héroe almacenado aún en la aplicación. En la siguiente parte d
 Cuando ya no necesite los recursos, podrá eliminar el grupo de recursos, la cuenta de Azure Cosmos DB y todos los recursos relacionados. Siga estos pasos para eliminar el grupo de recursos:
 
  1. Vaya al grupo de recursos donde creó la cuenta de Azure Cosmos DB.
- 1. Seleccione **Eliminar grupo de recursos** .
- 1. Confirme el nombre del grupo de recursos que quiere eliminar y seleccione **Eliminar** .
+ 1. Seleccione **Eliminar grupo de recursos**.
+ 1. Confirme el nombre del grupo de recursos que quiere eliminar y seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: 3116038939a07084f13db22819726dcbb2622a10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8e2c707566b08219b495e76be7f6f6130d876ab
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292429"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081321"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Incorporación de funciones CRUD a la aplicación
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 En este tutorial de varias partes se muestra cómo crear una nueva aplicación escrita en Node.js con Express y Angular y cómo conectarla a la [cuenta de Cosmos configurada con la API de Cosmos DB para MongoDB](mongodb-introduction.md). La parte 6 del tutorial se basa en la [parte 5](tutorial-develop-mongodb-nodejs-part5.md) y aborda las tareas siguientes:
 
@@ -67,7 +68,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
    }
    ```
 
-3. En **hero.service.js**, actualice `module.exports` para incluir la nueva función `postHero`. 
+3. En **hero.service.js** , actualice `module.exports` para incluir la nueva función `postHero`. 
 
     ```javascript
     module.exports = {
@@ -76,7 +77,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
     };
     ```
 
-4. En **routes.js**, agregue un enrutador para la función `post` después del enrutador `get`. Este enrutador publica los héroes de uno en uno. Al estructurar el archivo de enrutador de esta forma, se muestran limpiamente todos los puntos de conexión de la API disponibles y se deja el trabajo real para el archivo **hero.service.js**.
+4. En **routes.js** , agregue un enrutador para la función `post` después del enrutador `get`. Este enrutador publica los héroes de uno en uno. Al estructurar el archivo de enrutador de esta forma, se muestran limpiamente todos los puntos de conexión de la API disponibles y se deja el trabajo real para el archivo **hero.service.js**.
 
     ```javascript
     router.post('/hero', (req, res) => {
@@ -88,15 +89,17 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
 
 6. Ahora vuelva atrás en el explorador de Internet y abra la pestaña Red de las herramientas de desarrollador; en la mayoría de los equipos, debe presionar F12. Vaya a `http://localhost:3000` para ver las llamadas realizadas a través de la red.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="routes.js y hero.service.js en Visual Studio Code" y el mensaje "Hello"; y haga clic en **Guardar**. En la pestaña Red debería ver que ha enviado una solicitud POST para el nuevo héroe. 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Pestaña Red de Chrome que muestra la actividad de red":::
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="routes.js y hero.service.js en Visual Studio Code":::
+7. Agregue un nuevo héroe; para ello, seleccione el botón **Add New Hero** (Agregar nuevo héroe). Escriba el identificador "999", el nombre "Fred" y el mensaje "Hello"; y haga clic en **Guardar**. En la pestaña Red debería ver que ha enviado una solicitud POST para el nuevo héroe. 
+
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Pestaña Red de Chrome que muestra la actividad de red para las funciones Get y Post":::
 
     Ahora volvamos y agregue las funciones Put y Delete a la aplicación.
 
 ## <a name="add-the-put-and-delete-functions"></a>Incorporación de las funciones Put y Delete
 
-1. En **routes.js**, agregue los enrutadores `put` y `delete` tras el enrutador post.
+1. En **routes.js** , agregue los enrutadores `put` y `delete` tras el enrutador post.
 
     ```javascript
     router.put('/hero/:uid', (req, res) => {
@@ -156,7 +159,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
    }
    ```
 
-3. En **hero.service.js**, exporte los nuevos módulos:
+3. En **hero.service.js** , exporte los nuevos módulos:
 
    ```javascript
     module.exports = {
@@ -175,9 +178,11 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
 
     Ahora puede seleccionar el identificador en la pestaña Red para mostrar la carga. En la carga puede ver que el mensaje ahora está establecido en "Bye".
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="routes.js y hero.service.js en Visual Studio Code" del héroe llamado "Fred".
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="Aplicación Heroes y pestaña Red que muestra la carga"::: 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="routes.js y hero.service.js en Visual Studio Code"::: 
+    También puede eliminar uno de los héroes de la interfaz de usuario y ver el tiempo que se tarda en completar la operación de eliminación. Para probarlo, seleccione el botón "Eliminar" del héroe llamado "Fred".
+
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="Aplicación Heroes y la pestaña Red que muestra el tiempo para completar las funciones"::: 
 
     Si actualiza la página, la pestaña Red muestra el tiempo que se tarda en obtener los héroes. Aunque estos tiempos son cortos, en gran medida ello depende de dónde estén ubicados los datos en el mundo y de su capacidad para replicarlos geográficamente en un área cerca de los usuarios. Puede encontrar más información acerca de la replicación geográfica en el tutorial siguiente, que estará disponible próximamente.
 
