@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c49f5ab9f10456c32f7f8516cba0e851fa80e74
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446942"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392340"
 ---
 # <a name="configure-azure-sql-edge"></a>Configuración de Azure SQL Edge
 
@@ -44,7 +44,7 @@ La siguiente variable de entorno de SQL Server en Linux no se admite en Azure S
 
 | Variable de entorno | Descripción |
 |-----|-----|
-| **MSSQL_ENABLE_HADR** | Habilite el grupo de disponibilidad. Por ejemplo, **1** significa que está habilitado y **0**, deshabilitado. |
+| **MSSQL_ENABLE_HADR** | Habilite el grupo de disponibilidad. Por ejemplo, **1** significa que está habilitado y **0** , deshabilitado. |
 
 > [!IMPORTANT]
 > La variable de entorno **MSSQL_PID** para SQL Edge solo acepta **Premium** y **Desarrollador** como valores válidos. Azure SQL Edge no admite la inicialización mediante una clave de producto.
@@ -95,11 +95,11 @@ Las siguientes opciones de mssql.conf no son aplicables a SQL Edge:
 |**Comentarios del cliente** | Elija si SQL Server envía comentarios a Microsoft. |
 |**Perfil de correo electrónico de base de datos** | Establezca el perfil de correo electrónico de base de datos predeterminado para SQL Server en Linux. |
 |**Alta disponibilidad** | Habilite los grupos de disponibilidad. |
-|**Microsoft DTC (Coordinador de transacciones distribuidas)** | Configure y solucione problemas de MSDTC en Linux. No se admiten opciones de configuración relacionadas con transacciones distribuidas adicionales para SQL Edge. Para más información sobre estas opciones de configuración adicionales, consulte [Configuración de MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
+|**Microsoft DTC (Coordinador de transacciones distribuidas)** | Configure y solucione problemas de MSDTC en Linux. No se admiten opciones de configuración relacionadas con transacciones distribuidas adicionales para SQL Edge. Para más información sobre estas opciones de configuración adicionales, consulte [Configuración de MSDTC](/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
 |**CLUF de ML Services** | Acepte los CLUF de R y Python de los paquetes de Azure Machine Learning. Solo se aplica a SQL Server 2019.|
 |**outboundnetworkaccess** |Habilite el acceso de red saliente para las extensiones de R, Python y Java de [Machine Learning Services](/sql/linux/sql-server-linux-setup-machine-learning/).|
 
-El siguiente archivo mssql.conf de ejemplo funciona con SQL Edge. Para más información sobre el formato del archivo mssql.conf, consulte [Formato de mssql.conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
+El siguiente archivo mssql.conf de ejemplo funciona con SQL Edge. Para más información sobre el formato del archivo mssql.conf, consulte [Formato de mssql.conf](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
 
 ```ini
 [EULA]

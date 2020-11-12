@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f547f0b3219889b54364c4805c2dd5b183a9861a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888139"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392374"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Administración de datos históricos con directivas de retención
 
@@ -66,7 +66,7 @@ La excelente compresión de datos y la limpieza eficaz de la retención hacen qu
 
 ## <a name="monitoring-data-retention-cleanup"></a>Supervisión de la limpieza de la retención de datos
 
-Las operaciones de limpieza de directivas de retención de datos se pueden supervisar mediante eventos extendidos (XEvents) en Azure SQL Edge. Para obtener más información sobre los eventos extendidos, vea la [información general de XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
+Las operaciones de limpieza de directivas de retención de datos se pueden supervisar mediante eventos extendidos (XEvents) en Azure SQL Edge. Para obtener más información sobre los eventos extendidos, vea la [información general de XEvents](/sql/relational-databases/extended-events/extended-events). 
 
 Los seis eventos extendidos enumerados a continuación ayudan a realizar un seguimiento del estado de las operaciones de limpieza. 
 

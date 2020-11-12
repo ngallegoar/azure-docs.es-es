@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87424399"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397746"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
-Application Gateway publica puntos de datos, denominados métricas, para [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para el rendimiento de las instancias de Application Gateway y back-end. Estas métricas son valores numéricos de un conjunto ordenado de datos de serie temporal que describen algún aspecto de la puerta de enlace de aplicaciones en un momento determinado. Si hay solicitudes que fluyen a través de Application Gateway, mide y envía sus métricas en intervalos de 60 segundos. Si no hay ninguna solicitud que fluya a través de Application Gateway o no tiene datos para una métrica, no se informará de la métrica. Para obtener más información, vea [Información general sobre las métricas en Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Application Gateway publica puntos de datos, denominados métricas, para [Azure Monitor](../azure-monitor/overview.md) para el rendimiento de las instancias de Application Gateway y back-end. Estas métricas son valores numéricos de un conjunto ordenado de datos de serie temporal que describen algún aspecto de la puerta de enlace de aplicaciones en un momento determinado. Si hay solicitudes que fluyen a través de Application Gateway, mide y envía sus métricas en intervalos de 60 segundos. Si no hay ninguna solicitud que fluya a través de Application Gateway o no tiene datos para una métrica, no se informará de la métrica. Para obtener más información, vea [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform-metrics.md).
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Métricas compatibles con la SKU de Application Gateway V2
 
@@ -40,7 +40,7 @@ Application Gateway proporciona varias métricas de temporización integradas re
 
   Intervalo de tiempo entre el inicio del establecimiento de una conexión con el servidor back-end y la recepción del primer byte del encabezado de la respuesta. 
 
-  Se aproxima a la suma de *Tiempo de conexión de back-end*, el tiempo que tarda la solicitud en alcanzar el back-end desde Application Gateway, el tiempo que tarda la aplicación de back-end en responder (el tiempo que el servidor tardó en generar contenido, y posiblemente capturar las consultas de la base de datos) y el tiempo que tarda el primer byte de la respuesta en llegar a Application Gateway desde el back-end.
+  Se aproxima a la suma de *Tiempo de conexión de back-end* , el tiempo que tarda la solicitud en alcanzar el back-end desde Application Gateway, el tiempo que tarda la aplicación de back-end en responder (el tiempo que el servidor tardó en generar contenido, y posiblemente capturar las consultas de la base de datos) y el tiempo que tarda el primer byte de la respuesta en llegar a Application Gateway desde el back-end.
 
 - **Tiempo de respuesta del último byte de back-end**
 
@@ -52,7 +52,7 @@ Application Gateway proporciona varias métricas de temporización integradas re
 
   Promedio de tiempo que se tarda en recibir y procesar una solicitud y en enviar la respuesta. 
 
-  Este es el intervalo desde el momento en que Application Gateway recibe el primer byte de la solicitud HTTP hasta el momento en que se envía el último byte de respuesta al cliente. Esto incluye el tiempo de procesamiento que tarda Application Gateway, el *Tiempo de respuesta del último byte de back-end*, el tiempo que tarda Application Gateway en enviar toda la respuesta y el *Cliente RTT*.
+  Este es el intervalo desde el momento en que Application Gateway recibe el primer byte de la solicitud HTTP hasta el momento en que se envía el último byte de respuesta al cliente. Esto incluye el tiempo de procesamiento que tarda Application Gateway, el *Tiempo de respuesta del último byte de back-end* , el tiempo que tarda Application Gateway en enviar toda la respuesta y el *Cliente RTT*.
 
 - **Cliente RTT**
 
@@ -62,9 +62,9 @@ Application Gateway proporciona varias métricas de temporización integradas re
 
 Estas métricas se pueden usar para determinar si la ralentización observada se debe a la red del cliente, al rendimiento de Application Gateway, a la red de back-end y la saturación de la pila TCP del servidor back-end, al rendimiento de la aplicación de back-end o al tamaño de archivo grande.
 
-Por ejemplo, si hay un pico en la tendencia de *Tiempo de respuesta del primer byte de back-end*, pero la tendencia de *Tiempo de conexión de back-end* es estable, se puede deducir que la latencia de Application Gateway al back-end y el tiempo necesario para establecer la conexión son estables, y el pico se debe a un aumento en el tiempo de respuesta de la aplicación de back-end. Por otro lado, si el pico en *Tiempo de respuesta del primer byte de back-end* se asocia a un pico correspondiente en *Tiempo de conexión de back-end*, se puede deducir que la red entre Application Gateway y el servidor back-end o la pila TCP del servidor back-end se han saturado. 
+Por ejemplo, si hay un pico en la tendencia de *Tiempo de respuesta del primer byte de back-end* , pero la tendencia de *Tiempo de conexión de back-end* es estable, se puede deducir que la latencia de Application Gateway al back-end y el tiempo necesario para establecer la conexión son estables, y el pico se debe a un aumento en el tiempo de respuesta de la aplicación de back-end. Por otro lado, si el pico en *Tiempo de respuesta del primer byte de back-end* se asocia a un pico correspondiente en *Tiempo de conexión de back-end* , se puede deducir que la red entre Application Gateway y el servidor back-end o la pila TCP del servidor back-end se han saturado. 
 
-Si observa un pico en *Tiempo de respuesta del último byte de back-end*, pero el *Tiempo de respuesta del primer byte de back-end* es estable, se puede deducir que el pico se debe a que se está solicitando un archivo más grande.
+Si observa un pico en *Tiempo de respuesta del último byte de back-end* , pero el *Tiempo de respuesta del primer byte de back-end* es estable, se puede deducir que el pico se debe a que se está solicitando un archivo más grande.
 
 Del mismo modo, si el *Tiempo total de Application Gateway* tiene un pico, pero el *Tiempo de respuesta del último byte de back-end* es estable, puede ser la señal de un cuello de botella de rendimiento en Application Gateway o de un cuello de botella en la red entre el cliente y Application Gateway. Además, si el *cliente RTT* también tiene un pico correspondiente, indica que la degradación se debe a la red entre el cliente y Application Gateway.
 
@@ -194,7 +194,7 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
 ## <a name="metrics-visualization"></a>Visualización de las métricas
 
-Navegue a una instancia de Application Gateway y, en **Supervisión**, seleccione **Métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
+Navegue a una instancia de Application Gateway y, en **Supervisión** , seleccione **Métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
 
 En la siguiente imagen, verá un ejemplo con tres métricas que se muestran para los últimos 30 minutos:
 
@@ -212,13 +212,13 @@ En el ejemplo siguiente, se explica paso a paso cómo crear una regla de alerta 
 
    ![Botón “Agregar alerta de métrica”][6]
 
-2. En la página **Agregar regla**, rellene las secciones de nombre, condición y notificación, y seleccione **Aceptar**.
+2. En la página **Agregar regla** , rellene las secciones de nombre, condición y notificación, y seleccione **Aceptar**.
 
-   * En el selector **Condición**, seleccione uno de los cuatro valores: **Mayor que**, **Mayor o igual que**, **Menor que** o **Menor o igual que**.
+   * En el selector **Condición** , seleccione uno de los cuatro valores: **Mayor que** , **Mayor o igual que** , **Menor que** o **Menor o igual que**.
 
-   * En el selector **Período**, seleccione un período de cinco minutos a seis horas.
+   * En el selector **Período** , seleccione un período de cinco minutos a seis horas.
 
-   * Al seleccionar **Lectores, colaboradores y propietarios de correo electrónico**, el correo electrónico puede ser dinámico según los usuarios que tengan acceso a ese recurso. De lo contrario, puede proporcionar una lista separada por comas de los usuarios en el cuadro de texto **Correos electrónicos de administrador adicionales**.
+   * Al seleccionar **Lectores, colaboradores y propietarios de correo electrónico** , el correo electrónico puede ser dinámico según los usuarios que tengan acceso a ese recurso. De lo contrario, puede proporcionar una lista separada por comas de los usuarios en el cuadro de texto **Correos electrónicos de administrador adicionales**.
 
    ![Página Agregar regla][7]
 
@@ -230,7 +230,7 @@ Después de crear una alerta de métrica, aparece una lista de alertas. Proporci
 
 ![Lista de alertas y reglas][9]
 
-Para más información acerca de las notificaciones de alerta, consulte [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Para más información acerca de las notificaciones de alerta, consulte [Recibir notificaciones de alerta](../azure-monitor/platform/alerts-overview.md).
 
 Para conocer más detalles sobre los webhooks y cómo usarlos con las alertas, visite [Configuración de un webhook en una alerta de métrica de Azure](../azure-monitor/platform/alerts-webhooks.md).
 

@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513387"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394873"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Flujo de datos del conector de Azure IoT para FHIR (versión preliminar)
 
@@ -26,7 +26,7 @@ En el diagrama anterior se muestran los flujos de datos comunes que usan el cone
 A continuación se muestran diferentes fases por las que pasan los datos una vez recibidos por el conector de Azure IoT para FHIR.
 
 ## <a name="ingest"></a>Ingesta
-La ingesta es la primera fase en la que los datos del dispositivo se reciben en el conector de Azure IoT para FHIR. El punto de conexión de ingesta de los datos del dispositivo se hospeda en un [centro de eventos de Azure](https://docs.microsoft.com/azure/event-hubs/). La plataforma Azure Event Hubs admite gran escala y rendimiento, y tiene capacidad para recibir y procesar millones de mensajes por segundo. También permite que el conector de Azure IoT para FHIR consuma mensajes de forma asincrónica, lo que elimina la necesidad de que los dispositivos esperen mientras se procesan los datos del dispositivo.
+La ingesta es la primera fase en la que los datos del dispositivo se reciben en el conector de Azure IoT para FHIR. El punto de conexión de ingesta de los datos del dispositivo se hospeda en un [centro de eventos de Azure](../event-hubs/index.yml). La plataforma Azure Event Hubs admite gran escala y rendimiento, y tiene capacidad para recibir y procesar millones de mensajes por segundo. También permite que el conector de Azure IoT para FHIR consuma mensajes de forma asincrónica, lo que elimina la necesidad de que los dispositivos esperen mientras se procesan los datos del dispositivo.
 
 > [!NOTE]
 > En este momento el único formato admitido para los datos del dispositivo es JSON.

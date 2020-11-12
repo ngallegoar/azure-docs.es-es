@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 676d7c2ad18327471c6e95f3cef26185fa49b78b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595951"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396896"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solución de problemas de App Service en Application Gateway
 
@@ -80,10 +80,10 @@ En el ejemplo anterior, observe que el encabezado de respuesta tiene un código 
 
 ## <a name="solution-rewrite-the-location-header"></a>Solución: Reescribir el encabezado de ubicación
 
-Establezca el nombre de host del encabezado de ubicación en el nombre de dominio de la puerta de enlace de aplicaciones. Para ello, cree una [regla de reescritura](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) con una condición que evalúe si el encabezado de ubicación en la respuesta contiene azurewebsites.net. También debe realizar una acción para volver a escribir el encabezado de ubicación de modo que tenga el nombre de host de la puerta de enlace de aplicaciones. Para obtener más información, vea las instrucciones para [volver a escribir el encabezado de ubicación](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
+Establezca el nombre de host del encabezado de ubicación en el nombre de dominio de la puerta de enlace de aplicaciones. Para ello, cree una [regla de reescritura](./rewrite-http-headers.md) con una condición que evalúe si el encabezado de ubicación en la respuesta contiene azurewebsites.net. También debe realizar una acción para volver a escribir el encabezado de ubicación de modo que tenga el nombre de host de la puerta de enlace de aplicaciones. Para obtener más información, vea las instrucciones para [volver a escribir el encabezado de ubicación](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
-> La compatibilidad con la reescritura de encabezados HTTP solo está disponible para [Standard_v2 y WAF_v2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) de Application Gateway. Si usa la SKU v1, se recomienda [migrar de v1 a V2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). Quiere usar la reescritura y otras [funcionalidades avanzadas](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) que están disponibles con la SKU v2.
+> La compatibilidad con la reescritura de encabezados HTTP solo está disponible para [Standard_v2 y WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) de Application Gateway. Si usa la SKU v1, se recomienda [migrar de v1 a V2](./migrate-v1-v2.md). Quiere usar la reescritura y otras [funcionalidades avanzadas](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) que están disponibles con la SKU v2.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>Solución alternativa: Usar un dominio personalizado
 
@@ -93,7 +93,7 @@ App Service realizará el redireccionamiento (si existe) en el mismo encabezado 
 
 Debe tener un dominio personalizado y seguir este proceso:
 
-- Registre el dominio en la lista de dominios personalizados de App Service. Debe tener un registro CNAME en el dominio personalizado que apunte al FQDN de App Service. Para más información, consulte [Asignación de un nombre DNS personalizado existente a Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+- Registre el dominio en la lista de dominios personalizados de App Service. Debe tener un registro CNAME en el dominio personalizado que apunte al FQDN de App Service. Para más información, consulte [Asignación de un nombre DNS personalizado existente a Azure App Service](//azure/app-service/app-service-web-tutorial-custom-domain).
 
     ![Lista de dominios personalizados de App Service](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

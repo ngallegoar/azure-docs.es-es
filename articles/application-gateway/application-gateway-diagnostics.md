@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7bd56ea22561d9463bc8430058e692f1c566c38
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86517882"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397831"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -41,10 +41,10 @@ El informe de mantenimiento del back-end refleja la salida del sondeo de manteni
 
 En el portal, el mantenimiento del back-end se proporciona automáticamente. En una puerta de enlace de aplicaciones existente, vaya a **Supervisión** > **Estado del back-end**.
 
-Cada miembro en el grupo de back-end se muestra en esta página (ya sea una NIC, dirección IP o FQDN). Se muestran el nombre del grupo de back-end, el puerto, la configuración HTTP del back-end y el estado de mantenimiento. Los valores válidos para el estado de mantenimiento son **Correcto**, **Incorrecto** y **Desconocido**.
+Cada miembro en el grupo de back-end se muestra en esta página (ya sea una NIC, dirección IP o FQDN). Se muestran el nombre del grupo de back-end, el puerto, la configuración HTTP del back-end y el estado de mantenimiento. Los valores válidos para el estado de mantenimiento son **Correcto** , **Incorrecto** y **Desconocido**.
 
 > [!NOTE]
-> Si ve un estado de mantenimiento de back-end **Desconocido**, asegúrese de que el acceso al back-end no está bloqueado por una regla de NSG, una ruta definida por el usuario (UDR) o un DNS personalizado en la red virtual.
+> Si ve un estado de mantenimiento de back-end **Desconocido** , asegúrese de que el acceso al back-end no está bloqueado por una regla de NSG, una ruta definida por el usuario (UDR) o un DNS personalizado en la red virtual.
 
 ![Mantenimiento del back-end][10]
 
@@ -95,19 +95,19 @@ El siguiente fragmento de código muestra un ejemplo de la respuesta:
 
 Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Application Gateway. Se puede acceder a algunos de estos registros mediante el portal. Se pueden extraer todos los registros de Azure Blob Storage y visualizarse en distintas herramientas, como los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), Excel y PowerBI. Puede obtener más información sobre los diferentes tipos de registros en la lista siguiente:
 
-* **Registro de actividades**: se puede usar el [registro de actividades de Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a la suscripción de Azure, así como su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
-* **Registro de acceso**: Puede usar este registro para ver los patrones de acceso de Application Gateway y analizar información importante. Esto incluye la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 60 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway se identifica por la propiedad instanceId.
-* **Registro de rendimiento**: este registro se puede usar para ver el rendimiento de las instancias de Application Gateway. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y el número de instancias de back-end con un mantenimiento correcto o incorrecto. El registro de rendimiento se recopila cada 60 segundos. El registro de rendimiento solo está disponible para la SKU v1. En la SKU v2, use [Métricas](application-gateway-metrics.md) para los datos de rendimiento.
-* **Registro de firewall**: este registro se puede usar para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web. Los registros de firewall se recopilan cada 60 segundos. 
+* **Registro de actividades** : se puede usar el [registro de actividades de Azure](../azure-resource-manager/management/view-activity-logs.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a la suscripción de Azure, así como su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
+* **Registro de acceso** : Puede usar este registro para ver los patrones de acceso de Application Gateway y analizar información importante. Esto incluye la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 60 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway se identifica por la propiedad instanceId.
+* **Registro de rendimiento** : este registro se puede usar para ver el rendimiento de las instancias de Application Gateway. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y el número de instancias de back-end con un mantenimiento correcto o incorrecto. El registro de rendimiento se recopila cada 60 segundos. El registro de rendimiento solo está disponible para la SKU v1. En la SKU v2, use [Métricas](application-gateway-metrics.md) para los datos de rendimiento.
+* **Registro de firewall** : este registro se puede usar para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web. Los registros de firewall se recopilan cada 60 segundos. 
 
 > [!NOTE]
 > Los registros solo están disponibles para los recursos implementados en el modelo de implementación de Azure Resource Manager. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación de Resource Manager y la implementación clásica](../azure-resource-manager/management/deployment-models.md) .
 
 Tiene tres opciones para almacenar los archivos de registro:
 
-* **Cuenta de almacenamiento**: cuentas que resultan especialmente útiles para registros cuando estos se almacenan durante mucho tiempo y se revisan cuando es necesario.
-* **Centros de eventos**: Centro de eventos es una buena opción para la integración con otras herramientas de administración de eventos e información de seguridad (SIEM) para obtener alertas sobre los recursos.
-* **Registros de Azure Monitor**: se usan para la supervisión general en tiempo real de la aplicación o para examinar las tendencias.
+* **Cuenta de almacenamiento** : cuentas que resultan especialmente útiles para registros cuando estos se almacenan durante mucho tiempo y se revisan cuando es necesario.
+* **Centros de eventos** : Centro de eventos es una buena opción para la integración con otras herramientas de administración de eventos e información de seguridad (SIEM) para obtener alertas sobre los recursos.
+* **Registros de Azure Monitor** : se usan para la supervisión general en tiempo real de la aplicación o para examinar las tendencias.
 
 ### <a name="enable-logging-through-powershell"></a>Habilitación del registro con PowerShell
 
@@ -144,7 +144,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
    ![Activación de los diagnósticos][1]
 
-3. En la página **Configuración de diagnóstico**, se encuentran las opciones de configuración de los registros de diagnóstico. En este ejemplo, se utiliza Log Analytics para almacenar los registros. Se pueden utilizar también Events Hubs y la cuenta de almacenamiento para guardar los registros de diagnóstico.
+3. En la página **Configuración de diagnóstico** , se encuentran las opciones de configuración de los registros de diagnóstico. En este ejemplo, se utiliza Log Analytics para almacenar los registros. Se pueden utilizar también Events Hubs y la cuenta de almacenamiento para guardar los registros de diagnóstico.
 
    ![Inicio del proceso de configuración][2]
 
@@ -152,7 +152,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
 ### <a name="activity-log"></a>Registro de actividades
 
-Azure genera el registro de actividad de forma predeterminada. Los registros se conservan durante 90 días en el almacén de registros de eventos de Azure. Para más información sobre estos registros, consulte el artículo [Visualización de eventos y registros de actividades](../monitoring-and-diagnostics/insights-debugging-with-events.md).
+Azure genera el registro de actividad de forma predeterminada. Los registros se conservan durante 90 días en el almacén de registros de eventos de Azure. Para más información sobre estos registros, consulte el artículo [Visualización de eventos y registros de actividades](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="access-log"></a>Registro de acceso
 
@@ -167,7 +167,7 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
 |clientPort     | Puerto de origen de la solicitud.       |
 |httpMethod     | Método HTTP utilizado por la solicitud.       |
 |requestUri     | URI de la solicitud recibida.        |
-|RequestQuery     | **Server-Routed**: instancia del grupo de back-end a la que se ha enviado la solicitud.</br>**X-AzureApplicationGateway-LOG-ID**: identificador de correlación que se ha usado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. </br>**SERVER-STATUS**: código de respuesta HTTP que Application Gateway ha recibido del back-end.       |
+|RequestQuery     | **Server-Routed** : instancia del grupo de back-end a la que se ha enviado la solicitud.</br>**X-AzureApplicationGateway-LOG-ID** : identificador de correlación que se ha usado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. </br>**SERVER-STATUS** : código de respuesta HTTP que Application Gateway ha recibido del back-end.       |
 |UserAgent     | Agente de usuario del encabezado de solicitud HTTP.        |
 |httpStatus     | Código de estado HTTP que se devuelve al cliente desde Application Gateway.       |
 |HttpVersion     | Versión HTTP de la solicitud.        |
@@ -216,7 +216,7 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
 |HttpVersion     | Versión HTTP de la solicitud.        |
 |receivedBytes     | Tamaño de paquete recibido, en bytes.        |
 |sentBytes| Tamaño de paquete enviado, en bytes.|
-|timeTaken| Período de tiempo (en **segundos**) que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como el intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que el campo Time-Taken normalmente incluye la hora a la que los paquetes de solicitud y respuesta se desplazan a través de la red. |
+|timeTaken| Período de tiempo (en **segundos** ) que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como el intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que el campo Time-Taken normalmente incluye la hora a la que los paquetes de solicitud y respuesta se desplazan a través de la red. |
 |sslEnabled| Indica si la comunicación con los grupos de back-end utilizaron TLS. Los valores válidos son on y off.|
 |sslCipher| Conjunto de cifrado que se usa para la comunicación TLS (si TLS está habilitado).|
 |sslProtocol| Protocolo SSL/TLS que se usa (si se ha habilitado TLS).|
@@ -352,8 +352,8 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 
 Puede ver y analizar los datos del registro de actividades con cualquiera de los métodos siguientes:
 
-* **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
-* **Power BI**: si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Las [aplicaciones de plantilla de Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) permiten analizar los datos.
+* **Herramientas de Azure** : permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
+* **Power BI** : si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Las [aplicaciones de plantilla de Power BI](/power-bi/service-template-apps-overview) permiten analizar los datos.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visualización y análisis de los registros de acceso, rendimiento y firewall
 

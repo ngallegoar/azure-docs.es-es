@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68251270b6273f5a07391138e5c7210f1c46ba5a
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662245"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420536"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: Si tiene un inquilino existente
 En la mayoría de los temas sobre cómo usar Azure AD Connect se da por supuesto que empieza con un nuevo inquilino de Azure AD sin objetos ni usuarios. Sin embargo, si ha empezado con un inquilino de Azure AD, rellenado con usuarios y otros objetos, y ahora desea utilizar Connect, eche un vistazo a este tema.
@@ -34,11 +34,11 @@ Puede administrar algunos usuarios locales y otros en la nube. Un escenario com�
 Si ya comenzó a administrar usuarios en Azure AD que también se encuentran en AD local y, posteriormente, desea volver a utilizar Connect, debe tener en cuenta más escenarios.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Sincronización con los usuarios existentes de Azure AD
-Al instalar Azure AD Connect y empezar la sincronización, el servicio de sincronización de Azure AD (en Azure AD) realiza una comprobación de cada nuevo objeto y trata de buscar un objeto coincidente que ya existe. Hay tres atributos que se utilizan para este proceso: **userPrincipalName**, **proxyAddresses** y **sourceAnchor**/**immutableID**. Una coincidencia de **userPrincipalName** y **proxyAddresses** se conoce como **coincidencia parcial**. Una coincidencia de **sourceAnchor** se conoce como **coincidencia exacta**. En el caso del atributo **proxyAddresses**, solo se usa para la evaluación el valor con el atributo **SMTP:** , que es la dirección de correo electrónico principal.
+Al instalar Azure AD Connect y empezar la sincronización, el servicio de sincronización de Azure AD (en Azure AD) realiza una comprobación de cada nuevo objeto y trata de buscar un objeto coincidente que ya existe. Hay tres atributos que se utilizan para este proceso: **userPrincipalName** , **proxyAddresses** y **sourceAnchor**/**immutableID**. Una coincidencia de **userPrincipalName** y **proxyAddresses** se conoce como **coincidencia parcial**. Una coincidencia de **sourceAnchor** se conoce como **coincidencia exacta**. En el caso del atributo **proxyAddresses** , solo se usa para la evaluación el valor con el atributo **SMTP:** , que es la dirección de correo electrónico principal.
 
 La coincidencia solo se evalúa para los nuevos objetos procedentes de Connect. Si cambia uno que ya exista para que coincida con alguno de estos atributos, verá un error en su lugar.
 
-Si Azure AD encuentra un objeto cuyos valores de atributo son los mismos que los de uno procedente de Connect y que ya se encuentra en Azure AD, el objeto de Azure AD pasa a ser propiedad de Connect. El objeto administrado previamente en la nube se marca como administrado en local. Todos los atributos de Azure AD con un valor en AD local se sobrescriben con el valor local. La excepción es cuando un atributo tiene un valor **NULL** local. En este caso, el valor sigue estando en Azure AD, pero solo podrá cambiarlo en local.
+Si Azure AD encuentra un objeto cuyos valores de atributo son los mismos que los de uno procedente de Connect y que ya se encuentra en Azure AD, el objeto de Azure AD pasa a ser propiedad de Connect. El objeto administrado previamente en la nube se marca como administrado en local. Todos los atributos de Azure AD con un valor en AD local se sobrescriben con el valor local.
 
 > [!WARNING]
 > Puesto que todos los atributos de Azure AD se van a sobrescribir por el valor local, asegúrese de que dispone de datos en buen estado en un entorno local. Por ejemplo, si solo tiene una dirección de correo electrónico administrada en Microsoft 365 y no se mantiene actualizada en AD DS local, se pierden todos los valores de Azure AD u Microsoft 365 que no se encuentren en AD DS.

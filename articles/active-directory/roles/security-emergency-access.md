@@ -5,20 +5,20 @@ services: active-directory
 author: markwahl-msft
 manager: daveba
 ms.author: curtand
-ms.date: 11/08/2019
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffcbd77997e230b9b21ed29b47e37236de025f6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374171"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378761"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
@@ -72,14 +72,14 @@ Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y
 
 Las organizaciones deben supervisar la actividad de registro de auditoría e inicio de sesión de las cuentas de emergencia y desencadenar el envío de notificaciones a otros administradores. Al supervisar la actividad en las cuentas de emergencia, puede comprobar que estas cuentas solo se usen para pruebas o emergencias reales. Puede usar Azure Log Analytics para supervisar los registros de inicio de sesión y desencadenar alertas por SMS y correo electrónico a los administradores cuando las cuentas de emergencia inicien sesión.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 1. [Envíe registros de inicio de sesión de Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) a Azure Monitor.
 
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Obtención de los Id. de objeto de las cuentas de emergencia
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asignada al rol de Usuario administrador.
-1. Seleccione **Azure Active Directory** > **Usuarios** .
+1. Seleccione **Azure Active Directory** > **Usuarios**.
 1. Busque la cuenta de emergencia y seleccione el nombre del usuario.
 1. Copie y guarde el atributo de Id. de objeto para usarlo más adelante.
 1. Repita los pasos anteriores para la segunda cuenta de emergencia.
@@ -87,12 +87,12 @@ Las organizaciones deben supervisar la actividad de registro de auditoría e ini
 ### <a name="create-an-alert-rule"></a>Crear una regla de alerta
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asignada al rol de Colaborador de supervisión en Azure Monitor.
-1. Seleccione **Todos los servicios** ", escriba "log analytics" en la búsqueda y después seleccione **Áreas de trabajo de Log Analytics** .
+1. Seleccione **Todos los servicios** ", escriba "log analytics" en la búsqueda y después seleccione **Áreas de trabajo de Log Analytics**.
 1. Seleccione un área de trabajo.
-1. En el área de trabajo, seleccione **Alertas** > **Nueva regla de alertas** .
+1. En el área de trabajo, seleccione **Alertas** > **Nueva regla de alertas**.
     1. En **Recurso** , compruebe que la suscripción es la que quiere asociar con la regla de alertas.
-    1. En **condición** , seleccione **Agregar** .
-    1. Seleccione **Custom log search** (Búsqueda de registros personalizada) en **Nombre de señal** .
+    1. En **condición** , seleccione **Agregar**.
+    1. Seleccione **Custom log search** (Búsqueda de registros personalizada) en **Nombre de señal**.
     1. En **Consulta de búsqueda** , escriba la siguiente consulta e inserte los Id. de objeto de las dos cuentas de emergencia.
         > [!NOTE]
         > Para cada cuenta de emergencia adicional que quiera incluir, agregue otro "or UserId == "ObjectGuid"" a la consulta.
@@ -109,14 +109,14 @@ Las organizaciones deben supervisar la actividad de registro de auditoría e ini
 
         ![lógica de alerta](./media/security-emergency-access/alert-image2.png)
 
-    1. Seleccione **Listo** . Ahora puede ver el costo mensual estimado de esta alerta.
+    1. Seleccione **Listo**. Ahora puede ver el costo mensual estimado de esta alerta.
 1. Seleccione el grupo de acciones con los usuarios a los que notificará la alerta. Si quiere crear uno, consulte [Creación de un grupo de acciones](#create-an-action-group).
-1. Para personalizar la notificación por correo electrónico que se envía a los miembros del grupo de acciones, seleccione Acciones en **Personalizar las acciones** .
+1. Para personalizar la notificación por correo electrónico que se envía a los miembros del grupo de acciones, seleccione Acciones en **Personalizar las acciones**.
 1. En **Detalles de alertas** , especifique el nombre de la regla de alerta y agregue una descripción opcional.
 1. Establezca el **Nivel de gravedad** del evento. Se recomienda que lo establezca en **Crítico (gravedad 0)** .
-1. Under **Habilitar regla tras la creación** , deje el valor como **sí** .
-1. Para desactivar las alertas durante un tiempo, active la casilla **Suprimir alertas** , escriba la duración de la pausa antes de reanudar las alertas y seleccione **Guardar** .
-1. Haga clic en **Crear regla de alertas** .
+1. Under **Habilitar regla tras la creación** , deje el valor como **sí**.
+1. Para desactivar las alertas durante un tiempo, active la casilla **Suprimir alertas** , escriba la duración de la pausa antes de reanudar las alertas y seleccione **Guardar**.
+1. Haga clic en **Crear regla de alertas**.
 
 ### <a name="create-an-action-group"></a>Creación de un grupo de acciones
 
@@ -126,12 +126,12 @@ Las organizaciones deben supervisar la actividad de registro de auditoría e ini
 
 1. Escriba el nombre del grupo de acciones y un nombre corto.
 1. Compruebe la suscripción y el grupo de recursos.
-1. En Tipo de acción, seleccione **Correo electrónico/SMS/Push/Voz** .
-1. Escriba un nombre de acción como **Notificar al administrador global** .
-1. Seleccione el **Tipo de acción** como **Correo electrónico/SMS/Push/Voz** .
+1. En Tipo de acción, seleccione **Correo electrónico/SMS/Push/Voz**.
+1. Escriba un nombre de acción como **Notificar al administrador global**.
+1. Seleccione el **Tipo de acción** como **Correo electrónico/SMS/Push/Voz**.
 1. Seleccione **Editar detalles** para seleccionar los métodos de notificación que quiere configurar y escriba la información de contacto necesaria. Después, seleccione **Aceptar** para guardar los detalles.
 1. Agregue las acciones adicionales que quiera desencadenar.
-1. Seleccione **Aceptar** .
+1. Seleccione **Aceptar**.
 
 ## <a name="validate-accounts-regularly"></a>Validación de las cuentas de forma regular
 

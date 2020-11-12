@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d83005599c59f6a4249014139b594764df8acf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373453"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378557"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Asignación de roles personalizados para administrar aplicaciones empresariales en Azure Active Directory
 
@@ -46,26 +46,26 @@ La concesión del permiso de actualización se realiza en dos pasos:
 > Los roles personalizados se crean y administran en el nivel de toda la organización y solo están disponibles en la página de información general de la organización.
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización.
-1. Seleccione **Azure Active Directory** , elija **Roles y administradores** y, luego, seleccione **Nuevo rol personalizado** .
+1. Seleccione **Azure Active Directory** , elija **Roles y administradores** y, luego, seleccione **Nuevo rol personalizado**.
 
     ![Agregue un nuevo rol personalizado de la lista roles en Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
-1. En la pestaña **Aspectos básicos** , escriba "Administrar asignaciones de usuario y de grupo" como nombre del rol y "Conceder permisos para administrar asignaciones de usuarios y grupos" como descripción del rol y, luego, seleccione **Siguiente** .
+1. En la pestaña **Aspectos básicos** , escriba "Administrar asignaciones de usuario y de grupo" como nombre del rol y "Conceder permisos para administrar asignaciones de usuarios y grupos" como descripción del rol y, luego, seleccione **Siguiente**.
 
     ![Suministro de un nombre y una descripción del rol personalizado](./media/custom-enterprise-apps/role-name-and-description.png)
 
-1. En la pestaña **Permisos** , escriba "microsoft.directory/servicePrincipals/appRoleAssignedTo/update" en el cuadro de búsqueda, active las casillas situadas junto a los permisos deseados y, por último, seleccione **Siguiente** .
+1. En la pestaña **Permisos** , escriba "microsoft.directory/servicePrincipals/appRoleAssignedTo/update" en el cuadro de búsqueda, active las casillas situadas junto a los permisos deseados y, por último, seleccione **Siguiente**.
 
     ![Adición de permisos al rol personalizado](./media/custom-enterprise-apps/role-custom-permissions.png)
 
-1. En la pestaña **Revisar y crear** , revise los detalles y seleccione **Crear** .
+1. En la pestaña **Revisar y crear** , revise los detalles y seleccione **Crear**.
 
     ![Ya puede crear el rol personalizado.](./media/custom-enterprise-apps/role-custom-create.png)
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Asignación del rol a un usuario mediante Azure AD portal
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de rol Administrador de roles con privilegios.
-1. Seleccione **Azure Active Directory** y elija **Roles y administradores** .
+1. Seleccione **Azure Active Directory** y elija **Roles y administradores**.
 1. Seleccione el rol **Grant permissions to manage user and group assignments** (Conceder permisos para administrar asignaciones de usuarios y grupos).
 
     ![Abra "Roles y administradores" y busque el rol personalizado.](./media/custom-enterprise-apps/select-custom-role.png)

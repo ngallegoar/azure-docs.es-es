@@ -7,18 +7,18 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3fe4118a8ecf4479732ba4073b342d3ec9f941b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042497"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398205"
 ---
 # <a name="configure-database-settings"></a>Configuración de la base de datos 
 
 Azure API for FHIR usa una base de datos para almacenar sus datos. El rendimiento de la base de datos subyacente depende del número de unidades de solicitud (RU) seleccionado durante el aprovisionamiento del servicio o de la configuración de la base de datos una vez aprovisionado el servicio.
 
-Azure API for FHIR toma prestado el concepto de RU de Cosmos DB (consulte [Unidades de solicitud en Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units)) al establecer el rendimiento de la base de datos subyacente. 
+Azure API for FHIR toma prestado el concepto de RU de Cosmos DB (consulte [Unidades de solicitud en Azure Cosmos DB](../cosmos-db/request-units.md)) al establecer el rendimiento de la base de datos subyacente. 
 
 El rendimiento se debe aprovisionar de modo que se garantice que haya suficientes recursos del sistema disponibles para la base de datos en todo momento. El número de RU necesario para la aplicación depende de las operaciones que se realicen. Las operaciones pueden abarcar desde simples lecturas y escrituras hasta consultas más complejas. 
 

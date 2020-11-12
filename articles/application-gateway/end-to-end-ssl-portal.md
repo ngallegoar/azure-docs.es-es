@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 33240d1f44d2f26569791f72a3d5fc3a6656a757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e2d1828acefacb03cc2f42193b8cd8897578b6f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808033"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397508"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configuración de TLS de un extremo a otro con Application Gateway mediante el portal
 
@@ -31,7 +31,7 @@ Para configurar TLS de un extremo a otro con una puerta de enlace de aplicacione
 
 Para el cifrado TLS de un extremo a otro, los servidores back-end correctos se deben permitir en Application Gateway. Para permitir este acceso, cargue los certificados públicos de los servidores back-end, también conocidos como certificados de autenticación (v1) o certificados raíz de confianza (v2), en la puerta de enlace de aplicaciones. Al agregar el certificado, se garantiza que la puerta de enlace de aplicaciones solo se comunique con instancias back-end conocidas. Esta configuración protege aún más la comunicación de un extremo a otro.
 
-Para más información, consulte [Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
+Para más información, consulte [Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway](./ssl-overview.md).
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-tls"></a>Creación de una nueva instancia de Application Gateway con TLS de un extremo a otro
 
@@ -39,7 +39,7 @@ Para crear una nueva instancia de Application Gateway con el cifrado TLS de un e
 
 ### <a name="enable-tls-termination-while-creating-a-new-application-gateway"></a>Habilitación de la terminación TLS durante la creación de una nueva instancia de Application Gateway
 
-Para más información, consulte [Habilitación de la terminación TLS durante la creación de una nueva puerta de enlace de aplicaciones](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Para más información, consulte [Habilitación de la terminación TLS durante la creación de una nueva puerta de enlace de aplicaciones](./create-ssl-portal.md).
 
 ### <a name="add-authenticationroot-certificates-of-back-end-servers"></a>Incorporación de certificados de autenticación o certificados raíz de los servidores back-end
 
@@ -49,11 +49,11 @@ Para más información, consulte [Habilitación de la terminación TLS durante l
 
 3. Seleccione **appGatewayBackendHttpSettings**.
 
-4. En **Protocolo**, seleccione **HTTPS**. Aparece un panel para los **Certificados de autenticación back-end o Certificados raíz de confianza**.
+4. En **Protocolo** , seleccione **HTTPS**. Aparece un panel para los **Certificados de autenticación back-end o Certificados raíz de confianza**.
 
 5. Seleccione **Crear nuevo**.
 
-6. En el campo **Nombre**, escriba un nombre adecuado.
+6. En el campo **Nombre** , escriba un nombre adecuado.
 
 7. Seleccione el archivo de certificado en el cuadro **Cargar certificado CER**.
 
@@ -82,16 +82,16 @@ Si elige la segunda opción, aplique los pasos del siguiente procedimiento.
 
 2. Seleccione **Clientes de escucha** en el menú de la izquierda.
 
-3. Seleccione **Básico** o **Multisitio**, en función de sus requisitos.
+3. Seleccione **Básico** o **Multisitio** , en función de sus requisitos.
 
-4. En **Protocolo**, seleccione **HTTPS**. Aparece un panel para **Certificado**.
+4. En **Protocolo** , seleccione **HTTPS**. Aparece un panel para **Certificado**.
 
 5. Cargue el certificado PFX que va a usar para la terminación TLS entre el cliente y la puerta de enlace de aplicaciones.
 
    > [!NOTE]
-   > Para fines de prueba, puede usar un certificado autofirmado. Sin embargo, estos certificados no se recomiendan para las cargas de trabajo de producción, ya que son más difíciles de administrar y no son completamente seguros. Para más información, consulte [Creación de un certificado autofirmado](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).
+   > Para fines de prueba, puede usar un certificado autofirmado. Sin embargo, estos certificados no se recomiendan para las cargas de trabajo de producción, ya que son más difíciles de administrar y no son completamente seguros. Para más información, consulte [Creación de un certificado autofirmado](./create-ssl-portal.md#create-a-self-signed-certificate).
 
-6. Agregue otras opciones necesarias para el **Cliente de escucha**, en función de sus requisitos.
+6. Agregue otras opciones necesarias para el **Cliente de escucha** , en función de sus requisitos.
 
 7. Seleccione **Aceptar** para guardar.
 
@@ -103,11 +103,11 @@ Si elige la segunda opción, aplique los pasos del siguiente procedimiento.
 
 3. Seleccione **appGatewayBackendHttpSettings**.
 
-4. En **Protocolo**, seleccione **HTTPS**. Aparece un panel para los **Certificados de autenticación back-end o Certificados raíz de confianza**. 
+4. En **Protocolo** , seleccione **HTTPS**. Aparece un panel para los **Certificados de autenticación back-end o Certificados raíz de confianza**. 
 
 5. Seleccione **Crear nuevo**.
 
-6. En el campo **Nombre**, escriba un nombre adecuado.
+6. En el campo **Nombre** , escriba un nombre adecuado.
 
 7. Seleccione el archivo de certificado en el cuadro **Cargar certificado CER**.
 

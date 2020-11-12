@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295571"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360061"
 ---
 # <a name="input-metadata"></a>Metadatos de entrada
 
@@ -65,7 +65,7 @@ Contiene una colección de elementos AssetFile para el trabajo de codificación.
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Nombre |  | Descripción |
+| Nombre | Descripción |
 | --- | --- |
 | **FourCC**<br />Obligatorio |Código FourCC del códec de vídeo que ffmpeg notifica.<br /><br />Ejemplo: `"FourCC": "avc1"` |
 | **Perfil** |Perfil de la pista de vídeo. <br /><br />Ejemplo: `"Profile": "Main"`|

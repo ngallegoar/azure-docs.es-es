@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165523"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377758"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticación en Azure Active Directory: opciones de teléfono
 
@@ -23,12 +23,12 @@ En el caso de la autenticación directa mediante mensajes de texto, puede consul
 
 Los usuarios también pueden verificarse mediante su teléfono móvil o teléfono de la oficina como forma secundaria de autenticación con Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña (SSPR).
 
-Para funcionar correctamente, los números de teléfono deben tener el formato *+códigoPaís númeroTeléfono*, *por ejemplo: +1 4251234567*.
+Para funcionar correctamente, los números de teléfono deben tener el formato *+códigoPaís númeroTeléfono* , *por ejemplo: +1 4251234567*.
 
 > [!NOTE]
 > Debe haber un espacio entre el código de país/región y el número de teléfono.
 >
-> El restablecimiento de contraseña no admite extensiones telefónicas. Incluso con el formato *+1 4251234567X12345*, las extensiones se quitan antes de hacer la llamada.
+> El restablecimiento de contraseña no admite extensiones telefónicas. Incluso con el formato *+1 4251234567X12345* , las extensiones se quitan antes de hacer la llamada.
 
 ## <a name="mobile-phone-verification"></a>Verificación por teléfono móvil
 
@@ -49,8 +49,6 @@ Con la verificación por mensajes de texto durante el autoservicio de restableci
 Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña o Azure Multi-Factor Authentication, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se pide al usuario que escriba el número PIN, seguido de # en el teclado.
 
 ## <a name="office-phone-verification"></a>Verificación por teléfono de la oficina
-
-El administrador de Azure AD administra el atributo de teléfono de la oficina, que no puede ser registrado por el usuario mismo.
 
 Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña o Azure Multi-Factor Authentication, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se pide al usuario que escriba el número PIN, seguido de # en el teclado.
 
@@ -81,7 +79,7 @@ Para obtener más información sobre los conceptos del SSPR, consulte [Funcionam
 
 Para obtener más información sobre los conceptos de MFA, consulte [Funcionamiento: Azure Multi-Factor Authentication][concept-mfa].
 
-Más información sobre la configuración de métodos de autenticación con la [Versión beta de la API REST Microsoft Graph API](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Más información sobre la configuración de métodos de autenticación con la [Versión beta de la API REST Microsoft Graph API](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

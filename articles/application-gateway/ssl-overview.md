@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723306"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396930"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway
 
@@ -22,10 +22,10 @@ Seguridad de la capa de transporte (TLS), antes conocido como Capa de sockets se
 
 Application Gateway admite la terminación TLS en la puerta de enlace, tras lo cual el tráfico fluye normalmente sin cifrar a los servidores back-end. Llevar a cabo la terminación TLS en la puerta de enlace de aplicaciones tiene una serie de ventajas:
 
-- **Rendimiento mejorado**: el mayor rendimiento al realizar el descifrado TLS es el protocolo de enlace inicial. Para mejorar el rendimiento, el servidor que realiza el descifrado almacena en caché los identificadores de sesión TLS y administra los vales de sesión TLS. Si esto se hace en la puerta de enlace de aplicaciones, todas las solicitudes del mismo cliente pueden usar los valores almacenados en caché. Si se hace en los servidores back-end, cada vez que las solicitudes del cliente vayan a un servidor diferente, el cliente tendrá que volver a autenticarse. El uso de tickets TLS puede ayudar a mitigar este problema, pero no todos los clientes los admiten y pueden resultar difícil de configurar y administrar.
-- **Mejor utilización de los servidores back-end**: el procesamiento SSL/TLS hace un uso intensivo de CPU, y este uso cada vez es mayor a medida que aumentan los tamaños de clave. La eliminación de este trabajo de los servidores back-end les permite centrarse en aquello en lo que son más eficientes: entregar contenido.
-- **Enrutamiento inteligente**: mediante el descifrado del tráfico, la puerta de enlace de aplicaciones tiene acceso al contenido de la solicitud, como encabezados, URI, etc., y puede utilizar estos datos para enrutar las solicitudes.
-- **Administración de certificados**: los certificados solo se deben comprar e instalar en la puerta de enlace de aplicaciones y no en todos los servidores back-end. Esto ahorra tiempo y dinero.
+- **Rendimiento mejorado** : el mayor rendimiento al realizar el descifrado TLS es el protocolo de enlace inicial. Para mejorar el rendimiento, el servidor que realiza el descifrado almacena en caché los identificadores de sesión TLS y administra los vales de sesión TLS. Si esto se hace en la puerta de enlace de aplicaciones, todas las solicitudes del mismo cliente pueden usar los valores almacenados en caché. Si se hace en los servidores back-end, cada vez que las solicitudes del cliente vayan a un servidor diferente, el cliente tendrá que volver a autenticarse. El uso de tickets TLS puede ayudar a mitigar este problema, pero no todos los clientes los admiten y pueden resultar difícil de configurar y administrar.
+- **Mejor utilización de los servidores back-end** : el procesamiento SSL/TLS hace un uso intensivo de CPU, y este uso cada vez es mayor a medida que aumentan los tamaños de clave. La eliminación de este trabajo de los servidores back-end les permite centrarse en aquello en lo que son más eficientes: entregar contenido.
+- **Enrutamiento inteligente** : mediante el descifrado del tráfico, la puerta de enlace de aplicaciones tiene acceso al contenido de la solicitud, como encabezados, URI, etc., y puede utilizar estos datos para enrutar las solicitudes.
+- **Administración de certificados** : los certificados solo se deben comprar e instalar en la puerta de enlace de aplicaciones y no en todos los servidores back-end. Esto ahorra tiempo y dinero.
 
 Para configurar la terminación TLS, debe agregar un certificado TLS/SSL al cliente de escucha para permitir a Application Gateway derivar una clave simétrica según la especificación del protocolo TLS/SSL. A continuación, la clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. El certificado TLS/SSL debe tener el formato Personal Information Exchange (PFX). Este formato de archivo permite la exportación de la clave privada, lo que es necesario para que la puerta de enlace de aplicaciones pueda realizar el cifrado y descifrado del tráfico.
 
@@ -51,10 +51,10 @@ Application Gateway admite los siguientes tipos de certificados:
 - Certificado comodín: este certificado admite cualquier número de subdominios en función de *. site.com, donde el subdominio reemplazaría el asterisco (*). Sin embargo, no admite site.com, por lo que en caso de que los usuarios accedan a su sitio web sin escribir las "www" iniciales, el certificado comodín no cubrirá eso.
 - Certificados autofirmados: los exploradores de cliente no confían en estos certificados y avisarán al usuario de que el certificado del servicio virtual no forma parte de una cadena de confianza. Los certificados autofirmados son buenos para las pruebas o los entornos donde los administradores controlan a los clientes y pueden omitir de forma segura las alertas de seguridad del explorador. Las cargas de trabajo de producción nunca deben usar certificados autofirmados.
 
-Para más información, consulte la [configuración de la terminación TLS con una puerta de enlace de aplicaciones](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Para más información, consulte la [configuración de la terminación TLS con una puerta de enlace de aplicaciones](./create-ssl-portal.md).
 
 ### <a name="size-of-the-certificate"></a>Tamaño del certificado
-Consulte la sección [Límites de Application Gateway](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) para conocer el tamaño máximo de certificado TLS/SSL admitido.
+Consulte la sección [Límites de Application Gateway](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) para conocer el tamaño máximo de certificado TLS/SSL admitido.
 
 ## <a name="end-to-end-tls-encryption"></a>Cifrado TLS de un extremo a otro
 
@@ -62,7 +62,7 @@ Es posible que no desee una comunicación sin cifrar con los servidores back-end
 
 El cifrado TLS de un extremo a otro permite cifrar y transmitir datos confidenciales de forma segura al back-end mientras usa las características de equilibrio de carga de nivel 7 de Application Gateway. Entre estas características se incluyen la afinidad de la sesión basada en las cookies, el enrutamiento basado en direcciones URL, la compatibilidad para el enrutamiento basado en sitios, la capacidad para reescribir o insertar encabezados X-Forwarded-*, etc.
 
-Cuando se configura con el modo de comunicación de TLS de un extremo a otro, Application Gateway finaliza las sesiones TLS en la puerta de enlace y descifra el tráfico de usuario. Después, aplica las reglas configuradas para seleccionar una instancia de grupo de back-end adecuada en la que enrutar el tráfico. Posteriormente, Application Gateway inicia una nueva conexión TLS al servidor back-end y vuelve a cifrar los datos mediante el certificado de clave pública del servidor back-end antes de transmitir la solicitud al back-end. Cualquier respuesta del servidor web pasa por el mismo proceso en su regreso al usuario final. El protocolo TLS de un extremo a otro se habilita estableciendo el valor de protocolo de [Configuración HTTP del back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) en HTTPS, que luego se aplica a un grupo de back-end.
+Cuando se configura con el modo de comunicación de TLS de un extremo a otro, Application Gateway finaliza las sesiones TLS en la puerta de enlace y descifra el tráfico de usuario. Después, aplica las reglas configuradas para seleccionar una instancia de grupo de back-end adecuada en la que enrutar el tráfico. Posteriormente, Application Gateway inicia una nueva conexión TLS al servidor back-end y vuelve a cifrar los datos mediante el certificado de clave pública del servidor back-end antes de transmitir la solicitud al back-end. Cualquier respuesta del servidor web pasa por el mismo proceso en su regreso al usuario final. El protocolo TLS de un extremo a otro se habilita estableciendo el valor de protocolo de [Configuración HTTP del back-end](./configuration-overview.md#http-settings) en HTTPS, que luego se aplica a un grupo de back-end.
 
 En el caso de la SKU de WAF v1 y Application Gateway, la directiva de TLS se aplica al tráfico de front-end y de back-end. En el front-end, Application Gateway actúa como el servidor y exige la directiva. En el back-end, Application Gateway actúa como cliente y envía la información de protocolo o cifrado como la preferencia durante el protocolo de enlace TLS.
 

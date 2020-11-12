@@ -3,12 +3,12 @@ title: Establecimiento de contraseñas de las máquinas virtuales en Azure Lab�
 description: Aprenda a establecer y restablecer las contraseñas de las máquinas virtuales (VM) en laboratorios de clase de Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334079"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379696"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configuración y administración del grupo de máquinas virtuales 
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -20,7 +20,7 @@ En este artículo se muestra cómo realizar las tareas siguientes:
 ## <a name="update-the-lab-capacity"></a>Actualización de la capacidad del laboratorio
 Para aumentar o disminuir la capacidad del laboratorio (número de máquinas virtuales de un laboratorio), siga estos pasos:
 
-1. En la página **Grupo de máquinas virtuales**, seleccione **Lab capacity: &lt;número&gt; machines** (Capacidad del laboratorio <número> máquinas).
+1. En la página **Grupo de máquinas virtuales** , seleccione **Lab capacity: &lt;número&gt; machines** (Capacidad del laboratorio <número> máquinas).
 2. Escriba el nuevo **número de máquinas virtuales** que desea en el laboratorio. Este número debe ser mayor o igual que el número de usuarios registrados en el laboratorio. 
 3. Después, seleccione **Guardar**. 
 
@@ -53,6 +53,7 @@ Del mismo modo, puede detener una o más máquinas virtuales si alterna el botó
 > Cuando un profesor encienda la máquina virtual de un alumno, la cuota del alumno no sufrirá cambios. La cuota de los usuarios especifica el número de horas de laboratorio disponibles para ellos fuera del tiempo de clase programado. Para más información sobre las cuotas, vea [Establecimiento de cuotas para los usuarios](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="reset-vms"></a>Restablecimiento de las máquinas virtuales
+
 Para restablecer una o varias máquinas virtuales, selecciónelas en la lista y, a continuación, seleccione **Reset** (Restablecer) en la barra de herramientas. 
 
 ![Restablecimiento de máquinas virtuales seleccionadas](./media/how-to-set-virtual-machine-passwords/reset-vm-button.png)
@@ -60,8 +61,6 @@ Para restablecer una o varias máquinas virtuales, selecciónelas en la lista y,
 En el cuadro de diálogo **Reset virtual machine(s)** (Restablecer máquinas virtuales), seleccione **Reset** (Restablecer). 
 
 ![Cuadro de diálogo para restablecer máquinas virtuales](./media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png)
-
-
 
 ## <a name="set-password-for-vms"></a>Establecimiento de contraseña para las máquinas virtuales
 El propietario de un laboratorio (formador) puede establecer o restablecer la contraseña de las VM en el momento de crear el laboratorio (asistente para la creación de laboratorio) o después de crearlo en la página **Plantilla**. 

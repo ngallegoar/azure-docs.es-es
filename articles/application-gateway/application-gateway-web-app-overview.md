@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6ea6f348d796962141bd39ff858d891a29a2f6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628687"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397695"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Compatibilidad de Application Gateway con back-ends multiinquilino como App Service
 
@@ -28,11 +28,11 @@ Application Gateway proporciona una funcionalidad que permite a los usuarios ree
 
 ## <a name="override-host-header-in-the-request"></a>Reemplazo del encabezado de host en la solicitud
 
-La posibilidad de especificar un reemplazo del host se define en la [configuración de HTTP](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) y se puede aplicar a cualquier grupo de back-end durante la creación de reglas. Se admiten las dos formas siguientes de reemplazar el encabezado de host y la extensión SNI en los back-end multiinquilino:
+La posibilidad de especificar un reemplazo del host se define en la [configuración de HTTP](./configuration-overview.md#http-settings) y se puede aplicar a cualquier grupo de back-end durante la creación de reglas. Se admiten las dos formas siguientes de reemplazar el encabezado de host y la extensión SNI en los back-end multiinquilino:
 
 - La posibilidad de establecer el nombre de host en un valor fijo que se especifica de forma explícita en la configuración de HTTP. Esta funcionalidad garantiza que el encabezado de host se reemplaza por este valor para todo el tráfico que va al grupo de servidores back-end donde se aplica la configuración de HTTP concreta. Al usar TLS de extremo a extremo, este nombre de host invalidado se usa en la extensión SNI. Esta funcionalidad permite escenarios donde un grupo de servidores back-end espera un encabezado de host que es diferente del encabezado de host del cliente de entrada.
 
-- La posibilidad de obtener el nombre de host de la dirección IP o FQDN de los miembros del grupo de servidores back-end. La configuración de HTTP también permite seleccionar dinámicamente el nombre de host del FQDN de un miembro del grupo de back-end si está configurado con la opción de derivar el nombre de host de un miembro de grupo de back-end individual. Al usar TLS de extremo a extremo, este nombre de host se obtiene del FQDN y se usa en la extensión SNI. Esta funcionalidad permite escenarios donde un grupo de servidores back-end puede tener dos o más servicios PaaS multiinquilino, como Azure Web Apps y el encabezado de host de la solicitud para que cada miembro contenga el nombre de host obtenido de su FQDN. Para implementar este escenario se usa un modificador en Configuración de HTTP llamado [Elegir nombre de host de dirección de back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) que reemplazará dinámicamente el encabezado de host invalidará el encabezado de host en la solicitud original por el mencionado en el grupo de back-end.  Por ejemplo, si el FQDN del grupo de back-end contiene "contoso11.azurewebsites.net" y "contoso22.azurewebsites.net", se reemplazará el encabezado de host de la solicitud original, que es contoso.com, por contoso11.azurewebsites.net o contoso22.azurewebsites.net cuando la solicitud se envíe al servidor back-end adecuado. 
+- La posibilidad de obtener el nombre de host de la dirección IP o FQDN de los miembros del grupo de servidores back-end. La configuración de HTTP también permite seleccionar dinámicamente el nombre de host del FQDN de un miembro del grupo de back-end si está configurado con la opción de derivar el nombre de host de un miembro de grupo de back-end individual. Al usar TLS de extremo a extremo, este nombre de host se obtiene del FQDN y se usa en la extensión SNI. Esta funcionalidad permite escenarios donde un grupo de servidores back-end puede tener dos o más servicios PaaS multiinquilino, como Azure Web Apps y el encabezado de host de la solicitud para que cada miembro contenga el nombre de host obtenido de su FQDN. Para implementar este escenario se usa un modificador en Configuración de HTTP llamado [Elegir nombre de host de dirección de back-end](./configuration-http-settings.md#pick-host-name-from-back-end-address) que reemplazará dinámicamente el encabezado de host invalidará el encabezado de host en la solicitud original por el mencionado en el grupo de back-end.  Por ejemplo, si el FQDN del grupo de back-end contiene "contoso11.azurewebsites.net" y "contoso22.azurewebsites.net", se reemplazará el encabezado de host de la solicitud original, que es contoso.com, por contoso11.azurewebsites.net o contoso22.azurewebsites.net cuando la solicitud se envíe al servidor back-end adecuado. 
 
   ![escenario de aplicación web](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -59,8 +59,8 @@ Puede haber escenarios en los que el nombre de host de la respuesta de App Servi
 - Ha configurado el redireccionamiento en su instancia de App Service. El redireccionamiento puede ser tan sencillo como agregar una barra diagonal final a la solicitud.
 - Tiene autenticación de Azure AD, lo que provoca el redireccionamiento.
 
-Para resolver estos casos, consulte [Solución de problemas de redireccionamiento a la dirección URL de App Service](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
+Para resolver estos casos, consulte [Solución de problemas de redireccionamiento a la dirección URL de App Service](./troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a configurar una puerta de enlace de aplicaciones con una aplicación multiinquilino como App Service Web Apps de Azure como miembro del grupo de back-ends, visite [Configuración de App Service Web Apps con Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal)
+Para aprender a configurar una puerta de enlace de aplicaciones con una aplicación multiinquilino como App Service Web Apps de Azure como miembro del grupo de back-ends, visite [Configuración de App Service Web Apps con Application Gateway](./configure-web-app-portal.md)

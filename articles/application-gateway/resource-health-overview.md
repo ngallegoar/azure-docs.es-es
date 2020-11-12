@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
-ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67659426"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397179"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Información general sobre Resource Health de Azure Application Gateway
 
@@ -61,4 +61,4 @@ El estado **Degradado** indica que la puerta de enlace ha detectado una pérdida
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo solucionar problemas del firewall de aplicaciones web (WAF) de Application Gateway, vea [Solución de problemas del firewall de aplicaciones web (WAF) de Azure Application Gateway](web-application-firewall-troubleshoot.md).
+Para obtener información sobre cómo solucionar problemas del firewall de aplicaciones web (WAF) de Application Gateway, vea [Solución de problemas del firewall de aplicaciones web (WAF) de Azure Application Gateway](../web-application-firewall/ag/web-application-firewall-troubleshoot.md).

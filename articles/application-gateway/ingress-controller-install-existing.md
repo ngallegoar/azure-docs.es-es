@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 0652c49acf58a52244cc27ae3e59120ac7f03858
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c11de2f1bc4143281d2859de7a38268932b13fba
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807101"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397406"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Instalación de un controlador de entrada de Application Gateway (AGIC) con una instancia de Application Gateway existente
 
@@ -29,8 +29,8 @@ AGIC supervisa los recursos de [entrada](https://kubernetes.io/docs/concepts/ser
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Este documento asume que ya tiene instaladas las siguientes herramientas e infraestructura:
-- [AKS](https://azure.microsoft.com/services/kubernetes-service/) con [redes avanzadas](https://docs.microsoft.com/azure/aks/configure-azure-cni) habilitadas
-- [Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/create-zone-redundant) en la misma red virtual que AKS
+- [AKS](https://azure.microsoft.com/services/kubernetes-service/) con [redes avanzadas](../aks/configure-azure-cni.md) habilitadas
+- [Application Gateway v2](./tutorial-autoscale-ps.md) en la misma red virtual que AKS
 - [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) instalada en el clúster de AKS
 - [Cloud Shell](https://shell.azure.com/) es el entorno de Azure Shell que tiene `az` CLI, `kubectl` y `helm` instalados. Estas herramientas son necesarias para los siguientes comandos.
 
@@ -41,10 +41,10 @@ __Realice una copia de seguridad de su configuración de Application Gateway__ a
 El archivo zip que descargó tendrá plantillas JSON, bash y scripts de PowerShell que puede usar para restaurar la instancia de Application Gateway en caso de que sea necesario
 
 ## <a name="install-helm"></a>Instalación de Helm
-[Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) es un administrador de paquetes para Kubernetes. Lo usaremos para instalar el paquete de `application-gateway-kubernetes-ingress`.
+[Helm](../aks/kubernetes-helm.md) es un administrador de paquetes para Kubernetes. Lo usaremos para instalar el paquete de `application-gateway-kubernetes-ingress`.
 Use [Cloud Shell](https://shell.azure.com/) para instalar Helm:
 
-1. Instale [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) y ejecute lo siguiente para agregar el paquete de Helm `application-gateway-kubernetes-ingress`:
+1. Instale [Helm](../aks/kubernetes-helm.md) y ejecute lo siguiente para agregar el paquete de Helm `application-gateway-kubernetes-ingress`:
 
     - Clúster de AKS con *RBAC habilitado*
 
@@ -72,7 +72,7 @@ AGIC se comunica con el servidor de la API de Kubernetes y Azure Resource Manage
 
 ## <a name="set-up-aad-pod-identity"></a>Configuración de AAD Pod Identity
 
-[AAD Pod Identity](https://github.com/Azure/aad-pod-identity) es un controlador, similar a AGIC, que también se ejecuta en su instancia de AKS. Enlaza las identidades de Azure Active Directory a los pods de Kubernetes. Una identidad es necesaria para que una aplicación de un pod de Kubernetes pueda comunicarse con otros componentes de Azure. En este caso en particular, se necesita autorización para que el pod de AGIC realice solicitudes HTTP a [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+[AAD Pod Identity](https://github.com/Azure/aad-pod-identity) es un controlador, similar a AGIC, que también se ejecuta en su instancia de AKS. Enlaza las identidades de Azure Active Directory a los pods de Kubernetes. Una identidad es necesaria para que una aplicación de un pod de Kubernetes pueda comunicarse con otros componentes de Azure. En este caso en particular, se necesita autorización para que el pod de AGIC realice solicitudes HTTP a [ARM](../azure-resource-manager/management/overview.md).
 
 Siga las [instrucciones de instalación de AAD Pod Identity](https://github.com/Azure/aad-pod-identity#deploy-the-azure-aad-identity-infra) para agregar este componente a su instancia de AKS.
 
@@ -323,7 +323,7 @@ Amplíe los permisos de AGIC con:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Habilitar para una instalación de AGIC existente
-Supongamos que ya tenemos una instancia de AKS y Application Gateway en funcionamiento, además de AGIC configurado en nuestro clúster. Tenemos una entrada para `prod.contosor.com` y están atendiendo correctamente el tráfico de AKS. Queremos agregar `staging.contoso.com` a nuestra instancia de Application Gateway existente, pero es necesario hospedarlo en una [máquina virtual](https://azure.microsoft.com/services/virtual-machines/). Vamos a volver a usar la instancia de Application Gateway existente y a configurar manualmente un cliente de escucha y los grupos de back-end para `staging.contoso.com`. Sin embargo, el ajuste manual de la configuración de Application Gateway (a través del [portal](https://portal.azure.com), las [API de ARM](https://docs.microsoft.com/rest/api/resources/) o [Terraform](https://www.terraform.io/)) puede entrar en conflicto con las suposiciones de AGIC sobre la propiedad total. Poco después de aplicar los cambios, AGIC los sobrescribirá o eliminará.
+Supongamos que ya tenemos una instancia de AKS y Application Gateway en funcionamiento, además de AGIC configurado en nuestro clúster. Tenemos una entrada para `prod.contosor.com` y están atendiendo correctamente el tráfico de AKS. Queremos agregar `staging.contoso.com` a nuestra instancia de Application Gateway existente, pero es necesario hospedarlo en una [máquina virtual](https://azure.microsoft.com/services/virtual-machines/). Vamos a volver a usar la instancia de Application Gateway existente y a configurar manualmente un cliente de escucha y los grupos de back-end para `staging.contoso.com`. Sin embargo, el ajuste manual de la configuración de Application Gateway (a través del [portal](https://portal.azure.com), las [API de ARM](/rest/api/resources/) o [Terraform](https://www.terraform.io/)) puede entrar en conflicto con las suposiciones de AGIC sobre la propiedad total. Poco después de aplicar los cambios, AGIC los sobrescribirá o eliminará.
 
 Podemos prohibir que AGIC realice cambios en un subconjunto de la configuración.
 

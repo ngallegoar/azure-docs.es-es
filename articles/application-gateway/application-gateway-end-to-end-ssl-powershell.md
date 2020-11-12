@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: e35569a1dc5ce7c1cb2889ac3e2ca8f60f8ccd42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47891dfa7fc0c9b30ccdbf2ed7710125eb36e4a3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808212"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397814"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configuración de TLS de un extremo a otro con Application Gateway mediante PowerShell
 
@@ -20,7 +20,7 @@ ms.locfileid: "84808212"
 
 Azure Application Gateway admite el cifrado de un extremo a otro del tráfico. Application Gateway termina la conexión TLS/SSL en Application Gateway. La puerta de enlace aplica entonces las reglas de enrutamiento al tráfico, vuelve a cifrar el paquete y lo reenvía al servidor back-end adecuado según las reglas de enrutamiento definidas. Cualquier respuesta del servidor web pasa por el mismo proceso en su regreso al usuario final.
 
-Application Gateway admite la definición de opciones TLS personalizadas. También admite deshabilitar las siguientes versiones de protocolo: **TLSv1.0**, **TLSv1.1** y **TLSv1.2**, así como definir qué conjuntos de cifrado usar y el orden de preferencia. Para más información sobre las opciones configurables de TLS, consulte [Introducción a la directiva TLS](application-gateway-SSL-policy-overview.md).
+Application Gateway admite la definición de opciones TLS personalizadas. También admite deshabilitar las siguientes versiones de protocolo: **TLSv1.0** , **TLSv1.1** y **TLSv1.2** , así como definir qué conjuntos de cifrado usar y el orden de preferencia. Para más información sobre las opciones configurables de TLS, consulte [Introducción a la directiva TLS](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 y SSL 3.0 están deshabilitados de manera predeterminada y no se pueden habilitar. Se considera que no son seguros y no se pueden usar con Application Gateway.
@@ -202,7 +202,7 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Configure el tamaño de la instancia de la Puerta de enlace de aplicaciones. Los tamaños disponibles son **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**.  Para la capacidad, los valores disponibles son de **1** a **10**.
+10. Configure el tamaño de la instancia de la Puerta de enlace de aplicaciones. Los tamaños disponibles son **Standard\_Small** , **Standard\_Medium** y **Standard\_Large**.  Para la capacidad, los valores disponibles son de **1** a **10**.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -219,7 +219,7 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
     - **TLSV1_1**
     - **TLSV1_2**
     
-    El siguiente ejemplo establece la versión mínima del protocolo en **TLSv1_2** y solo habilita **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** y **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
+    El siguiente ejemplo establece la versión mínima del protocolo en **TLSv1_2** y solo habilita **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** y **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
 
     ```powershell
     $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
@@ -312,7 +312,7 @@ En los pasos anteriores se ha realizado la creación de una aplicación con TLS 
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Defina una directiva de TLS. En el ejemplo siguiente, se deshabilitan **TLSv1.0** y **TLSv1.1** y los conjuntos de cifrado **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** y **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** son los únicos permitidos.
+2. Defina una directiva de TLS. En el ejemplo siguiente, se deshabilitan **TLSv1.0** y **TLSv1.1** y los conjuntos de cifrado **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** y **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** son los únicos permitidos.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
@@ -359,6 +359,6 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la protección de la seguridad de las aplicaciones web con el firewall de aplicaciones web mediante Application Gateway, consulte [Información general sobre el firewall de aplicaciones web](application-gateway-webapplicationfirewall-overview.md).
+Para más información sobre la protección de la seguridad de las aplicaciones web con el firewall de aplicaciones web mediante Application Gateway, consulte [Información general sobre el firewall de aplicaciones web](../web-application-firewall/ag/ag-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

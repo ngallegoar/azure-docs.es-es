@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d6bcb9125cdfc07eb249353cb85b40a22d3e468c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168195"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397372"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Solución de preguntas o problemas comunes del controlador de entrada
 
@@ -243,7 +243,7 @@ La comunidad de Kubernetes ha establecido 9 niveles de registro para la herramie
 |  5        | Registra objetos serializados; muestra la configuración de JSON saneada que se aplica a ARM |
 
 
-Los niveles de detalle se pueden ajustar a través de la variable `verbosityLevel` del archivo [helm-config.yaml](#sample-helm-config-file). Aumente el nivel de detalle a `5` para obtener la configuración de JSON enviada a [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
+Los niveles de detalle se pueden ajustar a través de la variable `verbosityLevel` del archivo [helm-config.yaml](#sample-helm-config-file). Aumente el nivel de detalle a `5` para obtener la configuración de JSON enviada a [ARM](../azure-resource-manager/management/overview.md):
   - agregue `verbosityLevel: 5` en una línea en [helm-config.yaml](#sample-helm-config-file) y vuelva a instalarlo
   - obtenga registros con `kubectl logs <pod-name>`
 
@@ -300,4 +300,3 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-

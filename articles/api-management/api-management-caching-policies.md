@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: cc258a0e790559cb343bfbf2eda0787962e2063e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e939e3e6eb686894094c77f62ed815d0ebb5a24f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071275"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358446"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
@@ -283,7 +283,7 @@ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto
 - **Secciones de la directiva:** inbound, outbound, backend, on-error
 - **Ámbitos de la directiva:** todos los ámbitos
 
-### <a name="remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Remove value from cache (Quitar valor de la caché)
+## <a name="remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Remove value from cache (Quitar valor de la caché)
 La directiva `cache-remove-value` elimina un elemento almacenado en caché identificado por su clave. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.
 
 #### <a name="policy-statement"></a>Instrucción de la directiva

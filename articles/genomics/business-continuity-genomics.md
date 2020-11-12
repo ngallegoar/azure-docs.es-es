@@ -10,12 +10,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 04/06/2018
-ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3097041c96f70dda384f0b116bbbc9bc9130be4d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72249177"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395757"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Introducción a la continuidad empresarial con Microsoft Genomics
 En este artículo de introducción se describen las funcionalidades que Microsoft Genomics proporciona a la continuidad empresarial y la recuperación ante desastres. Obtenga información acerca de las opciones para la recuperación de eventos potencialmente perjudiciales, como una interrupción de la región de Azure, que podrían provocar la pérdida de datos. 
@@ -43,7 +43,7 @@ Cuando se restaure la región original, el servicio de Microsoft Genomics no mig
 Si le preocupa la una recuperación rápida en el caso de una interrupción del centro de datos, hay algunos pasos que puede seguir para reducir el tiempo necesario para que pueda reenviar manualmente los flujos de trabajo de Microsoft Genomics a una región secundaria:
 
 * Identifique una región secundaria adecuada y cree proactivamente una cuenta de Genomics en dicha región
-* Duplique los datos en la región primaria y secundaria para que los datos están disponibles inmediatamente en la región secundaria. Esto se puede realizar de forma manual o mediante la función de [almacenamiento con redundancia geográfica](https://docs.microsoft.com/azure/storage/common/storage-redundancy) que está disponible en Azure Storage. 
+* Duplique los datos en la región primaria y secundaria para que los datos están disponibles inmediatamente en la región secundaria. Esto se puede realizar de forma manual o mediante la función de [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy.md) que está disponible en Azure Storage. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, ha aprendido acerca de las opciones de continuidad empresarial y recuperación ante desastres cuando se utiliza el servicio Microsoft Genomics. Para más información acerca de la continuidad empresarial y recuperación ante desastres en Azure en general, consulte la [Guía técnica sobre resistencia en Azure.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region) 
+En este artículo, ha aprendido acerca de las opciones de continuidad empresarial y recuperación ante desastres cuando se utiliza el servicio Microsoft Genomics. Para más información acerca de la continuidad empresarial y recuperación ante desastres en Azure en general, consulte la [Guía técnica sobre resistencia en Azure.](/azure/architecture/resiliency/recovery-loss-azure-region)

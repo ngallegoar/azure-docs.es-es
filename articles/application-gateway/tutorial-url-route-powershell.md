@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 37e76f54b9c4fe38c891f7cee7bc443d1b0b20f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a73208ef7014c1f21c78485fc613a26ce3bfc76
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596080"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397185"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Redirigir el tráfico web en función de la dirección URL mediante Azure PowerShell
 
-Se puede usar Azure PowerShell para configurar el enrutamiento de tráfico web a grupos de servidores escalables específicos según la dirección URL que se usa para acceder a la aplicación. En este artículo, creará una instancia de [Azure Application Gateway](application-gateway-introduction.md) con tres grupos de back-end mediante [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Cada uno de los grupos de back-end sirve para un propósito específico como vídeo, imágenes y datos comunes.  El enrutamiento de tráfico para separar grupos garantiza que los clientes obtengan la información que necesiten en el momento adecuado.
+Se puede usar Azure PowerShell para configurar el enrutamiento de tráfico web a grupos de servidores escalables específicos según la dirección URL que se usa para acceder a la aplicación. En este artículo, creará una instancia de [Azure Application Gateway](./overview.md) con tres grupos de back-end mediante [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md). Cada uno de los grupos de back-end sirve para un propósito específico como vídeo, imágenes y datos comunes.  El enrutamiento de tráfico para separar grupos garantiza que los clientes obtengan la información que necesiten en el momento adecuado.
 
-Para habilitar el enrutamiento de tráfico, se crean [reglas de enrutamiento](application-gateway-url-route-overview.md) asignadas a los agentes de escucha que escuchan en puertos específicos para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos.
+Para habilitar el enrutamiento de tráfico, se crean [reglas de enrutamiento](./url-route-overview.md) asignadas a los agentes de escucha que escuchan en puertos específicos para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos.
 
 En este artículo aprenderá a:
 
@@ -84,9 +84,9 @@ $pip = New-AzPublicIpAddress `
 
 En esta sección se crearán recursos que admitan la puerta de enlace de aplicaciones y, por último, se creará. Los recursos que cree incluirán:
 
-- *Configuraciones de IP y puerto front-end*: asocia la subred que se creó anteriormente a la puerta de enlace de aplicaciones y asigna un puerto que se usará para tener acceso a esta.
-- *Grupo predeterminado*: todas las puertas de enlace de aplicaciones deben tener al menos un grupo de servidores back-end.
-- *Agente de escucha y regla predeterminados*: el agente de escucha predeterminado escucha el tráfico en el puerto asignado y la regla predeterminada envía tráfico al grupo predeterminado.
+- *Configuraciones de IP y puerto front-end* : asocia la subred que se creó anteriormente a la puerta de enlace de aplicaciones y asigna un puerto que se usará para tener acceso a esta.
+- *Grupo predeterminado* : todas las puertas de enlace de aplicaciones deben tener al menos un grupo de servidores back-end.
+- *Agente de escucha y regla predeterminados* : el agente de escucha predeterminado escucha el tráfico en el puerto asignado y la regla predeterminada envía tráfico al grupo predeterminado.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Creación de las configuraciones IP y el puerto de front-end
 
@@ -312,7 +312,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales
 
-En este ejemplo, creará tres conjuntos de escalado de máquinas virtuales que admiten los tres grupos de back-end que ha creado. Los conjuntos de escalado que crea se llaman *myvmss1*, *myvmss2* y *myvmss3*. Asignará el conjunto de escalado al grupo de servidores back-end cuando configure los valores de IP.
+En este ejemplo, creará tres conjuntos de escalado de máquinas virtuales que admiten los tres grupos de back-end que ha creado. Los conjuntos de escalado que crea se llaman *myvmss1* , *myvmss2* y *myvmss3*. Asignará el conjunto de escalado al grupo de servidores back-end cuando configure los valores de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

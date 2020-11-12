@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 47cface4efbf38f2cec630745d498db674c936d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4b3256591c0aa2536fd42bcdbb2ef339fc1d5c48
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791960"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356814"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Uso de Azure.Search.Documents en una aplicación de .NET con C#
 
@@ -60,7 +60,7 @@ El SDK de Azure para .NET se ajusta a [.NET Standard 2.0](/dotnet/standard/net-s
 
 ## <a name="example-application"></a>Aplicación de ejemplo
 
-En este artículo "se enseña con el ejemplo", basándose en la muestra de código [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/v11) de GitHub para ilustrar los conceptos básicos de Azure Cognitive Search; específicamente, cómo crear, cargar y consultar un índice de búsqueda.
+En este artículo "se enseña con el ejemplo", basándose en la muestra de código [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) de GitHub para ilustrar los conceptos básicos de Azure Cognitive Search; específicamente, cómo crear, cargar y consultar un índice de búsqueda.
 
 En el resto de este artículo, supongamos que se trata de un nuevo índice denominado "hotels", que se rellenó con unos pocos documentos y varias consultas que coinciden con los resultados.
 

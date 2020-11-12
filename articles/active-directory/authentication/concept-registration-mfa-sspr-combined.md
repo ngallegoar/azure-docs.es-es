@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424566"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378013"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Introducción al registro de información de seguridad combinado para Azure Active Directory
 
@@ -58,7 +58,7 @@ El registro combinado admite los siguientes métodos y acciones de autenticació
 | Token de hardware | No | No | Sí |
 | Teléfono | Sí | Sí | Sí |
 | Teléfono alternativo | Sí | Sí | Sí |
-| Teléfono del trabajo | No | No | No |
+| Teléfono del trabajo | Sí | Sí | Sí |
 | Email | Sí | Sí | Sí |
 | Preguntas de seguridad | Sí | No | Sí |
 | Contraseñas de aplicación | Sí | No | Sí |

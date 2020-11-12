@@ -9,16 +9,16 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/01/2019
-ms.openlocfilehash: 948ca03b5bf503c884df5df56c61951b381874a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 262509df98b93c7902d83f90756872a16d84198f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84870875"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398137"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitación del registro de diagnóstico en Azure API for FHIR®
 
-En este artículo aprenderá a habilitar el registro de diagnóstico en Azure API for FHIR® y podrá revisar algunas consultas de ejemplo para estos registros. El acceso a los registros de diagnóstico es esencial para cualquier servicio del sector sanitario en el que el cumplimiento de los requisitos normativos (como HIPAA) es imprescindible. La característica de Azure API for FHIR® que habilita los registros de diagnóstico es [**Configuración de diagnóstico**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) en Azure Portal. 
+En este artículo aprenderá a habilitar el registro de diagnóstico en Azure API for FHIR® y podrá revisar algunas consultas de ejemplo para estos registros. El acceso a los registros de diagnóstico es esencial para cualquier servicio del sector sanitario en el que el cumplimiento de los requisitos normativos (como HIPAA) es imprescindible. La característica de Azure API for FHIR® que habilita los registros de diagnóstico es [**Configuración de diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) en Azure Portal. 
 
 ## <a name="enable-audit-logs"></a>Habilitación de los registros de auditoría
 1. Para habilitar el registro de diagnóstico en Azure API for FHIR®, seleccione el servicio Azure API for FHIR® en Azure Portal. 
@@ -42,7 +42,7 @@ En este artículo aprenderá a habilitar el registro de diagnóstico en Azure AP
 > [!Note] 
 > Los primeros registros pueden tardar hasta quince minutos en mostrarse en Log Analytics.  
  
-Para más información sobre cómo trabajar con los registros de diagnóstico, consulte la [documentación del registro de recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview).
+Para más información sobre cómo trabajar con los registros de diagnóstico, consulte la [documentación del registro de recursos de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="audit-log-details"></a>Detalles del registro de auditoría
 En este momento, el servicio Azure API for FHIR® devuelve los campos siguientes en el registro de auditoría: 
@@ -60,7 +60,7 @@ En este momento, el servicio Azure API for FHIR® devuelve los campos siguientes
 |OperationDuration|Int|El tiempo que se tardó en completar esta solicitud en segundos
 |OperationName|String| Describe el tipo de operación (por ejemplo, actualizar o tipo de búsqueda)
 |RequestUri|String|URI de solicitud 
-|ResultType|String|Los valores disponibles actualmente son **Started**, **Succeeded** o **Failed**
+|ResultType|String|Los valores disponibles actualmente son **Started** , **Succeeded** o **Failed**
 |StatusCode|Int|El código de estado HTTP. (por ejemplo, 200) 
 |TimeGenerated|DateTime|Fecha y hora del evento|
 |Propiedades|String| Describe las propiedades de fhirResourceType
@@ -73,21 +73,21 @@ En este momento, el servicio Azure API for FHIR® devuelve los campos siguientes
 
 Estas son algunas consultas básicas de Application Insights que puede utilizar para explorar los datos de registro.
 
-Ejecute esta consulta para ver los **cien registros más recientes**:
+Ejecute esta consulta para ver los **cien registros más recientes** :
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs
 | limit 100
 ```
 
-Ejecute esta consulta para agrupar las operaciones por **tipo de recurso de FHIR**:
+Ejecute esta consulta para agrupar las operaciones por **tipo de recurso de FHIR** :
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs 
 | summarize count() by FhirResourceType
 ```
 
-Ejecute esta consulta para obtener todos los **resultados con errores**:
+Ejecute esta consulta para obtener todos los **resultados con errores** :
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs 

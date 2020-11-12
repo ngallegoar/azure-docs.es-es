@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f214b0b0751f44ea1357f569fd814a7621af61ab
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319799"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397627"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuración de la infraestructura de Azure Application Gateway
 
@@ -55,15 +55,15 @@ Los grupos de seguridad se admiten en Application Gateway. Pero hay algunas rest
 En este escenario, puede usar grupos de seguridad de red en la subred de Application Gateway. Ponga las restricciones siguientes en la subred en este orden de prioridad:
 
 1. Permita el tráfico entrante desde una dirección IP de origen o intervalo de direcciones IP con el destino como el intervalo de direcciones de subred Application Gateway completo y el puerto de destino como puerto de acceso de entrada, por ejemplo, el puerto 80 para el acceso HTTP.
-2. Permita solicitudes entrantes desde el origen como **GatewayManager** etiqueta de servicio y destino como **Cualquiera** y puertos de destino como 65503-65534 para el SKU de Application Gateway v1, y puertos 65200-65535 para SKU v2 para [ comunicación de estado de salud de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados adecuados en vigor, las entidades externas no podrán iniciar cambios en esos puntos de conexión.
-3. Permitir sondeos entrantes de Azure Load Balancer (con la etiqueta *AzureLoadBalancer*) y el tráfico de red virtual entrante (con la etiqueta *VirtualNetwork*) en el [grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview).
+2. Permita solicitudes entrantes desde el origen como **GatewayManager** etiqueta de servicio y destino como **Cualquiera** y puertos de destino como 65503-65534 para el SKU de Application Gateway v1, y puertos 65200-65535 para SKU v2 para [ comunicación de estado de salud de back-end](./application-gateway-diagnostics.md). Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados adecuados en vigor, las entidades externas no podrán iniciar cambios en esos puntos de conexión.
+3. Permitir sondeos entrantes de Azure Load Balancer (con la etiqueta *AzureLoadBalancer* ) y el tráfico de red virtual entrante (con la etiqueta *VirtualNetwork* ) en el [grupo de seguridad de red](../virtual-network/network-security-groups-overview.md).
 4. Bloquear todo el tráfico entrante restante mediante una regla Denegar todo.
 5. Permitir el tráfico saliente a Internet para todos los destinos.
 
 ## <a name="supported-user-defined-routes"></a>Rutas definidas por el usuario admitidas 
 
 > [!IMPORTANT]
-> El uso de UDR en la subred de Application Gateway podría hacer que el estado de mantenimiento en la [vista de mantenimiento de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) se muestre como **Desconocido**. También podría provocar un error en la generación de registros y métricas de Application Gateway. Se recomienda que no use rutas definidas por el usuario en la subred de Application Gateway para que pueda ver el estado, los registros y las métricas del back-end.
+> El uso de UDR en la subred de Application Gateway podría hacer que el estado de mantenimiento en la [vista de mantenimiento de back-end](./application-gateway-diagnostics.md#back-end-health) se muestre como **Desconocido**. También podría provocar un error en la generación de registros y métricas de Application Gateway. Se recomienda que no use rutas definidas por el usuario en la subred de Application Gateway para que pueda ver el estado, los registros y las métricas del back-end.
 
 - **v1**
 
@@ -78,7 +78,7 @@ En este escenario, puede usar grupos de seguridad de red en la subred de Applica
    > Una configuración incorrecta de la tabla de rutas podría dar lugar a un enrutamiento asimétrico en Application Gateway v2. Asegúrese de que todo el tráfico de plano de control o administración se envía directamente a Internet y no mediante una aplicación virtual. El registro y las métricas también podrían verse afectados.
 
 
-  **Escenario 1**: UDR para deshabilitar la propagación de rutas del Protocolo de puerta de enlace de borde (BGP) a la subred de Application Gateway
+  **Escenario 1** : UDR para deshabilitar la propagación de rutas del Protocolo de puerta de enlace de borde (BGP) a la subred de Application Gateway
 
    A veces, la ruta de puerta de enlace predeterminada (0.0.0.0/0) se anuncia mediante las puertas de enlace de VPN o ExpressRoute asociadas con la red virtual de Application Gateway. Esto interrumpe el tráfico del plano de administración, lo que requiere una ruta de acceso directa a Internet. En estos escenarios, se puede usar una UDR para deshabilitar la propagación de la ruta BGP. 
 
@@ -90,11 +90,11 @@ En este escenario, puede usar grupos de seguridad de red en la subred de Applica
 
    La habilitación de UDR para este escenario no debe interrumpir las configuraciones existentes.
 
-  **Escenario 2**: UDR para dirigir 0.0.0.0/0 a Internet
+  **Escenario 2** : UDR para dirigir 0.0.0.0/0 a Internet
 
    Puede crear una UDR para enviar el tráfico 0.0.0.0/0 directamente a Internet. 
 
-  **Escenario 3**: UDR para Azure Kubernetes Service con kubenet
+  **Escenario 3** : UDR para Azure Kubernetes Service con kubenet
 
   Si usa kubenet con Azure Kubernetes Service (AKS) y el Controlador de entrada de Application Gateway (AGIC), necesitará una tabla de rutas para permitir que el tráfico enviado a los pods desde Application Gateway se redirija al nodo correcto. Esto no será necesario si usa Azure CNI. 
 
@@ -109,7 +109,7 @@ En este escenario, puede usar grupos de seguridad de red en la subred de Applica
     
   **Escenarios incompatibles de v2**
 
-  **Escenario 1**: UDR para aplicaciones virtuales
+  **Escenario 1** : UDR para aplicaciones virtuales
 
   Cualquier escenario en que se necesite redirigir 0.0.0.0/0 a través de cualquier aplicación virtual, una red virtual radial o un entorno local (tunelización forzada) no se admite para la versión V2.
 

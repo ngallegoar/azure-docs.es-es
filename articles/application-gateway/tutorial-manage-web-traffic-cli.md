@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 07/20/2019
 ms.author: victorh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6bc5761f4e629a90dacf06cd7503ca86a5448fe4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d0a130830c8b03fd1f47086b9a997f6fc3df9a4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595882"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396964"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Administrar el tráfico web con Application Gateway mediante la CLI de Azure
 
-La puerta de enlace de aplicaciones se utiliza para administrar y proteger el tráfico web en los servidores que mantenga. Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) que use un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para los servidores back-end. En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual. El conjunto de escalado se agrega al grupo de back-end predeterminado de la puerta de enlace de la aplicación.
+La puerta de enlace de aplicaciones se utiliza para administrar y proteger el tráfico web en los servidores que mantenga. Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) que use un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md) para los servidores back-end. En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual. El conjunto de escalado se agrega al grupo de back-end predeterminado de la puerta de enlace de la aplicación.
 
 En este artículo aprenderá a:
 
@@ -91,11 +91,11 @@ az network application-gateway create \
 
  La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Después de crear la puerta de enlace de la aplicación, verá estas características nuevas:
 
-- *appGatewayBackendPool*: una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
-- *appGatewayBackendHttpSettings*: especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
-- *appGatewayHttpListener*: agente de escucha predeterminado asociado con *appGatewayBackendPool*.
-- *appGatewayFrontendIP*: asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
-- *rule1*: la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
+- *appGatewayBackendPool* : una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
+- *appGatewayBackendHttpSettings* : especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
+- *appGatewayHttpListener* : agente de escucha predeterminado asociado con *appGatewayBackendPool*.
+- *appGatewayFrontendIP* : asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
+- *rule1* : la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Creación de un conjunto de escalado de máquinas virtuales
 
@@ -155,4 +155,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Restringir el tráfico web con un firewall de aplicaciones web](./tutorial-restrict-web-traffic-cli.md)
+[Restringir el tráfico web con un firewall de aplicaciones web](../web-application-firewall/ag/tutorial-restrict-web-traffic-cli.md)

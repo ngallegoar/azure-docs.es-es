@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd1ca218d9c079e26f8424a36b90b9b657690b41
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808155"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397712"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
 
@@ -95,8 +95,8 @@ En la tabla siguiente se enumeran los valores asociados con el sondeo de estado 
 * Si BackendHttpSetting especifica un puerto distinto de 80, se debe configurar que el sitio predeterminado escuche en ese puerto.
 * La llamada a `http://127.0.0.1:port` debe devolver el código de resultado HTTP 200. Debe devolverse dentro del periodo de espera de 30 segundos.
 * Asegúrese de que el puerto configurado está abierto y de que no hay ninguna regla de firewall ni grupos de seguridad de red de Azure que bloqueen el tráfico entrante o saliente en dicho puerto.
-* Si usa el servicio en la nube o las VM clásicas de Azure con un FQDN o una IP pública, asegúrese de que esté abierto el [punto de conexión](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondiente.
-* Si la VM se configura mediante Azure Resource Manager y se encuentra fuera de la red virtual donde se implementó la instancia de Application Gateway, se debe configurar un [grupo de seguridad de red](../virtual-network/security-overview.md) para permitir el acceso en el puerto deseado.
+* Si usa el servicio en la nube o las VM clásicas de Azure con un FQDN o una IP pública, asegúrese de que esté abierto el [punto de conexión](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json) correspondiente.
+* Si la VM se configura mediante Azure Resource Manager y se encuentra fuera de la red virtual donde se implementó la instancia de Application Gateway, se debe configurar un [grupo de seguridad de red](../virtual-network/network-security-groups-overview.md) para permitir el acceso en el puerto deseado.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemas con la sonda de estado personalizada
 
@@ -195,4 +195,3 @@ Asegúrese de que las instancias son correctas y de que la aplicación está con
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si los pasos anteriores no resuelven el problema, abra una [incidencia de soporte técnico](https://azure.microsoft.com/support/options/).
-

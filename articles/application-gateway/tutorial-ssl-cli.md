@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76fea0c8b6f3c13c9f462ecbb72611c6659c65d0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595825"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397087"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con terminación TLS mediante la CLI de Azure
 
-Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para la [terminación TLS](ssl-overview.md). En el caso de los servidores back-end, puede usar un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual que se agregan al grupo de servidores back-end predeterminado de la puerta de enlace de aplicaciones.
+Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para la [terminación TLS](ssl-overview.md). En el caso de los servidores back-end, puede usar un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md). En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual que se agregan al grupo de servidores back-end predeterminado de la puerta de enlace de aplicaciones.
 
 En este artículo aprenderá a:
 
@@ -113,11 +113,11 @@ az network application-gateway create \
 
  La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Después de crear la puerta de enlace de aplicaciones, puede ver estas nuevas características de ella:
 
-- *appGatewayBackendPool*: una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
-- *appGatewayBackendHttpSettings*: especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
-- *appGatewayHttpListener*: agente de escucha predeterminado asociado con *appGatewayBackendPool*.
-- *appGatewayFrontendIP*: asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
-- *rule1*: la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
+- *appGatewayBackendPool* : una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
+- *appGatewayBackendHttpSettings* : especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
+- *appGatewayHttpListener* : agente de escucha predeterminado asociado con *appGatewayBackendPool*.
+- *appGatewayFrontendIP* : asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
+- *rule1* : la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Crear un conjunto de escalado de máquinas virtuales
 

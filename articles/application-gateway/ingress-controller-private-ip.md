@@ -7,19 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8be37ed1da0da4da3db43ef4c1cd01ed962f24ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84806797"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397315"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Uso de una dirección IP privada para el enrutamiento interno de un punto de conexión de entrada 
 
 Esta característica permite exponer el punto de conexión de entrada en el `Virtual Network` mediante una dirección IP privada.
 
 ## <a name="pre-requisites"></a>Requisitos previos  
-Instancia de Application Gateway con una [configuración de IP privada](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
+Instancia de Application Gateway con una [configuración de IP privada](./configure-application-gateway-with-private-frontend-ip.md)
 
 Hay dos maneras de configurar el controlador para que use una dirección IP privada para la entrada,
 
@@ -66,4 +66,4 @@ Esto hará que el controlador de entrada filtre las configuraciones de direccion
 Se producirá un error en AGIC si no se asigna `usePrivateIP: true` y una dirección IP privada.
 
 > [!NOTE]
-> La SKU de Application Gateway v2 requiere una dirección IP pública. Si necesita que la instancia de Application Gateway sea privada, conecte un [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) a la subred de Application Gateway para restringir el tráfico.
+> La SKU de Application Gateway v2 requiere una dirección IP pública. Si necesita que la instancia de Application Gateway sea privada, conecte un [`Network Security Group`](../virtual-network/network-security-groups-overview.md) a la subred de Application Gateway para restringir el tráfico.

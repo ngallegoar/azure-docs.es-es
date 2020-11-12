@@ -7,22 +7,22 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 20a665eefbb73f062f1f036e17b16da891a43eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89652738"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397542"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Reglas de enrutamiento de solicitudes de Application Gateway
 
-Si crea una puerta de enlace de aplicaciones mediante Azure Portal, creará una regla predeterminada (*rule1*). Esta regla enlaza el cliente de escucha predeterminado (*appGatewayHttpListener*) con el grupo de servidores back-end predeterminado (*appGatewayBackendPool*) y la configuración de HTTP de back-end predeterminada (*appGatewayBackendHttpSettings*). Después de crear la puerta de enlace, puede modificar la configuración de la regla predeterminada o crear nuevas reglas.
+Si crea una puerta de enlace de aplicaciones mediante Azure Portal, creará una regla predeterminada ( *rule1* ). Esta regla enlaza el cliente de escucha predeterminado ( *appGatewayHttpListener* ) con el grupo de servidores back-end predeterminado ( *appGatewayBackendPool* ) y la configuración de HTTP de back-end predeterminada ( *appGatewayBackendHttpSettings* ). Después de crear la puerta de enlace, puede modificar la configuración de la regla predeterminada o crear nuevas reglas.
 
 ## <a name="rule-type"></a>Tipo de regla
 
-Cuando se crea una regla, puede elegir entre [*básica* y *basada en ruta de acceso*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
+Cuando se crea una regla, puede elegir entre [*básica* y *basada en ruta de acceso*](./application-gateway-components.md#request-routing-rules).
 
-- Elija básica si desea reenviar todas las solicitudes del cliente de escucha asociado (por ejemplo, *blog<i></i>.contoso.com/\*)* a un único grupo de servidores back-end.
+- Elija básica si desea reenviar todas las solicitudes del cliente de escucha asociado (por ejemplo, *blog <i></i>.contoso.com/\*)* a un único grupo de servidores back-end.
 - Elija basada en ruta de acceso si desea enrutar las solicitudes desde determinadas rutas de acceso URL a grupos de servidores back-end específicos. El patrón basado en rutas de acceso se aplica solo a la ruta de acceso de la dirección URL, no a sus parámetros de consulta.
 
 ### <a name="order-of-processing-rules"></a>Orden de procesamiento de las reglas

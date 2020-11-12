@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: b89112ab2384386d20b62f2510ec576d4a2075f1
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: f37fc8e19025b78475f706ff96c502cc6094d54f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186763"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358429"
 ---
 # <a name="monitoring-azure-files"></a>Supervisión de Azure Files
 
@@ -661,7 +661,7 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Referencia de datos de supervisión de Azure Files](storage-files-monitoring.md)
+- [Referencia de datos de supervisión de Azure Files](storage-files-monitoring-reference.md)
 - [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Migración de las métricas de Azure Storage](../common/storage-metrics-migration.md).
 - [Planeamiento de una implementación de Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-planning)

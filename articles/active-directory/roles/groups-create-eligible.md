@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58aaecaa9f8606399b40fdb1d38a274117ec6a2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bc2c42f407ee31a792a6634a813358d428120b46
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374094"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378625"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Creación de un grupo al que se pueden asignar roles en Azure Active Directory
 
@@ -27,12 +27,12 @@ Solo puede asignar un rol a un grupo que se ha creado con la propiedad "isAssign
 ## <a name="using-azure-ad-admin-center"></a>Mediante el centro de administración de Azure AD
 
 1. Inicie sesión en el[centro de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
-1. Seleccione **Grupos** > **Todos los grupos** > **Nuevo grupo** .
+1. Seleccione **Grupos** > **Todos los grupos** > **Nuevo grupo**.
 
     [![Apertura de Azure Active Directory para crear un nuevo grupo.](./media/groups-create-eligible/new-group.png "Apertura de Azure Active Directory para crear un nuevo grupo.")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
 1. En la pestaña **Nuevo grupo** , proporcione el tipo, el nombre y la descripción del grupo.
-1. Active **Los roles de Azure AD se pueden asignar a un grupo** . Este modificador solo es visible para los administradores de roles con privilegios y los administradores globales, ya que estos son los dos únicos roles que pueden establecer el modificador.
+1. Active **Los roles de Azure AD se pueden asignar a un grupo**. Este modificador solo es visible para los administradores de roles con privilegios y los administradores globales, ya que estos son los dos únicos roles que pueden establecer el modificador.
 
     [![Hacer que el nuevo grupo sea válido para la asignación de roles](./media/groups-create-eligible/eligible-switch.png "Hacer que el nuevo grupo sea válido para la asignación de roles")](./media/groups-create-eligible/eligible-switch.png#<lightbox>)
 
@@ -40,7 +40,7 @@ Solo puede asignar un rol a un grupo que se ha creado con la propiedad "isAssign
 
     [![Adición de miembros al grupo al que se pueden asignar roles y asignación de roles.](./media/groups-create-eligible/specify-members.png "Adición de miembros al grupo al que se pueden asignar roles y asignación de roles.")](./media/groups-create-eligible/specify-members.png#<lightbox>)
 
-1. Una vez especificados los miembros y los propietarios, seleccione **Crear** .
+1. Una vez especificados los miembros y los propietarios, seleccione **Crear**.
 
     [![El botón Crear se encuentra en la parte inferior de la página.](./media/groups-create-eligible/create-button.png "El botón Crear se encuentra en la parte inferior de la página.")](./media/groups-create-eligible/create-button.png#<lightbox>)
 

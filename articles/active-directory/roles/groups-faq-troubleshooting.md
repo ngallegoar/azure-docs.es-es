@@ -6,25 +6,25 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837750d7eeef9bc7a133a54b23a0c52c847364eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374092"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377741"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solución de problemas de roles asignados a grupos en la nube
 
 Estas son algunas preguntas y sugerencias para solucionar problemas comunes para la asignación de roles a grupos en Azure Active Directory (Azure AD).
 
-**P:** soy administrador de grupos, pero no veo el modificador **Los roles de Azure AD se pueden asignar a un grupo** .
+**P:** soy administrador de grupos, pero no veo el modificador **Los roles de Azure AD se pueden asignar a un grupo**.
 
 **R:** solo los administradores de roles con privilegios o los administradores globales pueden crear un grupo apto para la asignación de roles. Solo los usuarios de esos roles ven este control.
 
@@ -69,30 +69,30 @@ Usuario | Propietario del catálogo | Solo si es propietario del grupo | Solo si
 
 **R:** esta respuesta solo es aplicable a las organizaciones Azure AD Premium P1.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory**.
 1. Seleccione usuarios y abra un perfil de usuario.
-1. Seleccione **Roles asignados** .
+1. Seleccione **Roles asignados**.
 1. Seleccione el icono de engranaje. Se abre un panel que puede proporcionar esta información. Hay un botón "Quitar" junto a las asignaciones directas. Para quitar la asignación indirecta de roles, quite el usuario del grupo al que se le ha asignado el rol.
 
 **P:** ¿cómo veo todos los grupos a los que se pueden asignar roles?
 
 **R:** Siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory** .
-1. Seleccione **Grupos** > **Todos los grupos** .
-1. Seleccione **Agregar filtros** .
-1. Filtre para **Rol asignable** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory**.
+1. Seleccione **Grupos** > **Todos los grupos**.
+1. Seleccione **Agregar filtros**.
+1. Filtre para **Rol asignable**.
 
 **P:** ¿cómo sabe qué rol se asigna directa o indirectamente a una entidad de seguridad?
 
 **R:** Siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory**.
 1. Seleccione usuarios y abra un perfil de usuario.
 1. Seleccione **Roles asignados** y, a continuación:
 
     - En las organizaciones con licencia Azure AD Premium P1: seleccione el icono de engranaje. Se abre un panel que puede proporcionar esta información.
-    - En las organizaciones con licencia Azure AD Premium P2: encontrará información sobre licencias directas y heredadas en la columna **Pertenencia** .
+    - En las organizaciones con licencia Azure AD Premium P2: encontrará información sobre licencias directas y heredadas en la columna **Pertenencia**.
 
 **P:** ¿por qué exigimos la creación de un nuevo grupo en la nube para asignarlo al rol?  
 

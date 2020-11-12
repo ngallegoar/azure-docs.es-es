@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506560"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397474"
 ---
 # <a name="how-an-application-gateway-works"></a>Funcionamiento de una puerta de enlace de aplicaciones
 
@@ -32,7 +32,7 @@ En este artículo se explica el proceso que usa una puerta de enlace de aplicaci
 
 Azure Application Gateway puede usarse como un equilibrador de carga interno de la aplicación o como un equilibrador de carga de aplicación orientado a Internet. Una puerta de enlace de aplicaciones orientada a Internet usa direcciones IP públicas. El nombre DNS de una puerta de enlace de aplicaciones orientada Internet puede resolverse públicamente en su dirección IP pública. Como resultado, las puertas de enlace de aplicaciones orientadas a Internet pueden enrutar las solicitudes de cliente a Internet.
 
-Las puertas de enlace de aplicaciones internas usan solo las direcciones IP privadas. Si usa una [zona DNS privada](https://docs.microsoft.com/azure/dns/private-dns-overview) o personalizada, el nombre de dominio debe poder resolverse internamente en la dirección IP privada de la instancia de Application Gateway. Por lo tanto, los equilibradores de carga internos solo pueden enrutar las solicitudes de clientes con acceso a una red virtual para la puerta de enlace de aplicaciones.
+Las puertas de enlace de aplicaciones internas usan solo las direcciones IP privadas. Si usa una [zona DNS privada](../dns/private-dns-overview.md) o personalizada, el nombre de dominio debe poder resolverse internamente en la dirección IP privada de la instancia de Application Gateway. Por lo tanto, los equilibradores de carga internos solo pueden enrutar las solicitudes de clientes con acceso a una red virtual para la puerta de enlace de aplicaciones.
 
 ## <a name="how-an-application-gateway-routes-a-request"></a>Cómo una puerta de enlace de aplicaciones enruta una solicitud
 
@@ -52,9 +52,9 @@ Cuando una puerta de enlace de la aplicación envía la solicitud original al se
 
  >[!NOTE]
 >Si el grupo de back-end:
-> - **Es un punto de conexión público**, la puerta de enlace de aplicaciones usa su dirección IP pública de front-end para tener acceso al servidor. Si no hay una dirección IP pública de front-end, se asigna una a la conectividad saliente externa.
-> - **Contiene un FQDN que se puede resolver internamente o una dirección IP privada**, la puerta de enlace de aplicaciones enruta la solicitud al servidor back-end mediante las direcciones IP privadas de su instancia.
-> - **Contiene un punto de conexión externo o un FQDN que puede resolverse externamente**, la puerta de enlace de aplicaciones enruta la solicitud al servidor back-end mediante la dirección IP pública de su front-end. La resolución de DNS se basa en una zona DNS privada o un servidor DNS personalizado (si está configurado), o bien utiliza el valor predeterminado proporcionado por Azure DNS. Si no hay una dirección IP pública de front-end, se asigna una a la conectividad saliente externa.
+> - **Es un punto de conexión público** , la puerta de enlace de aplicaciones usa su dirección IP pública de front-end para tener acceso al servidor. Si no hay una dirección IP pública de front-end, se asigna una a la conectividad saliente externa.
+> - **Contiene un FQDN que se puede resolver internamente o una dirección IP privada** , la puerta de enlace de aplicaciones enruta la solicitud al servidor back-end mediante las direcciones IP privadas de su instancia.
+> - **Contiene un punto de conexión externo o un FQDN que puede resolverse externamente** , la puerta de enlace de aplicaciones enruta la solicitud al servidor back-end mediante la dirección IP pública de su front-end. La resolución de DNS se basa en una zona DNS privada o un servidor DNS personalizado (si está configurado), o bien utiliza el valor predeterminado proporcionado por Azure DNS. Si no hay una dirección IP pública de front-end, se asigna una a la conectividad saliente externa.
 
 ### <a name="modifications-to-the-request"></a>Modificaciones a una solicitud
 

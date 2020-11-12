@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7dbfa877f634256c86166892a38d048a95e56baa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 49fd6a939fc30671cf78984fdcba009666f6121e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331036"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397321"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante la CLI de Azure
 
-Puede usar la CLI de Azure para crear una instancia de [Application Gateway](overview.md) con un certificado para la terminación TLS/SSL. Para redirigir el tráfico HTTP al puerto HTTPS en la puerta de enlace de aplicaciones se usa una regla de enrutamiento. En este ejemplo, también crea un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para el grupo de back-end de la puerta de enlace de aplicaciones que contiene dos instancias de máquina virtual.
+Puede usar la CLI de Azure para crear una instancia de [Application Gateway](overview.md) con un certificado para la terminación TLS/SSL. Para redirigir el tráfico HTTP al puerto HTTPS en la puerta de enlace de aplicaciones se usa una regla de enrutamiento. En este ejemplo, también crea un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md) para el grupo de back-end de la puerta de enlace de aplicaciones que contiene dos instancias de máquina virtual.
 
 En este artículo aprenderá a:
 
@@ -108,11 +108,11 @@ az network application-gateway create \
 
  La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Después de crear la puerta de enlace de aplicaciones, puede ver estas nuevas características de ella:
 
-- *appGatewayBackendPool*: una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
-- *appGatewayBackendHttpSettings*: especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
-- *appGatewayHttpListener*: agente de escucha predeterminado asociado con *appGatewayBackendPool*.
-- *appGatewayFrontendIP*: asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
-- *rule1*: la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
+- *appGatewayBackendPool* : una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
+- *appGatewayBackendHttpSettings* : especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
+- *appGatewayHttpListener* : agente de escucha predeterminado asociado con *appGatewayBackendPool*.
+- *appGatewayFrontendIP* : asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
+- *rule1* : la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
 
 ## <a name="add-a-listener-and-redirection-rule"></a>Adición de un agente de escucha y una regla de redireccionamiento
 
@@ -224,5 +224,3 @@ Para aceptar la advertencia de seguridad si usó un certificado autofirmado, sel
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante la CLI de Azure](redirect-internal-site-cli.md)
-
-

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
-ms.openlocfilehash: 5d803acc7f2287d0b88791d85fa876f89e4a0955
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0d8a030061ef6aa848344152edaa3267ad916e2a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332192"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377945"
 ---
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Entorno de chroot en una VM de recuperación de Linux
 
@@ -34,13 +34,13 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
 
    1. Acceda a la VM como usuario raíz con el comando siguiente:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI**:
+   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI** :
 
       `dmesg | grep SCSI`
 
-      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC**:
+      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC** :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -53,17 +53,17 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para acceder al entorno de chroot:
 
       ```
-      #mkdir /rescue
-      #mount /dev/sdc1 /rescue
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/sdc1 /rescue
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Solucione los problemas del entorno de chroot.
@@ -71,16 +71,16 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para salir del entorno de chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -101,13 +101,13 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
 
    1. Acceda a la VM como usuario raíz con el comando siguiente:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI**:
+   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI** :
 
       `dmesg | grep SCSI`
 
-      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC**:
+      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC** :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -120,17 +120,17 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para acceder al entorno de chroot:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Solucione los problemas del entorno de chroot.
@@ -138,16 +138,16 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para salir del entorno de chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -171,13 +171,13 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
 
    1. Acceda a la VM como usuario raíz con el comando siguiente:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI**:
+   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI** :
 
       `dmesg | grep SCSI`
 
-      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC**:
+      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC** :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -190,9 +190,9 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use el siguiente comando para activar el grupo de volúmenes lógicos:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Use el comando `lsblk` para recuperar los nombres del LVM:
@@ -221,23 +221,23 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para acceder al entorno de chroot:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/mapper/rootvg-optlv /rescue/opt
-      #mount /dev/sdc2 /rescue/boot/
-      #mount /dev/sdc1 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/mapper/rootvg-optlv /rescue/opt
+      mount /dev/sdc2 /rescue/boot/
+      mount /dev/sdc1 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Solucione los problemas del entorno de chroot.
@@ -245,22 +245,22 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para salir del entorno de chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue/opt
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue/opt
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -284,13 +284,13 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
 
    1. Acceda a la VM como usuario raíz con el comando siguiente:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI**:
+   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI** :
 
       `dmesg | grep SCSI`
 
-      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC**:
+      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC** :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -303,9 +303,9 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use el siguiente comando para activar el grupo de volúmenes lógicos:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Use el comando `lsblk` para recuperar los nombres del LVM:
@@ -333,22 +333,22 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para acceder al entorno de chroot:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Solucione los problemas del entorno de chroot.
@@ -356,21 +356,21 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para salir del entorno de chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -391,13 +391,13 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
 
    1. Acceda a la VM como usuario raíz con el comando siguiente:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI**:
+   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI** :
 
       `dmesg | grep SCSI`
 
-      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC**:
+      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC** :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -410,18 +410,18 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para acceder al entorno de chroot:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      ##chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Solucione los problemas del entorno de chroot.
@@ -429,17 +429,17 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para salir del entorno de chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -460,13 +460,13 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
 
    1. Acceda a la VM como usuario raíz con el comando siguiente:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI**:
+   1. Para buscar el disco, use `dmesg` (el método que use para detectar el nuevo disco puede variar). En el ejemplo siguiente, se usa **dmesg** para filtrar los discos **SCSI** :
 
       `dmesg | grep SCSI`
 
-      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC**:
+      El resultado será similar al del ejemplo siguiente. En este ejemplo, queremos el disco **SDC** :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -479,18 +479,18 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para acceder al entorno de chroot:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc4 /rescue
-      #mount -o nouuid /dev/sdc3 /rescue/boot/
-      #mount /dev/sdc2 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc4 /rescue
+      mount -o nouuid /dev/sdc3 /rescue/boot/
+      mount /dev/sdc2 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Solucione los problemas del entorno de chroot.
@@ -498,17 +498,17 @@ En este artículo se describe cómo solucionar problemas del entorno de chroot e
    1. Use los comandos siguientes para salir del entorno de chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]

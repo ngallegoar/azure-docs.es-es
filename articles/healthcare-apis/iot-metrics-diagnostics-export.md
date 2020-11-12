@@ -8,16 +8,16 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: jasteppe
-ms.openlocfilehash: 2c10dc05775739a55267dd3766e533b73e12b3a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322367"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394261"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportación de las métricas de Azure IoT Connector for FHIR (versión preliminar) mediante la configuración de diagnóstico
 
-En este artículo, aprenderá a exportar registros de métricas de Azure IoT Connector for FHIR*. La característica que permite el registro de métricas es la [**configuración de diagnóstico**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) de Azure Portal. 
+En este artículo, aprenderá a exportar registros de métricas de Azure IoT Connector for FHIR*. La característica que permite el registro de métricas es la [**configuración de diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) de Azure Portal. 
 
 > [!TIP]
 > Para configurar el registro de auditoría, siga las instrucciones que se indican en [Habilitación del registro de diagnóstico en Azure API for FHIR y Azure IoT Connector for FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir).
@@ -48,7 +48,7 @@ En este artículo, aprenderá a exportar registros de métricas de Azure IoT Con
 > [!Note] 
 > Los primeros registros de métricas pueden tardar hasta 15 minutos en mostrarse en el repositorio de su elección.  
  
-Para más información sobre cómo trabajar con los registros de diagnóstico, consulte la [documentación del registro de recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview).
+Para más información sobre cómo trabajar con los registros de diagnóstico, consulte la [documentación del registro de recursos de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="conclusion"></a>Conclusión 
 Tener acceso a los registros de métricas es fundamental para las tareas de supervisión y solución de problemas.  Azure IoT Connector for FHIR le permite realizar estas acciones mediante registros de métricas. 

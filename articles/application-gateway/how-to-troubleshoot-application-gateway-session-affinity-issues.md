@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 02d1d78dae4f02ac53d535f6c404b15f8d98f008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 548bda36ed2b167c159d32a575b63ecbf10b16dd
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563767"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397576"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Solución de problemas de afinidad de sesión en Azure Application Gateway
 
@@ -40,9 +40,9 @@ A veces, pueden producirse problemas de afinidad de sesión cuando se olvida de 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. En el **panel de navegación izquierdo**, haga clic en **Todos los recursos**. Haga clic en el nombre de la puerta de enlace de aplicación en la hoja Todos los recursos. Si la suscripción que seleccionó ya tiene varios recursos, puede escribir el nombre de la puerta de enlace de aplicación en el cuadro **Filtrar por nombre...** para acceder fácilmente a la puerta de enlace de la aplicación.
+2. En el **panel de navegación izquierdo** , haga clic en **Todos los recursos**. Haga clic en el nombre de la puerta de enlace de aplicación en la hoja Todos los recursos. Si la suscripción que seleccionó ya tiene varios recursos, puede escribir el nombre de la puerta de enlace de aplicación en el cuadro **Filtrar por nombre...** para acceder fácilmente a la puerta de enlace de la aplicación.
 
-3. Seleccione la pestaña **Configuración HTTP**, en **CONFIGURACIÓN**.
+3. Seleccione la pestaña **Configuración HTTP** , en **CONFIGURACIÓN**.
 
    ![Captura de pantalla que muestra la sección Configuración con la configuración de HTTP seleccionada.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-1.png)
 
@@ -52,9 +52,9 @@ A veces, pueden producirse problemas de afinidad de sesión cuando se olvida de 
 
 
 
-También puede comprobar que el valor de "**CookieBasedAffinity**" está establecido en *Enabled*, bajo "**backendHttpSettingsCollection**" mediante uno de los métodos siguientes:
+También puede comprobar que el valor de " **CookieBasedAffinity** " está establecido en *Enabled* , bajo " **backendHttpSettingsCollection** " mediante uno de los métodos siguientes:
 
-- Ejecute [Get-AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) en PowerShell
+- Ejecute [Get-AzApplicationGatewayBackendHttpSetting](/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) en PowerShell
 - Examine el archivo JSON con la plantilla de Azure Resource Manager
 
 ```
@@ -80,9 +80,9 @@ Si ha habilitado la opción de configuración Afinidad basada en cookies, al acc
 Para identificar este problema, siga las instrucciones:
 
 1. Realice un seguimiento del depurador web en el "cliente" que se conecta a la aplicación detrás de Application Gateway (en este ejemplo, se usa Fiddler).
-    **Sugerencia** Si no sabe cómo usar Fiddler, active la opción "**I want to collect network traffic and analyze it using web debugger**" (Deseo recopilar el tráfico de red y analizarlo con el depurador web) en la parte inferior.
+    **Sugerencia** Si no sabe cómo usar Fiddler, active la opción " **I want to collect network traffic and analyze it using web debugger** " (Deseo recopilar el tráfico de red y analizarlo con el depurador web) en la parte inferior.
 
-2. Compruebe y analizar los registros de sesión, para determinar si las cookies proporcionadas por el cliente tienen los detalles de ARRAffinity. Si no encuentra los detalles de ARRAffinity, como "**ARRAffinity=** *ARRAffinityValue*" dentro del conjunto de cookies, significa que el cliente no está respondiendo con la cookie ARRA, que Application Gateway proporciona.
+2. Compruebe y analizar los registros de sesión, para determinar si las cookies proporcionadas por el cliente tienen los detalles de ARRAffinity. Si no encuentra los detalles de ARRAffinity, como " **ARRAffinity=** *ARRAffinityValue* " dentro del conjunto de cookies, significa que el cliente no está respondiendo con la cookie ARRA, que Application Gateway proporciona.
     Por ejemplo:
 
     ![Captura de pantalla que muestra un registro de sesión con una única entrada resaltada.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
@@ -117,7 +117,7 @@ Habilitación del registro mediante Azure Portal
 
    ![Captura de pantalla que muestra una puerta de enlace de aplicación con los registros de diagnóstico seleccionados.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-5.png)
 
-3. En la hoja **Configuración de diagnóstico**, se encuentran las opciones de configuración de los registros de diagnóstico. En este ejemplo, se utiliza Log Analytics para almacenar los registros. Haga clic en la opción **Configurar** bajo **Log Analytics** para establecer el área de trabajo. Se pueden utilizar también Events Hubs y la cuenta de almacenamiento para guardar los registros de diagnóstico.
+3. En la hoja **Configuración de diagnóstico** , se encuentran las opciones de configuración de los registros de diagnóstico. En este ejemplo, se utiliza Log Analytics para almacenar los registros. Haga clic en la opción **Configurar** bajo **Log Analytics** para establecer el área de trabajo. Se pueden utilizar también Events Hubs y la cuenta de almacenamiento para guardar los registros de diagnóstico.
 
    ![Captura de pantalla que muestra el panel Configuración de diagnóstico con la opción Configurar Log Analytics seleccionada.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-6.png)
 
@@ -131,7 +131,7 @@ Habilitación del registro mediante Azure Portal
 
    ![Captura de pantalla que muestra la sección Supervisión con los registros de diagnóstico seleccionados.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-8.png)
 
-2. En el lado derecho, seleccione "**ApplicationGatewayAccessLog**" en la lista desplegable bajo **Categorías de registro.**  
+2. En el lado derecho, seleccione " **ApplicationGatewayAccessLog** " en la lista desplegable bajo **Categorías de registro.**  
 
    ![Captura de pantalla que muestra la lista desplegable de categorías de registro con ApplicationGatewayAccessLog seleccionado.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-9.png)
 
@@ -141,19 +141,19 @@ Habilitación del registro mediante Azure Portal
 
 5. Compruebe los datos siguientes:
 
-- **ClientIP**: se trata de la dirección IP del cliente que se conecta.
-- **ClientPort**: es el puerto de origen del cliente que se conecta para la solicitud.
-- **RequestQuery**: indica el servidor de destino en el que se recibe la solicitud.
-- **Server-Routed**: instancia del grupo de back-end a la que se ha enviado la solicitud.
-- **X-AzureApplicationGateway-LOG-ID**: identificador de correlación que se ha usado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. Por ejemplo: X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
+- **ClientIP** : se trata de la dirección IP del cliente que se conecta.
+- **ClientPort** : es el puerto de origen del cliente que se conecta para la solicitud.
+- **RequestQuery** : indica el servidor de destino en el que se recibe la solicitud.
+- **Server-Routed** : instancia del grupo de back-end a la que se ha enviado la solicitud.
+- **X-AzureApplicationGateway-LOG-ID** : identificador de correlación que se ha usado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. Por ejemplo: X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
 
-  - **SERVER-STATUS**: código de respuesta HTTP que Application Gateway ha recibido del back-end.
+  - **SERVER-STATUS** : código de respuesta HTTP que Application Gateway ha recibido del back-end.
 
   ![Captura de pantalla que muestra el estado del servidor en texto sin formato, en su mayoría oscurecido, con clientPort y SERVER-ROUTED resaltados.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-11.png)
 
 Si ve que dos elementos proceden de la misma dirección IP y puerto de cliente, y se envían al mismo servidor back-end, significa que Application Gateway se ha configurado correctamente.
 
-Si ve que dos elementos proceden de la misma dirección IP y puerto de cliente, y se envían a los distintos servidores de back-end, significa que la solicitud está rebotando entre los servidores back-end, seleccione "**Application is using cookie-based affinity but requests still bouncing between back-end servers**" (La aplicación usa la afinidad basada en cookies, pero las solicitudes siguen rebotando entre los servidores back-end) en la parte inferior para solucionar el problema.
+Si ve que dos elementos proceden de la misma dirección IP y puerto de cliente, y se envían a los distintos servidores de back-end, significa que la solicitud está rebotando entre los servidores back-end, seleccione " **Application is using cookie-based affinity but requests still bouncing between back-end servers** " (La aplicación usa la afinidad basada en cookies, pero las solicitudes siguen rebotando entre los servidores back-end) en la parte inferior para solucionar el problema.
 
 ### <a name="use-web-debugger-to-capture-and-analyze-the-http-or-https-traffics"></a>Uso del depurador web para capturar y analizar el tráfico HTTP o HTTPS
 
@@ -174,7 +174,7 @@ Use el depurador web que prefiera. En este ejemplo usaremos Fiddler para captura
 
     ![Captura de pantalla que muestra el depurador web de Fiddler con el indicador de captura resaltado.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
-4. Probablemente, estará interesado en el tráfico HTTPS descifrado y puede habilitar el descifrado de HTTPS si selecciona **Herramientas** > **Opciones de Fiddler** y activa la casilla " **Descifrar el tráfico HTTPS**".
+4. Probablemente, estará interesado en el tráfico HTTPS descifrado y puede habilitar el descifrado de HTTPS si selecciona **Herramientas** > **Opciones de Fiddler** y activa la casilla " **Descifrar el tráfico HTTPS** ".
 
     ![Captura de pantalla que muestra las opciones de Fiddler con HTTP seleccionado y el descifrado del tráfico HTTPS seleccionado.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
@@ -190,7 +190,7 @@ Use el depurador web que prefiera. En este ejemplo usaremos Fiddler para captura
 
     Por ejemplo:
 
-- **Ejemplo A:** Busque un registro de sesión que indique que la solicitud se envía desde el cliente y va a la dirección IP pública de Application Gateway; haga clic en este registro para ver los detalles.  En el lado derecho, los datos del cuadro inferior es lo que Application Gateway devuelve al cliente. Seleccione la pestaña "SIN FORMATO" y determine si el cliente recibe un valor "**Set-Cookie: ARRAffinity=** *ARRAffinityValue*." Si no hay ninguna cookie, la afinidad de la sesión no está establecida o bien Application Gateway no está aplicando la cookie al cliente.
+- **Ejemplo A:** Busque un registro de sesión que indique que la solicitud se envía desde el cliente y va a la dirección IP pública de Application Gateway; haga clic en este registro para ver los detalles.  En el lado derecho, los datos del cuadro inferior es lo que Application Gateway devuelve al cliente. Seleccione la pestaña "SIN FORMATO" y determine si el cliente recibe un valor " **Set-Cookie: ARRAffinity=** *ARRAffinityValue*." Si no hay ninguna cookie, la afinidad de la sesión no está establecida o bien Application Gateway no está aplicando la cookie al cliente.
 
    > [!NOTE]
    > Este valor ARRAffinity es el identificador de la cookie, que Application Gateway establece para que el cliente se envíe a un servidor back-end determinado.

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: de580d8f94292ae65769c696aa232f5b660bf414
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e60aa9f072a447af97aa7cc66534e6e893fdbcf6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84806759"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396947"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generación de un certificado autofirmado de Azure Application Gateway con una entidad de certificación raíz personalizada
 
@@ -133,7 +133,7 @@ En el servidor web, configure TLS con los archivos fabrikam.crt y fabrikam.key. 
 
 Para obtener instrucciones sobre cómo importar el certificado y cargarlo como un certificado de servidor en IIS, consulte [Procedimiento: Instalación de certificados importados en un servidor web en Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
-Para obtener instrucciones de enlace TLS, consulte [Configuración de SSL en IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
+Para obtener instrucciones de enlace TLS, consulte [Configuración de SSL en IIS 7](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
 ### <a name="apache"></a>Apache
 
@@ -273,4 +273,3 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre SSL\TLS en Application Gateway, consulte [Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway](ssl-overview.md).
-

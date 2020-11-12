@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3dd46f4033a568a278d7006c0d5aab451496ff47
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311604"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397230"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2
 
@@ -125,7 +125,7 @@ Para ejecutar el script:
       $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
       ```
 
-      Para crear una lista de objetos PSApplicationGatewayTrustedRootCertificate, consulte [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
+      Para crear una lista de objetos PSApplicationGatewayTrustedRootCertificate, consulte [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress: [cadena]: opcional**. Dirección IP privada específica que quiere asociar a la nueva puerta de enlace v2.  Debe ser de la misma red virtual que asigne a la nueva puerta de enlace v2. Si esto no se especifica, el script asigna una dirección IP privada para la puerta de enlace v2.
    * **publicIpResourceId: [cadena]: opcional**. Identificador de recurso de una dirección IP pública existente (SKU estándar) en la suscripción que quiere asignar a la nueva puerta de enlace v2. Si esto no se especifica, el script asigna una nueva dirección IP pública en el mismo grupo de recursos. El nombre es el mismo de la puerta de enlace v2 con *-IP* anexado.
    * **validateMigration: [modificador]: opcional**. Use este parámetro si quiere que el script realice algunas validaciones de comparación de la configuración básica tras la creación de la puerta de enlace v2 y la copia de la configuración. De forma predeterminada, no se realiza ninguna validación.

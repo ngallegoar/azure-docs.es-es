@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248690"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397158"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescritura de encabezados HTTP con Azure Application Gateway
 
@@ -22,7 +22,7 @@ Los encabezados HTTP permiten que el cliente y el servidor pasen información ad
 
 Application Gateway permite agregar, quitar o actualizar los encabezados de respuesta y de solicitudes HTTP, mientras los paquetes de solicitudes y respuestas se mueven entre los grupos de back-end y de cliente. También permite agregar las condiciones necesarias para asegurarse de que los encabezados especificados se reescriben solo cuando se cumplen ciertas condiciones.
 
-Application Gateway también admite varias [variables de servidor](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) que ayudan a almacenar información adicional acerca de las solicitudes y respuestas. Así se facilita la creación de reglas de reescritura eficaces.
+Application Gateway también admite varias [variables de servidor](#server-variables) que ayudan a almacenar información adicional acerca de las solicitudes y respuestas. Así se facilita la creación de reglas de reescritura eficaces.
 
 > [!NOTE]
 >
@@ -49,14 +49,14 @@ Puede usar una condición para evaluar si una variable especificada está presen
 Las acciones de reescritura se usan para especificar los encabezados de solicitud y de respuesta que quiere reescribir y el nuevo valor para los encabezados. Puede crear un nuevo encabezado, modificar el valor de un encabezado existente o eliminar un encabezado existente. El valor de un nuevo encabezado o un encabezado existente se pueden establecer para estos tipos de valores:
 
 - Texto.
-- Encabezado de la solicitud. Para especificar un encabezado de solicitud, tiene que usar la sintaxis siguiente: {http_req_*headerName*}.
-- Encabezado de respuesta. Para especificar un encabezado de respuesta, tiene que usar la sintaxis {http_req_*headerName*}.
-- Variable de servidor. Para especificar una variable de servidor, tiene que usar la sintaxis {var_*serverVariable*}.
+- Encabezado de la solicitud. Para especificar un encabezado de solicitud, tiene que usar la sintaxis siguiente: {http_req_ *headerName* }.
+- Encabezado de respuesta. Para especificar un encabezado de respuesta, tiene que usar la sintaxis {http_req_ *headerName* }.
+- Variable de servidor. Para especificar una variable de servidor, tiene que usar la sintaxis {var_ *serverVariable* }.
 - Una combinación de texto, un encabezado de solicitud, un encabezado de respuesta y una variable de servidor.
 
 ## <a name="server-variables"></a>Variables de servidor
 
-App Gateway usa variables de servidor para almacenar información útil sobre el servidor, la conexión con el cliente y la solicitud actual en la conexión. La dirección IP del cliente y el tipo de explorador web son ejemplos de la información almacenada. Las variables de servidor cambian dinámicamente, por ejemplo, cuando se carga una página nueva o cuando se publica un formulario. Puede usar estas variables para evaluar las condiciones de reescritura y volver a escribir los encabezados. Para usar el valor de las variables del servidor para volver a escribir los encabezados, deberá especificar estas variables en la sintaxis {var_*serverVariable*}.
+App Gateway usa variables de servidor para almacenar información útil sobre el servidor, la conexión con el cliente y la solicitud actual en la conexión. La dirección IP del cliente y el tipo de explorador web son ejemplos de la información almacenada. Las variables de servidor cambian dinámicamente, por ejemplo, cuando se carga una página nueva o cuando se publica un formulario. Puede usar estas variables para evaluar las condiciones de reescritura y volver a escribir los encabezados. Para usar el valor de las variables del servidor para volver a escribir los encabezados, deberá especificar estas variables en la sintaxis {var_ *serverVariable* }.
 
 Application Gateway admite estas variables de servidor:
 
@@ -70,7 +70,7 @@ Application Gateway admite estas variables de servidor:
 | client_tcp_rtt             | Información sobre la conexión TCP de cliente. Está disponible en los sistemas que admiten la opción de socket TCP_INFO. |
 | client_user                | Al usar la autenticación HTTP, el nombre de usuario proporcionado para la autenticación. |
 | host                       | En este orden de prioridad: nombre de host de la línea de la solicitud, nombre de host del campo de encabezado de la solicitud del “Host”, o bien el nombre del servidor que coincida con una solicitud. Ejemplo: en la solicitud *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , el valor del host será *contoso.com*. |
-| cookie_*name*              | El cookie de *nombre*.                                            |
+| cookie_ *name*              | El cookie de *nombre*.                                            |
 | http_method                | Método usado para realizar la solicitud de URL. Por ejemplo, GET, POST, etc. |
 | http_status                | Estado de la sesión. Por ejemplo, 200, 400 o 403.                       |
 | http_version               | Protocolo de solicitud. Normalmente, HTTP/1.0, HTTP/1.1 o HTTP/2.0. |
@@ -91,19 +91,19 @@ Para configurar la reescritura de encabezados HTTP, es preciso completar estos p
 
 1. Cree los objetos necesarios para la reescritura de encabezados HTTP:
 
-   - **Acción de reescritura**: Se usa para especificar los campos de solicitud y encabezado de solicitud que desee reescribir y el nuevo valor para los encabezados. Puede asociar una o varias condiciones de reescritura con una acción de reescritura.
+   - **Acción de reescritura** : Se usa para especificar los campos de solicitud y encabezado de solicitud que desee reescribir y el nuevo valor para los encabezados. Puede asociar una o varias condiciones de reescritura con una acción de reescritura.
 
-   - **Condición de reescritura**: Una configuración opcional. Las condiciones de reescritura evalúan el contenido de las solicitudes y respuestas HTTP(S). La acción de reescritura tendrá lugar si la solicitud o respuesta HTTP(S) coinciden con la condición de reescritura.
+   - **Condición de reescritura** : Una configuración opcional. Las condiciones de reescritura evalúan el contenido de las solicitudes y respuestas HTTP(S). La acción de reescritura tendrá lugar si la solicitud o respuesta HTTP(S) coinciden con la condición de reescritura.
 
      Si asocia más de una condición con una acción, la acción se produce solo cuando se cumplen todas las condiciones. En otras palabras, se trata de una operación AND lógica.
 
-   - **Regla de reescritura**: Contiene varias combinaciones de acción de reescritura y condición de reescritura.
+   - **Regla de reescritura** : Contiene varias combinaciones de acción de reescritura y condición de reescritura.
 
-   - **Secuencia de reglas**: Ayuda a determinar el orden en el que se ejecutan las reglas de reescritura. Esta configuración es útil cuando hay varias reglas de reescritura en un conjunto de reescritura. Una regla de reescritura que tiene un valor de secuencia de reglas más bajo se ejecuta primero. Si asigna el mismo valor de secuencia de reglas a dos reglas de reescritura, el orden de ejecución es no determinista.
+   - **Secuencia de reglas** : Ayuda a determinar el orden en el que se ejecutan las reglas de reescritura. Esta configuración es útil cuando hay varias reglas de reescritura en un conjunto de reescritura. Una regla de reescritura que tiene un valor de secuencia de reglas más bajo se ejecuta primero. Si asigna el mismo valor de secuencia de reglas a dos reglas de reescritura, el orden de ejecución es no determinista.
 
-   - **Conjunto de reescritura**: Contiene varias reglas de reescritura que se asociarán con una regla de enrutamiento de solicitudes.
+   - **Conjunto de reescritura** : Contiene varias reglas de reescritura que se asociarán con una regla de enrutamiento de solicitudes.
 
-2. Conecte el conjunto de reescritura (*rewriteRuleSet*) con una regla de enrutamiento. La configuración de reescritura se conecta al agente de escucha de origen mediante la regla de enrutamiento. Cuando usa una regla de enrutamiento básica, la configuración de reescritura de encabezados se asocia a un agente de escucha de origen y es una reescritura de encabezados global. Cuando usa una regla de enrutamiento basada en rutas, la configuración de reescritura de encabezados se define en la asignación de la ruta de URL. En este caso, solo se aplica al área específica de la ruta de acceso de un sitio.
+2. Conecte el conjunto de reescritura ( *rewriteRuleSet* ) con una regla de enrutamiento. La configuración de reescritura se conecta al agente de escucha de origen mediante la regla de enrutamiento. Cuando usa una regla de enrutamiento básica, la configuración de reescritura de encabezados se asocia a un agente de escucha de origen y es una reescritura de encabezados global. Cuando usa una regla de enrutamiento basada en rutas, la configuración de reescritura de encabezados se define en la asignación de la ruta de URL. En este caso, solo se aplica al área específica de la ruta de acceso de un sitio.
    > [!NOTE]
    > La reescritura de dirección URL modifica los encabezados; no cambia la dirección URL de la ruta de acceso.
 
@@ -168,5 +168,5 @@ Puede evaluar un encabezado de respuesta o de solicitud HTTP para comprobar la p
 
 Para obtener información sobre cómo volver a escribir los encabezados HTTP, consulte:
 
-- [Reescribir los encabezados HTTP de solicitud y respuesta con Azure Application Gateway mediante Azure Portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Reescribir los encabezados HTTP de solicitud y respuesta con Azure Application Gateway mediante Azure Portal](./rewrite-http-headers-portal.md)
 - [Vuelva a escribir los encabezados HTTP con Application Gateway](add-http-header-rewrite-rule-powershell.md)

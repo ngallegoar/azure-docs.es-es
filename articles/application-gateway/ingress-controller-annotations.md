@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335822"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397457"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Anotaciones para el controlador de entrada de Application Gateway 
 
@@ -72,7 +72,7 @@ En el ejemplo anterior, se ha definido un recurso de entrada denominado `go-serv
 
 ## <a name="tls-redirect"></a>Redirección de TLS
 
-Application Gateway [puede configurarse](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) para redirigir automáticamente las direcciones URL HTTP a sus equivalentes HTTPS. Cuando esta anotación está presente y TLS está configurado correctamente, el controlador de entrada de Kubernetes creará una [regla de enrutamiento con una configuración de redireccionamiento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) y aplicará los cambios a su instancia de Application Gateway. La redirección creada será HTTP `301 Moved Permanently`.
+Application Gateway [puede configurarse](./redirect-overview.md) para redirigir automáticamente las direcciones URL HTTP a sus equivalentes HTTPS. Cuando esta anotación está presente y TLS está configurado correctamente, el controlador de entrada de Kubernetes creará una [regla de enrutamiento con una configuración de redireccionamiento](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) y aplicará los cambios a su instancia de Application Gateway. La redirección creada será HTTP `301 Moved Permanently`.
 
 ### <a name="usage"></a>Uso
 

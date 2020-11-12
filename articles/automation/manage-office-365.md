@@ -2,14 +2,14 @@
 title: Administración de servicios de Office 365 mediante Azure Automation
 description: En este artículo se indica cómo usar Azure Automation para administrar los servicios de suscripción de Office 365.
 services: automation
-ms.date: 04/01/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91f5ac0c3adabf9880078d7a4d3703e2757cb97f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70c8892969a3b13175c60a4e20e0cf9086112abe
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185320"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398052"
 ---
 # <a name="manage-office-365-services"></a>Administración de servicios de Office 365
 
@@ -44,7 +44,7 @@ Agregue ahora los módulos MSOnline y MSOnlineExt instalados para habilitar la f
 3. Seleccione **Galería de módulos** en **Recursos compartidos**.
 4. Busque MSOnline.
 5. Seleccione el módulo `MSOnline` de PowerShell y haga clic en **Importar** para importar el módulo como un recurso.
-6. Repita los pasos 4 y 5 para buscar e importar el módulo `MSOnlineExt`. 
+6. Repita los pasos 4 y 5 para buscar e importar el módulo `MSOnlineExt`.
 
 ## <a name="create-a-credential-asset-optional"></a>Creación de un recurso de credencial (opcional)
 
@@ -52,7 +52,7 @@ La creación de un recurso de credencial para el usuario administrativo de Offic
 
 ## <a name="create-an-office-365-service-account"></a>Creación de una cuenta de servicio de Office 365
 
-Para ejecutar los servicios de suscripción de Office 365, necesita una cuenta de servicio de Office 365 con permisos para hacer lo que desee. Puede usar una cuenta de administrador global, una cuenta por servicio o contar con una función o un script que se ejecuten. En cualquier caso, la cuenta de servicio requiere una contraseña compleja y segura. Consulte [Configurar Office 365 para empresas](/microsoft-365/admin/setup/setup?view=o365-worldwide). 
+Para ejecutar los servicios de suscripción de Office 365, necesita una cuenta de servicio de Office 365 con permisos para hacer lo que desee. Puede usar una cuenta de administrador global, una cuenta por servicio o contar con una función o un script que se ejecuten. En cualquier caso, la cuenta de servicio requiere una contraseña compleja y segura. Consulte [Configurar Office 365 para empresas](/microsoft-365/admin/setup/setup).
 
 ## <a name="connect-to-the-azure-ad-online-service"></a>Conexión al servicio en línea de Azure AD
 
@@ -61,7 +61,7 @@ Para ejecutar los servicios de suscripción de Office 365, necesita una cuenta 
 
 Puede usar el módulo MSOnline para conectarse a Azure AD desde la suscripción de Office 365. La conexión usa un nombre de usuario y una contraseña de Office 365 o la autenticación multifactor (MFA). Puede conectarse mediante Azure Portal o un símbolo del sistema de Windows PowerShell (no tiene que ser elevado).
 
-A continuación se muestra el ejemplo de PowerShell. El cmdlet [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) solicita las credenciales y las almacena en la variable `Msolcred`. A continuación, el cmdlet [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) usa las credenciales para conectarse al servicio en línea de Azure AD. Si desea conectarse a un entorno específico de Azure, use el parámetro `AzureEnvironment`.
+A continuación se muestra el ejemplo de PowerShell. El cmdlet [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) solicita las credenciales y las almacena en la variable `Msolcred`. A continuación, el cmdlet [Connect-MsolService](/powershell/module/msonline/connect-msolservice) usa las credenciales para conectarse al servicio en línea de Azure AD. Si desea conectarse a un entorno específico de Azure, use el parámetro `AzureEnvironment`.
 
 ```powershell
 $Msolcred = Get-Credential
@@ -71,25 +71,23 @@ Connect-MsolService -Credential $MsolCred -AzureEnvironment "AzureCloud"
 Si no recibe ningún error, se ha conectado correctamente. Una prueba rápida consiste en ejecutar un cmdlet de Office 365, por ejemplo, `Get-MsolUser`, y ver los resultados. Si recibe errores, tenga en cuenta que un problema habitual es indicar una contraseña incorrecta.
 
 >[!NOTE]
->También puede usar los módulos AzureRM o Az para conectarse a Azure AD desde la suscripción de Office 365. El cmdlet de conexión principal es [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0). Este cmdlet admite el parámetro `AzureEnvironmentName` para entornos específicos de Office 365.
+>También puede usar los módulos AzureRM o Az para conectarse a Azure AD desde la suscripción de Office 365. El cmdlet de conexión principal es [Connect-AzureAD](/powershell/module/azuread/connect-azuread). Este cmdlet admite el parámetro `AzureEnvironmentName` para entornos específicos de Office 365.
 
 ## <a name="create-a-powershell-runbook-from-an-existing-script"></a>Creación de un runbook de PowerShell a partir de un script existente
 
 Puede acceder a la funcionalidad de Office 365 desde un script de PowerShell. A continuación se muestra un ejemplo de un script para una credencial denominada `Office-Credentials` con el nombre de usuario `admin@TenantOne.com`. Utiliza `Get-AutomationPSCredential` para importar la credencial de Office 365.
 
 ```powershell
-$emailFromAddress = "admin@TenantOne.com" 
-$emailToAddress = "servicedesk@TenantOne.com" 
-$emailSMTPServer = "outlook.office365.com" 
-$emailSubject = "Office 365 License Report" 
+$emailFromAddress = "admin@TenantOne.com"
+$emailToAddress = "servicedesk@TenantOne.com"
+$emailSMTPServer = "outlook.office365.com"
+$emailSubject = "Office 365 License Report"
 
-$credObject = Get-AutomationPSCredential -Name "Office-Credentials" 
+$credObject = Get-AutomationPSCredential -Name "Office-Credentials"
 Connect-MsolService -Credential $credObject
 
-$O365Licenses = Get-MsolAccountSku | Out-String 
-Send-MailMessage -Credential $credObject -From $emailFromAddress -To $emailToAddress -Subject $emailSubject -Body 
-
-$O365Licenses -SmtpServer $emailSMTPServer -UseSSL
+$O365Licenses = Get-MsolAccountSku | Out-String
+Send-MailMessage -Credential $credObject -From $emailFromAddress -To $emailToAddress -Subject $emailSubject -Body $O365Licenses -SmtpServer $emailSMTPServer -UseSSL
 ```
 
 ## <a name="run-the-script-in-a-runbook"></a>Ejecución del script en un runbook
@@ -101,7 +99,7 @@ Puede usar el script en un runbook de Azure Automation. A modo de ejemplo, usare
 3. Seleccione el nuevo runbook y haga clic en **Editar**.
 4. Copie el script y péguelo en el editor de texto para el runbook.
 5. Seleccione **ASSETS** (Recursos), expanda **Credentials** (Credenciales) y compruebe que la credencial de Office 365 está incluida.
-6. Haga clic en **Save**(Guardar).
+6. Haga clic en **Save** (Guardar).
 7. Seleccione **Panel de prueba** y, a continuación, haga clic en **Iniciar** para empezar a probar el runbook. Consulte [Administración de runbooks en Azure Automation](./manage-runbooks.md).
 8. Una vez finalizada la prueba, salga del panel prueba.
 

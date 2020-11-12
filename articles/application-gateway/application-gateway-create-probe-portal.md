@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186810"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397882"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creación de un sondeo personalizado para Puerta de enlace de aplicaciones mediante el portal
 
@@ -26,7 +26,7 @@ En este artículo, agregará un sondeo de estado personalizado a una puerta de e
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Si no dispone aún de una puerta de enlace de aplicaciones, visite [Creación de una puerta de enlace de aplicaciones](application-gateway-create-gateway-portal.md) para crear una puerta de enlace de aplicaciones con la que trabajar.
+Si no dispone aún de una puerta de enlace de aplicaciones, visite [Creación de una puerta de enlace de aplicaciones](./quick-create-portal.md) para crear una puerta de enlace de aplicaciones con la que trabajar.
 
 ## <a name="create-probe-for-application-gateway-v2-sku"></a>Creación de sondeo para la SKU de Application Gateway v2
 
@@ -42,21 +42,21 @@ Los sondeos se configuran en un proceso de dos pasos a través del portal. En el
 
    ![Incorporación de un nuevo sondeo][4]
 
-4. En la página **Agregar sondeo de estado**, rellene la información necesaria para el sondeo y, cuando finalice, seleccione **Aceptar**.
+4. En la página **Agregar sondeo de estado** , rellene la información necesaria para el sondeo y, cuando finalice, seleccione **Aceptar**.
 
    |**Configuración** | **Valor** | **Detalles**|
    |---|---|---|
    |**Nombre**|customProbe|Este valor es un nombre descriptivo para el sondeo al que se puede acceder en el portal.|
    |**Protocolo**|HTTP o HTTPS | El protocolo que usa el sondeo de estado. |
    |**Host**|es decir, contoso.com|Este valor es el nombre del host virtual (diferente del nombre de host de la máquina virtual) que se ejecuta en el servidor de aplicaciones. El sondeo se envía a \<protocol\>://\<host name\>:\<port\>/\<urlPath\>|
-   |**Seleccionar el nombre de host de la configuración de HTTP de back-end**|Sí o no|Establece el encabezado de *host* del sondeo en el nombre de host de la configuración HTTP a la que está asociado este sondeo. Se requiere especialmente en el caso del back-end multiinquilino, como en el caso de Azure App Service. [Más información](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Seleccionar el nombre de host de la configuración de HTTP de back-end**|Sí o no|Establece el encabezado de *host* del sondeo en el nombre de host de la configuración HTTP a la que está asociado este sondeo. Se requiere especialmente en el caso del back-end multiinquilino, como en el caso de Azure App Service. [Más información](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
    |**Seleccionar el puerto de la configuración HTTP de back-end**| Sí o no|Establece el *puerto* del sondeo de estado en el puerto desde la configuración HTTP a la que está asociado este sondeo. Si elige no, puede especificar un puerto de destino personalizado que se deba usar. |
    |**Puerto**| 1-65535 | Puerto personalizado que se usará para los sondeos de estado | 
    |**Path**|/ o cualquier ruta de acceso válida|El resto de la dirección URL completa del sondeo personalizado. Las rutas de acceso válidas comienzan por '/'. Para la ruta de acceso predeterminada de http:\//contoso.com, use solo '/'. |
    |**Intervalo (segundos)**|30|La frecuencia con que se ejecuta el sondeo para comprobar el estado. No se recomienda establecer un valor inferior a 30 segundos.|
    |**Tiempo de espera (segundos)**|30|El período que espera el sondeo antes de agotarse el tiempo de espera. Si no se recibe una respuesta válida dentro del período de tiempo de espera, el sondeo se marca como error. El intervalo de tiempo de espera debe ser lo suficientemente alto como para que se pueda realizar una llamada http para asegurarse de que la página de mantenimiento de back-end está disponible. Tenga en cuenta que el valor de tiempo de espera no debe ser mayor que el valor de 'Intervalo' usado en esta configuración de sondeo o el valor de 'Tiempo de espera de solicitud' de la configuración de HTTP que se asociará a este sondeo.|
    |**Umbral incorrecto**|3|Número de intentos erróneos consecutivos necesarios para que se considere incorrecto. El umbral se puede establecer en 1 o más.|
-   |**Usar condiciones de coincidencia de sondeo**|Sí o no|De forma predeterminada, una respuesta HTTP (S) con el código de estado entre 200 y 399 se considera correcta. Puede cambiar el intervalo aceptable de códigos de respuesta de back-end o el cuerpo de respuesta de back-end. [Más información](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Usar condiciones de coincidencia de sondeo**|Sí o no|De forma predeterminada, una respuesta HTTP (S) con el código de estado entre 200 y 399 se considera correcta. Puede cambiar el intervalo aceptable de códigos de respuesta de back-end o el cuerpo de respuesta de back-end. [Más información](./application-gateway-probe-overview.md#probe-matching)|
    |**Configuración HTTP**|Selección de lista desplegable|El sondeo se asociará a las configuraciones HTTP seleccionadas aquí y, por lo tanto, supervisará el estado del grupo de servidores back-end asociado a la configuración de HTTP seleccionada. Usará el mismo puerto para la solicitud de sondeo que el que se usa en la configuración HTTP seleccionada. Solo puede elegir las configuraciones HTTP que no estén asociadas a ningún otro sondeo personalizado. <br>Tenga en cuenta que solo están disponibles para la asociación las configuraciones HTTP que tienen el mismo protocolo que el protocolo elegido en esta configuración de sondeo y el mismo estado en el modificador *Seleccionar el nombre de host de la configuración de HTTP de back-end*.|
    
    > [!IMPORTANT]
@@ -93,19 +93,19 @@ Los sondeos se configuran en un proceso de dos pasos a través del portal. El pr
 
    ![Agregar hoja Sondeo con la información rellena][1]
 
-4. En la hoja **Agregar sondeo de estado**, rellene la información necesaria para el sondeo y, cuando finalice, seleccione **Aceptar**.
+4. En la hoja **Agregar sondeo de estado** , rellene la información necesaria para el sondeo y, cuando finalice, seleccione **Aceptar**.
 
    |**Configuración** | **Valor** | **Detalles**|
    |---|---|---|
    |**Nombre**|customProbe|Este valor es un nombre descriptivo para el sondeo al que se puede acceder en el portal.|
    |**Protocolo**|HTTP o HTTPS | El protocolo que usa el sondeo de estado. |
    |**Host**|es decir, contoso.com|Este valor es el nombre del host virtual (diferente del nombre de host de la máquina virtual) que se ejecuta en el servidor de aplicaciones. El sondeo se envía a (protocolo)://(nombre de host):(puerto de httpsetting)/urlPath.  Este valor se aplica cuando se configura un entorno multisitio en Application Gateway. Si Application Gateway se configura para un único sitio, escriba '127.0.0.1'.|
-   |**Seleccionar el nombre de host de la configuración de HTTP de back-end**|Sí o no|Establece el encabezado *host* del sondeo en el nombre de host del recurso de back-end del grupo de servidores back-end asociado a la configuración de HTTP a la que también está asociado este sondeo. Se requiere especialmente en el caso del back-end multiinquilino, como en el caso de Azure App Service. [Más información](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Seleccionar el nombre de host de la configuración de HTTP de back-end**|Sí o no|Establece el encabezado *host* del sondeo en el nombre de host del recurso de back-end del grupo de servidores back-end asociado a la configuración de HTTP a la que también está asociado este sondeo. Se requiere especialmente en el caso del back-end multiinquilino, como en el caso de Azure App Service. [Más información](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
    |**Path**|/ o cualquier ruta de acceso válida|El resto de la dirección URL completa del sondeo personalizado. Las rutas de acceso válidas comienzan por '/'. Para la ruta de acceso predeterminada de http:\//contoso.com, use solo '/'. |
    |**Intervalo (segundos)**|30|La frecuencia con que se ejecuta el sondeo para comprobar el estado. No se recomienda establecer un valor inferior a 30 segundos.|
    |**Tiempo de espera (segundos)**|30|El período que espera el sondeo antes de agotarse el tiempo de espera. Si no se recibe una respuesta válida dentro del período de tiempo de espera, el sondeo se marca como error. El intervalo de tiempo de espera debe ser lo suficientemente alto como para que se pueda realizar una llamada http para asegurarse de que la página de mantenimiento de back-end está disponible. Tenga en cuenta que el valor de tiempo de espera no debe ser mayor que el valor de 'Intervalo' usado en esta configuración de sondeo o el valor de 'Tiempo de espera de solicitud' de la configuración de HTTP que se asociará a este sondeo.|
    |**Umbral incorrecto**|3|Número de intentos erróneos consecutivos necesarios para que se considere incorrecto. El umbral se puede establecer en 1 o más.|
-   |**Usar condiciones de coincidencia de sondeo**|Sí o no|De forma predeterminada, una respuesta HTTP (S) con el código de estado entre 200 y 399 se considera correcta. Puede cambiar el intervalo aceptable de códigos de respuesta de back-end o el cuerpo de respuesta de back-end. [Más información](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Usar condiciones de coincidencia de sondeo**|Sí o no|De forma predeterminada, una respuesta HTTP (S) con el código de estado entre 200 y 399 se considera correcta. Puede cambiar el intervalo aceptable de códigos de respuesta de back-end o el cuerpo de respuesta de back-end. [Más información](./application-gateway-probe-overview.md#probe-matching)|
 
    > [!IMPORTANT]
    > El nombre de host no es el mismo que el del servidor. Este valor es el nombre del host virtual que se ejecuta en el servidor de aplicaciones. El sondeo se envía a \<protocol\>://\<hostName\>:\<port from http settings\>/\<urlPath\>
@@ -118,12 +118,12 @@ Una vez creado el sondeo, es el momento de agregarlo a la puerta de enlace. La c
 
    ![ventana de configuración de https][2]
 
-2. En la página de configuración de **appGatewayBackEndHttpSettings**, active la casilla **Usar sondeo personalizado** y elija, en el menú desplegable **Sondeo personalizado**, el sondeo creado en la sección [Creación del sondeo](#createprobe).
+2. En la página de configuración de **appGatewayBackEndHttpSettings** , active la casilla **Usar sondeo personalizado** y elija, en el menú desplegable **Sondeo personalizado** , el sondeo creado en la sección [Creación del sondeo](#createprobe).
    Cuando haya terminado, haga clic en **Guardar** y se aplicará la configuración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vea el estado de los recursos de back-end según la determinación del sondeo mediante la [visualización del estado del back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health).
+Vea el estado de los recursos de back-end según la determinación del sondeo mediante la [visualización del estado del back-end](./application-gateway-diagnostics.md#back-end-health).
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: 121ddcc013fbeef29c6d22cfbd273cfd3b8d3d98
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558829"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398222"
 ---
 # <a name="configure-private-link"></a>Configuración del vínculo privado
 
@@ -30,7 +30,7 @@ Antes de crear un punto de conexión privado, primero tendrá que crear algunos 
 - Azure API for FHIR: el recurso FHIR que quiere colocar detrás de un punto de conexión privado.
 - Virtual Network: la red virtual a la que se conectarán los servicios de cliente y el punto de conexión privado.
 
-Para obtener más información, consulte la [documentación de Private Link](https://docs.microsoft.com/azure/private-link/).
+Para obtener más información, consulte la [documentación de Private Link](../private-link/index.yml).
 
 ## <a name="disable-public-network-access"></a>Deshabilitación del acceso a una red pública
 
@@ -40,7 +40,7 @@ La creación de un punto de conexión privado para el recurso FHIR no deshabilit
 
 ## <a name="create-private-endpoint"></a>Creación de un punto de conexión privado
 
-Para crear un punto de conexión privado, un desarrollador con permisos RBAC en el recurso FHIR puede usar Azure Portal, [Azure PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)o la [CLI de Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli). En este artículo se le guía a través de los pasos con Azure Portal. Se recomienda usar Azure Portal, ya que automatiza la creación y configuración de la zona de DNS privado. Para obtener más detalles, puede consultar las [guías de inicio rápido de Private Link](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+Para crear un punto de conexión privado, un desarrollador con permisos RBAC en el recurso FHIR puede usar Azure Portal, [Azure PowerShell](../private-link/create-private-endpoint-powershell.md)o la [CLI de Azure](../private-link/create-private-endpoint-cli.md). En este artículo se le guía a través de los pasos con Azure Portal. Se recomienda usar Azure Portal, ya que automatiza la creación y configuración de la zona de DNS privado. Para obtener más detalles, puede consultar las [guías de inicio rápido de Private Link](../private-link/create-private-endpoint-portal.md).
 
 Hay dos formas de crear un punto de conexión privado. El flujo de aprobación automática permite a un usuario con permisos de RBAC en el recurso FHIR crear un punto de conexión privado sin necesidad de aprobación. El flujo de aprobación manual permite a un usuario sin permisos en el recurso FHIR solicitar un punto de conexión privado para que los propietarios del recurso FHIR lo aprueben.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: d6cfac7f0fb3939e57ce64f552556138ce9feacd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc5efd6ad478710ba839634a49f041211756af71
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89652735"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397678"
 ---
 # <a name="application-gateway-front-end-ip-address-configuration"></a>Configuración de la dirección IP de front-end de Application Gateway
 
@@ -32,9 +32,9 @@ No se necesita ninguna dirección IP pública para un punto de conexión interno
 
 Se admite solo una dirección IP pública o una dirección IP privada. Puede elegir la dirección IP de front-end cuando cree la puerta de enlace de aplicaciones.
 
-- Para una dirección IP pública, puede crear una nueva dirección IP pública o usar una ya existente en la misma ubicación que la puerta de enlace de aplicación. Para más información, consulte esta comparación entre [direcciones IP públicas estáticas y dinámicas](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
+- Para una dirección IP pública, puede crear una nueva dirección IP pública o usar una ya existente en la misma ubicación que la puerta de enlace de aplicación. Para más información, consulte esta comparación entre [direcciones IP públicas estáticas y dinámicas](./application-gateway-components.md#static-versus-dynamic-public-ip-address).
 
-- Para una dirección IP privada, puede especificar una dirección IP privada de la subred en la que se creó la puerta de enlace de aplicación. Si no especifica ninguna, se seleccionará automáticamente una dirección IP aleatoria de la subred. El tipo de dirección IP que seleccione (estática o dinámica) no se podrá cambiar más adelante. Para más información, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
+- Para una dirección IP privada, puede especificar una dirección IP privada de la subred en la que se creó la puerta de enlace de aplicación. Si no especifica ninguna, se seleccionará automáticamente una dirección IP aleatoria de la subred. El tipo de dirección IP que seleccione (estática o dinámica) no se podrá cambiar más adelante. Para más información, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno](./application-gateway-ilb-arm.md).
 
 Una dirección IP de front-end está asociada a un *cliente de escucha* que comprueba las solicitudes entrantes en esta dirección IP.
 

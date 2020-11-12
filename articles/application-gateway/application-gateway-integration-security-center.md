@@ -9,20 +9,20 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.openlocfilehash: 2c6797a0f0f2d4d655bcdabe732f6b14c8f0f562
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1464c0c0b0d573711ed07332a76bb67e73dc0484
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131214"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397780"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Introducción a la integración entre Application Gateway y Azure Security Center
 
-Conozca más información acerca de cómo Application Gateway y Security Center le ayudan a proteger los recursos de la aplicación web. El firewall de aplicaciones web (WAF) de Application Gateway se integra con [Security Center](../security-center/security-center-intro.md) para proporcionar una vista integrada que evite, detecte y responda a las amenazas a las aplicaciones web no protegidas de su entorno.
+Conozca más información acerca de cómo Application Gateway y Security Center le ayudan a proteger los recursos de la aplicación web. El firewall de aplicaciones web (WAF) de Application Gateway se integra con [Security Center](../security-center/security-center-introduction.md) para proporcionar una vista integrada que evite, detecte y responda a las amenazas a las aplicaciones web no protegidas de su entorno.
 
 ## <a name="overview"></a>Información general
 
-El WAF de Application Gateway es una recomendación de Security Center para proteger las aplicaciones web frente a ataques y vulnerabilidades. Los recursos con conexión que no están protegidos con WAF aparecen en Security Center como recomendaciones de gravedad alta. Las recomendaciones para los firewalls de aplicaciones web aparecen en la página **Introducción** , en **Aplicaciones** .
+El WAF de Application Gateway es una recomendación de Security Center para proteger las aplicaciones web frente a ataques y vulnerabilidades. Los recursos con conexión que no están protegidos con WAF aparecen en Security Center como recomendaciones de gravedad alta. Las recomendaciones para los firewalls de aplicaciones web aparecen en la página **Introducción** , en **Aplicaciones**.
 
 ![integración con security center][1]
 
@@ -30,17 +30,17 @@ Al hacer clic en las recomendaciones sobre el firewall de aplicaciones web, se a
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Adición del firewall de aplicaciones web a un recurso existente
 
-Vaya a **Todos los servicios** > **Seguridad e identidad** > **Security Center** y en **Security Center - Información general** , haga clic en **Aplicaciones** . En **Security Center - Aplicaciones** , la tabla contiene una lista de las aplicaciones que Security Center ha detectado en su suscripción.
+Vaya a **Todos los servicios** > **Seguridad e identidad** > **Security Center** y en **Security Center - Información general** , haga clic en **Aplicaciones**. En **Security Center - Aplicaciones** , la tabla contiene una lista de las aplicaciones que Security Center ha detectado en su suscripción.
 
 ![aplicaciones web][3]
 
-Al hacer clic en una aplicación web con un problema crítico, aparecerá la página **Estado de seguridad de la aplicación** . En la imagen siguiente, se ve la aplicación web que no está protegida por un firewall de aplicaciones web. 
+Al hacer clic en una aplicación web con un problema crítico, aparecerá la página **Estado de seguridad de la aplicación**. En la imagen siguiente, se ve la aplicación web que no está protegida por un firewall de aplicaciones web. 
 
 ![recursos web no protegidos][2]
 
-Haga clic en **Agregar un firewall de aplicaciones web** en **Recomendaciones** para que se abra la página **Agregar un firewall de aplicaciones web** .
+Haga clic en **Agregar un firewall de aplicaciones web** en **Recomendaciones** para que se abra la página **Agregar un firewall de aplicaciones web**.
 
-Si no tiene una instancia de Application Gateway existente o quiere crear una nueva, haga clic en **Crear nuevo** y en **Create a new Web Application Firewall** (Crear un nuevo firewall de aplicaciones web). A continuación, haga clic en **Microsoft - Application Gateway** . Esto le guiará por los pasos para crear una instancia de Application Gateway. En este punto, la aplicación web se agrega como un recurso protegido y Security Center realiza un seguimiento para asegurarse de que este recurso está protegido por un firewall de aplicaciones web. No se agrega como miembro del grupo de back-end.
+Si no tiene una instancia de Application Gateway existente o quiere crear una nueva, haga clic en **Crear nuevo** y en **Create a new Web Application Firewall** (Crear un nuevo firewall de aplicaciones web). A continuación, haga clic en **Microsoft - Application Gateway**. Esto le guiará por los pasos para crear una instancia de Application Gateway. En este punto, la aplicación web se agrega como un recurso protegido y Security Center realiza un seguimiento para asegurarse de que este recurso está protegido por un firewall de aplicaciones web. No se agrega como miembro del grupo de back-end.
 
 Si ya tiene una instancia de Application Gateway, puede elegirla en **Usar solución existente**
 
@@ -50,11 +50,11 @@ La adición de una aplicación web a una instancia de Application Gateway a trav
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Adición de un recurso a un firewall de aplicaciones web existente
 
-Vaya a **Todos los servicios** > **Seguridad e identidad** > **Security Center** y en **Security Center - Información general** , haga clic en **Soluciones de asociados** . Las instancias de Application Gateway existentes reconocidas en Security Center aparecen en la página **Soluciones de asociados** .
+Vaya a **Todos los servicios** > **Seguridad e identidad** > **Security Center** y en **Security Center - Información general** , haga clic en **Soluciones de asociados**. Las instancias de Application Gateway existentes reconocidas en Security Center aparecen en la página **Soluciones de asociados**.
 
 ![soluciones de asociados][7]
 
-Haga clic en **Vincular aplicación** para abrir **Vincular aplicaciones** . Aquí se proporcionan las opciones para seleccionar las aplicaciones existentes. Elija las aplicaciones que desea proteger y haga clic en **Aceptar** . Este procedimiento no agregará la aplicación web al grupo de back-end de la instancia de Application Gateway. Esto establece los recursos como recursos protegidos, por lo que Security Center puede realizar un seguimiento de ellos. Para agregar el recurso como un miembro del grupo de back-end, debe hacerlo en la instancia de Application Gateway. En la página actual puede hacer clic en **Consola de soluciones** para ir al recurso de Application Gateway donde podrá agregar la aplicación web al grupo de back-end.
+Haga clic en **Vincular aplicación** para abrir **Vincular aplicaciones**. Aquí se proporcionan las opciones para seleccionar las aplicaciones existentes. Elija las aplicaciones que desea proteger y haga clic en **Aceptar**. Este procedimiento no agregará la aplicación web al grupo de back-end de la instancia de Application Gateway. Esto establece los recursos como recursos protegidos, por lo que Security Center puede realizar un seguimiento de ellos. Para agregar el recurso como un miembro del grupo de back-end, debe hacerlo en la instancia de Application Gateway. En la página actual puede hacer clic en **Consola de soluciones** para ir al recurso de Application Gateway donde podrá agregar la aplicación web al grupo de back-end.
 
 ![aplicaciones de soluciones de asociados][6]
 
@@ -66,7 +66,7 @@ Security Center realiza un seguimiento de las aplicaciones agregadas a una insta
 
 ## <a name="security-alerts"></a>Alertas de seguridad
 
-En Security Center, vaya a **DETECCIÓN** > **Alertas de seguridad** .  Aquí encontrará las alertas de WAF para las instancias de Application Gateway. Las alertas se desglosan según las reglas de WAF.
+En Security Center, vaya a **DETECCIÓN** > **Alertas de seguridad**.  Aquí encontrará las alertas de WAF para las instancias de Application Gateway. Las alertas se desglosan según las reglas de WAF.
 
 ![alertas de seguridad][8]
 
@@ -76,7 +76,7 @@ Si selecciona una regla, aparecerá una lista de alertas para esa regla de WAF e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a habilitar un firewall de aplicaciones web en una instancia existente de Application Gateway, visite [Creación o actualización de una instancia de Azure Application Gateway con el firewall de aplicaciones web](application-gateway-web-application-firewall-portal.md).
+Para aprender a habilitar un firewall de aplicaciones web en una instancia existente de Application Gateway, visite [Creación o actualización de una instancia de Azure Application Gateway con el firewall de aplicaciones web](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

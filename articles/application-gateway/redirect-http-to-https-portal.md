@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67153fa750fee765dcaa1072eec87a2f6169b918
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89594822"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397287"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante Azure Portal
 
-Puede usar Azure Portal para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para la terminación TLS. Para redirigir el tráfico HTTP al puerto HTTPS en la puerta de enlace de aplicaciones se usa una regla de enrutamiento. En este ejemplo, también crea un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para el grupo de back-end de la puerta de enlace de aplicaciones que contiene dos instancias de máquina virtual.
+Puede usar Azure Portal para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para la terminación TLS. Para redirigir el tráfico HTTP al puerto HTTPS en la puerta de enlace de aplicaciones se usa una regla de enrutamiento. En este ejemplo, también crea un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md) para el grupo de back-end de la puerta de enlace de aplicaciones que contiene dos instancias de máquina virtual.
 
 En este artículo aprenderá a:
 
@@ -34,7 +34,7 @@ En este tutorial se requiere la versión 1.0.0 o posterior del módulo de Azure 
 
 ## <a name="create-a-self-signed-certificate"></a>Creación de un certificado autofirmado
 
-Para su uso en producción, debe importar un certificado válido firmado por un proveedor de confianza. Para este tutorial, creará un certificado autofirmado mediante [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Puede usar [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) con la huella digital que se devolvió al exportar un archivo pfx del certificado.
+Para su uso en producción, debe importar un certificado válido firmado por un proveedor de confianza. Para este tutorial, creará un certificado autofirmado mediante [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Puede usar [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) con la huella digital que se devolvió al exportar un archivo pfx del certificado.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -71,24 +71,24 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
 3. Seleccione **Redes** y **Application Gateway** en la lista de destacados.
 4. Especifique estos valores para la puerta de enlace de aplicaciones:
 
-   - *myAppGateway*: como nombre de la puerta de enlace de aplicaciones.
-   - *myResourceGroupAG*: como nuevo grupo de recursos.
+   - *myAppGateway* : como nombre de la puerta de enlace de aplicaciones.
+   - *myResourceGroupAG* : como nuevo grupo de recursos.
 
      ![Creación de una nueva puerta de enlace de aplicaciones](./media/create-url-route-portal/application-gateway-create.png)
 
 5. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
-6. Haga clic en **Elegir una red virtual**, luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
+6. Haga clic en **Elegir una red virtual** , luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
 
-   - *myVNet*: como nombre de la red virtual.
-   - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
-   - *myAGSubnet*: como nombre de subred.
-   - *10.0.0.0/24*: como espacio de direcciones de la subred.
+   - *myVNet* : como nombre de la red virtual.
+   - *10.0.0.0/16* : como espacio de direcciones de la red virtual.
+   - *myAGSubnet* : como nombre de subred.
+   - *10.0.0.0/24* : como espacio de direcciones de la subred.
 
      ![Creación de una red virtual](./media/create-url-route-portal/application-gateway-vnet.png)
 
 7. Haga clic en **Aceptar** para crear la red virtual y la subred.
-8. En **Configuración IP de front-end**, asegúrese de que **Tipo de dirección IP** esté establecido en **Pública** y que **Crear nuevo** esté seleccionado. Escriba *myAGPublicIPAddress* para el nombre. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
-9. En **Configuración del agente de escucha**, seleccione **HTTPS**, a continuación, seleccione **Seleccionar un archivo**, vaya al archivo *c:\appgwcert.pfx* y seleccione **Abrir**.
+8. En **Configuración IP de front-end** , asegúrese de que **Tipo de dirección IP** esté establecido en **Pública** y que **Crear nuevo** esté seleccionado. Escriba *myAGPublicIPAddress* para el nombre. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
+9. En **Configuración del agente de escucha** , seleccione **HTTPS** , a continuación, seleccione **Seleccionar un archivo** , vaya al archivo *c:\appgwcert.pfx* y seleccione **Abrir**.
 10. Escriba *appgwcert* para el nombre del certificado y *Azure123456!* como contraseña.
 11. Deje el firewall de aplicaciones web deshabilitado y, a continuación, seleccione **Aceptar**.
 12. Revise la configuración en la página de resumen y, a continuación, seleccione **Aceptar** para crear los recursos de red y la puerta de enlace de aplicaciones. La creación de la puerta de enlace de aplicaciones puede tardar varios minutos, espere a que finalice correctamente la implementación antes de pasar a la sección siguiente.
@@ -117,12 +117,12 @@ En primer lugar, agregue un agente de escucha llamado *myListener* para el puert
 
 ### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>Adición de una regla de enrutamiento con una configuración de redireccionamiento
 
-1. En **myAppGateway**, seleccione **Reglas** y, a continuación, seleccione **+Regla de enrutamiento de solicitud**.
-2. En **Nombre de la regla**, escriba *Rule2*.
+1. En **myAppGateway** , seleccione **Reglas** y, a continuación, seleccione **+Regla de enrutamiento de solicitud**.
+2. En **Nombre de la regla** , escriba *Rule2*.
 3. Asegúrese de que **MyListener** está seleccionado para el agente de escucha.
 4. Haga clic en la pestaña **Destinos de back-end** y seleccione **Tipo de destino** como *Redirección*.
-5. En **Tipo de redireccionamiento**, seleccione **Permanente**.
-6. En **Destino del redireccionamiento**, seleccione **Agente de escucha**.
+5. En **Tipo de redireccionamiento** , seleccione **Permanente**.
+6. En **Destino del redireccionamiento** , seleccione **Agente de escucha**.
 7. Asegúrese de que **Agente de escucha de destino** está establecido en **appGatewayHttpListener**.
 8. Para **Cadena de consulta de inclusión** y **Ruta de acceso de inclusión** seleccione *Sí*.
 9. Seleccione **Agregar**.
@@ -135,14 +135,14 @@ En este ejemplo, creará un conjunto de escalado de máquinas virtuales para pro
 2. Seleccione **Proceso**.
 3. En el cuadro de búsqueda, escriba *conjunto de escalado* y presione ENTRAR.
 4. Seleccione **Conjunto de escalado de máquinas virtuales** y, a continuación, seleccione **Crear**.
-5. En **Nombre del conjunto de escalado de máquinas virtuales**, escriba *myvmss*.
+5. En **Nombre del conjunto de escalado de máquinas virtuales** , escriba *myvmss*.
 6. Para la imagen del disco del sistema operativo, ** asegúrese de que **Windows Server 2016 Datacenter** está seleccionado.
-7. Para **Grupo de recursos**, seleccione **myResourceGroupAG**.
-8. En **Nombre de usuario**, escriba *azureuser*.
-9. En **Contraseña**, escriba *Azure123456!* y confirme la contraseña.
-10. En **Número de instancias**, asegúrese de que el valor es **2**.
-11. Para **Tamaño de instancia**, seleccione **D2s_v3**.
-12. En **Redes**, asegúrese de que **Elegir opciones de equilibrio de carga** está establecido en **Puerta de enlace de aplicaciones**.
+7. Para **Grupo de recursos** , seleccione **myResourceGroupAG**.
+8. En **Nombre de usuario** , escriba *azureuser*.
+9. En **Contraseña** , escriba *Azure123456!* y confirme la contraseña.
+10. En **Número de instancias** , asegúrese de que el valor es **2**.
+11. Para **Tamaño de instancia** , seleccione **D2s_v3**.
+12. En **Redes** , asegúrese de que **Elegir opciones de equilibrio de carga** está establecido en **Puerta de enlace de aplicaciones**.
 13. Asegúrese de que **Puerta de enlace de aplicaciones** está establecido en **myAppGateway**.
 14. Asegúrese de que **Subred** está establecido en **myBackendSubnet**.
 15. Seleccione **Crear**.
@@ -157,11 +157,11 @@ La interfaz de usuario del portal del conjunto de escalado de máquinas virtuale
 4. Seleccione **myAppGatewaymyvmss**.
 5. Seleccione **Eliminar todos los destinos del grupo de back-end**.
 6. Seleccione **Guardar**.
-7. Una vez completado este proceso, seleccione el grupo de back-end **myAppGatewaymyvmss**, seleccione **Eliminar** y, a continuación, seleccione **Aceptar** para confirmar.
+7. Una vez completado este proceso, seleccione el grupo de back-end **myAppGatewaymyvmss** , seleccione **Eliminar** y, a continuación, seleccione **Aceptar** para confirmar.
 8. Seleccione **appGatewayBackendPool**.
-9. En **Destinos**, seleccione **VMSS**.
-10. En **VMSS**, seleccione **myvmss**.
-11. En **Configuraciones de interfaz de red**, seleccione **myvmssNic**.
+9. En **Destinos** , seleccione **VMSS**.
+10. En **VMSS** , seleccione **myvmss**.
+11. En **Configuraciones de interfaz de red** , seleccione **myvmssNic**.
 12. Seleccione **Guardar**.
 
 ### <a name="upgrade-the-scale-set"></a>Actualización del conjunto de escalado
@@ -169,7 +169,7 @@ La interfaz de usuario del portal del conjunto de escalado de máquinas virtuale
 Por último, debe actualizar el conjunto de escalado con estos cambios.
 
 1. Seleccione el conjunto de escalado **myvmss**.
-2. En **Configuración**, seleccione **Instancias**.
+2. En **Configuración** , seleccione **Instancias**.
 3. Seleccione ambas instancias y, a continuación, seleccione **Actualizar**.
 4. Seleccione **Sí** para confirmar la acción.
 5. Una vez que se complete, vuelva a **myAppGateway** y seleccione **Grupos de back-end**. Ahora debería ver que **appGatewayBackendPool** tiene dos destinos y **myAppGatewaymyvmss** tiene cero destinos.
@@ -203,7 +203,7 @@ Update-AzVmss `
 Después de cambiar las instancias con IIS, debe actualizar de nuevo el conjunto de escalado con este cambio.
 
 1. Seleccione el conjunto de escalado **myvmss**.
-2. En **Configuración**, seleccione **Instancias**.
+2. En **Configuración** , seleccione **Instancias**.
 3. Seleccione ambas instancias y, a continuación, seleccione **Actualizar**.
 4. Seleccione **Sí** para confirmar la acción.
 
@@ -212,7 +212,7 @@ Después de cambiar las instancias con IIS, debe actualizar de nuevo el conjunto
 Puede obtener la dirección IP pública de la aplicación en la página de información general de la puerta de enlace de aplicaciones.
 
 1. Seleccione **myAppGateway**.
-2. En la página **Información general**, anote la dirección IP de **Dirección IP pública de front-end**.
+2. En la página **Información general** , anote la dirección IP de **Dirección IP pública de front-end**.
 
 3. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo: http://52.170.203.149
 

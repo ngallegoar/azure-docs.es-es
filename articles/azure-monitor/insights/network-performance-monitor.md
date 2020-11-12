@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: c8dcddcd3d928758557074bf01d92e4bcc57ee1d
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 1bb2b7ca22896ed279c8aac215109b7f7bc7854c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279432"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394278"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -100,11 +100,11 @@ Para las máquinas Linux, el uso de portNumbers se debe cambiar manualmente.
 
 El script crea las claves del Registro que requiere la solución. También crea reglas de firewall de Windows para permitir que los agentes creen conexiones TCP entre sí. Las claves del Registro que crea el script especifican si se deben escribir los registros de depuración y la ruta del archivo de registro. Asimismo, el script define el puerto TCP del agente empleado para establecer la comunicación. El script establece automáticamente los valores de estas claves. No cambie manualmente estas claves. El puerto que se abre de forma predeterminada es 8084. Puede utilizar un puerto personalizado especificando el parámetro portNumber en el script. Utilice el mismo puerto en todos los equipos en los que se ejecute el script. 
 
-    >[!NOTE]
-    > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
+   >[!NOTE]
+   > El script configura solo el firewall de Windows localmente. Si tiene un firewall de red, asegúrese de que permite el tráfico destinado al puerto TCP que Network Performance Monitor esté utilizando.
 
-    >[!NOTE]
-    > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Connectivity Monitor.
+   >[!NOTE]
+   > No es necesario ejecutar el script de PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript ) para el Monitor de conectividad de servicio.
 
     
 

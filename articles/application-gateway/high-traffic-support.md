@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: b96720ead2c7b7bc942efca32a8510f57c2dbcad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48730d03e9a578fb26b691577fa033e5f7bb4d19
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85250255"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397491"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Compatibilidad con tráfico elevado en Application Gateway
 
@@ -24,7 +24,7 @@ Puede usar Application Gateway con el firewall de aplicaciones web (WAF) para co
 Las sugerencias siguientes lo ayudarán a configurar Application Gateway con WAF para administrar el tráfico adicional.
 
 ## <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>Uso de la SKU v2 en lugar de la v1 por sus funcionalidades de escalado automático y sus ventajas en cuanto al rendimiento
-La SKU v2 ofrece escalado automático para garantizar que Application Gateway se puede escalar verticalmente a medida que aumenta el tráfico. También ofrece otras ventajas importantes en cuanto al rendimiento, como un rendimiento de descarga de TLS cinco veces mejor, tiempos de implementación y actualización más rápidos, redundancia de zona, etc., en comparación con la versión 1. Para más información, consulte la [documentación de la v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). 
+La SKU v2 ofrece escalado automático para garantizar que Application Gateway se puede escalar verticalmente a medida que aumenta el tráfico. También ofrece otras ventajas importantes en cuanto al rendimiento, como un rendimiento de descarga de TLS cinco veces mejor, tiempos de implementación y actualización más rápidos, redundancia de zona, etc., en comparación con la versión 1. Para más información, consulte la [documentación de la v2](./application-gateway-autoscaling-zone-redundant.md). 
 
 ## <a name="set-maximum-instance-count-to-the-maximum-possible-125"></a>Establecimiento del recuento máximo de instancias en el máximo posible (125)
  
@@ -35,7 +35,7 @@ Si suponemos que tiene una SKU v2 de Application Gateway, establecer el recuent
 Si suponemos que tiene una SKU v2 de Application Gateway, el escalado automático tarda de seis a siete minutos en escalar horizontalmente. Con un recuento mínimo de instancias mayor, Application Gateway puede controlar mejor el tráfico cuando aumenta la carga, porque un pico en el tráfico no requiere una operación de escalado automático.  
 
 ## <a name="alert-if-a-certain-metric-surpasses-75-of-average-cu-utilization"></a>Alerta si una métrica determinada supera el 75 % del uso de CU promedio 
-Consulte la [documentación sobre las métricas de Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-visualization) para una explicación detallada de las métricas y otros tutoriales. 
+Consulte la [documentación sobre las métricas de Application Gateway](./application-gateway-metrics.md#metrics-visualization) para una explicación detallada de las métricas y otros tutoriales. 
 
 ### <a name="example-setting-up-an-alert-on-75-of-average-cu-usage"></a>Ejemplo: Configuración de una alerta para el 75 % del uso de CU promedio
 
@@ -51,13 +51,13 @@ En este ejemplo se muestra cómo usar Azure Portal para configurar una alerta pa
 > Puede configurar la alerta para que se produzca al llegar a un porcentaje de uso de CU inferior o mayor en función de qué tan sensible quiere que sea con respecto a posibles picos de tráfico.
 
 ## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>Configuración de WAF con filtrado geográfico y protección contra bots para detener los ataques
-Si quiere agregar una capa de seguridad frente a la aplicación, use la SKU WAF_v2 de Application Gateway por sus funcionalidades de WAF. Puede configurar la SKU v2 para permitir solo el acceso a las aplicaciones desde países o regiones determinados. Puede configurar una regla personalizada de WAF para permitir o bloquear de manera explícita el tráfico en función de la geolocalización. Para más información, consulte las [reglas personalizadas de filtrado geográfico](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) y el artículo sobre cómo [configurar las reglas personalizadas en la SKU WAF_v2 de Application Gateway a través de PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+Si quiere agregar una capa de seguridad frente a la aplicación, use la SKU WAF_v2 de Application Gateway por sus funcionalidades de WAF. Puede configurar la SKU v2 para permitir solo el acceso a las aplicaciones desde países o regiones determinados. Puede configurar una regla personalizada de WAF para permitir o bloquear de manera explícita el tráfico en función de la geolocalización. Para más información, consulte las [reglas personalizadas de filtrado geográfico](../web-application-firewall/ag/geomatch-custom-rules.md) y el artículo sobre cómo [configurar las reglas personalizadas en la SKU WAF_v2 de Application Gateway a través de PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
-Habilite la protección contra bots para bloquear bots malintencionados conocidos. Esto debería disminuir la cantidad de tráfico que llega a la aplicación. Para más configuración, consulte las [instrucciones para configurar la protección contra bots](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+Habilite la protección contra bots para bloquear bots malintencionados conocidos. Esto debería disminuir la cantidad de tráfico que llega a la aplicación. Para más configuración, consulte las [instrucciones para configurar la protección contra bots](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
 ## <a name="turn-on-diagnostics-on-application-gateway-and-waf"></a>Activación de diagnósticos en Application Gateway y WAF
 
-Los registros de diagnóstico permiten ver los registros de firewall, los registros de rendimiento y los registros de acceso. Puede usar estos registros en Azure para administrar y solucionar problemas de Application Gateway. Para más información consulte la [documentación sobre los diagnósticos](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging). 
+Los registros de diagnóstico permiten ver los registros de firewall, los registros de rendimiento y los registros de acceso. Puede usar estos registros en Azure para administrar y solucionar problemas de Application Gateway. Para más información consulte la [documentación sobre los diagnósticos](./application-gateway-diagnostics.md#diagnostic-logging). 
 
 ## <a name="set-up-an-tls-policy-for-extra-security"></a>Configuración de una directiva TLS para seguridad adicional
-Asegúrese de que usa la versión más reciente de la directiva TLS ([AppGwSslPolicy20170401S](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview#appgwsslpolicy20170401s)). Esto exige el uso de TLS 1.2 y cifrados más seguros. Para más información, consulte cómo [configurar las versiones de directivas TLS y conjuntos de cifrado a través de PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-configure-ssl-policy-powershell).
+Asegúrese de que usa la versión más reciente de la directiva TLS ([AppGwSslPolicy20170401S](./application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s)). Esto exige el uso de TLS 1.2 y cifrados más seguros. Para más información, consulte cómo [configurar las versiones de directivas TLS y conjuntos de cifrado a través de PowerShell](./application-gateway-configure-ssl-policy-powershell.md).

@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c1d53f15e945788ab6147299ccd59e7e4e947c5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6f4512bea533b6394fcef025ddc19bb7989292a4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373456"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378370"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegación de administración en Azure Active Directory
 
@@ -73,12 +73,12 @@ La proliferación de aplicaciones dentro de su organización puede forzar el mod
 
 De forma predeterminada, todos los usuarios pueden crear registros de aplicación. Para conceder de forma selectiva la capacidad de crear registros de aplicación:
 
-* Establezca **Los usuarios pueden registrar aplicaciones** en No desde la **Configuración de usuario** .
+* Establezca **Los usuarios pueden registrar aplicaciones** en No desde la **Configuración de usuario**.
 * Asigne al usuario el rol de desarrollador de aplicaciones.
 
 Para conceder de forma selectiva la capacidad de dar su consentimiento para permitir que una aplicación acceda a los datos:
 
-* Establezca **Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre** en No desde la **Configuración de usuario** .
+* Establezca **Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre** en No desde la **Configuración de usuario**.
 * Asigne al usuario el rol de desarrollador de aplicaciones.
 
 Cuando un desarrollador de aplicaciones crea un nuevo registro de aplicaciones, se agrega automáticamente como primer propietario.

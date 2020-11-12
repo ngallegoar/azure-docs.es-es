@@ -4,14 +4,17 @@ description: Reduzca el tráfico de telemetría mediante el filtrado de los even
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: e450cf0de7dce4f626fd41252bfeed5fba294c70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 329f07a530a584a14d5312631ec977773e70af29
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761012"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378200"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrado de telemetría en la aplicación web de Java
+
+> [!IMPORTANT]
+> El enfoque recomendado para supervisar aplicaciones Java es utilizar la instrumentación automática sin cambiar el código. Siga las instrucciones para el [agente de Java 3.0 de Application Insights](./java-in-process-agent.md).
 
 Los filtros proporcionan una manera de seleccionar la telemetría que su [aplicación web de Java envía a Application Insights](java-get-started.md). Hay algunos filtros de serie que puede utilizar y también puede escribir sus propios filtros personalizados.
 

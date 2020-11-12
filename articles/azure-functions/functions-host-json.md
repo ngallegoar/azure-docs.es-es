@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aaea37b100d6fadd271f48490628b38cba6cf822
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284509"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377129"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -357,7 +357,7 @@ Las opciones de configuración se pueden encontrar en los [desencadenadores y en
 
 ## <a name="retry"></a>retry
 
-Controla las opciones de la [directiva de reintentos](./functions-bindings-error-pages.md#retry-policies) para todas las ejecuciones de la aplicación.
+Controla las opciones de la [directiva de reintentos](./functions-bindings-error-pages.md#retry-policies-preview) para todas las ejecuciones de la aplicación.
 
 ```json
 {

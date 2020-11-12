@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: e28ce4cd46cb802241e02e4060441747389d3989
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92658584030fa83da067eceab391d9bba2f034c0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888173"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392306"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM (Transact-SQL)
 
@@ -26,7 +26,7 @@ Azure SQL Edge actualmente solo admite los siguientes orígenes de datos como en
 
 | Tipo de origen de datos | Entrada | Output | Descripción |
 |------------------|-------|--------|------------------|
-| Centro de Azure IoT Edge | Y | Y | Origen de datos para leer y escribir datos de streaming en un centro de Azure IoT Edge. Para más información, consulte [Centro de IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Centro de Azure IoT Edge | Y | Y | Origen de datos para leer y escribir datos de streaming en un centro de Azure IoT Edge. Para más información, consulte [Centro de IoT Edge](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
 | SQL Database | N | Y | Conexión de origen de datos para escribir datos de streaming en SQL Database. La base de datos puede ser una base de datos local de Azure SQL Edge, o una base de datos remota de SQL Server o Azure SQL Database.|
 | Kafka | Y | N | Origen de datos para leer datos de streaming de un tema de Kafka. La compatibilidad con Kafka no está disponible para la versión ARM64 de Azure SQL Edge.|
 
@@ -94,12 +94,12 @@ WITH  ( <with_options> )
 
 - [DATA_SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql/)
 - [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
-- **LOCATION**: especifica el nombre de los datos o la ubicación reales en el origen de datos. 
+- **LOCATION** : especifica el nombre de los datos o la ubicación reales en el origen de datos. 
    - En el caso de objetos de transmisión del centro de Edge o de Kafka, la ubicación especifica el nombre del centro de Edge o el tema Kafka del que se va a leer o en el que se va a escribir.
    - Si se trata de la ubicación de los objetos de transmisión de SQL (SQL Server, Azure SQL Database o Azure SQL Edge), especifica el nombre de la tabla. Si el flujo se crea en la misma base de datos y en el mismo esquema que la tabla de destino, con el nombre Tabla es suficiente. En caso contrario, debe proporcionar el nombre completo de la tabla (<database_name.schema_name.table_name).
    - En caso de la ubicación de los objetos de transmisión de Azure Blob Storage, consulte el patrón de la ruta de acceso que se va a usar dentro del contenedor de blobs. Para más información sobre esta característica, vea (/articles/stream-analytics/stream-analytics-define-outputs.md#blob-storage-and-azure-data-lake-gen2).
 
-- **INPUT_OPTIONS**: especifique opciones como pares clave-valor para servicios como Kafka o el centro de IoT Edge que sean entradas para las consultas de streaming.
+- **INPUT_OPTIONS** : especifique opciones como pares clave-valor para servicios como Kafka o el centro de IoT Edge que sean entradas para las consultas de streaming.
     - PARTITIONS: número de particiones definidas para un tema. El número máximo de particiones que se pueden utilizar está limitado a 32.
       - Se aplica a los flujos de entrada de Kafka.
     - CONSUMER_GROUP: Event Hubs e IoT Hub limitan el número de lectores dentro de un grupo de consumidores (a 5). Si deja este campo en blanco se usará el grupo de consumidores "$Default".
@@ -111,7 +111,7 @@ WITH  ( <with_options> )
     - OUT_OF_ORDER_EVENT_TOLERANCE: Los eventos pueden llegar desordenados después de haber realizado el viaje desde la entrada a la consulta de streaming. Estos eventos se pueden aceptar tal cual, o puede optar por pausarlos durante un período establecido para reordenarlos.
       - Reservado para uso futuro. No se aplica a Azure SQL Edge.
         
-- **OUTPUT_OPTIONS**: especifique opciones como pares clave-valor para los servicios admitidos que sean entradas para las consultas de streaming. 
+- **OUTPUT_OPTIONS** : especifique opciones como pares clave-valor para los servicios admitidos que sean entradas para las consultas de streaming. 
   - REJECT_POLICY:  DROP | RETRY especifica directivas de control de errores de datos cuando se producen errores de conversión de datos. 
     - Se aplica a todas las salidas admitidas. 
   - MINIMUM_ROWS:  
@@ -247,5 +247,4 @@ WITH
 
 ## <a name="see-also"></a>Consulte también
 
-- [DROP EXTERNAL STREAM (Transact-SQL)](drop-external-stream-transact-sql.md) 
-
+- [DROP EXTERNAL STREAM (Transact-SQL)](drop-external-stream-transact-sql.md)

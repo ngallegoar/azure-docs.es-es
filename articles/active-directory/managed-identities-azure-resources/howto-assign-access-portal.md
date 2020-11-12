@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee28addd5f6ac0faaf03d29d712c4e750ed6e293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6584754edf3ff7ae31c3b9ace72baf16459dbc44
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89177489"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360001"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Asignación de acceso de una identidad administrada a un recurso mediante Azure Portal
 
@@ -41,7 +41,7 @@ Después de habilitar la identidad administrada en un recurso de Azure, como una
 
 2. Vaya al recurso para el que desea modificar el control de acceso. En este ejemplo, vamos a dar a una máquina virtual de Azure acceso a una cuenta de almacenamiento, de modo que navegamos a la cuenta de almacenamiento.
 
-3. Seleccione la página **Control de acceso (IAM)** del recurso y seleccione **+ Agregar asignación de roles**. Luego, especifique el **rol**, configure la opción **Asignar acceso a** y especifique la **suscripción** correspondiente. En el área de criterios de búsqueda, debería ver el recurso. Seleccione el recurso y seleccione **Guardar**. 
+3. Seleccione la página **Control de acceso (IAM)** del recurso y seleccione **+ Agregar asignación de roles**. Luego, especifique el **rol** , configure la opción **Asignar acceso a** y especifique la **suscripción** correspondiente. En el área de criterios de búsqueda, debería ver el recurso. Seleccione el recurso y seleccione **Guardar**. 
 
    ![Captura de pantalla Control de acceso (IAM)](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
      
