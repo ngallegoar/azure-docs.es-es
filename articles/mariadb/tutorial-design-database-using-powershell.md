@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Diseño de un servidor en Azure PowerShell: Azure Database for MariaDB'
 description: En este tutorial se explica cómo crear y administrar el servidor y la base de datos de Azure Database for MariaDB mediante PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 8087da173c8d1df225456aea6efbdbe5ed8c48be
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9b4500df459e4d4ef67f97dc4fa923988f30401b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424932"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542480"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>Tutorial: Diseño de una instancia de Azure Database for MariaDB mediante PowerShell
 
@@ -38,7 +38,7 @@ Si decide usar PowerShell de forma local, para este artículo es preciso que ins
 > Mientras el módulo de PowerShell Az.MariaDb se encuentre en versión preliminar, debe instalarlo por separado desde el módulo Az de PowerShell con el siguiente comando: `Install-Module -Name Az.MariaDb -AllowPrerelease`.
 > Una vez que el módulo Az.MariaDb de PowerShell esté disponible con carácter general, formará parte de las futuras versiones del módulo Az de PowerShell y estará disponible de forma nativa en Azure Cloud Shell.
 
-Si esta es la primera vez que usa el servicio Azure Database for MariaDB, debe registrar el proveedor de recursos **Microsoft.DBforMariaDB** .
+Si esta es la primera vez que usa el servicio Azure Database for MariaDB, debe registrar el proveedor de recursos **Microsoft.DBforMariaDB**.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMariaDB
@@ -66,7 +66,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 Cree un servidor de Azure Database for MariaDB con el cmdlet `New-AzMariaDbServer`. Un servidor puede administrar varias bases de datos. Normalmente se usa una base de datos independiente para cada proyecto o para cada usuario.
 
-En el ejemplo siguiente se crea un servidor de MariaDB en la región **Oeste de EE. UU.** llamado **mydemoserver** en el grupo de recursos **myresourcegroup** con el inicio de sesión del administrador del servidor de **myadmin** . Es un servidor de generación 5 en el plan de tarifa de uso general con dos núcleos virtuales y con copias de seguridad con redundancia geográfica habilitadas. Documente la contraseña usada en la primera línea del ejemplo, ya que se trata de la contraseña de la cuenta de administrador del servidor de MariaDB.
+En el ejemplo siguiente se crea un servidor de MariaDB en la región **Oeste de EE. UU.** llamado **mydemoserver** en el grupo de recursos **myresourcegroup** con el inicio de sesión del administrador del servidor de **myadmin**. Es un servidor de generación 5 en el plan de tarifa de uso general con dos núcleos virtuales y con copias de seguridad con redundancia geográfica habilitadas. Documente la contraseña usada en la primera línea del ejemplo, ya que se trata de la contraseña de la cuenta de administrador del servidor de MariaDB.
 
 > [!TIP]
 > Un nombre de servidor se asigna a un nombre DNS y debe ser único en todo el mundo en Azure.
@@ -104,7 +104,7 @@ New-AzMariaDbFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -Se
 
 ## <a name="get-the-connection-information"></a>Obtención de la información de conexión
 
-Para conectarse al servidor, debe proporcionar las credenciales de acceso y la información del host. Use el ejemplo siguiente para determinar la información de conexión. Tome nota de los valores de **FullyQualifiedDomainName** y **AdministratorLogin** .
+Para conectarse al servidor, debe proporcionar las credenciales de acceso y la información del host. Use el ejemplo siguiente para determinar la información de conexión. Tome nota de los valores de **FullyQualifiedDomainName** y **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |

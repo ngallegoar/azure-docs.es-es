@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Diseño de un servidor de Azure Database for MariaDB CLI con la CLI de Azure'
 description: Este tutorial explica cómo crear y administrar servidores y bases de datos de Azure Database for MariaDB mediante la CLI de Azure desde la línea de comandos.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 205fe47acb6d10b7596c462476b4e9e718a3d813
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fbc68570fb59be14947755a241ab9b005841e99
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424963"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542514"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Diseño de una instancia de Azure Database for MariaDB con la CLI de Azure
 
@@ -85,7 +85,7 @@ Para conectarse al servidor, debe proporcionar las credenciales de acceso y la i
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin** .
+El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
