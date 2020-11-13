@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936129"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329523"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
 Los límites siguientes solo se aplican a los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
@@ -55,6 +55,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados me
 | Direcciones IP públicas<sup>1</sup> | 10 para Basic. | Póngase en contacto con el servicio de soporte técnico. |
 | Direcciones IP públicas estáticas<sup>1</sup> | 10 para Basic. | Póngase en contacto con el servicio de soporte técnico. |
 | Direcciones IP públicas estándar<sup>1</sup> | 10 | Póngase en contacto con el servicio de soporte técnico. |
+| [Direcciones IP públicas por grupo de recursos](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Póngase en contacto con el servicio de soporte técnico. | 
 | Prefijos de dirección IP pública | Limitado por el número de direcciones IP públicas estándar en una suscripción | Póngase en contacto con el servicio de soporte técnico. |
 | Longitud del prefijo de IP pública | /28 | Póngase en contacto con el servicio de soporte técnico. |
 
@@ -106,6 +107,6 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Rutas definidas por el usuario por tabla de ruta |400 |400 |
 | Direcciones IP públicas (dinámicas) |500 |500 |
 | Direcciones IP públicas reservadas |500 |500 |
-| VIP pública por implementación |5 |Ponerse en contacto con soporte técnico |
-| VIP privada (equilibrio de carga interno) por implementación |1 |1 |
+| Dirección IP pública por implementación |5 |Ponerse en contacto con soporte técnico |
+| Dirección IP privada (equilibrio de carga interno) por implementación |1 |1 |
 | Listas de control de acceso (ACL) de punto de conexión |50 |50 |

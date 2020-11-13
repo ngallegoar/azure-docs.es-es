@@ -11,8 +11,7 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: 'Configuración de Azure NetApp Files y creación de un volumen de NFS: plantilla de Resource Manager'
-      displayName: Resource Manager
+    - name: Configuración de Azure NetApp Files y creación de un volumen de NFS
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Conceptos
   items:
@@ -114,8 +113,6 @@
           href: develop-rest-api-powershell.md
         - name: 'SDK, herramientas de la CLI y plantillas de Resource Manager'
           href: azure-netapp-files-sdk-cli.md
-        - name: Solución de errores del proveedor de recursos de Azure NetApp Files
-          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
     - name: Solucionar problemas
       items:
         - name: Solución de problemas de grupos de capacidad
@@ -126,6 +123,8 @@
           href: troubleshoot-dual-protocol-volumes.md
         - name: Solución de problemas de directivas de instantáneas
           href: troubleshoot-snapshot-policies.md
+        - name: Solucionar errores del proveedor de recursos
+          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Referencia
   items:
     - name: REST

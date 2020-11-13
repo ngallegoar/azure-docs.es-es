@@ -178,6 +178,8 @@
           href: connect-threat-intelligence.md
         - name: Conexión a máquinas virtuales de Azure Stack
           href: connect-azure-stack.md
+        - name: Supervisión del estado del conector de datos
+          href: monitor-data-connector-health.md
     - name: Habilitación del análisis de comportamiento de usuarios y entidades
       href: enable-entity-behavior-analytics.md
     - name: Administración de varios inquilinos (MSSP)

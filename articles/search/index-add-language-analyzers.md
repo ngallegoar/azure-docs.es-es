@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: bda186f6bb45250763e439b77b4d3af988574401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: e763dbd15ea443ad3c8f6295b37999c748db7e6c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935893"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422338"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Incorporación de analizadores de idioma a campos de cadena en un índice de Azure Cognitive Search
 
@@ -133,4 +133,4 @@ Para más información sobre las propiedades del índice, consulte [Creación de
 
 + [Creación de un índice &#40;API REST de Azure Cognitive Search&#41;](/rest/api/searchservice/create-index)  
 
-+ [Clase AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername)
++ [LexicalAnalyzerName Class](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)

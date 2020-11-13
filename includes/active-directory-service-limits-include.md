@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 819a897e2a785991378ce4b6cb19194665b569f0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5ac49491d8cb8fc81fe01d6f3d0d85456b190ed9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363409"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329598"
 ---
 Estas son las restricciones de uso y otros límites de servicio para el servicio Azure Active Directory (Azure AD).
 
@@ -21,7 +21,7 @@ Estas son las restricciones de uso y otros límites de servicio para el servicio
 | --- | --- |
 | Inquilinos | Un usuario único puede pertenecer a un máximo de 500 inquilinos de Azure AD como miembro o invitado.<br/>Un usuario único puede crear un máximo de 200 directorios. |
 | Dominios | No puede agregar más de 900 nombres de dominio administrados. Si configura todos los dominios para la federación con un entorno local de Active Directory, no puede agregar más de 450 nombres de dominio en cada inquilino. |
-|Recursos |<ul><li>De forma predeterminada, los usuarios de la edición Gratis de Azure Active Directory pueden crear un máximo de 50 000 recursos de Azure AD en un solo inquilino. Si tiene al menos un dominio comprobado, la cuota de servicio predeterminada de Azure AD se amplía a 300 000 recursos de Azure AD. Este límite de servicio no está relacionado con el límite del plan de tarifa de 500 000 recursos de la página de precios de Azure AD. Para superar la cuota predeterminada, debe ponerse en contacto con el servicio de soporte técnico de Microsoft.</li><li>Un usuario que no es administrador puede crear hasta 250 recursos de Azure AD. Tanto los recursos activos como los recursos eliminados que están disponibles para restaurar se contabilizan para esta cuota. Solo están disponibles para restaurar los recursos de Azure AD que se han eliminado hace menos de 30 días. Los recursos de Azure AD eliminados que ya no están disponibles para restaurar se contabilizan para esta cuota en un valor de un cuarto durante 30 días. Si tiene desarrolladores que probablemente superen repetidamente esta cuota en el transcurso de sus tareas normales, puede [crear y asignar un rol personalizado](../articles/active-directory/roles/quickstart-app-registration-limits.md) con permiso para crear un número ilimitado de registros de aplicaciones.</li></ul> |
+|Recursos |<ul><li>De forma predeterminada, los usuarios de la edición Gratis de Azure Active Directory pueden crear un máximo de 50 000 recursos de Azure AD en un solo inquilino. Si tiene al menos un dominio comprobado, la cuota de servicio predeterminada de Azure AD se amplía a 300 000 recursos de Azure AD. La cuota de servicio de Azure AD para las organizaciones creadas mediante el registro en modalidad de autoservicio sigue siendo de 50 000 recursos de Azure AD, incluso después de que se haya tomado el control de la administración interna y la organización se haya convertido en un inquilino administrado con al menos un dominio verificado. Este límite de servicio no está relacionado con el límite del plan de tarifa de 500 000 recursos de la página de precios de Azure AD. Para superar la cuota predeterminada, debe ponerse en contacto con el servicio de soporte técnico de Microsoft.</li><li>Un usuario que no es administrador puede crear hasta 250 recursos de Azure AD. Tanto los recursos activos como los recursos eliminados que están disponibles para restaurar se contabilizan para esta cuota. Solo están disponibles para restaurar los recursos de Azure AD que se han eliminado hace menos de 30 días. Los recursos de Azure AD eliminados que ya no están disponibles para restaurar se contabilizan para esta cuota en un valor de un cuarto durante 30 días. Si tiene desarrolladores que probablemente superen repetidamente esta cuota en el transcurso de sus tareas normales, puede [crear y asignar un rol personalizado](../articles/active-directory/roles/quickstart-app-registration-limits.md) con permiso para crear un número ilimitado de registros de aplicaciones.</li></ul> |
 | Extensiones de esquema |<ul><li>Las extensiones de tipo String pueden tener un máximo de 256 caracteres. </li><li>Las extensiones de tipo Binary están limitadas a 256 bytes.</li><li>Solo 100 valores de extensión, entre *todos* los tipos y *todas* las aplicaciones, son los únicos que se pueden escribir en cualquier recurso de Azure AD único.</li><li>Las entidades User, Group, TenantDetail, Device, Application y ServicePrincipal son las únicas que se pueden ampliar con atributos de valor único de tipo String o de tipo Binary.</li><li>Las extensiones de esquema solo están disponibles en la versión preliminar de la versión 1.21 de Graph API. La aplicación debe tener acceso de escritura para registrar una extensión.</li></ul> |
 | APLICACIONES |Un máximo de 100 usuarios pueden ser propietarios de una sola aplicación. |
 |Manifiesto de aplicación |Se puede agregar un máximo de 1200 entradas en el manifiesto de aplicación. |
