@@ -8,7 +8,6 @@
     - name: Almacenes de datos compatibles
       href: supported-data-stores.md
 - name: Guías de inicio rápido
-  expanded: true
   items:
     - name: 'Uso compartido de datos: Azure Portal'
       href: share-your-data-portal.md
@@ -16,6 +15,7 @@
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Tutoriales
+  expanded: true
   items:
     - name: Compartir datos
       href: share-your-data.md
