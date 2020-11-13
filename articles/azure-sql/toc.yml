@@ -639,7 +639,7 @@
                       href: database/saas-multitenantdb-tenant-analytics.md
     - name: Ejemplos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: database/az-cli-script-samples-content-guide.md?tabs=single-database
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=single-database
@@ -964,7 +964,7 @@
           href: managed-instance/user-initiated-failover.md
     - name: Ejemplos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=managed-instance
@@ -1059,11 +1059,11 @@
                   displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: Registro automático
-                      href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
+                      href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
                     - name: Máquina virtual única
-                      href: virtual-machines/windows/sql-vm-resource-provider-register.md
+                      href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
                     - name: Registro en bloque de varias máquinas virtuales
-                      href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
+                      href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
             - name: Migrar
               items:
                 - name: Base de datos de SQL Server en la máquina virtual
@@ -1094,7 +1094,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Requisitos previos
+                            - name: Prerrequisitos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
