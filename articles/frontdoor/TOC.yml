@@ -36,11 +36,15 @@
       href: front-door-quickstart-template-samples.md
 - name: Conceptos
   items:
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: Back-ends y grupos de back-ends
       href: front-door-backend-pool.md
     - name: Almacenamiento en caché con Front Door
       href: front-door-caching.md
-    - name: Protección contra DDOS
+    - name: DDoS Protection
       href: front-door-ddos.md
     - name: Preguntas más frecuentes sobre Front Door
       href: front-door-faq.md
@@ -92,7 +96,7 @@
           href: front-door-troubleshoot-allowed-ca.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/ext/front-door/
     - name: Azure PowerShell
       href: /powershell/module/az.frontdoor

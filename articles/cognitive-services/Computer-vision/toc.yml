@@ -85,12 +85,14 @@
       href: Tutorials/storage-lab-tutorial.md
 - name: Conceptos
   items:
-    - name: Etiquetas de contenido
-      href: concept-tagging-images.md
+    - name: Reconocimiento óptico de caracteres (OCR)
+      href: concept-recognizing-text.md
     - name: Detección de objetos
       href: concept-object-detection.md
     - name: Detección de la marca
       href: concept-brand-detection.md
+    - name: Etiquetas de contenido
+      href: concept-tagging-images.md
     - name: Categorización de imágenes
       href: concept-categorizing-images.md
     - name: Descripciones de imágenes
@@ -105,8 +107,6 @@
       href: concept-detecting-color-schemes.md
     - name: Miniaturas de recorte inteligente
       href: concept-generating-thumbnails.md
-    - name: Reconocimiento óptico de caracteres (OCR)
-      href: concept-recognizing-text.md
     - name: Detección de contenido para adultos
       href: concept-detecting-adult-content.md
 - name: Inteligencia artificial responsable

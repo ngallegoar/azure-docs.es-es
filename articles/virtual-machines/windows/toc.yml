@@ -46,7 +46,7 @@
     - name: 13 - Supervisión de máquinas virtuales
       href: tutorial-monitor.md
     - name: 14 - Administración de la seguridad de máquinas virtuales
-      href: tutorial-azure-security.md
+      href: ../tutorial-azure-security.md
     - name: 15 - Instalación de una pila de SQL\IIS\.NET
       href: tutorial-iis-sql.md
     - name: 16 - Seguridad de servidores web con SSL
@@ -648,8 +648,16 @@
         - name: Intercambio del disco del SO
           href: os-disk-swap.md
         - name: Etiquetado de una máquina virtual
-          href: tag.md
-        - name: Sincronización de hora
+          items:
+            - name: Portal
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: CLI
+              href: ../tag-cli.md
+            - name: Plantilla
+              href: ../tag-template.md
+            - name: Sincronización de hora
           href: time-sync.md
         - name: Ejecución de scripts en una máquina virtual
           href: run-scripts-in-vm.md
@@ -950,7 +958,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Apertura de puertos a una máquina virtual
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md
@@ -1057,7 +1065,7 @@
   href: ../troubleshooting/index.yml
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/vm
     - name: Azure PowerShell
       href: /powershell/azure/
