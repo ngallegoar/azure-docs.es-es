@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: b67de07777fa3f4f2b6190d8b003eb0495e66d15
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 197d28b2ac3d94b6639a6611b2919bdeb2b182e2
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400492"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359908"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extracción de información en Excel con Text Analytics y Power Automate 
 
@@ -44,18 +44,16 @@ En este tutorial, aprenderá a:
 Descargue el archivo de Excel de ejemplo de [GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/TextAnalytics/sample-data/ReportedIssues.xlsx). Este archivo debe almacenarse en su cuenta de OneDrive para la Empresa.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Ejemplos del archivo de Excel.":::
 
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing" en la descripción para clasificar los problemas. 
+Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra "plumbing" en la descripción para clasificar los problemas. 
 
 ## <a name="create-a-new-power-automate-workflow"></a>Creación de un nuevo flujo de trabajo de Power Automate
 
 Vaya al [sitio de Power Automate](https://preview.flow.microsoft.com/) e inicie sesión. Luego, haga clic en **Crear** y en **Flujo programado**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="Pantalla de creación del flujo.":::
 
 
 En la página **Crear un flujo programado**, inicialice el flujo con los campos siguientes:
@@ -74,9 +72,7 @@ En la página **Crear un flujo programado**, inicialice el flujo con los campos 
 Cree variables que representen la información que se agregará al archivo de Excel. Haga clic en **Nuevo paso** y busque **Inicializar variable**. Haga esto cuatro veces para crear cuatro variables.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Inicialización de variables.":::
 
 Agregue la siguiente información a las variables que ha creado. Representan las columnas del archivo de Excel. Si las variables están contraídas, puede hacer clic en ellas para expandirlas.
 
@@ -88,39 +84,29 @@ Agregue la siguiente información a las variables que ha creado. Representan las
 | Inicializar la variable 4 | var_other | String | Otros | 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="Información contenida en las variables de flujo":::
 
 ## <a name="read-the-excel-file"></a>Lectura del archivo de Excel
 
 Haga clic en **Nuevo paso** y escriba **Excel**, a continuación, seleccione **Enumerar las filas de una tabla** de la lista de acciones.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="Adición de filas de Excel.":::
 
 Rellene los campos de esta sección para agregar el archivo de Excel al flujo. En este tutorial es necesario haber cargado el archivo en OneDrive para la Empresa.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="Llenar filas de Excel":::
 
 Haga clic en **Nuevo paso** y agregue una acción **Aplicar a cada uno**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="Adición de un comando Aplicar.":::
 
 Haga clic dentro del cuadro **Seleccionar una salida de los pasos anteriores**. En el cuadro de contenido dinámico que aparece, seleccione **valor**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Seleccione salida del archivo de Excel.":::
 
 ## <a name="send-a-request-to-the-text-analytics-api"></a>Envío de una solicitud a la API Text Analytics
 
@@ -142,25 +128,19 @@ En el flujo, escriba la siguiente información para crear una conexión de Text 
 | Dirección URL del sitio        | Punto de conexión del recurso de Text Analytics.                                                       |
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Adición de las credenciales de Text Analytics al flujo.":::
 
 ## <a name="extract-the-excel-content"></a>Extracción del contenido de Excel 
 
 Una vez que se cree la conexión, busque **Text Analytics** y seleccione **Entidades**. Se extraerá la información de la columna de descripción del problema.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Agregar entidades de Text Analytics.":::
 
 Haga clic en el campo **Texto** y seleccione **Description** de la ventana de contenido dinámico que aparece. Escriba `en` en Idioma. (Haga clic en Mostrar opciones avanzadas si no ve el idioma).
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Agregar configuración de Text Analytics.":::
 
 
 ## <a name="extract-the-person-name"></a>Extracción del nombre de la persona
@@ -168,67 +148,49 @@ Los problemas se informan en texto sin formato. Usaremos el reconocimiento de en
 A continuación, buscará el tipo de entidad de persona en la salida de Text Analytics. En **Aplicar a cada uno**, haga clic en **Agregar una acción** y cree otra acción **Aplicar a cada uno**. Haga clic dentro del cuadro de texto y seleccione **Entidades** en la ventana de contenido dinámico que aparece.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 2":::
 
 Dentro de la acción **Aplicar a cada uno 2** creada recién, haga clic en **Agregar una acción** y agregue un control **Condición**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 3":::
 
 En la ventana Condición, haga clic en el primer cuadro de texto. En la ventana de contenido dinámico, busque **Tipo de entidades** y selecciónela.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 4":::
 
 Asegúrese de que el segundo cuadro esté establecido en **es igual a**. A continuación, seleccione el tercer cuadro y busque `var_person` en la ventana de contenido dinámico. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 5":::
 
 En la condición **En caso positivo**, escriba en Excel y, a continuación, seleccione **Actualizar una fila**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 6":::
 
 Escriba la información de Excel y actualice los campos **Columna de clave**, **Valor de clave** y **PersonName**. Esto anexará el nombre detectado por la API a la hoja de Excel. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 7":::
 
 ## <a name="get-the-phone-number"></a>Obtención del número de teléfono
 
 Para minimizar la acción **Aplicar a cada uno 2**, haga clic en el nombre. A continuación, agregue otra acción **Aplicar a cada uno**, como antes. Se le asignará un nombre **Aplicar a cada uno 3**. Seleccione el cuadro de texto y agregue **entidades** como salida para esta acción. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 8":::
 
 Dentro de **Aplicar a cada uno 3**, agregue un control **Condición**. Se denominará **Condición 2**. En el primer cuadro de texto, busque y agregue **Tipos de entidades** desde la ventana de contenido dinámico. Asegúrese de que el cuadro central esté establecido en **es igual a**. A continuación, en el cuadro de texto de la derecha, escriba `var_phone`. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 9":::
 
 En la condición **En caso positivo**, agregue una acción **Actualizar una fila**. A continuación, escriba la información como se hizo anteriormente, para la columna de números de teléfono de la hoja de Excel. Esto anexará el número de teléfono detectado por la API a la hoja de Excel. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 10":::
 
 
 ## <a name="get-the-plumbing-issues"></a>Obtención de los problemas de fontanería
@@ -236,21 +198,23 @@ Los problemas se informan en texto sin formato. Usaremos el reconocimiento de en
 Para minimizar **Aplicar a cada uno 3**, haga clic en el nombre. A continuación, cree otra acción **Aplicar a cada uno** en la acción primaria. Seleccione el cuadro de texto y agregue **Entidades** como salida para esta acción en la ventana de contenido dinámico. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 11":::
 
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing" en la columna IssueType. De lo contrario, escribiremos "other".
+
+A continuación, el flujo comprobará si la descripción del problema de la fila de la tabla de Excel contiene la palabra "plumbing". En caso afirmativo, se agregará "plumbing" en la columna IssueType. De lo contrario, escribiremos "other".
 
 Dentro de la acción **Aplicar a cada uno 4**, agregue un control **Condición**. Se denominará **Condición 3**. En el primer cuadro de texto, busque y agregue **Descripción** desde la ventana de contenido dinámico. Asegúrese de que el cuadro central indique **contiene**. A continuación, en el cuadro de texto de la derecha, busque y seleccione `var_plumbing`. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 12":::
 
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing" a la fila.
+
+En la condición **En caso positivo**, haga clic en **Agregar una acción** y seleccione **Actualizar una fila**. A continuación, escriba la información como antes. En la columna IssueType, seleccione `var_plumbing`. Esto aplicará una etiqueta "plumbing" a la fila.
+
+En la condición **En caso negativo**, haga clic en **Agregar una acción** y seleccione **Actualizar una fila**. A continuación, escriba la información como antes. En la columna IssueType, seleccione `var_other`. Esto aplicará una etiqueta "other" a la fila.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Agregar credenciales de Text Analytics a un flujo. 13":::
 
 ## <a name="test-the-workflow"></a>Probar el flujo de trabajo
 
@@ -259,9 +223,7 @@ En la esquina superior derecha de la pantalla, haga clic en **Guardar** y luego 
 El archivo de Excel se actualizará en su cuenta de OneDrive. Tendrá un aspecto como el siguiente.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="Ejemplos del archivo de Excel.&quot;:::
-
-Los problemas se informan en texto sin formato. Usaremos el reconocimiento de entidades con nombre de la API Text Analytics para extraer el nombre de la persona y su número de teléfono. A continuación, el flujo buscará la palabra &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="Hoja de cálculo de Excel actualizada.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

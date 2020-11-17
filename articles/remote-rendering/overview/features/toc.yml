@@ -2,6 +2,8 @@
   href: cut-planes.md
 - name: Depuración de representación
   href: debug-rendering.md
+- name: Efecto Fresnel
+  href: fresnel-effect.md
 - name: Invalidación de estado jerárquico
   href: override-hierarchical-state.md
 - name: Cámara

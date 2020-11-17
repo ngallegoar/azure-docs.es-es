@@ -1,34 +1,38 @@
 ---
-title: Configuración de diagnósticos
+title: Habilitación y consulta de registros de diagnóstico
 titleSuffix: Azure Digital Twins
-description: Consulte cómo habilitar el registro con la configuración de diagnóstico.
+description: Vea cómo habilitar el registro con la configuración de diagnóstico y cómo consultar los registros para verlos de forma inmediata.
 author: baanders
 ms.author: baanders
-ms.date: 7/28/2020
+ms.date: 11/9/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091742"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411772"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins: Registro de diagnóstico
 
-Azure Digital Twins recopila [métricas](troubleshoot-metrics.md) para la instancia del servicio que proporcionan información sobre el estado de los recursos. Puede usar estas métricas para evaluar el estado general del servicio Azure Digital Twins y los recursos conectados a él. Estas estadísticas orientadas al usuario ayudan a ver lo que está ocurriendo con su instancia de Azure Digital Twins y a realizar el análisis de la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
+Azure Digital Twins puede recopilar los registros de una instancia de servicio para supervisar su rendimiento, acceso y otros datos. Estos registros se pueden usar para hacerse una idea de lo que ocurre en una instancia de Azure Digital Twins y realizar un análisis de la causa principal de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
-En este artículo se muestra cómo activar el **registro de diagnóstico** para los datos de métricas de la instancia de Azure Digital Twins. Estos registros se pueden usar como ayuda para solucionar problemas del servicio y configurar opciones de diagnóstico para enviar métricas de Azure Digital Twins a diferentes destinos. Puede encontrar más información sobre esta configuración en [*Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos*](../azure-monitor/platform/diagnostic-settings.md).
+En este artículo se muestra cómo [**configurar los valores de diagnóstico**](#turn-on-diagnostic-settings) en [Azure Portal](https://portal.azure.com) para empezar a recopilar registros de una instancia de Azure Digital Twins. También se puede especificar la ubicación en que se deben almacenar los registros (como Log Analytics o la cuenta de almacenamiento que se prefiera).
 
-## <a name="turn-on-diagnostic-settings-with-the-azure-portal"></a>Activación de la configuración de diagnóstico con Azure Portal
+Este artículo también contiene una lista de todas las [categorías de registro](#log-categories) y los [esquemas de registro](#log-schemas) que recopila Azure Digital Twins.
 
-Aquí se describe cómo habilitar la configuración de diagnóstico de la instancia de Azure Digital Twins:
+Después de configurar los registros, también puede [**consultar los registros**](#view-and-query-logs) para recopilar rápidamente información personalizada.
+
+## <a name="turn-on-diagnostic-settings"></a>Activación de la configuración de diagnóstico 
+
+Active la configuración de diagnóstico para empezar a recopilar registros en una instancia de Azure Digital Twins. También puede elegir el destino en el que se deben almacenar los registros exportados. Aquí se describe cómo habilitar la configuración de diagnóstico de una instancia de Azure Digital Twins.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la instancia de Azure Digital Twins. Escriba el nombre en la barra de búsqueda para encontrarla. 
 
 2. En el menú, seleccione **Configuración de diagnóstico** y **Agregar configuración de diagnóstico**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico y el botón para agregarla":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico y el botón para agregarla" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. En la página siguiente, rellene los valores a continuación:
      * **Diagnostic setting name** (Nombre de la configuración de diagnóstico): Asigne un nombre a la configuración de diagnóstico.
@@ -39,8 +43,8 @@ Aquí se describe cómo habilitar la configuración de diagnóstico de la instan
         - QueryOperation
         - AllMetrics
         
-        Para más información sobre estas opciones, consulte la sección [*Detalles de categoría*](#category-details) a continuación.
-     * **Detalles de destino** : Elija dónde desea enviar los registros. También puede seleccionar cualquier combinación de las tres opciones:
+        Para más información sobre estas categorías y la información que contienen, consulte la sección [*Categorías de registro*](#log-categories), que encontrará a continuación.
+     * **Detalles de destino**: Elija dónde desea enviar los registros. También puede seleccionar cualquier combinación de las tres opciones:
         - Enviar a Log Analytics
         - Archivar en una cuenta de almacenamiento
         - Transmitir a un centro de eventos
@@ -49,13 +53,15 @@ Aquí se describe cómo habilitar la configuración de diagnóstico de la instan
     
 4. Guarde la configuración nueva. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico en la que el usuario ha rellenado un nombre de configuración de diagnóstico y ha realizado algunas selecciones para los detalles de la categoría y los detalles del destino. El botón Guardar está resaltado.":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico en la que el usuario ha rellenado un nombre de configuración de diagnóstico y ha realizado algunas selecciones para los detalles de la categoría y los detalles del destino. El botón Guardar está resaltado." lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino configurado en la página **Configuración de diagnóstico** de la instancia. 
 
-## <a name="category-details"></a>Detalles de categoría
+Para obtener información más detallada sobre la configuración de diagnóstico y sus opciones, puede visitar [*Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos*](../azure-monitor/platform/diagnostic-settings.md).
 
-Aquí encontrará más información sobre las categorías de registro que se pueden seleccionar en **Category details** (Detalles de categoría) al configurar los valores de diagnóstico.
+## <a name="log-categories"></a>Categorías de registro
+
+Aquí encontrará más detalles sobre las categorías de registros que recopila Azure Digital Twins.
 
 | Categoría de registro | Descripción |
 | --- | --- |
@@ -222,6 +228,34 @@ A continuación se muestran ejemplos de cuerpos JSON para estos tipos de registr
   }
 }
 ```
+
+## <a name="view-and-query-logs"></a>Visualización y consulta de registro
+
+En este artículo, ha configurado los tipos de registros que se almacenan y ha especificado su ubicación de almacenamiento.
+
+Para solucionar el problema y generar información de estos registros, puede generar **consultas personalizadas**. Para empezar, también puede aprovechar algunas de las consultas de ejemplo que proporciona el servicio, que aborda preguntas comunes que los clientes pueden tener sobre su instancia.
+
+Así es como se realizan consultas en los registros de una instancia.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la instancia de Azure Digital Twins. Escriba el nombre en la barra de búsqueda para encontrarla. 
+
+2. Seleccione **Registros** en el menú para abrir la página de consulta del registro. La página se abre en una ventana llamada *Consultas*.
+
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Captura de pantalla que muestra la página Registros de una instancia de Azure Digital Twins. Se superpone con una ventana Consultas que muestra las consultas precompiladas con el nombre de las distintas opciones de registro, como la latencia de DigitalTwin API y la latencia de Model API." lightbox="media/troubleshoot-diagnostics/logs.png":::
+
+    Se trata de consultas de ejemplo creadas previamente escritas para varios registros. Puede seleccionar una de las consultas para cargarla en el editor de consultas y ejecutarla para ver estos registros de su instancia.
+
+    También puede cerrar la ventana *Consultas* sin ejecutar nada para ir directamente a la página del editor de consultas, donde puede escribir o editar el código de consulta personalizado.
+
+3. Después de salir de la ventana *Consultas* verá la página principal del editor de consultas. Aquí puede ver y editar el texto de las consultas de ejemplo, o escribir sus propias consultas desde cero.
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Captura de pantalla que muestra la página Registros de una instancia de Azure Digital Twins. La ventana Consultas ha desaparecido y, en su lugar, hay una lista de registros diferentes, un panel de edición que muestra el código de consulta que se puede editar y un panel que muestra el historial de consultas." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+
+    En el panel izquierdo: 
+    - La pestaña *Tables* (Tablas) muestran las distintas [categorías de registro ](#log-categories) de Azure Digital Twins que están disponibles para su uso en las consultas. 
+    - La pestaña *Queries* (Consultas) contiene las consultas de ejemplo que se pueden cargar en el editor.
+    - La pestaña *Filter* (Filtro) permite personalizar una vista filtrada de los datos que devuelve la consulta.
+
+Para más información sobre consultas del registro y cómo escribirlas, puede visitar [*Introducción a las consultas de registro en Azure Monitor*](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,24 +4,23 @@ description: Comprenda cómo y dónde configurar los recursos.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/21/2020
-ms.openlocfilehash: 1d54b912d2177a3ccd0cf34d57fc0358af653199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/9/2020
+ms.openlocfilehash: d2095919d6f6be482390250fd8d0ee20e9015237
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776721"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444867"
 ---
 # <a name="service-configuration"></a>Configuración del servicio
 
-QnA Maker usa varios recursos de Azure (servicios), como Cognitive Search, App Service, plan de App Service y Application Insights.
-
-A continuación se enumeran todas las personalizaciones de esta configuración admitidas por QnA Maker.
+Cada versión de QnA Maker usa un conjunto diferente de recursos de Azure (servicios). En este artículo se describen las personalizaciones admitidas para estos servicios. 
 
 ## <a name="app-service"></a>App Service
 
-QnA Maker usa una instancia de App Service para proporcionar el tiempo de ejecución de la consulta que usa [generateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer).
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
+QnA Maker usa una instancia de App Service para proporcionar el tiempo de ejecución de la consulta que usa [generateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/generateanswer).
 
 Esta configuración está disponible en Azure Portal para la instancia de App Service. La configuración está disponible seleccionando **Configuración** y **Configuración**.
 
@@ -36,9 +35,13 @@ Puede establecer una configuración individual a través de la lista de configur
 |UserAppInsightsKey|Registro de chat y telemetría|
 |UserAppInsightsName|Registro de chat y telemetría|
 
-Aprenda a [agregar el servicio Cognitive Search](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) al servicio.
-
 Debe **reiniciar** el servicio en la página **Información general** de Azure Portal, una vez que haya terminado de realizar los cambios.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+Las personalizaciones de App Service no se aplican a QnA Maker administrado (versión preliminar).
+
+---
 
 ## <a name="qna-maker-service"></a>Servicio QnA Maker
 
@@ -46,13 +49,37 @@ El servicio QnA Maker proporciona la configuración para que los siguientes usua
 
 Aprenda a [agregar colaboradores](./how-to/collaborate-knowledge-base.md) al servicio.
 
-## <a name="application-insights"></a>Application Insights
+## <a name="change-azure-cognitive-search"></a>Cambio de Azure Cognitive Search
 
-Application Insights no tiene valores de configuración específicos de QnA Maker.
+Aprenda [a cambiar Azure Cognitive Search](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) vinculado a un servicio QnA Maker.
+
+## <a name="change-default-answer"></a>Cambio de la respuesta predeterminada
+
+Aprenda [a cambiar el texto de las respuestas predeterminadas](How-To/change-default-answer.md). 
+
+## <a name="telemetry"></a>Telemetría
+
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+
+Application Insights se usa para supervisar la telemetría con QnA Maker GA. No hay valores de configuración específicos de QnA Maker.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+Aprenda [a agregar datos de telemetría a un servicio QnA Maker administrado (versión preliminar)](How-To/get-analytics-knowledge-base.md). 
+
+---
 
 ## <a name="app-service-plan"></a>Plan de servicio de aplicación
 
+# <a name="qnamaker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+
 El plan de App Service no tiene valores de configuración específicos de QnA Maker.
+
+# <a name="qnamaker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+App Service Plan no se utiliza con QnA Maker administrado (versión preliminar).
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

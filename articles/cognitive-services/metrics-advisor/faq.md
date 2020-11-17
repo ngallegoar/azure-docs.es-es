@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 11/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893584"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420966"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Metrics Advisor
 
@@ -104,6 +104,19 @@ La "detección inteligente" es capaz de aprender el patrón de los datos, inclui
 
 Si los datos suelen ser bastante inestables y fluctúan mucho, y desea recibir una alerta cuando pasen a ser demasiado estables o incluso se conviertan en una línea plana, el "umbral de cambio" puede configurarse para detectar dichos puntos de datos cuando el cambio sea demasiado pequeño.
 Consulte las [configuraciones de detección de anomalías](how-tos/configure-metrics.md#anomaly-detection-methods) para obtener detalles.
+
+### <a name="how-to-set-up-email-settings-and-enable-alerting-by-email"></a>¿Cómo se efectúa la configuración de correo electrónico y se habilitan las alertas por correo electrónico?
+
+1.  Un usuario con privilegios de administrador de la suscripción o de administrador del grupo de recursos debe ir al recurso de Metrics Advisor que creó en Azure Portal y seleccionar la pestaña **Control de acceso (IAM)** . 
+2.  Seleccione **Agregar asignación de roles**.
+3.  Elija un rol de **administrador de Cognitive Services Metrics Advisor** y seleccione su cuenta como en la imagen siguiente.
+4.  Haga clic en botón **Guardar** y, con esto, ya se le habrá agregado correctamente como administrador del recurso de Metrics Advisor. Tenga en cuenta que todas las acciones anteriores las debe realizar el administrador de la suscripción o el administrador del grupo de recursos. 
+
+:::image type="content" source="media/access-control.png" alt-text="Página de menú Control de acceso (IAM) con la opción Agregar asignación de roles seleccionada, seguida de la casilla Assign access to selected user (Asignar acceso al usuario seleccionado) que aparece con un rol de acceso de Administrador de Cognitive Services Metrics Advisor, seguido del botón Guardar seleccionado para mostrar los pasos de búsqueda de un usuario y la incorporación de un nivel determinado de permisos de acceso." lightbox="media/access-control.png":::
+
+
+5.  Los permisos pueden tardar hasta un minuto en propagarse. Después, seleccione el área de trabajo de Metrics Advisor y seleccione la opción **Configuración de correo electrónico** en el panel de navegación izquierdo. Rellene los elementos necesarios, en particular la información relacionada con SMTP. 
+6.  Seleccione **Guardar** y, después, habrá completado la configuración de correo electrónico. Puede crear nuevos enlaces y suscribirse a anomalías de métricas para alertas casi en tiempo real. 
 
 ## <a name="advanced-concepts"></a>Conceptos avanzados
 

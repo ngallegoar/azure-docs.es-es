@@ -2,7 +2,7 @@
   href: index.yml
 - name: Información general
   items:
-    - name: ¿Qué es Stream Analytics?
+    - name: Bienvenido a Stream Analytics
       href: stream-analytics-introduction.md
     - name: Clúster de Stream Analytics
       href: cluster-overview.md

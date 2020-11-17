@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 34a7cd8669c1545361bc7cd9579cfb6140c0c946
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ac3edc466d640fdb98fd38ba59938aa13fe00f73
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331709"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489155"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconocimiento óptico de caracteres (OCR)
 
@@ -59,7 +59,7 @@ La [llamada a Read](https://westcentralus.dev.cognitive.microsoft.com/docs/servi
 
 ## <a name="the-get-read-results-call"></a>Llamada a Get Read Results
 
-El segundo paso es llamar a la operación [Get Read Results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750). Esta operación toma como entrada el identificador de operación que la operación de lectura ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto** . Use un intervalo de 1 a 2 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
+El segundo paso es llamar a la operación [Get Read Results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750). Esta operación toma como entrada el identificador de operación que la operación de lectura ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 1 a 2 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
 
 |Campo| Tipo | Valores posibles |
 |:-----|:----:|:----|
@@ -72,6 +72,9 @@ El segundo paso es llamar a la operación [Get Read Results](https://westcentral
 > El nivel gratuito limita la tasa de solicitudes a 20 llamadas por minuto. El nivel de pago permite 10 solicitudes por segundo (RPS) que pueden aumentar a petición. Use el canal de soporte técnico de Azure o contacte con el equipo de cuentas para solicitar una tasa de solicitudes por segundo (RPS) más alta.
 
 Cuando el campo **estado** tiene el valor **succeeded** (correcto), la respuesta JSON contiene el contenido de texto extraído de la imagen o el documento. La respuesta en JSON mantiene las agrupaciones de líneas originales de palabras reconocidas. Incluye las líneas de texto extraídas y las coordenadas del cuadro de límite correspondientes. Cada línea de texto incluye todas las palabras extraídas, con las coordenadas y las puntuaciones de confianza respectivas.
+
+> [!NOTE]
+> Los datos enviados a la operación `Read` se cifran y almacenan temporalmente en reposo y se eliminan en 48 horas. Esto permite que las aplicaciones recuperen el texto extraído como parte de la respuesta del servicio.
 
 ## <a name="sample-json-output"></a>Salida de JSON de ejemplo
 
@@ -87,7 +90,6 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
     "readResults": [
       {
         "page": 1,
-        "language": "en",
         "angle": 0.8551,
         "width": 2661,
         "height": 1901,

@@ -4,16 +4,16 @@ description: archivo de inclusión
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
-ms.openlocfilehash: fabd79829425147667c46f686a1ec1ceb6a29b00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87132910"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386545"
 ---
 En esta guía de inicio rápido basada en Postman se ofrece orientación sobre cómo obtener una respuesta de una base de conocimiento.
 
@@ -28,6 +28,8 @@ En esta guía de inicio rápido basada en Postman se ofrece orientación sobre c
 > Cuando esté listo para generar una respuesta a una pregunta de la base de conocimiento, debe [entrenar](../Quickstarts/create-publish-knowledge-base.md#save-and-train) y [publicar](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) la base de conocimiento. Cuando se publica la base de conocimiento, en la página **Publicar** se muestra la configuración de la solicitud HTTP para generar una respuesta. La pestaña **Postman** muestra la configuración necesaria para generar una respuesta.
 
 ## <a name="set-up-postman-for-requests"></a>Configuración de Postman para solicitudes
+
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
 En este inicio rápido se usa la misma configuración que para la solicitud **POST** de Postman y, a continuación, se configura en el código JSON de la sección body de la solicitud POST que se envía al servicio en función de lo que se intenta consultar.
 
@@ -44,6 +46,25 @@ Use este procedimiento para configurar Postman y, luego, lea todas las secciones
     ||`{"question":"<Your question>"}`|El cuerpo de la solicitud POST como un objeto JSON. Este valor cambiará en cada sección posterior, en función de aquello para lo que esté pensada la consulta.|
 
 1. Abra Postman y cree una nueva solicitud **POST** básica con la configuración de la base de conocimiento publicada. En las secciones siguientes, modifique el código JSON de la sección body de la solicitud POST para cambiar la consulta a la base de conocimiento.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+En este inicio rápido se usa la misma configuración que para la solicitud **POST** de Postman y, a continuación, se configura en el código JSON de la sección body de la solicitud POST que se envía al servicio en función de lo que se intenta consultar.
+
+Use este procedimiento para configurar Postman y, luego, lea todas las secciones posteriores para configurar el código JSON de la sección body de la solicitud POST.
+
+1. En la página **Configuración** de la base de conocimiento, seleccione la pestaña **Postman** para ver la configuración que se usa para generar una respuesta de la base de conocimiento. Copie la siguiente información para usarla en Postman.
+
+    |Nombre|Configuración|Propósito y valor|
+    |--|--|--|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Este es el método HTTP y la ruta de la dirección URL.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Este es el host de la dirección URL. Concatene los valores de Host y Post para obtener la dirección URL completa de generateAnswer.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|El valor del encabezado para autorizar la solicitud. |
+    |`Content-type`|`application/json`|El valor del encabezado para el contenido.|
+    ||`{"question":"<Your question>"}`|El cuerpo de la solicitud POST como un objeto JSON. Este valor cambiará en cada sección posterior, en función de aquello para lo que esté pensada la consulta.|
+
+1. Abra Postman y cree una nueva solicitud **POST** básica con la configuración de la base de conocimiento publicada. En las secciones siguientes, modifique el código JSON de la sección body de la solicitud POST para cambiar la consulta a la base de conocimiento.
+---
 
 ## <a name="use-metadata-to-filter-answer"></a>Uso de metadatos para filtrar las respuestas
 

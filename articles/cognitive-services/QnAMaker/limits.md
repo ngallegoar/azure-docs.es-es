@@ -4,13 +4,13 @@ description: QnA Maker tiene meta-límites para partes de la base de conocimient
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/14/2020
-ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776262"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380915"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Límites de la base de conocimiento de QnA Maker
 
@@ -50,6 +50,9 @@ Los nombres de archivo no pueden incluir los siguientes caracteres:
 ### <a name="maximum-number-of-files"></a>Número máximo de archivos
 
 El número máximo de archivos que se pueden extraer y tamaño máximo del archivo se basa en los **[límites del plan de tarifa de QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** .
+
+> [!NOTE]
+> QnA Maker administrado (versión preliminar) es un servicio gretuito que no tiene límites en cuanto al número de orígenes que se pueden agregar. Su rendimiento está actualmente limitado a 10 transacciones por segundo tanto para las API de administración como para las de predicción.
 
 ### <a name="maximum-number-of-deep-links-from-url"></a>Número máximo de vínculos profundos de la dirección URL
 
@@ -93,14 +96,14 @@ Límites generales del contenido de la base de conocimiento:
 
 ## <a name="create-knowledge-base-call-limits"></a>Límites de llamada de creación de la base de conocimiento:
 Representan los límites para cada acción de creación de base de conocimiento; es decir, al hacer clic en *Crear una base de conocimiento* o al llamar a la API CreateKnowledgeBase.
-* Número máximo de preguntas alternativas por respuesta: 300
+* Número máximo recomendado de preguntas alternativas por respuesta: 300
 * Número máximo de direcciones URL: 10
 * Número máximo de archivos: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Límites de llamadas de actualización de la base de conocimiento
 Representan los límites para cada acción de actualización; es decir, al hacer clic en *Save and train* (Guardar y entrenar) o al llamar a la API UpdateKnowledgeBase.
 * Longitud de cada nombre de origen: 300
-* Número máximo de preguntas alternativas agregadas o eliminadas: 300
+* Número máximo recomendado de preguntas alternativas agregadas o eliminadas: 300
 * Número máximo de campos de metadatos agregados o eliminados: 10
 * Número máximo de direcciones URL que se pueden actualizar: 5
 

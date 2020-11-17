@@ -19,6 +19,8 @@
       href: virtual-machines-custom-preferences.md
     - name: Habilitación en máquinas virtuales a través de Azure Policy
       href: virtual-machines-policy-enable.md
+    - name: Reparación de una cuenta de Automanage estropeada
+      href: repair-automanage-account.md
 - name: Recursos
   expanded: true
   items:

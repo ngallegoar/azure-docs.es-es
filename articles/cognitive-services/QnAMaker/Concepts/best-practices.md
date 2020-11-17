@@ -4,13 +4,13 @@ description: Siga estos procedimientos recomendados para mejorar la base de cono
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777027"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376764"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedimientos recomendados para una base de conocimiento de QnA Maker
 
@@ -116,11 +116,17 @@ De manera predeterminada, QnA Maker busca a través de preguntas y respuestas. S
 Los [metadatos](../How-To/edit-knowledge-base.md) agregan la posibilidad de que una aplicación cliente pueda saber que no debe tomar todas las respuestas, sino restringir los resultados de una consulta de usuario en función de las etiquetas de metadatos. La respuesta de la base de conocimiento puede diferir según la etiqueta de metadatos, aunque la consulta sea la misma. Por ejemplo, *¿Dónde está ubicado el estacionamiento?* puede tener otra respuesta si la ubicación del restaurante es diferente; es decir, los metadatos son *ubicación: Seattle* frente a *ubicación: Redmond*.
 
 ### <a name="use-synonyms"></a>Usar sinónimos
-Aunque hay cierta compatibilidad con los sinónimos en inglés, use alteraciones de palabras que no distinguen mayúsculas de minúsculas a través de [Alterations API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos se agregan en el nivel del servicio QnA Maker y todas las bases de conocimiento del servicio los comparten.
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+Aunque hay cierta compatibilidad con los sinónimos en inglés, use alteraciones de palabras que no distinguen mayúsculas de minúsculas a través de [Alterations API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos se agregan en el nivel del servicio QnA Maker y **todas las bases de conocimiento del servicio los comparten**.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+Aunque hay cierta compatibilidad con los sinónimos en inglés, use alteraciones de palabras que no distinguen mayúsculas de minúsculas a través de [Alterations API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos de QnA Maker administrado (versión preliminar) se **agregan por base de conocimiento**.
 
 |Palabra original|Sinónimos|
 |--|--|
 |comprar|compra<br>banca online<br>banca electrónica|
+
+---
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Usar diferentes palabras para diferenciar preguntas
 Los algoritmos de clasificación de QnA Maker que buscan la correspondencia entre la consulta de un usuario y una pregunta de la base de conocimiento funcionan mejor si cada pregunta aborda una necesidad distinta. La repetición del mismo conjunto de palabras en diferentes preguntas reduce la probabilidad de que se seleccione la respuesta correcta para una consulta de usuario determinado con esas palabras.

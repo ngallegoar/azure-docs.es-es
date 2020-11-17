@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3a67f16b53c2754e2ac5ae1df467aac7726f358e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85abefc8437936ffaedc4811bdd9bed0be32786f
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321006"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375511"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtención de una respuesta con GenerateAnswer API y metadatos
 
@@ -50,7 +50,15 @@ Para obtener los detalles del punto de conexión:
     ![Captura de pantalla de My knowledge bases (Mis bases de conocimiento)](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Obtenga los detalles del punto de conexión de GenerateAnswer.
 
+    # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+
     ![Captura de los detalles del punto de conexión](../media/qnamaker-how-to-metadata-usage/view-code.png)
+
+    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+    ![Captura de pantalla de los detalles del punto de conexión administrados](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+
+    ---
 
 También puede obtener los detalles del punto de conexión en la pestaña **Settings** (Configuración) de la base de conocimiento.
 
@@ -128,7 +136,7 @@ El código JSON anterior respondió con una respuesta con una puntuación del 38
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Uso de QnA Maker con un bot en C#
 
-Bot Framework brinda acceso a las propiedades de QnA Maker con [getAnswer API](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
+Bot Framework brinda acceso a las propiedades de QnA Maker con [getAnswer API](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__&preserve-view=true):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -147,7 +155,7 @@ El código JSON anterior solo solicitó aquellas respuestas con una puntuación 
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Uso de QnA Maker con un bot en Node.js
 
-Bot Framework brinda acceso a las propiedades de QnA Maker con [getAnswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
+Bot Framework brinda acceso a las propiedades de QnA Maker con [getAnswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-&preserve-view=true):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');
@@ -215,7 +223,7 @@ Esto permite que knowledge base devuelva respuestas cuando algún filtro coincid
 ### <a name="metadata-examples-in-quickstarts"></a>Ejemplos de metadatos en los inicios rápidos
 
 Obtenga más información sobre los metadatos en el inicio rápido del portal de QnA Maker sobre metadatos:
-* [Creación: adición de metadatos a un par PyR](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Creación: adición de metadatos a un par de QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
 * [Predicción de consultas: filtrar respuestas por metadatos](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 <a name="keep-context"></a>

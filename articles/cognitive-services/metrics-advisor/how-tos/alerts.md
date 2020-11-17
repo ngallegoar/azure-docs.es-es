@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 30d8fdf99da7a4854db0985bed6256ecd6f7a366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046798"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420927"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Procedimiento: Configuración de alertas y obtención de notificaciones mediante enlaces
 
@@ -28,7 +28,7 @@ Metrics Advisor admite tres tipos diferentes de enlaces: enlaces de correo elect
 ### <a name="email-hook"></a>Enlace de correo electrónico
 
 > [!Note]
-> Los administradores de recursos de Metrics Advisor deben configurar los valores de configuración del correo electrónico y especificar la información relacionada con SMTP en Metrics Advisor antes de poder enviar alertas de anomalías. El administrador del grupo de recursos o el administrador de la suscripción debe asignar al menos un rol de *administrador de Cognitive Services Metrics Advisor* en la pestaña control de acceso del recurso de Metrics Advisor. 
+> Los administradores de recursos de Metrics Advisor deben configurar los valores de configuración del correo electrónico y especificar la información relacionada con SMTP en Metrics Advisor antes de poder enviar alertas de anomalías. El administrador del grupo de recursos o el administrador de la suscripción debe asignar al menos un rol de *administrador de Cognitive Services Metrics Advisor* en la pestaña control de acceso del recurso de Metrics Advisor. [Más información acerca de la configuración del correo electrónico](../faq.md#how-to-set-up-email-settings-and-enable-alerting-by-email).
 
 Para crear un enlace de correo electrónico, están disponibles los siguientes parámetros. 
 
@@ -88,11 +88,11 @@ Para crear un enlace de Azure DevOps, deberá agregar la siguiente información:
 Vaya a la página de detalles de métricas para buscar la sección **Alert settings** (Configuración de alertas), que se encuentra en la esquina inferior izquierda de la página de detalles de métricas. Se muestran todos los valores de configuración de alertas que se aplican a la configuración de detección seleccionada. Cuando se crea una configuración de detección, no hay ningún valor de alerta y, por tanto, no se envía ninguna alerta.  
 Puede usar los iconos de **add** (agregar), **edit** (editar) y **delete** (eliminar) para modificar la configuración de alertas.
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Ventana de creación de webhooks":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Elemento de menú configuración de alertas":::
 
 Haga clic en los botones **add** (agregar) o **edit** (editar) para que aparezca una ventana para agregar o editar la configuración de alertas.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Ventana de creación de webhooks":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Adición o edición de la configuración de alertas":::
 
 **Alert setting name** (Nombre del valor de alerta): El nombre de este valor de alerta. Se mostrará en el título del correo electrónico de alerta.
 
@@ -134,7 +134,7 @@ El selector **Operator** (Operador) es la relación lógica de cada sección, pa
 |y     | Solo se envía una alerta si una serie coincide con cada sección de alerta y todos los puntos de datos son anomalías. Si las métricas tienen diferentes nombres de dimensión, nunca se desencadenará una alerta.         |
 |O BIEN     | Envíe la alerta si al menos una sección contiene anomalías.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Ventana de creación de webhooks":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operador para varias secciones de configuración de alertas":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

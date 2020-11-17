@@ -4,19 +4,21 @@ description: La prueba de la base de conocimiento de QnA Maker es una parte impo
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 05ae359182ac3d9c3f4cc17d7675a3f2fefa0bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 21984a03947e4f9f60e705955cb1be3b2df8933c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776840"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376198"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Prueba de una base de conocimiento en QnA Maker
 
 La prueba de la base de conocimiento de QnA Maker es una parte importante de un proceso iterativo para mejorar la precisión de las respuestas devueltas. Puede probar la base de conocimiento mediante una interfaz de chat mejorada que también permite realizar ediciones.
 
 ## <a name="interactively-test-in-qna-maker-portal"></a>Prueba interactiva en QnA Maker Portal
+
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
 1. Acceda a la base de conocimiento; para ello, seleccione su nombre en la página **Mis bases de conocimiento**.
 1. Para acceder al panel deslizante Prueba, seleccione **Prueba** en el panel superior de la aplicación.
@@ -37,7 +39,7 @@ Puede inspeccionar los detalles del resultado de las pruebas en el panel Inspecc
 
 1.  Con el panel deslizante Prueba abierto, seleccione **Inspeccionar** para obtener más detalles sobre dicha respuesta.
 
-    ![Inspeccionar respuestas](../media/qnamaker-how-to-test-kb/inspect.png)
+    ![Inspeccionar respuestas](../media/qnamaker-how-to-test-knowledge-bases/inspect.png)
 
 2.  Aparece el panel Inspección. El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.
 
@@ -45,13 +47,13 @@ Puede inspeccionar los detalles del resultado de las pruebas en el panel Inspecc
 
 Si la respuesta con mayor puntuación es incorrecta, seleccione la respuesta correcta en la lista y haga clic en **Guardar y entrenar**.
 
-![Corrección de la respuesta con mayor puntuación](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Corrección de la respuesta con mayor puntuación](../media/qnamaker-how-to-test-knowledge-bases/choose-answer.png)
 
 ### <a name="add-alternate-questions"></a>Agregar preguntas alternativas
 
-Puede agregar formas alternativas de una pregunta a una respuesta determinada. Escriba las respuestas alternativas en el cuadro de texto y presiones ENTRAR para agregarlas. Seleccione **Guardar y entrenar** para almacenar las actualizaciones.
+Puede agregar formas alternativas de una pregunta a una respuesta determinada. Escriba las respuestas alternativas en el cuadro de texto y seleccione ENTRAR para agregarlas. Seleccione **Guardar y entrenar** para almacenar las actualizaciones.
 
-![Agregar preguntas alternativas](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Agregar preguntas alternativas](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question.png)
 
 ### <a name="add-a-new-answer"></a>Adición de una nueva respuesta
 
@@ -64,11 +66,62 @@ Seleccione **Guardar y entrenar** para persistir esta respuesta. Se ha agregado 
 > [!NOTE]
 > Todas las modificaciones realizadas en la base de conocimiento solo se guardan si presiona el botón **Guardar y entrenar**.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+1. Acceda a la base de conocimiento; para ello, seleccione su nombre en la página **Mis bases de conocimiento**.
+1. Para acceder al panel deslizante Prueba, seleccione **Prueba** en el panel superior de la aplicación. 
+1. En la parte superior verá una casilla, **Display short answer** (Mostrar respuesta corta), que está seleccionada de forma predeterminada. Esta opción se usa para habilitar la detección del intervalo de respuestas basado en MRC en el panel de pruebas. 
+1. Escriba una consulta en el cuadro de texto y presione ENTRAR. 
+1. En todas las consultas, si hay alguna respuesta precisa o respuesta corta en el pasaje de la respuesta, junto con el pasaje de la respuesta con mayor grado de coincidencia, que se encuentra en la knowledge base, también tendrá una respuesta corta a la consulta.
+    ![Panel de prueba administrado habilitado](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
+1. Si anula la selección de **Display short answer** (Mostrar respuesta corta), solo se devolverá como respuesta el pasaje de la respuesta con mayor grado de coincidencia.
+
+### <a name="clear-test-panel"></a>Borrar el panel de prueba
+
+Para borrar las consultas de prueba especificadas y sus resultados de la consola de pruebas, seleccione **Empezar de nuevo** en la esquina superior izquierda del panel Probar.
+
+### <a name="close-test-panel"></a>Cerrar el panel Prueba
+
+Para cerrar el panel Prueba, vuelva a seleccionar el botón **Prueba**. Mientras el panel Prueba está abierto, no puede editar el contenido de la base de conocimiento.
+
+### <a name="inspect-score"></a>Inspeccionar puntuación
+
+Puede inspeccionar los detalles del resultado de las pruebas en el panel Inspeccionar.
+
+1.  Con el panel deslizante Prueba abierto, seleccione **Inspeccionar** para obtener más detalles sobre dicha respuesta.
+
+    ![Versión preliminar de la inspección de respuestas](../media/qnamaker-how-to-test-knowledge-bases/inspect-with-managed.png)
+
+2.  Aparece el panel Inspección. El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.
+3. El panel muestra la puntuación de confianza del pasaje de la respuesta, junto con la puntuación del intervalo de respuestas detectado.
+
+### <a name="correct-the-top-scoring-answer"></a>Corrección de la respuesta con mayor puntuación
+
+Si la respuesta con mayor puntuación es incorrecta, seleccione la respuesta correcta en la lista y haga clic en **Guardar y entrenar**.
+
+![Versión preliminar de la corrección de la respuesta con mayor puntuación](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
+
+### <a name="add-alternate-questions"></a>Agregar preguntas alternativas
+
+Puede agregar formas alternativas de una pregunta a una respuesta determinada. Escriba las respuestas alternativas en el cuadro de texto y seleccione ENTRAR para agregarlas. Seleccione **Guardar y entrenar** para almacenar las actualizaciones.
+
+![Versión preliminar de la adición de preguntas alternativas](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
+
+### <a name="add-a-new-answer"></a>Adición de una nueva respuesta
+
+Puede agregar una respuesta nueva si cualquiera de las respuestas existentes coincidentes son incorrectas o la respuesta no existe en la base de conocimiento (ninguna coincidencia adecuada encontrada en la base de conocimiento).
+
+En la parte inferior de la lista de las respuestas, use el cuadro de texto para escribir una nueva respuesta y presione Entrar para agregarla.
+
+Seleccione **Guardar y entrenar** para persistir esta respuesta. Se ha agregado un par pregunta-respuesta nuevo a la base de conocimiento.
+
+---
+
 ### <a name="test-the-published-knowledge-base"></a>Prueba de la base de conocimiento publicada
 
 Puede probar la versión publicada de la base de conocimiento en el panel prueba. Una vez publicada la base de conocimiento, seleccione el cuadro **Published KB** (Base de conocimiento publicada) y envíe una consulta para obtener resultados de esta.
 
-![Prueba en una base de conocimiento publicada](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Prueba en una base de conocimiento publicada](../media/qnamaker-how-to-test-knowledge-bases/test-against-published-knowledge-base.png)
 
 ## <a name="batch-test-with-tool"></a>Pruebas por lotes con herramienta
 
@@ -130,11 +183,11 @@ Para usar la herramienta de pruebas por lotes, cree un archivo denominado `batch
 |--|--|--|
 |Id. de base de conocimiento|El identificador de la base de conocimiento que se encuentra en la página Publish (Publicar). Pruebe varias bases de conocimiento en el mismo servicio a la vez en un solo archivo mediante el uso de diferentes identificadores de base de conocimiento en un único archivo.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (cadena de 36 caracteres que se muestra como parte de `POST`) |
 |Pregunta|El texto de la pregunta que un usuario escribiría. Máximo de 1000 caracteres|`How do I sign out?`|
-|Etiquetas de metadatos|opcional|`topic:power` usa el formato _clave:valor_|
+|Etiquetas de metadatos|opcional|`topic:power` usa el formato `key:value`|
 |Parámetro principal|opcional|`25`|
 |Identificador de respuesta esperado|opcional|`13`|
 
-Para esta base de conocimiento, agregue tres filas que tengan solo las dos columnas necesarias al archivo. La primera columna es el identificador de la base de conocimiento y la segunda debería ser la siguiente lista de preguntas:
+Para esta knowledge base, agregue al archivo tres filas que tengan solo las dos columnas necesarias. La primera columna es el identificador de la base de conocimiento y la segunda debería ser la siguiente lista de preguntas:
 
 |Columna 2: preguntas|
 |--|
@@ -144,7 +197,7 @@ Para esta base de conocimiento, agregue tres filas que tengan solo las dos colum
 
 Estas preguntas son el texto exacto de la base de conocimiento y deberían devolver 100 como puntuación de confianza.
 
-Después, agregue varias preguntas, similares a estas, pero no exactamente las mismas, en 3 filas más y use el mismo identificador de base de conocimiento:
+Después, agregue varias preguntas, similares a estas, pero no exactamente las mismas, en tres filas más y use el mismo identificador de knowledge base:
 
 |Columna 2: preguntas|
 |--|
@@ -176,7 +229,7 @@ La prueba finaliza y genera el archivo `out.tsv`:
 
 Por motivos de seguridad el identificador de la base de conocimiento se ha reemplazado por `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. En el caso de su prueba por lotes, la columna muestra el identificador de la base de conocimiento.
 
-En la cuarta columna de la salida de prueba de la puntuación de confianza, se ve que las tres primeras preguntas han devuelto una puntuación de 100 según lo previsto, porque las preguntas aparecen exactamente así en la base de conocimiento. Las tres últimas preguntas, con el nuevo texto de la pregunta, no devuelven 100 como puntuación de confianza. Con el fin de aumentar la puntuación tanto de la prueba como de los usuarios, es preciso agregar más preguntas alternativas a la base de conocimiento.
+En la cuarta columna de la salida de prueba de la puntuación de confianza, se ve que las tres primeras preguntas han devuelto una puntuación de 100 según lo previsto, porque las preguntas aparecen exactamente así en la knowledge base. Las tres últimas preguntas, con el nuevo texto de la pregunta, no devuelven 100 como puntuación de confianza. Con el fin de aumentar la puntuación tanto de la prueba como de los usuarios, es preciso agregar más preguntas alternativas a la base de conocimiento.
 
 ### <a name="testing-with-the-optional-fields"></a>Prueba con los campos opcionales
 
@@ -192,7 +245,7 @@ Use el gráfico siguiente para saber cómo buscar los datos opcionales en los va
 
 |Número de columna|Columna opcional|Ubicación de los datos|
 |--|--|--|
-|3|metadata|Exporte la base de conocimiento en los pares _clave:valor_ existentes.|
+|3|metadata|Exporte la base de conocimiento en los pares `key:value` existentes.|
 |4|top|Se recomienda el valor predeterminado `25`.|
 |5|Identificador del conjunto de preguntas y respuestas|Exporte los valores de identificador de la base de conocimiento existente. Tenga también en cuenta que los identificadores se devolvieron en el archivo de salida.|
 
@@ -225,7 +278,7 @@ Hay dos escenarios principales para las pruebas por lotes:
 
 En el procedimiento siguiente se supone que el escenario es procesar los registros de chat como sigue
 
-1. Cree un archivo de prueba por lotes que incluya los datos opcionales, `batch-test-data-2.tsv`. Agregue las 6 filas del archivo de entrada de prueba por lotes original y, luego, agregue los metadatos, la respuesta principal y el identificador del par de QnA de cada fila.
+1. Cree un archivo de prueba por lotes que incluya los datos opcionales, `batch-test-data-2.tsv`. Agregue las seis filas del archivo de entrada de prueba por lotes original y, luego, agregue los metadatos, la respuesta principal y el identificador del par de pregunta y respuesta de cada fila.
 
     Para simular el proceso automatizado de comprobar el texto nuevo de los registros de chat con la base de conocimiento, establezca los metadatos de todas las columnas en el mismo valor: `topic:power`.
 
@@ -241,7 +294,7 @@ En el procedimiento siguiente se supone que el escenario es procesar los registr
 
 Este archivo de salida de prueba se puede analizar como parte de una canalización de prueba continua automatizada.
 
-Esta salida de prueba específica debe leerse de la siguiente forma: todas las filas se han filtrado con metadatos y como no todas las filas coincidían con los metadatos de la base de conocimiento, se ha devuelto la respuesta predeterminada para las filas no coincidentes ("no se encontró ninguna coincidencia exacta en la base de conocimiento"). De las filas que coincidían, se devolvieron el identificador de QnA y la puntuación.
+Esta salida de prueba específica debe leerse de la siguiente forma: todas las filas se han filtrado con metadatos y como no todas las filas coincidían con los metadatos de la base de conocimiento, se ha devuelto la respuesta predeterminada para las filas no coincidentes ("no se encontró ninguna coincidencia exacta en la base de conocimiento"). De las filas que coincidían, se devolvieron tanto el identificador de QnA como la puntuación.
 
 Todas las filas devolvieron la etiqueta de incorrecta, ya que ninguna de ellas que coincidía con el identificador de respuesta esperado.
 

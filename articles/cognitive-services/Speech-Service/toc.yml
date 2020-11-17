@@ -28,8 +28,6 @@
       items:
         - name: Cambio del idioma de origen de reconocimiento de voz
           href: how-to-specify-source-language.md
-        - name: Mejora de la precisión con Habla personalizada
-          href: how-to-custom-speech.md
         - name: Uso de formatos de entrada de audio comprimidos
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
@@ -45,20 +43,18 @@
           href: tutorial-tenant-model.md
     - name: Personalización
       items:
+        - name: ¿Qué es Habla personalizada?
+          href: custom-speech-overview.md
         - name: Prueba de un modelo mediante archivos de audio en Speech Studio
           href: quickstarts/speech-studio-test-model.md
         - name: Preparación de los datos para Habla personalizada
           href: how-to-custom-speech-test-and-train.md
         - name: Inspección de los datos de Habla personalizada
           href: how-to-custom-speech-inspect-data.md
-        - name: Evaluación de la precisión de Habla personalizada
+        - name: Evaluación y mejora de la precisión de Habla personalizada
           href: how-to-custom-speech-evaluate-data.md
-        - name: Mejora de la precisión de Habla personalizada
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: Entrenamiento de un modelo de Habla personalizada
+        - name: Entrenamiento e implementación de un modelo de Habla personalizada
           href: how-to-custom-speech-train-model.md
-        - name: Implementación de un modelo personalizado
-          href: how-to-custom-speech-deploy-model.md
         - name: CI/CD para Habla personalizada
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: Creación de transcripciones con la etiqueta humana
@@ -391,6 +387,10 @@
                       href: how-to-custom-commands-setup-web-endpoints.md
                     - name: Exportación de una aplicación de Comandos personalizados como si fuera una aptitud
                       href: how-to-custom-commands-integrate-remote-skills.md
+                    - name: Actualización de un comando desde la aplicación cliente
+                      href: how-to-custom-commands-update-command-from-client.md
+                    - name: Actualizar un comando desde un punto de conexión web
+                      href: how-to-custom-commands-update-command-from-web-endpoint.md
                 - name: Implementación
                   items:
                     - name: Implementación continua con Azure DevOps

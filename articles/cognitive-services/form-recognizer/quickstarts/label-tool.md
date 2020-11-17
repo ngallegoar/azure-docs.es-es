@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: procesamiento de documentos
-ms.openlocfilehash: 287315440199c4dc3ded1298532167d37d89a877
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976154"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360877"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -37,6 +37,14 @@ Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
+
+## <a name="try-it-out"></a>Prueba
+
+Para probar la herramienta de etiquetado de ejemplo de Form Recognizer en línea, vaya al [sitio web de FOTT](https://fott-preview.azurewebsites.net/).
+
+> [!div class="nextstepaction"]
+> [Herramienta de etiquetado de ejemplo de Form Recognizer](https://fott-preview.azurewebsites.net/)
+
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configuración de la herramienta de etiquetado de ejemplo
 
@@ -139,7 +147,7 @@ En la herramienta de etiquetado de ejemplo, los proyectos almacenan las configur
 * **Clave de API**: la clave de suscripción de Form Recognizer.
 * **Descripción** (opcional): descripción del proyecto.
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Página Nuevo proyecto en la herramienta de etiquetado de ejemplo.":::
 
 ## <a name="label-your-forms"></a>Etiquetado de formularios
 
@@ -155,7 +163,7 @@ Haga clic en **Run OCR on all files** (Ejecutar OCR en todos los archivos) en el
 
 También se mostrarán las tablas que se hayan extraído automáticamente. Haga clic en el icono de tabla o cuadrícula en la parte izquierda del documento para ver la tabla extraída. En esta guía de inicio rápido, dado que el contenido de la tabla se extrae automáticamente, este no se etiquetará, sino que se basará en la extracción automatizada.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualización de tablas mediante la herramienta de etiquetado de ejemplo.":::
 
 ### <a name="apply-labels-to-text"></a>Aplicación de etiquetas a texto
 
@@ -201,7 +209,7 @@ A continuación, creará etiquetas y las aplicará a los elementos de texto que 
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Ventana principal del editor de la herramienta de etiquetado de ejemplo.":::
 
 
 Siga los pasos anteriores para etiquetar al menos cinco de sus formularios.
@@ -256,7 +264,7 @@ Haga clic en el icono Train (Entrenar) en el panel izquierdo para abrir la pági
 * La lista de etiquetas y la precisión estimada por etiqueta.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Vista de entrenamiento.":::
 
 Una vez finalizado el entrenamiento, examine el valor de **Precisión media**. Si es bajo, debe agregar más documentos de entrada y repetir los pasos anteriores. Los documentos que ya ha etiquetado permanecerán en el índice del proyecto.
 
@@ -275,7 +283,7 @@ Con el modelo Compose, puede crear hasta 100 modelos en un único identificador 
 
 Para crear modelos en la herramienta de etiquetado de ejemplo, haga clic en el icono de composición de modelo (flecha de combinación) de la izquierda. A la izquierda, seleccione los modelos que desee unir. Los modelos con el icono de flechas ya son modelos compuestos. Haga clic en el botón "Compose" (Redactar). En el elemento emergente, asigne un nombre al nuevo modelo compuesto y haga clic en "Compose" (Redactar). Una vez finalizada la operación, el nuevo modelo compuesto debe aparecer en la lista. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Vista de experiencia de usuario para la creación de modelos.":::
 
 ---
 

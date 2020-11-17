@@ -4,13 +4,13 @@ description: Aprenda a planear la aplicación de QnA Maker. Descripción de cóm
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/2/2020
-ms.openlocfilehash: 84e4d6907c9036503f43cd607b54577fd3d97444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 0be2fecfad4d2a2b829266fa1d9574bcc4c50eee
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776942"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376684"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planeamiento de la aplicación de QnA Maker
 
@@ -20,6 +20,8 @@ Para planear la aplicación de QnA Maker, debe comprender cómo funciona QnA Mak
 
 Cada [recurso de Azure](azure-resources.md#resource-purposes) creado con QnA Maker tiene un propósito específico. Cada recurso tiene su propia finalidad, límites y [plan de tarifa](azure-resources.md#pricing-tier-considerations). Es importante comprender la función de estos recursos para que pueda usar ese conocimiento en el proceso de planeamiento.
 
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+
 | Recurso | Propósito |
 |--|--|
 | Recurso de [QnA Maker](azure-resources.md#qna-maker-resource) | Creación y predicción de consultas |
@@ -27,6 +29,14 @@ Cada [recurso de Azure](azure-resources.md#resource-purposes) creado con QnA Mak
 | Recurso de [App Service y plan de App Service](azure-resources.md#app-service-and-app-service-plan) | Consulta de un punto de conexión de predicción |
 | Recurso de [Application Insights](azure-resources.md#application-insights) | Telemetría de predicción de consultas |
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+| Recurso | Propósito |
+|--|--|
+| Recurso de [QnA Maker](azure-resources.md#qna-maker-resource) | Creación, telemetría y punto de conexión de consulta de predicciones|
+| Recurso de [Cognitive Search](azure-resources.md#cognitive-search-resource) | Almacenamiento y búsqueda de datos |
+
+---
 ### <a name="resource-planning"></a>Planeamiento de recursos
 
 El nivel Gratis (`F0`) de cada recurso funciona y puede proporcionar tanto la experiencia de creación como de predicción de consultas. Puede usar este nivel para aprender sobre la creación y la predicción de consultas. Cuando pase a un escenario de producción o activo, vuelva a evaluar la selección de recursos.
@@ -65,9 +75,22 @@ Una base de conocimiento está directamente vinculada a su recurso de QnA Maker.
 
 ### <a name="language-considerations"></a>Consideraciones de idioma
 
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+
 La primera base de conocimiento que se crea en el recurso de QnA Maker establece el idioma del recurso. Solo se puede tener un idioma para un recurso de QnA Maker.
 
 Puede estructurar los recursos de QnA Maker por idioma o usar el [Traductor](../../translator/translator-info-overview.md) para cambiar una consulta de otro idioma al de la base de conocimiento antes de enviar la consulta al punto de conexión de predicción de consultas.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+Ahora puede tener knowledge bases en distintos idiomas dentro del mismo recurso de QnA Maker. Al crear la primera knowledge base, puede elegir si desea usar el recurso para las knowledge bases en un solo idioma o en varios idiomas.
+
+![Selección de knowledge base multilingüe de QnA Maker administrado (versión preliminar)](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+
+> [!NOTE]
+> Si habilita la configuración del idioma por knowledge base, no puede crear tantas knowledge bases en el recurso de QnA Maker. Para [más detalles sobre las limitaciones en la configuración del idioma](./azure-resources.md).
+
+---
 
 ### <a name="ingest-data-sources"></a>Ingesta de orígenes de datos
 
@@ -152,7 +175,15 @@ Hay una [clasificación de las respuestas en dos fases](query-knowledge-base.md#
 
 ### <a name="service-updates"></a>Actualizaciones del servicio
 
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+
 Aplique las [actualizaciones del runtime más recientes](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) para administrar automáticamente las actualizaciones de servicio.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+En QnA Maker administrado (versión preliminar), el runtime lo administra el propio servicio QnA Maker. Por lo tanto, no hay actualizaciones del servicio.
+
+---
 
 ### <a name="scaling-throughput-and-resiliency"></a>Escalado, rendimiento y resistencia
 
@@ -160,7 +191,16 @@ El escalado, el rendimiento y la resistencia se determinan mediante los [recurso
 
 ### <a name="analytics-with-application-insights"></a>Análisis con Application Insights
 
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+
 Todas las consultas a la base de conocimiento se almacenan en Application Insights. Use nuestras [principales consultas](../how-to/get-analytics-knowledge-base.md) para entender las métricas.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+En la implementación administrada, la telemetría se ofrece a través del [servicio Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). Use nuestras [principales consultas](../how-to/get-analytics-knowledge-base.md) para entender las métricas.
+
+
+---
 
 ## <a name="development-lifecycle"></a>Ciclo de vida del desarrollo
 
@@ -177,7 +217,7 @@ Cada par puede contener:
 
 ### <a name="devops-development"></a>Desarrollo de DevOps
 
-El desarrollo de una base de conocimiento que se va a insertar en una canalización de DevOps requiere que dicha base de conocimiento esté aislada durante las [pruebas por lotes](../quickstarts/batch-testing.md).
+El desarrollo de una knowledge base para insertarla en una canalización de DevOps requiere que la knowledge base esté aislada durante las [pruebas por lotes](../quickstarts/batch-testing.md).
 
 Una base de conocimiento comparte el índice de Cognitive Search con todas las demás bases de conocimiento del recurso de QnA Maker. Aunque la base de conocimiento está aislada por partición, si se comparte el índice, se puede producir una diferencia en la puntuación cuando se compara con la base de conocimiento publicada.
 

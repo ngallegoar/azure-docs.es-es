@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 24d4dd4d0caa49b9514bf19f707ea87b0b071a79
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496069"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357103"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Procedimientos: Implementación de una aplicación web de recuento de personas
 
@@ -65,6 +65,8 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 Implemente el contenedor de análisis espacial como un módulo de IoT en el equipo host a través de la CLI de Azure. El proceso de implementación requiere un archivo de manifiesto de implementación que describa los contenedores, las variables y las configuraciones que se necesitan para la implementación. Puede encontrar un ejemplo de [manifiesto de implementación específico de Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/), así como uno [no específico](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) en GitHub, los cuales incluyen una configuración básica de implementación del contenedor *spatial-analysis*. 
 
+Alternativamente, puede usar las extensiones de Azure IoT para Visual Studio Code para realizar operaciones con IoT Hub. Vaya a [Implementación de módulos de Azure IoT Edge desde Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode) para más información.
+
 > [!NOTE] 
 > Los contenedores *spatial-analysis-telegraf* y *spatial-analysis-diagnostics* son opcionales. Puede optar por quitarlos del archivo *DeploymentManifest.json*. Para más información, consulte el artículo [Telemetría y solución de problemas](./spatial-analysis-logging.md). Puede encontrar dos archivos *DeploymentManifest.json* de ejemplo en Github, uno para [dispositivos de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) y otro para [máquinas de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json).
 
@@ -87,7 +89,7 @@ La mayoría de las **variables de entorno** para el módulo de IoT Edge ya está
 
 ### <a name="configure-the-operation-parameters"></a>Configuración de los parámetros de la operación
 
-Ahora que se completó la configuración inicial del contenedor *spatial-analysis* , el paso siguiente es configurar los parámetros de operaciones y agregarlos a la implementación. 
+Ahora que se completó la configuración inicial del contenedor *spatial-analysis*, el paso siguiente es configurar los parámetros de operaciones y agregarlos a la implementación. 
 
 El primer paso es actualizar el manifiesto de implementación de ejemplo vinculado anteriormente y configurar el identificador de operación `cognitiveservices.vision.spatialanalysis-personcount` como se muestra a continuación:
 
@@ -170,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Para instalar el contenedor, cree una nueva instancia de Azure Web App for Containers y rellene los parámetros obligatorios. Luego vaya a la pestaña **Docker** , seleccione **Contenedor único** y, luego, **Azure Container Registry**. Use la instancia de Azure Container Registry en la que insertó la imagen anterior.
+Para instalar el contenedor, cree una nueva instancia de Azure Web App for Containers y rellene los parámetros obligatorios. Luego vaya a la pestaña **Docker**, seleccione **Contenedor único** y, luego, **Azure Container Registry**. Use la instancia de Azure Container Registry en la que insertó la imagen anterior.
 
 ![Ingreso de los detalles de la imagen](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -190,6 +192,9 @@ Una vez que se agreguen estas dos configuraciones, haga clic en **Guardar**. Lue
 Vaya a la aplicación web de Azure y compruebe que la implementación se realizó correctamente y que la aplicación web está en ejecución. Vaya a la dirección URL configurada: `<yourapp>.azurewebsites.net` para ver la aplicación en ejecución.
 
 ![Prueba de la implementación](./media/spatial-analysis/solution-app-output.png)
+
+## <a name="get-the-personcount-source-code"></a>Obtención del código fuente de PersonCount
+Si desea ver o modificar el código fuente de esta aplicación, puede encontrarlo [en GitHub](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

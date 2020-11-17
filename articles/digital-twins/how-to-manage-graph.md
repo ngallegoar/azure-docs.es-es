@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Consulte cómo administrar un grafo de gemelos digitales conectándolos con relaciones.
 author: baanders
 ms.author: baanders
-ms.date: 10/21/2020
+ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 947a0c9a0af3c38d6c4d6f66da691d62530a69e7
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 78e0bfb0af494ecae2865fcc42679b8fcce44916
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279512"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359585"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
@@ -32,7 +32,7 @@ Este artículo está centrado en la administración de las relaciones y el grafo
 
 Las relaciones describen cómo los diferentes gemelos digitales se conectan entre sí, lo que constituye la base del grafo de gemelos.
 
-Las relaciones se crean mediante la llamada a `CreateRelationship()`. 
+Las relaciones se crean mediante la llamada a `CreateOrReplaceRelationshipAsync()`. 
 
 Para crear una relación, debe especificar:
 * El identificador del gemelo de origen (`srcId` en el ejemplo de código siguiente): identificador del gemelo en el que se origina la relación.
@@ -41,7 +41,7 @@ Para crear una relación, debe especificar:
 * Un identificador de relación (`relId` en el ejemplo de código siguiente): nombre específico de esta relación, algo como _Relationship1_.
 
 El id. de relación debe ser único dentro del gemelo de origen especificado. No es necesario que sea único globalmente.
-Por ejemplo, para el gemelo *foo* , cada id. de relación específico debe ser único. Sin embargo, otro gemelo *bar* puede tener una relación de salida que coincida con el mismo id. de relación de *foo*.
+Por ejemplo, para el gemelo *foo*, cada id. de relación específico debe ser único. Sin embargo, otro gemelo *bar* puede tener una relación de salida que coincida con el mismo id. de relación de *foo*.
 
 En el ejemplo de código siguiente se muestra cómo crear una relación en la instancia de Azure Digital Twins.
 
@@ -57,7 +57,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
@@ -87,7 +87,7 @@ No hay ninguna restricción en el número de relaciones que puede tener entre do
 
 Esto significa que puede expresar varios tipos diferentes de relaciones entre dos gemelos a la vez. Por ejemplo, el *gemelo A* puede tener una relación de *almacenamiento* y una relación de *fabricación* con el *gemelo B*.
 
-También puede crear varias instancias del mismo tipo de relación entre los mismos dos gemelos, si lo desea. En este ejemplo, el *gemelo A* podría tener dos relaciones *almacenadas* diferentes con el *gemelo B* , siempre y cuando las relaciones tengan identificadores de relación diferentes.
+También puede crear varias instancias del mismo tipo de relación entre los mismos dos gemelos, si lo desea. En este ejemplo, el *gemelo A* podría tener dos relaciones *almacenadas* diferentes con el *gemelo B*, siempre y cuando las relaciones tengan identificadores de relación diferentes.
 
 ## <a name="list-relationships"></a>Enumeración de las relaciones
 
@@ -135,7 +135,7 @@ Puede usar las relaciones recuperadas para navegar a otros gemelos del grafo. Pa
 
 ### <a name="find-incoming-relationships-to-a-digital-twin"></a>Búsqueda de relaciones de entrada para un gemelo digital
 
-Azure Digital Twins también dispone de una API para buscar todas las relaciones de *entrada* * para un gemelo determinado. Suele ser útil para la navegación inversa o cuando se elimina un gemelo.
+Azure Digital Twins también dispone de una API para buscar todas las relaciones de *entrada** para un gemelo determinado. Suele ser útil para la navegación inversa o cuando se elimina un gemelo.
 
 El ejemplo de código anterior se centraba en buscar relaciones de salida desde un gemelo. El ejemplo siguiente está estructurado de manera similar, pero en su lugar busca relaciones de *entrada* para el gemelo.
 
@@ -351,7 +351,7 @@ namespace minimal
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
@@ -443,72 +443,137 @@ Esta es la salida de consola del programa anterior:
 > [!TIP]
 > El grafo de gemelos es un concepto de creación de relaciones entre gemelos. Si desea ver la representación visual del grafo de gemelos, consulte la sección [Visualización](how-to-manage-graph.md#visualization) de este artículo. 
 
-### <a name="create-a-twin-graph-from-a-spreadsheet"></a>Creación de un grafo de gemelos a partir de una hoja de cálculo
+### <a name="create-a-twin-graph-from-a-csv-file"></a>Creación de un grafo de gemelos a partir de un archivo .csv
 
-En casos de uso prácticos, las jerarquías de gemelos se crean a menudo a partir de los datos almacenados en una base de datos diferente o quizás en una hoja de cálculo. En esta sección se muestra cómo se puede analizar una hoja de cálculo.
+En casos de uso prácticos, las jerarquías de gemelos se crean a menudo a partir de los datos almacenados en una base de datos diferente o quizás en una hoja de cálculo o un archivo .csv. En esta sección se ilustra cómo leer datos de un archivo .csv y crear un grafo gemelo con ellos.
 
-Tenga en cuenta la siguiente tabla de datos, que describe un conjunto de gemelos digitales y las relaciones que se van a crear.
+Observe la siguiente tabla de datos, que describe un conjunto de gemelos digitales y las relaciones.
 
-| Id. de modelo| Identificador del gemelo (debe ser único) | Nombre de relación | Identificador del gemelo de destino | Datos de inicialización del gemelo |
+|  Id. de modelo    | Identificador del gemelo (debe ser único) | Nombre de relación  | Identificador del gemelo de destino  | Datos de inicialización del gemelo |
 | --- | --- | --- | --- | --- |
-| dtmi:example:Floor;1 | Floor1 |  contiene | Room1 |{"Temperature": 80, "Humidity": 60}
-| dtmi:example:Floor;1 | Floor0 |  has      | Room0 |{"Temperature": 70, "Humidity": 30}
-| dtmi:example:Room;1  | Room1 | 
-| dtmi:example:Room;1  | Room0 |
+| dtmi:example:Floor;1    | Floor1 | contiene | Room1 | |
+| dtmi:example:Floor;1    | Floor0 | contains | Room0 | |
+| dtmi:example:Room;1    | Room1 | | | {"Temperature": 80} |
+| dtmi:example:Room;1    | Room0 | | | {"Temperature": 70} |
 
-En el código siguiente se usa [Microsoft Graph API](/graph/overview) para leer una hoja de cálculo y construir un grafo de gemelos de Azure Digital Twins a partir de los resultados.
+Una forma de introducir estos datos en Azure Digital Twins es convertir la tabla en un archivo .csv y escribir código que interprete el archivo en comandos para crear gemelos y relaciones. El siguiente código de ejemplo ilustra la lectura de los datos del archivo .csv y la creación de un grafo gemelo en Azure Digital Twins.
+
+En el código siguiente, el archivo .csv se llama *data.csv* y hay un marcador de posición que representa el **nombre de host** de su instancia de Azure Digital Twins. El ejemplo también usa varios paquetes, que se pueden agregar al proyecto para que faciliten este proceso.
 
 ```csharp
-var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;
-JsonDocument data = JsonDocument.Parse(range.values);
-List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
-foreach (JsonElement row in data.RootElement.EnumerateArray())
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Azure;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+
+namespace creating_twin_graph_from_csv
 {
-    string modelId = row[0].GetString();
-    string sourceId = row[1].GetString();
-    string relName = row[2].GetString();
-    string targetId = row[3].GetString();
-    string initData = row[4].GetString();
-    
-    // Parse spreadsheet extra data into a JSON string to initialize the digital twin
-    // Left out for compactness
-    Dictionary<string, object> initData = new Dictionary<string, object>() { ... };
-
-    if (sourceId != null)
+    class Program
     {
-        BasicRelationship br = new BasicRelationship()
+        static async Task Main(string[] args)
         {
-            SourceId = sourceId,
-            TargetId = targetId,
-            Name = relName
-        };
-        RelationshipRecordList.Add(br);
-    }
+            List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
+            List<BasicDigitalTwin> TwinList = new List<BasicDigitalTwin>();
+            List<List<string>> data = ReadData();
+            DigitalTwinsClient client = createDTClient();
 
-    BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.Contents = initData;
-    // Set the type of twin to be created
-    twin.Metadata = new DigitalTwinMetadata() { ModelId = modelId };
-    
-    try
-    {
-        await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(sourceId, twin);
-    }
-    catch (RequestFailedException e)
-    {
-       Console.WriteLine($"Error {e.Status}: {e.Message}");
-    }
-    foreach (BasicRelationship rec in RelationshipRecordList)
-    { 
-        try { 
-            await client.CreateOrReplaceRelationshipAsync(rec.sourceId, Guid.NewGuid().ToString(), rec);
+            // Interpret the CSV file data, by each row
+            foreach (List<string> row in data)
+            {
+                string modelID = row.Count > 0 ? row[0].Trim() : null;
+                string srcID = row.Count > 1 ? row[1].Trim() : null;
+                string relName = row.Count > 2 ? row[2].Trim() : null;
+                string targetID = row.Count > 3 ? row[3].Trim() : null;
+                string initProperties = row.Count > 4 ? row[4].Trim() : null;
+                Console.WriteLine($"ModelID: {modelID}, TwinID: {srcID}, RelName: {relName}, TargetID: {targetID}, InitData: {initProperties}");
+                Dictionary<string, object> props = new Dictionary<string, object>();
+                // Parse properties into dictionary (left out for compactness)
+                // ...
+
+                // Null check for source and target ID's
+                if (srcID != null && srcID.Length > 0 && targetID != null && targetID.Length > 0)
+                {
+                    BasicRelationship br = new BasicRelationship()
+                    {
+                        SourceId = srcID,
+                        TargetId = targetID,
+                        Name = relName
+                    };
+                    RelationshipRecordList.Add(br);
+                }
+                BasicDigitalTwin srcTwin = new BasicDigitalTwin();
+                srcTwin.Id = srcID;
+                srcTwin.Metadata = new DigitalTwinMetadata();
+                srcTwin.Metadata.ModelId = modelID;
+                srcTwin.Contents = props;
+                TwinList.Add(srcTwin);
+            }
+
+            // Create digital twins 
+            foreach (BasicDigitalTwin twin in TwinList)
+            {
+                try
+                {
+                    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twin.Id, twin);
+                    Console.WriteLine("Twin is created");
+                }
+                catch (RequestFailedException e)
+                {
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                }
+            }
+            // Create relationships between the twins
+            foreach (BasicRelationship rec in RelationshipRecordList)
+            {
+                try
+                {
+                    string relId = $"{rec.SourceId}-{rec.Name}->{rec.TargetId}";
+                    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(rec.SourceId, relId, rec);
+                    Console.WriteLine("Relationship is created");
+                }
+                catch (RequestFailedException e)
+                {
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                }
+            }
         }
-        catch (RequestFailedException e)
+
+        // Method to ingest data from the CSV file
+        public static List<List<string>> ReadData()
         {
-            Console.WriteLine($"Error {e.Status}: {e.Message}");
+            string path = "<path-to>/data.csv";
+            string[] lines = System.IO.File.ReadAllLines(path);
+            List<List<string>> data = new List<List<string>>();
+            int count = 0;
+            foreach (string line in lines)
+            {
+                if (count++ == 0)
+                    continue;
+                List<string> cols = new List<string>();
+                data.Add(cols);
+                string[] columns = line.Split(',');
+                foreach (string column in columns)
+                {
+                    cols.Add(column);
+                }
+            }
+            return data;
+        }
+        // Method to create the digital twins client
+        private static DigitalTwinsClient createDTClient()
+        {
+
+            string adtInstanceUrl = "https://<your-instance-hostname>";
+            var credentials = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            return client;
         }
     }
 }
+
 ```
 ## <a name="manage-relationships-with-cli"></a>Administrar relaciones con la CLI
 

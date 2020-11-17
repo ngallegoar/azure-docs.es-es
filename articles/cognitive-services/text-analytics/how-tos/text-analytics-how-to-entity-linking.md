@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 94f863bd4f016ed1117fa236323b43515fd53797
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0ca0c4eacce88bfb53582f7969ed7acbfd75bb8a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165616"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358718"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -70,7 +70,7 @@ Cree una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md)
 
 #### <a name="version-31-preview2"></a>[Versión 3.1-versión preliminar.2](#tab/version-3-preview)
 
-El Reconocimiento de entidades con nombre `v3.1-preview.2` usa puntos de conexión independientes para las solicitudes de NER y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud:
+El Reconocimiento de entidades con nombre `v3.1-preview.2` usa puntos de conexión independientes para las solicitudes de NER, de PII y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud:
 
 Vinculación de entidad
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
@@ -82,6 +82,7 @@ NER
 
 [Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
+Información de identificación personal
 * Información personal (`PII`): `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 También se puede usar el parámetro opcional `domain=phi` para detectar información de estado (`PHI`) en el texto. 

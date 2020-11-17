@@ -10,16 +10,31 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: a87e76d4a726f7a01b96d602e7f41d60409dae56
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 030b09dae9db11fb14defecde3d14e949b9e6748
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521499"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412738"
 ---
 # <a name="whats-new-in-custom-vision"></a>Novedades de Custom Vision
 
 Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.
+
+
+## <a name="october-2020"></a>Octubre de 2020 
+
+### <a name="custom-base-model"></a>Modelo base personalizado
+
+- Algunas aplicaciones tienen una gran cantidad de datos de entrenamiento conjunto, pero necesitan ajustar sus modelos por separado. El resultado es un rendimiento mejorado de las imágenes de otros orígenes con pequeñas diferencias. En este caso, puede entrenar el primer modelo como de costumbre con un gran volumen de datos de entrenamiento. Después, llame a **TrainProject** en la API de versión preliminar pública 3.4 con _CustomBaseModelInfo_ en el cuerpo de la solicitud para usar el modelo entrenado de la primera fase como modelo base para los proyectos de nivel inferior. Si el proyecto de origen y el proyecto de destino de nivel inferior tienen características similares, cabe esperar un mejor rendimiento. 
+
+### <a name="new-domain-information"></a>Nueva información del dominio
+
+- La información de dominio devuelta desde **GetDomains** en la API de versión preliminar pública de Custom Vision 3.4 ahora incluye plataformas exportables admitidas, una breve descripción de la arquitectura del modelo y el tamaño del modelo para dominios compactos.
+
+### <a name="training-divergence-feedback"></a>Comentarios sobre la divergencia de entrenamiento
+
+- La API de versión preliminar pública de Custom Vision 3.4 ahora devuelve **TrainingErrorDetails** desde la llamada a **GetIteration**. En las iteraciones con errores, este valor revela si el error se debió a la divergencia de entrenamiento, lo que puede solucionarse con más datos de entrenamiento y de mejor calidad.
 
 ## <a name="july-2020"></a>Julio de 2020
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055318"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410783"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Servicio Voz: novedades de la documentación
 
@@ -23,9 +23,10 @@ Bienvenido. En esta página se habla de las novedades de la documentación sobre
 
 ### <a name="service-updates"></a>Actualizaciones del servicio
 
-Si quiere obtener información sobre las actualizaciones en el Servicio Voz, el SDK de Voz, el SDK de dispositivos de voz o la CLI de Voz, vea:
+Si quiere obtener información sobre las actualizaciones del servicio de voz, el SDK de voz, el SDK de dispositivos, la CLI de Voz o los contenedores de voz, consulte:
 * [Notas de la versión del SDK de Voz](releasenotes.md).
 * [Notas de la versión del SDK de dispositivos de voz](devices-sdk-release-notes.md)
+* [Notas de la versión del contenedor de Cognitive Services](../containers/container-image-tags.md)
 
 ## <a name="may-2020"></a>Mayo de 2020
 

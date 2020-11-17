@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb120a533e4d11b34bb9712bf0164cec5a7728ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207740"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445161"
 ---
 # <a name="hierarchical-state-override"></a>Invalidación de estado jerárquico
 
@@ -40,14 +40,21 @@ El conjunto fijo de estados que se pueden invalidar es:
   > [!IMPORTANT]
   > El efecto transparente solo funciona cuando se usa el [modo de representación](../../concepts/rendering-modes.md) *TileBasedComposition*.
 
+* **`Shell`** : La geometría se representa como un shell transparente y desaturado. Este modo permite atenuar las partes no importantes de una escena mientras mantiene una sensación de forma y posicionamiento relativo. Para cambiar la apariencia de la representación del shell, use el estado [ShellRenderingSettings](shell-effect.md). Vea la imagen siguiente del modelo de automóvil representado completamente en el shell, excepto los amortiguadores azules:
+
+  ![Modo de shell usado para atenuar objetos específicos](./media/shell.png)
+
+  > [!IMPORTANT]
+  > El efecto de shell solo funciona cuando se usa el [modo de representación](../../concepts/rendering-modes.md) *TileBasedComposition*.
+
 * **`Selected`** : la geometría se representa con un [contorno de selección](outlines.md).
 
   ![Opción de contorno usada para resaltar un elemento seleccionado](./media/selection-outline.png)
 
 * **`DisableCollision`** : la geometría está exenta de [consultas espaciales](spatial-queries.md). La marca **`Hidden`** no afecta a la marca del estado de las colisiones, por lo que estas dos marcas se suelen establecer juntas.
 
-* **`UseCutPlaneFilterMask`** : use una máscara de bits de filtro individual para controlar la selección del plano de corte. Esta marca determina si se debe usar la máscara de filtro individual o si se hereda de su elemento primario. La máscara de bits de filtro se establece mediante la propiedad `CutPlaneFilterMask`. Para obtener información detallada sobre cómo funciona el filtrado, vea el párrafo [Planos de corte selectivos](cut-planes.md#selective-cut-planes).
-![Planos de corte selectivos](./media/selective-cut-planes.png)
+* **`UseCutPlaneFilterMask`** : use una máscara de bits de filtro individual para controlar la selección del plano de corte. Esta marca determina si se debe usar la máscara de filtro individual o si se hereda de su elemento primario. La máscara de bits de filtro se establece mediante la propiedad `CutPlaneFilterMask`. Para obtener información detallada sobre cómo funciona el filtrado, vea el párrafo [Planos de corte selectivos](cut-planes.md#selective-cut-planes). En el ejemplo siguiente solo están cortados el neumático y la llanta, mientras que el resto de la escena permanece intacta.
+![Planos de corte selectivos](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
@@ -101,7 +108,7 @@ La invalidación de `tint color` es ligeramente especial, ya que hay tanto un es
 
 Una instancia de `HierarchicalStateOverrideComponent` no agrega mucha sobrecarga en tiempo de ejecución. Sin embargo, siempre es recomendable mantener un número bajo de componentes activos. Por ejemplo, al implementar un sistema de selección que resalta el objeto seleccionado, se recomienda eliminar el componente al quitar el resaltado. El mantenimiento de los componentes en torno a características neutras puede sumar rápidamente.
 
-La representación transparente coloca más carga de trabajo en las GPU del servidor que la representación estándar. Si las partes grandes del gráfico de escena cambian a *transparente*, con muchas capas de geometría visibles, puede convertirse en un cuello de botella de rendimiento. Lo mismo es válido para los objetos con [contornos de selección](../../overview/features/outlines.md#performance).
+La representación transparente coloca más carga de trabajo en las GPU del servidor que la representación estándar. Si las partes grandes del gráfico de escena cambian a *transparente*, con muchas capas de geometría visibles, puede convertirse en un cuello de botella de rendimiento. Todo esto se puede aplicar a los objetos con [contornos de selección](../../overview/features/outlines.md#performance) y para la [representación del shell](../../overview/features/shell-effect.md#performance) . 
 
 ## <a name="api-documentation"></a>Documentación de la API
 

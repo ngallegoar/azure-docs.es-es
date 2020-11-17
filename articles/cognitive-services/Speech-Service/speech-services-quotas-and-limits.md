@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/04/2020
 ms.author: alexeyo
-ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567169"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345404"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Límites y cuotas de los servicios de voz
 
@@ -24,20 +24,35 @@ Este artículo contiene una referencia rápida y la **descripción detallada** d
 ## <a name="quotas-and-limits-quick-reference"></a>Referencia rápida de cuotas y límites
 Ir a [Cuotas y límites de la conversión de texto a voz](#text-to-speech-quotas-and-limits-per-speech-resource)
 ### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Cuotas y límites de la conversión de voz en texto por recurso de voz
-En la tabla siguiente, los parámetros sin la fila "Ajustable" **no** son ajustables para todos los planes de tarifa.
+En las tablas siguientes, los parámetros sin la fila "Ajustable" **no** se pueden ajustar en todos los planes de tarifa.
+
+#### <a name="online-transcription"></a>Transcripción en línea
 
 | Quota | Gratis (F0)<sup>1</sup> | Estándar (S0) |
 |--|--|--|
-| **Límite de solicitudes simultáneas de transcripción en línea (modelos base y personalizado)** |  |  |
-| Valor predeterminado | 1 | 20 |
+| **Límite de solicitudes simultáneas (modelos base y personalizado)** | 1 | 20 (valor predeterminado) |
 | Ajustable | No<sup>2</sup> | Sí<sup>2</sup> |
-| **Límite de solicitudes de API REST (puntos de conexión de [API Management](../../api-management/api-management-key-concepts.md))** | 100 solicitudes por 10 segundos | 100 solicitudes por 10 segundos |
-| **Tamaño máximo del archivo de conjunto de datos para la importación de datos** | 2 GB | 2 GB |
-| **Tamaño máximo de blobs de entrada para Batch Transcription** | N/D | 2,5 GB |
-| **Tamaño máximo del contenedor de blobs para Batch Transcription** | N/D | 5 GB |
-| **Número máximo de blobs por contenedor para Batch Transcription** | N/D | 10000 |
-| **Número máximo de archivos por solicitud de transcripción para la transcripción por lotes (cuando se usan varias direcciones URL de contenido como entrada)** | N/D | 1000  |
-| **Número máximo de trabajos en ejecución simultánea para Batch Transcription** | N/D | 2000  |
+
+#### <a name="batch-transcription"></a>Transcripción de Azure Batch
+| Quota | Gratis (F0)<sup>1</sup> | Estándar (S0) |
+|--|--|--|
+| Límite de API REST | La transcripción por lotes no está disponible para F0 | 300 solicitudes por minuto |
+| Tamaño máximo del archivo de entrada de audio | N/D | 1 GB |
+| Tamaño máximo de blob de entrada (puede contener más de un archivo, por ejemplo, en un archivo .zip; asegúrese de anotar el límite de tamaño de archivo anterior) | N/D | 2,5 GB |
+| Tamaño máximo de contenedor de blobs | N/D | 5 GB |
+| Número máximo de blobs por contenedor | N/D | 10000 |
+| Número máximo de archivos por solicitud de transcripción (cuando se usan varias direcciones URL de contenido como entrada) | N/D | 1000  |
+| Número máximo de trabajos en ejecución simultánea | N/D | 2000  |
+
+#### <a name="model-customization"></a>Personalización de modelos
+| Quota | Gratis (F0)<sup>1</sup> | Estándar (S0) |
+|--|--|--|
+| Límite de API REST | 300 solicitudes por minuto | 300 solicitudes por minuto |
+| Número máximo de conjuntos de datos de voz | 2 | 500 |
+| Tamaño máximo del archivo de conjunto de datos acústicos para la importación de datos | 2 GB | 2 GB |
+| Tamaño máximo del archivo de conjunto de datos de idioma para la importación de datos | 200 MB | 1,5 GB |
+| Tamaño máximo del archivo de conjunto de datos de pronunciación para la importación de datos | 1 KB | 1 MB |
+| Tamaño de texto máximo al usar el parámetro `text` en la solicitud de API de [Crear modelo](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) | 200 KB | 500 kB |
 
 <sup>1</sup> Para el plan de tarifa **Gratis (F0)** , consulte también las asignaciones mensuales en la [página de precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> Consulte las [explicaciones adicionales](#detailed-description-quota-adjustment-and-best-practices), los [procedimientos recomendados](#general-best-practices-to-mitigate-throttling-during-autoscaling) y las [instrucciones de ajuste](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
@@ -57,7 +72,7 @@ En la tabla siguiente, los parámetros sin la fila "Ajustable" **no** son ajusta
 | **Cuotas específicas de WebSocket** |  |  |
 |Longitud máxima de audio generada por turno | 10 min | 10 min |
 |Tamaño máximo de mensaje SSML por turno |64 KB |64 KB |
-| **Límite de solicitudes de API REST** | 20 solicitudes por minuto | 25 solicitudes por 5 segundos |
+| **Límite de API REST** | 20 solicitudes por minuto | 25 solicitudes por 5 segundos |
 
 
 <sup>3</sup> Para el plan de tarifa **Gratis (F0)** , consulte también las asignaciones mensuales en la [página de precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

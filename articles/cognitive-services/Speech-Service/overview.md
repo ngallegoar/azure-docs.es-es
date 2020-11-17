@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7d31649e18f8cc687a9716c8ecafe556fa250de6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521516"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377894"
 ---
 # <a name="what-is-the-speech-service"></a>¿Qué es Speech Service?
 
@@ -46,14 +46,12 @@ Las siguientes características forman parte del servicio Speech. Use los víncu
 
 En los pasos siguientes, necesitará un cuenta de Microsoft y una cuenta de Azure. Si no tiene un cuenta de Microsoft, puede registrarse para obtener una gratuita en el [portal de la cuenta de Microsoft](https://account.microsoft.com/account). Seleccione **Iniciar sesión con Microsoft** y, luego, cuando se le pida que inicie sesión, seleccione **Crear una cuenta de Microsoft**. Siga los pasos para crear y comprobar la nueva cuenta Microsoft.
 
-Cuando tenga la cuenta de Microsoft, vaya a la [página de suscripción a Azure](https://azure.microsoft.com/free/ai/), seleccione **Comenzar gratis** y cree una cuenta de Azure con su cuenta de Microsoft.
+Cuando tenga la cuenta de Microsoft, vaya a la [página de suscripción a Azure](https://azure.microsoft.com/free/ai/), seleccione **Comenzar gratis** y cree una cuenta de Azure con su cuenta de Microsoft. Este es un vídeo de [cómo registrarse para obtener una cuenta gratuita de Azure](https://www.youtube.com/watch?v=GWT2R1C_uUU).
 
 > [!NOTE]
-> El servicio Voz tiene dos niveles de servicio: gratis y suscripción, que tienen diferentes limitaciones y ventajas. Si se registra para obtener una cuenta gratuita de Azure, obtendrá 200 USD en crédito de servicios que puede aplicar a una suscripción del servicio Voz de pago durante 30 días.
+> Si se registra para obtener una cuenta gratuita de Azure, recibirá 200 USD en crédito de servicios que puede aplicar a una suscripción del servicio de voz de pago, válida durante 30 días. Los servicios de Azure se deshabilitan cuando el crédito se agota o expira al terminar los 30 días. Para seguir usando los servicios de Azure, debe actualizar la cuenta. Para más información, consulte [Actualización de una cuenta gratuita de Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription). 
 >
-> Si usa el nivel gratis del servicio Voz de bajo volumen, puede conservar esta suscripción gratuita incluso después de que expire la evaluación gratuita o el crédito del servicio.
->
-> Para más información, consulte [Precios de Cognitive Services: servicio de voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> El servicio de voz tiene dos niveles de servicio: gratis (f0) y suscripción (s0), que tienen diferentes limitaciones y ventajas. Si usa el nivel gratis del servicio Voz de bajo volumen, puede conservar esta suscripción gratuita incluso después de que expire la evaluación gratuita o el crédito del servicio. Para más información, consulte [Precios de Cognitive Services: servicio de voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="create-the-azure-resource"></a>Creación del recurso de Azure
 
@@ -61,9 +59,9 @@ Para agregar un recurso de servicio de voz (plan gratuito o de pago) a la cuenta
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con la cuenta Microsoft.
 
-1. Seleccione **Crear un recurso** en la parte superior izquierda del portal. Si no ve **Crear un recurso** , siempre puede encontrarlo al seleccionar el menú contraído en la parte superior izquierda.
+1. Seleccione **Crear un recurso** en la parte superior izquierda del portal. Si no ve **Crear un recurso**, siempre puede encontrarlo al seleccionar el menú contraído en la parte superior izquierda.
 
-1. En la ventana **Nuevo** , escriba "speech" en el cuadro de búsqueda y presione ENTRAR.
+1. En la ventana **Nuevo**, escriba "speech" en el cuadro de búsqueda y presione ENTRAR.
 
 1. En los resultados de la búsqueda, seleccione **Voz**.
 
@@ -72,11 +70,11 @@ Para agregar un recurso de servicio de voz (plan gratuito o de pago) a la cuenta
 1. Seleccione **Crear** y, después:
 
    - Dé un nombre único al nuevo recurso. El nombre ayuda a distinguir entre varias suscripciones vinculadas al mismo servicio.
-   - Elija la suscripción de Azure a la que esté asociado el recurso nuevo para determinar cómo se facturan las tarifas.
-   - Elija la [región](regions.md) donde se va a usar el recurso.
-   - Elija un plan de tarifa de pago (S0) o gratis (F0). Para completar la información sobre los precios y las cuotas de uso de cada plan, seleccione **Ver todos los detalles de los precios**. Para conocer los límites de los recursos que puede crear para cada suscripción, consulte [Límites de Azure Cognitive Services](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
+   - Elija la suscripción de Azure a la que esté asociado el recurso nuevo para determinar cómo se facturan las tarifas. Esta es la introducción a [cómo crear una suscripción de Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) en Azure Portal.
+   - Elija la [región](regions.md) donde se va a usar el recurso. Azure es una plataforma de nube global que está disponible con carácter general en muchas regiones de todo el mundo. Para obtener el mejor rendimiento, seleccione la región más cercana a usted o donde se ejecuta la aplicación. La disponibilidad del servicio de voz varía de una región a otra. Asegúrese de crear el recurso en una región admitida. Consulte [Regiones admitidas en los servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation).
+   - Elija un plan de tarifa de pago (S0) o gratis (F0). Puede encontrar información completa sobre los precios y las cuotas de uso de cada plan en **Ver todos los detalles de los precios** o [Precios de Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Para conocer los límites de los recursos, consulte [Límites de Azure Cognitive Services](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Cree un nuevo grupo de recursos para esta suscripción de voz o asígnela a un grupo de recursos existente. Los grupos de recursos ayudan a mantener organizadas las distintas suscripciones de Azure.
-   - Seleccione **Crear**. Esto le llevará a la información general de la implementación y mostrará mensajes del progreso de la implementación.
+   - Seleccione **Crear**. Esto le llevará a la información general de la implementación y mostrará mensajes del progreso de la implementación.  
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
@@ -91,7 +89,7 @@ Para buscar las claves y la región de una implementación completa, siga estos 
 
 2. Seleccione **Todos los recursos** y el nombre del recurso de Cognitive Services.
 
-3. En el panel izquierdo, en **ADMINISTRACIÓN DE RECURSOS** , seleccione **Claves y punto de conexión**.
+3. En el panel izquierdo, en **ADMINISTRACIÓN DE RECURSOS**, seleccione **Claves y punto de conexión**.
 
 Cada suscripción tiene dos claves; puede usar cualquiera de ellas en la aplicación. Para copiar y pegar una clave en el editor de código o en otra ubicación, seleccione el botón Copiar que se encuentra junto a cada clave y cambie de ventana para pegar el contenido del portapapeles en la ubicación deseada.
 

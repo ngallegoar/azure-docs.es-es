@@ -7,44 +7,76 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 09/24/2019
-ms.openlocfilehash: c990b6980dea871679b0b301e293e4fb94748db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2019
+ms.openlocfilehash: dc910c01c401468a3dae392a6318344bee25efb7
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650903"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375647"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Idiomas admitidos en el recurso de QnA Maker y en las bases de conocimiento
+
+En este artículo se describen las opciones de compatibilidad con el idioma de los recursos y las knowledge bases de QnA Maker. 
+
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
 El idioma del servicio se selecciona al crear la primera base de conocimiento en el recurso. Todas las bases de conocimiento adicionales del recurso deben estar en el mismo idioma. 
 
 El idioma determina la relevancia de los resultados que QnA Maker proporciona en respuesta a las consultas de los usuarios. El recurso de QnA Maker y todas las bases de conocimiento dentro de ese recurso admiten solo un idioma. Solo debe ser un idioma para proporcionar los mejores resultados de respuesta para las consultas.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+En QnA Maker administrado, tiene la opción de realizar la configuración de idioma en el nivel de la knowledge base individual. Esta configuración solo se puede habilitar con la knowledge base del servicio. Una vez establecida la configuración de idioma del servicio, no se puede cambiar. 
+
+Si selecciona que la configuración de idioma sea específica de la knowledge base, podrá crear knowledge-bases de distintos idiomas en el propio servicio. 
+
+---
+
 ## <a name="single-language-per-resource"></a>Un solo idioma por recurso
+
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
 Tenga en cuenta lo siguiente.
 
 * Un servicio de QnA Maker y todas sus bases de conocimiento solo admiten un idioma.
+* El idioma se establece de forma explícita cuando se crea la primera knowledge base del servicio.
+* El idioma se determina a partir de los archivos y las direcciones URL que se agregan al crear la knowledge base.
+* No se puede cambiar el idioma de ninguna otra knowledge base del servicio.
+* Tanto el Cognitive Search (clasificador 1) como el servicio QnA Maker (clasificador 2) usan el idioma para generar la mejor respuesta a cualquier consulta.
+
+# <a name="qnamaker-managed-preview"></a>[QnAMaker administrado (versión preliminar)](#tab/v2)
+![Configuración de idioma en QnA Maker administrado](../media/language-support/language-setting-managed.png)
+
+Si **no activa la casilla para habilitar la configuración de idioma por knowledge base**, tenga en cuenta lo siguiente: 
+* Un servicio de QnA Maker, y todas sus knowledge bases, solo admiten un idioma.
 * El idioma se establece de forma explícita cuando se crea la primera base de conocimiento del servicio.
 * El idioma se determina a partir de los archivos y las direcciones URL que se agregan al crear la base de conocimiento.
 * No se puede cambiar el idioma de ninguna otra base de conocimiento en el servicio.
 * El servicio de Cognitive Search (clasificador n.º 1) y el servicio de QnA Maker (clasificador n.º 2) usan el idioma para generar la mejor respuesta de una consulta.
 
-## <a name="supporting-multiple-languages"></a>Compatibilidad con varios idiomas
+---
+
+## <a name="supporting-multiple-languages-in-one-qna-maker-resource"></a>Compatibilidad con varios idiomas en un solo recurso de QnA Maker
+
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+Esta funcionalidad no se admite en versión estable disponible con carácter general actual. Extraiga del repositorio QnA Maker administrado para probar esta funcionalidad. 
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+* Al crear la primera knowledge base en el servicio, tiene la opción de habilitar la configuración de idioma por knowledge base. Active la casilla para crear knowledge bases que pertenezcan a distintos idiomas dentro de un solo servicio.
+* Una vez que se crea la primera knowledge base, la opción de configuración de idioma no se puede modificar en el servicio.
+* Si habilita una configuración de idioma específica para cada knowledge base, en lugar de tener un índice de prueba para el servicio tendrá un índice de prueba por cada knowledge base. 
+
+![Configuración de idioma en QnA Maker administrado](../media/language-support/language-setting-managed.png)
+
+---
+
+## <a name="supporting-multiple-languages-in-one-knowledge-base"></a>Compatibilidad con varios idiomas en una knowledge base
 
 Si necesita admitir un sistema de base de conocimiento que incluye varios idiomas, puede:
 
 * Usar el [servicio Translator](../../translator/translator-info-overview.md) para traducir una pregunta a un solo idioma antes de enviarla a la base de conocimiento. Esto le permite concentrarse en la calidad de un solo idioma, así como en la calidad de las preguntas y respuestas alternativas.
 * Crear un recurso de QnA Maker (y una base de conocimiento dentro de ese recurso) para cada idioma. Esta opción le permite administrar preguntas alternativas independientes y textos de respuesta con más matices para cada idioma. De este modo, obtiene mucha más flexibilidad, aunque tiene un costo de mantenimiento mucho mayor cuando las preguntas o respuestas son distintas en todos los idiomas.
-
-Consulte los [idiomas admitidos](../overview/language-support.md) en QnA Maker.
-
-### <a name="support-each-language-with-a-qna-maker-resource"></a>Inclusión de un recurso de QnA Maker para cada idioma
-
-* Cree un recurso de QnA Maker para cada idioma
-* Agregue solo archivos y direcciones URL para ese idioma
-* Use una convención de nomenclatura para que el recurso identifique el idioma. Por ejemplo, `qna-maker-fr` es para todas las bases de conocimiento de documentos en francés
 
 
 ## <a name="languages-supported"></a>Idiomas admitidos

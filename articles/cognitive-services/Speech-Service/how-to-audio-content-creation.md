@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: a04088fc1074949a1228794c22c1fa65a0b736a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370075"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330944"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Mejora de la síntesis con la herramienta Audio Content Creation
 
@@ -50,7 +50,7 @@ La implementación del recurso de voz nuevo puede tardar unos instantes. Una vez
 
 1. Después de obtener la cuenta de Azure y el recurso de voz, puede iniciar sesión en [Creación de contenido de audio](https://aka.ms/audiocontentcreation) haciendo clic en **Empezar**.
 2. Aparecerá la página **Recurso de voz**. Seleccione el recurso de voz en el que desea trabajar. Haga clic en **Ir a Studio** para iniciar la creación de audio. También puede crear un nuevo recurso de voz aquí haciendo clic en **Crear nuevo**. Cuando inicie sesión en la herramienta Creación de contenido de audio la próxima vez, le vincularemos directamente a los archivos de trabajo de audio del recurso de voz actual. 
-3. Puede modificar su recurso de voz en cualquier momento con la opción **Configuración** , que se encuentra en la navegación superior.
+3. Puede modificar su recurso de voz en cualquier momento con la opción **Configuración**, que se encuentra en la navegación superior.
 
 ## <a name="how-to-use-the-tool"></a>Uso de la herramienta
 
@@ -131,7 +131,7 @@ Si más de un usuario desea usar Creación de contenido de audio, puede comparti
 
 Siga estos pasos para agregar un usuario a un recurso de voz para que pueda usar Creación de contenido de audio.
 
-1. Busque **Cognitive Services** en Azure Portal y seleccione el recurso de voz al que desea agregar usuarios.
+1. Busque **Cognitive Services** en [Azure Portal](https://portal.azure.com/) y seleccione el recurso de voz al que desea agregar usuarios.
 2. Haga clic en **Control de acceso (IAM).** Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles para esta suscripción.
     :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Pestaña Asignación de roles":::
 1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel Agregar asignación de roles. En la lista desplegable Rol, seleccione el rol **Usuario de Cognitive Services**. Si desea conceder al usuario la propiedad de este recurso de voz, puede seleccionar el rol **Propietario**.

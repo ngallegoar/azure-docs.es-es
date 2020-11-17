@@ -106,8 +106,10 @@
           href: concept-disaster-recovery.md
 - name: Guías paso a paso
   items:
-    - name: Habilitación de una característica para un subconjunto de usuarios
+    - name: Habilitación de una característica para una porcentaje de usuario
       href: howto-feature-filters-aspnet-core.md
+    - name: Habilitación de una característica para usuarios o grupos especificados
+      href: howto-targetingfilter-aspnet-core.md
     - name: Uso de etiquetas para la configuración de cada entorno
       href: howto-labels-aspnet-core.md
     - name: Importación o exportación de datos de configuración
