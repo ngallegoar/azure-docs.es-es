@@ -110,14 +110,24 @@
       href: disaster-recovery.md
 - name: Conceptos
   items:
-    - name: Authentication
+    - name: Autenticación
       href: authentication.md
-    - name: Lista de direcciones URL seguras
-      href: safe-url-list.md
     - name: Entorno de Windows Virtual Desktop
       href: environment-setup.md
-    - name: Determinación de la latencia de la conexión del usuario
-      href: connection-latency.md
+    - name: Conectividad de red
+      items:
+        - name: Descripción de la conectividad en red
+          href: network-connectivity.md
+        - name: Ruta corta de RDP
+          href: shortpath.md
+        - name: Implementación de Calidad de servicio (QoS)
+          href: rdp-quality-of-service-qos.md
+        - name: Lista de direcciones URL seguras
+          href: safe-url-list.md
+        - name: Consideraciones sobre el ancho de banda
+          href: rdp-bandwidth.md
+        - name: Determinación de la latencia de la conexión del usuario
+          href: connection-latency.md
     - name: Acceso delegado en Windows Virtual Desktop
       href: delegated-access-virtual-desktop.md
     - name: Métodos de equilibrio de carga para un grupo host
@@ -168,8 +178,6 @@
       href: linux-overview.md
     - name: Configuración de un archivo RDP compatible
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-    - name: Guía de red
-      href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
     - name: Guía para el ajuste de tamaño de las máquinas virtuales
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Interfaz de la línea de comandos (CLI) de Azure

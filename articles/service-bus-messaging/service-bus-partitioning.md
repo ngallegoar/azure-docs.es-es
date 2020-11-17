@@ -4,12 +4,12 @@ description: Describe cómo realizar la partición de los temas y las colas de S
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 380f18e16d09dc9f641a7a6b6cf9c1cb3f05e075
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007968"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356287"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
@@ -29,6 +29,8 @@ Cuando un cliente quiere recibir un mensaje de una cola con particiones, o de un
 La operación de inspección en una entidad sin particiones siempre devuelve el mensaje más antiguo, pero no en una entidad con particiones. En su lugar, devuelve el mensaje más antiguo en una de las particiones cuyo agente de mensajes respondió primero. No hay garantía de que el mensaje devuelto sea el más antiguo de todas las particiones. 
 
 No hay costos adicionales cuando se envía un mensaje a una cola o tema con particiones o cuando se recibe un mensaje de ellos.
+>[!NOTE]
+> La operación de inspección devuelve el mensaje más antiguo de la partición en función de su valor de SequenceNumber. En las entidades con particiones, el número de secuencia se asigna con respecto a la partición. Para obtener más información, consulte [Secuenciación y marcas de tiempo de los mensajes](../service-bus-messaging/message-sequencing.md).
 
 ## <a name="enable-partitioning"></a>Habilitación de las particiones
 
@@ -54,7 +56,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-También puede crear una cola o un tema con particiones en [Azure Portal][Azure portal]. Al crear una cola o tema en el portal, la opción **Habilitar partición** de la cola o tema, se activa el cuadro de diálogo**Crear** de forma predeterminada. Solo puede deshabilitar esta opción en una entidad de nivel Estándar; en el nivel Premium, la creación de particiones está siempre habilitada, y la casilla no tiene ningún efecto. 
+También puede crear una cola o un tema con particiones en [Azure Portal][Azure portal]. Al crear una cola o tema en el portal, la opción **Habilitar partición** de la cola o tema, se activa el cuadro de diálogo **Crear** de forma predeterminada. Solo puede deshabilitar esta opción en una entidad de nivel Estándar; en el nivel Premium, la creación de particiones está siempre habilitada, y la casilla no tiene ningún efecto. 
 
 ## <a name="use-of-partition-keys"></a>Uso de claves de partición
 

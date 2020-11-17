@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 66244bd8e24ff62be41df72f7a39c0ce0ed13135
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249559"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360706"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implementar el servicio Administrador de dispositivos de StorSimple para dispositivos de la serie StorSimple 8000
 
@@ -105,7 +105,7 @@ Realice los pasos siguientes para volver a generar una clave de registro de serv
 ### <a name="to-regenerate-the-service-registration-key"></a>Para volver a generar la clave de registro de servicio
 1. En la hoja **Administrador de dispositivos de StorSimple**, vaya a **Administración &gt;** **Claves**.
     
-    ![Hoja de claves](./media/storsimple-8000-manage-service/regenregkey2.png)
+    ![Ir a la hoja Claves](./media/storsimple-8000-manage-service/regenregkey2.png)
 
 2. En la hoja **Claves**, haga clic en **Regenerar**.
 

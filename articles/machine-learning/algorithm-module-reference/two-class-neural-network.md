@@ -1,7 +1,7 @@
 ---
 title: 'Red neuronal de dos clases: referencia para los módulos'
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar el módulo Red neuronal de dos clases en Azure Machine Learning para crear un modelo de red neuronal que pueda usarse para predecir un destino que tenga solo dos resultados.
+description: Aprenda a usar el módulo de red neuronal de dos clases en Azure Machine Learning para crear un clasificador binario.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 2ad4fc575a6e9d07e4e24c2d570f68edbbea46c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9131a2439facef00cae818bffef38e536a40a2fd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907684"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421165"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo Red neuronal de dos clases
 

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 467af776af95cf035121250fdcadd2fee65d9805
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ca02b3d6f4dec805c6ce58d4470c4c8e5f3454f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186360"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375862"
 ---
 #### <a name="to-create-a-volume-container"></a>Para crear un contenedor de volúmenes
 1. Vaya al servicio Administrador de dispositivos de StorSimple y haga clic en **Dispositivos**. En la lista tabular de dispositivos, seleccione un dispositivo y haga clic en él. 
@@ -18,7 +18,7 @@ ms.locfileid: "67186360"
 
 2. En el panel del dispositivo, haga clic en **+ Agregar contenedor de volúmenes**
 
-    ![Hoja Contenedor de volúmenes](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)
+    ![Hoja Contenedor de volúmenes 2](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)
 
 3. En la hoja **Agregar contenedor de volúmenes**:
    
@@ -30,10 +30,10 @@ ms.locfileid: "67186360"
    6. Seleccione **Ilimitado** en la lista desplegable **Especificar el ancho de banda** si desea consumir todo el ancho de banda disponible. También puede establecer esta opción en **Personalizado** para usar los controles de ancho de banda y especificar un valor de entre 1 y 1000 Mbps.
       Si tiene a su disposición información sobre el uso del ancho de banda, es posible que pueda asignar ancho de banda en función de una programación especificando **Seleccionar una plantilla de ancho de banda**. Para conocer el procedimiento paso a paso, vaya a [Agregar una plantilla de ancho de banda](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template).
 
-      ![Hoja Contenedor de volúmenes](./media/storsimple-8000-create-volume-container/createvolumecontainer6b.png)
+      ![Hoja Contenedor de volúmenes 3](./media/storsimple-8000-create-volume-container/createvolumecontainer6b.png)
    7. Haga clic en **Crear**.
 
-        ![Hoja Contenedor de volúmenes](./media/storsimple-8000-create-volume-container/createvolumecontainer6.png)
+        ![Hoja Contenedor de volúmenes 4](./media/storsimple-8000-create-volume-container/createvolumecontainer6.png)
    
        Recibirá una notificación cuando el contenedor de volúmenes se haya creado correctamente.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b6b94c30f00765164385987ed0ea9b201044f248
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 78a882378becda8c381ac036d786b32a2b42a5f1
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077446"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379475"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Línea de base de seguridad de Azure para API Management
 
@@ -187,7 +187,7 @@ Precaución: Al configurar un grupo de seguridad de red en la subred de API Mana
 **Guía**: Defina e implemente configuraciones de seguridad estándar para la configuración de red relacionada con las implementaciones de Azure API Management. Use alias de Azure Policy en los espacios de nombres "Microsoft.ApiManagement" y "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de las implementaciones de Azure API Management y los recursos relacionados. También puede usar definiciones de directivas integradas para Azure Virtual Network, como:
 - Se debe habilitar DDoS Protection estándar
 
-También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como las plantillas de Azure Resource Manager, el control de acceso basado en rol de Azure (Azure RBAC) y las directivas, en una única definición de un plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
+También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como las plantillas de Azure Resource Manager, el control de acceso basado en roles de Azure (Azure RBAC) y las directivas, en una única definición de un plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
 
 * [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -323,7 +323,7 @@ Si lo desea, también puede habilitar e incorporar datos en Azure Sentinel o en 
 
 * [Habilitación de la configuración de diagnóstico para Azure API Management](./api-management-howto-use-azure-monitor.md#activity-logs)
 
-* [Configuración de una regla de alerta para solicitudes no autorizadas](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule-for-unauthorized-request)
+* [Configuración de una regla de alerta para Azure API Management](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule)
 
 * [Visualización de las métricas de capacidad de una instancia de Azure API Management](./api-management-capacity.md)
 
@@ -375,11 +375,11 @@ Siga las recomendaciones de Azure Security Center para la administración y el m
 
 * [Uso del control de acceso basado en rol en Azure API Management](./api-management-role-based-access-control.md)
 
-* [Obtención de una lista de usuarios en una instancia de Azure API Management](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [Obtención de una lista de usuarios en una instancia de Azure API Management](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
-* [Obtención de una lista de usuarios asignados a un rol de directorio en Azure AD con PowerShell](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0)
+* [Obtención de una lista de usuarios asignados a un rol de directorio en Azure AD con PowerShell](/powershell/module/az.resources/get-azroleassignment)
 
-* [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/az.resources/get-azroledefinition?view=azps-3.7.0)
+* [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
 * [Recomendaciones de identidad y acceso de Azure Security Center](../security-center/recommendations-reference.md#recs-identity)
 
@@ -480,7 +480,7 @@ Además, use las detecciones de riesgo de Azure AD para ver alertas e informes 
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Guía**: Siempre que sea posible, use Azure AD como sistema central de autenticación y autorización. AAD protege los datos mediante un fuerte cifrado para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
+**Guía**: Siempre que sea posible, use Azure AD como sistema central de autenticación y autorización. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
 
 Configure el portal para desarrolladores de Azure API Management a fin de autenticar las cuentas de desarrollador mediante Azure Active Directory.
 
@@ -490,7 +490,7 @@ Configure la instancia de Azure API Management para proteger las API mediante el
 
 * [Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management](./api-management-howto-protect-backend-with-aad.md)
 
-* [Creación y configuración de una instancia de AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [Procedimiento para crear y configurar una instancia de Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -506,7 +506,7 @@ Los administradores pueden crear grupos personalizados o aprovechar los grupos e
 
 * [Administración de cuentas de usuario en Azure API Management](./api-management-howto-create-or-invite-developers.md)
 
-* [Obtención de una lista de usuarios de API Management](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [Obtención de una lista de usuarios de API Management](/powershell/module/az.apimanagement/get-azapimanagementuse)
 
 * [Creación y uso de grupos para administrar cuentas de desarrollador en Azure API Management](./api-management-howto-create-groups.md)
 
@@ -746,7 +746,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 * [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
@@ -832,7 +832,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
@@ -888,7 +888,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 **Guía**: Defina e implemente configuraciones de seguridad estándar para las instancias de Azure API Management con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.ApiManagement" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de los servicios de Azure API Management.
 
-* [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -928,9 +928,9 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 **Guía**: Si usa definiciones de directivas personalizadas de Azure, use Azure DevOps o Azure Repos para almacenar y administrar de forma segura la configuración de servicios de Azure API Management.
 
-* [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-* [Documentación de Azure Repos](/azure/devops/repos/index?view=azure-devops)
+* [Documentación de Azure Repos](/azure/devops/repos/index)
 
 * [Descripción del kit de recursos de DevOps de Azure API Management](./api-management-security-controls.md#configuration-management)
 
@@ -1086,7 +1086,7 @@ Las identidades administradas se pueden utilizar para obtener certificados de Az
 
 * [Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-* [Realización de copias de seguridad de certificados de Azure Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [Realización de copias de seguridad de certificados de Azure Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1098,7 +1098,7 @@ Las identidades administradas se pueden utilizar para obtener certificados de Az
 
 * [Llamada a la operación de restauración de API Management](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
-* [Restauración de certificados de Azure Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [Restauración de certificados de Azure Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
 **Supervisión de Azure Security Center**: No aplicable
 

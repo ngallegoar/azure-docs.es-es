@@ -1,7 +1,7 @@
 ---
 title: 'Ejecución de script de Python: Referencia del módulo'
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar el módulo Ejecución de script de Python en Azure Machine Learning para ejecutar código de Python.
+description: Aprenda a usar el módulo de ejecución de script de Python en el diseñador de Azure Machine Learning para ejecutar código de Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: e6a7eabec76cf27044b5d0e13acfc2431cb19b77
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e0da478e221fe392135362cd74cbdd8baca101ef
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323761"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421369"
 ---
 # <a name="execute-python-script-module"></a>Módulo Ejecutar script de Python
 
@@ -37,7 +37,7 @@ Azure Machine Learning usa la distribución Anaconda de Python, que incluye much
 
 Para obtener una lista completa, vea la sección [Paquetes preinstalados de Python](#preinstalled-python-packages).
 
-Para instalar otros paquetes que no están en la lista preinstalada, por ejemplo *scikit-misc* , agregue el código siguiente al script: 
+Para instalar otros paquetes que no están en la lista preinstalada, por ejemplo *scikit-misc*, agregue el código siguiente al script: 
 
 ```python
 import os
@@ -197,9 +197,9 @@ Los resultados de los cálculos del código de Python insertado deben proporcion
 
 El módulo devuelve dos conjuntos de datos:  
   
-+ **Conjunto de datos de resultados 1** , definido por el primer dataframe de pandas devuelto en un script de Python.
++ **Conjunto de datos de resultados 1**, definido por el primer dataframe de pandas devuelto en un script de Python.
 
-+ **Conjunto de datos de resultados 2** , definido por el segundo dataframe de pandas devuelto en un script de Python.
++ **Conjunto de datos de resultados 2**, definido por el segundo dataframe de pandas devuelto en un script de Python.
 
 ## <a name="preinstalled-python-packages"></a>Paquetes preinstalados de Python
 Los paquetes instalados previamente son:

@@ -1,7 +1,7 @@
 ---
 title: 'Modelo de validación cruzada: Referencia del módulo'
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar el módulo de validación cruzada de Azure Machine Learning para realizar una validación cruzada de las estimaciones de parámetros de los modelos de clasificación o regresión mediante la partición de los datos.
+description: Aprenda a usar el módulo de modelo de validación cruzada del diseñador de Azure Machine Learning para realizar una validación cruzada de las estimaciones de parámetros de los modelos de clasificación o regresión.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 63c61b12ad68a3add2e7b40ab0bec38d3c2835e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4099ecf6e6bcc6654391e54292878393fb22914
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898567"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421352"
 ---
 # <a name="cross-validate-model"></a>Modelo de validación cruzada
 

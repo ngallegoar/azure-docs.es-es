@@ -5,26 +5,26 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073832"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358718"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Como servicio de bases de datos nativo de la nube totalmente administrado, Azure Cosmos DB simplifica la facturación al cobrar solo las operaciones de la base de datos y el almacenamiento consumido. No existen tarifas de licencia adicionales, costos de hardware, de utilidades ni de instalaciones en comparación con las alternativas locales u hospedadas en IaaS. Al considerar las funcionalidades de varias regiones de Azure Cosmos DB, el servicio de base de datos proporciona una considerable reducción de costos en comparación con soluciones locales o IaaS.
 
-- **Operaciones de la base de datos** : la forma en que se le cobran las operaciones de base de datos depende del tipo de cuenta de Azure Cosmos que se use.
+- **Operaciones de la base de datos**: la forma en que se le cobran las operaciones de base de datos depende del tipo de cuenta de Azure Cosmos que se use.
 
-  - **Rendimiento aprovisionado** : la facturación se realiza por hora al rendimiento máximo aprovisionado para una concreta, en incrementos de 100 RU/s.
-  - **Sin servidor** : la facturación se realiza por hora a la cantidad total de unidades de solicitud usada por las operaciones de base de datos.
+  - **Rendimiento aprovisionado**: la facturación se realiza por hora al rendimiento máximo aprovisionado para una concreta, en incrementos de 100 RU/s.
+  - **Sin servidor**: la facturación se realiza por hora a la cantidad total de unidades de solicitud usada por las operaciones de base de datos.
 
-- **Almacenamiento** : se le cobra una tarifa plana por la cantidad total de almacenamiento (GB) usada por los datos y los índices en una hora concreta.
+- **Almacenamiento**: se le cobra una tarifa plana por la cantidad total de almacenamiento (GB) usada por los datos y los índices en una hora concreta.
 
 Consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener la información sobre los precios más reciente.
 
@@ -105,9 +105,9 @@ Si aumenta el rendimiento aprovisionado para un contenedor o un conjunto de cont
 
 :::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Ejemplo de factura de rendimiento compartido":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Ejemplos de facturación con replicación geográfica y escrituras en varias regiones  
+## <a name="billing-examples-with-geo-replication"></a>Ejemplos de facturación con replicación geográfica  
 
-Puede agregar o quitar regiones de Azure de cualquier parte del mundo en la cuenta de base de datos de Azure Cosmos en cualquier momento. El rendimiento que ha configurado para diferentes contenedores y bases de datos de Azure Cosmos se reserva en cada una de las regiones de Azure asociadas con la cuenta de base de datos de Azure Cosmos. Si la suma del rendimiento aprovisionado (RU/s) configurado en todas las bases de datos y los contenedores dentro de la cuenta de bases de datos de Azure Cosmos (aprovisionada por hora) es T y el número de regiones de Azure asociadas con su cuenta de base de datos es N, el rendimiento aprovisionado total para una hora dada, para su cuenta de base de datos, (a) configurado con una única región de escritura es igual a T x N RU/s y (b) configurado con todas las regiones capaces de procesar las operaciones de escritura es igual a T x (N+1) RU/s, respectivamente. El rendimiento aprovisionado (una sola región de escritura) cuesta 0,008 USD/hora por 100 RU/s, mientras que el rendimiento aprovisionado con varias regiones grabables (configuración de escrituras en varias regiones) cuesta 0,016 USD/hora por 100 RU/s (vea la [página Precios](https://azure.microsoft.com/pricing/details/cosmos-db/)). Ya sea que se trate de una sola región de escritura o de varias regiones de escritura, Azure Cosmos DB le permite leer datos desde cualquier región.
+Puede agregar o quitar regiones de Azure de cualquier parte del mundo en la cuenta de base de datos de Azure Cosmos en cualquier momento. El rendimiento que ha configurado para diferentes contenedores y bases de datos de Azure Cosmos se reserva en cada una de las regiones de Azure asociadas con la cuenta de base de datos de Azure Cosmos. Si la suma de la capacidad de proceso aprovisionada (RU/s) configurada en todas las bases de datos y los contenedores dentro de la cuenta de base de datos de Azure Cosmos (aprovisionada por hora) es T y el número de regiones de Azure asociadas a la cuenta de base de datos es N, la capacidad de proceso aprovisionada total de una hora determinada para la cuenta de base de datos de Azure Cosmos será igual a T x N RU/s. La capacidad de proceso aprovisionada de una sola región de escritura cuesta 0,008 USD por hora por 100 RU/s y la capacidad de proceso aprovisionada con varias regiones de escritura (escritura en varias regiones) cuesta 0,016 USD por hora por 100 RU/s (consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/)). Ya sea que se trate de una sola región de escritura o de varias regiones de escritura, Azure Cosmos DB le permite leer datos desde cualquier región.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Ejemplo de facturación: cuenta de Azure Cosmos de varias regiones, escrituras en una sola región
 

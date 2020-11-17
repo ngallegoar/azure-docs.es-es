@@ -4,15 +4,15 @@ description: En este artículo se describe cómo Azure Cosmos DB ofrece una alta
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/04/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 2fb8b24d5d44ced8f9e363008354acf5bc2fde40
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 58507703ca3440e73dbc41757e0bc70f56e886c3
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081882"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360163"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>¿Cómo proporciona Azure Cosmos DB la alta disponibilidad?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -21,7 +21,7 @@ Azure Cosmos DB proporciona la alta disponibilidad de dos maneras principales. 
 
 Azure Cosmos DB es un servicio de base de datos distribuido globalmente y es un servicio fundamental de Azure. De forma predeterminada, está disponible en [todas las regiones en las que Azure está disponible](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). Puede asociar cualquier número de regiones de Azure con su cuenta de Azure Cosmos y los datos se replican de forma automática y transparente. Puede agregar o quitar una región a la cuenta de Azure Cosmos en cualquier momento. Cosmos DB está disponible en los cinco entornos en la nube de Azure disponibles para los clientes:
 
-* La nube **pública de Azure** , que está disponible globalmente.
+* La nube **pública de Azure**, que está disponible globalmente.
 
 * **Azure China 21Vianet** está disponible gracias a una exclusiva asociación entre Microsoft y 21Vianet, uno de los proveedores de acceso a Internet más importantes del país en China.
 
@@ -90,7 +90,7 @@ En los infrecuentes casos en que se produce una interrupción regional, Azure Co
 
 * Las siguientes lecturas se redirigen a la región recuperada sin necesidad de realizar cambios en el código de la aplicación. Durante la conmutación por error y cuando se vuelva a unir una región previamente errónea, Azure Cosmos DB seguirá cumpliendo las garantías de coherencia de lectura.
 
-* Incluso en un caso poco frecuente y desafortunado en que la región de Azure sea irrecuperable de forma permanente, no se produce pérdida de datos si se configura la cuenta de Azure Cosmos de varias regiones con coherencia *fuerte*. En el caso de una región de escritura irrecuperable de forma permanente, una cuenta de Azure Cosmos de varias regiones configurada con coherencia de obsolescencia limitada, la posible ventana de pérdida de datos se restringe a la ventana de obsolescencia ( *K* o *T* ) donde K = 100 000 actualizaciones y T = 5 minutos. En cuanto a los niveles de posible coherencia y prefijo coherente por sesión, el período de pérdida potencial de datos se restringe a un máximo de 15 minutos. Para obtener más información sobre los objetivos de RPO y RTO de Azure Cosmos DB, consulte [Durabilidad de datos y los niveles de coherencia](./consistency-levels.md#rto).
+* Incluso en un caso poco frecuente y desafortunado en que la región de Azure sea irrecuperable de forma permanente, no se produce pérdida de datos si se configura la cuenta de Azure Cosmos de varias regiones con coherencia *fuerte*. En el caso de una región de escritura irrecuperable de forma permanente, una cuenta de Azure Cosmos de varias regiones configurada con coherencia de obsolescencia limitada, la posible ventana de pérdida de datos se restringe a la ventana de obsolescencia (*K* o *T*) donde K = 100 000 actualizaciones y T = 5 minutos. En cuanto a los niveles de posible coherencia y prefijo coherente por sesión, el período de pérdida potencial de datos se restringe a un máximo de 15 minutos. Para obtener más información sobre los objetivos de RPO y RTO de Azure Cosmos DB, consulte [Durabilidad de datos y los niveles de coherencia](./consistency-levels.md#rto).
 
 ## <a name="availability-zone-support"></a>Compatibilidad de zonas de disponibilidad
 
@@ -100,9 +100,7 @@ Gracias a la compatibilidad de zonas de disponibilidad, Azure Cosmos DB garantiz
 
 La redundancia de zona es una *funcionalidad complementaria* de la característica de [replicación en escrituras de varias regiones](how-to-multi-master.md). No se puede confiar en la redundancia de zona por sí sola para lograr la resistencia regional. Por ejemplo, si se producen interrupciones regionales o un acceso de baja latencia en las regiones, se recomienda tener varias regiones de escritura además de la redundancia de zona.
 
-Al configurar las escrituras en varias regiones para la cuenta de Azure Cosmos, puede optar por recibir la redundancia de zona sin ningún costo adicional. En caso contrario, consulte la nota siguiente sobre los precios de la compatibilidad de la redundancia de zona. Puede habilitar la redundancia de zona en una región existente de su cuenta de Azure Cosmos si quita la región y la vuelve a agregar con la redundancia de zona habilitada.
-
-Esta característica está disponible en: regiones del *Sur de Reino Unido, Sudeste Asiático, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de Europa, Oeste de EE. UU. 2, Este de Japón, Norte de Europa, Centro de Francia, Este de Australia y Este de EE. UU. 2 EUAP*.
+Al configurar las escrituras en varias regiones para la cuenta de Azure Cosmos, puede optar por recibir la redundancia de zona sin ningún costo adicional. En caso contrario, consulte la nota siguiente sobre los precios de la compatibilidad de la redundancia de zona. Puede habilitar la redundancia de zona en una región existente de su cuenta de Azure Cosmos si quita la región y la vuelve a agregar con la redundancia de zona habilitada. Para obtener una lista de las regiones en las que se admiten las zonas de disponibilidad, consulte la documentación sobre las [zonas de disponibilidad](../availability-zones/az-region.md).
 
 En la tabla siguiente se resume la funcionalidad de alta disponibilidad de varias configuraciones de cuenta:
 

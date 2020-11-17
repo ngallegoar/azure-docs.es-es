@@ -1,7 +1,7 @@
 ---
 title: 'Perceptrón promedio de dos clases: referencia para los módulos'
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar el módulo Perceptrón promedio de dos clases en Azure Machine Learning para crear un modelo de Machine Learning basado en el algoritmo de perceptrón promedio.
+description: Aprenda a usar el módulo de perceptrón de promedio de dos clases en el diseñador para crear un clasificador binario.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 3e5351ed2d400e0b1a10a913bb62391851030053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1161dc99b84026bcc830c08b63b95d0bf3b0994
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907750"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421148"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Módulo Perceptrón promedio de dos clases
 

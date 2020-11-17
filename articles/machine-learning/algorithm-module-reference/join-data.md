@@ -1,7 +1,7 @@
 ---
 title: 'Combinación de datos: referencia para los módulos'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar el módulo Combinación de datos en Azure Machine Learning para combinar conjuntos de datos.
+description: Aprenda a usar el módulo de combinación de datos en el diseñador de Azure Machine Learning para combinar dos conjuntos de datos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 0cde479e50c67006a9ef1668ba68b211c3a9af93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c23dca40d50c5837bd9ff45bc3c3d7fb2581685b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907906"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420757"
 ---
 # <a name="join-data"></a>Combinación de datos
 

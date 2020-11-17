@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893410"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421080"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -74,6 +74,29 @@ Distribuciones y versiones admitidas:
 * **Azure CLI**. [Instale el entorno de la CLI de Azure](/cli/azure/install-azure-cli) en la máquina.
 * El comando wget, si aún no lo tiene: Ejecute `sudo apt-get install wget`.
 * Una suscripción a Azure existente y una cuenta de almacenamiento de uso general existente para almacenar los datos.  Las cuentas de almacenamiento de uso general admiten el almacenamiento en tablas, que es necesario.  Una cuenta de Blob Storage no funcionará.
+* Python 2
+
+### <a name="python-requirement"></a>Requisito de Python
+
+La extensión Diagnostics de Linux requiere Python 2. Si la máquina virtual usa un distribución que no incluye Python 2 de forma predeterminada, debe instalarlo. Los siguientes comandos de ejemplo instalarán Python 2 en diferentes distribuciones.    
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+El ejecutable python2 debe tener un alias para *python*. A continuación se ofrece un método que puede usar para establecer este alias:
+
+1. Ejecute el siguiente comando para quitar los alias existentes.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Para crear el alias, ejecute el siguiente comando.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### <a name="sample-installation"></a>Instalación de ejemplo
 
@@ -581,7 +604,7 @@ TransfersPerSecond | Operaciones de lectura o escritura por segundo
 
 Los valores agregados de todos los archivos del sistema pueden obtenerse estableciendo `"condition": "IsAggregate=True"`. Los valores para un sistema de archivos montado específico, como "/mnt", pueden obtenerse estableciendo `"condition": 'Name="/mnt"'`. 
 
-**NOTA** : Si usa Azure Portal en lugar de JSON, el formato correcto para el campo de condición es Name="/mnt".
+**NOTA**: Si usa Azure Portal en lugar de JSON, el formato correcto para el campo de condición es Name="/mnt".
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>Métricas builtin para la clase Disk
 

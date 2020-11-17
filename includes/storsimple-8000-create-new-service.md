@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 88f275016bad72122ebd195449b9af88086bdc7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d47cf21e25c89c20a8baa31a80b867b74ada93df
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507278"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360689"
 ---
 #### <a name="to-create-a-new-service"></a>Para crear un nuevo servicio
 
@@ -21,7 +21,7 @@ ms.locfileid: "87507278"
 
     Busque el dispositivo _físico de StorSimple_. Seleccione y haga clic en **Serie física de dispositivos de StorSimple** y, a continuación, haga clic en **Crear**. O bien, en Azure Portal, haga clic en **+** y, una vez en **Almacenamiento**, haga clic en **Serie física de dispositivos de StorSimple**.
 
-    ![Creación de un administrador de dispositivos de StorSimple](./media/storsimple-8000-create-new-service/createssdevman11.png)
+    ![Creación de un Administrador de dispositivos de StorSimple 2](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
 3. En la hoja **Administrador de dispositivos de StorSimple**, realice los siguientes pasos:
 
@@ -42,8 +42,8 @@ ms.locfileid: "87507278"
 
    7. Haga clic en **Crear** para crear el Administrador de dispositivos de StorSimple.
 
-       ![Creación de un administrador de dispositivos de StorSimple](./media/storsimple-8000-create-new-service/createssdevman2.png)
+       ![Creación del servicio Administrador de dispositivos de StorSimple 3](./media/storsimple-8000-create-new-service/createssdevman2.png)
 
 Se tarda unos minutos en crear el servicio. Después de que el servicio se crea correctamente, verá una notificación y se abrirá la hoja del nuevo servicio.
 
-![Creación de un administrador de dispositivos de StorSimple](./media/storsimple-8000-create-new-service/createssdevman5.png)
+![Creación del servicio Administrador de dispositivos de StorSimple 4](./media/storsimple-8000-create-new-service/createssdevman5.png)

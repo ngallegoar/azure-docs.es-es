@@ -1,7 +1,7 @@
 ---
 title: Supervisión y visualización de métricas y registros de ejecución de ML
 titleSuffix: Azure Machine Learning
-description: Supervise sus experimentos de Azure ML y consulte las métricas de ejecución para mejorar el proceso de creación de modelos. Use widgets y el portal de Studio para explorar el estado de ejecución y ver los registros de ejecución.
+description: Supervise los experimentos de ML y consulte las métricas de ejecución con widgets de Jupyter y con Estudio de Azure Machine Learning.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 845160d92100a27c32f16eddcd1f36e9e8624e80
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316685"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360605"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Supervisión y visualización de métricas y registros de ejecución de ML
-
-
 
 En este artículo, aprenderá a supervisar las ejecuciones de Azure Machine Learning y a consultar sus registros. Para poder ver los registros, antes debe habilitarlos. Para obtener más información, consulte [Habilitación del registro en las ejecuciones de entrenamiento de Azure ML](how-to-track-experiments.md).
 
@@ -93,7 +91,7 @@ RunDetails(run).show()
 
 ## <a name="show-output-upon-completion"></a>Visualización de la salida al finalizar
 
-Cuando se usa **ScriptRunConfig** , se puede usar ```run.wait_for_completion(show_output = True)``` para mostrar cuándo finaliza el entrenamiento del modelo. La marca ```show_output``` le ofrece una salida detallada. Para obtener más información, consulte la sección ScriptRunConfig en [Cómo habilitar el registro](how-to-track-experiments.md#scriptrun-logs).
+Cuando se usa **ScriptRunConfig**, se puede usar ```run.wait_for_completion(show_output = True)``` para mostrar cuándo finaliza el entrenamiento del modelo. La marca ```show_output``` le ofrece una salida detallada. Para obtener más información, consulte la sección ScriptRunConfig en [Cómo habilitar el registro](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## <a name="query-run-metrics"></a>Métricas de ejecución de consulta

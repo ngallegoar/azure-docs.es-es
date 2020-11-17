@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89f7be31514f0b78c3bfb3efd6e6aca14658d5cd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186390"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376005"
 ---
 #### <a name="to-create-a-manual-backup"></a>Creación de una copia de seguridad manual
 
@@ -23,11 +23,11 @@ ms.locfileid: "67186390"
 
     1. Elija el **tipo de instantánea** adecuado en la lista desplegable: instantánea **local** o en la **nube**. Seleccione la instantánea local para copias de seguridad o restauraciones rápidas y la instantánea en la nube para la resistencia de datos.
 
-        ![Crear copia de seguridad manual](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
+        ![Crear copia de seguridad manual 2](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 
     2. Haga clic en **Aceptar** para iniciar un trabajo para crear una instantánea. Verá una notificación en la parte superior de la página después de que el trabajo se cree correctamente.
 
-        ![Crear copia de seguridad manual](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
+        ![Crear copia de seguridad manual 3](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
 
     3. Para supervisar el trabajo, haga clic en la notificación. Esto le llevará a la hoja **Trabajos** donde puede ver el progreso del trabajo.
 

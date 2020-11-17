@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2020
 ms.author: rahugup
-ms.openlocfilehash: 5541d5c3b9beea86f5c76747dd13ffeff1b12d97
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e1b34db7f2473e16d3ebde11376652f654f2f778
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133444"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377962"
 ---
 # <a name="scale-migration-of-vmware-vms"></a>Migración de máquinas virtuales de VMware a gran escala 
 
 Este artículo lo ayuda a comprender cómo usar scripts para migrar un gran número de máquinas virtuales (VM) de VMware con el método sin agente. Para escalar las migraciones, use el [módulo de PowerShell de Azure Migrate](https://aka.ms/azuremigratepowershellvmware). 
 
-Los scripts de automatización de la migración de VMware de Azure Migrate están disponibles para descargarlos en el repositorio [Ejemplos de Azure PowerShell]https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) en GitHub. Los scripts se pueden usar para migrar máquinas virtuales de VMware a Azure a través del método de migración sin agente. Los comandos de PowerShell para Azure Migrate que se usan en estos scripts están documentados [aquí](https://aka.ms/azuremigratepowershellvmware).
+Los scripts de automatización de la migración de VMware de Azure Migrate están disponibles para descargarlos en el repositorio de [ejemplos de Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) en GitHub. Los scripts se pueden usar para migrar máquinas virtuales de VMware a Azure a través del método de migración sin agente. Los comandos de PowerShell para Azure Migrate que se usan en estos scripts están documentados [aquí](https://aka.ms/azuremigratepowershellvmware).
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 - Estos scripts admiten la migración de máquinas virtuales de VMware con todos los discos. Puede actualizar los scripts si quiere replicar de manera selectiva los discos conectados a una máquina virtual de VMware. 

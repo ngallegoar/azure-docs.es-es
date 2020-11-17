@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f757d8f59c06d573d71099941530dfc28174ac42
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658334"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420496"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Preguntas más frecuentes
 
@@ -107,6 +107,9 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
    >Si no es administrador de dominio pero el administrador del dominio le ha asignado permisos, debe llamar a `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Repita los pasos anteriores para cada bosque de AD en el que haya configurado la característica.
+   
+  >[!NOTE]
+   >Si va a actualizar un bosque que no sea el Azure AD Connect, asegúrese de que la conectividad con el servidor del catálogo global (TCP 3268 y TCP 3269) está disponible.
 
    >[!IMPORTANT]
    >Asegúrese de _no_ ejecutar el comando `Update-AzureADSSOForest` más de una vez. De lo contrario, la característica deja de funcionar hasta que expira la hora de los vales Kerberos de los usuarios y se vuelven a emitir por parte de la instancia local de Active Directory.

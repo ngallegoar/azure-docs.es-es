@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 285c3bf37e9d6de042cb028745fc8b094d34c3a1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284411"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93406706"
 ---
 Los errores que se producen en una instancia de Azure Functions pueden provenir de cualquiera de los orígenes siguientes:
 
@@ -23,15 +23,15 @@ Seguir las prácticas recomendadas de control de errores es importante para evit
 - [Habilitar Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Uso del control de errores estructurado](#use-structured-error-handling)
 - [Diseño para idempotencia](../articles/azure-functions/functions-idempotent.md)
-- [Implementar directivas de reintentos](#retry-policies) (si procede)
+- [Implementar directivas de reintentos](#retry-policies-preview) (si procede)
 
 ### <a name="use-structured-error-handling"></a>Uso del control de errores estructurado
 
 La captura y el registro de los errores son fundamentales para supervisar el estado de la aplicación. El nivel superior de cualquier código de función debe incluir un bloque try/catch. En el bloque catch, puede capturar y registrar errores.
 
-## <a name="retry-policies"></a>Directivas de reintentos
+## <a name="retry-policies-preview"></a>Directivas de reintentos (versión preliminar)
 
-Se puede definir una directiva de reintentos en cualquier función para cualquier tipo de desencadenador en la aplicación de funciones.  La directiva de reintentos vuelve a ejecutar una función hasta que se ejecuta correctamente o hasta que se produce el número máximo de reintentos.  Las directivas de reintentos se pueden definir para todas las funciones de una aplicación o para funciones individuales.  De forma predeterminada, una aplicación de funciones no volverá a intentar los mensajes (aparte de los [desencadenadores específicos que tienen una directiva de reintentos en el origen del desencadenador](#trigger-specific-retry-support)).  Se evalúa una directiva de reintentos cada vez que una ejecución produce una excepción no detectada.  Como procedimiento recomendado, debe detectar todas las excepciones en el código y volver a generar los errores que deben dar lugar a un reintento.  Los puntos de comprobación de Event Hubs y Azure Cosmos DB no se escribirán hasta que se haya completado la directiva de reintentos para la ejecución, lo que significa que el progreso en esa partición se pausará hasta que se complete el lote actual.
+Se puede definir una directiva de reintentos en cualquier función para cualquier tipo de desencadenador en la aplicación de funciones.  La directiva de reintentos vuelve a ejecutar una función hasta que se ejecuta correctamente o hasta que se produce el número máximo de reintentos.  Las directivas de reintentos se pueden definir para todas las funciones de una aplicación o para funciones individuales.  De forma predeterminada, una aplicación de funciones no volverá a intentar los mensajes (aparte de los [desencadenadores específicos que tienen una directiva de reintentos en el origen del desencadenador](#using-retry-support-on-top-of-trigger-resilience)).  Se evalúa una directiva de reintentos cada vez que una ejecución produce una excepción no detectada.  Como procedimiento recomendado, debería detectar todas las excepciones del código y volver a generar los errores que debieran dar lugar a un reintento.  Los puntos de comprobación de Event Hubs y Azure Cosmos DB no se escribirán hasta que se haya completado la directiva de reintentos para la ejecución, lo que significa que el progreso en esa partición se pausará hasta que se complete el lote actual.
 
 ### <a name="retry-policy-options"></a>Opciones de la directiva de reintentos
 
@@ -58,6 +58,8 @@ Se puede definir una directiva de reintentos para una función específica.  La 
 
 # <a name="c"></a>[C#](#tab/csharp)
 
+Los reintentos requieren el paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
+
 ```csharp
 [FunctionName("EventHubTrigger")]
 [FixedDelayRetry(5, "00:00:10")]
@@ -69,7 +71,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
-Esta es la directiva de reintentos del archivo *function.json* :
+Esta es la directiva de reintentos del archivo *function.json*:
 
 ```json
 {
@@ -88,7 +90,7 @@ Esta es la directiva de reintentos del archivo *function.json* :
 ```
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Esta es la directiva de reintentos del archivo *function.json* :
+Esta es la directiva de reintentos del archivo *function.json*:
 
 
 ```json
@@ -109,7 +111,7 @@ Esta es la directiva de reintentos del archivo *function.json* :
 
 # <a name="python"></a>[Python](#tab/python)
 
-Esta es la directiva de reintentos del archivo *function.json* :
+Esta es la directiva de reintentos del archivo *function.json*:
 
 ```json
 {
@@ -129,7 +131,7 @@ Esta es la directiva de reintentos del archivo *function.json* :
 
 # <a name="java"></a>[Java](#tab/java)
 
-Esta es la directiva de reintentos del archivo *function.json* :
+Esta es la directiva de reintentos del archivo *function.json*:
 
 
 ```json
@@ -153,6 +155,8 @@ Esta es la directiva de reintentos del archivo *function.json* :
 
 # <a name="c"></a>[C#](#tab/csharp)
 
+Los reintentos requieren el paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
+
 ```csharp
 [FunctionName("EventHubTrigger")]
 [ExponentialBackoffRetry(5, "00:00:04", "00:15:00")]
@@ -164,7 +168,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
-Esta es la directiva de reintentos del archivo *function.json* :
+Esta es la directiva de reintentos del archivo *function.json*:
 
 ```json
 {
@@ -185,7 +189,7 @@ Esta es la directiva de reintentos del archivo *function.json* :
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Esta es la directiva de reintentos del archivo *function.json* :
+Esta es la directiva de reintentos del archivo *function.json*:
 
 ```json
 {
@@ -206,7 +210,7 @@ Esta es la directiva de reintentos del archivo *function.json* :
 
 # <a name="python"></a>[Python](#tab/python)
 
-Esta es la directiva de reintentos del archivo *function.json* :
+Esta es la directiva de reintentos del archivo *function.json*:
 
 ```json
 {
@@ -227,7 +231,7 @@ Esta es la directiva de reintentos del archivo *function.json* :
 
 # <a name="java"></a>[Java](#tab/java)
 
-Esta es la directiva de reintentos del archivo *function.json* :
+Esta es la directiva de reintentos del archivo *function.json*:
 
 ```json
 {
@@ -255,12 +259,27 @@ Esta es la directiva de reintentos del archivo *function.json* :
 |minimumInterval|n/a|Retraso entre reintentos mínimo al usar la estrategia `exponentialBackoff`.|
 |maximumInterval|n/a|Retraso entre reintentos máximo al usar la estrategia `exponentialBackoff`.| 
 
-## <a name="trigger-specific-retry-support"></a>Compatibilidad con reintentos específicos del desencadenador
+### <a name="retry-limitations-during-preview"></a>Limitaciones de reintentos durante la versión preliminar
 
-Algunos desencadenadores ofrecen reintentos en el origen del desencadenador.  Estos reintentos de desencadenador se pueden usar además o en sustitución de la directiva de reintentos del host de la aplicación de funciones.  Si desea un número fijo de reintentos, debe usar la directiva de reintentos específica del desencadenador en lugar de la directiva de reintentos del host genérica.  Los siguientes desencadenadores admiten reintentos en el origen del desencadenador:
+- En los proyectos de .NET, es posible que tenga que incorporar una versión de [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23.
+- En el plan de consumo, la aplicación se puede reducir verticalmente hasta cero mientras se reintentan los mensajes finales de una cola.
+- En el plan de consumo, la aplicación se puede reducir verticalmente mientras se realizan los reintentos.  Para obtener unos resultados óptimos, elija un intervalo de reintentos <= 00:01:00 y <= 5 reintentos.
+
+## <a name="using-retry-support-on-top-of-trigger-resilience"></a>Uso de la compatibilidad con los reintentos sobre la resistencia del desencadenador
+
+La directiva de reintentos de la aplicación de funciones es independiente de los reintentos o la resistencia que proporciona el desencadenador.  La directiva de reintentos de función solo se coloca sobre un reintento resistente del desencadenador.  Por ejemplo, si usa Azure Service Bus, de manera predeterminada, las colas tienen un número de entregas de mensajes de 10.  El número de entregas predeterminado significa que después de 10 intentos de entrega de un mensaje en cola, Service Bus coloca el mensaje en la cola de mensajes fallidos.  Puede definir una directiva de reintentos para una función que tenga un desencadenador de Service Bus, pero los reintentos se van a colocar sobre los intentos de entrega de Service Bus.  
+
+Por ejemplo, si ha usado el número de entregas predeterminado de Service Bus de 10 y ha definido una directiva de reintentos de función de 5.  Primero, el mensaje se quita de la cola, lo que incrementa la cuenta de entrega de Service Bus en 1.  Si se ha producido un error en cada ejecución después de cinco intentos de desencadenar el mismo mensaje, ese mensaje se marca como abandonado.  Service Bus vuelve a poner en cola el mensaje inmediatamente, desencadena la función e incrementa el número de entregas en 2.  Por último, después de 50 intentos posibles (10 entregas de Service Bus * 5 reintentos de función por entrega), el mensaje se abandona y se desencadena la colocación en la cola de mensajes fallidos en Service Bus.
+
+> [!WARNING]
+> No se recomienda establecer el número de entregas de un desencadenador como las colas de Service Bus en 1, lo que significa que el mensaje se colocaría inmediatamente en la cola de mensajes fallidos después de un único ciclo de reintentos de función.  Esto se debe a que los desencadenadores proporcionan resistencia con los reintentos, mientras que la directiva de reintentos de función es el mejor esfuerzo y puede dar lugar a un número total de reintentos menor que el deseado.
+
+### <a name="triggers-with-additional-resiliency-or-retries"></a>Desencadenadores con resistencia adicional o reintentos
+
+Los siguientes desencadenadores admiten reintentos en el origen del desencadenador:
 
 * [Almacenamiento de blobs de Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Azure Queue Storage](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (cola/tema)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-De forma predeterminada, estos desencadenadores reintentan las solicitudes hasta cinco veces. Después del quinto reintento, los desencadenadores de Azure Queue Storage y Azure Service Bus escriben un mensaje en una [cola de mensajes dudosos](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).
+De manera predeterminada, la mayoría de los desencadenadores reintenta las solicitudes hasta cinco veces. Después del quinto reintento, Azure Queue Storage escribe un mensaje en una [cola de mensajes dudosos](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).  La directiva predeterminada de colas y temas de Service Bus escribe un mensaje en una [cola de mensajes fallidos](../articles/service-bus-messaging/service-bus-dead-letter-queues.md) después de 10 intentos.

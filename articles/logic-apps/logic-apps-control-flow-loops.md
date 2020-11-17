@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348073"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358463"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
 Para procesar una matriz en la aplicación lógica, puede crear un [bucle "Foreach"](#foreach-loop). Este bucle repite una o varias acciones en cada elemento de la matriz. Para conocer el límite del número de elementos de matriz que puede procesar un bucle "Foreach", consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Para repetir las acciones hasta que se cumpla una condición o cambie un estado, puede crear un [bucle "Until"](#until-loop). La aplicación lógica ejecuta primero todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el límite del número de bucles "Until" que puede tener la ejecución de una aplicación lógica, consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Para repetir las acciones hasta que se cumpla una condición o cambie un estado, puede crear un [bucle "Until"](#until-loop). La aplicación lógica ejecuta primero todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el límite predeterminado y el límite máximo del número de bucles "Until" que puede tener la ejecución de una aplicación lógica, consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
 > Si tiene un desencadenador que recibe una matriz y desea ejecutar un flujo de trabajo para cada elemento de matriz, puede *desagrupar* esa matriz con la propiedad de desencadenador [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
@@ -60,7 +60,7 @@ Esta aplicación lógica de ejemplo envía un resumen diario de una fuente RSS d
 
       ![Incorporación de un bucle "para cada uno"](media/logic-apps-control-flow-loops/select-for-each.png)
 
-3. Ahora, compile el bucle. En **Select an output from previous steps** (Seleccionar una salida de los pasos anteriores) después de que aparezca la lista **Agregar contenido dinámico** , seleccione la matriz **Vínculos de fuente** , que es la salida del desencadenador RSS. 
+3. Ahora, compile el bucle. En **Select an output from previous steps** (Seleccionar una salida de los pasos anteriores) después de que aparezca la lista **Agregar contenido dinámico**, seleccione la matriz **Vínculos de fuente**, que es la salida del desencadenador RSS. 
 
    ![Seleccionar de la lista de contenido dinámico](media/logic-apps-control-flow-loops/for-each-loop-dynamic-content-list.png)
 
@@ -128,7 +128,7 @@ De forma predeterminada, los ciclos de un bucle "Foreach" se ejecutan en paralel
 
    ![En bucle "Foreach", elija "..." > "Configuración"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. En **Control de simultaneidad** , establezca la opción **Control de simultaneidad** en **Activar**. Arrastre el control deslizante **Grado de paralelismo** a **1** y elija **Listo**.
+1. En **Control de simultaneidad**, establezca la opción **Control de simultaneidad** en **Activar**. Arrastre el control deslizante **Grado de paralelismo** a **1** y elija **Listo**.
 
    ![Activación del control de simultaneidad](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -152,7 +152,7 @@ Si está trabajando con la definición de JSON de la aplicación lógica, puede 
 
 ## <a name="until-loop"></a>Bucle "Until"
   
-Para ejecutar y repetir las acciones hasta que se cumpla una condición o cambie un estado, coloque esas acciones en un bucle "Until". La aplicación lógica ejecuta primero todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el límite del número de bucles "Until" que puede tener la ejecución de una aplicación lógica, consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Para ejecutar y repetir las acciones hasta que se cumpla una condición o cambie un estado, coloque esas acciones en un bucle "Until". La aplicación lógica ejecuta primero todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el límite predeterminado y el límite máximo del número de bucles "Until" que puede tener la ejecución de una aplicación lógica, consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Estos son algunos escenarios comunes en los que puede utilizar un bucle "Until":
 
@@ -198,7 +198,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
    | **Valor** | 0 | El valor de inicio de la variable | 
    |||| 
 
-1. En la acción **Inicializar variable** , elija **Nuevo paso**. 
+1. En la acción **Inicializar variable**, elija **Nuevo paso**. 
 
 1. En el cuadro de búsqueda, elija **Todas**. Busque "hasta" y seleccione esta acción: **Hasta: control**
 
@@ -215,7 +215,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
    ![Agregar acción para incrementar la variable](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. En **Nombre** , seleccione la variable **Limit**. En **Valor** , escriba "1". 
+1. En **Nombre**, seleccione la variable **Limit**. En **Valor**, escriba "1". 
 
      ![Aumentar "Límite" en 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -245,17 +245,19 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
       ![Correo electrónico recibido](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
+<a name="prevent-endless-loops"></a>
+
 ## <a name="prevent-endless-loops"></a>Impedir bucles sin fin
 
-Un bucle "Until" tiene límites predeterminados que detienen la ejecución si se produce alguna de estas condiciones:
+El bucle "Until" detiene la ejecución en función de estas propiedades, por lo que debe asegurarse de establecer sus valores según corresponda:
 
-| Propiedad | Valor predeterminado | Descripción | 
-| -------- | ------------- | ----------- | 
-| **Recuento** | 60 | Número máximo de bucles que se ejecutan antes de salir del bucle. El valor predeterminado es de 60 ciclos. | 
-| **Tiempo de espera** | PT1H | Cantidad máxima de tiempo que se ejecuta un bucle antes de salir del bucle. El valor predeterminado es una hora y se especifica en formato ISO 8601. <p>El valor de tiempo de espera se evalúa para cada ciclo del bucle. Si cualquier acción en el bucle tarda más que el límite de tiempo de expiración, el ciclo actual no se detiene. Pero el siguiente ciclo no se inicia porque no se cumple la condición del límite. | 
-|||| 
+* **Recuento**: Este valor es el número máximo de bucles que se ejecutan antes de salir del bucle. Para conocer los límites predeterminados y máximos del número de bucles "Until" que puede tener la ejecución de una aplicación lógica, consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Para cambiar estos límites predeterminados, elija **Mostrar opciones avanzadas** en la forma de acción del bucle.
+* **Timeout**: Este valor es la cantidad máxima de tiempo que el bucle se ejecuta antes de salir y se especifica en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para obtener los límites predeterminados y máximos en el valor **Timeout**, consulte[Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+  El valor de tiempo de espera se evalúa para cada ciclo del bucle. Si cualquier acción en el bucle tarda más que el límite de tiempo de expiración, el ciclo actual no se detiene. Pero el siguiente ciclo no se inicia porque no se cumple la condición del límite.
+
+Para cambiar estos límites, en la acción de bucle, seleccione **Cambiar límites**.
 
 <a name="until-json"></a>
 

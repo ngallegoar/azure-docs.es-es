@@ -1,7 +1,7 @@
 ---
 title: Sintaxis de consulta de búsqueda de Graph
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar la sintaxis de consulta de búsqueda para buscar nodos en el gráfico de la canalización.
+description: Aprenda a usar la sintaxis de consulta de búsqueda en el diseñador de Azure Machine Learning para buscar nodos en un gráfico de canalización.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 166b87159b5ac2434c3ce7a7c66529a4b61ee565
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290507"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420774"
 ---
 # <a name="graph-search-query-syntax"></a>Sintaxis de consulta de búsqueda de Graph
 
@@ -36,7 +36,7 @@ La búsqueda en gráficos usa la consulta simple de Lucene como sintaxis de bús
 
  
 - Y/O
-- Coincidencia de caracteres comodín con **?** y operadores **\*** .
+- Coincidencia de caracteres comodín con **?** y * *\** _.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -49,7 +49,7 @@ La búsqueda en gráficos usa la consulta simple de Lucene como sintaxis de bús
  
 - Coincidencia de caracteres comodín: 
     - `machi?e learning`
-    - `mach*ing`
+    - `mach_ing`
  
 >[!NOTE]
 > No se puede iniciar una consulta de Lucene con un carácter "*".

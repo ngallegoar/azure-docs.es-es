@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f439fcd8b2aa1c75e1aff2c6b775921beabbcddf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cf9d0aea9ab9e79a5f184a42e1bb785b6fb870a7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340564"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360095"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Período de vida (TTL) en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +34,7 @@ El valor de período de vida se establece en segundos, y se interpreta como una 
 
    - Si existe y el valor se ha establecido en "-1", es igual a infinito y los documentos no expiran de forma predeterminada.
 
-   - Si existe y el valor se ha establecido en un número *"n"* , los elementos expiran *"n"* segundos después de la última modificación.
+   - Si existe y el valor se ha establecido en un número *"n"* *distinto de cero*, los elementos expiran *"n"* segundos después de la última modificación.
 
 2. **Período de vida en un elemento** (se establece mediante `ttl`):
 
@@ -44,11 +44,11 @@ El valor de período de vida se establece en segundos, y se interpreta como una 
 
 ## <a name="time-to-live-configurations"></a>Configuraciones de período de vida
 
-* Si el TTL se establece en *"n"* en un contenedor, los elementos de ese contenedor expirarán después de *n* segundos.  Si hay elementos en el mismo contenedor que tengan su propio período de vida establecido en -1 (lo que indica que no expiran), o si algunos elementos han invalidado la configuración del período de vida con un número distinto, estos elementos expirarán según su propio valor de TTL configurado. 
+- Si el TTL se establece en *"n"* en un contenedor, los elementos de ese contenedor expirarán después de *n* segundos.  Si hay elementos en el mismo contenedor que tengan su propio período de vida establecido en -1 (lo que indica que no expiran), o si algunos elementos han invalidado la configuración del período de vida con un número distinto, estos elementos expirarán según su propio valor de TTL configurado.
 
-* Si no se establece el TTL en un contenedor, el período de vida en un elemento de este contenedor no tiene ningún efecto. 
+- Si no se establece el TTL en un contenedor, el período de vida en un elemento de este contenedor no tiene ningún efecto.
 
-* Si el TTL en un contenedor se establece en -1, un elemento de este contenedor que tenga el período de vida establecido en n, expirará después de n segundos, y los elementos restantes no expirarán.
+- Si el TTL en un contenedor se establece en -1, un elemento de este contenedor que tenga el período de vida establecido en n, expirará después de n segundos, y los elementos restantes no expirarán.
 
 ## <a name="examples"></a>Ejemplos
 
@@ -60,10 +60,9 @@ TTL de contenedor se establece en null (DefaultTimeToLive = null)
 
 |TTL de elemento| Resultado|
 |---|---|
-|TTL = null|    TTL se deshabilita. El elemento nunca expirará (valor predeterminado).|
-|TTL = -1   |TTL se deshabilita. El elemento nunca expirará.|
-|TTL = 2000 |TTL se deshabilita. El elemento nunca expirará.|
-
+|TTL = null|TTL se deshabilita. El elemento nunca expirará (valor predeterminado).|
+|TTL = -1|TTL se deshabilita. El elemento nunca expirará.|
+|TTL = 2000|TTL se deshabilita. El elemento nunca expirará.|
 
 ### <a name="example-2"></a>Ejemplo 2
 
@@ -71,10 +70,9 @@ TTL de contenedor se establece en -1 (DefaultTimeToLive = -1)
 
 |TTL de elemento| Resultado|
 |---|---|
-|TTL = null |TTL está habilitado. El elemento nunca expirará (valor predeterminado).|
-|TTL = -1   |TTL está habilitado. El elemento nunca expirará.|
-|TTL = 2000 |TTL está habilitado. El elemento expirará transcurridos 2000 segundos.|
-
+|TTL = null|TTL está habilitado. El elemento nunca expirará (valor predeterminado).|
+|TTL = -1|TTL está habilitado. El elemento nunca expirará.|
+|TTL = 2000|TTL está habilitado. El elemento expirará transcurridos 2000 segundos.|
 
 ### <a name="example-3"></a>Ejemplo 3
 
@@ -82,12 +80,12 @@ TTL de contenedor se establece en -1000 (DefaultTimeToLive = -1000)
 
 |TTL de elemento| Resultado|
 |---|---|
-|TTL = null|    TTL está habilitado. El elemento expirará transcurridos 1000 segundos (valor predeterminado).|
-|TTL = -1   |TTL está habilitado. El elemento nunca expirará.|
-|TTL = 2000 |TTL está habilitado. El elemento expirará transcurridos 2000 segundos.|
+|TTL = null|TTL está habilitado. El elemento expirará transcurridos 1000 segundos (valor predeterminado).|
+|TTL = -1|TTL está habilitado. El elemento nunca expirará.|
+|TTL = 2000|TTL está habilitado. El elemento expirará transcurridos 2000 segundos.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a configurar el período de vida con los siguientes artículos:
 
-* [Cómo configurar el período de vida](how-to-time-to-live.md)
+- [Cómo configurar el período de vida](how-to-time-to-live.md)

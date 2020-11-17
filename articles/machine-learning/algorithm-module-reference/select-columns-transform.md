@@ -1,7 +1,7 @@
 ---
 title: 'Seleccionar transformación de columnas: Referencia del módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda cómo usar el módulo de selección de transformación de columnas de Azure Machine Learning para crear una transformación que seleccione el mismo subconjunto de columnas que en el conjunto de datos dado.
+description: Aprenda a usar el módulo de selección de columnas para transformación en el diseñador de Azure Machine Learning para realizar una transformación de selección.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
-ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f03840e55366d7f105ca4b57bd60061c82833e72
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945605"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420723"
 ---
 # <a name="select-columns-transform"></a>Seleccionar transformación de columnas
 

@@ -2,21 +2,21 @@
 title: Protección de servicios vinculados
 description: Aprenda a aprovisionar y proteger un servicio vinculado con una VNET administrada.
 services: synapse-analytics
-author: acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033190"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359976"
 ---
-# <a name="secure-a-linked-service-with-private-links"></a>Protección de un servicio vinculado con vínculos privados 
+# <a name="secure-a-linked-service-with-private-links"></a>Protección de un servicio vinculado con vínculos privados
 
 En este artículo, aprenderá a proteger un servicio vinculado en Synapse con un punto de conexión privado.
 
@@ -68,6 +68,8 @@ Ahora ha establecido una conexión segura y privada entre Synapse y el servicio 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para comprender mejor los puntos de conexión privados administrados en Synapse Analytics, consulte el artículo [Concepto de punto de conexión privado administrado en Synapse](data-integration-data-lake.md).
+
+Para comprender mejor los puntos de conexión privados administrados en Synapse Analytics, consulte [Puntos de conexión privados administrados](../security/synapse-workspace-managed-private-endpoints.md).
+
 
 Para obtener más información sobre la integración de datos para Synapse Analytics, consulte el artículo [Ingesta de datos en Data Lake](data-integration-data-lake.md).

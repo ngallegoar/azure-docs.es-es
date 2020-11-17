@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: a76f61902c6affdab9f70526d2de40852747f34e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984efe73b072a356b738acc9f162ecaded995ef1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186363"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360684"
 ---
 #### <a name="to-get-the-storsimple-service-registration-key"></a>Para obtener la clave de registro del servicio de StorSimple
 
@@ -19,7 +19,7 @@ ms.locfileid: "67186363"
 
 2.  Vaya a **Administración > Claves**.
    
-     ![Hoja de claves](./media/storsimple-8000-get-service-registration-key/getregkey2.png)
+     ![Hoja Claves de administración](./media/storsimple-8000-get-service-registration-key/getregkey2.png)
 
 3.  En la hoja que se abre, haga clic en el icono de copia para copiar la clave de registro del servicio y guardarla para usarla más adelante.
 

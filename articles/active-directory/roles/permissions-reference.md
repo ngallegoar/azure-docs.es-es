@@ -7,19 +7,19 @@ manager: daveba
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ece458960002fb6af9e0ef5065e6e926a9fc17d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374188"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396522"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -69,7 +69,7 @@ los usuarios con este rol pueden crear registros de aplicaciones cuando la opci�
 
 ### <a name="authentication-administrator"></a>[Administrador de autenticación](#authentication-administrator-permissions)
 
-Los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña de algunos usuarios y pueden actualizar las contraseñas de todos los usuarios. Los administradores de autenticación pueden exigir que los usuarios que no son administradores o que tienen asignados algunos roles vuelvan a registrase con las credenciales existentes que no sean la contraseña (por ejemplo, MFA o FIDO) y también pueden revocar la opción **recordar MFA en el dispositivo** , que solicita MFA en el siguiente inicio de sesión. Estas acciones solo se aplican a usuarios que no sean administradores o que tengan asignados uno o varios de los roles siguientes:
+Los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña de algunos usuarios y pueden actualizar las contraseñas de todos los usuarios. Los administradores de autenticación pueden exigir que los usuarios que no son administradores o que tienen asignados algunos roles vuelvan a registrase con las credenciales existentes que no sean la contraseña (por ejemplo, MFA o FIDO) y también pueden revocar la opción **recordar MFA en el dispositivo**, que solicita MFA en el siguiente inicio de sesión. Estas acciones solo se aplican a usuarios que no sean administradores o que tengan asignados uno o varios de los roles siguientes:
 
 * Administrador de autenticación
 * Lectores de directorios
@@ -90,7 +90,7 @@ El rol [Administrador de autenticación con privilegios](#privileged-authenticat
 
 ### <a name="azure-devops-administrator"></a>[Administrador de Azure DevOps](#azure-devops-administrator-permissions)
 
-Los usuarios con este rol pueden administrar la directiva de Azure DevOps para restringir la creación de una nueva organización de Azure DevOps a un conjunto de usuarios o grupos que se puede configurar. Los usuarios de este rol pueden administrar esta directiva en cualquier organización Azure DevOps que esté respaldada por la instancia de Azure AD de la empresa.
+Los usuarios con este rol pueden administrar la directiva de Azure DevOps para restringir la creación de una nueva organización de Azure DevOps a un conjunto de usuarios o grupos que se puede configurar. Los usuarios de este rol pueden administrar esta directiva en cualquier organización de Azure DevOps que esté respaldada por la organización de Azure AD de la empresa. Este rol no concede ningún otro permiso específico de Azure DevOps (por ejemplo, administradores de la colección de proyectos) en ninguna de las organizaciones de Azure DevOps respaldadas por la organización de Azure AD de la empresa.
 
 Todas las directivas empresariales de Azure DevOps pueden ser administradas por los usuarios de este rol.
 
@@ -231,9 +231,9 @@ Los usuarios de este rol pueden leer la configuración y la información adminis
 > Actualmente, el rol de lector global tiene algunas limitaciones:
 >
 >- [Centro de administración de OneDrive](https://admin.onedrive.com/): el centro de administración de OneDrive no admite el rol de lector global.
->- [Centro de administración de M365](https://admin.microsoft.com/Adminportal/Home#/homepage): el lector global no puede leer las solicitudes de la Caja de seguridad del cliente. En el panel izquierdo del Centro de administración de M365 no aparecerá la pestaña **Solicitudes de la Caja de seguridad del cliente** bajo **Soporte** .
+>- [Centro de administración de M365](https://admin.microsoft.com/Adminportal/Home#/homepage): el lector global no puede leer las solicitudes de la Caja de seguridad del cliente. En el panel izquierdo del Centro de administración de M365 no aparecerá la pestaña **Solicitudes de la Caja de seguridad del cliente** bajo **Soporte**.
 >- [Centro de seguridad y cumplimiento de Office](https://sip.protection.office.com/homepage): el lector global no puede leer los registros de auditoría de SCC, realizar búsqueda de contenido ni consultar la puntuación de seguridad.
->- [Centro de administración de Teams](https://admin.teams.microsoft.com): el lector global no puede leer **Ciclo de vida de Teams** , **Análisis e informes** , **Administración de dispositivos de teléfono IP** ni **Catálogo de aplicaciones** .
+>- [Centro de administración de Teams](https://admin.teams.microsoft.com): el lector global no puede leer **Ciclo de vida de Teams**, **Análisis e informes**, **Administración de dispositivos de teléfono IP** ni **Catálogo de aplicaciones**.
 >- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) no admite el rol de lector global.
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection): el lector global solo se admite para la [generación de informes centrales](/azure/information-protection/reports-aip) y cuando la organización de Azure AD no forma parte de la [plataforma unificada de etiquetado](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
@@ -311,16 +311,16 @@ Los usuarios con este rol pueden supervisar las notificaciones y las actualizaci
 
 No debe usarse. Este rol se asigna automáticamente al servicio desde el comercio y no está previsto ni se admite para ningún otro uso. Vea los detalles a continuación.
 
-El rol de usuario de comercio moderno concede a ciertos usuarios permiso para acceder al centro de administración de Microsoft 365 y ver las entradas de navegación izquierda para **Inicio** , **Facturación** y **Soporte** . El contenido disponible en estas áreas se controla mediante [roles específicos de comercio](../../cost-management-billing/manage/understand-mca-roles.md) asignados a los usuarios para administrar los productos que han comprado para ellos mismos o para su organización. Esto puede incluir tareas como el pago de facturas o el acceso a cuentas de facturación y perfiles de facturación. 
+El rol de usuario de comercio moderno concede a ciertos usuarios permiso para acceder al centro de administración de Microsoft 365 y ver las entradas de navegación izquierda para **Inicio**, **Facturación** y **Soporte**. El contenido disponible en estas áreas se controla mediante [roles específicos de comercio](../../cost-management-billing/manage/understand-mca-roles.md) asignados a los usuarios para administrar los productos que han comprado para ellos mismos o para su organización. Esto puede incluir tareas como el pago de facturas o el acceso a cuentas de facturación y perfiles de facturación. 
 
 Normalmente, los usuarios con el rol de usuario de comercio moderno tienen permisos administrativos en otros sistemas de adquisición de Microsoft, pero no tienen roles de administrador global o de administrador de facturación usados para acceder al centro de administración. 
 
 **¿Cuándo se asigna el rol de usuario de comercio moderno?**
 
-* **Compra de autoservicio en el centro de administración de Microsoft 365** : la compra de autoservicio proporciona a los usuarios la oportunidad de probar nuevos productos comprando o suscribiéndose ellos mismos. Estos productos se administran en el centro de administración. A los usuarios que realizan una compra de autoservicio se les asigna un rol en el sistema de comercio y el rol de usuario de comercio moderno para que puedan administrar sus compras en el centro de administración. Los administradores pueden bloquear las compras de autoservicio (para Power BI, Power Apps, Power Automatic) mediante [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para más información, consulte [preguntas más frecuentes sobre compras de autoservicio](/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
-* **Compras de Marketplace comercial de Microsoft** : similar a la compra de autoservicio, cuando un usuario adquiere un producto o servicio de Microsoft AppSource o de Azure Marketplace, se asigna el rol de usuario de comercio moderno si no tiene el rol administrador global o administrador de facturación. En algunos casos, es posible que los usuarios no puedan realizar estas compras. Para más información, consulte [Marketplace comercial de Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
-* **Propuestas de Microsoft** : una propuesta es una oferta formal de Microsoft para que su organización compre productos y servicios de Microsoft. Cuando la persona que acepta la propuesta no tiene un rol de administrador global o administrador de facturación en Azure AD, se le asigna un rol específico del comercio para completar la propuesta y el rol de usuario de comercio moderno para acceder al centro de administración. Cuando acceden al centro de administración, solo pueden usar características autorizadas por su rol específico de comercio.
-* **Roles específicos de comercio** : a algunos usuarios se les asignan roles específicos de comercio. Si un usuario no es un administrador global o de facturación, obtiene el rol de usuario de comercio moderno para que pueda acceder al centro de administración.  
+* **Compra de autoservicio en el centro de administración de Microsoft 365**: la compra de autoservicio proporciona a los usuarios la oportunidad de probar nuevos productos comprando o suscribiéndose ellos mismos. Estos productos se administran en el centro de administración. A los usuarios que realizan una compra de autoservicio se les asigna un rol en el sistema de comercio y el rol de usuario de comercio moderno para que puedan administrar sus compras en el centro de administración. Los administradores pueden bloquear las compras de autoservicio (para Power BI, Power Apps, Power Automatic) mediante [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para más información, consulte [preguntas más frecuentes sobre compras de autoservicio](/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Compras de Marketplace comercial de Microsoft**: similar a la compra de autoservicio, cuando un usuario adquiere un producto o servicio de Microsoft AppSource o de Azure Marketplace, se asigna el rol de usuario de comercio moderno si no tiene el rol administrador global o administrador de facturación. En algunos casos, es posible que los usuarios no puedan realizar estas compras. Para más información, consulte [Marketplace comercial de Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
+* **Propuestas de Microsoft**: una propuesta es una oferta formal de Microsoft para que su organización compre productos y servicios de Microsoft. Cuando la persona que acepta la propuesta no tiene un rol de administrador global o administrador de facturación en Azure AD, se le asigna un rol específico del comercio para completar la propuesta y el rol de usuario de comercio moderno para acceder al centro de administración. Cuando acceden al centro de administración, solo pueden usar características autorizadas por su rol específico de comercio.
+* **Roles específicos de comercio**: a algunos usuarios se les asignan roles específicos de comercio. Si un usuario no es un administrador global o de facturación, obtiene el rol de usuario de comercio moderno para que pueda acceder al centro de administración.  
 
 Si el rol de usuario de comercio moderno no está asignado a un usuario, pierde el acceso al centro de administración de Microsoft 365. Si estuvieran administrando cualquier producto, ya sea por sí mismos o para su organización, no podrán administrarlos. Esto puede incluir la asignación de licencias, el cambio de métodos de pago, el pago de facturas u otras tareas para administrar las suscripciones.
 

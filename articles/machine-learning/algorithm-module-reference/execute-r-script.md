@@ -1,7 +1,7 @@
 ---
 title: 'Ejecutar script R: Referencia del módulo'
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar el módulo Ejecutar script R en Azure Machine Learning para ejecutar código R.
+description: Aprenda a usar el módulo de ejecución de script de R en el diseñador de Azure Machine Learning para ejecutar código R personalizado.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3e94172096daf5fd06549f8645d05b874948a917
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323747"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420825"
 ---
 # <a name="execute-r-script-module"></a>Módulo Execute R Script
 
@@ -147,13 +147,13 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
 
 1. Conecte cualquier entrada que necesite el script. Las entradas son opcionales y pueden incluir datos y código de R adicional.
 
-    * **Dataset1** : haga referencia a la primera entrada como `dataframe1`. El conjunto de datos de entrada tiene que tener el formato de un archivo CSV, TSV o ARFF. O bien, puede conectar un conjunto de datos de Azure Machine Learning.
+    * **Dataset1**: haga referencia a la primera entrada como `dataframe1`. El conjunto de datos de entrada tiene que tener el formato de un archivo CSV, TSV o ARFF. O bien, puede conectar un conjunto de datos de Azure Machine Learning.
 
-    * **Dataset2** : haga referencia a la segunda entrada como `dataframe2`. Este conjunto de datos también tiene que tener un formato de archivo CSV, TSV o ARFF, o de conjunto de datos de Azure Machine Learning.
+    * **Dataset2**: haga referencia a la segunda entrada como `dataframe2`. Este conjunto de datos también tiene que tener un formato de archivo CSV, TSV o ARFF, o de conjunto de datos de Azure Machine Learning.
 
-    * **Conjunto de scripts** : la tercera entrada acepta archivos ZIP. Un archivo ZIP puede contener varios archivos y varios tipos de archivo.
+    * **Conjunto de scripts**: la tercera entrada acepta archivos ZIP. Un archivo ZIP puede contener varios archivos y varios tipos de archivo.
 
-1. En el cuadro de texto **Script de R** , escriba o pegue el script de R válido.
+1. En el cuadro de texto **Script de R**, escriba o pegue el script de R válido.
 
     > [!NOTE]
     > Escriba el script con cuidado. Asegúrese de que no hay errores de sintaxis, como el uso de variables no declaradas o de funciones o módulos no importados. Preste especial atención a la lista de paquetes preinstalados al final de este artículo. Para usar paquetes que no aparecen en la lista, instálelos en el script. Un ejemplo es `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
@@ -226,7 +226,7 @@ Los módulos Execute R Script (Ejecutar script R) pueden devolver varias sali
 
 Los mensajes estándar y los errores de R se devuelven al registro del módulo.
 
-Si necesita imprimir los resultados del script de R, puede buscar los resultados impresos en **70_driver_log** , en la pestaña **Outputs+logs** (Salidas y registros) del panel derecho del módulo.
+Si necesita imprimir los resultados del script de R, puede buscar los resultados impresos en **70_driver_log**, en la pestaña **Outputs+logs** (Salidas y registros) del panel derecho del módulo.
 
 ## <a name="sample-scripts"></a>Muestras de scripts
 

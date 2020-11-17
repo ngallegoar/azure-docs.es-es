@@ -1,7 +1,7 @@
 ---
 title: 'Convertir a CSV: referencia para los módulos'
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar el módulo Convertir a CSV en Azure Machine Learning para convertir un conjunto de datos a un formato CSV que se pueda descargar, exportar o compartir con módulos de script de R o Python.
+description: Aprenda a usar el módulo de conversión a CSV en el diseñador de Azure Machine Learning para convertir un conjunto de archivos en un archivo CSV que se pueda usar más adelante.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 3b7c781717952765941acd4ea4aa47593d4b8a0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc58689e30e9b03e490c0871f3decd50372371fa
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898786"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421930"
 ---
 # <a name="convert-to-csv-module"></a>Módulo Convertir a CSV
 

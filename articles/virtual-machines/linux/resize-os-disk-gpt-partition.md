@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: baa260e911673ea99b292ab5dc9895840d0098ef
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 99b723322ce7636edce3ae5b59a69b96e288ca24
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340341"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392697"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Cambio del tamaño de un disco de SO con una partición GPT
 
@@ -118,7 +118,7 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    # sudo -i
    ```
 
-1. Use el siguiente comando para instalar el paquete **growpart** , que se usará para cambiar el tamaño de la partición:
+1. Use el siguiente comando para instalar el paquete **growpart**, que se usará para cambiar el tamaño de la partición:
 
    ```
    # zypper install growpart
@@ -177,7 +177,7 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
 
 1. Según el tipo del sistema de archivos, use los comandos adecuados para cambiar el tamaño del sistema de archivos.
    
-   Para **xfs** , use el comando siguiente:
+   Para **xfs**, use el comando siguiente:
    
    ```
    #xfs_growfs /
@@ -200,7 +200,7 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    data blocks changed from 7470331 to 12188923
    ```
    
-   Para **ext4** , use el comando siguiente:
+   Para **ext4**, use el comando siguiente:
    
    ```
    #resize2fs /dev/sda4
@@ -231,95 +231,144 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    
    En el ejemplo anterior, podemos ver que se ha aumentado el tamaño del sistema de archivos para el disco de SO.
 
-### <a name="rhel-lvm"></a>LVM con Red Hat Enterprise Linux
-
-Para aumentar el tamaño del disco de SO en RHEL 7.x con LVM:
-
-1. Pare la VM.
-1. Aumente el tamaño del disco de SO desde el portal.
-1. Inicie la máquina virtual.
-
-Una vez reiniciada la VM, siga los pasos que se describen a continuación:
+### <a name="rhel-with-lvm"></a>RHEL con LVM
 
 1. Acceda a la VM como usuario **raíz** con el comando siguiente:
- 
-   ```
-   #sudo su
+
+   ```bash
+   [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. Instale el paquete **gptfdisk** , que es necesario para aumentar el tamaño del disco de SO.
+1. Use el comando `lsblk` para encontrar el volumen lógico (LV) montado en la raíz del sistema de archivos ("/"). En este caso se ve que **_rootvg-rootlv_*está montado en*/** .  Si se quiere otro sistema de archivos, sustituya el volumen lógico y el punto de montaje a lo largo de este documento.
 
-   ```
-   #yum install gdisk -y
-   ```
-
-1. Para ver el sector más grande disponible en el disco, ejecute el siguiente comando:
-
-   ```
-   #sgdisk -e /dev/sda
-   ```
-
-1. Cambie el tamaño de la partición sin eliminarla mediante el comando siguiente. El comando **parted** tiene una opción denominada **resizepart** para cambiar el tamaño de la partición sin eliminarla. El número 4 después de **resizepart** indica el cambio de tamaño de la cuarta partición.
-
-   ```
-   #parted -s /dev/sda "resizepart 4 -1" quit
-   ```
-    
-1. Ejecute el siguiente comando para comprobar que la partición ha aumentado:
-
-   ```
-   #lsblk
+   ```shell
+   [root@dd-rhel7vm ~]# lsblk -f
+   NAME                  FSTYPE      LABEL   UUID                                   MOUNTPOINT
+   fd0
+   sda
+   ├─sda1                vfat                C13D-C339                              /boot/efi
+   ├─sda2                xfs                 8cc4c23c-fa7b-4a4d-bba8-4108b7ac0135   /boot
+   ├─sda3
+   └─sda4                LVM2_member         zx0Lio-2YsN-ukmz-BvAY-LCKb-kRU0-ReRBzh
+      ├─rootvg-tmplv      xfs                 174c3c3a-9e65-409a-af59-5204a5c00550   /tmp
+      ├─rootvg-usrlv      xfs                 a48dbaac-75d4-4cf6-a5e6-dcd3ffed9af1   /usr
+      ├─rootvg-optlv      xfs                 85fe8660-9acb-48b8-98aa-bf16f14b9587   /opt
+      ├─rootvg-homelv     xfs                 b22432b1-c905-492b-a27f-199c1a6497e7   /home
+      ├─rootvg-varlv      xfs                 24ad0b4e-1b6b-45e7-9605-8aca02d20d22   /var
+      └─rootvg-rootlv     xfs                 4f3e6f40-61bf-4866-a7ae-5c6a94675193   /
    ```
 
-   El resultado siguiente muestra que se ha cambiado el tamaño de la partición **/dev/sda4** a 99 GB.
+1. Compruebe si hay espacio disponible en el grupo de volúmenes de LVM que contiene la partición raíz.  Si hay espacio disponible, vaya al paso **12**.
 
-   ```
-   [user@myvm ~]# lsblk
-   NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-   fd0                 2:0    1    4K  0 disk
-   sda                 8:0    0  100G  0 disk
-   ├─sda1              8:1    0  500M  0 part /boot/efi
-   ├─sda2              8:2    0  500M  0 part /boot
-   ├─sda3              8:3    0    2M  0 part
-   └─sda4              8:4    0   99G  0 part
-   ├─rootvg-tmplv    253:0    0    2G  0 lvm  /tmp
-   ├─rootvg-usrlv    253:1    0   10G  0 lvm  /usr
-   ├─rootvg-optlv    253:2    0    2G  0 lvm  /opt
-   ├─rootvg-homelv   253:3    0    1G  0 lvm  /home
-   ├─rootvg-varlv    253:4    0    8G  0 lvm  /var
-   └─rootvg-rootlv   253:5    0    2G  0 lvm  /
-   sdb                 8:16   0   50G  0 disk
-   └─sdb1              8:17   0   50G  0 part /mnt/resource
+   ```bash
+   [root@dd-rhel7vm ~]# vgdisplay rootvg
+   --- Volume group ---
+   VG Name               rootvg
+   System ID
+   Format                lvm2
+   Metadata Areas        1
+   Metadata Sequence No  7
+   VG Access             read/write
+   VG Status             resizable
+   MAX LV                0
+   Cur LV                6
+   Open LV               6
+   Max PV                0
+   Cur PV                1
+   Act PV                1
+   VG Size               <63.02 GiB
+   PE Size               4.00 MiB
+   Total PE              16132
+   Alloc PE / Size       6400 / 25.00 GiB
+   Free  PE / Size       9732 / <38.02 GiB
+   VG UUID               lPUfnV-3aYT-zDJJ-JaPX-L2d7-n8sL-A9AgJb
    ```
 
-1. Use el siguiente comando para cambiar el tamaño del volumen físico (PV):
+   En este ejemplo, la línea **Free PE / Size** indica que hay 38,02 GB disponibles en el grupo de volúmenes.  No es necesario cambiar el tamaño del disco para agregar espacio al grupo de volúmenes.
 
-   ```
-   #pvresize /dev/sda4
+1. Para aumentar el tamaño del disco de SO en RHEL 7.x con LVM:
+
+   1. Pare la VM.
+   1. Aumente el tamaño del disco de SO desde el portal.
+   1. Inicie la máquina virtual.
+
+1. Una vez reiniciada la VM, siga los pasos que se describen a continuación:
+
+   1. Instale el paquete **cloud-utils-growpart** para proporcionar el comando **growpart**, que es necesario para aumentar el tamaño del disco del sistema operativo.
+
+      Este paquete está preinstalado en la mayoría de las imágenes de Azure Marketplace.
+
+      ```bash
+      [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
+      ```
+
+1. Determine el disco y la partición que contienen los volúmenes físicos (PV) de LVM del grupo de volúmenes (VG) denominado rootvg con el comando **pvscan**.  Tome nota del tamaño y el espacio disponible indicados entre los corchetes **[]** .
+
+   ```bash
+   [root@dd-rhel7vm ~]# pvscan
+     PV /dev/sda4   VG rootvg          lvm2 [<63.02 GiB / <38.02 GiB free]
    ```
 
-   La salida siguiente muestra que se ha cambiado el tamaño de PV a 99,02 GB.
+1. Compruebe el tamaño de la partición con **lsblk**.  Observe 
 
+   ```bash
+   [root@dd-rhel7vm ~]# lsblk /dev/sda4
+   NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   sda4              8:4    0  63G  0 part
+   ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
+   ├─rootvg-usrlv  253:2    0  10G  0 lvm  /usr
+   ├─rootvg-optlv  253:3    0   2G  0 lvm  /opt
+   ├─rootvg-homelv 253:4    0   1G  0 lvm  /home
+   ├─rootvg-varlv  253:5    0   8G  0 lvm  /var
+   └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
-   [user@myvm ~]# pvresize /dev/sda4
+
+1. Expanda la partición que contiene este volumen físico mediante **growpart**, el nombre de dispositivo y el número de partición.  Con esto se expande la partición especificada para usar todo el espacio disponible contiguo en el dispositivo.
+
+   ```bash
+   [root@dd-rhel7vm ~]# growpart /dev/sda 4
+   CHANGED: partition=4 start=2054144 old: size=132161536 end=134215680 new: size=199272414 end=201326558
+   ```
+
+1. Compruebe de nuevo que se ha cambiado el tamaño de la partición al esperado con el comando **lsblk**.  Observe que, en el ejemplo, sda4 ha pasado de 63G a 95G.
+
+   ```bash
+   [root@dd-rhel7vm ~]# lsblk /dev/sda4
+   NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   sda4              8:4    0  95G  0 part
+   ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
+   ├─rootvg-usrlv  253:2    0  10G  0 lvm  /usr
+   ├─rootvg-optlv  253:3    0   2G  0 lvm  /opt
+   ├─rootvg-homelv 253:4    0   1G  0 lvm  /home
+   ├─rootvg-varlv  253:5    0   8G  0 lvm  /var
+   └─rootvg-rootlv 253:6    0   2G  0 lvm  /
+   ```
+
+1. Expanda el volumen físico para usar el resto de la partición recién expandida.
+
+   ```bash
+   [root@dd-rhel7vm ~]# pvresize /dev/sda4
    Physical volume "/dev/sda4" changed
    1 physical volume(s) resized or updated / 0 physical volume(s) not resized
-
-   [user@myvm ~]# pvs
-   PV         VG     Fmt  Attr PSize   PFree
-   /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
    ```
 
-1. En el ejemplo siguiente, se cambia el tamaño de **/dev/mapper/rootvg-rootlv** de 2 GB a 12 GB (un aumento de 10 GB) mediante el siguiente comando. Este comando también cambiará el tamaño del sistema de archivos.
+1. Compruebe que el nuevo tamaño del volumen físico es el esperado; para ello, compare los valores originales **[size / free]** .
 
+   ```bash
+   [root@dd-rhel7vm ~]# pvscan
+   PV /dev/sda4   VG rootvg          lvm2 [<95.02 GiB / <70.02 GiB free]
    ```
-   #lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+
+1. Expanda el volumen lógico deseado en la cantidad que quiera, que no tiene que ser todo el espacio disponible en el grupo de volúmenes.  En el ejemplo siguiente, se cambia el tamaño de **/dev/mapper/rootvg-rootlv** de 2 GB a 12 GB (un aumento de 10 GB) mediante el siguiente comando. Este comando también cambiará el tamaño del sistema de archivos.
+
+   ```bash
+   [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
    ```
 
    Salida de ejemplo:
 
-   ```
-   [user@myvm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+   ```bash
+   [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
    Size of logical volume rootvg/rootlv changed from 2.00 GiB (512 extents) to 12.00 GiB (3072 extents).
    Logical volume rootvg/rootlv successfully resized.
    meta-data=/dev/mapper/rootvg-rootlv isize=512    agcount=4, agsize=131072 blks
@@ -333,24 +382,24 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    realtime =none                   extsz=4096   blocks=0, rtextents=0
    data blocks changed from 524288 to 3145728
    ```
-         
-1. Compruebe si **/dev/mapper/rootvg-rootlv** tiene un mayor tamaño del sistema de archivos mediante el comando siguiente:
 
-   ```
-   #df -Th /
+1. El comando lvresize llama automáticamente al comando de cambio tamaño adecuado para el sistema de archivos del volumen lógico. Compruebe si **/dev/mapper/rootvg-rootlv**, que está montado en **/** , tiene un mayor tamaño del sistema de archivos mediante el comando siguiente:
+
+   ```shell
+   [root@dd-rhel7vm ~]# df -Th /
    ```
 
    Salida de ejemplo:
 
-   ```
-   [user@myvm ~]# df -Th /
+   ```shell
+   [root@dd-rhel7vm ~]# df -Th /
    Filesystem                Type  Size  Used Avail Use% Mounted on
    /dev/mapper/rootvg-rootlv xfs    12G   71M   12G   1% /
-   [user@myvm ~]#
+   [root@dd-rhel7vm ~]#
    ```
 
 > [!NOTE]
-> Para usar el mismo procedimiento para cambiar el tamaño de cualquier otro volumen lógico, cambie el nombre de **lv** en el paso 7.
+> Para usar el mismo procedimiento para cambiar el tamaño de cualquier otro volumen lógico, cambie el nombre **lv** en el paso **12**.
 
 ### <a name="rhel-raw"></a>RAW con Red Hat Enterprise Linux
 >[!NOTE]
@@ -369,7 +418,7 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    sudo su
    ```
 
-1. Instale el paquete **gptfdisk** , que es necesario para aumentar el tamaño del disco de SO.
+1. Instale el paquete **gptfdisk**, que es necesario para aumentar el tamaño del disco de SO.
 
    ```
    yum install gdisk -y

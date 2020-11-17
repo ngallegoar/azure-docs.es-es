@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 69cc835b37d2405e15638d85309dc89d51c6d043
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "91598103"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360282"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flujo de datos (DFS)
 
@@ -218,6 +218,17 @@ Este es un fragmento de código que puede pegar en el flujo de datos para compro
 ```
 split(contains(array(columns()),isNull(#item)),
     disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
+```
+
+### <a name="automap-schema-drift-with-a-select"></a>Desfase de esquema de asignación automática con una instrucción Select
+Si necesita cargar un esquema de base de datos existente desde un conjunto de columnas de entrada desconocido o dinámico, debe asignar las columnas del lado derecho de la transformación de receptor. Esto solo es necesario si se carga una tabla existente. Agregue este fragmento de código delante de la transformación de receptor para crear una instrucción Select que asigne automáticamente las columnas. Deje la asignación de receptor en asignación automática.
+
+```
+select(mapColumn(
+        each(match(true()))
+    ),
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> automap
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

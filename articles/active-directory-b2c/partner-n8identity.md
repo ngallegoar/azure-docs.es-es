@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a6d6ca825a556ea3c98fb94d4becbb75b8f2a7d7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294222"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376891"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Tutorial para configurar TheAccessHub Admin Tool con Azure Active Directory B2C
 
@@ -102,7 +102,7 @@ Para autorizar a TheAccessHub Admin Tool el acceso a su directorio, siga estos p
 
 5. Siga las indicaciones y seleccione **Aceptar** para conceder los permisos solicitados a TheAccessHub Admin Tool.
 
-## <a name="configure-a-new-csrhelpdesk-user-using-your-enterprise-identity"></a>Configuración de un nuevo usuario CSR/Helpdesk mediante la identidad de empresa
+## <a name="configure-a-new-csr-user-using-your-enterprise-identity"></a>Configuración de un nuevo usuario de CSR mediante la identidad de empresa
 
 Cree un usuario CSR/Helpdesk que acceda a TheAccessHub Admin Tool con sus credenciales de Azure Active Directory empresariales existentes.
 
@@ -126,7 +126,7 @@ Para configurar el usuario CSR/Helpdesk con el inicio de sesión único (SSO), s
 
 6. Seleccione **Submit** (Enviar).
 
-## <a name="configure-a-new-csrhelpdesk-user-using-a-new-identity"></a>Configuración de un nuevo usuario CSR/Helpdesk mediante una identidad nueva
+## <a name="configure-a-new-csr-user-using-a-new-identity"></a>Configuración de un nuevo usuario de CSR mediante una identidad nueva
 
 Cree un usuario CSR/Helpdesk que tendrá acceso a TheAccessHub Admin Tool con una nueva credencial local única para dicha herramienta. Principalmente, lo usarán las organizaciones que no utilizan Azure AD para su empresa.
 
@@ -150,7 +150,7 @@ Para [configurar un usuario CSR/Helpdesk](https://youtu.be/iOpOI2OpnLI) sin inic
 
 7. Seleccionar **Enviar**
 
-## <a name="configure-partitioned-csrhelpdesk-administration"></a>Configuración de la administración de CSR/Helpdesk con particiones
+## <a name="configure-partitioned-csr-administration"></a>Configuración de la administración de CSR con particiones
 
 Los permisos para administrar usuarios de clientes y CSR/Helpdesk en TheAccessHub Admin Tool se administran mediante una jerarquía de organización. Todos los compañeros y clientes pertenecen a una organización principal. Puede asignar compañeros o grupos de compañeros específicos como propietarios de las organizaciones.  Los propietarios de la organización pueden administrar (realizar cambios) a los compañeros y clientes de las organizaciones u organizaciones secundarias que poseen. Para permitir que varios compañeros administren un conjunto de usuarios, puede crear un grupo con muchos miembros. Después, el grupo se puede asignar como propietario de la organización y todos los miembros de dicho grupo podrán administrar a los compañeros y clientes de la organización.
 
@@ -162,7 +162,7 @@ Los permisos para administrar usuarios de clientes y CSR/Helpdesk en TheAccessHu
 
 3. Seleccione > **Add Group** (Agregar grupo).
 
-4. Escriba un **Nombre de grupo** , una **Descripción del grupo** y un **Propietario de grupo**.
+4. Escriba un **Nombre de grupo**, una **Descripción del grupo** y un **Propietario de grupo**.
 
 5. Busque y active las casillas de los compañeros que quiere agregar como miembros del grupo y, a continuación, seleccione > **Add** (Agregar).
 
@@ -180,7 +180,7 @@ Los permisos para administrar usuarios de clientes y CSR/Helpdesk en TheAccessHu
 
 3. Seleccione > **Add Organization** (Agregar organización).
 
-4. Proporcione un **Nombre de organización** , **Propietario de la organización** y **Organización principal**.
+4. Proporcione un **Nombre de organización**, **Propietario de la organización** y **Organización principal**.
 
     a. Idealmente, el nombre de la organización es un valor que se corresponde con los datos del cliente. Al cargar los datos de compañeros y clientes, si proporciona el nombre de la organización durante la carga, el compañero se podrá asignar automáticamente a la organización.
 
@@ -238,49 +238,49 @@ Con TheAccessHub Admin Tool, puede importar datos de varias bases de datos, LDAP
 
    **Para las bases de datos**
 
-   a. **Tipo** : base de datos
+   a. **Tipo**: base de datos
 
-   b. **Tipo de base de datos** : seleccione una base de datos de alguno de los tipos de base de datos admitidos.
+   b. **Tipo de base de datos**: seleccione una base de datos de alguno de los tipos de base de datos admitidos.
 
-   c. **URL de conexión** : escriba una cadena de conexión de JDBC con el formato correcto. Por ejemplo: ``jdbc:postgresql://myhost.com:5432/databasename``
+   c. **URL de conexión**: escriba una cadena de conexión de JDBC con el formato correcto. Por ejemplo: ``jdbc:postgresql://myhost.com:5432/databasename``
 
-   d. **Nombre de usuario** : escriba el nombre de usuario para acceder a la base de datos.
+   d. **Nombre de usuario**: escriba el nombre de usuario para acceder a la base de datos.
 
-   e. **Contraseña** : escriba la contraseña para acceder a la base de datos.
+   e. **Contraseña**: escriba la contraseña para acceder a la base de datos.
 
-   f. **Consulta** : escriba la consulta SQL para extraer los detalles del cliente. Por ejemplo: ``SELECT * FROM mytable;``
+   f. **Consulta**: escriba la consulta SQL para extraer los detalles del cliente. Por ejemplo: ``SELECT * FROM mytable;``
 
    g. Seleccione **Test Connection** (Probar conexión) y verá un ejemplo de los datos para asegurarse de que la conexión funciona.
 
    **Para los LDAP**
 
-   a. **Tipo** : LDAP
+   a. **Tipo**: LDAP
 
-   b. **Host** : escriba el nombre de host o la dirección IP de la máquina en la que se ejecuta el servidor de LDAP. Por ejemplo: ``mysite.com``
+   b. **Host**: escriba el nombre de host o la dirección IP de la máquina en la que se ejecuta el servidor de LDAP. Por ejemplo: ``mysite.com``
 
-   c. **Puerto** : escriba el número de puerto en el que escucha el servidor de LDAP.
+   c. **Puerto**: escriba el número de puerto en el que escucha el servidor de LDAP.
 
-   d. **SSL** : active la casilla si TheAccessHub Admin Tool debe comunicarse con el LDAP de manera segura mediante SSL. Se recomienda el uso de SSL.
+   d. **SSL**: active la casilla si TheAccessHub Admin Tool debe comunicarse con el LDAP de manera segura mediante SSL. Se recomienda el uso de SSL.
 
-   e. **DN de inicio de sesión** : escriba el DN de la cuenta de usuario para iniciar sesión y realice la búsqueda LDAP.
+   e. **DN de inicio de sesión**: escriba el DN de la cuenta de usuario para iniciar sesión y realice la búsqueda LDAP.
 
-   f. **Password** : escriba la contraseña del usuario.
+   f. **Password**: escriba la contraseña del usuario.
 
-   g. **DN base** : escriba el DN en la parte superior de la jerarquía en la que quiere realizar la búsqueda.
+   g. **DN base**: escriba el DN en la parte superior de la jerarquía en la que quiere realizar la búsqueda.
 
-   h. **Filtro** : escriba la cadena de filtro LDAP, que obtendrá los registros de clientes.
+   h. **Filtro**: escriba la cadena de filtro LDAP, que obtendrá los registros de clientes.
 
-   i. **Atributos** : especifique una lista separada por comas de atributos de los registros de cliente para pasarlos a TheAccessHub Admin Tool.
+   i. **Atributos**: especifique una lista separada por comas de atributos de los registros de cliente para pasarlos a TheAccessHub Admin Tool.
 
    j. Seleccione la opción **Test Connection** (Probar conexión) y verá un ejemplo de los datos para asegurarse de que la conexión funciona.
 
    **Para OneDrive**
 
-   a. **Tipo** : OneDrive para la Empresa.
+   a. **Tipo**: OneDrive para la Empresa.
 
    b. Seleccione **Autorizar conexión**.
 
-   c. Una nueva ventana le pedirá que inicie sesión en **OneDrive** ; inicie sesión con un usuario con acceso de lectura a su cuenta de OneDrive. TheAccessHub Admin Tool actuará para que este usuario pueda leer los archivos de carga CSV.
+   c. Una nueva ventana le pedirá que inicie sesión en **OneDrive**; inicie sesión con un usuario con acceso de lectura a su cuenta de OneDrive. TheAccessHub Admin Tool actuará para que este usuario pueda leer los archivos de carga CSV.
 
    d. Siga las indicaciones y seleccione **Aceptar** para conceder los permisos solicitados a TheAccessHub Admin Tool.
 
@@ -324,7 +324,7 @@ Con TheAccessHub Admin Tool, puede importar datos de varias bases de datos, LDAP
 
 18. Cuando la fase de carga del registro de **Sincronización de datos** alcanza el 100 %, se inician todos los cambios resultantes de la carga. Los clientes deben comenzar a aparecer o recibir cambios en Azure AD B2C.
 
-## <a name="synchronize-azure-ad-b2c-customer-data-into-theaccesshub-admin-tool"></a>Sincronización de los datos de cliente de Azure AD B2C en TheAccessHub Admin Tool
+## <a name="synchronize-azure-ad-b2c-customer-data"></a>Sincronización de datos del cliente de Azure AD B2C 
 
 Como operación única o continua, TheAccessHub Admin Tool puede sincronizar toda la información del cliente de Azure AD B2C en TheAccessHub Admin Tool. Esto garantiza que los administradores de CSR/Helpdesk ven la información actualizada del cliente.
 
@@ -356,7 +356,7 @@ Para sincronizar los datos de Azure AD B2C en TheAccessHub Admin Tool:
 
 13. Cuando la fase de carga del registro de **Sincronización de datos** alcanza el 100 %, se inician todos los cambios resultantes de la carga.
 
-## <a name="configure-azure-ad-b2c-policies-to-call-theaccesshub-admin-tool"></a>Configuración de directivas de Azure AD B2C para llamar a TheAccessHub Admin Tool
+## <a name="configure-azure-ad-b2c-policies"></a>Configuración de directivas de Azure AD B2C
 
 Ocasionalmente, la sincronización de TheAccessHub Admin Tool está limitada por su capacidad para mantener su estado actualizado con Azure AD B2C. Podemos aprovechar las directivas de Azure AD B2C y la API de TheAccessHub Admin Tool para informar a TheAccessHub Admin Tool de los cambios a medida que se producen. Esta solución requiere conocimientos técnicos de las [directivas personalizadas de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20). En la siguiente sección, le daremos los detalles de un ejemplo de directiva y un certificado seguro para notificar a TheAccessHub Admin Tool de cuentas nuevas en las directivas personalizadas de registro.
 

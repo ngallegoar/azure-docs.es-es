@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 92036cebf0541f9e9928acf1a9c32db0037bde48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b57c2ff2e53a5b836d9faeef7e18052d6e670cf6
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186506"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375920"
 ---
 #### <a name="to-add-or-remove-a-volume"></a>Para agregar o quitar un volumen, siga estos pasos:
 
@@ -21,15 +21,15 @@ ms.locfileid: "67186506"
 
 3. En la hoja **Agregar o quitar volumen**, seleccione o deseleccione las casillas para agregar o quitar el volumen. Para seleccionar o deseleccionar varios volúmenes, marque o desmarque las casillas correspondientes.
 
-    ![Administrar programaciones](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
+    ![Administración de programaciones 2](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
 
     Si asigna volúmenes de distintos contenedores a una directiva de copia de seguridad, deberá recordar conmutar por error juntos esos contenedores de volúmenes. A tal efecto, verá una advertencia.
 
-    ![Administrar programaciones](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
+    ![Administración de programaciones 3](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
 
 4. Cuando la directiva de copia de seguridad se modifique, recibirá una notificación. También se actualizará la lista de directivas de copia de seguridad.
 
-    ![Administrar programaciones](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
+    ![Administración de programaciones 4](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
 
 
 

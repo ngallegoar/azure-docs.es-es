@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 48a3326dbe0e9eed4a5490e720248555586d189c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e923fdf560692c645c8a69e7e26d13f69d6920c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186367"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376056"
 ---
 ### <a name="to-take-a-backup"></a>Para realizar una copia de seguridad
 
@@ -19,13 +19,13 @@ ms.locfileid: "67186367"
 
 2. En la hoja **Directiva de copia de seguridad**, haga clic en **+ Agregar directiva**.
 
-    ![Agregar directiva de copia de seguridad](./media/storsimple-8000-take-backup/step8takebu2.png)
+    ![Agregar directiva de copia de seguridad 2](./media/storsimple-8000-take-backup/step8takebu2.png)
 
 3. En la hoja **Crear directiva de copia de seguridad** proporcione un nombre que tenga entre 3 y 150 caracteres para la directiva de copia de seguridad.
 
 4. Seleccione los volúmenes de los que se va a hacer la copia de seguridad. Si selecciona más de un volumen, estos volúmenes se agruparán para crear una copia de seguridad preparada para bloqueos.
 
-    ![Agregar directiva de copia de seguridad](./media/storsimple-8000-take-backup/step8takebu4.png)
+    ![Agregar directiva de copia de seguridad 3](./media/storsimple-8000-take-backup/step8takebu4.png)
 
 5. En la hoja **Agregar la primera programación**:
 
@@ -35,11 +35,11 @@ ms.locfileid: "67186367"
     4. Seleccione la fecha y hora de inicio para la directiva de copia de seguridad.
     5. Haga clic en **Aceptar** para crear la directiva de copia de seguridad.
 
-        ![Agregar directiva de copia de seguridad](./media/storsimple-8000-take-backup/step8takebu5.png) 
+        ![Agregar directiva de copia de seguridad 4](./media/storsimple-8000-take-backup/step8takebu5.png) 
 
 6. Haga clic en **Crear** para iniciar la creación de directivas de copia de seguridad. Recibirá una notificación cuando la directiva de copia de seguridad se haya creado correctamente. También se actualiza la lista de directivas de copia de seguridad.
       
-      ![Agregar directiva de copia de seguridad](./media/storsimple-8000-take-backup/step8takebu9.png)
+      ![Agregar directiva de copia de seguridad 5](./media/storsimple-8000-take-backup/step8takebu9.png)
       
       Ahora dispone de una directiva de copia de seguridad que creará copias de seguridad programadas de los datos del volumen.
 

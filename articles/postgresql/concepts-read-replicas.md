@@ -5,31 +5,36 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: 7f81e6182209e29e41a21abadbaf05518844d201
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 11/05/2020
+ms.openlocfilehash: 8fabf8169270c3162604b6535a6cf2fb07cd9a9d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490176"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422151"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
-La característica de réplica de lectura permite replicar datos de un servidor Azure Database for PostgreSQL en un servidor de solo lectura. Puede crear hasta cinco réplicas desde el servidor principal. Las réplicas se actualizan de manera asincrónica mediante la tecnología de replicación nativa del motor de PostgreSQL.
+La característica de réplica de lectura permite replicar datos de un servidor Azure Database for PostgreSQL en un servidor de solo lectura. Las réplicas se actualizan de **manera asincrónica** con la tecnología de replicación física nativa del motor de PostgreSQL. Puede crear hasta cinco réplicas desde el servidor principal.
 
 Las réplicas son nuevos servidores que se administran de forma similar a los servidores de Azure Database for PostgreSQL normales. En cada réplica de lectura, se le cobra por el proceso aprovisionado en núcleos virtuales y el almacenamiento aprovisionado en GB/mes.
 
 Vea cómo [crear y administrar réplicas](howto-read-replicas-portal.md).
 
 ## <a name="when-to-use-a-read-replica"></a>Casos en los que utilizar las réplicas de lectura
-La finalidad de la característica de réplica de lectura es ayudar a mejorar el rendimiento y la escala de las cargas de trabajo que conllevan un gran número de operaciones de lectura. Las cargas de trabajo de lectura se pueden aislar en las réplicas, mientras que las cargas de trabajo de escritura se pueden dirigir al servidor principal.
+La finalidad de la característica de réplica de lectura es ayudar a mejorar el rendimiento y la escala de las cargas de trabajo que conllevan un gran número de operaciones de lectura. Las cargas de trabajo de lectura se pueden aislar en las réplicas, mientras que las cargas de trabajo de escritura se pueden dirigir al servidor principal. Las réplicas de lectura también se pueden implementar en otra región y se pueden promover a servidor de lectura/escritura en caso de una recuperación ante desastres.
 
 Un caso habitual es que las cargas de trabajo de análisis e inteligencia empresarial utilicen la réplica de lectura como origen de datos para los informes.
 
-Dado que las réplicas son de solo lectura, no reducen directamente las cargas de capacidad de escritura en el servidor principal. Esta característica no está destinada a cargas de trabajo intensivas de escritura.
+Dado que las réplicas son de solo lectura, no reducen directamente las cargas de capacidad de escritura en el servidor principal.
 
-Esta característica de réplica de lectura utiliza la replicación asincrónica nativa de PostgreSQL. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el servidor principal y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor principal. Use esta característica con cargas de trabajo que puedan admitir este retraso.
+### <a name="considerations"></a>Consideraciones
+La característica está pensada para escenarios donde el retraso es aceptable y para la descarga de consultas. No está diseñada para escenarios de replicación sincrónica en los que se espera que los datos de réplica estén actualizados. Habrá un retraso medible entre el servidor principal y la réplica. Puede ser de minutos o incluso horas, según la carga de trabajo y la latencia entre el servidor principal y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor principal. Use esta característica con cargas de trabajo que puedan admitir este retraso. 
 
+> [!NOTE]
+> Con la mayoría de las cargas de trabajo, las réplicas de lectura ofrecen actualizaciones casi en tiempo real desde el servidor principal. Sin embargo, con cargas de trabajo principales continuas con numerosas operaciones de escritura, el retraso en la replicación puede seguir creciendo y que no se pueda alcanzar nunca al servidor principal. Como consecuencia, también puede aumentar el uso de almacenamiento en el servidor principal, ya que los archivos WAL no se eliminan hasta que se reciben en la réplica. Si esta situación persiste, la opción para devolver la réplica a un buen estado con respecto al retraso es eliminar y volver a crear la réplica de lectura después de que se completen las cargas de trabajo con numerosas operaciones de escritura.
+> Las réplicas de lectura asincrónicas no son adecuadas para esas cargas de trabajo con tantas operaciones de escritura. Al evaluar las réplicas de lectura de la aplicación, supervise el retraso en la réplica durante un ciclo completo de carga de trabajo de la aplicación en sus horas punta y fuera de las horas punta para determinar el posible retraso y el RTO/RPO esperado en diversos puntos del ciclo de carga de trabajo.
+> 
 ## <a name="cross-region-replication"></a>Replicación entre regiones
 Puede crear una réplica de lectura en una región distinta del servidor principal. La replicación entre regiones puede ser útil para escenarios como el planeamiento de la recuperación ante desastres o la incorporación de datos más cerca de los usuarios.
 
@@ -72,9 +77,9 @@ Al crear una réplica, no se heredan las reglas de firewall o el punto de conexi
 
 La réplica hereda su cuenta de administrador del servidor principal. Todas las cuentas de usuario existentes en el servidor principal se replican en las réplicas de lectura. Solo se puede conectar a una réplica de lectura a través de las cuentas de usuario disponibles en el servidor principal.
 
-Puede conectarse a la réplica mediante su nombre de host y una cuenta de usuario válida, igual que haría en un servidor Azure Database for PostgreSQL normal. En un servidor denominado **myreplica** con el nombre de usuario administrador **myadmin** , puede conectarse a la réplica mediante psql:
+Puede conectarse a la réplica mediante su nombre de host y una cuenta de usuario válida, igual que haría en un servidor Azure Database for PostgreSQL normal. En un servidor denominado **myreplica** con el nombre de usuario administrador **myadmin**, puede conectarse a la réplica mediante psql:
 
-```
+```bash
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 
@@ -83,50 +88,40 @@ Cuando se le solicite, escriba la contraseña de la cuenta de usuario.
 ## <a name="monitor-replication"></a>Supervisión de la replicación
 Azure Database for PostgreSQL proporciona dos métricas para supervisar la replicación. Las dos métricas son **Max Lag Across Replicas** (Retraso máximo entre réplicas) y **Replica Lag** (Retraso entre réplicas). Para obtener información sobre cómo ver estas métricas, consulte la sección **Supervisión de una réplica** del [artículo de procedimientos de réplica de lectura](howto-read-replicas-portal.md).
 
-La métrica **Retraso máximo entre réplicas** muestra el retardo en bytes entre la réplica con mayor retardo y el servidor principal. Esta métrica solo está disponible en el servidor principal, y únicamente en el caso de que al menos una de las réplicas de lectura esté conectada al servidor principal.
+La métrica **Retraso máximo entre réplicas** muestra el retardo en bytes entre la réplica con mayor retardo y el servidor principal. Esta métrica solo es aplicable y está disponible en el servidor principal, y solo lo estará si al menos una de las réplicas de lectura está conectada a la principal y la principal está en modo de replicación de transmisión. La información del retraso no muestra detalles de cuando la réplica está en proceso de alcanzar al servidor principal mediante los registros archivados de este en modo de replicación de envío de archivos.
 
-La métrica **Replica Lag** muestra el tiempo desde la última transacción reproducida. Si no se produce ninguna transacción en el servidor principal, la métrica refleja este retardo de tiempo. Esta métrica está disponible únicamente para los servidores de réplica. El retraso entre réplicas se calcula desde la vista `pg_stat_wal_receiver`:
+La métrica **Replica Lag** muestra el tiempo desde la última transacción reproducida. Si no se produce ninguna transacción en el servidor principal, la métrica refleja este retardo de tiempo. Esta métrica solo se aplica y está disponible para los servidores de réplica. El retraso entre réplicas se calcula desde la vista `pg_stat_wal_receiver`:
 
 ```SQL
-EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
+SELECT EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
 
 Establezca una alerta que le informe cuando el retardo de la réplica alcance un valor que no sea aceptable para la carga de trabajo. 
 
 Para obtener más información, consulte el servidor principal directamente para obtener el retardo de replicación en bytes en todas las réplicas.
 
-En la versión 10 de PostgreSQL:
-
-```SQL
-select pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) 
-AS total_log_delay_in_bytes from pg_stat_replication;
-```
-
-En la versión 9.6 y versiones anteriores de PostgreSQL:
-
-```SQL
-select pg_xlog_location_diff(pg_current_xlog_location(), replay_location) 
-AS total_log_delay_in_bytes from pg_stat_replication;
-```
-
 > [!NOTE]
 > Si se reinicia un servidor principal o una réplica de lectura, el tiempo que tarda en reiniciarse y ponerse al día se reflejará en la métrica de retardo de la réplica.
 
-## <a name="stop-replication"></a>Detención replicación
-Puede decidir detener la replicación entre un servidor principal y una réplica. La acción de detención reinicia la réplica para quitar su configuración de replicación. Una vez que se ha detenido la replicación entre un servidor principal y una réplica de lectura, la réplica se convierte en un servidor independiente. Los datos del servidor independiente son los datos que estaban disponibles en la réplica en el momento en que se inició el comando para detener la replicación. El servidor independiente no se pone al día con el servidor principal.
+## <a name="stop-replication--promote-replica"></a>Detención de la replicación y promoción de la réplica
+En cualquier momento, puede detener la replicación entre un servidor principal y una réplica. La acción de detención hace que la réplica se reinicie y se promueva como servidor independiente de lectura y escritura. Los datos del servidor independiente son los datos que estaban disponibles en el servidor de réplica en el momento en que se inició la replicación. Las actualizaciones posteriores en el servidor principal no se propagan a la réplica. Sin embargo, es posible que el servidor de réplica haya acumulado registros que aún no se hayan aplicado. Como parte del proceso de reinicio, la réplica aplica todos los registros pendientes antes de aceptar conexiones de cliente.  
 
-> [!IMPORTANT]
-> Este servidor independiente no puede volver a convertirse en una réplica.
-> Asegúrese de que la réplica tenga todos los datos que necesita antes de detener la replicación en una réplica de lectura.
+### <a name="considerations"></a>Consideraciones
+- Antes de detener la replicación en una réplica de lectura, busque el retraso de la replicación para asegurarse de que la réplica tenga todos los datos que necesita. 
+- Como la réplica de lectura tiene que aplicar todos los registros pendientes antes de que se pueda convertir en un servidor independiente, el RTO puede ser más alto con cargas de trabajo con numerosas operaciones de escritura cuando se detiene la replicación, ya que podría haber un retraso considerable en la réplica. A la hora de planear la promoción de una réplica, preste atención a este hecho.
+- El servidor de réplica promocionado no se puede volver a convertir en una réplica.
+- Si promueve una réplica como servidor principal, no podrá volver a establecer la replicación en el servidor principal anterior. Si quiere volver a la región principal anterior, puede establecer un nuevo servidor de réplica con un nuevo nombre (o) eliminar el servidor principal anterior y crear una réplica con el nombre de este.
+- Si tiene varias réplicas de lectura y promueve una de ellas como servidor principal, otros servidores de réplica seguirán conectados al servidor principal anterior. Es posible que tenga que volver a crear las réplicas a partir del nuevo servidor promocionado.
 
 Al detener la replicación, la réplica pierde todos los vínculos con su servidor principal anterior y otras réplicas.
 
 Aprenda a [detener la replicación en una réplica](howto-read-replicas-portal.md).
 
-## <a name="failover"></a>Conmutación por error
-No se produce ninguna conmutación por error automatizada entre el servidor principal y la réplica. 
+## <a name="failover-to-replica"></a>Conmutación por error a una réplica
 
-Dado que la replicación es asincrónica, se produce un retraso entre el servidor principal y la réplica. La cantidad de retraso puede verse afectada por varios factores, como lo pesada que sea la carga de trabajo que se ejecuta en el servidor principal y la latencia entre los centros de datos. En la mayoría de los casos, el retraso de la réplica oscila entre unos segundos y un par de minutos. En los casos en los que el servidor principal ejecuta cargas de trabajo muy pesadas y la réplica no se pone al día lo bastante rápido, el retraso puede ser mayor. Puede realizar un seguimiento del retraso real de la replicación mediante la métrica *Replica Lag* (Retraso de réplica), que está disponible para cada réplica. Esta métrica muestra el tiempo desde la última transacción reproducida. Se recomienda que observe el retraso de la réplica durante un período de tiempo para identificar el retraso medio. Puede establecer una alerta sobre el retraso de la réplica, para que si se sale del intervalo esperado, puede tomar medidas.
+En caso de error del servidor principal, **no** conmute por error automáticamente a la réplica de lectura. 
+
+Dado que la replicación es asincrónica, habrá un retraso considerable entre el servidor principal y la réplica. La cantidad de retraso se ve afectada por diversos factores, como el tipo de carga de trabajo que se ejecuta en el servidor principal y la latencia entre el servidor principal y el servidor de réplica. En casos típicos con una carga de trabajo de escritura nominal, cabe esperar un retraso en la réplica de entre unos segundos y algunos minutos. Sin embargo, en los casos en los que el servidor principal ejecuta cargas de trabajo con numerosas operaciones de escritura y la réplica no se pone al día lo bastante rápido, el retraso puede ser mucho mayor. Para realizar un seguimiento del retraso de replicación de cada réplica, use la métrica *Replica Lag* (Retraso entre réplicas). Esta métrica muestra el tiempo desde la última transacción reproducida en la réplica. Se recomienda que observe el retraso de la réplica durante un período de tiempo para identificar el retraso medio. Puede establecer una alerta sobre el retraso de la réplica, de forma que, si se sale del intervalo esperado, se le notifique para que pueda tomar medidas.
 
 > [!Tip]
 > Si realiza la conmutación por error a la réplica, el retraso en el momento de desvincular la réplica del servidor principal indicará cuántos datos se han perdido.
@@ -134,10 +129,10 @@ Dado que la replicación es asincrónica, se produce un retraso entre el servido
 Cuando haya decidido que quiere conmutar por error a una réplica, realice estos pasos: 
 
 1. Detenga la replicación en la réplica.<br/>
-   Este paso es necesario para que el servidor de la réplica pueda aceptar escrituras. Como parte de este proceso, el servidor de réplica se reiniciará y se desvinculará del servidor principal. Una vez iniciada la detención de la replicación, el proceso de back-end tarda aproximadamente dos minutos en completarse. Consulte la sección [Detención de la replicación](#stop-replication) de este artículo para conocer las implicaciones de esta acción.
+   Este paso es necesario para que el servidor de réplica se convierta en servidor independiente y pueda aceptar operaciones de escritura. Como parte de este proceso, el servidor de réplica se reiniciará y se desvinculará del servidor principal. Una vez iniciada la detención de la replicación, el proceso de back-end suele tardar unos minutos en aplicar los registros residuales que todavía no se han aplicado y en abrir la base de datos como servidor de lectura y escritura. Consulte la sección [Detención de la replicación](#stop-replication--promote-replica) de este artículo para conocer las implicaciones de esta acción.
     
 2. Haga que la replicación apunte a la réplica (anterior).<br/>
-   Cada servidor tiene una cadena de conexión única. Actualice la aplicación para que apunte a la réplica (anterior), en lugar de al servidor principal.
+   Cada servidor tiene una cadena de conexión única. Actualice la cadena de conexión de la aplicación para que apunte a la réplica (anterior), en lugar de al servidor principal.
     
 Una vez que la aplicación procesa correctamente las lecturas y las escrituras, ya está completa la conmutación por error. La cantidad de tiempo de inactividad que experimente su aplicación dependerá del momento en que se detecte una incidencia y se realicen los pasos 1 y 2 anteriores.
 
@@ -154,11 +149,10 @@ Tanto las réplicas de lectura como la [descodificación lógica](concepts-logic
 
 Para configurar el nivel de registro adecuado, use el parámetro de soporte de replicación de Azure. El soporte de la replicación de Azure tiene tres opciones de valor:
 
-* **Desactivado** : coloca la más mínima información en el WAL. Este valor no está disponible en la mayoría de los servidores Azure Database for PostgreSQL.  
-* **Réplica** : más detallado que **Off** . Este es el nivel mínimo de registro necesario para que [las réplicas de lectura](concepts-read-replicas.md) funcionen. Esta es la configuración predeterminada en la mayoría de los servidores.
-* **Lógico** : más detallado que **Réplica** . Este es el nivel mínimo de registro para que funcione la descodificación lógica. Las réplicas de lectura también funcionan con este valor.
+* **Desactivado**: coloca la más mínima información en el WAL. Este valor no está disponible en la mayoría de los servidores Azure Database for PostgreSQL.  
+* **Réplica**: más detallado que **Off**. Este es el nivel mínimo de registro necesario para que [las réplicas de lectura](concepts-read-replicas.md) funcionen. Esta es la configuración predeterminada en la mayoría de los servidores.
+* **Lógico**: más detallado que **Réplica**. Este es el nivel mínimo de registro para que funcione la descodificación lógica. Las réplicas de lectura también funcionan con este valor.
 
-El servidor debe reiniciarse después de un cambio de este parámetro. Internamente, este parámetro establece los parámetros Postgres `wal_level`, `max_replication_slots` y `max_wal_senders`.
 
 ### <a name="new-replicas"></a>Nuevas réplicas
 Las réplicas de lectura se crean como nuevos servidores Azure Database for PostgreSQL. Un servidor no puede volver a convertirse en una réplica. No se puede crear una réplica de otra réplica de lectura.
@@ -172,8 +166,8 @@ La réplica no hereda las reglas de firewall, las reglas de red virtual ni la co
 Escalado de núcleos virtuales o entre Uso general y Memoria optimizada:
 * PostgreSQL requiere que `max_connections` la configuración en un servidor secundario sea [mayor o igual que el valor de la principal](https://www.postgresql.org/docs/current/hot-standby.html), de lo contrario, la réplica secundaria no se iniciará.
 * En Azure Database for PostgreSQL, las conexiones máximas permitidas para cada servidor se corrigen en la SKU de proceso, ya que las conexiones ocupan memoria. Puede obtener más información sobre la [asignación entre max_connections y las SKU de proceso](concepts-limits.md).
-* **Escalado** : En primer lugar, escale el proceso de una réplica y, a continuación, escale la principal. Esta orden impedirá que los errores no cumplan `max_connections` el requisito.
-* **Reducción vertical** : En primer lugar, reduzca verticalmente el proceso principal y, a continuación, reduzca verticalmente la réplica. Si intenta escalar la réplica por debajo de la principal, se producirá un error, ya que esto infringe el`max_connections` requisito.
+* **Escalado**: En primer lugar, escale el proceso de una réplica y, a continuación, escale la principal. Esta orden impedirá que los errores no cumplan `max_connections` el requisito.
+* **Reducción vertical**: En primer lugar, reduzca verticalmente el proceso principal y, a continuación, reduzca verticalmente la réplica. Si intenta escalar la réplica por debajo de la principal, se producirá un error, ya que esto infringe el`max_connections` requisito.
 
 Escalado de almacenamiento:
 * Todas las réplicas tienen habilitado el crecimiento automático de almacenamiento para evitar problemas de replicación de una réplica de almacenamiento completo. Esta configuración no se puede deshabilitar.

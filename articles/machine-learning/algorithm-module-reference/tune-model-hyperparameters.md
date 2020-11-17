@@ -1,7 +1,7 @@
 ---
 title: Optimizar los hiperparámetros del modelo
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar el módulo de Optimizar los hiperparámetros del modelo en Azure Machine Learning para realizar un barrido de parámetros en un modelo con el fin de determinar la configuración óptima de los parámetros.
+description: Use el módulo de optimización de los hiperparámetros del modelo en el diseñador para realizar un barrido de parámetros y optimizar los hiperparámetros.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
-ms.openlocfilehash: 2ec1726056c7ab223f7d3de70a715a8254e95db4
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 2bbf75ba5de4ad20e11261bdcfd1204b1a0b0766
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940216"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420638"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimizar los hiperparámetros del modelo
 
@@ -142,7 +142,7 @@ Sin embargo, durante el entrenamiento, debe elegir una *sola* métrica para que 
 
 -   El **error cuadrático relativo** normaliza el error cuadrático total dividiéndolo por el error cuadrático total de los valores predichos.  
 
--   El **coeficiente de determinación** es un solo número que indica cómo se ajustan los datos a un modelo. Un valor de uno significa que el modelo coincide exactamente con los datos. Un valor de cero significa que los datos son aleatorios o que no se pueden ajustar al modelo. A menudo se denomina *r<sup>2</sup>* , *R<sup>2</sup>* o *r al cuadrado*.  
+-   El **coeficiente de determinación** es un solo número que indica cómo se ajustan los datos a un modelo. Un valor de uno significa que el modelo coincide exactamente con los datos. Un valor de cero significa que los datos son aleatorios o que no se pueden ajustar al modelo. A menudo se denomina *r <sup>2</sup>* , *R <sup>2</sup>* o *r al cuadrado*.  
 
 ### <a name="modules-that-dont-support-a-parameter-sweep"></a>Módulos que no admiten un barrido de parámetros
 

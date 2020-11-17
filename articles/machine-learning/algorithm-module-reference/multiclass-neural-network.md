@@ -1,7 +1,7 @@
 ---
 title: 'Multiclass Neural Network: referencia para los módulos'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar el módulo Multiclass Neural Network (Red neuronal multiclase) de Azure Machine Learning Service para crear un modelo de red neuronal que pueda usarse para predecir un destino que tenga varios valores.
+description: Aprenda a usar el módulo de red neuronal multiclase en el diseñador de Azure Machine Learning para predecir un destino que tenga valores de varias clases.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 1b5ccc9deb3c11d847cd194992d7972f82a5c160
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4f7f8a7793f31ffbf2099cbfb314fc5097319f5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905289"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421267"
 ---
 # <a name="multiclass-neural-network-module"></a>Módulo Multiclass Neural Network
 

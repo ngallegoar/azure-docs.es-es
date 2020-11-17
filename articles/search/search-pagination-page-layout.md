@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e583cedc04113615c50cc9906cbd11a99ff48683
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934929"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421726"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search
 
 En este artículo se explica cómo obtener la respuesta a una consulta, donde se devuelve el recuento total de documentos coincidentes, resultados paginados, resultados ordenados y términos con resaltado de referencias.
 
-La estructura de una respuesta viene determinada por los parámetros de la consulta: [Documento de búsqueda](/rest/api/searchservice/Search-Documents) en la API de REST o [clase DocumentSearchResult](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) en el SDK de .NET.
+La estructura de una respuesta viene determinada por los parámetros de la consulta: [documento de búsqueda](/rest/api/searchservice/Search-Documents) en la API REST o [clase SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) en el SDK para .NET.
 
 ## <a name="result-composition"></a>Redacción de los resultados
 
@@ -52,7 +52,7 @@ Para devolver un número diferente de documentos coincidentes, agregue los pará
 + Devuelve el segundo conjunto, omitiendo los 15 primeros para obtener los 15 siguientes: `$top=15&$skip=15`. Haga lo mismo para el tercer conjunto de 15: `$top=15&$skip=30`.
 
 No se garantiza que los resultados de las consultas paginadas sean estables si el índice subyacente cambia. La paginación cambia el valor de `$skip` para cada página, pero cada consulta es independiente y funciona en la vista actual de los datos tal como existen en el índice en el momento de la consulta (es decir, no se almacenan en caché ni se hacen instantáneas de los resultados, como los que se encuentran en una base de datos de uso general).
- 
+ 
 A continuación, encontrará un ejemplo de cómo podría obtener duplicados. Supongamos que tiene un índice con cuatro documentos:
 
 ```text
@@ -61,21 +61,21 @@ A continuación, encontrará un ejemplo de cómo podría obtener duplicados. Sup
 { "id": "3", "rating": 2 }
 { "id": "4", "rating": 1 }
 ```
- 
+ 
 Ahora supongamos que desea que los resultados se devuelvan dos a la vez, ordenados por calificación. Ejecutaría esta consulta para obtener la primera página de resultados: `$top=2&$skip=0&$orderby=rating desc`, lo que produce los siguientes resultados:
 
 ```text
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
- 
+ 
 En el servicio, suponga que se agrega un quinto documento al índice entre las llamadas de consulta: `{ "id": "5", "rating": 4 }`.  Poco después, ejecuta una consulta para capturar la segunda página: `$top=2&$skip=2&$orderby=rating desc`, y obtiene estos resultados:
 
 ```text
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
- 
+ 
 Observe que el documento 2 se captura dos veces. Esto se debe a que el nuevo documento 5 tiene un valor mayor de calificación, por lo que se ordena antes del documento 2 y se sitúa en la primera página. Si bien este comportamiento podría ser inesperado, es típico de cómo se comporta un motor de búsqueda.
 
 ## <a name="ordering-results"></a>Ordenación de los resultados

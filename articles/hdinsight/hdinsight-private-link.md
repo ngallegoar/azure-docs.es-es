@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 4948d23af98e267e72e6f0e0efcc1a4037173576
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3c6bee570312009af5fbdf42a018ad2b387662d9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547425"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422304"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Protección y aislamiento de clústeres de Azure HDInsight con Private Link (versión preliminar)
 
@@ -25,13 +25,13 @@ Puede crear clústeres de HDInsight privados mediante la configuración de propi
 
 ## <a name="remove-public-ip-addresses"></a>Eliminación de IP públicas
 
-De manera predeterminada, el proveedor de recursos de HDInsight usa una conexión *entrante* al clúster mediante IP públicas. Cuando la propiedad de red `resourceProviderConnection` está establecida en *saliente* , invierte las conexiones al proveedor de recursos de HDInsight para que las conexiones siempre se inicien desde dentro del clúster hacia el RP. Sin una conexión entrante, no son necesarias las IP públicas ni las etiquetas de servicio de entrada.
+De manera predeterminada, el proveedor de recursos de HDInsight usa una conexión *entrante* al clúster mediante IP públicas. Cuando la propiedad de red `resourceProviderConnection` está establecida en *saliente*, invierte las conexiones al proveedor de recursos de HDInsight para que las conexiones siempre se inicien desde dentro del clúster hacia el RP. Sin una conexión entrante, no son necesarias las IP públicas ni las etiquetas de servicio de entrada.
 
 Los equilibradores de carga básicos que se usan en la arquitectura de red virtual predeterminada proporcionan automáticamente una NAT (traducción de direcciones de red) pública para acceder a las dependencias de salida requeridas, como el RP de HDInsight. Si quiere restringir la conectividad de salida a la red pública de Internet, puede [configurar un firewall](./hdinsight-restrict-outbound-traffic.md), pero no es requisito que lo haga.
 
-La configuración de `resourceProviderConnection` como saliente también le permite acceder a recursos específicos del clúster, como Azure Data Lake Storage Gen2 o metastores externos, mediante puntos de conexión privados. Debe configurar los puntos de conexión privados y las entradas DNS antes de crear el clúster de HDInsight. Durante la creación del clúster, es recomendable crear y proporcionar todas las bases de datos SQL externas necesarias, como Apache Ranger, Ambari, Oozie y metastores de Hive.
+La configuración de `resourceProviderConnection` como saliente también le permite acceder a recursos específicos del clúster, como Azure Data Lake Storage Gen2 o metastores externos, mediante puntos de conexión privados. No es obligatorio usar puntos de conexión privados para estos recursos, pero si planea hacerlo, debe configurar los puntos de conexión privados y las entradas DNS `before` de crear el clúster de HDInsight. Es recomendable crear y proporcionar todas las bases de datos SQL externas necesarias, como Apache Ranger, Ambari, Oozie y metastores de Hive, durante la creación del clúster. Todos estos recursos deben ser accesibles desde dentro de la subred del clúster, ya sea a través de su propio punto de conexión privado o de cualquier otro modo.
 
-No se admiten puntos de conexión privados para Azure Key Vault. Si usa Azure Key Vault para el cifrado de CMK en reposo, el punto de conexión de Azure Key Vault debe ser accesible desde la subred de HDInsight sin ningún punto de conexión privado.
+No se pueden usar puntos de conexión privados para Azure Key Vault. Si usa Azure Key Vault para el cifrado de CMK en reposo, el punto de conexión de Azure Key Vault debe ser accesible desde la subred de HDInsight sin ningún punto de conexión privado.
 
 En el diagrama siguiente se muestra el aspecto que podría tener una posible arquitectura de red virtual de HDInsight cuando `resourceProviderConnection` está establecido en "saliente":
 
@@ -52,9 +52,9 @@ Para acceder al clúster mediante los nombres de dominio completo del clúster, 
 
 ## <a name="enable-private-link"></a>Habilitación de Private Link
 
-Private Link, que está deshabilitado de manera predeterminada, requiere un amplio conocimiento de las redes para configurar correctamente rutas definidas por el usuario (UDR) y reglas de firewall antes de crear un clúster. El acceso de Private Link al clúster solo está disponible cuando la propiedad de red `resourceProviderConnection` está establecida en *saliente* , tal como se describió en la sección anterior.
+Private Link, que está deshabilitado de manera predeterminada, requiere un amplio conocimiento de las redes para configurar correctamente rutas definidas por el usuario (UDR) y reglas de firewall antes de crear un clúster. El uso de este valor es opcional, pero solo está disponible cuando la propiedad de red `resourceProviderConnection` está establecida en *saliente*, tal y como se ha descrito en la sección anterior.
 
-Cuando `privateLink` está establecido en *habilitado* , se crean [equilibradores de carga estándar](../load-balancer/load-balancer-overview.md) (SLB) y se aprovisiona un servicio Azure Private Link para cada uno de ellos. El servicio Private Link es lo que permite acceder al clúster de HDInsight desde puntos de conexión privados.
+Cuando `privateLink` está establecido en *habilitado*, se crean [equilibradores de carga estándar](../load-balancer/load-balancer-overview.md) (SLB) y se aprovisiona un servicio Azure Private Link para cada uno de ellos. El servicio Private Link es lo que permite acceder al clúster de HDInsight desde puntos de conexión privados.
 
 Los equilibradores de carga estándar no proporcionan automáticamente la [NAT saliente pública](../load-balancer/load-balancer-outbound-connections.md) como sí lo hacen los equilibradores de carga básicos. Debe proporcionar su propia solución NAT, como [Virtual Network NAT](../virtual-network/nat-overview.md) o un [firewall](./hdinsight-restrict-outbound-traffic.md), para las dependencias de salida. El clúster de HDInsight de todos modos necesita acceso a sus dependencias de salida. Si no se permiten estas dependencias de salida, puede producirse un error en la creación del clúster.
 

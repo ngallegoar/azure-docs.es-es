@@ -4,18 +4,18 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d6bad1ec584b28fee77bc654eba8a2d0c7b5df30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1c30b303bd1fe02e0685c7d848be92073ca2f6
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186378"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376201"
 ---
 #### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>Para agregar una credencial de cuenta de almacenamiento en la misma suscripción que el servicio StorSimple Device Manager, siga estos pasos:
 
 1. Vaya al servicio StorSimple Device Manager. En la sección **Configuración**, haga clic en **Credenciales de cuenta de almacenamiento**.
 
-    ![Credenciales de la cuenta de almacenamiento](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
+    ![Ir a Credenciales de la cuenta de almacenamiento](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
 
 2. En la hoja **Credenciales de cuenta de almacenamiento**, haga clic en **+ Agregar**.
 
@@ -39,5 +39,5 @@ ms.locfileid: "67186378"
 
 La credencial de cuenta de almacenamiento recién creada se mostrará en la lista de **credenciales de cuenta de almacenamiento**.
 
-![Lista de credenciales de cuenta de almacenamiento](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
+![Lista de las credenciales de la cuenta de almacenamiento](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Convertir conjunto de datos: Referencia del módulo'
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar el módulo Convertir conjunto de datos en Azure Machine Learning para convertir la entrada de datos al formato interno del conjunto de datos interno usado por Microsoft Azure Machine Learning.
+description: Aprenda a usar el módulo de conversión a conjunto de datos en el diseñador de Azure Machine Learning para convertir la entrada de datos al formato del conjunto de datos interno.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9c014f14149b903713ae2f03b98956cd4ecaf8a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323066"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420876"
 ---
 # <a name="convert-to-dataset"></a>Convertir conjunto de datos
 
@@ -37,16 +37,16 @@ Le recomendamos usar el módulo [Edit Metadata](edit-metadata.md) (Editar metada
 
     Siempre y cuando los datos sean [tabulares](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py), puede convertirlos en un conjunto de datos. Esto incluye los datos cargados con [Importar datos](import-data.md), los datos creados con la [Introducción manual de datos](enter-data-manually.md), o los conjuntos de datos transformados con [Aplicar transformación](apply-transformation.md).
 
-3.  En la lista desplegable **Acción** , indique si desea realizar alguna limpieza en los datos antes de guardar el conjunto de datos:  
+3.  En la lista desplegable **Acción**, indique si desea realizar alguna limpieza en los datos antes de guardar el conjunto de datos:  
   
-    - **Ninguna** :  Use los datos tal como están.  
+    - **Ninguna**:  Use los datos tal como están.  
   
-    - **SetMissingValue** : Establezca un valor específico en el valor que falta del conjunto de datos. El marcador de posición predeterminado es el carácter de signo de interrogación (?), pero puede usar la opción **Custom missing value** (Falta un valor personalizado) para escribir un valor diferente. Por ejemplo, si escribe **Taxi** para **Custom missing value** (Falta un valor personalizado), todas las instancias de **Taxi** del conjunto de datos se cambiarán al valor que falta.
+    - **SetMissingValue**: Establezca un valor específico en el valor que falta del conjunto de datos. El marcador de posición predeterminado es el carácter de signo de interrogación (?), pero puede usar la opción **Custom missing value** (Falta un valor personalizado) para escribir un valor diferente. Por ejemplo, si escribe **Taxi** para **Custom missing value** (Falta un valor personalizado), todas las instancias de **Taxi** del conjunto de datos se cambiarán al valor que falta.
   
-    - **ReplaceValues** : Use esta opción para especificar valor único exacto que se va a reemplazar por cualquier otro valor exacto. Puede reemplazar los valores que faltan o los valores personalizados con la configuración del método **Reemplazar** :
+    - **ReplaceValues**: Use esta opción para especificar valor único exacto que se va a reemplazar por cualquier otro valor exacto. Puede reemplazar los valores que faltan o los valores personalizados con la configuración del método **Reemplazar**:
 
-      - **No se encuentra** : Seleccione esta opción para reemplazar los valores que faltan en el conjunto de datos de entrada. En **Nuevo valor** , escriba el valor que reemplace los valores que faltan.
-      - **Personalizado** : Elija esta opción para reemplazar los valores personalizados en el conjunto de datos de entrada. En **Valor personalizado** , escriba el valor que desea encontrar. Por ejemplo, si los datos contienen la cadena `obs` usada como marcador de posición para los valores que faltan, tendría que escribir `obs`. En **Nuevo valor** , escriba el nuevo valor con el que va a reemplazar la cadena original.
+      - **No se encuentra**: Seleccione esta opción para reemplazar los valores que faltan en el conjunto de datos de entrada. En **Nuevo valor**, escriba el valor que reemplace los valores que faltan.
+      - **Personalizado**: Elija esta opción para reemplazar los valores personalizados en el conjunto de datos de entrada. En **Valor personalizado**, escriba el valor que desea encontrar. Por ejemplo, si los datos contienen la cadena `obs` usada como marcador de posición para los valores que faltan, tendría que escribir `obs`. En **Nuevo valor**, escriba el nuevo valor con el que va a reemplazar la cadena original.
   
     Tenga en cuenta que la operación **ReplaceValues** solo se aplica a las coincidencias exactas. Por ejemplo, estas cadenas no se verían afectadas: `obs.`,`obsolete`.  
  

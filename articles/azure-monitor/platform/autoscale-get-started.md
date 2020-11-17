@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342222"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377027"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -32,9 +32,9 @@ Puede utilizar el panel de filtro de la parte superior para limitar la lista a l
 
 Para cada recurso, encontrará el recuento de instancias actual y el estado de escalado automático. El estado de escalado automático puede ser:
 
-- **No configurado** : aún no se ha habilitado el escalado automático para este recurso.
-- **Habilitado** : se ha habilitado el escalado automático para este recurso.
-- **Disabled** : se ha deshabilitado el escalado automático para este recurso.
+- **No configurado**: aún no se ha habilitado el escalado automático para este recurso.
+- **Habilitado**: se ha habilitado el escalado automático para este recurso.
+- **Disabled**: se ha deshabilitado el escalado automático para este recurso.
 
 ## <a name="create-your-first-autoscale-setting"></a>Creación de la primera configuración de escalado automático
 
@@ -57,7 +57,7 @@ Se va a ofrecer ahora un tutorial paso a paso sencillo sobre cómo crear la prim
 
    Ahora debería tener una configuración de escalado que escale o reduzca horizontalmente en función del uso de CPU.
    ![Escala en función de la CPU][8]
-1. Haga clic en **Save** (Guardar).
+1. Haga clic en **Save**(Guardar).
 
 Felicidades. Ya ha establecido correctamente la primera configuración del escalado para escalar automáticamente la aplicación web en función del uso de CPU.
 
@@ -115,13 +115,13 @@ Siempre se puede volver al escalado automático; para ello, haga clic en **Enabl
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Enrutamiento del tráfico a instancias en buen estado (App Service)
 
-Al escalar horizontalmente a varias instancias, App Service puede realizar comprobaciones de estado en ellas para enrutar el tráfico únicamente a las que estén en buen estado. Para ello, abra el portal de App Service y, luego, seleccione **Comprobación de estado** en **Supervisión**. Seleccione **Habilitar** y proporcione una ruta de acceso válida a una dirección URL en la aplicación, por ejemplo, `/health` o `/api/health`. Haga clic en **Save** (Guardar).
+Al escalar horizontalmente a varias instancias, App Service puede realizar comprobaciones de estado en ellas para enrutar el tráfico únicamente a las que estén en buen estado. Para ello, abra el portal de App Service y, luego, seleccione **Comprobación de estado** en **Supervisión**. Seleccione **Habilitar** y proporcione una ruta de acceso válida a una dirección URL en la aplicación, por ejemplo, `/health` o `/api/health`. Haga clic en **Save**(Guardar).
 
 Para habilitar la característica con plantillas de ARM, establezca la propiedad `healthcheckpath` del recurso `Microsoft.Web/sites` en la ruta de acceso de comprobación de estado del sitio, por ejemplo: `"/api/health/"`. Para deshabilitar la característica, vuelva a establecer la propiedad en la cadena vacía `""`.
 
 ### <a name="health-check-path"></a>Ruta de acceso de comprobación de estado
 
-La ruta de acceso debe responder en un minuto con un código de estado entre 200 y 299 (ambos incluidos). Si la ruta de acceso no responde en un minuto, o devuelve un código de estado fuera del intervalo, la instancia se considera "incorrecta". App Service no sigue redireccionamientos 302 en la ruta de acceso de comprobación de estado. La comprobación de estado se integra con las características de autenticación y autorización de App Service; el sistema alcanza el punto de conexión aunque estén habilitadas estas características de seguridad. Si usa un sistema de autenticación propio, la ruta de comprobación de estado debe permitir el acceso anónimo. Si el sitio tiene HTTP **S** -Only habilitado, la solicitud de comprobación de estado se enviará a través de HTTP **S**.
+La ruta de acceso debe responder en un minuto con un código de estado entre 200 y 299 (ambos incluidos). Si la ruta de acceso no responde en un minuto, o devuelve un código de estado fuera del intervalo, la instancia se considera "incorrecta". App Service no sigue redireccionamientos 302 en la ruta de acceso de comprobación de estado. La comprobación de estado se integra con las características de autenticación y autorización de App Service; el sistema alcanza el punto de conexión aunque estén habilitadas estas características de seguridad. Si usa un sistema de autenticación propio, la ruta de comprobación de estado debe permitir el acceso anónimo. Si el sitio tiene HTTP **S**-Only habilitado, la solicitud de comprobación de estado se enviará a través de HTTP **S**.
 
 La ruta de acceso de comprobación de estado debe comprobar los componentes críticos de la aplicación. Por ejemplo, si la aplicación depende de una base de datos y de un sistema de mensajería, el punto de conexión de comprobación de estado debe conectarse a esos componentes. Si la aplicación no se puede conectar a un componente esencial, la ruta de acceso debe devolver un código de respuesta de nivel 500 para indicar que la aplicación tiene un estado incorrecto.
 
@@ -133,6 +133,9 @@ A menudo, los equipos de desarrollo de grandes empresas necesitan cumplir los re
 
 Cuando se proporciona la ruta de acceso de comprobación de estado, App Service hace ping a la ruta de acceso en todas las instancias. Si después de cinco pings no se recibe un código de respuesta correcto, esa instancia se considera "incorrecta". Las instancias incorrectas se excluyen de la rotación del equilibrador de carga. Puede configurar el número necesario de pings con errores con la configuración de aplicación `WEBSITE_HEALTHCHECK_MAXPINGFAILURES`. Esta configuración de aplicación se puede establecer en cualquier número entero entre 2 y 10. Por ejemplo, si se establece en `2`, las instancias se quitarán del equilibrador de carga después de dos ping con errores. Además, al escalar vertical u horizontalmente, App Service hace ping a la ruta de acceso de comprobación de estado para asegurarse de que las nuevas instancias están listas para las solicitudes antes de que se agreguen al equilibrador de carga.
 
+> [!NOTE]
+> Recuerde que el plan de App Service se debe escalar horizontalmente a dos o más instancias para que se produzca la exclusión del equilibrador de carga. Si solo tiene una instancia, no se quitará del equilibrador de carga aunque sea incorrecta. 
+
 El resto de instancias en buen estado pueden experimentar un aumento de la carga. Para evitar saturarlas, se excluyen no más de la mitad de las instancias. Por ejemplo, si un plan de App Service se escala horizontalmente a cuatro instancias y tres de ellas están en mal estado, hasta dos se pueden excluir de la rotación del equilibrador de carga. Las otras dos instancias (una en buen estado y otra en mal estado) siguen recibiendo solicitudes. En el peor de los escenarios, cuando todas las instancias están en estado incorrecto, no se excluirá ninguna. Si desea invalidar este comportamiento, puede establecer la configuración de aplicación `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` en un valor entre `0` y `100`. Si se establece en un valor mayor, se eliminarán más instancias incorrectas (el valor predeterminado es 50).
 
 Si una instancia permanece en mal estado durante una hora, se reemplaza por una nueva. A lo sumo, se reemplaza una instancia por hora, con un máximo de tres instancias al día por plan de App Service.
@@ -140,6 +143,20 @@ Si una instancia permanece en mal estado durante una hora, se reemplaza por una 
 ### <a name="monitoring"></a>Supervisión
 
 Después de proporcionar la ruta de acceso de comprobación de estado de la aplicación, puede supervisar el estado del sitio mediante Azure Monitor. En la hoja **Comprobación de estado** del portal, haga clic en **Métricas** en la barra de herramientas superior. Se abre una nueva hoja donde puede ver el estado de mantenimiento histórico del sitio y crear una regla de alerta. Para obtener más información sobre la supervisión de sitios, [vea la guía sobre Azure Monitor](../../app-service/web-sites-monitor.md).
+
+## <a name="moving-autoscale-to-a-different-region"></a>Traslado del escalado automático a una región diferente
+En esta sección se describe cómo trasladar el escalado automático de Azure a otra región de la misma suscripción y grupo de recursos. Puede usar la API REST para cambiar la configuración de escalado automático.
+### <a name="prerequisite"></a>Requisito previo
+1. Asegúrese de que la suscripción y el grupo de recursos están disponibles y de que los detalles en las regiones de origen y de destino son idénticos.
+1. Asegúrese de que el escalado automático de Azure está disponible en la [región de Azure a la que desea realizar el traslado](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
+
+### <a name="move"></a>Mover
+Use la [API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) para crear una configuración de escalado automático en el nuevo entorno. La configuración creada en la región de destino será una copia de la configuración de la región de origen.
+
+Los [valores de configuración de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) que se crearon junto con la configuración del escalado automático de la región de origen no se pueden trasladar. Tendrá que volver a crear la configuración de diagnóstico en la región de destino, una vez creada la configuración de escalado automático. 
+
+### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Más información sobre cómo trasladar recursos entre regiones de Azure
+Para más información sobre cómo trasladar recursos entre regiones y la recuperación ante desastres en Azure, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

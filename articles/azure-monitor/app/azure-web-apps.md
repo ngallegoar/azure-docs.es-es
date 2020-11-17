@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones de Azure App Services.
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875619"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377809"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -100,7 +100,8 @@ Desde la aplicación web de App Service, en **Configuración** > **seleccione Ap
 
 # <a name="java"></a>[Java](#tab/java)
 
-Las aplicaciones web de App Service basadas en Java no admiten actualmente la supervisión automática basada en agente ni extensión. Para habilitar la supervisión de la aplicación Java, debe [instrumentar manualmente la aplicación](./java-get-started.md).
+Siga las instrucciones indicadas para el [agente de Java 3.0 de Application Insights](./java-in-process-agent.md) para habilitar la instrumentación automática en las aplicaciones de Java sin cambiar el código.
+La integración automática todavía no está disponible para App Service.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -350,7 +351,8 @@ Si se realiza la actualización desde una versión anterior a la 2.5.1, comprueb
 A continuación, se muestra nuestra guía paso a paso de solución de problemas para la supervisión basada en extensiones o agentes para aplicaciones basadas en .NET y .NET Core que se ejecutan en Azure App Services.
 
 > [!NOTE]
-> Las aplicaciones Java solo se admiten en Azure App Services mediante la instrumentación manual basada en SDK y, por tanto, los pasos siguientes no se aplican a estos escenarios.
+> El enfoque recomendado para supervisar aplicaciones Java es utilizar la instrumentación automática sin cambiar el código. Siga las instrucciones para el [agente de Java 3.0 de Application Insights](./java-in-process-agent.md).
+
 
 1. Compruebe que la aplicación se supervisa a través de `ApplicationInsightsAgent`.
     * Compruebe que la configuración de la aplicación `ApplicationInsightsAgent_EXTENSION_VERSION` se establece en un valor de "~2".

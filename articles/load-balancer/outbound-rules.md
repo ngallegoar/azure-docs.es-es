@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 51810876e3636b7023ce9c9318a071636bb00c4c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 947ecaa2efbfb013f1f3e8203d1c4296b9ca329f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92002612"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422168"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Reglas de salida en Azure Load Balancer
 
-Las reglas de salida le permiten configurar la traducción de direcciones de red de origen (SNAT) públicas de salida de Standard Load Balancer. Esta configuración le permite usar las direcciones IP públicas de su equilibrador de carga como proxy.
+Las reglas de salida permiten definir de forma explícita SNAT (traducción de direcciones de red de origen) para un equilibrador de carga público estándar. Esta configuración permite usar las direcciones IP públicas del equilibrador de carga para proporcionar conectividad de Internet de salida a las instancias de back-end.
 
 Esta configuración habilita:
 
@@ -37,14 +37,14 @@ Las reglas de salida permiten controlar:
 
 * **Qué máquinas virtuales se deben traducir a qué direcciones IP públicas.**
      * Dos reglas, donde el grupo de back-end A usa las direcciones IP A y B, el grupo de back-end B usa las direcciones IP C y D.
-* **Cómo se conceden los puertos SNAT salientes.**
+* **Cómo se asignan los puertos de SNAT de salida.**
      * El grupo de back-end B es el único grupo que realiza conexiones salientes, concede todos los puertos SNAT al grupo de back-end B y ninguno al grupo de back-end A.
 * **A qué protocolos se proporciona traducción de salida.**
      * El grupo de back-end B necesita puertos UDP para la salida. El grupo de back-end A necesita TCP. Asigne los puertos TCP a A y los puertos UDP a B.
 * **Qué duración se debe usar para el tiempo de espera de inactividad de conexión (de 4 a 120 minutos).**
      * Si hay conexiones de larga ejecución con Keepalives, reserve puertos inactivos para las conexiones de larga ejecución durante un máximo de 120 minutos. Suponga que las conexiones obsoletas se han abandonado y libere los puertos en 4 minutos para las conexiones nuevas. 
 * **Si quiere enviar un restablecimiento de TCP en caso de tiempo de espera de inactividad.**
-     * Al agotar el tiempo de espera de las conexiones inactivas, ¿se envía un RST de TCP al cliente y al servidor para que sepan que se ha abandonado el flujo?
+     * Al agotarse el tiempo de espera de las conexiones inactivas, ¿se envía un RST de TCP al cliente y al servidor para que sepan que se ha abandonado el flujo?
 
 ## <a name="outbound-rule-definition"></a>Definición de la regla de salida
 
@@ -98,6 +98,147 @@ Cuando aplique un grupo de seguridad de red a una máquina virtual de carga equi
 Asegúrese de que la VM pueda recibir solicitudes de sondeo de mantenimiento desde Azure Load Balancer.
 
 Si un grupo de seguridad de red bloquea las solicitudes de sondeo de mantenimiento de la etiqueta predeterminada AZURE_LOADBALANCER, se producirá un error en el sondeo de mantenimiento de la máquina virtual y esta se marca como no disponible. El equilibrador de carga dejará de enviar nuevos flujos a esa VM.
+
+## <a name="scenarios-with-outbound-rules"></a>Escenarios con reglas de salida
+        
+
+### <a name="outbound-rules-scenarios"></a>Escenarios de reglas de salida
+
+
+* Configuración de conexiones de salida en un conjunto específico de direcciones IP públicas o prefijos.
+* Modificación de la asignación de puertos de [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources).
+* Habilitación de solo salida.
+* NAT de salida solo para VM (no entrada).
+* NAT de salida para equilibrador de carga interno estándar.
+* Habilitación de los protocolos TCP y UDP para NAT de salida con un equilibrador de carga público estándar.
+
+
+### <a name="scenario-1-configure-outbound-connections-to-a-specific-set-of-public-ips-or-prefix"></a><a name="scenario1out"></a>Escenario 1: Configuración de conexiones de salida en un conjunto específico de direcciones IP públicas o prefijos
+
+
+#### <a name="details"></a>Detalles
+
+
+Use este escenario para adaptar las conexiones de salida de modo que se originen desde un conjunto de direcciones IP públicas. Agregue direcciones IP públicas o prefijos a una lista de permitidos o denegados en función del origen.
+
+
+Este prefijo o esta dirección IP pública pueden ser los mismos que los usados por una regla de equilibrio de carga. 
+
+
+Para usar una dirección IP pública o un prefijo distintos a los usados por una regla de equilibrio de carga: 
+
+
+1. Cree una dirección IP pública o un prefijo de dirección IP pública.
+2. Cree un equilibrador de carga público estándar. 
+3. Cree un front-end que haga referencia al prefijo de IP pública o la dirección IP pública que quiera usar. 
+4. Vuelva a usar un grupo de back-end o cree uno y coloque las VM en un grupo de back-end del equilibrador de carga público.
+5. Configure una regla de salida en el equilibrador de carga público para habilitar una NAT de salida para las VM que usan el front-end. No se recomienda usar una regla de equilibrio de carga para la salida ni deshabilitar SNAT de salida en la regla de equilibrio de carga.
+
+
+### <a name="scenario-2-modify-snat-port-allocation"></a><a name="scenario2out"></a>Escenario 2: Modificación de la asignación de puertos de [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources)
+
+
+#### <a name="details"></a>Detalles
+
+
+Puede utilizar reglas de salida para ajustar la [asignación de puertos de SNAT automática basada en el tamaño del grupo de back-end](load-balancer-outbound-connections.md#preallocatedports). 
+
+
+Si experimenta agotamiento de SNAT, aumente el número de puertos de [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) proporcionados a partir del valor predeterminado de 1024. 
+
+
+Cada dirección IP pública aporta hasta 64 000 puertos efímeros. El número de máquinas virtuales del grupo de back-end determina el número de puertos distribuidos a cada máquina virtual. Una máquina virtual del grupo de back-end tiene acceso al máximo de 64 000 puertos. Para dos VM, se puede proporcionar un máximo de 32 000 puertos de [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) con una regla de salida (2 x 32 000 = 64 000). 
+
+
+Puede usar reglas de salida para ajustar los puertos de SNAT proporcionados de manera predeterminada. Proporcione más o menos que la asignación de puertos predeterminada de [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources). Cada dirección IP pública de un front-end de una regla de salida aporta hasta 64 000 puertos efímeros para su uso como puertos de [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources). 
+
+
+El equilibrador de carga proporciona puertos de [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) en múltiplos de 8. Si proporciona un valor que no se puede dividir por 8, se rechaza la operación de configuración. Cada regla de equilibrio de carga y regla NAT de entrada consume un intervalo de 8 puertos. Si un equilibrio de carga o una regla NAT de entrada comparten el mismo intervalo de 8 que otros, no se consumen puertos adicionales.
+
+
+Si intenta asignar más puertos de [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) de los disponibles en función del número de direcciones IP públicas, se rechaza la operación de configuración. Por ejemplo, si proporciona 10 000 puertos por máquina virtual y siete máquinas virtuales de un grupo de back-end comparten una única dirección IP pública, se rechaza la configuración. Siete multiplicado por 10 000 supera el límite de puertos de 64 000. Agregue más direcciones IP públicas al front-end de la regla de salida para habilitar el escenario. 
+
+
+Vuelva a la [asignación de puertos predeterminada](load-balancer-outbound-connections.md#preallocatedports) mediante la especificación de 0 en el número de puertos. Las primeras 50 instancias de máquina virtual obtienen 1024 puertos, las instancias de máquina virtual de la 51 a la 100 obtienen 512 hasta las instancias máximas. Para obtener más información sobre la asignación de puertos de SNAT predeterminada, vea la [tabla de asignación de puertos de SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+
+
+### <a name="scenario-3-enable-outbound-only"></a><a name="scenario3out"></a>Escenario 3: Habilitación de solo la salida
+
+
+#### <a name="details"></a>Detalles
+
+
+Use un equilibrador de carga público estándar para proporcionar NAT de salida para un grupo de VM. En este escenario, use una regla de salida por sí misma, sin reglas adicionales configuradas.
+
+
+> [!NOTE]
+> **Azure Virtual Network NAT** puede proporcionar conectividad de salida para máquinas virtuales sin necesidad de un equilibrador de carga. Para obtener más información, vea [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-overview.md)
+
+### <a name="scenario-4-outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>Escenario 4: NAT de salida solo para VM (no de entrada)
+
+
+> [!NOTE]
+> **Azure Virtual Network NAT** puede proporcionar conectividad de salida para máquinas virtuales sin necesidad de un equilibrador de carga. Para obtener más información, vea [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-overview.md)
+
+#### <a name="details"></a>Detalles
+
+
+En este escenario: Las reglas de salida de Azure Load Balancer y Virtual Network NAT son dos opciones disponibles para la salida desde una red virtual.
+
+
+1. Cree un prefijo o una dirección IP pública.
+2. Cree un equilibrador de carga público estándar. 
+3. Cree un front-end asociado a la dirección IP pública o el prefijo dedicado para la salida.
+4. Cree un grupo de back-end para las máquinas virtuales.
+5. Coloque las máquinas virtuales en el grupo de back-end.
+6. Configure una regla de salida para habilitar NAT de salida.
+
+
+
+Use un prefijo o una dirección IP pública para escalar puertos de [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources). Agregue el origen de conexiones de salida a una lista de permitidos o denegados.
+
+
+
+### <a name="scenario-5-outbound-nat-for-internal-standard-load-balancer"></a><a name="scenario5out"></a>Escenario 5: NAT de salida para equilibrador de carga interno estándar
+
+
+> [!NOTE]
+> **Azure Virtual Network NAT** puede proporcionar conectividad de salida para máquinas virtuales que usen un equilibrador de carga interno estándar. Para obtener más información, vea [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-overview.md)
+
+#### <a name="details"></a>Detalles
+
+
+La conectividad de salida no está disponible para un equilibrador de carga interno estándar hasta que se ha declarado explícitamente por medio de direcciones IP públicas de nivel de instancia o Virtual Network NAT, o mediante la asociación de los miembros del grupo de back-end a una configuración de equilibrador de carga solo de salida. 
+
+
+Para obtener más información, vea [Configuración del equilibrador de carga solo de salida](https://docs.microsoft.com/azure/load-balancer/egress-only).
+
+
+
+
+### <a name="scenario-6-enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a><a name="scenario6out"></a>Escenario 6: Habilitación de los protocolos TCP y UDP para NAT de salida con un equilibrador de carga público estándar
+
+
+#### <a name="details"></a>Detalles
+
+
+Cuando se usa un equilibrador de carga público estándar, la NAT de salida automática proporcionada coincide con el protocolo de transporte de la regla de equilibrio de carga. 
+
+
+1. Deshabilite [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) de salida en la regla de equilibrio de carga. 
+2. Configure una regla de salida en el mismo equilibrador de carga.
+3. Vuelva a usar el grupo de back-end que usó para sus VM. 
+4. Especifique "protocol": "All" como parte de la regla de salida. 
+
+
+Si solo se usan reglas de NAT entrantes, no se proporciona ninguna NAT de salida. 
+
+
+1. Coloque las VM en un grupo de back-end.
+2. Defina una o varias configuraciones de IP de front-end con direcciones IP públicas o prefijos de IP pública. 
+3. Configure una regla de salida en el mismo equilibrador de carga. 
+4. Especifique "protocol": "All" como parte de la regla de salida.
+
 
 ## <a name="limitations"></a>Limitaciones
 

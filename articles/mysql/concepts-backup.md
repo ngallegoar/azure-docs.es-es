@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 00cd5a76a52e1b58bc2f01315dd3a1a859074a58
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 283befd08c7802a9df6d2fca78465d50cfb2ba7b
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348464"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376823"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Copia de seguridad y restauración en Azure Database for MySQL
 
@@ -115,7 +115,12 @@ Puede restaurar un servidor en otra región de Azure donde el servicio esté dis
 
 La restauración geográfica es la opción de recuperación predeterminada cuando el servidor no está disponible debido a una incidencia en la región en la que se hospeda el servidor. Si un incidente a gran escala en una región provoca la falta de disponibilidad de una aplicación de base de datos, puede restaurar un servidor a partir de las copias de seguridad con redundancia geográfica en un servidor de cualquier otra región. La restauración geográfica usa la copia de seguridad más reciente del servidor. Hay un retraso entre momento en que se realiza una copia de seguridad y el momento en que se replica en una región diferente. Este retraso puede ser de hasta una hora; por lo tanto, si se produce un desastre, puede haber una pérdida de datos de hasta una hora.
 
+> [!IMPORTANT]
+>Si se realiza una restauración geográfica de un servidor recién creado, la sincronización de la copia de seguridad inicial puede tardar más de 24 horas, en función del tamaño de los datos, ya que el tiempo de archivo de copia de seguridad de la instantánea completa inicial es mucho mayor. Las copias de seguridad de instantáneas posteriores son copias incrementales y, por lo tanto, las restauraciones son más rápidas después de las 24 horas de creación del servidor. Si va a evaluar las restauraciones geográficas para definir el RTO, le recomendamos que espere y evalúe la restauración geográfica **una vez transcurridas 24 horas** después de crear el servidor para obtener mejores estimaciones.
+
 Durante la restauración geográfica, las configuraciones de servidor que se pueden cambiar incluyen la generación de procesos, núcleos virtuales, período de retención de copia de seguridad y opciones de redundancia de copia de seguridad. No se permite cambiar el Plan de tarifa (Básico, Uso general o Memoria optimizada) ni el tamaño de Almacenamiento durante la restauración geográfica.
+
+El tiempo estimado de recuperación depende de varios factores, como el tamaño de la bases de datos, el tamaño del registro de transacciones, el ancho de banda de red y el número total de bases de datos que se están recuperando en la misma región al mismo tiempo. Normalmente, el tiempo de recuperación es inferior a 12 horas.
 
 ### <a name="perform-post-restore-tasks"></a>Tareas posteriores a la restauración
 

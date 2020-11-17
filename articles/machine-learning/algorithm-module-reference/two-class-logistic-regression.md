@@ -1,7 +1,7 @@
 ---
 title: 'Regresión logística de dos clases: referencia para los módulos'
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar el módulo Regresión logística de dos clases en Azure Machine Learning para crear un modelo de regresión logística que pueda usarse para predecir dos resultados (y solo dos).
+description: Aprenda a usar el módulo de regresión logística de dos clases en Azure Machine Learning para crear un clasificador binario.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 68bd42b6e9f1498db294b57d0ea1ffdac5245be8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2e29a666f4d478e11986f834cff94d9743223f22
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309986"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420587"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo Regresión logística de dos clases
 
@@ -22,7 +22,7 @@ En este artículo se describe un módulo del diseñador de Azure Machine Learnin
 
 Utilice este módulo para crear un modelo de regresión logística que pueda usarse para predecir dos resultados (y solo dos). 
 
-La regresión logística es una técnica estadística conocida que se usa para el modelado de muchos tipos de problemas. Este algoritmo es un método de *aprendizaje supervisado* ; por lo tanto, debe proporcionar un conjunto de datos que ya contengan los resultados para entrenar el modelo.  
+La regresión logística es una técnica estadística conocida que se usa para el modelado de muchos tipos de problemas. Este algoritmo es un método de *aprendizaje supervisado*; por lo tanto, debe proporcionar un conjunto de datos que ya contengan los resultados para entrenar el modelo.  
 
 ### <a name="about-logistic-regression"></a>Acerca de la regresión logística  
 

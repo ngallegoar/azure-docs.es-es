@@ -1,7 +1,7 @@
 ---
 title: ¿Qué es el entrenamiento distribuido?
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre el entrenamiento distribuido y sobre cómo lo admite Azure Machine Learning.
+description: Obtenga información sobre qué tipo de entrenamiento distribuido se admite en Azure Machine Learning y conozca las integraciones del marco de código abierto disponibles para el entrenamiento distribuido.
 services: machine-learning
 ms.service: machine-learning
 author: nibaccam
@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c479a64b2100cfc1a6fdf17f5e6f5636d3a689d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4e1972e0530656bf6cc0e6319191ab4ebbfbfddb
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322224"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358582"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Entrenamiento distribuido con Azure Machine Learning
 

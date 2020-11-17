@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13a05089ae6365bb5d279105f8c010278bd0adb8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983612"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396012"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Descripción de los precios de Data Factory a través de ejemplos
 
@@ -48,7 +48,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 | Obtención de la canalización | 1 entidad de lectura y escritura |
 | Ejecución de la canalización | 2 ejecuciones de actividad (1 para la ejecución del desencadenador y 1 para ejecuciones de la actividad) |
 | Asunción de la copia de datos: tiempo de ejecución = 10 min | 10 \* 4 Azure Integration Runtime (el valor predeterminado de la unidad de integración de datos es 4). Para más información sobre las unidades de integración de datos y la optimización del rendimiento de la copia, consulte [este artículo](copy-activity-performance.md) |
-| Asunción de la supervisión de la canalización: solo se produjo 1 ejecución | 2 registros de ejecución de supervisión reintentados (1 para la ejecución de la canalización y 1 para la ejecución de la actividad) |
+| Asunción de la supervisión de la canalización: solo se produjo 1 ejecución | 2 registros de ejecución de supervisión recuperados (1 para la ejecución de la canalización y 1 para la ejecución de la actividad) |
 
 **Precio total del escenario: 0,16811 $**
 
@@ -79,7 +79,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 | Obtención de la canalización | 1 entidad de lectura y escritura |
 | Ejecución de la canalización | 3 ejecuciones de actividad (1 para la ejecución del desencadenador, 2 para ejecuciones de actividad) |
 | Asunción de la copia de datos: tiempo de ejecución = 10 min | 10 \* 4 Azure Integration Runtime (el valor predeterminado de la unidad de integración de datos es 4). Para más información sobre las unidades de integración de datos y la optimización del rendimiento de la copia, consulte [este artículo](copy-activity-performance.md) |
-| Asunción de la supervisión de la canalización: solo se produjo 1 ejecución | 3 registros de supervisión de la ejecución reintentados (1 para la ejecución de la canalización y 2 para la ejecución de la actividad) |
+| Asunción de la supervisión de la canalización: solo se produjo 1 ejecución | 3 registros de ejecución de supervisión recuperados (1 para la ejecución de la canalización y 2 para la ejecución de la actividad) |
 | Asunción de la ejecución de la actividad de Databricks: tiempo de ejecución = 10 min | Ejecución de la actividad de canalización externa de 10 min |
 
 **Precio total del escenario: 0,16916 $**
@@ -113,7 +113,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 | Obtención de la canalización | 1 entidad de lectura y escritura |
 | Ejecución de la canalización | 4 ejecuciones de actividad (1 para la ejecución del desencadenador, 3 para ejecuciones de actividad) |
 | Asunción de la copia de datos: tiempo de ejecución = 10 min | 10 \* 4 Azure Integration Runtime (el valor predeterminado de la unidad de integración de datos es 4). Para más información sobre las unidades de integración de datos y la optimización del rendimiento de la copia, consulte [este artículo](copy-activity-performance.md) |
-| Asunción de la supervisión de la canalización: solo se produjo 1 ejecución | 4 registros de ejecución de supervisión reintentados (1 para la ejecución de la canalización y 3 para la ejecución de la actividad) |
+| Asunción de la supervisión de la canalización: solo se produjo 1 ejecución | 4 registros de ejecución de supervisión recuperados (1 para la ejecución de la canalización y 3 para la ejecución de la actividad) |
 | Asunción de la ejecución de actividad de búsqueda: tiempo de ejecución = 1 min | Ejecución de la actividad de canalización de 1 min |
 | Asunción de la ejecución de la actividad de Databricks: tiempo de ejecución = 10 min | Ejecución de la actividad de canalización externa de 10 min |
 
@@ -160,7 +160,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 | Obtención de la canalización | 1 entidad de lectura y escritura |
 | Ejecución de la canalización | 2 ejecuciones de actividad (1 para la ejecución del desencadenador y 1 para ejecuciones de la actividad) |
 | Suposiciones de Data Flow: tiempo de ejecución = 10 min + TTL de 10 minutos | 10 \* 16 núcleos de proceso general con TTL de 10 |
-| Asunción de la supervisión de la canalización: solo se produjo 1 ejecución | 2 registros de ejecución de supervisión reintentados (1 para la ejecución de la canalización y 1 para la ejecución de la actividad) |
+| Asunción de la supervisión de la canalización: solo se produjo 1 ejecución | 2 registros de ejecución de supervisión recuperados (1 para la ejecución de la canalización y 1 para la ejecución de la actividad) |
 
 **Precio total del escenario: 1,4631 USD**
 
@@ -189,7 +189,7 @@ En este escenario, quiere eliminar archivos originales en Azure Blob Storage y
 | Ejecución de la canalización | 6 ejecuciones de actividad (2 para la ejecución del desencadenador y 4 para ejecuciones de actividad) |
 | Ejecución de la actividad de eliminación: cada tiempo de ejecución = 5 minutos. La ejecución de la actividad de eliminación en la primera canalización es de 10:00 AM UTC a 10:05 AM UTC. La ejecución de la actividad de eliminación en la segunda canalización es de 10:02 AM UTC a 10:07 AM UTC.|Ejecución total de actividad de canalización de 7 minutos en VNET administrada. La actividad de canalización admite hasta 50 actividades simultáneas en una VNET administrada. |
 | Asunción de copia de datos: cada tiempo de ejecución = 10 minutos. La ejecución de la copia en la primera canalización es de 10:06 AM UTC a 10:15 AM UTC. La ejecución de la actividad de eliminación en la segunda canalización es de 10:08 AM UTC a 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (valor predeterminado de DIU = 4). Para obtener más información sobre las unidades de integración de datos y la optimización del rendimiento de la copia, vea [este artículo](copy-activity-performance.md) |
-| Asunción de la supervisión de la canalización: Solo se han producido 2 ejecuciones | 6 registros de ejecución de supervisión reintentados (2 para la ejecución de la canalización y 4 para la ejecución de la actividad) |
+| Asunción de la supervisión de la canalización: Solo se han producido 2 ejecuciones | 6 registros de ejecución de supervisión recuperados (2 para la ejecución de la canalización y 4 para la ejecución de la actividad) |
 
 
 **Precio total del escenario: 0,45523 USD**

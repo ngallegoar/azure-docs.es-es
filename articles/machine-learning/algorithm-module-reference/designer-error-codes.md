@@ -1,7 +1,7 @@
 ---
 title: Solución de problemas en los módulos del diseñador
 titleSuffix: Azure Machine Learning
-description: Solucione los códigos de error de módulos en el diseñador de Azure Machine Learning.
+description: Aprenda a leer los códigos de error de los módulos automatizados del diseñador de Azure Machine Learning y cómo solucionarlos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 05926f7ce25714fb76415802876db0640eb30aae
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323777"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420842"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Excepciones y códigos de error para el diseñador
 
@@ -187,7 +187,7 @@ Compruebe también si se ha eliminado la cuenta, el contenedor o el blob. Utilic
 
 Azure Machine Learning no admite algunos nuevos tipos de cuenta. Por ejemplo, los nuevos tipos de almacenamiento "en frío" o "de acceso frecuente" no se pueden usar para el aprendizaje automático. Las cuentas de almacenamiento clásicas y las creadas como "de uso general" funcionan correctamente.
 
-Si se especificó la ruta de acceso completa a un blob, compruebe que la ruta de acceso se especificó con el formato **contenedor/nombredeblob** , y que tanto el contenedor como el blob existen en la cuenta.  
+Si se especificó la ruta de acceso completa a un blob, compruebe que la ruta de acceso se especificó con el formato **contenedor/nombredeblob**, y que tanto el contenedor como el blob existen en la cuenta.  
 
  La ruta de acceso no debe contener una barra inicial. Por ejemplo **/contenedor/blob** no es correcto y debe especificarse como **contenedor/blob**.  
 
@@ -1106,7 +1106,7 @@ Consulte los siguientes artículos para obtener ayuda con las consultas de Hive 
  Compruebe que la consulta funciona correctamente fuera de Azure Machine Learning al iniciar sesión directamente en el servidor de la base de datos y ejecutar la consulta.  
 
  Si la excepción del módulo le informa de un mensaje generado por SQL, tome medidas según el error notificado. Por ejemplo, los mensajes de error a veces incluyen instrucciones específicas sobre el posible error:
-+ *La columna no existe o falta la base de datos* , que indica que tal vez escribió de forma incorrecta el nombre de una columna. Si está seguro de que nombre de columna es correcto, intente usar corchetes o comillas para delimitar el identificador de columna.
++ *La columna no existe o falta la base de datos*, que indica que tal vez escribió de forma incorrecta el nombre de una columna. Si está seguro de que nombre de columna es correcto, intente usar corchetes o comillas para delimitar el identificador de columna.
 + *Error lógico de SQL cerca de \<SQL keyword\>* , lo que indica que es posible que haya un error de sintaxis antes de la palabra clave especificada.
 
   
