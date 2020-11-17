@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 52615a968ce831a9a5a487f7422ad13bc58ecf6d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4d21bfa69022cbebdcbf80c3bee4aec76bf99c53
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426472"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491127"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de rendimiento de Azure Files
 
@@ -26,15 +26,11 @@ Las solicitudes se limitan cuando se alcanzan los límites de IOPS, entradas o s
 
 Para confirmar si se está limitando el recurso compartido, puede aprovechar las métricas de Azure en el portal.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. En Azure Portal, vaya a la cuenta de almacenamiento.
 
-1. Seleccione **Todos los servicios** y busque **Métricas**.
+1. En el menú de la izquierda, en **Supervisión**, seleccione **Métricas**.
 
-1. Seleccione **Métricas**.
-
-1. Seleccione la cuenta de almacenamiento como recurso.
-
-1. Seleccione **Archivo** como espacio de nombres de la métrica.
+1. Seleccione **Archivo** como el espacio de nombres de la métrica para el ámbito de la cuenta de almacenamiento.
 
 1. Seleccione **Transacciones** como métrica.
 
@@ -54,7 +50,7 @@ Para confirmar si se está limitando el recurso compartido, puede aprovechar las
 
 Si la mayoría de las solicitudes se centran en metadatos (por ejemplo, createfile/openfile/closefile/queryinfo/querydirectory), la latencia será peor en comparación con las operaciones de lectura y escritura.
 
-Para confirmar si la mayoría de las solicitudes se centran en metadatos, puede usar los mismos pasos que antes. Excepto que, en lugar de agregar un filtro para **ResponseType** , deberá agregar un filtro para **Nombre de la API**.
+Para confirmar si la mayoría de las solicitudes se centran en metadatos, puede usar los mismos pasos que antes. Excepto que, en lugar de agregar un filtro para **ResponseType**, deberá agregar un filtro para **Nombre de la API**.
 
 ![Filtrar por Nombre de la API en las métricas](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
@@ -103,7 +99,7 @@ Se trata de un problema conocido relacionado con la implementación del cliente 
 
 - Distribuir la carga entre varias máquinas virtuales.
 - En la misma máquina virtual, use varios puntos de montaje con la opción **nosharesock** y propague la carga entre estos puntos de montaje.
-- En Linux, intente montar la opción **nostrictsync** para evitar forzar el vaciado de SMB en cada llamada a **fsync**. Para Azure Files, esta opción no afecta a la coherencia de los datos, pero puede producir metadatos de archivos obsoletos en la lista de directorios (comando **ls -l** ). La consulta directa de metadatos del archivo (comando **stat** ) devolverá los metadatos de archivo más recientes.
+- En Linux, intente montar la opción **nostrictsync** para evitar forzar el vaciado de SMB en cada llamada a **fsync**. Para Azure Files, esta opción no afecta a la coherencia de los datos, pero puede producir metadatos de archivos obsoletos en la lista de directorios (comando **ls -l**). La consulta directa de metadatos del archivo (comando **stat**) devolverá los metadatos de archivo más recientes.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latencias altas para cargas de trabajo con muchos metadatos que implican operaciones de apertura y cierre extensas.
 
@@ -115,7 +111,7 @@ Falta de compatibilidad para las concesiones de directorios.
 
 - Si es posible, evite las aperturas o cierres excesivos en el mismo directorio en un período de tiempo breve.
 - Para las máquinas virtuales de Linux, aumente el tiempo de espera de caché de entrada de directorio especificando **actimeo=\<sec>** como opción de montaje. De forma predeterminada es un segundo, por lo que un valor mayor, como tres o cinco, podría ayudar.
-- Para las máquinas virtuales de Linux, actualice el kernel a 4.20 o una versión posterior.
+- En el caso de las VM RHEL/CentOS, actualice el sistema a RHEL/CentOS 8.2. En cuanto a las VM de Linux, actualice el kernel a 5.0 o una versión posterior.
 
 ## <a name="low-iops-on-centosrhel"></a>Baja tasa de IOPS en RHEL/CentOS
 
@@ -177,28 +173,28 @@ Latencia mayor a la esperada al acceder a Azure Files para cargas de trabajo int
 
 1. Vaya a la **cuenta de almacenamiento** en **Azure Portal**.
 2. En la sección Supervisión, haga clic en **Alertas** y, después, haga clic en **+ Nueva regla de alertas**.
-3. Haga clic en **Editar recurso** , seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
+3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
 4. Haga clic en **Seleccionar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Transacciones**.
-6. En la hoja **Configurar lógica de señal** , haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Tipo de respuesta**.
+6. En la hoja **Configurar lógica de señal**, haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Tipo de respuesta**.
 7. Haga clic en el menú desplegable **Valores de la dimensión** y seleccione **SuccessWithThrottling** (para SMB) o **ClientThrottlingError** (para REST).
 
-  > [!NOTE]
-  > Si el valor de la dimensión SuccessWithThrottling o ClientThrottlingError no aparece en la lista, significa que el recurso no se ha limitado. Para agregar el valor de dimensión, haga clic en **Agregar valor personalizado** junto a la lista desplegable **Valores de dimensión** , escriba **SuccessWithThrottling** o **ClientThrottlingError** , haga clic en **Aceptar** y, a continuación, repita el paso 7.
+   > [!NOTE]
+   > Si el valor de la dimensión SuccessWithThrottling o ClientThrottlingError no aparece en la lista, significa que el recurso no se ha limitado. Para agregar el valor de dimensión, haga clic en **Agregar valor personalizado** junto a la lista desplegable **Valores de dimensión**, escriba **SuccessWithThrottling** o **ClientThrottlingError**, haga clic en **Aceptar** y, a continuación, repita el paso 7.
 
 8. Haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
 9. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
 
-  > [!NOTE]
-  > Si el recurso compartido de archivos es un recurso compartido de archivos estándar, seleccione **Todos los valores actuales y futuros**. El menú desplegable de valores de dimensión no mostrará los recursos compartidos de archivos porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de limitación de los recursos compartidos de archivos estándar se desencadenarán si algún recurso compartido de archivos de la cuenta de almacenamiento está limitado y la alerta no identificará qué recurso compartido de archivos se ha limitado. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
+   > [!NOTE]
+   > Si el recurso compartido de archivos es un recurso compartido de archivos estándar, seleccione **Todos los valores actuales y futuros**. El menú desplegable de valores de dimensión no mostrará los recursos compartidos de archivos porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de limitación de los recursos compartidos de archivos estándar se desencadenarán si algún recurso compartido de archivos de la cuenta de almacenamiento está limitado y la alerta no identificará qué recurso compartido de archivos se ha limitado. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
 
 10. Defina los **parámetros de alerta** (umbral, operador, granularidad de agregación y frecuencia de evaluación) y haga clic en **Listo**.
 
-  > [!TIP]
-  > Si usa un umbral estático, el gráfico de métricas puede ayudar a determinar un valor de umbral razonable si el recurso compartido de archivos se está limitando actualmente. Si usa un umbral dinámico, el gráfico de métricas mostrará los umbrales calculados según los datos recientes.
+    > [!TIP]
+    > Si usa un umbral estático, el gráfico de métricas puede ayudar a determinar un valor de umbral razonable si el recurso compartido de archivos se está limitando actualmente. Si usa un umbral dinámico, el gráfico de métricas mostrará los umbrales calculados según los datos recientes.
 
 11. Haga clic en **Seleccionar el grupo de acciones** para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
-12. Rellene los **detalles de la alerta** , como el **nombre de la regla de alertas** , la **descripción** y la **gravedad**.
+12. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
 13. Haga clic en **Crear regla de alerta** para crear la alerta.
 
 Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
@@ -207,29 +203,29 @@ Para obtener más información sobre cómo configurar alertas en Azure Monitor, 
 
 1. Vaya a la **cuenta de almacenamiento** en **Azure Portal**.
 2. En la sección Supervisión, haga clic en **Alertas** y, después, haga clic en **+ Nueva regla de alertas**.
-3. Haga clic en **Editar recurso** , seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
+3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
 4. Haga clic en **Seleccionar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Salida**.
 
-  > [!NOTE]
-  > Tendrá que crear tres alertas independientes para recibir alertas cuando la entrada, la salida o las transacciones superen la cantidad establecida en el umbral. Esto se debe a que una alerta solo se activa cuando se cumplen todas las condiciones. Por lo tanto, si pone todas las condiciones en una alerta, solo se le avisaría si la entrada, la salida y las transacciones superaran sus cantidades establecidas en el umbral.
+   > [!NOTE]
+   > Tendrá que crear tres alertas independientes para recibir alertas cuando la entrada, la salida o las transacciones superen la cantidad establecida en el umbral. Esto se debe a que una alerta solo se activa cuando se cumplen todas las condiciones. Por lo tanto, si pone todas las condiciones en una alerta, solo se le avisaría si la entrada, la salida y las transacciones superaran sus cantidades establecidas en el umbral.
 
 6. Desplácese hacia abajo. Haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
 7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
 8. Defina los **parámetros de alerta** (umbral, operador, granularidad de agregación y frecuencia de evaluación) y haga clic en **Listo**.
 
-  > [!NOTE]
-  > Las métricas de salida, entrada y transacciones son por minuto, aunque se ha aprovisionado la salida, la entrada y la IOPS por segundo. (hablar acerca de la granularidad de la agregación: por minuto = más ruido, por eso elegir otra) Por lo tanto, por ejemplo, si la salida aprovisionada es 90 MiB/segundo y desea que el umbral sea el 80 % de la salida aprovisionada, debe seleccionar los siguientes parámetros de alerta: 75497472 para el **valor de umbral** , mayor o igual a para **operador** y promedio para **tipo de agregación**. Dependiendo del ruido que desee que tenga la alerta, puede elegir qué valores seleccionar para la granularidad de agregación y la frecuencia de evaluación. Por ejemplo, si quiero que mi alerta examine el promedio de entrada en el período de tiempo de una hora y quiero que mi regla de alerta se ejecute cada hora, seleccionaría 1 hora para la **granularidad de agregación** y 1 hora para la **frecuencia de evaluación**.
+   > [!NOTE]
+   > Las métricas de salida, entrada y transacciones son por minuto, aunque se ha aprovisionado la salida, la entrada y la IOPS por segundo. (hablar acerca de la granularidad de la agregación: por minuto = más ruido, por eso elegir otra) Por lo tanto, por ejemplo, si la salida aprovisionada es 90 MiB/segundo y desea que el umbral sea el 80 % de la salida aprovisionada, debe seleccionar los siguientes parámetros de alerta: 75497472 para el **valor de umbral**, mayor o igual a para **operador** y promedio para **tipo de agregación**. Dependiendo del ruido que desee que tenga la alerta, puede elegir qué valores seleccionar para la granularidad de agregación y la frecuencia de evaluación. Por ejemplo, si quiero que mi alerta examine el promedio de entrada en el período de tiempo de una hora y quiero que mi regla de alerta se ejecute cada hora, seleccionaría 1 hora para la **granularidad de agregación** y 1 hora para la **frecuencia de evaluación**.
 
 9. Haga clic en **Seleccionar el grupo de acciones** para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
-10. Rellene los **detalles de la alerta** , como el **nombre de la regla de alertas** , la **descripción** y la **gravedad**.
+10. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
 11. Haga clic en **Crear regla de alerta** para crear la alerta.
 
-  > [!NOTE]
-  > Para recibir una notificación si el recurso compartido de archivos prémium está cerca del límite debido a la entrada aprovisionada, siga los mismos pasos, excepto en el paso 5, donde debe seleccionar esta vez la métrica **Entrada**.
+    > [!NOTE]
+    > Para recibir una notificación si el recurso compartido de archivos prémium está cerca del límite debido a la entrada aprovisionada, siga los mismos pasos, excepto en el paso 5, donde debe seleccionar esta vez la métrica **Entrada**.
 
-  > [!NOTE]
-  > Para recibir una notificación si el recurso compartido de archivos prémium está cerca del límite debido a la IOPS aprovisionada, tendrá que realizar algunos cambios. En el paso 5, seleccione la métrica **Transacciones** en su lugar. Además, en el paso 10, la única opción para **Tipo de agregación** es total. Por lo tanto, el valor de umbral dependerá de la granularidad de agregación seleccionada. Por ejemplo, si desea que el umbral sea el 80 % de la IOPS de línea de base aprovisionada y seleccionó 1 hora para la **granularidad de agregación** , el **valor de umbral** sería su IOPS de línea base (en bytes) x 0,8 x 3600. Además de estos cambios, siga los mismos pasos indicados anteriormente. 
+    > [!NOTE]
+    > Para recibir una notificación si el recurso compartido de archivos prémium está cerca del límite debido a la IOPS aprovisionada, tendrá que realizar algunos cambios. En el paso 5, seleccione la métrica **Transacciones** en su lugar. Además, en el paso 10, la única opción para **Tipo de agregación** es total. Por lo tanto, el valor de umbral dependerá de la granularidad de agregación seleccionada. Por ejemplo, si desea que el umbral sea el 80 % de la IOPS de línea de base aprovisionada y seleccionó 1 hora para la **granularidad de agregación**, el **valor de umbral** sería su IOPS de línea base (en bytes) x 0,8 x 3600. Además de estos cambios, siga los mismos pasos indicados anteriormente. 
 
 Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

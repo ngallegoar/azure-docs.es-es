@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3fda153d4c48ced17d1a9ba5f060b435b161542e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127644"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490974"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Prueba de un trabajo de Azure Stream Analytics en el portal
 
@@ -27,7 +27,7 @@ Azure Stream Analytics captura automáticamente los eventos de las entradas de s
 
 2. Busque y seleccione el trabajo de Stream Analytics existente.
 
-3. En la página del trabajo de Stream Analytics, en el encabezado **Topología del trabajo** , seleccione **Consulta** para abrir la ventana del editor de consultas. 
+3. En la página del trabajo de Stream Analytics, en el encabezado **Topología del trabajo**, seleccione **Consulta** para abrir la ventana del editor de consultas. 
 
 4. Para ver una lista de ejemplos de eventos de entrada, seleccione la entrada con el icono de archivo, y los eventos de ejemplo aparecerán automáticamente en la **vista previa de entrada**.
 
@@ -37,11 +37,11 @@ Azure Stream Analytics captura automáticamente los eventos de las entradas de s
     
    c. Si los datos que aparecen no están actualizados, seleccione **Actualizar** para ver los eventos más recientes.
 
-   La siguiente tabla es un ejemplo de datos en **formato de tabla** :
+   La siguiente tabla es un ejemplo de datos en **formato de tabla**:
 
    ![Entrada de ejemplo de Azure Stream Analytics en formato de tabla](./media/stream-analytics-test-query/asa-sample-table.png)
 
-   La tabla siguiente es un ejemplo de datos en **formato sin procesar** :
+   La tabla siguiente es un ejemplo de datos en **formato sin procesar**:
 
    ![Entrada de ejemplo de Azure Stream Analytics en formato sin procesar](./media/stream-analytics-test-query/asa-sample-raw.png)
 
@@ -75,7 +75,7 @@ En lugar de usar datos en vivo, puede usar datos de ejemplo de un archivo local 
    
 2. Busque el trabajo de Stream Analytics existente y selecciónelo.
 
-3. En la página del trabajo de Stream Analytics, en el encabezado **Topología del trabajo** , seleccione **Consulta** para abrir la ventana del editor de consultas.
+3. En la página del trabajo de Stream Analytics, en el encabezado **Topología del trabajo**, seleccione **Consulta** para abrir la ventana del editor de consultas.
 
 4. Para probar la consulta con un archivo local, seleccione **Upload sample input** (Cargar entrada de ejemplo) en la pestaña **Input preview** (Vista previa de entrada). 
 
@@ -101,8 +101,8 @@ En lugar de usar datos en vivo, puede usar datos de ejemplo de un archivo local 
 
 1.  La directiva de tiempo no se admite en las pruebas del portal:
 
-   * Sin orden: se ordenarán todos los eventos entrantes.
-   * Llegada tardía: no habrá evento de llegada tardía, ya que Stream Analytics solo puede usar los datos existentes para las pruebas.
+    * Sin orden: se ordenarán todos los eventos entrantes.
+    * Llegada tardía: no habrá evento de llegada tardía, ya que Stream Analytics solo puede usar los datos existentes para las pruebas.
    
 2.  No se admite el UDF de C#.
 
@@ -111,6 +111,20 @@ En lugar de usar datos en vivo, puede usar datos de ejemplo de un archivo local 
 4.  El tamaño de tiempo de expiración es un minuto. Por consiguiente, cualquier consulta con un tamaño de ventana superior a un minuto no puede obtener datos.
 
 5.  No se admite el aprendizaje automático.
+
+6. La API de datos de ejemplo se limita después de realizar cinco solicitudes en un período de 15 minutos. Cuando termine el periodo de 15 minutos, podrá realizar más solicitudes de datos de ejemplo. Esta limitación se aplica al nivel de suscripción.
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+1.  Si obtiene el error "Se produjo un problema de conectividad de red al capturar los resultados. Compruebe la configuración de la red y del firewall.", siga estos pasos:
+
+  * Para comprobar la conexión al servicio, abra [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) en un explorador. Si no puede abrir este vínculo, actualice la configuración del firewall.
+  
+2. Si obtiene este error "El tamaño de la solicitud es demasiado grande. Reduzca el tamaño de los datos de entrada e inténtelo de nuevo.", siga estos pasos:
+
+  * Reduzca el tamaño de la entrada: pruebe la consulta con un archivo de ejemplo de menor tamaño o con un intervalo de tiempo menor.
+  * Reduzca el tamaño de la consulta: para probar una selección de consulta, seleccione una parte de esa consulta y haga clic en **Probar consulta seleccionada**.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Compilación de una solución de IoT con Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md): este tutorial le guiará a la hora de compilar una solución de un extremo a otro con un generador de datos que simulará el tráfico en una cabina de peaje.

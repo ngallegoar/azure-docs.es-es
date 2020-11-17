@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: a52f10c7081875113a0ad22bd687776e71d238e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ad5e91a6dcdb61e09a64e61a27f12148ec28168e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460808"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490583"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Orígenes de datos de agente de Log Analytics en Azure Monitor
 Los datos que Azure Monitor recopila de máquinas virtuales con el agente de [Log Analytics](log-analytics-agent.md) se definen mediante los orígenes de datos que se configuran en el [área de trabajo de Log Analytics](data-platform-logs.md).   Cada origen de datos crea registros de un tipo determinado, donde cada tipo tiene su propio conjunto de propiedades.
@@ -20,6 +20,9 @@ Los datos que Azure Monitor recopila de máquinas virtuales con el agente de [Lo
 > En este artículo se tratan los orígenes de datos con el [agente de Log Analytics](log-analytics-agent.md), que es uno de los agentes usados por Azure Monitor. Otros agentes recopilan otros datos y se configuran de forma diferente. Consulte [Información general sobre los agentes de Azure Monitor](agents-overview.md) para obtener una lista de los agentes disponibles y los datos que pueden recopilar.
 
 ![Recopilación de datos de registro](media/agent-data-sources/overview.png)
+
+> [!IMPORTANT]
+> Los orígenes de datos descritos en este artículo se aplican solo a las máquinas virtuales que ejecutan el agente de Log Analytics. 
 
 ## <a name="summary-of-data-sources"></a>Resumen de orígenes de datos
 En la tabla siguiente se enumeran los orígenes de datos de agentes que actualmente se encuentran disponibles con el agente de Log Analytics.  Cada uno de ellos tiene un vínculo a un artículo independiente, donde se proporcionan detalles con respecto al origen de datos determinado.   También se proporciona información sobre el método y la frecuencia de recopilación. 

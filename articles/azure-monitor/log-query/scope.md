@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 2036505dea134a59e7dc0c75a030175b15dac0b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031949"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491382"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor
 Al ejecutar una [consulta de registro](log-query-overview.md) en [Log Analytics en Azure Portal](get-started-portal.md), el conjunto de datos que evalúa la consulta depende del ámbito y el intervalo de tiempo que seleccione. En este artículo se describe el ámbito y el intervalo de tiempo y cómo puede establecer cada uno de ellos en función de sus requisitos. También describe el comportamiento de distintos tipos de ámbitos.
@@ -51,9 +51,7 @@ No se pueden usar los siguientes comandos en una consulta cuando el ámbito se a
 - [workspace](workspace-expression.md)
  
 
-## <a name="query-limits"></a>Límites de la consulta
-Puede tener requisitos empresariales para que un recurso de Azure escriba datos en varias áreas de trabajo de Log Analytics. No es necesario que el área de trabajo esté en la misma región que el recurso y una sola área de trabajo puede recopilar datos de recursos de varias regiones.  
-
+## <a name="query-scope-limits"></a>Límites del ámbito de la consulta
 El establecimiento del ámbito en un recurso o un conjunto de recursos es una característica especialmente eficaz de Log Analytics, ya que permite consolidar automáticamente los datos distribuidos en una sola consulta. No obstante, al rendimiento puede resultar considerablemente afectado si es necesario recuperar los datos de las áreas de trabajo de varias regiones de Azure.
 
 Log Analytics ayuda a protegerse frente a una sobrecarga excesiva de las consultas que abarcan las áreas de trabajo de varias regiones mediante la generación de una advertencia o un error cuando se utiliza un determinado número de regiones. La consulta recibirá una advertencia si el ámbito incluye áreas de trabajo de cinco, o más, regiones. Se ejecutará, pero es posible que tarde demasiado tiempo en completarse.
@@ -66,12 +64,8 @@ Se bloqueará la ejecución de la consulta si el ámbito incluye áreas de traba
 
 
 ## <a name="time-range"></a>Intervalo de horas
-El intervalo de tiempo especifica el conjunto de registros que se evalúan para la consulta en función de cuándo se creó el registro. Se define mediante una columna estándar en todos los registros del área de trabajo o la aplicación, tal como se especifica en la tabla siguiente.
+El intervalo de tiempo especifica el conjunto de registros que se evalúan para la consulta en función de cuándo se creó el registro. Se define mediante la columna **TimeGenerated** en todos los registros del área de trabajo o la aplicación, tal como se especifica en la tabla siguiente. En el caso de una aplicación clásica de Application Insights, se usa la columna **timestamp** en el intervalo de tiempo.
 
-| Location | Columna |
-|:---|:---|
-| Área de trabajo de Log Analytics          | TimeGenerated |
-| Aplicación de Application Insights | timestamp     |
 
 Establezca el intervalo de tiempo seleccionándolo en el selector de hora en la parte superior de la ventana de Log Analytics.  Puede seleccionar un período predefinido o seleccionar **Personalizado** para especificar un intervalo de tiempo concreto.
 
@@ -81,13 +75,13 @@ Si establece un filtro en la consulta que utiliza la columna de hora estándar, 
 
 ![Consulta filtrada](media/scope/query-filtered.png)
 
-Si usa el comando [workspace](workspace-expression.md) o [app](app-expression.md) para recuperar datos de otra área de trabajo o aplicación, el selector de hora puede comportarse de manera diferente. Si el ámbito es un área de trabajo de Log Analytics y usa **app**, o si el ámbito es una aplicación de Application Insights y usa **workspace**, es posible que Log Analytics no entienda que la columna utilizada en el filtro debe determinar el filtro de tiempo.
+Si usa el comando [workspace](workspace-expression.md) o [app](app-expression.md) para recuperar datos de otra área de trabajo o aplicación clásica, el selector de hora puede comportarse de manera diferente. Si el ámbito es un área de trabajo de Log Analytics y usa **app**, o si el ámbito es una aplicación clásica de Application Insights y usa **workspace**, es posible que Log Analytics no entienda que la columna utilizada en el filtro debe determinar el filtro de tiempo.
 
 En el ejemplo siguiente, el ámbito se establece en un área de trabajo de Log Analytics.  La consulta usa **workspace** para recuperar datos de otra área de trabajo de Log Analytics. El selector de hora cambia a **Establecer en la consulta** porque ve un filtro que usa la columna **TimeGenerated** esperada.
 
 ![Consulta con workspace](media/scope/query-workspace.png)
 
-Sin embargo, si la consulta utiliza **app** para recuperar datos de una aplicación de Application Insights, Log Analytics no reconoce la columna **timestamp** del filtro y el selector de hora permanece sin cambios. En este caso, se aplican ambos filtros. En el ejemplo, solo se incluyen en la consulta los registros creados en las últimas 24 horas, aunque especifique 7 días en la cláusula **where**.
+Sin embargo, si la consulta utiliza **app** para recuperar datos de una aplicación clásica de Application Insights, Log Analytics no reconoce la columna **timestamp** del filtro y el selector de hora permanece sin cambios. En este caso, se aplican ambos filtros. En el ejemplo, solo se incluyen en la consulta los registros creados en las últimas 24 horas, aunque especifique 7 días en la cláusula **where**.
 
 ![Consulta con app](media/scope/query-app.png)
 

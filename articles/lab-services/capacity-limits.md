@@ -3,12 +3,12 @@ title: Límites de capacidad en Azure Lab Services
 description: Obtenga información sobre los límites de capacidad (relativos a las máquinas virtuales) en Azure Lab Services.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 92bdc714d70b3d73ca2cbc76b1f5dc5366582cbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9866628cd11ec8df67e6fe16ae8806f0f30ae9a1
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444104"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491025"
 ---
 # <a name="capacity-limits-in-azure-lab-services"></a>Límites de capacidad en Azure Lab Services
 Azure Lab Services tiene límites de capacidad predeterminados en las suscripciones de Azure para cumplir con las limitaciones de cuota de núcleos de Azure y mitigar posibles fraudes. Todas las suscripciones de Azure tendrán un límite de capacidad inicial, que puede variar en función del tipo de suscripción, el número de núcleos de proceso estándar y los núcleos de GPU disponibles dentro de Azure Lab Services. Este límite restringe el número de máquinas virtuales que se puede crear en los laboratorios antes de que haya que solicitar un aumento del límite.  
@@ -50,4 +50,5 @@ Una vez enviada su solicitud de soporte técnico, se revisará. Si es necesario,
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el artículo siguiente:
+- [Guía del administrador: tamaño de la VM](administrator-guide.md#vm-sizing).
 - [Preguntas más frecuentes](classroom-labs-faq.md).

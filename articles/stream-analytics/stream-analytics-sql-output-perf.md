@@ -1,5 +1,5 @@
 ---
-title: Salida de Azure Stream Analytics a Azure SQL Database
+title: Incremento del rendimiento de Azure SQL Database desde Azure Stream Analytics
 description: Obtenga información sobre cómo enviar datos a SQL Azure desde Azure Stream Analytics y lograr mayores tasas de rendimiento de escritura.
 author: chetanmsft
 ms.author: chetang
@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a902cbc8256e249a608a5da8436a1145ddb0d565
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346339"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490940"
 ---
-# <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Salida de Azure Stream Analytics a Azure SQL Database
+# <a name="increase-throughput-performance-to-azure-sql-database-from-azure-stream-analytics"></a>Incremento del rendimiento de Azure SQL Database desde Azure Stream Analytics
 
 En este artículo se tratan las sugerencias para lograr un mejor rendimiento de escritura al cargar datos en Azure SQL Database mediante Azure Stream Analytics.
 
@@ -29,7 +29,7 @@ A continuación se indican algunas configuraciones de cada servicio que pueden a
 > [!NOTE] 
 > Cuando hay más de 8 particiones de entrada, es posible que heredar el esquema de partición de entrada no sea una opción adecuada. Se ha observado este límite superior en una tabla con una columna de identidad única y un índice agrupado. En este caso, considere el uso de [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 en la consulta para especificar explícitamente el número de redactores de salida. Según el esquema y la elección de índices, sus observaciones pueden variar.
 
-- **Tamaño del lote** : la configuración de salida de SQL le permite especificar el tamaño del lote máximo en una salida de SQL de Azure Stream Analytics según la naturaleza de la carga de trabajo o la tabla de destino. El tamaño del lote es el número máximo de registros que se envía con cada transacción de inserción masiva. En los índices de almacén de columnas agrupados, los tamaños de lote en torno a [100 000](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) permiten más paralelización, registros mínimos y optimizaciones de bloqueo. En las tablas basadas en disco, un tamaño de 10 000 (valor predeterminado) o inferior puede ser óptimo para su solución, ya que los tamaños de lote mayores pueden desencadenar la extensión de bloqueo durante las inserciones masivas.
+- **Tamaño del lote**: la configuración de salida de SQL le permite especificar el tamaño del lote máximo en una salida de SQL de Azure Stream Analytics según la naturaleza de la carga de trabajo o la tabla de destino. El tamaño del lote es el número máximo de registros que se envía con cada transacción de inserción masiva. En los índices de almacén de columnas agrupados, los tamaños de lote en torno a [100 000](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) permiten más paralelización, registros mínimos y optimizaciones de bloqueo. En las tablas basadas en disco, un tamaño de 10 000 (valor predeterminado) o inferior puede ser óptimo para su solución, ya que los tamaños de lote mayores pueden desencadenar la extensión de bloqueo durante las inserciones masivas.
 
 - **Input Message Tuning** (Optimización de mensajes de entrada): si ha realizado la optimización con la herencia de particiones y el tamaño del lote, aumentar el número de eventos de entrada por mensaje y por partición ayuda a aumentar aún más el rendimiento de escritura. La opción de optimización de mensajes de entrada permite que los tamaños de lote en Azure Stream Analytics alcancen el tamaño del lote especificado, lo que mejora el rendimiento. Esto puede lograrse mediante la [compresión](stream-analytics-define-inputs.md) o el aumento de los tamaños de los mensajes de entrada en EventHub o Blob.
 

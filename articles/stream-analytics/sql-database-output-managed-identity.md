@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: c703dd4053cc27d469d83d344da910e8e5b23ddb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ec260c2e71d1716eb4de9ad25942f61169356dfb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129905"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491348"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Uso de identidades administradas para acceder a Azure SQL Database desde un trabajo de Azure Stream Analytics (versión preliminar)
 
@@ -44,7 +44,7 @@ En primer lugar, debe crear una identidad administrada para el trabajo de Azure 
 
    ![Id. de objeto mostrado como id. de entidad de seguridad](./media/sql-db-output-managed-identity/principal-id.png)
 
-   La entidad de servicio se llama igual que el trabajo de Stream Analytics. Por ejemplo, si es el nombre del trabajo es *MyASAJob* , el nombre de la entidad de servicio también será *MyASAJob*.
+   La entidad de servicio se llama igual que el trabajo de Stream Analytics. Por ejemplo, si es el nombre del trabajo es *MyASAJob*, el nombre de la entidad de servicio también será *MyASAJob*.
 
 ## <a name="select-an-active-directory-admin"></a>Selección de un administrador de Active Directory
 
@@ -84,7 +84,7 @@ A continuación, cree un usuario de base de datos independiente en su instancia 
 
    ![Ventana Nueva regla de firewall](./media/sql-db-output-managed-identity/new-firewall-rule.png)
 
-   1. En ese caso, vaya al recurso de SQL Server en Azure Portal. En la sección **Seguridad** , abra la página **Firewalls y redes virtuales**. 
+   1. En ese caso, vaya al recurso de SQL Server en Azure Portal. En la sección **Seguridad**, abra la página **Firewalls y redes virtuales**. 
    1. Agregue una nueva regla con cualquier nombre.
    1. Use la dirección IP *De* de la ventana **Nueva regla de firewall** para *IP de inicio*.
    1. Use la dirección IP de *A* de la ventana **Nueva regla de firewall** para *IP final*. 
@@ -123,6 +123,10 @@ Asegúrese de haber creado una tabla en la instancia de SQL Database con el esq
 1. Seleccione **Agregar > SQL Database**. En la ventana de propiedades de salida del receptor de salida de SQL Database, seleccione **Identidad administrada** en la lista desplegable Modo de autenticación.
 
 1. Rellene el resto de las propiedades. Para más información acerca de cómo crear una salida de SQL Database, consulte [Creación de una salida de SQL Database con Stream Analytics](sql-database-output.md). Cuando haya terminado, seleccione **Guardar**. 
+
+## <a name="remove-managed-identity"></a>Eliminación de una identidad administrada
+
+La identidad administrada creada para un trabajo de Stream Analytics se elimina solo cuando se elimina el trabajo. No hay ninguna manera de eliminar la identidad administrada sin eliminar el trabajo. Si ya no va a usar la identidad administrada, puede cambiar el método de autenticación de la salida. La identidad administrada seguirá existiendo hasta que se elimine el trabajo y se usará si decide usar de nuevo la autenticación de identidad administrada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

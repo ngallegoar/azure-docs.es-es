@@ -3,12 +3,12 @@ title: 'Concepto: integración de una implementación de Azure VMware Solution e
 description: Obtenga información sobre cómo integrar una implementación de Azure VMware Solution en una arquitectura en estrella tipo hub-and-spoke en Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 93c11ad9253fe78e1935da7b40e7251788f1f037
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0895e9c97f79e433b0383f0a99fbeeb124fd9064
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674680"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490821"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integración de Azure VMware Solution en una arquitectura en estrella tipo hub-and-spoke
 
@@ -36,30 +36,29 @@ En el diagrama se muestra un ejemplo de una implementación en estrella tipo hub
 
 La arquitectura consta de los siguientes componentes principales:
 
--   **Sitio local:** centros de datos locales de clientes conectados a Azure a través de una conexión ExpressRoute.
+- **Sitio local:** centros de datos locales de clientes conectados a Azure a través de una conexión ExpressRoute.
 
--   **Nube privada de Azure VMware Solution:** SDDC de Azure VMware Solution formado por uno o varios clústeres de vSphere, cada uno con un máximo de 16 nodos.
+- **Nube privada de Azure VMware Solution:** SDDC de Azure VMware Solution formado por uno o varios clústeres de vSphere, cada uno con un máximo de 16 nodos.
 
--   **Puerta de enlace de ExpressRoute:** permite la comunicación entre la nube privada de Azure VMware Solution, los servicios compartidos en la red virtual de concentrador y las cargas de trabajo que se ejecutan en redes virtuales de radio.
+- **Puerta de enlace de ExpressRoute:** permite la comunicación entre la nube privada de Azure VMware Solution, los servicios compartidos en la red virtual de concentrador y las cargas de trabajo que se ejecutan en redes virtuales de radio.
 
--   **ExpressRoute Global Reach:** habilita la conectividad entre la nube privada local y Azure VMware Solution.
-
-
-  > [!NOTE]
-  > **Consideraciones sobre VPN S2S:** en el caso de las implementaciones de producción de Azure VMware Solution, no se admite la VPN de sitio a sitio de Azure debido a los requisitos de red para VMware HCX. Pero se puede usar para una implementación de PoC.
+- **ExpressRoute Global Reach:** habilita la conectividad entre la nube privada local y Azure VMware Solution. La conectividad entre Azure VMware Solution y el tejido de Azure solo se realiza a través de Global Reach de ExpressRoute. No se puede seleccionar ninguna opción más allá de la ruta de acceso rápida de ExpressRoute.  Asimismo, ExpressRoute Direct no es compatible.
 
 
--   **Red virtual de centro:** actúa como punto central de conectividad a la red local y la nube privada de Azure VMware Solution.
+- **Consideraciones sobre VPN S2S:** en el caso de las implementaciones de producción de Azure VMware Solution, no se admite la VPN de sitio a sitio de Azure debido a los requisitos de red para VMware HCX. Pero se puede usar para una implementación de PoC.
 
--   **Red virtual de radios**
 
-    -   **Radio de IaaS:** un radio de IaaS hospeda las cargas de trabajo basadas en Azure IaaS, incluidos los conjuntos de disponibilidad de máquina virtual y los conjuntos de escalado de máquinas virtuales, así como los componentes de red correspondientes.
+- **Red virtual de centro:** actúa como punto central de conectividad a la red local y la nube privada de Azure VMware Solution.
 
-    -   **Radio de PaaS:** un radio de PaaS hospeda los servicios de Azure PaaS mediante el direccionamiento privado, gracias al [punto de conexión privado](../private-link/private-endpoint-overview.md) y a [Private Link](../private-link/private-link-overview.md).
+- **Red virtual de radios**
 
--   **Azure Firewall:** actúa como pieza central para segmentar el tráfico entre los radios y Azure VMware Solution.
+    - **Radio de IaaS:** un radio de IaaS hospeda las cargas de trabajo basadas en Azure IaaS, incluidos los conjuntos de disponibilidad de máquina virtual y los conjuntos de escalado de máquinas virtuales, así como los componentes de red correspondientes.
 
--   **Application Gateway:** expone y protege las aplicaciones web que se ejecutan en Azure IaaS/PaaS o en máquinas virtuales (VM) de Azure VMware Solution. Se integra con otros servicios como API Management.
+    - **Radio de PaaS:** un radio de PaaS hospeda los servicios de Azure PaaS mediante el direccionamiento privado, gracias al [punto de conexión privado](../private-link/private-endpoint-overview.md) y a [Private Link](../private-link/private-link-overview.md).
+
+- **Azure Firewall:** actúa como pieza central para segmentar el tráfico entre los radios y Azure VMware Solution.
+
+- **Application Gateway:** expone y protege las aplicaciones web que se ejecutan en Azure IaaS/PaaS o en máquinas virtuales (VM) de Azure VMware Solution. Se integra con otros servicios como API Management.
 
 ## <a name="network-and-security-considerations"></a>Consideraciones sobre red y seguridad
 
@@ -139,11 +138,7 @@ Como recomendación de diseño general, use la infraestructura de Azure DNS exis
 
 Puede usar el DNS privado de Azure, en el que la zona de DNS privado de Azure se vincula a la red virtual.  Los servidores DNS se usan como resolución híbrida con reenvío condicional al entorno local o a Azure VMware Solution que ejecutan DNS aprovechando la infraestructura de DNS privado de Azure. 
 
-Hay varias consideraciones que se deben tener en cuenta para las zonas privadas de Azure DNS:
-
-* El registro automático se debe habilitar para que Azure DNS también administre automáticamente el ciclo de vida de los registros DNS de las máquinas virtuales implementadas en redes virtuales de radio.
-* El número máximo de zonas DNS privadas a las que se puede vincular una red virtual con el registro automático habilitado es solo una.
-* El número máximo de zonas DNS privadas a las que se puede vincular una red virtual sin el registro automático habilitado es 1000.
+Para administrar automáticamente el ciclo de vida de los registros DNS de las MV implementadas en las redes virtuales de radio, habilite el registro automático. Cuando esté habilitado, el número máximo de zonas DNS privadas será solo uno. Si está deshabilitado, el número máximo será 1000.
 
 Los servidores locales y de Azure VMware Solution se pueden configurar con reenviadores condicionales a las máquinas virtuales de resolución de Azure para la zona de DNS privado de Azure.
 

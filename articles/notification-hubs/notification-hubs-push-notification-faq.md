@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077921"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491433"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones de inserción con Azure Notification Hubs: Preguntas más frecuentes
 
@@ -159,15 +159,12 @@ En nuestro extremo se proporciona cobertura de recuperación ante desastres de m
 
 1. Cree un centro de notificaciones secundario en otro centro de datos. Se recomienda que cree uno desde el comienzo para protegerse de un evento de recuperación ante desastres que pudiera afectar sus funcionalidades de administración. También puede crear uno en el momento del evento de recuperación ante desastres.
 
-2. Rellene el centro de notificaciones secundario con los registros del centro de notificaciones principal. No se recomienda que intente conservar los registros en ambos centros y mantenerlos sincronizados a medida que se ingresan registros. Esta práctica no funciona bien debido a la tendencia inherente que tienen los registros de expirar en el lado del PNS. Notification Hubs los limpia cuando recibe informaciones del PNS con respecto a los registros expirados o no válidos.  
+2. Mantenga el centro de notificaciones secundario sincronizado con el centro de notificaciones principal mediante una de las siguientes opciones:
 
-Hay dos recomendaciones para los back-ends de aplicación:
+   * Use un back-end de aplicación que cree y actualice las instalaciones simultáneamente en ambos centros de notificaciones. Las instalaciones le permiten especificar su propio identificador de dispositivo único, lo que hace que sea más adecuado para el escenario de replicación. Para obtener más información, consulte el [código de ejemplo](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
+   * Use un back-end de aplicación que obtenga un volcado habitual de registros desde el centro de notificaciones principal como copia de seguridad. Luego puede realizar una inserción masiva en el centro de notificaciones secundario.
 
-* Use un back-end de aplicación que mantenga un conjunto determinado de registros en su extremo. Luego puede realizar una inserción masiva en el centro de notificaciones secundario.
-* Use un back-end de aplicación que obtenga un volcado habitual de registros desde el centro de notificaciones principal como copia de seguridad. Luego puede realizar una inserción masiva en el centro de notificaciones secundario.
-
-> [!NOTE]
-> La funcionalidad de exportación/importación de registros disponible en el nivel Estándar se describe en el documento sobre [Procedimiento: cómo exportar y modificar registros en bloque].
+El centro de notificaciones secundario puede acabar con instalaciones o registros expirados. Cuando se realiza el envío de cambios en un manipulador expirado, Notification Hubs limpia automáticamente el registro de instalación o registro asociado en función de la respuesta recibida del servidor de PNS. Para limpiar los registros expirados de un centro de notificaciones secundario, agregue la lógica personalizada que procesa los comentarios de cada envío. A continuación, expire la instalación y el registro en el centro de notificaciones secundario.
 
 Si no tiene un back-end, cuando la aplicación se inicie en los dispositivos de destino, realizan un registro nuevo en el centro de notificaciones secundario. A la larga, el centro de notificaciones secundario tendrá registrados todos los dispositivos activos.
 

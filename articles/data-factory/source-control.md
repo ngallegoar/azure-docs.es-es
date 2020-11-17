@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 78e230453e256e90803b3607fa02904f90774881
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 523f28cdd32c5176160587a8531aa66c0621d5a7
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325150"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330696"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -180,7 +180,7 @@ Si ya se ha conectado a GitHub y solo se le ha concedido permiso para obtener ac
 
     ![Apertura de la configuración de GitHub](media/author-visually/github-settings.png)
 
-1. Seleccione **Aplicaciones**. En la pestaña **Aplicaciones de OAuth autorizadas** , verá *AzureDataFactory*.
+1. Seleccione **Aplicaciones**. En la pestaña **Aplicaciones de OAuth autorizadas**, verá *AzureDataFactory*.
 
     ![Selección de aplicaciones de OAuth](media/author-visually/github-organization-select-application.png)
 
@@ -203,11 +203,11 @@ Una vez que siga estos pasos, su factoría podrá conectarse a repositorios púb
 
 ## <a name="version-control"></a>Control de versiones
 
-Los sistemas de control de versiones, conocidos también como _de control de código fuente_ , permiten a los desarrolladores colaborar en el código y llevar a cabo el seguimiento de los cambios realizados en la base de código. El control del código fuente es una herramienta esencial para proyectos de varios desarrolladores.
+Los sistemas de control de versiones, conocidos también como _de control de código fuente_, permiten a los desarrolladores colaborar en el código y llevar a cabo el seguimiento de los cambios realizados en la base de código. El control del código fuente es una herramienta esencial para proyectos de varios desarrolladores.
 
 ### <a name="creating-feature-branches"></a>Creación de ramas de características
 
-Tan pronto como cada repositorio Git de Azure Repos se asocia a una factoría de datos, tiene una rama de colaboración. (`master` es la rama de colaboración predeterminada). Los usuarios también pueden crear ramas de características; para ello, pueden hacer clic en **+ New Branch** (+ Nueva rama) en la lista desplegable de ramas. Cuando aparezca el panel de nueva rama, escriba el nombre de la rama de características.
+Tan pronto como cada repositorio Git de Azure Repos se asocia a una factoría de datos, tiene una rama de colaboración. (`main` es la rama de colaboración predeterminada). Los usuarios también pueden crear ramas de características; para ello, pueden hacer clic en **+ New Branch** (+ Nueva rama) en la lista desplegable de ramas. Cuando aparezca el panel de nueva rama, escriba el nombre de la rama de características.
 
 ![Creación de una rama](media/author-visually/new-branch.png)
 

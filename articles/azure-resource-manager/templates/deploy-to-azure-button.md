@@ -2,13 +2,13 @@
 title: Botón Implementación en Azure
 description: Use el botón para implementar plantillas de Azure Resource Manager desde un repositorio de GitHub.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/10/2020
+ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675386"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490906"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub
 
@@ -71,6 +71,14 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Ya tiene la dirección URL completa del vínculo.
 
+Si usa [Git con Azure Repos](/azure/devops/repos/git/) en lugar de un repositorio de GitHub, puede seguir usando el botón de Implementar en Azure. Asegúrese de que el repositorio es público. Use la [operación Elementos](/rest/api/azure/devops/git/items/get) para obtener la plantilla. La solicitud debería tener el siguiente formato:
+
+```http
+https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
+```
+
+Codifique esta dirección URL de solicitud.
+
 ## <a name="create-deploy-to-azure-button"></a>Crear el botón Implementar en Azure
 
 Por último, coloque el vínculo y la imagen juntos.
@@ -87,6 +95,12 @@ Para HTML, use:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
+```
+
+En el caso de Git con el repositorio de Azure, el botón tiene el siguiente formato:
+
+```markdown
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla

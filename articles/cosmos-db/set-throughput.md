@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098780"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490277"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,11 +80,11 @@ Si las cargas de trabajo implican eliminar y volver a crear todas las coleccione
 Puede combinar los dos modelos. Se permite el aprovisionamiento del rendimiento tanto en la base de datos como en el contenedor. En el ejemplo siguiente se muestra cómo aprovisionar el rendimiento aprovisionado estándar (manual) en un contenedor y una base de datos de Azure Cosmos:
 
 * Puede crear una base de datos de Azure Cosmos llamada *Z* con rendimiento aprovisionado estándar (manual) de *"K"*  RU. 
-* Después, cree cinco contenedores llamados *A* , *B* , *C* , *D* y *E* en la base de datos. Al crear el contenedor B, asegúrese de habilitar la opción **Provision dedicated throughput for this container** (Aprovisionar el rendimiento dedicado para este contenedor) y configurar de forma explícita las Unidades de solicitud *"P"* del rendimiento aprovisionado en este contenedor. Puede configurar el rendimiento compartido y dedicado solamente al crear la base de datos y el contenedor. 
+* Después, cree cinco contenedores llamados *A*, *B*, *C*, *D* y *E* en la base de datos. Al crear el contenedor B, asegúrese de habilitar la opción **Provision dedicated throughput for this container** (Aprovisionar el rendimiento dedicado para este contenedor) y configurar de forma explícita las Unidades de solicitud *"P"* del rendimiento aprovisionado en este contenedor. Puede configurar el rendimiento compartido y dedicado solamente al crear la base de datos y el contenedor. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Configuración del rendimiento en el nivel de contenedor":::
 
-* El rendimiento de las Unidades de solicitud *"K"* se comparte entre los cuatro contenedores *A* , *C* , *D* y *E*. La cantidad exacta de rendimiento disponible en *A* , *C* , *D* o *E* varía. No hay ningún acuerdo de nivel de servicio para el rendimiento de cada contenedor individual.
+* El rendimiento de las Unidades de solicitud *"K"* se comparte entre los cuatro contenedores *A*, *C*, *D* y *E*. La cantidad exacta de rendimiento disponible en *A*, *C*, *D* o *E* varía. No hay ningún acuerdo de nivel de servicio para el rendimiento de cada contenedor individual.
 * Se garantiza que el contenedor llamado *B* obtendrá el rendimiento de las Unidades de solicitud de *"P"* todo el tiempo. Estará respaldado por los Acuerdos de Nivel de Servicio.
 
 > [!NOTE]
@@ -109,7 +109,7 @@ La respuesta de estos métodos también contiene el [rendimiento mínimo aprovis
 El valor mínimo real de RU/s puede variar en función de la configuración de la cuenta. Pero generalmente es el máximo de:
 
 * 400 RU/s 
-* Almacenamiento actual en GB * 10 RU/s
+* Almacenamiento actual en GB * 10 RU/s (a menos que el contenedor o la base de datos contengan más de 1 TB de datos, consulte nuestro [programa de almacenamiento alto y rendimiento bajo](#high-storage-low-throughput-program)).
 * El mayor valor de RU/s aprovisionado en la base de datos o el contenedor / 100
 * Número de contenedores * 100 RU/s (solo base de datos de rendimiento compartido)
 
@@ -120,9 +120,9 @@ Puede escalar el rendimiento aprovisionado de un contenedor o una base de datos 
 * [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) en el SDK de .NET.
 * [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) en el SDK para Java.
 
-Si **reduce el rendimiento aprovisionado** , podrá hacerlo hasta el [mínimo](#current-provisioned-throughput).
+Si **reduce el rendimiento aprovisionado**, podrá hacerlo hasta el [mínimo](#current-provisioned-throughput).
 
-Si **aumenta el rendimiento aprovisionado** , la operación es instantánea en la mayor parte del tiempo. Sin embargo, hay casos en los que la operación puede tardar más tiempo debido a las tareas del sistema destinadas a aprovisionar los recursos necesarios. En este caso, si se intenta modificar el rendimiento aprovisionado mientras esta operación está en curso, se producirá una respuesta HTTP 423 con un mensaje de error que explica que hay otra operación de escalado en curso.
+Si **aumenta el rendimiento aprovisionado**, la operación es instantánea en la mayor parte del tiempo. Sin embargo, hay casos en los que la operación puede tardar más tiempo debido a las tareas del sistema destinadas a aprovisionar los recursos necesarios. En este caso, si se intenta modificar el rendimiento aprovisionado mientras esta operación está en curso, se producirá una respuesta HTTP 423 con un mensaje de error que explica que hay otra operación de escalado en curso.
 
 > [!NOTE]
 > Si planea una carga de trabajo de ingesta muy grande que requerirá un gran aumento en el rendimiento aprovisionado, tenga en cuenta que la operación de escalado no tiene ningún Acuerdo de Nivel de Servicio y, como se mencionó en el párrafo anterior, puede tardar mucho tiempo si el aumento es grande. Tal vez desee planear por anticipado e iniciar el escalado antes de que se inicie la carga de trabajo y usar los métodos siguientes para comprobar el progreso.

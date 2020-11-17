@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/18/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741070"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490753"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solución de problemas de Azure RBAC
 
@@ -68,13 +68,14 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- Si intenta quitar la última asignación del rol de propietario de una suscripción, es posible que vea el error "No se puede eliminar la última asignación de administración de RBAC". Para evitar que la suscripción quede huérfana, no se puede eliminar la última asignación del rol de propietario de una suscripción. Si quiere cancelar su suscripción, consulte [Cancelación de la suscripción a Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problemas con roles personalizados
 
 - Si necesita conocer los pasos para crear un rol personalizado, consulte los tutoriales sobre roles personalizados con [Azure Portal](custom-roles-portal.md) (actualmente en versión preliminar), [Azure PowerShell](tutorial-custom-role-powershell.md) o la [CLI de Azure](tutorial-custom-role-cli.md).
 - Si no puede actualizar un rol personalizado existente, compruebe que haya iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Authorization/roleDefinition/write`, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
 - Si no puede eliminar un rol personalizado y obtiene el mensaje de error "Hay asignaciones de roles existentes que hacen referencia al rol (código: RoleDefinitionHasAssignments)", significa que hay asignaciones de roles que siguen usando el rol personalizado. Quite las asignaciones de roles y vuelva a intentar eliminarlo.
-- Si recibe el mensaje de error "Se ha superado el límite de definiciones de roles. No se pueden crear más definiciones de roles (código: RoleDefinitionLimitExceeded)" al intentar crear un nuevo rol personalizado, elimine los roles personalizados que no se usan. Azure admite hasta **5000**  roles personalizados en un directorio. (Para Azure Alemania y Azure China 21Vianet, el límite es 2000 roles personalizados).
+- Si recibe el mensaje de error "Se ha superado el límite de definiciones de roles. No se pueden crear más definiciones de roles (código: RoleDefinitionLimitExceeded)" al intentar crear un nuevo rol personalizado, elimine los roles personalizados que no se usan. Azure admite hasta **5000** roles personalizados en un directorio. (Para Azure Alemania y Azure China 21Vianet, el límite es 2000 roles personalizados).
 - Si obtiene un error similar a "El cliente tiene permiso para realizar la acción 'Microsoft.Authorization/roleDefinitions/write' en el ámbito '/subscriptions/{subscriptionid}', aunque la suscripción vinculada no se encontró" al intentar actualizar un rol personalizado, consulte si se han eliminado uno o varios [ámbitos asignables](role-definitions.md#assignablescopes) del directorio. Si el ámbito se ha eliminado, cree una incidencia de soporte técnico porque no hay ninguna solución de autoservicio disponible en este momento.
 
 ## <a name="custom-roles-and-management-groups"></a>Roles personalizados y grupos de administración
@@ -107,7 +108,7 @@ Para obtener información sobre cómo trasladar recursos, vea [Traslado de los r
 
 ## <a name="role-assignments-with-identity-not-found"></a>Asignaciones de roles con identidad no encontrada
 
-En la lista de asignaciones de roles para Azure Portal, es posible que observe que la entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) aparece como **Identidad no encontrada** con un tipo **Desconocido** .
+En la lista de asignaciones de roles para Azure Portal, es posible que observe que la entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) aparece como **Identidad no encontrada** con un tipo **Desconocido**.
 
 ![Identidad no encontrada en la lista de asignaciones de roles de Azure](./media/troubleshooting/unknown-security-principal.png)
 
@@ -118,9 +119,9 @@ La identidad podría no encontrarse por dos motivos:
 
 Si ha invitado recientemente a un usuario al crear una asignación de roles, esta entidad de seguridad podría seguir en el proceso de replicación entre regiones. De ser así, espere unos instantes y actualice la lista de asignaciones de roles.
 
-Sin embargo, si esta entidad de seguridad no es un usuario invitado recientemente, podría tratarse de una entidad de seguridad eliminada. Si asigna un rol a una entidad de seguridad y, posteriormente, elimina esa entidad de seguridad sin quitar antes la asignación de roles, la entidad de seguridad se mostrará como **Identidad no encontrada** y con un tipo **Desconocido** .
+Sin embargo, si esta entidad de seguridad no es un usuario invitado recientemente, podría tratarse de una entidad de seguridad eliminada. Si asigna un rol a una entidad de seguridad y, posteriormente, elimina esa entidad de seguridad sin quitar antes la asignación de roles, la entidad de seguridad se mostrará como **Identidad no encontrada** y con un tipo **Desconocido**.
 
-Si enumera esta asignación de roles mediante Azure PowerShell, puede que vea un elemento `DisplayName` vacío y un elemento `ObjectType` definido como **Unknown** . Por ejemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devuelve una asignación de roles que es similar a la salida siguiente:
+Si enumera esta asignación de roles mediante Azure PowerShell, puede que vea un elemento `DisplayName` vacío y un elemento `ObjectType` definido como **Unknown**. Por ejemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devuelve una asignación de roles que es similar a la salida siguiente:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -222,7 +223,7 @@ De manera similar a las aplicaciones web, algunas funciones de la hoja de máqui
 
 Las máquinas virtuales están relacionadas con los nombres de dominio, las redes virtuales, las cuentas de almacenamiento y las reglas de alerta.
 
-Estos elementos requieren acceso de **escritura** a la **máquina virtual** :
+Estos elementos requieren acceso de **escritura** a la **máquina virtual**:
 
 * Puntos de conexión  
 * Direcciones IP  

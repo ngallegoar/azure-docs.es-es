@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 32d9683012a5900569740080d61ac21b464a5cd4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042615"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490617"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -24,10 +24,10 @@ Las detecciones de riesgo en Azure AD Identity Protection incluyen todas las acc
 
 Identity Protection proporciona a las organizaciones el acceso a recursos eficaces, para ver y responder rápidamente a estas acciones sospechosas. 
 
->**Nota:** Identity Protection genera detecciones de riesgo solo cuando se usan las credenciales correctas. El hecho de que se usen credenciales incorrectas en un inicio de sesión no pone en peligro las credenciales.
-
 ![Información general sobre seguridad que muestra usuarios e inicios de sesión de riesgo](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
 
+> [!NOTE]
+> Identity Protection genera detecciones de riesgo solo cuando se usan las credenciales correctas. El hecho de que se usen credenciales incorrectas en un inicio de sesión no pone en peligro las credenciales.
 
 ## <a name="risk-types-and-detection"></a>Tipos de riesgo y detección
 
@@ -77,6 +77,10 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 Identity Protection clasifica el riesgo en tres niveles: bajo, medio y alto. 
 
 Aunque Microsoft no proporciona detalles específicos sobre cómo se calcula el riesgo, diremos que cada nivel aporta una mayor seguridad de que el usuario o el inicio de sesión están en peligro. Por ejemplo, cosas como un caso de propiedades de inicio de sesión desconocidas para un usuario podría no ser tan amenazante como la filtración de credenciales para otro usuario.
+
+### <a name="password-hash-synchronization"></a>Sincronización de hash de contraseña
+
+Las detecciones de riesgos, como las credenciales filtradas y la difusión de contraseñas, requieren la presencia de hashes de contraseña para que se produzca la detección. Para obtener más información sobre la sincronización de hash de contraseñas, consulte [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### <a name="leaked-credentials"></a>Credenciales con fugas
 
