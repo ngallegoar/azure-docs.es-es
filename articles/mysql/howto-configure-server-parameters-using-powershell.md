@@ -1,19 +1,19 @@
 ---
 title: Configuración de parámetros de Azure Database for MySQL mediante Azure PowerShell
 description: En este artículo se describe cómo configurar los parámetros de servicio de Azure Database for MySQL mediante PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3888e83738d8617d6ec1433a3b760a2c518b874c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 973025dfd8c0141ed0884539fe5207cc64ec822c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627217"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541868"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-powershell"></a>Configuración de parámetros del servidor en Azure Database for MySQL con PowerShell
 

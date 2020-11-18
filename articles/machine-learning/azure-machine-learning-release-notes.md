@@ -9,18 +9,72 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: a60ca64113bb3f2700e9f521f65780dc8ffbcc54
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307741"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489138"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) de Azure Machine Learning.
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
+
+
+## <a name="2020-11-09"></a>09-11-2020
+
+### <a name="azure-machine-learning-sdk-for-python-v1180"></a>SDK de Azure Machine Learning para Python v1.18.0
++ **Mejoras y correcciones de errores**
+  + **azureml-automl-core**
+    +  Se ha mejorado el control de las series temporales breves al permitir su relleno con ruido gaussiano.
+  + **azureml-automl-runtime**
+    + Se lanza ConfigException si una columna DateTime tiene un valor OutOfBoundsDatetime.
+    + Se ha mejorado el control de las series temporales breves al permitir su relleno con ruido gaussiano.
+    + Se asegura que cada columna de texto pueda aprovechar la transformación de char-gram con el intervalo de n-gram en función de la longitud de las cadenas de esa columna de texto.
+    + Se proporcionan explicaciones de características sin procesar para el mejor modo para los experimentos de AutoML que se ejecutan en el proceso local del usuario.
+  + **azureml-core**
+    + Anclar el paquete: pyjwt para evitar la extracción de versiones importantes en las próximas versiones.
+    + Al crear un experimento, se devolverá el experimento activo o último archivado con el mismo nombre dado si existe dicho experimento o un nuevo experimento.
+    + La llamada a get_experiment por nombre devolverá el experimento activo o último archivado con el nombre especificado.
+    + Los usuarios no pueden cambiar el nombre de un experimento mientras lo reactivan.
+    + Se ha mejorado el mensaje de error para incluir posibles correcciones cuando un conjunto de datos se pasa incorrectamente a un experimento (por ejemplo, ScriptRunConfig). 
+    + Se ha mejorado la documentación de `OutputDatasetConfig.register_on_complete` para incluir el comportamiento de lo que ocurrirá cuando el nombre ya exista.
+    + Especificar nombres de entrada y salida del conjunto de datos que tienen el potencial de colisión con variables de entorno comunes producirá ahora una advertencia.
+    + Se ha readaptado el parámetro `grant_workspace_access` al registrar los almacenes de datos. Establézcalo en `True` para acceder a los datos subyacentes a la red virtual desde Machine Learning Studio.
+      [Más información](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+    + Se ha refinado la API del servicio vinculado. En lugar de proporcionar el identificador del recurso, tenemos tres parámetros independientes, sub_id, rg y name, definidos en la configuración.
+    + Para permitir que los clientes resuelvan automáticamente los problemas de daños en los tokens, habilite la sincronización de tokens del área de trabajo para que sea un método público.
+    + Este cambio permite usar una cadena vacía como valor de script_param.
+  + **azureml-pipeline-core**
+    + SDK para admitir el tipo SynapseCompute y SynapseSparkStep. Los clientes pueden ejecutar experimento y canalizaciones que se ejecutan en el grupo de Synapse Spark.
+  + **azureml-pipeline-steps**
+    + SDK para admitir el tipo SynapseCompute y SynapseSparkStep. Los clientes pueden ejecutar experimento y canalizaciones que se ejecutan en el grupo de Synapse Spark.
+  + **azureml-synapse**
+    + Adición de Synapse Magic y SparkMonitor para permitir que el usuario envíe el trabajo de Synapse y vea el progreso del trabajo en el cuaderno.
+  + **azureml-train-automl-client**
+    +  Se ha mejorado el control de las series temporales breves al permitir su relleno con ruido gaussiano.
+  + **azureml-train-automl-runtime**
+    + Se lanza ConfigException si una columna DateTime tiene un valor OutOfBoundsDatetime.
+    + Se ha agregado compatibilidad para proporcionar explicaciones de características sin procesar para el mejor modelo para los experimentos de AutoML que se ejecutan en el proceso local del usuario.
+    + Se ha mejorado el control de las series temporales breves al permitir su relleno con ruido gaussiano.
+  + **azureml-train-core**
+    + Este cambio permite usar una cadena vacía como valor de script_param.
+  + **azureml-train-restclients-hyperdrive**
+    + El archivo Léame ha cambiado para ofrecer más contexto.
+  + **azureml-widgets**
+    + Se ha agregado compatibilidad de cadena a la biblioteca de gráficos/coordenadas paralelas para widget.
+
+## <a name="2020-11-05"></a>05-11-2020
+
+### <a name="data-labeling-for-image-instance-segmentation-polygon-annotation-preview"></a>Etiquetado de datos para la segmentación de instancias de imagen (anotación de polígono) (versión preliminar)
+
+Ahora está disponible el tipo de proyecto de segmentación de instancias de imagen (anotaciones de polígono) en el etiquetado de datos, de modo que los usuarios pueden dibujar y anotar polígonos alrededor del contorno de los objetos de las imágenes. Los usuarios podrán asignar una clase y un polígono a cada objeto que le interese dentro de una imagen.
+
+Obtenga más información sobre el [etiquetado de segmentación de instancias de imagen](how-to-label-images.md).
+
+
 
 ## <a name="2020-10-26"></a>26-10-2020
 
@@ -1075,7 +1129,7 @@ Acceda a las siguientes herramientas de creación basadas en web desde Studio:
 
 + **Nuevas características:**
   + Conjunto de datos: Agregue dos opciones `on_error` y `out_of_range_datetime` para que se produzca un error en `to_pandas_dataframe` cuando los datos tengan valores de error en lugar de llenarlos con `None`.
-  + Área de trabajo: Se ha agregado la marca `hbi_workspace` para las áreas de trabajo con información confidencial que habilita un cifrado adicional y deshabilita el diagnóstico avanzado en áreas de trabajo. También hemos agregado compatibilidad con la posibilidad de traer sus propias claves para la instancia de Cosmos DB asociada, mediante la especificación de los parámetros `cmk_keyvault` y `resource_cmk_uri` al crear un área de trabajo, lo que crea una instancia de Cosmos DB en su suscripción mientras aprovisiona el área de trabajo. [Obtenga más información aquí.](./concept-enterprise-security.md#azure-cosmos-db)
+  + Área de trabajo: Se ha agregado la marca `hbi_workspace` para las áreas de trabajo con información confidencial que habilita un cifrado adicional y deshabilita el diagnóstico avanzado en áreas de trabajo. También hemos agregado compatibilidad con la posibilidad de traer sus propias claves para la instancia de Cosmos DB asociada, mediante la especificación de los parámetros `cmk_keyvault` y `resource_cmk_uri` al crear un área de trabajo, lo que crea una instancia de Cosmos DB en su suscripción mientras aprovisiona el área de trabajo. [Obtenga más información aquí.](./concept-data-encryption.md#azure-cosmos-db)
 
 + **Mejoras y correcciones de errores**
   + **azureml-automl-runtime**
@@ -1772,7 +1826,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
   + El rendimiento de `read_parquet` ha mejorado cuando se ejecuta en Spark.
   + Se ha corregido un problema en que se producía un error `column_type_builder` en el caso de una sola columna con formatos de fecha ambiguos.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 + **Característica en vista previa**
   + El streaming de archivos de registro y de salida ahora está disponible para las páginas de detalles de la ejecución. Los archivos transmitirán las actualizaciones en tiempo real cuando se active la alternancia de la vista previa.
   + Se ofrece en versión preliminar la capacidad de establecer la cuota en el nivel de área de trabajo. Las cuotas de AmlCompute se asignan en el nivel de suscripción, pero ahora puede distribuir esa cuota entre las áreas de trabajo y asignarla con el fin de conseguir un uso compartido y una gobernanza equitativos. Solo tiene que hacer clic en la hoja **Usages+Quotas** (Usos y cuotas) de la barra de navegación izquierda del área de trabajo y seleccionar la pestaña **Configure Quotas** (Configurar cuotas). Debe ser administrador de la suscripción para poder establecer cuotas en el nivel de área de trabajo, ya que se trata de una operación entre áreas de trabajo.
@@ -2051,7 +2105,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
   + Ahora puede volver a enviar un ciclo de script existente de un clúster de proceso remoto existente.
   + Ahora puede ejecutar una canalización publicada con parámetros nuevos en la pestaña Canalizaciones.
   + Los detalles de la ejecución ahora admiten un nuevo visor de archivos de instantánea. Puede ver una instantánea del directorio cuando envió una ejecución concreta. También puede descargar el cuaderno que se envió para iniciar la ejecución.
@@ -2109,7 +2163,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 + **Mejoras y correcciones de errores**
   + Se ha agregado compatibilidad en las canalizaciones de Azure Machine Learning con el establecimiento de la propiedad source_directory_data_store en un almacén de datos deseado (como un almacenamiento de blobs) en [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) que se suministran a [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py). De forma predeterminada los pasos utilizan el almacén de Azure File como el almacén de datos de respaldo, lo que provocar problemas de limitación cuando un gran número de pasos se ejecutan simultáneamente.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 + **Nuevas características:**
   + Nueva experiencia de arrastrar y soltar el editor de tablas en informes. Los usuarios pueden arrastrar una columna desde el cuadro al área de la tabla en la que se mostrará una vista previa de la tabla. Las columnas se pueden reorganizar.

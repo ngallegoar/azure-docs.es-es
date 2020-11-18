@@ -1,17 +1,17 @@
 ---
 title: Acceso a registros de consultas lentos de Azure Database for MariaDB mediante Azure Portal
 description: En este artículo se describe cómo configurar los registros de consultas lentos en Azure Database for MariaDB, y acceder a ellos, mediante Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: a2642ebbad7c8d7a2e092a6e00929e32b72b52d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5ee948daecafc061910f36d2ac95d15338bfb38
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104986"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539947"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-from-the-azure-portal"></a>Configuración y acceso a los registros de consultas lentas de Azure Database for María DB desde Azure Portal
 

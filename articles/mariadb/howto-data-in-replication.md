@@ -1,17 +1,17 @@
 ---
 title: Configuración de la replicación de datos de entrada en Azure Database for MariaDB
 description: En este artículo se describe la configuración de la replicación de datos de entrada en Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425995"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535374"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configuración de la replicación de datos de entrada en Azure Database for MariaDB
 
@@ -45,7 +45,7 @@ Revise las [limitaciones y los requisitos](concepts-data-in-replication.md#limit
 > [!NOTE]
 > Comunicación sin prejuicios
 >
-> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_ . En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
+> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
 >
 
 ## <a name="configure-the-source-server"></a>Configuración del servidor de origen
@@ -54,7 +54,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
 
 1. Revise los [requisitos del servidor maestro](concepts-data-in-replication.md#requirements) antes de continuar. 
 
-2. Asegúrese de que el servidor de origen permite el tráfico entrante y saliente en el puerto 3306 y de que el servidor de origen tiene una **dirección IP pública** , el DNS es accesible públicamente o tiene un nombre de dominio completo (FQDN). 
+2. Asegúrese de que el servidor de origen permite el tráfico entrante y saliente en el puerto 3306 y de que el servidor de origen tiene una **dirección IP pública**, el DNS es accesible públicamente o tiene un nombre de dominio completo (FQDN). 
    
    Pruebe la conectividad con el servidor de origen; para ello, pruebe a conectarse desde una herramienta como la línea de comandos de MySQL hospedada en otra máquina o desde la instancia de [Azure Cloud Shell](../cloud-shell/overview.md) disponible en Azure Portal.
 
@@ -141,15 +141,15 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
 
    **MySQL Workbench**
 
-   Para crear el rol de replicación en MySQL Workbench, abra el panel **Administración** y seleccione **Usuarios y privilegios** . A continuación, seleccione **Agregar cuenta** .
+   Para crear el rol de replicación en MySQL Workbench, abra el panel **Administración** y seleccione **Usuarios y privilegios**. A continuación, seleccione **Agregar cuenta**.
  
    ![Usuarios y privilegios](./media/howto-data-in-replication/users_privileges.png)
 
-   Introduzca un nombre de usuario en el campo **Nombre de inicio de sesión** .
+   Introduzca un nombre de usuario en el campo **Nombre de inicio de sesión**.
 
    ![Usuario de sincronización](./media/howto-data-in-replication/syncuser.png)
  
-   Seleccione el panel **Roles administrativos** y, a continuación, en la lista **Privilegios globales** , seleccione **Servidor subordinado de replicación** . Seleccione **Aplicar** para crear el rol de replicación.
+   Seleccione el panel **Roles administrativos** y, a continuación, en la lista **Privilegios globales**, seleccione **Servidor subordinado de replicación**. Seleccione **Aplicar** para crear el rol de replicación.
 
    ![Servidor subordinado de replicación](./media/howto-data-in-replication/replicationslave.png)
 

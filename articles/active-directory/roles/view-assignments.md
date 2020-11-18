@@ -6,21 +6,21 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f92ae370358ef09574d0839234ddc8ad11aa47ad
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ccb158548f52059b780fd71bf19788ba200aa7c4
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374169"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505587"
 ---
-# <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visualización de asignación de roles personalizados en Azure Active Directory
+# <a name="view-custom-role-assignments-using-azure-active-directory"></a>Visualización de asignaciones de roles personalizados mediante Azure Active Directory
 
 En este artículo se describe cómo ver los roles personalizados que ha asignado en Azure Active Directory (Azure AD). En Azure Active Directory (Azure AD), los roles se pueden asignar a un ámbito de toda la organización o con un ámbito de aplicación única.
 
@@ -31,8 +31,8 @@ En este artículo se describe cómo ver los roles personalizados que ha asignado
 
 En este procedimiento se describe cómo ver las asignaciones de un rol con ámbito de toda la organización.
 
-1. Inicie sesión en el[centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
-1. Seleccione **Azure Active Directory** , elija **Roles y administradores** y, luego, seleccione un rol para abrirlo y ver sus propiedades.
+1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
+1. Seleccione **Azure Active Directory**, elija **Roles y administradores** y, luego, seleccione un rol para abrirlo y ver sus propiedades.
 1. Seleccione **Asignaciones** para ver las asignaciones del rol.
 
     ![Visualización de asignaciones de roles y permisos al abrir un rol de la lista](./media/view-assignments/role-assignments.png)
@@ -104,7 +104,7 @@ HTTP/1.1 200 OK
 
 En esta sección se describe cómo ver las asignaciones de un rol con un ámbito de aplicación única. Esta característica actualmente está en su versión preliminar pública.
 
-1. Inicie sesión en el[centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
+1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
 1. Seleccione **Registros de aplicaciones** y, luego, seleccione el registro de aplicación para ver sus propiedades. Es posible que tenga que seleccionar **Todas las aplicaciones** para ver la lista completa de los registros de aplicaciones de la organización de Azure AD.
 
     ![Creación o edición de registros de aplicaciones desde la página Registros de aplicaciones](./media/view-assignments/app-reg-all-apps.png)

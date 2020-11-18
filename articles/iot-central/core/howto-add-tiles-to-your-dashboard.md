@@ -1,18 +1,17 @@
 ---
-title: Adición de iconos al panel de Azure IoT Central | Microsoft Docs
+title: Configuración del panel de Azure IoT Central | Microsoft Docs
 description: Como creador, aprenda a configurar el panel de la aplicación predeterminado de Azure IoT Central con iconos.
-author: Haley-Rowland
-ms.author: harowl
-ms.date: 05/27/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
-services: iot-central
-ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985315"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492043"
 ---
 # <a name="configure-the-application-dashboard"></a>Configuración del panel de la aplicación
 
@@ -29,23 +28,26 @@ En la captura de pantalla siguiente se muestra el panel en una aplicación cread
 
 Después de seleccionar **Editar** o **Nuevo**, el panel se encuentra en modo de *edición*. Puede usar las herramientas del panel **Editar panel** para agregar, personalizar y quitar iconos del panel. Por ejemplo, para agregar un icono **Telemetría** a fin de mostrar la temperatura actual detectada por uno o más dispositivos:
 
-1. En el panel **Editar panel**, seleccione un **grupo de dispositivos**.
-1. Seleccione uno o más dispositivos en la lista desplegable **Dispositivos** para mostrarlos en el icono. Ahora verá la telemetría, las propiedades y los comandos disponibles de los dispositivos.
-1. Seleccione **Temperatura** en la sección de telemetría y, después, seleccione **Agregar icono**. Ahora el icono se muestra en el panel, donde puede cambiar la visualización y el tamaño, y configurarlo:
+1. Seleccione un **Grupo de dispositivos** y, a continuación, elija los dispositivos del menú desplegable **Dispositivos** que se deben mostrar en el icono. Ahora verá la telemetría, las propiedades y los comandos disponibles de los dispositivos.
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
+1. Si es necesario, use el menú desplegable para seleccionar el valor de telemetría que se va a mostrar en el icono. Puede agregar más elementos al icono. Para ello, seleccione **+ Telemetría**, **+ Propiedad** o **+ Propiedad de la nube**.
 
-Cuando haya terminado de agregar y personalizar los iconos en el panel, seleccione **Guardar**.
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Adición de un icono de telemetría de temperatura al panel":::
+
+Cuando haya seleccionado todos los valores que se van a mostrar en el icono, haga clic en **Agregar icono.** Ahora el icono se muestra en el panel, donde puede cambiar la visualización y el tamaño, y configurarlo.
+
+Cuando haya terminado de agregar y personalizar iconos en el panel, seleccione **Guardar** para guardar los cambios en el panel, con lo que saldrá del modo de edición.
 
 ## <a name="customize-tiles"></a>Personalización de iconos
 
-Para personalizar un icono en el panel, el panel debe estar en modo de edición. Las opciones de personalización disponibles dependen del [tipo de icono](#tile-types):
+Para editar un icono, debe estar en el modo de edición.  Las opciones de personalización disponibles dependen del [tipo de icono](#tile-types):
 
-* El icono de regla de un icono permite cambiar la visualización. Las visualizaciones incluyen gráficos de líneas, últimos valores conocidos y mapas térmicos.
+* El icono de regla de un icono permite cambiar la visualización. Entre las visualizaciones se incluyen gráficos de líneas, gráficos de barras, gráficos circulares, los últimos valores conocidos, indicadores clave de rendimiento (o KPI), mapas térmicos y mapas.
 
 * El icono cuadrado permite cambiar el tamaño del icono.
 
 * El icono de engranaje permite configurar la visualización. Por ejemplo, para una visualización de gráfico de líneas puede elegir mostrar la leyenda y los ejes, y el intervalo de tiempo que se va a trazar.
+
 
 ## <a name="tile-types"></a>Tipos de iconos
 
@@ -71,27 +73,36 @@ Actualmente, puede agregar hasta 10 dispositivos a los mosaicos que admiten var
 
 ### <a name="customizing-visualizations"></a>Personalización de visualizaciones
 
+De forma predeterminada, los gráficos de líneas muestran datos de un intervalo de tiempo. El intervalo de tiempo seleccionado se divide en 50 cubos del mismo tamaño y, a continuación, los datos del dispositivo se agregan por cubo para proporcionar 50 puntos de datos durante el intervalo de tiempo seleccionado. Si desea ver los datos sin procesar, puede cambiar la selección para ver los últimos 100 valores. Para cambiar el intervalo de tiempo o para seleccionar la visualización de datos sin procesar, use le menú desplegable Mostrar intervalo en el panel **Configurar gráfico**.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/display-range.png" alt-text="Cambiar el intervalo de visualización de un gráfico de líneas":::
+
 En el caso de los iconos que muestran valores agregados, seleccione el icono de engranaje situado junto al tipo de telemetría en el panel **Configurar gráfico** para elegir la agregación. Puede elegir entre el promedio, la suma, el valor máximo, el valor mínimo y el recuento.
 
 En el caso de los gráficos de líneas, de barras y circulares, puede personalizar el color de los distintos valores de telemetría. Seleccione el icono de paleta situado junto a la telemetría que quiere personalizar:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Cambio del color de un valor de telemetría":::
 
 En el caso de los iconos que muestran propiedades de cadena o valores de telemetría, puede elegir cómo mostrar el texto. Por ejemplo, si el dispositivo almacena una dirección URL en una propiedad de cadena, puede mostrarla como un vínculo interactivo. Si la dirección URL hace referencia a una imagen, se puede representar la imagen en un último valor conocido o en el icono de propiedad. Para cambiar cómo se muestra una cadena, en la configuración del icono, seleccione el icono de engranaje situado junto a la propiedad o el tipo de telemetría:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Cambio de la representación de una cadena en un icono":::
 
 Para los iconos de **KPI**, **Último valor conocido** y **Propiedad**, puede usar el formato condicional para personalizar el color del icono en función de su valor actual. Para agregar formato condicional, seleccione **Configurar** en el icono y, a continuación, seleccione el icono de **Formato condicional** situado junto al valor que se va a personalizar:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Captura de pantalla que muestra cómo buscar la opción de configuración de un icono y, después, el icono de formato condicional":::
 
 Agregue las reglas de formato condicional:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
-
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Captura de pantalla que muestra las reglas de formato condicional para un flujo medio. Hay tres reglas: menos de 20 es verde, menos de 50 es amarillo y todo lo que está por encima de 50 es rojo":::
+   
 En la captura de pantalla siguiente se muestra el efecto de la regla de formato condicional:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Captura de pantalla que muestra el fondo de color rojo en el icono de caudal de agua promedio. El número del icono es 50.54":::
+
+### <a name="tile-formatting"></a>Formato del "icono"
+Esta característica, disponible en los iconos de KPI, LKV y Propiedad, permite a los usuarios ajustar el tamaño de fuente, elegir la precisión decimal, abreviar valores numéricos o ajustar valores de encapsulado en sus iconos.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="Formato de icono":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381ee08f44ad8fb4dade9b6229f5a5925cf2b6b7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a17143045b368038e24ac40f131325a623fc934d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373962"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489614"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Cambio de la pertenencia de un grupo estático a dinámico en Azure Active Directory
 
@@ -32,11 +32,11 @@ Puede cambiar la pertenencia de un grupo de estático a dinámico (o viceversa) 
 
 ## <a name="change-the-membership-type-for-a-group"></a>Cambio del tipo de pertenencia de un grupo
 
-1. Iniciar sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que sea administrador global o administrador de usuarios de la organización de Azure AD.
-2. Seleccione **Grupos** .
-3. En la lista **Todos los grupos** , abra el grupo que desea cambiar.
-4. Seleccione **Propiedades** .
-5. En la página **Propiedades** del grupo, seleccione un **Tipo de pertenencia** , ya sea Asignada (estática), Usuario dinámico o Dispositivo dinámico, según el tipo de pertenencia que desee. Para la pertenencia dinámica, puede usar el generador de reglas para seleccionar opciones para una regla sencilla o escribir usted mismo una regla de pertenencia. 
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que sea administrador global, administrador de usuarios o administrador de grupos de la organización de Azure AD.
+2. Seleccione **Grupos**.
+3. En la lista **Todos los grupos**, abra el grupo que desea cambiar.
+4. Seleccione **Propiedades**.
+5. En la página **Propiedades** del grupo, seleccione un **Tipo de pertenencia**, ya sea Asignada (estática), Usuario dinámico o Dispositivo dinámico, según el tipo de pertenencia que desee. Para la pertenencia dinámica, puede usar el generador de reglas para seleccionar opciones para una regla sencilla o escribir usted mismo una regla de pertenencia. 
 
 Los pasos siguientes son un ejemplo de cómo cambiar un grupo de usuarios para que pase de una pertenencia estática a una dinámica.
 

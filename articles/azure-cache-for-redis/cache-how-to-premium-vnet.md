@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: a55db6a9db8cc53da15ba6e818db7b78b72cefc9
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f7b4a22c0473acb7da0708f095c25b4f3f78fe66
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927743"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445598"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Configuración de la compatibilidad de red virtual con el nivel Premium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con redes virtuales de una instancia de Azure Cache for Redis de nivel Premium.
@@ -32,11 +32,11 @@ La compatibilidad con Virtual Network se configura en la hoja **New Azure Cache 
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Crear recurso.":::
    
-2. En la página **Nuevo** , seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
+2. En la página **Nuevo**, seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selección de Azure Cache for Redis.":::
 
-3. En la página **Nueva instancia de Redis Cache** , configure las opciones de la nueva caché prémium.
+3. En la página **Nueva instancia de Redis Cache**, configure las opciones de la nueva caché prémium.
    
    | Parámetro      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -48,7 +48,7 @@ La compatibilidad con Virtual Network se configura en la hoja **New Azure Cache 
 
 4. Seleccione la pestaña **Redes** o haga clic en el botón **Redes** de la parte inferior de la página.
 
-5. En la pestaña **Redes** , seleccione **Redes virtuales** como método de conectividad. Para usar una nueva red virtual, primero es preciso crearla, para lo que debe seguir los pasos de [Creación de una red virtual mediante Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) o [Creación de Virtual Network (clásica) mediante Azure Portal](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) y, luego, volver a la hoja de la **nueva instancia de Azure Cache for Redis** para crear y configurar una memoria caché prémium.
+5. En la pestaña **Redes**, seleccione **Redes virtuales** como método de conectividad. Para usar una nueva red virtual, primero es preciso crearla, para lo que debe seguir los pasos de [Creación de una red virtual mediante Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) o [Creación de Virtual Network (clásica) mediante Azure Portal](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) y, luego, volver a la hoja de la **nueva instancia de Azure Cache for Redis** para crear y configurar una memoria caché prémium.
 
    > [!IMPORTANT]
    > Si se implementa una instancia de Azure Cache for Redis en una red virtual de Resource Manager, la caché debe estar en una subred dedicada que no contenga otros recursos, salvo instancias de Azure Cache for Redis. Si se intenta implementar una instancia de Azure Cache for Redis en una red virtual de Resource Manager en una subred que contiene otros recursos, se produce un error en la implementación.
@@ -74,13 +74,13 @@ La compatibilidad con Virtual Network se configura en la hoja **New Azure Cache 
 
 8. Seleccione el botón **Siguiente: Etiquetas** o haga clic en el botón **Siguiente: Etiquetas** situado en la parte inferior de la página.
 
-9. Opcionalmente, en la pestaña **Etiquetas** , escriba el nombre y el valor si desea clasificar el recurso. 
+9. Opcionalmente, en la pestaña **Etiquetas**, escriba el nombre y el valor si desea clasificar el recurso. 
 
 10. Seleccione **Revisar + crear**. Pasará a la pestaña Revisar y crear, donde Azure validará la configuración.
 
 11. Tras aparecer el mensaje verde Validación superada, seleccione **Crear**.
 
-La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución** , la memoria caché está lista para su uso. Una vez que se crea la memoria caché, para ver la configuración de la red virtual es preciso hacer clic en **Virtual Network** en el **menú Recursos**.
+La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso. Una vez que se crea la memoria caché, para ver la configuración de la red virtual es preciso hacer clic en **Virtual Network** en el **menú Recursos**.
 
 ![Virtual network][redis-cache-vnet-info]
 
@@ -159,7 +159,7 @@ Existen ocho requisitos de intervalo de puertos de entrada. Las solicitudes entr
 | 6379, 6380 |Entrada |TCP |Comunicación del cliente con Redis, equilibrio de carga de Azure | (Subred de Redis) | (Subred de Redis), Virtual Network, Azure Load Balancer <sup>1</sup> |
 | 8443 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 | 8500 |Entrada |TCP/UDP |Equilibrio de carga de Azure | (Subred de Redis) |Azure Load Balancer |
-| 10221-10231 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis), Azure Load Balancer |
+| 10221-10231 |Entrada |TCP |Comunicación de cliente con clústeres de Redis, comunicaciones internas para Redis | (Subred de Redis) |(Subred de Redis), Azure Load Balancer, (subred de cliente) |
 | 13000-13999 |Entrada |TCP |Comunicación del cliente con clústeres de Redis, Equilibrio de carga de Azure | (Subred de Redis) |Virtual Network, Azure Load Balancer |
 | 15000-15999 |Entrada |TCP |Comunicación del cliente con los clústeres de Redis, el equilibrio de carga de Azure y la replicación geográfica | (Subred de Redis) |Virtual Network, Azure Load Balancer, (subred del mismo nivel de réplica geográfica) |
 | 16001 |Entrada |TCP/UDP |Equilibrio de carga de Azure | (Subred de Redis) |Azure Load Balancer |
@@ -171,15 +171,15 @@ Existen ocho requisitos de intervalo de puertos de entrada. Las solicitudes entr
 
 Existen requisitos de conectividad de red para entornos para una instancia de Azure Cache for Redis que no pueden cumplirse inicialmente en una red virtual. Azure Cache for Redis requiere todos los elementos siguientes para funcionar correctamente cuando se usa en una red virtual.
 
-* Conectividad de red saliente a los puntos de conexión de Azure Storage en todo el mundo. Aquí se incluyen los puntos de conexión ubicados en la misma región que la instancia de Azure Cache for Redis, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Azure Storage se resuelven en los siguientes dominios de DNS: *table.core.windows.net* , *blob.core.windows.net* , *queue.core.windows.net* y *file.core.windows.net*. 
-* Conectividad de red saliente para *ocsp.digicert.com* , *crl4.digicert.com* , *ocsp.msocsp.com* , *mscrl.microsoft.com* , *crl3.digicert.com* , *cacerts.digicert.com* , *oneocsp.microsoft.com* y *crl.microsoft.com*. Esta conectividad es necesaria para admitir la funcionalidad TLS/SSL.
+* Conectividad de red saliente a los puntos de conexión de Azure Storage en todo el mundo. Aquí se incluyen los puntos de conexión ubicados en la misma región que la instancia de Azure Cache for Redis, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Azure Storage se resuelven en los siguientes dominios de DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* y *file.core.windows.net*. 
+* Conectividad de red saliente para *ocsp.digicert.com*, *crl4.digicert.com*, *ocsp.msocsp.com*, *mscrl.microsoft.com*, *crl3.digicert.com*, *cacerts.digicert.com*, *oneocsp.microsoft.com* y *crl.microsoft.com*. Esta conectividad es necesaria para admitir la funcionalidad TLS/SSL.
 * La configuración de DNS para la red virtual debe ser capaz de resolver todos los puntos de conexión y dominios mencionados en los puntos anteriores. Se pueden cumplir los requisitos de DNS al asegurar que se configura y se mantiene una infraestructura DNS válida para la red virtual.
-* Conectividad de red saliente con los siguientes puntos de conexión de Azure Monitor, que se resuelven en los siguientes dominios DNS: *shoebox2-black.shoebox2.metrics.nsatc.net* , *north-prod2.prod2.metrics.nsatc.net* , *azglobal-black.azglobal.metrics.nsatc.net* , *shoebox2-red.shoebox2.metrics.nsatc.net* , *east-prod2.prod2.metrics.nsatc.net* y *azglobal-red.azglobal.metrics.nsatc.net*.
+* Conectividad de red saliente con los siguientes puntos de conexión de Azure Monitor, que se resuelven en los siguientes dominios DNS: *shoebox2-black.shoebox2.metrics.nsatc.net*, *north-prod2.prod2.metrics.nsatc.net*, *azglobal-black.azglobal.metrics.nsatc.net*, *shoebox2-red.shoebox2.metrics.nsatc.net*, *east-prod2.prod2.metrics.nsatc.net* y *azglobal-red.azglobal.metrics.nsatc.net*.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>¿Cómo se puede comprobar que la memoria caché funciona una red virtual?
 
 >[!IMPORTANT]
->Al conectarse a una instancia de Azure Cache for Redis que se hospeda en una red virtual, los clientes de caché deben estar en la misma red virtual o en una red virtual con el emparejamiento de VNET habilitado dentro de la misma región de Azure. El emparejamiento de VNET global no se admite actualmente. Esto incluye cualquier aplicación de prueba o herramienta de diagnóstico de hacer ping. Independientemente de dónde se hospede la aplicación cliente, los grupos de seguridad de red deben configurarse de modo que el tráfico de red del cliente pueda llegar a la instancia de Redis.
+>Al conectarse a una instancia de Azure Cache for Redis que se hospeda en una red virtual, los clientes de caché deben estar en la misma red virtual o en una red virtual con el emparejamiento de VNET habilitado dentro de la misma región de Azure. El emparejamiento de VNET global no se admite actualmente. Esto incluye cualquier aplicación de prueba o herramienta de diagnóstico de hacer ping. Independientemente de dónde se hospede la aplicación cliente, los grupos de seguridad de red u otras capas de red deben configurarse de modo que el tráfico de red del cliente pueda llegar a la instancia de Redis.
 >
 >
 

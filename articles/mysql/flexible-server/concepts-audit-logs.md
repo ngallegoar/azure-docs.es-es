@@ -1,25 +1,22 @@
 ---
 title: 'Registros de auditoría en Azure Database for MySQL: Servidor flexible'
 description: Se describen los registros de auditoría disponibles en el Servidor flexible de Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 00d0808e83a888a39f9268328feb209167c9b644
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295996"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542225"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Seguimiento de la actividad de base de datos con Registros de auditoría en el Servidor flexible de Azure Database for MySQL
 
 > [!IMPORTANT] 
 > El Servidor flexible de Azure Database for MySQL está actualmente en versión preliminar pública.
-
-> [!NOTE]
-> La integración con la configuración de diagnóstico de Azure Monitor para acceder a los registros está en proceso de implementación y pronto estará disponible toda la funcionalidad.
 
 El Servidor flexible de Azure Database for MySQL proporciona a los usuarios la capacidad de configurar registros de auditoría. Los registros de auditoría se pueden usar para realizar un seguimiento de la actividad de nivel de base de datos, incluidos los eventos de conexión, administración, DDL y DML. Estos tipos de registros se usan normalmente para fines de cumplimiento.
 
@@ -52,9 +49,6 @@ Entre otros parámetros que se pueden ajustar para controlar el comportamiento d
 | `TABLE_ACCESS` | - Solo está disponible para MySQL 5.7 <br> - Instrucciones de lectura de tablas como SELECT o INSERT INTO... SELECT <br> - Instrucciones de eliminación de tablas, como DELETE o TRUNCATE TABLE <br> - Instrucciones de inserción en tablas, como INSERT o REPLACE <br> - Instrucciones de actualización de tablas, como UPDATE |
 
 ## <a name="access-audit-logs"></a>Acceso a registros de auditoría
-
-> [!NOTE]
-> La integración con la configuración de diagnóstico de Azure Monitor para acceder a los registros está en proceso de implementación y pronto estará disponible toda la funcionalidad.
 
 Los registros de auditoría están integrados con la configuración de diagnóstico de Azure Monitor. Una vez que haya habilitado los registros de auditoría en el servidor flexible de MySQL, puede enviarlos a los registros de Azure Monitor, Event Hubs o Azure Storage. Para obtener más información acerca de la configuración de diagnóstico, vea la [documentación de los registros de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md). Para obtener más información sobre cómo habilitar la configuración de diagnóstico en Azure Portal, vea el [artículo sobre registros de auditoría en el portal](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 

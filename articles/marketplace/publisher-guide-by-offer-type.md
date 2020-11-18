@@ -4,15 +4,15 @@ description: En este artículo se describen los tipos de ofertas que están disp
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/06/2020
-ms.openlocfilehash: 0d22e10a71c3eee2026f55a73074ba02c68c2b78
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 897f16d84a3e1cf0ca747e90ce621a35ff326b2a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146184"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488985"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guía de publicación por tipo de oferta
 
@@ -30,9 +30,8 @@ En la tabla siguiente se muestran los tipos de oferta de Marketplace comercial e
 
 | **Tipo de oferta**    | **Descripción**  |
 | :------------------- | :-------------------|
-| [Aplicación de Azure: **Aplicación administrada**](marketplace-managed-apps.md) | Use el tipo de oferta Aplicación Azure: Aplicación administrada en las siguientes circunstancias: <br> <ul> <li>Se implementa una solución basada en suscripciones para al cliente con una máquina virtual o una solución completa basada en IaaS. </li> <li>Usted o su cliente requieren que la solución la administre un asociado. </li> <ul> |
-| [Aplicación de Azure: **Plantilla de solución**](marketplace-solution-templates.md) | Use el tipo de oferta Aplicación Azure: Plantilla de solución cuando la solución requiera automatización adicional de la implementación y la configuración más allá de una máquina virtual. Las plantillas de solución pueden emplear muchos tipos diferentes de recursos de Azure, incluidas, entre otros, las máquinas virtuales.  |
-  | [**Contenedor de Azure**](marketplace-containers.md) | Use el tipo de oferta Contenedor de Azure cuando la solución sea una imagen de contenedor de Docker aprovisionada como un servicio de contenedor de Azure basado en Kubernetes. |
+| [**Aplicación de Azure**](plan-azure-application-offer.md) | Hay dos tipos de planes de la Aplicación de Azure: _plantilla de solución_ y _aplicación administrada_. Ambos tipos de planes admiten la automatización de la implementación y la configuración de una solución más allá de una sola máquina virtual (VM). Puede automatizar el proceso de suministrar varios recursos, incluidas VM, redes y recursos de almacenamiento, para proporcionar soluciones complejas, como soluciones IaaS. Ambos tipos de planes pueden emplear muchos tipos diferentes de recursos de Azure, incluidas, entre otras, VM.<ul><li>Los planes de **plantilla de solución** son uno de los principales mecanismos para publicar una solución en el marketplace comercial. Los planes de plantilla de solución no se pueden comercializar en el marketplace comercial, pero se pueden usar para implementar ofertas de VM de pago facturadas mediante el marketplace comercial. Use el tipo de plan de plantilla de solución cuando el cliente administre la solución y las transacciones se facturan a través de otro plan.</li><br><li>Los planes de **aplicación administrada** le permiten crear y entregar con facilidad a los clientes aplicaciones llave en mano totalmente administradas. Tienen las mismas funcionalidades que los planes de plantilla de solución, con algunas diferencias clave:</li><ul><li> Los recursos se implementan en un grupo de recursos y están administrados por el editor de la aplicación. El grupo de recursos está presente en la suscripción del consumidor, pero una identidad en el inquilino del editor tiene acceso al grupo de recursos.</li><li>Como editor, especifica el costo del soporte técnico continuo de la solución, y las transacciones se admiten a través del marketplace comercial.</li></ul>Use el tipo de plan de aplicación administrada cuando usted o su cliente requieran que un partner administre la solución, o cuando vayan a implementar una solución basada en suscripciones.</ul> |
+| [**Contenedor de Azure**](marketplace-containers.md) | Use el tipo de oferta Contenedor de Azure cuando la solución sea una imagen de contenedor de Docker aprovisionada como un servicio de contenedor de Azure basado en Kubernetes. |
 | [**Máquina virtual de Azure**](marketplace-virtual-machines.md) | Use el tipo de oferta de máquina virtual cuando implemente un dispositivo virtual para la suscripción asociada con el cliente. |
 | [**Servicio de consultoría**](consulting-services.md) | Los servicios de consultoría ayudan a conectar a los clientes con servicios que les permitan ser compatibles y extender el uso que hacen de Azure, Dynamics 365 o Power Suite.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Puede publicar ofertas de AppSource que se basan en Dynamics 365 Business central, Dynamics 365 Customer Engagement, Power Apps y aplicaciones de Finance and Operations o que los amplían.|

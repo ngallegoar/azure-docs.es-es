@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 11/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1485c2abd24022dbfa6476e3c5a530413b9cb4f2
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233804"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489529"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
@@ -115,7 +115,11 @@ La configuración de una directiva para **otros clientes** bloquea toda la organ
 
 La directiva puede tardar hasta 24 horas en surtir efecto.
 
-Puede seleccionar todos los controles de concesión disponibles para la condición **Otros clientes** , pero la experiencia del usuario final siempre es la misma: el acceso bloqueado.
+Puede seleccionar todos los controles de concesión disponibles para la condición **Otros clientes**, pero la experiencia del usuario final siempre es la misma: el acceso bloqueado.
+
+### <a name="sharepoint-online-and-b2b-guest-users"></a>Usuarios invitados de SharePoint Online y B2B
+
+Para bloquear el acceso de usuarios B2B a través de la autenticación heredada a SharePoint Online, las organizaciones deben deshabilitar la autenticación heredada en SharePoint con el comando `Set-SPOTenant` de PowerShell y establecer el parámetro `-LegacyAuthProtocolsEnabled` en `$false`. Puede encontrar más información sobre la configuración de este parámetro en el documento de referencia de PowerShell para SharePoint con respecto a [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

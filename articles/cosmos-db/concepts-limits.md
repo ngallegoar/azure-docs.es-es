@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/10/2020
+ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319828"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491824"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -44,7 +44,7 @@ Puede aprovisionar el rendimiento en un nivel de contenedor o de base de datos e
 Un contenedor de Cosmos (o una base de datos de rendimiento compartido) debe tener un rendimiento mínimo de 400 RU/s. A medida que crece el contenedor, el rendimiento mínimo admitido también depende de los factores siguientes:
 
 * Rendimiento máximo que se ha aprovisionado en algún momento en el contenedor. Por ejemplo, si el rendimiento aumentó a 50 000 RU/s, el rendimiento más bajo que se puede aprovisionar sería de 500 RU/s.
-* Es decir, el almacenamiento actual en GB del contenedor. Por ejemplo, si el contenedor cuenta con 100 GB de almacenamiento, el rendimiento más bajo que se puede aprovisionar sería de 1000 RU/s.
+* Es decir, el almacenamiento actual en GB del contenedor. Por ejemplo, si el contenedor cuenta con 100 GB de almacenamiento, el rendimiento más bajo que se puede aprovisionar sería de 1000 RU/s. **Nota:** Si el contenedor o la base de datos contienen más de 1 TB de datos, la cuenta puede ser válida para nuestro [programa de "almacenamiento alto/rendimiento bajo"](set-throughput.md#high-storage-low-throughput-program).
 * El rendimiento mínimo en una base de datos de rendimiento compartido depende del número total de contenedores que ha creado alguna vez en una base de datos de rendimiento compartido, medido en 100 RU/s por contenedor. Por ejemplo, si ha creado cinco contenedores dentro de una base de datos de rendimiento compartido, el rendimiento debe ser de 500 RU/s como mínimo.
 
 El rendimiento actual y mínimo de un contenedor o una base de datos se puede recuperar desde Azure Portal o los SDK. Para obtener más información, consulte [Aprovisionar rendimiento en contenedores y bases de datos](set-throughput.md). 

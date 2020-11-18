@@ -2,13 +2,13 @@
 title: Soporte técnico para los errores de implementación o aprovisionamiento de Azure VMware Solution
 description: Consiga información de la nube privada de Azure VMware Solution para presentar una solicitud de servicio por errores de implementación o aprovisionamiento de Azure VMware Solution.
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: 6d609774b0d3a2de7809d04e4fa0c4e3e6593590
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 10/28/2020
+ms.openlocfilehash: 27b645f4ca225fdd74bca6499b6581b3803e41a4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349127"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542412"
 ---
 # <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Apertura de una solicitud de soporte técnico por errores en la implementación o el aprovisionamiento de Azure VMware Solution
 
@@ -55,7 +55,7 @@ Para acceder al registro de la implementación:
 
    :::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Captura de pantalla que muestra el icono de notificaciones en Azure Portal.":::
 
-1. En el panel **Notificaciones** , seleccione **Más eventos en el registro de actividad** :
+1. En el panel **Notificaciones**, seleccione **Más eventos en el registro de actividad**:
 
     :::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Captura de pantalla que muestra el vínculo Más eventos en el registro de actividad seleccionado en el panel Notificaciones.":::
 
@@ -65,7 +65,7 @@ Para acceder al registro de la implementación:
  
     :::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Captura de pantalla que muestra los resultados de la búsqueda de un recurso de nube privada de ejemplo y el panel de creación o actualización de una nube privada.":::
  
-1. En los resultados de la búsqueda del panel **Registro de actividad** , seleccione el nombre de la operación que produjo el error.
+1. En los resultados de la búsqueda del panel **Registro de actividad**, seleccione el nombre de la operación que produjo el error.
 
 1. En el panel **Create or update a PrivateCloud** (Crear o actualizar una nube privada), seleccione la pestaña **JSON** y, a continuación, busque `correlationId` en el registro que se muestra. Copie el valor de `correlationId` para incluirlo en la solicitud de soporte técnico. 
  
@@ -84,7 +84,7 @@ Quizá intentó escalar o emparejar una nube privada existente con el circuito E
 Para copiar el identificador de ExpressRoute:
 
 1. En Azure Portal, seleccione la nube privada.
-1. En el menú de la izquierda, en **Administrar** , seleccione **Conectividad**. 
+1. En el menú de la izquierda, en **Administrar**, seleccione **Conectividad**. 
 1. En el panel derecho, seleccione la pestaña **ExpressRoute**.
 1. Seleccione el icono de copia de **Id. de ExpressRoute** y guarde el valor para usarlo en la solicitud de soporte técnico.
  
@@ -112,13 +112,13 @@ Para crear una solicitud de soporte técnico por errores en la implementación o
 
 1. Escriba o seleccione la información necesaria:
 
-   1. En la pestaña **Aspectos básicos** :
+   1. En la pestaña **Aspectos básicos**:
 
-      1. En **Tipo de problema** , seleccione **Configuration and Setup Issues** (Problemas de instalación y configuración).
+      1. En **Tipo de problema**, seleccione **Configuration and Setup Issues** (Problemas de instalación y configuración).
 
-      1. En **Subtipo de problema** , seleccione **Aprovisionar una nube privada**.
+      1. En **Subtipo de problema**, seleccione **Aprovisionar una nube privada**.
 
-   1. Haga clic en la pestaña **Detalles** :
+   1. Haga clic en la pestaña **Detalles**:
 
       1. Escriba o seleccione la información necesaria.
 

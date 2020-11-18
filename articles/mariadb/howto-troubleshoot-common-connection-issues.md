@@ -1,17 +1,17 @@
 ---
 title: Solución de problemas de conexión en Azure Database for MariaDB
 description: Obtenga información acerca de cómo solucionar problemas de conexión a Azure Database for MariaDB, incluidos los errores transitorios que requieren realizar reintentos o que tienen problemas de Firewall e interrupciones.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 521853fd361007159d7e497eb7e7c1f3d200731c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9a670472529dccd51cbfa71e385151bc63cff9b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82101457"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539386"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Solución de problemas de conexión a Azure Database for MariaDB
 

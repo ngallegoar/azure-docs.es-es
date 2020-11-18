@@ -3,12 +3,12 @@ title: Entrega de eventos, identidad de servicio administrado y vínculo privado
 description: En este artículo se describe cómo habilitar Managed Service Identity para un tema de Azure Event Grid. Úselo para reenviar eventos a los destinos admitidos.
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 434a2e36ead0d210b7edf64d104243f6643ac019
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d16310ac61121af0cc9d76664bfeeeb14e1bc243
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460927"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491722"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de evento con una identidad administrada
 En este artículo se describe cómo habilitar una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) de temas o dominios de Azure Event Grid. Úselo para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
@@ -89,7 +89,7 @@ En el siguiente ejemplo se agrega una identidad administrada de un tema de Event
 1. Vaya al **espacio de nombres de Service Bus** en [Azure Portal](https://portal.azure.com). 
 1. Seleccione **Control de acceso** en el panel izquierdo. 
 1. Seleccione **Agregar** en la sección **Agregar una asignación de roles**. 
-1. En la página **Agregar una asignación de roles** , siga estos pasos:
+1. En la página **Agregar una asignación de roles**, siga estos pasos:
     1. Seleccione el rol. En este caso, es **Emisor de datos de Azure Event Hubs** 
     1. Seleccione la **identidad** para su tema o dominio. 
     1. Para guardar la configuración, seleccione **Guardar**.

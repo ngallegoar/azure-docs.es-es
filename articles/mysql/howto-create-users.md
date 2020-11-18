@@ -1,17 +1,17 @@
 ---
 title: 'Creación de bases de datos y usuarios: Azure Database for MySQL'
 description: En este artículo se describe cómo crear nuevas cuentas de usuario para interactuar con un servidor de Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 3e1f24b3ae6133241660751293f52fec63dfbe73
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 2e934ede193d6efb9cc795c6b63cb485b88f792e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766871"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541426"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Creación de bases de datos y usuarios en Azure Database for MySQL
 

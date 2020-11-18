@@ -1,17 +1,17 @@
 ---
 title: Configuración de alertas de métricas mediante Azure Portal en Azure Database for MariaDB
 description: En este artículo se describe cómo configurar las alertas de métricas en Azure Database for MariaDB y obtener acceso a ellas en Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: c972bd3b770f42353d285d0c69aacef56d6e04d5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e108ca3aa346af20b31ff446130014e1250f49c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426123"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541086"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Uso de Azure Portal para configurar alertas de métricas en Azure Database for MariaDB
 
@@ -32,39 +32,39 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 ## <a name="create-an-alert-rule-on-a-metric"></a>Creación de una regla de alerta en una métrica
 1. En [Azure Portal](https://portal.azure.com/), seleccione el servidor de Azure Database for MariaDB que quiere supervisar.
 
-2. En la sección **Supervisión** de la barra lateral, seleccione **Alertas** , tal y como se muestra a continuación:
+2. En la sección **Supervisión** de la barra lateral, seleccione **Alertas**, tal y como se muestra a continuación:
 
    ![Selección de Reglas de alerta](./media/howto-alert-metric/2-alert-rules.png)
 
 3. Seleccione **Agregar alerta de métrica** (icono +).
 
-4. Se abre la página **Crear regla** , tal y como se muestra a continuación. Rellene la información necesaria:
+4. Se abre la página **Crear regla**, tal y como se muestra a continuación. Rellene la información necesaria:
 
    ![Formulario de adición de alerta de métrica](./media/howto-alert-metric/4-add-rule-form.png)
 
-5. En la sección **Condición** , seleccione **Agregar condición** .
+5. En la sección **Condición**, seleccione **Agregar condición**.
 
 6. Seleccione una métrica de la lista de señales sobre las que desea recibir alertas. En este ejemplo, seleccione "Porcentaje de almacenamiento".
    
    ![Selección de la métrica](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Configure la lógica de alerta incluida la **condición** (p. ej., "Mayor que") el **umbral** (p. ej., 85 %), la **agregación de tiempo** , el **período** de tiempo de la regla de métrica que debe transcurrir para que se desencadene la alerta (p. ej., "En los últimos 30 minutos") y la **frecuencia** .
+7. Configure la lógica de alerta incluida la **condición** (p. ej., "Mayor que") el **umbral** (p. ej., 85 %), la **agregación de tiempo**, el **período** de tiempo de la regla de métrica que debe transcurrir para que se desencadene la alerta (p. ej., "En los últimos 30 minutos") y la **frecuencia**.
    
    Seleccione **Listo** cuando haya terminado.
 
    ![Seleccionar métrica 2](./media/howto-alert-metric/7-set-threshold-time.png)
 
-8. En la sección **Grupos de acciones** , seleccione **Crear nuevo** para crear un grupo en el que recibir las notificaciones sobre la alerta.
+8. En la sección **Grupos de acciones**, seleccione **Crear nuevo** para crear un grupo en el que recibir las notificaciones sobre la alerta.
 
 9. Rellene el formulario "Agregar grupo de acciones" con un nombre, un nombre corto, la suscripción y el grupo de recursos.
 
-10. Configure el tipo de acción **Correo electrónico/SMS/Push/Voz** .
+10. Configure el tipo de acción **Correo electrónico/SMS/Push/Voz**.
     
     Elija "Rol de Azure Resource Manager de correo electrónico" para seleccionar los propietarios, colaboradores y lectores de la suscripción que recibirán las notificaciones.
    
     También puede indicar un identificador URI válido en el campo **Webhook** si quiere llamarlo cuando se active la alerta.
 
-    Cuando haya terminado, seleccione **Aceptar** .
+    Cuando haya terminado, seleccione **Aceptar**.
 
     ![Grupo de acciones](./media/howto-alert-metric/10-action-group-type.png)
 

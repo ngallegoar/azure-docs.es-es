@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c786aaecd3ab2f18f242cea2f5c45838f9ecf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9536cf41add73f494bfff451c201d36e951864e3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839354"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489495"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificaciones de Azure Active Directory Identity Protection
 
@@ -35,7 +35,9 @@ La configuración de esta alerta permite especificar a qué nivel de riesgo del 
 
 Pero solo se enviará una notificación por correo electrónico adicional si la detección de riesgos (que ha provocado el cambio en el nivel de riesgo del usuario) es más reciente que el envío del último correo electrónico. Por ejemplo, un usuario inicia sesión el 1 de enero a las 5:00 y no hay ningún riesgo en tiempo real (lo que significa que no se generará ningún correo electrónico debido a ese inicio de sesión). Diez minutos después, a las 5:10, el mismo usuario vuelve a iniciar sesión y tiene un riesgo alto en tiempo real, lo que hace que su nivel de riesgo cambie a alto y se envíe un correo electrónico. Después, a las 5:15, la puntuación de riesgo sin conexión para el inicio de sesión original de las 5:00 cambia a riesgo alto debido al procesamiento de riesgos sin conexión. No se enviará un correo electrónico adicional de usuario marcado como de riesgo, ya que el primer inicio de sesión ha sido anterior al segundo que ya ha desencadenado una notificación por correo electrónico.
 
-Para evitar una sobrecarga de correos electrónicos, solo recibirá un correo electrónico de usuarios en riesgo detectados en un período de cinco segundos. Esto significa que si varios usuarios pasan al nivel de riesgo especificado durante el mismo período de cinco segundos, se agregarán y se enviará un solo mensaje de correo electrónico para representar el cambio de nivel de riesgo de todos ellos.
+Para evitar una sobrecarga de correos electrónicos, solo recibirá un correo electrónico en un período de cinco segundos. Esta demora significa que si varios usuarios pasan al nivel de riesgo especificado durante el mismo período de cinco segundos, se agregarán y se enviará un solo mensaje de correo electrónico para representar el cambio de nivel de riesgo de todos ellos.
+
+Si su organización ha habilitado la corrección automática, como se describe en el artículo [Experiencias de usuario con Azure AD Identity Protection](concept-identity-protection-user-experience.md), existe la posibilidad de que el usuario pueda corregir el riesgo antes de que usted tenga la oportunidad de investigar. Para ver los usuarios de riesgo y los inicios de sesión de riesgo que se han corregido, puede agregar "Corregido" al filtro **Estado de riesgo** de en los informes **Usuarios de riesgo** o **Inicios de sesión de riesgo**.
 
 ![Correo electrónico de los usuarios en riesgo detectados](./media/howto-identity-protection-configure-notifications/01.png)
 
@@ -60,7 +62,7 @@ Incluye:
 
 ![Correo electrónico de resumen semanal](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
-Los usuarios con los roles de administrador de empresa, administrador de seguridad o lector de seguridad se agregan automáticamente a esta lista. Intentamos enviar correos electrónicos a los 20 primeros miembros de cada rol. Si un usuario está inscrito en PIM para subir a uno de estos roles previa petición, **solo recibirá mensajes de correo electrónico si se sube en el momento en que se envía el correo electrónico**
+Los usuarios con los roles de administrador de empresa, administrador de seguridad o lector de seguridad se agregan automáticamente a esta lista. Intentamos enviar correos electrónicos a los 20 primeros miembros de cada rol. Si un usuario está inscrito en PIM para subir a uno de estos roles previa petición, **solo recibirá mensajes de correo electrónico si se sube en el momento en que se envía el correo electrónico**.
 
 ### <a name="configure-weekly-digest-email"></a>Configuración de correo electrónico de resumen semanal
 

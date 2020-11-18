@@ -1,17 +1,17 @@
 ---
 title: Configuración de Advanced Threat Protection en Azure Database for MySQL mediante Azure Portal
 description: Aprenda a configurar Advanced Threat Protection para detectar actividades anómalas en la base de datos que indican posibles amenazas de seguridad para la base de datos en una instancia administrada.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 96f6993f92192a1149e3b243c68fdf5fe96fdc66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b30bd36dca6f866b8f3e6e8a0b133a6dd61b239b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541458"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541443"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Advanced Threat Protection para Azure Database for MySQL
 
@@ -32,7 +32,7 @@ Advanced Threat Protection forma parte de la oferta Seguridad de datos avanzada,
 3. En la página de configuración de **Advanced Threat Protection (versión preliminar)** :
 
    - Habilite Protección contra amenazas avanzada en el servidor.
-   - En **Configuración de Advanced Threat Protection** , en el cuadro de texto **Enviar alertas a** , proporcione la lista de correos electrónicos para recibir alertas de seguridad cuando se detecten actividades anómalas en la base de datos.
+   - En **Configuración de Advanced Threat Protection**, en el cuadro de texto **Enviar alertas a**, proporcione la lista de correos electrónicos para recibir alertas de seguridad cuando se detecten actividades anómalas en la base de datos.
   
    :::image type="content" source="./media/howto-database-threat-protection-portal/set-up-threat-protection.png" alt-text="Configurar la detección de amenazas":::
 
@@ -42,15 +42,15 @@ Cuando se detecten actividades anómalas en las bases de datos, recibirá una no
  
 1. Haga clic en el vínculo **Ver las alertas recientes** del correo electrónico para iniciar Azure Portal y mostrar la página de alertas de Azure Security Center, que proporciona información general sobre amenazas activas detectadas en la base de datos de SQL.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Configurar la detección de amenazas":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Informes de actividades anómalas":::
 
     Ver amenazas activas:
 
-    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Configurar la detección de amenazas":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Amenazas activas":::
 
 2. Haga clic en una alerta específica para obtener detalles y acciones adicionales para investigar esta amenaza y solucionar amenazas futuras.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Configurar la detección de amenazas":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Alerta específica":::
 
 ## <a name="explore-threat-detection-alerts"></a>Explorar alertas de detección de amenazas
 
@@ -58,7 +58,7 @@ Detección de amenazas de SQL Database integra la alerta con [Azure Security Cen
 
 Haga clic en la **alerta de detección de amenazas** para iniciar la página de alertas de Azure Security Center y obtener información general de las amenazas de SQL activas detectadas en la base de datos.
 
-   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Configurar la detección de amenazas":::
+   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Alerta de detección de amenazas":::
    
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,17 +1,17 @@
 ---
 title: 'Importación y exportación: Azure Database for MySQL'
 description: Este artículo explica las formas habituales de importar y exportar bases de datos en Azure Database for MySQL, mediante herramientas como MySQL Workbench.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 1b4959cbf082a589c90034f48d597907c9b7e6cc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: af9f0f65e01a786d478fac0adde6174b8f03b2fd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128936"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537907"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migración de la base de datos de MySQL mediante importación y exportación
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
@@ -82,7 +82,7 @@ En el ejemplo siguiente se exporta la tabla a un archivo CSV:
 2. Seleccione **Table Data Export Wizard** (Asistente para exportación de datos de tabla). Seleccione las columnas que se exportarán, el desplazamiento de fila (si lo hubiera) y el número (si lo hubiera).
 3. En la página **Seleccionar datos para exportar** haga clic en **Siguiente**. Seleccione la ruta de acceso del archivo y el tipo de archivo: CSV o JSON. Seleccione también el separador de línea, el método de inclusión de cadenas y el separador de campos.
 4. En la página **Select output file location** (Seleccionar ubicación del archivo de salida), haga clic en **Siguiente**.
-5. En la página **Exportar datos** , haga clic en **Siguiente**.
+5. En la página **Exportar datos**, haga clic en **Siguiente**.
 
 #### <a name="table-data-import-wizard"></a>Asistente para importación de datos de tabla
 En el ejemplo siguiente se importa la tabla desde un archivo CSV:
@@ -90,7 +90,7 @@ En el ejemplo siguiente se importa la tabla desde un archivo CSV:
 2. Busque y seleccione el archivo CSV que desea importar y luego haga clic en **Siguiente**.
 3. Seleccione la tabla de destino (nueva o existente) y seleccione o anule la selección de la casilla **Truncate table before import** (Truncar tabla antes de la importación). Haga clic en **Siguiente**.
 4. Seleccione la codificación y las columnas que desea importar y haga clic en **Siguiente**.
-5. En la página **Importar datos** , haga clic en **Siguiente**. El asistente procederá a importar los datos.
+5. En la página **Importar datos**, haga clic en **Siguiente**. El asistente procederá a importar los datos.
 
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>Asistentes para la exportación e importación de datos de SQL desde el panel del navegador
 Use un asistente para exportar o importar datos de SQL generados desde MySQL Workbench o con el comando mysqldump. Acceda a estos asistentes desde el panel del **navegador** o seleccionando **Servidor** en el menú principal. A continuación, seleccione **Exportación de datos** o **Importación de datos**.

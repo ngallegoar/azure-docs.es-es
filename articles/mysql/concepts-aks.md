@@ -1,17 +1,17 @@
 ---
 title: Conexión de Azure Kubernetes Service y Azure Database for MySQL
 description: Aprenda a conectar Azure Kubernetes Service con Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: bc40903de09ebfe04858c631eee0233561784418
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5c4a5f5d792a60ed3fef07797fdbdfa0c9cfb8fe
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546915"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534337"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Conexión de Azure Kubernetes Service y Azure Database for MySQL
 
@@ -26,7 +26,7 @@ A partir de noviembre de 2018, AKS admite redes aceleradas en esas instancias de
 Puede confirmar si el clúster de AKS tiene redes aceleradas de la manera siguiente:
 1. Vaya a Azure Portal y seleccione su clúster de AKS.
 2. Seleccione la pestaña Propiedades.
-3. Copie el nombre del **grupo de recursos de infraestructura** .
+3. Copie el nombre del **grupo de recursos de infraestructura**.
 4. Use la barra de búsqueda del portal para buscar y abrir el grupo de recursos de infraestructura.
 5. Seleccione una máquina virtual de ese grupo de recursos.
 6. Vaya a la pestaña **Redes** de la máquina virtual.

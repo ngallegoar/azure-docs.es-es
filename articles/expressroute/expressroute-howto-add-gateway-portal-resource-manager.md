@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "91761839"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
@@ -42,7 +42,7 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
     * Espacio de direcciones de subred = "192.168.1.0/24"
 * Grupo de recursos: "TestRG"
 * Ubicación: = "Este de EE. UU."
-* Nombre de subred de puerta de enlace: "GatewaySubnet" (siempre debe asignar a las subredes de puerta de enlace el nombre *GatewaySubnet* ).
+* Nombre de subred de puerta de enlace: "GatewaySubnet" (siempre debe asignar a las subredes de puerta de enlace el nombre *GatewaySubnet*).
     * Espacio de direcciones de subred de puerta de enlace = "192.168.200.0/26"
 * Nombre de puerta de enlace = "ERGW"
 * Nombre de IP pública de puerta de enlace = "MyERGWVIP"
@@ -54,7 +54,7 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
 
 1. En el [portal](https://portal.azure.com), navegue a la red virtual de Resource Manager para la que desea crear una puerta de enlace de red virtual.
 1. En la sección **Configuración** de la red virtual, seleccione **Subredes** para expandir la configuración de las subredes.
-1. En la configuración de **Subredes** , seleccione **+ Subred de puerta de enlace** para agregar una subred de puerta de enlace. 
+1. En la configuración de **Subredes**, seleccione **+ Subred de puerta de enlace** para agregar una subred de puerta de enlace. 
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Agregue la subred de puerta de enlace":::
 
@@ -64,8 +64,8 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
 
 ## <a name="create-the-virtual-network-gateway"></a>Creación de la puerta de enlace de red virtual
 
-1. En el portal, a la izquierda, seleccione **Crear un recurso** y escriba "Virtual Network Gateway" en la búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y seleccione la entrada. En la página **Puerta de enlace de red virtual** , seleccione **Crear**.
-1. En la página **Crear puerta de enlace de red virtual** , escriba o seleccione estos valores:
+1. En el portal, a la izquierda, seleccione **Crear un recurso** y escriba "Virtual Network Gateway" en la búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y seleccione la entrada. En la página **Puerta de enlace de red virtual**, seleccione **Crear**.
+1. En la página **Crear puerta de enlace de red virtual**, escriba o seleccione estos valores:
 
     | Parámetro | Value |
     | --------| ----- |

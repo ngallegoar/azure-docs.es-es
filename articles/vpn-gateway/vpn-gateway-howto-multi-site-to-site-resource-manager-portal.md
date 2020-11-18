@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: cherylmc
 ms.openlocfilehash: 92d39b0d39511571701fd092f641cb8ca3ae42c7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92890175"
 ---
 # <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>Adición de conexiones S2S adicionales a una red virtual: Azure portal
@@ -40,26 +40,26 @@ Compruebe los siguientes aspectos:
 ## <a name="configure-a-connection"></a><a name="configure"></a>Configuración de una conexión
 
 1. Desde un explorador, vaya [Azure Portal](https://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
-1. Seleccione **Todos los recursos** , localice su **puerta de enlace de red virtual** en la lista de recursos y selecciónela.
-1. En la página **Puerta de enlace de red virtual** , seleccione **Conexiones**.
+1. Seleccione **Todos los recursos**, localice su **puerta de enlace de red virtual** en la lista de recursos y selecciónela.
+1. En la página **Puerta de enlace de red virtual**, seleccione **Conexiones**.
 
    :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connections.png" alt-text="Conexiones de VPN Gateway":::
-1. En la página **Conexiones** , seleccione **+ Agregar**.
+1. En la página **Conexiones**, seleccione **+ Agregar**.
 1. De este modo se abrirá la página **Agregar conexión**.
 
    :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/add-connection.png" alt-text="Página Agregar conexión":::
-1. En la página **Agregar conexión** , rellene los campos siguientes:
+1. En la página **Agregar conexión**, rellene los campos siguientes:
 
    * **Nombre:** el nombre que quiere darle al sitio para el que está creando la conexión.
-   * **Tipo de conexión** : seleccione **De sitio a sitio (IPsec)** .
+   * **Tipo de conexión**: seleccione **De sitio a sitio (IPsec)** .
 
 ## <a name="add-a-local-network-gateway"></a><a name="local"></a>Adición de una puerta de enlace de red local
 
-1. En el campo **Puerta de enlace de red local** , seleccione **_Elegir una puerta de enlace de red local_ *_. Se abre la página _* Elegir puerta de enlace de red local**.
+1. En el campo **Puerta de enlace de red local**, seleccione **_Elegir una puerta de enlace de red local_ *_. Se abre la página _* Elegir puerta de enlace de red local**.
 1. Seleccione **+ Crear nueva** para abrir la página **Crear puerta de enlace de red local**.
 
    :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/create-local-network-gateway.png" alt-text="Página Crear puerta de enlace de red local":::
-1. En la página **Crear puerta de enlace de red local** , rellene los campos siguientes:
+1. En la página **Crear puerta de enlace de red local**, rellene los campos siguientes:
 
    * **Nombre:** el nombre que quiere darle al recurso de puerta de enlace de red local.
    * **Punto de conexión:** Dirección IP pública del dispositivo VPN del sitio al que quiere conectarse o FQDN del punto de conexión.

@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92208250"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configuración del modo de transporte de IPsec para emparejamiento privado de ExpressRoute
@@ -43,7 +43,7 @@ Este diagrama muestra los túneles de IPsec en tránsito en el emparejamiento pr
 ### <a name="working-with-ipsec-policy"></a>Funcionamiento con directivas IPsec
 
 En Windows, el cifrado se asocia a la directiva IPsec. La directiva IPsec determina qué tráfico IP está protegido y el mecanismo de seguridad que se aplica a los paquetes IP.
-**Las directivas IPSec** están formadas por los siguientes elementos: **Listas de filtros** , **Acciones de filtrado** y **Reglas de seguridad**.
+**Las directivas IPSec** están formadas por los siguientes elementos: **Listas de filtros**, **Acciones de filtrado** y **Reglas de seguridad**.
 
 Al configurar la directiva IPsec, es importante comprender la terminología siguiente de directiva IPsec:
 
@@ -104,7 +104,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 1. Para crear un nuevo GPO vinculado a una unidad organizativa, abra el complemento de administración de directivas de grupo y busque la unidad organizativa a la que se vinculará el GPO. En el ejemplo, la unidad organizativa se denomina **IPSecOU**. 
 
    [![9]][9]
-2. En el complemento de administración de directivas de grupo, seleccione la unidad organizativa y haga clic en ella con el botón derecho. En la lista desplegable, haga clic en " **Crear un GPO en este dominio y vincularlo aquí** ".
+2. En el complemento de administración de directivas de grupo, seleccione la unidad organizativa y haga clic en ella con el botón derecho. En la lista desplegable, haga clic en "**Crear un GPO en este dominio y vincularlo aquí**".
 
    [![10]][10]
 3. Asigne un nombre intuitivo al GPO para poder localizarlo fácilmente más tarde. Haga clic en **Aceptar** para crear y vincular el GPO.
@@ -125,11 +125,11 @@ Para aplicar el GPO a la unidad organizativa, no solo se debe vincular el GPO a 
 1. En la lista desplegable, haga clic en **Directiva de seguridad de IP en Active Directory** y, a continuación, haga clic en **Administrar listas de filtros IP y acciones de filtrado...** .
 
    [![15]][15]
-2. En la pestaña " **Administrar acciones de filtrado** ", haga clic en **Agregar**.
+2. En la pestaña "**Administrar acciones de filtrado**", haga clic en **Agregar**.
 
    [![16]][16]
 
-3. En el **Asistente para acciones de filtrado de seguridad IP** , haga clic en **Siguiente**.
+3. En el **Asistente para acciones de filtrado de seguridad IP**, haga clic en **Siguiente**.
 
    [![17]][17]
 4. Asigne un nombre intuitivo a la acción de filtrado para poder encontrarla más tarde. En este ejemplo, la acción de filtrado se denomina **myEncryption**. También puede agregar una descripción. A continuación, haga clic en **Siguiente**.
@@ -138,16 +138,16 @@ Para aplicar el GPO a la unidad organizativa, no solo se debe vincular el GPO a 
 5. **Negociar la seguridad** le permite definir el comportamiento si IPsec no se puede establecer con otro equipo. Seleccione **Negociar la seguridad** y, a continuación, haga clic en **Siguiente**.
 
    [![19]][19]
-6. En la página **Comunicación con equipos no compatibles con IPsec** , seleccione **No permitir comunicación no segura** y, a continuación, haga clic en **Siguiente**.
+6. En la página **Comunicación con equipos no compatibles con IPsec**, seleccione **No permitir comunicación no segura** y, a continuación, haga clic en **Siguiente**.
 
    [![20]][20]
-7. En la página **Tráfico IP y seguridad** , seleccione **Personalizado** y, a continuación, haga clic en **Configuración...** .
+7. En la página **Tráfico IP y seguridad**, seleccione **Personalizado** y, a continuación, haga clic en **Configuración...** .
 
    [![21]][21]
-8. En la página **Configuración de método de seguridad personalizado** , seleccione **Integridad y cifrado de datos (ESP): SHA1, 3DES**. A continuación, haga clic en **Aceptar**.
+8. En la página **Configuración de método de seguridad personalizado**, seleccione **Integridad y cifrado de datos (ESP): SHA1, 3DES**. A continuación, haga clic en **Aceptar**.
 
    [![22]][22]
-9. En la página **Administrar acciones de filtrado** , puede ver que el filtro **myEncryption** se agregó correctamente. Haga clic en **Cerrar**.
+9. En la página **Administrar acciones de filtrado**, puede ver que el filtro **myEncryption** se agregó correctamente. Haga clic en **Cerrar**.
 
    [![23]][23]
 
@@ -155,16 +155,16 @@ Para aplicar el GPO a la unidad organizativa, no solo se debe vincular el GPO a 
 
 Cree una lista de filtros que especifique el tráfico HTTP cifrado con el puerto de destino 8080.
 
-1. Para calificar qué tipos de tráfico deben cifrarse, utilice una **lista de filtros IP**. En la pestaña **Administrar listas de filtros IP** , haga clic en **Agregar** para agregar una nueva lista de filtros IP.
+1. Para calificar qué tipos de tráfico deben cifrarse, utilice una **lista de filtros IP**. En la pestaña **Administrar listas de filtros IP**, haga clic en **Agregar** para agregar una nueva lista de filtros IP.
 
    [![24]][24]
 2. En el campo **Nombre:** , escriba un nombre para la lista de filtros IP. Por ejemplo, **azure-onpremises-HTTP8080**. A continuación, haga clic en **Agregar**.
 
    [![25]][25]
-3. En la página **Descripción de filtro IP y propiedad reflejada** , seleccione **Reflejado**. La configuración reflejada coincide con los paquetes en ambas direcciones, lo que permite la comunicación bidireccional. A continuación, haga clic en **Siguiente**.
+3. En la página **Descripción de filtro IP y propiedad reflejada**, seleccione **Reflejado**. La configuración reflejada coincide con los paquetes en ambas direcciones, lo que permite la comunicación bidireccional. A continuación, haga clic en **Siguiente**.
 
    [![26]][26]
-4. En el página **Origen del tráfico IP** , en la lista desplegable **Dirección de origen:** , elija **Una dirección IP o subred específica**. 
+4. En el página **Origen del tráfico IP**, en la lista desplegable **Dirección de origen:** , elija **Una dirección IP o subred específica**. 
 
    [![27]][27]
 5. Especifique la dirección de origen **Dirección IP o subred:** del tráfico IP y, a continuación, haga clic en **Siguiente**.
@@ -173,10 +173,10 @@ Cree una lista de filtros que especifique el tráfico HTTP cifrado con el puerto
 6. Especifique la **Dirección de destino:** dirección IP o subred. A continuación, haga clic en **Siguiente**.
 
    [![29]][29]
-7. En la página **Tipo de protocolo IP** , seleccione **TCP**. A continuación, haga clic en **Siguiente**.
+7. En la página **Tipo de protocolo IP**, seleccione **TCP**. A continuación, haga clic en **Siguiente**.
 
    [![30]][30]
-8. En la página **Puerto de protocolo IP** , seleccione **Desde cualquier puerto** y **A este puerto:** . Escriba **8080** en el cuadro de texto. Esta configuración especifica que solo se cifrará el tráfico HTTP en el puerto de destino 8080. A continuación, haga clic en **Siguiente**.
+8. En la página **Puerto de protocolo IP**, seleccione **Desde cualquier puerto** y **A este puerto:** . Escriba **8080** en el cuadro de texto. Esta configuración especifica que solo se cifrará el tráfico HTTP en el puerto de destino 8080. A continuación, haga clic en **Siguiente**.
 
    [![31]][31]
 9. Consulte la lista de filtros IP.  La configuración de la lista de filtros IP **azure-onpremises-HTTP8080** desencadena el cifrado de todo el tráfico que coincide con los criterios siguientes:
@@ -195,7 +195,7 @@ Para cifrar el mismo tipo de tráfico en dirección opuesta (desde el host local
 1. Para agregar un nuevo filtro IP a la lista de filtros IP, seleccione **Editar**.
 
    [![33]][33]
-2. En la página **Lista de filtros IP** , haga clic en **Agregar**.
+2. En la página **Lista de filtros IP**, haga clic en **Agregar**.
 
    [![34]][34]
 3. Cree un segundo filtro IP mediante la configuración del ejemplo siguiente:
@@ -266,7 +266,7 @@ La directiva IPsec requiere que todas las conexiones HTTP en el puerto de destin
 1. Consulte la directiva. La directiva de grupo de seguridad está definida, pero aún no se ha asignado.
 
    [![49]][49]
-2. Para asignar la directiva de grupo de seguridad a la unidad organizativa **IPSecOU** , haga clic con el botón derecho en la directiva de seguridad y elija **Asignar**.
+2. Para asignar la directiva de grupo de seguridad a la unidad organizativa **IPSecOU**, haga clic con el botón derecho en la directiva de seguridad y elija **Asignar**.
    Cada equipo que pertenezca a la unidad organizativa tendrá asignada la directiva de grupo de seguridad.
 
    [![50]][50]

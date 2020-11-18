@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92204646"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Comprobación de la conectividad de ExpressRoute
@@ -83,7 +83,7 @@ En Azure Portal, abra la hoja del circuito ExpressRoute. En la sección ![3][3] 
 
 ![4][4]    
 
-En Essentials (Fundamentos) de ExpressRoute, *Circuit status* (Estado del circuito) indica el estado del circuito en el lado de Microsoft. *Provider status* (Estado del proveedor) indica si el circuito ha sido aprovisionado o no ( *Provisioned/Not provisioned* ) en el lado del proveedor de servicios. 
+En Essentials (Fundamentos) de ExpressRoute, *Circuit status* (Estado del circuito) indica el estado del circuito en el lado de Microsoft. *Provider status* (Estado del proveedor) indica si el circuito ha sido aprovisionado o no (*Provisioned/Not provisioned*) en el lado del proveedor de servicios. 
 
 Para que un circuito ExpressRoute sea operativo, el valor de *Circuit status* (Estado del circuito) debe ser *Enabled* (Habilitado) y *Provider status* (Estado del proveedor) debe ser *Provisioned* (Aprovisionado)
 
@@ -165,7 +165,7 @@ En Azure Portal, el estado de un emparejamiento de circuito ExpressRoute se pued
 Como se indicó en el ejemplo anterior, el emparejamiento privado de Azure está aprovisionado, mientras que los emparejamientos públicos de Azure y el emparejamiento de Microsoft no lo están. Un contexto de emparejamiento aprovisionado correctamente también mostrará las subredes de punto a punto principales y secundarias. Las subredes /30 se usan para la dirección IP de interfaz de los MSEE y los CE o los PE-MSEE. En el caso de los emparejamientos que se aprovisionan, también se indica quién modificó la configuración por última vez. 
 
 > [!NOTE]
-> Si se produce un error al habilitar un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración del CE o el PE-MSEE vinculado. Compruebe también si se usan los *VlanId* , *AzureASN* y *PeerASN* correctos en los MSEE, y si estos valores se asignan a los que se usan en el CE o el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE o CE. La clave compartida que se ha configurado previamente no se mostraría por motivos de seguridad. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
+> Si se produce un error al habilitar un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración del CE o el PE-MSEE vinculado. Compruebe también si se usan los *VlanId*, *AzureASN* y *PeerASN* correctos en los MSEE, y si estos valores se asignan a los que se usan en el CE o el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE o CE. La clave compartida que se ha configurado previamente no se mostraría por motivos de seguridad. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
 >
 
 > [!NOTE]
@@ -228,7 +228,7 @@ At line:1 char:1
 ```
 
 > [!NOTE]
-> Si se produce un error al habilitar un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración del CE o el PE-MSEE vinculado. Compruebe también si se usan los *VlanId* , *AzureASN* y *PeerASN* correctos en los MSEE, y si estos valores se asignan a los que se usan en el CE o el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE o CE. La clave compartida que se ha configurado previamente no se mostraría por motivos de seguridad. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
+> Si se produce un error al habilitar un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración del CE o el PE-MSEE vinculado. Compruebe también si se usan los *VlanId*, *AzureASN* y *PeerASN* correctos en los MSEE, y si estos valores se asignan a los que se usan en el CE o el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE o CE. La clave compartida que se ha configurado previamente no se mostraría por motivos de seguridad. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
 >
 >
 
@@ -249,7 +249,7 @@ Consulte el documento [Obtención de tablas ARP en el modelo de implementación 
 
 ## <a name="validate-bgp-and-routes-on-the-msee"></a>Validación de BGP y las rutas en el MSEE
 
-Para obtener la tabla de enrutamiento de MSEE en la ruta de acceso *principal* del contexto de enrutamiento *privado* , use el siguiente comando:
+Para obtener la tabla de enrutamiento de MSEE en la ruta de acceso *principal* del contexto de enrutamiento *privado*, use el siguiente comando:
 
 ```azurepowershell
 Get-AzExpressRouteCircuitRouteTable -DevicePath Primary -ExpressRouteCircuitName ******* -PeeringType AzurePrivatePeering -ResourceGroupName ****
@@ -278,7 +278,7 @@ Path    : 123##
 ```
 
 > [!NOTE]
-> Si el estado de un emparejamiento EBGP entre un MSEE y un CE o un PE-MSEE es activo o está en espera, compruebe si las subredes principales y secundarias asignadas del mismo nivel coinciden con la configuración de los CE o de los PE-MSEE vinculados. Compruebe también si se usan los *VlanId* , *AzureAsn* y *PeerAsn* correctos en los MSEE, y si estos valores se asignan a los que se usan en el PE-MSEE o el CE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y CE o PE-MSEE. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
+> Si el estado de un emparejamiento EBGP entre un MSEE y un CE o un PE-MSEE es activo o está en espera, compruebe si las subredes principales y secundarias asignadas del mismo nivel coinciden con la configuración de los CE o de los PE-MSEE vinculados. Compruebe también si se usan los *VlanId*, *AzureAsn* y *PeerAsn* correctos en los MSEE, y si estos valores se asignan a los que se usan en el PE-MSEE o el CE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y CE o PE-MSEE. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
 >
 
 

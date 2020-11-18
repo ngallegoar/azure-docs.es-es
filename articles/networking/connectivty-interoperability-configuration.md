@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "86171863"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidad de las características de conectividad del back-end de Azure: Detalles de configuración de prueba
@@ -51,7 +51,7 @@ En la siguiente ilustración se muestra la configuración de conexión entre el 
 
 [![5]][5]
 
-En la siguiente lista se muestra la configuración del enrutador del lado del cliente principal para la conectividad de emparejamiento privado de ExpressRoute. (En esta configuración de prueba se utilizan enrutadores Cisco ASR1000 en el lado del cliente). Cuando los circuitos de VPN de sitio a sitio y ExpressRoute se configuran en paralelo para conectar una red local con Azure, Azure da prioridad al circuito de ExpressRoute de forma predeterminada. Para evitar el enrutamiento asimétrico, la red local también debe dar prioridad a la conectividad de ExpressRoute sobre VPN de sitio a sitio. La siguiente configuración establece prioridades mediante el atributo BGP **local-preference** :
+En la siguiente lista se muestra la configuración del enrutador del lado del cliente principal para la conectividad de emparejamiento privado de ExpressRoute. (En esta configuración de prueba se utilizan enrutadores Cisco ASR1000 en el lado del cliente). Cuando los circuitos de VPN de sitio a sitio y ExpressRoute se configuran en paralelo para conectar una red local con Azure, Azure da prioridad al circuito de ExpressRoute de forma predeterminada. Para evitar el enrutamiento asimétrico, la red local también debe dar prioridad a la conectividad de ExpressRoute sobre VPN de sitio a sitio. La siguiente configuración establece prioridades mediante el atributo BGP **local-preference**:
 
 ```config
 interface TenGigabitEthernet0/0/0.300

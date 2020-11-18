@@ -1,17 +1,17 @@
 ---
 title: Creación de usuarios en Azure Database for MariaDB
 description: En este artículo se describe cómo puede crear nuevas cuentas de usuario para interactuar con un servidor de Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 7a3515850027963dcabbf2cef4efd8bf43802cbe
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 882c8365bda87e97bfbc3bee9bdd320b312b4114
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653067"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542718"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Crear usuarios en Azure Database for MariaDB 
 En este artículo se describe cómo puede crear usuarios en Azure Database for MariaDB.
@@ -94,7 +94,7 @@ Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera 
 
 ## <a name="azure_superuser"></a>azure_superuser
 
-Todos los servidores de Azure Database for MySQL se crean con un usuario denominado "azure_superuser". Se trata de una cuenta del sistema creada por Microsoft para administrar el servidor con el fin de realizar tareas de supervisión, copias de seguridad y otros tipos de mantenimiento habitual. Los ingenieros de guardia también pueden usar esta cuenta para acceder al servidor durante un incidente con autenticación de certificado y deben solicitar acceso mediante procesos Just-in-Time (JIT).
+Todos los servidores de Azure Database for MySQL se crean con un usuario llamado "azure_superuser". Se trata de una cuenta del sistema que crea Microsoft para administrar el servidor con el fin de realizar tareas de supervisión, copias de seguridad y otros tipos de mantenimiento estándar. Los ingenieros de guardia también pueden usar esta cuenta para obtener acceso al servidor durante un incidente relacionado con la autenticación de certificados, pero deben solicitar acceso mediante procesos Just-in-Time (JIT).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Abra el firewall para las direcciones IP de las máquinas de los nuevos usuarios para permitirles conectarse: [Crear y administrar reglas de firewall de Azure Database for MariaDB mediante Azure Portal](howto-manage-firewall-portal.md)  

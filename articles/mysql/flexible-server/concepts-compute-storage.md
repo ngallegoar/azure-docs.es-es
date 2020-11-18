@@ -1,17 +1,17 @@
 ---
 title: 'Opciones de proceso y almacenamiento de Azure Database for MySQL: servidor flexible'
 description: 'En este artículo se explican las opciones de proceso y almacenamiento de Azure Database for MySQL: servidor flexible.'
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 36f31ee390a6a208b202698ec9bda59b644c9e30
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315169"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534677"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opciones de proceso y almacenamiento de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -153,7 +153,7 @@ El escalado del almacenamiento y el cambio del período de retención de la copi
 
 ## <a name="pricing"></a>Precios
 
-Para conocer la información más actualizada sobre precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/MySQL/) del servicio. Para ver el coste de la configuración deseada, en [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) se muestra el coste mensual en la pestaña **Proceso + Almacenamiento** según las opciones que seleccione. Si no tiene una suscripción de Azure, puede usar la calculadora de precios de Azure para obtener un precio estimado. En el sitio web [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/), seleccione **Agregar elementos** , expanda la categoría **Bases de datos** y elija **Azure Database for MySQL** y **Servidor flexible** como tipo de implementación para personalizar las opciones.
+Para conocer la información más actualizada sobre precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/MySQL/) del servicio. Para ver el coste de la configuración deseada, en [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) se muestra el coste mensual en la pestaña **Proceso + Almacenamiento** según las opciones que seleccione. Si no tiene una suscripción de Azure, puede usar la calculadora de precios de Azure para obtener un precio estimado. En el sitio web [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/), seleccione **Agregar elementos**, expanda la categoría **Bases de datos** y elija **Azure Database for MySQL** y **Servidor flexible** como tipo de implementación para personalizar las opciones.
 
 Si quiere optimizar el coste del servidor, puede considerar las siguientes sugerencias:
 

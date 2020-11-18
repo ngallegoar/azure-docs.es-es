@@ -1,19 +1,19 @@
 ---
 title: Acceso a registros de consultas lentos de Azure Database for MariaDB mediante la CLI de Azure
 description: En este artículo se describe cómo acceder a los registros lentos de Azure Database for MariaDB mediante la utilidad de la línea de comandos de la CLI de Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd74feaebe5a89667668c05e332ed9d3c7cdad5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cea1571a48afe00350dde247c3c10e222a446247
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87490258"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539879"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-by-using-azure-cli"></a>Configuración y acceso a los registros de consultas lentas de Azure Database for Maria DB mediante CLI de Azure.
 

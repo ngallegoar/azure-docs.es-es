@@ -1,17 +1,17 @@
 ---
 title: 'Almacén de consultas: Azure Database for MySQL'
 description: Más información sobre la característica Almacén de consultas de Azure Database for MySQL que le ayuda a realizar un seguimiento del rendimiento a lo largo del tiempo.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 12623dccdc298aaad23ad6779caf33d895c5634a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766120"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535085"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MySQL con el Almacén de consultas
 
@@ -104,7 +104,7 @@ Las siguientes opciones afectan específicamente a las estadísticas de espera.
 > [!NOTE]
 > Actualmente, **query_store_capture_mode** reemplaza a esta configuración, lo que significa que **query_store_capture_mode** y **query_store_wait_sampling_capture_mode** tienen que estar habilitados para que funcionen todas las estadísticas de espera. Si **query_store_capture_mode** está desactivado, las estadísticas de espera también estarán desactivadas, dado que usan el performance_schema habilitado y el query_text capturado por el Almacén de consultas.
 
-Use  [Azure Portal](howto-server-parameters.md) o la [CLI de Azure](howto-configure-server-parameters-using-cli.md) para obtener o establecer otro valor para un parámetro.
+Use [Azure Portal](howto-server-parameters.md) o la [CLI de Azure](howto-configure-server-parameters-using-cli.md) para obtener o establecer otro valor para un parámetro.
 
 ## <a name="views-and-functions"></a>Funciones y vistas
 

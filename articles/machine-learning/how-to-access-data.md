@@ -1,5 +1,5 @@
 ---
-title: Conexión con los servicios de Azure Storage
+title: Conexión a los servicios de almacenamiento en Azure
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar los almacenes de datos para conectarse de forma segura a los servicios de Azure Storage durante el entrenamiento con Azure Machine Learning
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 07/22/2020
-ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: db641eee13350f5a774e4ffd138e38c474af4981
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/03/2020
+ms.custom: how-to, contperfq1, devx-track-python, data4ml
+ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320859"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489308"
 ---
-# <a name="connect-to-azure-storage-services"></a>Conexión con los servicios de Azure Storage
+# <a name="connect-to-storage-services-on-azure"></a>Conexión a los servicios de almacenamiento en Azure
 
-En este artículo, aprenderá a **conectarse a los servicios de Azure Storage a través de almacenes de datos de Azure Machine Learning**. Los almacenes de datos se conectan de forma segura a su servicio Azure Storage sin poner en riesgo sus credenciales de autenticación ni la integridad de su origen de datos original. Almacenan información de conexión, como el identificador de suscripción y la autorización de token de su instancia de [Key Vault](https://azure.microsoft.com/services/key-vault/) asociada con el área de trabajo, para que pueda acceder de forma segura al almacenamiento sin tener que codificarlos de forma rígida en los scripts. Puede usar el [SDK de Python de Azure Machine Learning](#python) o [Azure Machine Learning Studio](how-to-connect-data-ui.md) para crear y registrar almacenes de datos.
+En este artículo, aprenderá a **conectarse a los servicios de almacenamiento de Azure a través de almacenes de datos de Azure Machine Learning**. Los almacenes de datos se conectan de forma segura a su servicio Azure Storage sin poner en riesgo sus credenciales de autenticación ni la integridad de su origen de datos original. Almacenan información de conexión, como el identificador de suscripción y la autorización de token de su instancia de [Key Vault](https://azure.microsoft.com/services/key-vault/) asociada con el área de trabajo, para que pueda acceder de forma segura al almacenamiento sin tener que codificarlos de forma rígida en los scripts. Puede usar el [SDK de Python de Azure Machine Learning](#python) o [Azure Machine Learning Studio](how-to-connect-data-ui.md) para crear y registrar almacenes de datos.
 
 Si prefiere crear y administrar almacenes de datos mediante la extensión Azure Machine Learning para VS Code, visite la [guía paso a paso sobre la administración de recursos de VS Code](how-to-manage-resources-vscode.md#datastores) para más información.
 
@@ -88,13 +88,13 @@ Para asegurarse de que se conecta de forma segura a su servicio Azure Storage, A
 
 ### <a name="virtual-network"></a>Virtual network 
 
-Si la cuenta de almacenamiento de datos se encuentra en una **red virtual** , se necesitan pasos de configuración adicionales para garantizar que Azure Machine Learning tenga acceso a los datos. Consulte [Uso de Azure Machine Learning Studio en una Azure Virtual Network](how-to-enable-studio-virtual-network.md) para asegurarse de que se aplican los pasos de configuración adecuados al crear y registrar el almacén de datos.  
+Si la cuenta de almacenamiento de datos se encuentra en una **red virtual**, se necesitan pasos de configuración adicionales para garantizar que Azure Machine Learning tenga acceso a los datos. Consulte [Uso de Azure Machine Learning Studio en una Azure Virtual Network](how-to-enable-studio-virtual-network.md) para asegurarse de que se aplican los pasos de configuración adecuados al crear y registrar el almacén de datos.  
 
 ### <a name="access-validation"></a>Validación de acceso
 
-**Como parte del proceso de creación y registro del almacén de datos inicial** , Azure Machine Learning valida automáticamente que el servicio de almacenamiento subyacente exista y que la entidad de seguridad proporcionada por el usuario (nombre de usuario, entidad de servicio o token de SAS) tenga acceso al almacenamiento especificado.
+**Como parte del proceso de creación y registro del almacén de datos inicial**, Azure Machine Learning valida automáticamente que el servicio de almacenamiento subyacente exista y que la entidad de seguridad proporcionada por el usuario (nombre de usuario, entidad de servicio o token de SAS) tenga acceso al almacenamiento especificado.
 
-**Una vez creado el almacén de datos** , esta validación solo se realiza para los métodos que requieren acceso al contenedor de almacenamiento subyacente, y **no** cada vez que se recuperan objetos del almacén de datos. Por ejemplo, la validación se produce si quiere descargar archivos del almacén de archivos. Sin embargo, no se produce si solo quiere cambiar el almacén de datos predeterminado.
+**Una vez creado el almacén de datos**, esta validación solo se realiza para los métodos que requieren acceso al contenedor de almacenamiento subyacente, y **no** cada vez que se recuperan objetos del almacén de datos. Por ejemplo, la validación se produce si quiere descargar archivos del almacén de archivos. Sin embargo, no se produce si solo quiere cambiar el almacén de datos predeterminado.
 
 Para autenticar su acceso al servicio de almacenamiento subyacente, puede proporcionar su clave de cuenta, tokens de firmas de acceso compartido (SAS) o entidad de servicio en el método `register_azure_*()` correspondiente del tipo de almacén de datos que desea crear. La [matriz de tipo de almacenamiento](#matrix) muestra los tipos de autenticación admitidos que corresponden a cada tipo de almacén de datos.
 
@@ -109,11 +109,13 @@ Encontrará información sobre la clave de cuenta, el token de SAS y la entidad 
     * Su página de **información general** correspondiente contendrá la información necesaria, como el id. de inquilino y de cliente.
 
 > [!IMPORTANT]
-> Por motivos de seguridad, puede que necesite cambiar las claves de acceso de una cuenta de Azure Storage (clave de cuenta o token de SAS). Al hacerlo, asegúrese de sincronizar las credenciales nuevas con el área de trabajo y los almacenes de datos conectados a ella. Obtenga información sobre cómo [sincronizar las credenciales actualizadas](how-to-change-storage-access-key.md). 
-
+> * Si necesita cambiar las claves de acceso de una cuenta de Azure Storage (clave de cuenta o token de SAS), asegúrese de sincronizar las credenciales nuevas con el área de trabajo y los almacenes de datos conectados a ella. Obtenga información sobre cómo [sincronizar las credenciales actualizadas](how-to-change-storage-access-key.md). 
 ### <a name="permissions"></a>Permisos
 
-Para el almacenamiento de Azure Data Lake Gen 2 y del contenedor de blobs de Azure, las credenciales de autenticación deben tener acceso al **Lector de datos de Storage Blob**. Obtenga más información sobre el [Lector de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Un token de SAS de cuenta no tiene de forma predeterminada ningún permiso. Para el acceso de lectura de datos, las credenciales de autenticación deben tener un número mínimo de permisos de enumeración y lectura para contenedores y objetos. Para el acceso de escritura de datos, también se necesitan los permisos de escritura y agregación.
+Para el almacenamiento de Azure Data Lake Gen 2 y del contenedor de blobs de Azure, asegúrese de que las credenciales de autenticación tengan acceso al **Lector de datos de Storage Blob**. Obtenga más información sobre el [Lector de datos de Storage Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Un token de SAS de cuenta no tiene de forma predeterminada ningún permiso. 
+* Para el **acceso de lectura** de datos, las credenciales de autenticación deben tener un número mínimo de permisos de enumeración y lectura para contenedores y objetos. 
+
+* Para el **acceso de escritura** de datos, también se necesitan los permisos de escritura y adición.
 
 <a name="python"></a>
 
@@ -130,6 +132,8 @@ En esta sección encontrará ejemplos de cómo crear y registrar un almacén de 
  A fin de crear almacenes de datos para otros servicios de almacenamiento admitidos, consulte la [documentación de referencia de los métodos `register_azure_*` aplicables](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods).
 
 Si prefiere una experiencia de código bajo, consulte la sección sobre cómo [conectar almacenes de datos en Azure Machine Learning Studio](how-to-connect-data-ui.md).
+>[!IMPORTANT]
+> Si anula el registro y vuelve a registrar un almacén de datos con el mismo nombre y se produce un error, es posible que la instancia de Azure Key Vault del área de trabajo no tenga habilitada la eliminación temporal. De manera predeterminada, la eliminación temporal está habilitada para la instancia del almacén de claves que creó el área de trabajo, pero podría no estar habilitada si usó un almacén de claves existente, o si creó el área de trabajo antes de octubre de 2020. Para obtener información sobre cómo habilitar la eliminación temporal, consulte [Activación de la eliminación temporal de un almacén de claves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
 
 > [!NOTE]
 > El nombre del almacén de datos solo puede contener letras minúsculas, dígitos y caracteres de subrayado. 

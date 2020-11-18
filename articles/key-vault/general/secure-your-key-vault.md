@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 585f5998eb953c8ed90a47922d76f32897c0f915
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 91a3a0c2ae066fde55892af90a3d666a3c1221a3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285827"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445496"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Protección del acceso a un almacén de claves
 
@@ -26,7 +26,7 @@ Para obtener más información sobre Key Vault, consulte el artículo [Acerca de
 
 El acceso a un almacén de claves se controla mediante dos interfaces: el **plano de administración** y el **plano de datos**. El plano de administración es donde puede administrar el propio almacén de claves. Las operaciones en este plano incluyen crear y eliminar los almacenes de claves, recuperar las propiedades de un almacén de claves y actualizar las directivas de acceso. El plano de datos es donde se trabaja con los datos almacenados en un almacén de claves. Puede agregar, eliminar y modificar claves, secretos y certificados.
 
-Ambos planos usan [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) para la autenticación. Para realizar la autorización, el plano de administración usa el [control de acceso basado en roles (RBAC) de Azure](../../role-based-access-control/overview.md) y el plano de datos utiliza una [directiva de acceso de Key Vault](./assign-access-policy-portal.md) y [Azure RBAC para las operaciones del plano de datos de Key Vault (versión preliminar)](./rbac-guide.md).
+Ambos planos usan [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) para la autenticación. Para realizar la autorización, el plano de administración usa el [control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md) y el plano de datos utiliza una [directiva de acceso de Key Vault](./assign-access-policy-portal.md) y [Azure RBAC para las operaciones del plano de datos de Key Vault (versión preliminar)](./rbac-guide.md).
 
 Para obtener acceso a un almacén de claves en cualquier plano, todos los llamadores (usuarios o aplicaciones) deben tener una autorización y autenticación correctas. La autenticación establece la identidad del llamador. La autorización determina las operaciones que puede ejecutar el llamador. La autenticación con Key Vault funciona junto con [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), que es responsable de autenticar la identidad de cualquier **entidad de seguridad**.
 
@@ -44,9 +44,9 @@ Para obtener más información sobre la autenticación en Key Vault, consulte [A
 
 Cuando se crea un almacén de claves en una suscripción de Azure, se asocia automáticamente al inquilino de Azure AD de dicha suscripción. En ambos planos, todos los llamadores deben registrarse en este inquilino y autenticarse para acceder al almacén de claves. En ambos casos, las aplicaciones pueden acceder a Key Vault de tres maneras:
 
-- **Solo la aplicación** : La aplicación representa una entidad de servicio o una identidad administrada. Esta identidad es el escenario más común para aplicaciones que necesitan acceder periódicamente a certificados, claves o secretos del almacén de claves. Para que este escenario funcione, el elemento `objectId` de la aplicación debe especificarse en la directiva de acceso y el elemento `applicationId` _no_ debe especificarse o debe ser `null`.
-- **Solo el usuario** : el usuario accede al almacén de claves desde cualquier aplicación registrada en el inquilino. Los ejemplos de este tipo de acceso incluyen Azure PowerShell y Azure Portal. Para que este escenario funcione, el elemento `objectId` del usuario debe especificarse en la directiva de acceso y el elemento `applicationId` _no_ debe especificarse o debe ser `null`.
-- **Aplicación y usuario** (a veces denominado _identidad compuesta_ ): 4el usuario tiene que acceder al almacén de claves desde una aplicación específica _y_ la aplicación debe usar el flujo de autenticación en nombre de (OBO) para suplantar al usuario. Para que este escenario funcione, se deben especificar ambos objetos `applicationId` y `objectId` en la directiva de acceso. El elemento `applicationId` identifica la aplicación necesaria y el elemento `objectId` identifica al usuario. Esta opción no está disponible actualmente para Azure RBAC en el plano de datos (versión preliminar)
+- **Solo la aplicación**: La aplicación representa una entidad de servicio o una identidad administrada. Esta identidad es el escenario más común para aplicaciones que necesitan acceder periódicamente a certificados, claves o secretos del almacén de claves. Para que este escenario funcione, el elemento `objectId` de la aplicación debe especificarse en la directiva de acceso y el elemento `applicationId` _no_ debe especificarse o debe ser `null`.
+- **Solo el usuario**: el usuario accede al almacén de claves desde cualquier aplicación registrada en el inquilino. Los ejemplos de este tipo de acceso incluyen Azure PowerShell y Azure Portal. Para que este escenario funcione, el elemento `objectId` del usuario debe especificarse en la directiva de acceso y el elemento `applicationId` _no_ debe especificarse o debe ser `null`.
+- **Aplicación y usuario** (a veces denominado _identidad compuesta_): 4el usuario tiene que acceder al almacén de claves desde una aplicación específica _y_ la aplicación debe usar el flujo de autenticación en nombre de (OBO) para suplantar al usuario. Para que este escenario funcione, se deben especificar ambos objetos `applicationId` y `objectId` en la directiva de acceso. El elemento `applicationId` identifica la aplicación necesaria y el elemento `objectId` identifica al usuario. Esta opción no está disponible actualmente para Azure RBAC en el plano de datos (versión preliminar)
 
 Para todos los tipos de acceso, la aplicación se autentica con Azure AD. La aplicación utiliza cualquiera [método de autenticación compatible](../../active-directory/develop/authentication-vs-authorization.md) según el tipo de aplicación. La aplicación adquiere un token para un recurso del plano para conceder acceso. El recurso es un punto de conexión en el plano de administración o de datos, según el entorno de Azure. La aplicación usa el token y envía la solicitud de una API de REST a Key Vault. Para más información, revise [todo el flujo de autenticación](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -58,7 +58,7 @@ El modelo de un único mecanismo de autenticación para ambos planos tiene varia
 
 ## <a name="resource-endpoints"></a>Puntos de conexión de recursos
 
-Las aplicaciones acceden a los planos a través de puntos de conexión. Los controles de acceso para los dos planos funcionan de forma independiente. Para conceder acceso a un aplicación para usar las claves de un almacén de claves, debe conceder acceso al plano de datos mediante una directiva de acceso de Key Vault o Azure RBAC (versión preliminar). Para conceder a un usuario acceso de lectura a las propiedades y etiquetas de Key Vault, pero sin que este pueda acceder a los datos (claves, secretos o certificados), debe conceder acceso al plano de administración con RBAC.
+Las aplicaciones acceden a los planos a través de puntos de conexión. Los controles de acceso para los dos planos funcionan de forma independiente. Para conceder acceso a un aplicación para usar las claves de un almacén de claves, debe conceder acceso al plano de datos mediante una directiva de acceso de Key Vault o Azure RBAC (versión preliminar). Para conceder a un usuario acceso de lectura a las propiedades y etiquetas de Key Vault, pero sin que este pueda acceder a los datos (claves, secretos o certificados), debe conceder acceso al plano de administración con Azure RBAC.
 
 En la siguiente tabla se muestran los puntos de conexión para los planos de administración y datos.
 
@@ -73,9 +73,9 @@ En el plano de administración, utilice el [control de acceso basado en roles de
 
 Puede crear un almacén de claves en un grupo de recursos y administrar el acceso mediante Azure AD. Puede conceder a usuarios o grupos la capacidad de administrar los almacenes de claves en un grupo de recursos. Puede conceder acceso a un nivel de ámbito específico mediante la asignación de roles de Azure apropiados. Para conceder acceso a un usuario para administrar los almacenes de claves, debe asignar el rol predefinido [Colaborador de almacén de claves](../../role-based-access-control/built-in-roles.md#key-vault-contributor) a este usuario en un ámbito específico. Los siguientes niveles de ámbitos se pueden asignar a un rol de Azure:
 
-- **Suscripción** : Un rol de Azure asignado al nivel de suscripción se aplica a todos los recursos y grupos de recursos de esa suscripción.
-- **Grupo de recursos** : Un rol de Azure asignado al nivel de grupo de recursos se aplica a todos los recursos de dicho grupo de recursos.
-- **Recurso específico** : un rol de Azure asignado a un recurso concreto se aplica a dicho recurso. En este caso, el recurso es un almacén de claves específico.
+- **Suscripción**: Un rol de Azure asignado al nivel de suscripción se aplica a todos los recursos y grupos de recursos de esa suscripción.
+- **Grupo de recursos**: Un rol de Azure asignado al nivel de grupo de recursos se aplica a todos los recursos de dicho grupo de recursos.
+- **Recurso específico**: un rol de Azure asignado a un recurso concreto se aplica a dicho recurso. En este caso, el recurso es un almacén de claves específico.
 
 Existen varios roles predefinidos. Si un rol predefinido no se ajusta a sus necesidades, puede definir uno propio. Para más información, consulte [Roles integrados en Azure](../../role-based-access-control/built-in-roles.md). 
 
@@ -111,7 +111,7 @@ Cuando un rol de Azure se asigna a una entidad de seguridad de Azure AD, Azure 
 
 Las principales ventajas de usar el permiso de Azure RBAC en las directivas de acceso al almacén son la administración centralizada del control de acceso y su integración con [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md). Privileged Identity Management proporciona activación de rol basada en tiempo y en aprobación para mitigar los riesgos de tener unos permisos de acceso excesivos, innecesarios o mal utilizados en los recursos que le interesan.
 
-Para obtener más información sobre el plano de datos de Key Vault con RBAC, consulte las [Claves, certificados y secretos de Key Vault con un control de acceso basado en roles de Azure (versión preliminar)](rbac-guide.md).
+Para obtener más información sobre el plano de datos de Key Vault con Azure RBAC, consulte las [Claves, certificados y secretos de Key Vault con un control de acceso basado en roles de Azure (versión preliminar)](rbac-guide.md).
 
 ## <a name="firewalls-and-virtual-networks"></a>Firewalls y redes virtuales
 
@@ -134,15 +134,15 @@ En caso de que sea necesario bloquear completamente la exposición de Key Vault 
 
 Escenarios comunes para usar Private Link para servicios de Azure:
 
-- **Acceso privado a servicios en la plataforma Azure** : conecte la red virtual a los servicios de Azure sin una dirección IP pública en el origen o el destino. Los proveedores de servicios pueden representar los servicios en su propia red virtual y los consumidores pueden acceder a ellos en su red virtual local. La plataforma Private Link administrará la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. 
+- **Acceso privado a servicios en la plataforma Azure**: conecte la red virtual a los servicios de Azure sin una dirección IP pública en el origen o el destino. Los proveedores de servicios pueden representar los servicios en su propia red virtual y los consumidores pueden acceder a ellos en su red virtual local. La plataforma Private Link administrará la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. 
  
-- **Redes locales y emparejadas** : acceda a los servicios que se ejecutan en Azure desde el entorno local a través del emparejamiento privado de ExpressRoute, los túneles VPN y las redes virtuales emparejadas mediante puntos de conexión privados. No es necesario configurar el emparejamiento público ni atravesar Internet para llegar hasta el servicio. Private Link proporciona una manera segura de migrar cargas de trabajo a Azure.
+- **Redes locales y emparejadas**: acceda a los servicios que se ejecutan en Azure desde el entorno local a través del emparejamiento privado de ExpressRoute, los túneles VPN y las redes virtuales emparejadas mediante puntos de conexión privados. No es necesario configurar el emparejamiento público ni atravesar Internet para llegar hasta el servicio. Private Link proporciona una manera segura de migrar cargas de trabajo a Azure.
  
-- **Protección contra la pérdida de datos** : un punto de conexión privado se asigna a una instancia de un recurso de PaaS en lugar de al servicio entero. Los consumidores solo pueden conectarse al recurso específico. Se bloquea el acceso a cualquier otro recurso del servicio. Este mecanismo proporciona protección contra los riesgos de pérdida de datos. 
+- **Protección contra la pérdida de datos**: un punto de conexión privado se asigna a una instancia de un recurso de PaaS en lugar de al servicio entero. Los consumidores solo pueden conectarse al recurso específico. Se bloquea el acceso a cualquier otro recurso del servicio. Este mecanismo proporciona protección contra los riesgos de pérdida de datos. 
  
-- **Alcance global** : conéctese de forma privada a los servicios que se ejecutan en otras regiones. La red virtual del consumidor podría estar en la región A y puede conectarse a los servicios que hay detrás de Private Link en la región B.  
+- **Alcance global**: conéctese de forma privada a los servicios que se ejecutan en otras regiones. La red virtual del consumidor podría estar en la región A y puede conectarse a los servicios que hay detrás de Private Link en la región B.  
  
-- **Ampliación de los propios servicios** : habilite la misma experiencia y funcionalidad para representar su servicio de forma privada para los consumidores de Azure. Al colocar el servicio detrás de una instancia de Azure Load Balancer estándar, puede habilitarlo para Private Link. Después, el consumidor puede conectarse directamente al servicio mediante un punto de conexión privado en su propia red virtual. Puede administrar las solicitudes de conexión mediante un flujo de llamadas de aprobación. Azure Private Link funciona también para los consumidores y servicios que pertenecen a distintos inquilinos de Azure Active Directory. 
+- **Ampliación de los propios servicios**: habilite la misma experiencia y funcionalidad para representar su servicio de forma privada para los consumidores de Azure. Al colocar el servicio detrás de una instancia de Azure Load Balancer estándar, puede habilitarlo para Private Link. Después, el consumidor puede conectarse directamente al servicio mediante un punto de conexión privado en su propia red virtual. Puede administrar las solicitudes de conexión mediante un flujo de llamadas de aprobación. Azure Private Link funciona también para los consumidores y servicios que pertenecen a distintos inquilinos de Azure Active Directory. 
 
 Para obtener más información acerca de los puntos de conexión privados, consulte [Key Vault con Azure Private Link](./private-link-service.md).
 
@@ -151,15 +151,15 @@ Para obtener más información acerca de los puntos de conexión privados, consu
 En este ejemplo, se desarrolla una aplicación que usa un certificado para TLS/SSL, Azure Storage para almacenar los datos y una clave RSA de 2048 bits para cifrar datos en Azure Storage. La aplicación se ejecuta en una máquina virtual (VM) de Azure o en un conjunto de escalado de máquinas virtuales. Podemos usar un almacén de claves para almacenar los secretos de la aplicación. Podemos almacenar el certificado de arranque que usa la aplicación para autenticarse con Azure AD.
 
 Se necesita acceso a los siguientes secretos y claves almacenados:
-- **Certificado TLS/SSL** : Se usa para TLS/SSL.
-- **Clave de almacenamiento** : se usa para acceder a la cuenta de almacenamiento.
-- **Clave RSA de 2048 bits** : Se usa para encapsular y desencapsular la clave de cifrado de datos mediante Azure Storage.
-- **Identidad administrada de aplicación** : se usa para la autenticación con Azure AD. Después de conceder acceso a Key Vault, la aplicación puede capturar el certificado y la clave de almacenamiento.
+- **Certificado TLS/SSL**: Se usa para TLS/SSL.
+- **Clave de almacenamiento**: se usa para acceder a la cuenta de almacenamiento.
+- **Clave RSA de 2048 bits**: Se usa para encapsular y desencapsular la clave de cifrado de datos mediante Azure Storage.
+- **Identidad administrada de aplicación**: se usa para la autenticación con Azure AD. Después de conceder acceso a Key Vault, la aplicación puede capturar el certificado y la clave de almacenamiento.
 
 Es necesario definir los siguientes roles para especificar quién puede administrar, implementar y auditar la aplicación:
-- **Equipo de seguridad** : el personal de TI de la oficina del CSO (director de seguridad) o colaboradores equivalentes. El equipo de seguridad es responsable de la protección adecuada de los secretos. Los secretos pueden incluir los certificados TLS/SSL, las claves RSA usadas para el cifrado, las cadenas de conexión y las claves de la cuenta de almacenamiento.
-- **Desarrolladores y operadores** : personal que desarrolla la aplicación y la implementa en Azure. Los miembros de este equipo no forman parte del personal de seguridad. No deben tener acceso a información confidencial, como los certificados TLS/SSL y las claves RSA. Solo la aplicación que implementan debe tener acceso a información confidencial.
-- **Auditores** : este rol es para los colaboradores que no sean miembros del personal de TI general o de desarrollo. Deben revisar el uso y mantenimiento de los certificados, las claves y los secretos para garantizar el cumplimiento de los estándares de seguridad.
+- **Equipo de seguridad**: el personal de TI de la oficina del CSO (director de seguridad) o colaboradores equivalentes. El equipo de seguridad es responsable de la protección adecuada de los secretos. Los secretos pueden incluir los certificados TLS/SSL, las claves RSA usadas para el cifrado, las cadenas de conexión y las claves de la cuenta de almacenamiento.
+- **Desarrolladores y operadores**: personal que desarrolla la aplicación y la implementa en Azure. Los miembros de este equipo no forman parte del personal de seguridad. No deben tener acceso a información confidencial, como los certificados TLS/SSL y las claves RSA. Solo la aplicación que implementan debe tener acceso a información confidencial.
+- **Auditores**: este rol es para los colaboradores que no sean miembros del personal de TI general o de desarrollo. Deben revisar el uso y mantenimiento de los certificados, las claves y los secretos para garantizar el cumplimiento de los estándares de seguridad.
 
 Hay otro rol que está fuera del ámbito de la aplicación: el administrador de la suscripción o del grupo de recursos. El administrador de la suscripción configura los permisos de acceso iniciales del equipo de seguridad. Conceden acceso al equipo de seguridad mediante el uso de un grupo de recursos que tiene los recursos requeridos por la aplicación.
 
@@ -185,8 +185,8 @@ En la tabla siguiente se resumen los permisos de acceso para los roles y la apli
 | Role | Permisos del plano de administración | Permisos de plano de datos: directivas de acceso de almacén | Permisos de plano de datos: Azure RBAC (versión preliminar)  |
 | --- | --- | --- | --- |
 | Equipo de seguridad | [Colaborador de almacén de claves](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificados: todas las operaciones <br> Claves: todas las operaciones <br> Secretos: todas las operaciones | [Administrador de almacén de claves (versión preliminar)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
-| Desarrolladores y&nbsp;operadores | Permiso de implementación en Key Vault<br><br> **Nota** : Este permiso permite que las máquinas virtuales implementadas recuperen los secretos de un almacén de claves. | None | None |
-| Auditores | None | Certificados: lista <br> Claves: enumeración<br>Secretos: enumeración<br><br> **Nota** : Este permiso permite a los auditores inspeccionar los atributos (etiquetas, fechas de activación y fechas de expiración) para las claves y los secretos que no se emiten en los registros. | [Lector de almacén de claves (versión preliminar)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
+| Desarrolladores y&nbsp;operadores | Permiso de implementación en Key Vault<br><br> **Nota**: Este permiso permite que las máquinas virtuales implementadas recuperen los secretos de un almacén de claves. | None | None |
+| Auditores | None | Certificados: lista <br> Claves: enumeración<br>Secretos: enumeración<br><br> **Nota**: Este permiso permite a los auditores inspeccionar los atributos (etiquetas, fechas de activación y fechas de expiración) para las claves y los secretos que no se emiten en los registros. | [Lector de almacén de claves (versión preliminar)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
 | Cuenta de Azure Storage | None | Claves: get, list, wrapKey, unwrapKey <br> | [Cifrado de servicio criptográfico de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-preview) |
 | Application | None | Secretos: get y list <br> Certificados: get y list | [Lector de Key Vault Reader (versión preliminar)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) y [usuario secreto de Key Vault (versión preliminar)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
 

@@ -1,17 +1,17 @@
 ---
 title: Administración de réplicas de lectura de Azure Database for MariaDB mediante Azure Portal
 description: En este artículo se describe cómo configurar y administrar réplicas de lectura en Azure Database for MariaDB mediante el portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 5faed87995d1c49ab635f39264354a791f729b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ca6ef3c368a5f578cc90fae3923caa89f3b076a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742866"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537754"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Procedimientos para crear y administrar réplicas de lectura en Azure Database for MariaDB mediante Azure Portal
 
@@ -27,7 +27,7 @@ En este artículo, obtendrá información sobre cómo crear y administrar répli
 ## <a name="create-a-read-replica"></a>Creación de una réplica de lectura
 
 > [!IMPORTANT]
-> Cuando se crea una réplica para un origen que no tiene réplicas existentes, el origen se reiniciará en primer lugar para prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
+> Cuando se crea una réplica para un origen que no tiene réplicas existentes, el origen se reiniciará primero a fin de prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
 
 Para crear un servidor de réplica de lectura, puede seguir estos siguientes pasos:
 
@@ -61,7 +61,7 @@ Una vez creado el servidor de réplica, puede verlo en la hoja **Replicación**.
 ## <a name="stop-replication-to-a-replica-server"></a>Detención de la replicación en un servidor de réplica
 
 > [!IMPORTANT]
-> La detención la replicación en un servidor es irreversible. Una vez detenida la replicación entre un origen y la réplica, la operación no se puede revertir. Después, el servidor de réplica se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor no puede volver a convertirse en una réplica.
+> La detención la replicación en un servidor es irreversible. Una vez detenida la replicación entre un origen y una réplica, la operación no se puede deshacer. Después, el servidor de réplica se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor no puede volver a convertirse en una réplica.
 
 Para detener la replicación entre un servidor de origen y un servidor de réplicas desde Azure Portal, siga estos pasos:
 

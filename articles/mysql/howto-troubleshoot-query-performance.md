@@ -1,17 +1,17 @@
 ---
 title: Solución de problemas relacionados con el rendimiento de consultas en Azure Database for MySQL
 description: Aprenda a usar EXPLAIN para solucionar problemas de rendimiento de consultas en Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 0725de878836e415695d307b68db43802d9b5c2f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 81ec7e6f822f24f2b9e6ca4298e9668358c78149
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545861"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540763"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Uso de EXPLAIN para solucionar problemas relacionados con el rendimiento de consultas en Azure Database for MySQL
 **EXPLAIN** es una herramienta útil a la hora de optimizar consultas. Las instrucciones de EXPLAIN se pueden usar para obtener información sobre cómo se ejecutan las instrucciones SQL. La salida siguiente muestra un ejemplo de la ejecución de una instrucción de EXPLAIN.
@@ -33,7 +33,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-Como se puede ver en este ejemplo, el valor de *clave* es NULL. Esta salida significa que MySQL no encuentra ningún índice optimizado para la consulta y realiza un recorrido de tabla completo. Vamos a optimizar esta consulta mediante la adición de un índice en la columna **ID** .
+Como se puede ver en este ejemplo, el valor de *clave* es NULL. Esta salida significa que MySQL no encuentra ningún índice optimizado para la consulta y realiza un recorrido de tabla completo. Vamos a optimizar esta consulta mediante la adición de un índice en la columna **ID**.
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -56,7 +56,7 @@ possible_keys: id
 La nueva herramienta EXPLAIN muestra que MySQL utiliza ahora un índice para limitar el número de filas a 1, lo cual permite, a su vez, reducir drásticamente el tiempo de búsqueda.
  
 ## <a name="covering-index"></a>Índice de cobertura
-Un índice de cobertura consta de todas las columnas de una consulta del índice para reducir la recuperación de valores de las tablas de datos. Este es un ejemplo en la siguiente instrucción **GROUP BY** .
+Un índice de cobertura consta de todas las columnas de una consulta del índice para reducir la recuperación de valores de las tablas de datos. Este es un ejemplo en la siguiente instrucción **GROUP BY**.
  
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
@@ -75,7 +75,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Como se puede ver en la salida, MySQL no utiliza índices porque no hay índices adecuados disponibles. También aparece *Using temporary; Using file sort* , lo que significa que MySQL crea una tabla temporal para satisfacer la cláusula **GROUP BY** .
+Como se puede ver en la salida, MySQL no utiliza índices porque no hay índices adecuados disponibles. También aparece *Using temporary; Using file sort*, lo que significa que MySQL crea una tabla temporal para satisfacer la cláusula **GROUP BY**.
  
 La creación de un índice solo en la columna **c2** no supone ninguna diferencia y MySQL todavía necesita crear una tabla temporal:
 
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-En este caso, se puede crear un **índice de cobertura** en **c1** y **c2** , mediante el cual se puede agregar el valor **c2** directamente en el índice para eliminar búsquedas de datos adicionales.
+En este caso, se puede crear un **índice de cobertura** en **c1** y **c2**, mediante el cual se puede agregar el valor **c2** directamente en el índice para eliminar búsquedas de datos adicionales.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
@@ -120,7 +120,7 @@ possible_keys: covered
 Como puede ver en el ejemplo anterior de EXPLAIN, MySQL usa ahora el índice de cobertura y evita la creación de una tabla temporal. 
 
 ## <a name="combined-index"></a>Índice combinado
-Un índice combinado consta de valores de varias columnas y puede considerarse como una matriz de filas que se ordenan mediante la concatenación de valores de las columnas indexadas.  Este método puede ser útil en una instrucción **GROUP BY** .
+Un índice combinado consta de valores de varias columnas y puede considerarse como una matriz de filas que se ordenan mediante la concatenación de valores de las columnas indexadas.  Este método puede ser útil en una instrucción **GROUP BY**.
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G

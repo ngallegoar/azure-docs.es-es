@@ -1,17 +1,17 @@
 ---
 title: 'Configuración de la replicación de datos de entrada: Azure Database for MySQL'
 description: En este artículo se describe la configuración de la replicación de datos internos para Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b7f1f16b5182658f42ad6594aace22fb5a1a80fc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544042"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541409"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Configuración de la replicación de datos internos de Azure Database for MySQL
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo configurar la [Replicación de datos de entr
 > [!NOTE]
 > Comunicación sin prejuicios
 >
-> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_ . En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando el software se actualice para quitarla, este artículo se actualizará en consecuencia.
+> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando el software se actualice para quitarla, este artículo se actualizará en consecuencia.
 >
 
 Para crear una réplica en el servicio Azure Database for MySQL, la [Replicación de datos de entrada](concepts-data-in-replication.md) sincroniza los datos que proceden de un servidor MySQL de origen local con máquinas virtuales (VM) o servicios de base de datos en la nube. Data-in Replication se basa en la replicación según la posición del archivo de registro binario (binlog), que es nativa de MySQL. Para obtener más información acerca de la replicación de binlog, consulte la [Introducción a la replicación de binlog de MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
@@ -51,7 +51,7 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
 
 1. Revise los [requisitos del servidor maestro](concepts-data-in-replication.md#requirements) antes de continuar. 
 
-2. Asegúrese de que el servidor de origen permite el tráfico entrante y saliente en el puerto 3306 y de que el servidor de origen tiene una **dirección IP pública** , el DNS es accesible públicamente o tiene un nombre de dominio completo (FQDN). 
+2. Asegúrese de que el servidor de origen permite el tráfico entrante y saliente en el puerto 3306 y de que el servidor de origen tiene una **dirección IP pública**, el DNS es accesible públicamente o tiene un nombre de dominio completo (FQDN). 
    
    Pruebe la conectividad con el servidor de origen; para ello, pruebe a conectarse desde una herramienta como la línea de comandos de MySQL hospedada en otra máquina o desde la instancia de [Azure Cloud Shell](../cloud-shell/overview.md) disponible en Azure Portal.
 
@@ -140,11 +140,11 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
 
    Escriba el nombre de usuario en el campo **Login Name** (Nombre de inicio de sesión). 
 
-   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Usuarios y privilegios":::
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Usuario de sincronización":::
  
    Haga clic en el panel **Administrative Roles** (Roles administrativos) y seleccione **Replication Slave** (Servidor subordinado de replicación) en la lista **Global Privileges** (Privilegios globales). A continuación, haga clic en **Apply** (Aplicar) para crear el rol de replicación.
 
-   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Usuarios y privilegios":::
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Servidor subordinado de replicación":::
 
 1. Establecimiento del servidor de origen en el modo de solo lectura
 
@@ -164,7 +164,7 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
    ```
    Los resultados deben ser como el siguiente. Asegúrese de anotar el nombre del archivo binario que se utilizará en pasos posteriores.
 
-   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Usuarios y privilegios":::
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Resultados de estado del maestro":::
  
 ## <a name="dump-and-restore-source-server"></a>Volcado y restauración del servidor de origen
 
@@ -206,7 +206,7 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
        - Se recomienda pasar este parámetro como una variable. Consulte los siguientes ejemplos para más información.
 
    > [!NOTE]
-   > Si el servidor de origen se hospeda en una máquina virtual de Azure, establezca la opción "Permitir el acceso a servicios de Azure" en "Activado" para permitir que los servidores de origen y de réplica se comuniquen entre sí. Esta configuración se puede cambiar desde las opciones de **seguridad de conexión** . Consulte [Manage firewall rules using portal](howto-manage-firewall-using-portal.md) (Administrar reglas de firewall mediante el portal) para obtener más información.
+   > Si el servidor de origen se hospeda en una máquina virtual de Azure, establezca la opción "Permitir el acceso a servicios de Azure" en "Activado" para permitir que los servidores de origen y de réplica se comuniquen entre sí. Esta configuración se puede cambiar desde las opciones de **seguridad de conexión**. Consulte [Manage firewall rules using portal](howto-manage-firewall-using-portal.md) (Administrar reglas de firewall mediante el portal) para obtener más información.
       
    **Ejemplos**
    

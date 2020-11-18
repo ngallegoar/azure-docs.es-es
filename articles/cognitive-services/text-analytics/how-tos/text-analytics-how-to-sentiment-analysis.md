@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/16/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 87e6ad488438ae28467f6e904fbb57f7ca5448ff
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366764"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518182"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedimientos: Detección de opiniones mediante la API Text Analytics
 
@@ -40,7 +40,7 @@ Análisis de sentimiento admite una amplia gama de idiomas, y hay más en la ver
 
 La versión 3 de Análisis de sentimiento aplica etiquetas de sentimiento al texto, que se devuelven en el nivel de oración y de documento, con una puntuación de confianza para cada una de ellas. 
 
-Las etiquetas son *positive* , *negative* y *neutral*. En el nivel de documento, también se puede devolver la etiqueta de opinión *mixed*. La opinión del documento se determina a continuación:
+Las etiquetas son *positive*, *negative* y *neutral*. En el nivel de documento, también se puede devolver la etiqueta de opinión *mixed*. La opinión del documento se determina a continuación:
 
 | Opiniones de frases                                                                            | Etiqueta de documento devuelta |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -78,9 +78,9 @@ El tamaño del documento debe ser inferior a 5120 caracteres por documento. Pued
 
 Cree una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md) o la **consola de pruebas de API** en los siguientes vínculos de referencia para estructurar y enviar rápidamente una. 
 
-#### <a name="version-31-preview1"></a>[Versión 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versión 3.1-versión preliminar.2](#tab/version-3-1)
 
-[Referencia de Análisis de sentimiento, versión 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+[Referencia de Análisis de sentimiento, versión 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
 
 #### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
@@ -95,13 +95,13 @@ Establezca el punto de conexión HTTPS para el análisis de sentimiento, para lo
 > [!NOTE]
 > Puede encontrar la clave y el punto de conexión del recurso de Text Analytics en Azure Portal. Están en la página **Inicio rápido** del recurso, en **Administración de recursos**. 
 
-#### <a name="version-31-preview1"></a>[Versión 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versión 3.1-versión preliminar.2](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
 
 Para obtener resultados de la minería de opiniones, debe incluir el parámetro `opinionMining=true`. Por ejemplo:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
 
 De manera predeterminada, este parámetro se establece en `false`. 
 
@@ -142,7 +142,7 @@ El análisis de sentimiento devuelve una etiqueta de sentimiento y una puntuaci�
 
 La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local. Después, importe el resultado en una aplicación que pueda usar para ordenar los datos, realizar búsquedas en ellos y manipularlos. Debido a la compatibilidad con varios idiomas y con Emojis, la respuesta puede contener desplazamientos de texto. Consulte [cómo procesar desplazamientos](../concepts/text-offsets.md) para más información.
 
-#### <a name="version-31-preview1"></a>[Versión 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versión 3.1-versión preliminar.2](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-v31-example-response"></a>Respuesta del ejemplo de la versión 3.1 de Análisis de sentimiento
 

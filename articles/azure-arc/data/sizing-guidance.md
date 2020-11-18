@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761488"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542684"
 ---
 # <a name="sizing-guidance"></a>Guía para el ajuste de tamaño
 
@@ -89,6 +89,7 @@ Cada instancia administrada de SQL debe tener estas solicitudes de recursos mín
 - Núcleos: 1
 
 Cada pod de instancia administrada de SQL que se crea tiene tres contenedores:
+
 |Nombre del contenedor|Solicitud de CPU|Solicitud de memoria|Límite de CPU|Límite de memoria|Notas|
 |---|---|---|---|---|---|
 |fluentbit|100 m|100 Mi|No especificado|No especificado|Las solicitudes de recursos de contenedor de fluentbit son _adicionales a_ las solicitudes especificadas para la instancia administrada de SQL.||
@@ -104,6 +105,7 @@ Cada nodo del grupo de servidores de Hiperescala de PostgreSQL debe tener estas 
 - Núcleos: 1
 
 Cada pod de trabajo o de coordinación del grupo de servidores de Hiperescala de PostgreSQL que se crea tiene tres contenedores:
+
 |Nombre del contenedor|Solicitud de CPU|Solicitud de memoria|Límite de CPU|Límite de memoria|Notas|
 |---|---|---|---|---|---|
 |fluentbit|100 m|100 Mi|No especificado|No especificado|Las solicitudes de recursos de contenedor de fluentbit son _adicionales a_ las solicitudes especificadas para los nodos del grupo de servidores de Hiperescala de PostgreSQL.|

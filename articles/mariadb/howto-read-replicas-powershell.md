@@ -1,18 +1,18 @@
 ---
 title: Administración de réplicas de lectura en Azure Database for MariaDB mediante Azure PowerShell
 description: Aprenda a configurar y administrar réplicas de lectura en Azure Database for MariaDB mediante PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2b622372c881997fd77a83feb8f6c393504900b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a5921026c8f260683f091870850350fcc4619f6b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428301"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538638"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Creación y administración de réplicas de lectura en Azure Database for MariaDB mediante PowerShell
 
@@ -59,7 +59,7 @@ El comando `New-AzMariaDbServerReplica` requiere los siguientes parámetros:
 | ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se crea el servidor de réplica.  |
 | Nombre | mydemoreplicaserver | Nombre del nuevo servidor de réplica que se crea. |
 
-Para crear una réplica de lectura entre regiones, use el parámetro **Location** . En el siguiente ejemplo, se crea una réplica en la región **Oeste de EE. UU.** .
+Para crear una réplica de lectura entre regiones, use el parámetro **Location**. En el siguiente ejemplo, se crea una réplica en la región **Oeste de EE. UU.** .
 
 ```azurepowershell-interactive
 Get-AzMariaDbServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
@@ -68,7 +68,7 @@ Get-AzMariaDbServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md).
 
-De forma predeterminada, las réplicas de lectura se crean con la misma configuración de servidor que el origen, a menos que se especifique el parámetro **Sku** .
+De forma predeterminada, las réplicas de lectura se crean con la misma configuración de servidor que el origen, a menos que se especifique el parámetro **Sku**.
 
 > [!NOTE]
 > Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el origen para asegurarse de que la réplica trabaja al mismo nivel que el servidor maestro.

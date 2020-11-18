@@ -1,17 +1,17 @@
 ---
 title: 'Registros de auditoría: Azure Database for MariaDB'
 description: Se describen los registros de auditoría disponibles en Azure Database for MariaDB y los parámetros disponibles para habilitar los niveles de registro.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e66eaf62b54759222421b17ebc7e33b82e018338
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362431"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541766"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Registros de auditoría en Azure Database for MariaDB
 

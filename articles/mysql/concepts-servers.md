@@ -1,17 +1,17 @@
 ---
 title: Conceptos sobre servidores de Azure Database for MySQL
 description: En este tema se incluyen consideraciones e instrucciones para trabajar con servidores de Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: afbf80810f45f616eac40de16889bbebb1cf4964
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5477aa0c4eb2a66af816b287a8b6d7da8a53952f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544807"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534898"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Conceptos sobre servidores de Azure Database for MySQL
 
@@ -50,7 +50,7 @@ Los elementos siguientes ayudan a garantizar el acceso seguro a la base de datos
 
 Azure Database for MySQL permite **detener** el servidor cuando no está en uso e **iniciar** el servidor cuando se reanuda la actividad. Esto se hace básicamente para ahorrar costos en los servidores de bases de datos, ya que el recurso solo se paga cuando se usa. Esto cobra aún más importancia en las cargas de trabajo de desarrollo y pruebas, y cuando el servidor solo se usa durante una parte del día. Al detener el servidor, se anularán todas las conexiones activas. Más adelante, cuando desee volver a poner el servidor en línea, puede usar [Azure Portal](how-to-stop-start-server.md) o la [CLI](how-to-stop-start-server.md).
 
-Si el servidor está en estado **detenido** , el proceso del mismo no se factura. Sin embargo, el almacenamiento se sigue facturando mientras se mantiene el almacenamiento del servidor, con el fin de asegurarse de que los archivos de datos están disponibles cuando se vuelve a iniciar el servidor.
+Si el servidor está en estado **detenido**, el proceso del mismo no se factura. Sin embargo, el almacenamiento se sigue facturando mientras se mantiene el almacenamiento del servidor, con el fin de asegurarse de que los archivos de datos están disponibles cuando se vuelve a iniciar el servidor.
 
 > [!IMPORTANT]
 > Cuando se **detiene** el servidor permanece en ese estado durante los siete días siguientes. Si no lo **inicia** de forma manual durante ese tiempo, se iniciará automáticamente al final de los siete días. Puede optar por volver a **detenerlo** si no va a usar el servidor.
@@ -67,5 +67,5 @@ Puede administrar servidores de Azure Database for MySQL en Azure Portal o con l
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general sobre el servicio, vea [Introducción a Azure Database for MySQL](./overview.md).
-- Para obtener información sobre las cuotas y las limitaciones de recursos específicos en función del **plan de tarifa** , vea [Planes de tarifa](./concepts-pricing-tiers.md)
+- Para obtener información sobre las cuotas y las limitaciones de recursos específicos en función del **plan de tarifa**, vea [Planes de tarifa](./concepts-pricing-tiers.md)
 - Para obtener información sobre cómo conectarse al servicio, vea [Bibliotecas de conexiones de Azure Database for MySQL](./concepts-connection-libraries.md).

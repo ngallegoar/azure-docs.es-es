@@ -1,7 +1,7 @@
 ---
 title: Configuración de una ejecución de entrenamiento
 titleSuffix: Azure Machine Learning
-description: Configure el modelo de Machine Learning en varios entornos de entrenamiento (destinos de proceso). Es fácil cambiar entre entornos de entrenamiento. Inicie el entrenamiento de forma local. Si necesita escalar horizontalmente, cambie a un destino de proceso basado en la nube.
+description: Configure el modelo de Machine Learning en varios entornos de entrenamiento (destinos de proceso). Es fácil cambiar entre entornos de entrenamiento.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 8280af20d63da969504cda8ffe875405d4bf0218
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324710"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541307"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configuración y envío de ejecuciones de entrenamiento
 
@@ -38,10 +38,10 @@ Una configuración [ScriptRunConfig](/python/api/azureml-core/azureml.core.scrip
 
 Envíe el experimento de entrenamiento mediante un objeto ScriptRunConfig.  Este objeto incluye:
 
-* **source_directory** : el directorio de origen que contiene el script de entrenamiento.
-* **script** : el script de entrenamiento que se va a ejecutar
-* **compute_target** : el destino de proceso en el que se va a ejecutar
-* **environment** : el entorno que se va a usar al ejecutar el script
+* **source_directory**: el directorio de origen que contiene el script de entrenamiento.
+* **script**: el script de entrenamiento que se va a ejecutar
+* **compute_target**: el destino de proceso en el que se va a ejecutar
+* **environment**: el entorno que se va a usar al ejecutar el script
 * y algunas opciones configurables adicionales (consulte la [documentación de referencia](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para obtener más información)
 
 ## <a name="train-your-model"></a><a id="submit"></a>Entrenamiento de un modelo
@@ -94,7 +94,7 @@ Para obtener más información y detalles sobre los entornos, consulte [Creació
   
 ### <a name="local-compute-target"></a><a name="local"></a>Destino de proceso local
 
-Si el destino de proceso es su **máquina local** , usted es responsable de garantizar que todos los paquetes necesarios estén disponibles en el entorno de Python en el que se ejecutará el script.  Use `python.user_managed_dependencies` para usar el entorno de Python actual (o el de Python en la ruta de acceso que especifique).
+Si el destino de proceso es su **máquina local**, usted es responsable de garantizar que todos los paquetes necesarios estén disponibles en el entorno de Python en el que se ejecutará el script.  Use `python.user_managed_dependencies` para usar el entorno de Python actual (o el de Python en la ruta de acceso que especifique).
 
 ```python
 from azureml.core import Environment
@@ -152,7 +152,7 @@ run.wait_for_completion(show_output=True)
 > Para más información sobre las instantáneas, consulte [Instantáneas](concept-azure-machine-learning-architecture.md#snapshots).
 
 > [!IMPORTANT]
-> **Carpetas especiales** : dos carpetas, *outputs* y *logs* , reciben un tratamiento especial por parte de Azure Machine Learning. Durante el entrenamiento, si escribe archivos en las carpetas llamadas *outputs* y *logs* relativas al directorio raíz (`./outputs` y `./logs`, respectivamente), estos archivos se cargarán automáticamente en su historial de ejecución, por lo que tendrá acceso a estos una vez completada su ejecución.
+> **Carpetas especiales**: dos carpetas, *outputs* y *logs*, reciben un tratamiento especial por parte de Azure Machine Learning. Durante el entrenamiento, si escribe archivos en las carpetas llamadas *outputs* y *logs* relativas al directorio raíz (`./outputs` y `./logs`, respectivamente), estos archivos se cargarán automáticamente en su historial de ejecución, por lo que tendrá acceso a estos una vez completada su ejecución.
 >
 > Para crear artefactos durante el entrenamiento (por ejemplo, archivos de modelo, puntos de control, archivos de datos o imágenes trazadas), escríbalos en la carpeta `./outputs`.
 >

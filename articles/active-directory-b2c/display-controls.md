@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49626d418f90f8b4bc7288a6d2f7d195cd906f7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 950c159ed4d2c57796f33b9505e6931dbec983ba
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961364"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532382"
 ---
 # <a name="display-controls"></a>Controles de visualización
 
@@ -27,8 +27,6 @@ Un **control de visualización** es un elemento de la interfaz de usuario que ti
 En la imagen siguiente se muestra una página de registro de aserción automática con dos controles de visualización que validan una dirección de correo electrónico principal y secundaria.
 
 ![Ejemplo de control de visualización representado](media/display-controls/display-control-email.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="prerequisites"></a>Prerequisites
 

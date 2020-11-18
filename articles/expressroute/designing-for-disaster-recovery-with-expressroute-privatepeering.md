@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92202420"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Diseño para la recuperación ante desastres con el emparejamiento privado de ExpressRoute
 
 ExpressRoute está diseñado para ofrecer una alta disponibilidad y así poder proporcionar conectividad de red privada a nivel de operador a los recursos de Microsoft. En otras palabras, no hay un único punto de error en la ruta de ExpressRoute dentro de la red de Microsoft. En cuanto a las opciones de diseño para maximizar la disponibilidad de un circuito de ExpressRoute, consulte [Designing for high availability with ExpressRoute][HA] (Diseño de para alta disponibilidad con ExpressRoute).
 
-Sin embargo, teniendo en cuenta la popular ley de Murphy: *si algo puede salir mal, saldrá mal* , en este artículo nos centraremos en ofrecer soluciones que vayan más allá de aquellos errores que pueden solucionarse con un solo circuito de ExpressRoute. En otras palabras, en este artículo analizaremos las opciones que ofrece la arquitectura de red para crear una sólida conectividad de red de back-end para la recuperación ante desastres; para ello, usaremos circuitos de ExpressRoute con redundancia geográfica.
+Sin embargo, teniendo en cuenta la popular ley de Murphy: *si algo puede salir mal, saldrá mal*, en este artículo nos centraremos en ofrecer soluciones que vayan más allá de aquellos errores que pueden solucionarse con un solo circuito de ExpressRoute. En otras palabras, en este artículo analizaremos las opciones que ofrece la arquitectura de red para crear una sólida conectividad de red de back-end para la recuperación ante desastres; para ello, usaremos circuitos de ExpressRoute con redundancia geográfica.
 
 >[!NOTE]
 >Los conceptos descritos en este artículo se aplican de la misma forma cuando se crea un circuito ExpressRoute en una red WAN virtual o fuera de él.

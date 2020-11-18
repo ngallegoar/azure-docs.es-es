@@ -32,11 +32,11 @@ Use C# para crear un bot de chat que se integre con Language Understanding (LUIS
 
 ## <a name="create-a-web-app-bot-resource"></a>Crear un nuevo recurso de bot de aplicación web
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso** .
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
 
-1. En el cuadro de búsqueda, busque y seleccione **Bot de aplicación web** . Seleccione **Crear** .
+1. En el cuadro de búsqueda, busque y seleccione **Bot de aplicación web**. Seleccione **Crear**.
 
-1. En **Bot Service** , proporcione la información necesaria:
+1. En **Bot Service**, proporcione la información necesaria:
 
     |Configuración|Propósito|Configuración sugerida|
     |--|--|--|
@@ -59,7 +59,7 @@ Use C# para crear un bot de chat que se integre con Language Understanding (LUIS
     |Lenguaje de SDK|Lenguaje de programación del bot|**C#**|
     |Bot|Tipo de bot|**Bot básico**|
 
-1. Seleccione **Crear** . Esto crea e implementa el servicio de bots en Azure. Parte de este proceso crea una aplicación de LUIS denominada `luis-csharp-bot-XXXX`. Este nombre se basa en el nombre de la aplicación /Azure Bot Service.
+1. Seleccione **Crear**. Esto crea e implementa el servicio de bots en Azure. Parte de este proceso crea una aplicación de LUIS denominada `luis-csharp-bot-XXXX`. Este nombre se basa en el nombre de la aplicación /Azure Bot Service.
 
     > [!div class="mx-imgBorder"]
     > [![Creación de un bot de aplicación web](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
@@ -98,7 +98,7 @@ Con el fin de desarrollar el código del bot de aplicación web, descargue el c�
 
     [![Descargar el código fuente del bot de aplicación web para el bot básico](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-1. Cuando el cuadro de diálogo emergente le pregunte **Include app settings in the downloaded zip file?** (¿Incluir la configuración de la aplicación en el archivo zip descargado?), seleccione **Sí** .
+1. Cuando el cuadro de diálogo emergente le pregunte **Include app settings in the downloaded zip file?** (¿Incluir la configuración de la aplicación en el archivo zip descargado?), seleccione **Sí**.
 
 1. Cuando el código fuente se haya comprimido, un mensaje proporcionará un vínculo para descargar el código. Seleccione el vínculo.
 
@@ -106,7 +106,7 @@ Con el fin de desarrollar el código del bot de aplicación web, descargue el c�
 
 ## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Revisión del código para enviar la expresión a LUIS y obtener respuesta
 
-1. Para enviar la expresión del usuario al punto de conexión de predicción LUIS, abra el archivo **FlightBookingRecognizer.cs** . Aquí es donde la expresión del usuario especificada en el bot se envía a LUIS. La respuesta de LUIS se devuelve desde el método **RecognizeAsync** .
+1. Para enviar la expresión del usuario al punto de conexión de predicción LUIS, abra el archivo **FlightBookingRecognizer.cs**. Aquí es donde la expresión del usuario especificada en el bot se envía a LUIS. La respuesta de LUIS se devuelve desde el método **RecognizeAsync**.
 
     ```csharp
     // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -151,7 +151,7 @@ Con el fin de desarrollar el código del bot de aplicación web, descargue el c�
     }
     ```
 
-1. Al abrir **dialogs -> mainDialog.cs** , se captura la expresión y se envía a executeLuisQuery en el método actStep.
+1. Al abrir **dialogs -> mainDialog.cs**, se captura la expresión y se envía a executeLuisQuery en el método actStep.
 
     ```csharp
     // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -318,13 +318,13 @@ En Visual Studio 2019, inicie el bot. Se abre una ventana del explorador con el
 
 1. Inicie Bot Framework Emulator y seleccione **Open Bot** (Abrir bot).
 1. En el cuadro de diálogo emergente **Open a bot** (Abrir un bot), escriba la dirección URL del bot, por ejemplo, `http://localhost:3978/api/messages`. La ruta `/api/messages` es la dirección web para el bot.
-1. Escriba los valores que desee en **Microsoft App ID** (Id. de aplicación de Microsoft) y **Microsoft App password** (Contraseña de aplicación de Microsoft), que se encuentran en el archivo **appsettings.json** de la raíz del código de bot que descargó y seleccione **Conectar** .
+1. Escriba los valores que desee en **Microsoft App ID** (Id. de aplicación de Microsoft) y **Microsoft App password** (Contraseña de aplicación de Microsoft), que se encuentran en el archivo **appsettings.json** de la raíz del código de bot que descargó y seleccione **Conectar**.
 
 1. En Bot Framework Emulator, escriba `Book a flight from Seattle to Berlin tomorrow` y obtenga la misma respuesta para el bot básico que la que recibió en el **Test in Web Chat** (Probar en chat web) en una sección anterior.
 
     [![La captura de pantalla muestra Bot Framework Emulator, con una respuesta básica de bot.](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
-1. Seleccione **Sí** . El bot responde con un resumen de sus acciones.
+1. Seleccione **Sí**. El bot responde con un resumen de sus acciones.
 1. En el registro de Bot Framework Emulator, seleccione la línea que incluye `<- trace LuisV3 Trace`. Esto muestra la respuesta JSON de LUIS para la intención y las entidades de la expresión.
 
     [![La captura de pantalla muestra una respuesta de bot básica, con el seguimiento de LUIS v3 seleccionado y la respuesta JSON resaltada.](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)

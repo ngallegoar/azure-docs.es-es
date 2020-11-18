@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f7f9acd18da57bd83e688249600b8468cc4ebbe5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286228"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445564"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Aspectos básicos de la autenticación de Key Vault
 
@@ -45,9 +45,9 @@ Siga los vínculos de la documentación siguiente para saber cómo registrar un 
 * [Vínculo](../../active-directory/fundamentals/add-users-azure-active-directory.md) para registrar un usuario en Azure Active Directory.
 * [Vínculo](../../active-directory/develop/quickstart-register-app.md) para registrar una aplicación en Azure Active Directory.
 
-## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Asignación de un rol a la entidad de seguridad en Azure Active Directory
+## <a name="assign-your-security-principal-a-role"></a>Asignación de la entidad de seguridad como rol
 
-Azure Active Directory usa el control de acceso basado en roles (RBAC) para asignar permisos a las entidades de seguridad. Estos permisos se denominan asignaciones de roles.
+Puede usar el control de acceso basado en roles de Azure (Azure RBAC) para asignar permisos a las entidades de seguridad. Estos permisos se denominan asignaciones de roles.
 
 En el contexto del almacén de claves, estas asignaciones de roles determinan el nivel de acceso de una entidad de seguridad al plano de administración (también conocido como plano de control) del almacén de claves. Estas asignaciones de roles no proporcionan acceso a los secretos del plano de datos directamente, sino que proporcionan acceso para administrar las propiedades del almacén de claves. Por ejemplo, si se ha asignado el **rol de lector** a un usuario o una aplicación, no podrán realizar cambios en la configuración del firewall del almacén de claves; en cambio, un usuario o una aplicación con un **rol de colaborador** asignado puede realizar cambios. Aún así, ninguno de estos roles obtendrá acceso directo para realizar operaciones en secretos, claves y certificados como la creación o recuperación de su valor hasta que se les asigne acceso al plano de datos del almacén de claves. Esto se describe en el paso siguiente.
 
@@ -57,7 +57,7 @@ En el contexto del almacén de claves, estas asignaciones de roles determinan el
 >[!NOTE]
 > Cuando asigna una asignación de roles a un usuario en el nivel de inquilino de Azure Active Directory, este conjunto de permisos se filtrará a todas las suscripciones, grupos de recursos y recursos dentro del ámbito de la asignación. Para seguir el principio de privilegios mínimos, puede realizar esta asignación de roles en un ámbito más granular. Por ejemplo, puede asignar a un usuario un rol de Lector en el nivel de suscripción y un rol de Propietario para un único almacén de claves. Para ello, vaya a la configuración de la Administración de identidad y acceso (IAM) de una suscripción, un grupo de recursos o un almacén de claves para realizar una asignación de roles en un ámbito más granular.
 
-* [Vínculo](../../role-based-access-control/built-in-roles.md) para obtener más información acerca de los roles de Azure Active Directory.
+* [Vínculo](../../role-based-access-control/built-in-roles.md) para obtener más información sobre los roles de Azure.
 * [Vínculo](../../role-based-access-control/role-assignments-portal.md) para obtener más información acerca de cómo asignar o quitar asignaciones de roles.
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Configuración de directivas de acceso al almacén de claves para la entidad de seguridad
@@ -91,7 +91,7 @@ El acceso al plano de datos o el acceso para realizar operaciones en claves, sec
 Las directivas de acceso del almacén de claves conceden a los usuarios y las aplicaciones acceso para realizar operaciones de plano de datos en un almacén de claves.
 
 > [!NOTE]
-> Este modelo de acceso no es compatible con el RBAC del almacén de claves (opción 2) que se describe a continuación. Debe elegir una. Tendrá la oportunidad de realizar esta selección al hacer clic en la pestaña de la Directiva de acceso del almacén de claves.
+> Este modelo de acceso no es compatible con Azure RBAC del almacén de claves (opción 2) que se describe a continuación. Debe elegir una. Tendrá la oportunidad de realizar esta selección al hacer clic en la pestaña de la Directiva de acceso del almacén de claves.
 
 Las directivas de acceso clásico son granulares, lo que significa que puede permitir o denegar la capacidad de cada usuario o aplicación individual para realizar operaciones individuales en un almacén de claves. Estos son algunos ejemplos:
 
@@ -104,25 +104,25 @@ Sin embargo, las directivas de acceso clásico no admiten permisos de nivel por 
 > [!IMPORTANT]
 > Las directivas de acceso de almacén de claves clásicas y las asignaciones de roles de Azure Active Directory son independientes entre sí. Si asigna a una entidad de seguridad un rol de "Colaborador" en el nivel de suscripción, la entidad de seguridad no podrá de realizar automáticamente operaciones de plano de datos en cada almacén de claves del ámbito de la suscripción. Así pues, la entidad de seguridad aún deberá recibir o concederse los permisos de la directiva de acceso para realizar operaciones en el plano de datos.
 
-### <a name="data-plane-access-option-2--key-vault-rbac-preview"></a>Opción 2 de acceso al plano de datos:  Key Vault RBAC (versión preliminar)
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>Opción 2 de acceso al plano de datos:  Azure RBAC para Key Vault (versión preliminar)
 
-Una nueva forma de conceder acceso al plano de datos del almacén de claves es mediante el control de acceso basado en roles (RBAC) del almacén de claves.
+Una nueva forma de conceder acceso al plano de datos del almacén de claves es mediante el control de acceso basado en roles de Azure (Azure RBAC) del almacén de claves.
 
 > [!NOTE]
 > Este modelo de acceso no es compatible con las directivas de acceso clásico del almacén de claves que se mostraron anteriormente. Debe elegir una. Tendrá la oportunidad de realizar esta selección al hacer clic en la pestaña de la Directiva de acceso del almacén de claves.
 
 Las asignaciones de roles de Key Vault son un conjunto de asignaciones de roles integradas de Azure que abarcan conjuntos de permisos comunes que se usan para obtener acceso a claves, secretos y certificados. Este modelo de permiso también habilita funcionalidades adicionales que no están disponibles en el modelo clásico de directivas de acceso del almacén de claves.
 
-* Los permisos de RBAC se pueden administrar a escala, lo que permite a los usuarios tener estos roles asignados en un nivel de suscripción, grupo de recursos o almacén de claves individual. Asimismo, un usuario tendrá permisos de plano de datos en todos los almacenes de claves del ámbito de la asignación de RBAC. Esto elimina la necesidad de asignar permisos de directiva de acceso individuales por usuario o aplicación por almacén de claves.
+* Los permisos de Azure RBAC se pueden administrar a escala, lo que permite a los usuarios tener estos roles asignados en un nivel de suscripción, grupo de recursos o almacén de claves individual. Asimismo, un usuario tendrá permisos de plano de datos en todos los almacenes de claves del ámbito de la asignación de Azure RBAC. Esto elimina la necesidad de asignar permisos de directiva de acceso individuales por usuario o aplicación por almacén de claves.
 
-* Los permisos de RBAC son compatibles con Privileged Identity Management o PIM. Esto le permite configurar controles de acceso de tipo Just-in-Time para roles con privilegios, como el administrador de Key Vault. Esta es una práctica recomendada de seguridad y sigue el principio de privilegios mínimos al eliminar el acceso permanente a los almacenes de claves.
+* Los permisos de Azure RBAC son compatibles con Privileged Identity Management o PIM. Esto le permite configurar controles de acceso de tipo Just-in-Time para roles con privilegios, como el administrador de Key Vault. Esta es una práctica recomendada de seguridad y sigue el principio de privilegios mínimos al eliminar el acceso permanente a los almacenes de claves.
 
-* Los permisos de RBAC son compatibles con los permisos granulares por objeto, por lo que puede restringir a un usuario para que solo realice operaciones en algunos de los objetos del almacén de claves. Gracias a esto, varias aplicaciones pueden compartir un único almacén de claves mientras se sigue aislando el acceso entre las aplicaciones.
+* Los permisos de Azure RBAC son compatibles con los permisos granulares por objeto, por lo que puede restringir a un usuario para que solo realice operaciones en algunos de los objetos del almacén de claves. Gracias a esto, varias aplicaciones pueden compartir un único almacén de claves mientras se sigue aislando el acceso entre las aplicaciones.
 
-Para obtener más información acerca de Key Vault RBAC, consulte los siguientes documentos:
+Para obtener más información sobre Azure RBAC para Key Vault, consulte los siguientes documentos:
 
-* [Vínculo](./secure-your-key-vault.md#management-plane-and-azure-rbac) de Azure Key Vault RBAC
-* [Vínculo](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) de los roles de Azure Key Vault RBAC (versión preliminar)
+* [Vínculo](./secure-your-key-vault.md#management-plane-and-azure-rbac) de Azure RBAC para Key Vault
+* [Vínculo](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) de Azure RBAC para roles de Azure Key (versión preliminar)
 
 ## <a name="configure-key-vault-firewall"></a>Configuración del firewall de Key Vault
 

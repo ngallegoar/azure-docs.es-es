@@ -1,19 +1,19 @@
 ---
 title: Copia de seguridad y restauración en Azure Database for MariaDB mediante Azure PowerShell
 description: Aprenda a realizar copias de seguridad y a restaurar un servidor en Azure Database for MariaDB mediante Azure PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 984a5d52dfdd45190cbded5e900d3fcfe2f9ad43
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0207be2c983fd986d5852403e36462d2d7d2cdda
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424499"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539641"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Copia de seguridad y restauración de un servidor de Azure Database for MariaDB mediante PowerShell
 
@@ -41,9 +41,9 @@ En el momento de crear el servidor, elegirá la configuración del servidor para
 > [!NOTE]
 > Después de crear un servidor, no se puede cambiar el tipo de redundancia elegido, redundancia geográfica o redundancia local.
 
-Al crear un servidor mediante el comando `New-AzMariaDbServer`, el parámetro **GeoRedundantBackup** decide la opción de redundancia de copia de seguridad. Si está **Habilitado** , se toman las copias de seguridad con redundancia geográfica. Si está **Deshabilitado** , se toman las copias de seguridad con redundancia local.
+Al crear un servidor mediante el comando `New-AzMariaDbServer`, el parámetro **GeoRedundantBackup** decide la opción de redundancia de copia de seguridad. Si está **Habilitado**, se toman las copias de seguridad con redundancia geográfica. Si está **Deshabilitado**, se toman las copias de seguridad con redundancia local.
 
-El período de retención de la copia de seguridad se configura mediante el parámetro **BackupRetentionDay** .
+El período de retención de la copia de seguridad se configura mediante el parámetro **BackupRetentionDay**.
 
 Para más información acerca de cómo establecer estos valores durante la creación del servidor, consulte [Creación de un servidor de Azure Database for MariaDB mediante PowerShell](quickstart-create-mariadb-server-database-using-azure-powershell.md).
 
@@ -79,7 +79,7 @@ El conjunto de parámetros **PointInTimeRestore** del cmdlet `Restore-AzMariaDbS
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Grupo de recursos donde existe el servidor de origen.  |
 | Nombre | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
-| RestorePointInTime | 2020-03-13T13:59:00Z | Seleccione un momento dado para restaurar. Esta fecha y hora debe estar dentro del período de retención de copia de seguridad del servidor de origen. Use el formato de fecha y hora ISO8601. Por ejemplo, puede usar su propia zona horaria, como **2020-03-13T05:59:00-08:00** . También puede utilizar el formato de hora Zulú UTC, por ejemplo, **2018-03-13T13:59:00Z** . |
+| RestorePointInTime | 2020-03-13T13:59:00Z | Seleccione un momento dado para restaurar. Esta fecha y hora debe estar dentro del período de retención de copia de seguridad del servidor de origen. Use el formato de fecha y hora ISO8601. Por ejemplo, puede usar su propia zona horaria, como **2020-03-13T05:59:00-08:00**. También puede utilizar el formato de hora Zulú UTC, por ejemplo, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Use el modo de un momento dado para restaurar. |
 
 Cuando se restaura un servidor a un momento dado anterior, se crea un nuevo servidor. El servidor de origen y las bases de datos de ese momento dado anterior se copian en el servidor nuevo.
@@ -94,7 +94,7 @@ El servidor creado durante una restauración no tiene los puntos de conexión de
 
 Si ha configurado el servidor para copias de seguridad con redundancia geográfica, se puede crear un nuevo servidor a partir de la copia de seguridad del servidor existente. Este nuevo servidor puede crearse en cualquier región en la que Azure Database for MariaDB esté disponible.
 
-Para crear un servidor con una copia de seguridad con redundancia geográfica, use el comando `Restore-AzMariaDbServer` con el parámetro **UseGeoRestore** .
+Para crear un servidor con una copia de seguridad con redundancia geográfica, use el comando `Restore-AzMariaDbServer` con el parámetro **UseGeoRestore**.
 
 > [!NOTE]
 > Al crear por primera vez un servidor, puede que no esté disponible para la restauración geográfica inmediatamente. Los metadatos pueden tardar unas horas en rellenarse.
@@ -106,7 +106,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMariaDbServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-Este ejemplo crea un nuevo servidor denominado **mydemoserver georestored** en la zona horaria del Este de EE. UU. que pertenece a **myresourcegroup** . Se trata de un servidor Gen 5 de uso general con ocho núcleos virtuales. El servidor se crea a partir de la copia de seguridad con redundancia geográfica de **mydemoserver** , que también está en el grupo de recursos **myresourcegroup** .
+Este ejemplo crea un nuevo servidor denominado **mydemoserver georestored** en la zona horaria del Este de EE. UU. que pertenece a **myresourcegroup**. Se trata de un servidor Gen 5 de uso general con ocho núcleos virtuales. El servidor se crea a partir de la copia de seguridad con redundancia geográfica de **mydemoserver**, que también está en el grupo de recursos **myresourcegroup**.
 
 Para crear el nuevo servidor en otro grupo de recursos desde el servidor existente, especifique el nombre del nuevo grupo de recursos mediante el parámetro **ResourceGroupName** como en el ejemplo siguiente:
 
@@ -124,7 +124,7 @@ El conjunto de parámetros **GeoRestore** del cmdlet `Restore-AzMariaDbServer` r
 |Location | estado | Ubicación del nuevo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Use el modo geográfico para restaurar. |
 
-Al crear un nuevo servidor mediante una restauración geográfica, hereda el mismo tamaño de almacenamiento y plan de tarifa que el servidor de origen, a menos que se especifique el parámetro **Sku** .
+Al crear un nuevo servidor mediante una restauración geográfica, hereda el mismo tamaño de almacenamiento y plan de tarifa que el servidor de origen, a menos que se especifique el parámetro **Sku**.
 
 Una vez finalizada la restauración, busque el servidor nuevo y compruebe que los datos se restauraron según lo previsto. El nuevo servidor tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
 

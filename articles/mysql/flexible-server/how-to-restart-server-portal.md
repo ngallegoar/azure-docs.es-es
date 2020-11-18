@@ -1,17 +1,17 @@
 ---
 title: Reinicio de un servidor flexible de Azure Database for MySQL con Azure Portal
 description: En este artículo se describe cómo reiniciar un servidor flexible de Azure Database for MySQL mediante Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/26/2020
-ms.openlocfilehash: c44e1da46b969b2d359a225e9d310160ce2092ce
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 88a1524875f168b49f50f1684c650d5bc178bf38
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681344"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542667"
 ---
 # <a name="restart-azure-database-for-mysql-flexible-server-using-azure-portal"></a>Reinicio de un servidor flexible de Azure Database for MySQL mediante Azure Portal
 En este tema se describe cómo reiniciar un servidor flexible de Azure Database for MySQL. Es posible que deba reiniciar el servidor por motivos de mantenimiento, lo que causa una breve interrupción del servicio mientras el servidor realiza la operación.

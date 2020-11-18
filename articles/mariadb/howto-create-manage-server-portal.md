@@ -1,17 +1,17 @@
 ---
 title: Administración de servidores de Azure Database for MariaDB mediante Azure Portal
 description: Aprenda a administrar un servidor de Azure Database for MariaDB desde Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 24481abb6606d9ce830e5b65285b31637417cbd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ade70c884a3ef01db45273e4789f34b629473661
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562458"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537992"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Administración de un servidor de Azure Database for MariaDB con Azure Portal
 En este artículo se muestra cómo administrar los servidores de Azure Database for MariaDB. Entre las tareas de administración se incluyen el escalado de proceso y almacenamiento, el restablecimiento de contraseñas de administración y la visualización de detalles del servidor.

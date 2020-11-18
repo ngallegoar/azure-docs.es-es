@@ -9,21 +9,21 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5358bbbca716f5152a943c90cb7a5f735ae12047
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92479609"
 ---
-1. En [Azure Portal](https://portal.azure.com), en **Buscar recursos, servicios y documentos (G+/)** escriba **puerta de enlace de red local**. Busque la **puerta de enlace de red local** en **Marketplace** , en los resultados de la búsqueda y selecciónela. Se abre la página **Crear puerta de enlace de red local**.
-1. En la página **Crear puerta de enlace de red local** , especifique los valores de la puerta de enlace de red local.
+1. En [Azure Portal](https://portal.azure.com), en **Buscar recursos, servicios y documentos (G+/)** escriba **puerta de enlace de red local**. Busque la **puerta de enlace de red local** en **Marketplace**, en los resultados de la búsqueda y selecciónela. Se abre la página **Crear puerta de enlace de red local**.
+1. En la página **Crear puerta de enlace de red local**, especifique los valores de la puerta de enlace de red local.
 
    :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-include/create-ip.png" alt-text="Creación de una puerta de enlace de red local con una dirección IP":::
 
    * **Nombre:** especifique el nombre del objeto de puerta de enlace de red local.
    * **Punto de conexión:** Seleccione el tipo de punto de conexión para el dispositivo VPN local: **dirección IP** o **FQDN (nombre de dominio completo)** .
-      * **Dirección IP** : si tiene asignada una dirección IP pública estática de su proveedor de servicios de Internet para el dispositivo VPN, seleccione la opción Dirección IP y rellene la dirección IP como se indica en el ejemplo. Esta es la dirección IP pública del dispositivo VPN al que desea que Azure VPN Gateway se conecte. Si no tiene la dirección IP en este momento, puede usar los valores que se muestran en el ejemplo, pero deberá volver y reemplazar la dirección IP del marcador de posición por la dirección IP pública de su dispositivo VPN. Si no lo hace, Azure no podrá conectarse.
-      * **Nombre de dominio completo** : si tiene una dirección IP pública dinámica que podría cambiar después de un cierto período de tiempo, que normalmente determina el proveedor de servicios de Internet, puede usar un nombre DNS constante con un servicio DNS dinámico que apunte a la dirección IP pública actual del dispositivo VPN. Azure VPN Gateway resolverá el nombre de dominio completo para determinar la dirección IP pública a la que se va a conectar. 
+      * **Dirección IP**: si tiene asignada una dirección IP pública estática de su proveedor de servicios de Internet para el dispositivo VPN, seleccione la opción Dirección IP y rellene la dirección IP como se indica en el ejemplo. Esta es la dirección IP pública del dispositivo VPN al que desea que Azure VPN Gateway se conecte. Si no tiene la dirección IP en este momento, puede usar los valores que se muestran en el ejemplo, pero deberá volver y reemplazar la dirección IP del marcador de posición por la dirección IP pública de su dispositivo VPN. Si no lo hace, Azure no podrá conectarse.
+      * **Nombre de dominio completo**: si tiene una dirección IP pública dinámica que podría cambiar después de un cierto período de tiempo, que normalmente determina el proveedor de servicios de Internet, puede usar un nombre DNS constante con un servicio DNS dinámico que apunte a la dirección IP pública actual del dispositivo VPN. Azure VPN Gateway resolverá el nombre de dominio completo para determinar la dirección IP pública a la que se va a conectar. 
    * **Espacio de direcciones** hace referencia a los intervalos de direcciones de la red que representa esta red local. Puede agregar varios intervalos de espacios de direcciones. Asegúrese de que los intervalos que especifique aquí no se superpongan con los de otras redes a las que quiera conectarse. Azure enrutará el intervalo de direcciones que especifique a la dirección IP del dispositivo VPN local. *Use sus propios valores aquí, y no los mostrados en el ejemplo, si quiere conectarse a su sitio local*.
    * **Configurar BGP:** usar solo al configurar BGP. En caso contrario, no seleccione esta opción.
    * **Subscription** (Suscripción): compruebe que se muestra la suscripción correcta.

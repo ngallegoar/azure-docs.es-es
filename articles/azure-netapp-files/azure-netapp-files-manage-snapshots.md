@@ -1,6 +1,6 @@
 ---
 title: Administración de instantáneas mediante Azure NetApp Files | Microsoft Docs
-description: Describe cómo crear y administrar instantáneas mediante Azure NetApp Files.
+description: Describe cómo crear, administrar y usar instantáneas mediante Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 11/10/2020
 ms.author: b-juche
-ms.openlocfilehash: e9f2a1f9125d25caa9506e954cab3b94dfcb5c24
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932284"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491654"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
 
-Azure NetApp Files admite la creación de instantáneas a petición y el uso de directivas de instantáneas para programar la creación automática de instantáneas.  También puede restaurar una instantánea en un nuevo volumen o restaurar un único archivo mediante un cliente.  
+Azure NetApp Files admite la creación de instantáneas a petición y el uso de directivas de instantáneas para programar la creación automática de instantáneas. También puede restaurar una instantánea en un nuevo volumen, restaurar un único archivo mediante un cliente o revertir un volumen existente mediante una instantánea.
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Creación de una instantánea a petición para un volumen
 
@@ -108,6 +108,8 @@ Si desea que un volumen use la directiva de instantánea, debe [aplicar la direc
 
 Si desea que un volumen use una directiva de instantánea que haya creado, debe aplicarla al volumen. 
 
+No se puede aplicar una directiva de instantánea a un volumen de destino en la replicación entre regiones.  
+
 1.  Vaya a la página **Volúmenes**, haga clic con el botón derecho en el volumen al que desee aplicar una directiva de instantánea y seleccione **Editar**.
 
     ![Menú contextual de volúmenes](../media/azure-netapp-files/volume-right-cick-menu.png) 
@@ -173,6 +175,8 @@ El volumen montado contiene un directorio de instantáneas denominado `.snapshot
 
 Si ha activado la casilla Ocultar la ruta de acceso de la instantánea al crear el volumen, se ocultará el directorio de instantáneas. Puede ver el estado de Ocultar la ruta de acceso de la instantánea del volumen seleccionando este último. Para editar la opción Ocultar la ruta de acceso de la instantánea, haga clic en **Editar** en la página del volumen.  
 
+En el caso de un volumen de destino en la replicación entre regiones, la opción Ocultar la ruta de acceso de la instantánea está habilitada de forma predeterminada y no se puede modificar.
+
 ![Edición de opciones de instantánea de volumen](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restauración de un archivo mediante un cliente NFS de Linux 
@@ -218,6 +222,37 @@ Si ha activado la casilla Ocultar la ruta de acceso de la instantánea al crear 
 4. También puede hacer clic con el botón derecho en el directorio principal, seleccionar **Propiedades**, hacer clic en la pestaña **Versiones anteriores** para ver la lista de instantáneas y seleccionar **Restaurar** para restaurar un archivo.  
 
     ![Versiones anteriores de Propiedades](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
+## <a name="revert-a-volume-using-snapshot-revert"></a>Reversión de un volumen mediante la reversión de instantáneas
+
+La funcionalidad de reversión de instantáneas le permite revertir rápidamente un volumen al estado en que se encontraba cuando se tomó una instantánea determinada. En la mayoría de los casos, la reversión de un volumen es mucho más rápida que la restauración de archivos individuales a partir de una instantánea en el sistema de archivos activo. También requiere menos espacio que la restauración de una instantánea en un nuevo volumen. 
+
+Puede encontrar la opción Revertir volumen en el menú Instantáneas de un volumen. Después de seleccionar una instantánea para la reversión, Azure NetApp Files revierte el volumen a los datos y las marcas de tiempo que contenía cuando se tomó la instantánea seleccionada. 
+
+> [!IMPORTANT]
+> Los datos del sistema de archivos activo y las instantáneas que se tomaron después de tomar la instantánea seleccionada se perderán. La operación de reversión de instantáneas reemplazará *todos* los datos del volumen de destino por los datos de la instantánea seleccionada. Debe prestar atención al contenido y a la fecha de creación de la instantánea al seleccionar una instantánea. No se puede deshacer la operación de reversión de instantáneas.
+
+1. Vaya al menú **Instantáneas** de un volumen.  Haga clic con el botón derecho en la instantánea que quiere utilizar para la operación de reversión. Seleccione **Revertir volumen**. 
+
+    ![Captura de pantalla que describe el menú contextual de una instantánea](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. En la ventana Revertir el volumen a la instantánea, escriba el nombre del volumen y haga clic en **Revertir**.   
+
+    El volumen ahora se restaura al momento en que se tomó la instantánea seleccionada.
+
+    ![Captura de pantalla que muestra la ventana Revertir el volumen a la instantánea](../media/azure-netapp-files/snapshot-revert-volume.png) 
+
+## <a name="delete-snapshots"></a>Eliminar instantáneas  
+
+Puede eliminar las instantáneas que ya no necesita conservar. 
+
+1. Vaya al menú **Instantáneas** de un volumen. Haga clic con el botón derecho en la instantánea que desea eliminar. Seleccione **Eliminar**.
+
+    ![Captura de pantalla que describe el menú contextual de una instantánea](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. En la ventana Eliminar instantánea, haga clic en **Sí** para confirmar que quiere eliminar la instantánea. 
+
+    ![Captura de pantalla que confirma la eliminación de la instantánea](../media/azure-netapp-files/snapshot-confirm-delete.png)  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 6ec84a2a528b992a2645e94472987ea67331b533
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 879b451131ef7b2fa108ca1ae307107506fe8f27
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969507"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541919"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Inicio rápido: Análisis de una imagen local mediante la API REST Computer Vision y C#
 
-En este inicio rápido, analizará una imagen almacenada localmente para extraer características visuales con la API REST de Computer Vision. Con el método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer información de las características visuales a partir del contenido de una imagen.
+En este inicio rápido, analizará una imagen almacenada localmente para extraer características visuales con la API REST de Computer Vision. Con el método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b), puede extraer información de las características visuales a partir del contenido de una imagen.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

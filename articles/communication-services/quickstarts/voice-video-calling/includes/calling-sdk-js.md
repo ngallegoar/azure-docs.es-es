@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779890"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482643"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -147,7 +147,8 @@ Esto devuelve una cadena que representa el estado actual de una llamada:
 * "Connected": se conecta la llamada
 * "Hold": la llamada se pone en espera, no fluye ningún elemento multimedia entre el punto de conexión local y los participantes remotos
 * "Disconnecting": estado de transición antes de que la llamada pase al estado "Disconnected"
-* "Disconnected": estado final de la llamada
+* "Disconnected": estado final de la llamada.
+   * Si se pierde la conexión de red, el estado pasa a "Disconnected" después de unos 2 minutos.
 
 
 * Para descubrir por qué se finalizó una llamada determinada, revise la propiedad `callEndReason`.
@@ -233,6 +234,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### <a name="faq"></a>Preguntas más frecuentes
+ * Si se pierde la conectividad de red, ¿cambia el estado de la llamada a "Disconnected"?
+    * Sí, si se pierde la conexión de red durante más de 2 minutos, la llamada pasará al estado Disconnected y la llamada finalizará.
 
 ## <a name="remote-participants-management"></a>Administración de participantes remotos
 
@@ -270,7 +274,8 @@ El estado puede ser uno de los siguientes:
 * "Connected": el participante se conecta a la llamada
 * "Hold": el participante está en espera
 * "EarlyMedia": se reproduce un anuncio antes de que el participante se conecte a la llamada
-* "Disconnected": estado final; el participante se desconecta de la llamada
+* "Disconnected": estado final; el participante se desconecta de la llamada.
+   * Si el participante remoto pierde la conectividad de red, el estado del participante remoto pasa a "Disconnected" después de unos 2 minutos.
 
 Para saber por qué el participante dejó la llamada, revise la propiedad `callEndReason`:
 ```js
@@ -410,7 +415,9 @@ Más adelante, puede invocar el método `updateScalingMode` para actualizar el m
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### <a name="faq"></a>Preguntas más frecuentes
+* Si un participante remoto pierde su conexión de red, ¿cambia el estado a "Disconnected"?
+    * Sí, si un participante remoto pierde su conexión de red durante más de 2 minutos, su estado pasará a Disconnected y se quitará de la llamada.
 ## <a name="device-management"></a>Administración de dispositivos
 
 `DeviceManager` permite enumerar los dispositivos locales que se pueden usar en una llamada para transmitir las secuencias de audio o vídeo. También permite solicitar permiso a un usuario para acceder a su micrófono y cámara mediante la API nativa del explorador.
@@ -442,7 +449,7 @@ const localSpeakers = deviceManager.getSpeakerList(); // [AudioDeviceInfo, Audio
 
 ```
 
-### <a name="set-default-microphonespeaker"></a>Establecimiento del micrófono o altavoz predeterminado
+### <a name="set-default-microphonespeaker"></a>Establecimiento de micrófono/altavoz predeterminados
 
 El administrador de dispositivos le permite establecer un dispositivo predeterminado que se usará al iniciar una llamada.
 Si no se establecen los valores predeterminados del cliente, Communication Services revertirá a los valores predeterminados del sistema operativo.
@@ -502,10 +509,10 @@ console.log(result); // 'Granted' | 'Denied' | 'Prompt' | 'Unknown';
 
 ## <a name="eventing-model"></a>Modelo de eventos
 
-Puede suscribirse a la mayoría de las propiedades y colecciones para recibir notificaciones en caso de cambios en los valores.
+Puede suscribirse a la mayoría de las propiedades y colecciones que se van a notificar al cambiar los valores.
 
 ### <a name="properties"></a>Propiedades
-Para suscribirse a eventos de `property changed`:
+Para suscribirse a eventos `property changed`:
 
 ```js
 
@@ -522,7 +529,7 @@ object.off('propertyNameChanged',eventHandler);
 ```
 
 ### <a name="collections"></a>Colecciones
-Para suscribirse a eventos de `collection updated`:
+Para suscribirse a eventos `collection updated`:
 
 ```js
 

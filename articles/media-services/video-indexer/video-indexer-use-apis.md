@@ -8,21 +8,21 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfaef4460df040ecc9b055fba83d33a3b687b200
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458304"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505383"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Uso de la API Video Indexer
 
 Video Indexer consolida varias tecnologías de inteligencia artificial (IA) de audio y vídeo ofrecidas por Microsoft en un servicio integrado que facilita el desarrollo. Las API están diseñadas para que los desarrolladores puedan centrarse en el uso de las tecnologías de IA de multimedia sin preocuparse por la escala, el alcance global, la disponibilidad y la confiabilidad de las plataformas en la nube. Puede usar la API para cargar los archivos, obtener información de vídeo detallada, obtener direcciones URL de widgets de reproductor e información insertables, etc.
 
-Al crear una cuenta de Video Indexer, puede optar entre una cuenta de evaluación gratuita (donde obtiene un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con una versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 minutos de indexación gratuita a los usuarios de API. Con una opción de pago, se crea una cuenta de Video Indexer que está [conectada a la suscripción de Azure y a una cuenta de Azure Media Services](connect-to-azure.md). Se paga por minutos de indexación y por los cargos relacionados con la cuenta de Azure Media Services.
+Al crear una cuenta de Video Indexer, puede optar entre una cuenta de evaluación gratuita (donde obtiene un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con una versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 minutos de indexación gratuita a los usuarios de API. Con una opción de pago, se crea una cuenta de Video Indexer que está [conectada a la suscripción de Azure y a una cuenta de Azure Media Services](connect-to-azure.md). Se paga por minutos de indexación. Para más información, consulte [Precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
 En este artículo se muestra cómo los desarrolladores pueden sacar partido de [Video Indexer API](https://api-portal.videoindexer.ai/).
 
@@ -103,9 +103,9 @@ El parámetro accountId es obligatorio en todas las llamadas a las API de operac
 
 En esta sección se enumeran algunas recomendaciones para usar Video Indexer API.
 
-- Si va a cargar un vídeo, se recomienda colocar el archivo en una ubicación de red pública (por ejemplo, OneDrive). Obtenga el vínculo al vídeo y proporcione la dirección URL como parámetro del archivo de carga.
+- Si va a cargar un vídeo, se recomienda colocar el archivo en una ubicación de red pública (por ejemplo, una cuenta de Azure Blob Storage). Obtenga el vínculo al vídeo y proporcione la dirección URL como parámetro del archivo de carga.
 
-    La dirección URL proporcionada a Video Indexer debe apuntar a un archivo multimedia (audio o vídeo). Algunos de los vínculos generados por OneDrive son los de una página HTML que contiene el archivo. Para comprobar la dirección URL fácilmente, péguela en un explorador: si el archivo inicia la descarga, probablemente es una dirección URL válida. Si el explorador representa alguna visualización, probablemente no es un vínculo a un archivo, sino a una página HTML.
+    La dirección URL proporcionada a Video Indexer debe apuntar a un archivo multimedia (audio o vídeo). Para comprobar la dirección URL (o la URL de SAS) fácilmente, péguela en un explorador: si el archivo se comienza a reproducir o a descargar, probablemente es una dirección URL válida. Si el explorador representa alguna visualización, probablemente no es un vínculo a un archivo, sino a una página HTML.
 
 - Cuando se llama a la API que obtiene información detallada del vídeo especificado, se obtiene una salida JSON detallada como contenido de la respuesta. [Consulte más información sobre el código JSON devuelto en este tema](video-indexer-output-json-v2.md).
 
@@ -215,5 +215,5 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Examen detallado de la salida JSON](video-indexer-output-json-v2.md).
-- Consulte el [código de ejemplo](https://github.com/Azure-Samples/media-services-video-indexer) que muestra un aspecto importante de la carga y la indexación de un vídeo. Después del código, se le ofrece una buena idea de cómo usar nuestra API para las funcionalidades básicas. Asegúrese de leer los comentarios en línea y observe nuestros consejos de procedimientos recomendados.
+- Consulte el [código de ejemplo](https://github.com/Azure-Samples/media-services-video-indexer) que muestra un aspecto importante de la carga y la indexación de un vídeo. Seguir el código le proporcionará una buena idea de cómo usar nuestra API para las funcionalidades básicas. Asegúrese de leer los comentarios en línea y observe nuestros consejos de procedimientos recomendados.
 

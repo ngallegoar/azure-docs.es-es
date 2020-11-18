@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: f3f6e33c7c37089f7a9e87ab61bb00c966d8ccc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffaf66cbb5d9fa0b294f5749a1923684f16c2979
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881915"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488113"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Salida de Azure Functions desde Azure Stream Analytics
 
 Azure Functions es un servicio de proceso sin servidor que puede usar para ejecutar código a petición sin necesidad de aprovisionar ni administrar explícitamente la infraestructura. Permite implementar el código desencadenado por los eventos que se producen en servicios de Azure o de sus socios. Esta capacidad que tiene Azure Functions para responder a los desencadenadores hace que sea una salida natural para Azure Stream Analytics. Este adaptador de salida permite que los usuarios conecten Stream Analytics con Azure Functions y ejecuten un script o parte de un código como respuesta a una variedad de eventos.
 
-La salida de Azure Functions desde Stream Analytics no está disponible actualmente en las regiones de Azure China (21Vianet) y Azure Alemania (T-Systems International).
+La salida de Azure Functions desde Stream Analytics no está disponible en las regiones de Azure China (21Vianet) y Azure Alemania (T-Systems International). Tampoco se admite la conexión a Azure Functions dentro de una red virtual (VNet) desde un trabajo de Stream Analytics que se ejecute en un clúster de varios inquilinos.
 
 Azure Stream Analytics invoca a Azure Functions a través de desencadenadores HTTP. El adaptador de salida de Azure Functions está disponible con las siguientes propiedades configurables:
 
