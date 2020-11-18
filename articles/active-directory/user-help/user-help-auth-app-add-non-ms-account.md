@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015977"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392584"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Incorporación de cuentas que no son de Microsoft a la aplicación Microsoft Authenticator
 
@@ -36,7 +36,7 @@ Por lo general, para todas las cuentas personales, debe realizar los siguientes 
     >[!Note]
     >Si es la primera vez que configura la aplicación Microsoft Authenticator, es posible que reciba un mensaje en el que se le pregunta si quiere permitir que la aplicación acceda a la cámara (iOS) o permitir que la aplicación tome fotografías y grabe vídeo (Android). Debe seleccionar **Permitir** para que la aplicación de autenticación pueda acceder a la cámara y tomar una fotografía del código QR en el paso siguiente. Aunque no otorgue permiso a la cámara, podrá configurar la aplicación de autenticación, pero tendrá que agregar la información de código manualmente. Para más información sobre cómo agregar manualmente código, consulte [Agregar manualmente una cuenta a la aplicación](user-help-auth-app-add-account-manual.md).
 
-En este artículo, ofrecemos el proceso para las cuentas de Facebook, Google, GitHub y Amazon, pero dicho proceso es el mismo para cualquier otra aplicación, como Adobe, Netflix o Instagram.
+En este artículo, ofrecemos el proceso para las cuentas de Facebook, Google, GitHub y Amazon, pero dicho proceso es el mismo para otras aplicaciones, como Adobe o Instagram.
 
 ## <a name="add-your-google-account"></a>Adición de la cuenta de Google
 

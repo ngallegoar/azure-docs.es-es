@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to
-ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312783"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359874"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conexión a los datos con Azure Machine Learning Studio
 
@@ -48,9 +48,7 @@ Para obtener una experiencia de Code First, consulte los artículos siguientes p
 
 ## <a name="create-datastores"></a>Creación de almacenes de datos
 
-Puede crear almacenes de datos a partir de [estas soluciones de Azure Storage](how-to-access-data.md#matrix). **En el caso de las soluciones de almacenamiento no compatibles** , y para ahorrar el costo de salida durante los experimentos de ML, debe [mover los datos](how-to-access-data.md#move) a una solución de Azure Storage compatible. [Más información sobre los almacenes de datos](how-to-access-data.md). 
-
-
+Puede crear almacenes de datos a partir de [estas soluciones de Azure Storage](how-to-access-data.md#matrix). **En el caso de las soluciones de almacenamiento no compatibles**, y para ahorrar el costo de salida durante los experimentos de ML, debe [mover los datos](how-to-access-data.md#move) a una solución de Azure Storage compatible. [Más información sobre los almacenes de datos](how-to-access-data.md). 
 
 Cree un nuevo almacén de datos en unos cuantos pasos con Azure Machine Learning Studio.
 
@@ -60,9 +58,9 @@ Cree un nuevo almacén de datos en unos cuantos pasos con Azure Machine Learning
 1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Seleccione **Almacenes de datos** en el panel izquierdo en **Administrar**.
 1. Seleccione **+ Nuevo almacén de datos**.
-1. Complete el formulario para un nuevo almacén de datos. El formulario se actualiza de forma inteligente según las selecciones de tipo de Azure Storage y de autenticación. Consulte la [sección Permisos y acceso a Storage](#access-validation) para saber dónde encontrar las credenciales de autenticación que necesita para rellenar este formulario.
+1. Rellene el formulario para crear y registrar un nuevo almacén de datos. El formulario se actualiza de forma inteligente según las selecciones de tipo de Azure Storage y de autenticación. Consulte la [sección Permisos y acceso a Storage](#access-validation) para saber dónde encontrar las credenciales de autenticación que necesita para rellenar este formulario.
 
-En el ejemplo siguiente se muestra el aspecto que tendría el formulario al crear un **almacén de Azure Blob** :
+En el ejemplo siguiente se muestra el aspecto que tendría el formulario al crear un **almacén de Azure Blob**:
 
 ![Formulario para un nuevo almacén de datos](media/how-to-connect-data-ui/new-datastore-form.png)
 
@@ -88,7 +86,7 @@ Para crear un conjunto de datos en el estudio:
 1. Seleccione **Siguiente** para abrir el formulario **Datastore and file selection** (Almacén de datos y selección de archivos). En este formulario, seleccione dónde desea mantener el conjunto de datos después de su creación, así como los archivos de datos que se usarán para el conjunto de datos.
     1. Habilite la omisión de la validación si los datos están en una red virtual. Obtenga más información acerca del [aislamiento de red virtual y la privacidad](how-to-enable-studio-virtual-network.md).
     1. Para los conjuntos de datos tabulares, puede especificar un rasgo de "serie temporal" para permitir operaciones relacionadas con el tiempo en el conjunto datos. Aprenda a [agregar el rasgo de serie temporal al conjunto de datos](how-to-monitor-datasets.md#studio-dataset).
-1. Seleccione **Siguiente** para rellenar los formularios **Settings and preview** (Configuración y versión preliminar) y **Esquema** ; se rellenan de forma inteligente en función del tipo de archivo y se puede configurar el conjunto de archivos antes de la creación en estos formularios. 
+1. Seleccione **Siguiente** para rellenar los formularios **Settings and preview** (Configuración y versión preliminar) y **Esquema**; se rellenan de forma inteligente en función del tipo de archivo y se puede configurar el conjunto de archivos antes de la creación en estos formularios. 
 1. Seleccione **Siguiente** para revisar el formulario **Confirmar detalles**. Compruebe sus selecciones y cree un perfil de datos opcional para el conjunto de datos. Más información acerca de la [generación de perfiles de datos](#profile).
 1. Seleccione **Crear** para completar la creación del conjunto de datos.
 
@@ -136,13 +134,13 @@ Para asegurarse de que se conecta de forma segura a su servicio Azure Storage, A
 
 ### <a name="virtual-network"></a>Virtual network
 
-Si la cuenta de almacenamiento de datos se encuentra en una **red virtual** , se necesitan pasos de configuración adicionales para garantizar que Azure Machine Learning tenga acceso a los datos. Consulte [Aislamiento de red y privacidad](how-to-enable-studio-virtual-network.md) para asegurarse de que se aplican los pasos de configuración adecuados al crear y registrar el almacén de datos.  
+Si la cuenta de almacenamiento de datos se encuentra en una **red virtual**, se necesitan pasos de configuración adicionales para garantizar que Azure Machine Learning tenga acceso a los datos. Consulte [Aislamiento de red y privacidad](how-to-enable-studio-virtual-network.md) para asegurarse de que se aplican los pasos de configuración adecuados al crear y registrar el almacén de datos.  
 
 ### <a name="access-validation"></a>Validación de acceso
 
-**Como parte del proceso de creación y registro del almacén de datos inicial** , Azure Machine Learning valida automáticamente que el servicio de almacenamiento subyacente exista y que la entidad de seguridad proporcionada por el usuario (nombre de usuario, entidad de servicio o token de SAS) tenga acceso al almacenamiento especificado.
+**Como parte del proceso de creación y registro del almacén de datos inicial**, Azure Machine Learning valida automáticamente que el servicio de almacenamiento subyacente exista y que la entidad de seguridad proporcionada por el usuario (nombre de usuario, entidad de servicio o token de SAS) tenga acceso al almacenamiento especificado.
 
-**Una vez creado el almacén de datos** , esta validación solo se realiza para los métodos que requieren acceso al contenedor de almacenamiento subyacente, y **no** cada vez que se recuperan objetos del almacén de datos. Por ejemplo, la validación se produce si quiere descargar archivos del almacén de archivos. Sin embargo, no se produce si solo quiere cambiar el almacén de datos predeterminado.
+**Una vez creado el almacén de datos**, esta validación solo se realiza para los métodos que requieren acceso al contenedor de almacenamiento subyacente, y **no** cada vez que se recuperan objetos del almacén de datos. Por ejemplo, la validación se produce si quiere descargar archivos del almacén de archivos. Sin embargo, no se produce si solo quiere cambiar el almacén de datos predeterminado.
 
 Para autenticar su acceso al servicio de almacenamiento subyacente, puede proporcionar la clave de cuenta, tokens de firmas de acceso compartido (SAS) o una entidad de servicio en función del tipo de almacén de datos que quiere crear. La [matriz de tipo de almacenamiento](how-to-access-data.md#matrix) muestra los tipos de autenticación admitidos que corresponden a cada tipo de almacén de datos.
 
@@ -157,11 +155,15 @@ Encontrará información sobre la clave de cuenta, el token de SAS y la entidad 
     * Su página de **información general** correspondiente contendrá la información necesaria, como el id. de inquilino y de cliente.
 
 > [!IMPORTANT]
-> Por motivos de seguridad, puede que necesite cambiar las claves de acceso de una cuenta de Azure Storage (clave de cuenta o token de SAS). Al hacerlo, asegúrese de sincronizar las credenciales nuevas con el área de trabajo y los almacenes de datos conectados a ella. Obtenga información sobre cómo [sincronizar las credenciales actualizadas](how-to-change-storage-access-key.md).
+> * Si necesita cambiar las claves de acceso de una cuenta de Azure Storage (clave de cuenta o token de SAS), asegúrese de sincronizar las credenciales nuevas con el área de trabajo y los almacenes de datos conectados a ella. Obtenga información sobre cómo [sincronizar las credenciales actualizadas](how-to-change-storage-access-key.md). <br> <br>
+> * Si anula el registro y vuelve a registrar un almacén de datos con el mismo nombre y se produce un error, es posible que la instancia de Azure Key Vault del área de trabajo no tenga habilitada la eliminación temporal. De manera predeterminada, la eliminación temporal está habilitada para la instancia del almacén de claves que creó el área de trabajo, pero podría no estar habilitada si usó un almacén de claves existente, o si creó el área de trabajo antes de octubre de 2020. Para obtener información sobre cómo habilitar la eliminación temporal, consulte [Activación de la eliminación temporal de un almacén de claves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
 
 ### <a name="permissions"></a>Permisos
 
-En el caso del almacenamiento de Azure Data Lake Gen 2 y el contenedor de blobs de Azure, asegúrese de que sus credenciales de autenticación tengan acceso al **Lector de datos de Storage Blob**. Obtenga más información sobre el [Lector de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). 
+Para el almacenamiento de Azure Data Lake Gen 2 y del contenedor de blobs de Azure, las credenciales de autenticación deben tener acceso al **Lector de datos de Storage Blob**. Obtenga más información sobre el [Lector de datos de Storage Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Un token de SAS de cuenta no tiene de forma predeterminada ningún permiso. 
+* Para el **acceso de lectura** de datos, las credenciales de autenticación deben tener un número mínimo de permisos de enumeración y lectura para contenedores y objetos. 
+
+* Para el **acceso de escritura** de datos, también se necesitan los permisos de escritura y agregación.
 
 ## <a name="train-with-datasets"></a>Entrenamiento con conjuntos de datos
 

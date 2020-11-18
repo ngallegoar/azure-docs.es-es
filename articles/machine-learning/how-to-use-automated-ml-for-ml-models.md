@@ -1,7 +1,7 @@
 ---
 title: Uso de AutoML para crear e implementar modelos
 titleSuffix: Azure Machine Learning
-description: Cree, revise e implemente modelos de aprendizaje automático automatizado con Azure Machine Learning.
+description: Cree, revise e implemente modelos de aprendizaje automático automatizado con el Estudio de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: ad84d3d3fd58edc6f7967c6f50440dcc90625617
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, automl
+ms.openlocfilehash: 0c697e6332b757e1d135a77b70f33a6e32528309
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311278"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358905"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 
@@ -62,7 +62,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
     1. Para crear un nuevo conjunto de datos a partir de un archivo del equipo local, seleccione **+Crear conjunto de datos** y seleccione **From local file** (Desde archivo local). 
 
-    1. En el formulario **Información básica** , asígnele un nombre único al conjunto de datos e incluya una descripción opcional. 
+    1. En el formulario **Información básica**, asígnele un nombre único al conjunto de datos e incluya una descripción opcional. 
 
     1. Seleccione **Siguiente** para abrir el formulario **Datastore and file selection** (Almacén de datos y selección de archivos). En este formulario, seleccione dónde quiere cargar el conjunto de datos: el contenedor de almacenamiento predeterminado que se crea automáticamente con el área de trabajo, o bien elija un contenedor de almacenamiento que quiera usar para el experimento. 
     
@@ -91,7 +91,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
         Seleccione **Next** (Siguiente).
 1. Seleccione el conjunto de datos recién creado cuando aparezca. También puede ver una vista previa del conjunto de datos y las estadísticas de ejemplo. 
 
-1. En el formulario **Ejecutar la configuración** , escriba un nombre único para el experimento.
+1. En el formulario **Ejecutar la configuración**, escriba un nombre único para el experimento.
 
 1. Seleccione una columna de destino; esta es la columna en la que realizará las predicciones.
 
@@ -122,13 +122,13 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
         Si el aprendizaje profundo está habilitado, la validación se limita a _train_validation split_. [Obtenga más información sobre las opciones de validación](how-to-configure-cross-validation-data-splits.md).
 
 
-    1. Para la **previsión** , puede: 
+    1. Para la **previsión**, puede: 
     
         1. Habilitar el aprendizaje profundo.
     
-        1. Seleccionar la *columna de tiempo* : esta columna contiene los datos de tiempo que desea usar.
+        1. Seleccionar la *columna de tiempo*: esta columna contiene los datos de tiempo que desea usar.
 
-        1. Seleccionar el *horizonte de previsión* : Indique cuántas unidades de tiempo (minutos, horas, días, semanas, meses o años) será capaz predecir el modelo en el futuro. Cuanto más se exija al modelo que prediga en el futuro, menos preciso será. [Más información sobre la previsión y el horizonte de previsión](how-to-auto-train-forecast.md).
+        1. Seleccionar el *horizonte de previsión*: Indique cuántas unidades de tiempo (minutos, horas, días, semanas, meses o años) será capaz predecir el modelo en el futuro. Cuanto más se exija al modelo que prediga en el futuro, menos preciso será. [Más información sobre la previsión y el horizonte de previsión](how-to-auto-train-forecast.md).
 
 1. (Opcional) Ver el apartado sobre la adición de configuraciones: opciones de configuración adicionales que puede usar para controlar mejor el trabajo de entrenamiento. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento. 
 
@@ -139,15 +139,15 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
     Blocked algorithms (Algoritmos bloqueados)| Seleccione los algoritmos que desea excluir del trabajo de entrenamiento. <br><br> La opción para permitir los algoritmos solo está disponible para los [experimentos de SDK](how-to-configure-auto-train.md#supported-models). <br> Vea los [modelos admitidos para cada tipo de tarea](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
     Criterios de exclusión| Cuando se cumple alguno de estos criterios, se detiene el trabajo de entrenamiento. <br> *Tiempo de trabajo de entrenamiento (horas)* : cantidad de tiempo para permitir que el trabajo de entrenamiento se ejecute. <br> *Metric score threshold* (Umbral de puntuación de métrica):  puntuación mínima de métrica para todas las canalizaciones. Esto garantiza que si tiene una métrica objetivo definida que desee alcanzar, no dedicará más tiempo en el trabajo de entrenamiento que el necesario.
     Validación| Seleccione una de las opciones de validación cruzada en el trabajo de entrenamiento. <br> [Más información sobre la validación cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>La previsión solo admite la validación cruzada de k iteraciones.
-    Simultaneidad| *Número máximo de iteraciones simultáneas* : número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas.
+    Simultaneidad| *Número máximo de iteraciones simultáneas*: número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas.
 
-1. (Opcional) Consulte la configuración de caracterización: Si decide habilitar **Caracterización automática** en el formulario **Ver configuración de caracterización** , se aplican las técnicas de caracterización predeterminadas. En **Ver configuración de caracterización** puede cambiar estos valores predeterminados y personalizarlos según corresponda. Obtenga información sobre cómo [personalizar las caracterizaciones](#customize-featurization). 
+1. (Opcional) Consulte la configuración de caracterización: Si decide habilitar **Caracterización automática** en el formulario **Ver configuración de caracterización**, se aplican las técnicas de caracterización predeterminadas. En **Ver configuración de caracterización** puede cambiar estos valores predeterminados y personalizarlos según corresponda. Obtenga información sobre cómo [personalizar las caracterizaciones](#customize-featurization). 
 
     ![Captura de pantalla que muestra el cuadro de diálogo Select task type (Seleccionar tipo de tarea) con la opción View featurization settings (Ver configuración de caracterización) seleccionada.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 ## <a name="customize-featurization"></a>Personalización de la caracterización
 
-En el formulario **Caracterización** , puede habilitar o deshabilitar la caracterización automática y personalizar la configuración de caracterización automática para su experimento. Para abrir este formulario, consulte el paso 10 de la sección [Creación y ejecución de un experimento](#create-and-run-experiment). 
+En el formulario **Caracterización**, puede habilitar o deshabilitar la caracterización automática y personalizar la configuración de caracterización automática para su experimento. Para abrir este formulario, consulte el paso 10 de la sección [Creación y ejecución de un experimento](#create-and-run-experiment). 
 
 En la tabla siguiente se resumen las personalizaciones disponibles actualmente a través de Studio. 
 

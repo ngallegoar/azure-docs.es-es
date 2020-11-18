@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518281"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443949"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registro de aplicación
 
@@ -64,7 +64,7 @@ Durante el registro de la aplicación, debe definir estos parámetros:
 - Uno o varios ámbitos
 - Uno o varios roles de aplicación
 
-De forma predeterminada, el portal de registro de aplicación recomienda usar el URI de recurso `api://{clientId}`. Este URI es único pero no es legible para los humanos. Si cambia el URI, asegúrese de que el nuevo valor sea único. El portal de registro de aplicaciones se asegurará de que use un [dominio de editor configurado](howto-configure-publisher-domain.md)
+De forma predeterminada, el portal de registro de aplicación recomienda usar el URI de recurso `api://{clientId}`. Este URI es único pero no es legible para los humanos. Si cambia el URI, asegúrese de que el nuevo valor sea único. El portal de registro de aplicaciones se asegurará de que use un [dominio de editor configurado](howto-configure-publisher-domain.md).
 
 Para las aplicaciones cliente, los ámbitos se muestran como *permisos delegados* y los roles de aplicación se muestran como *permisos de aplicación* para la API web.
 
@@ -153,5 +153,4 @@ Para agregar esta seguridad mejorada:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Configuración del código de la aplicación](scenario-protected-web-api-app-configuration.md)
+Avance al siguiente artículo de este escenario, [Configuración del código de la aplicación](scenario-protected-web-api-app-configuration.md).

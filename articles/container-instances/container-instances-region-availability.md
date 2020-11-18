@@ -4,12 +4,12 @@ description: Disponibilidad de recursos de proceso y memoria para el servicio Az
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1ed3f50198c0410d9c893fe87523fa214ca03d88
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521465"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395876"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
@@ -39,17 +39,18 @@ Están disponibles las siguientes regiones y recursos máximos para los grupos d
 | Este de Asia | 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Este de EE. UU. | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | Este de EE. UU. 2 | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Centro de Francia | 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Japón Oriental | 2 | 8 | 4 | 16 | 50 | No aplicable |
 | Centro de Corea del Sur | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
-| Centro-Norte de EE. UU | 2 | 3,5 | 4 | 16 | 50 | No aplicable |
+| Centro-Norte de EE. UU | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Norte de Europa | 4 | 16 | 4 | 16 | 50 | K80 |
 | Centro-sur de EE. UU. | 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Sudeste de Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Sur de la India | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Sur de Reino Unido | 4 | 16 | 4 | 16 | 50 | No aplicable |
-| Centro-Oeste de EE. UU.| 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Centro-Oeste de EE. UU.| 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Oeste de Europa | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| Oeste de EE. UU. | 4 | 16 | 2 | 4 | 16| No aplicable |
+| Oeste de EE. UU. | 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Oeste de EE. UU. 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
 Los recursos máximos siguientes están disponibles para un grupo de contenedores implementado con [recursos de GPU](container-instances-gpu.md) (versión preliminar).
@@ -67,29 +68,63 @@ Los recursos máximos siguientes están disponibles para un grupo de contenedore
 
 Las siguientes regiones y recursos máximos están disponibles para los grupos de contenedores con contenedores de Windows Server [admitidos y en versión preliminar](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
-| Region | CPU máxima en Windows Server 2016 | Memoria máxima (GB) de Windows Server 2016 | CPU máxima de LTSC de Windows Server 2019 | Memoria máxima (GB) de LTSC de Windows Server 2019 | Almacenamiento (GB) |
+###  <a name="windows-server-2016"></a>Windows Server 2016
+
+> [!NOTE]
+> Para obtener más información sobre los hosts 1B, 2B y 3B, consulte [Compatibilidad de versiones de host y contenedor](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
+
+| Region | Número máximo de CPU de 1B/2B | Máximo de memoria (GB) de 1B/2B |Número máximo de CPU de 3B | Máximo de memoria (GB) de 3B | Almacenamiento (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Este de Australia | 2 | 3,5 | 4 | 16 | 20 |
+| Este de Australia | 2 | 8 | 2 | 3,5 | 20 |
 | Sur de Brasil | 4 | 16 | 4 | 16 | 20 |
-| Centro de Canadá | 2 | 3,5 | 4 | 16 | 20 |
-| Centro de la India | 2 | 3,5 | 4 | 16 | 20 |
-| Centro de EE. UU. | 2 | 3,5 | 4 | 16 | 20 |
-| Este de Asia | 2 | 3,5 | 4 | 16 | 20 |
-| Este de EE. UU. | 2 | 8 | 4 | 16 | 20 |
-| Este de EE. UU. 2 | 2 | 3,5 | 2 | 3,5 | 20 |
-| Centro de Francia | 4 | 16 | 4 | 16 | 20 |
+| Centro de Canadá | 2 | 3,5 | 2 | 3,5 | 20 |
+| Centro de la India | 2 | 3,5 | 2 | 3,5 | 20 |
+| Centro de EE. UU. | 2 | 3,5 | 2 | 3,5 | 20 |
+| Este de Asia | 2 | 3,5 | 2 | 3,5 | 20 |
+| Este de EE. UU. | 4 | 16 | 2 | 8 | 20 |
+| Este de EE. UU. 2 | 2 | 3,5 | 4 | 16 | 20 |
 | Japón Oriental | 4 | 16 | 4 | 16 | 20 |
 | Centro de Corea del Sur | 4 | 16 | 4 | 16 | 20 |
-| Centro-Norte de EE. UU | 2 | 3,5 | 4 | 16 | 20 |
-| Norte de Europa | 2 | 3,5 | 4 | 16 | 20 |
-| Centro-sur de EE. UU. | 2 | 3,5 | 4 | 16 | 20 |
-| Sur de la India | 2 | 3,5 | 4 | 16 | 20 |
-| Sudeste de Asia | 2 | 3,5 | 4 | 16 | 20 |
-| Sur de Reino Unido | 2 | 3,5 | 4 | 16 | 20 |
+| Centro-Norte de EE. UU | 4 | 16 | 4 | 16 | 20 |
+| Norte de Europa | 2 | 3,5 | 2 | 8 | 20 |
+| Centro-sur de EE. UU. | 2 | 3,5 | 2 | 3,5 | 20 |
+| Sudeste de Asia | No aplicable | No aplicable | 2 | 3,5 | 20 |
+| Sur de la India | 2 | 3,5 | 2 | 3,5 | 20 |
+| Sur de Reino Unido | 2 | 8 | 2 | 3,5 | 20 |
 | Centro-Oeste de EE. UU. | 4 | 16 | 4 | 16 | 20 |
 | Oeste de Europa | 4 | 16 | 4 | 16 | 20 |
-| Oeste de EE. UU. | 4 | 14 | No aplicable | N/D | 20 |
+| Oeste de EE. UU. | 4 | 16 | 2 | 8 | 20 |
 | Oeste de EE. UU. 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+
+
+### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC
+
+> [!NOTE]
+> Para obtener más información sobre los hosts 1B, 2B y 3B, consulte [Compatibilidad de versiones de host y contenedor](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
+
+| Region | Número máximo de CPU de 1B/2B | Máximo de memoria (GB) de 1B/2B |Número máximo de CPU de 3B | Máximo de memoria (GB) de 3B | Almacenamiento (GB) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: |
+| Este de Australia | 4 | 16 | 4 | 16 | 20 |
+| Sur de Brasil | 4 | 16 | 4 | 16 | 20 |
+| Centro de Canadá | 4 | 16 | 4 | 16 | 20 |
+| Centro de la India | 4 | 16 | 4 | 16 | 20 |
+| Centro de EE. UU. | 4 | 16 | 4 | 16 | 20 |
+| Este de Asia | 4 | 16 | 4 | 16 | 20 |
+| Este de EE. UU. | 4 | 16 | 4 | 16 | 20 |
+| Este de EE. UU. 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+| Centro de Francia | 4 | 16 | 4 | 16 | 20 |
+| Japón Oriental | No aplicable | N/D | 4 | 16 | 20 |
+| Centro de Corea del Sur | 4 | 16 | 4 | 16 | 20 |
+| Centro-Norte de EE. UU | 4 | 16 | 4 | 16 | 20 |
+| Norte de Europa | 4 | 16 | 4 | 16 | 20 |
+| Centro-sur de EE. UU. | 4 | 16 | 4 | 16 | 20 |
+| Sudeste de Asia | 4 | 16 | 4 | 16 | 20 |
+| Sur de la India | 4 | 16 | 4 | 16 | 20 |
+| Sur de Reino Unido | 4 | 16 | 4 | 16 | 20 |
+| Centro-Oeste de EE. UU. | 4 | 16 | 4 | 16 | 20 |
+| Oeste de Europa | 4 | 16 | 4 | 16 | 20 |
+| Oeste de EE. UU. | 4 | 16 | 4 | 16 | 20 |
+| Oeste de EE. UU. 2 | 2 | 8 | 4 | 16 | 20 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

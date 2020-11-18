@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: dc03f2276af7c5f6121966a52d50e9c1b208d8cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/05/2020
+ms.openlocfilehash: 331c55a9f7a489aa58f9d3add7303dc18917215d
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094717"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331947"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -91,7 +91,7 @@ Para generar una nueva clave de acceso de seguridad en cualquier momento, use la
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica donde está la clave que quiere regenerar.
 
-1. En el menú de la aplicación lógica, en **Configuración** , seleccione **Claves de acceso**.
+1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Claves de acceso**.
 
 1. Seleccione la clave que quiere regenerar y finalice el proceso.
 
@@ -135,9 +135,9 @@ Antes de habilitar Azure AD OAuth, tenga en cuenta los siguientes aspectos:
 
 * La aplicación lógica está limitada a un número máximo de directivas de autorización. Cada directiva de autorización también tiene un número máximo de [notificaciones](../active-directory/develop/developer-glossary.md#claim). Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
-* Una directiva de autorización debe incluir al menos la notificación de **Emisor** , que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth V2) como identificador de emisor de Azure AD.
+* Una directiva de autorización debe incluir al menos la notificación de **Emisor**, que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth V2) como identificador de emisor de Azure AD.
 
-  Por ejemplo, supongamos que la aplicación lógica tiene una directiva de autorización que requiere dos tipos de notificaciones: **Emisor** y **Audiencia**. En este ejemplo de [sección de carga](../active-directory/develop/access-tokens.md#payload-claims) para un token de acceso descodificado se incluyen los dos tipos de notificaciones, donde `aud` es el valor **Audiencia** y `iss` el valor **Emisor** :
+  Por ejemplo, supongamos que la aplicación lógica tiene una directiva de autorización que requiere dos tipos de notificaciones: **Emisor** y **Audiencia**. En este ejemplo de [sección de carga](../active-directory/develop/access-tokens.md#payload-claims) para un token de acceso descodificado se incluyen los dos tipos de notificaciones, donde `aud` es el valor **Audiencia** y `iss` el valor **Emisor**:
 
   ```json
   {
@@ -188,7 +188,7 @@ Para habilitar Azure AD OAuth para la aplicación lógica en Azure Portal, siga
 
 1. En [Azure Portal](https://portal.microsoft.com), busque y abra la aplicación lógica en el Diseñador de aplicación lógica.
 
-1. En el menú de la aplicación lógica, en **Configuración** , seleccione **Autorización**. Una vez que se abra el panel Autorización, seleccione **Agregar directiva**.
+1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Autorización**. Una vez que se abra el panel Autorización, seleccione **Agregar directiva**.
 
    ![Selección de "Autorización" > "Agregar directiva"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
@@ -199,7 +199,7 @@ Para habilitar Azure AD OAuth para la aplicación lógica en Azure Portal, siga
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de directiva** | Sí | El nombre que quiere usar para la directiva de autorización. |
-   | **Notificaciones** | Sí | Los tipos de notificaciones y los valores que acepta la aplicación lógica de las llamadas entrantes. El valor de la notificación está limitado a 80 caracteres. Estos son los tipos de notificaciones disponibles: <p><p>- **Emisor** <br>- **Audiencia** <br>- **Subject** (Asunto) <br>- **JWT ID** (Id. de JWT) (identificador de token web de JSON) <p><p>Como mínimo, la lista **Notificaciones** debe incluir la notificación de **Emisor** , que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador de emisor de Azure AD. Para más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor. |
+   | **Notificaciones** | Sí | Los tipos de notificaciones y los valores que acepta la aplicación lógica de las llamadas entrantes. El valor de la notificación está limitado a 80 caracteres. Estos son los tipos de notificaciones disponibles: <p><p>- **Emisor** <br>- **Audiencia** <br>- **Subject** (Asunto) <br>- **JWT ID** (Id. de JWT) (identificador de token web de JSON) <p><p>Como mínimo, la lista **Notificaciones** debe incluir la notificación de **Emisor**, que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador de emisor de Azure AD. Para más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor. |
    |||
 
 1. Para agregar otra notificación, seleccione una de estas opciones:
@@ -308,28 +308,90 @@ Para agregar más [protocolos de autenticación](../active-directory/develop/aut
 
 Junto con la Firma de acceso compartido (SAS), es posible que quiera especificar el límite de clientes que pueden llamar a su aplicación lógica. Por ejemplo, si administra el punto de conexión de solicitud mediante [Azure API Management](../api-management/api-management-key-concepts.md), puede restringir la aplicación lógica para que solo acepte solicitudes procedentes de la dirección IP de la [instancia de servicio de API Management que crea](../api-management/get-started-create-service-instance.md).
 
+> [!NOTE]
+> Independientemente de las direcciones IP que se especifiquen, es posible ejecutar una aplicación lógica que tenga un desencadenador basado en una solicitud mediante la [API REST de Logic Apps: desencadenadores de flujo de trabajo: ejecutar](/rest/api/logic/workflowtriggers/run) o de API Management. Sin embargo, en este escenario aún se necesita la [autenticación](../active-directory/develop/authentication-vs-authorization.md) con la API REST de Azure. Todos los eventos aparecen en el registro de auditoría de Azure. Asegúrese de establecer las directivas de control de acceso como corresponda.
+
+<a name="restrict-inbound-ip-portal"></a>
+
 #### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Restricción de los intervalos IP entrantes en Azure Portal
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 
-1. En el menú de la aplicación lógica, en **Configuración** , seleccione **Configuración de flujo de trabajo**.
+1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Configuración de flujo de trabajo**.
 
-1. En **Configuración del control de acceso** > **Direcciones IP entrantes permitidas** , seleccione **Intervalos IP específicos**.
+1. En la sección **Configuración de control de acceso**, en **Direcciones IP entrantes permitidas**, elija la ruta de acceso del escenario:
 
-1. Cuando aparezca el cuadro **Intervalos de IP para desencadenadores** , especifique los intervalos de direcciones IP que acepta el desencadenador. Un intervalo IP válido usa estos formatos: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
+   * Para que pueda llamar a la aplicación lógica solo como una aplicación lógica anidada mediante la [acción integrada de Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md), seleccione **Cualquier otra aplicación lógica**, que *solo* funciona cuando se usa la **Azure Logic Apps** para llamar a la aplicación lógica anidada.
+   
+     Esta opción escribe una matriz vacía en el recurso de aplicación lógica y requiere que solo las llamadas desde aplicaciones lógicas primarias que usan la acción integrada de **Azure Logic Apps** puedan desencadenar la aplicación lógica anidada.
 
-   Por ejemplo, para que la aplicación lógica solo sea invocable como aplicación lógica anidada por medio de la acción HTTP, use la opción **Intervalos IP específicos** (no la opción **Cualquier otra aplicación lógica** ) y especifique las [direcciones IP de salida](../logic-apps/logic-apps-limits-and-config.md#outbound) de la aplicación lógica principal.
+   * Para que la aplicación lógica solo se pueda llamar como aplicación anidada mediante la acción HTTP, seleccione **Intervalos IP específicos**, *no* **Cualquier otra aplicación lógica**. Cuando aparezca el cuadro **Intervalos de IP para desencadenadores**, escriba las [direcciones IP de salida](../logic-apps/logic-apps-limits-and-config.md#outbound) de la aplicación lógica primaria. Un intervalo IP válido usa estos formatos: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*.
+   
+     > [!NOTE]
+     > Si usa la opción **Cualquier otra aplicación lógica** y la acción HTTP para llamar a la aplicación lógica anidada, la llamada se bloqueará y recibirá un error "401 No autorizado".
+        
+   * En el caso de los escenarios en los que quiere restringir las llamadas entrantes desde otras direcciones IP, cuando aparezca el cuadro **Intervalos de IP para desencadenadores**, especifique los intervalos de direcciones IP que acepta el desencadenador. Un intervalo IP válido usa estos formatos: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*.
 
-   Pero para que la aplicación lógica solo sea invocable como aplicación lógica anidada por medio de la acción integrada de [Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md), seleccione la opción **Cualquier otra aplicación lógica** en su lugar. Esta opción escribe una matriz vacía en el recurso de aplicación lógica y requiere que solo las llamadas desde otras aplicaciones lógicas "principales" puedan desencadenar la aplicación lógica anidada por medio de la acción integrada de **Azure Logic Apps**.
-
-   > [!NOTE]
-   > Independientemente de las direcciones IP que se especifiquen, es posible ejecutar una aplicación lógica que tenga un desencadenador basado en una solicitud mediante la [API REST de Logic Apps: desencadenadores de flujo de trabajo: ejecutar](/rest/api/logic/workflowtriggers/run) o de API Management. Sin embargo, en este escenario aún se necesita la [autenticación](../active-directory/develop/authentication-vs-authorization.md) con la API REST de Azure. Todos los eventos aparecen en el registro de auditoría de Azure. Asegúrese de establecer las directivas de control de acceso como corresponda.
+1. Si quiere, en **Restringir las llamadas para obtener mensajes de entrada y salida del historial de ejecución a las direcciones IP proporcionadas**, puede especificar los intervalos de direcciones IP para las llamadas entrantes que pueden acceder a los mensajes de entrada y salida en el historial de ejecución.
 
 <a name="restrict-inbound-ip-template"></a>
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restricción de los intervalos IP entrantes en la plantilla de Azure Resource Manager
 
-Si [automatiza la implementación de las aplicaciones lógicas mediante plantillas de Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede especificar los intervalos de direcciones IP en formato *x.x.x.x/x* o *x.x.x.x-x.x.x.x* ; para ello, use la sección `accessControl` e incluya las secciones `triggers` y `actions` en la definición de recursos de la aplicación lógica, por ejemplo:
+Si [automatiza las implementaciones de aplicaciones lógicas mediante plantillas de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede especificar los intervalos de direcciones IP entrantes permitidos en la definición de recursos de la aplicación lógica mediante la sección `accessControl`. En esta parte, use las secciones `triggers`, `actions` y la sección `contents` opcional según corresponda, incluida la sección `allowedCallerIpAddresses` con la propiedad `addressRange` y establezca el valor de propiedad en el intervalo de direcciones IP permitido en el formato *x.x.x.x/x* o *x.x.x.x-x.x.x.x*.
+
+* Si la aplicación lógica anidada usa la opción **Cualquier otra aplicación lógica**, que permite llamadas entrantes solo desde otras aplicaciones lógicas que usan la acción de Azure Logic Apps, establezca la propiedad `addressRange` en una matriz vacía ( **[]** ).
+
+* Si la aplicación lógica anidada usa la opción **Intervalos IP específicos** para otras llamadas entrantes, como otras aplicaciones lógicas que usan la acción HTTP, establezca la propiedad `addressRange` en el intervalo de direcciones IP permitido.
+
+En este ejemplo se muestra una definición de recursos para una aplicación lógica anidada que permite las llamadas entrantes solo desde aplicaciones lógicas que usan la acción integrada de Azure Logic Apps:
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {},
+   "variables": {},
+   "resources": [
+      {
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "properties": {
+            "definition": {
+               <workflow-definition>
+            },
+            "parameters": {
+            },
+            "accessControl": {
+               "triggers": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": []
+                     }
+                  ]
+               },
+               "actions": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": []
+                     }
+                  ]
+               }
+            },
+            "endpointsConfiguration": {}
+         }
+      }
+   ],
+   "outputs": {}
+}
+```
+
+En este ejemplo se muestra una definición de recursos para una aplicación lógica anidada que permite las llamadas entrantes desde aplicaciones lógicas que usan la acción HTTP:
 
 ```json
 {
@@ -361,7 +423,11 @@ Si [automatiza la implementación de las aplicaciones lógicas mediante plantill
                   ]
                },
                "actions": {
-                  "allowedCallerIpAddresses": []
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": "192.168.12.0/23"
+                     }
+                  ]
                }
             },
             "endpointsConfiguration": {}
@@ -412,11 +478,11 @@ Puede limitar el acceso a las entradas y salidas del historial de ejecución de 
 
 1. En Azure Portal, abra la aplicación lógica en Diseñador de aplicación lógica.
 
-1. En el menú de la aplicación lógica, en **Configuración** , seleccione **Configuración de flujo de trabajo**.
+1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Configuración de flujo de trabajo**.
 
-1. En **Configuración del control de acceso** > **Direcciones IP entrantes permitidas** , seleccione **Intervalos IP específicos**.
+1. En **Configuración del control de acceso** > **Direcciones IP entrantes permitidas**, seleccione **Intervalos IP específicos**.
 
-1. En **Intervalos IP para contenido** , especifique los intervalos de direcciones IP que pueden acceder a contenido desde las entradas y salidas.
+1. En **Intervalos IP para contenido**, especifique los intervalos de direcciones IP que pueden acceder a contenido desde las entradas y salidas.
 
    Un intervalo IP válido usa estos formatos: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
 
@@ -477,7 +543,7 @@ Muchos desencadenadores y acciones cuentan con una configuración para proteger 
 
    ![Abrir configuración de desencadenador o acción](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
-1. Active **Entradas seguras** , **Salidas seguras** o ambas opciones. Cuando haya finalizado, seleccione **Listo**.
+1. Active **Entradas seguras**, **Salidas seguras** o ambas opciones. Cuando haya finalizado, seleccione **Listo**.
 
    ![Active "Entradas seguras" o "Salidas seguras".](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
 
@@ -493,7 +559,7 @@ Muchos desencadenadores y acciones cuentan con una configuración para proteger 
 
    1. En el panel **Información general** de la aplicación lógica, seleccione la ejecución que quiera ver.
 
-   1. En el panel **Ejecución de aplicación lógica** , expanda las acciones que quiera revisar.
+   1. En el panel **Ejecución de aplicación lógica**, expanda las acciones que quiera revisar.
 
       Si decide ocultar las entradas y las salidas, esos valores aparecerán ahora ocultos.
 
@@ -894,7 +960,7 @@ Si la opción [Certificado de cliente](../active-directory/authentication/active
 
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticación** | `type` | Sí | **Certificado de cliente** <br>or <br>`ClientCertificate` | Tipo de autenticación que se debe usar. Puede administrar certificados con [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Nota** : Los conectores personalizados no admiten la autenticación basada en certificados para las llamadas entrantes y salientes. |
+| **Autenticación** | `type` | Sí | **Certificado de cliente** <br>or <br>`ClientCertificate` | Tipo de autenticación que se debe usar. Puede administrar certificados con [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Nota**: Los conectores personalizados no admiten la autenticación basada en certificados para las llamadas entrantes y salientes. |
 | **Pfx** | `pfx` | Sí | <*contenido-archivo-pfx-codificado*> | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) <p><p>Para convertir el archivo PFX en formato codificado en Base64, puede usar PowerShell siguiendo estos pasos: <p>1. Guarde el contenido del certificado en una variable: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convierta el contenido del certificado mediante la función `ToBase64String()` y guarde el contenido en un archivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Contraseña** | `password`| No | <*contraseña-archivo-pfx*> | La contraseña para acceder al archivo PFX |
 |||||
@@ -929,7 +995,7 @@ Para obtener más información acerca de cómo proteger los servicios mediante l
 
 ### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
 
-En los desencadenadores Request (Solicitud), se puede usar [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) para autenticar las llamadas entrantes después de [configurar las directivas de autorización de Azure AD](#enable-oauth) de la aplicación lógica. En el caso del resto de desencadenadores y acciones que proporcionan el tipo de autenticación **Active Directory OAuth** , especifique estos valores de propiedad:
+En los desencadenadores Request (Solicitud), se puede usar [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) para autenticar las llamadas entrantes después de [configurar las directivas de autorización de Azure AD](#enable-oauth) de la aplicación lógica. En el caso del resto de desencadenadores y acciones que proporcionan el tipo de autenticación **Active Directory OAuth**, especifique estos valores de propiedad:
 
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
@@ -1023,8 +1089,8 @@ Si la opción [Identidad administrada](../active-directory/managed-identities-az
    | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
    |---------------------|-----------------|----------|-------|-------------|
    | **Autenticación** | `type` | Sí | **Identidad administrada** <br>or <br>`ManagedServiceIdentity` | Tipo de autenticación que se debe usar. |
-   | **Identidad administrada** | `identity` | Sí | * **Identidad administrada asignada por el sistema** <br>or <br>`SystemAssigned` <p><p>* < *nombre de identidad asignado por el usuario*> | Identidad administrada que se debe usar. |
-   | **Audiencia** | `audience` | Sí | <*Id-recurso-destino*> | El Id. de recurso para el recurso de destino al que quiere obtener acceso. <p>Por ejemplo, `https://storage.azure.com/` hace que los [tokens de acceso](../active-directory/develop/access-tokens.md) para la autenticación sean válidos con todas las cuentas de almacenamiento. Sin embargo, también puede especificar una dirección URL de servicio raíz, como `https://fabrikamstorageaccount.blob.core.windows.net` para una cuenta de almacenamiento específica. <p>**Nota** : La propiedad **Audiencia** puede estar oculta en algunos desencadenadores o acciones. Para que la propiedad sea visible, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Público**. <p><p>**Importante** : Asegúrese de que el identificador de este recurso de destino *coincide exactamente* con el valor esperado en Azure AD, incluida toda barra diagonal necesaria al final. Por lo tanto, el Id. de recurso de `https://storage.azure.com/` para todas las cuentas de Azure Blob Storage requiere una barra diagonal final. Sin embargo, el Id. de recurso de una cuenta de almacenamiento específica no requiere una barra diagonal final. Para buscar estos Id. de recursos, consulte [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Identidad administrada** | `identity` | Sí | * **Identidad administrada asignada por el sistema** <br>or <br>`SystemAssigned` <p><p>* <*nombre de identidad asignado por el usuario*> | Identidad administrada que se debe usar. |
+   | **Audiencia** | `audience` | Sí | <*Id-recurso-destino*> | El Id. de recurso para el recurso de destino al que quiere obtener acceso. <p>Por ejemplo, `https://storage.azure.com/` hace que los [tokens de acceso](../active-directory/develop/access-tokens.md) para la autenticación sean válidos con todas las cuentas de almacenamiento. Sin embargo, también puede especificar una dirección URL de servicio raíz, como `https://fabrikamstorageaccount.blob.core.windows.net` para una cuenta de almacenamiento específica. <p>**Nota**: La propiedad **Audiencia** puede estar oculta en algunos desencadenadores o acciones. Para que la propiedad sea visible, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Público**. <p><p>**Importante**: Asegúrese de que el identificador de este recurso de destino *coincide exactamente* con el valor esperado en Azure AD, incluida toda barra diagonal necesaria al final. Por lo tanto, el Id. de recurso de `https://storage.azure.com/` para todas las cuentas de Azure Blob Storage requiere una barra diagonal final. Sin embargo, el Id. de recurso de una cuenta de almacenamiento específica no requiere una barra diagonal final. Para buscar estos Id. de recursos, consulte [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    Al usar [parámetros protegidos](#secure-action-parameters) para administrar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para acceder a estos valores de parámetros en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `ManagedServiceIdentity` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:

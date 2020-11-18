@@ -4,14 +4,14 @@ description: Requisitos previos para usar Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/05/2020
 ms.author: v-erkel
-ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344022"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412517"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Requisitos previos para Azure HPC Cache
 
@@ -59,9 +59,22 @@ El procedimiento recomendado es crear una subred para cada caché. Puede crear u
 La caché necesita DNS para acceder a los recursos que están fuera de su red virtual. En función de los recursos que use, puede que tenga que configurar un servidor DNS personalizado y el reenvío entre ese servidor y los servidores de Azure DNS:
 
 * Para acceder a los puntos de conexión de Azure Blob Storage y otros recursos internos, necesita el servidor DNS basado en Azure.
-* Para acceder al almacenamiento local, debe configurar un servidor DNS personalizado que pueda resolver los nombres de host de almacenamiento.
+* Para acceder al almacenamiento local, debe configurar un servidor DNS personalizado que pueda resolver los nombres de host de almacenamiento. Debe hacer esto **antes** de crear la memoria caché.
 
 Si solo necesita acceder a Blob Storage, puede usar el servidor DNS predeterminado proporcionado por Azure para la caché. Sin embargo, si necesita acceder a otros recursos, debe crear un servidor DNS personalizado y configurarlo para reenviar las solicitudes de resolución específicas de Azure al servidor de Azure DNS.
+
+Debe realizar estos pasos de configuración antes de crear la memoria caché para usar un servidor DNS personalizado:
+
+* Cree la red virtual que hospedará a la instancia de Azure HPC Cache.
+* Cree el servidor DNS.
+* Agregue el servidor DNS a la red virtual de la memoria caché.
+
+  Siga estos pasos para agregar el servidor DNS a la red virtual en Azure Portal:
+
+  1. Abra la red virtual en Azure Portal.
+  1. Elija **Servidores DNS** en el menú **Configuración** de la barra lateral.
+  1. Seleccionar **Personalizado**
+  1. Escriba la dirección IP del servidor DNS en el campo.
 
 También se puede usar un servidor DNS sencillo para equilibrar la carga de las conexiones de cliente entre todos los puntos de montaje de caché disponibles.
 

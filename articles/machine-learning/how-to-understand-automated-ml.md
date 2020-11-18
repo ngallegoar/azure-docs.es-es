@@ -10,19 +10,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2
-ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperfq2, automl
+ms.openlocfilehash: fcbe0fc5049f6e892f80f048a885c75420bc636e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311474"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359092"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Evaluación de los resultados del experimento de aprendizaje automático automatizado
 
-En este artículo, aprenderá a ver y evaluar los resultados de los experimentos de aprendizaje automático automatizado (AutoML). Estos experimentos se componen de varias ejecuciones, y cada ejecución crea un modelo. Para ayudarle a evaluar cada modelo, AutoML genera automáticamente gráficos y métricas de rendimiento específicos para el tipo de experimento. 
+En este artículo, aprenderá a ver y evaluar los resultados de los experimentos de aprendizaje automático automatizado. Estos experimentos se componen de varias ejecuciones, y cada ejecución crea un modelo. Para ayudarle a evaluar cada modelo, el aprendizaje automático automatizado genera automáticamente gráficos y métricas de rendimiento específicos para el tipo de experimento. 
 
-Por ejemplo, AutoML proporciona distintos gráficos para los modelos de clasificación y regresión. 
+Por ejemplo, el aprendizaje automático automatizado proporciona distintos gráficos para los modelos de clasificación y regresión. 
 
 |clasificación|Regresión
 |---|---|
@@ -53,15 +53,15 @@ Para ver el historial de ejecución, así como los gráficos y las métricas de 
 1. En el panel izquierdo del área de trabajo, seleccione **Ejecuciones**.
 1. En la lista de experimentos, seleccione el que quiere explorar.
 1. En la tabla inferior, seleccione la **ejecución**.
-1. En la pestaña **Modelos** , seleccione el **nombre del algoritmo** correspondiente al modelo que quiere explorar.
-1. En la pestaña **Métricas** , seleccione qué métricas y gráficos quiere evaluar para ese modelo. 
+1. En la pestaña **Modelos**, seleccione el **nombre del algoritmo** correspondiente al modelo que quiere explorar.
+1. En la pestaña **Métricas**, seleccione qué métricas y gráficos quiere evaluar para ese modelo. 
 
 
 <a name="classification"></a> 
 
 ## <a name="classification-performance-metrics"></a>Clasificación de las métricas de rendimiento
 
-En la tabla siguiente se resumen las métricas de rendimiento de modelo que AutoML calcula para cada modelo de clasificación generado para el experimento. 
+En la tabla siguiente se resumen las métricas de rendimiento de modelo que el aprendizaje automático automatizado calcula para cada modelo de clasificación generado para el experimento. 
 
 Métrica|Descripción|Cálculo|Parámetros adicionales
 --|--|--|--
@@ -88,7 +88,7 @@ weighted_accuracy|La precisión ponderada es la precisión donde el peso asignad
 
 ### <a name="binary-vs-multiclass-metrics"></a>Métricas binarias frente a multiclase
 
-AutoML no distingue entre las métricas binarias y multiclase. Se informan las mismas métricas de validación así un conjunto de datos tenga dos clases o más de dos clases. Sin embargo, algunas métricas están pensadas para la clasificación multiclase. Cuando estas métricas se aplican a un conjunto de datos binario, no tratarán a ninguna clase como clase `true`, como cabría esperar. Las métricas que se han diseñado claramente para multiclase tienen como sufijo `micro`, `macro` o `weighted`. Entre los ejemplos se incluyen `average_precision_score`, `f1_score`, `precision_score`, `recall_score` y `AUC`.
+El aprendizaje automático automatizado no distingue entre las métricas binarias y multiclase. Se informan las mismas métricas de validación así un conjunto de datos tenga dos clases o más de dos clases. Sin embargo, algunas métricas están pensadas para la clasificación multiclase. Cuando estas métricas se aplican a un conjunto de datos binario, no tratarán a ninguna clase como clase `true`, como cabría esperar. Las métricas que se han diseñado claramente para multiclase tienen como sufijo `micro`, `macro` o `weighted`. Entre los ejemplos se incluyen `average_precision_score`, `f1_score`, `precision_score`, `recall_score` y `AUC`.
 
 Por ejemplo, en lugar de calcular la recuperación como `tp / (tp + fn)`, la recuperación media multiclase (`micro`, `macro` o `weighted`) promedia ambas clases de un conjunto de datos de clasificación binaria. Esto es equivalente a calcular la recuperación de la clase `true` y de la clase `false` por separado y, a continuación, tomar la media de ambas.
 
@@ -209,7 +209,7 @@ Un modelo bien calibrado se ajusta a la línea y=x, donde predice correctamente 
 
 ## <a name="regression-performance-metrics"></a>Métricas de rendimiento de la regresión
 
-En la tabla siguiente se resumen las métricas de rendimiento de modelo que AutoML calcula para cada modelo de regresión o previsión generado para el experimento. 
+En la tabla siguiente se resumen las métricas de rendimiento de modelo que el aprendizaje automático automatizado calcula para cada modelo de regresión o previsión generado para el experimento. 
 
 |Métrica|Descripción|Cálculo|Parámetros adicionales
 --|--|--|--|

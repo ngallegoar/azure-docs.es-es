@@ -2,13 +2,13 @@
 title: Novedades del agente de servidores habilitados para Azure Arc
 description: En este artículo se incluyen las notas de la versión del agente de servidores habilitados para Azure Arc. Muchos de los problemas resumidos incluyen vínculos para obtener detalles adicionales.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908152"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445292"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Novedades del agente de servidores habilitados para Azure Arc
 
@@ -18,6 +18,21 @@ El agente de Connected Machine de los servidores habilitados para Azure Arc se m
 - Problemas conocidos
 - Corrección de errores
 
+## <a name="november-2020"></a>Noviembre de 2020
+
+### <a name="fixed"></a>Fijo
+
+Se resolvió un problema en el que la configuración del proxy se podía perder después de actualizar las distribuciones basadas en RPM.
+
+## <a name="october-2020"></a>Octubre de 2020
+
+### <a name="fixed"></a>Fijo
+
+- Se corrigió un script de proxy para controlar la ubicación alternativa del archivo de unidad de demonio GC.
+- Cambios de confiabilidad del agente GuestConfig.
+- Compatibilidad del agente GuestConfig con la región US Gov Virginia.
+- Los mensajes de informes de la extensión del agente GuestConfig para ser más detallados en caso de errores.
+
 ## <a name="september-2020"></a>Septiembre de 2020
 
 Versión: 1.0 (Disponibilidad general)
@@ -26,7 +41,7 @@ Versión: 1.0 (Disponibilidad general)
 
 - La compatibilidad con las versiones preliminares de agentes (todas las versiones anteriores a 1.0) se quitará en una actualización de servicio futura.
 - Se ha quitado la compatibilidad con el punto de conexión de reserva `.azure-automation.net`. Si tiene un proxy, debe permitir el punto de conexión `*.his.arc.azure.com`.
-- Si el agente de Connected Machine está instalado en una máquina virtual hospedada en Azure, las extensiones de máquina virtual no se pueden instalar ni modificar desde el recurso de servidores habilitados para ARC. Esto es así para evitar que se realicen operaciones de extensión en conflicto desde los recursos **Microsoft.Compute** y **Microsoft.HybridCompute** de la máquina virtual. Use el recurso **Microsoft.Compute** de la máquina para todas las operaciones de extensión.
+- Si el agente de Connected Machine está instalado en una máquina virtual hospedada en Azure, las extensiones de máquina virtual no se pueden instalar ni modificar desde el recurso de servidores habilitados para Arc. Esto es así para evitar que se realicen operaciones de extensión en conflicto desde los recursos **Microsoft.Compute** y **Microsoft.HybridCompute** de la máquina virtual. Use el recurso **Microsoft.Compute** de la máquina para todas las operaciones de extensión.
 - El nombre del proceso Configuración de invitado ha cambiado, de *gcd* a *gcad* en Linux y de *gcservice* a *gcarcservice* en Windows.
 
 ### <a name="new-feature"></a>Nueva característica
@@ -60,4 +75,4 @@ Si usa una versión anterior del agente de Linux y la ha configurado para usar u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Antes de evaluar o habilitar los servidores habilitados para Arc en varias máquinas híbridas, consulte el artículo [Información general del agente de Connected Machine](agent-overview.md) a fin de conocer los requisitos, los detalles técnicos sobre el agente y los métodos de implementación.
+Antes de evaluar o habilitar los servidores habilitados para Arc en varias máquinas híbridas, consulte el artículo [Información general del agente de Connected Machine](agent-overview.md) a fin de conocer los requisitos, los detalles técnicos del agente y los métodos de implementación.

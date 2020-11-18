@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/20/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 31c9dcaf6c6f26d28d70e3d1664665c2dbc37ce6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424662"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393088"
 ---
 # <a name="how-provisioning-works"></a>Funcionamiento del aprovisionamiento
 
@@ -43,9 +43,7 @@ Para solicitar un conector de aprovisionamiento automático de Azure AD para una
 
 ## <a name="authorization"></a>Authorization
 
-Se requieren credenciales para que Azure AD se conecte a la API de administración de usuarios de la aplicación. Cuando configure el aprovisionamiento automático de usuarios para una aplicación, deberá especificar credenciales válidas. Puede encontrar los tipos de credenciales y los requisitos para la aplicación consultando el tutorial de la aplicación. En Azure Portal, podrá probar las credenciales al hacer que Azure AD intente conectarse a la aplicación de aprovisionamiento de la aplicación con las credenciales proporcionadas.
-
-Si el inicio de sesión único basado en SAML también está configurado para la aplicación, el límite de almacenamiento interno por aplicación de Azure AD es de 1024 bytes. Este límite incluye todos los certificados, tokens secretos, credenciales y datos de configuración relacionados asociados a una sola instancia de una aplicación (también conocida como registro de entidades de servicio en Azure AD). Al configurarse el inicio de sesión único basado en SAML, el certificado usado para firmar los tokens SAML suele consumir más del 50 % del espacio. Los tokens elementos adicionales (secretos, URI, direcciones de correo electrónico de notificación, nombres de usuario y contraseñas) que se escriben durante la configuración del aprovisionamiento de usuarios podrían superar el límite de almacenamiento. Para más información de inicio de sesión, consulte [Problema al guardar las credenciales de administrador durante la configuración del aprovisionamiento de usuarios para una aplicación de la galería de Azure Active Directory](./application-provisioning-config-problem-storage-limit.md).
+Se requieren credenciales para que Azure AD se conecte a la API de administración de usuarios de la aplicación. Cuando configure el aprovisionamiento automático de usuarios para una aplicación, deberá especificar credenciales válidas. En el caso de las aplicaciones de la galería, puede encontrar los tipos de credenciales y los requisitos para la aplicación al consultar el tutorial de la aplicación. En el caso de las aplicaciones que no son de la galería, puede consultar la documentación de [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery) para saber más sobre los tipos de credenciales y sus requisitos. En Azure Portal, podrá probar las credenciales al hacer que Azure AD intente conectarse a la aplicación de aprovisionamiento de la aplicación con las credenciales proporcionadas.
 
 ## <a name="mapping-attributes"></a>Asignación de atributos
 
@@ -53,7 +51,7 @@ Cuando habilita el aprovisionamiento de usuarios para una aplicación SaaS de te
 
 Hay un conjunto preconfigurado de atributos y asignaciones de atributos entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Además de los usuarios, algunas aplicaciones administran otros tipos de objetos, como los grupos.
 
-Al configurar el aprovisionamiento, es importante revisar y configurar las asignaciones de atributos y los flujos de trabajo que definen qué propiedades de usuario (o de grupo) fluyen de Azure AD a la aplicación. Revise y configure la propiedad de coincidencia ( **Hacer coincidir objetos con este atributo** ) que se usa para identificar de forma exclusiva y emparejar a usuarios y grupos entre ambos sistemas.
+Al configurar el aprovisionamiento, es importante revisar y configurar las asignaciones de atributos y los flujos de trabajo que definen qué propiedades de usuario (o de grupo) fluyen de Azure AD a la aplicación. Revise y configure la propiedad de coincidencia (**Hacer coincidir objetos con este atributo** ) que se usa para identificar de forma exclusiva y emparejar a usuarios y grupos entre ambos sistemas.
 
 Puede personalizar las asignaciones de atributos predeterminadas según sus necesidades empresariales. Esto significa que puede cambiar o eliminar asignaciones de atributos existentes o crear nuevas asignaciones de atributos. Para detalles, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory](./customize-application-attributes.md).
 
@@ -64,7 +62,7 @@ Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos d
 
 Para el aprovisionamiento saliente desde Azure AD a una aplicación SaaS, confiar en las [asignaciones de usuarios o grupos](../manage-apps/assign-user-or-group-access-portal.md) es la forma más común de determinar qué usuarios se encuentran en el ámbito para el aprovisionamiento. Debido a que las asignaciones de usuarios también se usan para habilitar el inicio de sesión único, se puede usar el mismo método para administrar tanto el acceso como el aprovisionamiento. El ámbito basado en la asignación no se aplica a escenarios de aprovisionamiento entrante como Workday y Successfactors.
 
-* **Grupos.** Con un plan de licencia de Azure AD Premium, puede usar grupos para asignar acceso a una aplicación SaaS. Después, cuando el ámbito de aprovisionamiento se establezca en **Sincronizar solo los usuarios y grupos asignados** , el servicio de aprovisionamiento de Azure AD aprovisionará o desaprovisionará los usuarios en función de si son miembros de un grupo que está asignado a la aplicación. El objeto de grupo en sí no se aprovisiona a menos que la aplicación admita objetos de grupo. Asegúrese de que los grupos asignados a la aplicación tienen la propiedad "SecurityEnabled" establecida en "True".
+* **Grupos.** Con un plan de licencia de Azure AD Premium, puede usar grupos para asignar acceso a una aplicación SaaS. Después, cuando el ámbito de aprovisionamiento se establezca en **Sincronizar solo los usuarios y grupos asignados**, el servicio de aprovisionamiento de Azure AD aprovisionará o desaprovisionará los usuarios en función de si son miembros de un grupo que está asignado a la aplicación. El objeto de grupo en sí no se aprovisiona a menos que la aplicación admita objetos de grupo. Asegúrese de que los grupos asignados a la aplicación tienen la propiedad "SecurityEnabled" establecida en "True".
 
 * **Grupos dinámicos.** El servicio de aprovisionamiento de usuarios de Azure AD puede leer y aprovisionar usuarios en [grupos dinámicos](../enterprise-users/groups-create-rule.md). Tenga en cuenta estas advertencias y recomendaciones:
 
@@ -135,7 +133,7 @@ Después del ciclo inicial, todos los demás ciclos harán lo siguiente:
 10. Se conserva una nueva marca de agua al final del ciclo incremental, que proporciona el punto de partida para los ciclos incrementales posteriores.
 
 > [!NOTE]
-> Opcionalmente, puede deshabilitar las operaciones **Crear** , **Actualizar** o **Eliminar** mediante las casillas **Acciones del objeto de destino** de la sección [Asignaciones](customize-application-attributes.md). La lógica para deshabilitar un usuario durante una actualización también se controla mediante una asignación de atributos desde un campo como "accountEnabled".
+> Opcionalmente, puede deshabilitar las operaciones **Crear**, **Actualizar** o **Eliminar** mediante las casillas **Acciones del objeto de destino** de la sección [Asignaciones](customize-application-attributes.md). La lógica para deshabilitar un usuario durante una actualización también se controla mediante una asignación de atributos desde un campo como "accountEnabled".
 
 El servicio de aprovisionamiento sigue ejecutando ciclos incrementales opuestos de manera indefinida, según intervalos definidos en el [tutorial específico de cada aplicación](../saas-apps/tutorial-list.md). Los ciclos incrementales continúan hasta que se produzca uno de los siguientes eventos:
 

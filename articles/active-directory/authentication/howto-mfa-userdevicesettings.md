@@ -1,26 +1,88 @@
 ---
-title: 'Administración de la configuración para Azure Multi-Factor Authentication: Azure Active Directory'
+title: 'Administración de los métodos de autenticación para Azure Multi-Factor Authentication: Azure Active Directory'
 description: Aprenda a definir la configuración de usuarios de Azure Active Directory para Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: michmcla
+ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2006422d3516aa67076233b0b4b9d3e7c58a7232
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6309ef6793858051ceaf3c3b33edb9f830b26710
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166526"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378052"
 ---
-# <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Administración de la configuración de usuarios para Azure Multi-Factor Authentication
+# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>Administración de los métodos de autenticación de usuarios para Azure Multi-Factor Authentication
 
-Para ayudar a administrar los usuarios de Azure Multi-Factor Authentication, puede requerirles que restablezcan su contraseña, que vuelvan a registrarse para MFA o que revoquen las sesiones de MFA existentes. En el caso de los usuarios que hayan definido contraseñas de aplicación, también puede eliminar esas contraseñas, lo que provocará un error en la autenticación heredada en esas aplicaciones. Estas acciones pueden ser necesarias si necesita proporcionar asistencia a un usuario o desea restablecer su estado de seguridad.
+Los usuarios de Azure AD tienen dos conjuntos distintos de información de contacto:  
+
+- Información de contacto de perfil público, que se administra en el perfil del usuario y es visible para los miembros de la organización. En el caso de los usuarios sincronizados desde Windows Server AD, esta información se administra en la instancia local de Windows Server Active Directory Domain Services.
+- Los métodos de autenticación, que siempre se mantienen privados y solo se usan para la autenticación, incluida la opción de autenticación multifactor (MFA). Los administradores pueden administrar estos métodos en la hoja del método de autenticación de un usuario, y los usuarios pueden administrar sus métodos en la página Información de seguridad de sus cuentas.
+
+Al administrar los métodos de Azure Multi-Factor Authentication para los usuarios, los administradores de autenticación pueden: 
+
+1. Agregar métodos de autenticación para un usuario específico, incluidos los números de teléfono usados para MFA.
+1. Restablezca la contraseña de un usuario. 
+1. Requerir que un usuario vuelva a registrarse para MFA.
+1. Revocar las sesiones de MFA existentes.
+1. Eliminar todas las contraseñas de aplicación existentes del usuario.  
+
+## <a name="add-authentication-methods-for-a-user"></a>Incorporación de métodos de autenticación para un usuario 
+
+Puede agregar métodos de autenticación para un usuario a través de Azure Portal o Microsoft Graph.  
+
+> [!NOTE]
+> Por motivos de seguridad, los campos de información pública de contacto del usuario no deben usarse para realizar MFA. En su lugar, los usuarios deben rellenar los números del método de autenticación que se usarán para MFA.  
+
+:::image type="content" source="media/howto-mfa-userdevicesettings/add-authentication-method-detail.png" alt-text="Incorporación de los métodos de autenticación desde Azure Portal":::
+
+Para agregar métodos de autenticación para un usuario mediante Azure Portal:  
+
+1. Inicie sesión en **Azure Portal**. 
+1. Diríjase a **Azure Active Directory** > **Usuarios** > **Todos los usuarios**. 
+1. Elija el usuario para el que quiere agregar un método de autenticación y seleccione **Métodos de autenticación**.  
+1. En la parte superior de la ventana, seleccione **+ Agregar método de autenticación**.
+   1. Seleccione un método (número de teléfono o correo electrónico). El correo electrónico se puede usar para restablecer la contraseña automáticamente, pero no para la autenticación. Al agregar un número de teléfono, seleccione un tipo de teléfono y escriba un número de teléfono con un formato válido (por ejemplo, +1 4255551234).
+   1. Seleccione **Agregar**.
+
+> [!NOTE]
+> La experiencia de versión preliminar permite a los administradores agregar cualquiera de los métodos de autenticación disponibles para los usuarios, mientras que la experiencia original solo permite actualizar los métodos de teléfono y teléfono alternativo.
+
+### <a name="manage-methods-using-powershell"></a>Administración de métodos mediante PowerShell:  
+
+Instale el módulo de PowerShell Microsoft.Graph.Identity.Signins con los siguientes comandos. 
+
+```powershell
+Install-module Microsoft.Graph.Identity.Signins
+Connect-MgGraph -Scopes UserAuthenticationMethod.ReadWrite.All
+Select-MgProfile -Name beta
+```
+
+Enumere los métodos de autenticación basada en teléfono para un usuario específico.
+
+```powershell
+Get-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com
+```
+
+Cree un método de autenticación mediante teléfono móvil para un usuario específico.
+
+```powershell
+New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType “mobile” -phoneNumber "+1 7748933135"
+```
+
+Quite un método telefónico específico para un usuario.
+
+```powershell
+Remove-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -PhoneAuthenticationMethodId 3179e48a-750b-4051-897c-87b9720928f7
+```
+
+Los métodos de autenticación también se pueden administrar mediante las Microsoft Graph API. Puede encontrar más información en el documento [Introducción a la API de los métodos de autenticación de Azure AD.](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true)
 
 ## <a name="manage-user-authentication-options"></a>Administración de opciones de autenticación de usuarios
 
@@ -39,9 +101,9 @@ Si tiene asignado el rol de *administrador de autenticación*, puede requerir a 
    
     :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Administración de los métodos de autenticación desde Azure Portal":::
 
-## <a name="delete-users-existing-app-passwords"></a>Eliminar las contraseñas de aplicación existentes de los usuarios
+## <a name="delete-users-existing-app-passwords"></a>Eliminación de las contraseñas de aplicación existentes de los usuarios
 
-Si es necesario, puede eliminar todas las contraseñas de aplicación que ha creado un usuario. Las aplicaciones sin explorador asociadas con estas contraseñas de aplicación dejan de funcionar hasta que se cree una nueva contraseña de aplicación. Se necesitan los permisos de *administrador global* para realizar esta acción.
+En el caso de los usuarios que hayan definido contraseñas de aplicación, los administradores también pueden eliminar esas contraseñas, lo que provocará un error en la autenticación heredada en esas aplicaciones. Estas acciones pueden ser necesarias si necesita proporcionar asistencia a un usuario o necesita restablecer sus métodos de autenticación. Las aplicaciones sin explorador asociadas con estas contraseñas de aplicación dejarán de funcionar hasta que se cree una nueva contraseña de aplicación. 
 
 Para eliminar las contraseñas de aplicación de un usuario, siga estos pasos:
 

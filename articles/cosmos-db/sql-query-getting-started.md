@@ -5,42 +5,51 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: 7a4b2a778fc3d520c0ce85bed5bec0b49fc14384
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9176205b93519f0afac0c57f5da8593df6673c0f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341916"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356627"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introducción a las consultas SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En las cuentas de la API de SQL de Azure Cosmos DB, hay dos maneras de leer los datos:
 
-**Lecturas puntuales** : puede realizar una búsqueda de clave y valor en un único *id. de elemento* y clave de partición. La combinación de *id. de elemento* y clave de partición es la clave y el propio elemento es el valor. En el caso de un documento de 1 KB, las lecturas puntuales normalmente cuestan 1 [unidad de solicitud](request-units.md) con una latencia inferior a 10 ms. Las lecturas puntuales devuelven un único elemento.
+**Lecturas puntuales**: puede realizar una búsqueda de clave y valor en un único *id. de elemento* y clave de partición. La combinación de *id. de elemento* y clave de partición es la clave y el propio elemento es el valor. En el caso de un documento de 1 KB, las lecturas puntuales normalmente cuestan 1 [unidad de solicitud](request-units.md) con una latencia inferior a 10 ms. Las lecturas puntuales devuelven un único elemento.
 
-**Consultas SQL** : puede consultar datos escribiendo consultas mediante el Lenguaje de consulta estructurado (SQL) como lenguaje de consulta JSON. Las consultas siempre cuestan al menos 2,3 unidades de solicitud y, en general, tendrán una latencia mayor y más variable que las lecturas puntuales. Las consultas pueden devolver muchos elementos.
-
-La mayoría de las cargas de trabajo con mucha actividad de lectura en Azure Cosmos DB utilizan una combinación de lecturas puntuales y consultas SQL. Si solo necesita leer un único elemento, las lecturas puntuales son más baratas y rápidas que las consultas. Las lecturas puntuales no necesitan usar el motor de consultas para tener acceso a los datos y pueden leer los datos directamente. Por supuesto, no es posible que todas las cargas de trabajo lean los datos exclusivamente mediante lecturas puntuales, por lo que la compatibilidad con SQL como lenguaje de consulta y la [indexación independiente del esquema](index-overview.md) proporcionan una manera más flexible de acceder a los datos.
-
-Estos son algunos ejemplos de cómo realizar lecturas puntuales con cada SDK:
+Estos son algunos ejemplos de cómo realizar **lecturas puntuales** con cada SDK:
 
 - [SDK de .NET](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
 - [SDK de Java](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [SDK de Node.js](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
 - [SDK de Python](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
+**Consultas SQL**: puede consultar datos escribiendo consultas mediante el Lenguaje de consulta estructurado (SQL) como lenguaje de consulta JSON. Las consultas siempre cuestan al menos 2,3 unidades de solicitud y, en general, tendrán una latencia mayor y más variable que las lecturas puntuales. Las consultas pueden devolver muchos elementos.
+
+La mayoría de las cargas de trabajo con mucha actividad de lectura en Azure Cosmos DB utilizan una combinación de lecturas puntuales y consultas SQL. Si solo necesita leer un único elemento, las lecturas puntuales son más baratas y rápidas que las consultas. Las lecturas puntuales no necesitan usar el motor de consultas para tener acceso a los datos y pueden leer los datos directamente. Por supuesto, no es posible que todas las cargas de trabajo lean los datos exclusivamente mediante lecturas puntuales, por lo que la compatibilidad con SQL como lenguaje de consulta y la [indexación independiente del esquema](index-overview.md) proporcionan una manera más flexible de acceder a los datos.
+
+Estos son algunos ejemplos de cómo realizar **consultas SQL** con cada SDK:
+
+- [SDK de .NET](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
+- [SDK de Java](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
+- [SDK de Node.js](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
+- [SDK de Python](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+
 En el resto de este documento se muestra cómo empezar a escribir consultas SQL en Azure Cosmos DB. Las consultas SQL se pueden ejecutar mediante el SDK o Azure Portal.
 
 ## <a name="upload-sample-data"></a>Cargar datos de ejemplo
 
-En la cuenta de la API de SQL para Cosmos DB, cree un contenedor denominado `Families`. Cree dos elementos JSON sencillos en el contenedor. Puede ejecutar la mayoría de las consultas de ejemplo en la documentación de consultas de Azure Cosmos DB con este conjunto de datos.
+En la cuenta de la API de SQL para Cosmos DB, abra el [Explorador de datos](https://docs.microsoft.com/azure/cosmos-db/data-explorer) para crear un contenedor denominado `Families`. Después de crearlo, use el explorador de estructuras de datos para buscarlo y abrirlo. En el contenedor `Families` verá la opción `Items` justo debajo del nombre del contenedor. Abra dicha opción y se mostrará un botón, en la barra de menús en el centro de la pantalla, para crear un "Nuevo elemento". Deberá usar esta característica para crear los siguientes elementos JSON.
 
 ### <a name="create-json-items"></a>Creación de elementos JSON
 
-Con el siguiente código se crean dos elementos JSON sencillos sobre familias. Los elementos JSON sencillos para las familias Andersen y Wakefield incluyen a los padres, los hijos, sus mascotas, la dirección y la información de registro. El primer elemento tiene cadenas, números, valores booleanos, matrices y propiedades anidadas.
+Los dos elementos JSON siguientes son documentos sobre las familias Andersen y Wakefield. Incluyen información sobre sus padres, hijos y mascotas, así como su dirección y la información de registro. 
+
+El primer elemento tiene cadenas, números, valores booleanos, matrices y propiedades anidadas:
 
 ```json
 {
@@ -64,7 +73,7 @@ Con el siguiente código se crean dos elementos JSON sencillos sobre familias. L
 }
 ```
 
-El segundo elemento usa `givenName` y `familyName` en lugar de `firstName` y `lastName`.
+El segundo elemento usa `givenName` y `familyName`, en lugar de `firstName` y `lastName`:
 
 ```json
 {

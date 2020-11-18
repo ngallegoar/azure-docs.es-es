@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339442"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356355"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicación de la aplicación en la galería de aplicaciones de Azure AD
 
@@ -97,6 +97,7 @@ En la tabla siguiente se comparan los estándares principales: Open Authenticati
 | Cierre de sesión único basado en dispositivos móviles| √| √* |
 | Directivas de acceso condicional para aplicaciones para dispositivos móviles| √| X |
 | Experiencia MFA completa para aplicaciones para dispositivos móviles| √| X |
+| Aprovisionamiento de SCIM| √| √ |
 | Acceso a Microsoft Graph| √| X |
 
 *Es posible, pero Microsoft no proporciona ejemplos ni guía.
@@ -176,9 +177,9 @@ Como alternativa, cada suscripción a Microsoft 365 incluye un inquilino de Azu
 
 Una vez que tenga un inquilino, debe habilitar y probar el acceso de inicio de sesión único. 
 
-**En aplicaciones de OIDC u Oath** , [registre la aplicación](quickstart-register-app.md) como una aplicación multiinquilino. ‎Seleccione la opción Cuentas en cualquier directorio organizativo y cuentas Microsoft personales en Tipos de cuenta admitidos.
+**En aplicaciones de OIDC u Oath**, [registre la aplicación](quickstart-register-app.md) como una aplicación multiinquilino. ‎Seleccione la opción Cuentas en cualquier directorio organizativo y cuentas Microsoft personales en Tipos de cuenta admitidos.
 
-**En aplicaciones basadas en SAML y WS-Fed** , [configure el inicio de sesión único basado en SAML](../manage-apps/configure-saml-single-sign-on.md) mediante una plantilla genérica de SAML en Azure AD.
+**En aplicaciones basadas en SAML y WS-Fed**, [configure el inicio de sesión único basado en SAML](../manage-apps/configure-saml-single-sign-on.md) mediante una plantilla genérica de SAML en Azure AD.
 
 También puede [convertir una aplicación de un solo inquilino en multiinquilino](howto-convert-app-to-be-multi-tenant.md) si fuera necesario.
 
@@ -253,7 +254,7 @@ Si desea agregar la aplicación a la lista en la galería con OpenID Connect, se
 
 ![Adición de una aplicación de OpenID Connect a la lista de la galería](./media/howto-app-gallery-listing/openid.png)
 
-Si desea agregar la aplicación a la lista en la galería mediante **SAML 2.0** o **WS-Fed** , seleccione **SAML 2.0/WS-Fed** como se muestra.
+Si desea agregar la aplicación a la lista en la galería mediante **SAML 2.0** o **WS-Fed**, seleccione **SAML 2.0/WS-Fed** como se muestra.
 
 ![Adición de una aplicación de SAML 2.0 o WS-Fed a la lista de la galería](./media/howto-app-gallery-listing/saml.png)
 
@@ -261,7 +262,7 @@ Si quiere agregar la aplicación a la lista de la galería mediante SSO con cont
 
 ![Escala de tiempo para agregar la aplicación de SSO con contraseña a la lista de galería](./media/howto-app-gallery-listing/passwordsso.png)
 
-Si va a implementar un punto de conexión de SCIM 2.0 para el aprovisionamiento de usuarios, seleccione la opción como se muestra. 
+Si va a implementar un punto de conexión de [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2.0 para el aprovisionamiento de usuarios, seleccione la opción como se muestra. 
 
    ![Solicitud de aprovisionamiento de usuarios](./media/howto-app-gallery-listing/user-provisioning.png)
 

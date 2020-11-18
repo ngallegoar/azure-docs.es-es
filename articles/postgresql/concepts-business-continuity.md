@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 5fb82c6098352076307f71eee022074a247e3cd9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: cf3c07f32f15ff176974219bd8143a1ea315c945
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629347"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423052"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL con un único servidor
 
@@ -21,9 +21,14 @@ En este artículo de introducción se describen las funcionalidades de continuid
 
 A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. A esto se le denomina "objetivo de tiempo de recuperación" (RTO). También debe conocer la cantidad máxima de actualizaciones de datos recientes (intervalo de tiempo) que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. A esto se le conoce como "objetivo de punto de recuperación" (RPO).
 
-Azure Database for PostgreSQL proporciona características de continuidad empresarial que incluyen copias de seguridad con redundancia geográfica con la capacidad de iniciar la restauración geográfica y la implementación de réplicas de lectura en otra región. Cada una de ellas posee distintas características que abarcan los conceptos de tiempo de recuperación y pérdida de datos potencial. Con la característica de [restauración geográfica](concepts-backup.md), se crea un servidor con los datos de copia de seguridad que se replican desde otra región. El tiempo total que se tarda en la restauración y la recuperación depende del tamaño de la base de datos y de la cantidad de registros que se van a recuperar. El tiempo total para establecer el servidor varía de unos minutos a pocas horas. Con las [réplicas de lectura](concepts-read-replicas.md), los registros de transacciones de la principal se transmiten de forma asincrónica a la réplica. El intervalo entre la principal y la réplica depende de la latencia entre los sitios y de la cantidad de datos que se van a transmitir. En caso de que se produzca un error en el sitio principal, como un error de zona de disponibilidad, la promoción de la réplica proporciona un RTO más corto y una pérdida de datos reducida. 
+Azure Database for PostgreSQL proporciona características de continuidad empresarial que incluyen copias de seguridad con redundancia geográfica con la capacidad de iniciar la restauración geográfica y la implementación de réplicas de lectura en otra región. Cada una de ellas posee distintas características que abarcan los conceptos de tiempo de recuperación y pérdida de datos potencial. Con la característica de [restauración geográfica](concepts-backup.md), se crea un servidor con los datos de copia de seguridad que se replican desde otra región. El tiempo total que se tarda en la restauración y la recuperación depende del tamaño de la base de datos y de la cantidad de registros que se van a recuperar. El tiempo total para establecer el servidor varía de unos minutos a pocas horas. Con las [réplicas de lectura](concepts-read-replicas.md), los registros de transacciones de la principal se transmiten de forma asincrónica a la réplica. En caso de que se produzca una interrupción de la base de datos principal debido a un error de nivel de zona o de región, la conmutación por error a la réplica proporciona un RTO más corto y una pérdida de datos reducida.
 
-En la tabla siguiente se comparan el RTO y el RPO en un escenario típico:
+> [!NOTE]
+> El intervalo entre la base de datos principal y la réplica depende de la latencia entre los sitios, la cantidad de datos que se van a transmitir y, sobre todo, de la carga de trabajo de escritura del servidor principal. Las cargas de trabajo de escritura intensivas pueden generar retrasos significativos. 
+>
+> Debido a la naturaleza asincrónica de la replicación que se usa para las réplicas de lectura, **no se deben** considerar una solución de alta disponibilidad, ya que los retrasos de mayor duración pueden significar un mayor RTO y RPO. Solo en el caso de las cargas de trabajo en las que el retraso sigue siendo poco en las horas de poca y mucha actividad de la carga de trabajo, las réplicas de lectura pueden actuar como una alternativa de alta disponibilidad. De lo contrario, las réplicas de lectura están diseñadas para una escala de lectura verdadera para las cargas de trabajo pesadas y para los escenarios de recuperación ante desastres.
+
+En la tabla siguiente se comparan el RTO y el RPO en un escenario de **carga de trabajo típica**:
 
 | **Funcionalidad** | **Basic** | **Uso general** | **Memoria optimizada** |
 | :------------: | :-------: | :-----------------: | :------------------: |
@@ -31,7 +36,7 @@ En la tabla siguiente se comparan el RTO y el RPO en un escenario típico:
 | Restauración geográfica de las copias de seguridad con replicación geográfica | No compatible | RTO: varía <br/>RPO < 1 hora | RTO: varía <br/>RPO < 1 hora |
 | Réplicas de lectura | RTO: minutos* <br/>RPO < 5 minutos* | RTO: minutos* <br/>RPO < 5 minutos*| RTO: minutos* <br/>RPO < 5 minutos*|
 
-\* El RTO y el RPO pueden ser muy superiores en algunos casos, en función de varios factores, como la carga de trabajo de la base de datos principal y la latencia entre regiones. 
+ \* El RTO y el RPO **pueden ser muy superiores** en algunos casos, en función de varios factores, como la latencia entre sitios, la cantidad de datos que se transmitirá y, sobre todo, la carga de trabajo de escritura de la base de datos principal. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperación de un servidor tras un error del usuario o la aplicación
 
@@ -56,7 +61,7 @@ La característica de restauración geográfica restaura el servidor mediante co
 > La restauración geográfica solo es posible si se ha aprovisionado el servidor con almacenamiento de copia de seguridad con redundancia geográfica. Si desea cambiar de copias de seguridad con redundancia local a copias de seguridad con redundancia geográfica para un servidor existente, debe realizar un volcado mediante pg_dump del servidor existente y restaurarlo en un servidor recién creado, configurado con copias de seguridad con redundancia geográfica.
 
 ## <a name="cross-region-read-replicas"></a>Réplicas de lectura entre regiones
-Puede usar réplicas de lectura entre regiones para mejorar el planeamiento de la continuidad empresarial y recuperación ante desastres. Las réplicas de lectura se actualizan de manera asincrónica mediante la tecnología de replicación física de PostgreSQL. Obtenga más información sobre las réplicas de lectura, las regiones disponibles y la conmutación por error en el [artículo sobre los conceptos de las réplicas de lectura](concepts-read-replicas.md). 
+Puede usar réplicas de lectura entre regiones para mejorar el planeamiento de la continuidad empresarial y recuperación ante desastres. Las réplicas de lectura se actualizan de manera asincrónica mediante la tecnología de replicación física de PostgreSQL y pueden generar retrasos en la principal. Obtenga más información sobre las réplicas de lectura, las regiones disponibles y la conmutación por error en el [artículo sobre los conceptos de las réplicas de lectura](concepts-read-replicas.md). 
 
 ## <a name="faq"></a>Preguntas más frecuentes
 ### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>¿Dónde Azure Database for PostgreSQL almacena los datos de los clientes?

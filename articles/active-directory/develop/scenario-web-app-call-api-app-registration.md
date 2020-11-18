@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f94a3da96243e30faa90277ce86efec037f54672
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 863d8d87d5de771293199dd60618128b0ac11bba
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436480"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442606"
 ---
 # <a name="a-web-app-that-calls-web-apis-app-registration"></a>Aplicación web que llama a las API web: Registro de aplicación
 
@@ -32,5 +32,4 @@ Las aplicaciones web llaman a las API en nombre del usuario con sesión iniciada
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Aplicación web que llama a las API web: configuración del código](scenario-web-app-call-api-app-configuration.md)
+Avance al siguiente artículo de este escenario, [Configuración de código](scenario-web-app-call-api-app-configuration.md).

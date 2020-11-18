@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: aca7b7e8590c9c8eb3db987c5d1527d9f135bf3f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325529"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393003"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Habilitación de Azure Machine Learning Studio en una Azure Virtual Network
 
@@ -36,7 +36,7 @@ Consulte los demás artículos de esta serie:
 
 
 > [!IMPORTANT]
-> Si el área de trabajo está en una __nube soberana__ , como Azure Government o Azure China 21Vianet, los cuadernos integrados _no_ admiten el uso de almacenamiento que se encuentra en una red virtual. En su lugar, puede usar cuadernos de Jupyter Notebook en una instancia de Compute. Para obtener más información, consulte la sección [Acceso a los datos en un cuaderno de instancia de Compute](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook).
+> Si el área de trabajo está en una __nube soberana__, como Azure Government o Azure China 21Vianet, los cuadernos integrados _no_ admiten el uso de almacenamiento que se encuentra en una red virtual. En su lugar, puede usar cuadernos de Jupyter Notebook en una instancia de Compute. Para obtener más información, consulte la sección [Acceso a los datos en un cuaderno de instancia de Compute](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook).
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -97,11 +97,14 @@ En estos pasos se agrega la identidad administrada del área de trabajo como __L
 
 ## <a name="technical-notes-for-managed-identity"></a>Notas técnicas de identidad administrada
 
-El uso de identidad administrada para tener acceso a los servicios de almacenamiento afecta a algunas consideraciones de seguridad. Estas consideraciones son únicas en cuanto al tipo de cuenta de almacenamiento al que se obtiene acceso. En esta sección se describen los cambios para cada tipo de cuenta de almacenamiento.
+El uso de identidad administrada para tener acceso a los servicios de almacenamiento afecta a algunas consideraciones de seguridad. En esta sección se describen los cambios para cada tipo de cuenta de almacenamiento.
+
+> [!IMPORTANT]
+> Estas consideraciones son únicas en cuanto al __tipo de cuenta de almacenamiento__ al que se obtiene acceso.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-Para __Azure Blob Storage__ , la identidad administrada del área de trabajo también se agrega como un [lector de datos de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) para que pueda leer datos del almacenamiento de blobs.
+Para __Azure Blob Storage__, la identidad administrada del área de trabajo también se agrega como un [lector de datos de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) para que pueda leer datos del almacenamiento de blobs.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Control de acceso de Azure Data Lake Storage Gen2
 

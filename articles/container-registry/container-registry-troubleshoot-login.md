@@ -3,12 +3,12 @@ title: Solución de problemas de inicio de sesión en el registro
 description: Síntomas, causas y resolución de problemas comunes al iniciar sesión en un registro de contenedor de Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348906"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379509"
 ---
 # <a name="troubleshoot-registry-login"></a>Solución de problemas de inicio de sesión del registro
 
@@ -77,8 +77,8 @@ Vínculos relacionados:
 Compruebe la validez de las credenciales que usa para su escenario o que le proporcionó un propietario del registro. Otros problemas posibles:
 
 * Si usa una entidad de servicio de Active Directory, asegúrese de utilizar las credenciales correctas en el inquilino de Active Directory:
-  * Nombre de usuario: identificador de aplicación de la entidad de servicio (también denominado *identificador de cliente* )
-  * Contraseña: contraseña de la entidad de servicio (también denominada *secreto de cliente* )
+  * Nombre de usuario: identificador de aplicación de la entidad de servicio (también denominado *identificador de cliente*)
+  * Contraseña: contraseña de la entidad de servicio (también denominada *secreto de cliente*)
 * Si usa un servicio de Azure, como Azure Kubernetes Service o Azure DevOps, para acceder al registro, confirme la configuración del registro del servicio.
 * Si ejecutó `az acr login` con la opción `--expose-token`, que habilita el inicio de sesión del registro sin usar el demonio de Docker, asegúrese de autenticarse con el nombre de usuario `00000000-0000-0000-0000-000000000000`.
 * Si el registro está configurado para el [acceso de extracción anónimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), las credenciales de Docker existentes almacenadas desde un inicio de sesión de Docker anterior pueden impedir el acceso anónimo. Ejecute `docker logout` antes de intentar realizar una operación de extracción anónima en el registro.
@@ -98,7 +98,9 @@ Vínculos relacionados:
 
 Confirme los permisos del registro asociados a las credenciales, como el rol `AcrPull` de Azure para extraer imágenes del registro, o el rol `AcrPush` para insertar imágenes. 
 
-Para acceder a un registro en el portal o administrar el registro mediante la CLI de Azure, se necesita como mínimo el rol `Reader` para realizar operaciones de Azure Resource Manager.
+Para acceder a un registro en el portal o administrar el registro mediante la CLI de Azure, se necesita como mínimo el rol `Reader` o permisos equivalentes para realizar operaciones de Azure Resource Manager.
+
+Si los permisos han cambiado recientemente para permitir el acceso al registro a través del portal, quizá deba probar una sesión de incógnito o privada en el explorador para evitar la memora caché o cookies del explorador obsoletas.
 
 El usuario o el propietario del registro deben tener privilegios suficientes en la suscripción para agregar o quitar asignaciones de roles.
 

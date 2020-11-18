@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 28c3e4ade2c78a1a77ef7263463803e40727ba8f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3f8c288f950f34e1764c50e8eb74a8a73b39b3d7
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315307"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698536"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Algoritmo de Azure Load Balancer
 
@@ -63,4 +63,4 @@ Load Balancer no interactúa directamente con TCP ni UDP ni con la capa de aplic
 - Más información sobre [Azure Load Balancer](load-balancer-overview.md).
 - Más información sobre [sondeos de mantenimiento](load-balancer-custom-probe-overview.md).
 - Más información acerca de los [diagnósticos de Load Balancer Estándar](load-balancer-standard-diagnostics.md).
-- Más información sobre los [grupos de seguridad de red](../virtual-network/security-overview.md).
+- Más información sobre los [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).

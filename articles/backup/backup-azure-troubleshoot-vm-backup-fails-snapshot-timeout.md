@@ -4,12 +4,12 @@ description: Síntomas, causas y soluciones de errores de Azure Backup relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 1711652434be3d9937c8199bc1999273ef58e4d0
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: dd6f4d7884b120d2f8b5ea3f3ccb8d5385dd0880
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170290"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377112"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -53,11 +53,11 @@ Azure Backup usa la Extensión de instantánea de máquina virtual para realizar
 
 - **Compruebe si el antivirus está bloqueando la extensión**: Puede haber software antivirus que impida la ejecución de extensiones.
   
-  Cuando se produzca el error de copia de seguridad, compruebe si hay entradas de registro en los ***registros de aplicación del Visor de eventos*** con el ***nombre de la aplicación con error: IaaSBcdrExtension.exe***. Si ve entradas, es posible que el antivirus configurado en la máquina virtual restrinja la ejecución de la extensión de copia de seguridad. Pruebe a excluir los directorios siguientes en la configuración del antivirus y vuelva a intentar la operación de copia de seguridad.
+  Cuando se produzca el error de copia de seguridad, compruebe si hay entradas de registro en los *_registros de aplicación del Visor de eventos_* _ con el _*_nombre de la aplicación con error: IaaSBcdrExtension.exe_*_. Si ve entradas, es posible que el antivirus configurado en la máquina virtual restrinja la ejecución de la extensión de copia de seguridad. Pruebe a excluir los directorios siguientes en la configuración del antivirus y vuelva a intentar la operación de copia de seguridad.
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- **Compruebe si es necesario tener acceso a la red**: Los paquetes de extensiones se descargan del repositorio de extensiones de Azure Storage y las cargas del estado de las extensiones se publican en Azure Storage. [Más información](../virtual-machines/extensions/features-windows.md#network-access).
+- _*Compruebe si es necesario tener acceso a la red**: Los paquetes de extensiones se descargan del repositorio de extensiones de Azure Storage y las cargas del estado de las extensiones se publican en Azure Storage. [Más información](../virtual-machines/extensions/features-windows.md#network-access).
   - Si usa una versión no compatible del agente, deberá autorizar el acceso saliente a Azure Storage en esa región desde la máquina virtual.
   - Si ha bloqueado el acceso a `168.63.129.16` con el firewall invitado o con un proxy, las extensiones generarán un error con independencia de lo mencionado anteriormente. Se requieren los puertos 80, 443 y 32526, [más información](../virtual-machines/extensions/features-windows.md#network-access).
 
@@ -103,7 +103,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 
 Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**. Para más información, consulte [Estados de aprovisionamiento](../virtual-machines/states-lifecycle.md#provisioning-states).
 
-- Si cualquier otra extensión está en un estado con errores, puede interferir con la copia de seguridad. Asegúrese que se resuelven esos problemas de extensiones y vuelva a intentar la operación de copia de seguridad.
+- Si alguna extensión está en un estado con errores, puede interferir con la copia de seguridad. Asegúrese que se resuelven esos problemas de extensiones y vuelva a intentar la operación de copia de seguridad.
 - Si el estado de aprovisionamiento de la máquina virtual es un estado de actualización, puede interferir con la copia de seguridad. Asegúrese de que sea correcto y vuelva a intentar la operación de copia de seguridad.
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached: Se ha alcanzado el límite máximo de colecciones del punto de restauración

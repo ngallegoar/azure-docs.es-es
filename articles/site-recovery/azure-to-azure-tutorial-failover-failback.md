@@ -1,78 +1,116 @@
 ---
-title: Conmutación por error y reprotección de las máquinas virtuales de Azure replicadas en una región secundaria de Azure para la recuperación ante desastres con el servicio Azure Site Recovery.
-description: Obtenga información sobre la conmutación por error y la reprotección de las máquinas virtuales de Azure replicadas en una región secundaria de Azure para la recuperación ante desastres con el servicio Azure Site Recovery.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
+title: Tutorial para conmutar por error máquinas virtuales de Azure a una región secundaria para la recuperación ante desastres con Azure Site Recovery.
+description: Tutorial para aprender tanto a conmutar por error como a reproteger las máquinas virtuales de Azure replicadas en una región secundaria de Azure para la recuperación ante desastres con el servicio Azure Site Recovery.
 ms.topic: tutorial
-ms.date: 08/05/2019
-ms.author: raynew
+ms.date: 11/05/2020
 ms.custom: mvc
-ms.openlocfilehash: 8d38aa513b0829c2626fcd4a92c40faabff1f83e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99263c83d25542073d63c1cba394a147bd5b2170
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502399"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392867"
 ---
-# <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Conmutación por error y reprotección de máquinas virtuales de Azure entre regiones
+# <a name="tutorial-fail-over-azure-vms-to-a-secondary-region"></a>Tutorial: Conmutación por error de máquinas virtuales de Azure a una región secundaria
 
-En este tutorial se describe cómo conmutar por error una máquina virtual (VM) de Azure en una región secundaria de Azure con el servicio [Azure Site Recovery](site-recovery-overview.md). Una vez realizada la conmutación por error, volverá a proteger la máquina virtual. En este tutorial, aprenderá a:
+Aprenda a conmutar por error aquellas máquinas virtuales de Azure qué estén habilitadas para la recuperación ante desastres con [Azure Site Recovery](site-recovery-overview.md) a una región de Azure secundaria. Después de la conmutación por error, vuelva a proteger las máquinas virtuales de la región de destino para que se vuelvan a replicar en la región primaria. En este artículo aprenderá a:
 
 > [!div class="checklist"]
-> * Conmutar por error la máquina virtual de Azure
-> * Volver a proteger la máquina virtual de Azure secundaria, de modo que se replique en la región principal.
+> * Comprobar los requisitos previos.
+> * Comprobar la configuración de una máquina virtual.
+> * Ejecutar una conmutación por error en la región secundaria.
+> * Empezar a replicar de nuevo la máquina virtual en la región primaria.
+
 
 > [!NOTE]
-> Este tutorial describe la ruta más sencilla, con las opciones predeterminadas y la mínima personalización. Para escenarios más complejos, use los artículos de Guías de procedimientos para máquinas virtuales de Azure.
+> En este tutorial se muestra cómo realizar la conmutación por error de máquinas virtuales con el mínimo número de pasos. Si desea ejecutar una conmutación por error con una configuración completa, obtenga información sobre las [redes](azure-to-azure-about-networking.md), la [automatización](azure-to-azure-powershell.md) y la [solución de problemas](azure-to-azure-troubleshoot-errors.md) de las máquinas virtuales de Azure.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
 
-- Antes de empezar, repase las [preguntas más frecuentes](site-recovery-faq.md#failover) sobre la conmutación por error.
-- Asegúrese de que ha completado una [exploración de la recuperación ante desastres](azure-to-azure-tutorial-dr-drill.md) para comprobar que todo funciona según lo previsto.
-- Compruebe las propiedades de la máquina virtual antes de ejecutar la conmutación por error de prueba. La máquina virtual debe cumplir los [requisitos de Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="run-a-failover-to-the-secondary-region"></a>Ejecución de una conmutación por error en la región secundaria
+Antes de comenzar este tutorial, debe haber:
 
-1. En **Elementos replicados**, seleccione la máquina virtual que desea conmutar por error > **Conmutar por error**
+1. Configurado la replicación en una o varias máquinas virtuales de Azure. Si no lo ha hecho, [complete el primer tutorial](azure-to-azure-tutorial-enable-replication.md) de esta serie.
+2. Se recomienda [realizar un simulacro de la recuperación ante desastres](azure-to-azure-tutorial-dr-drill.md) en las máquinas virtuales replicadas. La realización de un simulacro antes de ejecutar una conmutación por error completa ayuda a garantizar que todo funciona según lo previsto sin afectar al entorno de producción. 
 
-   ![Captura de pantalla que muestra las opciones de Conmutación por error de una máquina virtual.](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
-2. En **Conmutación por error**, seleccione un **Punto de recuperación** en el que realizar la conmutación por error. Puede seleccionar una de las siguientes opciones:
+## <a name="verify-the-vm-settings"></a>Comprobación de la configuración de la máquina virtual
 
-   * **Latest** (Más reciente) (valor predeterminado): procesa todos los datos en el servicio Site Recovery y proporciona el objetivo de punto de recuperación (RPO) más bajo.
-   * **Procesado más recientemente**: revierte la máquina virtual al punto de recuperación más reciente que el servicio Site Recovery haya procesado.
-   * **Personalizado**: conmuta por error a un punto de recuperación concreto. Esta opción es útil para realizar una conmutación por error de prueba.
+1. En el almacén > **Elementos replicados**, seleccione la máquina virtual.
 
-3. Seleccione **Apague la máquina antes de comenzar con la conmutación por error** si desea que Site Recovery intente apagar las máquinas virtuales de origen antes de desencadenar la conmutación por error. La operación de apagado ayuda a garantizar que no se pierden datos. La conmutación por error continúa aunque se produzca un error de cierre. Site Recovery no es un origen limpio después de la conmutación por error.
+    ![Opción para abrir las propiedades de la máquina virtual en la página de información general](./media/azure-to-azure-tutorial-failover-failback/vm-settings.png)
 
-4. Siga el progreso de la conmutación por error en la página **Trabajos**.
+2. En la página **Información general** de la máquina virtual, compruebe que está protegida y en buen estado antes de ejecutar una conmutación por error.
+    ![Página para comprobar las propiedades y el estado de la máquina virtual](./media/azure-to-azure-tutorial-failover-failback/vm-state.png)
 
-5. Después de la conmutación por error, valide la máquina virtual iniciando sesión en ella. Si desea volver a otro punto de recuperación para la máquina virtual, puede usar la opción **Cambiar punto de recuperación**.
+3. Antes de la conmutación por error compruebe que:
+    - La máquina virtual usa un sistema operativo [Windows](azure-to-azure-support-matrix.md#windows) o [Linux](azure-to-azure-support-matrix.md#replicated-machines---linux-file-systemguest-storage) compatible.
+    - La máquina virtual cumple los requisitos de [proceso](azure-to-azure-support-matrix.md#replicated-machines---compute-settings), [almacenamiento](azure-to-azure-support-matrix.md#replicated-machines---storage) y [red](azure-to-azure-support-matrix.md#replicated-machines---networking).
 
-6. Realice la acción **Confirmar** una vez que quede satisfecho con la conmutación por error de la máquina virtual.
-   Al confirmar, se eliminan todos los puntos de recuperación disponibles con el servicio. Ahora no podrá cambiar el punto de recuperación.
+## <a name="run-a-failover"></a>Ejecución de la conmutación por error
 
-> [!NOTE]
-> Cuando se conmuta por error una máquina virtual a la que agrega un disco después de habilitar la replicación para la máquina virtual, los puntos de la replicación mostrarán los discos que están disponibles para la recuperación. Por ejemplo, si una máquina virtual tiene un único disco y agrega uno nuevo, los puntos de replicación que se crearon antes de agregar el disco mostrarán que el punto de replicación se compone de "1 de 2 discos".
 
-![Captura de pantalla que muestra la conmutación por error con un disco agregado.](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+1. En la página **Información general**, seleccione **Conmutación por error**.
 
-## <a name="reprotect-the-secondary-vm"></a>Volver a proteger la máquina virtual secundaria
+    ![Botón de conmutación por error del elemento replicado](./media/azure-to-azure-tutorial-failover-failback/failover-button.png)
 
-Después de la conmutación por error de la máquina virtual, debe volver a protegerla para que se replique de nuevo en la región principal.
+3. En **Conmutación por error**, elija un punto de recuperación. Se usan los datos de este punto de recuperación para crear la máquina virtual de Azure en la región de destino.
+  
+   - **Procesado más recientemente**: usa el último punto de recuperación procesado por Site Recovery. Se muestra la marca de tiempo. No se emplea tiempo en el procesamiento de datos, por lo que se proporciona un objetivo de tiempo de recuperación (RTO) bajo.
+   -  **Más reciente**: procesa todos los datos enviados a Site Recovery para crear un punto de recuperación para cada máquina virtual antes de conmutarla por error a dicho punto de recuperación. Proporciona el menor objetivo de punto de recuperación (RPO), ya que todos los datos se replican a Site Recovery cuando se desencadena la conmutación por error.
+   - **Más reciente coherente con la aplicación**: esta opción conmuta por error las VM en el punto de recuperación más reciente coherente con la aplicación. Se muestra la marca de tiempo.
+   - **Personalizado**: conmuta por error a un punto de recuperación concreto. La personalización solo está disponible cuando se conmuta por error una sola máquina virtual y no se usa un plan de recuperación.
 
-1. Asegúrese de que la máquina virtual está en el estado **Conmutación por error confirmada** y compruebe que la región principal está disponible, y puede crear y tener acceso a los recursos nuevos en ella.
-2. En **Almacén** > **Elementos replicados**, haga clic con el botón derecho en la máquina virtual que ha sido objeto de la conmutación por error y seleccione **Volver a proteger**.
+    > [!NOTE]
+    > Si agregó un disco a una máquina virtual después de habilitar la replicación, los puntos de replicación muestran los discos que se pueden recuperar. Por ejemplo, un punto de replicación creado antes de que agregara un segundo disco se mostrará como "1 de 2 discos".
 
-   ![Captura de pantalla de la opción Reprotección de una máquina virtual.](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+4. Seleccione **Shut down machine before beginning failover** (Apagar la máquina antes de comenzar la conmutación por error) si desea que Site Recovery intente apagar las máquinas virtuales de origen antes de iniciar la conmutación por error. La operación de apagado ayuda a garantizar que no se pierden datos. La conmutación por error continúa aunque se produzca un error de cierre. 
 
-2. Compruebe que la dirección de la protección, de la región secundaria a la primaria, ya está seleccionada.
-3. Revise la información de **Grupo de recursos, red, almacenamiento y conjuntos de disponibilidad**. Los recursos marcados se crean como parte de la operación de reprotección.
-4. Haga clic en **Aceptar** para desencadenar un trabajo de repetición de la protección. Este trabajo inicializa el sitio de destino con los datos más recientes. A continuación, replica las diferencias en la región principal. La máquina virtual está ahora en un estado protegido.
+    ![Página de configuración de la conmutación por error](./media/azure-to-azure-tutorial-failover-failback/failover-settings.png)    
+
+3. Seleccione **Aceptar** para iniciar la conmutación por error.
+4. Supervise la conmutación por error en las notificaciones.
+
+    ![Notificación de progreso](./media/azure-to-azure-tutorial-failover-failback/notification-failover-start.png) ![Notificación de éxito](./media/azure-to-azure-tutorial-failover-failback/notification-failover-finish.png)     
+
+5. Después de la conmutación por error, la máquina virtual de Azure creada en la región de destino aparece en **Máquinas virtuales**. Asegúrese de que la máquina virtual se ejecuta y que tiene el tamaño adecuado. Si desea usar otro punto de recuperación para la máquina virtual, seleccione **Cambiar punto de recuperación** en la página **Essentials**.
+6. Cuando esté satisfecho con la máquina virtual conmutada por error, seleccione **Confirmar** en la página información general para finalizar la conmutación por error.
+
+    ![Botón Confirmar](./media/azure-to-azure-tutorial-failover-failback/commit-button.png) 
+
+7. En **Confirmar**, seleccione **Aceptar** para confirmar. Confirmar elimina todos los puntos de recuperación disponibles para la máquina virtual en Site Recovery, por lo que no podrá cambiar el punto de recuperación.
+
+8. Supervise el progreso de la confirmación en las notificaciones.
+
+    ![Notificación de progreso de confirmación](./media/azure-to-azure-tutorial-failover-failback/notification-commit-start.png) ![Notificación de confirmación realizada correctamente](./media/azure-to-azure-tutorial-failover-failback/notification-commit-finish.png)    
+
+9. Site Recovery no limpia la máquina virtual de origen después de la conmutación por error, así que deberá hacerlo manualmente.
+
+
+## <a name="reprotect-the-vm"></a>Reprotección de la máquina virtual
+
+Después de la conmutación por error, vuelva a proteger la máquina virtual en la región secundaria para que se vuelva a replicar en la región primaria. 
+
+1. Asegúrese de que en el campo **Estado** de la máquina virtual aparece *Conmutación por error confirmada* antes de empezar.
+2. Compruebe que puede acceder a la región primaria y que tiene permisos para crear máquinas virtuales en ella.
+3. En la página **Información general**, seleccione **Volver a proteger**.
+
+   ![Botón para habilitar la reprotección de una máquina virtual para una máquina virtual.](./media/azure-to-azure-tutorial-failover-failback/reprotect-button.png)
+
+4. En **Volver a proteger**, compruebe la dirección de replicación (región secundaria a primaria) y revise la configuración de destino de la región primaria. Los recursos marcados como nuevos los crea Site Recovery como parte de la operación de reprotección.
+
+     ![Página Configuración de la reprotección](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+
+6. Seleccione **Aceptar** para iniciar el proceso de reprotección. El proceso envía los datos iniciales a la ubicación de destino y, después, replica la información delta de las máquinas virtuales en el destino.
+7. Supervisión del progreso de la reprotección en las notificaciones. 
+
+    ![Notificación del progreso de la reprotección ](./media/azure-to-azure-tutorial-failover-failback/notification-reprotect-start.png) ![Notificación de reprotección correcta](./media/azure-to-azure-tutorial-failover-failback/notification-reprotect-finish.png)
+    
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Después de la reprotección, [obtenga información](azure-to-azure-tutorial-failback.md) sobre cómo conmutar por recuperación a la región primaria cuando esté disponible.
-- [Obtenga más información](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) sobre el flujo de reprotección.
+
+En este tutorial, ha realizado una conmutación por error desde la región primaria a la secundaria y ha empezado a replicar las máquinas virtuales en la región primaria. Ahora puede realizar una conmutación por recuperación desde la región secundaria a la primaria.
+
+> [!div class="nextstepaction"]
+> [Conmutación por recuperación a la región principal](azure-to-azure-tutorial-failback.md)

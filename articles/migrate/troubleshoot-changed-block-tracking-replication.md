@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314726"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377266"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solución de problemas de replicación en la migración de máquinas virtuales VMware sin agente
 
@@ -29,11 +29,16 @@ En ocasiones, es posible que vea errores en los ciclos de replicación de una m�
 Siga los pasos que se indican a continuación para supervisar el estado de replicación de las máquinas virtuales:
 
   1. Vaya a la página Servidores de Azure Migrate en Azure Portal.
-  2. Para ir a la página "Replicación de máquinas", haga clic en "Replicando servidores" en el icono de migración del servidor.
-  3. Verá una lista de servidores de replicación junto con información adicional, como el estado, el mantenimiento, la hora de la última sincronización, etc. La columna health (mantenimiento) indica el estado de replicación actual de la máquina virtual. Un valor "Crítical" (Crítico) o "Warning" (Advertencia) en la columna se estado suele indicar que se produjo un error en el ciclo de replicación anterior de la máquina virtual. Para obtener más información, haga clic con el botón derecho en la máquina virtual y seleccione "Error Details" (Detalles del error). La página "Error Details" (Detalles del error) contiene información sobre el error y detalles adicionales sobre cómo solucionar problemas. También verá un vínculo "Recent Events" (Eventos recientes) que se puede usar para ir a la página de eventos de la máquina virtual.
-  4. Haga clic en "Recent Events" (Eventos recientes) para ver los errores anteriores del ciclo de replicación para la máquina virtual. En la página de eventos, busque el más reciente del tipo "Replication cycle failed" (Error en el ciclo de replicación) o "Replication cycle failed for disk" (Error en el ciclo de replicación para el disco) para la máquina virtual.
-  5. Haga clic en el evento para conocer las posibles causas del error y los pasos de corrección recomendados. Utilice la información proporcionada para solucionar problemas y corregir el error.
-    
+  ![Imagen 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
+  1. Para ir a la página "Replicación de máquinas", haga clic en "Replicando servidores" en el icono de migración del servidor.
+  ![Imagen 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
+  1. Verá una lista de servidores de replicación junto con información adicional, como el estado, el mantenimiento, la hora de la última sincronización, etc. La columna health (mantenimiento) indica el estado de replicación actual de la máquina virtual. Un valor "Crítical" (Crítico) o "Warning" (Advertencia) en la columna se estado suele indicar que se produjo un error en el ciclo de replicación anterior de la máquina virtual. Para obtener más información, haga clic con el botón derecho en la máquina virtual y seleccione "Error Details" (Detalles del error). La página "Error Details" (Detalles del error) contiene información sobre el error y detalles adicionales sobre cómo solucionar problemas. También verá un vínculo "Recent Events" (Eventos recientes) que se puede usar para ir a la página de eventos de la máquina virtual.
+  ![Imagen 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. Haga clic en "Recent Events" (Eventos recientes) para ver los errores anteriores del ciclo de replicación para la máquina virtual. En la página de eventos, busque el más reciente del tipo "Replication cycle failed" (Error en el ciclo de replicación) o "Replication cycle failed for disk" (Error en el ciclo de replicación para el disco) para la máquina virtual.
+  ![Imagen 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
+  1. Haga clic en el evento para conocer las posibles causas del error y los pasos de corrección recomendados. Utilice la información proporcionada para solucionar problemas y corregir el error.
+ ![Imagen 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+
 ## <a name="common-replication-errors"></a>Errores de replicación comunes
 
 En esta sección se describen algunos de los errores comunes y cómo puede solucionarlos.

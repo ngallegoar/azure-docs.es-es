@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 235572cc4d697e7488765c464b12f9349c1e012b
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f5df8bccc10ca64ee9a04f195299c5228b7274c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994165"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356457"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Proveedores de Azure Monitor para soluciones de SAP (versión preliminar)
 
@@ -53,13 +53,24 @@ En la versión preliminar pública, los clientes deberían ver los datos siguien
 
 ![Proveedores de Azure Monitor para soluciones de SAP: clúster de alta disponibilidad](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
 
-Para configurar el proveedor de clúster de alta disponibilidad, debe llevar a cabo dos pasos principales: 
-1. Instale [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) en *cada nodo* del clúster de Pacemaker. 
-    - Los clientes pueden usar scripts de Azure Automation para implementar un clúster de alta disponibilidad. Los scripts instalarán [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) en cada nodo del clúster.  
-    - Los clientes también pueden realizar la instalación de forma manual mediante los pasos descritos en [esta página](https://github.com/ClusterLabs/ha_cluster_exporter). 
-2. Configure el proveedor de clúster de alta disponibilidad en *cada* nodo del clúster de Pacemaker.  
-  Para configurar el proveedor de clúster de alta disponibilidad, se necesita la dirección URL de Prometheus, el nombre del clúster, el nombre del host y el identificador del sistema.   
-  Se recomienda a los clientes configurar un proveedor por nodo del clúster.   
+Para configurar al proveedor de clúster de alta disponibilidad, se deben llevar a cabo dos pasos principales:
+
+1. Instale [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) en *cada nodo* del clúster de Pacemaker.
+
+   Tiene dos opciones para instalar ha_cluster_exporter:
+   
+   - Use scripts de Azure Automation para implementar un clúster de alta disponibilidad. Los scripts instalan [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) en cada nodo del clúster.  
+   - Realice una [instalación manual](https://github.com/ClusterLabs/ha_cluster_exporter#manual-clone--build). 
+
+2. Configure un proveedor de clúster de alta disponibilidad para *cada* nodo del clúster de Pacemaker.
+
+   Para configurar al proveedor de clústeres de alta disponibilidad, se requiere la siguiente información:
+   
+   - **Nombre**. Nombre del proveedor. Debe ser único para esta instancia Azure Monitor para soluciones de SAP.
+   - **Punto de conexión de Prometheus**. Normalmente, http\://\<servername or ip address\>:9664/metrics.
+   - **SID**. En el caso de los sistemas SAP, use el SID de SAP. En el caso de otros sistemas (por ejemplo, clústeres NFS), use un nombre de tres caracteres para el clúster. El SID debe ser distinto de otros clústeres que se vayan a supervisar.   
+   - **Nombre del clúster**. Nombre de clúster que se usó al crear el clúster. El nombre del clúster se puede encontrar en la propiedad `cluster-name` del clúster.
+   - **Hostname**. Nombre de host Linux de la máquina virtual.  
 
 ## <a name="provider-type-microsoft-sql-server"></a>Tipo de proveedor de Microsoft SQL Server
 

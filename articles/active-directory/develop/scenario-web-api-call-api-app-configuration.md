@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 993e1a513fae726e00a29c4b9927a0a039572f74
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4a888c3ad771e4a7edbd7110ba584050fe68e810
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365942"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443796"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>API web que llama a API web: Configuración del código
 
@@ -33,7 +33,7 @@ Microsoft recomienda usar el paquete NuGet [Microsoft.Identity.Web](https://www.
 
 ## <a name="client-secrets-or-client-certificates"></a>Secretos de cliente o certificados de cliente
 
-Dado que la API web ahora llama a una API web de nivel inferior, debe proporcionar un secreto de cliente o un certificado de cliente en el archivo *appsettings.json* . También puede agregar una sección que especifique:
+Dado que la API web ahora llama a una API web de nivel inferior, debe proporcionar un secreto de cliente o un certificado de cliente en el archivo *appsettings.json*. También puede agregar una sección que especifique:
 
 - La dirección URL de la API web de nivel inferior.
 - Los ámbitos necesarios para llamar a la API.
@@ -88,7 +88,7 @@ Microsoft.Identity.Web proporciona varias maneras de describir certificados, tan
 
 ## <a name="startupcs"></a>Startup.cs
 
-La API web tendrá que adquirir un token para la API de nivel inferior. Para especificarlo, agregue la línea `.EnableTokenAcquisitionToCallDownstreamApi()` después de `.AddMicrosoftIdentityWebApi(Configuration)`. Esta línea expone el servicio `ITokenAcquisition`, que puede usar en las acciones de controlador o páginas. Sin embargo, como verá en los dos puntos siguientes, puede hacer que sea más sencillo. También deberá elegir una implementación de la caché de tokens, por ejemplo `.AddInMemoryTokenCaches()`, en *Startup.cs* :
+La API web tendrá que adquirir un token para la API de nivel inferior. Para especificarlo, agregue la línea `.EnableTokenAcquisitionToCallDownstreamApi()` después de `.AddMicrosoftIdentityWebApi(Configuration)`. Esta línea expone el servicio `ITokenAcquisition`, que puede usar en las acciones de controlador o páginas. Sin embargo, como verá en los dos puntos siguientes, puede hacer que sea más sencillo. También deberá elegir una implementación de la caché de tokens, por ejemplo `.AddInMemoryTokenCaches()`, en *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -116,7 +116,7 @@ Si no desea adquirir el token por sí mismo, *Microsoft.Identity.Web* proporcion
 Si desea llamar a Microsoft Graph, Microsoft.Identity.Web le permite usar directamente `GraphServiceClient` (expuesto por el SDK de Microsoft Graph) en las acciones de la API. Para exponer Microsoft Graph:
 
 1. Agregue el paquete NuGet [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) al proyecto.
-1. Agregue `.AddMicrosoftGraph()` después de `.EnableTokenAcquisitionToCallDownstreamApi()` en el archivo *Startup.cs* . `.AddMicrosoftGraph()` tiene varias invalidaciones. Cuando se utiliza la invalidación que toma una sección de la configuración como parámetro, el código se convierte en:
+1. Agregue `.AddMicrosoftGraph()` después de `.EnableTokenAcquisitionToCallDownstreamApi()` en el archivo *Startup.cs*. `.AddMicrosoftGraph()` tiene varias invalidaciones. Cuando se utiliza la invalidación que toma una sección de la configuración como parámetro, el código se convierte en:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -164,7 +164,7 @@ public class Startup
 
 Al igual que con las aplicaciones web, puede elegir varias implementaciones de la caché de tokens. Para obtener más información, consulte [Microsoft.Identity.Web: Serialización de la caché de tokens](https://aka.ms/ms-id-web/token-cache-serialization) en GitHub.
 
-En la imagen siguiente se muestran las distintas posibilidades de *Microsoft.Identity.Web* y su impacto en el archivo *Startup.cs* :
+En la imagen siguiente se muestran las distintas posibilidades de *Microsoft.Identity.Web* y su impacto en el archivo *Startup.cs*:
 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagrama de bloques que muestra las opciones de configuración del servicio en startup punto c s para llamar a una API web y especificar una implementación de la caché de tokens":::
 
@@ -256,5 +256,4 @@ Para más información acerca del protocolo OBO, consulte [Plataforma de identid
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [API web que llama a las API web: adquisición de un token para la aplicación](scenario-web-api-call-api-acquire-token.md)
+Avance al siguiente artículo de este escenario, [Obtención de un token para la aplicación](scenario-web-api-call-api-acquire-token.md).

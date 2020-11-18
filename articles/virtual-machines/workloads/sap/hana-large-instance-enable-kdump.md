@@ -13,14 +13,20 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8f573f5f00d266fe5d27857cc9e244d136f61a5
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84488892"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379271"
 ---
-# <a name="enable-kdump-service"></a>Habilitar el servicio Kdump
+# <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump para SAP HANA en Azure (instancias grandes)
+
+La configuración y habilitación de Kdump es un paso necesario para solucionar los problemas de bloqueos del sistema que no tienen una causa evidente.
+Hay ocasiones en las que un sistema se bloquea inesperadamente, pero no se puede explicar con un problema de hardware o infraestructura.
+En estos casos, puede tratarse de un problema del sistema operativo o de la aplicación, y Kdump permitirá a SUSE determinar por qué se bloqueó un sistema.
+
+## <a name="enable-kdump-service"></a>Habilitar el servicio Kdump
 
 En este documento se describen los detalles sobre cómo habilitar el servicio Kdump en una instancia grande de HANA en Azure (**tipo I y tipo II**).
 
@@ -62,6 +68,10 @@ En este documento se describen los detalles sobre cómo habilitar el servicio Kd
 ## <a name="setup-details"></a>Detalles de la configuración
 
 - El script para habilitar Kdump se puede encontrar [aquí](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh).
+> [!NOTE]
+> Este script está basado en la configuración del laboratorio y se espera que el cliente se ponga en contacto con el proveedor del sistema operativo para cualquier optimización adicional.
+> Se va a aprovisionar un número de unidad lógica independiente para los servidores nuevos y existentes con el fin de guardar los volcados de memoria, y el script se encargará de configurar el sistema de archivos a partir del número de unidad lógica.
+> Microsoft no será responsable del análisis del volcado de memoria. El cliente tiene que abrir un vale con el proveedor del sistema operativo para que lo analice.
 
 - Ejecute este script en la instancia grande de HAN con el domando siguiente.
 
@@ -72,7 +82,7 @@ En este documento se describen los detalles sobre cómo habilitar el servicio Kd
     sudo bash enable-kdump.sh
     ```
 
-- Si el comando que genera Kdump está habilitado correctamente, reinicie el sistema para aplicar el cambio y, después, el Kdump se habilita correctamente. Reinicie el sistema para aplicar los cambios.
+- Si el comando que genera Kdump está habilitado correctamente, asegúrese de reiniciar el sistema para aplicar los cambios correctamente.
 
 - Si el resultado del comando no puede realizar una operación determinada, como Exiting!!!!, el servicio Kdump no está habilitado. Consulte la sección [Problema de soporte técnico](#support-issue).
 
@@ -104,3 +114,6 @@ Si el script produce un error o el Kdump no está habilitado, envíe una solicit
 * Versión del SO
 
 * Versión del kernel
+
+## <a name="related-documents"></a>Documentos relacionados
+- Para obtener más información sobre cómo [configurar Kdump](https://www.suse.com/support/kb/doc/?id=3374462)

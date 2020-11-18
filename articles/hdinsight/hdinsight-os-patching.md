@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 7b789bf01a043b167d6740f09df935d9b683c48f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447208"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357766"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configuración de la programación de aplicación de revisiones del SO para clústeres de HDInsight basado en Linux
 
@@ -64,7 +64,7 @@ El script `install-updates-schedule-reboots` acepta dos parámetros numéricos, 
 
 | Parámetro | Valores aceptados | Definición |
 | --- | --- | --- |
-| Tipo de actualizaciones que se van a instalar | 0, 1 o 2 | Un valor de 0 instala solo las actualizaciones del kernel. Un valor de 1 instala todas las actualizaciones y un valor de 2 solo instala las actualizaciones del kernel más las de seguridad. Si no se proporciona ningún parámetro, el predeterminado es 0. |
+| Tipo de actualizaciones que se van a instalar | 0, 1 o 2 | Un valor de 0 instala solo las actualizaciones del kernel. Un valor de 1 instala las actualizaciones de kernel y seguridad, y un valor de 2 instala todas las actualizaciones. Si no se proporciona ningún parámetro, el predeterminado es 0. |
 | Tipo de reinicio que se va a realizar | 0, 1 o 2 | Un valor de 0 deshabilita el reinicio. Un valor de 1 habilita el reinicio programado y un valor de 2 habilita el reinicio inmediato. Si no se proporciona ningún parámetro, el predeterminado es 0. El usuario debe cambiar el parámetro de entrada 1 por el parámetro de entrada 2. |
 
 > [!NOTE]

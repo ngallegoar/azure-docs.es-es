@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d1ca6d37d6133786aff7ad3156fea2a0c22dfb97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186379"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375806"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>Creación de una aplicación en la nube
 
@@ -18,7 +18,7 @@ ms.locfileid: "67186379"
     ![Creación de dispositivo de nube de StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. En la hoja **Crear aplicación de nube**, especifique los detalles siguientes.
    
-    ![Creación de dispositivo de nube de StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
+    ![Creación de dispositivo de nube de StorSimple 2](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Nombre**: un nombre único para la aplicación de nube.
    2. **Modelo**: elija el modelo de la aplicación de nube. Un dispositivo 8010 ofrece 30 TB de Standard Storage, mientras que 8020 tiene 64 TB de Premium Storage. Especifique 8010 para implementar escenarios de recuperación de nivel de elemento a partir de copias de seguridad. Seleccione 8020 para implementar cargas de trabajo de baja latencia y alto rendimiento o de uso como un dispositivo secundario para recuperación ante desastres.

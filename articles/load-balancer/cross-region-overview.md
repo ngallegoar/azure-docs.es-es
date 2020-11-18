@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336537"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398018"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Equilibrador de carga entre regiones (versión preliminar)
 
@@ -45,7 +45,7 @@ La configuración de direcciones IP de front-end del equilibrador de carga entre
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagrama del equilibrador de carga entre regiones." border="true":::
 
 > [!NOTE]
-> El puerto de carga de back-end donde la regla de equilibrio del equilibrador de carga entre regiones debe coincidir con el puerto de front-end de la regla de equilibrio de carga o la regla NAT de entrada de la instancia de Standard Load Balancer regional. 
+> El puerto de back-end de la regla de equilibrio de carga del equilibrador de carga entre regiones debe coincidir con el puerto de front-end de la regla de equilibrio de carga o la regla NAT de entrada de la instancia de Standard Load Balancer regional. 
 
 ### <a name="regional-redundancy"></a>Redundancia regional
 
@@ -55,7 +55,7 @@ Si se produce un error en una región, el tráfico se enruta al siguiente equili
 
 El sondeo de estado del equilibrador de carga entre regiones recopila información sobre la disponibilidad cada 20 segundos. Si la disponibilidad de un equilibrador de carga regional baja a 0, el equilibrador de carga entre regiones detectará el error. A continuación, el equilibrador de carga regional se excluye de la rotación. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama del equilibrador de carga entre regiones." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama de la vista del tráfico de la región global." border="true":::
 
 ### <a name="ultra-low-latency"></a>Latencia ultrabaja
 

@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232315"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394737"
 ---
 # <a name="email-notifications-in-pim"></a>Notificaciones por correo electrónico en PIM
 
@@ -79,10 +79,13 @@ En la sección **Información general de los roles principales** figuran los cin
 
 ## <a name="email-timing-for-activation-approvals"></a>Temporización del correo electrónico en las aprobaciones de activación
 
-Cuando los usuarios activan su rol y la configuración de este requiere aprobación, los aprobadores recibirán tres correos electrónicos para cada aprobación:
+Cuando los usuarios activan su rol y la configuración de este requiere aprobación, los aprobadores recibirán dos correos electrónicos para cada aprobación:
 
 - Solicitud para aprobar o denegar la solicitud de activación del usuario (enviada por el motor de aprobación de solicitudes)
 - Se ha aprobado la solicitud del usuario (enviada por el motor de aprobación de solicitudes)
+
+Además, los administradores globales y los administradores de roles con privilegios reciben un correo electrónico para cada aprobación:
+
 - Se ha activado el rol del usuario (enviado por Privileged Identity Management)
 
 Los dos primeros correos electrónicos enviados por el motor de aprobación de solicitudes pueden enviarse con retraso. Actualmente, el 90 % de los mensajes de correo electrónico tardan entre tres y diez minutos, pero en un 1 % de los clientes este tiempo puede alargarse hasta quince minutos.

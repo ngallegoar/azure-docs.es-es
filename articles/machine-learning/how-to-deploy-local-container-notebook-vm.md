@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 1767f149d9935c86281c7b7be3e684aa82a603f9
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 05d810928a71aec0e3314c32051e5f3565413564
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999053"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444612"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implementación de un modelo en instancias de proceso de Azure Machine Learning
 
@@ -63,7 +63,7 @@ Para enviar datos de ejemplo al servicio en ejecución, use el código siguiente
 > [!NOTE]
 > Al autenticarse en una implementación en la instancia de proceso, la autenticación se realiza mediante Azure Active Directory. La llamada a `interactive_auth.get_authentication_header()` en el código de ejemplo se autentica mediante AAD y devuelve un encabezado que se puede usar para autenticarse en el servicio en la instancia de proceso. Para obtener más información, consulta el artículo [Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning](how-to-setup-authentication.md#interactive-authentication).
 >
-> Al autenticarse en una implementación en Azure Kubernetes Service o Azure Container Instances, se usa un método de autenticación diferente. Para obtener más información, consulte el artículo [Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning](how-to-setup-authentication.md#web-service-authentication).
+> Al autenticarse en una implementación en Azure Kubernetes Service o Azure Container Instances, se usa un método de autenticación diferente. Para obtener más información, consulte [Configuración de la autenticación para modelos de Azure Machine Learning implementados como servicios web](how-to-authenticate-web-service.md).
 
 ```python
 import requests

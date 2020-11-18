@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 94074c2c5e11187252084832e5a20a197f6723fd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321720"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359823"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de la versión: servicios de datos habilitados para Azure Arc (versión preliminar)
 
@@ -90,7 +90,7 @@ Para obtener instrucciones, consulte [¿Qué son los servicios de datos habilita
 
 - La versión preliminar no admite la copia de seguridad y restauración del motor de PostgreSQL versión 11. Solo admite la copia de seguridad y restauración de la versión 12 de PostgreSQL.
 - `azdata arc dc debug copy-logs` no recopila los registros del motor de PostgreSQL en Windows.
-- Al volver a crear un grupo de servidores con el nombre de uno que se acaba de eliminar, se puede producir un error o un bloqueo. 
+- Al volver a crear un grupo de servidores con el nombre de uno que se acaba de eliminar, se puede producir un error o la aplicación puede dejar de responder. 
    - **Solución alternativa** No vuelva a usar el mismo nombre al volver a crear un grupo de servidores o espere al servicio externo o al equilibrador de carga de un grupo de servidores eliminado previamente. Si se da por hecho que el nombre del grupo de servidores que ha eliminado era `postgres01` y que se hospedaba en un espacio de nombres `arc`, antes de volver a crear un grupo de servidores con el mismo nombre, espere hasta que `postgres01-external-svc` no aparezca en la salida del comando kubectl `kubectl get svc -n arc`.
  - La página Información general y la página de configuración Proceso y almacenamiento de Azure Data Studio se cargan lentamente. 
 

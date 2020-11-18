@@ -1,7 +1,7 @@
 ---
 title: Movimiento de datos en canalizaciones de Machine Learning
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre la entrada y salida de datos en las canalizaciones Azure Machine Learning.
+description: Obtenga información sobre cómo las canalizaciones de Azure Machine Learning ingieren datos, y sobre cómo administrar y migrar datos entre pasos de canalización.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: d96f5c0b6b1bb4a38724f53de68c9aad6608b258
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperfq4, devx-track-python, data4ml
+ms.openlocfilehash: bf5bfd8c2047764f9a03889c8fdd5012dc38ab65
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316588"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359772"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 

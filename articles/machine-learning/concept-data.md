@@ -1,7 +1,7 @@
 ---
 title: Acceso seguro a datos en la nube
 titleSuffix: Azure Machine Learning
-description: Obtenga información acerca de cómo conectarse de forma segura a los datos en Azure Machine Learning y cómo usar conjuntos de datos y almacenes de datos para tareas de Machine Learning. Los almacenes de datos pueden almacenar datos de blobs de Azure, Azure Data Lake Gen 1 y 2, bases de datos SQL y Azure Databricks.
+description: Obtenga información acerca de cómo conectarse de manera segura al almacenamiento de datos en Azure con los conjuntos de datos y almacenes de datos de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322244"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360180"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acceso seguro a datos en Azure Machine Learning
 

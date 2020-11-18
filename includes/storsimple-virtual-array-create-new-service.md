@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bdbfd8ffd44f9515ae4df20c55b09c8a0adcaef
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507168"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375998"
 ---
 #### <a name="to-create-a-new-service"></a>Para crear un nuevo servicio
 
@@ -45,7 +45,7 @@ ms.locfileid: "87507168"
 
     7.  Haga clic en **Crear** para crear el Administrador de dispositivos de StorSimple.
 
-        ![Creación de un servicio](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
+        ![Creación de un nuevo servicio 2](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 Se le dirige a la página de destino del **Servicio**. Se tarda unos minutos en crear el servicio. Después de que el servicio se cree correctamente, se le notificará de forma adecuada y el estado del servicio cambiará a **Activo**.
 
