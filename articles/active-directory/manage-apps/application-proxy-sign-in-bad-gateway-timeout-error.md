@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18c3b0397a0ad3e9e368d1a14e20a999ced5545b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0339e9f7688555b4d99c2d3255461b5675f642ff
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88690279"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649558"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Error "Can't Access this Corporate Application" al usar una aplicación de Proxy de aplicación
 
@@ -87,7 +87,7 @@ Compruebe que todos los puertos necesarios estén abiertos. Para los puertos nec
 
 ## <a name="check-for-other-connector-errors"></a>Búsqueda de otros errores de los conectores
 
-Si el problema no se resuelve con ninguno de los pasos anteriores, el paso siguiente consiste en buscar problemas o errores en el propio conector. En el [documento de solución de problemas](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors) encontrará algunos errores comunes.
+Si el problema no se resuelve con ninguno de los pasos anteriores, el paso siguiente consiste en buscar problemas o errores en el propio conector. En el [documento de solución de problemas](./application-proxy-troubleshoot.md#connector-errors) encontrará algunos errores comunes.
 
 También puede buscar directamente en los registros del conector para identificar los errores. Muchos de los mensajes de error incluyen recomendaciones específicas para la corrección. Para ver los registros, consulte la [documentación sobre los conectores](application-proxy-connectors.md#under-the-hood).
 

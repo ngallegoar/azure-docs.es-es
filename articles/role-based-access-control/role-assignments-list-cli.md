@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 027cd8eb9c855afb845b08ce6aada7ddfd44daba
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e44437bb926e8d2d1ffcd3134bbc63538a112ff0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147018"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648317"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>Enumeración de asignaciones de roles de Azure mediante la CLI de Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "93147018"
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- [Bash en Azure Cloud Shell](/azure/cloud-shell/overview) o [CLI de Azure](/cli/azure)
+- [Bash en Azure Cloud Shell](../cloud-shell/overview.md) o [CLI de Azure](/cli/azure)
 
 ## <a name="list-role-assignments-for-a-user"></a>Lista de las asignaciones de rol de un usuario
 
@@ -42,7 +42,7 @@ az role assignment list --assignee {assignee}
 
 De forma predeterminada, se mostrarán únicamente las asignaciones de roles para la suscripción actual. Para ver las asignaciones de roles de la suscripción actual y anteriores, agregue el parámetro `--all`. Para ver las asignaciones de roles heredadas, agregue el parámetro `--include-inherited`.
 
-En el ejemplo siguiente, se muestran las asignaciones de roles asignadas directamente al usuario *patlong\@contoso.com* :
+En el ejemplo siguiente, se muestran las asignaciones de roles asignadas directamente al usuario *patlong\@contoso.com*:
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json --query '[].{principalName:principalName, roleDefinitionName:roleDefinitionName, scope:scope}'
@@ -71,7 +71,7 @@ Para mostrar las asignaciones de roles de un ámbito de grupo de recursos, utili
 az role assignment list --resource-group {resourceGroup}
 ```
 
-En el ejemplo siguiente se muestran las asignaciones de roles del grupo de recursos *pharma-sales* :
+En el ejemplo siguiente se muestran las asignaciones de roles del grupo de recursos *pharma-sales*:
 
 ```azurecli
 az role assignment list --resource-group pharma-sales --output json --query '[].{principalName:principalName, roleDefinitionName:roleDefinitionName, scope:scope}'

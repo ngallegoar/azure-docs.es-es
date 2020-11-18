@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: 1267f040b13184f50c9d98fe0fb13fb24db0f4f7
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: fd3c8a08e5512d15be4dfb26ca3eff151d08386f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026843"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651369"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Uso de listas de seguimiento de Azure Sentinel
 
@@ -38,12 +38,12 @@ Algunos escenarios habituales para usar listas de seguimiento son:
     > [!div class="mx-imgBorder"]
     > ![nueva lista de seguimiento](./media/watchlists/sentinel-watchlist-new.png)
 
-1. En la página **General** , proporcione el nombre, la descripción y el alias de la lista de seguimiento y, a continuación, seleccione **Siguiente**.
+1. En la página **General**, proporcione el nombre, la descripción y el alias de la lista de seguimiento y, a continuación, seleccione **Siguiente**.
 
     > [!div class="mx-imgBorder"]
     > ![página general de la lista de seguimiento](./media/watchlists/sentinel-watchlist-general.png)
 
-1. En la página **Origen** , seleccione el tipo de conjunto de archivos, cargue un archivo y, a continuación, seleccione **Siguiente**.
+1. En la página **Origen**, seleccione el tipo de conjunto de archivos, cargue un archivo y, a continuación, seleccione **Siguiente**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="página de origen de la lista de seguimiento" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
 
@@ -89,6 +89,5 @@ Para obtener una lista de los alias de las listas de seguimiento, en Azure Porta
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, aprendió a usar las listas de seguimiento en Azure Sentinel para enriquecer los datos y mejorar las investigaciones. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
+- Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
-

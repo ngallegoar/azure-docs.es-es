@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: troubleshooting
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8730ac8aa6a6056db67613f2ac8decf11740c467
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d114896319929a0506f0201905d72d081b6408a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373580"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650520"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Solución de problemas de grupos
 
@@ -43,19 +43,19 @@ Para deshabilitar la creación de grupos para usuarios no administradores en Pow
    ```
 
 <br/>**He recibido un error de grupos máximos permitidos al intentar crear un grupo dinámico en PowerShell**<br/>
-Si recibe un mensaje en PowerShell que indica que _se ha alcanzado el número máximo de grupos permitidos de directivas de grupos dinámicos_ , significa que se ha alcanzado el límite máximo de grupos dinámicos en la organización. El número máximo de grupos dinámicos por organización es 5000.
+Si recibe un mensaje en PowerShell que indica que _se ha alcanzado el número máximo de grupos permitidos de directivas de grupos dinámicos_, significa que se ha alcanzado el límite máximo de grupos dinámicos en la organización. El número máximo de grupos dinámicos por organización es 5000.
 
 Para crear grupos dinámicos, primero debe eliminar algunos grupos dinámicos existentes. No hay ninguna forma de aumentar el límite.
 
 ## <a name="troubleshooting-dynamic-memberships-for-groups"></a>Solución de problemas relacionados con las pertenencias dinámicas para grupos
 
-**He configurado una regla en un grupo pero las pertenencias no se actualizan en el grupo** .<br/>
+**He configurado una regla en un grupo pero las pertenencias no se actualizan en el grupo**.<br/>
 1. Compruebe los valores de los atributos de usuario o dispositivo de la regla. Asegúrese de que haya usuarios que cumplen la regla. En el caso de los dispositivos, compruebe las propiedades de estos para asegurarse de que los atributos sincronizados contienen los valores esperados.<br/>
 2. Compruebe el estado de procesamiento de la pertenencia para confirmar que está completa. Puede comprobar el [estado de procesamiento de la pertenencia](groups-create-rule.md#check-processing-status-for-a-rule) y la última fecha actualizada en la página **Información general** del grupo.
 
 Si todo es correcto, el grupo tardará un poco en rellenarse. Dependiendo del tamaño de la organización de Azure AD, el grupo puede tardar hasta 24 horas en rellenarse por primera vez o después de un cambio de la regla.
 
-**He configurado una regla, pero ahora se han quitado los miembros existentes de la regla** .<br/>Este es el comportamiento esperado. Los miembros existentes del grupo se quitan cuando una regla se habilita o se cambia. Los usuarios devueltos tras la evaluación de la regla se agregan como miembros al grupo.
+**He configurado una regla, pero ahora se han quitado los miembros existentes de la regla**.<br/>Este es el comportamiento esperado. Los miembros existentes del grupo se quitan cuando una regla se habilita o se cambia. Los usuarios devueltos tras la evaluación de la regla se agregan como miembros al grupo.
 
 **No veo los cambios en la pertenencia al instante cuando agrego o cambio una regla, ¿por qué pasa esto?**<br/>La evaluación de pertenencia dedicada se realiza periódicamente en un proceso asincrónico en segundo plano. La duración del proceso viene determinada por el número de usuarios del directorio y el tamaño del grupo creado como resultado de la regla. Normalmente, los directorios con un número pequeño de usuarios verán los cambios en la pertenencia al grupo en unos pocos minutos. Los directorios con un gran número de usuarios pueden tardar 30 minutos o más en completarse.
 

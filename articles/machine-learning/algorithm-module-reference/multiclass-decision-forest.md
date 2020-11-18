@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: e22881a904ed33214e90604d71489d8691fe820b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1be66bdd8a1cf25a32ad3102d770078c904c4b6c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883251"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376832"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo sobre el bosque de decisión multiclase
 
@@ -59,7 +59,7 @@ El clasificador del bosque de decisión en Azure Machine Learning consta de un
 
 5. **Número de árboles de decisión**: escriba el número máximo de árboles de decisión que se pueden crear en el conjunto. Si crea más árboles de decisión, puede obtener potencialmente mejor cobertura, pero puede aumentar el tiempo de entrenamiento.
 
-    Este valor también controla el número de árboles que se muestran en los resultados al visualizar el modelo entrenado. Para ver o imprimir un único árbol, puede establecer el valor en 1; sin embargo, esto significa que solo se puede producir un único árbol (el árbol con el conjunto inicial de parámetros) y que no se realizan más iteraciones.
+    Si establece el valor en 1; sin embargo, esto significa que solo se puede producir un único árbol (el árbol con el conjunto inicial de parámetros) y que no se realizan más iteraciones.
 
 6. **Profundidad máxima de los árboles de decisión**: escriba un número para limitar la profundidad máxima de cualquier árbol de decisión. Al aumentar la profundidad del árbol podría aumentar la precisión, a riesgo de que se produzca un sobreajuste y aumente el tiempo de entrenamiento.
 

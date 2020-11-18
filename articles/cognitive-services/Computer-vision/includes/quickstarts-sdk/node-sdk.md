@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 9c0ed50cc0f7ef3580d1441fe2f361065e6f8524
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b6c879d126b0c16f2dc6ceb41a1dfcc3ecf6a2d5
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886740"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94639628"
 ---
 <a name="HOLTop"></a>
 
@@ -215,7 +215,7 @@ Defina la función auxiliar `describeType`:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
-## <a name="extract-text-ocr-with-read"></a>Extraer texto (OCR) con lectura
+## <a name="read-printed-and-handwritten-text"></a>Lectura de texto manuscrito e impreso
 
 Computer Vision puede leer texto visible de una imagen y convertirlo en un flujo de caracteres. Este ejemplo utiliza las operaciones de lectura.
 

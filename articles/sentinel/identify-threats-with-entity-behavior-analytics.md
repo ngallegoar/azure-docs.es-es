@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: d3c0ba55541baf3f31952b82a2fa357b48a5f1a9
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148361"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425939"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificación de amenazas avanzadas con el Análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel
 
@@ -30,7 +30,7 @@ ms.locfileid: "93148361"
 >    - Región Oeste de Europa
 >    - Zonas geográficas de Australia
 >
-> - En todas las demás regiones y zonas geográficas, estas características permanecen en **versión preliminar pública** y se proporcionan sin Acuerdo de Nivel de Servicio. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> - En todas las demás regiones y regiones geográficas, estas características permanecen en **VERSIÓN PRELIMINAR**. Consulte [**Términos de uso complementarios para las Versiones preliminares de Microsoft Azure**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>¿Qué es el Análisis de comportamiento de usuarios y entidades (UEBA)?
 
@@ -109,7 +109,7 @@ En Azure Sentinel se identifican actualmente los siguientes tipos de entidades:
 
 ### <a name="entity-pages"></a>Páginas de entidad
 
-Cuando se encuentra cualquier entidad (actualmente limitada a usuarios y hosts) en una búsqueda, una alerta o una investigación, puede seleccionar la entidad y llevarla a una **página de entidad** , una hoja de datos llena de información útil sobre esa entidad. Entre los tipos de información que encontrará en esta página se incluyen datos básicos sobre la entidad, una escala de tiempo de eventos importantes relacionados con esta entidad y conclusiones sobre el comportamiento de la entidad.
+Cuando se encuentra cualquier entidad (actualmente limitada a usuarios y hosts) en una búsqueda, una alerta o una investigación, puede seleccionar la entidad y llevarla a una **página de entidad**, una hoja de datos llena de información útil sobre esa entidad. Entre los tipos de información que encontrará en esta página se incluyen datos básicos sobre la entidad, una escala de tiempo de eventos importantes relacionados con esta entidad y conclusiones sobre el comportamiento de la entidad.
  
 Las páginas de entidad constan de tres partes:
 - El panel de la izquierda contiene la información de identificación de la entidad, recopilada de los orígenes de datos, como Azure Active Directory, Azure Monitor, Azure Security Center y Microsoft Defender.
@@ -124,7 +124,7 @@ Las páginas de entidad constan de tres partes:
 
 La escala de tiempo es una parte importante de la contribución de la página de entidad al análisis del comportamiento en Azure Sentinel. Presenta una historia sobre eventos relacionados con la entidad, lo que le ayuda a comprender la actividad de la entidad dentro de un período de tiempo específico.
 
-Puede elegir el **intervalo de tiempo** entre varias opciones preestablecidas (como *últimas 24 horas* ) o establecerlo en cualquier período de tiempo definido de forma personalizada. Además, puede establecer filtros que limiten la información de la escala de tiempo a tipos específicos de eventos o alertas.
+Puede elegir el **intervalo de tiempo** entre varias opciones preestablecidas (como *últimas 24 horas*) o establecerlo en cualquier período de tiempo definido de forma personalizada. Además, puede establecer filtros que limiten la información de la escala de tiempo a tipos específicos de eventos o alertas.
 
 En la escala de tiempo se incluyen los siguientes tipos de elementos:
 

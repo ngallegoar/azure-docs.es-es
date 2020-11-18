@@ -10,27 +10,27 @@ editor: ''
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/27/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: kakern
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7b74fe368e10a0cd6ee63196d4330c456d56ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: db07f18b97936389d9b2360f7d4476c67d9f284a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374072"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646906"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nombres de productos e identificadores del plan de servicio para licencias
 
-Cuando administra licencias en [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) o el [Centro de administración de Microsoft 365](https://admin.microsoft.com), se muestran nombres de productos del tipo *Office 365 E3* . Al usar los cmdlets de PowerShell v1.0, el mismo producto se identifica con un nombre específico, pero menos descriptivo: *ENTERPRISEPACK* . Y si usa los cmdlets de PowerShell v2.0 o Microsoft Graph, el mismo producto se identifica con un valor GUID: *6fd2c87f-b296-42f0-b197-1e91e994b900* . En la tabla siguiente se enumeran los productos de Microsoft Online Services más usados y se proporcionan los distintos valores de identificador. Estas tablas tienen fines de referencia y solo son precisas a partir de la fecha de la última actualización de este artículo. Microsoft no planea actualizarlas periódicamente para servicios recién agregados.
+Cuando administra licencias en [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) o el [Centro de administración de Microsoft 365](https://admin.microsoft.com), se muestran nombres de productos del tipo *Office 365 E3*. Al usar los cmdlets de PowerShell v1.0, el mismo producto se identifica con un nombre específico, pero menos descriptivo: *ENTERPRISEPACK*. Y si usa los cmdlets de PowerShell v2.0 o Microsoft Graph, el mismo producto se identifica con un valor GUID: *6fd2c87f-b296-42f0-b197-1e91e994b900*. En la tabla siguiente se enumeran los productos de Microsoft Online Services más usados y se proporcionan los distintos valores de identificador. Estas tablas tienen fines de referencia y solo son precisas a partir de la fecha de la última actualización de este artículo. Microsoft no planea actualizarlas periódicamente para servicios recién agregados.
 
-- **Nombre de producto** : Se usa en los portales de administración
-- **Identificador de cadena** : Lo usan los cmdlets de PowerShell v1.0 al realizar operaciones en licencias
-- **GUID** : GUID usado por Microsoft Graph API
-- **Planes de servicio incluidos** : lista de planes de servicio del producto que corresponden al identificador de cadena y al GUID
+- **Nombre de producto**: Se usa en los portales de administración
+- **Identificador de cadena**: Lo usan los cmdlets de PowerShell v1.0 al realizar operaciones en licencias
+- **GUID**: GUID usado por Microsoft Graph API
+- **Planes de servicio incluidos**: lista de planes de servicio del producto que corresponden al identificador de cadena y al GUID
 - **Planes de servicio incluidos (nombres descriptivos)** : lista de planes de servicio (nombres descriptivos) del producto que corresponden al identificador de cadena y al GUID
 
 >[!NOTE]
@@ -150,7 +150,7 @@ Algunos productos contienen planes de servicio que no se pueden asignar al mismo
 -   SharePoint Online (Plan 2) entra en conflicto con SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) entra en conflicto con Exchange Online (Plan 1).
 
-Al utilizar licencias basadas en grupos, experimentará [esta condición de error](licensing-groups-resolve-problems.md#conflicting-service-plans). Al usar PowerShell, verá el error *MutuallyExclusiveViolation* .
+Al utilizar licencias basadas en grupos, experimentará [esta condición de error](licensing-groups-resolve-problems.md#conflicting-service-plans). Al usar PowerShell, verá el error *MutuallyExclusiveViolation*.
 
 En esta sección se muestran los planes de servicio más comunes, que se excluyen mutuamente, agrupados por tipo de servicio. Puede utilizar esta información para planear la implementación de licencias y evitar errores de asignación. Estas tablas tienen fines de referencia y solo son precisas a partir de la fecha de la última actualización de este artículo. Microsoft no planea actualizarlas periódicamente para servicios recién agregados.
 

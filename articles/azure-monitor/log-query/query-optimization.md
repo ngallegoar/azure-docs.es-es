@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203490"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411395"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimización de las consultas de registro en Azure Monitor
-Los registros de Azure Monitor usan [Azure Data Explorer (ADX)](/azure/data-explorer/) para almacenar los datos de registro y ejecutar consultas para analizar los datos. Crea, administra y mantiene los clústeres de ADX automáticamente y los optimiza para la carga de trabajo de análisis de registros. Al ejecutar una consulta, se optimiza y se redirige al clúster de ADX adecuado que almacena los datos del área de trabajo. Tanto los registros de Azure Monitor como Azure Data Explorer usan muchos mecanismos de optimización de consultas automática. Aunque las optimizaciones automáticas proporcionan un aumento significativo, en algunos casos se puede mejorar drásticamente el rendimiento de las consultas. En este artículo se explican las consideraciones de rendimiento y varias técnicas para corregirlas.
+Los registros de Azure Monitor usan [Azure Data Explorer (ADX)](/azure/data-explorer/) para almacenar los datos de registro y ejecutar consultas para analizar los datos. Crea, administra y mantiene los clústeres de ADX automáticamente y los optimiza para la carga de trabajo de análisis de registros. Al ejecutar una consulta, se optimiza y se redirige al clúster de ADX adecuado que almacena los datos del área de trabajo. Tanto los registros de Azure Monitor como Azure Data Explorer usan muchos mecanismos de optimización de consultas automática. Si bien las optimizaciones automáticas proporcionan un aumento significativo, en algunos casos se puede mejorar considerablemente el rendimiento de las consultas. En este artículo se explican las consideraciones de rendimiento y varias técnicas para corregirlas.
 
 La mayoría de las técnicas son comunes a las consultas que se ejecutan directamente en Azure Data Explorer y registros de Azure Monitor, aunque hay varias consideraciones únicas de registros de Azure Monitor que se describen aquí. Para obtener más información sobre las sugerencias de optimización de Azure Data Explorer, consulte [Procedimientos recomendados sobre las consultas](/azure/kusto/query/best-practices).
 
@@ -131,9 +131,9 @@ SecurityEvent
 
 Aunque algunos comandos de agregación, como [max()](/azure/kusto/query/max-aggfunction), [sum()](/azure/kusto/query/sum-aggfunction), [count()](/azure/kusto/query/count-aggfunction) y [avg()](/azure/kusto/query/avg-aggfunction), tienen un impacto bajo en la CPU debido a su lógica, otros son más complejos e incluyen heurística y estimaciones que les permiten ejecutarse de forma eficaz. Por ejemplo, [dcount()](/azure/kusto/query/dcount-aggfunction) usa el algoritmo HyperLogLog para proporcionar una estimación próxima para distinguir el recuento de grandes conjuntos de datos sin contar realmente cada valor; las funciones de percentil realizan aproximaciones similares mediante el algoritmo de percentil de clasificación más próximo. Algunos de los comandos incluyen parámetros opcionales para reducir su impacto. Por ejemplo, la función [makeset()](/azure/kusto/query/makeset-aggfunction) tiene un parámetro opcional para definir el tamaño máximo del conjunto, lo que afecta significativamente a la CPU y la memoria.
 
-Los comandos [Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) y [summarize](/azure/kusto/query/summarizeoperator) pueden provocar un uso intensivo de la CPU cuando se procesa un gran conjunto de datos. Su complejidad está directamente relacionada con el número de valores posibles, denominado *cardinalidad* , de las columnas que usan, como `by` en summarize o como los atributos join. Para obtener una explicación y una optimización de join y resume, consulte sus artículos de documentación y sugerencias de optimización.
+Los comandos [Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) y [summarize](/azure/kusto/query/summarizeoperator) pueden provocar un uso intensivo de la CPU cuando se procesa un gran conjunto de datos. Su complejidad está directamente relacionada con el número de valores posibles, denominado *cardinalidad*, de las columnas que usan, como `by` en summarize o como los atributos join. Para obtener una explicación y una optimización de join y resume, consulte sus artículos de documentación y sugerencias de optimización.
 
-Por ejemplo, las siguientes consultas producen exactamente el mismo resultado, porque **CounterPath** siempre tiene una asignación uno a uno para **CounterName** y **ObjectName** . La segunda es más eficaz, ya que la dimensión de agregación es más pequeña:
+Por ejemplo, las siguientes consultas producen exactamente el mismo resultado, porque **CounterPath** siempre tiene una asignación uno a uno para **CounterName** y **ObjectName**. La segunda es más eficaz, ya que la dimensión de agregación es más pequeña:
 
 ```Kusto
 //less efficient
@@ -318,14 +318,14 @@ SecurityEvent
 
 ## <a name="time-span-of-the-processed-query"></a>Intervalo de tiempo de la consulta procesada
 
-Todos los registros de Azure Monitor se dividen en particiones según la columna **TimeGenerated** . El número de particiones a las que se obtiene acceso está directamente relacionado con el intervalo de tiempo. La forma más eficaz de garantizar la ejecución de una consulta del símbolo del sistema consiste en reducir el intervalo de tiempo.
+Todos los registros de Azure Monitor se dividen en particiones según la columna **TimeGenerated**. El número de particiones a las que se obtiene acceso está directamente relacionado con el intervalo de tiempo. La forma más eficaz de garantizar la ejecución de una consulta del símbolo del sistema consiste en reducir el intervalo de tiempo.
 
 Si una consulta tiene un intervalo de tiempo superior a 15 días, se considera que consume demasiados recursos. Si una consulta tiene un intervalo de tiempo superior a 90 días, se considera abusiva y podría verse limitada.
 
 El intervalo de tiempo puede establecerse con el selector de intervalo de tiempo en la pantalla de Log Analytics tal como se describe en [Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor](scope.md#time-range). Se trata del método recomendado, ya que el intervalo de tiempo seleccionado se pasa al back-end mediante los metadatos de la consulta. 
 
 Un método alternativo consiste en incluir explícitamente una condición [where](/azure/kusto/query/whereoperator) en **TimeGenerated** en la consulta. Se debería usar este método, ya que se asegura que el intervalo de tiempo sea fijo, aunque la consulta se use desde una interfaz diferente.
-Debe asegurarse de que todas las partes de la consulta tengan filtros **TimeGenerated** . Cuando una consulta tiene subconsultas que capturan datos de diferentes tablas o de la misma, cada una tiene que incluir su propia condición [where](/azure/kusto/query/whereoperator).
+Debe asegurarse de que todas las partes de la consulta tengan filtros **TimeGenerated**. Cuando una consulta tiene subconsultas que capturan datos de diferentes tablas o de la misma, cada una tiene que incluir su propia condición [where](/azure/kusto/query/whereoperator).
 
 ### <a name="make-sure-all-sub-queries-have-timegenerated-filter"></a>Asegúrese de que todas las subconsultas tienen el filtro TimeGenerated
 
@@ -372,7 +372,7 @@ by Computer
 
 Otro ejemplo de este error es cuando se realiza el filtrado del ámbito de tiempo justo después de una [unión](/azure/kusto/query/unionoperator?pivots=azuremonitor) en varias tablas. Al realizar la unión, se debe definir el ámbito de cada subconsulta. Puede usar la instrucción [let](/azure/kusto/query/letstatement) para garantizar la coherencia del ámbito.
 
-Por ejemplo, la siguiente consulta examinará todos los datos de las tablas *Heartbeat* y *Perf* , no solo del último día:
+Por ejemplo, la siguiente consulta examinará todos los datos de las tablas *Heartbeat* y *Perf*, no solo del último día:
 
 ```Kusto
 Heartbeat 
@@ -414,7 +414,7 @@ Azure Data Explorer usa varias capas de almacenamiento: en memoria, discos SSD l
 Si una consulta procesa datos con más de 14 días de antigüedad, se considera que consume demasiados recursos.
 
 
-Mientras que algunas consultas requieren el uso de datos antiguos, hay casos en los que dichos datos se usan por error. Esto sucede cuando las consultas se ejecutan sin proporcionar el intervalo de tiempo en sus metadatos y no todas las referencias de tabla incluyen filtros en la columna **TimeGenerated** . En estos casos, el sistema digitalizará todos los datos que estén almacenados en esa tabla. Cuando la retención de datos es larga, puede abarcar intervalos de tiempo largos y, por lo tanto, aquellos datos que son tan antiguos como el período de retención de datos.
+Mientras que algunas consultas requieren el uso de datos antiguos, hay casos en los que dichos datos se usan por error. Esto sucede cuando las consultas se ejecutan sin proporcionar el intervalo de tiempo en sus metadatos y no todas las referencias de tabla incluyen filtros en la columna **TimeGenerated**. En estos casos, el sistema digitalizará todos los datos que estén almacenados en esa tabla. Cuando la retención de datos es larga, puede abarcar intervalos de tiempo largos y, por lo tanto, aquellos datos que son tan antiguos como el período de retención de datos.
 
 A continuación, se indican algunos ejemplos de dichos casos:
 

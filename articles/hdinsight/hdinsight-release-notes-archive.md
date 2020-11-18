@@ -8,18 +8,48 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: d8b36676c9b95992bdcf382c1f474b56e30ad3fb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3973e32fdc724bd3c0894d6aaf2eb06ad3ba3adc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535559"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629944"
 ---
 # <a name="archived-release-notes"></a>Archivado de notas de la versión
 
 ## <a name="summary"></a>Resumen
 
 Azure HDInsight es uno de los servicios más populares entre los clientes de empresa para el análisis de código abierto de Apache Hadoop y Apache Spark en Azure.
+
+## <a name="release-date-10082020"></a>Fecha de lanzamiento: 08/10/2020
+
+Esta versión se aplica a HDInsight 3.6 y HDInsight 4.0. La versión de HDInsight se pone a disposición de todas las regiones durante varios días. Esta fecha de lanzamiento indica la fecha de lanzamiento de la primera región. Si no ve los cambios siguientes, espere unos días a que la versión se active en su región.
+
+### <a name="new-features"></a>Nuevas características
+#### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>Clústeres privados de HDInsight sin dirección IP pública y vínculo privado (versión preliminar)
+HDInsight ahora admite la creación de clústeres sin una dirección IP pública y acceso de vínculo privado a los clústeres en la versión preliminar. Los clientes pueden usar la nueva configuración de red avanzada para crear un clúster totalmente aislado sin ninguna dirección IP pública y usar sus propios puntos de conexión privados para tener acceso al clúster. 
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Movimiento a conjuntos de escalado de máquinas virtuales
+Ahora HDInsight usa máquinas virtuales de Azure para aprovisionar el clúster. A partir de esta versión, el servicio se migrará gradualmente a [conjuntos de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/overview.md). Todo el proceso puede tardar meses. Después de migrar las regiones y las suscripciones, los clústeres de HDInsight recién creados se ejecutarán en conjuntos de escalado de máquinas virtuales sin acciones del cliente. No se espera ningún cambio importante.
+
+### <a name="deprecation"></a>Desuso
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Desuso del clúster de Machine Learning de HDInsight 3.6
+El soporte técnico del tipo de clúster de servicios de Machine Learning de HDInsight 3.6 finalizará el 31 de diciembre de 2020. Los clientes no crearán nuevos clústeres de servicios de Machine Learning 3.6 a partir de entonces. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Compruebe la expiración del soporte técnico de las versiones y los tipos de clúster de HDInsight [aquí](./hdinsight-component-versioning.md#available-versions).
+
+### <a name="behavior-changes"></a>Cambios de comportamiento
+No hay cambios de comportamiento en esta versión.
+
+### <a name="upcoming-changes"></a>Próximos cambios
+En las próximas versiones, se realizarán los siguientes cambios.
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Posibilidad de seleccionar diferentes tamaños de máquina virtual de Zookeeper para Spark, Hadoop y Machine Learning Services
+Actualmente, HDInsight no admite la personalización del tamaño de nodo de Zookeeper para los tipos de clúster de Spark, Hadoop y Machine Learning Services. De manera predeterminada, serán tamaños de máquina virtual A2_v2 o A2, que se proporcionan de forma gratuita. En la próxima versión, puede seleccionar el tamaño de máquina virtual de Zookeeper que sea más adecuado para su escenario. Se cobrarán los nodos de Zookeeper con un tamaño de máquina virtual que no sea A2_v2 o A2. Las máquinas virtuales A2_v2 y A2 todavía se proporcionan de forma gratuita.
+
+### <a name="bug-fixes"></a>Corrección de errores
+HDInsight continúa realizando mejoras en la confiabilidad y el rendimiento del clúster. 
+
+### <a name="component-version-change"></a>Cambio de versión de componentes
+No hay cambio de versión de componentes para esta versión. En [este documento](./hdinsight-component-versioning.md) puede encontrar las versiones actuales de los componentes para HDInsight 4.0 y HDInsight 3.6.
 
 ## <a name="release-date-09282020"></a>Fecha de lanzamiento: 28/09/2020
 
@@ -114,7 +144,7 @@ No hay cambio de versión de componentes para esta versión. En [este documento]
 
 ### <a name="known-issues"></a>Problemas conocidos
 
-Se ha corregido un problema de Azure Portal, en el que los usuarios experimentaban un error cuando creaban un clúster de Azure HDInsight mediante una autenticación de SSH de tipo clave pública. Cuando los usuarios hacían clic en **Revisar y crear** , recibían el error "No debe contener tres caracteres consecutivos del nombre de usuario de SSH". Este problema se ha corregido, pero es posible que deba actualizar la memoria caché del explorador; para ello, presione Ctrl + F5 para cargar la vista corregida. La solución a este problema consistió en crear un clúster con una plantilla de Resource Manager. 
+Se ha corregido un problema de Azure Portal, en el que los usuarios experimentaban un error cuando creaban un clúster de Azure HDInsight mediante una autenticación de SSH de tipo clave pública. Cuando los usuarios hacían clic en **Revisar y crear**, recibían el error "No debe contener tres caracteres consecutivos del nombre de usuario de SSH". Este problema se ha corregido, pero es posible que deba actualizar la memoria caché del explorador; para ello, presione Ctrl + F5 para cargar la vista corregida. La solución a este problema consistió en crear un clúster con una plantilla de Resource Manager. 
 
 ## <a name="release-date-07132020"></a>Fecha de lanzamiento: 13/07/2020
 
@@ -188,13 +218,13 @@ Se requiere una máquina virtual de 4 núcleos como mínimo para que el nodo pr
 #### <a name="cluster-worker-node-provisioning-change"></a>Cambio de aprovisionamiento del nodo de trabajo del clúster
 Cuando el 80 % de los nodos de trabajo están listos, el clúster entra en la fase **operativa**. En esta fase, los clientes pueden realizar todas las operaciones del plano de datos, como ejecutar scripts y trabajos. No obstante, no pueden realizar ninguna operación de plano de control, como el escalado o la reducción vertical. Solo se admite la eliminación.
  
-Después de la fase **operativa** , el clúster espera otros 60 minutos por el 20 % restante de los nodos de trabajo. Al final de esos 60 minutos, el clúster pasa a la fase de **ejecución** , incluso aunque todos los nodos de trabajo sigan sin estar disponibles. Una vez que un clúster entra en la fase de **ejecución** , se puede usar de la forma habitual. Se aceptan las operaciones del plan de control, como el escalado o la reducción vertical, y las operaciones del plan de datos, como la ejecución de scripts y trabajos. Si algunos de los nodos de trabajo solicitados no están disponibles, el clúster se marcará como correcto parcialmente. Se le cobrará por los nodos que se hayan implementado correctamente. 
+Después de la fase **operativa**, el clúster espera otros 60 minutos por el 20 % restante de los nodos de trabajo. Al final de esos 60 minutos, el clúster pasa a la fase de **ejecución**, incluso aunque todos los nodos de trabajo sigan sin estar disponibles. Una vez que un clúster entra en la fase de **ejecución**, se puede usar de la forma habitual. Se aceptan las operaciones del plan de control, como el escalado o la reducción vertical, y las operaciones del plan de datos, como la ejecución de scripts y trabajos. Si algunos de los nodos de trabajo solicitados no están disponibles, el clúster se marcará como correcto parcialmente. Se le cobrará por los nodos que se hayan implementado correctamente. 
  
 #### <a name="create-new-service-principal-through-hdinsight"></a>Creación de una entidad de servicio nueva a través de HDInsight
 Anteriormente, con la creación de un clúster, los clientes podían crear una nueva entidad de servicio para acceder a la cuenta de ADLS Gen 1 conectada en Azure Portal. A partir del 15 de junio de 2020, los clientes no pueden crear entidades de servicio en el flujo de trabajo de creación de HDInsight; tan solo se admite la entidad de servicio existente. Consulte [Creación de una entidad de servicio y certificados mediante Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="time-out-for-script-actions-with-cluster-creation"></a>Tiempo de espera para acciones de script con creación de clústeres
-HDInsight admite la ejecución de acciones de script con la creación de clústeres. A partir de esta versión, todas las acciones de script con creación de clústeres deben finalizar en **60 minutos** , o agotarán el tiempo de espera. Las acciones de script enviadas a los clústeres que se están ejecutando no se ven afectadas. Consulte más detalles [aquí](./hdinsight-hadoop-customize-cluster-linux.md#script-action-in-the-cluster-creation-process).
+HDInsight admite la ejecución de acciones de script con la creación de clústeres. A partir de esta versión, todas las acciones de script con creación de clústeres deben finalizar en **60 minutos**, o agotarán el tiempo de espera. Las acciones de script enviadas a los clústeres que se están ejecutando no se ven afectadas. Consulte más detalles [aquí](./hdinsight-hadoop-customize-cluster-linux.md#script-action-in-the-cluster-creation-process).
  
 ### <a name="upcoming-changes"></a>Próximos cambios
 No habrá cambios importantes que requieran su atención.
@@ -518,17 +548,17 @@ Apache Storm y los servicios de ML no están disponibles en HDInsight 4.0.
 
 Las nuevas actualizaciones y capacidades se dividen en las siguientes categorías:
 
-*  ***Actualización de Hadoop y otros proyectos de código abierto** : además de los más de 1000 errores solucionados en más de 20 proyectos de código abierto, esta actualización contiene una versión nueva de *Spark (2.3)* * y **Kafka (1.0)** .
+*  ***Actualización de Hadoop y otros proyectos de código abierto**: además de los más de 1000 errores solucionados en más de 20 proyectos de código abierto, esta actualización contiene una versión nueva de *Spark (2.3)* * y **Kafka (1.0)** .
 
     a.  [**Nuevas características en Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
     b.  [**Nuevas características en Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
-*  ***Actualización de R Server 9.1 a Machine Learning Services 9.3** : con esta versión, se proporciona a los científicos de datos y a los ingenieros lo mejor del código abierto, optimizado con innovaciones en los algoritmos y la facilidad de la operacionalización, todo ello disponible en el lenguaje que prefieran y con la velocidad de Apache Spark. Esta versión va más allá de las funcionalidades que se ofrecen en R Server, ya que añade compatibilidad con Python, lo que ha provocado el cambio del nombre del clúster de R Server a ML Services. 
+*  ***Actualización de R Server 9.1 a Machine Learning Services 9.3**: con esta versión, se proporciona a los científicos de datos y a los ingenieros lo mejor del código abierto, optimizado con innovaciones en los algoritmos y la facilidad de la operacionalización, todo ello disponible en el lenguaje que prefieran y con la velocidad de Apache Spark. Esta versión va más allá de las funcionalidades que se ofrecen en R Server, ya que añade compatibilidad con Python, lo que ha provocado el cambio del nombre del clúster de R Server a ML Services. 
 
-* **Compatibilidad con Azure Data Lake Storage Gen2** : HDInsight admitirá  la versión preliminar de Azure Data Lake Storage Gen2. En las regiones disponibles, los clientes podrán elegir una cuenta de ADLS Gen2 como almacén principal o secundario para sus clústeres de HDInsight.
+***Compatibilidad con Azure Data Lake Storage Gen2**: HDInsight admitirá  la versión preliminar de Azure Data Lake Storage Gen2. En las regiones disponibles, los clientes podrán elegir una cuenta de ADLS Gen2 como almacén principal o secundario para sus clústeres de HDInsight.
 
-* **Actualizaciones de HDInsight Enterprise Security Package (versión preliminar)** : (versión preliminar) los [puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md) admiten Azure Blob Storage, ADLS Gen1, Cosmos DB y Azure DB.
+***Actualizaciones de HDInsight Enterprise Security Package (versión preliminar)** : (versión preliminar) los [puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md) admiten Azure Blob Storage, ADLS Gen1, Cosmos DB y Azure DB.
 
 ### <a name="component-versions"></a>Versiones de componentes
 
@@ -1879,7 +1909,7 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
         
       En el ejemplo siguiente, creará la directiva con etiquetas como \`tags-test\` y la asignará al grupo \`public\` con la condición de directiva astags.attr\['type'\]=='abc' seleccionando todos los permisos de componente de Hive, como select, update, create, drop, alter, index, lock y all.
         
-      **Ejemplo** :
+      **Ejemplo**:
         
       ```bash
         curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'
@@ -1891,7 +1921,7 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
         
       Dirección URL de REST: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
         
-      **Ejemplo** :
+      **Ejemplo**:
         
       ```bash
         curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'

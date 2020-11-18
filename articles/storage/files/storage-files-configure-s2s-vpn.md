@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4d1d0f9e2a86da8213a9662b68c791a117dcc7fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fa3fb8040fd79d68f9260ab520d3b6823ab363d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515335"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629298"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configuración de una VPN de sitio a sitio para su uso con Azure Files
 Puede usar una conexión VPN de sitio a sitio (S2S) para montar los recursos compartidos de archivos de Azure a través de SMB desde su red local sin necesidad de abrir el puerto 445. Puede configurar una VPN de sitio a sitio mediante [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), que es un recurso de Azure que ofrece servicios VPN y se implementa en un grupo de recursos junto con las cuentas de almacenamiento u otros recursos de Azure.
@@ -30,7 +30,7 @@ En este artículo se detallan los pasos para configurar una VPN de sitio a sitio
 
 - Un dispositivo de red o un servidor en el centro de recursos local que sea compatible con Azure VPN Gateway. Azure Files es independiente del dispositivo de red local elegido, pero Azure VPN Gateway mantiene una [lista de los dispositivos probados](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Los diferentes dispositivos de red ofrecen distintas funciones, características de rendimiento y funcionalidades de administración, por lo que debe tenerlas en cuenta al seleccionar un dispositivo de red.
 
-    Si no tiene un dispositivo de red existente, Windows Server contiene un rol de servidor integrado, enrutamiento y acceso remoto (RRAS), que puede usarse como el dispositivo de red local. Para obtener más información acerca de cómo configurar el enrutamiento y acceso remoto en Windows Server, consulte [Puerta de enlace de RAS](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway).
+    Si no tiene un dispositivo de red existente, Windows Server contiene un rol de servidor integrado, enrutamiento y acceso remoto (RRAS), que puede usarse como el dispositivo de red local. Para obtener más información acerca de cómo configurar el enrutamiento y acceso remoto en Windows Server, consulte [Puerta de enlace de RAS](/windows-server/remote/remote-access/ras-gateway/ras-gateway).
 
 ## <a name="add-storage-account-to-vnet"></a>Incorporación de una cuenta de almacenamiento a una red virtual
 En Azure Portal, vaya a la cuenta de almacenamiento que contiene el recurso compartido de archivos de Azure que quiere montar en el entorno local. En la tabla de contenido de la cuenta de almacenamiento, seleccione la entrada **Firewalls y redes virtuales**. A menos que haya agregado una red virtual a su cuenta de almacenamiento al crearla, el panel resultante debe tener seleccionado el botón de radio **Permitir el acceso desde** para **Todas las redes**.

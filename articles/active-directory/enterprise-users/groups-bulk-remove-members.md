@@ -4,21 +4,21 @@ description: Quite los miembros del grupo en operaciones masivas en el centro de
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da3da152fa8d0f568ee0f4075dafb8da8c3bf8a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 83b905faa892cc338b5bdf4f998ad95f7b8a484e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373967"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650862"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Eliminación masiva de miembros de un grupo en Azure Active Directory
 
@@ -34,9 +34,9 @@ Descargue y rellene la plantilla CSV de carga masiva para agregar correctamente 
 
 Las filas de una plantilla CSV descargada son las siguientes:
 
-- **Número de versión** : la primera fila, que contiene el número de versión, debe estar incluida en el archivo CSV de carga.
-- **Encabezados de columna** : el formato de los encabezados de columna es &lt;*Nombre del elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones. En el caso de los cambios de pertenencia a grupos, puede elegir qué identificador usar: identificador de objeto de miembro o nombre principal de usuario.
-- **Fila de ejemplos** : en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe quitar la fila de ejemplos y reemplazarla por sus propias entradas.
+- **Número de versión**: la primera fila, que contiene el número de versión, debe estar incluida en el archivo CSV de carga.
+- **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre del elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones. En el caso de los cambios de pertenencia a grupos, puede elegir qué identificador usar: identificador de objeto de miembro o nombre principal de usuario.
+- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe quitar la fila de ejemplos y reemplazarla por sus propias entradas.
 
 ### <a name="additional-guidance"></a>Instrucciones adicionales
 
@@ -48,10 +48,10 @@ Las filas de una plantilla CSV descargada son las siguientes:
 ## <a name="to-bulk-remove-group-members"></a>Para quitar miembros de un grupo de forma masiva
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador de usuarios en la organización. Los propietarios de grupos también pueden quitar de forma masiva miembros de los grupos que poseen.
-1. En Azure AD, seleccione **Grupos** > **Todos los grupos** .
-1. Abra el grupo del que va a quitar miembros y luego seleccione **Miembros** .
-1. En la página **Miembros** , seleccione **Quitar miembros** .
-1. En la página **Eliminación masiva de los miembros del grupo** , seleccione **Descargar** para obtener la plantilla del archivo CSV con las propiedades de miembro de grupo requeridas.
+1. En Azure AD, seleccione **Grupos** > **Todos los grupos**.
+1. Abra el grupo del que va a quitar miembros y luego seleccione **Miembros**.
+1. En la página **Miembros**, seleccione **Quitar miembros**.
+1. En la página **Eliminación masiva de los miembros del grupo**, seleccione **Descargar** para obtener la plantilla del archivo CSV con las propiedades de miembro de grupo requeridas.
 
    ![El comando Quitar miembros está en la página de perfil del grupo](./media/groups-bulk-remove-members/remove-panel.png)
 
@@ -59,18 +59,18 @@ Las filas de una plantilla CSV descargada son las siguientes:
 
     :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="El archivo CSV contiene los nombres y los identificadores de los miembros que se quitarán":::.
 
-1. En la página **Eliminación masiva de los miembros del grupo** , en **Cargue el archivo csv** , vaya al archivo. Al seleccionar el archivo CSV, comienza su validación.
+1. En la página **Eliminación masiva de los miembros del grupo**, en **Cargue el archivo csv**, vaya al archivo. Al seleccionar el archivo CSV, comienza su validación.
 1. Cuando finalice la validación del contenido del archivo, aparecerá el mensaje **Archivo cargado correctamente** en la página de importación en bloque. Si hay errores, debe corregirlos para poder enviar el trabajo.
 1. Cuando el archivo supere la validación, seleccione **Enviar** para iniciar la operación masiva de Azure que quita los miembros del grupo.
 1. Cuando la operación de supresión finalice, verá una notificación que indicará que la operación masiva se realizó correctamente.
 
 ## <a name="check-removal-status"></a>Comprobación del estado de eliminación
 
-Puede ver el estado de todas las solicitudes masivas pendientes en la página **Resultados de la operación masiva** .
+Puede ver el estado de todas las solicitudes masivas pendientes en la página **Resultados de la operación masiva**.
 
 [![Comprobación del estado en la página Resultados de la operación masiva](./media/groups-bulk-remove-members/bulk-center.png)](./media/groups-bulk-remove-members/bulk-center.png#lightbox)
 
-Para obtener más información sobre cada elemento de línea de la operación masiva, seleccione los valores de las columnas **Número de elementos correctos** , **Número de errores** o **Total de solicitudes** . Si se produjeron errores, se mostrarán sus motivos.
+Para obtener más información sobre cada elemento de línea de la operación masiva, seleccione los valores de las columnas **Número de elementos correctos**, **Número de errores** o **Total de solicitudes**. Si se produjeron errores, se mostrarán sus motivos.
 
 ## <a name="bulk-removal-service-limits"></a>Límites del servicio de eliminación masiva
 

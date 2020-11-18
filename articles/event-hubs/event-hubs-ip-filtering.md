@@ -3,30 +3,20 @@ title: Reglas de firewall de Azure Event Hubs | Microsoft Docs
 description: Use las reglas de firewall para permitir las conexiones desde direcciones IP específicas a Azure Event Hubs.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 596d506c0c4f6d79696b3019fd903e549149c656
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e07f863bf8b7d5f64ec0ba04bf16fba12f4a785d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056215"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427452"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Permitir el acceso a los espacios de nombres de Azure Event Hubs desde intervalos o direcciones IP específicas
 Los espacios de nombres de Azure Event Hubs son accesibles de forma predeterminada desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Esta característica es útil en escenarios en los que Azure Event Hubs debe ser accesible únicamente desde ciertos sitios conocidos. Las reglas de firewall permiten configurar reglas para aceptar el tráfico procedente de direcciones IPv4 concretas. Por ejemplo, si usa Event Hubs con [Azure ExpressRoute][express-route], puede crear una **regla de firewall** para permitir el tráfico procedente única y exclusivamente de las direcciones IP de la infraestructura local. 
 
->[!IMPORTANT]
-> La activación de las reglas de firewall en el espacio de nombres de Event Hubs bloquea las solicitudes entrantes de forma predeterminada, a menos que las solicitudes se originen en un servicio que funciona desde direcciones IP públicas permitidas. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. 
->
-> Estos son algunos de los servicios que no pueden acceder a los recursos de Event Hubs cuando está habilitado el filtrado de IP. Tenga en cuenta que **NO** es una lista exhaustiva.
->
-> - Azure Stream Analytics
-> - Enrutamientos de Azure IoT Hub
-> - Azure IoT Device Explorer
-> - Azure Event Grid
-> - Azure Monitor (configuración de diagnósticos)
->
-> Como excepción, puede permitir el acceso a recursos de Event Hubs desde determinados servicios de confianza, aunque esté habilitado el filtrado de IP. Para obtener una lista de servicios de confianza, consulte [Servicios de confianza de Microsoft](#trusted-microsoft-services).
+>[!WARNING]
+> La activación de las reglas de firewall en el espacio de nombres de Event Hubs bloquea las solicitudes entrantes de forma predeterminada, a menos que las solicitudes se originen en un servicio que funciona desde direcciones IP públicas permitidas. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. Como excepción, puede permitir el acceso a recursos de Event Hubs desde determinados servicios de confianza, aunque esté habilitado el filtrado de IP. Para obtener una lista de servicios de confianza, consulte [Servicios de confianza de Microsoft](#trusted-microsoft-services).
 
 ## <a name="ip-firewall-rules"></a>Reglas de firewall de IP
 Las reglas de firewall de IP se aplican en el nivel del espacio de nombres de Event Hubs. Por lo tanto, las reglas se aplican a todas las conexiones de clientes que usan cualquier protocolo admitido. Cualquier intento de conexión desde una dirección IP que no coincida con una regla IP admitida en el espacio de nombres de Event Hubs se rechaza como no autorizado. La respuesta no menciona la regla IP. Las reglas de filtro IP se aplican en orden y la primera regla que coincida con la dirección IP determina la acción de aceptar o rechazar.
@@ -71,7 +61,7 @@ Parámetros de plantilla:
 
 > [!NOTE]
 > Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"** , que no restringe las conexiones.
-> Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor ***"defaultAction"***
+> Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor **_"defaultAction"_**
 > 
 > desde
 > ```json

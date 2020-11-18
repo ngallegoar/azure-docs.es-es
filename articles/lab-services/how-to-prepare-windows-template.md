@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396695"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647909"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guía para configurar una máquina de plantillas de Windows en Azure Lab Services
 
@@ -47,7 +47,7 @@ Write-Host "Installing OneDrive..."
 
 ### <a name="onedrive-customizations"></a>Personalizaciones de OneDrive
 
-Hay muchas [personalizaciones que se pueden aplicar en OneDrive](https://docs.microsoft.com/onedrive/use-group-policy). Vamos a abordar algunas de las personalizaciones más comunes.
+Hay muchas [personalizaciones que se pueden aplicar en OneDrive](/onedrive/use-group-policy). Vamos a abordar algunas de las personalizaciones más comunes.
 
 #### <a name="silently-move-windows-known-folders-to-onedrive"></a>Traslado silencioso de carpetas conocidas de Windows a OneDrive
 
@@ -61,7 +61,7 @@ Si se encuentra en una máquina que no usa Active Directory, los usuarios pueden
 
 Si la máquina virtual está conectada a Active Directory, puede establecer la máquina de plantillas para que solicite automáticamente a los alumnos que muevan las carpetas conocidas a OneDrive.  
 
-Primero deberá recuperar el identificador de la organización.  Para más instrucciones, consulte [Búsqueda del ID. de la organización de Microsoft 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  También puede obtener el identificador de la organización mediante el siguiente código de PowerShell.
+Primero deberá recuperar el identificador de la organización.  Para más instrucciones, consulte [Búsqueda del ID. de la organización de Microsoft 365](/onedrive/find-your-office-365-tenant-id).  También puede obtener el identificador de la organización mediante el siguiente código de PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -137,7 +137,7 @@ Si la máquina de plantillas necesita Office, se recomienda la instalación de O
 
 ### <a name="change-the-microsoft-365-update-channel"></a>Cambio de canal de actualización de Microsoft 365
 
-Con la Herramienta de configuración de Office, puede establecer la frecuencia con la que Office recibe actualizaciones. Sin embargo, si necesita modificar la frecuencia con la que Office recibe actualizaciones después de la instalación, puede cambiar la dirección URL del canal de actualización. Las direcciones URL del canal de actualización se encuentran en [Cambio del canal de actualización de Aplicaciones de Microsoft 365 en los dispositivos de la organización](https://docs.microsoft.com/deployoffice/change-update-channels). En el ejemplo siguiente se muestra cómo configurar Microsoft 365 para usar el canal de actualización mensual.
+Con la Herramienta de configuración de Office, puede establecer la frecuencia con la que Office recibe actualizaciones. Sin embargo, si necesita modificar la frecuencia con la que Office recibe actualizaciones después de la instalación, puede cambiar la dirección URL del canal de actualización. Las direcciones URL del canal de actualización se encuentran en [Cambio del canal de actualización de Aplicaciones de Microsoft 365 en los dispositivos de la organización](/deployoffice/change-update-channels). En el ejemplo siguiente se muestra cómo configurar Microsoft 365 para usar el canal de actualización mensual.
 
 ```powershell
 # Update to the Microsoft 365 Monthly Channel
@@ -188,7 +188,7 @@ También puede usar PowerShell para actualizar las aplicaciones de Microsoft Sto
 
 ### <a name="stop-automatic-windows-updates"></a>Detener actualizaciones automáticas de Windows
 
-Después de actualizar Windows a la versión más reciente, es posible que considere la posibilidad de detener las actualizaciones de Windows.  Las actualizaciones automáticas podrían interferir con el tiempo de clase programado.  Si el curso es de larga duración, piense en la posibilidad de solicitar a los alumnos que comprueben manualmente si hay actualizaciones o establezca las actualizaciones automáticas para una hora fuera del horario clase programado.  Para obtener más información sobre las opciones de personalización para Windows Update, consulte [Administrar la configuración de Windows Update adicional](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings).
+Después de actualizar Windows a la versión más reciente, es posible que considere la posibilidad de detener las actualizaciones de Windows.  Las actualizaciones automáticas podrían interferir con el tiempo de clase programado.  Si el curso es de larga duración, piense en la posibilidad de solicitar a los alumnos que comprueben manualmente si hay actualizaciones o establezca las actualizaciones automáticas para una hora fuera del horario clase programado.  Para obtener más información sobre las opciones de personalización para Windows Update, consulte [Administrar la configuración de Windows Update adicional](/windows/deployment/update/waas-wu-settings).
 
 Las actualizaciones automáticas de Windows se pueden detener con el siguiente script de PowerShell.
 

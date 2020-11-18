@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 6251894018ceeb2a99ebb62939b6e446fea825a2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 948b30cbf37ae5f4f357860569579d8591412414
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220727"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630403"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte 1: Habilitación de la autenticación de AD DS para los recursos compartidos de archivos de Azure 
 
@@ -28,20 +28,20 @@ Los cmdlets del módulo AzFilesHybrid de PowerShell realizan las modificaciones 
 
 ### <a name="download-azfileshybrid-module"></a>Descarga del módulo AzFilesHybrid
 
-- [Descargue y descomprima el módulo AzFilesHybrid (módulo de disponibilidad general: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Tenga en cuenta que el cifrado de Kerberos AES 256 es compatible con v0.2.2 o posterior. Si ha habilitado la característica con una versión de AzFilesHybrid inferior a v0.2.2 y quiere actualizarla para que admita el cifrado de Kerberos AES 256, consulte [este artículo](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). 
+- [Descargue y descomprima el módulo AzFilesHybrid (módulo de disponibilidad general: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Tenga en cuenta que el cifrado de Kerberos AES 256 es compatible con v0.2.2 o posterior. Si ha habilitado la característica con una versión de AzFilesHybrid inferior a v0.2.2 y quiere actualizarla para que admita el cifrado de Kerberos AES 256, consulte [este artículo](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). 
 - Instale y ejecute el módulo en un dispositivo que se haya unido a un dominio a AD DS local con credenciales de AD DS que tengan permisos para crear una cuenta de inicio de sesión de servicio o una cuenta de equipo en la instancia de destino.
 -  Ejecute el script con una credencial de AD DS local que esté sincronizada con su instancia de Azure AD. La credencial de AD DS local debe tener los permisos de la cuenta de propietario o del rol de Azure de colaborador.
 
 ### <a name="run-join-azstorageaccountforauth"></a>Ejecución de Join-AzStorageAccountForAuth
 
-El cmdlet `Join-AzStorageAccountForAuth` realiza la acción equivalente a la unión a un dominio sin conexión en nombre de la cuenta de almacenamiento especificada. El script usa el cmdlet para crear una [cuenta de equipo](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) en el dominio de AD. Si, por cualquier motivo, no puede usar una cuenta de equipo, puede modificar el script para crear una [cuenta de inicio de sesión de servicio](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) en su lugar. Si decide ejecutar el comando manualmente, debe seleccionar la cuenta que mejor se adapte al entorno.
+El cmdlet `Join-AzStorageAccountForAuth` realiza la acción equivalente a la unión a un dominio sin conexión en nombre de la cuenta de almacenamiento especificada. El script usa el cmdlet para crear una [cuenta de equipo](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) en el dominio de AD. Si, por cualquier motivo, no puede usar una cuenta de equipo, puede modificar el script para crear una [cuenta de inicio de sesión de servicio](/windows/win32/ad/about-service-logon-accounts) en su lugar. Si decide ejecutar el comando manualmente, debe seleccionar la cuenta que mejor se adapte al entorno.
 
 La cuenta de AD DS que crea el cmdlet representa la cuenta de almacenamiento. Si la cuenta de AD DS se crea en una unidad organizativa (OU) que aplica la expiración de contraseñas, debe actualizar la contraseña antes de su vigencia máxima. Si no actualiza la contraseña de la cuenta antes de esa vigencia, se producirán errores de autenticación al acceder a los recursos compartidos de archivos de Azure. Para saber cómo actualizar la contraseña, consulte [Actualización de la contraseña de la cuenta de AD DS](storage-files-identity-ad-ds-update-password.md).
 
 Reemplace los valores de marcador de posición por los suyos propios en los parámetros siguientes antes de ejecutar el script en PowerShell.
 > [!IMPORTANT]
-> El cmdlet de unión a un dominio creará una cuenta de AD para representar la cuenta de almacenamiento (recurso compartido de archivos) en AD. Puede optar por registrarla como una cuenta de equipo o una cuenta de inicio de sesión de servicio; consulte [Preguntas más frecuentes](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) para obtener más información. En el caso de las cuentas de equipo, se establece un tiempo de expiración de contraseña predeterminado en AD de 30 días. Del mismo modo, la cuenta de inicio de sesión de servicio puede tener establecido un tiempo de expiración de contraseña predeterminado en el dominio o la unidad organizativa (OU) de AD.
-> Para ambos tipos de cuenta, se recomienda comprobar cuál es el tiempo de expiración de la contraseña configurado en el entorno de AD y planear la [actualización de la contraseña de la identidad de la cuenta de almacenamiento](storage-files-identity-ad-ds-update-password.md) de la cuenta de AD antes el tiempo máximo. Puede considerar la posibilidad de [crear una unidad organizativa (UO) de AD en AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) y deshabilitar la directiva de expiración de contraseñas en las [cuentas de equipo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) o las cuentas de inicio de sesión de servicio, según corresponda. 
+> El cmdlet de unión a un dominio creará una cuenta de AD para representar la cuenta de almacenamiento (recurso compartido de archivos) en AD. Puede optar por registrarla como una cuenta de equipo o una cuenta de inicio de sesión de servicio; consulte [Preguntas más frecuentes](./storage-files-faq.md#security-authentication-and-access-control) para obtener más información. En el caso de las cuentas de equipo, se establece un tiempo de expiración de contraseña predeterminado en AD de 30 días. Del mismo modo, la cuenta de inicio de sesión de servicio puede tener establecido un tiempo de expiración de contraseña predeterminado en el dominio o la unidad organizativa (OU) de AD.
+> Para ambos tipos de cuenta, se recomienda comprobar cuál es el tiempo de expiración de la contraseña configurado en el entorno de AD y planear la [actualización de la contraseña de la identidad de la cuenta de almacenamiento](storage-files-identity-ad-ds-update-password.md) de la cuenta de AD antes el tiempo máximo. Puede considerar la posibilidad de [crear una unidad organizativa (UO) de AD en AD](/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) y deshabilitar la directiva de expiración de contraseñas en las [cuentas de equipo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) o las cuentas de inicio de sesión de servicio, según corresponda. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -89,7 +89,7 @@ Si ya ha ejecutado correctamente el script `Join-AzStorageAccountForAuth` anteri
 
 ### <a name="checking-environment"></a>Comprobación del entorno
 
-En primer lugar, debe comprobar el estado del entorno. En concreto, compruebe si [Active Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) está instalado y si el shell se ejecuta con privilegios de administrador. Después, compruebe si está instalado el [módulo Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) y, en caso negativo, instálelo. Después de completar esas comprobaciones, compruebe la instancia de AD DS para ver si hay una [cuenta de equipo](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (valor predeterminado) o una [cuenta de inicio de sesión de servicio](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) que ya se haya creado con SPN/UPN como "cifs/nombre_de_la_cuenta_de_almacenamiento.file.core.windows.net". Si la cuenta no existe, cree una como se describe en la sección siguiente.
+En primer lugar, debe comprobar el estado del entorno. En concreto, compruebe si [Active Directory PowerShell](/powershell/module/addsadministration/?view=win10-ps) está instalado y si el shell se ejecuta con privilegios de administrador. Después, compruebe si está instalado el [módulo Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) y, en caso negativo, instálelo. Después de completar esas comprobaciones, compruebe la instancia de AD DS para ver si hay una [cuenta de equipo](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (valor predeterminado) o una [cuenta de inicio de sesión de servicio](/windows/win32/ad/about-service-logon-accounts) que ya se haya creado con SPN/UPN como "cifs/nombre_de_la_cuenta_de_almacenamiento.file.core.windows.net". Si la cuenta no existe, cree una como se describe en la sección siguiente.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Creación de una identidad que representa la cuenta de almacenamiento en AD manualmente
 

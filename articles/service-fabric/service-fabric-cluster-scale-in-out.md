@@ -3,12 +3,12 @@ title: Escalado o reducción horizontal de un clúster de Service Fabric
 description: Escale o reduzca horizontalmente un clúster de Service Fabric para satisfacer la demanda y configure para ello reglas de escalado automático en cada tipo de nodo y conjunto de escalado de máquinas virtuales. Incorporación o eliminación de nodos de un clúster de Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee04c73b75d6b335e450ff816c51f0a3089b918
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246493"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409967"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Escalar o reducir un clúster horizontalmente
 
@@ -54,7 +54,6 @@ Siga estas instrucciones [para configurar el escalado automático para cada conj
 > [!NOTE]
 > En un escenario de reducción horizontal, a menos que su tipo de nodo tenga un [nivel de durabilidad][durability] Oro o Plata, deberá llamar al cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) con el nombre de nodo adecuado. La durabilidad Bronze, no se recomienda para reducir horizontalmente más de un nodo a la vez.
 > 
-> 
 
 ## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Adición manual de máquinas virtuales a un tipo de nodo o conjunto de escalado de máquinas virtuales
 
@@ -97,6 +96,9 @@ Para los servicios con estado, necesita que un determinado número de nodos est�
 ### <a name="remove-the-service-fabric-node"></a>Eliminación del nodo de Service Fabric
 
 Los pasos para quitar manualmente el estado del nodo se aplican solo a los tipos de nodo con un nivel de durabilidad *Bronce*.  Para los niveles de durabilidad *Silver* y *Gold*, la plataforma realiza automáticamente estos pasos. Para más información sobre la durabilidad, vea el artículo sobre el [planeamiento de capacidad del clúster de Service Fabric][durability].
+
+>[!NOTE]
+> Mantenga un mínimo de cinco nodos en todos los conjuntos de escalado de máquinas virtuales que tengan habilitados los niveles de durabilidad Gold o Silver. El clúster entrará en estado de error si escala por debajo de este umbral y deberá limpiar manualmente los nodos eliminados.
 
 Para mantener los nodos del clúster distribuidos uniformemente entre los dominios de actualización y error y, por lo tanto, permitir su uso homogéneo, primero se debe quitar el nodo creado más recientemente. En otras palabras, los nodos se deben quitar en orden inverso al que se crearon. El nodo creado más recientemente es aquel con el valor de propiedad `virtual machine scale set InstanceId` más grande. Los ejemplos de código siguientes devuelven el nodo creado más recientemente.
 
@@ -239,6 +241,9 @@ Para tener la seguridad de que un nodo se elimina cuando una máquina virtual se
 
 1. Elija un nivel de durabilidad Gold o Silver para los tipos de nodo del clúster. Esto permitirá realizar la integración de la infraestructura. Con esto, a su vez, se eliminan automáticamente los nodos del estado de nuestros servicios del sistema (FM) cuando reduzca horizontalmente.
 Vea [los detalles sobre los niveles de durabilidad aquí](service-fabric-cluster-capacity.md).
+
+> [!NOTE]
+> Mantenga un mínimo de cinco nodos en todos los conjuntos de escalado de máquinas virtuales que tengan habilitados los niveles de durabilidad Gold o Silver. El clúster entrará en estado de error si escala por debajo de este umbral y deberá limpiar manualmente los nodos eliminados.
 
 2. Cuando haya reducido horizontalmente la instancia de máquina virtual, necesitará llamar al [cmdlet Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate).
 

@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8132eb72b3e448d7ae830b29ccb7dc51528c1250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a9323cc92567d681ee8c73a62e0b89c17c22b1e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921408"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647620"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Administrar cuentas de usuario de Azure AD B2C con Microsoft Graph
 
@@ -145,7 +145,7 @@ Después de obtener el ejemplo de código, configúrelo para su entorno y, a con
 1. Ejecute la aplicación con el comando `dotnet`:
 
     ```console
-    dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
+    dotnet bin/Debug/netcoreapp3.1/b2c-ms-graph.dll
     ```
 
 La aplicación muestra una lista de los comandos que se pueden ejecutar. Por ejemplo, obtener todos los usuarios, obtener un solo usuario, eliminar un usuario, actualizar la contraseña de un usuario y realizar una importación en bloque.

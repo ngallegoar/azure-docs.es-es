@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999112"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635712"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Solución de problemas de inicio del sistema operativo: capacidad de la instalación de Windows Update
 
@@ -62,8 +62,6 @@ Para resolver el problema:
 
 1. Compruebe si el disco está lleno. Si el tamaño del disco no llega a 1 TB, expándalo hasta un máximo de 1 TB [mediante PowerShell](../windows/expand-os-disk.md).
 1. Si el disco ya tiene 1 TB, tendrá que realizar una limpieza de disco.
-   1. Desconecte el disco de datos [de la VM rota](../windows/detach-disk.md).
-   1. Conecte el disco de datos [a una VM que funcione](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Use la [herramienta Liberador de espacio en disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) para liberar espacio.
 1. Una vez finalizado el cambio de tamaño y la limpieza, desfragmente la unidad con el siguiente comando:
 

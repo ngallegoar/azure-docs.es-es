@@ -1,7 +1,7 @@
 ---
 title: Depuración y solución de problemas de ParallelRunStep
 titleSuffix: Azure Machine Learning
-description: Depure y solucione los problemas de ParallelRunStep en las canalizaciones de aprendizaje automático del SDK de Azure Machine Learning para Python. Aprenda sobre los errores comunes en el desarrollo de las canalizaciones, y consulte sugerencias que le ayudarán a depurar los scripts antes y durante la ejecución remota.
+description: Depure y solucione los problemas de ParallelRunStep en las canalizaciones de aprendizaje automático del SDK de Azure Machine Learning para Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 93997629b6b30f87769a0154e344215ca52c8ec4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 09f75e9e8f972ec44098e119dc5b30bd44638918
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308380"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630471"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Depuración y solución de problemas de ParallelRunStep
 

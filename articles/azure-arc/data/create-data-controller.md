@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6830bdd38e8e1f1d649673cfdaf48e8c50ba6c3e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372300"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413231"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Creación del controlador de datos de Azure Arc
 
@@ -36,7 +36,8 @@ Actualmente, la lista admitida de servicios y distribuciones de Kubernetes es la
 - Código abierto de nivel superior de Kubernetes implementado normalmente mediante kubeadm
 
 > [!IMPORTANT]
-> * La versión mínima admitida de Kubernetes es la versión 1.14.
+> * La versión mínima admitida de Kubernetes es la versión 1.17.
+> * La versión mínima admitida de OCP es la versión 4.3.
 > * Consulte [Requisitos de conectividad](connectivity.md) para comprender qué conectividad se requiere entre su entorno y Azure.
 > * Consulte [Configuración de almacenamiento](storage-configuration.md) para conocer los detalles acerca de cómo configurar el almacenamiento persistente.
 > * si usa Azure Kubernetes Service, el tamaño de la máquina virtual del nodo de trabajo del clúster debe ser al menos **Standard_D8s_v3** y usar **discos Premium.** El clúster no debe abarcar varias zonas de disponibilidad. 
@@ -45,18 +46,18 @@ Actualmente, la lista admitida de servicios y distribuciones de Kubernetes es la
 > [!NOTE]
 > Si usa Red Hat OpenShift Container Platform en Azure, se recomienda usar la versión más reciente disponible.
 
-En función de la opción que elija, algunas herramientas serán _obligatorias_ , pero se recomienda [instalar todas las herramientas de cliente](./install-client-tools.md) antes de comenzar la creación del controlador de datos de Azure Arc.
+En función de la opción que elija, algunas herramientas serán _obligatorias_, pero se recomienda [instalar todas las herramientas de cliente](./install-client-tools.md) antes de comenzar la creación del controlador de datos de Azure Arc.
 
 Independientemente de la opción que elija, durante el proceso de creación tendrá que proporcionar la siguiente información:
 
-- **Nombre del controlador de datos** : nombre descriptivo del controlador de datos; por ejemplo, "Controlador de datos de producción" o "Controlador de datos de Seattle".
-- **Nombre de usuario del controlador de datos** : nombre de usuario del usuario administrador del controlador de datos.
-- **Contraseña del controlador de datos** : contraseña del usuario administrador del controlador de datos.
-- **Nombre del espacio de nombres de Kubernetes** : nombre del espacio de nombres de Kubernetes en el que desea crear el controlador de datos.
-- **Modo de conectividad** : [modo de conectividad](./connectivity.md) del clúster. Actualmente solo se admite "indirecto".
-- **Identificador de suscripción de Azure** : GUID de la suscripción de Azure en el que desea que se cree el recurso del controlador de datos en Azure.
-- **Nombre del grupo de recursos de Azure** : nombre del grupo de recursos en el que desea que se cree el recurso del controlador de datos en Azure.
-- **Ubicación de Azure** : ubicación de Azure en la que se almacenarán los metadatos del recurso del controlador de datos en Azure. Para obtener una lista de las regiones disponibles, consulte [Infraestructura global de Azure/Productos por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
+- **Nombre del controlador de datos**: nombre descriptivo del controlador de datos; por ejemplo, "Controlador de datos de producción" o "Controlador de datos de Seattle".
+- **Nombre de usuario del controlador de datos**: nombre de usuario del usuario administrador del controlador de datos.
+- **Contraseña del controlador de datos**: contraseña del usuario administrador del controlador de datos.
+- **Nombre del espacio de nombres de Kubernetes**: nombre del espacio de nombres de Kubernetes en el que desea crear el controlador de datos.
+- **Modo de conectividad**: [modo de conectividad](./connectivity.md) del clúster. Actualmente solo se admite "indirecto".
+- **Identificador de suscripción de Azure**: GUID de la suscripción de Azure en el que desea que se cree el recurso del controlador de datos en Azure.
+- **Nombre del grupo de recursos de Azure**: nombre del grupo de recursos en el que desea que se cree el recurso del controlador de datos en Azure.
+- **Ubicación de Azure**: ubicación de Azure en la que se almacenarán los metadatos del recurso del controlador de datos en Azure. Para obtener una lista de las regiones disponibles, consulte [Infraestructura global de Azure/Productos por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

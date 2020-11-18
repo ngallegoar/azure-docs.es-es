@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 78871441fe7f9b0f6d02cdf6f05b97933abfca54
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: da3ae5e86833eb3e7eb71d7e47cb6f963d37b9cf
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275644"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410732"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalación del agente de Azure AD Connect Health
 
@@ -35,7 +35,7 @@ En la tabla siguiente hay una lista de requisitos para utilizar Azure AD Connect
 | Requisito | Descripción |
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health es una característica de Azure AD Premium y, por tanto, requiere Azure AD Premium. <br /><br />Para más información, consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). <br />Para iniciar una evaluación gratuita de 30 días, consulte cómo [iniciar una evaluación](https://azure.microsoft.com/trial/get-started-active-directory/). |
-| Debe ser un administrador global de su entorno de Azure AD para empezar a trabajar con Azure AD Connect Health |De forma predeterminada, solo los administradores globales pueden instalar y configurar los agentes de mantenimiento para empezar, acceder al portal y realizar operaciones en Azure AD Connect Health. Para más información, consulte [Administración del directorio de Azure AD](../fundamentals/active-directory-administer.md). <br /><br /> Con el control de acceso basado en rol de Azure (RBAC de Azure) puede permitir que otros usuarios de la organización accedan a Azure AD Connect Health. Para más información, consulte [Control de acceso basado en rol de Azure (RBAC de Azure) para Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-azure-rbac). <br /><br />**Importante:** la cuenta que utilice al instalar los agentes debe ser una cuenta profesional o educativa. No puede ser una cuenta Microsoft. Para más información, consulte [Inicio de sesión en Azure como una organización](../fundamentals/sign-up-organization.md). |
+| Debe ser un administrador global de su entorno de Azure AD para empezar a trabajar con Azure AD Connect Health |De forma predeterminada, solo los administradores globales pueden instalar y configurar los agentes de mantenimiento para empezar, acceder al portal y realizar operaciones en Azure AD Connect Health. Para más información, consulte [Administración del directorio de Azure AD](../fundamentals/active-directory-whatis.md). <br /><br /> Con el control de acceso basado en rol de Azure (RBAC de Azure) puede permitir que otros usuarios de la organización accedan a Azure AD Connect Health. Para más información, consulte [Control de acceso basado en rol de Azure (RBAC de Azure) para Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-azure-rbac). <br /><br />**Importante:** la cuenta que utilice al instalar los agentes debe ser una cuenta profesional o educativa. No puede ser una cuenta Microsoft. Para más información, consulte [Inicio de sesión en Azure como una organización](../fundamentals/sign-up-organization.md). |
 | El agente de Azure AD Connect Health está instalado en cada servidor de destino. | Azure AD Connect Health requiere que se instalen y configuren agentes de mantenimiento en servidores de destino para recibir los datos y proporcionar las funcionalidades de supervisión y análisis. <br /><br />Por ejemplo, para obtener datos sobre su infraestructura de AD FS, el agente se debe instalar en los servidores proxy de AD FS y en los servidores proxy de aplicación web. De igual manera, para obtener datos sobre su infraestructura local de AD DS, el agente se debe instalar en los controladores de dominio. <br /><br /> |
 | Conectividad saliente a los extremos del servicio de Azure | Durante la instalación y el tiempo de ejecución, el agente requiere conectividad a los puntos de conexión del servicio de Azure AD Connect Health. Si la conectividad de salida está bloqueada mediante firewalls, asegúrese de agregar los siguientes puntos de conexión a la lista de elementos permitidos: Vea la sección sobre [conectividad de salida (puntos de conexión)](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Conectividad saliente basada en direcciones IP | Para el filtrado basado en direcciones IP en los firewalls, consulte los [intervalos de IP de Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
@@ -59,7 +59,7 @@ En la tabla siguiente hay una lista de requisitos para utilizar Azure AD Connect
 
 | Entorno de dominio | Puntos de conexión del servicio de Azure necesarios |
 | --- | --- |
-| Público general | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.servicebus.windows.net - Puerto: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *este punto de conexión solo se utiliza para la detección durante el registro.</li> |
+| Público general | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.servicebus.windows.net - Puerto: 5671 (no es necesario en la versión más reciente del agente)</li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *este punto de conexión solo se utiliza para la detección durante el registro.</li> |
 | Azure Alemania | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *este punto de conexión solo se utiliza para la detección durante el registro.</li> |
 | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *este punto de conexión solo se utiliza para la detección durante el registro.</li> |
 

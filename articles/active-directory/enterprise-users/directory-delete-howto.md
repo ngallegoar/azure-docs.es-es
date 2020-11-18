@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 189eaf3a08ce0e8411ce67170fdf1a895cbc56d2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374043"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647722"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminar un inquilino en Azure Active Directory
 
@@ -38,13 +38,13 @@ No puede eliminar una organización de Azure AD hasta que pase varias comprobaci
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que sea la del administrador global de la organización.
 
-2. Seleccione **Azure Active Directory** .
+2. Seleccione **Azure Active Directory**.
 
 3. Cambie a la organización que desee eliminar.
   
    ![Confirmación de la organización antes de la eliminación](./media/directory-delete-howto/delete-directory-command.png)
 
-4. Seleccione **Eliminar inquilino** .
+4. Seleccione **Eliminar inquilino**.
   
    ![Seleccione el comando para eliminar la organización.](./media/directory-delete-howto/delete-directory-list.png)
 
@@ -52,7 +52,7 @@ No puede eliminar una organización de Azure AD hasta que pase varias comprobaci
 
 ## <a name="if-you-cant-delete-the-organization"></a>Imposibilidad de eliminar la organización
 
-Al configurar la organización de Azure AD, es posible que también activara suscripciones basadas en licencias para su organización, como Azure AD Premium P2, Microsoft 365 Empresa Estándar o Enterprise Mobility + Security E5. Para evitar la pérdida accidental de datos, no puede eliminar una organización hasta que se eliminen las suscripciones por completo. Las suscripciones deben estar en estado **Deprovisioned** (Desaprovisionado) para permitir la eliminación de la organización. Una suscripción en estado **Expirado** o **Cancelado** se pasa al estado **Deshabilitado** y la fase final es el estado **Desaprovisionado** .
+Al configurar la organización de Azure AD, es posible que también activara suscripciones basadas en licencias para su organización, como Azure AD Premium P2, Microsoft 365 Empresa Estándar o Enterprise Mobility + Security E5. Para evitar la pérdida accidental de datos, no puede eliminar una organización hasta que se eliminen las suscripciones por completo. Las suscripciones deben estar en estado **Deprovisioned** (Desaprovisionado) para permitir la eliminación de la organización. Una suscripción en estado **Expirado** o **Cancelado** se pasa al estado **Deshabilitado** y la fase final es el estado **Desaprovisionado**.
 
 Para saber qué se puede esperar cuando una suscripción de Microsoft 365 de prueba expira (exceptuando el caso de licencias por volumen, el contrato Enterprise o de CSP/asociados de pago), consulte la tabla siguiente. Para obtener más información sobre la retención de datos de Microsoft 365 y el ciclo de vida de la suscripción, consulte [¿Qué pasa con mis datos y mi acceso cuando termina mi suscripción de Microsoft 365 para empresas?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
@@ -121,7 +121,7 @@ Puede establecer el estado de un producto de suscripción de autoservicio como M
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con una cuenta que sea un administrador global de la organización. Si está intentando eliminar la organización "Contoso" que tiene el dominio predeterminado inicial "contoso.onmicrosoft.com", inicie sesión con un UPN como admin@contoso.onmicrosoft.com.
 
-2. Seleccione **Licencias** y, a continuación, seleccione **Productos de registro de autoservicio** . Puede ver todos los productos de autorregistro por separado desde las suscripciones basadas en puestos. Elija el producto que desee eliminar de forma permanente. Este es un ejemplo en Microsoft Power BI:
+2. Seleccione **Licencias** y, a continuación, seleccione **Productos de registro de autoservicio**. Puede ver todos los productos de autorregistro por separado desde las suscripciones basadas en puestos. Elija el producto que desee eliminar de forma permanente. Este es un ejemplo en Microsoft Power BI:
 
     ![Instantánea en la que aparece la página "Licencias-Productos de autorregistro".](./media/directory-delete-howto/licenses-page.png)
 
@@ -129,11 +129,11 @@ Puede establecer el estado de un producto de suscripción de autoservicio como M
 
     ![Instantánea en la que aparece la página "Licencias-Productos de autorregistro" con la ventana "Eliminar producto de autorregistro" abierta.](./media/directory-delete-howto/delete-product.png)
 
-4. Si selecciona **Sí** , se iniciará la eliminación del producto de autoservicio. Aparecerá una notificación que le informará de que la eliminación está en curso.  
+4. Si selecciona **Sí**, se iniciará la eliminación del producto de autoservicio. Aparecerá una notificación que le informará de que la eliminación está en curso.  
 
     ![Instantánea en la que aparece la página "Licencias-Productos de autorregistro" con la notificación "Eliminación en curso".](./media/directory-delete-howto/progress-message.png)
 
-5. Ahora el estado del producto de autorregistro ha cambiado a **Eliminado** . Cuando actualice la página, el producto debe desaparecer de la página **Productos de autorregistro** .  
+5. Ahora el estado del producto de autorregistro ha cambiado a **Eliminado**. Cuando actualice la página, el producto debe desaparecer de la página **Productos de autorregistro**.  
 
     ![Instantánea en la que aparece la página "Licencias-Productos de autorregistro" con el panel "Producto de autorregistro eliminado" a la derecha.](./media/directory-delete-howto/product-deleted.png)
 

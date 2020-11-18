@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7128a11ae9d5c9844353404309f8ad40cba53972
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d03496634c5d30d30b23a76b5b47b1e810af288
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787591"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635405"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorización del acceso a blobs y colas con Azure Active Directory
 
@@ -75,15 +75,15 @@ El acceso a los datos de blobs o colas a través de Azure Portal, PowerShell o l
 
 Azure Portal puede usar la cuenta de Azure AD o las claves de acceso de cuenta para acceder a datos de blobs y colas en una cuenta de Azure Storage. El esquema de autorización que use Azure Portal depende de los roles de Azure que tenga asignados.
 
-Si intenta acceder a datos de blobs o colas, Azure Portal primero comprueba si tiene asignado un rol de Azure con **Microsoft.Storage/storageAccounts/listkeys/action** . Si tiene un rol asignado con esta acción, Azure Portal usa la clave de cuenta para acceder a los datos de blobs y colas mediante autorización de clave compartida. Si no tiene un rol asignado con esta acción, Azure Portal intenta acceder a los datos mediante la cuenta de Azure AD.
+Si intenta acceder a datos de blobs o colas, Azure Portal primero comprueba si tiene asignado un rol de Azure con **Microsoft.Storage/storageAccounts/listkeys/action**. Si tiene un rol asignado con esta acción, Azure Portal usa la clave de cuenta para acceder a los datos de blobs y colas mediante autorización de clave compartida. Si no tiene un rol asignado con esta acción, Azure Portal intenta acceder a los datos mediante la cuenta de Azure AD.
 
 Para acceder a datos de blobs o colas desde Azure Portal con la cuenta de Azure AD, necesita permisos para acceder a datos de blobs y colas y, además, permisos para examinar los recursos de la cuenta de almacenamiento en Azure Portal. Los roles integrados que proporciona Azure Storage conceden acceso a recursos de blobs y colas, pero no conceden permisos a los recursos de la cuenta de almacenamiento. Por este motivo, el acceso al portal también requiere la asignación de un rol de Azure Resource Manager, como el rol [Lector](../../role-based-access-control/built-in-roles.md#reader), con ámbito limitado al nivel de la cuenta de almacenamiento o superior. El rol **Lector** concede los permisos más restringidos, pero otro rol de Azure Resource Manager que conceda acceso a los recursos de administración de la cuenta de almacenamiento también es aceptable. Para obtener más información sobre cómo asignar permisos a los usuarios para el acceso a los datos de Azure Portal con una cuenta de Azure AD, vea [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](storage-auth-aad-rbac-portal.md).
 
-Azure Portal indica qué esquema de autorización se está usando al examinar un contenedor o una cola. Para obtener más información sobre el acceso a datos en el portal, consulte [Selección del método de autorización de acceso a los datos de blob en Azure Portal](../blobs/authorize-blob-access-portal.md) y [Selección del método de autorización de acceso a los datos de cola en Azure Portal](../queues/authorize-queue-access-portal.md).
+Azure Portal indica qué esquema de autorización se está usando al examinar un contenedor o una cola. Para obtener más información sobre el acceso a datos en el portal, consulte [Selección del método de autorización de acceso a los datos de blob en Azure Portal](../blobs/authorize-data-operations-portal.md) y [Selección del método de autorización de acceso a los datos de cola en Azure Portal](../queues/authorize-data-operations-portal.md).
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Acceso a datos desde PowerShell o la CLI de Azure
 
-PowerShell y la CLI de Azure admiten el inicio de sesión con credenciales de Azure AD. Después de iniciar sesión, la sesión se ejecuta con esas credenciales. Para obtener más información, vea [Ejecución de comandos de la CLI de Azure o PowerShell con credenciales de Azure AD para acceder a datos de blob o cola](../blobs/authorize-active-directory-powershell.md).
+PowerShell y la CLI de Azure admiten el inicio de sesión con credenciales de Azure AD. Después de iniciar sesión, la sesión se ejecuta con esas credenciales. Para obtener más información, vea [Ejecución de comandos de la CLI de Azure o PowerShell con credenciales de Azure AD para acceder a datos de blob o cola](../blobs/authorize-data-operations-powershell.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

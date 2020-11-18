@@ -10,18 +10,18 @@ editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 07/07/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50915aebc9cb76c7bb67235e40564ff32ce656b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8ec9a215d25ce1177b015b392c4f36d7547be521
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373573"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647026"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Cambio de las asignaciones de licencia de un usuario o grupo en Azure Active Directory
 
@@ -47,14 +47,14 @@ Si ve que algunas casillas de la página **Update license assignments** (Actuali
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador de licencias en la organización de Azure AD.
 1. Seleccione **Azure Active Directory** > **Usuarios** y abra la página **Perfil** de un usuario.
-1. Seleccione **Licencias** .
+1. Seleccione **Licencias**.
 1. Seleccione **Asignaciones** para editar la asignación de licencias del usuario o grupo. En esta página **Asignaciones** es donde puede resolver los conflictos de asignación de licencias.
 1. Seleccione la casilla Office 365 E3 y asegúrese de seleccionar al menos todos los servicios E1 asignados al usuario.
 1. Desactive la casilla de Office 365 E1.
 
     ![Página de asignaciones de licencia para un usuario que muestra Office 365 E1 desactivado y Office 365 E3 seleccionado](./media/licensing-groups-change-licenses/update-user-license-assignments.png)
 
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
 Azure AD aplica las nuevas licencias y quita las licencias antiguas simultáneamente, para ofrecer continuidad del servicio.
 
@@ -62,14 +62,14 @@ Azure AD aplica las nuevas licencias y quita las licencias antiguas simultánea
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador de licencias en la organización de Azure AD.
 1. Seleccione **Azure Active Directory** > **Grupos** y abra la página **Información general** de un grupo.
-1. Seleccione **Licencias** .
+1. Seleccione **Licencias**.
 1. Seleccione el comando **Asignaciones** para editar la asignación de licencias del usuario o grupo.
 1. Seleccione la casilla de Office 365 E3. Para mantener la continuidad del servicio, asegúrese de seleccionar todos los servicios de E1 que ya están asignados al usuario.
 1. Desactive la casilla de Office 365 E1.
 
     ![Selección del comando Asignaciones en la página Licencias de un usuario o grupo](./media/licensing-groups-change-licenses/update-group-license-assignments.png)
 
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
 Para proporcionar continuidad del servicio, Azure AD aplica las nuevas licencias y quita las licencias antiguas simultáneamente en todos los usuarios del grupo.
 

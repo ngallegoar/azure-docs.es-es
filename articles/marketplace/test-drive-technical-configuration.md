@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: 6faecdd561d7c434d2948e70886d6f1b19115d9f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: f628c2a4c2f8eb474bbc34ef2d3fd2f03f668992
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504839"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629910"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuración técnica de la versión de prueba
 
@@ -74,7 +74,7 @@ Para permitir que Microsoft implemente la versión de prueba en su nombre, cree 
 
 - **Identificador de aplicación de Azure AD** (obligatorio): escriba el [identificador de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) de Azure Active Directory (AD). Para buscarlo, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory en menú de la izquierda, elija **Registros de aplicaciones** y busque el número de **Id. de aplicación** que aparece (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **Secreto del cliente de la aplicación Azure AD** (obligatorio): escriba el [secreto del cliente](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) de su aplicación de Azure AD. Para encontrar este valor, inicie sesión en [Azure Portal](https://portal.azure.com/). Seleccione la pestaña **Azure Active Directory** en el menú izquierdo, seleccione **Registros de aplicaciones** y, por último, seleccione la versión de prueba de su aplicación. A continuación, seleccione **Certificados y secretos** , seleccione **Nuevo secreto de cliente** , escriba una descripción, seleccione **Nunca** en **Expira** y, por último, elija **Agregar**. No olvide copiar el valor. No salga de la página antes de copiar el valor.
+- **Secreto del cliente de la aplicación Azure AD** (obligatorio): escriba el [secreto del cliente](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) de su aplicación de Azure AD. Para encontrar este valor, inicie sesión en [Azure Portal](https://portal.azure.com/). Seleccione la pestaña **Azure Active Directory** en el menú izquierdo, seleccione **Registros de aplicaciones** y, por último, seleccione la versión de prueba de su aplicación. A continuación, seleccione **Certificados y secretos**, seleccione **Nuevo secreto de cliente**, escriba una descripción, seleccione **Nunca** en **Expira** y, por último, elija **Agregar**. No olvide copiar el valor. No salga de la página antes de copiar el valor.
 
 ## <a name="test-drive-listings"></a>Listas de versiones de prueba
 
@@ -98,5 +98,5 @@ Si está creando la versión de prueba en el Centro de partners, seleccione **Gu
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Prácticas recomendadas de la versión de prueba](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Información general](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; asegúrese de que el bloqueador de elementos emergentes está desactivado)
+- [Información general](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF, asegúrese de que el bloqueador de elementos emergentes está desactivado)
 - [Actualización de una oferta existente en Marketplace comercial](partner-center-portal/update-existing-offer.md)

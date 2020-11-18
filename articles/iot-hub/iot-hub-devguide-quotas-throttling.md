@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5a5b20efbf804c2ea1097f905da1cfd62727ff15
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547697"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410698"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -43,7 +43,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | Limitación | Gratis, S1 y B1 | B2 y S2 | B3 y S3 | 
 | -------- | ------- | ------- | ------- |
 | [Operaciones de registro de identidad](#identity-registry-operations-throttle) (crear, recuperar, enumerar, actualizar y eliminar) | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/m/unidad) |
-| [Nuevas conexiones de dispositivo](#device-connections-throttle) (este límite se aplica a la velocidad de las _nuevas conexiones_ , no al número total de conexiones) | Mayor de 100/s o 12/s/unidad <br/> Por ejemplo, dos unidades S1 son 2\*12 = 24 nuevas conexiones por segundo, pero dispone de al menos 100 nuevas conexiones por segundo entre todas las unidades. Con nueve unidades S1 tiene 108 nuevas conexiones por segundo (9\*12) entre todas las unidades. | 120 conexiones nuevas por segundo por unidad | 6000 conexiones nuevas por segundo por unidad |
+| [Nuevas conexiones de dispositivo](#device-connections-throttle) (este límite se aplica a la velocidad de las _nuevas conexiones_, no al número total de conexiones) | Mayor de 100/s o 12/s/unidad <br/> Por ejemplo, dos unidades S1 son 2\*12 = 24 nuevas conexiones por segundo, pero dispone de al menos 100 nuevas conexiones por segundo entre todas las unidades. Con nueve unidades S1 tiene 108 nuevas conexiones por segundo (9\*12) entre todas las unidades. | 120 conexiones nuevas por segundo por unidad | 6000 conexiones nuevas por segundo por unidad |
 | Envíos de dispositivo a nube | Más de 100 operaciones de envío por segundo o 12 operaciones de envío por segundo por unidad <br/> Por ejemplo, dos unidades S1 equivalen a 2\*12 = 24/s, pero tendrá al menos 100 operaciones de envío por segundo en todas las unidades. Con nueve unidades S1, tiene 108 nuevas operaciones de envío por segundo (9\*12) entre todas las unidades. | 120 operaciones de envío por segundo por unidad | 6000 operaciones de envío por segundo por unidad |
 | Envíos de nube a dispositivo<sup>1</sup> | 1,67 operaciones de envío por segundo por unidad (100 mensajes por minuto por unidad) | 1,67 operaciones de envío por segundo por unidad (100 operaciones de envío por minuto por unidad) | 83,33 operaciones de envío por segundo por unidad (5000 operaciones de envío por minuto por unidad) |
 | Recepciones de nube a dispositivo<sup>1</sup> <br/> (solo cuando el dispositivo usa HTTPS)| 16,67 operaciones de envío por segundo por unidad (1000 operaciones de recepción por minuto por unidad) | 16,67 operaciones de envío por segundo por unidad (1000 operaciones de recepción por minuto por unidad) | 833,33 operaciones de envío por segundo por unidad (50 000 operaciones de recepción por minuto por unidad) |
@@ -69,7 +69,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 
    Por último, si el tamaño de la carga se encuentra entre 156 y 160 KB, solo podrá realizar una llamada por segundo por unidad en el centro antes de alcanzar el límite de 160 KB/s/unidad.
 
-*  Para *operaciones de dispositivos de trabajo (actualizar dispositivo, invocar método directo)* para el nivel S2, el límite de 50/s/unidad solo se aplica cuando invoca métodos mediante trabajos. Si invoca directamente métodos directos, se aplica el límite original de 24 MB/s/unidad (para S2).
+*  Para *operaciones de dispositivos de trabajo (actualizar gemelo, invocar método directo)* para el nivel S3, el límite de 50/s/unidad solo se aplica cuando invoca métodos mediante trabajos. Si invoca directamente métodos directos, se aplica el límite original de 24 MB/s/unidad (para S3).
 
 *  **Cuota** es el número agregado de mensajes que se pueden enviar en el centro *por día*. Puede encontrar el límite de cuota del centro en la columna **número total de mensajes/día** en la [página de precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 

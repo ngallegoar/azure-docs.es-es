@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9559e22a8396de93bbe46f20b76855d9ff00f753
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa74424dddd7577eb942f72f038f5bd56854abac
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763727"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648198"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Petición de consentimiento inesperada al iniciar sesión en una aplicación
 
@@ -39,7 +39,7 @@ Se pueden esperar más solicitudes en distintos escenarios:
 
 * El usuario que originalmente otorgó su consentimiento a la aplicación era administrador, pero no otorgó el consentimiento en nombre de toda la organización.
 
-* La aplicación usa [consentimiento incremental y dinámico](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) para solicitar permisos adicionales después de haberse otorgado inicialmente el consentimiento. Esto se suele usar cuando las características opcionales de una aplicación adicional requieren permisos más allá de los que se requieren para la funcionalidad de línea base.
+* La aplicación usa [consentimiento incremental y dinámico](../azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) para solicitar permisos adicionales después de haberse otorgado inicialmente el consentimiento. Esto se suele usar cuando las características opcionales de una aplicación adicional requieren permisos más allá de los que se requieren para la funcionalidad de línea base.
 
 * Se ha revocado el consentimiento después de que inicialmente se otorgó.
 
@@ -47,8 +47,6 @@ Se pueden esperar más solicitudes en distintos escenarios:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   [Aplicaciones, permisos y consentimiento en Azure Active Directory (punto de conexión v1.0)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
+-   [Aplicaciones, permisos y consentimiento en Azure Active Directory (punto de conexión v1.0)](../develop/quickstart-register-app.md)
 
--   [Ámbitos, permisos y consentimiento en Azure Active Directory (punto de conexión v2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+-   [Ámbitos, permisos y consentimiento en Azure Active Directory (punto de conexión v2.0)](../develop/v2-permissions-and-consent.md)

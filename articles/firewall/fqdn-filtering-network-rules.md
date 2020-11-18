@@ -1,26 +1,22 @@
 ---
-title: Filtrado de FQDN de Azure Firewall en reglas de red (versión preliminar)
+title: Filtrado de FQDN de Azure Firewall en reglas de red
 description: Cómo usar el filtrado de FQDN de Azure Firewall en reglas de red
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 11/06/2020
 ms.author: victorh
-ms.openlocfilehash: 1a35d9c48dd46d5d220699589f4ed758d21feca8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f2cf9639acfa1330c8347ff654649004d7c382e
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854278"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380918"
 ---
-# <a name="use-fqdn-filtering-in-network-rules-preview"></a>Uso del filtrado de FQDN en reglas de red (versión preliminar)
+# <a name="use-fqdn-filtering-in-network-rules"></a>Uso del filtrado de FQDN en reglas de red
 
-> [!IMPORTANT]
-> El filtrado de FQDN en las reglas de red se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Un nombre de dominio completo (FQDN) representa un nombre de dominio de un host o una o varias direcciones IP. Puede usar FQDN en reglas de red basadas en la resolución DNS en la directiva de firewall y Azure Firewall. Esta funcionalidad permite filtrar el tráfico saliente con cualquier protocolo TCP/UDP (incluidos NTP, SSH, RDP y mucho más). Debe habilitar el proxy DNS para usar FQDN en sus reglas de red. Para obtener más información, consulte [Configuración DNS de Azure Firewall (versión preliminar)](dns-settings.md).
+Un nombre de dominio completo (FQDN) representa un nombre de dominio de un host o una o varias direcciones IP. Puede usar FQDN en reglas de red basadas en la resolución DNS en la directiva de firewall y Azure Firewall. Esta funcionalidad permite filtrar el tráfico saliente con cualquier protocolo TCP/UDP (incluidos NTP, SSH, RDP y mucho más). Debe habilitar el proxy DNS para usar FQDN en sus reglas de red. Para obtener más información, consulte [Configuración DNS de Azure Firewall](dns-settings.md).
 
 > [!NOTE]
 > Por diseño, el filtrado de FQDN no admite caracteres comodín.
@@ -29,10 +25,15 @@ Un nombre de dominio completo (FQDN) representa un nombre de dominio de un host
 
 Una vez que defina qué servidor DNS necesita su organización (Azure DNS o su propio DNS personalizado), Azure Firewall traduce el FQDN a una o varias direcciones IP basadas en el servidor DNS seleccionado. Esta traducción se produce para el procesamiento de reglas de red y de aplicación.
 
-¿Cuál es la diferencia entre usar nombres de dominio en reglas de aplicación y usarlos en reglas de red? 
+Cuando se produce una nueva resolución DNS, se agregan nuevas direcciones IP a las reglas de firewall. Las direcciones IP antiguas que el servidor DNS ya no devuelve expiran en 15 minutos. Las reglas de Azure Firewall se actualizan cada 15 segundos a partir de la resolución DNS de los FQDN en reglas de red.
 
-- El filtrado de FQDN en reglas de aplicación para HTTP/S y MSSQL se basa en un proxy transparente de nivel de aplicación y el encabezado SNI. Como tal, puede distinguir entre dos FQDN que se resuelven en la misma dirección IP. Este no es el caso del filtrado de FQDN en reglas de red. Use siempre reglas de aplicación cuando sea posible.
-- En las reglas de aplicación, puede usar HTTP/S y MSSQL como los protocolos seleccionados. En las reglas de red, puede usar cualquier protocolo TCP/UDP con sus FQDN de destino.
+### <a name="differences-in-application-rules-vs-network-rules"></a>Diferencias en las reglas de aplicación frente a las reglas de red
+
+- El filtrado de FQDN en reglas de aplicación para HTTP/S y MSSQL se basa en un proxy transparente de nivel de aplicación y el encabezado SNI. Como tal, puede distinguir entre dos FQDN que se resuelven en la misma dirección IP. Este no es el caso del filtrado de FQDN en reglas de red. 
+
+   Use siempre reglas de aplicación cuando sea posible:
+     - Si el protocolo es HTTP/S o MSSQL, use reglas de aplicación para el filtrado de FQDN.
+   - Para cualquier otro protocolo además de HTTP/HTTPS o MSSQL, puede usar reglas de aplicación o de red para el filtrado de FQDN.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

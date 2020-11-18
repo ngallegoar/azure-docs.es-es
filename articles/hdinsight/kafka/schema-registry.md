@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 30cdc9924d41fdbe27156fcf90688d4baf440487
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7e17cdca508db81551d988c795bd1235fa729e82
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209362"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636867"
 ---
 # <a name="apache-kafka-with-confluent-schema-registry-in-azure-hdinsight"></a>Apache Kafka con el registro de esquema de Confluent en Azure HDInsight
 
@@ -34,19 +34,19 @@ En esta sección, se implementa un clúster de Kafka administrado por HDInsight 
 
 1. Seleccione el botón **Implementar en Azure** siguiente para iniciar sesión en Azure y abrir la plantilla de Resource Manager.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/schema-registry/hdi-deploy-to-azure1.png"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank">:::image type="icon" source="media/schema-registry/hdi-deploy-to-azure1.png":::</a>
 
 1. En la plantilla de implementación personalizada, rellene los campos tal y como se describe a continuación:
 
     |Propiedad |Descripción |
     |---|---|
     |Subscription|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
-    |Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear** .|
+    |Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
     |Region|En la lista desplegable, seleccione una región donde crear el clúster.|
     |Cluster Name|Escriba un nombre único global. O bien, deje el nombre predeterminado.|
-    |Cluster Login User Name (Nombre de usuario de inicio de sesión del clúster)|Proporcione el nombre de usuario; el valor predeterminado es **admin** .|
+    |Cluster Login User Name (Nombre de usuario de inicio de sesión del clúster)|Proporcione el nombre de usuario; el valor predeterminado es **admin**.|
     |Cluster Login Password (Contraseña de inicio de sesión del clúster)|Proporcione la contraseña.|
-    |Nombre de usuario de SSH|Proporcione el nombre de usuario. El valor predeterminado es **sshuser** .|
+    |Nombre de usuario de SSH|Proporcione el nombre de usuario. El valor predeterminado es **sshuser**.|
     |Contraseña de SSH|Proporcione la contraseña.|
 
     Deje los demás campos tal como están. Seleccione **Revisar y crear** para continuar.
@@ -113,7 +113,7 @@ El registro de esquema necesita conocer que el servicio Zookeeper puede interact
     debug=true
     ```
 
-1. Para guardar el archivo, presione **Ctr+X** , luego, **Y** y **Entrar** .
+1. Para guardar el archivo, presione **Ctr+X**, luego, **Y** y **Entrar**.
 
 1. Inicie el registro de esquema y establézcalo para que use el archivo de propiedades del registro de esquema actualizado. Ejecute los siguientes comandos:
 
@@ -215,7 +215,7 @@ En esta sección, se leerán los datos de la entrada estándar y se escribirán 
     }
     ```
 
-    Use el siguiente comando para iniciar **Kafka Avro Console Producer** :
+    Use el siguiente comando para iniciar **Kafka Avro Console Producer**:
 
     ```bash
     /usr/bin/kafka-avro-console-producer     --broker-list $KAFKABROKERS     --topic agkafkaschemareg     --property parse.key=true --property key.schema='{"type" : "int", "name" : "id"}'     --property value.schema='{ "type" : "record", "name" : "example_schema", "namespace" : "com.example", "fields" : [ { "name" : "cust_id", "type" : "int", "doc" : "Id of the customer account" }, { "name" : "year", "type" : "int", "doc" : "year of expense" }, { "name" : "expenses", "type" : {"type": "array", "items": "float"}, "doc" : "Expenses for the year" } ], "doc:" : "A basic schema for storing messages" }'

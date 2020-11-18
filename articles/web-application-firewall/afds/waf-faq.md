@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82837641"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413078"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Preguntas más frecuentes sobre el Firewall de aplicaciones web de Azure en Azure Front Door Service
 
@@ -64,7 +64,7 @@ Actualmente, las reglas ModSec CRS 2.2.9, CRS 3.0, y CRS 3.1 solo se admiten con
 
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>¿La protección contra DDoS está integrada con Door Front? 
 
-Gracias a que Azure Front Door está distribuido globalmente en los bordes de la red de Azure, puede absorber y aislar geográficamente los ataques de gran volumen. Puede crear directivas personalizadas de WAF para bloquear automáticamente los ataques HTTP(S) que tienen firmas conocidas, así como para limitar el volumen de estos. Además, puede habilitar el estándar DDoS Protection en la red virtual donde se implementan sus back-ends. Los clientes del estándar Azure DDoS Protection reciben ventajas adicionales, como protección de los costos, garantía del SLA y acceso a expertos del equipo de respuesta rápida de DDoS para obtener ayuda inmediata durante un ataque.
+Gracias a que Azure Front Door está distribuido globalmente en los bordes de la red de Azure, puede absorber y aislar geográficamente los ataques de gran volumen. Puede crear directivas personalizadas de WAF para bloquear automáticamente los ataques HTTP(S) que tienen firmas conocidas, así como para limitar el volumen de estos. Además, puede habilitar el estándar DDoS Protection en la red virtual donde se implementan sus back-ends. Los clientes del estándar Azure DDoS Protection reciben ventajas adicionales, como protección de los costos, garantía del SLA y acceso a expertos del equipo de respuesta rápida de DDoS para obtener ayuda inmediata durante un ataque. Para más información, consulte [Protección contra DDoS en Front Door](../../frontdoor/front-door-ddos.md).
 
 ## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>¿Por qué las solicitudes adicionales por encima del umbral configurado para la regla de límite de tasa se pasan al servidor back-end?
 

@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b769703f7e7054571a3b65a021c0123d8ae07078
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148242"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425786"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Habilitación del análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel 
 
 > [!IMPORTANT]
 >
-> - La característica UEBA se encuentra ahora en **disponibilidad general** en las siguientes regiones y zonas geográficas de Azure Sentinel:
+> - Las características de UEBA y de las páginas de entidad ahora están en **disponibilidad general** en las siguientes zonas geográficas y regiones de Azure Sentinel:
 >    - Geografía de Estados Unidos
 >    - Región de Oeste de Europa
 >    - Geografía de Australia
 >
-> - En todas las demás regiones y zonas geográficas, esta característica permanece en **versión preliminar pública** y se proporciona sin un acuerdo de nivel de servicio. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> - En todas las demás regiones y regiones geográficas, estas características permanecen en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -54,11 +54,11 @@ Para habilitar o deshabilitar esta característica (estos requisitos previos no 
 
 1. Haga clic en el botón **Select data sources** (Seleccionar orígenes de datos).
 
-1. En el panel **selección de orígenes de datos** , active las casillas situadas junto a los orígenes de datos en los que quiere habilitar UEBA y, después, seleccione **Apply** (Aplicar).
+1. En el panel **selección de orígenes de datos**, active las casillas situadas junto a los orígenes de datos en los que quiere habilitar UEBA y, después, seleccione **Apply** (Aplicar).
 
     > [!NOTE]
     >
-    > En la mitad inferior del panel de **selección de orígenes de datos** , verá una lista de orígenes de datos compatibles con UEBA que aún no ha habilitado. 
+    > En la mitad inferior del panel de **selección de orígenes de datos**, verá una lista de orígenes de datos compatibles con UEBA que aún no ha habilitado. 
     >
     > Una vez que haya habilitado UEBA, tendrá la opción de conectar nuevos orígenes de datos para habilitarlos para UEBA directamente desde el panel del conector de datos si son compatibles con UEBA.
 

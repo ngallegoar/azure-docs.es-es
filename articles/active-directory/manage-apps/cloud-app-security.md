@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/03/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62a77c1b21a6d602a2d54f56a2ed294fe800ac38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e3e0c10a7ec6b42420db30955ae4911bca27cc0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763659"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651233"
 ---
 # <a name="cloud-app-visibility-and-control"></a>Control y visibilidad de aplicaciones en la nube
 
@@ -36,8 +36,8 @@ Use Microsoft Cloud App Discovery (una característica de Azure Active Directory
  
 ### <a name="learn-more"></a>Más información
 
-- [Detección y administración de shadow IT en la red](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Aplicaciones detectadas con Cloud App Security ](https://docs.microsoft.com/cloud-app-security/discovered-apps)
+- [Detección y administración de shadow IT en la red](/cloud-app-security/tutorial-shadow-it)
+- [Aplicaciones detectadas con Cloud App Security ](/cloud-app-security/discovered-apps)
  
 ## <a name="user-session-visibility-and-control"></a>Visibilidad y control de la sesión del usuario 
 
@@ -53,7 +53,7 @@ Con este control, puede:
  
 ### <a name="learn-more"></a>Más información
 
-- [Protección de aplicaciones con el control de sesión en Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Protección de aplicaciones con el control de sesión en Cloud App Security](/cloud-app-security/proxy-intro-aad)
  
 ## <a name="advanced-app-visibility-and-controls"></a>Visibilidad y controles avanzados de la aplicación 
 
@@ -61,11 +61,11 @@ Los conectores de aplicaciones usan las API de los proveedores de aplicaciones p
  
 ### <a name="learn-more"></a>Más información  
 
-- [Conexión de aplicaciones en Cloud App Security ](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [Conexión de aplicaciones en Cloud App Security ](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Detección y administración de shadow IT en la red](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Aplicaciones detectadas con Cloud App Security ](https://docs.microsoft.com/cloud-app-security/discovered-apps)
-- [Protección de aplicaciones con el control de sesión en Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-- [Conexión de aplicaciones en Cloud App Security ](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [Detección y administración de shadow IT en la red](/cloud-app-security/tutorial-shadow-it)
+- [Aplicaciones detectadas con Cloud App Security ](/cloud-app-security/discovered-apps)
+- [Protección de aplicaciones con el control de sesión en Cloud App Security](/cloud-app-security/proxy-intro-aad)
+- [Conexión de aplicaciones en Cloud App Security ](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322212"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630284"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migración de las series 8100 y 8600 de StorSimple a Azure File Sync
 
@@ -38,14 +38,14 @@ Las migraciones a recursos compartidos de archivos de Azure desde volúmenes de 
 * **Salida de red:** los archivos de StorSimple residen en una cuenta de almacenamiento dentro de una región de Azure específica. Si aprovisiona los recursos compartidos de archivos de Azure que migra a una cuenta de almacenamiento que se encuentra en la misma región de Azure, no se incurrirá en ningún costo de salida. Puede trasladar los archivos a una cuenta de almacenamiento en una región diferente como parte de esta migración. En ese caso, se le aplicarán costos de salida.
 * **Transacciones de recursos compartido de archivos de Azure:** cuando los archivos se copian en un recurso compartido de archivos de Azure (como parte de una migración o fuera de una), los costos de transacción se aplican a medida que se escriben archivos y metadatos. Como procedimiento recomendado, inicie el recurso compartido de archivos de Azure del nivel optimizado para transacciones durante la migración. Cambie al nivel deseado después de finalizar la migración. Las fases siguientes recordarán este paso en el momento apropiado.
 * **Cambio del nivel de un recurso compartido de archivos de Azure:** cambiar el nivel de un recurso compartido de archivos de Azure conlleva transacciones. En la mayoría de los casos, será más rentable seguir los consejos del punto anterior.
-* **Costo de almacenamiento** : cuando esta migración comienza a copiar archivos en un recurso compartido de archivos de Azure, se consume almacenamiento de Azure Files y se factura.
+* **Costo de almacenamiento**: cuando esta migración comienza a copiar archivos en un recurso compartido de archivos de Azure, se consume almacenamiento de Azure Files y se factura.
 * **StorSimple:** hasta que tenga la oportunidad de desaprovisionar las cuentas de almacenamiento y los dispositivos de StorSimple, se seguirá incurriendo el costo de StorSimple por almacenamiento, copias de seguridad y dispositivos.
 
 ### <a name="direct-share-access-vs-azure-file-sync"></a>Acceso directo de recursos compartidos frente a Azure File Sync
 
 Los recursos compartidos de archivos de Azure proporcionan un sinfín de oportunidades para estructurar la implementación de servicios de archivo. Un recurso compartido de archivos de Azure es simplemente un recurso compartido de SMB en la nube, que puede configurar para que los usuarios tengan acceso directo a través del protocolo SMB con la autenticación Kerberos conocida y los permisos NTFS existentes (ACL de archivos y carpetas) funcionen de forma nativa. Obtenga más información sobre el [acceso basado en identidad a recursos compartidos de archivos de Azure](storage-files-active-directory-overview.md).
 
-Una alternativa al acceso directo es [Azure File Sync](https://aka.ms/AFS). Azure File Sync es un análogo directo de la capacidad de StorSimple de almacenar en caché los archivos que se usan con frecuencia de forma local.
+Una alternativa al acceso directo es [Azure File Sync](./storage-sync-files-planning.md). Azure File Sync es un análogo directo de la capacidad de StorSimple de almacenar en caché los archivos que se usan con frecuencia de forma local.
 
 Azure File Sync es un servicio en la nube de Microsoft, que se basa en dos componentes principales:
 
@@ -56,7 +56,7 @@ Los recursos compartidos de archivos de Azure conservan aspectos importantes de 
 
 Este artículo se centra en los pasos de migración. Si desea obtener más información sobre Azure File Sync antes de la migración, consulte los siguientes artículos:
 
-* [Introducción a Azure File Sync](https://aka.ms/AFS "Introducción")
+* [Introducción a Azure File Sync](./storage-sync-files-planning.md "Introducción")
 * [Guía de implementación de Azure File Sync](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Cambio de la clave de cifrado de datos del servicio de StorSimple
@@ -310,7 +310,7 @@ Ordena varias ubicaciones de origen en una nueva estructura de directorios:
 * Al igual que Windows, los nombres de carpeta no distinguen mayúsculas de minúsculas, pero sí se conservan.
 
 > [!NOTE]
-> El trabajo de transformación no copiará el contenido de la carpeta " *\System Volume Information* " y " *$Recycle.Bin* " en el volumen de StorSimple.
+> El trabajo de transformación no copiará el contenido de la carpeta " *\System Volume Information*" y " *$Recycle.Bin*" en el volumen de StorSimple.
 
 ### <a name="phase-3-summary"></a>Resumen de la fase 3
 
@@ -320,8 +320,8 @@ Al final de la fase 3, habrá ejecutado los trabajos del servicio de transforma
 
 Hay dos estrategias principales para acceder a los recursos compartidos de archivos de Azure:
 
-* **Azure File Sync** : [implementar Azure File Sync](#deploy-azure-file-sync) en una instancia de Windows Server local. Azure File Sync tiene todas las ventajas de una memoria caché local, al igual que StorSimple.
-* **Acceso directo a recursos compartidos** : [Implementación de acceso directo a recursos compartidos](#deploy-direct-share-access). Use esta estrategia si su escenario de acceso para un recurso compartido de archivos de Azure determinado no se beneficiará del almacenamiento en caché local o ya no es posible hospedar una instancia de Windows Server. Aquí, los usuarios y las aplicaciones seguirán teniendo acceso a los recursos compartidos de SMB a través del protocolo SMB. Estos recursos compartidos ya no están en un servidor local, sino directamente en la nube.
+* **Azure File Sync**: [implementar Azure File Sync](#deploy-azure-file-sync) en una instancia de Windows Server local. Azure File Sync tiene todas las ventajas de una memoria caché local, al igual que StorSimple.
+* **Acceso directo a recursos compartidos**: [Implementación de acceso directo a recursos compartidos](#deploy-direct-share-access). Use esta estrategia si su escenario de acceso para un recurso compartido de archivos de Azure determinado no se beneficiará del almacenamiento en caché local o ya no es posible hospedar una instancia de Windows Server. Aquí, los usuarios y las aplicaciones seguirán teniendo acceso a los recursos compartidos de SMB a través del protocolo SMB. Estos recursos compartidos ya no están en un servidor local, sino directamente en la nube.
 
 Ya debe haber decidido qué opción es la más adecuada en la [fase 1](#phase-1-prepare-for-migration) de esta guía.
 
@@ -385,7 +385,7 @@ La instancia registrada de Windows Server local debe estar preparada y conectad
 * [Configuración de una VPN de Windows P2S](storage-files-configure-p2s-vpn-windows.md)
 * [Configuración de una VPN P2S de Linux](storage-files-configure-p2s-vpn-linux.md)
 * [Configuración del reenvío de DNS](storage-files-networking-dns.md)
-* [Configuración de DFS-N](https://aka.ms/AzureFiles/Namespaces)
+* [Configuración de DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -418,8 +418,8 @@ Cuando se usa Azure File Sync para un recurso compartido de archivos de Azure, e
 Puede usar Azure Portal para ver cuándo ha llegado por completo el espacio de nombres.
 
 * Inicie sesión en Azure Portal y vaya al grupo de sincronización. Compruebe el estado de sincronización del grupo de sincronización y el punto de conexión del servidor.
-* Se descarga la dirección de interés. Si el punto de conexión del servidor se ha aprovisionado recientemente, se mostrará la **sincronización inicial** , que indica que el espacio de nombres sigue estando disponible.
-Una vez que se cambia todo, menos la **sincronización inicial** , el espacio de nombres se rellenará por completo en el servidor. Está listo para continuar con un comando RoboCopy local.
+* Se descarga la dirección de interés. Si el punto de conexión del servidor se ha aprovisionado recientemente, se mostrará la **sincronización inicial**, que indica que el espacio de nombres sigue estando disponible.
+Una vez que se cambia todo, menos la **sincronización inicial**, el espacio de nombres se rellenará por completo en el servidor. Está listo para continuar con un comando RoboCopy local.
 
 #### <a name="windows-server-event-viewer"></a>Visor de eventos de Windows Server
 
@@ -429,7 +429,7 @@ También puede usar el Visor de eventos en la instancia de Windows Server para 
 1. Vaya a **Microsoft\FileSync\Agent\Telemetry** y ábralo.
 1. Busque el **evento 9102** más reciente, el cual se corresponde con una sesión de sincronización completada.
 1. Seleccione **Detalles** y confirme que está examinando un evento en el que el valor **SyncDirection** es **Descargar**.
-1. En el momento en que el espacio de nombres ha finalizado su descarga en el servidor, habrá un único evento con **Escenario** , valor **FullGhostedSync** y **HResult** = **0**.
+1. En el momento en que el espacio de nombres ha finalizado su descarga en el servidor, habrá un único evento con **Escenario**, valor **FullGhostedSync** y **HResult** = **0**.
 1. Si no está ese evento, también puede buscar otros **eventos 9102** con **SyncDirection** = **Descargar** y **Escenario** =  **"RegularSync"** . La búsqueda de uno de estos eventos también indica que el espacio de nombres se ha terminado de descargar y la sincronización ha progresado a sesiones regulares de sincronización, haya o no algo que sincronizar, en este momento.
 
 ### <a name="a-final-robocopy"></a>Un comando RoboCopy final.
@@ -518,7 +518,7 @@ Fondo:
    :::column-end:::
 :::row-end:::
 
-Cuando configure las ubicaciones de origen y de destino del comando RoboCopy, asegúrese de revisar la estructura de origen y de destino para asegurarse de que coinciden. Si usó la característica de asignación de directorios del trabajo de migración, la estructura del directorio raíz puede ser diferente de la estructura del volumen de StorSimple. En ese caso, puede que necesite varios trabajos de RoboCopy, uno para cada subdirectorio. Si no está seguro de si el comando se ejecutará según lo previsto, puede usar el parámetro */L* , que simulará el comando sin realizar realmente ningún cambio.
+Cuando configure las ubicaciones de origen y de destino del comando RoboCopy, asegúrese de revisar la estructura de origen y de destino para asegurarse de que coinciden. Si usó la característica de asignación de directorios del trabajo de migración, la estructura del directorio raíz puede ser diferente de la estructura del volumen de StorSimple. En ese caso, puede que necesite varios trabajos de RoboCopy, uno para cada subdirectorio. Si no está seguro de si el comando se ejecutará según lo previsto, puede usar el parámetro */L*, que simulará el comando sin realizar realmente ningún cambio.
 
 Este comando RoboCopy usa /MIR, por lo que no moverá archivos que sean iguales (archivos en capas, por ejemplo). Pero si obtiene incorrectamente la ruta de acceso de origen y destino, /MIR también purga las estructuras de directorio en su instancia de Windows Server o en el recurso compartido de archivos de Azure que no están presentes en la ruta de acceso de origen de StorSimple. Deben coincidir exactamente para que el trabajo de RoboCopy alcance su objetivo de actualizar el contenido migrado con los últimos cambios realizados durante la migración.
 
@@ -535,7 +535,7 @@ Si usa Azure File Sync, es probable que tenga que crear los recursos compartidos
 
 Si tiene una implementación de DFS-N, puede apuntar los espacios de nombres de DFN a las nuevas ubicaciones de carpetas del servidor. Si no tiene una implementación de DFS-N y ha adelantado el dispositivo 8100/8600 localmente con una instancia de Windows Server, puede desconectar el servidor del dominio. Después, únase al dominio nuevo en la instancia de Windows Server habilitada para Azure File Sync. Durante ese proceso, asigne al servidor el mismo nombre de servidor y los nombres de los recursos compartidos que en el servidor anterior, de modo que el acceso directo sea transparente para los usuarios, la directiva de grupo y los scripts.
 
-Más información sobre [DFS-N](https://aka.ms/AzureFiles/Namespaces).
+Más información sobre [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
 ## <a name="deprovision"></a>Desaprovisionamiento
 
@@ -561,7 +561,7 @@ La migración se ha completado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Familiarícese con [Azure File Sync: aka.ms/AFS](https://aka.ms/AFS).
+* Familiarícese con [Azure File Sync: aka.ms/AFS](./storage-sync-files-planning.md).
 * Obtenga información sobre la flexibilidad de las [directivas de nube por niveles](storage-sync-cloud-tiering.md).
 * [Habilite Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) en los recursos compartidos de archivos de Azure para programar instantáneas y definir programaciones de retención de copia de seguridad.
 * Si ve en Azure Portal que algunos archivos no se sincronizan de forma permanente, revise la [guía de solución de problemas](storage-sync-files-troubleshoot.md) para conocer los pasos necesarios para resolverlos.

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: e39884f6d62fc43943f892aed0dac650a01d6c40
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd25c7638bd7e178cdb963ba528cccefde6b9eca
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462848"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646515"
 ---
 # <a name="reset-a-vpn-gateway"></a>Restablecimiento de una instancia de VPN Gateway
 
@@ -52,7 +52,7 @@ Puede restablecer una puerta de enlace de VPN de Resource Manager mediante Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-El cmdlet para restablecer una puerta de enlace es **Reset-AzVirtualNetworkGateway**. Antes de realizar un restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets Az de PowerShell](https://docs.microsoft.com/powershell/module/az.network). En el ejemplo siguiente, se restablece una puerta de enlace de red virtual denominada VNet1GW en el grupo de recursos TestRG1:
+El cmdlet para restablecer una puerta de enlace es **Reset-AzVirtualNetworkGateway**. Antes de realizar un restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets Az de PowerShell](/powershell/module/az.network). En el ejemplo siguiente, se restablece una puerta de enlace de red virtual denominada VNet1GW en el grupo de recursos TestRG1:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
@@ -65,7 +65,7 @@ Cuando reciba un resultado devuelto, se puede suponer que la puerta de enlace se
 
 ### <a name="classic-deployment-model"></a><a name="resetclassic"></a>Modelo de implementación clásica
 
-El cmdlet para restablecer una puerta de enlace es **Reset-AzureVNetGateway**. Los cmdlets de Azure PowerShell para la administración de servicios deben instalarse localmente en el escritorio. No se puede usar Azure Cloud Shell. Antes de realizar el restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets de PowerShell de Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). Cuando use este comando, asegúrese de que está usando el nombre completo de la red virtual. Las redes virtuales clásicas que se crearon con el portal tienen un nombre largo que es necesario para PowerShell. Puede ver el nombre largo mediante "Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml".
+El cmdlet para restablecer una puerta de enlace es **Reset-AzureVNetGateway**. Los cmdlets de Azure PowerShell para la administración de servicios deben instalarse localmente en el escritorio. No se puede usar Azure Cloud Shell. Antes de realizar el restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets de PowerShell de Service Management (SM)](/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). Cuando use este comando, asegúrese de que está usando el nombre completo de la red virtual. Las redes virtuales clásicas que se crearon con el portal tienen un nombre largo que es necesario para PowerShell. Puede ver el nombre largo mediante "Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml".
 
 En el ejemplo siguiente se restablece la puerta de enlace de una red virtual denominada "Group TestRG1 TestVNet1" (que se muestra simplemente como "TestVNet1" en el portal):
 
@@ -86,7 +86,7 @@ StatusCode     : OK
 
 ## <a name="azure-cli"></a><a name="cli"></a>Azure CLI
 
-Para restablecer la puerta de enlace, use el comando [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway). En el ejemplo siguiente, se restablece una puerta de enlace de red virtual denominada VNet5GW en el grupo de recursos TestRG5:
+Para restablecer la puerta de enlace, use el comando [az network vnet-gateway reset](/cli/azure/network/vnet-gateway). En el ejemplo siguiente, se restablece una puerta de enlace de red virtual denominada VNet5GW en el grupo de recursos TestRG5:
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5

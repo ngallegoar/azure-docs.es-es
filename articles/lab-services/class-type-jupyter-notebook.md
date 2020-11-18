@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: 4bbf4c9d4bc83b48b8ecc62946fa9bffa8af50bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4034f889334bcf1e4eaa3710a32db60b6a9936b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533527"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648028"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurar un laboratorio para enseñar ciencia de datos con Python y Jupyter Notebooks
 En este artículo se describe cómo configurar una máquina virtual (VM) de plantilla en servicios de laboratorio con las herramientas necesarias para enseñar a los alumnos a usar [Cuadernos de Jupyter Notebook](http://jupyter-notebook.readthedocs.io/) y cómo los alumnos pueden conectarse a sus cuadernos en sus máquinas virtuales (VM).
@@ -86,7 +86,7 @@ Si se han proporcionado máquinas virtuales Linux a los alumnos, hay varias opci
 En las secciones siguientes se proporcionan detalles acerca de estas formas de conectarse a los cuadernos de Jupyter Notebook. 
 
 #### <a name="ssh-to-virtual-machine"></a>SSH a la máquina virtual
-Los alumnos pueden conectarse mediante SSH a sus máquinas virtuales Linux desde una sesión de terminal. Para obtener pasos detallados, vea [Procedimientos para acceder a un laboratorio de clase](how-to-use-classroom-lab.md). Si usan una máquina cliente Windows, deberán habilitar un cliente SSH mediante la descarga de [PuTTy](https://www.putty.org/) o la habilitación de [OpenSSH en Windows](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) a SSH desde el símbolo del sistema. 
+Los alumnos pueden conectarse mediante SSH a sus máquinas virtuales Linux desde una sesión de terminal. Para obtener pasos detallados, vea [Procedimientos para acceder a un laboratorio de clase](how-to-use-classroom-lab.md). Si usan una máquina cliente Windows, deberán habilitar un cliente SSH mediante la descarga de [PuTTy](https://www.putty.org/) o la habilitación de [OpenSSH en Windows](/windows-server/administration/openssh/openssh_install_firstuse) a SSH desde el símbolo del sistema. 
 
 1.  Inicie la máquina virtual.
 2.  Una vez que la máquina virtual se esté ejecutando, haga clic en **Conectar**, que mostrará un cuadro de diálogo que proporciona la cadena de comando SSH, la cual tendrá el aspecto siguiente:

@@ -4,16 +4,16 @@ description: Cómo usar la nueva exportación de datos para exportar los datos d
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/15/2020
+ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b16880f42cab21c1437d9adcbeb9825d77475e0e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126710"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413180"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportación de datos de IoT a destinos en la nube mediante la característica de exportación de datos
 
@@ -135,6 +135,7 @@ Ahora que tiene un destino al que exportar los datos, configure la exportación 
     |  Telemetría | Exporte los mensajes de telemetría de los dispositivos casi en tiempo real. Cada mensaje exportado contiene todo el contenido del mensaje del dispositivo original, normalizado.   |  [Formato del mensaje de telemetría](#telemetry-format)   |
     | Cambios de la propiedad | Exporte los cambios de las propiedades de dispositivos y la nube casi en tiempo real. En el caso de las propiedades de dispositivo de solo lectura, se exportan los cambios realizados en los valores notificados. En el caso de las propiedades de lectura y escritura, se exportan los valores notificados y deseados. | [Formato de los mensajes de cambio de propiedad](#property-changes-format) |
 
+<a name="DataExportFilters"></a>
 1. Opcionalmente, agregue filtros para reducir la cantidad de datos exportados. Hay diferentes tipos de filtros disponibles para cada tipo de exportación de datos:
 
     Para filtrar la telemetría, puede:
@@ -145,6 +146,7 @@ Ahora que tiene un destino al que exportar los datos, configure la exportación 
 
     Para filtrar los cambios de propiedad, use un **filtro de funcionalidad**. Elija un elemento de propiedad en la lista desplegable. El flujo exportado solo contendrá los cambios de la propiedad seleccionada que cumplan la condición del filtro.
 
+<a name="DataExportEnrichmnents"></a>
 1. Opcionalmente, puede enriquecer los mensajes exportados con metadatos adicionales de pares clave-valor. Están disponibles los siguientes enriquecimientos para los tipos de exportación de datos de telemetría y cambios de propiedad:
 
     - **Cadena personalizada**: agrega una cadena estática personalizada a cada mensaje. Escriba cualquier clave y especifique cualquier valor de cadena.
@@ -156,7 +158,9 @@ Ahora que tiene un destino al que exportar los datos, configure la exportación 
     - **Tipo de destino**: elija el tipo de destino. Si todavía no ha configurado el destino de exportación, consulte [Configuración del destino de exportación](#set-up-export-destination).
     - En el caso de Azure Event Hubs o la cola o el tema de Azure Service Bus, pegue la cadena de conexión del recurso y escriba el nombre (distingue mayúsculas de minúsculas) del centro de eventos, la cola o el tema, si es necesario.
     - En Azure Blob Storage, pegue la cadena de conexión del recurso y, si es necesario, escriba el nombre del contenedor (distingue mayúsculas de minúsculas).
-    - Si se trata de un webhook, pegue la dirección URL de devolución de llamada para el punto de conexión de webhook.
+    - Si se trata de un webhook, pegue la dirección URL de devolución de llamada para el punto de conexión de webhook. Opcionalmente, puede configurar la autorización de webhook (OAuth 2.0 y el token de autorización) y agregar encabezados personalizados. 
+        - En OAuth 2.0, solo se admite el flujo de credenciales de cliente. Cuando el destino se guarde, IoT Central se comunicará con el proveedor de OAuth para recuperar un token de autorización. Este token se adjuntará al encabezado "Authorization" para cada mensaje enviado a este destino.
+        - Para el token de autorización, puede especificar un valor de token que se adjunte directamente al encabezado "Authorization" para cada mensaje enviado a este destino.
     - Seleccione **Crear**.
 
 1. Seleccione **+ Destino** y elija un destino en el menú desplegable. Puede agregar hasta cinco destinos a una única exportación.

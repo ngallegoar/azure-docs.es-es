@@ -4,15 +4,14 @@ description: En este artículo se proporciona información sobre cómo agregar u
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8005a2c43d42908a9ad6ebea10b6a13ef381084c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843386"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427656"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir el acceso al espacio de nombres de Azure Service Bus desde redes virtuales específicas
-
 La integración de Service Bus con los [puntos de conexión de servicio de una red virtual (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería de cargas de trabajo como las de máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos.
 
 Una vez realizada la configuración para enlazarse con al menos un punto de conexión de servicio de subred de red virtual, el espacio de nombres respectivo de Service Bus solo aceptará ya el tráfico procedente de redes virtuales autorizadas y, opcionalmente, direcciones IP de Internet específicas. Desde la perspectiva de la red virtual, el enlace de un espacio de nombres de Service Bus a un punto de conexión de servicio configura un túnel de redes aislado desde la subred de la red virtual al servicio de mensajería.
@@ -20,24 +19,14 @@ Una vez realizada la configuración para enlazarse con al menos un punto de cone
 El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Service Bus, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público.
 
 >[!WARNING]
-> La implementación de la integración de instancias de redes virtuales puede evitar que otros servicios de Azure interactúen con Service Bus.
->
-> Los servicios de confianza de Microsoft no se admiten cuando se implementan instancias de Virtual Network.
->
-> Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
-> - Integración con Azure Event Grid
-> - Enrutamientos de Azure IoT Hub
-> - Azure IoT Device Explorer
+> La implementación de la integración de instancias de redes virtuales puede evitar que otros servicios de Azure interactúen con Service Bus. Como excepción, puede permitir el acceso a los recursos de Service Bus desde determinados servicios de confianza, incluso cuando los puntos de conexión de servicio de red están habilitados. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
 >
 > Los siguientes servicios de Microsoft deben estar en una red virtual
 > - Azure App Service
 > - Azure Functions
-> - Azure Monitor (configuración de diagnósticos)
 
 > [!IMPORTANT]
-> Solo se admiten redes virtuales en espacios de nombres de Service Bus del [nivel Premium](service-bus-premium-messaging.md).
-> 
-> Al utilizar los puntos de conexión de servicio de la red virtual con Service Bus, no debería habilitar estos puntos de conexión en aplicaciones que combinan espacios de nombres de Service Bus de los niveles Estándar y Premium. Dado que el nivel Estándar no admite redes virtuales, el punto de conexión está restringido solo a los espacios de nombres de nivel Premium.
+> Solo se admiten redes virtuales en espacios de nombres de Service Bus del [nivel Premium](service-bus-premium-messaging.md). Al utilizar los puntos de conexión de servicio de la red virtual con Service Bus, no debería habilitar estos puntos de conexión en aplicaciones que combinan espacios de nombres de Service Bus de los niveles Estándar y Premium. Dado que el nivel Estándar no admite redes virtuales, el punto de conexión está restringido solo a los espacios de nombres de nivel Premium.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Escenarios de seguridad avanzados que habilita la integración de VNet 
 
@@ -96,6 +85,8 @@ En esta sección se muestra cómo usar Azure Portal para agregar un punto de con
     > [!NOTE]
     > Para obtener instrucciones para permitir el acceso desde intervalos o direcciones concretos, consulte [Permitir el acceso desde intervalos o direcciones IP específicos](service-bus-ip-filtering.md).
 
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+
 ## <a name="use-resource-manager-template"></a>Uso de plantillas de Resource Manager
 La siguiente plantilla de Resource Manager permite agregar una regla de red virtual a un espacio de nombres de Service Bus.
 
@@ -106,7 +97,7 @@ Parámetros de plantilla:
 
 > [!NOTE]
 > Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"** , que no restringe las conexiones.
-> Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor ***"defaultAction"***
+> Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor **_"defaultAction"_**
 > 
 > desde
 > ```json

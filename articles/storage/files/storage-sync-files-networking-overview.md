@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 76d97e3312c1df51193d8a881f3ee07fcd155d75
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267795"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629366"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Consideraciones de redes para Azure File Sync
 Puede conectarse a un recurso compartido de archivos de Azure de dos maneras:
@@ -55,7 +55,7 @@ Azure File Sync requiere los intervalos de direcciones IP para los siguientes se
 | Azure Resource Manager | Azure Resource Manager es la interfaz de administración de Azure. Todas las llamadas de administración, incluidas las tareas de registro del servidor de Azure File Sync y del servidor de sincronización en curso, se realizan a través de Azure Resource Manager. | `AzureResourceManager` |
 | Azure Active Directory | Azure Active Directory, o Azure AD, contiene las entidades de seguridad de usuario necesarias para autorizar el registro del servidor en un servicio de sincronización de almacenamiento y las entidades de servicio necesarias para la autorización de Azure File Sync para el acceso a sus recursos de la nube. | `AzureActiveDirectory` |
 
-Si usa Azure File Sync en Azure, aunque sea una región diferente, puede usar el nombre de la etiqueta de servicio directamente en el grupo de seguridad de red para permitir el tráfico a ese servicio. Para saber cómo, vea [Grupos de seguridad de red](../../virtual-network/security-overview.md). 
+Si usa Azure File Sync en Azure, aunque sea una región diferente, puede usar el nombre de la etiqueta de servicio directamente en el grupo de seguridad de red para permitir el tráfico a ese servicio. Para saber cómo, vea [Grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md). 
 
 Si usa Azure File Sync de forma local, puede usar la API de etiquetas de servicio para obtener intervalos de direcciones IP específicos para la lista de elementos permitidos del firewall. Existen dos formas de obtener esta información:
 
@@ -65,9 +65,9 @@ Si usa Azure File Sync de forma local, puede usar la API de etiquetas de servici
     - [Azure en China](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Alemania](https://www.microsoft.com/download/details.aspx?id=57064)
 - La API de detección de etiquetas de servicio (versión preliminar) permite recuperar mediante programación la lista actual de etiquetas de servicio. En la versión preliminar, es posible que la API de detección de etiquetas de servicio devuelva información menos actual que la información incluida en los documentos JSON publicados en el Centro de descarga de Microsoft. Puede usar la superficie de API en función de su preferencia de automatización:
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [CLI de Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [CLI de Azure](/cli/azure/network#az-network-list-service-tags)
 
 Para obtener más información sobre cómo usar la API de etiquetas de servicio para recuperar las direcciones de sus servicios, consulte [Lista de direcciones IP de Azure File Sync permitidas](storage-sync-files-firewall-and-proxy.md#allow-list-for-azure-file-sync-ip-addresses).
 

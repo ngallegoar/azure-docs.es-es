@@ -8,19 +8,19 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e2ce094b792d6f3f7e5f8fe1920d87a9cceea2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d0136f7677aa722e578ac54c4f7d34338e47b0f7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517182"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646617"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Mejoras en la administración de usuarios (versión preliminar) en Azure Active Directory
 
@@ -42,8 +42,8 @@ Estos son algunos de los cambios de esta versión preliminar:
 La versión preliminar está activada de forma predeterminada, por lo que puede usarla inmediatamente. También puede consultar las características y mejoras seleccionando **Información de versión preliminar** en la página **Todos los usuarios**. Todas las páginas que se han actualizado como parte de esta versión preliminar mostrarán una etiqueta de versión preliminar. Si tiene algún problema, puede volver a la experiencia heredada:
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) y seleccione **Usuarios**.
-1. En la página **Usuarios - Todos los usuarios** , seleccione el banner situado en la parte superior de la página.
-1. En el panel **Características de versión preliminar** , desactive **Administración de usuarios mejorada**.
+1. En la página **Usuarios - Todos los usuarios**, seleccione el banner situado en la parte superior de la página.
+1. En el panel **Características de versión preliminar**, desactive **Administración de usuarios mejorada**.
 
    ![Cómo y dónde activar y desactivar Administración mejorada de usuarios](./media/users-search-enhanced/enable-preview.png)
 
@@ -55,7 +55,7 @@ Hemos realizado algunos cambios en las columnas disponibles en las páginas **To
 
 ### <a name="all-users-page"></a>Panel Todos los usuarios
 
-A continuación se muestran las propiedades de usuario mostradas en la página **Todos los usuarios** :
+A continuación se muestran las propiedades de usuario mostradas en la página **Todos los usuarios**:
 
 - Nombre: Nombre para mostrar del usuario.
 - Nombre principal del usuario: El nombre principal de usuario (UPN) del usuario.
@@ -85,10 +85,10 @@ Algunas columnas se muestran de forma predeterminada. Para agregar otras columna
 
 ### <a name="identity-issuers"></a>Emisores de identidades
 
-Seleccione una entrada en la columna **Emisor de identidades** de cualquier usuario para ver detalles adicionales sobre el emisor, incluidos el tipo de inicio de sesión y el identificador asignado del emisor. Las entradas de la columna **Emisor de identidades** pueden tener varios valores. Si hay varios emisores de la identidad del usuario, verá la palabra "Varios" en la columna **Emisor de identidades** de las páginas **Todos los usuarios** y **Usuarios eliminados** , y en el panel de detalles se muestra una lista de todos los emisores.
+Seleccione una entrada en la columna **Emisor de identidades** de cualquier usuario para ver detalles adicionales sobre el emisor, incluidos el tipo de inicio de sesión y el identificador asignado del emisor. Las entradas de la columna **Emisor de identidades** pueden tener varios valores. Si hay varios emisores de la identidad del usuario, verá la palabra "Varios" en la columna **Emisor de identidades** de las páginas **Todos los usuarios** y **Usuarios eliminados**, y en el panel de detalles se muestra una lista de todos los emisores.
 
 > [!NOTE]
-> La columna **Origen** se ha reemplazado por varias columnas, entre las que se incluyen **Tipo de creación** , **Directorio sincronizado** y **Emisor de identidades** , para poder filtrar de forma más granular.
+> La columna **Origen** se ha reemplazado por varias columnas, entre las que se incluyen **Tipo de creación**, **Directorio sincronizado** y **Emisor de identidades**, para poder filtrar de forma más granular.
 
 ## <a name="user-list-search"></a>Búsqueda en la lista de usuarios
 
@@ -100,7 +100,7 @@ Las funcionalidades de filtrado se han mejorado para proporcionar más opciones 
 
 ### <a name="filtering-all-users-list"></a>Filtrado de la lista Todos los usuarios
 
-A continuación se muestran las propiedades que se pueden filtrar en la página **Todos los usuarios** :
+A continuación se muestran las propiedades que se pueden filtrar en la página **Todos los usuarios**:
 
 - Tipo de usuario: miembro, invitado y ninguno
 - Estado de Directorio sincronizado: sí/no
@@ -112,7 +112,7 @@ A continuación se muestran las propiedades que se pueden filtrar en la página 
 
 ### <a name="filtering-deleted-users-list"></a>Filtrado de la lista Usuarios eliminados
 
-La página **Usuarios eliminados** tiene más filtros que no están en la página **Todos los usuarios**. A continuación se muestran las propiedades que se pueden filtrar en la página **Usuarios eliminados** :
+La página **Usuarios eliminados** tiene más filtros que no están en la página **Todos los usuarios**. A continuación se muestran las propiedades que se pueden filtrar en la página **Usuarios eliminados**:
 
 - Tipo de usuario: miembro, invitado y ninguno
 - Estado de Directorio sincronizado: sí/no
@@ -138,8 +138,8 @@ Puede ver el número total de usuarios en las páginas **Todos los usuarios** y 
 Pregunta | Respuesta
 -------- | ------
 ¿Por qué se sigue mostrando el usuario eliminado cuando se ha superado la fecha de eliminación permanente? | La fecha de eliminación permanente se muestra en la zona horaria UTC, por lo que es posible que no coincida con la zona horaria actual. Además, esta fecha es la más temprana después de la cual se eliminará de forma permanente al usuario de la organización, por lo que todavía puede estar en proceso. Los usuarios eliminados permanentemente se quitarán de forma automática de la lista.
-¿Qué ocurre con las funcionalidades de operaciones masivas para usuarios e invitados? | Las operaciones masivas siguen estando disponibles para usuarios e invitados; por ejemplo, Creación masiva, Invitación masiva, Eliminación masiva y Descargar usuarios. Simplemente se han fusionado en un menú denominado **Operaciones masivas**. En la parte superior de la página **Todos los usuarios** , puede encontrar las opciones de **Operaciones masivas**.
-¿Qué ha ocurrido con la columna Origen? | La columna **Origen** se ha reemplazado por otras columnas que proporcionan información similar, a la vez que permiten filtrar esos valores por separado. Por ejemplo, **Tipo de creación** , **Directorio sincronizado** y **Emisor de entidades**.
+¿Qué ocurre con las funcionalidades de operaciones masivas para usuarios e invitados? | Las operaciones masivas siguen estando disponibles para usuarios e invitados; por ejemplo, Creación masiva, Invitación masiva, Eliminación masiva y Descargar usuarios. Simplemente se han fusionado en un menú denominado **Operaciones masivas**. En la parte superior de la página **Todos los usuarios**, puede encontrar las opciones de **Operaciones masivas**.
+¿Qué ha ocurrido con la columna Origen? | La columna **Origen** se ha reemplazado por otras columnas que proporcionan información similar, a la vez que permiten filtrar esos valores por separado. Por ejemplo, **Tipo de creación**, **Directorio sincronizado** y **Emisor de entidades**.
 ¿Qué ha ocurrido con la columna Nombre de usuario? | La columna **Nombre de usuario** sigue estando, solo que ahora se llama **Nombre principal de usuario**. Este nombre refleja mejor la información contenida en esa columna. También observará que ahora se muestra el nombre principal de usuario completo para los invitados B2B. Esto coincide con lo que obtendría en Microsoft Graph.  
 
 ## <a name="next-steps"></a>Pasos siguientes

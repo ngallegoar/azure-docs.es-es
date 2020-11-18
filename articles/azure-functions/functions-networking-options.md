@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897082"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413095"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -117,6 +117,9 @@ También puede habilitar los desencadenadores de red virtual mediante el siguien
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
+> [!TIP]
+> Habilitar los desencadenadores de red virtual puede afectar al rendimiento de la aplicación, ya que las instancias del plan de App Service deberán supervisar los desencadenadores para determinar cuándo se debe escalar. Es probable que este impacto sea muy pequeño.
+
 Los desencadenadores de red virtual se admiten en la versión 2.x y superior del tiempo de ejecución de Functions. Se admiten los siguientes tipos de desencadenador no HTTP.
 
 | Extensión | Versión mínima |
@@ -156,8 +159,8 @@ Cuando se integra una aplicación de funciones de un plan Premium o un plan de A
 ## <a name="automation"></a>Automation
 Las siguientes API permiten administrar mediante programación las integraciones de redes virtuales regionales:
 
-+ **CLI de Azure** : Use los comandos [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) para agregar, enumerar o quitar integraciones de redes virtuales regionales.  
-+ **Plantillas ARM** : La integración de la red virtual regional se puede habilitar mediante una plantilla de Azure Resource Manager. Para obtener un ejemplo completo, consulte [esta plantilla de inicio rápido de Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **CLI de Azure**: Use los comandos [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) para agregar, enumerar o quitar integraciones de redes virtuales regionales.  
++ **Plantillas ARM**: La integración de la red virtual regional se puede habilitar mediante una plantilla de Azure Resource Manager. Para obtener un ejemplo completo, consulte [esta plantilla de inicio rápido de Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

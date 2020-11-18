@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18504f1ed4200889b20c9608c9c0ad2c13c9aaa5
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570319"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425769"
 ---
 # <a name="wildcard-domains"></a>Dominios con caracteres comodín
 
@@ -27,7 +27,7 @@ Entre los escenarios clave que se mejoran con la compatibilidad con los dominios
 - Ya no es necesario cambiar la configuración de producción de Azure Front Door si una aplicación agrega un nuevo subdominio. Antes, se tenía que agregar el subdominio, enlazarle un certificado, asociar una directiva de firewall de aplicaciones web (WAF) y, a continuación, agregar el dominio a diferentes reglas de enrutamiento.
 
 > [!NOTE]
-> Actualmente, los dominios con caracteres comodín solo se admiten a través de la API, PowerShell y la CLI de Azure. La posibilidad de agregar y administrar dominios con caracteres comodín en Azure Portal no está disponible.
+> Actualmente, la incorporación de dominios con caracteres comodín a través de Azure DNS solo se admite a través de la API, PowerShell y la CLI de Azure. La posibilidad de agregar y administrar dominios con caracteres comodín en Azure Portal no está disponible.
 
 ## <a name="adding-wildcard-domains"></a>Incorporación de dominios con caracteres comodín
 

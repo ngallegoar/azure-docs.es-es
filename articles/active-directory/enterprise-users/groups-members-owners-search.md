@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79062b8b1072e40fc9997d5ed6c730801aca20d1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e37a450ad99c37a2468e4cb73ce9f88decb628d5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374019"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647246"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Búsqueda de grupos y miembros (versión preliminar) en Azure Active Directory
 
@@ -36,12 +36,12 @@ Los cambios de esta versión preliminar incluyen:
 
 Hemos facilitado la unión a la versión preliminar:
 
-  1. Inicie sesión en el [portal de Azure AD](https://portal.azure.com) y seleccione **Grupos** .
+  1. Inicie sesión en el [portal de Azure AD](https://portal.azure.com) y seleccione **Grupos**.
   2. En la página Grupos - Todos los grupos, seleccione el banner situado en la parte superior de la página para unirse a la versión preliminar.
 
-También puede consultar las características y mejoras seleccionando **Información de versión preliminar** en la página **Todos los grupos** . Después de unirse a la versión preliminar, puede ver la etiqueta de versión preliminar en todas las páginas de grupos que tienen mejoras y que forman parte de dicha versión. No se han actualizado todas las páginas de grupos como parte de esta versión preliminar.
+También puede consultar las características y mejoras seleccionando **Información de versión preliminar** en la página **Todos los grupos**. Después de unirse a la versión preliminar, puede ver la etiqueta de versión preliminar en todas las páginas de grupos que tienen mejoras y que forman parte de dicha versión. No se han actualizado todas las páginas de grupos como parte de esta versión preliminar.
 
-Si tiene algún problema, puede volver a la experiencia heredada seleccionando el banner situado en la parte superior de la página **Todos los grupos** . Agradecemos sus comentarios para que podamos mejorar nuestra experiencia.
+Si tiene algún problema, puede volver a la experiencia heredada seleccionando el banner situado en la parte superior de la página **Todos los grupos**. Agradecemos sus comentarios para que podamos mejorar nuestra experiencia.
 
 ## <a name="group-search-and-sorting"></a>Búsqueda y ordenación de grupos
 
@@ -74,7 +74,7 @@ También puede filtrar la lista de miembros directos y la lista de todos los mie
 
 ## <a name="improved-group-member-counts"></a>Recuentos de miembros del grupo mejorado
 
-Hemos mejorado la página **Información general** de Grupos para proporcionar recuentos de miembros del grupo para grupos de todos los tamaños. Puede ver los recuentos de miembros incluso para grupos con más de 1000 miembros. Ahora puede ver el número total de miembros directos de un grupo y el número total de pertenencias (todos los miembros únicos del grupo, incluidos los miembros transitivos) en la página **Información general** .
+Hemos mejorado la página **Información general** de Grupos para proporcionar recuentos de miembros del grupo para grupos de todos los tamaños. Puede ver los recuentos de miembros incluso para grupos con más de 1000 miembros. Ahora puede ver el número total de miembros directos de un grupo y el número total de pertenencias (todos los miembros únicos del grupo, incluidos los miembros transitivos) en la página **Información general**.
 
 ![Mayor precisión en los recuentos de pertenencia a grupos](./media/groups-members-owners-search/member-numbers.png)
 

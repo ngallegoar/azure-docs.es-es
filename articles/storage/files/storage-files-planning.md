@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 85264eae325d9ed7049daac47a124cf1efb806e0
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: a35c34a08dba625b16940d7ec5fb870952dba36b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649956"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630250"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
@@ -96,21 +96,21 @@ La eliminación temporal de recursos compartidos de archivos (versión prelimina
 
 Se recomienda activar la eliminación temporal para la mayoría de los recursos compartidos de archivos. Si tiene un flujo de trabajo en el que la eliminación de recursos compartidos es común y se espera, puede que decida tener un período de retención muy corto o no tener habilitada la eliminación temporal.
 
-Para obtener más información acerca de la eliminación temporal, consulte [Evitar la eliminación accidental de datos](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
+Para obtener más información acerca de la eliminación temporal, consulte [Evitar la eliminación accidental de datos](./storage-files-prevent-file-share-deletion.md).
 
 ### <a name="backup"></a>Copia de seguridad
-Puede realizar una copia de seguridad del recurso compartido de archivos de Azure a través de [instantáneas de recurso compartido](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files), que son copias de solo lectura de un momento dado del recurso compartido. Las instantáneas son incrementales, lo que significa que solo contienen los datos que han cambiado desde la instantánea anterior. Puede tener hasta 200 instantáneas por recurso compartido de archivos y conservarlas durante un máximo de diez años. Puede realizar estas instantáneas manualmente en Azure Portal, a través de PowerShell o en la interfaz de la línea de comandos (CLI), o bien puede usar [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). Las instantáneas se almacenan en el recurso compartido de archivos, lo que significa que si lo elimina, también se eliminarán las instantáneas. Para proteger las copias de seguridad de instantáneas contra eliminaciones accidentales, asegúrese de que la eliminación temporal está habilitada para el recurso compartido.
+Puede realizar una copia de seguridad del recurso compartido de archivos de Azure a través de [instantáneas de recurso compartido](./storage-snapshots-files.md), que son copias de solo lectura de un momento dado del recurso compartido. Las instantáneas son incrementales, lo que significa que solo contienen los datos que han cambiado desde la instantánea anterior. Puede tener hasta 200 instantáneas por recurso compartido de archivos y conservarlas durante un máximo de diez años. Puede realizar estas instantáneas manualmente en Azure Portal, a través de PowerShell o en la interfaz de la línea de comandos (CLI), o bien puede usar [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json). Las instantáneas se almacenan en el recurso compartido de archivos, lo que significa que si lo elimina, también se eliminarán las instantáneas. Para proteger las copias de seguridad de instantáneas contra eliminaciones accidentales, asegúrese de que la eliminación temporal está habilitada para el recurso compartido.
 
-[Azure Backup para recursos compartidos de archivos de Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) controla la programación y retención de instantáneas. Sus capacidades de abuelo-padre-hijo (GFS) significan que puede tomar instantáneas diarias, semanales, mensuales y anuales, cada una con su propio período de retención distinto. Azure Backup también organiza la habilitación de la eliminación temporal y toma un bloqueo de eliminación en una cuenta de almacenamiento en cuanto se configura un recurso compartido de archivos en ella para la copia de seguridad. Por último, Azure Backup proporciona ciertas capacidades clave de supervisión y alertas que permiten a los clientes tener una vista consolidada de su copia de seguridad.
+[Azure Backup para recursos compartidos de archivos de Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) controla la programación y retención de instantáneas. Sus capacidades de abuelo-padre-hijo (GFS) significan que puede tomar instantáneas diarias, semanales, mensuales y anuales, cada una con su propio período de retención distinto. Azure Backup también organiza la habilitación de la eliminación temporal y toma un bloqueo de eliminación en una cuenta de almacenamiento en cuanto se configura un recurso compartido de archivos en ella para la copia de seguridad. Por último, Azure Backup proporciona ciertas capacidades clave de supervisión y alertas que permiten a los clientes tener una vista consolidada de su copia de seguridad.
 
 Puede realizar restauraciones de nivel de elemento y de nivel de recurso compartido en Azure Portal mediante Azure Backup. Lo único que debe hacer es elegir el punto de restauración (una instantánea concreta), el archivo o directorio en cuestión si es pertinente y, a continuación, la ubicación (original o alternativa) en la que quiere realizar la restauración. El servicio de copia de seguridad controla la copia de los datos de instantáneas y muestra el progreso de la restauración en el portal.
 
-Para obtener más información sobre Azure Backup, vea [Acerca de la copia de seguridad de recursos compartidos de archivos de Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json).
+Para obtener más información sobre Azure Backup, vea [Acerca de la copia de seguridad de recursos compartidos de archivos de Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
 ### <a name="advanced-threat-protection-for-azure-files-preview"></a>Advanced Threat Protection para Azure Files (versión preliminar)
 Advanced Threat Protection (ATP) para Azure Storage ofrece una capa adicional de inteligencia de seguridad que proporciona alertas cuando detecta actividades anómalas en la cuenta de almacenamiento, por ejemplo, intentos no habituales de acceso a la cuenta de almacenamiento. ATP también ejecuta análisis de reputación de hash de malware y generará una alerta sobre malware conocido. Puede configurar ATP en un nivel de suscripción o de cuenta de almacenamiento a través de Azure Security Center. 
 
-Para más información, consulte [Advanced Threat Protection para Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection).
+Para más información, consulte [Advanced Threat Protection para Azure Storage](../common/azure-defender-storage-configure.md).
 
 ## <a name="storage-tiers"></a>Niveles de almacenamiento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
@@ -124,7 +124,7 @@ En general, las características de Azure Files y la interoperabilidad con otros
     - Los recursos compartidos de archivos estándar están disponibles para el almacenamiento con redundancia local, redundancia de zona, redundancia geográfica (GRS) y redundancia de zona geográfica (GZRS).
 - **Tamaño máximo de un recurso compartido de archivos**
     - Los recursos compartidos de archivos prémium se pueden aprovisionar hasta 100 TiB sin ningún trabajo adicional.
-    - De forma predeterminada, los recursos compartidos de archivos estándar solo pueden abarcar hasta 5 TiB, aunque se puede aumentar el límite de recursos compartidos hasta 100 TiB al optar por recibir la marca de la característica de cuenta de almacenamiento de *recurso compartido de archivos de gran tamaño*. Los recursos compartidos de archivos estándar solo pueden abarcar hasta 100 TiB para las cuentas de almacenamiento con redundancia local o redundancia de zona. Para más información sobre cómo aumentar los tamaños de los recursos compartidos de archivos, vea [Habilitación y creación de recursos compartidos de archivos grandes](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
+    - De forma predeterminada, los recursos compartidos de archivos estándar solo pueden abarcar hasta 5 TiB, aunque se puede aumentar el límite de recursos compartidos hasta 100 TiB al optar por recibir la marca de la característica de cuenta de almacenamiento de *recurso compartido de archivos de gran tamaño*. Los recursos compartidos de archivos estándar solo pueden abarcar hasta 100 TiB para las cuentas de almacenamiento con redundancia local o redundancia de zona. Para más información sobre cómo aumentar los tamaños de los recursos compartidos de archivos, vea [Habilitación y creación de recursos compartidos de archivos grandes](./storage-files-how-to-create-large-file-share.md).
 - **Disponibilidad regional**
     - Los recursos compartidos de archivos Premium están disponibles en la mayoría de las regiones de Azure, exceptuando algunas de ellas. La compatibilidad con la redundancia de zona está disponible en un subconjunto de regiones. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure. Para averiguar qué regiones admiten ZRS, vea [Almacenamiento con redundancia de zona](../common/storage-redundancy.md#zone-redundant-storage). Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características del nivel Premium, rellene esta [encuesta](https://aka.ms/pfsfeedback).
     - Los recursos compartidos de archivos estándar están disponibles en todas las regiones de Azure.

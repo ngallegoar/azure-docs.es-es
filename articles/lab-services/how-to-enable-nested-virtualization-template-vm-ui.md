@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: ad92862c78260e7385168faf794c013e85f66b82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8135e11fb7b7ddb588ab3a8ed01227712072fd2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445736"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647926"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Habilitación de la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services manualmente
 
@@ -156,7 +156,7 @@ Los pasos siguientes son instrucciones para agregar un ámbito de DHCP.  En este
 
 ## <a name="conclusion"></a>Conclusión
 
-Ahora la plantilla de máquina virtual está lista para crear máquinas virtuales de Hyper-V.   Consulte [Crear una máquina virtual en Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) para obtener instrucciones sobre cómo crear máquinas virtuales de Hyper-V.  Consulte también [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) para comprobar los sistemas operativos y el software disponibles.
+Ahora la plantilla de máquina virtual está lista para crear máquinas virtuales de Hyper-V.   Consulte [Crear una máquina virtual en Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) para obtener instrucciones sobre cómo crear máquinas virtuales de Hyper-V.  Consulte también [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) para comprobar los sistemas operativos y el software disponibles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

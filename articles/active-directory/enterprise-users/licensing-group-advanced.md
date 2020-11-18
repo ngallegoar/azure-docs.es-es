@@ -9,18 +9,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 08/13/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f16dea1f81f7f6a35409d8481550fd000864b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4f298cf7487e00f6ee6a8aa8913fd32f8c6beee
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373581"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647110"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -28,7 +28,7 @@ Use la información y los ejemplos siguientes para obtener una descripción más
 
 ## <a name="usage-location"></a>Ubicación de uso
 
-Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un usuario, el administrador tiene que especificar la propiedad **Ubicación de uso** en el usuario. En [Azure Portal](https://portal.azure.com), puede especificar la ubicación de uso en **Usuario** &gt; **Perfil** &gt; **Configuración** .
+Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un usuario, el administrador tiene que especificar la propiedad **Ubicación de uso** en el usuario. En [Azure Portal](https://portal.azure.com), puede especificar la ubicación de uso en **Usuario** &gt; **Perfil** &gt; **Configuración**.
 
 En el caso de la asignación de licencias de grupo, cualquier usuario sin una ubicación de uso especificada heredará la ubicación del directorio. Si hay usuarios en varias ubicaciones, asegúrese de reflejarlo correctamente en los recursos de usuario antes de agregar usuarios a grupos con licencias.
 
@@ -70,7 +70,7 @@ En este ejemplo, modifique un usuario y establezca el valor de extensionAttribut
 
 Un usuario puede ser miembro de varios grupos con licencias. Estos son algunos aspectos que hay que tener en cuenta:
 
-- Se pueden superponer varias licencias para el mismo producto y, como resultado, todos los servicios habilitados se aplican al usuario. En el ejemplo siguiente se muestran dos grupos de licencias: *E3: servicios de base* contiene los servicios fundamentales que debe implementar primero en todos los usuarios. Y, además, *E3: servicios extendidos* , que contiene los servicios adicionales (Sway y Planner) que se van a implementar solo en algunos usuarios. En este ejemplo, el usuario se agregó a los dos grupos:
+- Se pueden superponer varias licencias para el mismo producto y, como resultado, todos los servicios habilitados se aplican al usuario. En el ejemplo siguiente se muestran dos grupos de licencias: *E3: servicios de base* contiene los servicios fundamentales que debe implementar primero en todos los usuarios. Y, además, *E3: servicios extendidos*, que contiene los servicios adicionales (Sway y Planner) que se van a implementar solo en algunos usuarios. En este ejemplo, el usuario se agregó a los dos grupos:
 
   ![Captura de pantalla de los servicios habilitados](./media/licensing-group-advanced/view-enabled-services.png)
 
@@ -86,7 +86,7 @@ Sin embargo, es posible asignar la misma licencia de producto directamente al us
 
 Las licencias asignadas directamente se pueden quitar sin que afecten a las licencias heredadas. Considere un usuario que hereda una licencia de Office 365 Enterprise E3 de un grupo.
 
-Inicialmente, el usuario hereda la licencia solo del grupo *E3: servicios básicos* , lo que habilita cuatro planes de servicio.
+Inicialmente, el usuario hereda la licencia solo del grupo *E3: servicios básicos*, lo que habilita cuatro planes de servicio.
 
 1. Seleccione **Asignar** para asignar directamente una licencia E3 al usuario. En este caso, deshabilitará todos los planes de servicio, excepto Yammer Enterprise.
 
@@ -108,17 +108,17 @@ Este es un ejemplo cómo podría ser este proceso:
 
 1. Originalmente, asignó el producto *Office 365 Enterprise E5* a varios grupos. Uno de esos grupos, denominado *Office 365 E5 (solo Exchange)* , se diseñó para habilitar solamente el servicio *Exchange Online (Plan 2)* para sus miembros.
 
-2. Recibió una notificación de Microsoft sobre que se extenderá el producto E5 con un nuevo servicio: *Microsoft Stream* . Cuando el servicio esté disponible en la organización, puede hacer lo siguiente:
+2. Recibió una notificación de Microsoft sobre que se extenderá el producto E5 con un nuevo servicio: *Microsoft Stream*. Cuando el servicio esté disponible en la organización, puede hacer lo siguiente:
 
-3. Vaya a la hoja [**Azure Active Directory > Licencias > Todos los productos**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) y seleccione *Office 365 Enterprise E5* ; a continuación, seleccione **Licensed Groups** (Grupos con licencia) para ver una lista de todos los grupos con ese producto.
+3. Vaya a la hoja [**Azure Active Directory > Licencias > Todos los productos**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) y seleccione *Office 365 Enterprise E5*; a continuación, seleccione **Licensed Groups** (Grupos con licencia) para ver una lista de todos los grupos con ese producto.
 
-4. Haga clic en el grupo que desea revisar (en este caso, *O365 E5 - Exchange only* ). Se abrirá la pestaña **Licencias** . Al hacer clic en la licencia E5, se abrirá una hoja en la que se enumeran todos los servicios habilitados.
+4. Haga clic en el grupo que desea revisar (en este caso, *O365 E5 - Exchange only*). Se abrirá la pestaña **Licencias**. Al hacer clic en la licencia E5, se abrirá una hoja en la que se enumeran todos los servicios habilitados.
    > [!NOTE]
-   > El servicio *Microsoft Stream* se ha agregado automáticamente y se ha habilitado en este grupo, además del servicio *Exchange Online* :
+   > El servicio *Microsoft Stream* se ha agregado automáticamente y se ha habilitado en este grupo, además del servicio *Exchange Online*:
 
    ![Captura de pantalla del nuevo servicio agregado a una licencia de grupo](./media/licensing-group-advanced/manage-new-services.png)
 
-5. Si desea deshabilitar el nuevo servicio en este grupo, haga clic en el botón de alternancia **Activado/Desactivado** junto al servicio y haga clic en el botón **Guardar** para confirmar el cambio. Azure AD ahora procesará todos los usuarios del grupo para aplicar el cambio; los nuevos usuarios agregados al grupo no tendrán habilitado el servicio *Microsoft Stream* .
+5. Si desea deshabilitar el nuevo servicio en este grupo, haga clic en el botón de alternancia **Activado/Desactivado** junto al servicio y haga clic en el botón **Guardar** para confirmar el cambio. Azure AD ahora procesará todos los usuarios del grupo para aplicar el cambio; los nuevos usuarios agregados al grupo no tendrán habilitado el servicio *Microsoft Stream*.
 
    > [!NOTE]
    > Los usuarios todavía pueden tener el servicio habilitado a través de otra asignación de licencias (de otro grupo del que sean miembros o con una asignación directa de licencia).
@@ -148,7 +148,7 @@ Puede usar los [registros de auditoría de Azure AD](../reports-monitoring/conce
 
 ### <a name="find-out-who-modified-a-group-license"></a>Averiguar quién ha modificado una licencia de grupo
 
-1. Establezca el filtro **Actividad** en *Establecer licencia de grupo* y haga clic en **Aplicar** .
+1. Establezca el filtro **Actividad** en *Establecer licencia de grupo* y haga clic en **Aplicar**.
 2. Los resultados incluyen todos los casos de licencias que se establecen o modifican en grupos.
    >[!TIP]
    > También puede escribir el nombre del grupo en el filtro *Destino* para definir el ámbito de los resultados.
@@ -163,11 +163,11 @@ Este es un ejemplo de cambios recientes de la licencia de grupo, con detalles:
 
 Cuando cambia una licencia en un grupo, Azure AD comenzará a aplicar los cambios a todos los usuarios.
 
-1. Para ver cuándo se inició el procesamiento en los grupos, establezca el filtro **Actividad** en *Empezar a aplicar licencias basadas en grupo a los usuarios* . Tenga en cuenta que el actor para la operación es *Microsoft Azure AD Group-Based Licensing* (Licencias basadas en grupos de Microsoft Azure AD), una cuenta del sistema que se usa para ejecutar todos los cambios de licencia de grupo.
+1. Para ver cuándo se inició el procesamiento en los grupos, establezca el filtro **Actividad** en *Empezar a aplicar licencias basadas en grupo a los usuarios*. Tenga en cuenta que el actor para la operación es *Microsoft Azure AD Group-Based Licensing* (Licencias basadas en grupos de Microsoft Azure AD), una cuenta del sistema que se usa para ejecutar todos los cambios de licencia de grupo.
    >[!TIP]
    > Haga clic en un elemento en la lista para ver el campo *Propiedades modificadas* (muestra los cambios de licencia que se han seleccionado para el procesamiento). Esto es útil si ha realizado varios cambios en un grupo y no está seguro de cuál se ha procesado.
 
-2. De forma similar, para ver cuándo finaliza el procesamiento de los grupos, use el valor de filtro *Finalizar de aplicar licencias basadas en grupo a los usuarios* .
+2. De forma similar, para ver cuándo finaliza el procesamiento de los grupos, use el valor de filtro *Finalizar de aplicar licencias basadas en grupo a los usuarios*.
    > [!TIP]
    > En este caso, el campo *Propiedades modificadas* contiene un resumen de los resultados (esto es útil para comprobar rápidamente si se ha producido) algún error en el procesamiento. Salida del ejemplo:
    > ```
@@ -217,7 +217,7 @@ Si usa licencias basadas en grupo, se recomienda que se familiarice con la sigui
 
 - La automatización de la administración de licencias no reacciona automáticamente a todos los tipos de cambios en el entorno. Por ejemplo, es posible que se quede sin licencias, lo que haría que algunos usuarios tengan un estado de error. Para liberar el número de puestos disponibles, puede quitar algunas licencias asignadas directamente a otros usuarios. Sin embargo, el sistema no reacciona automáticamente a este cambio ni corrige el estado de error de los usuarios.
 
-  Como alternativa a estos tipos de limitaciones, puede ir a la hoja **Grupo** en Azure AD y hacer clic en **Reprocesar** . Este comando procesa a todos los usuarios de ese grupo y resuelve los estados de error, si es posible.
+  Como alternativa a estos tipos de limitaciones, puede ir a la hoja **Grupo** en Azure AD y hacer clic en **Reprocesar**. Este comando procesa a todos los usuarios de ese grupo y resuelve los estados de error, si es posible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

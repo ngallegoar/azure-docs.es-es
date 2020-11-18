@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53111ccd634c516d0db10c0e2dd41768aba43f41
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034505"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629247"
 ---
 # <a name="how-to-deploy-azure-files"></a>Implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Este artículo le mostrará cómo implementar de forma práctica Azure Files dentro de su organización.
@@ -22,7 +22,7 @@ Se recomienda encarecidamente leer [Planning for an Azure Files deployment](stor
 ## <a name="prerequisites"></a>Prerrequisitos
 En este artículo se supone que ya ha completado los siguientes pasos:
 
-- Ha creado una cuenta de Azure Storage con las opciones de resistencia y cifrado deseadas en la región que quería. Consulte [Acerca de las cuentas de almacenamiento de Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener instrucciones paso a paso sobre cómo crear una cuenta de almacenamiento.
+- Ha creado una cuenta de Azure Storage con las opciones de resistencia y cifrado deseadas en la región que quería. Consulte [Acerca de las cuentas de almacenamiento de Azure](../common/storage-account-create.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) para obtener instrucciones paso a paso sobre cómo crear una cuenta de almacenamiento.
 - Ha creado un recurso compartido de archivos de Azure con su cuota deseada en su cuenta de almacenamiento. Consulte [Creación de un recurso compartido de archivos en Azure File Storage](storage-how-to-create-file-share.md) para obtener instrucciones paso a paso sobre cómo crear un recurso compartido de archivos.
 
 ## <a name="transfer-data-into-azure-files"></a>Transferencia de datos a Azure Files
@@ -63,7 +63,7 @@ Los pasos siguientes importarán datos desde una ubicación local a un recurso c
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Se pueden especificar varios recursos compartidos con una cuenta de almacenamiento. Vea [Preparación del archivo CSV de conjunto de datos](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para más información.
+    Se pueden especificar varios recursos compartidos con una cuenta de almacenamiento. Vea [Preparación del archivo CSV de conjunto de datos](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) para más información.
 
 5. Cree el archivo CSV de conjunto de unidades. El archivo CSV de conjunto de unidades enumera los discos disponibles para el agente de exportación local. Por ejemplo, el siguiente archivo CSV de conjunto de unidades enumera las unidades `X:`, `Y:` y `Z:` que se utilizarán en el trabajo de exportación local:
 
@@ -74,7 +74,7 @@ Los pasos siguientes importarán datos desde una ubicación local a un recurso c
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Consulte [Preparación del archivo CSV InitialDriveSet o AdditionalDriveSet](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para más información.
+    Consulte [Preparación del archivo CSV InitialDriveSet o AdditionalDriveSet](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) para más información.
 
 6. Utilice la herramienta [WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) para copiar sus datos a uno o varios discos duros.
 
@@ -102,12 +102,12 @@ Robocopy es una herramienta de copia conocida que se incluye con Windows y Windo
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
     ```
     
-    Robocopy tiene un número considerable de opciones para modificar el comportamiento de la copia según sea necesario. Para más información, consulte la página del manual de [Robocopy](https://technet.microsoft.com/library/cc733145.aspx).
+    Robocopy tiene un número considerable de opciones para modificar el comportamiento de la copia según sea necesario. Para más información, consulte la página del manual de [Robocopy](/windows-server/administration/windows-commands/robocopy).
 
 ### <a name="azcopy"></a>AzCopy
 AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde Azure Files, así como Azure Blob Storage, mediante sencillos comandos con un rendimiento óptimo. Uso de AzCopy:
 
-1. Descargue la [versión más reciente de AzCopy en Windows](https://aka.ms/downloadazcopy) o [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
+1. Descargue la [versión más reciente de AzCopy en Windows](https://aka.ms/downloadazcopy) o [Linux](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json#download-azcopy).
 2. Use `azcopy` en la línea de comandos para mover datos al recurso compartido de archivos de Azure. La sintaxis en Windows es la siguiente: 
 
     ```
@@ -120,7 +120,7 @@ AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y des
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    AzCopy tiene un número considerable de opciones para modificar el comportamiento de la copia según sea necesario. Para más información, consulte [AzCopy en Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) y [AzCopy en Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    AzCopy tiene un número considerable de opciones para modificar el comportamiento de la copia según sea necesario. Para más información, consulte [Introducción a AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
 ## <a name="automatically-mount-on-needed-pcsservers"></a>Montaje automático en los equipos y servidores necesarios
 Para reemplazar un recurso compartido de archivos local, es útil montar previamente los recursos compartidos en las máquinas en las que se usará. Esto puede hacerse automáticamente en una lista de máquinas.

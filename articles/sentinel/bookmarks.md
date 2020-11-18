@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77588695"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651319"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Seguimiento de los datos durante una búsqueda con Azure Sentinel
 
@@ -133,7 +133,7 @@ También puede ver los datos sin formato de todos los marcadores seleccionando *
 > [!div class="mx-imgBorder"]
 > ![Registros de marcadores](./media/bookmarks/bookmark-logs.png)
 
-Esta vista muestra todos los marcadores con los metadatos asociados. Puede usar consultas en el [lenguaje de consulta de palabras clave](https://docs.microsoft.com/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) (KQL) para filtrar hasta encontrar la versión más reciente del marcador específico que está buscando.
+Esta vista muestra todos los marcadores con los metadatos asociados. Puede usar consultas en el [lenguaje de consulta de palabras clave](/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) (KQL) para filtrar hasta encontrar la versión más reciente del marcador específico que está buscando.
 
 > [!NOTE]
 > Puede haber un retraso importante (medido en minutos) desde que crea un marcador hasta que aparece en la pestaña **Marcadores**.

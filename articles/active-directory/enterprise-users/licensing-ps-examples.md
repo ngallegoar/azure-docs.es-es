@@ -7,19 +7,19 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86b3b44e480ccdc823853b5c790cad02a0821795
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 046a19d41364f7e4db3edcb011c8c65519924b3c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374012"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650332"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Ejemplos de PowerShell y Graph para licencias basadas en grupos de Azure AD
 
@@ -71,7 +71,7 @@ location: https://graph.microsoft.com/v2/d056d009-17b3-4106-8173-cd3978ada898/di
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Visualización de las licencias de producto asignadas a un grupo
 
-El cmdlet [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) se puede usar para recuperar el objeto de grupo y comprobar la propiedad *Licenses* : enumera todas las licencias de producto actualmente asignadas al grupo.
+El cmdlet [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) se puede usar para recuperar el objeto de grupo y comprobar la propiedad *Licenses*: enumera todas las licencias de producto actualmente asignadas al grupo.
 
 ```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
@@ -402,7 +402,7 @@ function UserHasLicenseAssignedFromGroup
 }
 ```
 
-Este script ejecuta esas funciones en cada usuario de la organización, con el identificador de SKU como entrada; en este ejemplo estamos interesados en la licencia para *Enterprise Mobility + Security* , que en nuestra organización se representa con el identificador *contoso:EMS* :
+Este script ejecuta esas funciones en cada usuario de la organización, con el identificador de SKU como entrada; en este ejemplo estamos interesados en la licencia para *Enterprise Mobility + Security*, que en nuestra organización se representa con el identificador *contoso:EMS*:
 
 ```powershell
 #the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your organization

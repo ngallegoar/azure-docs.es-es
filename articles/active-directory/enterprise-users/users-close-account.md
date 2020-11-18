@@ -3,22 +3,22 @@ title: Cierre de una cuenta profesional o educativa en una organización no admi
 description: Cierre de la cuenta profesional o educativa en una instancia de Azure Active Directory no administrada.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/20/2019
+ms.date: 11/20/2020
 ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87e03214e2a00a16064763f35f38bdd3ea0e6123
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 142143f96314539051ea44c00c6ff95cb2650566
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373485"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650213"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Cierre de la cuenta profesional o educativa en una organización no administrada de Azure AD
 
@@ -45,11 +45,11 @@ Para cerrar una cuenta profesional o educativa no administrada, siga estos pasos
 
 1. Inicie sesión para [cerrar la cuenta](https://go.microsoft.com/fwlink/?linkid=873123), utilizando la cuenta que desea cerrar.
 
-1. En **Mis solicitudes de datos** , seleccione **Cerrar cuenta** .
+1. En **Mis solicitudes de datos**, seleccione **Cerrar cuenta**.
 
     ![Mis solicitudes de datos: Cerrar cuenta](./media/users-close-account/close-account.png)
 
-1. Vea el mensaje de confirmación y haga clic en **Sí** .
+1. Vea el mensaje de confirmación y haga clic en **Sí**.
 
     ![Mis solicitudes de datos: Confirmar cierre](./media/users-close-account/confirm-close.png)
 

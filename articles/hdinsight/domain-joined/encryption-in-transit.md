@@ -7,19 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ac210adbc29075f27739b08dcf83eeedbeea3ed5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628990"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630369"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Cifrado IPSec en tránsito para Azure HDInsight
 
 En este artículo se describe la implementación del cifrado en tránsito para la comunicación entre los nodos de clúster de Azure HDInsight.
-
-> [!Note]
-> Actualmente, el cifrado en tránsito está habilitado para las siguientes regiones: Este de EE. UU., Centro-sur de EE. UU. y Oeste de EE. UU 2.
 
 ## <a name="background"></a>Información previa
 
@@ -40,7 +37,7 @@ Para crear un nuevo clúster con el cifrado en tránsito habilitado mediante Azu
 
     :::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="Creación del clúster: pestaña Seguridad y redes.":::
 
-1. En la pestaña **Seguridad y redes** , active la casilla **Enable encryption in transit** (Habilitar el cifrado en tránsito).
+1. En la pestaña **Seguridad y redes**, active la casilla **Enable encryption in transit** (Habilitar el cifrado en tránsito).
 
     :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Creación del clúster: habilitar el cifrado en tránsito.":::
 

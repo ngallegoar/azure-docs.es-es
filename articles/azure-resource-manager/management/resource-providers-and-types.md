@@ -2,14 +2,14 @@
 title: Proveedores de recursos y tipos de recursos
 description: Describe los proveedores de recursos compatibles con Azure Resource Manager. Describe sus esquemas, versiones de API disponibles y las regiones que pueden hospedar los recursos.
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8b1a9e6d539d37fb26d8fb0e3a541415dd574e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278894"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426466"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
@@ -32,7 +32,7 @@ Para obtener una lista que asigna proveedores de recursos con servicios de Azure
 
 ## <a name="register-resource-provider"></a>Registro del proveedor de recursos
 
-Antes de usar un proveedor de recursos, debe registrarlo para la suscripción de Azure. Este paso configura su suscripción para así poder trabajar con el proveedor de recursos. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos.
+Antes de usar un proveedor de recursos, la suscripción de Azure debe registrarse para el proveedor de recursos. El registro configura su suscripción para así poder trabajar con el proveedor de recursos. Algunos proveedores de recursos están registrados de forma predeterminada. Otros proveedores de recursos están registrados automáticamente cuando toma determinadas medidas. Por ejemplo, cuando crea un recurso a través del portal, el proveedor de recursos normalmente se registra de forma automática. En otros escenarios, es posible que tenga que registrar manualmente un proveedor de recursos.
 
 En este artículo se muestra cómo comprobar el estado del registro de un proveedor de recursos y registrarlo según sea necesario. Debe tener permiso para realizar la operación `/register/action` para el proveedor de recursos. El permiso se incluye en los roles Colaborador y Propietario.
 
@@ -83,8 +83,6 @@ Para ver información de un proveedor de recursos concreto:
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 Para ver todos los proveedores de recursos de Azure y el estado de registro de su suscripción, use:
 
 ```azurepowershell-interactive
@@ -101,6 +99,12 @@ Microsoft.ClassicNetwork         Registered
 Microsoft.ClassicStorage         Registered
 Microsoft.CognitiveServices      Registered
 ...
+```
+
+Para ver todos los proveedores de recursos registrados para la suscripción, use:
+
+```azurepowershell-interactive
+ Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
 Para registrar un proveedor de recursos, use:
@@ -190,7 +194,7 @@ West US
 
 Para ver todos los proveedores de recursos de Azure y el estado de registro de su suscripción, use:
 
-```azurecli
+```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
@@ -206,9 +210,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
+Para ver todos los proveedores de recursos registrados para la suscripción, use:
+
+```azurecli-interactive
+az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
+```
+
 Para registrar un proveedor de recursos, use:
 
-```azurecli
+```azurecli-interactive
 az provider register --namespace Microsoft.Batch
 ```
 
@@ -216,7 +226,7 @@ Que devuelve un mensaje que indica que el registro está en curso.
 
 Para ver información de un proveedor de recursos concreto, use:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch
 ```
 
@@ -235,7 +245,7 @@ Que devuelve resultados similares a:
 
 Para ver los tipos de recursos de un proveedor, use:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
@@ -254,7 +264,7 @@ La versión de API se corresponde a una versión de operaciones de API de REST q
 
 Para obtener las versiones de API de un tipo de recurso, use:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
@@ -274,7 +284,7 @@ El Administrador de recursos se admite en todas las regiones, pero puede que los
 
 Para obtener las ubicaciones compatibles con un tipo de recurso, use:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 

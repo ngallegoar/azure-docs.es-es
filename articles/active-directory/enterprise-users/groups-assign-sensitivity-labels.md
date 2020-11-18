@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63b754886d88e97134b30e4a2bee7bdf5ac5a9d3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c30dea57310fb040d8fa5f52e1d8576c2dd08504
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373982"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650842"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Asignación de etiquetas de confidencialidad a grupos de Microsoft 365 en Azure Active Directory
 
@@ -40,7 +40,7 @@ Para aplicar etiquetas publicadas a grupos, primero debe habilitar la caracterí
     Connect-AzureAD
     ```
 
-    En la página **Iniciar sesión en tu cuenta** , escriba la cuenta y la contraseña de administrador para conectarse al servicio y seleccione **Iniciar sesión** .
+    En la página **Iniciar sesión en tu cuenta**, escriba la cuenta y la contraseña de administrador para conectarse al servicio y seleccione **Iniciar sesión**.
 1. Capture la configuración de grupo actual para la organización de Azure AD.
 
     ```PowerShell
@@ -73,20 +73,20 @@ También deberá sincronizar las etiquetas de confidencialidad con Azure AD. Pu
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Asignación de una etiqueta a un grupo nuevo en Azure Portal
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
-1. Seleccione **Grupos** y, a continuación, seleccione **Nuevo grupo** .
-1. En la página **Nuevo grupo** , seleccione **Office 365** y, a continuación, rellene la información necesaria para el nuevo grupo y seleccione una etiqueta de confidencialidad de la lista.
+1. Seleccione **Grupos** y, a continuación, seleccione **Nuevo grupo**.
+1. En la página **Nuevo grupo**, seleccione **Office 365** y, a continuación, rellene la información necesaria para el nuevo grupo y seleccione una etiqueta de confidencialidad de la lista.
 
    ![Asignación de una etiqueta de confidencialidad en la página Nuevos grupos](./media/groups-assign-sensitivity-labels/new-group-page.png)
 
-1. Guarde los cambios y seleccione **Crear** .
+1. Guarde los cambios y seleccione **Crear**.
 
 Se creará el grupo, y se aplicará automáticamente la configuración del sitio web y del grupo asociada a la etiqueta seleccionada.
 
 ## <a name="assign-a-label-to-an-existing-group-in-azure-portal"></a>Asignación de una etiqueta a un grupo actual en Azure Portal
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administradores de grupos o como propietario del grupo.
-1. Seleccione **Grupos** .
-1. En la página **Todos los grupos** , seleccione el grupo que desea etiquetar.
+1. Seleccione **Grupos**.
+1. En la página **Todos los grupos**, seleccione el grupo que desea etiquetar.
 1. En la página del grupo seleccionado, seleccione **Propiedades** y una etiqueta de confidencialidad en la lista.
 
    ![Asignación de una etiqueta de confidencialidad en la página de información general de un grupo](./media/groups-assign-sensitivity-labels/assign-to-existing.png)
@@ -96,10 +96,10 @@ Se creará el grupo, y se aplicará automáticamente la configuración del sitio
 ## <a name="remove-a-label-from-an-existing-group-in-azure-portal"></a>Eliminación de una etiqueta de un grupo actual en Azure Portal
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador global o de administradores de grupos, o como propietario del grupo.
-1. Seleccione **Grupos** .
-1. En la página **Todos los grupos** , seleccione el grupo del que desee quitar la etiqueta.
-1. En la página **Grupo** , seleccione **Propiedades** .
-1. Seleccione **Quitar** .
+1. Seleccione **Grupos**.
+1. En la página **Todos los grupos**, seleccione el grupo del que desee quitar la etiqueta.
+1. En la página **Grupo**, seleccione **Propiedades**.
+1. Seleccione **Quitar**.
 1. Seleccione **Guardar** para aplicar los cambios.
 
 ## <a name="using-classic-azure-ad-classifications"></a>Uso de las clasificaciones de Azure AD clásicas
@@ -133,10 +133,10 @@ Si la etiqueta que está buscando no está en la lista, podría deberse a uno de
 Las etiquetas se pueden intercambiar en cualquier momento siguiendo los mismos pasos que para asignar una etiqueta a un grupo existente, como se indica a continuación:
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador global o de administrador de grupo, o como propietario del grupo.
-1. Seleccione **Grupos** .
-1. En la página **Todos los grupos** , seleccione el grupo que desea etiquetar.
+1. Seleccione **Grupos**.
+1. En la página **Todos los grupos**, seleccione el grupo que desea etiquetar.
 1. En la página del grupo seleccionado, seleccione **Propiedades** y una nueva etiqueta de confidencialidad en la lista.
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
 ### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>Los cambios de configuración de grupo en las etiquetas publicadas no se actualizan en los grupos
 

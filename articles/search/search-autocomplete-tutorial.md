@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348617"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426177"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Incorporación de sugerencias y de la función de autocompletar a las aplicaciones cliente
 
-La búsqueda mientras se escribe es una técnica común para mejorar la productividad de las consultas iniciadas por el usuario. En Azure Cognitive Search, esta experiencia se admite a través de la función de *autocompletar* , que finaliza un término o frase según la entrada parcial (completa "micro" con "Microsoft"). Otra forma son las *sugerencias* : una breve lista de documentos coincidentes (se devuelven los títulos de libros con un id. que son vínculos a una página de detalles). Tanto la función de autocompletar como las sugerencias se declaran en una coincidencia en el índice. El servicio no ofrecerá consultas que devuelvan cero resultados.
+La búsqueda mientras se escribe es una técnica común para mejorar la productividad de las consultas iniciadas por el usuario. En Azure Cognitive Search, esta experiencia se admite a través de la función de *autocompletar*, que finaliza un término o frase según la entrada parcial (completa "micro" con "Microsoft"). Otra forma son las *sugerencias*: una breve lista de documentos coincidentes (se devuelven los títulos de libros con un id. que son vínculos a una página de detalles). Tanto la función de autocompletar como las sugerencias se declaran en una coincidencia en el índice. El servicio no ofrecerá consultas que devuelvan cero resultados.
 
 Para implementar estas experiencias en Azure Cognitive Search, necesitará lo siguiente:
 
@@ -56,8 +56,8 @@ Siga estos vínculos para las páginas de referencia del SDK de REST y .NET:
 
 + [API REST de sugerencias](/rest/api/searchservice/suggestions) 
 + [API REST de autocompletar](/rest/api/searchservice/autocomplete) 
-+ [Método SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
-+ [Método AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
++ [Método SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync)
++ [Método AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
 ## <a name="structure-a-response"></a>Estructuración de una respuesta
 
@@ -117,7 +117,7 @@ $(function () {
 });
 ```
 
-En `source` se indica a la función de autocompletar de la interfaz de usuario de jQuery dónde obtener la lista de elementos para mostrar debajo del cuadro de búsqueda. Puesto que este es un proyecto de MVC, llama a la función **Suggest** en **HomeController.cs** , que contiene la lógica para devolver las sugerencias de consulta. Esta función también pasa algunos parámetros para controlar aspectos destacados, una coincidencia aproximada o un término. La API de JavaScript de la función Autocompletar agrega el parámetro de término.
+En `source` se indica a la función de autocompletar de la interfaz de usuario de jQuery dónde obtener la lista de elementos para mostrar debajo del cuadro de búsqueda. Puesto que este es un proyecto de MVC, llama a la función **Suggest** en **HomeController.cs**, que contiene la lógica para devolver las sugerencias de consulta. Esta función también pasa algunos parámetros para controlar aspectos destacados, una coincidencia aproximada o un término. La API de JavaScript de la función Autocompletar agrega el parámetro de término.
 
 `minLength: 3` garantiza que la recomendación solo se mostrará cuando haya al menos tres caracteres en el cuadro de búsqueda.
 
@@ -139,45 +139,43 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Función de sugerencias
 
-Si usa C# y una aplicación MVC, el archivo **HomeController.cs** del directorio Controllers es el lugar donde puede crear una clase para los resultados sugeridos. En .NET, una función de sugerencias se basa en el [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Para más información sobre el SDK de .NET, consulte [Cómo usar Azure Cognitive Search desde una aplicación .NET](search-howto-dotnet-sdk.md).
+Si usa C# y una aplicación MVC, el archivo **HomeController.cs** del directorio Controllers es el lugar donde puede crear una clase para los resultados sugeridos. En .NET, una función Suggest se basa en el [método SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync). Para más información sobre el SDK de .NET, consulte [Cómo usar Azure Cognitive Search desde una aplicación .NET](search-howto-dotnet-sdk.md).
 
-El método `InitSearch` crea un cliente del índice HTTP autenticado en el servicio Azure Cognitive Search. Las propiedades de la clase [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) determinan en qué campos se busca y cuáles se devuelven en los resultados, el número de coincidencias y si se usa la coincidencia aproximada. 
+El método `InitSearch` crea un cliente del índice HTTP autenticado en el servicio Azure Cognitive Search. Las propiedades de la clase [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) determinan en qué campos se busca y cuáles se devuelven en los resultados, el número de coincidencias y si se usa la coincidencia aproximada. 
 
 En la funcionalidad de autocompletar, la coincidencia aproximada se limita a la distancia de una edición (un carácter omitido o mal colocado). Tenga en cuenta que la coincidencia aproximada en consultas de autocompletar puede producir a veces resultados inesperados en función del tamaño del índice y de cómo se particiona. Para más información, consulte [Conceptos de partición y particionamiento](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 ```csharp
-public ActionResult Suggest(bool highlights, bool fuzzy, string term)
+public async Task<ActionResult> SuggestAsync(bool highlights, bool fuzzy, string term)
 {
     InitSearch();
 
-    // Call suggest API and return results
-    SuggestParameters sp = new SuggestParameters()
+    var options = new SuggestOptions()
     {
-        Select = HotelName,
-        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
-        Top = 5
+        Size = 8,
     };
 
     if (highlights)
     {
-        sp.HighlightPreTag = "<b>";
-        sp.HighlightPostTag = "</b>";
+        options.HighlightPreTag = "<b>";
+        options.HighlightPostTag = "</b>";
     }
 
-    DocumentSuggestResult resp = _indexClient.Documents.Suggest(term, "sg", sp);
+    // Only one suggester can be specified per index.
+    // The suggester for the Hotels index enables autocomplete/suggestions on the HotelName field only.
+    // During indexing, HotelNames are indexed in patterns that support autocomplete and suggested results.
+    var suggestResult = await _searchClient.SuggestAsync<Hotel>(term, "sg", options).ConfigureAwait(false);
 
     // Convert the suggest query results to a list that can be displayed in the client.
-    List<string> suggestions = resp.Results.Select(x => x.Text).ToList();
-    return new JsonResult
-    {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = suggestions
-    };
+    List<string> suggestions = suggestResult.Value.Results.Select(x => x.Text).ToList();
+
+    // Return the list of suggestions.
+    return new JsonResult(suggestions);
 }
 ```
 
-La función Sugerir toma dos parámetros que determinar si se devuelven resaltados de aciertos o si se usa la coincidencia aproximada además de la entrada del término de búsqueda. El método crea un [objeto SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) que luego se pasa a la API de Suggest. Luego el resultado se convierte en JSON para poder mostrarlo en el cliente.
+La función SuggestAsync toma dos parámetros que determinar si se devuelven resaltados de aciertos o si se usa la coincidencia aproximada además de la entrada del término de búsqueda. Los resultados sugeridos pueden incluir hasta ocho coincidencias. El método crea un [objeto SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) que luego se pasa a la API de Suggest. Luego el resultado se convierte en JSON para poder mostrarlo en el cliente.
 
 ## <a name="autocomplete"></a>Autocompletar
 
@@ -185,7 +183,7 @@ Hasta ahora, el código de experiencia de usuario de la búsqueda se ha centrado
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.8 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#searchbox1").autocompleteInline({
         appendMethod: "replace",
@@ -220,28 +218,25 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Función de autocompletar
 
-La función de autocompletar se basa en el [método DocumentsOperationsExtensions.Autocomplete](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete). Igual que con las sugerencias, este bloque de código se incluye en el archivo **HomeController.cs**.
+La función Autocomplete se basa en el [método AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync). Igual que con las sugerencias, este bloque de código se incluye en el archivo **HomeController.cs**.
 
 ```csharp
-public ActionResult AutoComplete(string term)
+public async Task<ActionResult> AutoCompleteAsync(string term)
 {
     InitSearch();
-    //Call autocomplete API and return results
-    AutocompleteParameters ap = new AutocompleteParameters()
-    {
-        AutocompleteMode = AutocompleteMode.OneTermWithContext,
-        UseFuzzyMatching = false,
-        Top = 5
-    };
-    AutocompleteResult autocompleteResult = _indexClient.Documents.Autocomplete(term, "sg", ap);
 
-    // Convert the Suggest results to a list that can be displayed in the client.
-    List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
-    return new JsonResult
+    // Setup the autocomplete parameters.
+    var ap = new AutocompleteOptions()
     {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = autocomplete
+        Mode = AutocompleteMode.OneTermWithContext,
+        Size = 6
     };
+    var autocompleteResult = await _searchClient.AutocompleteAsync(term, "sg", ap).ConfigureAwait(false);
+
+    // Convert the autocompleteResult results to a list that can be displayed in the client.
+    List<string> autocomplete = autocompleteResult.Value.Results.Select(x => x.Text).ToList();
+
+    return new JsonResult(autocomplete);
 }
 ```
 

@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c78b61798e72d87ec245082a5822bcfc58a1b61
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 58d5cc64b21207efbdefdafe020248212eed7efe
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374015"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650570"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Uso de un grupo para administrar el acceso a las aplicaciones SaaS
 
@@ -32,11 +32,11 @@ Con Azure Active Directory (Azure AD) y un plan de licencias de Azure AD Premium
 
 ## <a name="to-assign-access-for-a-user-or-group-to-a-saas-application"></a>Para asignar acceso para un usuario o un grupo a una aplicación SaaS
 
-1. En el [centro de administración de Azure AD](https://aad.portal.azure.com), seleccione **Aplicaciones empresariales** .
+1. En el [centro de administración de Azure AD](https://aad.portal.azure.com), seleccione **Aplicaciones empresariales**.
 2. Seleccione una aplicación que haya agregado desde la Galería de aplicaciones para abrirla.
-3. Seleccione **Usuarios y grupos** y, luego, **Agregar usuario** .
-4. En **Agregar asignación** , seleccione **Usuarios y grupos** para abrir la lista de selección **Usuarios y grupos** .
-6. Seleccione todos los grupos o usuarios que desee y, a continuación, haga clic o puntee en **Seleccionar** para agregarlos a la lista **Agregar asignación** . También puede asignar un rol a un usuario en esta fase.
+3. Seleccione **Usuarios y grupos** y, luego, **Agregar usuario**.
+4. En **Agregar asignación**, seleccione **Usuarios y grupos** para abrir la lista de selección **Usuarios y grupos**.
+6. Seleccione todos los grupos o usuarios que desee y, a continuación, haga clic o puntee en **Seleccionar** para agregarlos a la lista **Agregar asignación**. También puede asignar un rol a un usuario en esta fase.
 7. Seleccione **Asignar** para asignar los usuarios o los grupos a la aplicación de empresa seleccionada.
 
 ## <a name="next-steps"></a>Pasos siguientes

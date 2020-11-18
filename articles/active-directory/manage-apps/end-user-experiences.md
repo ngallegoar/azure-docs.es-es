@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: 8968fd54968f3115641d2315a534ba61a247a06d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bcf45cdfbadbf16f48f8f2ac3bd0c6320a2803f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605131"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649235"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiencias de usuario final para aplicaciones en Azure Active Directory
 
@@ -37,13 +37,13 @@ De forma predeterminada, todas las aplicaciones se muestran juntas en una sola p
 
 Mis aplicaciones es independiente de Azure Portal y no requiere que los usuarios tengan una suscripción de Azure u Microsoft 365.
 
-Para obtener más información sobre Mis aplicaciones de Azure AD, vea [Introducción a Mis aplicaciones](../user-help/active-directory-saas-access-panel-introduction.md).
+Para obtener más información sobre Mis aplicaciones de Azure AD, vea [Introducción a Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="microsoft-365-application-launcher"></a>Iniciador de la aplicación Microsoft 365
 
 Para las organizaciones que han implementado Microsoft 365, las aplicaciones asignadas a los usuarios mediante Azure AD también aparecerán en el portal de Office 365, en [https://portal.office.com/myapps](https://portal.office.com/myapps). Esto hace que resulte fácil y cómodo para los usuarios de una organización iniciar sus aplicaciones sin tener que utilizar un segundo portal y es la solución de inicio de aplicaciones recomendada para las organizaciones que usan Microsoft 365.
 
-Para obtener más información sobre el iniciador de aplicaciones de Office 365, consulte [Hacer que su aplicación aparezca en el iniciador de aplicaciones de Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Para obtener más información sobre el iniciador de aplicaciones de Office 365, consulte [Hacer que su aplicación aparezca en el iniciador de aplicaciones de Office 365](/previous-versions/office/office-365-api/).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Inicio de sesión directo en aplicaciones federadas
 

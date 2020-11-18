@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a6f5526b01588649d1e094036241d616a8392949
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 7079f0b1060be1a260b41e07b9d9299bab57127f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996482"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410817"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -48,6 +48,8 @@ Azure Disk Encryption también está disponible para las VM con almacenamiento P
 
 Azure Disk Encryption no está disponible en [VM de segunda generación](../generation-2.md#generation-1-vs-generation-2-capabilities) ni en las [VM de la serie Lsv2](../lsv2-series.md). Para ver más excepciones, consulte [Azure Disk Encryption: escenarios no admitidos](disk-encryption-linux.md#unsupported-scenarios).
 
+Azure Disk Encryption no está disponible en las imágenes de VM sin discos temporales (Dv4, Dsv4, Ev4 y Esv4).  Consulte [Tamaños de máquina virtual de Azure sin disco temporal local](../azure-vms-no-temp-disk.md).
+
 ### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
 Azure Disk Encryption se admite en un subconjunto de las [distribuciones de Linux aprobadas por Azure](endorsed-distros.md), que es en sí mismo un subconjunto de todas las posibles distribuciones de servidores Linux.
@@ -73,6 +75,7 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 | RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RedHat | RHEL 6.8 | 6,8 | RedHat:RHEL:6.8:latest | Disco de datos (véase la nota siguiente) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Disco de datos (véase la nota siguiente) |
+| OpenLogic | CentOS 7.8 | 7.8 | OpenLogic:CentOS:7_8:latest | Sistema operativo y disco de datos |
 | OpenLogic | CentOS 7.7 | 7,7 | OpenLogic:CentOS:7.7:latest | Sistema operativo y disco de datos |
 | OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | Sistema operativo y disco de datos |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | Sistema operativo y disco de datos |

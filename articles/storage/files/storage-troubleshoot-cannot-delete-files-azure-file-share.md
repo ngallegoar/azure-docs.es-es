@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: 1c50f54491e0284005c4b762b0c4b35a8460f5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4f10745d90ccd83e7251af40d3e92a230f2fcd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85511966"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629689"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Recurso compartido de archivos de Azure: no se pudieron eliminar archivos del recurso compartido de archivos de Azure
 
@@ -34,7 +34,7 @@ cuota insuficiente para procesar este comando.
 
 ## <a name="cause"></a>Causa
 
-El error 1816 se muestra cuando se alcanza el límite superior de identificadores abiertos simultáneos que se permiten para un archivo en el equipo donde se está montando el recurso compartido de archivos. Para obtener más información, consulte [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
+El error 1816 se muestra cuando se alcanza el límite superior de identificadores abiertos simultáneos que se permiten para un archivo en el equipo donde se está montando el recurso compartido de archivos. Para obtener más información, consulte [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../blobs/storage-performance-checklist.md).
 
 ## <a name="resolution"></a>Solución
 
@@ -44,7 +44,7 @@ Reduzca el número de identificadores abiertos al cerrar algunos.
 
 ### <a name="install-the-latest-azure-powershell-module"></a>Instalación del módulo de Azure PowerShell más reciente.
 
-* [Instalación del módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Instalación del módulo Azure PowerShell](/powershell/azure/install-az-ps)
 
 ### <a name="connect-to-azure"></a>Conexión a Azure:
 

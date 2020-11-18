@@ -1,14 +1,14 @@
 ---
 title: Implementación de Azure Policy en suscripciones delegadas a escala
 description: Obtenga información sobre cómo Azure Lighthouse permite implementar una definición de directivas y una asignación de directivas en varios inquilinos.
-ms.date: 08/12/2020
+ms.date: 11/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167290"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412075"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementación de Azure Policy en suscripciones delegadas a escala
 
@@ -91,7 +91,11 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Si bien puede implementar directivas en varios inquilinos, actualmente no puede [ver los detalles de cumplimiento](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) de los recursos no compatibles en estos inquilinos.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información acerca de [Azure Policy](../../governance/policy/index.yml).
 - Más información sobre las [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md).
+- Obtenga información sobre cómo [implementar una directiva que se pueda corregir](deploy-policy-remediation.md) dentro de una suscripción delegada.

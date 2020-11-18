@@ -8,16 +8,16 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 961ba457136d20fbb63ae3315fe8143cffb56be2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568478"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629315"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolos de recurso compartido de archivos de Azure
 
-Azure Files ofrece dos protocolos para conectar y montar los recursos compartidos de archivos de Azure. El [protocolo Bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Actualmente, Azure Files no admite el acceso multiprotocolo, por lo que un recurso compartido solo puede ser un recurso compartido NFS o SMB. Por eso se recomienda determinar qué protocolo se ajusta mejor a sus necesidades antes de crear recursos compartido de archivos.
+Azure Files ofrece dos protocolos para conectar y montar los recursos compartidos de archivos de Azure. El [protocolo Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Actualmente, Azure Files no admite el acceso multiprotocolo, por lo que un recurso compartido solo puede ser un recurso compartido NFS o SMB. Por eso se recomienda determinar qué protocolo se ajusta mejor a sus necesidades antes de crear recursos compartido de archivos.
 
 ## <a name="differences-at-a-glance"></a>Diferencias de un vistazo
 
@@ -64,7 +64,7 @@ Todos los datos de Azure Files se cifran en reposo. En el caso del cifrado en tr
 - [Un punto de conexión privado](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [Una VPN de punto a sitio (P2S)](../../vpn-gateway/point-to-site-about.md)
-    - [De sitio a sitio](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+    - [De sitio a sitio](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [Un punto de conexión público restringido](storage-files-networking-overview.md#storage-account-firewall-settings)
 

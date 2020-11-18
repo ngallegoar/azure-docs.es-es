@@ -3,12 +3,12 @@ title: Habilitación del escritorio remoto gráfico para Linux en Azure Lab Serv
 description: Obtenga información sobre cómo habilitar Escritorio remoto para máquinas virtuales Linux en un laboratorio en Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251616"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647960"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Habilitación del escritorio remoto gráfico para máquinas virtuales Linux en Azure Lab Services
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -17,7 +17,7 @@ En este artículo se muestra cómo realizar las tareas siguientes:
 - Procedimientos para conectar a una máquina virtual Linux mediante el Protocolo de escritorio remoto (RDP) o los clientes de escritorio remoto de X2Go
 
 ## <a name="set-up-graphical-remote-desktop-solution"></a>Configuración de la solución de escritorio remoto gráfico
-Cuando se crea un laboratorio a partir de una imagen de **Linux**, el acceso**SSH** (Secure Shell) se configura automáticamente para que el instructor pueda conectarse a la máquina virtual de plantilla desde la línea de comandos mediante SSH.  Del mismo modo, cuando se publica la máquina virtual de plantilla, los alumnos también pueden conectarse a las máquinas virtuales mediante SSH.
+Cuando se crea un laboratorio a partir de una imagen de **Linux**, el acceso **SSH** (Secure Shell) se configura automáticamente para que el instructor pueda conectarse a la máquina virtual de plantilla desde la línea de comandos mediante SSH.  Del mismo modo, cuando se publica la máquina virtual de plantilla, los alumnos también pueden conectarse a las máquinas virtuales mediante SSH.
 
 Para conectarse a una máquina virtual Linux mediante una **GUI** (interfaz gráfica de usuario), se recomienda usar **RDP** o **X2Go**.  Ambas opciones requieren que el instructor realice pasos adicionales de configuración en la máquina virtual de plantilla:
 
@@ -38,7 +38,7 @@ X2Go usa el mismo puerto que ya está habilitado para SSH.  Como consecuencia, n
 > En algunos casos, como con Ubuntu LTS 18,04, el rendimiento de X2Go es mejor.  Si usa RDP y observa latencia al utilizar el entorno de escritorio gráfico, considere la posibilidad de probar X2Go, ya que puede mejorar el rendimiento.
 
 > [!IMPORTANT]
->  Algunas imágenes de Marketplace ya tienen instalados un entorno de escritorio gráfico y un servidor de escritorio remoto.  Por ejemplo, [Data Science Virtual Machine- Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) ya tiene [XFCE y X2Go Server instalados y configurados para aceptar conexiones de cliente](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  Algunas imágenes de Marketplace ya tienen instalados un entorno de escritorio gráfico y un servidor de escritorio remoto.  Por ejemplo, [Data Science Virtual Machine- Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) ya tiene [XFCE y X2Go Server instalados y configurados para aceptar conexiones de cliente](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## <a name="enable-remote-desktop-connection-for-rdp"></a>Habilitación de la conexión de escritorio remoto para RDP
 
@@ -73,7 +73,7 @@ Siga los pasos que se indican a continuación para configurar la máquina virtua
     ![Cadena de conexión de SSH](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 4. Instale RDP o X2Go junto con el entorno de escritorio gráfico de su elección.  Consulte las siguientes instrucciones:
-    - [Instalación y configuración de RDP](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
+    - [Instalación y configuración de RDP](../virtual-machines/linux/use-remote-desktop.md)
     - [Instalación y configuración de X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>Conexión a máquina virtual de plantilla mediante la GUI
@@ -82,7 +82,7 @@ Una vez configurada la máquina virtual de plantilla, el instructor puede conect
 
 ### <a name="microsoft-remote-desktop-rdp-client"></a>Cliente de Escritorio remoto de Microsoft (RDP)
 
-El cliente de Escritorio remoto de Microsoft (RDP) se usa para la conexión a una máquina virtual de plantilla que tiene configurado RDP.  El cliente de Escritorio remoto se puede usar en equipos Windows, Chromebook, Mac, etc.  Consulte el artículo [Clientes de Escritorio remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) para obtener más detalles.
+El cliente de Escritorio remoto de Microsoft (RDP) se usa para la conexión a una máquina virtual de plantilla que tiene configurado RDP.  El cliente de Escritorio remoto se puede usar en equipos Windows, Chromebook, Mac, etc.  Consulte el artículo [Clientes de Escritorio remoto](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) para obtener más detalles.
 
 Realice los pasos siguientes en función del tipo de equipo usado para conectarse a la máquina virtual de plantilla:
 

@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f9fcdd2ce17e967be432f8edc910dcf2fcdbed3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374040"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650910"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Creación o actualización de un grupo dinámico en Azure Active Directory
 
@@ -47,19 +47,19 @@ Para ver ejemplos de sintaxis, propiedades admitidas, operadores y valores de un
 ## <a name="to-create-a-group-membership-rule"></a>Para crear una regla de pertenencia a grupo, siga estos pasos:
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global, administrador de Intune o administrador de usuarios en la organización de Azure AD.
-1. Busque y seleccione **Grupos** .
-1. Seleccione **Todos los grupos** y, luego, **Nuevo grupo** .
+1. Busque y seleccione **Grupos**.
+1. Seleccione **Todos los grupos** y, luego, **Nuevo grupo**.
 
    ![Selección del comando para agregar nuevo grupo](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
-1. En la página **Grupo** , escriba un nombre y una descripción para el nuevo grupo. Seleccione un **tipo de pertenencia** para los usuarios o dispositivos y, luego, seleccione **Agregar una consulta dinámica** . El generador de reglas admite hasta cinco expresiones. Para agregar más de cinco expresiones, debe usar el cuadro de texto.
+1. En la página **Grupo**, escriba un nombre y una descripción para el nuevo grupo. Seleccione un **tipo de pertenencia** para los usuarios o dispositivos y, luego, seleccione **Agregar una consulta dinámica**. El generador de reglas admite hasta cinco expresiones. Para agregar más de cinco expresiones, debe usar el cuadro de texto.
 
    ![Captura de pantalla que muestra la página "Todos los grupos" con la acción "Nuevo grupo" seleccionada.](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. Para ver las propiedades de extensión personalizadas disponibles para su consulta de pertenencia, siga estos pasos:
-   1. Seleccione **Obtener las propiedades de extensión personalizadas** .
-   1. Escriba el identificador de aplicación y, luego, seleccione **Actualizar propiedades** .
-1. Después de crear la regla, seleccione **Guardar** .
+   1. Seleccione **Obtener las propiedades de extensión personalizadas**.
+   1. Escriba el identificador de aplicación y, luego, seleccione **Actualizar propiedades**.
+1. Después de crear la regla, seleccione **Guardar**.
 1. Seleccione **Crear** en la página **Nuevo grupo** para crear el grupo.
 
 Si la regla que escribió no es válida, aparece una explicación de por qué no se pudo procesar la regla en una notificación de Azure en el portal. Léala con cuidado para saber cómo corregir la regla.
@@ -67,16 +67,16 @@ Si la regla que escribió no es válida, aparece una explicación de por qué no
 ## <a name="to-update-an-existing-rule"></a>Para actualizar una regla existente
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta con el rol de administrador global, administrador de grupos, administrador de Intune o administrador de usuarios en la organización de Azure AD.
-1. Seleccione **Grupos** > **Todos los grupos** .
+1. Seleccione **Grupos** > **Todos los grupos**.
 1. Seleccione un grupo para abrir su perfil.
-1. En la página de perfil del grupo, seleccione **Reglas de pertenencia dinámica** . El generador de reglas admite hasta cinco expresiones. Para agregar más de cinco expresiones, debe usar el cuadro de texto.
+1. En la página de perfil del grupo, seleccione **Reglas de pertenencia dinámica**. El generador de reglas admite hasta cinco expresiones. Para agregar más de cinco expresiones, debe usar el cuadro de texto.
 
    ![Adición de una regla de pertenencia a un grupo dinámico](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 1. Para ver las propiedades de extensión personalizadas disponibles para su regla de pertenencia, siga estos pasos:
-   1. Seleccione **Obtener las propiedades de extensión personalizadas** .
-   1. Escriba el identificador de aplicación y, luego, seleccione **Actualizar propiedades** .
-1. Después de actualizar la regla, seleccione **Guardar** .
+   1. Seleccione **Obtener las propiedades de extensión personalizadas**.
+   1. Escriba el identificador de aplicación y, luego, seleccione **Actualizar propiedades**.
+1. Después de actualizar la regla, seleccione **Guardar**.
 
 ## <a name="turn-on-or-off-welcome-email"></a>Activación o desactivación del correo electrónico de bienvenida
 
@@ -88,21 +88,21 @@ Puede ver el estado de procesamiento de la pertenencia y la última fecha actual
   
   ![visualización del estado del grupo dinámico](./media/groups-create-rule/group-status.png)
 
-Los mensajes de estado siguientes se pueden mostrar para el estado de **procesamiento de la pertenencia** :
+Los mensajes de estado siguientes se pueden mostrar para el estado de **procesamiento de la pertenencia**:
 
-- **Evaluando** :  se ha recibido el cambio de grupo y se están evaluando las actualizaciones.
-- **Procesamiento** : las actualizaciones se están procesando.
-- **Actualización completada** : se ha completado el procesamiento y se han realizado todas las actualizaciones aplicables.
-- **Error de procesamiento** :  no se pudo completar el procesamiento debido a un error al evaluar la regla de pertenencia.
-- **Actualización en pausa** : el administrador han pausado las actualizaciones de la regla de pertenencia dinámica. MembershipRuleProcessingState se establece en "Paused".
+- **Evaluando**:  se ha recibido el cambio de grupo y se están evaluando las actualizaciones.
+- **Procesamiento**: las actualizaciones se están procesando.
+- **Actualización completada**: se ha completado el procesamiento y se han realizado todas las actualizaciones aplicables.
+- **Error de procesamiento**:  no se pudo completar el procesamiento debido a un error al evaluar la regla de pertenencia.
+- **Actualización en pausa**: el administrador han pausado las actualizaciones de la regla de pertenencia dinámica. MembershipRuleProcessingState se establece en "Paused".
 
-Los mensajes de estado siguientes se pueden mostrar para el estado **Última actualización de la pertenencia** :
+Los mensajes de estado siguientes se pueden mostrar para el estado **Última actualización de la pertenencia**:
 
 - &lt;**Fecha y hora**&gt;: la última vez que se actualizó la pertenencia.
-- **En curso** : las actualizaciones están actualmente en curso.
-- **Desconocido** : no se puede recuperar la hora de la última actualización. El grupo podría ser nuevo.
+- **En curso**: las actualizaciones están actualmente en curso.
+- **Desconocido**: no se puede recuperar la hora de la última actualización. El grupo podría ser nuevo.
 
-Si se produce un error al procesar la regla de pertenencia para un grupo específico, se muestra una alerta en la parte superior de la **página de información general** del grupo. Si no se puede procesar ninguna actualización de pertenencia dinámica pendiente para todos los grupos de la organización durante más de 24 horas, se muestra una alerta en la parte superior de **Todos los grupos** .
+Si se produce un error al procesar la regla de pertenencia para un grupo específico, se muestra una alerta en la parte superior de la **página de información general** del grupo. Si no se puede procesar ninguna actualización de pertenencia dinámica pendiente para todos los grupos de la organización durante más de 24 horas, se muestra una alerta en la parte superior de **Todos los grupos**.
 
 ![alertas de mensajes de error de procesamiento](./media/groups-create-rule/processing-error.png)
 

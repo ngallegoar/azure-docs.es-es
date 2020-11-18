@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16ac28e46e9231918f433c0e9eb077cb0d8cf230
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 21b563bf383dce486de86bc51913feac7863d8e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791178"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635167"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure
 
@@ -165,4 +165,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 - [Administración de los derechos de acceso a los datos de almacenamiento con RBAC de Azure](./storage-auth-aad-rbac-portal.md).
 - [Usar Azure AD con aplicaciones de almacenamiento](storage-auth-aad-app.md).
-- [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de blob](../blobs/authorize-active-directory-powershell.md)
+- [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de blob](../blobs/authorize-data-operations-powershell.md)

@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 876a96f579bff8d30e454e927054a951734f44ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b29565e18b2da2087cc15966b30b433a42fb603
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441106"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629808"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -115,7 +115,7 @@ En la tabla siguiente, se proporcionan tanto el tamaño del espacio de nombres c
 ### <a name="evaluation-cmdlet"></a>Cmdlet de evaluación
 Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante el cmdlet de evaluación de Azure File Sync. Este cmdlet busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Las comprobaciones incluyen la mayoría de las características que se mencionan a continuación, pero no todas; se recomienda que lea el resto de esta sección detenidamente para asegurarse de que la implementación se realiza sin problemas. 
 
-El cmdlet de evaluación se puede instalar mediante el módulo Az de PowerShell, que se puede instalar siguiendo estas instrucciones: [Instale y configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+El cmdlet de evaluación se puede instalar mediante el módulo Az de PowerShell, que se puede instalar siguiendo estas instrucciones: [Instale y configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 #### <a name="usage"></a>Uso  
 Puede invocar la herramienta de evaluación de varias maneras diferentes: puede realizar las comprobaciones del sistema, las comprobaciones del conjunto de datos o ambas. Para realizar las comprobaciones del sistema y el conjunto de datos: 
@@ -200,7 +200,7 @@ Azure File Sync no admite la desduplicación de datos y la nube por niveles en e
 - Si habilita la desduplicación de datos en un volumen después de haber habilitado la nube por niveles, el trabajo inicial de optimización por desduplicación optimiza los archivos del volumen que no están aún en niveles, y tendrá la siguiente repercusión en la nube por niveles:
     - La directiva de espacio disponible seguirá colocando los archivos en niveles según el espacio libre en el volumen mediante el uso del mapa térmico.
     - La directiva de fecha omitirá la organización en niveles de los archivos, que podrían haber sido en otra situación aptos para niveles, ya que el trabajo de optimización por desduplicación tiene acceso a los archivos.
-- Para los trabajos de optimización por desduplicación en curso, el valor de desduplicación de datos [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps), retrasará la nube por niveles con directiva de fecha, si el archivo no está colocado ya en un nivel. 
+- Para los trabajos de optimización por desduplicación en curso, el valor de desduplicación de datos [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps), retrasará la nube por niveles con directiva de fecha, si el archivo no está colocado ya en un nivel. 
     - Ejemplo: Si el valor MinimumFileAgeDays es de siete días y la directiva de fecha de nube por niveles es de 30 días, la directiva de fecha colocará los archivos en niveles pasados 37 días.
     - Nota: Una vez que Azure File Sync haya colocado un archivo en un nivel, el trabajo de optimización por desduplicación omitirá el archivo.
 - Si un servidor que ejecuta Windows Server 2012 R2 y que tiene instalado el agente de Azure File Sync se actualiza a Windows Server 2016 o Windows Server 2019, es necesario realizar los pasos siguientes para que se pueda admitir en el mismo volumen la desduplicación de datos y la nube por niveles:  
@@ -213,7 +213,7 @@ Azure File Sync no admite la desduplicación de datos y la nube por niveles en e
 ### <a name="distributed-file-system-dfs"></a>Sistema de archivos distribuido (DFS)
 Azure File Sync admite la interoperabilidad con espacios de nombres DFS (DFS-N) y la replicación DFS (DFS-R).
 
-**Espacios de nombres DFS (DFS-N)** : Azure File Sync es totalmente compatible con servidores de DFS-N. Puede instalar el agente de Azure File Sync en uno o varios miembros DFS-N para sincronizar datos entre los puntos de conexión del servidor y el punto de conexión en la nube. Para más información, consulte [Información general de Espacios de nombres DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**Espacios de nombres DFS (DFS-N)** : Azure File Sync es totalmente compatible con servidores de DFS-N. Puede instalar el agente de Azure File Sync en uno o varios miembros DFS-N para sincronizar datos entre los puntos de conexión del servidor y el punto de conexión en la nube. Para más información, consulte [Información general de Espacios de nombres DFS](/windows-server/storage/dfs-namespaces/dfs-overview).
  
 **Replicación DFS (DFS-R)** : puesto que DFS-R y Azure File Sync son soluciones de replicación, en la mayoría de los casos, se recomienda reemplazar DFS-R por Azure File Sync. Hay, sin embargo, varios escenarios donde puede que desee usar DFS-R y Azure File Sync conjuntamente:
 
@@ -226,7 +226,7 @@ Para que Azure File Sync y DFS-R trabajen en paralelo:
 1. Los niveles de nube de Azure File Sync deben deshabilitarse en volúmenes con carpetas replicadas DFS-R.
 2. Los puntos de conexión de servidor no se deben configurar en carpetas de replicación de solo lectura DFS-R.
 
-Para más información, consulte [Introducción a Espacios de nombres DFS y Replicación DFS](https://technet.microsoft.com/library/jj127250).
+Para más información, consulte [Introducción a Espacios de nombres DFS y Replicación DFS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)).
 
 ### <a name="sysprep"></a>Sysprep
 No se admite la ejecución de sysprep en un servidor que tenga instalado el agente de Azure File Sync y esto puede provocar resultados inesperados. La instalación del agente y el registro del servidor se deben realizar después de implementar la imagen del servidor y completar la instalación mínima de sysprep.
@@ -263,7 +263,7 @@ Cuando se usa Azure File Sync, hay que tener en cuenta tres capas diferentes de 
 ### <a name="windows-server-encryption-at-rest"></a>Cifrado en reposo de Windows Server 
 Hay dos estrategias para cifrar datos en Windows Server que funcionan habitualmente con Azure File Sync: el cifrado debajo del sistema de archivos, de forma que tanto el sistema de archivos como todos los datos escritos en ella estén cifrados y el cifrado del propio formato de archivo. Estos métodos no son mutuamente excluyentes; se pueden usar conjuntamente si se desea, ya que el fin del cifrado es diferente.
 
-Para proporcionar cifrado debajo del sistema de archivos, Windows Server ofrece la Bandeja de entrada de BitLocker. BitLocker es totalmente transparente para Azure File Sync. La razón principal para usar un mecanismo de cifrado como BitLocker es evitar la filtración física de los datos de un centro de datos local por parte de alguien que robe los discos y evitar la transferencia local de un sistema operativo no autorizado para realizar lecturas y escritura de los datos. Para más información sobre BitLocker, consulte [Introducción a BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview).
+Para proporcionar cifrado debajo del sistema de archivos, Windows Server ofrece la Bandeja de entrada de BitLocker. BitLocker es totalmente transparente para Azure File Sync. La razón principal para usar un mecanismo de cifrado como BitLocker es evitar la filtración física de los datos de un centro de datos local por parte de alguien que robe los discos y evitar la transferencia local de un sistema operativo no autorizado para realizar lecturas y escritura de los datos. Para más información sobre BitLocker, consulte [Introducción a BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview).
 
 Los productos de terceros que funcionan de forma similar a BitLocker, en que se usan al lado del volumen NTFS, deberían ser completamente transparentes para Azure File Sync. 
 
@@ -368,7 +368,7 @@ Las soluciones de antivirus internas de Microsoft, Windows Defender y System Cen
 > Los proveedores de software antivirus pueden comprobar la compatibilidad entre sus productos y Azure File Sync con [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), que está disponible para su descarga en el Centro de descarga de Microsoft.
 
 ## <a name="backup"></a>Copia de seguridad 
-Si está habilitada la nube por niveles, no se deben usar soluciones que realicen copias de seguridad directamente del punto de conexión de servidor o de una máquina virtual en la que se encuentre este. La nube por niveles hace que solo un subconjunto de los datos se almacene en el punto de conexión de servidor, y que el conjunto de datos completo resida en el recurso compartido de archivos de Azure. En función de la solución de copia de seguridad usada, los archivos por niveles se omitirán y no se realizará una copia de seguridad de ellos (porque tienen el conjunto de atributos FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS), o se recuperarán en el disco, lo que provocará cargos elevados de salida. Se recomienda usar una solución de copia de seguridad en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure directamente. Para más información, consulte [Acerca de la copia de seguridad de recursos compartidos de archivos de Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) o póngase en contacto con el proveedor de copias de seguridad para ver si admite la copia de seguridad de recursos compartidos de Azure.
+Si está habilitada la nube por niveles, no se deben usar soluciones que realicen copias de seguridad directamente del punto de conexión de servidor o de una máquina virtual en la que se encuentre este. La nube por niveles hace que solo un subconjunto de los datos se almacene en el punto de conexión de servidor, y que el conjunto de datos completo resida en el recurso compartido de archivos de Azure. En función de la solución de copia de seguridad usada, los archivos por niveles se omitirán y no se realizará una copia de seguridad de ellos (porque tienen el conjunto de atributos FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS), o se recuperarán en el disco, lo que provocará cargos elevados de salida. Se recomienda usar una solución de copia de seguridad en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure directamente. Para más información, consulte [Acerca de la copia de seguridad de recursos compartidos de archivos de Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) o póngase en contacto con el proveedor de copias de seguridad para ver si admite la copia de seguridad de recursos compartidos de Azure.
 
 Si prefiere usar una solución de copia de seguridad local, las copias de seguridad deben realizarse en un servidor del grupo de sincronización que tenga deshabilitada la nube por niveles. Al realizar una restauración, use las opciones de restauración de nivel de volumen o de archivo. Los archivos restaurados con la opción de restauración a nivel de archivo se sincronizarán con todos los puntos de conexión del grupo de sincronización y los archivos existentes se reemplazarán con la versión restaurada desde la copia de seguridad.  Las restauraciones a nivel de volumen no reemplazarán las versiones de archivo más recientes en el recurso compartido de archivos de Azure u otros puntos de conexión del servidor.
 

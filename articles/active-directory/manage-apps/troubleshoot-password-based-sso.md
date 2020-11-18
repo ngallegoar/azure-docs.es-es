@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 0534c85548b1d8b6203aaac4911dc851dd49d81a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460361"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646243"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solución de problemas de inicio de sesión único basado en contraseña en Azure AD
 
@@ -36,7 +36,7 @@ En general, este problema sucede si el proveedor de la aplicación ha cambiado r
 
 Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen estas integraciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. En el caso de que una de estas integraciones no funcione correctamente, abra un caso de soporte técnico para que podamos solucionar el problema lo más rápido posible.
 
-**Si está en contacto con el proveedor de la aplicación,** pídale que se comunique con Microsoft para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
+**Si está en contacto con el proveedor de la aplicación,** pídale que se comunique con Microsoft para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Las credenciales se rellenan y se envían, pero la página indica que son incorrectas
 
@@ -62,7 +62,7 @@ Si las sugerencias anteriores no funcionan, puede que se haya producido un cambi
 
 Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen las integraciones de aplicaciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. Cuando una integración no funciona correctamente, puede abrir un caso de soporte técnico para que podamos corregirlo lo antes posible. 
 
-Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
+Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Compruebe si la página de inicio de sesión de la aplicación ha cambiado recientemente, o si requiere un campo adicional
 
@@ -70,7 +70,7 @@ Si la página de inicio de sesión de la aplicación ha cambiado de forma consid
 
 Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen las integraciones de aplicaciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. Cuando una integración no funciona correctamente, puede abrir un caso de soporte técnico para que podamos corregirlo lo antes posible. 
 
-Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
+Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
 ## <a name="capture-sign-in-fields-for-an-app"></a>Capturar los campos de inicio de sesión para una aplicación
 

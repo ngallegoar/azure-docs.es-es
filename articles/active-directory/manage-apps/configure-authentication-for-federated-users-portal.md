@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 873a87ed2c75d41e0a249bde4b6a29921b7e5ce5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763591"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648062"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
@@ -207,7 +207,7 @@ Para aplicar la directiva de HRD después de crearla, puede asignarla a varias e
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Paso 2: Búsqueda de la entidad de servicio a la cual se asignará la directiva  
 Para ello, necesita el valor de **ObjectID** de las entidades de servicio a las que quiere asignar la directiva. Hay varias maneras de buscar el valor de **ObjectID** de las entidades de servicio.    
 
-Puede usar el portal, o bien puede consultar [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). También puede ir a la [herramienta Probador de Graph](https://developer.microsoft.com/graph/graph-explorer) e iniciar sesión en su cuenta de Azure AD para ver todas las entidades de servicio de su organización. 
+Puede usar el portal, o bien puede consultar [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). También puede ir a la [herramienta Probador de Graph](https://developer.microsoft.com/graph/graph-explorer) e iniciar sesión en su cuenta de Azure AD para ver todas las entidades de servicio de su organización. 
 
 Dado que usa PowerShell, puede usar el cmdlet siguiente para enumerar las entidades de servicio y sus identificadores.
 
@@ -267,6 +267,6 @@ Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -P
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Pasos siguientes
-- Para obtener más información sobre el funcionamiento de la autenticación en Azure AD, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md).
+- Para obtener más información sobre el funcionamiento de la autenticación en Azure AD, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-vs-authorization.md).
 - Para obtener más información sobre el inicio de sesión único del usuario, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](what-is-single-sign-on.md).
 - Visite la [plataforma de identidad de Microsoft](../develop/v2-overview.md) para obtener información general sobre todo el contenido relacionado con los desarrolladores.

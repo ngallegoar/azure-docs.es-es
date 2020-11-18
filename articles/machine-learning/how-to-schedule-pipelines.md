@@ -1,7 +1,7 @@
 ---
 title: Programación de canalizaciones de Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Programe canalizaciones de Azure Machine Learning con el SDK de Azure Machine Learning para Python. Las canalizaciones programadas le permiten automatizar las tareas rutinarias y lentas, como el procesamiento de datos, el entrenamiento y la supervisión.
+description: Las canalizaciones programadas le permiten automatizar las tareas rutinarias y lentas, como el procesamiento de datos, el entrenamiento y la supervisión.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,18 +10,18 @@ author: lobrien
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 97d0f822e63bb6eb32b1cd2f211621af8ad1c4b8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c931aa6cd170c72654eb9ced6813d26e21ce5d0
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313998"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630318"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Programación de canalizaciones de aprendizaje automático con el SDK de Azure Machine Learning para Python
 
 En este artículo, aprenderá a programar mediante programación una canalización para que se ejecute en Azure. Puede optar por crear una programación basada en el tiempo transcurrido o en los cambios en el sistema de archivos. Las programaciones basadas en el tiempo se pueden usar para encargarse de tareas rutinarias, como la supervisión del desfase de datos. Las programaciones basadas en los cambios se pueden usar para reaccionar ante cambios irregulares o imprevisibles, como la carga de nuevos datos o la edición de datos antiguos. Después de aprender a crear programaciones, aprenderá a recuperarlas y desactivarlas.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree).
 

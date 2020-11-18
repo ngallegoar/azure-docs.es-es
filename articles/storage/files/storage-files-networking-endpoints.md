@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b494e7f7f99394c7337d663ea9a9c7e1f74dacf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 880eeb87d8727d65b2aaecdad8b0ed9ccaacea7a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612836"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629859"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configuración de puntos de conexión de red de Azure Files
 
@@ -31,7 +31,7 @@ Se recomienda leer [Consideraciones de redes para Azure Files](storage-files-net
 
 - En este artículo se supone que ya ha creado una suscripción a Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - En este artículo se supone que ya ha creado un recurso compartido de archivos de Azure en una cuenta de almacenamiento a la que le gustaría conectarse desde el entorno local. Para aprender a crear un recurso compartido de archivos de Azure, consulte [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
-- Si planea usar Azure PowerShell, [instale la versión más reciente](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Si planea usar Azure PowerShell, [instale la versión más reciente](/powershell/azure/install-az-ps).
 - Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli).
 
 ## <a name="endpoint-configurations"></a>Configuraciones de punto de conexión

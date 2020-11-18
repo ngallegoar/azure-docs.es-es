@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 21b407002adce01155b37321c068fb10d2c003f6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0196330df01f98e216c39bcc689eac2bde2f4cd9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319794"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629349"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desarrollo para Azure Files con .NET
 
@@ -41,7 +41,7 @@ Azure Files proporciona dos enfoques generales para las aplicaciones cliente: bl
 
 API | Cuándo se usa | Notas
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Su aplicación: <ul><li>Es necesario leer o escribir archivos mediante SMB</li><li>Se ejecuta en un dispositivo que tenga acceso a través del puerto 445 a su cuenta de Azure Files</li><li>No es necesario administrar cualquiera de las opciones administrativas del recurso compartido de archivos</li></ul> | La E/S de archivos de Azure Files a través de SMB normalmente es igual que la E/S con cualquier recurso compartido de red o dispositivo de almacenamiento local. Para obtener una introducción a una serie de características en .NET, incluida la E/S de archivos, consulte [Aplicación de consola](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter).
+[System.IO](/dotnet/api/system.io) | Su aplicación: <ul><li>Es necesario leer o escribir archivos mediante SMB</li><li>Se ejecuta en un dispositivo que tenga acceso a través del puerto 445 a su cuenta de Azure Files</li><li>No es necesario administrar cualquiera de las opciones administrativas del recurso compartido de archivos</li></ul> | La E/S de archivos de Azure Files a través de SMB normalmente es igual que la E/S con cualquier recurso compartido de red o dispositivo de almacenamiento local. Para obtener una introducción a una serie de características en .NET, incluida la E/S de archivos, consulte [Aplicación de consola](/dotnet/csharp/tutorials/console-teleprompter).
 [Azure.Storage.Files.Shares](/dotnet/api/azure.storage.files.shares) | Su aplicación: <ul><li>No se puede tener acceso a Azure Files mediante SMB en el puerto 445 debido a restricciones de ISP o firewall</li><li>Requiere funcionalidad administrativa, como la capacidad de establecer la cuota de un recurso compartido de archivo o crear una firma de acceso compartido</li></ul> | Este artículo muestra el uso de `Azure.Storage.Files.Shares` para la E/S de archivos con REST (en lugar de SMB) y la administración del recurso compartido de archivos.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Creación de la aplicación de consola y obtención del ensamblado
@@ -50,11 +50,11 @@ Puede usar la biblioteca cliente de Azure Files en cualquier tipo de aplicación
 
 En Visual Studio, cree una nueva aplicación de consola de Windows. Los siguientes pasos muestran cómo crear una aplicación de consola en Visual Studio 2019. Los pasos son similares en otras versiones de Visual Studio.
 
-1. Inicie Visual Studio y seleccione **Crear un proyecto** .
-1. En **Crear un proyecto** , elija **Aplicación de consola (.NET Framework)** para C# y seleccione **Siguiente** .
-1. En **Configure su nuevo proyecto** , escriba un nombre para la app y seleccione **Crear** .
+1. Inicie Visual Studio y seleccione **Crear un proyecto**.
+1. En **Crear un proyecto**, elija **Aplicación de consola (.NET Framework)** para C# y seleccione **Siguiente**.
+1. En **Configure su nuevo proyecto**, escriba un nombre para la app y seleccione **Crear**.
 
-Agregue todos los ejemplos de código en este artículo a la clase `Program` en el archivo *Program.cs* .
+Agregue todos los ejemplos de código en este artículo a la clase `Program` en el archivo *Program.cs*.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Uso de NuGet para instalar los paquetes necesarios
 
@@ -69,8 +69,8 @@ Consulte estos paquetes en el proyecto:
 
 Puede usar NuGet para obtener los paquetes. Siga estos pasos:
 
-1. En el **Explorador de soluciones** , haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes de NuGet** .
-1. En **Administrador de paquetes NuGet** , seleccione **Examinar** . A continuación, busque y elija **Azure.Core** , y, después, seleccione **Instalar** .
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes de NuGet**.
+1. En **Administrador de paquetes NuGet**, seleccione **Examinar**. A continuación, busque y elija **Azure.Core**, y, después, seleccione **Instalar**.
 
    En este paso se instala el paquete y sus dependencias.
 
@@ -89,8 +89,8 @@ Puede usar NuGet para obtener los paquetes. Siga estos pasos:
 
 Puede usar NuGet para obtener los paquetes. Siga estos pasos:
 
-1. En el **Explorador de soluciones** , haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes de NuGet** .
-1. En **Administrador de paquetes NuGet** , seleccione **Examinar** . Después, busque y elija **Microsoft.Azure.Storage.Blob** y, a continuación, seleccione **Instalar** .
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes de NuGet**.
+1. En **Administrador de paquetes NuGet**, seleccione **Examinar**. Después, busque y elija **Microsoft.Azure.Storage.Blob** y, a continuación, seleccione **Instalar**.
 
    En este paso se instala el paquete y sus dependencias.
 1. Busque e instale estos paquetes:
@@ -103,7 +103,7 @@ Puede usar NuGet para obtener los paquetes. Siga estos pasos:
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Guardar las credenciales de la cuenta de almacenamiento en el archivo app.config
 
-A continuación, guardará las credenciales en el archivo *App.config* del proyecto. En el **Explorador de soluciones** , haga doble clic en `App.config` y edite el archivo para que sea similar al ejemplo siguiente.
+A continuación, guardará las credenciales en el archivo *App.config* del proyecto. En el **Explorador de soluciones**, haga doble clic en `App.config` y edite el archivo para que sea similar al ejemplo siguiente.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -135,7 +135,7 @@ Reemplace `myaccount` por el nombre de la cuenta de almacenamiento y `StorageAcc
 
 ## <a name="add-using-directives"></a>Adición de directivas using
 
-En el **Explorador de soluciones** , abra el archivo *Program.cs* y agregue lo siguiente mediante directivas al principio del archivo.
+En el **Explorador de soluciones**, abra el archivo *Program.cs* y agregue lo siguiente mediante directivas al principio del archivo.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -156,7 +156,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## <a name="access-the-file-share-programmatically"></a>Obtener acceso al recurso compartido de archivos mediante programación
 
-En el archivo *Program.cs* , agregue el código siguiente para obtener acceso al recurso compartido de archivos mediante programación.
+En el archivo *Program.cs*, agregue el código siguiente para obtener acceso al recurso compartido de archivos mediante programación.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -316,7 +316,7 @@ Para más información sobre la creación y el uso de firmas de acceso compartid
 
 A partir de la versión 5.x de la biblioteca cliente de Azure Files, puede copiar un archivo en otro, un archivo en un blob o un blob en un archivo.
 
-También puede usar AzCopy para copiar un archivo en otro o para copiar un blob en un archivo o viceversa. Consulte [Introducción a AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+También puede usar AzCopy para copiar un archivo en otro o para copiar un blob en un archivo o viceversa. Consulte [Introducción a AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
 > [!NOTE]
 > Si va a copiar un blob en un archivo o un archivo en un blob, debe usar una firma de acceso compartido (SAS) para autorizar el acceso al objeto de origen, incluso si está copiando en la misma cuenta de almacenamiento.
@@ -559,7 +559,7 @@ En el siguiente ejemplo de código se muestra cómo usar la biblioteca cliente d
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-En primer lugar, agregue las siguientes directivas `using` a su archivo *Program.cs* , además de las que ya ha agregado:
+En primer lugar, agregue las siguientes directivas `using` a su archivo *Program.cs*, además de las que ya ha agregado:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
@@ -624,8 +624,8 @@ Para más información acerca de Azure Files, consulte los siguientes recursos:
 
 ### <a name="tooling-support-for-file-storage"></a>Compatibilidad de herramientas con el almacenamiento de archivos
 
-- [Introducción a AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-- [Solucione problemas de Azure Files en Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+- [Introducción a AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
+- [Solucione problemas de Azure Files en Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>Referencia
 

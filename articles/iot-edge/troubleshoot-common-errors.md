@@ -4,19 +4,19 @@ description: Use este artículo para resolver problemas comunes que se producen 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ee865a3ddf6c26ffe9cb77767f3872b42018d8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82782621"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442368"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -331,6 +331,25 @@ Si una implementación automática tiene como destino un dispositivo, tendrá pr
 Use solo un tipo de mecanismo de implementación por dispositivo, ya sea una implementación automática o implementaciones de dispositivo individuales. Si tiene varias implementaciones automáticas que tienen como destino un dispositivo, puede cambiar la prioridad o las descripciones de destino para asegurarse de que se aplique la correcta a un dispositivo determinado. También puede actualizar el dispositivo gemelo para que ya no coincida con la descripción de destino de la implementación automática.
 
 Para más información, consulte el artículo [Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md).
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+## <a name="iot-edge-behind-a-gateway-cannot-perform-http-requests-and-start-edgeagent-module"></a>IoT Edge detrás de una puerta de enlace no puede realizar solicitudes HTTP ni iniciar el módulo edgeAgent
+
+**Comportamiento observado:**
+
+el demonio de IoT Edge está activo con un archivo de configuración válido, pero no puede iniciar el módulo edgeAgent. El comando `iotedge list` devuelve una lista vacía. El demonio de IoT Edge registra el informe `Could not perform HTTP request`.
+
+**Causa principal:**
+
+los dispositivos de IoT Edge detrás de una puerta de enlace obtienen las imágenes del módulo del dispositivo de IoT Edge primario especificado en el campo `parent_hostname` del archivo config.yaml. El error `Could not perform HTTP request` significa que el dispositivo secundario no puede llegar a su dispositivo primario a través de HTTP.
+
+**Solución:**
+
+asegúrese de que el dispositivo de IoT Edge primario puede recibir solicitudes entrantes del dispositivo de IoT Edge secundario. Abra el tráfico de red en los puertos 443 y 6617 para las solicitudes procedentes del dispositivo secundario.
+
+:::moniker-end
 
 ## <a name="next-steps"></a>Pasos siguientes
 

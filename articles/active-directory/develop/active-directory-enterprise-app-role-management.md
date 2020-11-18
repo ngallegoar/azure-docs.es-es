@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 376086d0fc84e04645215b26ba896cf22f3f9c57
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91704555"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647892"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 
@@ -62,12 +62,12 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
       ![Botón "Modificar permisos"](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
+    >[!NOTE]
+    >El rol de administrador de aplicaciones en la nube y de administrador de aplicaciones no funcionará en este escenario dado que se necesitan los permisos de administrador global para la lectura y escritura de directorios.
+
     c. Seleccione los siguientes permisos en la lista (si no los tiene ya) y seleccione **Modificar permisos**.
 
       ![Lista de permisos y botón "Modificar permisos"](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
-
-    > [!Note]
-    > El rol de administrador de aplicaciones en la nube y de administrador de aplicaciones no funcionará en este escenario dado que se necesitan los permisos de administrador global para la lectura y escritura de directorios.
 
     d. Acepte el consentimiento. Ha vuelto a iniciar sesión en el sistema.
 
@@ -79,9 +79,7 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
       ![Cuadro de diálogo del Probador de Graph, con la consulta para capturar entidades de servicio](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-      > [!Note]
-      > Ya estamos en proceso de actualizar las API para que los clientes puedan ver alguna interrupción en el servicio.
-
+      
     f. En la lista de entidades de servicio capturadas, seleccione la que necesita modificar. También puede usar Ctrl + F para buscar la aplicación en todas las entidades de servicio enumeradas. Busque el identificador de objeto que copió de la página **Propiedades** y use la consulta siguiente para acceder a la entidad de servicio:
 
       `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
@@ -92,8 +90,8 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
       ![Detalles de la propiedad appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-      > [!Note]
-      > Si usa la aplicación personalizada (no la aplicación de Azure Marketplace), verá dos roles predeterminados: user y msiam_access. En el caso de la aplicación Marketplace, msiam_access es el único rol predeterminado. No es necesario realizar ningún cambio en los roles predeterminados.
+      
+      Si usa la aplicación personalizada (no la aplicación de Azure Marketplace), verá dos roles predeterminados: user y msiam_access. En el caso de la aplicación Marketplace, msiam_access es el único rol predeterminado. No es necesario realizar ningún cambio en los roles predeterminados.
 
     h. Genere roles nuevos para la aplicación.
 
@@ -128,8 +126,8 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
       }
       ```
 
-      > [!Note]
-      > Solo puede agregar nuevos roles, además de msiam_access, para la operación de revisión. Además, puede agregar tantos roles como su organización necesite. Azure AD enviará el valor de estos roles como valor de notificación en la respuesta de SAML. Para generar los valores del GUID del identificador de los nuevos roles use herramientas web como [esta](https://www.guidgenerator.com/)
+      
+      Solo puede agregar nuevos roles, además de msiam_access, para la operación de revisión. Además, puede agregar tantos roles como su organización necesite. Azure AD enviará el valor de estos roles como valor de notificación en la respuesta de SAML. Para generar los valores del GUID del identificador de los nuevos roles use herramientas web como [esta](https://www.guidgenerator.com/)
 
     i. Vuelva al Probador de Graph y cambie el método de **GET** a **PATCH**. Aplique la revisión al objeto de entidad de servicio para obtener los roles deseados mediante la actualización de la propiedad **appRoles** para que sea similar a la del ejemplo anterior. Seleccione **Ejecutar consulta** para ejecutar la operación de aplicación de revisión. Un mensaje confirma la creación del rol.
 
@@ -143,8 +141,8 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
     ![Paneles "Editar asignación" y "Seleccionar rol"](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
-    > [!Note]
-    > Para ver los nuevos roles es preciso actualizar la sesión en Azure Portal.
+    
+    Para ver los nuevos roles es preciso actualizar la sesión en Azure Portal.
 
 8. Actualice la tabla **Atributos** para definir una asignación personalizada de la notificación de rol.
 
@@ -154,8 +152,8 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
     | -------------- | ----------------|
     | Nombre de rol  | user.assignedroles |
 
-    >[!NOTE]
-    >Si el valor de notificación del rol es null, Azure AD no envía este valor en el token y es el predeterminado por diseño.
+    
+    Si el valor de notificación del rol es null, Azure AD no envía este valor en el token y es el predeterminado por diseño.
 
     a. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos y notificaciones de usuario**.
 
@@ -253,15 +251,15 @@ Para eliminar un rol existente, siga estos pasos:
 
     d. Seleccione **Ejecutar consulta**.
 
-    > [!NOTE]
-    > Asegúrese de que dispone del rol msiam_access y de que el identificador coincide en el rol generado.
+    
+    Asegúrese de que dispone del rol msiam_access y de que el identificador coincide en el rol generado.
 
 7. Una vez que el rol esté deshabilitado, elimine el bloque del rol de la sección **appRoles**. Mantenga el método **PATCH** y seleccione **Ejecutar consulta**.
 
 8. Después de ejecutar la consulta el rol se elimina.
 
-    > [!NOTE]
-    > Para poder quitar el rol es preciso deshabilitar el rol.
+    
+    Para poder quitar el rol es preciso deshabilitar el rol.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

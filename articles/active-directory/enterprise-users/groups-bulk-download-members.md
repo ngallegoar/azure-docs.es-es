@@ -4,21 +4,21 @@ description: Agregue usuarios de forma masiva en el Centro de administración de
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/16/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec712d2f58c3028aa11d0b12132669648351bfb1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 59327b33a228dfde2c303b63393a372b12370a05
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373980"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647416"
 ---
 # <a name="bulk-download-members-of-a-group-in-azure-active-directory"></a>Descarga masiva de miembros de un grupo en Azure Active Directory
 
@@ -27,15 +27,15 @@ Mediante el portal de Azure Active Directory (Azure AD), puede descargar de f
 ## <a name="to-bulk-download-group-membership"></a>Descarga masiva de pertenencias al grupo
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador de usuarios en la organización. Los propietarios de grupos también pueden descargar de forma masiva miembros de los grupos que posean.
-1. En Azure AD, seleccione **Grupos** > **Todos los grupos** .
-1. Abra el grupo cuya pertenencia quiere descargar y, a continuación, seleccione los **miembros** .
-1. En la página de **miembros** , seleccione **Descargar miembros** para descargar un archivo CSV que enumera los miembros del grupo.
+1. En Azure AD, seleccione **Grupos** > **Todos los grupos**.
+1. Abra el grupo cuya pertenencia quiere descargar y, a continuación, seleccione los **miembros**.
+1. En la página de **miembros**, seleccione **Descargar miembros** para descargar un archivo CSV que enumera los miembros del grupo.
 
    ![El comando Descargar miembros está en la página de perfil del grupo](./media/groups-bulk-download-members/download-panel.png)
 
 ## <a name="check-download-status"></a>Comprobar el estado de la descarga
 
-Puede ver el estado de todas las solicitudes masivas pendientes en la página **Resultados de la operación masiva** .
+Puede ver el estado de todas las solicitudes masivas pendientes en la página **Resultados de la operación masiva**.
 
 [![Comprobación del estado en la página Resultados de la operación masiva.](./media/groups-bulk-download-members/bulk-center.png)](./media/groups-bulk-download-members/bulk-center.png#lightbox)
 

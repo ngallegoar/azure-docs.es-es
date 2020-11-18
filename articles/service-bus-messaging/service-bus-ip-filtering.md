@@ -3,12 +3,12 @@ title: Configuración de reglas de firewall de IP para Azure Service Bus
 description: Uso de las reglas de firewall para permitir las conexiones desde direcciones IP específicas a Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 561ee90fb6d1e25123d15a09bbf143aef59bcf6f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 3aacf54dca07f0e1f2a66c8cdd85f892dda68cd4
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058070"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426580"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir el acceso al espacio de nombres de Azure Service Bus desde intervalos o direcciones IP específicas
 De forma predeterminada, los espacios de nombres de Service Bus son accesibles desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -22,19 +22,11 @@ Esta característica es útil en escenarios en los que Azure Service Bus debe se
 Las reglas de firewall de IP se aplican en el nivel de espacio de nombres de Service Bus. Por lo tanto, las reglas se aplican a todas las conexiones de clientes que usan cualquier protocolo admitido. Cualquier intento de conexión desde una dirección IP que no coincida con una regla IP admitida en el espacio de nombres de Service Bus se rechaza como no autorizado. La respuesta no menciona la regla IP. Las reglas de filtro IP se aplican en orden y la primera regla que coincida con la dirección IP determina la acción de aceptar o rechazar.
 
 >[!WARNING]
-> La implementación de reglas de firewall puede evitar que otros servicios de Azure interactúen con Service Bus.
->
-> Los servicios de confianza de Microsoft no se admiten cuando se implementa el filtro de IP (reglas de firewall), pero estarán disponibles muy pronto.
->
-> Estos son los escenarios comunes de Azure que no funcionan con el filtro de IP (tenga en cuenta que la lista **NO** está completa).
-> - Integración con Azure Event Grid
-> - Enrutamientos de Azure IoT Hub
-> - Azure IoT Device Explorer
+> La implementación de reglas de firewall puede evitar que otros servicios de Azure interactúen con Service Bus. Como excepción, puede permitir el acceso a recursos de Service Bus desde determinados servicios de confianza, aunque esté habilitado el filtrado de IP. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services). 
 >
 > Los siguientes servicios de Microsoft deben estar en una red virtual
 > - Azure App Service
 > - Azure Functions
-> - Azure Monitor (configuración de diagnósticos)
 
 ## <a name="use-azure-portal"></a>Usar Azure Portal
 En esta sección se muestra cómo usar Azure Portal para crear reglas de firewall de IP para un espacio de nombres de Service Bus. 
@@ -66,6 +58,8 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
     > [!NOTE]
     > Para restringir el acceso a redes virtuales específicas, consulte [Permitir el acceso desde redes específicas](service-bus-service-endpoints.md).
 
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+
 ## <a name="use-resource-manager-template"></a>Uso de plantillas de Resource Manager
 En esta sección se incluye una plantilla de ejemplo de Azure Resource Manager que crea una red virtual y una regla de firewall.
 
@@ -78,7 +72,7 @@ Parámetros de plantilla:
 
 > [!NOTE]
 > Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"** , que no restringe las conexiones.
-> Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor ***"defaultAction"***
+> Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor **_"defaultAction"_**
 > 
 > desde
 > ```json

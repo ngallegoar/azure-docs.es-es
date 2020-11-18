@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785619"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628924"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migración a recursos compartidos de archivos de Azure
 
@@ -35,7 +35,7 @@ La clave de cualquier migración es capturar toda la fidelidad aplicable de los 
 Los dos componentes básicos de un archivo son los siguientes:
 
 - **Flujo de datos** El flujo de datos de un archivo almacena el contenido del archivo.
-- **Metadatos del archivo** : Los metadatos del archivo tienen estos subcomponentes:
+- **Metadatos del archivo**: Los metadatos del archivo tienen estos subcomponentes:
    * Atributos de archivo, como solo lectura
    * Permisos del archivo, que se conocen como *permisos NTFS* o *ACL de archivos y carpetas*
    * Marcas de tiempo; en particular, las marcas de tiempo de creación y última modificación
@@ -111,7 +111,7 @@ Existen varias herramientas de copia de archivos disponibles de Microsoft y otra
 
     La primera vez que se ejecuta la herramienta, copia la mayor parte de los datos. Puede que esta primera ejecución tarde un rato. A menudo tarda más tiempo del que le gustaría para dejar sin conexión el origen de datos de sus procesos empresariales.
 
-    Si crea un reflejo de un origen en un destino (por ejemplo, con **robocopy /MIR** ), puede volver a ejecutar la herramienta en ese mismo origen y destino. La ejecución es mucho más rápida porque solo necesita transportar los cambios del origen que se producen después de la ejecución anterior. Volver a ejecutar una herramienta de copia de esta manera puede reducir significativamente el tiempo de inactividad.
+    Si crea un reflejo de un origen en un destino (por ejemplo, con **robocopy /MIR**), puede volver a ejecutar la herramienta en ese mismo origen y destino. La ejecución es mucho más rápida porque solo necesita transportar los cambios del origen que se producen después de la ejecución anterior. Volver a ejecutar una herramienta de copia de esta manera puede reducir significativamente el tiempo de inactividad.
 
 En la tabla siguiente se clasifican las herramientas de Microsoft y su idoneidad actual para los recursos compartidos de archivos de Azure:
 
@@ -134,7 +134,7 @@ En esta sección se describen las herramientas que le ayudan a planear y ejecuta
 
 #### <a name="robocopy-from-microsoft-corporation"></a>RoboCopy de Microsoft Corporation
 
-RoboCopy es una de las herramientas más aplicables a las migraciones de archivos. Se incluye como parte de Windows. La [documentación principal de RoboCopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) es un recurso útil para las numerosas opciones de esta herramienta.
+RoboCopy es una de las herramientas más aplicables a las migraciones de archivos. Se incluye como parte de Windows. La [documentación principal de RoboCopy](/windows-server/administration/windows-commands/robocopy) es un recurso útil para las numerosas opciones de esta herramienta.
 
 #### <a name="treesize-from-jam-software-gmbh"></a>TreeSize de JAM Software GmbH
 

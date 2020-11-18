@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637350"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427809"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -22,7 +22,7 @@ Una vez configurada la exportación de datos del área de trabajo de Log Analyti
 
 ![Información general sobre la exportación de datos](media/logs-data-export/data-export-overview.png)
 
-Todos los datos de las tablas incluidas se exportan sin ningún filtro. Por ejemplo, al configurar una regla de exportación de datos para la tabla *SecurityEvent* , todos los datos enviados a la tabla *SecurityEvent* se exportan a partir de la hora de configuración.
+Todos los datos de las tablas incluidas se exportan sin ningún filtro. Por ejemplo, al configurar una regla de exportación de datos para la tabla *SecurityEvent*, todos los datos enviados a la tabla *SecurityEvent* se exportan a partir de la hora de configuración.
 
 
 ## <a name="other-export-options"></a>Otras opciones de exportación
@@ -77,8 +77,9 @@ La exportación de datos de Log Analytics puede escribir blobs en anexos en cuen
 ### <a name="event-hub"></a>Centro de eventos
 Los datos se envían al centro de eventos prácticamente en tiempo real a medida que llegan a Azure Monitor. Se crea un centro de eventos para cada tipo de datos que se exporta con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un centro de eventos denominado *am-SecurityEvent*. Si quiere que los datos exportados lleguen a un centro de eventos específico, o si tiene una tabla con un nombre que supere el límite de 47 caracteres, puede proporcionar el nombre de su propio centro de eventos y exportar todos los datos para las tablas definidas en él.
 
-El volumen de los datos exportados suele aumentar con el tiempo, y es necesario aumentar la escala del centro de eventos para administrar velocidades de transferencia mayores, así como para evitar escenarios de limitación y latencia de datos. Debe usar la característica de inflado automático de Event Hubs para escalar verticalmente y aumentar el número de unidades de procesamiento de forma automática y, de este modo, satisfacer las necesidades de uso. Consulte [Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) para obtener más información.
-
+Consideraciones:
+1. La SKU del centro de eventos 'básico' admite un [límite](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) de tamaño de evento inferior y algunos registros del área de trabajo pueden superarlo y quitarse. Recomendamos que se use el centro de eventos 'estándar' o 'dedicado' como destino de exportación.
+2. El volumen de los datos exportados suele aumentar con el tiempo, y es necesario aumentar la escala del centro de eventos para administrar velocidades de transferencia mayores, así como para evitar escenarios de limitación y latencia de datos. Debe usar la característica de inflado automático de Event Hubs para escalar verticalmente y aumentar el número de unidades de procesamiento de forma automática y, de este modo, satisfacer las necesidades de uso. Consulte [Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) para obtener más información.
 
 ## <a name="prerequisites"></a>Requisitos previos
 A continuación se indican los requisitos previos que hay que cumplir para poder configurar la exportación de datos de Log Analytics.
@@ -99,7 +100,7 @@ El siguiente proveedor de recursos de Azure debe registrarse en su suscripción 
 
 - Microsoft.Insights
 
-Probablemente, este proveedor de recursos ya esté registrado para la mayoría de los usuarios Azure Monitor. Para comprobarlo, vaya a **Suscripciones** en Azure Portal. Seleccione su suscripción y, luego, haga clic en **Proveedores de recursos** , en la sección **Configuración** del menú. Busque **Microsoft.Insights**. Si su estado es **Registrado** , entonces ya está registrado. Si no es así, haga clic en **Registrar** para registrarlo.
+Probablemente, este proveedor de recursos ya esté registrado para la mayoría de los usuarios Azure Monitor. Para comprobarlo, vaya a **Suscripciones** en Azure Portal. Seleccione su suscripción y, luego, haga clic en **Proveedores de recursos**, en la sección **Configuración** del menú. Busque **Microsoft.Insights**. Si su estado es **Registrado**, entonces ya está registrado. Si no es así, haga clic en **Registrar** para registrarlo.
 
 También puede usar cualquiera de los métodos disponibles para registrar un proveedor de recursos, tal y como se describe en [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/management/resource-providers-and-types.md). El siguiente es un comando de ejemplo con PowerShell:
 
@@ -189,6 +190,7 @@ El siguiente es un cuerpo de ejemplo para la solicitud REST para un centro de ev
         ],
         "enable": true
     }
+  }
 }
 ```
 
@@ -270,7 +272,7 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 
 
 | Tabla | Limitaciones |
-|:---|:---|:---|
+|:---|:---|
 | AADDomainServicesAccountLogon | |
 | AADDomainServicesAccountManagement | |
 | AADDomainServicesDirectoryServiceAccess | |
@@ -324,7 +326,6 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | ContainerImageInventory | |
 | ContainerInventory | |
 | ContainerLog | |
-| ContainerLog | |
 | ContainerNodeInventory | |
 | ContainerServiceLog | |
 | CoreAzureBackup | |
@@ -342,7 +343,6 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | DnsInventory | |
 | Dynamics365Activity | |
 | Evento | La compatibilidad es parcial. Algunos de los datos de esta tabla se ingieren por medio de la cuenta de almacenamiento. Estos datos no se exportan actualmente. |
-| ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |
@@ -436,7 +436,6 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | WindowsEvent | |
 | WindowsFirewall | |
 | WireData | La compatibilidad es parcial. Algunos de los datos se ingieren por medio de servicios internos que no se admiten para la exportación. Estos datos no se exportan actualmente. |
-| WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
 | WVDAgentHealthStatus | |
 | WVDCheckpoints | |

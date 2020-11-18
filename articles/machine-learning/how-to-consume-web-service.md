@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 03b077c7cadbfd101705c040e485c5766909c2de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318165"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441994"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 
@@ -85,7 +85,7 @@ az ml service show -n <service-name>
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-En Estudio de Azure Machine Learning, seleccione __Puntos de conexión__ , __Puntos de conexión en tiempo real__ y, a continuación, el nombre del punto de conexión. En los detalles del punto de conexión, el campo __Punto de conexión de REST__ contiene el URI de puntuación. El __URI de Swagger__ contiene el URI de Swagger.
+En Estudio de Azure Machine Learning, seleccione __Puntos de conexión__, __Puntos de conexión en tiempo real__ y, a continuación, el nombre del punto de conexión. En los detalles del punto de conexión, el campo __Punto de conexión de REST__ contiene el URI de puntuación. El __URI de Swagger__ contiene el URI de Swagger.
 
 ---
 
@@ -119,7 +119,7 @@ Azure Machine Learning proporciona dos formas de controlar el acceso a los servi
 
 Al enviar una solicitud a un servicio protegido con una clave o un token, use el encabezado __Autorización__ para pasar la clave o el token. La clave o el token deben tener el formato `Bearer <key-or-token>`, donde `<key-or-token>` es el valor de la clave o del token.
 
-La principal diferencia entre las claves y los tokens es que las **claves son estáticas y se pueden volver a generar manualmente** y los **tokens deben actualizarse tras la expiración**. La autenticación basada en claves es compatible con la instancia de Azure Container Instance y los servicios web implementados por el servicio Kubernetes de Azure, y la autenticación basada en token está **solo** disponible para las implementaciones del servicio Kubernetes de Azure. Consulte el [procedimiento](how-to-setup-authentication.md#web-service-authentication) en la autenticación para más información y ejemplos de código específicos.
+La principal diferencia entre las claves y los tokens es que las **claves son estáticas y se pueden volver a generar manualmente** y los **tokens deben actualizarse tras la expiración**. La autenticación basada en claves es compatible con la instancia de Azure Container Instance y los servicios web implementados por el servicio Kubernetes de Azure, y la autenticación basada en token está **solo** disponible para las implementaciones del servicio Kubernetes de Azure. Para obtener más información sobre cómo configurar la autenticación, consulte [Configuración de la autenticación para modelos implementados como servicios web](how-to-authenticate-web-service.md).
 
 
 #### <a name="authentication-with-keys"></a>Autenticación con claves

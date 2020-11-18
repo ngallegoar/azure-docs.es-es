@@ -3,12 +3,12 @@ title: Trabajo con Reliable Collections
 description: Conozca los procedimientos recomendados para trabajar con Reliable Collections dentro de una aplicación de Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d027dc432d1a0a20888bfca4f59bc41866e358d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86255802"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651913"
 ---
 # <a name="working-with-reliable-collections"></a>Trabajo con Reliable Collections
 Service Fabric ofrece un modelo de programación con estado a los desarrolladores de .NET a través de Reliable Collections. En concreto, Service Fabric proporciona un diccionario confiable y clases de cola confiables. Al utilizar estas clases, se crean particiones en el estado (para escalabilidad) y este se replica (para disponibilidad) y se tramita dentro de una partición (para semántica ACID). Veamos un uso típico de un objeto de diccionario de confianza y verá lo que está haciendo realmente.
@@ -35,6 +35,7 @@ catch (TimeoutException)
 {
    // choose how to handle the situation where you couldn't get a lock on the file because it was 
    // already in use. You might delay and retry the operation
+   await Task.Delay(100);
 }
 ```
 

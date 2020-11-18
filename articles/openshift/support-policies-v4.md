@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: f496d0f38452fa7cf64bc9eef370bd0b2116cfa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe703b9589dcd49298ac45d5a14032ca7e556bfd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049968"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408420"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Directiva de soporte técnico de Red Hat OpenShift en Azure
 
@@ -30,6 +30,7 @@ Ciertas configuraciones de los clústeres de la versión 4 de Red Hat OpenShift
 * Todas las máquinas virtuales del clúster deben tener acceso directo de salida a Internet, al menos a los puntos de conexión de Azure Resource Manager (ARM) y del registro de servicios (Geneva).  No se admite ningún tipo de proxy HTTPS.
 * No modifique la configuración de DNS de la red virtual del clúster. Se debe usar la resolución de Azure DNS predeterminada.
 * No invalide ninguno de los objetos MachineConfig del clúster (por ejemplo, la configuración de kubelet) de ningún modo.
+* No establezca ninguna opción unsupportedConfigOverrides. Establecer estas opciones impide que la versión secundaria se actualice.
 * El servicio Red Hat OpenShift en Azure accede al clúster a través del servicio Private Link.  No quite ni modifique el acceso al servicio.
 * No se admiten nodos de ejecución que no sean de Red Hat Enterprise Linux CoreOS. Por ejemplo, no puede usar un nodo de proceso de Red Hat Enterprise Linux.
 

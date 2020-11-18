@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: cbbd4960a498516182323748e6609b834b1d4884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fe6befbfc3c6f12cf804841052795647cd1f76a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014691"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629842"
 ---
 # <a name="azure-files-reference"></a>Referencia de Azure Files
 
@@ -25,7 +25,7 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Biblioteca cliente de Azure Files v12 para .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
-| 11.x | [Espacio de nombres Microsoft.Azure.Storage.File](/dotnet/api/microsoft.azure.storage.file) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Desarrollo para Azure Files con .NET](/azure/storage/files/storage-dotnet-how-to-use-files) |
+| 11.x | [Espacio de nombres Microsoft.Azure.Storage.File](/dotnet/api/microsoft.azure.storage.file) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Desarrollo para Azure Files con .NET](./storage-dotnet-how-to-use-files.md) |
 
 ### <a name="storage-management"></a>Administración del almacenamiento
 
@@ -50,7 +50,7 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Biblioteca cliente de Azure Files para Java](/java/api/overview/azure/storage-file-share-readme) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-file-share) | &nbsp; |
-| 8.x | [com.microsoft.azure.storage.file](/java/api/com.microsoft.azure.storage.file) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Desarrollo con Java para Azure Files](/azure/storage/files/storage-java-how-to-use-file-storage) |
+| 8.x | [com.microsoft.azure.storage.file](/java/api/com.microsoft.azure.storage.file) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Desarrollo con Java para Azure Files](./storage-java-how-to-use-file-storage.md) |
 
 ### <a name="storage-management"></a>Administración del almacenamiento
 
@@ -67,7 +67,7 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Bibliotecas cliente de Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Ejemplos](/python/api/overview/azure/storage-file-share-readme#examples) |
-| 2.x | [Bibliotecas cliente de Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Desarrollo para Azure Files con Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
+| 2.x | [Bibliotecas cliente de Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Desarrollo para Azure Files con Python](./storage-python-how-to-use-file-storage.md) |
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas cliente de JavaScript
 

@@ -10,18 +10,18 @@ editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 179ad1e552899f8fa92b8191fe78223458f87104
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f202bebd2c9ab6147d8a37fc6109b915065068aa
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373544"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650349"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Migración de usuarios con licencias individuales a grupos de licencias
 
@@ -57,7 +57,7 @@ El proceso de migración podría ser similar al siguiente:
 
 1. En Azure Portal, asigne la licencia de Office 365 E3 al grupo **Todos los usuarios** de Azure AD.
 
-1. Confirme que se ha completado la asignación de licencia para todos los usuarios. Vaya a la página de información general del grupo, seleccione **Licencias** y compruebe el estado de procesamiento en la parte superior de la hoja **Licencias** .
+1. Confirme que se ha completado la asignación de licencia para todos los usuarios. Vaya a la página de información general del grupo, seleccione **Licencias** y compruebe el estado de procesamiento en la parte superior de la hoja **Licencias**.
 
    - Busque "Latest license changes have been applied to all users" (Los últimos cambios de licencia se han aplicado a todos los usuarios) para confirmar que el procesamiento se ha completado.
 
@@ -71,7 +71,7 @@ El proceso de migración podría ser similar al siguiente:
 
      Esto confirma que el usuario tiene licencias directas y heredadas. Vemos que se ha asignado Office 365 E3.
 
-   - Seleccione cada licencia para ver qué servicios están habilitados. Para comprobar que las licencias directas y de grupo habilitan exactamente los mismos servicios para el usuario, seleccione **Asignaciones** .
+   - Seleccione cada licencia para ver qué servicios están habilitados. Para comprobar que las licencias directas y de grupo habilitan exactamente los mismos servicios para el usuario, seleccione **Asignaciones**.
 
 1. Después de confirmar que las licencias directas y de grupo son equivalentes, puede empezar a quitar a los usuarios las licencias directas. Para probarlo, quítelos para usuarios individuales en el portal y luego ejecute los scripts de automatización para quitarlos en masa. Este es un ejemplo del mismo usuario con las licencias directas quitadas a través del portal. Tenga en cuenta que el estado de licencia no varía, pero aún no se ven las asignaciones directas.
 

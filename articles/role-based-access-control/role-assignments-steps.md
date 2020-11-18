@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: badf10da8af0ed3829deb2498b51b5d5c8ce6a93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56b6638462acaf43b6353787495e5b7993acb413
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604131"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648283"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Pasos para agregar una asignación de roles
 
@@ -26,7 +26,7 @@ En primer lugar, debe determinar quién necesita acceso. Puede asignar un rol a 
 
 ![Entidad de seguridad para una asignación de roles](./media/shared/rbac-security-principal.png)
 
-- Usuario: individuo que tiene un perfil en Azure Active Directory. También puede asignar roles a usuarios de otros inquilinos. Para información sobre los usuarios de otras organizaciones, consulte el artículo sobre la [colaboración B2B de Azure Active Directory](../active-directory/b2b/what-is-b2b.md).
+- Usuario: individuo que tiene un perfil en Azure Active Directory. También puede asignar roles a usuarios de otros inquilinos. Para información sobre los usuarios de otras organizaciones, consulte el artículo sobre la [colaboración B2B de Azure Active Directory](../active-directory/external-identities/what-is-b2b.md).
 - Grupo: conjunto de usuarios creado en Azure Active Directory. Cuando se asigna un rol a un grupo, todos los usuarios dentro de ese grupo tienen ese rol. 
 - Entidad de servicio: identidad de seguridad que las aplicaciones o los servicios usan para acceder a recursos específicos de Azure. Puede considerarla como una *identidad de usuario* (nombre de usuario y contraseña o certificado) de una aplicación.
 - Identidad administrada: una identidad de Azure Active Directory que Azure administra de forma automática. Normalmente, se usan [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) cuando se desarrollan aplicaciones en la nube para administrar las credenciales para la autenticación en los servicios de Azure.

@@ -3,19 +3,19 @@ title: Guía para controlar el comportamiento de apagado de Windows en Azure Lab
 description: Pasos para apagar automáticamente una máquina virtual con Windows inactiva y quitar el comando de apagado de Windows.
 ms.topic: article
 ms.date: 09/29/2020
-ms.openlocfilehash: c6021131787dde4fe23ec4caad107bda2e20158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248bbeabaf704ba636e2f82c7a93d0ee90a09f22
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541567"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647705"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guía para controlar el comportamiento de apagado de Windows
 
 Azure Lab Services proporciona varios controles de costos para garantizar que las máquinas virtuales con Windows (VM) no se ejecutan de forma inesperada:
- - [Establecimiento de la programación](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
- - [Establecimiento de cuotas para los usuarios](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users)
- - [Habilitación del apagado automático al desconectar](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
+ - [Establecimiento de la programación](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+ - [Establecimiento de cuotas para los usuarios](./how-to-configure-student-usage.md#set-quotas-for-users)
+ - [Habilitación del apagado automático al desconectar](./how-to-enable-shutdown-disconnect.md)
 
 Incluso con estos controles de costos, hay situaciones en las que una máquina virtual con Windows puede seguir ejecutándose inesperadamente. Como resultado, puede deducir lo siguiente de la cuota del alumno:
 
@@ -25,7 +25,7 @@ Incluso con estos controles de costos, hay situaciones en las que una máquina v
 
 - **El comando de apagado de Windows se usa para apagar la máquina virtual**
   
-    Un alumno puede usar el comando de apagado de Windows u otros mecanismos de apagados incluidos en Windows para apagar la máquina virtual en lugar de usar el [botón de detención de Azure Lab Services](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm).  Cuando esto sucede, desde el punto de vista de Azure Lab Services, la máquina virtual sigue en uso.
+    Un alumno puede usar el comando de apagado de Windows u otros mecanismos de apagados incluidos en Windows para apagar la máquina virtual en lugar de usar el [botón de detención de Azure Lab Services](./how-to-use-classroom-lab.md#start-or-stop-the-vm).  Cuando esto sucede, desde el punto de vista de Azure Lab Services, la máquina virtual sigue en uso.
     
 Para evitar que se produzcan estas situaciones, en esta guía se explican los pasos para apagar automáticamente una máquina virtual de Windows inactiva y para quitar el comando de apagado de Windows del menú **Inicio**.  
 

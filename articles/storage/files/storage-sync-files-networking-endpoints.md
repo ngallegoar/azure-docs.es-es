@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 747d03b228d41066cfc834b4a9c044b16c767622
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 026f4f36986fa5fcfad4dac5186e9dc0b0997d72
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329370"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629417"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configuración de puntos de conexión de red de Azure File Sync
 Azure Files y Azure File Sync proporcionan dos tipos principales de puntos de conexión para el acceso a los recursos compartidos de archivos de Azure: 
@@ -33,8 +33,8 @@ En este artículo se da por hecho que:
 - Ya ha creado un servicio de sincronización de almacenamiento con el que ha registrado el servidor de archivos de Windows. Para obtener información sobre cómo implementar Azure File Sync, consulte [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md).
 
 Además:
-- Si planea usar Azure PowerShell, [instale la versión más reciente](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Si planea usar la CLI de Azure, [instale la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Si planea usar Azure PowerShell, [instale la versión más reciente](/powershell/azure/install-az-ps).
+- Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-the-private-endpoints"></a>Creación de los puntos de conexión privados
 Al crear un punto de conexión privado para un recurso de Azure, se implementan los recursos siguientes:

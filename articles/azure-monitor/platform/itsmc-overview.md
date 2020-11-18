@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: ecafc0c81a6614a914d8cad3d2c35fd04544b8f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102027"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94428047"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conexión de Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 
@@ -28,6 +28,9 @@ ITSMC admite conexiones con las siguientes herramientas ITSM:
 -   System Center Service Manager
 -   Provance
 -   Cherwell
+
+   >[!NOTE]
+> A partir del 1 de octubre de 2020, las integraciones de ITSM de Cherwell y Provance con alertas de Azure ya no se habilitarán para los clientes nuevos. No se admitirán las nuevas conexiones de ITSM. Se admitirán las conexiones de ITSM existentes.
 
 Con ITSMC, puede:
 
@@ -47,21 +50,21 @@ Para empezar a usar ITSMC, siga estos pasos:
 
 Para poder crear una conexión, debe agregar ITSMC.
 
-1. En Azure Portal, seleccione **Crear un recurso** :
+1. En Azure Portal, seleccione **Crear un recurso**:
 
    ![Captura de pantalla en la que se muestra el elemento de menú Crear un recurso.](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Busque el **Conector de Administración de servicios de TI** en Azure Marketplace. Seleccione **Crear** :
+2. Busque el **Conector de Administración de servicios de TI** en Azure Marketplace. Seleccione **Crear**:
 
    ![Captura de pantalla en la que muestra el botón Crear en Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
-3. En la sección **Área de trabajo de OMS** , seleccione el área de trabajo de Azure Log Analytics donde quiera instalar ITSMC.
+3. En la sección **Área de trabajo de OMS**, seleccione el área de trabajo de Azure Log Analytics donde quiera instalar ITSMC.
    >[!NOTE]
    > * Como parte de la transición continuada de Microsoft Operations Management Suite (OMS) a Azure Monitor, las áreas de trabajo de OMS ahora se conocen como *áreas de trabajo de Log Analytics*.
    > * ITSMC solo se puede instalar en áreas de trabajo de Log Analytics en las siguientes regiones: Este de EE. UU., Oeste de EE. UU. 2, Centro-sur de EE. UU., Centro-oeste de EE. UU., US Gov Arizona, US Gov Virginia, Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Sudeste Asiático, Este de Japón, Centro de la India y Sudeste de Australia.
 
 
-4. En la sección **Área de trabajo de Log Analytics** , seleccione el grupo de recursos donde quiera crear el recurso de ITSMC:
+4. En la sección **Área de trabajo de Log Analytics**, seleccione el grupo de recursos donde quiera crear el recurso de ITSMC:
 
    ![Captura de pantalla en la que se muestra la sección Área de trabajo de Log Analytics.](media/itsmc-overview/itsmc-solution-workspace.png)
    >[!NOTE]
@@ -87,11 +90,11 @@ En función del producto de ITSM al que se va a conectar, seleccione alguno de l
 
 Una vez que haya preparado las herramientas de ITSM, siga estos pasos para crear una conexión:
 
-1. En **Todos los recursos** , busque **ServiceDesk( *nombre de su área de trabajo* )** :
+1. En **Todos los recursos**, busque **ServiceDesk(*nombre de su área de trabajo*)** :
 
    ![Captura de pantalla en la que se muestran los recursos recientes en Azure Portal.](media/itsmc-overview/itsm-connections.png)
 
-1. En **Orígenes de datos del área de trabajo** en el panel de la izquierda, seleccione **Conexiones de ITSM** :
+1. En **Orígenes de datos del área de trabajo** en el panel de la izquierda, seleccione **Conexiones de ITSM**:
 
    ![Captura de pantalla en la que se muestra el elemento de menú Conexiones de ITSM](media/itsmc-overview/add-new-itsm-connection.png).
    En esta página se muestra la lista de conexiones.
@@ -111,7 +114,7 @@ Una vez que haya preparado las herramientas de ITSM, siga estos pasos para crear
 
 ## <a name="template-definitions"></a>Definiciones de plantillas
    Existen tipos de elementos de trabajo que pueden utilizar las plantillas que haya definido la herramienta ITSM.
-Con el uso de plantillas, puede definir los campos que se rellenarán automáticamente en función de los valores fijos que se definen como parte del grupo de acciones. Las plantillas se definen en la herramienta ITSM.
+Con el uso de plantillas, puede definir los campos que se rellenarán automáticamente en función de los valores fijos que se definen como parte del grupo de acciones. Las plantillas se definen en la herramienta ITSM. Puede definir qué plantilla le gustaría usar como parte de la definición del grupo de acciones.
       
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Creación de elementos de trabajo de ITSM a partir de alertas de Azure
 
@@ -126,7 +129,7 @@ Los grupos de acciones proporcionan una manera modular y reutilizable de desenca
 Utilice el procedimiento siguiente para crear elementos de trabajo:
 
 1. En Azure Portal, seleccione **Alertas**.
-2. En el menú de la parte superior de la pantalla, seleccione **Administrar acciones** :
+2. En el menú de la parte superior de la pantalla, seleccione **Administrar acciones**:
 
     ![Captura de pantalla en la que se muestra el elemento de menú Administrar acciones.](media/itsmc-overview/action-groups-selection-big.png)
 
@@ -138,17 +141,20 @@ Utilice el procedimiento siguiente para crear elementos de trabajo:
 
 4. En la lista de notificaciones, seleccione **Siguiente: acciones**.
 5. En la lista de acciones, seleccione **ITSM** en la lista **Tipo de acción**. Proporcione un **Nombre** para la acción. Seleccione el botón del lápiz que representa **Editar detalles**.
-6. En la lista **Suscripción** , seleccione la suscripción en la que se encuentra el área de trabajo de Log Analytics. En la lista **Conexión** , seleccione el nombre del conector de ITSM. Irá seguido del nombre del área de trabajo. Por ejemplo, MiConectorITSM(MiÁreaDeTrabajo).
+6. En la lista **Suscripción**, seleccione la suscripción en la que se encuentra el área de trabajo de Log Analytics. En la lista **Conexión**, seleccione el nombre del conector de ITSM. Irá seguido del nombre del área de trabajo. Por ejemplo, MiConectorITSM(MiÁreaDeTrabajo).
 
 7. Seleccione un tipo de **Elemento de trabajo**.
 
 8. Si desea rellenar los campos predeterminados con valores fijos, seleccione **Usar la plantilla personalizada**. De lo contrario, elija una [plantilla](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente en la lista **Plantilla** y escriba los valores fijos en los campos de la plantilla.
 
-9. Al seleccionar **Crear elementos de trabajo individuales para cada elemento de configuración** , cada elemento de configuración tendrá su propio elemento de trabajo. Habrá un elemento de trabajo por cada elemento de configuración. Se actualizará según las alertas que se crearán.
+9. Al seleccionar **Crear elementos de trabajo individuales para cada elemento de configuración**, cada elemento de configuración tendrá su propio elemento de trabajo. Habrá un elemento de trabajo por cada elemento de configuración. Se actualizará según las alertas que se crearán.
 
-   Si desactiva la casilla **Crear elementos de trabajo individuales para cada elemento de configuración** , cada alerta creará un elemento de trabajo. Puede haber más de una alerta por elemento de configuración.
+   * En caso de que seleccione en la lista desplegable de elemento de trabajo "Incidente" o "Alerta": Si desactiva la casilla **Crear elementos de trabajo individuales para cada elemento de configuración**, cada alerta creará un elemento de trabajo. Puede haber más de una alerta por elemento de configuración.
 
    ![Captura de pantalla en la que se muestra la ventana Vale de ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+   
+   * En caso de que seleccione en la lista desplegable de elemento de trabajo "Evento": Al seleccionar **Crear elementos de trabajo individuales para cada entrada de registro** en la selección de botones de radio, cada alerta creará un nuevo elemento de trabajo. Al seleccionar **Crear elementos de trabajo individuales para cada elemento de configuración** en la selección de botones de radio, cada elemento de configuración tendrá su propio elemento de trabajo.
+   ![Captura de pantalla en la que se muestra la ventana Vale de ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Seleccione **Aceptar**.
 
@@ -299,7 +305,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Solución de problemas de conexión de ITSM
-- Si se produce un error en la conexión de la UI del origen conectado y recibe un mensaje **Error al guardar la conexión** , siga estos pasos:
+- Si se produce un error en la conexión de la UI del origen conectado y recibe un mensaje **Error al guardar la conexión**, siga estos pasos:
    - En el caso de conexiones de ServiceNow, Cherwell y Provance:  
      - Asegúrese de que ha introducido correctamente el nombre de usuario, la contraseña, el identificador de cliente y el secreto de cliente de cada una de las conexiones.  
      - Asegúrese de disponer de privilegios suficientes en el producto de ITSM correspondiente para realizar la conexión.  
@@ -309,7 +315,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Si los datos de ServiceNow no se sincronizan con Log Analytics, asegúrese de que la instancia de ServiceNow no esté suspendida. En algunas ocasiones, las instancias de desarrollo de ServiceNow se suspenden si están inactivas durante mucho tiempo. Si no sucede eso, informe del problema.
 - Si se generan alertas de Log Analytics, pero no se crean elementos de trabajo en el producto de ITSM, si no se crean elementos de configuración o no se vinculan a elementos de trabajo, o si necesita información adicional, vea estos recursos:
    -  ITSMC: La solución muestra un resumen de conexiones, elementos de trabajo, equipos, etc. Seleccione el icono que tiene la etiqueta **Estado del conector**. Al hacerlo, se le remitirá a **Búsqueda de registros** con la consulta pertinente. Consulte las entradas de registro con un elemento `LogType_S` de `ERROR` para obtener más información.
-   - Página de **búsqueda de registros** : vea los errores y la información relacionada directamente mediante la consulta `*ServiceDeskLog_CL*`.
+   - Página de **búsqueda de registros**: vea los errores y la información relacionada directamente mediante la consulta `*ServiceDeskLog_CL*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solución de problemas de implementación de aplicaciones web de Service Manager
 -   Si tiene problemas con la implementación de la aplicación web, asegúrese de tener los permisos para crear o implementar recursos en la suscripción.

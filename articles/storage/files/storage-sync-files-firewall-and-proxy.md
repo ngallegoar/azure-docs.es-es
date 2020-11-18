@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 95139c862b82a85dbf7f50aef021ad71c5c8210f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675792"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629451"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
@@ -44,7 +44,7 @@ Azure File Sync funciona con cualquier medio disponible que permita conectarse c
 ## <a name="proxy"></a>Proxy
 Azure File Sync admite la configuración del proxy específico de aplicación en el nivel de máquina.
 
-De este modo, se permite la **configuración de un proxy específico de la aplicación** , específicamente para el tráfico de Azure File Sync. La configuración de un proxy específico de la aplicación es compatible con la versión 4.0.1.0 o versiones posteriores, y se puede configurar durante la instalación del agente o mediante el cmdlet Set-StorageSyncProxyConfiguration de PowerShell.
+De este modo, se permite la **configuración de un proxy específico de la aplicación**, específicamente para el tráfico de Azure File Sync. La configuración de un proxy específico de la aplicación es compatible con la versión 4.0.1.0 o versiones posteriores, y se puede configurar durante la instalación del agente o mediante el cmdlet Set-StorageSyncProxyConfiguration de PowerShell.
 
 Comandos de PowerShell para configurar el proxy específico de la aplicación:
 ```powershell
@@ -145,7 +145,7 @@ Por razones de continuidad empresarial y recuperación ante desastres (BCDR), es
 
 - Si usa cuentas de almacenamiento con redundancia geográfica (GRS), habilite tres direcciones URL.
 
-**Ejemplo** : Implemente un servicio de sincronización de almacenamiento en `"West US"` y registre el servidor allí. Las direcciones URL que permiten que el servidor se comunique en este caso son:
+**Ejemplo**: Implemente un servicio de sincronización de almacenamiento en `"West US"` y registre el servidor allí. Las direcciones URL que permiten que el servidor se comunique en este caso son:
 
 > - https:\//westus01.afs.azure.net (punto de conexión principal: Oeste de EE. UU.)
 > - https:\//eastus01.afs.azure.net (región de conmutación por error emparejada: Este de EE. UU.)
@@ -154,7 +154,7 @@ Por razones de continuidad empresarial y recuperación ante desastres (BCDR), es
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Lista de direcciones IP de Azure File Sync permitidas
 Azure File Sync permite usar [etiquetas de servicio](../../virtual-network/service-tags-overview.md), que representan un grupo de prefijos de direcciones IP relativos a un servicio de Azure determinado. Se pueden usar etiquetas de servicio para crear reglas de firewall que permitan la comunicación con el servicio Azure File Sync. La etiqueta de servicio de Azure File Sync es `StorageSyncService`.
 
-Si usa Azure File Sync en Azure, puede usar el nombre de la etiqueta de servicio directamente en el grupo de seguridad de red para permitir el tráfico. Para saber cómo, vea [Grupos de seguridad de red](../../virtual-network/security-overview.md).
+Si usa Azure File Sync en Azure, puede usar el nombre de la etiqueta de servicio directamente en el grupo de seguridad de red para permitir el tráfico. Para saber cómo, vea [Grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md).
 
 Si usa Azure File Sync de forma local, puede usar la API de etiquetas de servicio para obtener intervalos de direcciones IP específicos para la lista de elementos permitidos del firewall. Existen dos formas de obtener esta información:
 
@@ -164,9 +164,9 @@ Si usa Azure File Sync de forma local, puede usar la API de etiquetas de servici
     - [Azure en China](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Alemania](https://www.microsoft.com/download/details.aspx?id=57064)
 - La API de detección de etiquetas de servicio (versión preliminar) permite recuperar mediante programación la lista actual de etiquetas de servicio. En la versión preliminar, es posible que la API de detección de etiquetas de servicio devuelva información menos actual que la información incluida en los documentos JSON publicados en el Centro de descarga de Microsoft. Puede usar la superficie de API en función de su preferencia de automatización:
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [CLI de Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [CLI de Azure](/cli/azure/network#az-network-list-service-tags)
 
 Dado que la API de detección de etiquetas de servicio no se actualiza con tanta frecuencia como los documentos JSON publicados en el Centro de descarga de Microsoft, se recomienda usar este último para actualizar la lista de elementos permitidos del firewall local. Se puede hacer de la forma siguiente:
 

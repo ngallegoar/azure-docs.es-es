@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11708aeb434f3b258377c02f15214f1ac9ae4295
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d0472b2adb3213338b9fbc4e3a17a2c3444eb113
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393632"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647586"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Adquisición de un directorio no administrado como administrador en Azure Active Directory
 
@@ -72,7 +72,7 @@ Después de completar los pasos anteriores, ya es el administrador de empresa de
    ![comprobación del dominio como agregado a Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Cualquier usuario de Power BI o del servicio Azure Rights Management que tenga licencias asignadas en la organización de Microsoft 365 debe guardar los paneles si se quita el nombre de dominio. Debe iniciar sesión con un nombre de usuario como *user\@fourthcoffeexyz.onmicrosoft.com* , en lugar de *user\@fourthcoffee.xyz*.
+> Cualquier usuario de Power BI o del servicio Azure Rights Management que tenga licencias asignadas en la organización de Microsoft 365 debe guardar los paneles si se quita el nombre de dominio. Debe iniciar sesión con un nombre de usuario como *user\@fourthcoffeexyz.onmicrosoft.com*, en lugar de *user\@fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Adquisición de administración externa
 

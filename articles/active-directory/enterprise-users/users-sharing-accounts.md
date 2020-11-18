@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0b1db07c40a38eec24ab88bb451dbfb46c5edac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f20a9569121903fd63b919cde223392377872c35
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374006"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649660"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Uso compartido de cuentas con Azure AD
 
@@ -45,7 +45,7 @@ El modelo tradicional de uso compartido tiene varias desventajas:
 
 Azure AD proporciona un enfoque nuevo para el uso de cuentas compartidas que elimina estos inconvenientes.
 
-El administrador de Azure AD configura las aplicaciones a las que un usuario puede tener acceso mediante el panel de acceso y la selección del tipo de inicio de sesión único que mejor se adapta a esa aplicación. Uno de estos tipos, el *inicio de sesión único con contraseña* , permite a Azure AD actuar como una especie de "intermediario" durante el proceso de inicio de sesión de esa aplicación.
+El administrador de Azure AD configura las aplicaciones a las que un usuario puede tener acceso mediante el panel de acceso y la selección del tipo de inicio de sesión único que mejor se adapta a esa aplicación. Uno de estos tipos, el *inicio de sesión único con contraseña*, permite a Azure AD actuar como una especie de "intermediario" durante el proceso de inicio de sesión de esa aplicación.
 
 Los usuarios inician sesión una sola vez con sus cuentas profesionales. Estas cuentas suelen ser las que se usan habitualmente para obtener acceso al correo electrónico o al escritorio. Pueden detectar y acceder solo a aquellas aplicaciones que tienen asignadas. Con cuentas compartidas, esta lista de aplicaciones puede incluir cualquier número de credenciales compartidas. El usuario final no necesita recordar ni anotar las distintas cuentas que puede que use.
 

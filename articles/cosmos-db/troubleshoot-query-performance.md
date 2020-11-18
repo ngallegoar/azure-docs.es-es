@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 012e155737b9251827c668b3a9cacbbe8d59ae77
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087186"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411361"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solución de problemas de consulta al usar Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,13 +45,13 @@ Antes de leer esta guía, es útil tener en cuenta los problemas comunes del SDK
 
 ## <a name="get-query-metrics"></a>Obtención de las métricas de consulta
 
-Al optimizar una consulta en Azure Cosmos DB, el primer paso es siempre [obtener las métricas](profile-sql-api-query.md) de la consulta. Estas métricas también están disponibles en Azure Portal. Una vez que ejecute la consulta en el Explorador de datos, las métricas de consulta estarán visibles junto a la pestaña **Resultados** :
+Al optimizar una consulta en Azure Cosmos DB, el primer paso es siempre [obtener las métricas](profile-sql-api-query.md) de la consulta. Estas métricas también están disponibles en Azure Portal. Una vez que ejecute la consulta en el Explorador de datos, las métricas de consulta estarán visibles junto a la pestaña **Resultados**:
 
 :::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Obtención de las métricas de consulta" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 Después de obtener las métricas de consulta, compare el **recuento de documentos recuperados** con el de **documentos de salida** de la consulta. Use esta comparación para identificar las secciones pertinentes a las que se hará referencia en este artículo.
 
-El **recuento de documentos recuperado** es el número de documentos que el motor de consulta necesitaba cargar. El **recuento de documentos de salida** es el número de documentos necesarios para los resultados de la consulta. Si el **recuento de documentos recuperados** es significativamente mayor que el de **documentos de salida** , habrá al menos una parte de la consulta que no haya podido usar el índice y haya tenido que realizar un examen.
+El **recuento de documentos recuperado** es el número de documentos que el motor de consulta necesitaba cargar. El **recuento de documentos de salida** es el número de documentos necesarios para los resultados de la consulta. Si el **recuento de documentos recuperados** es significativamente mayor que el de **documentos de salida**, habrá al menos una parte de la consulta que no haya podido usar el índice y haya tenido que realizar un examen.
 
 Consulte las secciones siguientes para entender las optimizaciones de consulta pertinentes para su escenario.
 
@@ -93,7 +93,7 @@ Consulte las secciones siguientes para entender las optimizaciones de consulta p
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Consultas en las que el recuento de documentos recuperados supera el de documentos de salida
 
- El **recuento de documentos recuperado** es el número de documentos que el motor de consulta necesitaba cargar. El **recuento de documentos de salida** es el número de documentos que devuelve la consulta. Si el **recuento de documentos recuperados** es significativamente mayor que el de **documentos de salida** , habrá al menos una parte de la consulta que no haya podido usar el índice y haya tenido que realizar un examen.
+ El **recuento de documentos recuperado** es el número de documentos que el motor de consulta necesitaba cargar. El **recuento de documentos de salida** es el número de documentos que devuelve la consulta. Si el **recuento de documentos recuperados** es significativamente mayor que el de **documentos de salida**, habrá al menos una parte de la consulta que no haya podido usar el índice y haya tenido que realizar un examen.
 
 A continuación se muestra un ejemplo de consulta de examen que el índice no sirvió completamente:
 
@@ -385,7 +385,7 @@ Se supone que solo un elemento de la matriz tags coincide con el filtro, y hay c
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Consultas en las que el recuento de documentos recuperados es igual que el de documentos de salida
 
-Si el **recuento de los documentos recuperados** es aproximadamente igual al de los **documentos de salida** , significa que el motor de consulta no tuvo que examinar muchos documentos innecesarios. Para muchas consultas, como las que usan la palabra clave `TOP`, el **recuento de documentos recuperados** puede superar el de **documentos de salida** en una unidad. No es necesario preocuparse por ello.
+Si el **recuento de los documentos recuperados** es aproximadamente igual al de los **documentos de salida**, significa que el motor de consulta no tuvo que examinar muchos documentos innecesarios. Para muchas consultas, como las que usan la palabra clave `TOP`, el **recuento de documentos recuperados** puede superar el de **documentos de salida** en una unidad. No es necesario preocuparse por ello.
 
 ### <a name="minimize-cross-partition-queries"></a>Minimización de las consultas con particiones cruzadas
 
@@ -494,3 +494,4 @@ Consulte los artículos siguientes para obtener información sobre cómo medir l
 * [Obtención de métricas de ejecución de consultas SQL mediante el SDK de .NET](profile-sql-api-query.md)
 * [Optimización del rendimiento de consultas con Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Sugerencias de rendimiento para el SDK de .NET](performance-tips.md)
+* [Sugerencias de rendimiento para el SDK de Java v4](performance-tips-java-sdk-v4-sql.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9abe306668a4b20e42e45c498bf85b540dfaaee5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320275"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630199"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Configuración del reenvío de DNS para Azure Files
 Azure Files le permite crear puntos de conexión privados para las cuentas de almacenamiento que contienen los recursos compartidos de archivos. Aunque son útiles para muchas aplicaciones diferentes, los puntos de conexión privados lo son especialmente para conectarse a los recursos compartidos de archivos de Azure desde la red local mediante una conexión VPN o ExpressRoute con emparejamiento privado. 
@@ -43,7 +43,7 @@ Para poder configurar el reenvío de DNS a Azure Files, debe haber completado lo
 
 - Una cuenta de almacenamiento que contenga un recurso compartido de archivos de Azure que le gustaría montar. Para aprender a crear una cuenta de almacenamiento y un recurso compartido de archivos de Azure, consulte [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
 - Un punto de conexión privado para la cuenta de almacenamiento. Para información sobre cómo crear un punto de conexión privado para Azure Files, consulte [Creación de un punto de conexión privado](storage-files-networking-endpoints.md#create-a-private-endpoint).
-- La [versión más reciente](https://docs.microsoft.com/powershell/azure/install-az-ps) del módulo de Azure PowerShell.
+- La [versión más reciente](/powershell/azure/install-az-ps) del módulo de Azure PowerShell.
 
 > [!Important]  
 > En esta guía se da por supuesto que está usando el servidor DNS en Windows Server en el entorno local. Todos los pasos descritos en esta guía son posibles con cualquier servidor DNS, no solo con el de Windows.

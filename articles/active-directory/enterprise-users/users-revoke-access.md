@@ -3,22 +3,22 @@ title: Revocación del acceso de usuario en un emergencia de Azure Active Dire
 description: Revocación de todo el acceso de un usuario en Azure Active Directory
 services: active-directory
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 07/15/2020
+ms.date: 11/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16577c3509c9d3d9b02ead5e69832bacc7d083bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e12d08acdd9fc869ed766a1bbd78f35eb371cc8a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92373481"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649694"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revocación del acceso de usuario en Azure Active Directory
 
@@ -113,9 +113,9 @@ Como administrador de Azure Active Directory, abra PowerShell, ejecute ``Connect
 
 Una vez que los administradores han realizado los pasos anteriores, el usuario no puede obtener nuevos tokens para ninguna aplicación asociada a Azure Active Directory. El tiempo transcurrido entre la revocación y el momento en que el usuario pierde el acceso depende del modo en que la aplicación concede el acceso:
 
-- Para las **aplicaciones que usan tokens de acceso** , el usuario pierde el acceso cuando expira el token de acceso.
+- Para las **aplicaciones que usan tokens de acceso**, el usuario pierde el acceso cuando expira el token de acceso.
 
-- En el caso de las **aplicaciones que usan tokens de sesión** , las sesiones existentes finalizan cuando expira el token. Si el estado deshabilitado del usuario se sincroniza con la aplicación, la aplicación puede revocar automáticamente las sesiones existentes del usuario si está configurada para hacerlo.  El tiempo que se tarda depende de la frecuencia de sincronización entre la aplicación y Azure AD.
+- En el caso de las **aplicaciones que usan tokens de sesión**, las sesiones existentes finalizan cuando expira el token. Si el estado deshabilitado del usuario se sincroniza con la aplicación, la aplicación puede revocar automáticamente las sesiones existentes del usuario si está configurada para hacerlo.  El tiempo que se tarda depende de la frecuencia de sincronización entre la aplicación y Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

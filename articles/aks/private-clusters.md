@@ -4,22 +4,22 @@ description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 4ebc5e44f491b5ff5950a13771fe3d7179b6fc9f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5c45c01e34c4663657dbeee803fe0bb5cdae6a3c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143088"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380579"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
-En un clúster privado, el servidor de la API o el plano de control tienen direcciones IP internas que se definen en el documento [RFC1918 sobre la asignación de direcciones para conexiones privadas](https://tools.ietf.org/html/rfc1918). Mediante el uso de un clúster privado, puede asegurarse de que el tráfico entre el servidor de API y los grupos de nodos permanece solo en la red privada.
+En un clúster privado, el servidor de la API o el plano de control tienen direcciones IP internas que se definen en el documento [RFC1918 sobre la asignación de direcciones para conexiones privadas de Internet](https://tools.ietf.org/html/rfc1918). Mediante el uso de un clúster privado, puede asegurarse de que el tráfico entre el servidor de API y los grupos de nodos permanece solo en la red privada.
 
 El plano de control o el servidor de la API están en una suscripción de Azure administrada mediante Azure Kubernetes Service (AKS). El grupo de clústeres o nodos de un cliente está en la suscripción del cliente. El servidor y el grupo de clústeres o nodos pueden comunicarse entre sí a través del [servicio de Azure Private Link][private-link-service] en la red virtual del servidor de la API y de un punto de conexión privado expuesto en la subred del clúster de AKS del cliente.
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
-El clúster privado está disponible en las regiones públicas en las que [se admite AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+Un clúster privado está disponible en las regiones públicas, en Azure Government y en las regiones de Azure China 21Vianet en las que [se admite AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
 > [!NOTE]
 > Se admiten sitios de Azure Government, aunque en este momento no se admite US Gov Texas debido a la falta de compatibilidad con Private Link.
@@ -43,7 +43,7 @@ az group create -l westus -n MyResourceGroup
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-Donde *--enable-private-cluster* es una marca obligatoria para un clúster privado. 
+Donde `--enable-private-cluster` es una marca obligatoria para un clúster privado. 
 
 ### <a name="advanced-networking"></a>Redes avanzadas  
 
@@ -59,7 +59,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-Donde *--enable-private-cluster* es una marca obligatoria para un clúster privado. 
+Donde `--enable-private-cluster` es una marca obligatoria para un clúster privado. 
 
 > [!NOTE]
 > Si la dirección CIDR del puente de Docker (172.17.0.1/16) entra en conflicto con el CIDR de la subred, cambie la dirección del puente de Docker.
@@ -80,13 +80,13 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
     
 1. Vaya al grupo de recursos del nodo en Azure Portal.  
 2. Seleccione la zona DNS privada.   
-3. En el panel izquierdo, seleccione el vínculo **red virtual** .  
+3. En el panel izquierdo, seleccione el vínculo **red virtual**.  
 4. Cree un nuevo vínculo para agregar la red virtual de la máquina virtual a la zona DNS privada. El vínculo de la zona DNS puede tardar unos minutos en estar disponible.  
 5. En Azure Portal, vaya al grupo de recursos que contiene la red virtual del clúster.  
 6. En el panel derecho, seleccione la red virtual. El nombre de la red virtual tiene el formato *aks-vnet-\** .  
-7. En el panel izquierdo, seleccione **Emparejamientos** .  
-8. Seleccione **Agregar** , agregue la red virtual de la máquina virtual y, después, cree el emparejamiento.  
-9. Vaya a la red virtual en la que tiene la máquina virtual, seleccione **Emparejamientos** , seleccione la red virtual de AKS y, después, cree el emparejamiento. Si los intervalos de direcciones de la red virtual de AKS y de la red virtual de la máquina virtual entran en conflicto, se produce un error de emparejamiento. Para más información, vea el artículo [Emparejamiento de redes virtuales][virtual-network-peering].
+7. En el panel izquierdo, seleccione **Emparejamientos**.  
+8. Seleccione **Agregar**, agregue la red virtual de la máquina virtual y, después, cree el emparejamiento.  
+9. Vaya a la red virtual en la que tiene la máquina virtual, seleccione **Emparejamientos**, seleccione la red virtual de AKS y, después, cree el emparejamiento. Si los intervalos de direcciones de la red virtual de AKS y de la red virtual de la máquina virtual entran en conflicto, se produce un error de emparejamiento. Para más información, vea el artículo [Emparejamiento de redes virtuales][virtual-network-peering].
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Concentrador y radio con DNS personalizado
 

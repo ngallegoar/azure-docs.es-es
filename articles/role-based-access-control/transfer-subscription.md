@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545351"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648249"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
@@ -87,7 +87,7 @@ Varios recursos de Azure tienen una dependencia de una suscripción o un directo
 
 Para completar estos pasos, necesitará lo siguiente:
 
-- [Bash en Azure Cloud Shell](/azure/cloud-shell/overview) o [CLI de Azure](/cli/azure)
+- [Bash en Azure Cloud Shell](../cloud-shell/overview.md) o [CLI de Azure](/cli/azure)
 - Administrador de cuenta de la suscripción que quiere transferir en el directorio de origen
 - Rol de [propietario](built-in-roles.md#owner) en el directorio de destino
 
@@ -111,7 +111,7 @@ Para completar estos pasos, necesitará lo siguiente:
 
 ### <a name="install-the-azure-resource-graph-extension"></a>Instalación de la extensión Azure Resource Graph
 
- La extensión de la CLI de Azure para [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph* , le permite usar el comando [az graph](/cli/azure/ext/resource-graph/graph) para consultar los recursos que administra Azure Resource Manager. Usará este comando en pasos posteriores.
+ La extensión de la CLI de Azure para [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph*, le permite usar el comando [az graph](/cli/azure/ext/resource-graph/graph) para consultar los recursos que administra Azure Resource Manager. Usará este comando en pasos posteriores.
 
 1. Use [az extension list](/cli/azure/extension#az_extension_list) para ver si tiene instalada la extensión *resource-graph*.
 
@@ -139,7 +139,7 @@ Para completar estos pasos, necesitará lo siguiente:
 
 1. Guarde la lista de asignaciones de roles.
 
-    Cuando se transfiere una suscripción, todas las asignaciones de roles se eliminan **permanentemente** , de modo que es importante guardar una copia.
+    Cuando se transfiere una suscripción, todas las asignaciones de roles se eliminan **permanentemente**, de modo que es importante guardar una copia.
 
 1. Revise la lista de asignaciones de roles. Es posible que haya asignaciones de roles que no necesite en el directorio de destino.
 

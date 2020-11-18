@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e404b3eeadd8eef45e413eea2bd753d08cc505ca
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489461"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650638"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Aplicación de una directiva de nomenclatura en los grupos de Microsoft 365 en Azure Active Directory
 
@@ -36,9 +36,9 @@ Cuando se configure la directiva de nomenclatura de grupos, se aplicará a los n
 
 Puede aplicar la directiva de nomenclatura a grupos de dos maneras diferentes:
 
-- **Directiva de nomenclatura de prefijo-sufijo** : puede definir prefijos o sufijos que se agregan automáticamente para aplicar una convención de nomenclatura a los grupos (por ejemplo, en el nombre de grupo "GRP\_JAPAN\_My Group\_Engineering", GRP\_JAPAN\_ es el prefijo y \_Engineering es el sufijo). 
+- **Directiva de nomenclatura de prefijo-sufijo**: puede definir prefijos o sufijos que se agregan automáticamente para aplicar una convención de nomenclatura a los grupos (por ejemplo, en el nombre de grupo "GRP\_JAPAN\_My Group\_Engineering", GRP\_JAPAN\_ es el prefijo y \_Engineering es el sufijo). 
 
-- **Palabras bloqueadas personalizadas** : puede cargar un conjunto de palabras bloqueadas específicas de su organización para que se bloqueen en los grupos creados por los usuarios (por ejemplo, "CEO, Nómina, RRHH").
+- **Palabras bloqueadas personalizadas**: puede cargar un conjunto de palabras bloqueadas específicas de su organización para que se bloqueen en los grupos creados por los usuarios (por ejemplo, "CEO, Nómina, RRHH").
 
 ### <a name="prefix-suffix-naming-policy"></a>Directiva de nomenclatura de prefijo-sufijo
 
@@ -85,20 +85,20 @@ Algunos administradores pueden quedar excluidos de estas directivas, en todas la
 ## <a name="configure-naming-policy-in-azure-portal"></a>Configuración de la directiva de nomenclatura en Azure Portal
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de Administrador del grupo.
-1. Seleccione **Grupos** , a continuación, seleccione **Directiva de nomenclatura** para abrir la página de la directiva de nomenclatura.
+1. Seleccione **Grupos**, a continuación, seleccione **Directiva de nomenclatura** para abrir la página de la directiva de nomenclatura.
 
     ![apertura de la página de la directiva de nomenclatura en el centro de administración](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visualización o edición de la directiva de nomenclatura de prefijo-sufijo
 
-1. En la página **Directiva de nomenclatura** , seleccione **Directiva de nomenclatura de grupos**.
+1. En la página **Directiva de nomenclatura**, seleccione **Directiva de nomenclatura de grupos**.
 1. Puede ver o editar las directivas de nomenclatura de prefijo o sufijo actuales individualmente seleccionando los atributos o cadenas que desea aplicar como parte de la directiva de nomenclatura.
 1. Para quitar un prefijo o sufijo de la lista, seleccione el prefijo o sufijo y luego seleccione **Eliminar**. Se pueden eliminar varios elementos al mismo tiempo.
 1. Guarde los cambios para que la nueva directiva entre en vigor; para ello, seleccione **Guardar**.
 
 ### <a name="edit-custom-blocked-words"></a>Edición de las palabras bloqueadas personalizadas
 
-1. En la página **Directiva de nomenclatura** , seleccione **Palabras bloqueadas**.
+1. En la página **Directiva de nomenclatura**, seleccione **Palabras bloqueadas**.
 
     ![edición y carga de la lista de palabras bloqueadas para la directiva de nomenclatura](./media/groups-naming-policy/blockedwords.png)
 
@@ -206,7 +206,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>Eliminación de la directiva de nomenclatura mediante Azure Portal
 
-1. En la página **Directiva de nomenclatura** , seleccione **Eliminar directiva**.
+1. En la página **Directiva de nomenclatura**, seleccione **Eliminar directiva**.
 1. Después de confirmar la eliminación, se quita la directiva de nomenclatura, incluida toda la directiva de nomenclatura de prefijos y sufijos y cualquier palabra bloqueada personalizada.
 
 ### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Eliminación de la directiva de nomenclatura mediante Azure AD PowerShell

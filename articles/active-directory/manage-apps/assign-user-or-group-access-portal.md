@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604332"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651284"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Administración de la asignación de usuarios para una aplicación en Azure Active Directory
 
@@ -58,7 +58,7 @@ Para requerir la asignación de usuarios en una aplicación:
 Para obtener información sobre cómo asignar o desasignar un usuario o grupo mediante Azure Portal, consulte la [serie de inicios rápidos de Administración de aplicaciones](add-application-portal-assign-users.md).
 
 ## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>Asignación o desasignación de usuarios y grupos para una aplicación mediante Graph API
-Puede usar Graph API para asignar o desasignar usuarios y grupos para una aplicación. Para más información, consulte [Asignaciones de roles de aplicación](https://docs.microsoft.com/graph/api/resources/approleassignment).
+Puede usar Graph API para asignar o desasignar usuarios y grupos para una aplicación. Para más información, consulte [Asignaciones de roles de aplicación](/graph/api/resources/approleassignment).
 
 ## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>Asignación de usuarios y grupos a una aplicación mediante PowerShell
 1. Abra un símbolo del sistema de Windows PowerShell con privilegios elevados.
@@ -81,11 +81,11 @@ Puede usar Graph API para asignar o desasignar usuarios y grupos para una aplica
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-Para obtener más información sobre cómo asignar un usuario a un rol de aplicación, consulte la documentación de [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+Para obtener más información sobre cómo asignar un usuario a un rol de aplicación, consulte la documentación de [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
 Para asignar un grupo a una aplicación empresarial, es necesario reemplazar `Get-AzureADUser` por `Get-AzureADGroup` y reemplazar `New-AzureADUserAppRoleAssignment` por `New-AzureADGroupAppRoleAssignment`.
 
-Para obtener más información sobre cómo asignar un grupo a un rol de aplicación, consulte la documentación de [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+Para obtener más información sobre cómo asignar un grupo a un rol de aplicación, consulte la documentación de [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### <a name="example"></a>Ejemplo
 
@@ -154,6 +154,6 @@ En este ejemplo se asigna el usuario Britta Simon a la aplicación [Microsoft Wo
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Ver todos mis grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Quitar una asignación de usuario o grupo de una aplicación empresarial](remove-user-or-group-access-portal.md)
+- [Quitar una asignación de usuario o grupo de una aplicación empresarial]()
 - [Deshabilitar los inicios de sesión de los usuarios de una aplicación empresarial](disable-user-sign-in-portal.md)
-- [Cambio del nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)
+- [Cambio del nombre o el logotipo de una aplicación empresarial](./add-application-portal-configure.md)

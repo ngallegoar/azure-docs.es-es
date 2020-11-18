@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 09/04/2020
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8fdeefab150a2992edf40076a44c936d35b14dc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cac88e57ce0135295ac4b7078111102fa69e6838
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373484"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646600"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restricción de los permisos de acceso de invitados (versión preliminar) en Azure Active Directory
 
@@ -42,8 +42,8 @@ Se han introducido cambios en los controles de Azure Portal existentes para los 
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador global.
 1. En la página de información general de **Azure Active Directory** de su organización, seleccione **Configuración de usuario**.
-1. En **Usuarios externos** , seleccione **Administrar la configuración de colaboración externa**.
-1. En la página **Configuración de colaboración externa** , seleccione la opción **El acceso de los usuarios invitados está restringido a las propiedades y pertenencias de sus propios objetos de directorio**.
+1. En **Usuarios externos**, seleccione **Administrar la configuración de colaboración externa**.
+1. En la página **Configuración de colaboración externa**, seleccione la opción **El acceso de los usuarios invitados está restringido a las propiedades y pertenencias de sus propios objetos de directorio**.
 
     ![Página de la configuración de colaboración externa de Azure AD](./media/users-restrict-guest-permissions/external-collaboration-settings.png)
 

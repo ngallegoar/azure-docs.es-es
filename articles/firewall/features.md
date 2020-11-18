@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 7429be4430b2b520fb2a66b6b2c0dd138af8e501
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c71d9325ff7c1c5d2e7eff03a587a28335efd72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850598"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652151"
 ---
 # <a name="azure-firewall-features"></a>Características de Azure Firewall
 
@@ -103,7 +103,7 @@ Esto admite los siguientes escenarios:
 
 Todos los eventos se integran en Azure Monitor, lo que permite archivar registros en una cuenta de almacenamiento, transmitir eventos al centro de eventos o enviarlos a los registros de Azure Monitor. Para obtener ejemplos de registro de Azure Monitor, consulte [Registros de Azure Monitor para Azure Firewall](log-analytics-samples.md).
 
-Para más información, consulte el [Tutorial: Supervisión de métricas y registros de Azure Firewall](tutorial-diagnostics.md). 
+Para más información, consulte el [Tutorial: Supervisión de métricas y registros de Azure Firewall](./firewall-diagnostics.md). 
 
 El libro de Azure Firewall proporciona un lienzo flexible para el análisis de datos de Azure Firewall. Puede utilizarlo para crear informes visuales completos en Azure Portal. Para más información, consulte [Supervisión de registros mediante el libro de Azure Firewall](firewall-workbook.md).
 

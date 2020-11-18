@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275788"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647603"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -239,6 +239,9 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 
 Para controlar qué reclamaciones se emiten y de dónde provienen los datos, utilice las propiedades de una directiva de asignación de notificaciones. Si no hay ninguna directiva establecida, el sistema emite los tokens que contienen el conjunto de notificaciones principales, el conjunto de notificaciones básicas y las [notificaciones opcionales](active-directory-optional-claims.md) que la aplicación ha decidido recibir.
 
+> [!NOTE]
+> Las notificaciones del conjunto de notificaciones principales están presentes en todos los tokens, independientemente del valor en que se establezca esta propiedad.
+
 ### <a name="include-basic-claim-set"></a>Inclusión del conjunto de notificaciones básicas
 
 **Cadena:** IncludeBasicClaimSet
@@ -250,8 +253,7 @@ Para controlar qué reclamaciones se emiten y de dónde provienen los datos, uti
 - Si se establece en True, todas las notificaciones del conjunto de notificaciones básicas se emiten en los tokens afectados por esta directiva.
 - Si se establece en False, las notificaciones del conjunto de notificaciones básicas no se incluyen en los tokens a menos que se agreguen individualmente a la propiedad de esquema de notificaciones de la misma directiva.
 
-> [!NOTE]
-> Las notificaciones del conjunto de notificaciones principales están presentes en todos los tokens, independientemente del valor en que se establezca esta propiedad.
+
 
 ### <a name="claims-schema"></a>Esquema de notificaciones
 
@@ -260,7 +262,7 @@ Para controlar qué reclamaciones se emiten y de dónde provienen los datos, uti
 **Tipo de datos:** blob de JSON con una o varias entradas de esquema de notificación
 
 **Resumen:** en esta propiedad se definen las notificaciones que están presentes en los tokens afectados por la directiva, además del conjunto de notificaciones básicas y el conjunto de notificaciones principales.
-Para cada entrada de esquema de notificación definida en esta propiedad, se requiere cierta información. Especifique de dónde provienen los datos ( **valor** , **par origen/identificador** o **par origen/identificador de extensión** ) y qué notificación se usa para emitir los datos ( **tipo de notificación** ).
+Para cada entrada de esquema de notificación definida en esta propiedad, se requiere cierta información. Especifique de dónde provienen los datos (**valor**, **par origen/identificador** o **par origen/identificador de extensión**) y qué notificación se usa para emitir los datos (**tipo de notificación**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada de esquema de notificación
 
@@ -358,7 +360,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 
 **TransformationMethod:** el elemento TransformationMethod identifica la operación que se ejecuta para generar los datos de la notificación.
 
-En función del método elegido, se espera un conjunto de entradas y salidas. Defina las entradas y salidas utilizando los elementos **InputClaims** , **InputParameters** y **OutputClaims** .
+En función del método elegido, se espera un conjunto de entradas y salidas. Defina las entradas y salidas utilizando los elementos **InputClaims**, **InputParameters** y **OutputClaims**.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabla 4: Métodos de transformación y entradas y salidas previstas
 
@@ -367,17 +369,17 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 |Join|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|Correo electrónico o UPN|cadena extraída|ExtensionAttributes 1-15 o cualquier otra extensión de esquema que almacene un valor de UPN o de dirección de correo electrónico del usuario, p. ej., johndoe@contoso.com. Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no existe ningún signo \@, la cadena de entrada original se devuelve tal y como está.|
 
-**InputClaims:** use un elemento InputClaims para pasar los datos de una entrada de esquema de notificación a una transformación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType** .
+**InputClaims:** use un elemento InputClaims para pasar los datos de una entrada de esquema de notificación a una transformación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** se combina con el elemento ID de la entrada de esquema de notificación para buscar la notificación de entrada adecuada.
 - **TransformationClaimType** se usa para asignar un nombre único a esta entrada. Este nombre debe coincidir con una de las entradas esperadas para el método de transformación.
 
-**InputParameters:** use un elemento InputParameters para pasar un valor constante a una transformación. Tiene dos atributos: **Valor** e **ID** .
+**InputParameters:** use un elemento InputParameters para pasar un valor constante a una transformación. Tiene dos atributos: **Valor** e **ID**.
 
 - **Value** es el valor constante real que se pasa.
 - **ID** se usa para asignar un nombre único a esta entrada. Este nombre debe coincidir con una de las entradas esperadas del método de transformación.
 
-**OutputClaims:** use un elemento OutputClaims para contener los datos generados por una transformación y vincularlos a una entrada de esquema de notificación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType** .
+**OutputClaims:** use un elemento OutputClaims para contener los datos generados por una transformación y vincularlos a una entrada de esquema de notificación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** se combina con el elemento ID de la entrada de esquema de notificación para buscar la notificación de salida adecuada.
 - **TransformationClaimType** se usa para asignar un nombre único a la salida. Este nombre debe coincidir con una de las salidas esperadas del método de transformación.
@@ -439,8 +441,7 @@ Las directivas de asignación de notificaciones solo se pueden asignar a objetos
 
 En Azure AD hay muchos escenarios posibles en los que se pueden personalizar las notificaciones emitidas en tokens para entidades de servicio concretas. En esta sección se abordan algunos escenarios comunes que pueden ayudarle a entender cómo usar el tipo de directiva de asignación de notificaciones.
 
-> [!NOTE]
-> Al crear una directiva de asignación de notificaciones, también puede emitir una notificación de un atributo de extensión de esquema de directorio en los tokens. Use *ExtensionID* para el atributo de extensión en lugar de *ID* en el elemento `ClaimsSchema`.  Para más información sobre los atributos de extensión, consulte [Uso de atributos de extensión de esquema de directorio](active-directory-schema-extensions.md).
+Al crear una directiva de asignación de notificaciones, también puede emitir una notificación de un atributo de extensión de esquema de directorio en los tokens. Use *ExtensionID* para el atributo de extensión en lugar de *ID* en el elemento `ClaimsSchema`.  Para más información sobre los atributos de extensión, consulte [Uso de atributos de extensión de esquema de directorio](active-directory-schema-extensions.md).
 
 #### <a name="prerequisites"></a>Prerrequisitos
 

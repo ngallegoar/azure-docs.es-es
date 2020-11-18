@@ -7,20 +7,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7529d72c3d94e3c7bef58c6a26af62b97ac92d9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd61a33bdcc0d18dee7dba651f097f7cd49e7149
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373533"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647042"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory
 
@@ -34,7 +34,7 @@ Cuando se usan licencias basadas en grupo, se pueden producir los mismos errores
 
 ### <a name="to-find-users-in-an-error-state-in-a-group"></a>Para buscar usuarios con estado de error en un grupo
 
-1. Abra el grupo en su página de información general y seleccione **Licencias** . Si hay usuarios con estado de error, aparece una notificación.
+1. Abra el grupo en su página de información general y seleccione **Licencias**. Si hay usuarios con estado de error, aparece una notificación.
 
    ![Mensaje de notificaciones de grupo y de error](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
@@ -42,7 +42,7 @@ Cuando se usan licencias basadas en grupo, se pueden producir los mismos errores
 
    ![lista de usuarios en estado de error de licencia de grupo](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-1. Para buscar todos los grupos que contienen al menos un error, en la hoja **Azure Active Directory** seleccione **Licencias** y, a continuación, seleccione **Información general** . Si algunos grupos requieren atención, aparece un cuadro de información.
+1. Para buscar todos los grupos que contienen al menos un error, en la hoja **Azure Active Directory** seleccione **Licencias** y, a continuación, seleccione **Información general**. Si algunos grupos requieren atención, aparece un cuadro de información.
 
    ![Introducción general y detalles sobre los grupos con estado de error](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
@@ -56,17 +56,17 @@ En las secciones siguientes se muestra una descripción de cada problema potenci
 
 **Problema:** No hay suficientes licencias disponibles para uno de los productos especificados en el grupo. Necesita adquirir más licencias para el producto o liberar las licencias sin usar de otros usuarios o grupos.
 
-Para ver cuántas licencias hay disponibles, vaya a **Azure Active Directory** > **Licencias** > **Todos los productos** .
+Para ver cuántas licencias hay disponibles, vaya a **Azure Active Directory** > **Licencias** > **Todos los productos**.
 
-Para ver qué usuarios y grupos consumen las licencias, seleccione un producto. En **Usuarios con licencias** , puede ver una lista de todos los usuarios a los que se han asignado licencias directamente o a través de uno o varios grupos. En **Grupos con licencias** , puede ver todos los grupos que tienen ese producto asignado.
+Para ver qué usuarios y grupos consumen las licencias, seleccione un producto. En **Usuarios con licencias**, puede ver una lista de todos los usuarios a los que se han asignado licencias directamente o a través de uno o varios grupos. En **Grupos con licencias**, puede ver todos los grupos que tienen ese producto asignado.
 
-**PowerShell:** Los cmdlets de PowerShell informan de este error como _CountViolation_ .
+**PowerShell:** Los cmdlets de PowerShell informan de este error como _CountViolation_.
 
 ## <a name="conflicting-service-plans"></a>Planes de servicio en conflicto
 
 **Problema:** Uno de los productos especificados en el grupo contiene un plan de servicio que entra en conflicto con otro plan de servicio que ya está asignado al usuario a través de un producto diferente. Algunos planes de servicio se configuran de tal forma que no puedan asignarse al mismo usuario como otro plan de servicio relacionado.
 
-Considere el ejemplo siguiente. Un usuario tiene una licencia de Office 365 Enterprise *E1* asignada directamente, con todos los planes habilitados. Se ha agregado el usuario a un grupo que tiene asignado el producto Office 365 Enterprise *E3* . El producto E3 contiene planes de servicio que no pueden superponerse con los planes incluidos en E1, por lo que la asignación de licencia de grupo genera el error “Planes de servicio en conflicto”. En este ejemplo, los planes de servicio en conflicto son:
+Considere el ejemplo siguiente. Un usuario tiene una licencia de Office 365 Enterprise *E1* asignada directamente, con todos los planes habilitados. Se ha agregado el usuario a un grupo que tiene asignado el producto Office 365 Enterprise *E3*. El producto E3 contiene planes de servicio que no pueden superponerse con los planes incluidos en E1, por lo que la asignación de licencia de grupo genera el error “Planes de servicio en conflicto”. En este ejemplo, los planes de servicio en conflicto son:
 
 - SharePoint Online (Plan 2) entra en conflicto con SharePoint Online (Plan 1).
 - Exchange Online (Plan 2) entra en conflicto con Exchange Online (Plan 1).
@@ -75,7 +75,7 @@ Para resolver este conflicto, debe deshabilitar dos de los planes. Puede deshabi
 
 El administrador es la única persona competente para decidir cómo resolver el conflicto entre las licencias de productos. Azure AD no resuelve automáticamente los conflictos de licencias.
 
-**PowerShell:** Los cmdlets de PowerShell informan de este error como _MutuallyExclusiveViolation_ .
+**PowerShell:** Los cmdlets de PowerShell informan de este error como _MutuallyExclusiveViolation_.
 
 ## <a name="other-products-depend-on-this-license"></a>Otros productos dependen de esta licencia
 
@@ -83,7 +83,7 @@ El administrador es la única persona competente para decidir cómo resolver el 
 
 Para solucionar este problema, debe asegurarse de que el plan necesario todavía está asignado a los usuarios a través de algún otro método o que los servicios dependientes están deshabilitados para esos usuarios. Después, puede quitar correctamente la licencia de grupo a esos usuarios.
 
-**PowerShell:** Los cmdlets de PowerShell informan de este error como _DependencyViolation_ .
+**PowerShell:** Los cmdlets de PowerShell informan de este error como _DependencyViolation_.
 
 ## <a name="usage-location-isnt-allowed"></a>No se permite la ubicación de uso
 
@@ -93,7 +93,7 @@ Cuando Azure AD intenta asignar una licencia de grupo a un usuario cuya ubicaci�
 
 Para solucionar este problema, quite del grupo con licencia a los usuarios de las ubicaciones no admitidas. O bien, si los valores de ubicación de uso actual no representan la ubicación de los usuarios reales, puede modificarlos para que la próxima vez las licencias se asignen correctamente (si se admite la nueva ubicación).
 
-**PowerShell:** Los cmdlets de PowerShell informan de este error como _ProhibitedInUsageLocationViolation_ .
+**PowerShell:** Los cmdlets de PowerShell informan de este error como _ProhibitedInUsageLocationViolation_.
 
 > [!NOTE]
 > Cuando Azure AD asigna licencias de grupo, los usuarios sin ubicación de uso especificada heredan la ubicación del directorio. Se recomienda que los administradores establezcan valores de ubicación de uso correctos en los usuarios antes de utilizar licencias basadas en grupo para cumplir con la normativa y la legislación local.
@@ -138,7 +138,7 @@ Por ejemplo, piense en un grupo que tiene asignado Office 365 E3/E5 con un plan 
 
 ## <a name="manage-licenses-for-products-with-prerequisites"></a>Administración de licencias para productos con requisitos previos
 
-Algunos productos de Microsoft Online que puede tener son *complementos* . Los complementos precisan de un plan de servicio de requisitos previos habilitado para un usuario o un grupo antes de poder asignarles una licencia. Cuando se usan licencias basadas en grupo, el sistema solicita que mantenga en el mismo grupo los planes de servicios de requisitos previos y de complementos. Esto se hace para garantizar que los usuarios que se agregan al grupo puedan recibir el producto de trabajo completo. Vea el siguiente ejemplo:
+Algunos productos de Microsoft Online que puede tener son *complementos*. Los complementos precisan de un plan de servicio de requisitos previos habilitado para un usuario o un grupo antes de poder asignarles una licencia. Cuando se usan licencias basadas en grupo, el sistema solicita que mantenga en el mismo grupo los planes de servicios de requisitos previos y de complementos. Esto se hace para garantizar que los usuarios que se agregan al grupo puedan recibir el producto de trabajo completo. Vea el siguiente ejemplo:
 
 Microsoft Workplace Analytics es un producto complementario. Contiene un plan de servicio único con el mismo nombre. Este plan de servicio solo se puede asignar a un usuario o grupo cuando uno de los siguientes requisitos previos se asignan también:
 
@@ -147,7 +147,7 @@ Microsoft Workplace Analytics es un producto complementario. Contiene un plan de
 
 Si se intenta asignar este producto por sí solo a un grupo, el portal devuelve un mensaje de notificación. Al seleccionar los detalles del elemento, se muestra el siguiente mensaje de error:
 
-  "Error en la operación de la licencia. Asegúrese de que el grupo tiene los servicios necesarios antes de agregar o quitar un servicio dependiente. **El servicio Microsoft Workplace Analytics necesita que Exchange Online (plan 2) también esté habilitado** ".
+  "Error en la operación de la licencia. Asegúrese de que el grupo tiene los servicios necesarios antes de agregar o quitar un servicio dependiente. **El servicio Microsoft Workplace Analytics necesita que Exchange Online (plan 2) también esté habilitado**".
 
 Para asignar esta licencia de complemento a un grupo, es necesario asegurarse de que el grupo también contiene el plan de servicio de requisitos previos. Por ejemplo, es posible actualizar un grupo existente que ya contenga el producto Office 365 E3 completo y, a continuación, agregar al mismo el complemento.
 

@@ -9,12 +9,13 @@ ms.reviewer: ebertra
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: bf7e841586250142c23d6672491af30a011043ca
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+monikerRange: '>=iotedge-2020-11'
+ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447513"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629655"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicación y suscripción con Azure IoT Edge
 
@@ -30,8 +31,10 @@ Puede usar el agente MQTT de Azure IoT Edge para publicar y suscribirse a mensaj
 - **IoT Hub** de SKU F1, S1, S2 o S3.
 - Un **dispositivo IoT Edge con la versión 1.2 o superior**. Dado que el agente MQTT de IoT Edge se encuentra actualmente en versión preliminar pública, establezca las siguientes variables de entorno en true en el contenedor edgeHub para habilitar el agente MQTT:
 
-    - experimentalFeatures__enabled
-    - mqttbroker__enabled
+   | Nombre | Value |
+   | - | - |
+   | `experimentalFeatures__enabled` | `true` |
+   | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
 - **Clientes de Mosquitto** instalados en el dispositivo IoT Edge. En este artículo se usan los clientes de Mosquitto populares, incluidos [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) y [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Se podrían usar otros clientes MQTT en su lugar. Para instalar los clientes de Mosquitto en un dispositivo Ubuntu, ejecute el siguiente comando:
 
@@ -57,7 +60,7 @@ Para deshabilitar TLS, use el puerto 1883 (MQTT) y enlace el contenedor edgeHub
 
 Para habilitar TLS, si un cliente se conecta en el puerto 8883 (MQTTS) al agente MQTT, se iniciará un canal TLS. El agente envía su cadena de certificados que el cliente debe validar. Para validar la cadena de certificados, el certificado raíz del agente MQTT debe estar instalado como certificado de confianza en el cliente. Si el certificado raíz no es de confianza, el agente MQTT rechazará la biblioteca cliente con un error de comprobación de certificados. Los pasos que deben seguirse para instalar este certificado raíz del agente en el cliente son los mismos que en el caso de [puerta de enlace transparente](how-to-create-transparent-gateway.md) y se describen en la documentación de [preparación de un dispositivo de nivel inferior](how-to-connect-downstream-device.md#prepare-a-downstream-device).
 
-### <a name="authentication"></a>Autenticación
+### <a name="authentication"></a>Authentication
 
 Para que un cliente MQTT se autentique a sí mismo, primero debe enviar un paquete CONNECT al agente MQTT para iniciar una conexión en su nombre. Este paquete proporciona tres fragmentos de información de autenticación: `client identifier`, `username` y `password`:
 

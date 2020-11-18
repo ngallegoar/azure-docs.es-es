@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88611184"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413010"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -139,9 +139,9 @@ No. Las reglas NAT agregan de forma implícita una regla de red correspondiente 
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>¿Cómo funcionan los caracteres comodín en un FQDN de destino de la regla de aplicación?
 
-Actualmente, solo se pueden usar caracteres comodín en el lado izquierdo del nombre de dominio completo. Por ejemplo, * **.contoso.com** y ***contoso.com**.
+Actualmente, solo se pueden usar caracteres comodín en el lado izquierdo del nombre de dominio completo. Por ejemplo, **_.contoso.com_* y **_contoso.com_*.
 
-Si configura * **.contoso.com**, permite *cualquiervalor*.contoso.com, pero no contoso.com (el vértice de dominio). Si desea permitir el vértice de dominio, debe configurarlo explícitamente como un FQDN de destino.
+Si configura **_.contoso.com_*, permite *cualquiervalor*.contoso.com, pero no contoso.com (el vértice de dominio). Si desea permitir el vértice de dominio, debe configurarlo explícitamente como un FQDN de destino.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>¿Qué significa *Estado de aprovisionamiento: error*?
 
@@ -205,7 +205,7 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>¿Por qué un ping de TCP y herramientas similares se conectan correctamente a un FQDN de destino incluso si ninguna regla de Azure Firewall permite ese tráfico?
 
-Un ping de TCP no se conecta realmente al FQDN de destino. Esto ocurre porque el proxy transparente de Azure Firewall escucha en el puerto 80/443 para el tráfico saliente. El ping de TCP establece una conexión con el firewall, que, a continuación, quita el paquete y registra la conexión. Este comportamiento no afecta a la seguridad. Sin embargo, para evitar confusiones, estamos investigando posibles cambios en este comportamiento.
+Un ping de TCP no se conecta realmente al FQDN de destino. Esto ocurre porque el proxy transparente de Azure Firewall escucha en el puerto 80/443 para el tráfico saliente. El ping de TCP establece una conexión con el firewall, que, a continuación, quita el paquete. Este comportamiento no afecta a la seguridad. Sin embargo, para evitar confusiones, estamos investigando posibles cambios en este comportamiento.
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>¿Existen límites para el número de direcciones IP admitidas por los grupos de IP?
 

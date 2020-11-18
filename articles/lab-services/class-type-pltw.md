@@ -3,12 +3,12 @@ title: Configuración de laboratorios de Project Lead the Way con Azure Lab Serv
 description: Obtenga información sobre cómo configurar laboratorios para impartir clases de Project Lead the Way.
 ms.topic: article
 ms.date: 10/28/2020
-ms.openlocfilehash: 8585d09759319eef04da5ed68fec603cfa390093
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e3783ae4fa07bf783841022903c4bcf3ab6fbe23
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496443"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648011"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configuración de laboratorios para las clases de Project Lead the Way
 
@@ -53,12 +53,12 @@ ms.locfileid: "94496443"
 Consulte el sitio de PLTW para obtener la [lista de software completa](https://www.pltw.org/pltw-software) para cada clase.
 
 ## <a name="lab-configuration"></a>Configuración del laboratorio
-Para configurar laboratorio de PLTW, necesita una suscripción a Azure y una cuenta de laboratorio para empezar. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. Una vez que obtenga una suscripción a Azure, puede crear una nueva cuenta de laboratorio en Azure Lab Services. Para más información sobre la creación de una nueva cuenta de laboratorio, consulte el tutorial sobre la [configuración de una cuenta de laboratorio](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). También puede usar una cuenta de laboratorio existente.
+Para configurar laboratorio de PLTW, necesita una suscripción a Azure y una cuenta de laboratorio para empezar. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. Una vez que obtenga una suscripción a Azure, puede crear una nueva cuenta de laboratorio en Azure Lab Services. Para más información sobre la creación de una nueva cuenta de laboratorio, consulte el tutorial sobre la [configuración de una cuenta de laboratorio](./tutorial-setup-lab-account.md). También puede usar una cuenta de laboratorio existente.
 
 Una vez que tenga una cuenta de laboratorio, debe crear laboratorios independientes para cada sesión de una clase de PLTW que su escuela ofrezca.  También se recomienda crear imágenes independientes para cada tipo de clase de PLTW.  Para obtener más información sobre cómo estructurar sus laboratorios e imágenes, lea la entrada de blog: [Traslado de un laboratorio físico a Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
 
 ### <a name="lab-account-settings"></a>Configuración de la cuenta de laboratorio
-Habilite la configuración que se describe en la tabla siguiente para la cuenta de laboratorio. Para obtener más información sobre cómo habilitar imágenes de marketplace, consulte el artículo sobre la [especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Habilite la configuración que se describe en la tabla siguiente para la cuenta de laboratorio. Para obtener más información sobre cómo habilitar imágenes de marketplace, consulte el artículo sobre la [especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](./specify-marketplace-images.md).
 
 | Configuración de la cuenta de laboratorio | Instructions |
 | -------------------- | ----- |
@@ -80,19 +80,19 @@ La mayor parte del software que se usa en las clases de PLTW anteriores **_no_* 
 
 Para usar las licencias de red con el software de Autodesk, [PLTW proporciona pasos detallados](https://www.pltw.org/pltw-software) para instalar el administrador de licencias de Autodesk en el servidor de licencias.  Este servidor de licencias se encuentra normalmente en la red local u hospedado en una máquina virtual (VM) de Azure en Azure Virtual Network (VNet).
 
-Una vez configurado el servidor de licencias, tendrá que [emparejar la red virtual](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) con la [cuenta de laboratorio](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). El emparejamiento de redes debe realizarse _antes* de crear el laboratorio para que las máquinas virtuales de este puedan acceder al servidor de licencias y viceversa.
+Una vez configurado el servidor de licencias, tendrá que [emparejar la red virtual](./how-to-connect-peer-virtual-network.md) con la [cuenta de laboratorio](./tutorial-setup-lab-account.md). El emparejamiento de redes debe realizarse _antes* de crear el laboratorio para que las máquinas virtuales de este puedan acceder al servidor de licencias y viceversa.
 
 Los archivos de licencia generados por Autodesk insertan la dirección MAC del servidor de licencias.  Si decide hospedar el servidor de licencias mediante una VM de Azure, es importante que se asegure de que la dirección MAC del servidor de licencias no cambie.   De lo contrario, si la dirección MAC cambia, los archivos de licencias deberán volver a generarse.  Siga estas sugerencias para evitar que la dirección MAC cambie:
 
-- [Establezca una dirección IP privada estática y una dirección MAC](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource#static-private-ip-and-mac-address) para la VM de Azure que hospeda el servidor de licencias.
+- [Establezca una dirección IP privada estática y una dirección MAC](./how-to-create-a-lab-with-shared-resource.md#static-private-ip-and-mac-address) para la VM de Azure que hospeda el servidor de licencias.
 - Asegúrese de configurar la red virtual del servidor de licencias y la cuenta del laboratorio en una región o ubicación que tenga suficiente capacidad de VM para no tener que trasladar estos recursos a otra región o ubicación más adelante.
 
-Además, lea el artículo sobre [cómo configurar un servidor de licencias como un recurso compartido](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource) para obtener más información.
+Además, lea el artículo sobre [cómo configurar un servidor de licencias como un recurso compartido](./how-to-create-a-lab-with-shared-resource.md) para obtener más información.
 
 ### <a name="template-machine"></a>Máquina de plantilla
 Algunos de los archivos de instalación que necesita para PLTW son grandes y tardan mucho tiempo en copiarse cuando se descargan en la máquina de plantilla de un laboratorio.
 
-En lugar de descargar los archivos de instalación en la máquina de plantilla e instalarlo todo allí, se recomienda crear las imágenes de PLTW en el entorno físico.  Después, puede importar las imágenes en Shared Image Gallery y usar estas imágenes personalizadas para crear sus laboratorios.  Lea el siguiente artículo para obtener más información: [Carga de una imagen compartida en Shared Image Gallery](https://docs.microsoft.com/azure/lab-services/upload-custom-image-shared-image-gallery).
+En lugar de descargar los archivos de instalación en la máquina de plantilla e instalarlo todo allí, se recomienda crear las imágenes de PLTW en el entorno físico.  Después, puede importar las imágenes en Shared Image Gallery y usar estas imágenes personalizadas para crear sus laboratorios.  Lea el siguiente artículo para obtener más información: [Carga de una imagen compartida en Shared Image Gallery](./upload-custom-image-shared-image-gallery.md).
 
 Siguiendo esta recomendación, las siguientes son las tareas principales para configurar un laboratorio:
 
@@ -103,11 +103,11 @@ Siguiendo esta recomendación, las siguientes son las tareas principales para co
     > [!NOTE]    
     > Al instalar aplicaciones de Autodesk, el equipo en el que se instala Autodesk debe poder comunicarse con el servidor de licencias (el Asistente para instalación de Autodesk le pedirá que especifique el nombre de equipo de la máquina que hospeda el servidor de licencias).  Si hospeda el servidor de licencias en una VM de Azure, es posible que tenga que esperar para instalar Autodesk en la máquina de plantilla del laboratorio para que el Asistente para instalación de Autodesk pueda acceder al servidor de licencias.
 
-    b.  [Instale y configure OneDrive](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-onedrive) (u otras opciones de copia de seguridad que pueda usar su escuela).
+    b.  [Instale y configure OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive) (u otras opciones de copia de seguridad que pueda usar su escuela).
     
-    c.  [Instale y configure las actualizaciones de Windows](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-updates).
+    c.  [Instale y configure las actualizaciones de Windows](./how-to-prepare-windows-template.md#install-and-configure-updates).
 
-1.  Cargue la imagen personalizada en la instancia de [Shared Image Gallery conectada a su cuenta de laboratorio](https://docs.microsoft.com/azure/lab-services/how-to-attach-detach-shared-image-gallery).
+1.  Cargue la imagen personalizada en la instancia de [Shared Image Gallery conectada a su cuenta de laboratorio](./how-to-attach-detach-shared-image-gallery.md).
 
 1.  Cree un laboratorio y seleccione la imagen personalizada que cargó en el paso anterior.
 
@@ -118,9 +118,9 @@ Siguiendo esta recomendación, las siguientes son las tareas principales para co
 ## <a name="student-devices"></a>Dispositivos de los alumnos
 Los alumnos pueden conectarse a sus VM de laboratorio desde equipos Windows\Mac y Chromebook.  Estos son los vínculos a las instrucciones para cada una de estas opciones:
 
-- [Conexión desde Windows](https://docs.microsoft.com/azure/lab-services/how-to-use-classroom-lab#connect-to-the-vm)
-- [Conexión desde Mac](https://docs.microsoft.com/azure/lab-services/connect-virtual-machine-mac-remote-desktop)
-- [Conexión desde Chromebook](https://docs.microsoft.com/azure/lab-services/connect-virtual-machine-chromebook-remote-desktop)
+- [Conexión desde Windows](./how-to-use-classroom-lab.md#connect-to-the-vm)
+- [Conexión desde Mac](./connect-virtual-machine-mac-remote-desktop.md)
+- [Conexión desde Chromebook](./connect-virtual-machine-chromebook-remote-desktop.md)
 
 ## <a name="cost"></a>Coste
 Vamos a cubrir una posible estimación de costos para las clases de PLTW anteriores.  Esta estimación no incluye el costo de la ejecución de un servidor de licencias ni el uso de la Shared Image Gallery.  Usaremos una clase de 25 alumnos.  Hay 20 horas de tiempo de clase programado.  Además, cada alumno obtiene una cuota de 10 horas para deberes o tareas fuera del tiempo de clase programado.  Consulte las siguientes estimaciones de costos para los tamaños de **GPU grande** y **pequeño (visualización)** .
@@ -145,4 +145,4 @@ Los pasos siguientes son comunes a la configuración de cualquier laboratorio:
 - [Incorporación de usuarios](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Establecimiento de la cuota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Establecimiento de la programación](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Vínculos de registro por correo electrónico para los alumnos](how-to-configure-student-usage.md#send-invitations-to-users) 
+- [Vínculos de registro por correo electrónico para los alumnos](how-to-configure-student-usage.md#send-invitations-to-users)

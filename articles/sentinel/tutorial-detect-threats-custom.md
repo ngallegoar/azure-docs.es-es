@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: b5cf2b473b6b08dcd77f1a8612d19cea26fc16b9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b685f716688cfbe732fa7d3566e1af97cc81272a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546762"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652117"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutorial: Creación de reglas de análisis personalizadas para detectar amenazas
 
@@ -40,7 +40,7 @@ Puede crear reglas de análisis personalizadas que le ayuden a buscar los tipos 
 
     :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query.png" alt-text="Crear una consulta programada":::
 
-1. En la pestaña **General** , especifique unos valores únicos en los campos **Nombre** y **Descripción**. En el campo **Tactics** (Táctica), puede elegir cualquiera de las categorías de ataques por las que se clasifica la regla. Establezca la **gravedad** según sea necesario. Cuando cree la regla, el valor predeterminado del campo **Status** (Estado) es **Enabled** (Habilitado), lo que significa que se ejecutará inmediatamente después de que termine de crearla. Si no desea ejecutarla de inmediato, seleccione **Disabled** (Deshabilitado) para agregar la regla a la pestaña **Active rules** (Reglas activas), desde donde podrá habilitarla cuando sea necesario.
+1. En la pestaña **General**, especifique unos valores únicos en los campos **Nombre** y **Descripción**. En el campo **Tactics** (Táctica), puede elegir cualquiera de las categorías de ataques por las que se clasifica la regla. Establezca la **gravedad** según sea necesario. Cuando cree la regla, el valor predeterminado del campo **Status** (Estado) es **Enabled** (Habilitado), lo que significa que se ejecutará inmediatamente después de que termine de crearla. Si no desea ejecutarla de inmediato, seleccione **Disabled** (Deshabilitado) para agregar la regla a la pestaña **Active rules** (Reglas activas), desde donde podrá habilitarla cuando sea necesario.
 
     ![Inicio de la creación de una regla de análisis personalizada](media/tutorial-detect-threats-custom/general-tab.png)
 
@@ -80,9 +80,9 @@ Puede crear reglas de análisis personalizadas que le ayuden a buscar los tipos 
           > **Retraso de la ingesta**
           > - Para tener en cuenta la **latencia** que puede producirse entre la generación de un evento en el origen y su ingesta en Azure Sentinel, y para garantizar una cobertura completa sin duplicación de datos, Azure Sentinel ejecuta reglas de análisis programadas con un **retraso de cinco minutos** desde su hora programada.
 
-    1. Use la sección **Alert threshold** (Umbral de alerta) para definir una base de referencia. Por ejemplo, en **Generar alerta cuando el número de resultados de consulta** , seleccione **Es mayor que** y escriba el número 1000 si desea que la regla genere una alerta solo si la consulta genera más de 1000 resultados cada vez que se ejecuta. Este es un campo obligatorio, por lo que si no desea establecer una base de referencia (es decir, si desea que su alerta registre todos los eventos) escriba 0 en el campo numérico.
+    1. Use la sección **Alert threshold** (Umbral de alerta) para definir una base de referencia. Por ejemplo, en **Generar alerta cuando el número de resultados de consulta**, seleccione **Es mayor que** y escriba el número 1000 si desea que la regla genere una alerta solo si la consulta genera más de 1000 resultados cada vez que se ejecuta. Este es un campo obligatorio, por lo que si no desea establecer una base de referencia (es decir, si desea que su alerta registre todos los eventos) escriba 0 en el campo numérico.
     
-    1. En **Agrupación de eventos** , elija una de las dos formas de controlar la agrupación de **eventos** en **alertas** : 
+    1. En **Agrupación de eventos**, elija una de las dos formas de controlar la agrupación de **eventos** en **alertas**: 
 
        - **Agrupar todos los eventos en una misma alerta** (la configuración predeterminada). La regla genera una única alerta cada vez que se ejecuta, siempre y cuando la consulta devuelva más resultados de los especificados en el **umbral de alerta** anterior. La alerta incluye un resumen de todos los eventos que se devuelven en los resultados. 
 
@@ -91,13 +91,13 @@ Puede crear reglas de análisis personalizadas que le ayuden a buscar los tipos 
        En la actualidad, el número de alertas que puede generar una regla se limita a veinte. Si en una regla determinada, **Agrupación de eventos** se establece en **Desencadenar una alerta para cada evento** y la consulta de la regla devuelve más de 20 eventos, cada uno de los primeros 19 eventos generará una alerta única y la vigésima alerta resumirá todo el conjunto de eventos devueltos. En otras palabras, la alerta vigésima es lo que se habría generado en la opción **Agrupar todos los eventos en una misma alerta**.
 
        > [!NOTE]
-       > ¿Cuál es la diferencia entre **eventos** y **alertas** ?
+       > ¿Cuál es la diferencia entre **eventos** y **alertas**?
        >
        > - Un **eventos** es una descripción de una única aparición. Por ejemplo, una sola entrada de un archivo de registro podría contar como un evento. En este contexto, un evento hace referencia a un único resultado devuelto por una consulta en una regla de análisis.
        >
        > - Una **alerta** es una colección de eventos que, en conjunto, son importantes desde el punto de vista de la seguridad. Una alerta podría contener un solo evento si el evento tuviera implicaciones de seguridad importantes (por ejemplo, un inicio de sesión administrativo de un país extranjero fuera de horas de oficina).
        >
-       > - Por cierto, ¿qué son los **incidentes** ? La lógica interna de Azure Sentinel crea **incidentes** a partir de **alertas** o de grupos de alertas. La cola de incidentes es el punto focal del trabajo: evaluación de prioridades, investigación y corrección del analista.
+       > - Por cierto, ¿qué son los **incidentes**? La lógica interna de Azure Sentinel crea **incidentes** a partir de **alertas** o de grupos de alertas. La cola de incidentes es el punto focal del trabajo: evaluación de prioridades, investigación y corrección del analista.
        > 
        > Azure Sentinel ingiere eventos sin procesar de algunos orígenes de datos y alertas ya procesadas de otros usuarios. Es importante tener en cuenta con cuál es el que se está tratando en cualquier momento.
 
@@ -116,17 +116,17 @@ Puede crear reglas de análisis personalizadas que le ayuden a buscar los tipos 
 
     1. En la sección **Alert grouping** (Agrupación de alertas), si desea que se genere un solo incidente a partir de un grupo de hasta 150 alertas similares o recurrentes (consulte la nota), en **Group related alerts, triggered by this analytics rule, into incidents** (Agrupar en incidentes alertas relacionadas desencadenadas por esta regla de análisis) seleccione **Enabled** (Habilitado) y establezca los siguientes parámetros.
 
-    - **Limite el grupo a las alertas creadas en el período de tiempo seleccionado** : Determine el período de tiempo en el que se agruparán las alertas similares o periódicas. Todas las alertas correspondientes que se encuentren dentro de este periodo de tiempo generarán colectivamente un incidente o un conjunto de incidentes (en función de la configuración de agrupación que encontrará a continuación). Las alertas que aparezcan fuera de este periodo de tiempo generarán un incidente, o conjunto de incidentes, independientes.
+    - **Limite el grupo a las alertas creadas en el período de tiempo seleccionado**: Determine el período de tiempo en el que se agruparán las alertas similares o periódicas. Todas las alertas correspondientes que se encuentren dentro de este periodo de tiempo generarán colectivamente un incidente o un conjunto de incidentes (en función de la configuración de agrupación que encontrará a continuación). Las alertas que aparezcan fuera de este periodo de tiempo generarán un incidente, o conjunto de incidentes, independientes.
 
-    - **Agrupe las alertas desencadenadas por esta regla de análisis en un único incidente por** : elija el motivo por el que se agruparán las alertas:
+    - **Agrupe las alertas desencadenadas por esta regla de análisis en un único incidente por**: elija el motivo por el que se agruparán las alertas:
 
-        - **Agrupar las alertas en un solo incidente si todas las entidades coinciden** : Las alertas se agrupan si comparten los mismos valores entre todas las entidades asignadas (definidas en la pestaña Set rule logic [Establecer lógica de regla] anterior). Esta es la configuración recomendada.
+        - **Agrupar las alertas en un solo incidente si todas las entidades coinciden**: Las alertas se agrupan si comparten los mismos valores entre todas las entidades asignadas (definidas en la pestaña Set rule logic [Establecer lógica de regla] anterior). Esta es la configuración recomendada.
 
-        - **Agrupar todas las alertas desencadenadas por esta regla en un único incidente** : Todas las alertas que genera esta regla se agrupan aunque no compartan valores idénticos.
+        - **Agrupar todas las alertas desencadenadas por esta regla en un único incidente**: Todas las alertas que genera esta regla se agrupan aunque no compartan valores idénticos.
 
-        - **Agrupar las alertas en un solo incidente si las entidades seleccionadas coinciden** : Las alertas se agrupan si comparten valores idénticos en algunas de las entidades asignadas (que puede seleccionar en la lista desplegable). Es posible que desee usar esta opción si, por ejemplo, desea crear incidentes independientes basados en las direcciones IP de origen o de destino.
+        - **Agrupar las alertas en un solo incidente si las entidades seleccionadas coinciden**: Las alertas se agrupan si comparten valores idénticos en algunas de las entidades asignadas (que puede seleccionar en la lista desplegable). Es posible que desee usar esta opción si, por ejemplo, desea crear incidentes independientes basados en las direcciones IP de origen o de destino.
 
-    - **Vuelva a abrir los incidentes coincidentes cerrados** : si se ha resuelto y cerrado un incidente y, posteriormente, se genera otra alerta que habría pertenecido a ese incidente, establezca esta opción en **Enabled** (Habilitado) si quiere que el incidente cerrado se vuelva a abrir, o bien déjela como **Disabled** (Deshabilitado) si quiere que la alerta cree un incidente nuevo.
+    - **Vuelva a abrir los incidentes coincidentes cerrados**: si se ha resuelto y cerrado un incidente y, posteriormente, se genera otra alerta que habría pertenecido a ese incidente, establezca esta opción en **Enabled** (Habilitado) si quiere que el incidente cerrado se vuelva a abrir, o bien déjela como **Disabled** (Deshabilitado) si quiere que la alerta cree un incidente nuevo.
     
         > [!NOTE]
         > Se pueden agrupar hasta 150 alertas en un solo incidente. Si hay más de 150 alertas generadas por una regla que las agrupa en un solo incidente, se generará un nuevo incidente con los mismos detalles del incidente que el original, y las alertas sobrantes se agruparán en el nuevo incidente.
@@ -137,11 +137,11 @@ Puede crear reglas de análisis personalizadas que le ayuden a buscar los tipos 
   
 1. Una vez creada la alerta, se agrega una regla personalizada a la tabla en **Active rules** (Reglas activas). Desde esta lista puede habilitar, deshabilitar o eliminar cada regla.
 
-1. Para ver los resultados de las reglas de alertas que cree, vaya a la página de **incidentes** , donde puede evaluar las prioridades, [investigar los incidentes](tutorial-investigate-cases.md) y solucionar las amenazas.
+1. Para ver los resultados de las reglas de alertas que cree, vaya a la página de **incidentes**, donde puede evaluar las prioridades, [investigar los incidentes](tutorial-investigate-cases.md) y solucionar las amenazas.
 
 
 > [!NOTE]
-> Las alertas generadas en Azure Sentinel están disponibles a través de [Seguridad de Microsoft Graph](https://aka.ms/securitygraphdocs). Para obtener más información, vea la [documentación sobre alertas de Seguridad de Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs).
+> Las alertas generadas en Azure Sentinel están disponibles a través de [Seguridad de Microsoft Graph](/graph/security-concept-overview). Para obtener más información, vea la [documentación sobre alertas de Seguridad de Microsoft Graph](/graph/api/resources/security-api-overview).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -185,4 +185,3 @@ Los administradores de SOC deben asegurarse de comprobar la lista de reglas peri
 En este tutorial ha aprendido a detectar amenazas casos mediante Azure Sentinel.
 
 Para aprender a automatizar las respuestas a las amenazas, consulte [Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](tutorial-respond-threats-playbook.md).
-

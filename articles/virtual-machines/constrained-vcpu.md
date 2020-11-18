@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 03/09/2018
 ms.author: mimckitt
-ms.openlocfilehash: c7852bd1b6d93357c1c9127686d1edbb5c702a3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 530ae08dabe54ed279a4055e52109aad0ef4f842
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88701319"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426160"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tamaños de VM que admiten vCPU restringidas
 
@@ -63,6 +63,17 @@ Las tarifas de licencias que se cobran para SQL Server u Oracle están restringi
 | Standard_E32-8ds_v4 | 8    | Igual que E32ds_v4|
 | Standard_E64-32ds_v4| 32   | Igual que E64ds_v4|
 | Standard_E64-16ds_v4| 16   | Igual que E64ds_v4|
+| Standard_E4-2as_v4  | 2    | Igual que E4as_v4 |
+| Standard_E8-4as_v4  | 4    | Igual que E8as_v4 |
+| Standard_E8-2as_v4  | 2    | Igual que E8as_v4 |
+| Standard_E16-8as_v4 | 8    | Igual que E16as_v4|
+| Standard_E16-4as_v4 | 4    | Igual que E16as_v4|
+| Standard_E32-16as_v4| 16   | Igual que E32as_v4|
+| Standard_E32-8as_v4 | 8    | Igual que E32as_v4|
+| Standard_E64-32as_v4| 32   | Igual que E64as_v4|
+| Standard_E64-16as_v4| 16   | Igual que E64as_v4|
+| Standard_E96-48as_v4| 48   | Igual que E96as_v4|
+| Standard_E96-24as_v4| 24   | Igual que E96as_v4|
 | Standard_GS4-8      | 8    | Igual que GS4     |
 | Standard_GS4-4      | 4    | Igual que GS4     |
 | Standard_GS5-16     | 16   | Igual que GS5     |

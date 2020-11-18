@@ -5,37 +5,30 @@ author: spelluru
 ms.author: spelluru
 ms.date: 10/07/2020
 ms.topic: article
-ms.openlocfilehash: 54649c47a896937a512a6041e485abfb03ca88dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824979"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427154"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permiso para acceder a los espacios de nombres de Azure Service Bus a través de puntos de conexión privados
-
 El servicio Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Service Bus, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados por Azure mediante un **punto de conexión privado** de la red virtual.
+
+> [!IMPORTANT]
+> Esta característica es compatible con el nivel **premium** de Azure Service Bus. Para más información sobre el nivel premium, consulte el artículo [Niveles de mensajería Premium y Estándar de Service Bus](service-bus-premium-messaging.md).
 
 Un punto de conexión privado es una interfaz de red que le conecta de forma privada y segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar el servicio de manera eficaz a su red virtual. Todo el tráfico dirigido al servicio se puede enrutar mediante el punto de conexión privado, por lo que no se necesita ninguna puerta de enlace, dispositivos NAT, conexiones de ExpressRoute o VPN ni direcciones IP públicas. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. Puede conectarse a una instancia de un recurso de Azure, lo que le otorga el nivel más alto de granularidad en el control de acceso.
 
 Para más información, consulte [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
 
 >[!WARNING]
-> La implementación de puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Service Bus.
->
-> Los servicios de confianza de Microsoft no se admiten cuando se usan instancias de Virtual Network.
->
-> Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
-> - Integración con Azure Event Grid
-> - Enrutamientos de Azure IoT Hub
-> - Azure IoT Device Explorer
+> La implementación de puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Service Bus. Como excepción, puede permitir el acceso a los recursos de Service Bus desde determinados servicios de confianza, incluso cuando los puntos de conexión privados no están habilitados. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
 >
 > Los siguientes servicios de Microsoft deben estar en una red virtual
 > - Azure App Service
 > - Azure Functions
 
-> [!IMPORTANT]
-> Esta característica es compatible con el nivel **premium** de Azure Service Bus. Para más información sobre el nivel premium, consulte el artículo [Niveles de mensajería Premium y Estándar de Service Bus](service-bus-premium-messaging.md).
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
@@ -61,7 +54,7 @@ Si ya tiene un espacio de nombres existente, puede crear un punto de conexión p
 2. En el menú de la izquierda, seleccione la opción **Redes** en **Configuración**. 
 
     > [!NOTE]
-    > Puede ver la pestaña **Redes** solo para los espacios de nombres **prémium**.  
+    > Puede ver la pestaña **Redes** solo para los espacios de nombres **premium**.  
     
     De forma predeterminada, está seleccionada la opción **Redes seleccionadas**. Si no agrega al menos una regla de firewall de IP o una red virtual en esta página, se podrá acceder al espacio de nombres desde la red pública de Internet (mediante la clave de acceso).
 
@@ -111,6 +104,8 @@ Si ya tiene un espacio de nombres existente, puede crear un punto de conexión p
 12. Confirme que se ha creado el punto de conexión privado. Si es el propietario del recurso y ha seleccionado la opción **Connect to an Azure resource in my directory** (Conectar a un recurso de Azure en mi directorio) en **Connection method** (Método de conexión), la conexión del punto de conexión debe ser **aprobada automáticamente**. Si está en el estado **pendiente**, consulte la sección [Administración de puntos de conexión privados desde Azure Portal](#manage-private-endpoints-using-azure-portal).
 
     ![Punto de conexión privado creado](./media/private-link-service/private-endpoint-created.png)
+
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>Incorporación de un punto de conexión privado mediante PowerShell
 En el ejemplo siguiente se muestra cómo usar Azure PowerShell para crear una conexión de punto de conexión privado a un espacio de nombres de Service Bus.

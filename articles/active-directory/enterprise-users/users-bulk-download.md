@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 04/16/2020
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 878f091ac6ac40f6ce434710e809c790f382c1ac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0183101d37a9f204b5b471270de4cc7befd50a55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373497"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646770"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Descarga de una lista de usuarios en el portal de Azure Active Directory
 
@@ -32,8 +32,8 @@ Para descargar la lista de usuarios del Centro de administración de Azure AD, d
 
 1. [Inicie sesión en la organización de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador de usuarios de la organización.
 2. Vaya a Azure Active Directory > Usuarios. A continuación, seleccione los usuarios que desea incluir en la descarga. Para ello, active la casilla en la columna izquierda junto a cada usuario. Nota: En este momento, no hay ninguna manera de seleccionar todos los usuarios para la exportación. Cada una de ellas debe estar seleccionada de manera individual.
-3. En Azure AD, seleccione **Usuarios** > **Descargar usuarios** .
-4. En la página **Descargar usuarios** , seleccione **Iniciar** para recibir un archivo .csv que enumera las propiedades de perfil del usuario. Si hay errores, puede descargar y ver el archivo de resultados en la página de resultados de la operación masiva. El archivo contiene el motivo de cada error.
+3. En Azure AD, seleccione **Usuarios** > **Descargar usuarios**.
+4. En la página **Descargar usuarios**, seleccione **Iniciar** para recibir un archivo .csv que enumera las propiedades de perfil del usuario. Si hay errores, puede descargar y ver el archivo de resultados en la página de resultados de la operación masiva. El archivo contiene el motivo de cada error.
 
    ![Seleccione dónde quiere la lista de usuarios que quiere descargar.](./media/users-bulk-download/bulk-download.png)
 
@@ -70,7 +70,7 @@ Para descargar la lista de usuarios del Centro de administración de Azure AD, d
 
 ## <a name="check-status"></a>Comprobar estado
 
-Puede ver el estado de las solicitudes masivas pendientes en la página **Resultados de la operación masiva** .
+Puede ver el estado de las solicitudes masivas pendientes en la página **Resultados de la operación masiva**.
 
 [![Comprobación del estado en la página Resultados de la operación masiva.](./media/users-bulk-download/bulk-center.png)](./media/users-bulk-download/bulk-center.png#lightbox)
 

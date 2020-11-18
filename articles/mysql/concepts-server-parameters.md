@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b5b171941a3da42d2f5b385303c51285ff793599
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545164"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376781"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parámetros del servidor en Azure Database for MySQL
 
@@ -108,7 +108,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/in
 
 MySQL almacena la tabla InnoDB en distintos espacios de tabla en función de la configuración proporcionada durante la creación de la tabla. El [espacio de tablas del sistema](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) es el área de almacenamiento del diccionario de datos de InnoDB. Un [espacio de tabla de archivo por tabla](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contiene datos e índices para una sola tabla de InnoDB y se almacena en el sistema de archivos, en su propio archivo de datos. Este comportamiento se controla mediante el parámetro de servidor `innodb_file_per_table`. Si `innodb_file_per_table` se establece en `OFF`, InnoDB crea tablas en el espacio de tablas del sistema. De lo contrario, InnoDB crea tablas en espacios de tabla de archivo por tabla.
 
-Azure Database for MySQL admite **1 TB** como máximo en un solo archivo de datos. Si el tamaño de la base de datos es superior a 1 TB, hay que crear la tabla en el espacio de tabla [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Si tiene una sola tabla de tamaño superior a 1 TB, debería usar la tabla de particiones.
+Azure Database for MySQL admite **4 TB** como máximo en un solo archivo de datos. Si el tamaño de la base de datos es superior a 4 TB, debería crear la tabla en el espacio de tabla [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Si tiene una sola tabla de tamaño superior a 4 TB, debería usar la tabla de particiones.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -215,7 +215,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Si recibe un error similar a "Tamaño de la fila demasiado grande (> 8126)", es posible que quiera desactivar el parámetro **innodb_strict_mode** . El parámetro de servidor **innodb_strict_mode** no se puede modificar globalmente en el nivel de servidor porque, si el tamaño de los datos de fila es superior a 8 KB, se truncarán los datos sin que se produzca una posible pérdida de datos. Se recomienda modificar el esquema para ajustarlo al límite de tamaño de página. 
+Si recibe un error similar a "Tamaño de la fila demasiado grande (> 8126)", es posible que quiera desactivar el parámetro **innodb_strict_mode**. El parámetro de servidor **innodb_strict_mode** no se puede modificar globalmente en el nivel de servidor porque, si el tamaño de los datos de fila es superior a 8 KB, se truncarán los datos sin que se produzca una posible pérdida de datos. Se recomienda modificar el esquema para ajustarlo al límite de tamaño de página. 
 
 Este parámetro se puede establecer en un nivel de sesión mediante `init_connect`. Para establecer **innodb_strict_mode** en el nivel de sesión, consulte cómo [ajustar un parámetro que no aparece en la lista](./howto-server-parameters.md#setting-parameters-not-listed).
 

@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 2d6610a2f69b6da34972510a5619c6d16a605289
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d4bf4127dc163bb5f034e077b84664828374ba87
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776449"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647977"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Creación de un laboratorio con un recurso compartido en Azure Lab Services
 
@@ -38,12 +38,12 @@ Uno de los recursos compartidos más comunes es un servidor de licencias; aquí 
 El servidor de licencias deberá estar conectado a la red virtual que está emparejada con el laboratorio, por lo que el servidor de licencias debe estar ubicado en la misma región que la cuenta de laboratorio.
 
 #### <a name="static-private-ip-and-mac-address"></a>Dirección MAC e IP privada estática
-De forma predeterminada, las máquinas virtuales tienen una dirección IP privada dinámica, por lo que [antes de configurar cualquier software debe establecer la dirección IP privada como estática](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal). Esto configura la dirección IP privada y la dirección MAC para que sean estáticas.  
+De forma predeterminada, las máquinas virtuales tienen una dirección IP privada dinámica, por lo que [antes de configurar cualquier software debe establecer la dirección IP privada como estática](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Esto configura la dirección IP privada y la dirección MAC para que sean estáticas.  
 
 #### <a name="control-access"></a>Control de acceso
 Controlar el acceso al servidor de licencias es un paso clave.  Una vez que la VM está configurada, el acceso seguirá siendo necesario para realizar trabajos de mantenimiento, solucionar problemas e instalar actualizaciones.  Estas son algunas formas de hacerlo.
-- [Configurar el acceso Just-in-Time (JIT) en Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc)
-- [Configurar un grupo de seguridad de red para restringir el acceso.](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)
+- [Configurar el acceso Just-in-Time (JIT) en Azure Security Center.](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
+- [Configurar un grupo de seguridad de red para restringir el acceso.](../virtual-network/network-security-groups-overview.md)
 - [Configurar Bastion para permitir el acceso seguro al servidor de licencias.](https://azure.microsoft.com/services/azure-bastion/)
 
 ## <a name="lab-account"></a>Cuenta de laboratorio

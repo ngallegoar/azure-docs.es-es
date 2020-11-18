@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2020
+ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 59ed397f3bd54a324f8fa375a3ea870860c31142
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241334"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410936"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -74,7 +74,7 @@ El campo `error` tiene varios valores posibles. Revise los vínculos de document
 ## <a name="lookup-current-error-code-information"></a>Búsqueda de información actual sobre códigos de error
 Los códigos y los mensajes de error están sujetos a cambios.  Para tener la información más actualizada, eche un vistazo a la página [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) para encontrar descripciones de errores de AADSTS, correcciones y algunas soluciones recomendadas.  
 
-Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha recibido el código de error "AADSTS16000", busque "16000" en [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error).  También puede agregar el número de código de error a la dirección URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) para crear un vínculo directo a un error específico.
+Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error).  También puede agregar el número de código de error a la dirección URL: [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058) para crear un vínculo directo a un error específico.
 
 ## <a name="aadsts-error-codes"></a>Códigos de error AADSTS
 

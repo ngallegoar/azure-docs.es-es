@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ae9404d366b24c0cc1bcf01ecffc71a427f949d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94abb33d39765a19306a013576d43fb2602d1c37
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034352"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630233"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migración de datos en masa a Azure File Sync con Azure DataBox
 Puede migrar datos de forma masiva a Azure File Sync de dos maneras:
@@ -25,7 +25,7 @@ En este artículo se explica cómo migrar archivos sin conexión de una forma qu
 ## <a name="migration-tools"></a>Herramientas de migración
 El proceso que se describe en este artículo funciona no solo con Data Box sino también con otras herramientas de migración sin conexión. También sirve para herramientas como AzCopy, Robocopy o herramientas y servicios de asociados que funcionan directamente a través de Internet. Independientemente de cómo se solucione la dificultad inicial, siga los pasos de este artículo para usar estas herramientas de una forma que sea compatible con Azure File Sync.
 
-En algunos casos, necesitará pasar de un servidor de Windows a otro antes de adoptar Azure File Sync. El [Servicio de migración de almacenamiento](https://aka.ms/storagemigrationservice) (SMS) puede ayudar en eso. Si necesita migrar a una versión de sistema operativo del servidor compatible con Azure File Sync (Windows Server 2012R2 y versiones posteriores) o simplemente tiene que migrar porque está comprando un nuevo sistema para Azure File Sync, SMS tiene numerosas características y ventajas que lo ayudarán a tener realizar su migración sin ningún problema.
+En algunos casos, necesitará pasar de un servidor de Windows a otro antes de adoptar Azure File Sync. El [Servicio de migración de almacenamiento](/windows-server/storage/storage-migration-service/overview) (SMS) puede ayudar en eso. Si necesita migrar a una versión de sistema operativo del servidor compatible con Azure File Sync (Windows Server 2012R2 y versiones posteriores) o simplemente tiene que migrar porque está comprando un nuevo sistema para Azure File Sync, SMS tiene numerosas características y ventajas que lo ayudarán a tener realizar su migración sin ningún problema.
 
 ## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>Ventajas de usar una herramienta de transferencia de datos sin conexión
 Estas son las principales ventajas de usar una herramienta de transferencia como Data Box para la migración sin conexión:

@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: c1c0c3038c687b7f91d3c75d8c4c9589c5e245a3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1617015d6d4a026d5dadda667dcd03447a20c288
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427634"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649507"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configuración del consentimiento de los usuarios finales a las aplicaciones
 
@@ -36,28 +36,28 @@ Las directivas de consentimiento de aplicaciones describen las condiciones que d
 
 Al elegir las directivas de consentimiento de aplicaciones que se aplican a todos los usuarios, puede establecer límites sobre cuándo los usuarios finales pueden conceder consentimiento a las aplicaciones y cuándo se les pedirá que soliciten la revisión y la aprobación del administrador:
 
-* **Deshabilitar el consentimiento del usuario** : los usuarios no pueden conceder permisos a las aplicaciones. Los usuarios pueden seguir iniciando sesión en las aplicaciones a las que dieron su consentimiento previamente o que los administradores autorizaron en su nombre, pero estos no podrán dar su consentimiento por sí solos a nuevos permisos ni a nuevas aplicaciones. Solo los usuarios a los que se haya concedido un rol de directorio que incluya el permiso para conceder consentimiento podrán consentir nuevas aplicaciones.
+* **Deshabilitar el consentimiento del usuario**: los usuarios no pueden conceder permisos a las aplicaciones. Los usuarios pueden seguir iniciando sesión en las aplicaciones a las que dieron su consentimiento previamente o que los administradores autorizaron en su nombre, pero estos no podrán dar su consentimiento por sí solos a nuevos permisos ni a nuevas aplicaciones. Solo los usuarios a los que se haya concedido un rol de directorio que incluya el permiso para conceder consentimiento podrán consentir nuevas aplicaciones.
 
 * **Los usuarios pueden dar su consentimiento a las aplicaciones de publicadores comprobados o de su organización, pero solo para los permisos que seleccione (versión preliminar)** : los usuarios solo pueden dar su consentimiento a las aplicaciones publicadas por un [publicador comprobado](../develop/publisher-verification-overview.md) y a las aplicaciones que están registradas en el inquilino. Los usuarios solo pueden dar su consentimiento a los permisos clasificados como de "bajo impacto". Debe [clasificar los permisos](configure-permission-classifications.md) para seleccionar aquellos a los que los usuarios pueden dar su consentimiento.
 
-* **Los usuarios pueden dar su consentimiento a todas las aplicaciones** : esta opción permite a todos los usuarios dar su consentimiento a cualquier permiso para todas las aplicaciones, siempre que este no requiera el consentimiento del administrador.
+* **Los usuarios pueden dar su consentimiento a todas las aplicaciones**: esta opción permite a todos los usuarios dar su consentimiento a cualquier permiso para todas las aplicaciones, siempre que este no requiera el consentimiento del administrador.
 
-* **Directiva de consentimiento de aplicaciones personalizada** : para obtener aún más opciones sobre las condiciones que rigen el consentimiento del usuario, puede [crear una directiva de consentimiento de aplicaciones personalizada](manage-app-consent-policies.md#create-a-custom-app-consent-policy), y configurarlas para que soliciten el consentimiento del usuario.
+* **Directiva de consentimiento de aplicaciones personalizada**: para obtener aún más opciones sobre las condiciones que rigen el consentimiento del usuario, puede [crear una directiva de consentimiento de aplicaciones personalizada](manage-app-consent-policies.md#create-a-custom-app-consent-policy), y configurarlas para que soliciten el consentimiento del usuario.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para configurar el consentimiento del usuario en Azure Portal:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator--company-administrator).
-1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Consentimiento y permisos** > **Configuración del consentimiento de los usuarios** .
-1. En **Consentimiento del usuario para las aplicaciones** , seleccione la configuración de consentimiento que desee establecer para todos los usuarios.
+1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Consentimiento y permisos** > **Configuración del consentimiento de los usuarios**.
+1. En **Consentimiento del usuario para las aplicaciones**, seleccione la configuración de consentimiento que desee establecer para todos los usuarios.
 1. Haga clic en **Guardar** para guardar la configuración.
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Configuración del consentimiento del usuario":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Puede usar el módulo de versión preliminar de Azure AD PowerShell más reciente, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), para elegir la directiva de consentimiento de aplicaciones que rige el consentimiento del usuario para las aplicaciones.
+Puede usar el módulo de versión preliminar de Azure AD PowerShell más reciente, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), para elegir la directiva de consentimiento de aplicaciones que rige el consentimiento del usuario para las aplicaciones.
 
 #### <a name="disable-user-consent"></a>Deshabilitar el consentimiento del usuario
 
@@ -101,7 +101,7 @@ Set-AzureADMSAuthorizationPolicy `
 
 ## <a name="risk-based-step-up-consent"></a>Consentimiento activo en función del riesgo
 
-El consentimiento activo en función del riesgo ayuda a reducir la exposición de los usuarios a aplicaciones malintencionadas que realizan [solicitudes de consentimiento ilícitas](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Si Microsoft detecta una solicitud de consentimiento de usuario final de riesgo, la solicitud requerirá un "paso activo" para el consentimiento de administrador. Esta funcionalidad está habilitada de forma predeterminada, pero solo producirá un cambio de comportamiento cuando esté habilitado el consentimiento del usuario final.
+El consentimiento activo en función del riesgo ayuda a reducir la exposición de los usuarios a aplicaciones malintencionadas que realizan [solicitudes de consentimiento ilícitas](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Si Microsoft detecta una solicitud de consentimiento de usuario final de riesgo, la solicitud requerirá un "paso activo" para el consentimiento de administrador. Esta funcionalidad está habilitada de forma predeterminada, pero solo producirá un cambio de comportamiento cuando esté habilitado el consentimiento del usuario final.
 
 Cuando se detecta una solicitud de consentimiento peligrosa, la petición de consentimiento mostrará un mensaje que indica que se necesita la aprobación del administrador. Si el [flujo de trabajo de solicitud de consentimiento de administrador](configure-admin-consent-workflow.md) está habilitado, el usuario puede enviar la solicitud a un administrador para que la revise de nuevo desde la propia petición de consentimiento. Si no está habilitado, se mostrará el mensaje siguiente:
 
@@ -114,9 +114,9 @@ En este caso, también se registrará un evento de auditoría con la categoría 
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Deshabilitación o nueva habilitación del consentimiento activo en función del riesgo con PowerShell
 
-Puede usar el módulo en versión preliminar de PowerShell de Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), para deshabilitar el paso activo del consentimiento de administrador requerido en los casos en los que Microsoft detecta el riesgo o para volver a habilitarlo si estaba deshabilitado anteriormente.
+Puede usar el módulo en versión preliminar de PowerShell de Azure AD, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), para deshabilitar el paso activo del consentimiento de administrador requerido en los casos en los que Microsoft detecta el riesgo o para volver a habilitarlo si estaba deshabilitado anteriormente.
 
-1. Asegúrese de que usa el módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Este paso es importante si ha instalado el módulo [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) y el módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true).
+1. Asegúrese de que usa el módulo [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview). Este paso es importante si ha instalado el módulo [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) y el módulo [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview).
 
     ```powershell
     Remove-Module AzureAD
@@ -182,7 +182,7 @@ Para obtener más información:
 * [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)
 * [Aprenda a administrar el consentimiento de aplicaciones y a evaluar las solicitudes de consentimiento](manage-consent-requests.md)
 * [Concesión del consentimiento del administrador para todo el inquilino a una aplicación](grant-admin-consent.md)
-* [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/active-directory-v2-scopes.md)
+* [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obtener ayuda o encontrar respuestas a sus preguntas:
 * [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
