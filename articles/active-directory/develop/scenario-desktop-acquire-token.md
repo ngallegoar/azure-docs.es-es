@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: fac22305e64e2f6bc2ec61bc65f7e92f1b1af1bf
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 8608da33c747f76452a0106e4e2737849e06a75c
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287539"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443235"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -417,7 +417,7 @@ Para iniciar la sesión de un usuario de dominio en un equipo unido a un dominio
 
 ### <a name="constraints"></a>Restricciones
 
-- La autenticación integrada de Windows solo es útil para usuarios *federados* , es decir, los usuarios creados en Active Directory y respaldados por Azure AD. Los usuarios creados directamente en Azure AD sin el respaldo de Active Directory, conocidos como usuarios *administrados* , no pueden usar este flujo de autenticación. Esta limitación no afecta al flujo de nombre de usuario y contraseña.
+- La autenticación integrada de Windows solo es útil para usuarios *federados*, es decir, los usuarios creados en Active Directory y respaldados por Azure AD. Los usuarios creados directamente en Azure AD sin el respaldo de Active Directory, conocidos como usuarios *administrados*, no pueden usar este flujo de autenticación. Esta limitación no afecta al flujo de nombre de usuario y contraseña.
 - IWA es para aplicaciones escritas para las plataformas .NET Framework, .NET Core y Plataforma universal de Windows (UPW).
 - IWA no omite [la autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md). Si se ha configurado MFA, IWA podría producir un error si es necesario un desafío de MFA, porque MFA necesita interacción del usuario.
   > [!NOTE]
@@ -1390,5 +1390,4 @@ namespace CommonCacheMsalV3
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Llamada a una API web desde la aplicación de escritorio](scenario-desktop-call-api.md)
+Avance al siguiente artículo de este escenario, [Llamada a una API web desde la aplicación de escritorio](scenario-desktop-call-api.md).

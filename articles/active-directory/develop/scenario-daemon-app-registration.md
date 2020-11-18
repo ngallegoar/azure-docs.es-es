@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 508101ad615dd96559b1c68a61be7c08772545db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80885487"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443337"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Aplicación de demonio que llama a las API web: registro de la aplicación
 
@@ -50,5 +50,4 @@ Si es un ISV que compila una aplicación de varios inquilinos, debe leer la secc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Aplicación de demonio: configuración del código de aplicación](./scenario-daemon-app-configuration.md)
+Avance al siguiente artículo de este escenario, [Configuración del código de la aplicación](./scenario-daemon-app-configuration.md).

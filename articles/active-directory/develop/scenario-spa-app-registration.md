@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 638ebf8aefc67584805c1402499ca23fc1febb45
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c9fde904d6befebfcfd87b55bd7b2bf4e4c825f2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217208"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443830"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicación de página única: Registro de aplicación
 
@@ -79,7 +79,4 @@ Cuando todas sus aplicaciones de página única en producción representadas por
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-A continuación, configure el código de la aplicación para que use el registro de aplicación que creó en los pasos anteriores:.
-
-> [!div class="nextstepaction"]
-> [Configuración del código de la aplicación](scenario-spa-app-configuration.md)
+A continuación, configure el código de la aplicación para que use el registro de aplicación que creó en los pasos anteriores: [Configuración del código de la aplicación](scenario-spa-app-configuration.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 13000c5a61dc2c4d49aa395271beddef64d32245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119222"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443320"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de demonio que llama a las API web: adquisición de un token
 
@@ -202,7 +202,7 @@ Para más información, consulte la documentación del protocolo: [La Plataforma
 
 ## <a name="application-token-cache"></a>Caché de tokens de aplicación
 
-En MSAL.NET, `AcquireTokenForClient` usa la caché de tokens de aplicación. (Todos los demás métodos AcquireToken*XX* usan la caché de tokens de usuario). No llame a `AcquireTokenSilent` antes de llamar a `AcquireTokenForClient`, ya que `AcquireTokenSilent` usa la caché de tokens de *usuario*. `AcquireTokenForClient` comprueba la propia caché de tokens de *aplicación* y la actualiza.
+En MSAL.NET, `AcquireTokenForClient` usa la caché de tokens de aplicación. (Todos los demás métodos AcquireToken *XX* usan la caché de tokens de usuario). No llame a `AcquireTokenSilent` antes de llamar a `AcquireTokenForClient`, ya que `AcquireTokenSilent` usa la caché de tokens de *usuario*. `AcquireTokenForClient` comprueba la propia caché de tokens de *aplicación* y la actualiza.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -233,17 +233,14 @@ Content: {
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Llamada de demonio: llamar a una API web](./scenario-daemon-call-api.md?tabs=dotnet)
+Avance al siguiente artículo de este escenario, [Llamada a una API web](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Llamada de demonio: llamar a una API web](./scenario-daemon-call-api.md?tabs=python)
+Avance al siguiente artículo de este escenario, [Llamada a una API web](./scenario-daemon-call-api.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Llamada de demonio: llamar a una API web](./scenario-daemon-call-api.md?tabs=java)
+Avance al siguiente artículo de este escenario, [Llamada a una API web](./scenario-daemon-call-api.md?tabs=java).
 
 ---

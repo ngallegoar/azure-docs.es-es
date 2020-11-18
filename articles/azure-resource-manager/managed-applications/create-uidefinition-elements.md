@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
-ms.openlocfilehash: c3ba36fc3aaa98aec54b6c70cd416c589be27cfa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3e8bdd85c112d90fd5e10f6e65e48ca6b3f71b6e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747360"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410749"
 ---
 # <a name="createuidefinition-elements"></a>Elementos CreateUiDefinition
 
-En este artículo se describen el esquema y las propiedades de todos los elementos compatibles de CreateUiDefinition. 
+En este artículo se describen el esquema y las propiedades de todos los elementos compatibles de CreateUiDefinition.
 
 ## <a name="schema"></a>Schema
 
@@ -56,6 +56,7 @@ La documentación de cada elemento contiene un ejemplo de interfaz de usuario, u
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
 - [Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
 - [Microsoft.Common.Section](microsoft-common-section.md)
+- [Microsoft.Common.ServicePrincipalSelector](microsoft-common-serviceprincipalselector.md)
 - [Microsoft.Common.Slider](microsoft-common-slider.md)
 - [Microsoft.Common.TagsByResource](microsoft-common-tagsbyresource.md)
 - [Microsoft.Common.TextBlock](microsoft-common-textblock.md)

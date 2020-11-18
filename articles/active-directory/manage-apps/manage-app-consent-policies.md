@@ -12,18 +12,18 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486929"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442266"
 ---
 # <a name="manage-app-consent-policies"></a>Administración de directivas de consentimiento de aplicaciones
 
 Con Azure AD PowerShell, puede ver y administrar las directivas de consentimiento de la aplicación.
 
-Una directiva de consentimiento de la aplicación se compone de uno o más conjuntos de condiciones de tipo "includes" y cero o más conjuntos de condiciones de tipo "excludes". Para que un evento se tenga en cuenta en una directiva de consentimiento de aplicaciones, debe coincidir *al menos* con un conjunto de condiciones de tipo "includes" y no debe haber *ningún* conjunto de condiciones de tipo "excludes".
+Una directiva de consentimiento de la aplicación se compone de uno o más conjuntos de condiciones de tipo "includes" y cero o más conjuntos de condiciones de tipo "excludes". Para que un evento se tenga en cuenta en una directiva de consentimiento de aplicaciones, debe coincidir *al menos* con un conjunto de condiciones de tipo "includes" y no debe coincidir con *ningún* conjunto de condiciones de tipo "excludes".
 
 Cada conjunto de condiciones está formado por varias condiciones. Para que un evento coincida con un conjunto de condiciones, se deben cumplir *todas* las condiciones detalladas en el conjunto de condiciones.
 
@@ -133,7 +133,7 @@ En la tabla siguiente se proporciona la lista de condiciones admitidas para las 
 | Condición | Descripción|
 |:---------------|:----------|
 | PermissionClassification | Es la [clasificación de permisos](configure-permission-classifications.md) referente al permiso que se va a conceder; también puede ser el valor "todos" para hacer que coincida con cualquier clasificación de permisos (incluidos los permisos que no están clasificados). El valor predeterminado es "todos". |
-| PermissionType | Es el tipo del permiso que se va a conceder. Use "aplicación" para permisos de aplicaciones (por ejemplo, roles de aplicación) o "delegado" para los permisos delegados. <br><br>**Nota** : El valor "delegatedUserConsentable" indica permisos delegados que el publicador de la API no ha configurado para requerir el consentimiento del administrador; este valor se puede usar en directivas de concesión de permisos integrados, pero no se puede usar en directivas de concesión de permisos personalizados. Necesario. |
+| PermissionType | Es el tipo del permiso que se va a conceder. Use "aplicación" para permisos de aplicaciones (por ejemplo, roles de aplicación) o "delegado" para los permisos delegados. <br><br>**Nota**: El valor "delegatedUserConsentable" indica permisos delegados que el publicador de la API no ha configurado para requerir el consentimiento del administrador; este valor se puede usar en directivas de concesión de permisos integrados, pero no se puede usar en directivas de concesión de permisos personalizados. Necesario. |
 | ResourceApplication | Es el valor **AppId** de la aplicación de recursos (por ejemplo, la API) para la que se concede un permiso o el estado "cualquiera" para que coincida con cualquier aplicación de recursos o API. El valor predeterminado es "cualquiera". |
 | Permisos | Lista de id. de permisos que deben coincidir con los permisos específicos, o una lista con el valor único "Todos" para que así los valores coincidan con cualquier permiso. El valor predeterminado es el valor único "todos". <ul><li>Los id. de permisos delegados se pueden encontrar en la propiedad **OAuth2Permissions** del objeto ServicePrincipal de la API.</li><li>Los id. de permisos de aplicación se pueden encontrar en la propiedad **AppRoles** del objeto ServicePrincipal de la API.</li></ol> |
 | ClientApplicationIds | Es una lista de valores de **AppId** que deben coincidir con las aplicaciones cliente o una lista con el valor único "todos" para que así los valores coincidan con cualquier aplicación cliente. El valor predeterminado es el valor único "todos". |

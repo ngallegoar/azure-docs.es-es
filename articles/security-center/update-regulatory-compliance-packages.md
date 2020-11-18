@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e7e1567a487dc6cadc94a42f02c597ff0e02665b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342202"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372768"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalización del conjunto de estándares en el panel de cumplimiento normativo
 
@@ -27,7 +27,7 @@ Azure Security Center compara continuamente la configuración de los recursos co
 
 ## <a name="overview-of-compliance-packages"></a>Información general sobre los paquetes de cumplimiento
 
-Los estándares del sector, los estándares normativos y las pruebas comparativas se representan en Security Center como *paquetes de cumplimiento* .  Cada paquete es una iniciativa definida en Azure Policy. Para ver los datos de cumplimiento asignados como evaluaciones en el panel, agregue un paquete de cumplimiento a la suscripción o al grupo de administración desde la página **Directiva de seguridad** . (Obtenga más información sobre Azure Policy y las iniciativas en [Uso de directivas de seguridad](tutorial-security-policy.md)).
+Los estándares del sector, los estándares normativos y las pruebas comparativas se representan en Security Center como *paquetes de cumplimiento*.  Cada paquete es una iniciativa definida en Azure Policy. Para ver los datos de cumplimiento asignados como evaluaciones en el panel, agregue un paquete de cumplimiento a la suscripción o al grupo de administración desde la página **Directiva de seguridad**. (Obtenga más información sobre Azure Policy y las iniciativas en [Uso de directivas de seguridad](tutorial-security-policy.md)).
 
 Cuando haya incorporado un estándar o una prueba comparativa, asignará la iniciativa al ámbito y el estándar aparecerá en el panel de cumplimiento normativo con todos los datos de cumplimiento asociados asignados como evaluaciones. También puede descargar informes de resumen para cualquiera de los estándares que se hayan incorporado.
 
@@ -41,7 +41,7 @@ Microsoft también realiza un seguimiento de los estándares normativos y mejora
 
 Puede agregar estándares como NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official y UK NHS, Canada Federal PBMM y Azure CIS 1.1.0 (nuevo), una representación más completa de Azure CIS 1.1.0. 
 
-Además, puede agregar **Azure Security Benchmark** , las instrucciones específicas de Azure creadas por Microsoft para los procedimientos recomendados de seguridad y cumplimiento basados en los marcos de cumplimiento comunes. ([Mas información sobre Azure Security Benchmark](../security/benchmarks/introduction.md)).
+Además, puede agregar **Azure Security Benchmark**, las instrucciones específicas de Azure creadas por Microsoft para los procedimientos recomendados de seguridad y cumplimiento basados en los marcos de cumplimiento comunes. ([Mas información sobre Azure Security Benchmark](../security/benchmarks/introduction.md)).
 
 Se admitirán estándares adicionales en el panel a medida que estén disponibles. 
 
@@ -55,19 +55,20 @@ En los pasos siguientes se explica cómo agregar un paquete para supervisar el c
 
 1. En la barra lateral de Security Center, seleccione **Cumplimiento normativo** para abrir el panel de cumplimiento normativo. Aquí puede ver los estándares de cumplimiento asignados actualmente a las suscripciones que están seleccionadas.   
 
-1. En la parte superior de la página, seleccione **Administrar directivas de cumplimiento** . Se mostrará la página Administración de directivas.
+1. En la parte superior de la página, seleccione **Administrar directivas de cumplimiento**. Se mostrará la página Administración de directivas.
 
 1. Seleccione la suscripción o el grupo de administración para el que desea administrar la postura de cumplimiento normativo. 
 
     > [!TIP]
     > Se recomienda seleccionar el ámbito más alto para el que se aplica el estándar y así poder agregar y realizar un seguimiento de los datos de cumplimiento para todos los recursos anidados. 
 
-1. Para agregar los estándares pertinentes para su organización, haga clic en **Agregar más estándares** . 
+1. Para agregar los estándares pertinentes para su organización, haga clic en **Agregar más estándares**. 
 
-1. En la página **Adición de estándares de cumplimiento normativo** , puede buscar paquetes para cualquiera de los estándares disponibles. Algunos de los estándares disponibles son los siguientes:
+1. En la página **Adición de estándares de cumplimiento normativo**, puede buscar paquetes para cualquiera de los estándares disponibles. Algunos de los estándares disponibles son los siguientes:
 
     - **Azure Security Benchmark**
     - **NIST SP 800-53 R4**
+    - **NIST SP 800 171 R2**
     - **SWIFT CSP CSCF-v2020**
     - **UKO y UK NHS**
     - **Canada PBMM**
@@ -92,7 +93,7 @@ Si alguno de los estándares normativos proporcionados no es relevante para su o
 
 Para quitar un estándar:
 
-1. En el menú de Security Center, seleccione **Directiva de seguridad** .
+1. En el menú de Security Center, seleccione **Directiva de seguridad**.
 
 1. Seleccione la suscripción pertinente de la que desea quitar un estándar.
 
@@ -103,11 +104,11 @@ Para quitar un estándar:
 
     :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Eliminación de un estándar normativo del panel de cumplimiento normativo en Azure Security Center":::
 
-1. Para el estándar que desea quitar, seleccione **Deshabilitar** . Se abrirá una ventana de confirmación.
+1. Para el estándar que desea quitar, seleccione **Deshabilitar**. Se abrirá una ventana de confirmación.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Eliminación de un estándar normativo del panel de cumplimiento normativo en Azure Security Center":::.
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confirme que desea quitar el estándar normativo que ha seleccionado":::.
 
-1. Seleccione **Sí** . Se quitará el estándar. 
+1. Seleccione **Sí**. Se quitará el estándar. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

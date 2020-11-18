@@ -7,15 +7,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc4262d0190084064103aeabe48bec806213ea7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7ab6d6511d1e2cec82b321003c9d663249ddcf49
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321228"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740233"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Tareas del administrador de grupo de control de proceso de ciencia de datos en equipo
 
@@ -53,7 +53,7 @@ En el siguiente tutorial se explican los pasos en detalle.
    
 1. En el cuadro de diálogo de registro, asigne un nombre a la organización de Azure DevOps y acepte la asignación de la región de hospedaje, o bien seleccione una región distinta. Después, seleccione **Continuar**. 
 
-1. En **Cree un proyecto para empezar** , escriba *GroupCommon* y luego seleccione **Crear proyecto**. 
+1. En **Cree un proyecto para empezar**, escriba *GroupCommon* y luego seleccione **Crear proyecto**. 
    
    ![Crear proyecto](./media/group-manager-tasks/create-project.png)
 
@@ -65,9 +65,9 @@ Se abre la página **Resumen** del proyecto **GroupCommon**. La dirección URL d
 
 Azure Repos hospeda los siguientes tipos de repositorios para el grupo:
 
-- **Repositorios comunes del grupo** : Repositorios de uso general que pueden adoptar varios equipos dentro de una unidad de ciencia de datos para diversos proyectos de ciencia de datos. 
-- **Repositorios de equipo** :  Repositorios para equipos concretos de una unidad de ciencia de datos. Estos repositorios son específicos para las necesidades de un equipo, y pueden utilizarse para múltiples proyectos dentro de ese equipo, pero no son lo suficientemente genéricos como para utilizarse en diferentes equipos dentro de una unidad de ciencia de datos.
-- **Repositorios de proyecto** : Repositorios para proyectos concretos. Estos repositorios pueden no ser lo suficientemente genéricos para varios proyectos dentro de un equipo, o para otros equipos de una unidad de ciencia de datos.
+- **Repositorios comunes del grupo**: Repositorios de uso general que pueden adoptar varios equipos dentro de una unidad de ciencia de datos para diversos proyectos de ciencia de datos. 
+- **Repositorios de equipo**:  Repositorios para equipos concretos de una unidad de ciencia de datos. Estos repositorios son específicos para las necesidades de un equipo, y pueden utilizarse para múltiples proyectos dentro de ese equipo, pero no son lo suficientemente genéricos como para utilizarse en diferentes equipos dentro de una unidad de ciencia de datos.
+- **Repositorios de proyecto**: Repositorios para proyectos concretos. Estos repositorios pueden no ser lo suficientemente genéricos para varios proyectos dentro de un equipo, o para otros equipos de una unidad de ciencia de datos.
 
 Para configurar los repositorios comunes de grupos en el proyecto, puede: 
 - Cambiar el nombre del repositorio predeterminado **GroupCommon** a **GroupProjectTemplate**
@@ -75,15 +75,15 @@ Para configurar los repositorios comunes de grupos en el proyecto, puede:
 
 ### <a name="rename-the-default-project-repository-to-groupprojecttemplate"></a>Cambiar el nombre del repositorio de proyecto predeterminado a GroupProjectTemplate
 
-Para cambiar el nombre del repositorio de proyecto predeterminado **GroupCommon** a **GroupProjectTemplate** :
+Para cambiar el nombre del repositorio de proyecto predeterminado **GroupCommon** a **GroupProjectTemplate**:
 
-1. En la página **Resumen** del proyecto **GroupCommon** , seleccione **Repos**. Esta acción le lleva al repositorio predeterminado **GroupCommon** del proyecto GroupCommon, que está actualmente vacío.
+1. En la página **Resumen** del proyecto **GroupCommon**, seleccione **Repos**. Esta acción le lleva al repositorio predeterminado **GroupCommon** del proyecto GroupCommon, que está actualmente vacío.
    
 1. En la parte superior de la página, despliegue la flecha junto a **GroupCommon** y seleccione **Administrar repositorios**.
    
    ![Administrar repositorios](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
    
-1. En la página **Configuración del proyecto** , seleccione **...** junto a **GroupCommon** y luego seleccione **Cambiar nombre de repositorio**. 
+1. En la página **Configuración del proyecto**, seleccione **...** junto a **GroupCommon** y luego seleccione **Cambiar nombre de repositorio**. 
    
    ![Seleccionar... y luego Cambiar nombre de repositorio](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
    
@@ -93,19 +93,19 @@ Para cambiar el nombre del repositorio de proyecto predeterminado **GroupCommon*
 
 ### <a name="create-the-grouputilities-repository"></a>Creación del repositorio GroupUtilities
 
-Para crear el repositorio **GroupUtilities** :
+Para crear el repositorio **GroupUtilities**:
 
-1. En la página **Resumen** del proyecto **GroupCommon** , seleccione **Repos**. 
+1. En la página **Resumen** del proyecto **GroupCommon**, seleccione **Repos**. 
    
 1. En la parte superior de la página, despliegue la flecha junto a **GroupProjectTemplate** y seleccione **Nuevo repositorio**.
    
    ![Seleccionar Nuevo repositorio](./media/group-manager-tasks/create-grouputilities-repo-1.png)
    
-1. En el cuadro de diálogo **Crear un nuevo repositorio** , seleccione **Git** como **Tipo** , escriba *GroupUtilities* como **Nombre del repositorio** y luego seleccione **Crear**.
+1. En el cuadro de diálogo **Crear un nuevo repositorio**, seleccione **Git** como **Tipo**, escriba *GroupUtilities* como **Nombre del repositorio** y luego seleccione **Crear**.
    
    ![Creación del repositorio GroupUtilities](./media/group-manager-tasks/create-grouputilities-repo-2.png)
    
-1. En la página **Configuración del proyecto** , seleccione **Repositorios** bajo **Repos** en el panel de navegación izquierdo para ver los dos repositorios de grupo: **GroupProjectTemplate** y **GroupUtilities**.
+1. En la página **Configuración del proyecto**, seleccione **Repositorios** bajo **Repos** en el panel de navegación izquierdo para ver los dos repositorios de grupo: **GroupProjectTemplate** y **GroupUtilities**.
    
    ![Dos repositorios de grupo](./media/group-manager-tasks/two-repositories.png)
 
@@ -115,21 +115,19 @@ En esta parte del tutorial, importará el contenido de los repositorios **Projec
 
 Para importar los repositorios del equipo TDSP:
 
-1. En la página principal del proyecto **GroupCommon** , seleccione **Repos** en el panel de navegación de la izquierda. Se abre el repositorio predeterminado **GroupProjectTemplate**. 
+1. En la página principal del proyecto **GroupCommon**, seleccione **Repos** en el panel de navegación de la izquierda. Se abre el repositorio predeterminado **GroupProjectTemplate**. 
    
 1. En la página **GroupProjectTemplate is empty** (GroupProjectTemplate está vacío), seleccione **Importar**. 
    
    ![Seleccionar Importar](./media/group-manager-tasks/import-repo.png)
    
-1. En el cuadro de diálogo **Importar un repositorio GIT** , seleccione **Git** como **Tipo de origen** y escriba *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* para **Dirección URL de clonación**. Luego, seleccione **Importar**. El contenido del repositorio de ProjectTemplate del equipo TDSP de Microsoft se importa en el repositorio GroupProjectTemplate. 
+1. En el cuadro de diálogo **Importar un repositorio GIT**, seleccione **Git** como **Tipo de origen** y escriba *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* para **Dirección URL de clonación**. Luego, seleccione **Importar**. El contenido del repositorio de ProjectTemplate del equipo TDSP de Microsoft se importa en el repositorio GroupProjectTemplate. 
    
    ![Importación del repositorio del equipo TDSP de Microsoft](./media/group-manager-tasks/import-repo-2.png)
    
 1. En la parte superior de la página **Repos** del proyecto, seleccione el repositorio **GroupUtilities**.
    
-1. Repita el proceso de importación para importar el contenido del repositorio **Utilities** del equipo TDSP de Microsoft, *https:\//github.com/Azure/Azure-TDSP-Utilities.git* , en su repositorio **GroupUtilities**. 
-   
-Cada uno de los dos repositorios de grupo contiene ahora todos los archivos, excepto los del directorio *.git* , del repositorio correspondiente del equipo TDSP de Microsoft. 
+Cada uno de los dos repositorios de grupo contiene ahora todos los archivos, excepto los del directorio *.git*, del repositorio correspondiente del equipo TDSP de Microsoft. 
 
 ## <a name="customize-the-contents-of-the-group-repositories"></a>Personalización del contenido de los repositorios de grupo
 
@@ -139,7 +137,7 @@ Si desea personalizar el contenido de los repositorios de grupo para satisfacer 
 
 Para personalizar el contenido del repositorio:
 
-1. En la página **Resumen** del proyecto **GroupCommon** , seleccione **Repos**. 
+1. En la página **Resumen** del proyecto **GroupCommon**, seleccione **Repos**. 
    
 1. En la parte superior de la página, seleccione el repositorio que desea personalizar.
 
@@ -168,16 +166,16 @@ Si desea realizar cambios con el equipo local o DSVM e incorporar los cambios a 
 - Una suscripción de Azure, si desea crear una DSVM.
 - Git instalado en la máquina. Si usa una DSVM, GIT está preinstalado. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).
 - Si desea usar la DSVM, la DSVM de Windows o Linux creada y configurada en Azure. Para más información e instrucciones, consulte la [documentación de Data Science Virtual Machine](../data-science-virtual-machine/index.yml).
-- Para una DSVM de Windows, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en la máquina. En el archivo *README.md* , desplácese a la sección **Descargar e instalar** y haga clic en el **instalador más reciente**. Descargue el instalador *.exe* desde la página del instalador y ejecútelo. 
+- Para una DSVM de Windows, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en la máquina. En el archivo *README.md*, desplácese a la sección **Descargar e instalar** y haga clic en el **instalador más reciente**. Descargue el instalador *.exe* desde la página del instalador y ejecútelo. 
 - En el caso de una DSVM de Linux, se configura una clave pública SSH en la DSVM y se agrega en Azure DevOps. Para más información e instrucciones, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
 
 En primer lugar, copie o *clone* el repositorio en la máquina local. 
    
-1. En la página **Resumen** del proyecto **GroupCommon** , seleccione **Repos** y, en la parte superior de la página, seleccione el repositorio que desea clonar.
+1. En la página **Resumen** del proyecto **GroupCommon**, seleccione **Repos** y, en la parte superior de la página, seleccione el repositorio que desea clonar.
    
 1. En la página de repositorios, seleccione **Clonar** en la esquina superior derecha.
    
-1. En el cuadro de diálogo **Clonar repositorio** , seleccione **HTTPS** para una conexión HTTP o **SSH** para una conexión SSH y copie la dirección URL de clonación en la **Línea de comandos** del Portapapeles.
+1. En el cuadro de diálogo **Clonar repositorio**, seleccione **HTTPS** para una conexión HTTP o **SSH** para una conexión SSH y copie la dirección URL de clonación en la **Línea de comandos** del Portapapeles.
    
    ![Clonación de repositorio](./media/group-manager-tasks/clone.png)
    
@@ -227,30 +225,30 @@ git push
 
 Para agregar miembros al grupo:
 
-1. En Azure DevOps, en la página principal del proyecto **GroupCommon** , seleccione **Configuración del proyecto** en el panel de navegación izquierdo. 
+1. En Azure DevOps, en la página principal del proyecto **GroupCommon**, seleccione **Configuración del proyecto** en el panel de navegación izquierdo. 
    
-1. En el panel de navegación izquierdo de **Configuración del proyecto** , seleccione **Equipos** y, a continuación, en la página **Equipos** , seleccione el **equipo GroupCommon**. 
+1. En el panel de navegación izquierdo de **Configuración del proyecto**, seleccione **Equipos** y, a continuación, en la página **Equipos**, seleccione el **equipo GroupCommon**. 
    
    ![Configuración de equipos](./media/group-manager-tasks/teams.png)
    
-1. En la página **Perfil de equipo** , seleccione **Agregar**.
+1. En la página **Perfil de equipo**, seleccione **Agregar**.
    
    ![Adición al equipo GroupCommon](./media/group-manager-tasks/add-to-team.png)
    
-1. En el cuadro de diálogo **Agregar usuarios y grupos** , busque y seleccione los miembros que desea agregar al grupo y, a continuación, seleccione **Guardar cambios**. 
+1. En el cuadro de diálogo **Agregar usuarios y grupos**, busque y seleccione los miembros que desea agregar al grupo y, a continuación, seleccione **Guardar cambios**. 
    
    ![Adición de usuarios y grupos](./media/group-manager-tasks/add-users.png)
    
 
 Para configurar permisos para los miembros:
 
-1. En el panel de navegación izquierdo **Configuración del proyecto** , seleccione **Permisos**. 
+1. En el panel de navegación izquierdo **Configuración del proyecto**, seleccione **Permisos**. 
    
-1. En la página **Permisos** , seleccione el grupo al que desea agregar miembros. 
+1. En la página **Permisos**, seleccione el grupo al que desea agregar miembros. 
    
 1. En la página de ese grupo, seleccione **Miembros** y, a continuación, seleccione **Agregar**. 
    
-1. En el cuadro de diálogo **Invitar a los miembros** , busque y seleccione los miembros que desea agregar al grupo y, a continuación, seleccione **Guardar**. 
+1. En el cuadro de diálogo **Invitar a los miembros**, busque y seleccione los miembros que desea agregar al grupo y, a continuación, seleccione **Guardar**. 
    
    ![Concesión de permisos a los miembros](./media/group-manager-tasks/grant-permissions.png)
 

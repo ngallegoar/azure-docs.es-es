@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055977"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427605"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configuración de la replicación de objetos para blobs en bloques
 
@@ -65,19 +65,19 @@ Para crear una directiva de replicación en Azure Portal, siga estos pasos:
 
     En la imagen siguiente se muestran filtros que restringen los blobs que se copian como parte de una regla de replicación.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Captura de pantalla que muestra filtros para una regla de replicación":::
 
 1. De forma predeterminada, el ámbito de copia se establece para copiar solo los nuevos objetos. Para copiar todos los objetos del contenedor o copiar objetos a partir de una fecha y hora personalizadas, seleccione el vínculo **Cambiar** y configure el ámbito de copia para el par de contenedores.
 
     La siguiente imagen muestra un ámbito de copia personalizado que copia objetos desde una fecha y hora específicas en adelante.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Captura de pantalla que muestra el ámbito de copia personalizado para la replicación de objetos":::
 
 1. Seleccione **Guardar y aplicar** para crear la directiva de replicación y empezar a replicar los datos.
 
 Después de configurar la replicación de objetos, Azure Portal muestra la directiva y las reglas de replicación, tal como se muestra en la siguiente imagen.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Captura de pantalla que muestra la directiva de replicación de objetos en Azure Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -284,7 +284,7 @@ Para configurar la replicación de objetos en la cuenta de destino con un archiv
 1. Seleccione **Cargar reglas de replicación**.
 1. Cargue el archivo JSON. Azure Portal muestra la directiva y las reglas que se van a crear, como se muestra en la siguiente imagen.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Captura de pantalla que muestra cómo cargar un archivo JSON para definir una directiva de replicación":::
 
 1. Seleccione **Cargar** para crear la directiva de replicación en la cuenta de destino.
 
@@ -293,7 +293,7 @@ Después, puede descargar un archivo JSON que contenga la definición de directi
 1. Desplácese a la configuración de **Replicación de objetos** para la cuenta de destino en Azure Portal.
 1. Seleccione el botón **Más** junto a la directiva que desea descargar y, a continuación, seleccione **Descargar reglas**, tal como se muestra en la siguiente imagen.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Captura de pantalla que muestra cómo descargar las reglas de replicación en un archivo JSON":::
 
 1. Guarde el archivo JSON en el equipo local para compartirlo con otro usuario para configurar la directiva en la cuenta de origen.
 
@@ -361,7 +361,7 @@ Para comprobar el estado de replicación de un blob en la cuenta de origen en Az
 1. Busque el contenedor que incluye el blob de origen.
 1. Seleccione el blob para mostrar sus propiedades. Si el blob se ha replicado correctamente, verá en la sección **Replicación de objetos** que el estado está establecido en *Completado*. También se enumeran el identificador de la directiva de replicación y el identificador de la regla que rige la replicación de objetos de este contenedor.
 
-:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Captura de pantalla que muestra el estado de replicación de un blob en la cuenta de origen":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -391,6 +391,12 @@ az storage blob show \
 ```
 
 ---
+
+Si el estado de replicación de un blob en la cuenta de origen indica un error, investigue las posibles causas que se mencionan a continuación:
+
+- Asegúrese de que la directiva de replicación de objetos está configurada en la cuenta de destino.
+- Compruebe que el contenedor de destino aún existe.
+- Si el blob de origen se cifró con una clave proporcionada por el cliente como parte de una operación de escritura, se producirá un error en la replicación de objetos. Para más información sobre las claves proporcionadas por el cliente, consulte [Especificación de una clave de cifrado en una solicitud a Blob Storage](encryption-customer-provided-keys.md).
 
 ## <a name="remove-a-replication-policy"></a>Eliminación de una directiva de replicación
 

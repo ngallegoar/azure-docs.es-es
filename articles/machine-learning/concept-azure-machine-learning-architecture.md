@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322302"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444827"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -47,15 +47,28 @@ Un área de trabajo incluye otros recursos de Azure que se usan en el área de t
 
 Puede compartir un área de trabajo con otros usuarios.
 
+### <a name="create-workspace"></a>Creación del espacio de trabajo
+
+En el siguiente diagrama se muestra el flujo de trabajo de creación del área de trabajo.
+
+* El usuario inicia sesión en Azure AD desde cualquiera de los clientes de Azure Machine Learning admitidos (la CLI de Azure, el SDK de Python o Azure Portal) y solicita el token de Azure Resource Manager adecuado.
+* El usuario llama a Azure Resource Manager para crear el área de trabajo. 
+* Azure Resource Manager se pone en contacto con el proveedor de recursos de Azure Machine Learning para aprovisionar el área de trabajo.
+* Si no especifica los recursos existentes, se crearán los recursos adicionales necesarios en su suscripción.
+
+También puede aprovisionar otros destinos de proceso que estén asociados a un área de trabajo (como Azure Kubernetes Service o máquinas virtuales) según sea necesario.
+
+[![Creación del flujo de trabajo del área de trabajo](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
+
 ## <a name="computes"></a>Procesos
 
 <a name="compute-targets"></a> Un [destino de proceso](concept-compute-target.md) es cualquier máquina o conjunto de máquinas que use para ejecutar el script de entrenamiento u hospedar la implementación del servicio. Puede usar su equipo local o un recurso de proceso remoto como destino de proceso.  Con los destinos de proceso, puede iniciar el entrenamiento en el equipo local y, a continuación, escalar horizontalmente a la nube sin cambiar el script de entrenamiento.
 
 Azure Machine Learning presenta dos máquinas virtuales (VM) basadas en la nube totalmente administrada que se configuran para tareas de aprendizaje automático:
 
-* <a name="compute-instance"></a> **Instancia de proceso** : una instancia de proceso es una máquina virtual que incluye varias herramientas y entornos instalados para el aprendizaje automático. El uso principal de una instancia de proceso es para la estación de trabajo de desarrollo.  Puede empezar a ejecutar cuadernos de ejemplo sin necesidad de una configuración. Una instancia de proceso también se puede usar como destino de proceso para los trabajos de entrenamiento e inferencia.
+* <a name="compute-instance"></a> **Instancia de proceso**: una instancia de proceso es una máquina virtual que incluye varias herramientas y entornos instalados para el aprendizaje automático. El uso principal de una instancia de proceso es para la estación de trabajo de desarrollo.  Puede empezar a ejecutar cuadernos de ejemplo sin necesidad de una configuración. Una instancia de proceso también se puede usar como destino de proceso para los trabajos de entrenamiento e inferencia.
 
-* **Clústeres de proceso** : los clústeres de proceso son un clúster de máquinas virtuales con funcionalidades de escalado de varios nodos. Los clústeres de proceso son más prácticos para los destinos de proceso de producción y trabajos grandes.  El clúster se escala verticalmente de manera automática cuando se envía un trabajo.  Úselo como destino de proceso de entrenamiento o para la implementación de desarrollo/pruebas.
+* **Clústeres de proceso**: los clústeres de proceso son un clúster de máquinas virtuales con funcionalidades de escalado de varios nodos. Los clústeres de proceso son más prácticos para los destinos de proceso de producción y trabajos grandes.  El clúster se escala verticalmente de manera automática cuando se envía un trabajo.  Úselo como destino de proceso de entrenamiento o para la implementación de desarrollo/pruebas.
 
 Para más información sobre los destinos de proceso de entrenamiento, vea [Entrenamiento de destinos de proceso](concept-compute-target.md#train).  Para más información sobre los destinos de proceso de implementación, vea [Destinos de implementación](concept-compute-target.md#deploy).
 
@@ -114,6 +127,10 @@ Para encontrar ejemplos de configuraciones de ejecución, consulte [Configuraci�
 
 Al enviar una ejecución, Azure Machine Learning comprime el directorio que contiene el script como un archivo zip y lo envía al destino de proceso. A continuación, el archivo .zip se extrae y el script se ejecuta. Azure Machine Learning también almacena el archivo .zip como una instantánea como parte del registro de ejecución. Cualquier persona con acceso al área de trabajo puede buscar un registro de ejecución y descargar la instantánea.
 
+En el siguiente diagrama se muestra el flujo de trabajo de la instantánea de código.
+
+[![Flujo de trabajo de instantánea de código](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
+
 ### <a name="logging"></a>Registro
 
 Azure Machine Learning registra automáticamente las métricas de ejecución estándar. Sin embargo, también puede [usar el SDK de Python para registrar métricas arbitrarias](how-to-track-experiments.md).
@@ -129,6 +146,31 @@ Hay varias maneras de ver los registros: supervisar el estado de ejecución en t
 Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Esto funciona con las ejecuciones enviadas mediante una configuración de ejecución de script o una canalización de aprendizaje automático. También funciona para las ejecuciones enviadas desde el SDK o la CLI de Machine Learning.
 
 Para más información, consulte [Integración de Git con Azure Machine Learning](concept-train-model-git-integration.md).
+
+### <a name="training-workflow"></a>Flujo de trabajo de entrenamiento
+
+Al ejecutar un experimento para entrenar un modelo, se realizan los pasos siguientes. Estos están ilustrados en el diagrama del flujo de trabajo de entrenamiento siguiente:
+
+* Para llamar a Azure Machine Learning se usa el identificador de la instantánea de código guardada en la sección anterior.
+* Azure Machine Learning crea un identificador de ejecución (opcional) y un token de Machine Learning Service, que más adelante se usan en los destinos de proceso, como Proceso de Machine Learning o las máquinas virtuales, para comunicarse con este servicio.
+* Puede elegir un destino de proceso administrado (como Proceso de Machine Learning) o un destino de proceso no administrado (como máquinas virtuales) para ejecutar los trabajos de entrenamiento. Estos son los flujos de datos de ambos escenarios:
+   * Máquinas virtuales/HDInsight: se accede a ellos mediante las credenciales de SSH de un almacén de claves de la suscripción de Microsoft. Azure Machine Learning ejecuta código de administración en el destino de proceso que:
+
+   1. Prepara el entorno. (Docker es una opción para máquinas virtuales y equipos locales. Consulte los siguientes pasos de Proceso de Machine Learning para entender cómo funciona la ejecución de experimentos en el contenedor de Docker).
+   1. Descarga el código.
+   1. Configura las variables de entorno y realiza las configuraciones.
+   1. Ejecuta scripts de usuario (la instantánea de código mencionada en la sección anterior).
+
+   * Proceso de Machine Learning, al que se accede mediante una identidad administrada por el área de trabajo.
+Dado que Proceso de Machine Learning es un destino de proceso administrado (es decir, está administrado por Microsoft), se ejecuta en la suscripción de Microsoft.
+
+   1. Si es necesario, pone en marcha la construcción de un Docker remoto.
+   1. El código de administración se escribe en el recurso compartido de Azure Files del usuario.
+   1. El contenedor se inicia con un comando inicial. Es decir, el código de administración que se describe en el paso anterior.
+
+* Una vez finalizada la ejecución, puede consultar las ejecuciones y métricas. En el diagrama de flujo siguiente, este paso se produce cuando el destino de proceso de entrenamiento escribe las métricas de ejecución de nuevo en Azure Machine Learning desde el almacenamiento de la base de datos de Cosmos DB. Los clientes pueden llamar a Azure Machine Learning. Machine Learning, a su vez, extrae las métricas de la base de datos de Cosmos DB y las devuelve al cliente.
+
+[![Flujo de trabajo de entrenamiento](media/concept-azure-machine-learning-architecture/training-and-metrics.png)](media/concept-azure-machine-learning-architecture/training-and-metrics.png#lightbox)
 
 ## <a name="models"></a>Modelos
 
@@ -178,9 +220,21 @@ Un punto de conexión es la creación de una instancia del modelo en un servicio
 
 Al implementar un modelo como un servicio web, el punto de conexión se puede implementar en Azure Container Instances, Azure Kubernetes Service o FPGA. El servicio se crea a partir del modelo, el script y los archivos asociados. Estos se colocan en una imagen de contenedor base que contiene el entorno de ejecución para el modelo. La imagen tiene un punto de conexión HTTP de carga equilibrada que recibe solicitudes de puntuación que se envían al servicio web.
 
-Puede habilitar la telemetría de Application Insights o la telemetría del modelo para supervisar el servicio web. Solo usted puede acceder a los datos de telemetría.  Se almacenan en las instancias de Application Insights y de la cuenta de almacenamiento.
+Puede habilitar la telemetría de Application Insights o la telemetría del modelo para supervisar el servicio web. Solo usted puede acceder a los datos de telemetría.  Se almacenan en las instancias de Application Insights y de la cuenta de almacenamiento. Si ha habilitado el ajuste automático de escala, Azure ajustará automáticamente la escala de su implementación.
 
-Si ha habilitado el ajuste automático de escala, Azure ajustará automáticamente la escala de su implementación.
+En el diagrama siguiente se muestra el flujo de trabajo de inferencia para un modelo implementado como un punto de conexión de servicio web:
+
+Estos son los detalles:
+
+* El usuario registra un modelo mediante un cliente, como el SDK de Azure Machine Learning.
+* El usuario crea una imagen mediante un modelo, un archivo de puntuación y otras dependencias del modelo.
+* La imagen de Docker se crea y se almacena en Azure Container Registry.
+* El servicio web se implementa en el destino de proceso (Container Instances/AKS) mediante la imagen creada en el paso anterior.
+* Los detalles de la solicitud de puntuación se almacenan en Application Insights, que se incluye en la suscripción del usuario.
+* También se insertan datos de telemetría en la suscripción de Microsoft o Azure.
+
+[![Flujo de trabajo de inferencia](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
+
 
 Para obtener un ejemplo de implementación de un modelo como servicio web, consulte [Implementación de un modelo de clasificación de imágenes en Azure Container Instances](tutorial-deploy-models-with-aml.md).
 

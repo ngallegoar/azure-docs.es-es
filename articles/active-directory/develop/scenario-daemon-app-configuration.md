@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257680"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444170"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicación de demonio que llama a las API web: configuración de código
 
@@ -352,17 +352,14 @@ ConfidentialClientApplication cca =
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Aplicación de demonio: adquisición de tokens para la aplicación](./scenario-daemon-acquire-token.md?tabs=dotnet)
+Avance al siguiente artículo de este escenario, [Obtención de un token para la aplicación](./scenario-daemon-acquire-token.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Aplicación de demonio: adquisición de tokens para la aplicación](./scenario-daemon-acquire-token.md?tabs=python)
+Avance al siguiente artículo de este escenario, [Obtención de un token para la aplicación](./scenario-daemon-acquire-token.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Aplicación de demonio: adquisición de tokens para la aplicación](./scenario-daemon-acquire-token.md?tabs=java)
+Avance al siguiente artículo de este escenario, [Obtención de un token para la aplicación](./scenario-daemon-acquire-token.md?tabs=java).
 
 ---

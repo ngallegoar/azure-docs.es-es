@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 11/02/2020
+ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147242"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427316"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -65,15 +65,17 @@ En el siguiente vídeo se explican varias opciones de receptor diferentes para l
 
 ![Captura de pantalla que muestra la configuración del receptor.](media/data-flow/sink-settings.png "Captura de pantalla que muestra la configuración del receptor.")
 
-**Desfase de esquema** : el [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad de Data Factory de administrar de forma nativa los esquemas flexibles en los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas. Habilite **Permitir el desfase de esquema** para escribir columnas adicionales sobre lo que se define en el esquema de datos del receptor.
+**Desfase de esquema**: el [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad de Data Factory de administrar de forma nativa los esquemas flexibles en los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas. Habilite **Permitir el desfase de esquema** para escribir columnas adicionales sobre lo que se define en el esquema de datos del receptor.
 
-**Validar esquema** : Si se selecciona que se valide el esquema, se producirá un error en el flujo de datos si no se encuentra ninguna columna del esquema de origen entrante en la proyección de origen o si los tipos de datos no coinciden. Use esta opción para exigir que los datos de origen cumplan el contrato de la proyección definida. Es útil en escenarios de origen de base de datos para indicar que los nombres o los tipos de columna han cambiado.
+**Validar esquema**: Si se selecciona que se valide el esquema, se producirá un error en el flujo de datos si no se encuentra ninguna columna del esquema de origen entrante en la proyección de origen o si los tipos de datos no coinciden. Use esta opción para exigir que los datos de origen cumplan el contrato de la proyección definida. Es útil en escenarios de origen de base de datos para indicar que los nombres o los tipos de columna han cambiado.
 
 **Usar TempDB:** De manera predeterminada, Data Factory utilizará una tabla temporal global para almacenar los datos como parte del proceso de carga. También puede desactivar la opción "Usar TempDB" y, en su lugar, pedir a Data Factory que almacene la tabla de almacenamiento temporal en una base de datos de usuario que se encuentra en la base de datos que se utiliza para este receptor.
 
-![TempDB](media/data-flow/tempdb.png "TempDB")
+![Usar TempDB](media/data-flow/tempdb.png "Uso de TempDB")
 
 ## <a name="cache-sink"></a>Receptor de caché
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
  
 Un *receptor de caché* se utiliza cuando un flujo de datos escribe datos en la memoria caché de Spark en lugar de en un almacén de datos. En los flujos de datos de asignación, puede hacer referencia a estos datos en el mismo flujo muchas veces con una *búsqueda en caché*. Esto resulta útil si desea hacer referencia a los datos como parte de una expresión, pero no desea unir explícitamente las columnas. Algunos ejemplos comunes en los que un receptor de caché puede ayudar son: buscar un valor máximo en un almacén de datos y buscar coincidencias de códigos de error en una base de datos de mensajes de error. 
 
@@ -101,6 +103,11 @@ Cuando desactive la asignación automática, puede agregar asignaciones basadas 
 De forma predeterminada, los datos se escriben en varios receptores en un orden no determinista. El motor de ejecución escribe datos en paralelo a medida que se complete la lógica de transformación y el orden de los receptores puede variar en cada ejecución. Para especificar una ordenación de receptores exacta, habilite la opción **Ordenación de receptores personalizada** en la pestaña **General** del flujo de datos. Una vez habilitada, los receptores se escriben secuencialmente en orden ascendente.
 
 ![Captura de pantalla que muestra la ordenación del receptor personalizado.](media/data-flow/custom-sink-ordering.png "Captura de pantalla que muestra la ordenación del receptor personalizado.")
+
+> [!NOTE]
+> Al usar las [búsquedas almacenadas en caché](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), asegúrese de que la ordenación del receptor tenga los receptores almacenado en caché establecidos en 1, el calor más bajo (o el primer valor) del orden.
+
+![Ordenación de receptores personalizada](media/data-flow/cache-2.png "Ordenación de receptores personalizados")
 
 ## <a name="data-preview-in-sink"></a>Vista previa de los datos en el receptor
 

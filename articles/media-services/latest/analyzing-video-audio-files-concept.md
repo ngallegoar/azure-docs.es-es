@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 023cd13c40bdd6aae9febaf7d929f94fe26ef6d3
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c00af3a128685dfbd2435b65fe4d00107ca22ba4
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519646"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744364"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Análisis de archivos de audio y vídeo con Azure Media Services
 
@@ -29,7 +29,7 @@ Azure Media Services v3 le permite extraer información detallada de los archivo
 
 Existen dos modos para el valor preestablecido del analizador de audio, básico y estándar. Vea la descripción de las diferencias en la tabla siguiente.
 
-Para analizar el contenido mediante los valores preestablecidos de Media Services v3, cree una **transformación** y envíe un **trabajo** que use uno de estos valores preestablecidos: [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) o **AudioAnalyzerPreset**. Para ver un tutorial donde se muestra cómo usar **VideoAnalyzerPreset** , consulte [Análisis de vídeos con Azure Media Services](analyze-videos-tutorial-with-api.md).
+Para analizar el contenido mediante los valores preestablecidos de Media Services v3, cree una **transformación** y envíe un **trabajo** que use uno de estos valores preestablecidos: [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) o **AudioAnalyzerPreset**. Para ver un tutorial donde se muestra cómo usar **VideoAnalyzerPreset**, consulte [Análisis de vídeos con Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > Si usa los valores preestablecidos de un analizador de audio o de vídeo, utilice Azure Portal para establecer que la cuenta tenga diez unidades reservadas de multimedia S3, aunque no es obligatorio. Puede usar S1 o S2 para los valores preestablecidos de audio. Para más información, consulte [Información general del escalado de procesamiento de medios](media-reserved-units-cli-how-to.md).
@@ -46,7 +46,7 @@ Media Services admite actualmente los siguientes valores preestablecidos de anal
 |---|---|---|
 |[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análisis de audio estándar|El valor predeterminado aplica un conjunto predefinido de operaciones de análisis basadas en inteligencia artificial, incluida la transcripción de voz. Actualmente, este valor admite el procesamiento de contenido con una sola pista de audio que contiene la voz en un solo idioma. Puede especificar el idioma para la carga de audio en la entrada con el formato BCP-47 de "etiqueta de idioma-región". Los idiomas admitidos son inglés ("en-US" y "en-GB"), español ("es-ES" y "es-MX"), francés ("fr-FR"), italiano ("it-IT"), japonés ("ja-JP"), portugués ("pt-BR"), chino ("zh-CN"), alemán ("de-DE"), árabe ("ar-EG"), ruso ("ru-RU"), hindi ("hi-IN") y coreano ("ko-KR").<br/><br/> Si el idioma no se especifica o se establece en NULL, la detección automática de idioma elige el primer idioma detectado y continúa con el idioma seleccionado lo que dure el archivo. La función de detección automática de idioma admite actualmente inglés, chino, francés, alemán, italiano, japonés, español, ruso y portugués. Una vez detectado el primer idioma seleccionado, no se admite el cambio dinámico entre idiomas. La característica de detección automática de idioma funciona mejor con grabaciones de audio con voz claramente perceptible. Si con la detección automática del idioma no se encuentra el idioma, se usará el inglés para la transcripción.|
 |[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análisis de audio básico|Este modo realiza la transcripción de voz a texto y la generación de un archivo de subtítulos VTT. La salida de este modo incluye un archivo JSON de información, que incluye solo las palabras clave, la transcripción y la información de tiempo. La detección automática de idioma y la diarización de los altavoces no se incluyen en este modo. La lista de idiomas admitidos está disponible [aquí](https://go.microsoft.com/fwlink/?linkid=2109463)|
-|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análisis de audio y vídeo|Extrae información (metadatos enriquecidos) de audio y vídeo y genera como salida un archivo en formato JSON. Puede especificar si desea solo extraer información de audio al procesar un archivo de vídeo. Para más información, consulte [Análisis de vídeo](analyze-videos-tutorial-with-api.md).|
+|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Análisis de audio y vídeo|Extrae información (metadatos enriquecidos) de audio y vídeo y genera como salida un archivo en formato JSON. Puede especificar si desea solo extraer información de audio al procesar un archivo de vídeo. Para más información, consulte [Análisis de vídeo](analyze-videos-tutorial-with-api.md).|
 |[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detección de caras presentes en el vídeo|Describe la configuración que se usará al analizar un vídeo con el fin de detectar todas las caras presentes.|
 
 ### <a name="audioanalyzerpreset-standard-mode"></a>Modo estándar de AudioAnalyzerPreset
@@ -55,10 +55,10 @@ El valor preestablecido permite extraer diversa información de audio de un arch
 
 La salida incluye un archivo JSON (con toda la información) y un archivo VTT para la transcripción del audio. Este valor predeterminado acepta una propiedad que especifica el idioma del archivo de entrada en forma de una cadena [BCP47](https://tools.ietf.org/html/bcp47). La información de audio incluye:
 
-* **Transcripción de audio** : una transcripción del texto oral con marcas de tiempo. Se admiten varios idiomas.
-* **Indexación del hablante** : una asignación de los hablantes y el texto oral correspondiente.
-* **Análisis de opinión de voz** : la salida del análisis de opinión que se realiza en la transcripción del audio.
-* **Palabras clave** : palabras clave que se extraen de la transcripción de audio.
+* **Transcripción de audio**: una transcripción del texto oral con marcas de tiempo. Se admiten varios idiomas.
+* **Indexación del hablante**: una asignación de los hablantes y el texto oral correspondiente.
+* **Análisis de opinión de voz**: la salida del análisis de opinión que se realiza en la transcripción del audio.
+* **Palabras clave**: palabras clave que se extraen de la transcripción de audio.
 
 ### <a name="audioanalyzerpreset-basic-mode"></a>Modo básico de AudioAnalyzerPreset
 
@@ -66,18 +66,18 @@ El valor preestablecido permite extraer diversa información de audio de un arch
 
 La salida incluye un archivo JSON y un archivo VTT para la transcripción del audio. Este valor predeterminado acepta una propiedad que especifica el idioma del archivo de entrada en forma de una cadena [BCP47](https://tools.ietf.org/html/bcp47). La salida incluye lo siguiente:
 
-* **Transcripción de audio** : una transcripción del texto oral con marcas de tiempo. Se admiten varios idiomas, pero no se incluyen la detección automática de idioma y la diarización de los altavoces.
-* **Palabras clave** : palabras clave que se extraen de la transcripción de audio.
+* **Transcripción de audio**: una transcripción del texto oral con marcas de tiempo. Se admiten varios idiomas, pero no se incluyen la detección automática de idioma y la diarización de los altavoces.
+* **Palabras clave**: palabras clave que se extraen de la transcripción de audio.
 
 ### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
 El valor preestablecido permite extraer diversa información de audio y vídeo desde un archivo de vídeo. La salida incluye un archivo JSON (con toda la información), un archivo VTT para la transcripción del video y una colección de miniaturas de vídeo. Este valor preestablecido también acepta una cadena [BCP47](https://tools.ietf.org/html/bcp47) (que representa el idioma del vídeo) como propiedad. La información de vídeo incluye toda la información de audio mencionada anteriormente y los elementos adicionales siguientes:
 
-* **Seguimiento facial** : tiempo durante el cual aparecen rostros en el vídeo. Cada rostro tiene un identificador facial y una colección de miniaturas correspondiente.
-* **Texto visual** : el texto que se detecta mediante el reconocimiento óptico de caracteres. Al texto se le agrega una marca de tiempo y también se usa para extraer palabras clave (además de la transcripción del audio).
-* **Fotogramas clave** : colección de fotogramas clave extraídos del vídeo.
-* **Moderación de contenido visual** : la parte de los vídeos marcada como explícita o para adultos.
-* **Anotación** : el resultado de anotar los vídeos en función de un modelo de objetos predefinido.
+* **Seguimiento facial**: tiempo durante el cual aparecen rostros en el vídeo. Cada rostro tiene un identificador facial y una colección de miniaturas correspondiente.
+* **Texto visual**: el texto que se detecta mediante el reconocimiento óptico de caracteres. Al texto se le agrega una marca de tiempo y también se usa para extraer palabras clave (además de la transcripción del audio).
+* **Fotogramas clave**: colección de fotogramas clave extraídos del vídeo.
+* **Moderación de contenido visual**: la parte de los vídeos marcada como explícita o para adultos.
+* **Anotación**: el resultado de anotar los vídeos en función de un modelo de objetos predefinido.
 
 ## <a name="insightsjson-elements"></a>Elementos insights.json
 

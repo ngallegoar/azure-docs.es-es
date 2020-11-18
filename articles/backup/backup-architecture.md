@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173276"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427741"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -87,8 +87,8 @@ El consumo de almacenamiento, el objetivo de tiempo de recuperación (RTO) y el 
 
 - El origen de datos A se compone de 10 bloques de almacenamiento A1-A10, y todos los meses se hace una copia de seguridad de ellos.
 - Los bloques A2, A3, A4 y A9 cambian en el primer mes y el bloque A5 cambia en el siguiente mes.
-- Para las copias de seguridad diferenciales, en el segundo mes, se realiza una copia de seguridad de los bloques modificados A2, A3, A4 y A9. En el tercer mes, se vuelve a hacer una copia de seguridad de estos mismos bloques, junto con el bloque A5 modificado. Los bloques modificados se siguen copiando hasta que tiene lugar la siguiente copia de seguridad completa.
-- Para las copias de seguridad incrementales, en el segundo mes, los bloques A2, A3, A4 y A9 se marcan como modificados y se transfieren. En el tercer mes, solo el bloque A5 modificado se marca y se transfiere.
+- Para las copias de seguridad diferenciales, en el segundo mes se realiza una copia de seguridad de los bloques modificados A2, A3, A4 y A9. En el tercer mes, se vuelve a hacer una copia de seguridad de estos mismos bloques, junto con el bloque A5 modificado. Los bloques modificados se siguen copiando hasta que tiene lugar la siguiente copia de seguridad completa.
+- Para las copias de seguridad incrementales, en el segundo mes los bloques A2, A3, A4 y A9 se marcan como modificados y se transfieren. En el tercer mes, solo el bloque A5 modificado se marca y se transfiere.
 
 ![Imagen que muestra las comparaciones de métodos de copia de seguridad](./media/backup-architecture/backup-method-comparison.png)
 
@@ -123,6 +123,12 @@ Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br
 - La retención de los puntos de copia de seguridad anuales y mensuales se conoce como "retención a largo plazo" (LTR).
 - Cuando se crea un almacén, también se crea una directiva "DefaultPolicy" que se puede usar para crear copias de seguridad de los recursos.
 - Cualquier cambio en el período de retención de una directiva de copia de seguridad se aplicará con efectos retroactivos a todos los puntos de recuperación anteriores, además de a los nuevos.
+
+### <a name="impact-of-policy-change-on-recovery-points"></a>Impacto del cambio de directiva en los puntos de recuperación
+
+- **La duración de la retención aumenta o disminuye:** cuando se cambia la duración de la retención, la nueva duración se aplica también a los puntos de recuperación existentes. Como resultado, algunos de los puntos de recuperación se limpiarán. Si se aumenta el período de retención, los puntos de recuperación existentes tendrán también una mayor retención.
+- **Cambio de frecuencia diaria a semanal:** cuando las copias de seguridad programadas se cambian de una frecuencia diaria a una semanal, se limpian los puntos de recuperación diarios existentes.
+- **Cambio de frecuencia semanal a diaria:** las copias de seguridad semanales existentes se conservarán en función del número de días restantes que especifique la directiva de retención actual.
 
 ### <a name="additional-reference"></a>Referencia adicional
 

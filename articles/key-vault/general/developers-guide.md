@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 707b6d0f8a5fa3cff89339b9b0465d96b5369a34
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287610"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445139"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -56,11 +56,11 @@ Como Key Vault usa la autenticación de Azure AD, requiere que la entidad de se
 Se recomienda usar la identidad administrada para las aplicaciones implementadas en Azure. Si usa servicios de Azure, los cuales no admiten la identidad administrada o si las aplicaciones se implementan de forma local, la [entidad de servicio con un certificado](../../active-directory/develop/howto-create-service-principal-portal.md) es una alternativa posible. En ese escenario, el certificado debe almacenarse en Key Vault y cambiarse a menudo. La entidad de servicio que cuenta con el secreto se puede usar en entornos de desarrollo y pruebas; si se usa de forma local o en Cloud Shell, es recomendable usar la entidad de seguridad de usuario.
 
 Entidades de seguridad recomendadas por entorno:
-- **Entorno de producción** :
+- **Entorno de producción**:
   - identidad administrada o entidad de servicio con un certificado.
-- **Entornos de desarrollo y pruebas** :
+- **Entornos de desarrollo y pruebas**:
   - identidad administrada, entidad de servicio con un certificado o entidad de servicio con un secreto.
-- **Desarrollo local** :
+- **Desarrollo local**:
   - entidad de seguridad de usuario o entidad de servicio con un secreto.
 
 Los escenarios de autenticación anteriores son compatibles con la **biblioteca cliente de Azure Identity** y se integran con los SDK de Key Vault. La biblioteca de identidades de Azure se puede usar en diferentes entornos y plataformas sin tener que cambiar el código. La identidad de Azure también recuperará automáticamente el token de autenticación del usuario que inició sesión en Azure con la CLI de Azure, Visual Studio, Visual Studio Code y otros. 
@@ -79,7 +79,7 @@ Para ver tutoriales sobre la autenticación en Key Vault en las aplicaciones, co
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Administración de claves, certificados y secretos
 
-El acceso a las claves, los secretos y los certificados se controla mediante el plano de datos. El control de acceso del plano de datos se puede realizar mediante las directivas de acceso de almacén local o RBAC (versión preliminar).
+El acceso a las claves, los secretos y los certificados se controla mediante el plano de datos. El control de acceso del plano de datos se puede realizar mediante las directivas de acceso de almacén local o Azure RBAC (versión preliminar).
 
 **API y SDK de claves**
 
@@ -104,7 +104,7 @@ El acceso a las claves, los secretos y los certificados se controla mediante el 
 
 Consulte las [Bibliotecas de cliente](client-libraries.md) para ver los paquetes de instalación y el código fuente.
 
-Para obtener más información sobre la seguridad del plano de datos de Key Vault, consulte las [Directivas de acceso y plano de datos de Key Vault](./secure-your-key-vault.md#data-plane-and-access-policies) y el [Plano de datos y RBAC (versión preliminar) de Key Vault](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview).
+Para obtener más información sobre la seguridad del plano de datos de Key Vault, consulte las [Directivas de acceso y plano de datos de Key Vault](./secure-your-key-vault.md#data-plane-and-access-policies) y el [Plano de datos de Key Vault y Azure RBAC (versión preliminar)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview).
 
 ### <a name="code-examples"></a>Ejemplos de código
 

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: f7f73efff266e012616ac68d956abd921afaac2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: a74dcb3cae74605e747a63f8fbb102404d8cc80e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337430"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741831"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos en directo y salidas en directo en Media Services
 
@@ -38,9 +38,9 @@ Los [eventos en directo](/rest/api/media/liveevents) son responsables de la inge
 
 Un [evento en directo](/rest/api/media/liveevents) se puede establecer en una codificación de *tránsito* (un codificador en directo local envía una secuencia de velocidad de bits múltiple) o en una *codificación en directo* (un codificador en directo local envía una secuencia de velocidad de bits única). Los tipos se establecen durante la creación mediante [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None** : un codificador en directo local envía una secuencia de velocidad de bits múltiple. El flujo de datos ingerido pasa por el evento en directo sin más procesamiento. También se denomina modo de paso a través.
-* **LiveEventEncodingType.Standard** : un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. Si la fuente de contribución tiene una resolución de 720p o más, el valor preestablecido **Default720p** codificará un conjunto de seis pares de velocidad de bits-resolución.
-* **LiveEventEncodingType.Premium1080p** : un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. El valor preestablecido Default1080p especifica el conjunto de salida de pares de resolución-velocidad de bits.
+* **LiveEventEncodingType.None**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. El flujo de datos ingerido pasa por el evento en directo sin más procesamiento. También se denomina modo de paso a través.
+* **LiveEventEncodingType.Standard**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. Si la fuente de contribución tiene una resolución de 720p o más, el valor preestablecido **Default720p** codificará un conjunto de seis pares de velocidad de bits-resolución.
+* **LiveEventEncodingType.Premium1080p**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. El valor preestablecido Default1080p especifica el conjunto de salida de pares de resolución-velocidad de bits.
 
 ### <a name="pass-through"></a>Paso a través
 
@@ -136,7 +136,7 @@ Puede usar direcciones URL que sean mnemónicas o no mnemónicas.
     El modo mnemónico es el preferido de los grandes operadores de difusión multimedia que usan codificadores de difusión y no quieren volver a configurarlos cuando inician el evento en directo. Estos operadores de difusión quieren una dirección URL de ingesta predictiva que no cambie con el tiempo.
 
     > [!NOTE]
-    > En Azure Portal, la dirección URL mnemónica se llama " *prefijo de nombre de host estático* ".
+    > En Azure Portal, la dirección URL mnemónica se llama "*prefijo de nombre de host estático*".
 
     Para especificar este modo en la API, establezca `useStaticHostName` en `true` en tiempo de creación (el valor predeterminado es `false`). Cuando `useStaticHostname` se establece en true, `hostnamePrefix` especifica la primera parte del nombre de host asignado a los puntos de conexión de ingesta y vista previa de eventos activos. El nombre de host final sería una combinación de este prefijo, el nombre de la cuenta de servicios multimedia y un código corto para el centro de datos de Azure Media Services.
 
@@ -150,13 +150,13 @@ Puede usar direcciones URL que sean mnemónicas o no mnemónicas.
     |---|---|---|
     |REST|[properties.vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--vanity-url](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.md?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Reglas de nomenclatura de direcciones URL de ingesta en directo
 
 * La cadena *random* que aparece a continuación es un número hexadecimal de 128 bits (que se compone de 32 caracteres del 0 al 9 y de la "a" a la "f").
-* *token de acceso* : cadena GUID válida establecida al usar el modo mnemónico. Por ejemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
-* *nombre de secuencia* : indica el nombre de la secuencia de una conexión determinada. El valor del nombre de secuencia normalmente lo agrega el codificador en directo que use. Puede configurar el codificador en directo para usar cualquier nombre para describir la conexión, por ejemplo: "vídeo1_audio1", "vídeo2_audio1", "secuencia".
+* *token de acceso*: cadena GUID válida establecida al usar el modo mnemónico. Por ejemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *nombre de secuencia*: indica el nombre de la secuencia de una conexión determinada. El valor del nombre de secuencia normalmente lo agrega el codificador en directo que use. Puede configurar el codificador en directo para usar cualquier nombre para describir la conexión, por ejemplo: "vídeo1_audio1", "vídeo2_audio1", "secuencia".
 
 #### <a name="non-vanity-url"></a>Dirección URL no mnemónica
 

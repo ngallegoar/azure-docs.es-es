@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38ed7fb2930463e6657422e851a73f2b3b011f35
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257082"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443592"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Escenario: Aplicación web que permite iniciar sesión a los usuarios
 
@@ -28,29 +28,25 @@ Aprenda todo lo que necesita para crear una aplicación web que use la Plataform
 
 Si quiere crear sus primera aplicación web portátil (ASP.NET Core) que permita iniciar sesión a los usuarios, siga este inicio rápido:
 
-> [!div class="nextstepaction"]
-> [Inicio rápido: Aplicación web ASP.NET Core que permite iniciar sesión a los usuarios](quickstart-v2-aspnet-core-webapp.md)
+[Inicio rápido: Aplicación web ASP.NET Core que permite iniciar sesión a los usuarios](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 Si desea saber cómo agregar el inicio de sesión a una aplicación web ASP.NET existente, pruebe el siguiente inicio rápido:
 
-> [!div class="nextstepaction"]
-> [Inicio rápido: Aplicación web ASP.NET que inicia la sesión de los usuarios](quickstart-v2-aspnet-webapp.md)
+[Inicio rápido: Aplicación web ASP.NET que inicia la sesión de los usuarios](quickstart-v2-aspnet-webapp.md)
 
 # <a name="java"></a>[Java](#tab/java)
 
 Si es un desarrollador de Java, pruebe el siguiente inicio rápido:
 
-> [!div class="nextstepaction"]
-> [Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java](quickstart-v2-java-webapp.md)
+[Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java](quickstart-v2-java-webapp.md)
 
 # <a name="python"></a>[Python](#tab/python)
 
 Si desarrolla con Python, pruebe el siguiente inicio rápido:
 
-> [!div class="nextstepaction"]
-> [Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de Python](quickstart-v2-python-webapp.md)
+[Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de Python](quickstart-v2-python-webapp.md)
 
 ---
 
@@ -81,22 +77,18 @@ En una segunda fase, puede habilitar la aplicación para llamar a las API web en
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Registro de aplicaciones](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
+Avance al siguiente artículo de este escenario, [Registro de la aplicación](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Registro de aplicaciones](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
+Avance al siguiente artículo de este escenario, [Registro de la aplicación](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Registro de aplicaciones](./scenario-web-app-sign-user-app-registration.md?tabs=java)
+Avance al siguiente artículo de este escenario, [Registro de la aplicación](./scenario-web-app-sign-user-app-registration.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Registro de aplicaciones](./scenario-web-app-sign-user-app-registration.md?tabs=python)
+Avance al siguiente artículo de este escenario, [Registro de la aplicación](./scenario-web-app-sign-user-app-registration.md?tabs=python).
 
 ---

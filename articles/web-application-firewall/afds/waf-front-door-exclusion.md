@@ -4,19 +4,19 @@ description: En este artículo se proporciona información sobre la configuraci�
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/05/2020
+ms.date: 11/10/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 73372f3c38e12d0d4ac972a569da36a04ad533da
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 943124982fe1f2ccf142bb9161ec8ada07e63df5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125822"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444986"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Listas de exclusión de Firewall de aplicaciones web (WAF) con Front Door Service 
 
-A veces, el Firewall de aplicaciones web (WAF) podría bloquear una solicitud que quiere permitir para su aplicación. Por ejemplo, Active Directory inserta tokens que se usan para la autenticación. Estos tokens pueden contener caracteres especiales que podrían desencadenar un falso positivo de las reglas de WAF. Las listas de exclusión del WAF le permiten omitir determinados atributos de solicitud de una evaluación del WAF.  Se puede configurar una lista de exclusión con [PowserShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), la [CLI de Azure](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [API REST](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate) o Azure Portal. En el ejemplo siguiente se muestra la configuración de Azure Portal. 
+A veces, el Firewall de aplicaciones web (WAF) podría bloquear una solicitud que quiere permitir para su aplicación. Por ejemplo, Active Directory inserta tokens que se usan para la autenticación. Estos tokens pueden contener caracteres especiales que podrían desencadenar un falso positivo de las reglas de WAF. Las listas de exclusión del WAF le permiten omitir determinados atributos de solicitud de una evaluación del WAF.  Se puede configurar una lista de exclusión con [PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), la [CLI de Azure](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [API REST](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate) o Azure Portal. En el ejemplo siguiente se muestra la configuración de Azure Portal. 
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Configuración de las listas de exclusión mediante Azure Portal
 Es posible acceder a **Administrar las exclusiones** desde el portal de WAF en **Reglas administradas**.
 
@@ -44,7 +44,23 @@ Puede especificar una coincidencia exacta con un atributo de cadena de consulta,
 
 Los nombres de encabezado y cookies no distinguen mayúsculas de minúsculas.
 
-Puede aplicar la lista de exclusión a todas las reglas del conjunto de reglas administradas, a las reglas de un grupo de reglas específico o a una sola regla, tal como se muestra en el ejemplo anterior. 
+Si un valor de encabezado, de cookie, de argumento de publicación o de argumento de consulta genera falsos positivos para algunas reglas, puede excluir esa parte de la solicitud para que la regla no la considere:
+
+
+|matchVariableName de registros de WAF  |Exclusión de reglas en el portal  |
+|---------|---------|
+|CookieValue:SOME_NAME        |El nombre de la cookie de solicitud es igual a SOME_NAME|
+|HeaderValue:SOME_NAME        |El nombre del encabezado de solicitud es igual a SOME_NAME|
+|PostParamValue:SOME_NAME     |El nombre de los argumentos del cuerpo de solicitud es igual a SOME_NAME|
+|QueryParamValue:SOME_NAME    |El nombre de los argumentos de la cadena de consulta es igual a SOME_NAME|
+
+
+Actualmente solo se admiten las exclusiones de reglas para los valores de matchVariableNames anteriores en los registros de WAF. Para cualquier otro valor de matchVariableNames, debe deshabilitar las reglas que devuelven falsos positivos, o bien crear una regla personalizada que permita explícitamente esas solicitudes. En concreto, cuando matchVariableName es CookieName, HeaderName, PostParamName o QueryParamName, significa que el propio nombre está desencadenando la regla. La exclusión de reglas no es compatible con estos valores de matchVariableNames en este momento.
+
+
+Si excluye un argumento POST del cuerpo de la solicitud denominado *FOO*, ninguna regla debe mostrar PostParamValue:FOO como matchVariableName en los registros de WAF. Sin embargo, es posible que aún se muestre una regla con un valor matchVariableName de InitialBodyContents que coincida con el valor del parámetro de envío FOO, ya que los valores del parámetro POST forman parte de InitialBodyContents.
+
+Puede aplicar las listas de exclusión a todas las reglas del conjunto de reglas administradas, a las reglas de un grupo de reglas específico o a una sola regla, tal como se muestra en el ejemplo anterior.
 
 ## <a name="define-exclusion-based-on-web-application-firewall-logs"></a>Definición de la exclusión basada en registros de Web Application Firewall
  La [supervisión y registro de Azure Web Application Firewall](waf-front-door-monitor.md) muestra los detalles coincidentes de una solicitud bloqueada. Si un valor de encabezado, de cookie, de argumento de publicación o de argumento de consulta genera falsos positivos para algunas reglas, puede excluir esa parte de la solicitud para que la regla la considere. En la siguiente tabla se muestran los valores de ejemplo de los registros de WAF y las condiciones de exclusión correspondientes.

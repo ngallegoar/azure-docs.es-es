@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 93c2f847678292a1d38eff540a813b591c255ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043206"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444884"
 ---
 # <a name="azure-tls-certificate-changes"></a>Cambios en los certificados TLS de Azure  
 
@@ -22,12 +22,15 @@ Microsoft está actualizando los servicios de Azure para que usen los certificad
 
 ## <a name="when-will-this-change-happen"></a>¿Cuándo se producirá este cambio?
 
-- Los servicios de [Azure Active Directory](/azure/active-directory) (Azure AD) comenzaron esta transición el 7 de julio de 2020.
-- Todos los puntos de conexión de TLS/SSL de Azure recién creados contienen certificados actualizados que se encadenan a las nuevas entidades de certificación raíz.
-- Los puntos de conexión de Azure existentes realizarán la transición de forma escalonada a partir del 13 de agosto de 2020.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) y [DPS](/azure/iot-dps/) permanecerán en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
-- [Azure Storage](/azure/storage) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-- [Azure Cache for Redis](/azure/azure-cache-for-redis) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](../../azure-cache-for-redis/cache-whats-new.md).
+Los puntos de conexión de Azure existentes han haciendo el cambio de manera escalonada desde el 13 de agosto de 2020. Todos los puntos de conexión de TLS/SSL de Azure recién creados contienen certificados actualizados que se encadenan a las nuevas entidades de certificación raíz.
+
+Detalles específicos de los distintos servicios:
+
+- Los servicios de [Azure Active Directory](../../active-directory/index.yml) (Azure AD) comenzaron esta transición el 7 de julio de 2020.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) y [DPS](../../iot-dps/index.yml) permanecerán en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
+- [Azure Storage](../../storage/index.yml) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
+- [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](../../azure-cache-for-redis/cache-whats-new.md).
+
 > [!IMPORTANT]
 > Es posible que los clientes necesiten actualizar sus aplicaciones después de este cambio, con el fin de evitar errores de conectividad al intentar conectarse a los servicios de Azure.
 
@@ -67,11 +70,11 @@ Estas son algunas maneras de detectar si una aplicación se ve afectada:
 - Si tiene alguna aplicación que se integra con las API de Azure u otros servicios de Azure y no está seguro de si usa el anclaje de certificados, póngase en contacto con el proveedor de la aplicación.
 
 - Los distintos sistemas operativos y entornos de ejecución de lenguaje que se comunican con los servicios de Azure pueden requerir pasos adicionales para compilar correctamente la cadena de certificados con estas nuevas raíces:
-    - **Linux** : muchas distribuciones requieren que se agreguen entidades de certificación a /etc/SSL/certs. Para obtener instrucciones específicas, vea la documentación de la distribución.
-    - **Java** : asegúrese de que el almacén de claves de Java contenga las entidades de certificación indicadas anteriormente.
-    - **Windows se ejecuta en entornos desconectados** : los sistemas que se ejecuten en entornos desconectados deberán agregar las nuevas raíces al almacén de entidades de certificación raíz de confianza y las intermedias al almacén de entidades de certificación intermedias.
-    - **Android** : consulte la documentación del dispositivo y la versión de Android.
-    - **Otros dispositivos de hardware, especialmente IoT** : póngase en contacto con el fabricante del dispositivo.
+    - **Linux**: muchas distribuciones requieren que se agreguen entidades de certificación a /etc/SSL/certs. Para obtener instrucciones específicas, vea la documentación de la distribución.
+    - **Java**: asegúrese de que el almacén de claves de Java contenga las entidades de certificación indicadas anteriormente.
+    - **Windows se ejecuta en entornos desconectados**: los sistemas que se ejecuten en entornos desconectados deberán agregar las nuevas raíces al almacén de entidades de certificación raíz de confianza y las intermedias al almacén de entidades de certificación intermedias.
+    - **Android**: consulte la documentación del dispositivo y la versión de Android.
+    - **Otros dispositivos de hardware, especialmente IoT**: póngase en contacto con el fabricante del dispositivo.
 
 - Si en su entorno se ha establecido que las reglas de firewall permitan llamadas salientes solo a determinadas ubicaciones de descarga de la lista de revocación de certificados (CRL) o de comprobación del Protocolo de estado de certificados en línea (OCSP), tendrá que permitir las siguientes direcciones URL de CRL y OCSP:
 

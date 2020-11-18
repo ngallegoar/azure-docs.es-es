@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8c01724340df7e0efffe9847b49e1fe9d444ee01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e63a948260863c93a92e4241044be5e0baf8afca
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257629"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443269"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Escenario: Aplicación de demonio que llama a las API web
 
@@ -61,5 +61,4 @@ Para los desarrolladores, la experiencia total de este escenario tiene los sigui
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Aplicación de demonio: registro de la aplicación](./scenario-daemon-app-registration.md)
+Avance al siguiente artículo de este escenario, [Registro de la aplicación](./scenario-daemon-app-registration.md).

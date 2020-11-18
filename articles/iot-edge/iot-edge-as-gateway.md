@@ -4,78 +4,177 @@ description: Use Azure IoT Edge para crear un dispositivo de puerta de enlace tr
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/21/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0589779de2ddb0bc75dde3b57d6444634b879f86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c08e03e6ff77613c0950f17fe5225bccb706524c
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017029"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444384"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Uso de un dispositivo IoT Edge como puerta de enlace
 
-Las puertas de enlace en las soluciones de IoT Edge proporcionan conectividad de dispositivo y análisis perimetral a los dispositivos de IoT que, de lo contrario, no tendrían esas funcionalidades. Azure IoT Edge se puede usar para satisfacer las necesidades de una puerta de enlace de IoT, tanto si está relacionada con la conectividad, la identidad o el análisis perimetral. Los patrones de puerta de enlace de este artículo únicamente hacen referencia a las características de la conectividad de los dispositivos de nivel inferior y la identidad de los dispositivos, y no a cómo los datos del dispositivo se procesan en la puerta de enlace.
+Los dispositivos IoT Edge pueden funcionar como puertas de enlace, lo que proporciona una conexión entre otros dispositivos de la red y su instancia de IoT Hub.
 
-## <a name="patterns"></a>Patrones
+El módulo centro de IoT Edge actúa como IoT Hub, por lo que puede controlar conexiones desde cualquier dispositivo que tenga una identidad con IoT Hub, incluidos otros dispositivos IoT Edge. Este tipo de patrón de puertas de enlace se denomina *transparente*, porque los mensajes pueden pasar desde dispositivos de nivel inferior hasta IoT Hub como si no hubiera una puerta de enlace entre ellos.
 
-Existen tres patrones para usar un dispositivo IoT Edge como puerta de enlace: transparente, traducción de protocolo y traducción de identidad.
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+A partir de la versión 1.2 de IoT Edge, las puertas de enlace transparentes pueden controlar conexiones de nivel inferior desde otros dispositivos IoT Edge.
+::: moniker-end
 
-Una diferencia clave entre los patrones es que una puerta de enlace transparente pasa mensajes entre dispositivos de bajada y IoT Hub sin necesidad de procesamiento adicional. Sin embargo, la traducción de protocolo y la traducción de identidad requieren procesamiento en la puerta de enlace para habilitar la comunicación.
+En el caso de los dispositivos que no pueden conectarse a IoT Hub por sí solos, las puertas de enlace de IoT Edge pueden ofrecer esa conexión. Este tipo de patrón de puerta de enlace se denomina *traducción*, porque el dispositivo IoT Edge tiene que realizar el procesamiento de los mensajes de dispositivo de nivel inferior entrantes antes de que se puedan reenviar a IoT Hub. Estos escenarios requieren de módulos adicionales en la puerta de enlace de IoT Edge para administrar los pasos de procesamiento.
 
-Cualquier puerta de enlace puede usar módulos de IoT Edge para realizar análisis o preprocesamiento en el perímetro antes de pasar mensajes de dispositivos de bajada a IoT Hub.
-
-![Diagrama: patrones de puerta de enlace transparente, de protocolo y de identidad](./media/iot-edge-as-gateway/edge-as-gateway.png)
-
-### <a name="transparent-pattern"></a>Patrón transparente
-
-En un patrón de puerta de enlace *transparente*, los dispositivos que podrían conectarse teóricamente a IoT Hub pueden conectarse en su lugar a un dispositivo de puerta de enlace. Los dispositivos de bajada tienen sus propias identidades IoT Hub y usan cualquiera de los protocolos MQTT, AMQP o HTTP. La puerta de enlace simplemente pasa las comunicaciones entre los dispositivos e IoT Hub. Tanto los dispositivos como los usuarios que interactúan con ellos mediante IoT Hub no saben que una puerta de enlace está arbitrando sus comunicaciones. Esta falta de conocimiento significa que la puerta de enlace se considera *transparente*.
-
-El entorno de ejecución de Azure IoT Edge incluye funcionalidades de puerta de enlace transparente. Para más información, consulte [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md).
-
-### <a name="protocol-translation-pattern"></a>Patrón de traducción de protocolo
-
-Una puerta de enlace de *traducción de protocolo* también se conoce como puerta de enlace *opaca*, a diferencia del patrón de puerta de enlace transparente. En este patrón, los dispositivos que no admiten MQTT, AMQP o HTTP pueden usar un dispositivo de puerta de enlace para enviar datos a IoT Hub en su nombre. La puerta de enlace comprende el protocolo utilizado por los dispositivos de nivel inferior y es el único dispositivo que tiene identidad en IoT Hub. Toda la información parece proceder de un dispositivo, la puerta de enlace. Los dispositivos de nivel inferior deben insertar información de identificación adicional en sus mensajes si las aplicaciones de nube quieren analizar los datos de cada dispositivo. Además, los primitivos de IoT Hub, como los gemelos y los métodos, solo están disponibles para el dispositivo de puerta de enlace, no para los dispositivos de bajada.
-
-El entorno de ejecución de Azure IoT Edge no incluye funcionalidades de traducción de protocolo. Este patrón requiere módulos personalizados o de terceros que suelen ser específicos del hardware y el protocolo usados. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) contiene varios módulos de traducción de protocolo para elegir.
-
-### <a name="identity-translation-pattern"></a>Patrón de traducción de identidad
-
-En un patrón de *traducción de identidad*, los dispositivos que no se pueden conectar a IoT Hub en su lugar pueden conectarse a un dispositivo de puerta de enlace. La puerta de enlace proporciona a IoT Hub la traducción de protocolos e identidad en nombre de los dispositivos de bajada. La puerta de enlace es lo suficientemente inteligente como para comprender el protocolo utilizado por los dispositivos de nivel inferior, proporcionarles una identidad y traducir los primitivos de IoT Hub. Los dispositivos de nivel inferior aparecen en IoT Hub como dispositivos de primera clase con gemelos y métodos. Un usuario puede interactuar con los dispositivos en IoT Hub y no ser consciente del dispositivo de puerta de enlace intermedio.
-
-El entorno de ejecución de Azure IoT Edge no incluye funcionalidades de traducción de identidad. Este patrón requiere módulos personalizados o de terceros que suelen ser específicos del hardware y el protocolo usados. Para obtener un ejemplo que usa el patrón de traducción de identidad, vea [Starter Kit de LoRaWAN para Azure IoT Edge](https://github.com/Azure/iotedge-lorawan-starterkit).
-
-## <a name="use-cases"></a>Casos de uso
+Los patrones de puerta de enlace transparente y de traducción no se excluyen mutuamente. Un solo dispositivo IoT Edge puede funcionar como puerta de enlace transparente y como puerta de enlace de traducción.
 
 Todos los patrones de puerta de enlace proporcionan las siguientes ventajas:
 
 * **Análisis en el perimetral**: use los servicios de IA en el entorno local para procesar los datos que proceden de dispositivos de nivel inferior sin enviar datos de telemetría con total fidelidad a la nube. Busca y reacciona a la información localmente y solo envía un subconjunto de datos a IoT Hub.
-* **Aislamiento de dispositivos de nivel inferior**: el dispositivo de puerta de enlace puede proteger todos los dispositivos de nivel inferior de la exposición a Internet. Se puede situar entre una red de tecnología operativa (OT) que no tiene conectividad y una red de tecnología de la información (TI) que proporciona acceso a Internet.
+* **Aislamiento de dispositivos de nivel inferior**: el dispositivo de puerta de enlace puede proteger todos los dispositivos de nivel inferior de la exposición a Internet. Se puede situar entre una red de tecnología operativa (OT) que no tiene conectividad y una red de tecnologías de la información (TI) que proporciona acceso a Internet. Del mismo modo, los dispositivos que no tienen la capacidad de conectarse a IoT Hub por su cuenta pueden conectarse a un dispositivo de puerta de enlace en su lugar.
 * **Multiplexación de conexiones**: todos los dispositivos que se conectan a IoT Hub mediante una puerta de enlace IoT Edge usan la misma conexión subyacente.
 * **Suavizado de tráfico**: el dispositivo IoT Edge implementará automáticamente un retroceso exponencial si IoT Hub limita el tráfico, al tiempo que se conservan los mensajes localmente. Esta ventaja hace que la solución sea resistente a los picos de tráfico.
 * **Compatibilidad sin conexión**: el dispositivo de puerta de enlace almacena los mensajes y las actualizaciones gemelas que no se puedan entregar a IoT Hub.
 
-Una puerta de enlace que realiza la traducción de protocolo puede admitir dispositivos existentes y dispositivos nuevos que tienen restricciones de recursos. Muchos dispositivos existentes producen datos que pueden favorecer el conocimiento del negocio; sin embargo, no están diseñados teniendo en mente la conectividad a la nube. Las puertas de enlace opacas permiten que estos datos se desbloqueen y utilicen en una solución IoT.
+## <a name="transparent-gateways"></a>Puertas de enlace transparentes
 
-Una puerta de enlace que realiza la traducción de la identidad proporciona las ventajas de la traducción del protocolo y además permite una manejabilidad completa de los dispositivos de nivel inferior desde la nube. Todos los dispositivos de la solución IoT se muestran en IoT Hub con independencia del protocolo que usen.
+En un patrón de puerta de enlace transparente, los dispositivos que teóricamente podrían conectarse a IoT Hub pueden conectarse en su lugar a un dispositivo de puerta de enlace. Los dispositivos de nivel inferior tienen sus propias identidades de IoT Hub y se conectan mediante protocolos MQTT o AMQP. La puerta de enlace simplemente pasa las comunicaciones entre los dispositivos e IoT Hub. Tanto los dispositivos como los usuarios que interactúan con ellos mediante IoT Hub no saben que una puerta de enlace está arbitrando sus comunicaciones. Esta falta de conocimiento significa que la puerta de enlace se considera *transparente*.
 
-## <a name="cheat-sheet"></a>Hoja de referencia rápida
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
 
-Se trata de una hoja de características clave rápida que compara los primitivos de IoT Hub cuando se usan puertas de enlace transparentes, opacas (protocolo) y proxy.
+Los dispositivos IoT Edge se pueden conectar a través de puertas de enlace transparentes, así como dispositivos IoT normales.
 
-| Primitivo | Puerta de enlace transparente | Traducción del protocolo | Traducción de la identidad |
-|--------|-------------|--------|--------|
-| Identidades almacenadas en el registro de identidades de IoT Hub | Identidades de todos los dispositivos conectados | Solo la identidad del dispositivo de puerta de enlace | Identidades de todos los dispositivos conectados |
-| Dispositivo gemelo | Cada dispositivo conectado tiene su propio dispositivo gemelo | Solo la puerta de enlace tiene dispositivo y un módulo gemelos | Cada dispositivo conectado tiene su propio dispositivo gemelo |
-| Métodos directos y mensajes de nube a dispositivo | La nube puede tratar individualmente cada dispositivo conectado | La nube solo puede tratar el dispositivo de puerta de enlace | La nube puede tratar individualmente cada dispositivo conectado |
-| [Limitaciones y cuotas de IoT Hub](../iot-hub/iot-hub-devguide-quotas-throttling.md) | Aplicación a cada dispositivo | Aplicación al dispositivo de puerta de enlace | Aplicación a cada dispositivo |
+<!-- TODO add a downstream IoT Edge device to graphic -->
 
-Cuando se usa un patrón de puerta de enlace opaca (traducción de protocolo), todos los dispositivos que se conectan a través de esa puerta de enlace comparten la misma cola de nube a dispositivo, que puede contener 50 mensajes como máximo. De ello se desprende que el patrón de puerta de enlace opaca debe usarse solo cuando pocos dispositivos están conectados a través de cada puerta de enlace de campo y su tráfico de nube a dispositivo sea bajo.
+::: moniker-end
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
+
+Aunque un dispositivo IoT Edge no puede ser inferior a una puerta de enlace de IoT Edge.
+
+![Diagrama sobre el patrón de puerta de enlace transparente](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+::: moniker-end
+
+### <a name="parent-and-child-relationships"></a>Relaciones primarias y secundarias
+
+Las relaciones de puertas de enlace transparentes se declaran en IoT Hub al establecer la puerta de enlace de IoT Edge como elemento *primario* de un dispositivo de nivel inferior *secundario* que se conecta a ella.
+
+La relación de elementos primarios y secundarios se establece en tres puntos de la configuración de la puerta de enlace:
+
+#### <a name="cloud-identities"></a>Identidades en la nube
+
+Todos los dispositivos en un escenario de puerta de enlace transparente necesitan identidades de nube para poder autenticarse en IoT Hub. Al crear o actualizar una identidad del dispositivo, puede establecer los dispositivos primarios o secundarios del mismo. Esta configuración autoriza al dispositivo de puerta de enlace primario para que controle la autenticación de los dispositivos secundarios.
+
+Los dispositivos secundarios solo pueden tener un dispositivo primario. Cada dispositivo primario puede tener hasta 100 dispositivos secundarios.
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+Los dispositivos IoT Edge pueden ser elementos tanto primarios como secundarios en relaciones de puerta de enlace transparentes. Se puede crear una jerarquía de varios dispositivos IoT Edge que se comunican entre sí. El nodo superior de una jerarquía de puerta de enlace puede tener hasta cinco generaciones de elementos secundarios. Por ejemplo, un dispositivo IoT Edge puede tener cinco niveles de dispositivos IoT Edge vinculados como dispositivos secundarios. No obstante, el dispositivo IoT Edge de la quinta generación no puede tener ningún dispositivo secundario, ya sea IoT Edge o de otro tipo.
+::: moniker-end
+
+#### <a name="gateway-discovery"></a>Detección de puerta de enlace
+
+Un dispositivo secundario necesita la capacidad para encontrar a su dispositivo primario en la red local. Configure los dispositivos de puerta de enlace con un **nombre de host**, ya sea un nombre de dominio completo (FQDN) o una dirección IP, que los dispositivos secundarios usarán para localizarlo.
+
+En los dispositivos IoT de nivel inferior, use el parámetro **gatewayHostname** en la cadena de conexión para apuntar al dispositivo primario.
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+En los dispositivos IoT Edge de nivel inferior, use el parámetro **parent_hostname** en el archivo config.yaml para apuntar al dispositivo primario.
+::: moniker-end
+
+#### <a name="secure-connection"></a>Conexión segura
+
+Los dispositivos primarios y secundarios también deben autenticar las conexiones entre sí. Cada dispositivo necesita una copia de un certificado de entidad de certificación raíz compartido que los dispositivos secundarios usan para comprobar que se están conectando a la puerta de enlace adecuada.
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+Cuando varias puertas de enlace de IoT Edge se conectan entre sí en una jerarquía de puertas de enlace, todos los dispositivos de la jerarquía deben usar una sola cadena de certificados.
+::: moniker-end
+
+### <a name="device-capabilities-behind-transparent-gateways"></a>Funcionalidades del dispositivo detrás de puertas de enlace transparentes
+
+
+Todos los elementos primitivos de IoT Hub que funcionan con la canalización de mensajería de IoT Edge también admiten escenarios de puerta de enlace transparente. Cada puerta de enlace de IoT Edge tiene funcionalidades de almacenamiento y reenvío para los mensajes que pasan a través de ella.
+
+Use la siguiente tabla para ver cómo se admiten las diferentes funcionalidades de IoT Hub en los dispositivos, en comparación con los dispositivos que se encuentran detrás de las puertas de enlace.
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+| Capacidad | Dispositivo IoT | IoT detrás de una puerta de enlace | Dispositivo de IoT Edge | IoT Edge detrás de una puerta de enlace |
+| ---------- | ---------- | --------------------------- | --------------- | -------------------------------- |
+| [Mensajes del dispositivo a la nube (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Sí: D2C de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: D2C de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: D2C de IoT Edge](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: D2C de IoT Edge secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| [Mensajes de la nube al dispositivo (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Sí: C2D de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: C2D de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) | ![No: C2D de IoT Edge](./media/iot-edge-as-gateway/crossout-no.png) | ![No: C2D de IoT Edge secundario](./media/iot-edge-as-gateway/crossout-no.png) |
+| [Métodos directos](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Sí: método directo de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: método directo de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: método directo de IoT Edge](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: método directo de IoT Edge secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| [Dispositivos gemelos](../iot-hub/iot-hub-devguide-device-twins.md) y [módulos gemelos](../iot-hub/iot-hub-devguide-module-twins.md) | ![Sí: gemelos de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: gemelos de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: gemelos de IoT Edge](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: gemelos de IoT Edge secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| [Carga de archivos](../iot-hub/iot-hub-devguide-file-upload.md) | ![Sí: carga de archivos de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: carga de archivos de IoT secundario](./media/iot-edge-as-gateway/crossout-no.png) | ![Sí: carga de archivos de IoT Edge](./media/iot-edge-as-gateway/crossout-no.png) | ![Sí: carga de archivos de IoT Edge secundario](./media/iot-edge-as-gateway/crossout-no.png) |
+| Extracciones de imágenes de contenedor |   |   | ![Sí: extracción de contenedor de IoT Edge](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: extracción de contenedor de IoT Edge secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| Carga de blobs |   |   | ![Sí: carga de blobs de IoT Edge](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: carga de blobs de IoT Edge secundario](./media/iot-edge-as-gateway/check-yes.png) |
+
+Las **imágenes de contenedor** se pueden descargar, almacenar y entregar de dispositivos primarios a dispositivos secundarios.
+
+Los **blobs**, incluidos los paquetes de soporte y los registros, se pueden cargar de dispositivos secundarios a dispositivos primarios.
+
+::: moniker-end
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
+
+| Capacidad | Dispositivo IoT | IoT detrás de una puerta de enlace |
+| ---------- | ---------- | -------------------- |
+| [Mensajes del dispositivo a la nube (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Sí: D2C de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: D2C de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| [Mensajes de la nube al dispositivo (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Sí: C2D de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: C2D de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| [Métodos directos](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Sí: método directo de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: método directo de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| [Dispositivos gemelos](../iot-hub/iot-hub-devguide-device-twins.md) y [módulos gemelos](../iot-hub/iot-hub-devguide-module-twins.md) | ![Sí: gemelos de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: gemelos de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| [Carga de archivos](../iot-hub/iot-hub-devguide-file-upload.md) | ![Sí: carga de archivos de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: carga de archivos de IoT secundario](./media/iot-edge-as-gateway/crossout-no.png) |
+
+::: moniker-end
+
+## <a name="translation-gateways"></a>Puertas de enlace de traducción
+
+Si los dispositivos de nivel inferior no se pueden conectar a IoT Hub, la puerta de enlace de IoT Edge debe actuar como traductor. A menudo, este patrón es necesario para los dispositivos que no son compatibles con MQTT, AMQP o HTTP. Dado que estos dispositivos no se pueden conectar a IoT Hub, tampoco se pueden conectar al módulo del centro de IoT Edge sin procesamiento previo.
+
+Los módulos personalizados o de terceros que suelen ser específicos para el hardware o el protocolo del dispositivo de nivel inferior deben implementarse en la puerta de enlace de IoT Edge. Estos módulos de traducción toman los mensajes entrantes y los convierten en un formato que IoT Hub puede entender.
+
+Hay dos patrones para las puertas de enlace de traducción: *traducción del protocolo* y *traducción de identidades*.
+
+![Diagrama: patrones de puerta de enlace de traducción](./media/iot-edge-as-gateway/edge-as-gateway-translation.png)
+
+### <a name="protocol-translation"></a>Traducción del protocolo
+
+En el patrón de puertas de enlace de traducción de protocolos, solo la puerta de enlace de IoT Edge tiene una identidad con IoT Hub. El módulo de traducción recibe los mensajes de los dispositivos de nivel inferior, los convierte en un protocolo admitido y, a continuación, el dispositivo IoT Edge envía los mensajes en nombre de los dispositivos de nivel inferior. Toda la información parece proceder de un dispositivo, la puerta de enlace. Los dispositivos de nivel inferior deben insertar información de identificación adicional en sus mensajes si las aplicaciones de nube quieren analizar los datos de cada dispositivo. Además, los elementos primitivos de IoT Hub, como los gemelos y los métodos directos, solo son compatibles con el dispositivo de puerta de enlace, no con los dispositivos de nivel inferior. Las puertas de enlace de este patrón se consideran *opacas*, a diferencia de las puertas de enlace transparentes, ya que ocultan las identidades de los dispositivos de nivel inferior.
+
+La traducción de protocolos es compatible con los dispositivos que tienen restricciones de recursos. Muchos dispositivos existentes producen datos que pueden favorecer el conocimiento del negocio; sin embargo, no están diseñados teniendo en mente la conectividad a la nube. Las puertas de enlace opacas permiten que estos datos se desbloqueen y utilicen en una solución IoT.
+
+### <a name="identity-translation"></a>Traducción de la identidad
+
+El patrón de la puerta de enlace de traducción de identidades está basado en la traducción de protocolos, aunque la puerta de enlace de IoT Edge también proporciona una identidad del dispositivo de IoT Hub en nombre de los dispositivos de nivel inferior. El módulo de traducción se encarga de entender el protocolo que usan los dispositivos de nivel inferior, proporcionarles identidades y trasladar sus mensajes a elementos primitivos de IoT Hub. Los dispositivos de nivel inferior aparecen en IoT Hub como dispositivos de primera clase con gemelos y métodos. Un usuario puede interactuar con los dispositivos en IoT Hub y no ser consciente del dispositivo de puerta de enlace intermedio.
+
+La traducción de identidades proporciona las ventajas de la traducción del protocolo y, además, permite una administración completa de los dispositivos de nivel inferior desde la nube. Todos los dispositivos de la solución IoT se muestran en IoT Hub con independencia del protocolo que usen.
+
+### <a name="device-capabilities-behind-translation-gateways"></a>Funcionalidades del dispositivo detrás de puertas de enlace de traducción
+
+En la siguiente tabla se explica cómo se extienden las características de IoT Hub a los dispositivos de nivel inferior en los dos patrones de puerta de enlace de traducción.
+
+| Capacidad | Traducción del protocolo | Traducción de la identidad |
+| ---------- | -------------------- | -------------------- |
+| Identidades almacenadas en el registro de identidades de IoT Hub | Solo la identidad del dispositivo de puerta de enlace | Identidades de todos los dispositivos conectados |
+| Dispositivo gemelo | Solo la puerta de enlace tiene dispositivo y un módulo gemelos | Cada dispositivo conectado tiene su propio dispositivo gemelo |
+| Métodos directos y mensajes de nube a dispositivo | La nube solo puede tratar el dispositivo de puerta de enlace | La nube puede tratar individualmente cada dispositivo conectado |
+| [Limitaciones y cuotas de IoT Hub](../iot-hub/iot-hub-devguide-quotas-throttling.md) | Aplicación al dispositivo de puerta de enlace | Aplicación a cada dispositivo |
+
+Cuando se usa el patrón de traducción de protocolos, todos los dispositivos que se conectan a través de esa puerta de enlace comparten la misma cola de nube a dispositivo, que puede contener 50 mensajes como máximo. Use este patrón solo cuando pocos dispositivos están conectados a través de cada puerta de enlace de campo y su tráfico de la nube al dispositivo sea bajo.
+
+El entorno de ejecución de Azure IoT Edge no incluye funcionalidades de traducción de protocolos o identidades. Estos patrones requiere módulos personalizados o de terceros que suelen ser específicos del hardware y el protocolo usados. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) contiene varios módulos de traducción de protocolo para elegir. Para obtener un ejemplo que usa el patrón de traducción de identidad, vea [Starter Kit de LoRaWAN para Azure IoT Edge](https://github.com/Azure/iotedge-lorawan-starterkit).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

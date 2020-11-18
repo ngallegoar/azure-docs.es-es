@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 803dc4d1a7b78df891780eb741cba4e57ab2d5dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 816941fe0ec3a81c41da56acedcedf2de7febe74
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784429"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445241"
 ---
 # <a name="managed-hsm-access-control"></a>Control de acceso de HSM administrado
 
@@ -35,7 +35,7 @@ Ambos planos usan Azure Active Directory para la autenticación. Para la autoriz
 
 Cuando se crea un HSM administrado, el solicitante también proporciona una lista de administradores de planos de datos (se admiten todas las [entidades de seguridad](../../role-based-access-control/overview.md#security-principal)). Solo estos administradores pueden tener acceso al plano de datos de HSM administrado para realizar operaciones clave y administrar asignaciones de roles del plano de datos (RBAC local de HSM administrado).
 
-El modelo de permisos para ambos planos usa la misma sintaxis (RBAC), pero se aplican en diferentes niveles y las asignaciones de roles usan distintos ámbitos. Azure Resource Manager aplica el RBAC del plano de administración, mientras que el propio HSM administrado aplica el RBAC del plano de datos.
+El modelo de permisos para ambos planos usa la misma sintaxis, pero se aplican en diferentes niveles y las asignaciones de roles usan distintos ámbitos. Azure Resource Manager aplica Azure RBAC del plano de administración, mientras que el propio HSM administrado aplica el RBAC local del HSM administrado de plano de datos.
 
 > [!IMPORTANT]
 > La concesión de acceso del plano de administración de entidades de seguridad a un HSM administrado no les concede acceso al plano de datos para tener acceso a las claves o las asignaciones de roles del plano de datos (RBAC local de HSM administrado). Este aislamiento se hace por diseño para prevenir la expansión involuntaria de privilegios que afectan al acceso a las claves almacenadas en HSM administrado.
@@ -63,20 +63,20 @@ En la siguiente tabla se muestran los puntos de conexión para los planos de adm
 | Plano de&nbsp;acceso | Puntos de conexión de acceso | Operaciones | Mecanismo de control de acceso |
 | --- | --- | --- | --- |
 | Plano de administración | **Global:**<br> management.azure.com:443<br> | Creación, lectura, actualización, eliminación y traslado de HSM administrados<br>Establecimiento de etiquetas de HSM administrado | Azure RBAC |
-| Plano de datos | **Global:**<br> &lt;hsm-name&gt;.vault.azure.net:443<br> | **Claves** : decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Administración de roles del plano de datos (RBAC local de HSM administrado)** _: enumerar definiciones de roles, asignar roles, eliminar asignaciones de roles, definir roles personalizados<br/><br/>_ *Copia de seguridad y restauración **: creación y restauración de copias de seguridad, comprobación de las operaciones de creación y restauración de copias de seguridad de estado <br/><br/>** Dominio de seguridad**: descargar y cargar el dominio de seguridad | RBAC local de HSM administrado |
+| Plano de datos | **Global:**<br> &lt;hsm-name&gt;.vault.azure.net:443<br> | **Claves**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Administración de roles del plano de datos (RBAC local de HSM administrado)** _: enumerar definiciones de roles, asignar roles, eliminar asignaciones de roles, definir roles personalizados<br/><br/>_ *Copia de seguridad y restauración **: creación y restauración de copias de seguridad, comprobación de las operaciones de creación y restauración de copias de seguridad de estado <br/><br/>** Dominio de seguridad**: descargar y cargar el dominio de seguridad | RBAC local de HSM administrado |
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Plano de administración y RBAC de Azure
 
-En el plano de administración, utilice RBAC de Azure para autorizar las operaciones que un llamador puede ejecutar. En el modelo de RBAC, cada suscripción de Azure tiene una instancia de Azure Active Directory. Puede conceder acceso a usuarios, grupos y aplicaciones desde este directorio. El acceso se concede para administrar recursos de la suscripción de Azure que usan el modelo de implementación de Azure Resource Manager. Para conceder acceso, use [Azure Portal](https://portal.azure.com/), la [CLI de Azure](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de Azure Resource Manager](/rest/api/authorization/roleassignments).
+En el plano de administración, utilice RBAC de Azure para autorizar las operaciones que un llamador puede ejecutar. En el modelo de Azure RBAC, cada suscripción a Azure tiene una instancia de Azure Active Directory. Puede conceder acceso a usuarios, grupos y aplicaciones desde este directorio. El acceso se concede para administrar recursos de la suscripción de Azure que usan el modelo de implementación de Azure Resource Manager. Para conceder acceso, use [Azure Portal](https://portal.azure.com/), la [CLI de Azure](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de Azure Resource Manager](/rest/api/authorization/roleassignments).
 
-Puede crear un almacén de claves en un grupo de recursos y administrar el acceso mediante Azure Active Directory. Puede conceder a usuarios o grupos la capacidad de administrar los almacenes de claves en un grupo de recursos. Puede conceder acceso a un nivel de ámbito específico mediante la asignación de roles de RBAC apropiados. Para conceder acceso a un usuario para administrar almacén de claves, debe asignar un rol `key vault Contributor` predefinido al usuario en un ámbito específico. Los siguientes niveles de ámbitos se pueden asignar a un rol de RBAC:
+Puede crear un almacén de claves en un grupo de recursos y administrar el acceso mediante Azure Active Directory. Puede conceder a usuarios o grupos la capacidad de administrar los almacenes de claves en un grupo de recursos. Puede conceder acceso a un nivel de ámbito específico mediante la asignación de roles de Azure apropiados. Para conceder acceso a un usuario para administrar almacén de claves, debe asignar un rol `key vault Contributor` predefinido al usuario en un ámbito específico. Los siguientes niveles de ámbitos se pueden asignar a un rol de Azure:
 
-- **Grupo de administración** :  un rol de RBAC asignado al nivel de suscripción se aplica a todas las suscripciones de ese grupo de administración.
-- **Suscripción** : Un rol de RBAC asignado al nivel de suscripción se aplica a todos los recursos y grupos de recursos de esa suscripción.
-- **Grupo de recursos** : Un rol de RBAC asignado al nivel de grupo de recursos se aplica a todos los recursos de dicho grupo de recursos.
-- **Recurso específico** : un rol de RBAC asignado a un recurso concreto se aplica a dicho recurso. En este caso, el recurso es un almacén de claves específico.
+- **Grupo de administración**:  Un rol de Azure asignado al nivel de suscripción se aplica a todas las suscripciones de ese grupo de administración.
+- **Suscripción**: Un rol de Azure asignado al nivel de suscripción se aplica a todos los recursos y grupos de recursos de esa suscripción.
+- **Grupo de recursos**: Un rol de Azure asignado al nivel de grupo de recursos se aplica a todos los recursos de dicho grupo de recursos.
+- **Recurso específico**: un rol de Azure asignado a un recurso concreto se aplica a dicho recurso. En este caso, el recurso es un almacén de claves específico.
 
-Existen varios roles predefinidos. Si un rol predefinido no se ajusta a sus necesidades, puede definir uno propio. Para más información, vea [RBAC: roles integrados](../../role-based-access-control/built-in-roles.md).
+Existen varios roles predefinidos. Si un rol predefinido no se ajusta a sus necesidades, puede definir uno propio. Para más información, consulte [Azure RBAC: roles integrados](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="data-plane-and-managed-hsm-local-rbac"></a>RBAC local de HSM administrado y plano de datos
 

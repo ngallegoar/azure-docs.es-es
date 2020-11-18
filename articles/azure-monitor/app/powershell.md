@@ -3,12 +3,12 @@ title: Automatización de Azure Application Insights con PowerShell | Microsoft 
 description: Automatice la creación y administración de recursos, alertas y pruebas de disponibilidad en PowerShell mediante una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: b5f3ba12fe8a730ce45e64b896ccc9c32b17b30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58ed537a8fa6622756e7bcddceb6e9321cfbd82e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760910"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741094"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Administración de recursos de Application Insights mediante PowerShell
 
@@ -431,7 +431,6 @@ Para automatizar la creación de otros recursos de cualquier variante, cree un e
    
     Cada prueba web tiene una regla de alerta asociada, por lo que tiene que copiar las dos.
    
-    También puede incluir alertas en las métricas. [Nombres de métricas](powershell-alerts.md#metric-names).
 5. Inserte esta línea en cada recurso:
    
     `"apiVersion": "2015-05-01",`
@@ -470,8 +469,7 @@ Azure debe instalar los recursos en un orden estricto. Para tener la seguridad d
 Otros artículos de automatización:
 
 * [Script de PowerShell para crear un recurso de Application Insights](./create-new-resource.md#creating-a-resource-automatically) : método rápido sin necesidad de plantilla.
-* [Uso de PowerShell para configurar alertas en Application Insights](powershell-alerts.md)
-* [Creación de pruebas web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Creación de pruebas web](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-alerts-metric#availability-test-with-metric-alert)
 * [Envío de Azure Diagnostics a Application Insights](powershell-azure-diagnostics.md)
 * [Creación de anotaciones de versión](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fffb52e333bea1b2be11b127a9eab6656dc1d1f5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311862"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740335"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Fase de adquisición y comprensión de los datos del proceso de ciencia de datos en equipos
 
@@ -48,9 +48,7 @@ En esta fase se abordan tres tareas principales:
 Configure el proceso para mover los datos desde las ubicaciones de origen a las ubicaciones de destino donde se ejecutan las operaciones de análisis, como el entrenamiento y las predicciones. Para obtener detalles técnicos y opciones sobre cómo mover datos con diversos servicios de datos de Azure, vea [Carga de datos en entornos de almacenamiento para el análisis](ingest-data.md). 
 
 ### <a name="explore-the-data"></a>Exploración de los datos
-Antes de entrenar los modelos, debe desarrollar una comprensión sólida de los datos. A menudo, los conjuntos de datos reales contienen ruido, les faltan datos o presentan un sinfín de discrepancias de otros tipos. Puede utilizar funciones de resumen y visualización de los datos para auditar su calidad y dar la información que se necesita para procesarlos y dejarlos preparados para el modelado. Normalmente, se trata de un proceso iterativo.
-
-TDSP ofrece una utilidad automatizada denominada [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) que facilita la visualización de los datos y la elaboración de informes resumidos de los datos. Se recomienda empezar con IDEAR para explorar la información y contribuir a comprender los datos iniciales interactivamente, sin codificación. A continuación, puede escribir código personalizado para visualizarlos y explorarlos. Para obtener orientación sobre cómo limpiar los datos, consulte [Tareas para preparar los datos para el aprendizaje automático mejorado](prepare-data.md).  
+Antes de entrenar los modelos, debe desarrollar una comprensión sólida de los datos. A menudo, los conjuntos de datos reales contienen ruido, les faltan datos o presentan un sinfín de discrepancias de otros tipos. Puede utilizar funciones de resumen y visualización de los datos para auditar su calidad y dar la información que se necesita para procesarlos y dejarlos preparados para el modelado. Normalmente, se trata de un proceso iterativo. Para obtener orientación sobre cómo limpiar los datos, consulte [Tareas para preparar los datos para el aprendizaje automático mejorado](prepare-data.md).  
 
 Una vez que esté satisfecho con la calidad de los datos limpios, el siguiente paso es comprender mejor los patrones que son inherentes a los datos. Este análisis de datos ayuda a elegir y desarrollar un modelo de predicción adecuado para el destino. Busque pruebas que describan la conexión de los datos con el destino. A continuación, determine si hay suficientes datos para avanzar con los siguientes pasos de modelado. Como hemos indicado, normalmente, se trata de un proceso iterativo. Es posible que deba buscar otros orígenes de datos con información más precisa o pertinente con el fin de alimentar el conjunto de datos inicialmente identificado en la fase anterior. 
 
@@ -66,9 +64,9 @@ En esta fase, desarrolla una arquitectura de solución de la canalización de da
 ## <a name="artifacts"></a>Artefactos
 Estos son los resultados de esta fase:
 
-   * [Informe de la calidad de los datos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): este informe contiene resúmenes de los datos, las relaciones entre cada atributo y objetivo, la clasificación de las variables, etc. La herramienta [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) que se incluye como parte del TDSP permite generar rápidamente este informe sobre cualquier conjunto de datos tabular, como un archivo CSV o una tabla relacional. 
-   * **Arquitectura de la solución** : la arquitectura de la solución puede ser un diagrama o una descripción de la canalización de datos que utiliza para llevar a cabo la tarea de puntuación o las predicciones con los nuevos datos una vez que se ha compilado un modelo. También contiene la canalización para volver a entrenar el modelo basándose en los nuevos datos. Almacene el documento en el directorio [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) cuando se usa la plantilla de estructura de directorios de TDSP.
-   * **Decisión de punto de control** : antes de comenzar con el proceso completo de diseño de características y con la compilación del modelo, puede volver a evaluar el proyecto para determinar si el valor que está previsto que aporte es suficiente para seguir adelante con él. Por ejemplo, podría estar preparado para continuar, requerir más datos o abandonar el proyecto si no existen datos que respondan a la pregunta.
+   * [Informe de la calidad de los datos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): este informe contiene resúmenes de los datos, las relaciones entre cada atributo y objetivo, la clasificación de las variables, etc. 
+   * **Arquitectura de la solución**: la arquitectura de la solución puede ser un diagrama o una descripción de la canalización de datos que utiliza para llevar a cabo la tarea de puntuación o las predicciones con los nuevos datos una vez que se ha compilado un modelo. También contiene la canalización para volver a entrenar el modelo basándose en los nuevos datos. Almacene el documento en el directorio [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) cuando se usa la plantilla de estructura de directorios de TDSP.
+   * **Decisión de punto de control**: antes de comenzar con el proceso completo de diseño de características y con la compilación del modelo, puede volver a evaluar el proyecto para determinar si el valor que está previsto que aporte es suficiente para seguir adelante con él. Por ejemplo, podría estar preparado para continuar, requerir más datos o abandonar el proyecto si no existen datos que respondan a la pregunta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

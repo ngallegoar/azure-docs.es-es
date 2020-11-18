@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398018"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695068"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Equilibrador de carga entre regiones (versión preliminar)
 
@@ -74,7 +74,7 @@ El equilibrador de carga entre regiones de Azure usa el algoritmo de equilibrio 
 
 El modo de distribución de carga configurado de los equilibradores de carga regionales se usa para tomar la decisión de enrutamiento final al usarse varios equilibradores de carga regionales para la proximidad geográfica.
 
-Para más información, consulte [Configurar el modo de distribución para Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode).
+Para más información, consulte [Configurar el modo de distribución para Azure Load Balancer](./load-balancer-distribution-mode.md).
 
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Capacidad de escalar verticalmente o reducir verticalmente detrás de un solo punto de conexión
@@ -84,7 +84,7 @@ Cuando exponga el punto de conexión global de un equilibrador de carga entre re
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>IP estática
-El equilibrador de carga entre regiones viene con una dirección pública estática, que garantiza que la dirección IP siga siendo la misma. Para obtener más información sobre la dirección IP estática, lea más [aquí](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#allocation-method).
+El equilibrador de carga entre regiones viene con una dirección pública estática, que garantiza que la dirección IP siga siendo la misma. Para obtener más información sobre la dirección IP estática, lea más [aquí](../virtual-network/public-ip-addresses.md#allocation-method).
 
 ### <a name="client-ip-preservation"></a>Conservación de la dirección IP de cliente
 El equilibrador de carga entre regiones es un equilibrador de carga de red de tránsito de nivel 4. Este tránsito conserva la dirección IP original del paquete.  La dirección IP original está disponible para el código que se ejecuta en la máquina virtual. Esta conservación permite aplicar lógica específica de una dirección IP.

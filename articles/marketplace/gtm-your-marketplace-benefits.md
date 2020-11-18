@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/24/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: da3194559ef5ec4c325f7dc15591f57c0d9c38c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad86ebe1ca397004745e75dd279ea0a7cfe8348e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91368293"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94746574"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
@@ -26,7 +26,7 @@ Las Recompensas de Marketplace están diseñadas para ayudarlo en su fase de cre
 
 El programa crea un bucle de retroalimentación positivo: las ventajas de cada fase de crecimiento están diseñadas para llevarle hasta la fase siguiente, lo que le permite llevar el negocio a los clientes de Microsoft, con el campo de Microsoft, y a través del canal de Microsoft mediante el aprovechamiento de Marketplace comercial como plataforma.
 
-Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](determine-your-listing-type.md#choose-a-listing-option).
+Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](determine-your-listing-type.md#available-listing-options-by-offer-type).
 
 Un miembro del equipo de Recompesas se pondrá en contacto con usted cuando se publique la oferta, en función de su idoneidad.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.openlocfilehash: 5b70b109f43e80fc3ec68f52aef2dba6823033bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b71f66dfcbd33cdecc1a6fea46871ba0cda687d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80882138"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442895"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Aplicación de página única: Llamada a una API de web
 
@@ -52,5 +52,4 @@ El contenedor MSAL Angular aprovecha las ventajas del interceptor HTTP para adqu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Paso a producción](scenario-spa-production.md)
+Avance al siguiente artículo de este escenario, [Paso a producción](scenario-spa-production.md).

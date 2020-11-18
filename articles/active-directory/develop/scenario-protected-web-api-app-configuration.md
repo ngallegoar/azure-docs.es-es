@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bfbfb1ff5b6cb9c711d987608226c51822dfc935
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257459"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442963"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: Configuración del código
 
@@ -242,5 +242,4 @@ También puede validar los tokens de acceso entrantes en Azure Functions. Puede 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Comprobación de los ámbitos y roles de aplicación en el código](scenario-protected-web-api-verification-scope-app-roles.md)
+Vaya al siguiente artículo de este escenario [Comprobación de los ámbitos y roles de aplicación en el código](scenario-protected-web-api-verification-scope-app-roles.md).

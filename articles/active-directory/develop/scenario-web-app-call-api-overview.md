@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b4123b0424e52c6a2919de4b60bcc6158062b0f1
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257136"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442640"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Escenario: Aplicación web que llama a las API web
 
@@ -53,5 +53,4 @@ El desarrollo de este escenario implica estas tareas específicas:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Aplicación web que llama a las API web: registro de la aplicación](scenario-web-app-call-api-app-registration.md)
+Avance al siguiente artículo de este escenario, [Registro de la aplicación](scenario-web-app-call-api-app-registration.md).
