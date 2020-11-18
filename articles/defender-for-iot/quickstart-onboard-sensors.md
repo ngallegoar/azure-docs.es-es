@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: rkarlin
-ms.openlocfilehash: e90bdcfe22828d85ebeeb74314617fc6eac81385
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: dafa2f231581ee7e7fa7a59a9c9320f6f2a67038
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094713"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357691"
 ---
 # <a name="quickstart-deploy-and-onboard-a-sensor"></a>Inicio rápido: Implementación e incorporación de un sensor
 
@@ -37,21 +37,21 @@ La incorporación de sensores le permite:
 
 |||
 |------ | ----------- |
-| **Definir un nombre de sensor** | Asigne un nombre al sensor que va a incorporar y asócielo a un centro de IoT o a una suscripción.<br /><br />Para más información, consulte **Incorporación de sensores** .|
+| **Definir un nombre de sensor** | Asigne un nombre al sensor que va a incorporar y asócielo a un centro de IoT o a una suscripción.<br /><br />Para más información, consulte **Incorporación de sensores**.|
 |**Elegir una suscripción y el número de dispositivos confirmados**|Seleccione una suscripción y el número de dispositivos que cubre la suscripción. Escriba el número en incrementos de 1000.|
-| **Definir un modo de administración de sensores** | Defina dónde se muestran el recurso, la alerta y otra información detectada por el sensor. Esto se determina en función del **modo de administración del sensor** que se defina.<br /><br />**Modo administrado de forma local** : la información detectada por el sensor se muestra en la consola del sensor. La información de detección también se comparte con la consola de administración local si el sensor está conectado a ella.<br /><br />**Modo administrado en la nube** : la información detectada por el sensor se muestra en la consola del sensor. Además, se proporciona información de alertas mediante un centro de IoT, que puede compartirse con otros servicios de Azure, por ejemplo, Azure Sentinel.<br />Para más información, consulte **Incorporación de sensores** . |
-| **Adquirir un archivo de activación de sensor** | Con los sensores **administrados de forma local** , se usa un archivo de activación para administrar los períodos de activación del sensor autorizados.<br /><br />Con los sensores **administrados en la nube** , se usa un archivo de activación como conexión entre el sensor y un centro de IoT. Para más información, consulte **Incorporación de sensores** . |
-| **Cargar un archivo de activación en el sensor** | Los archivos de activación deben cargarse en los sensores de la empresa. La supervisión de la red y el acceso a las características de la consola del sensor no estarán disponibles hasta que se cargue el archivo de activación. Para más información, consulte **Carga de archivos de activación del sensor** . |
-| **Actualizar los parámetros de red del sensor antes de la activación** | Actualice los parámetros definidos durante la instalación del sensor. Para más información, consulte **Error: No se encontró el origen de referencia** .|
+| **Definir un modo de administración de sensores** | Defina dónde se muestran el recurso, la alerta y otra información detectada por el sensor. Esto se determina en función del **modo de administración del sensor** que se defina.<br /><br />**Modo administrado de forma local**: la información detectada por el sensor se muestra en la consola del sensor. La información de detección también se comparte con la consola de administración local si el sensor está conectado a ella.<br /><br />**Modo administrado en la nube**: la información detectada por el sensor se muestra en la consola del sensor. Además, se proporciona información de alertas mediante un centro de IoT, que puede compartirse con otros servicios de Azure, por ejemplo, Azure Sentinel.<br />Para más información, consulte **Incorporación de sensores**. |
+| **Adquirir un archivo de activación de sensor** | Con los sensores **administrados de forma local**, se usa un archivo de activación para administrar los períodos de activación del sensor autorizados.<br /><br />Con los sensores **administrados en la nube**, se usa un archivo de activación como conexión entre el sensor y un centro de IoT. Para más información, consulte **Incorporación de sensores**. |
+| **Cargar un archivo de activación en el sensor** | Los archivos de activación deben cargarse en los sensores de la empresa. La supervisión de la red y el acceso a las características de la consola del sensor no estarán disponibles hasta que se cargue el archivo de activación. Para más información, consulte **Carga de archivos de activación del sensor**. |
+| **Actualizar los parámetros de red del sensor antes de la activación** | Actualice los parámetros definidos durante la instalación del sensor. Para más información, consulte **Carga de archivos de activación del sensor**.|
 
 
 **Para implementar un sensor:**
 
 1. Vaya a Azure Defender para IoT desde Azure Portal.
 
-2. Seleccione **Comenzar** .
+2. Seleccione **Comenzar**.
 
-3. En la sección **Discover your network** (Detectar la red), seleccione **Configurar** .
+3. En la sección **Discover your network** (Detectar la red), seleccione **Configurar**.
 
    ![Vista de detección de la red de Azure Defender para IoT](media/updates/image5.png)
 
@@ -59,13 +59,13 @@ La incorporación de sensores le permite:
 
    ![Vista del sensor de red de Azure Defender para IoT](media/updates/image6.png)
 
-  - **Comprar un sensor preconfigurado** : Microsoft y Arrow se han asociado para proporcionar sensores preconfigurados. Para comprar un sensor preconfigurado, póngase en contacto con Arrow en: <hardware.sales@arrow.com>. El sensor se entregará en sus instalaciones. Se instala la versión más reciente.
+  - **Comprar un sensor preconfigurado**: Microsoft y Arrow se han asociado para proporcionar sensores preconfigurados. Para comprar un sensor preconfigurado, póngase en contacto con Arrow en: <hardware.sales@arrow.com>. El sensor se entregará en sus instalaciones. Se instala la versión más reciente.
 
   - **Traiga su propio dispositivo (instalación ISO)** : la solución se ejecuta en dispositivos certificados. Al comprar su dispositivo certificado, use la [guía de especificaciones de hardware de Azure Defender para IoT](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) como referencia.
 
     - Seleccione una versión en el menú **Select version** (Seleccionar versión).
 
-    - Seleccione **Descargar** y guarde el archivo. Para información sobre la descarga de la imagen ISO y la instalación del software de sensor, consulte la **guía de instalación de Azure Defender para IoT** .
+    - Seleccione **Descargar** y guarde el archivo. Para información sobre la descarga de la imagen ISO y la instalación del software de sensor, consulte la **guía de instalación de Azure Defender para IoT**.
 
 5. Una vez que ha instalado el software en el sensor o que ha recibido un sensor preconfigurado, lleve a cabo las tareas de configuración de la red. Para más información, consulte la [guía de configuración de la red](https://aka.ms/AzureDefenderForIoTNetworkSetup).
 
@@ -95,7 +95,7 @@ Los sensores deben incorporarse al portal de Azure Defender para IoT. La incorpo
 
 2. Seleccione una suscripción en la lista desplegable de suscripciones.
 3. En el campo **Committed devices** (Dispositivos confirmados), escriba el número de dispositivos que cubre la suscripción. Debe volver a escribir este número para cada sensor que incorpore que esté asociado a la misma suscripción.  Por ejemplo, si la suscripción "A" está asociada a 6000 dispositivos, escriba 6000 para cada sensor asociado a la suscripción "A".   
-4. Elija un modo de administración de sensor mediante el botón de alternancia **Cloud connect** (Conexión en la nube). Si el botón de alternancia está activado, el sensor está **administrado en la nube** . Si el botón de alternancia está desactivado, el sensor está **administrado de forma local** .
+4. Elija un modo de administración de sensor mediante el botón de alternancia **Cloud connect** (Conexión en la nube). Si el botón de alternancia está activado, el sensor está **administrado en la nube**. Si el botón de alternancia está desactivado, el sensor está **administrado de forma local**.
 
 
 | Modo de administración del sensor | Descripción                                                |
@@ -103,7 +103,7 @@ Los sensores deben incorporarse al portal de Azure Defender para IoT. La incorpo
 | **Administrado en la nube**          | la información detectada por el sensor se muestra en la consola del sensor. Además, se proporciona información de alertas mediante un centro de IoT, que puede compartirse con otros servicios de Azure, por ejemplo, Azure Sentinel.<br /><br />Elija un centro de IoT para asociarlo a este sensor.<br /><br />Tendrá que cargar un archivo de activación de administración en la nube en los sensores administrados en la nube.<br /><br />Consulte **Carga de archivos de activación del sensor** para más información. |
 | **Administrado de forma local**        | La información detectada por los sensores administrados de forma local se muestra en la consola del sensor. Si trabaja en una red aislada y quiere una vista unificada de toda la información detectada por varios sensores administrados de forma local, trabaje con la consola de administración local.<br /><br />Los sensores *administrados de forma local* están asociados a una suscripción de Azure y contienen instrucciones sobre el período de expiración de la activación del sensor.<br /><br />Elija una suscripción para asociarla a este sensor.<br /><br />Tendrá que cargar un archivo de activación de administración local en cada sensor. Consulte **Carga de archivos de activación del sensor** para más información. |
 
-5. Seleccione **Registrar** .
+5. Seleccione **Registrar**.
 
 6. En la página Download activation file (Descargar archivo de activación), seleccione **Download activation** (Descargar activación).
 
@@ -111,7 +111,7 @@ Los sensores deben incorporarse al portal de Azure Defender para IoT. La incorpo
 
 7. Guarde el archivo. El formato del nombre de archivo es: `<hub_name>_<sensor_name>`. El nombre del sensor hace referencia al nombre que definió anteriormente.
 
-8. Seleccione **Finalizar** .
+8. Seleccione **Finalizar**.
 
 9. Para completar el proceso de incorporación del sensor, cargue el archivo en el sensor desde la consola de Azure Defender para IoT.
  
@@ -151,7 +151,7 @@ Para más información sobre los centros de IoT, consulte [Acerca de IoT Hub](..
 
 5. Apruebe los términos y condiciones.
 
-6. Seleccione **Activar** . Los parámetros de configuración de red del sensor se definieron durante la instalación del software o cuando se adquirió un sensor configurado previamente. Se definieron los siguientes parámetros:
+6. Seleccione **Activar**. Los parámetros de configuración de red del sensor se definieron durante la instalación del software o cuando se adquirió un sensor configurado previamente. Se definieron los siguientes parámetros:
    - Dirección IP
    - DNS  
    - Puerta de enlace predeterminada
@@ -166,7 +166,7 @@ Para más información sobre los centros de IoT, consulte [Acerca de IoT Hub](..
 
    ![Captura de pantalla de la vista Edit Network Configuration (Editar configuración de red)](media/updates/image13.png)
 
-8. Se muestran los parámetros definidos durante la instalación. También hay una opción disponible para definir el proxy. Actualice los valores según sea necesario y seleccione **Guardar** .
+8. Se muestran los parámetros definidos durante la instalación. También hay una opción disponible para definir el proxy. Actualice los valores según sea necesario y seleccione **Guardar**.
  
  
 ## <a name="next-steps"></a>Pasos siguientes

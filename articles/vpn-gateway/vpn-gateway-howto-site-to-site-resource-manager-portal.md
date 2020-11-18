@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: b8c12048283cb8cc4220cb325762b272cde4a68f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 10cc97692e43cb46bd26597317b7f05ae6e19f83
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541322"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657200"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creación de una conexión de sitio a sitio mediante Azure Portal
 
@@ -74,7 +74,7 @@ Cree una puerta de enlace de VPN con los siguientes valores:
 * **Generación:** Generación 1
 * **Red virtual:** VNet1
 * **Intervalo de direcciones de subred de puerta de enlace:** 10.1.255.0/27
-* **Dirección IP pública** : Crear nuevo
+* **Dirección IP pública**: Crear nuevo
 * **Dirección IP pública:** VNet1GWpip
 * **Habilitar el modo activo-activo:** Disabled
 * **Configuración de BGP:** Disabled
@@ -146,7 +146,7 @@ Puede agregar conexiones adicionales, siempre que ninguno de los espacios de dir
 * Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Para información acerca de la tunelización forzada, consulte la [Acerca de la tunelización forzada](vpn-gateway-forced-tunneling-rm.md).
 * Para obtener información acerca de las conexiones activo/activo de alta disponibilidad, consulte [Conectividad de alta disponibilidad entre locales y de red virtual a red virtual](vpn-gateway-highlyavailable.md).
-* Para información acerca de cómo limitar el tráfico de red a los recursos de una red virtual, vea [Seguridad de red](../virtual-network/security-overview.md).
+* Para información acerca de cómo limitar el tráfico de red a los recursos de una red virtual, vea [Seguridad de red](../virtual-network/network-security-groups-overview.md).
 * Para información acerca de cómo enruta Azure el tráfico entre los recursos locales, de Internet y de Azure, vea [Enrutamiento del tráfico de redes virtuales](../virtual-network/virtual-networks-udr-overview.md).
 * Para información acerca de cómo crear una conexión VPN de sitio a sitio mediante una plantilla de Azure Resource Manager, consulte [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/) (Creación de una conexión VPN de sitio a sitio).
 * Para información sobre cómo crear una conexión VPN entre redes virtuales mediante una plantilla de Azure Resource Manager, consulte [Implementación de la replicación geográfica de HBase](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

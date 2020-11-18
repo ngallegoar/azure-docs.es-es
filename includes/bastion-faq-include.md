@@ -5,23 +5,23 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 95c55f92304ddd3ec2b3d44d4f07fb64ab815c6d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5d14068f6be4717f74e4917d6fccf1082cd0efd3
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755757"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331765"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>¿En qué regiones está disponible?
 
-[!INCLUDE [region](bastion-regions-include.md)]
+[!INCLUDE [Azure Bastion region availability](bastion-regions-include.md)]
 
-### <a name="do-i-need-a-public-ip-on-my-virtual-machine"></a><a name="publicip"></a>¿Necesito una dirección IP pública en mi máquina virtual?
+### <a name="do-i-need-a-public-ip-on-my-virtual-machine-to-connect-via-azure-bastion"></a><a name="publicip"></a>¿Necesito una dirección IP pública en mi máquina virtual para conectarme mediante Azure Bastion?
 
-Si va a conectar una máquina virtual mediante Azure Bastion, NO necesitará ninguna dirección IP pública en la máquina virtual de Azure a la que se va a conectar. El servicio Bastion abrirá la sesión o conexión RDP/SSH a la máquina virtual a través de la dirección IP privada de su máquina virtual dentro de su red virtual.
+No. Si va a conectarse a una máquina virtual mediante Azure Bastion, no necesita una dirección IP pública en la máquina virtual de Azure a la que se va a conectar. El servicio Bastion abrirá la sesión o conexión RDP/SSH a la máquina virtual a través de la dirección IP privada de su máquina virtual dentro de su red virtual.
 
 ### <a name="is-ipv6-supported"></a>¿Se admite IPv6?
 
@@ -29,11 +29,11 @@ Actualmente, IPv6 no se admite. Azure Bastion solo admite IPv4.
 
 ### <a name="do-i-need-an-rdp-or-ssh-client"></a><a name="rdpssh"></a>¿Necesito un cliente RDP o SSH?
 
-No es necesario un cliente RDP o SSH para que el protocolo de escritorio remoto/Secure Shell accedan a su máquina virtual de Azure en Azure Portal. Use [Azure Portal](https://portal.azure.com) para que RDP/SSH acceda a su máquina virtual directamente en el explorador.
+No. No es necesario un cliente RDP o SSH para acceder mediante el protocolo de escritorio remoto o Secure Shell a su máquina virtual de Azure en Azure Portal. Use [Azure Portal](https://portal.azure.com) para que RDP/SSH acceda a su máquina virtual directamente en el explorador.
 
 ### <a name="do-i-need-an-agent-running-in-the-azure-virtual-machine"></a><a name="agent"></a>¿Es necesario que un agente se ejecute en la máquina virtual de Azure?
 
-No es preciso instalar un agente ni ningún otro software en el explorador ni en la máquina virtual de Azure. El servicio Bastion no utiliza agentes y no requiere software adicional para RDP/SSH.
+No. No es preciso instalar un agente ni ningún otro software en el explorador ni en la máquina virtual de Azure. El servicio Bastion no utiliza agentes y no requiere software adicional para RDP y SSH.
 
 ### <a name="how-many-concurrent-rdp-and-ssh-sessions-does-each-azure-bastion-support"></a><a name="limits"></a>¿Cuántas sesiones RDP y SSH simultáneas admite cada instancia de Azure Bastion?
 
@@ -43,7 +43,7 @@ Tanto RDP como SSH son protocolos basados en el uso. El uso intensivo de las ses
 
 ### <a name="what-features-are-supported-in-an-rdp-session"></a><a name="rdpfeaturesupport"></a>¿Qué características se admiten en una sesión de RDP?
 
-En este momento, solo se admiten las operaciones de copiado y pegado de texto. No se admiten características como la copia de archivos. No dude en compartir sus comentarios sobre las nuevas características en la [página de comentarios de Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+En este momento, solo se admiten las operaciones de copiado y pegado de texto. No se admiten características como la copia de archivos. No dude en compartir sus comentarios sobre nuevas características en la [página de comentarios de Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
 ### <a name="does-bastion-hardening-work-with-aadj-vm-extension-joined-vms"></a><a name="aadj"></a>¿Funciona la protección de Bastion con las máquinas virtuales unidas mediante extensión a una máquina virtual AADJ?
 
@@ -70,15 +70,17 @@ Para crear una conexión, se requieren los siguientes roles:
 Consulte la [página de precios](https://aka.ms/BastionHostPricing)para obtener más información.
 
 ### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>¿Requiere Azure Bastion una CAL de RDS con fines administrativos en máquinas virtuales hospedadas en Azure?
+
 No, el acceso a las máquinas virtuales Windows Server con Azure Bastion no requiere una [CAL de RDS](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) cuando se utiliza únicamente con fines administrativos.
 
-### <a name="what-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>¿Qué distribuciones de teclado se admiten durante la sesión remota Bastion?
+### <a name="which-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>¿Qué distribuciones de teclado se admiten durante la sesión remota de Bastion?
 
 Actualmente, Azure Bastion admite la distribución de teclado en-US-QWERTY dentro de la máquina virtual.  La compatibilidad con otras configuraciones regionales para la distribución del teclado está en curso.
 
 ### <a name="is-user-defined-routing-udr-supported-on-an-azure-bastion-subnet"></a><a name="udr"></a>¿Se admite el enrutamiento definido por el usuario (UDR) en las subredes de Azure Bastion?
 
 No. UDR no es compatible con las subredes de Azure Bastion.
+
 En los escenarios que incluyen Azure Bastion y Azure Firewall/Aplicación virtual de red (NVA) en la misma red virtual, no es preciso forzar el tráfico de una subred de Azure Bastion a Azure Firewall, ya que la comunicación entre Azure Bastion y las máquinas virtuales es privada. Para más información, consulte [Acceso a las máquinas virtuales que están detrás de Azure Firewall con Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
 ### <a name="why-do-i-get-your-session-has-expired-error-message-before-the-bastion-session-starts"></a><a name="session"></a>¿Por qué obtengo el error "Su sesión ha expirado" antes de iniciar la sesión de Bastion?
@@ -87,4 +89,8 @@ Las sesiones deben iniciarse solo en Azure Portal. Inicie sesión en Azure Porta
 
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>¿Cómo controlo los errores de implementación?
 
-Examine los mensajes de error y [cree una solicitud de soporte técnico en Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) si fuera necesario. Los errores de implementación pueden estar motivados por [límites, cuotas y restricciones de la suscripción de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Más concretamente, los clientes pueden encontrar un límite en cuanto al número de direcciones IP públicas que se permiten por suscripción y que provoca un error en la implementación de Azure Bastion.
+Examine los mensajes de error y [cree una solicitud de soporte técnico en Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) si fuera necesario. Los errores de implementación pueden estar motivados por [límites, cuotas y restricciones de la suscripción de Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). Más concretamente, los clientes pueden encontrar un límite en cuanto al número de direcciones IP públicas que se permiten por suscripción y que provoca un error en la implementación de Azure Bastion.
+
+### <a name="how-do-i-incorporate-azure-bastion-in-my-disaster-recovery-plan"></a><a name="dr"></a>¿Cómo puedo incorporar Azure Bastion en mi plan de recuperación ante desastres?
+
+Azure Bastion se implementa en redes virtuales o redes virtuales emparejadas y está asociado a una región de Azure. Usted es responsable de implementar Azure Bastion en una red virtual del sitio de recuperación ante desastres (DR). En caso de que se produzca un error en la región de Azure, realice una operación de conmutación por error de las máquinas virtuales a la región de DR. A continuación, use el host de Azure Bastion implementado en la región de DR para conectarse a las máquinas virtuales que ahora están implementadas en ella.

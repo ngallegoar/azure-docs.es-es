@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef120e754c84798b2d1b48f4f00fbb8f5fb3c1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587776"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656384"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configuración de dominios personalizados con Azure AD Application Proxy
 
@@ -26,7 +26,7 @@ Al publicar una aplicación a través de Azure Active Directory Application Prox
 
 Es aconsejable configurar dominios personalizados para sus aplicaciones siempre que sea posible. Entre los motivos para usar dominios personalizados se incluyen los siguientes:
 
-- Los vínculos entre las aplicaciones funcionan incluso fuera de la red corporativa. Sin un dominio personalizado, si la aplicación tiene vínculos internos codificados de forma rígida a destinos fuera de Application Proxy y los vínculos no se pueden resolver externamente, se interrumpirán. Cuando las direcciones URL internas y externas son las mismas, se evita este problema. Si no puede usar dominios personalizados, consulte [Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con Azure AD Application Proxy](../application-proxy-link-translation.md) para conocer otras formas de abordar este problema. 
+- Los vínculos entre las aplicaciones funcionan incluso fuera de la red corporativa. Sin un dominio personalizado, si la aplicación tiene vínculos internos codificados de forma rígida a destinos fuera de Application Proxy y los vínculos no se pueden resolver externamente, se interrumpirán. Cuando las direcciones URL internas y externas son las mismas, se evita este problema. Si no puede usar dominios personalizados, consulte [Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con Azure AD Application Proxy](./application-proxy-configure-hard-coded-link-translation.md) para conocer otras formas de abordar este problema. 
   
 - Los usuarios tendrán una experiencia más sencilla, ya que pueden acceder a la aplicación con la misma dirección URL desde dentro o fuera de la red. No necesitan aprender diferentes direcciones URL internas y externas, o realizar un seguimiento de su ubicación actual. 
 

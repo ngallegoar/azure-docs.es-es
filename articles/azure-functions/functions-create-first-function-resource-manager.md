@@ -5,12 +5,12 @@ ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1e623405faa89ff41eccdaa57578bc8ac94cd78c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642272"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422831"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Inicio rápido: Creación e implementación de recursos de Azure Functions a partir de una plantilla de Resource Manager
 
@@ -38,7 +38,14 @@ Elija una de las siguientes pestañas, siga el vínculo y complete la sección p
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[Creación de un proyecto de Functions local en Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project)
+Cree el proyecto local de Functions en el lenguaje que elija en Visual Studio Code:  
+
++ [C#](create-first-function-vs-code-csharp.md)
++ [Java](create-first-function-vs-code-java.md)
++ [JavaScript](create-first-function-vs-code-node.md)
++ [PowerShell](create-first-function-vs-code-powershell.md)
++ [Python](create-first-function-vs-code-python.md)
++ [TypeScript](create-first-function-vs-code-typescript.md)
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -46,7 +53,14 @@ Elija una de las siguientes pestañas, siga el vínculo y complete la sección p
 
 # <a name="command-line"></a>[Línea de comandos](#tab/command-line)
 
-[Creación de un proyecto de Functions local desde la línea de comandos](functions-create-first-azure-function-azure-cli.md#create-a-local-function-project)
+Cree el proyecto de local de Functions en el lenguaje elegido desde la línea de comandos:
+
++ [C#](create-first-function-cli-csharp.md)
++ [Java](create-first-function-cli-java.md)
++ [JavaScript](create-first-function-cli-node.md)
++ [PowerShell](create-first-function-cli-powershell.md)
++ [Python](create-first-function-cli-python.md)
++ [TypeScript](create-first-function-cli-typescript.md)
 
 ---
 
@@ -117,7 +131,7 @@ En la salida, copie la dirección URL del desencadenador HTTP. Esto se usa para 
 
 1. Una vez finalizada la publicación, copie la **dirección URL del sitio**.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Elección de un destino de publicación existente":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Copia de la dirección URL del sitio desde el resumen de publicación":::
 
 1. Anexe la ruta de acceso `/api/<FUNCTION_NAME>?name=Functions`, en la que `<FUNCTION_NAME>` es el nombre de la función. La dirección URL que llama a la función de desencadenador HTTP tiene el formato siguiente:
 

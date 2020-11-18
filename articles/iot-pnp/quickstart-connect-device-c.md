@@ -1,18 +1,18 @@
 ---
-title: Conexión del código de dispositivo de C de ejemplo de IoT Plug and Play a IoT Hub | Microsoft Docs
-description: Compile y ejecute el código de dispositivo de ejemplo de IoT Plug and Play en Linux o Windows que se conecta a un centro de IoT. Use la herramienta Azure IoT Explorer para ver la información enviada por el dispositivo al centro.
+title: 'Inicio rápido: Conexión del código de dispositivo de C de IoT Plug and Play de ejemplo a Azure IoT Hub | Microsoft Docs'
+description: 'Inicio rápido: Compilación y ejecución del código de dispositivo de IoT Plug and Play de ejemplo en Linux o Windows conectado a un centro de IoT Use la herramienta Azure IoT Explorer para ver la información enviada por el dispositivo al centro.'
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e490171fd533783aab9fd44798a9c81c55faf89f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d69eca10a3ee19919d7cd9e748486e30db95e749
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047937"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421675"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Inicio rápido: Conexión de una aplicación de dispositivo de ejemplo de IoT Plug and Play en Linux o Windows a IoT Hub (C)
 

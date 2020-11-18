@@ -14,19 +14,19 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 967ac34ddb736f58f66639181cdf10e4aaa8ffab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85956243"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656792"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Creación de colecciones en el portal Mis aplicaciones
 
 Los usuarios pueden usar el portal Mis aplicaciones para ver e iniciar las aplicaciones basadas en la nube a las que tienen acceso. De forma predeterminada, todas las aplicaciones a las que puede tener acceso un usuario se muestran juntas en una sola página. Para organizar mejor esta página para los usuarios, si tiene una licencia de Azure AD Premium P1 o P2, puede configurar colecciones. Con una colección, puede agrupar las aplicaciones que están relacionadas (por ejemplo, por rol de trabajo, tarea o proyecto) y mostrarlas en una pestaña independiente. Una colección aplica básicamente un filtro a las aplicaciones a las que un usuario ya puede acceder, por lo que el usuario solo ve las aplicaciones del área de trabajo que se le han asignado.
 
 > [!NOTE]
-> En este artículo se explica cómo un administrador puede habilitar y crear colecciones. Para información sobre cómo los usuarios finales pueden usar el portal Mis aplicaciones y las colecciones, consulte [Acceso y uso de colecciones](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
+> En este artículo se explica cómo un administrador puede habilitar y crear colecciones. Para información sobre cómo los usuarios finales pueden usar el portal Mis aplicaciones y las colecciones, consulte [Acceso y uso de colecciones](../user-help/my-applications-portal-workspaces.md).
 
 ## <a name="enable-the-latest-my-apps-features"></a>Habilitación de las características más recientes de Mis aplicaciones
 

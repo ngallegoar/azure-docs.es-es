@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: f98927e71a675cc6264c413ba07b3cf689b91560
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3cc64d2721f73da36fdc4fce009cccb5fdfd6b6b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784293"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372700"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de seguridad: una guía de referencia
 
@@ -456,6 +456,8 @@ Las intenciones de la cadena de eliminación admitidas de Security Center se bas
 | **Impacto**              | Los eventos de impacto intentan principalmente reducir directamente la disponibilidad o la integridad de un sistema, servicio o red; incluida la manipulación de datos para afectar a un proceso empresarial o operativo. Esto suele hacer referencia a técnicas como ransomware, desmiración, manipulación de datos y otros.                                                                                                                                                                                                                                                                                                     |
 |                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
 
+> [!NOTE]
+> En el caso de las alertas que están en versión preliminar: [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las alertas, consulte lo siguiente:

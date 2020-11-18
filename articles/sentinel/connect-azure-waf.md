@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 8f21b415ef36442d6ac1aac518cd1327f70b8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c554f3582e67622a5a1739c9e410328c902d491b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88263863"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655908"
 ---
 # <a name="connect-data-from-azure-web-application-firewall-waf"></a>Conexión de datos del firewall de aplicaciones web (WAF) de Azure
 
-Las aplicaciones web son cada vez más el objetivo de ataques malintencionados que aprovechan vulnerabilidades habitualmente conocidas. El firewall de aplicaciones web (WAF) de Azure proporciona protección centralizada de las aplicaciones web frente a vulnerabilidades de seguridad y amenazas comunes, como la inyección de código y el scripting entre sitios. WAF de Azure se puede implementar en el servicio [Azure Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview), el servicio [Azure Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview) y mediante una directiva WAF de [Azure Content Delivery Network (CDN)](https://docs.microsoft.com/azure/web-application-firewall/cdn/cdn-overview) (esta última actualmente en versión preliminar pública).
+Las aplicaciones web son cada vez más el objetivo de ataques malintencionados que aprovechan vulnerabilidades habitualmente conocidas. El firewall de aplicaciones web (WAF) de Azure proporciona protección centralizada de las aplicaciones web frente a vulnerabilidades de seguridad y amenazas comunes, como la inyección de código y el scripting entre sitios. WAF de Azure se puede implementar en el servicio [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md), el servicio [Azure Front Door](../web-application-firewall/afds/afds-overview.md) y mediante una directiva WAF de [Azure Content Delivery Network (CDN)](../web-application-firewall/cdn/cdn-overview.md) (esta última actualmente en versión preliminar pública).
 Los registros de WAF de Azure se pueden conectar a Azure Sentinel, de forma que es posible ver los datos de registro en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar su investigación.
 
 ## <a name="prerequisites"></a>Requisitos previos

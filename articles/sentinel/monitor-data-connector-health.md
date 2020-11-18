@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 161e2d424611661619b99ecac3515aac6a8464e0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428546"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656997"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Supervisión del estado de los conectores de datos con este libro de Azure Sentinel
 
@@ -42,10 +42,10 @@ Hay tres secciones con pestañas en este libro:
 
 1. En la pestaña **Overview** (Información general) se muestra el estado general de la ingesta de datos en el área de trabajo seleccionada: medidas de volumen, tasas de EPS y hora de último registro recibidas.
 
-1. La pestaña **Data collection anomalies** (Anomalías de recopilación de datos) lo ayudará a detectar anomalías en el proceso de recopilación de datos, por tabla y origen de datos. Cada pestaña presenta anomalías para una tabla determinada (la pestaña **General** incluye una colección de tablas). Las anomalías se calculan mediante la función **series_decompose_anomalies()** , que devuelve una **puntuación de las anomalías**. [Más información sobre esta función](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx) Establezca los siguientes parámetros para la función que se va a evaluar:
+1. La pestaña **Data collection anomalies** (Anomalías de recopilación de datos) lo ayudará a detectar anomalías en el proceso de recopilación de datos, por tabla y origen de datos. Cada pestaña presenta anomalías para una tabla determinada (la pestaña **General** incluye una colección de tablas). Las anomalías se calculan mediante la función **series_decompose_anomalies()** , que devuelve una **puntuación de las anomalías**. [Más información sobre esta función](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Establezca los siguientes parámetros para la función que se va a evaluar:
 
-    - **AnomaliesTimeRange**: este selector de tiempo se aplica solo a la vista de las anomalías en la recopilación de datos.
-    - **SampleInterval**: el intervalo en el que se muestrean los datos en el intervalo de tiempo dado. La puntuación de las anomalías se calcula solo en los datos del último intervalo.
+    - **AnomaliesTimeRange**: este selector de tiempo se aplica solo a la vista de las anomalías de la recopilación de datos.
+    - **SampleInterval**: el intervalo de tiempo para el cual se muestrean los datos. La puntuación de las anomalías se calcula solo en los datos del último intervalo.
     - **PositiveAlertThreshold**: este valor define el umbral de puntuación de anomalías positiva. Acepta valores decimales.
     - **NegativeAlertThreshold**: este valor define el umbral de puntuación de anomalías negativa. Acepta valores decimales.
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 648de447a08e593af28d11a3be206a2cfee80902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cf379b051ba42be2d7df7d288f07cdc2a0002a1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790099"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657642"
 ---
 # <a name="list-azure-deny-assignments-using-azure-powershell"></a>Enumeración de asignaciones de denegación de Azure mediante Azure PowerShell
 
@@ -32,7 +32,7 @@ Las [asignaciones de denegación de Azure](deny-assignments.md) impiden que los 
 Para obtener información sobre una asignación de denegación, debe tener lo siguiente:
 
 - El permiso `Microsoft.Authorization/denyAssignments/read`, que está incluido en la mayoría de los [roles integrados de Azure](built-in-roles.md).
-- [PowerShell en Azure Cloud Shell](/azure/cloud-shell/overview) o [Azure PowerShell](/powershell/azure/install-az-ps).
+- [PowerShell en Azure Cloud Shell](../cloud-shell/overview.md) o [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="list-deny-assignments"></a>Enumeración de asignaciones de denegación
 

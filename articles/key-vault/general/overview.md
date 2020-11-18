@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 856c5f106f164a98b60fdb3eeda31d6099d5b7bd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5025c4ad81433b6eb18f5beded860625791ffce5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932012"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445105"
 ---
 # <a name="about-azure-key-vault"></a>Acerca de Azure Key Vault
 
@@ -39,7 +39,7 @@ Las aplicaciones pueden acceder de manera protegida a la información que necesi
 
 El acceso a un almacén de claves requiere una autorización y autenticación correctas antes de que un autor de llamada (usuario o aplicación) pueda obtener acceso. La autenticación establece la identidad del autor de la llamada, mientras que la autorización determina las operaciones que puede realizar.
 
-La autenticación se realiza a través de Azure Active Directory. La autorización puede realizarse mediante el control de acceso basado en rol (RBAC) o la directiva de acceso de Key Vault. Se usa el control de acceso basado en rol cuando se trata de la administración de los almacenes y la directiva de acceso de Key Vault cuando se intenta acceder a los datos almacenados en un almacén.
+La autenticación se realiza a través de Azure Active Directory. La autorización puede realizarse mediante el control de acceso basado en rol de Azure (RBAC de Azure) o la directiva de acceso de Key Vault. Se usa el control de acceso basado en rol de Azure cuando se trata de la administración de los almacenes y la directiva de acceso de Key Vault cuando se intenta acceder a los datos almacenados en un almacén.
 
 Los almacenes de claves de Azure pueden estar protegidos por software o, con el nivel Premium de Azure Key Vault, por hardware (módulos de seguridad de hardware [HSM]). Las claves protegidas por software, los secretos y los certificados se protegen mediante Azure, con algoritmos estándar del sector y longitudes de clave.  En aquellos casos en los que necesite seguridad adicional, puede importar o generar claves en módulos de seguridad de hardware que no se salen nunca de su límite. Azure Key Vault usa módulos de seguridad de hardware de nCipher, que se validan mediante los Estándares federales de procesamiento de información (FIPS) 140-2 de nivel 2. Puede usar las herramientas de nCipher para mover una clave desde el módulo de seguridad de hardware a Azure Key Vault.
 

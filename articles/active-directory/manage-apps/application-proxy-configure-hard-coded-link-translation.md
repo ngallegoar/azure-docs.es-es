@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 544aa1a4a859a9c328eb1d36e72d0f9f9ddb55b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327908"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656265"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con Azure AD Application Proxy
 
@@ -47,14 +47,14 @@ Estas tres características mantendrán sus vínculos en funcionamiento independ
 > [!NOTE]
 > La última opción es solo para inquilinos que, por cualquier motivo, no pueden usar dominios personalizados para tener las mismas URL internas y externas para sus aplicaciones. Antes de habilitar esta característica, vea si los [dominios personalizados en el Proxy de aplicación de Azure AD](application-proxy-configure-custom-domain.md) son adecuados para usted. 
 > 
-> O, en caso de que la aplicación que necesita configurar con la traducción de vínculos sea SharePoint, consulte [Configurar las asignaciones alternativas de acceso en SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para otro enfoque para la asignación de vínculos. 
+> O, en caso de que la aplicación que necesita configurar con la traducción de vínculos sea SharePoint, consulte [Configurar las asignaciones alternativas de acceso en SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings) para otro enfoque para la asignación de vínculos. 
 
  
 ### <a name="option-1-microsoft-edge-integration"></a>Opción 1: Integración con Microsoft Edge 
 
 Puede usar Microsoft Edge para proteger aún más la aplicación y su contenido. Para usar esta solución, debe requerir o recomendar a los usuarios que accedan a la aplicación a través de Microsoft Edge. Microsoft Edge reconocerá todas las URL internas publicadas con Application Proxy y las redirigirá a la URL externa correspondiente. Esto garantiza que todas las URL internas codificadas de forma rígida funcionan y, si un usuario entra en el explorador y escribe directamente la URL interna, funciona incluso si el usuario es remoto.  
 
-Para obtener más información, incluido cómo configurar esta opción, consulte la documentación [Administración del acceso web mediante Microsoft Edge para iOS y Android con Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge).  
+Para obtener más información, incluido cómo configurar esta opción, consulte la documentación [Administración del acceso web mediante Microsoft Edge para iOS y Android con Microsoft Intune](/mem/intune/apps/manage-microsoft-edge).  
 
 ### <a name="option-2-myapps-browser-extension"></a>Opción 2: Extensión de explorador de MyApps 
 
@@ -62,7 +62,7 @@ La extensión de explorador de MyApps reconoce todas las URL internas publicadas
 
 Para usar esta característica, el usuario debe descargar la extensión e iniciar sesión. Los usuarios o administradores no tienen que configurar nada más. 
 
-Para obtener más información, incluido cómo configurar esta opción, vea la documentación de [Extensión de explorador de MyApps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension).
+Para obtener más información, incluido cómo configurar esta opción, vea la documentación de [Extensión de explorador de MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ### <a name="option-3-link-translation-setting"></a>Opción 3: Valor de traducción de vínculos 
 
@@ -152,4 +152,4 @@ Queremos que nos ayude a hacer que esta característica funcione para todas las 
 ## <a name="next-steps"></a>Pasos siguientes
 [Uso de dominios personalizados con el Proxy de aplicación de Azure AD](application-proxy-configure-custom-domain.md) para tener la misma dirección URL interna y externa
 
-[Configurar las asignaciones alternativas de acceso en SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Configurar las asignaciones alternativas de acceso en SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings)

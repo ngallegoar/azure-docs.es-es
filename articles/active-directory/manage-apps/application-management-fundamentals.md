@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642442"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656414"
 ---
 # <a name="application-management-best-practices"></a>Procedimientos recomendados de administración de aplicaciones
 
@@ -30,7 +30,7 @@ Este artículo contiene recomendaciones y procedimientos recomendados para admin
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Recomendaciones para la aplicación en la nube y el inicio de sesión único
 | Recomendación | Comentarios |
 | --- | --- |
-| Consultar la galería de aplicaciones de Azure AD para aplicaciones  | Azure AD dispone de una galería que contiene miles de aplicaciones previamente integradas que se habilitan con el inicio de sesión único empresarial (SSO). Para obtener instrucciones sobre la configuración específica de la aplicación, consulte la [Lista de tutoriales de aplicaciones SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
+| Consultar la galería de aplicaciones de Azure AD para aplicaciones  | Azure AD dispone de una galería que contiene miles de aplicaciones previamente integradas que se habilitan con el inicio de sesión único empresarial (SSO). Para obtener instrucciones sobre la configuración específica de la aplicación, consulte la [Lista de tutoriales de aplicaciones SaaS](../saas-apps/tutorial-list.md).  | 
 | Usar SSO basado en SAML federado  | Cuando una aplicación lo admita, use el SSO basado en SAML federado con Azure AD en lugar de SSO basado en contraseña y ADFS.  | 
 | Usar SHA-256 para la firma de certificados  | Azure AD utiliza el algoritmo predeterminado SHA-256 para firmar la respuesta SAML. Use SHA-256 a menos que la aplicación requiera SHA-1 (consulte [Opciones de firma de certificados](certificate-signing-options.md) y [Problema de inicio de sesión de la aplicación](application-sign-in-problem-application-error.md)).  | 
 | Requerir la asignación de usuario  | De forma predeterminada, los usuarios pueden acceder a sus aplicaciones empresariales sin tener que asignarlas. Sin embargo, si la aplicación expone roles o si quiere que aparezca en la página Aplicaciones de un usuario, exija la asignación de usuarios. (Consulte [Guía del desarrollador para la integración de aplicaciones](developer-guidance-for-integrating-applications.md)).  | 
@@ -41,7 +41,7 @@ Este artículo contiene recomendaciones y procedimientos recomendados para admin
 ## <a name="provisioning-recommendations"></a>Aprovisionar las recomendaciones
 | Recomendación | Comentarios |
 | --- | --- |
-| Usar tutoriales para configurar el aprovisionamiento con aplicaciones en la nube | Consulte la [Lista de tutoriales de aplicaciones SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para obtener instrucciones paso a paso sobre cómo configurar el aprovisionamiento de la aplicación de la galería que desea agregar. |
+| Usar tutoriales para configurar el aprovisionamiento con aplicaciones en la nube | Consulte la [Lista de tutoriales de aplicaciones SaaS](../saas-apps/tutorial-list.md) para obtener instrucciones paso a paso sobre cómo configurar el aprovisionamiento de la aplicación de la galería que desea agregar. |
 | Usar registros de aprovisionamiento (versión preliminar) para supervisar el estado | Los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) proporcionan detalles sobre todas las acciones que ha llevado a cabo el servicio de aprovisionamiento, incluido el estado de los usuarios individuales. |
 | Asignación de un grupo de distribución al correo electrónico de notificación de aprovisionamiento | Para aumentar la visibilidad de las alertas críticas enviadas por el servicio de aprovisionamiento, asigne un grupo de distribución a la configuración de los correos electrónicos de notificación. |
 

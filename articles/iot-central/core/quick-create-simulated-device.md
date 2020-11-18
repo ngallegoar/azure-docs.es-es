@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 757575b31bde1a0e25cc3e70aad0cca0fdd45953
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 1c37742b7ed31d8253f7908c3adac35ca0b4d5d8
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170316"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376560"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Inicio rápido: Adición de un dispositivo simulado a una aplicación de IoT Central
 
@@ -21,7 +21,7 @@ ms.locfileid: "92170316"
 
 Una plantilla de dispositivo define las capacidades de un dispositivo que se conecta a la aplicación en IoT Central. Entre estas se incluyen la telemetría que envía el dispositivo, las propiedades del dispositivo y los comandos a los que responde un dispositivo. En una plantilla de dispositivo, un generador u operador puede agregar dispositivos reales y simulados a una aplicación. Los dispositivos simulados son útiles para probar el comportamiento de la aplicación IoT Central antes de conectar dispositivos reales.
 
-En este inicio rápido, se agrega una plantilla de dispositivo para una placa *MXChip IoT DevKit* (DevKit) y se crea un dispositivo simulado. Para completar este inicio rápido no se necesita un dispositivo real, se trabaja con una simulación del dispositivo. Un dispositivo DevKit:
+En este inicio rápido, se agrega una plantilla de dispositivo para una placa [*MXChip IoT DevKit* (DevKit)](https://aka.ms/iot-devkit-purchase) y se crea un dispositivo simulado. Para completar este inicio rápido no se necesita un dispositivo real, se trabaja con una simulación del dispositivo. Un dispositivo DevKit:
 
 * Envía datos de telemetría, como la temperatura.
 * Notifica propiedades específicas del dispositivo, como el nivel de brillo.
@@ -30,7 +30,7 @@ En este inicio rápido, se agrega una plantilla de dispositivo para una placa *M
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Complete el inicio rápido [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la plantilla **Aplicación personalizada > Aplicación personalizada** .
+Complete el inicio rápido [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la plantilla **Aplicación personalizada > Aplicación personalizada**.
 
 ## <a name="create-a-template"></a>Creación de una plantilla
 
@@ -44,23 +44,23 @@ Una plantilla de dispositivo incluye un modelo de funcionalidad del dispositivo 
 
 ### <a name="add-a-device-capability-model"></a>Adición de un modelo de funcionalidad del dispositivo
 
-Hay varias opciones para agregar un modelo de funcionalidad del dispositivo a la aplicación de IoT Central. Se puede crear un modelo desde cero, importarlo de un archivo o seleccionar un dispositivo en el catálogo. IoT Central también admite un enfoque de *conexión inicial del dispositivo* , por el que se importa automáticamente un modelo de un repositorio la primera vez que se conecta un dispositivo. En este inicio rápido, se elige un dispositivo del catálogo para importar su modelo de funcionalidad del dispositivo.
+Hay varias opciones para agregar un modelo de funcionalidad del dispositivo a la aplicación de IoT Central. Se puede crear un modelo desde cero, importarlo de un archivo o seleccionar un dispositivo en el catálogo. IoT Central también admite un enfoque de *conexión inicial del dispositivo*, por el que se importa automáticamente un modelo de un repositorio la primera vez que se conecta un dispositivo. En este inicio rápido, se elige un dispositivo del catálogo para importar su modelo de funcionalidad del dispositivo.
 
-En los pasos siguientes se muestra cómo usar el catálogo de dispositivos para importar el modelo de funcionalidad del dispositivo **MXChip IoT DevKit** . Estos dispositivos envían telemetría a la aplicación, por ejemplo, los datos de temperatura:
+En los pasos siguientes se muestra cómo usar el catálogo de dispositivos para importar el modelo de funcionalidad del dispositivo **MXChip IoT DevKit**. Estos dispositivos envían telemetría a la aplicación, por ejemplo, los datos de temperatura:
 
-1. Para agregar una nueva plantilla de dispositivo, seleccione **+** en la página **Plantillas de dispositivo** .
+1. Para agregar una nueva plantilla de dispositivo, seleccione **+** en la página **Plantillas de dispositivo**.
 
-1. En la página **Select template type** (Seleccionar tipo de plantilla), desplácese hacia abajo hasta que encuentre el icono de **MXChip IoT DevKit** .
+1. En la página **Select template type** (Seleccionar tipo de plantilla), desplácese hacia abajo hasta que encuentre el icono de **MXChip IoT DevKit**.
 
 1. Seleccione el icono **MXChip IoT DevKit** y, después, seleccione **Next: Customize** (Personalizar)
 
-1. En la página **Revisar** , seleccione **Crear** .
+1. En la página **Revisar**, seleccione **Crear**.
 
 1. A los pocos segundos verá la nueva plantilla de dispositivo:
 
     ![Plantilla de dispositivo de MXChip IoT DevKit](./media/quick-create-simulated-device/devkit-template.png)
 
-    El modelo de funcionalidad de MXChip IoT DevKit incluye interfaces como **mxchip_sensor** , **mxchip_settings** y **Device Information** (Información de dispositivo). Las interfaces definen las funcionalidades de un dispositivo MXChip IoT DevKit. Entre las funcionalidades se incluyen la telemetría que envía un dispositivo, las propiedades que notifica un dispositivo y los comandos a los que responde un dispositivo.
+    El modelo de funcionalidad de MXChip IoT DevKit incluye interfaces como **mxchip_sensor**, **mxchip_settings** y **Device Information** (Información de dispositivo). Las interfaces definen las funcionalidades de un dispositivo MXChip IoT DevKit. Entre las funcionalidades se incluyen la telemetría que envía un dispositivo, las propiedades que notifica un dispositivo y los comandos a los que responde un dispositivo.
 
 ### <a name="add-cloud-properties"></a>Adición de propiedades de nube
 
@@ -126,7 +126,7 @@ Una vez que se publica una plantilla de dispositivo, se puede ver en la página 
 
 Para agregar un dispositivo simulado a la aplicación, use la plantilla de dispositivo **MXChip IoT DevKit** que creó.
 
-1. Para agregar un nuevo dispositivo como operador, elija **Dispositivos** en el panel izquierdo. La pestaña **Devices** (Dispositivos) muestra **All devices** (Todos los dispositivos) y la plantilla de dispositivo **MXChip IoT DevKit** . Seleccione **MXChip IoT DevKit** .
+1. Para agregar un nuevo dispositivo como operador, elija **Dispositivos** en el panel izquierdo. La pestaña **Devices** (Dispositivos) muestra **All devices** (Todos los dispositivos) y la plantilla de dispositivo **MXChip IoT DevKit**. Seleccione **MXChip IoT DevKit**.
 
 1. Para agregar un dispositivo DevKit simulado, seleccione **+** . Use el **identificador de dispositivo** sugerido o escriba el suyo propio. Un identificador de dispositivo puede contener letras, números y el carácter `-`. También puede escribir el nombre del nuevo dispositivo. Asegúrese de que el botón de alternancia **Simulated** (Simulado) está en la posición **On** (Activado) y seleccione **Create** (Crear).
 
@@ -142,7 +142,7 @@ Mediante los datos simulados ya puede interactuar con las vistas que creó el ge
 
     * En la vista **About** (Acerca de) se muestran los valores de las propiedades, que incluyen las propiedades de la nube que ha agregado a la vista.
 
-    * La vista de **comandos** le permite ejecutar comandos, como **blink** , en el dispositivo.
+    * La vista de **comandos** le permite ejecutar comandos, como **blink**, en el dispositivo.
 
     * La vista de **administración de dispositivos** es el formulario que ha creado para que el operador administre el dispositivo.
 
@@ -152,11 +152,11 @@ Mediante los datos simulados ya puede interactuar con las vistas que creó el ge
 
 Después de crear un dispositivo simulado, el generador puede usarlo para mejorar y desarrollar las vistas de la plantilla de dispositivo.
 
-1. Elija **Device templates** (Plantillas de dispositivos) en el panel izquierdo y seleccione la plantilla de **MXChip IoT DevKit** .
+1. Elija **Device templates** (Plantillas de dispositivos) en el panel izquierdo y seleccione la plantilla de **MXChip IoT DevKit**.
 
 1. Seleccione la vista que desea editar o cree una. Seleccione **Configure preview device** (Configurar dispositivo en versión preliminar) y, después, **Select from a running device** (Seleccionar en un dispositivo en ejecución). Aquí puede elegir entre no tener ningún dispositivo en versión preliminar, un dispositivo real configurado para realizar pruebas o un dispositivo existente que ha agregado a IoT Central.
 
-1. Elija el dispositivo simulado en la lista. Después, seleccione **Aplicar** . Ahora puede ver el mismo dispositivo simulado en la experiencia de creación de las vistas de plantilla de dispositivos. Esta vista es útil para gráficos y otras visualizaciones.
+1. Elija el dispositivo simulado en la lista. Después, seleccione **Aplicar**. Ahora puede ver el mismo dispositivo simulado en la experiencia de creación de las vistas de plantilla de dispositivos. Esta vista es útil para gráficos y otras visualizaciones.
 
     ![Configurar dispositivo de versión preliminar](./media/quick-create-simulated-device/configure-preview.png)
 

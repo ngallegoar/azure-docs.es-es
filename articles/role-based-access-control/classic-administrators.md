@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370634"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657752"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
 
@@ -40,7 +40,7 @@ En este artículo se describe cómo agregar o cambiar los roles de coadministrad
 
 1. Haga clic en **Control de acceso (IAM).**
 
-1. Haga clic en la pestaña **Administradores clásicos** .
+1. Haga clic en la pestaña **Administradores clásicos**.
 
     ![Captura de pantalla que abre la pestaña Administradores clásicos](./media/classic-administrators/classic-administrators.png)
 
@@ -48,7 +48,7 @@ En este artículo se describe cómo agregar o cambiar los roles de coadministrad
 
     Si la opción Agregar coadministrador está deshabilitada, no tendrá permisos.
 
-1. Seleccione el usuario que desea agregar y haga clic en **Agregar** .
+1. Seleccione el usuario que desea agregar y haga clic en **Agregar**.
 
     ![Captura de pantalla donde se agrega el coadministrador](./media/classic-administrators/add-coadmin.png)
 
@@ -58,7 +58,7 @@ Para agregar un usuario invitado como coadministrador, siga los mismos pasos que
 
 - Debe tener una presencia en el directorio. Esto significa que se ha invitado al usuario al directorio y ha aceptado la invitación.
 
-Para más información sobre cómo agregar usuarios invitados a su directorio, consulte [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../active-directory/b2b/add-users-administrator.md).
+Para más información sobre cómo agregar usuarios invitados a su directorio, consulte [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../active-directory/external-identities/add-users-administrator.md).
 
 ### <a name="differences-for-guest-users"></a>Diferencias para los usuarios invitados
 
@@ -85,13 +85,13 @@ Para información donde se comparan los usuarios miembros y los usuarios invitad
 
 1. Haga clic en **Control de acceso (IAM).**
 
-1. Haga clic en la pestaña **Administradores clásicos** .
+1. Haga clic en la pestaña **Administradores clásicos**.
 
 1. Agregue una marca de verificación junto al coadministrador que desea quitar.
 
-1. Haga clic en **Quitar** .
+1. Haga clic en **Quitar**.
 
-1. En el cuadro de mensaje que aparece, haga clic en **Sí** .
+1. En el cuadro de mensaje que aparece, haga clic en **Sí**.
 
     ![Captura de pantalla donde se quita el coadministrador](./media/classic-administrators/remove-coadmin.png)
 
@@ -99,7 +99,7 @@ Para información donde se comparan los usuarios miembros y los usuarios invitad
 
 Solo el administrador de cuenta puede cambiar el administrador de servicios de una suscripción. De forma predeterminada, al registrarse en una suscripción de Azure, el administrador de servicios es también el administrador de cuenta. El usuario con el rol de administrador de cuenta no tiene acceso a Azure Portal. El usuario con el rol de administrador de servicios tiene acceso total a Azure Portal. Si el administrador de cuenta y el administrador de servicios son el mismo usuario y cambia el administrador de servicios a otro usuario distinto, el administrador de cuenta pierde el acceso a Azure Portal. Sin embargo, el administrador de cuenta siempre puede usar el Centro de cuentas para cambiar el administrador de servicio de nuevo a sí mismo.
 
-Siga estos pasos para cambiar el administrador de servicios en el **Centro de cuentas** .
+Siga estos pasos para cambiar el administrador de servicios en el **Centro de cuentas**.
 
 ### <a name="account-center"></a>Centro de cuentas
 
@@ -109,7 +109,7 @@ Siga estos pasos para cambiar el administrador de servicios en el **Centro de cu
 
 1. Haga clic en una suscripción.
 
-1. En la parte derecha, haga clic en **Editar detalles de suscripción** .
+1. En la parte derecha, haga clic en **Editar detalles de suscripción**.
 
     ![Captura de pantalla que muestra el botón Editar suscripción en el Centro de cuentas](./media/classic-administrators/editsub.png)
 
@@ -142,9 +142,9 @@ Siga estos pasos para ver el administrador de cuenta.
 
 1. Abra [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) y seleccione una suscripción.
 
-1. Haga clic en **Propiedades** .
+1. Haga clic en **Propiedades**.
 
-    El administrador de cuenta de la suscripción se muestra en el cuadro **Administrador de cuenta** .
+    El administrador de cuenta de la suscripción se muestra en el cuadro **Administrador de cuenta**.
 
     ![Captura de pantalla en la que aparece el administrador de cuenta](./media/classic-administrators/account-admin.png)
 

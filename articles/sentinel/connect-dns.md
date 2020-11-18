@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: a88696ba69fdf53f5c7e15d174b126d69f4230ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7701fc6d90fd9ebc7ec29f0ffdd7d050c58c036c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85555436"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655670"
 ---
 # <a name="connect-your-domain-name-server"></a>Conectar con el servidor de nombres de dominio
 
@@ -46,11 +46,11 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | [Agentes de Windows](../azure-monitor/platform/agent-windows.md) | Sí | La solución recopila información de DNS de los agentes de Windows. |
 | [Agentes de Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | No | La solución no recopila información de DNS de los agentes directos de Linux. |
 | [Grupo de administración de System Center Operations](../azure-monitor/platform/om-agents.md) | Sí | La solución recopila información de DNS de los agentes en un grupo de administración de Operations Manager conectado. No se requiere ninguna conexión directa entre el agente de Operations Manager y Azure Monitor. Los datos se reenvían desde el grupo de administración al área de trabajo de Log Analytics. |
-| [Cuenta de Almacenamiento de Azure](../azure-monitor/platform/collect-azure-metrics-logs.md) | No | La solución no usa Azure Storage. |
+| [Cuenta de Almacenamiento de Azure](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) | No | La solución no usa Azure Storage. |
 
 ### <a name="data-collection-details"></a>Detalles de la recopilación de datos
 
-La solución permite recopilar inventario y datos relacionados con eventos de DNS de los servidores DNS donde se ha instalado un agente de Log Analytics. Los datos relacionados con el inventario como, por ejemplo, el número de servidores DNS, las zonas y los registros de recursos se recopilan con la ejecución de cmdlets de Powershell para DNS. Los datos se actualizan una vez cada dos días. Los datos relacionados con eventos se recopilan casi en tiempo real a partir de los [registros analíticos y de auditoría](https://technet.microsoft.com/library/dn800669.aspx#enhanc) proporcionados por las funcionalidades mejoradas de registro y diagnóstico de Windows Server 2012 R2.
+La solución permite recopilar inventario y datos relacionados con eventos de DNS de los servidores DNS donde se ha instalado un agente de Log Analytics. Los datos relacionados con el inventario como, por ejemplo, el número de servidores DNS, las zonas y los registros de recursos se recopilan con la ejecución de cmdlets de Powershell para DNS. Los datos se actualizan una vez cada dos días. Los datos relacionados con eventos se recopilan casi en tiempo real a partir de los [registros analíticos y de auditoría](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) proporcionados por las funcionalidades mejoradas de registro y diagnóstico de Windows Server 2012 R2.
 
 
 ## <a name="connect-your-dns-appliance"></a>Conectar el dispositivo DNS
@@ -76,7 +76,7 @@ En Log Analytics, busque el esquema **DnsEvents** y asegúrese de que hay evento
 ## <a name="troubleshooting"></a>Solución de problemas
 
 Si las consultas de búsqueda no aparecen en Azure Sentinel, siga estos pasos para que aparezcan correctamente:
-1. Active los [registros de DNS Analytics en los servidores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
+1. Active los [registros de DNS Analytics en los servidores](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
 2. Asegúrese de que aparezca DNSEvents en la lista de colecciones de Log Analytics.
 3. Active [Azure DNS Analytics](../azure-monitor/insights/dns-analytics.md).
 4. En Azure DNS Analytics, en **Configuración**, cambie cualquiera de los valores de configuración, guárdelo, vuelva a dejarlo como estaba si es necesario y guárdelo de nuevo.

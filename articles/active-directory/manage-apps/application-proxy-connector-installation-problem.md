@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 0b7fee330f93097b561714ecc938eaf3fee8f2b5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108208"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657336"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema al instalar el conector de agente del proxy de aplicación
 
@@ -26,11 +26,11 @@ El conector de Application Proxy de Microsoft Azure Active Directory es un compo
 
 Cuando se produce un error en la instalación de un conector, la causa principal suele pertenecer a una de las áreas siguientes:
 
-1.  **Conectividad** : para completar una instalación correcta, el nuevo conector necesita registrarse y establecer propiedades de confianza futuras. Para ello, se conecta al servicio en la nube de Application Proxy de Azure Active Directory.
+1.  **Conectividad**: para completar una instalación correcta, el nuevo conector necesita registrarse y establecer propiedades de confianza futuras. Para ello, se conecta al servicio en la nube de Application Proxy de Azure Active Directory.
 
-2.  **Establecimiento de confianza** : el nuevo conector crea un certificado autofirmado y se registra en el servicio en la nube.
+2.  **Establecimiento de confianza**: el nuevo conector crea un certificado autofirmado y se registra en el servicio en la nube.
 
-3.  **Autenticación del administrador** : durante la instalación, el usuario debe proporcionar credenciales de administrador para completar la instalación del conector.
+3.  **Autenticación del administrador**: durante la instalación, el usuario debe proporcionar credenciales de administrador para completar la instalación del conector.
 
 > [!NOTE]
 > Los registros de instalación del conector pueden encontrarse en la carpeta% TEMP%, y pueden ayudar a proporcionar información adicional sobre lo que provoca un error de instalación.
@@ -39,7 +39,7 @@ Cuando se produce un error en la instalación de un conector, la causa principal
 
 **Objetivo:** compruebe que la máquina del conector se pueda conectar al punto de conexión de registro de Application Proxy, así como a la página de inicio de sesión de Microsoft.
 
-1.  En el servidor del conector, ejecute una prueba de puertos con [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) u otra herramienta para este fin y compruebe si los puertos 443 y 80 están abiertos.
+1.  En el servidor del conector, ejecute una prueba de puertos con [telnet](/windows-server/administration/windows-commands/telnet) u otra herramienta para este fin y compruebe si los puertos 443 y 80 están abiertos.
 
 2.  Si alguno de estos puertos no es correcto, compruebe que el firewall o el proxy de back-end tengan acceso a los dominios y puertos necesarios; consulte [Preparación del entorno local](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
@@ -74,19 +74,19 @@ compruebe la huella digital del certificado de cliente actual. El almacén de ce
 </ConnectorTrustSettingsFile>
 ```
 
-Los valores de **IsInUserStore** posibles son **true** y **false** . Un valor de **true** significar que el certificado renovado automáticamente se almacena en el contenedor personal del almacén de certificados del usuario del servicio de red. Un valor de **false** significa que el certificado de cliente se creó durante la instalación o el registro iniciado por el comando Register-AppProxyConnector y se almacenó en el contenedor personal del almacén de certificados del equipo local.
+Los valores de **IsInUserStore** posibles son **true** y **false**. Un valor de **true** significar que el certificado renovado automáticamente se almacena en el contenedor personal del almacén de certificados del usuario del servicio de red. Un valor de **false** significa que el certificado de cliente se creó durante la instalación o el registro iniciado por el comando Register-AppProxyConnector y se almacenó en el contenedor personal del almacén de certificados del equipo local.
 
-Si el valor es **true** , siga estos pasos para comprobar el certificado:
-1. Descargue [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Extraiga [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) del paquete y ejecute **psexec -i -u "nt authority\network service" cmd.exe** desde un símbolo del sistema con privilegios elevados.
+Si el valor es **true**, siga estos pasos para comprobar el certificado:
+1. Descargue [PsTools.zip](/sysinternals/downloads/pstools)
+2. Extraiga [PsExec](/sysinternals/downloads/psexec) del paquete y ejecute **psexec -i -u "nt authority\network service" cmd.exe** desde un símbolo del sistema con privilegios elevados.
 3. Ejecute **certmgr.msc** en el símbolo del sistema recién aparecido.
 4. En la consola de administración, expanda el contenedor personal y haga clic en Certificados.
-5. Busque el certificado emitido por **connectorregistrationca.msappproxy.net** .
+5. Busque el certificado emitido por **connectorregistrationca.msappproxy.net**.
 
-Si el valor es **false** , siga estos pasos para comprobar el certificado:
+Si el valor es **false**, siga estos pasos para comprobar el certificado:
 1. Ejecute **certlm.msc**
 2. En la consola de administración, expanda el contenedor personal y haga clic en Certificados.
-3. Busque el certificado emitido por **connectorregistrationca.msappproxy.net** .
+3. Busque el certificado emitido por **connectorregistrationca.msappproxy.net**.
 
 **Para renovar el certificado de cliente:**
 
@@ -101,7 +101,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Para más información sobre el comando Register-AppProxyConnector, consulte [Creación de un script de instalación desatendida para el conector de Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell).
+Para más información sobre el comando Register-AppProxyConnector, consulte [Creación de un script de instalación desatendida para el conector de Azure AD Application Proxy](./application-proxy-register-connector-powershell.md).
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Comprobación de que se use el administrador para instalar el conector
 
@@ -109,7 +109,7 @@ Para más información sobre el comando Register-AppProxyConnector, consulte [Cr
 
 **Para comprobar que las credenciales sean correctas:**
 
-Conéctese a `https://login.microsoftonline.com` y use las mismas credenciales. Asegúrese de que el inicio de sesión se haya realizado correctamente. Para comprobar el rol de usuario, vaya a **Azure Active Directory**  -&gt; **Usuarios y grupos** -&gt; **Todos los usuarios** . 
+Conéctese a `https://login.microsoftonline.com` y use las mismas credenciales. Asegúrese de que el inicio de sesión se haya realizado correctamente. Para comprobar el rol de usuario, vaya a **Azure Active Directory**  -&gt; **Usuarios y grupos** -&gt; **Todos los usuarios**. 
 
 Seleccione su cuenta de usuario y "Rol del directorio" en el menú resultante. Compruebe que el rol seleccionado sea "Administrador de aplicaciones". Si no puede acceder a alguna de las páginas en estos pasos, significa que no tiene el rol necesario.
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 623aba3616ed95c64612c0e32f6ba0344bb2b464
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 653159c2e40d3375a422f0da14274f57130de1fe
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89255442"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359687"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Uso de las identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Resource Manager
 
@@ -34,14 +34,17 @@ En esta guía de inicio rápido, se muestra cómo usar una identidad asignada po
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- Conocimientos sobre identidades administradas. Si no está familiarizado con la característica Managed Identities for Azure Resources, consulte esta [introducción](overview.md). 
+- Una cuenta de Azure, [regístrese para obtener una cuenta gratuita](https://azure.microsoft.com/free/).
+- También necesita una máquina virtual Linux que tenga habilitadas las identidades administradas asignadas por el sistema.
+  - Si necesita crear una máquina virtual para este tutorial, puede seguir el artículo titulado [Inicio rápido: Creación de una máquina virtual Linux en Azure Portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine).
 
-## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Concesión a una máquina virtual de acceso a un grupo de recursos en Azure Resource Manager 
+## <a name="grant-access"></a>Conceder acceso
 
 Mediante Managed Identities for Azure Resources, el código puede obtener tokens de acceso para autenticarse en aquellos recursos que admitan la autenticación de Azure AD. La API de Azure Resource Manager es compatible con la autenticación de Azure AD. En primer lugar, es necesario conceder acceso a la identidad de esta máquina virtual a un recurso en Azure Resource Manager, en este caso, el grupo de recursos que contiene la máquina virtual.  
 
 1. Vaya a la pestaña de **Grupos de recursos**.
-2. Seleccione el **grupo de recursos** concreto que creó anteriormente.
+2. Seleccione el **Grupo de recursos** específico que utilizó para la máquina virtual.
 3. Vaya a **Control de acceso (IAM)** en el panel izquierdo.
 4. Haga clic para **Agregar** una nueva asignación de roles para la máquina virtual. En **Rol**, elija **Lector**.
 5. En la lista desplegable siguiente, **Asigne acceso** al recurso **Máquina Virtual**.
@@ -50,26 +53,26 @@ Mediante Managed Identities for Azure Resources, el código puede obtener tokens
 
     ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-resource-manager"></a>Obtención de un token de acceso mediante una identidad administrada asignada por el sistema de la máquina virtual y su uso para llamar a Resource Manager 
+## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-resource-manager"></a>Obtención de un token de acceso mediante una identidad administrada asignada por el sistema de la máquina virtual y su uso para llamar a Resource Manager
 
 Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede usar el cliente SSH en el [Subsistema de Windows para Linux](/windows/wsl/about). Si necesita ayuda para configurar las claves del cliente de SSH, consulte [Uso de SSH con Windows en Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. En el portal, vaya a la máquina virtual Linux y, en **Información general**, haga clic en **Conectar**.  
-2. **Conéctese** a la máquina virtual con el cliente SSH que elija. 
-3. En la ventana del terminal, use `curl` para realizar una solicitud al punto de conexión local de Managed Identities for Azure Resources para obtener un token de acceso para Azure Resource Manager.  
- 
-    La solicitud de `curl` para el token de acceso está a continuación.  
+1. En el portal, vaya a la máquina virtual Linux y, en **Información general**, haga clic en **Conectar**.  
+2. **Conéctese** a la máquina virtual con el cliente SSH que elija. 
+3. En la ventana del terminal, use `curl` para realizar una solicitud al punto de conexión local de Managed Identities for Azure Resources para obtener un token de acceso para Azure Resource Manager.  
+ 
+    La solicitud de `curl` para el token de acceso está a continuación.  
     
     ```bash
-    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -H Metadata:true   
     ```
     
     > [!NOTE]
-    > El valor del parámetro "resource" (parámetro) debe coincidir exactamente con el que Azure AD espera.  En el caso del identificador de recurso de Resource Manager, debe incluir la barra diagonal final en el URI. 
+    > El valor del parámetro "resource" (parámetro) debe coincidir exactamente con el que Azure AD espera.    En el caso del identificador de recurso de Resource Manager, debe incluir la barra diagonal final en el URI. 
     
-    La respuesta incluye el token de acceso que necesita para acceder a Azure Resource Manager. 
+    La respuesta incluye el token de acceso que necesita para acceder a Azure Resource Manager. 
     
-    Respuesta:  
+    Respuesta:  
 
     ```bash
     {"access_token":"eyJ0eXAiOi...",
@@ -78,21 +81,22 @@ Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede us
     "expires_on":"1504130527",
     "not_before":"1504126627",
     "resource":"https://management.azure.com",
-    "token_type":"Bearer"} 
+    "token_type":"Bearer"} 
     ```
     
-    Puede usar este token de acceso para acceder a Azure Resource Manager, por ejemplo, para leer los detalles del grupo de recursos al que previamente concedió acceso a la máquina virtual.Reemplace los valores de \<SUBSCRIPTION ID\>, \<RESOURCE GROUP\> y \<ACCESS TOKEN\> con los que creó anteriormente. 
+    Puede usar este token de acceso para acceder a Azure Resource Manager, por ejemplo, para leer los detalles del grupo de recursos al que previamente concedió acceso a la máquina virtual. Reemplace los valores de \<SUBSCRIPTION ID\>, \<RESOURCE GROUP\> y \<ACCESS TOKEN\> con los que creó anteriormente. 
     
     > [!NOTE]
-    > La dirección URL distingue mayúsculas de minúsculas, por lo tanto, asegúrese de que usa las mismas mayúsculas y minúsculas que al asignar el nombre al grupo de recursos, así como la "G" mayúscula de "resourceGroups".  
+    > La dirección URL distingue mayúsculas de minúsculas, por lo tanto, asegúrese de que usa las mismas mayúsculas y minúsculas que al asignar el nombre al grupo de recursos, así como la "G" mayúscula de "resourceGroups".  
     
     ```bash 
-    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
-    La respuesta devuelta con la información específica del grupo de recursos:    
+    La respuesta devuelta con la información específica del grupo de recursos: 
+     
     ```bash
-    {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
+    {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 05a2869152def0fc9a44defaa21f0643d9fdbb08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dffaac329f1581d9082fd8ab2c314f52b1730ab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504883"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656027"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Conexión de datos de Azure Firewall
 
@@ -26,7 +26,7 @@ Azure Firewall es un servicio de seguridad de red administrado y basado en la nu
 
 Los registros de Azure Firewall se pueden conectar a Azure Sentinel, de forma que es posible ver los datos de registro en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar su investigación.
 
-Más información sobre la [supervisión de los registros de Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-diagnostics).
+Más información sobre la [supervisión de los registros de Azure Firewall](../firewall/firewall-diagnostics.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Configuración del inicio de sesión de una aplicación de una sola página (SPA)'
+title: 'Inicio rápido: Configuración del inicio de sesión de una aplicación de página única (SPA)'
 titleSuffix: Azure AD B2C
 description: En este inicio rápido, se ejecuta una aplicación de página única de ejemplo que usa Azure Active Directory B2C para proporcionar el inicio de sesión de la cuenta.
 services: active-directory-b2c
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db18c71b09cd9beb58799ad4fbcbc944061153fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6471d1b5a5ad2b8ba34080ae1220872fa0e2e232
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87921765"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421063"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión en una aplicación de una sola página mediante Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión de una aplicación de página única mediante Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) proporciona administración de identidades en la nube para mantener la protección de su aplicación, empresa y clientes. Azure AD B2C permite que las aplicaciones puedan autenticarse con cuentas de redes sociales y cuentas de empresa mediante protocolos estándar abiertos. En esta guía de inicio rápido, se utiliza una aplicación de página única para iniciar sesión mediante un proveedor de identidades de redes sociales y llamar a una API web protegida por Azure AD B2C.
 
@@ -29,12 +29,12 @@ Azure Active Directory B2C (Azure AD B2C) proporciona administración de id
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Node.js](https://nodejs.org/en/download/)
 - Cuenta de redes sociales de Facebook, Google o Microsoft
-- Código de ejemplo de GitHub: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+- Ejemplo de código de GitHub: [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
 
-    Puede [descargar el archivo .zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clonar el repositorio:
+    Puede [descargar el archivo .zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) o clonar el repositorio:
 
     ```console
-    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
     ```
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
@@ -42,7 +42,6 @@ Azure Active Directory B2C (Azure AD B2C) proporciona administración de id
 1. Inicie el servidor mediante la ejecución de los siguientes comandos desde el símbolo del sistema de Node.js:
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
     npm install && npm update
     npm start
     ```
@@ -60,7 +59,7 @@ Azure Active Directory B2C (Azure AD B2C) proporciona administración de id
 ## <a name="sign-in-using-your-account"></a>Inicio de sesión mediante su cuenta
 
 1. Seleccione **Iniciar sesión** para iniciar el recorrido del usuario.
-1. Azure AD B2C presenta una página de inicio de sesión para una empresa ficticia llamada Fabrikam para la aplicación web de ejemplo. Para registrarse con un proveedor de identidades de redes sociales, seleccione el botón del proveedor de identidades que desee usar.
+1. Azure AD B2C presenta una página de inicio de sesión para una empresa ficticia llamada "Fabrikam" para la aplicación web de ejemplo. Para registrarse con un proveedor de identidades de redes sociales, seleccione el botón del proveedor de identidades que desee usar.
 
     ![Página de inicio de sesión o registro que muestra los botones del proveedor de identidades](./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png)
 

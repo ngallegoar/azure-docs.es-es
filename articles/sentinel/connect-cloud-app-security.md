@@ -1,6 +1,6 @@
 ---
 title: Conexión de datos de Cloud App Security a Azure Sentinel | Microsoft Docs
-description: Aprenda a usar el conector de "Microsoft Cloud App Security" (MCAS) para transmitir alertas y registros de Cloud Discovery de MCAS a Azure Sentinel. 
+description: Aprenda a usar el conector de "Microsoft Cloud App Security" (MCAS) para transmitir alertas y registros de Cloud Discovery de MCAS a Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c67f517ffd3704644fbe8041f3ac1e7b0d1f09c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9827e93f793ef47a835aa0a5fb2005e2830a0824
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904561"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655721"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conectar datos de Microsoft Cloud App Security 
 
-El conector de [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) le permite transmitir alertas y [registros de Cloud Discovery](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) de MCAS a Azure Sentinel. Esto le permitirá adquirir visibilidad sobre las aplicaciones en la nube, obtener análisis sofisticados para identificar y combatir las ciberamenazas y controlar cómo viajan los datos.
+El conector de [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) le permite transmitir alertas y [registros de Cloud Discovery](/cloud-app-security/tutorial-shadow-it) de MCAS a Azure Sentinel. Esto le permitirá adquirir visibilidad sobre las aplicaciones en la nube, obtener análisis sofisticados para identificar y combatir las ciberamenazas y controlar cómo viajan los datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - El usuario debe tener permisos de lectura y escritura en el área de trabajo.
 - El usuario debe tener permisos de administrador global o de administrador de seguridad en el inquilino del área de trabajo.
-- Para transmitir registros de Cloud Discovery a Azure Sentinel, [habilite Azure Sentinel como SIEM en Microsoft Cloud App Security](https://aka.ms/AzureSentinelMCAS).
+- Para transmitir registros de Cloud Discovery a Azure Sentinel, [habilite Azure Sentinel como SIEM en Microsoft Cloud App Security](/cloud-app-security/siem-sentinel).
 
 > [!IMPORTANT]
 > La ingesta de registros de Cloud Discovery se encuentra actualmente en versión preliminar pública.
@@ -38,7 +38,7 @@ El conector de [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-a
  
 ## <a name="connect-to-cloud-app-security"></a>Conectar a Cloud App Security
 
-Si ya tiene Cloud App Security, asegúrese de que está [habilitado en la red](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security).
+Si ya tiene Cloud App Security, asegúrese de que está [habilitado en la red](/cloud-app-security/getting-started-with-cloud-app-security).
 Si Cloud App Security ya está implementado e ingiriendo datos, los datos de alerta se pueden transmitir a Azure Sentinel muy fácilmente.
 
 
@@ -60,4 +60,4 @@ Si Cloud App Security ya está implementado e ingiriendo datos, los datos de ale
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar Microsoft Cloud App Security a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](tutorial-detect-threats.md) o [personalizadas](tutorial-detect-threats-custom.md).
+- Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](./tutorial-detect-threats-built-in.md) o [personalizadas](tutorial-detect-threats-custom.md).

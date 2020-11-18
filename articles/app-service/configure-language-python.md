@@ -2,15 +2,15 @@
 title: Configuración de aplicaciones de Python para Linux
 description: Aprenda a configurar el contenedor de Python en el que se ejecutan las aplicaciones web, mediante Azure Portal y la CLI de Azure.
 ms.topic: quickstart
-ms.date: 10/06/2020
+ms.date: 11/06/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 935baef209811146d0b60f4fc02986818fd103a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9e0e9098959231d4283608e8191081ae2df6737a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743811"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425922"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 
@@ -22,11 +22,11 @@ En esta guía se incluyen conceptos clave e instrucciones para los desarrollador
 
 Puede usar [Azure Portal](https://portal.azure.com) o la CLI de Azure para la configuración:
 
-- **Azure Portal** , use la página **Configuración** > **Configuración** de la aplicación, como se describe en [Configurar una aplicación de App Service en Azure Portal](configure-common.md).
+- **Azure Portal**, use la página **Configuración** > **Configuración** de la aplicación, como se describe en [Configurar una aplicación de App Service en Azure Portal](configure-common.md).
 
-- **CLI de Azure** : tiene dos opciones.
+- **CLI de Azure**: tiene dos opciones.
 
-    - Ejecute los comandos de [Azure Cloud Shell](../cloud-shell/overview.md), que puede abrir mediante el botón **Probar** de la parte superior derecha de los bloques de código.
+    - Ejecute los comandos en [Azure Cloud Shell](../cloud-shell/overview.md).
     - Ejecute los comandos localmente instalando la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) y, luego, inicie sesión en Azure con [az login](/cli/azure/reference-index#az-login).
     
 > [!NOTE]
@@ -34,13 +34,13 @@ Puede usar [Azure Portal](https://portal.azure.com) o la CLI de Azure para la co
 
 ## <a name="configure-python-version"></a>Configuración de la versión de Python
 
-- **Azure Portal** : use la pestaña **Configuración general** de la página **Configuración** , como se describe en [Configurar las opciones generales](configure-common.md#configure-general-settings) para contenedores Linux.
+- **Azure Portal**: use la pestaña **Configuración general** de la página **Configuración**, como se describe en [Configurar las opciones generales](configure-common.md#configure-general-settings) para contenedores Linux.
 
-- **CLI de Azure** :
+- **CLI de Azure**:
 
     -  Muestre la versión actual de Python con [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
         ```
         
@@ -48,13 +48,13 @@ Puede usar [Azure Portal](https://portal.azure.com) o la CLI de Azure para la co
     
     - Establezca la versión de Python con [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set).
         
-        ```azurecli-interactive
+        ```azurecli
         az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
         ```
     
     - Muestre todas las versiones de Python que se admiten en Azure App Service con [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp list-runtimes --linux | grep PYTHON
         ```
     
@@ -69,7 +69,7 @@ El sistema de compilación de App Service, denominado Oryx, realiza los pasos si
 
 1. Ejecute un script anterior a la compilación personalizado si lo especifica el valor `PRE_BUILD_COMMAND` .
 1. Ejecute `pip install -r requirements.txt`. El archivo *requirements.txt* debe estar dentro de la carpeta raíz del proyecto. De lo contrario, el proceso de compilación notifica el error: "Could not find setup.py or requirements.txt; Not running pip install" (No se pudo encontrar setup.py o requirements.txt; no se ejecutará la instalación de PIP).
-1. Si *manage.py* se encuentra en la raíz del repositorio (lo que indica una aplicación de Django), ejecute *manage.py collectstatic* . Sin embargo, si el valor `DISABLE_COLLECTSTATIC` es `true`, se omitirá este paso.
+1. Si *manage.py* se encuentra en la raíz del repositorio (lo que indica una aplicación de Django), ejecute *manage.py collectstatic*. Sin embargo, si el valor `DISABLE_COLLECTSTATIC` es `true`, se omitirá este paso.
 1. Ejecute el script posterior a la compilación personalizado si lo especifica el valor `POST_BUILD_COMMAND`.
 
 De forma predeterminada, los valores `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` y `DISABLE_COLLECTSTATIC` están vacíos. 
@@ -82,6 +82,8 @@ De forma predeterminada, los valores `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` y
 
 Puede encontrar otros valores que personalicen la automatización de la compilación en [Configuración de Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md). 
 
+Para acceder a los registros de compilación e implementación, consulte [Acceso a los registros de implementación](#access-deployment-logs).
+
 Para más información sobre cómo App Service ejecuta y compila aplicaciones de Python en Linux, consulte [Cómo Oryx detecta y compila aplicaciones de Python](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md).
 
 > [!NOTE]
@@ -90,7 +92,7 @@ Para más información sobre cómo App Service ejecuta y compila aplicaciones de
 > Un valor denominado `SCM_DO_BUILD_DURING_DEPLOYMENT`, si contiene `true` o 1, desencadena una compilación de Oryx durante la implementación. El valor es true cuando se implementa con Git, el comando `az webapp up` de la CLI de Azure y Visual Studio Code.
 
 > [!NOTE]
-> Use siempre rutas de acceso relativas en todos los scripts anteriores y posteriores a la compilación, ya que el contenedor de compilación en el que se ejecuta Oryx es diferente del contenedor en tiempo de ejecución en el que se ejecuta la aplicación. Nunca confíe en la ubicación exacta de la carpeta de proyecto de la aplicación dentro del contenedor (por ejemplo, si está ubicada en *site/wwwroot* ).
+> Use siempre rutas de acceso relativas en todos los scripts anteriores y posteriores a la compilación, ya que el contenedor de compilación en el que se ejecuta Oryx es diferente del contenedor en tiempo de ejecución en el que se ejecuta la aplicación. Nunca confíe en la ubicación exacta de la carpeta de proyecto de la aplicación dentro del contenedor (por ejemplo, si está ubicada en *site/wwwroot*).
 
 ## <a name="production-settings-for-django-apps"></a>Configuración de producción para aplicaciones de Django
 
@@ -102,7 +104,7 @@ En la tabla siguiente se describe la configuración de producción que es pertin
 | --- | --- |
 | `SECRET_KEY` | Almacene el valor en un valor de configuración de App Service, como se describe en [Acceso a la configuración de la aplicación como variables de entorno](#access-app-settings-as-environment-variables). Como alternativa, puede [almacenar el valor como un "secreto" en Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
 | `DEBUG` | Cree un valor `DEBUG` en App Service con el valor 0 (false) y, luego, cargue el valor como una variable de entorno. En el entorno de desarrollo, cree una variable de entorno `DEBUG` con el valor 1 (true). |
-| `ALLOWED_HOSTS` | En producción, Django requiere que incluya la dirección URL de la aplicación en la matriz `ALLOWED_HOSTS` de *settings.py* . Puede recuperar esta dirección URL en tiempo de ejecución con el código `os.environ['WEBSITE_HOSTNAME']`. App Service establece automáticamente la variable de entorno `WEBSITE_HOSTNAME` en la dirección URL de la aplicación. |
+| `ALLOWED_HOSTS` | En producción, Django requiere que incluya la dirección URL de la aplicación en la matriz `ALLOWED_HOSTS` de *settings.py*. Puede recuperar esta dirección URL en tiempo de ejecución con el código `os.environ['WEBSITE_HOSTNAME']`. App Service establece automáticamente la variable de entorno `WEBSITE_HOSTNAME` en la dirección URL de la aplicación. |
 | `DATABASES` | Defina la configuración en App Service para la conexión de base de datos y cárguela como variables de entorno para rellenar el diccionario [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES). También puede almacenar los valores (especialmente el nombre de usuario y la contraseña) como [secretos de Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
 
 ## <a name="container-characteristics"></a>Características del contenedor
@@ -164,25 +166,29 @@ Si el módulo de la aplicación principal está contenido en un archivo diferent
 
 ### <a name="default-behavior"></a>Comportamiento predeterminado
 
-Si el servicio de aplicación no encuentra un comando personalizado, una aplicación de Django o una aplicación de Flask, se ejecutará una aplicación predeterminada de solo lectura, ubicada en la carpeta _opt/defaultsite_ . La aplicación predeterminada aparece como sigue:
+Si App Service no encuentra un comando personalizado, una aplicación de Django o una aplicación de Flask, se ejecutará una aplicación predeterminada de solo lectura, ubicada en la carpeta _opt/defaultsite_ como se muestra en la siguiente imagen.
 
-![Instancia predeterminada de App Service en la página web de Linux](media/configure-language-python/default-python-app.png)
+Si ha implementado el código y sigue viendo la aplicación predeterminada, consulte [Solución de problemas: la aplicación no aparece](#app-doesnt-appear).
+
+[![Instancia predeterminada de App Service en la página web de Linux](media/configure-language-python/default-python-app.png)](#app-doesnt-appear)
+
+De nuevo, si espera ver una aplicación implementada en lugar de la aplicación predeterminada, consulte [Solución de problemas: la aplicación no aparece](#app-doesnt-appear).
 
 ## <a name="customize-startup-command"></a>Personalización del comando de inicio
 
 Como se indicó anteriormente en este artículo, puede proporcionar valores de configuración para Gunicorn mediante un archivo *gunicorn.conf.py* en la raíz del proyecto, como se describe en [Introducción a la configuración de Gunicorn](https://docs.gunicorn.org/en/stable/configure.html#configuration-file).
 
-Si dicha configuración no es suficiente, puede controlar el comportamiento de inicio del contenedor proporcionando un comando de inicio personalizado o varios comandos en un archivo de comandos de inicio. Un archivo de comandos de inicio puede usar cualquier nombre que elija, por ejemplo, *startup.sh* , *startup.cmd* , *startup. txt* , etc.
+Si dicha configuración no es suficiente, puede controlar el comportamiento de inicio del contenedor proporcionando un comando de inicio personalizado o varios comandos en un archivo de comandos de inicio. Un archivo de comandos de inicio puede usar cualquier nombre que elija, por ejemplo, *startup.sh*, *startup.cmd*, *startup. txt*, etc.
 
 Todos los comandos deben usar rutas de acceso relativas a la carpeta raíz del proyecto.
 
 Para especificar un comando de inicio o un archivo de comandos:
 
-- **Azure Portal** : seleccione la página **Configuración** de la aplicación y, luego, elija **Configuración general** . En el campo **Comando de inicio** , coloque el texto completo del comando de inicio o el nombre del archivo de comandos de inicio. Luego, seleccione **Guardar** para aplicar los cambios. En el caso de contenedores Linux, consulte [Configuración general](configure-common.md#configure-general-settings).
+- **Azure Portal**: seleccione la página **Configuración** de la aplicación y, luego, elija **Configuración general**. En el campo **Comando de inicio**, coloque el texto completo del comando de inicio o el nombre del archivo de comandos de inicio. Luego, seleccione **Guardar** para aplicar los cambios. En el caso de contenedores Linux, consulte [Configuración general](configure-common.md#configure-general-settings).
 
-- **CLI de Azure** : use el comando [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) con el parámetro `--startup-file` para establecer el comando de inicio o el archivo de comandos de inicio:
+- **CLI de Azure**: use el comando [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) con el parámetro `--startup-file` para establecer el comando de inicio o el archivo de comandos de inicio:
 
-    ```azurecli-interactive
+    ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
     ```
         
@@ -192,7 +198,7 @@ App Service omite los errores que se producen al procesar un comando de inicio p
 
 ### <a name="example-startup-commands"></a>Comandos de inicio de ejemplo
 
-- **Argumentos de Gunicorn agregados** : en el ejemplo siguiente se agrega `--workers=4` a una línea de comandos de Gunicorn para iniciar una aplicación de Django: 
+- **Argumentos de Gunicorn agregados**: en el ejemplo siguiente se agrega `--workers=4` a una línea de comandos de Gunicorn para iniciar una aplicación de Django: 
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
@@ -202,7 +208,7 @@ App Service omite los errores que se producen al procesar un comando de inicio p
 
     Para más información, consulte [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (Ejecución de Gunicorn) (docs.gunicorn.org).
 
-- **Habilitar el registro de producción para Django** : agregue los argumentos `--access-logfile '-'` y `--error-logfile '-'` a la línea de comandos:
+- **Habilitar el registro de producción para Django**: agregue los argumentos `--access-logfile '-'` y `--error-logfile '-'` a la línea de comandos:
 
     ```bash    
     # '-' for the log files means stdout for --access-logfile and stderr for --error-logfile.
@@ -213,7 +219,7 @@ App Service omite los errores que se producen al procesar un comando de inicio p
 
     Para más información, consulte [Registro de Gunicorn](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Personalizar el módulo principal de Flask** : de forma predeterminada, App Service supone que el módulo principal de una aplicación de Flask es *application.py* o *app.py* . Si el módulo principal utiliza un nombre diferente, debe personalizar el comando de inicio. Por ejemplo, si tiene una aplicación de Flask cuyo módulo principal es *hello.py* y el objeto de aplicación de Flask en ese archivo se denomina `myapp`, el comando es de esta manera:
+- **Personalizar el módulo principal de Flask**: de forma predeterminada, App Service supone que el módulo principal de una aplicación de Flask es *application.py* o *app.py*. Si el módulo principal utiliza un nombre diferente, debe personalizar el comando de inicio. Por ejemplo, si tiene una aplicación de Flask cuyo módulo principal es *hello.py* y el objeto de aplicación de Flask en ese archivo se denomina `myapp`, el comando es de esta manera:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -225,7 +231,7 @@ App Service omite los errores que se producen al procesar un comando de inicio p
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
     ```
     
-- **Usar un servidor que no sea de Gunicorn** : para usar un servidor web diferente, como [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), utilice el comando adecuado como comando de inicio o en el archivo de comandos de inicio:
+- **Usar un servidor que no sea de Gunicorn**: para usar un servidor web diferente, como [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), utilice el comando adecuado como comando de inicio o en el archivo de comandos de inicio:
 
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -258,33 +264,81 @@ Los marcos web más usados le permiten acceder a la información de `X-Forwarded
 
 Para acceder a los registros mediante Azure Portal, seleccione **Supervisión** > **Secuencia de registro** en el menú izquierdo de la aplicación.
 
+## <a name="access-deployment-logs"></a>Acceso a los registros de implementación
+
+Al implementar el código, App Service realiza el proceso de compilación descrito anteriormente en la sección [Personalización de la automatización de compilaciones](#customize-build-automation). Dado que la compilación se ejecuta en su propio contenedor, los registros de compilación se almacenan de forma independiente de los registros de diagnóstico de la aplicación.
+
+Siga estos pasos para acceder a los registros de implementación:
+
+1. En Azure Portal, en la aplicación web, seleccione **Implementación** > **Centro de implementación (versión preliminar)** en el menú de la izquierda.
+1. En la pestaña **Registros**, seleccione el **Id. de confirmación** de la confirmación más reciente.
+1. En la página **Detalles del registro** que aparece, seleccione el vínculo **Mostrar registros...** que aparece junto a "Running Oryx Build..." (Ejecución de compilación de Oryx).
+
+Los problemas de compilación, como las dependencias incorrectas del archivo *requirements.txt* y los errores en los scripts anteriores o posteriores a la compilación aparecerán en estos registros. También aparecen errores si el archivo de requisitos no se llama exactamente *requirements.txt* o no aparece en la carpeta raíz del proyecto.
+
 ## <a name="open-ssh-session-in-browser"></a>Abrir sesión SSH en el explorador
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
+Cuando esté conectado correctamente a la sesión de SSH, debería ver el mensaje "Conexión SSH establecida" en la parte inferior de la ventana. Si ve errores como "SSH_CONNECTION_CLOSED" o un mensaje que indica que el contenedor se está reiniciando, es posible que se impida el inicio del contenedor de la aplicación. Consulte [Solución de problemas](#troubleshooting) para conocer los pasos para investigar los posibles problemas.
+
 ## <a name="troubleshooting"></a>Solución de problemas
 
-- **Ve la aplicación predeterminada después de implementar su propio código de aplicación.** La aplicación predeterminada aparece porque no ha implementado el código de la aplicación en App Service o porque este no ha encontrado el código de la aplicación y ha ejecutado la aplicación predeterminada en su lugar.
+En general, el primer paso en la solución de problemas es usar los diagnósticos de App Service:
+
+1. En Azure Portal, en la aplicación web, seleccione **Diagnosticar y solucionar problemas** en el menú de la izquierda.
+1. Seleccione **Rendimiento y disponibilidad**.
+1. Examine la información de las opciones **Registros de aplicación**, **Bloqueo de contenedor** y **Problemas de contenedor**, donde se mostrarán los problemas más comunes.
+
+A continuación, examine los [registros de implementación](#access-deployment-logs) y los [registros de aplicación](#access-diagnostic-logs) en busca de mensajes de error. Estos registros a menudo identifican problemas específicos que pueden impedir la implementación de la aplicación o el inicio de la aplicación. Por ejemplo, se puede producir un error en la compilación si el archivo *requirements.txt* tiene un nombre de archivo incorrecto o no está presente en la carpeta raíz del proyecto.
+
+En las secciones siguientes se proporcionan instrucciones adicionales para problemas específicos.
+
+- [La aplicación no aparece: se muestra la aplicación predeterminada](#app-doesnt-appear)
+- [La aplicación no aparece: mensaje "servicio no disponible"](#service-unavailable)
+- [No se pudo encontrar setup.py o requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [Las contraseñas no aparecen en la sesión SSH cuando se escriben](#other-issues)
+- [Parece que los comandos de la sesión SSH se han cortado](#other-issues)
+- [Los recursos estáticos no aparecen en una aplicación de Django](#other-issues)
+- [Error irrecuperable: se requiere una conexión SSL](#other-issues)
+
+#### <a name="app-doesnt-appear"></a>La aplicación no aparece
+
+- **Ve la aplicación predeterminada después de implementar su propio código de aplicación.** La [aplicación predeterminada](#default-behavior) aparece porque no ha implementado el código de la aplicación en App Service o porque App Service no ha encontrado el código de la aplicación y ha ejecutado la aplicación predeterminada en su lugar.
 
     - Reinicie App Service, espere 15-20 segundos y vuelva a comprobar la aplicación.
     
-    - Asegúrese de que está utilizando App Service para Linux en lugar de una instancia basada en Windows. Desde la CLI de Azure, ejecute el comando `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, reemplazando `<resource-group-name>` y `<app-service-name>` en consecuencia. Debería ver `app,linux` como salida; en caso contrario, vuelva a crear la instancia de App Service y elija Linux.
+    - Asegúrese de que está utilizando App Service para Linux en lugar de una instancia basada en Windows. Desde la CLI de Azure, ejecute el comando `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, reemplazando `<resource-group-name>` y `<app-name>` en consecuencia. Debería ver `app,linux` como salida; en caso contrario, vuelva a crear la instancia de App Service y elija Linux.
     
-    - Use SSH o la consola de Kudu para conectarse directamente con App Service y compruebe que los archivos existen en *site/wwwroot* . Si no existen los archivos, revise el proceso de implementación y vuelva a implementar la aplicación.
+    - Use [SSH](#open-ssh-session-in-browser) para conectarse directamente al contenedor de App Service y compruebe que los archivos existen en *site/wwwroot*. Si los archivos no existen, siga estos pasos:
+      1. Cree una configuración de aplicación llamada `SCM_DO_BUILD_DURING_DEPLOYMENT` con el valor 1, vuelva a implementar el código, espere unos minutos y, a continuación, intente acceder a la aplicación de nuevo. Para más información sobre cómo crear la configuración de la aplicación, consulte [Configurar una aplicación de App Service en Azure Portal](configure-common.md).
+      1. Revise el proceso de implementación, [compruebe los registros de implementación](#access-deployment-logs), corrija los errores y vuelva a implementar la aplicación.
     
     - Si existen los archivos, App Service no fue capaz de identificar el archivo de inicio específico. Compruebe que la aplicación está estructurada como espera App Service para [Django](#django-app) o [Flask](#flask-app), o use un [comando de inicio personalizado](#customize-startup-command).
 
-- **Ve el mensaje "Servicio no disponible" en el explorador.** El explorador ha superado el tiempo de espera mientras esperaba una respuesta de App Service, lo cual indica que App Service ha iniciado el servidor Gunicorn, pero los argumentos que especifica el código de la aplicación son incorrectos.
+- <a name="service-unavailable"></a>**Aparece el mensaje "Servicio no disponible" en el explorador.** El explorador ha superado el tiempo de espera mientras esperaba una respuesta de App Service, lo cual indica que App Service ha iniciado el servidor Gunicorn, pero la propia aplicación no se ha iniciado. Esta condición podría indicar que los argumentos de Gunicorn son incorrectos o que hay un error en el código de la aplicación.
 
     - Actualice el explorador, especialmente si usa los planes de tarifa más bajos en su plan de App Service. Por ejemplo, la aplicación puede tardar más en iniciarse si usa niveles gratis, por ejemplo, y comienza a tener capacidad de respuesta después de actualizar el explorador.
 
     - Compruebe que la aplicación está estructurada como espera App Service para [Django](#django-app) o [Flask](#flask-app), o use un [comando de inicio personalizado](#customize-startup-command).
 
-    - Examine la [secuencia de registro](#access-diagnostic-logs) para ver si hay mensajes de error.
+    - Examine la [secuencia de registro de la aplicación](#access-diagnostic-logs) para ver si hay mensajes de error. Los registros mostrarán los errores en el código de la aplicación.
 
-- **La secuencia de registro muestra "Could not find setup.py or requirements.txt; Not running pip install" (No se pudo encontrar setup.py o requirements.txt; no se ejecutará la instalación de PIP).** : el proceso de compilación de Oryx no ha podido encontrar el archivo *requirements.txt* .
+#### <a name="could-not-find-setuppy-or-requirementstxt"></a>No se pudo encontrar setup.py o requirements.txt
 
-    - Use SSH o la consola de Kudu para conectarse directamente a App Service y compruebe que *requirements.txt* existe en *site/wwwroot* . Si no existe, haga que el archivo exista en el repositorio y que esté incluido en la implementación. Si existe en una carpeta distinta, muévalo a la raíz.
+- **La secuencia de registro muestra "Could not find setup.py or requirements.txt; Not running pip install" (No se pudo encontrar setup.py o requirements.txt; no se ejecutará la instalación de PIP).** : el proceso de compilación de Oryx no ha podido encontrar el archivo *requirements.txt*.
+
+    - Conéctese al contenedor de la aplicación web mediante [SSH](#open-ssh-session-in-browser) y compruebe que el archivo *requirements.txt* tiene el nombre correcto y existe directamente en *site/wwwroot*. Si no existe, haga que el archivo exista en el repositorio y que esté incluido en la implementación. Si existe en una carpeta distinta, muévalo a la raíz.
+
+#### <a name="other-issues"></a>Otros problemas
+
+- **Las contraseñas no aparecen en la sesión SSH cuando se escriben**: por motivos de seguridad, la sesión SSH mantiene la contraseña oculta mientras escribe. Sin embargo, los caracteres se graban; escriba la contraseña como de costumbre y pulse **Entrar** cuando haya terminado.
+
+- **Parece que los comandos de la sesión SSH se han cortado**: es posible que el editor no ajuste el texto de los comandos, pero deberían ejecutarse correctamente.
+
+- **Los recursos estáticos no aparecen en una aplicación de Django**: asegúrese de que ha habilitado el módulo [whitenoise](http://whitenoise.evans.io/en/stable/django.html).
+
+- **Aparece el mensaje "Error irrecuperable: se requiere una conexión SSL"** : compruebe los nombres de usuario y las contraseñas usados para acceder a los recursos (como las bases de datos) desde dentro de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
