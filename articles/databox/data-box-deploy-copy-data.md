@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 7ecccd64921b2d95155318fe91c897725e340b7e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334676"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616746"
 ---
 ::: zone target="docs"
 
@@ -74,7 +74,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
     ![Obtención de las credenciales de recursos compartidos para recursos compartido de archivos SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. En el cuadro de diálogo Access share and copy data (Acceder al recurso compartido y copiar datos), copie los valores de **Username** (Nombre de usuario) y **Password** (Contraseña) del recurso compartido. Si la contraseña tiene caracteres especiales, agregue comillas dobles antes y después de ella. Después, seleccione **Aceptar**.
+2. En el cuadro de diálogo Access share and copy data (Acceder al recurso compartido y copiar datos), copie los valores de **Username** (Nombre de usuario) y **Password** (Contraseña) del recurso compartido. Después, seleccione **Aceptar**.
     
     ![Obtención del nombre de usuario y la contraseña de un recurso compartido de archivos](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
@@ -87,11 +87,11 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
     - Blob en páginas de Azure: `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Azure Files: `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. Cuando se le solicite, escriba la contraseña del recurso compartido. En el ejemplo siguiente se muestra la conexión a un recurso compartido con el comando anterior.
+4. Cuando se le solicite, escriba la contraseña del recurso compartido. Si la contraseña tiene caracteres especiales, agregue comillas dobles antes y después de ella. En el ejemplo siguiente se muestra la conexión a un recurso compartido con el comando anterior.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
