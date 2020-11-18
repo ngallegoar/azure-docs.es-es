@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 1cf6c6516e01774d0345a3f75f6f1c2826451dce
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 68a308952b63d15aa6db90021400f826ef575c0c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289861"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537193"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Use Azure Portal para restringir el acceso de importación y exportación para discos administrados con Private Links
 
@@ -27,9 +27,6 @@ Puede establecer la propiedad NetworkAccessPolicy en `DenyAll` para evitar que a
 
 [!INCLUDE [virtual-machines-disks-private-links-limitations](../../includes/virtual-machines-disks-private-links-limitations.md)]
 
-## <a name="regional-availability"></a>Disponibilidad regional
-
-[!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
 
 ## <a name="create-a-disk-access-resource"></a>Creación de un recurso de acceso a disco
 
@@ -63,9 +60,9 @@ Ahora que tiene un recurso de acceso a disco, puede usarlo para controlar el acc
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Captura de pantalla del flujo de trabajo de creación del punto de conexión privado, primera hoja. Si no selecciona la región adecuada, puede tener problemas más adelante.":::
 
-1. En la hoja **Recurso** , seleccione **Conectarse a un recurso de Azure en mi directorio**.
-1. En **Tipo de recurso** , seleccione **Microsoft.Compute/diskAccesses**.
-1. En **Recurso** , seleccione el recurso de acceso a disco que creó anteriormente.
+1. En la hoja **Recurso**, seleccione **Conectarse a un recurso de Azure en mi directorio**.
+1. En **Tipo de recurso**, seleccione **Microsoft.Compute/diskAccesses**.
+1. En **Recurso**, seleccione el recurso de acceso a disco que creó anteriormente.
 1. Deje el campo **Subrecurso de destino** como **discos**.
 1. Seleccione **Siguiente: Configuración >** .
 

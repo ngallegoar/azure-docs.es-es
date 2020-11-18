@@ -7,15 +7,15 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2b5fa5211ad8d4de01f2b63e8267e297e13c4485
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9ce2044f3ee0bff3335f46d8cf712e64394af2d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570023"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628873"
 ---
 # <a name="what-is-azure-files"></a>¿Qué es Azure Files?
-Azure Files ofrece recursos compartidos de archivos totalmente administrados en la nube a los que se puede acceder mediante el [protocolo SMB (Bloque de mensajes del servidor)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) o el [protocolo NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) estándar del sector. Los recursos compartido de archivos de Azure se pueden montar simultáneamente mediante implementaciones locales o en la nube. A los recursos compartidos de archivos SMB de Azure Files se puede acceder desde clientes Windows, Linux y macOS. A los recursos compartidos de archivos NFS de Azure Files se puede acceder desde clientes Windows, Linux y macOS. Además, los recursos compartidos de archivos SMB de Azure Files se pueden almacenar en la caché de los servidores de Windows Server con Azure File Sync, lo que permite un acceso rápido allí donde se utilizan los datos.
+Azure Files ofrece recursos compartidos de archivos totalmente administrados en la nube a los que se puede acceder mediante el [protocolo SMB (Bloque de mensajes del servidor)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) o el [protocolo NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) estándar del sector. Los recursos compartido de archivos de Azure se pueden montar simultáneamente mediante implementaciones locales o en la nube. A los recursos compartidos de archivos SMB de Azure Files se puede acceder desde clientes Windows, Linux y macOS. A los recursos compartidos de archivos NFS de Azure Files se puede acceder desde clientes Windows, Linux y macOS. Además, los recursos compartidos de archivos SMB de Azure Files se pueden almacenar en la caché de los servidores de Windows Server con Azure File Sync, lo que permite un acceso rápido allí donde se utilizan los datos.
 
 ## <a name="videos"></a>Vídeos
 | Introducción a Azure File Sync | Azure Files con Sync (Ignite 2019)  |
@@ -53,7 +53,7 @@ Los recursos compartidos de archivos de Azure se pueden usar para:
 * **Completamente administrado**. Los recursos compartidos de Azure Files pueden crearse sin necesidad de administrar ni el hardware ni un sistema operativo. Esto significa que no tiene que tratar con la aplicación de actualizaciones de seguridad críticas en el sistema operativo del servidor ni ocuparse de reemplazar discos duros defectuosos.
 * **Herramientas y scripting**. Los cmdlets de PowerShell y la CLI de Azure pueden utilizarse para crear, montar y administrar recursos compartidos de Azure Files como parte de la administración de aplicaciones de Azure. Puede crear y administrar recursos compartidos de Azure Files mediante Azure Portal y el Explorador de Azure Storage. 
 * **Resistencia**. Azure Files se creó desde sus orígenes para estar siempre disponible. Reemplazar los recursos compartidos de archivos en local por Azure Files significa que ya no tendrá que tratar con problemas de red o interrupciones del suministro eléctrico local. 
-* **Programación amigable**. Las aplicaciones que se ejecutan en Azure pueden tener acceso a los datos en el recurso compartido mediante las [API de E/S del sistema](https://msdn.microsoft.com/library/system.io.file.aspx). Por tanto, los desarrolladores pueden aprovechar el código y los conocimientos que ya tienen para migrar las aplicaciones actuales. Además de las API de E/S del sistema, puede usar las [Bibliotecas de cliente de Azure Storage](https://msdn.microsoft.com/library/azure/dn261237.aspx) o la [API de REST de Azure Storage](/rest/api/storageservices/file-service-rest-api).
+* **Programación amigable**. Las aplicaciones que se ejecutan en Azure pueden tener acceso a los datos en el recurso compartido mediante las [API de E/S del sistema](/dotnet/api/system.io.file). Por tanto, los desarrolladores pueden aprovechar el código y los conocimientos que ya tienen para migrar las aplicaciones actuales. Además de las API de E/S del sistema, puede usar las [Bibliotecas de cliente de Azure Storage](/previous-versions/azure/dn261237(v=azure.100)) o la [API de REST de Azure Storage](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre los protocolos de recursos compartidos de archivos disponibles](storage-files-compare-protocols.md)

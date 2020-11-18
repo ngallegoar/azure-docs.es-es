@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 3c05596e16edc5243b8a97002a5cc5990c69ec43
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2b7d00335253772683b867acf0765b77fc493e79
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945626"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523839"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 Antes de comenzar, compruebe lo siguiente:
@@ -85,7 +85,7 @@ chat_client = ChatClient(endpoint, CommunicationUserCredential(<Access Token>))
 Use el método `create_chat_thread` para crear un subproceso de chat.
 
 - Use `topic` para proporcionar un tema de subproceso; el tema puede actualizarse después de crear el subproceso de chat mediante la función `update_thread`.
-- Use `members` para enumerar el `ChatThreadMember` que se va a agregar al subproceso de chat, el elemento `ChatThreadMember` toma el tipo `CommunicationUser` como `user`, que es el valor que obtuvo después de crearlo con [Creación de un usuario](../../access-tokens.md#create-a-user).
+- Use `members` para enumerar el `ChatThreadMember` que se va a agregar al subproceso de chat, el elemento `ChatThreadMember` toma el tipo `CommunicationUser` como `user`, que es el valor que obtuvo después de crearlo con [Creación de un usuario](../../access-tokens.md#create-an-identity).
 
 La respuesta `chat_thread_client` se usa para realizar operaciones en el subproceso de chat recién creado, como agregar miembros al subproceso de chat, enviar o eliminar un mensaje, etc. Contiene una propiedad `thread_id` que es el id. único del subproceso de chat.
 
@@ -158,7 +158,7 @@ Una vez que se crea un subproceso de chat, puede agregar y quitar usuarios de es
 Utilice el método `add_members` para agregar miembros de subproceso al subproceso identificado por threadId.
 
 - Use `members` para enumerar los miembros que se van a agregar al subproceso de chat.
-- El elemento obligatorio `user` es el `CommunicationUser` que creó mediante `CommunicationIdentityClient` en el paso [Creación de un usuario](../../access-tokens.md#create-a-user).
+- El elemento obligatorio `user` es el `CommunicationUser` que creó mediante `CommunicationIdentityClient` en el paso [Creación de un usuario](../../access-tokens.md#create-an-identity).
 - El elemento opcional `display_name` es el nombre para mostrar del miembro del subproceso.
 - El elemento opcional `share_history_time` es la hora a partir de la cual el historial de chat se compartió con el miembro. Para compartir el historial desde el inicio del subproceso de chat, establezca esta propiedad en cualquier fecha igual o anterior a la hora de creación del subproceso. Para no compartir ningún historial anterior a la hora en que se agregó el miembro, establézcala en la fecha actual. Para compartir el historial parcialmente, establézcala en una fecha intermedia.
 

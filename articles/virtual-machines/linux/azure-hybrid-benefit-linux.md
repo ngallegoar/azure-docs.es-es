@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: alsin
-ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: mathapli
+ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962401"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516448"
 ---
-# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Vista previa: Ventaja híbrida de Azure: cómo se aplica a las máquinas virtuales Linux
+# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Versión preliminar pública: Ventaja híbrida de Azure: cómo se aplica a las máquinas virtuales Linux
 
 ## <a name="overview"></a>Información general
 
@@ -45,30 +45,28 @@ Las instancias reservadas, los hosts dedicados y las ventajas híbridas de SQL n
 
 ## <a name="how-to-get-started"></a>Primeros pasos
 
-La Ventaja híbrida de Azure está actualmente en fase de versión preliminar para las VM Linux. Una vez que obtenga acceso a la versión preliminar, puede habilitar la ventaja mediante Azure Portal o la CLI de Azure.
+La Ventaja híbrida de Azure está actualmente en fase de versión preliminar para las VM Linux. Una vez que obtenga acceso a la versión preliminar, puede habilitar la ventaja mediante la CLI de Azure.
 
-### <a name="preview"></a>Vista previa
+### <a name="public-preview"></a>Vista previa pública
 
-En esta fase, puede obtener acceso a la ventaja rellenando [este](https://aka.ms/ahb-linux-form) formulario. Una vez que rellene el formulario, sus suscripciones a Azure estarán habilitadas para la ventaja, y recibirá una confirmación de Microsoft en un plazo de tres días laborables.
+Ventaja híbrida de Azure (para Linux) está actualmente en fase de versión preliminar pública. Puede usar los pasos siguientes para habilitar la ventaja de las distribuciones de Red Hat y SUSE. 
 
 ### <a name="red-hat-customers"></a>Para clientes de Red Hat
 
-1.    Rellene el formulario de solicitud de versión preliminar anterior.
-1.    Regístrese en el [programa Red Hat Cloud Access](https://aka.ms/rhel-cloud-access).
-1.    Habilite sus suscripciones a Azure para Cloud Access y habilite las suscripciones que contienen las VM con las que quiere usar la ventaja.
-1.    Aplique la ventaja a las VM existentes mediante Azure Portal o la CLI de Azure.
-1.    Registrar las VM que reciben la ventaja en un origen de actualizaciones independiente.
+Ventaja híbrida de Azure para RHEL está disponible para los clientes que tienen suscripciones de RHEL activas o no utilizadas que son válidas para su uso en Azure y que han habilitado una o varias de esas suscripciones para su uso en Azure con el programa [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access). 
+
+1.  Habilite una o varias de las suscripciones de RHEL válidas para su uso en Azure la [interfaz de cliente de Red Hat Cloud Access](https://access.redhat.com/management/cloud).
+1.  A continuación, las suscripciones de Azure que ha proporcionado durante el proceso de habilitación de Red Hat Cloud Access podrán usar la característica Ventaja híbrida de Azure.
+1.  Aplique la Ventaja híbrida de Azure a cualquiera de las máquinas virtuales RHEL de pago por uso existentes, así como a todas las nuevas máquinas virtuales RHEL que implemente desde imágenes de pago por uso de Azure Marketplace.
+1.  Siga los [pasos siguientes](https://access.redhat.com/articles/5419341) recomendados para configurar los orígenes de actualización para las máquinas virtuales RHEL y para las directrices de cumplimiento de las suscripciones de RHEL.
+
 
 ### <a name="suse-customers"></a>Para clientes de SUSE
 
-1.    Rellene el formulario de solicitud de versión preliminar anterior.
 1.    Regístrese en el programa de nube pública de SUSE.
-1.    Aplique la ventaja a las VM existentes mediante Azure Portal o la CLI de Azure.
+1.    Aplique la ventaja a las máquinas virtuales existentes a través de CLI de Azure.
 1.    Registrar las VM que reciben la ventaja en un origen de actualizaciones independiente.
 
-### <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Habilitación y deshabilitación de la ventaja en Azure Portal
-
-Para habilitar la ventaja en las VM existentes, visite la hoja **Configuración** y siga los pasos que se indican. Puede habilitar la ventaja en las nuevas VM durante la experiencia de creación de la VM.
 
 ### <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Habilitación y deshabilitación de la ventaja en la CLI de Azure
 
@@ -109,12 +107,8 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
 ## <a name="check-ahb-status-of-a-vm"></a>Comprobación del estado de la AHB de una VM
-Puede ver el estado de la Ventaja híbrida de Azure (AHB) de una VM de tres maneras: comprobando en el portal, usando la CLI de Azure o usando Instance Metadata Service de Azure (Azure IMDS).
+Puede ver el estado de la Ventaja híbrida de Azure (AHB) de una máquina virtual de dos maneras: mediante la CLI de Azure o mediante Instance Metadata Service de Azure (Azure IMDS).
 
-
-### <a name="portal"></a>Portal
-
-Vea la hoja Configuración y compruebe el estado de la licencia para ver si la AHB está habilitada para la VM.
 
 ### <a name="azure-cli"></a>CLI de Azure
 
@@ -132,7 +126,19 @@ Desde la propia VM, puede consultar los metadatos atestiguados de IMDS para dete
 
 ### <a name="red-hat"></a>Red Hat
 
-Para usar la Ventaja híbrida de Azure para las VM de RHEL, primero debe registrarse en el programa Red Hat Cloud Access. Puede hacerlo a través del sitio de Red Hat Cloud Access. Una vez que haya habilitado la ventaja en la VM, debe registrar la VM con su propio origen de actualizaciones, ya sea con el administrador de suscripciones de Red Hat o con Red Hat Satellite. Al registrarse para las actualizaciones, se asegurará de permanecer en un estado admitido.
+Los clientes que usan Ventaja híbrida de Azure para RHEL acuerdan los [términos legales](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) estándar y la [declaración de privacidad](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) asociados a las ofertas de RHEL de Azure Marketplace.
+
+Los clientes que usan Ventaja híbrida de Azure para RHEL tienen tres opciones para proporcionar actualizaciones de software y revisiones a esas máquinas virtuales:
+
+1.  [Red Hat Update Infrastructure (RHUI)](../workloads/redhat/redhat-rhui.md) (opción predeterminada)
+1.  Red Hat Satellite Server
+1.  Red Hat Subscription Manager
+
+Los clientes que eligen la opción RHUI pueden seguir usándola como el origen de actualización principal para sus máquinas virtuales RHEL de AHB sin necesidad de adjuntar suscripciones de RHEL a esas máquinas virtuales.  Los clientes que elijan la opción RHUI son responsables de garantizar el cumplimiento de las suscripciones de RHEL.
+
+Los clientes que elijan Red Hat Satellite Server o Red Hat Subscription Manager deben quitar la configuración de RHUI y, a continuación, adjuntar una suscripción de RHEL habilitada para el acceso a la nube a sus máquinas virtuales RHEL de AHB.  
+
+Puede encontrar más información sobre el cumplimiento de las suscripciones de Red Hat, las actualizaciones de software y los orígenes de máquinas virtuales RHEL de AHB se pueden encontrar [aquí](https://access.redhat.com/articles/5419341).
 
 ### <a name="suse"></a>SUSE
 
@@ -147,13 +153,12 @@ A. Lamentablemente, no. Si intenta especificar un tipo de licencia que no coinci
 
 A. El registro de la suscripción a Red Hat Cloud Access puede tardar un tiempo en propagarse de Red Hat a Azure. Si sigue viendo el error después de un día laborable, póngase en contacto con Soporte técnico de Microsoft.
 
-## <a name="common-errors"></a>Errores comunes
-En esta sección se incluye una lista de errores comunes y pasos para su mitigación.
+## <a name="common-issues"></a>Problemas comunes
+En esta sección se incluye una lista de problemas comunes que se pueden encontrar y los pasos para su mitigación.
 
 | Error | Mitigación |
 | ----- | ---------- |
-| "La suscripción no está registrada para la versión preliminar de Linux de Ventaja híbrida de Azure. Para obtener instrucciones detalladas, consulte https://aka.ms/ahb-linux" | Rellene el formulario en https://aka.ms/ahb-linux-form para registrarse en la versión preliminar de Linux de la Ventaja híbrida de Azure.
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription…" (No se pudo completar la acción porque nuestros registros muestran que no ha habilitado correctamente Red Hat Cloud Access en la suscripción a Azure…) | Para usar la ventaja con VM de RHEL, primero debe registrar las suscripciones de Azure en Red Hat Cloud Access. Visite este vínculo para obtener más información sobre cómo registrar las suscripciones de Azure en Red Hat Cloud Access.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para empezar a trabajar con la versión preliminar, rellene [este](https://aka.ms/ahb-linux-form) formulario.
+* Aprenda a crear y actualizar máquinas virtuales y a agregar tipos de licencia (RHEL_BYOS, SLES_BYOS) para Ventaja híbrida de Azure con la [CLI de Azure aquí.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)

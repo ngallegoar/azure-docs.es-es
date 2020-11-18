@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 16f45c39a329998f4b4da4ea89315683a0fab790
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44479db6b29075e87b0d2dcef6f0d9bc1881738c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90967589"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560832"
 ---
 # <a name="confidential-computing-on-azure"></a>Computación confidencial en Azure
 
@@ -84,7 +84,7 @@ Cree aplicaciones sobre las ofertas de IaaS de computación confidencial de Azur
 
 ### <a name="azure-security"></a>Azure Security 
 Asegúrese de que las cargas de trabajo están protegidas mediante métodos de comprobación y administración de claves vinculadas al hardware. 
-- Attestation: [Microsoft Azure Attestation (versión preliminar)](https://docs.microsoft.com/azure/attestation/overview)
+- Attestation: [Microsoft Azure Attestation (versión preliminar)](../attestation/overview.md)
 - Administración de claves: HSM administrado (versión preliminar)
 
 ### <a name="develop"></a>Desarrollar

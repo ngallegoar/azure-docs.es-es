@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Conexión mediante Node.js: Azure Database for MySQL'
 description: En este tutorial rápido se proporcionan ejemplos de código Node.js que se pueden usar para conectarse a Azure Database for MySQL y consultar datos en este servicio.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 55c352df83e8f72a418452dd28d621556b207e5e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d1291b645e987f33bd2035580587650b843f1771
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332175"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535663"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de Node.js para conectar y consultar datos en Azure Database for MySQL
 
@@ -50,7 +50,7 @@ Dependiendo de la plataforma, siga las instrucciones de la sección apropiada pa
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. Ejecute los siguientes comandos para instalar **Node.js** y **npm** , el Administrador de paquetes para Node.js.
+1. Ejecute los siguientes comandos para instalar **Node.js** y **npm**, el Administrador de paquetes para Node.js.
 
    ```bash
    sudo apt-get install -y nodejs npm
@@ -68,7 +68,7 @@ Dependiendo de la plataforma, siga las instrucciones de la sección apropiada pa
 
 ### <a name="macos"></a>macOS
 
-1. Escriba los comandos siguientes para instalar **brew** , un administrador de paquetes fácil de usar para macOS y **Node.js**.
+1. Escriba los comandos siguientes para instalar **brew**, un administrador de paquetes fácil de usar para macOS y **Node.js**.
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

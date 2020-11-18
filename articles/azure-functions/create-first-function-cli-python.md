@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 9c88feca5bf4bdac91af7f88c24cd342dc1b04cf
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b4c14417a31f28ea5d6475b3f84ee079d990dd6b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426296"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637071"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Python en Azure desde la línea de comandos
 
@@ -250,7 +250,8 @@ Utilice los comandos siguientes para crear los elementos. Se admiten la CLI de A
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
     ```
     
-    <a name="the-new-azfunctionapp-cmdlet-creates-the-function-app-in-azure-if-youre-using-python-37-or-36-change--runtimeversion-to-37-or-36-respectively"></a>El cmdlet [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crea la aplicación de funciones en Azure. Si usa Python 3.7 o 3.6, cambie `-RuntimeVersion` a `3.7` o `3.6`, respectivamente.
+    El cmdlet [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crea la aplicación de funciones en Azure. Si usa Python 3.7 o 3.6, cambie `-RuntimeVersion` a `3.7` o `3.6`, respectivamente.
+
     ---
     
     En el ejemplo anterior, reemplace `<STORAGE_NAME>` por el nombre de la cuenta que usó en el paso anterior y reemplace `<APP_NAME>` por un nombre único global que le resulte adecuado.  `<APP_NAME>` también es el dominio DNS predeterminado de la aplicación de función. 
@@ -275,3 +276,5 @@ En una ventana de terminal independiente o en el explorador, vuelva a llamar a l
 
 > [!div class="nextstepaction"]
 > [Conexión a una cola de Azure Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
+
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/python-functions-qs-survey)

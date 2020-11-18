@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5a958228d79c86550604109d7aaf19e68593a57
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314913"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553682"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Uso de tablas externas con Synapse SQL
 
@@ -238,7 +238,7 @@ FORMAT_TYPE = [ PARQUET | DELIMITEDTEXT]: especifica el formato de los datos ext
 - PARQUET: especifica un formato Parquet.
 - DELIMITEDTEXT: especifica un formato de texto con delimitadores de columna, también denominados terminadores de campo.
 
-FIELD_TERMINATOR = *field_terminator* : solo se aplica a archivos de texto delimitado. El terminador de campo especifica uno o varios caracteres que marcan el final de cada campo (columna) en el archivo de texto delimitado. El valor predeterminado es el carácter de barra vertical ("|").
+FIELD_TERMINATOR = *field_terminator*: solo se aplica a archivos de texto delimitado. El terminador de campo especifica uno o varios caracteres que marcan el final de cada campo (columna) en el archivo de texto delimitado. El valor predeterminado es el carácter de barra vertical ("|").
 
 Ejemplos:
 
@@ -246,7 +246,7 @@ Ejemplos:
 - FIELD_TERMINATOR = ' '
 - FIELD_TERMINATOR = ꞌ\tꞌ
 
-STRING_DELIMITER = *string_delimiter* : especifica el terminador de campo de los datos de tipo cadena en el archivo de texto delimitado. El delimitador de cadena tiene una longitud de uno o más caracteres y se escribe entre comillas simples. El valor predeterminado es la cadena vacía ("").
+STRING_DELIMITER = *string_delimiter*: especifica el terminador de campo de los datos de tipo cadena en el archivo de texto delimitado. El delimitador de cadena tiene una longitud de uno o más caracteres y se escribe entre comillas simples. El valor predeterminado es la cadena vacía ("").
 
 Ejemplos:
 
@@ -254,7 +254,7 @@ Ejemplos:
 - STRING_DELIMITER = '*'
 - STRING_DELIMITER = ꞌ,ꞌ
 
-FIRST_ROW = *First_row_int* : especifica el número de fila que se lee primero y se aplica a todos los archivos. Si establece el valor en dos hará que se omita la primera fila de cada archivo (fila de encabezado) al cargar los datos. Las filas se omiten en función de la existencia de terminadores de fila (/r/n, /r, /n).
+FIRST_ROW = *First_row_int*: especifica el número de fila que se lee primero y se aplica a todos los archivos. Si establece el valor en dos hará que se omita la primera fila de cada archivo (fila de encabezado) al cargar los datos. Las filas se omiten en función de la existencia de terminadores de fila (/r/n, /r, /n).
 
 USE_TYPE_DEFAULT = { TRUE | **FALSE** }: especifica cómo administrar valores que faltan en archivos de texto delimitado al recuperar datos del archivo de texto.
 
@@ -268,7 +268,7 @@ FALSE: almacena todos los valores que faltan como NULL. Los valores NULL que se 
 
 Encoding = {'UTF8' | 'UTF16'}: el grupo de SQL sin servidor puede leer archivos de texto delimitados con codificación UTF8 y UTF16.
 
-DATA_COMPRESSION = *data_compression_method* : este argumento especifica el método de compresión de datos para los datos externos. 
+DATA_COMPRESSION = *data_compression_method*: este argumento especifica el método de compresión de datos para los datos externos. 
 
 El tipo de formato PARQUET admite estos métodos de compresión:
 
@@ -323,7 +323,7 @@ column_name <data_type>
 
 Nombre de entre una y tres partes de la tabla que se va a crear. Si se trata de una tabla externa, el grupo de SQL sin servidor almacena solo sus metadatos. En el grupo de SQL sin servidor, no se desplazan ni se almacenan datos reales.
 
-<column_definition>, ... *n* ]
+<column_definition>, ...*n* ]
 
 CREATE EXTERNAL TABLE admite la capacidad de configurar el nombre de columna, tipo de datos, nulabilidad e intercalación. No se puede usar DEFAULT CONSTRAINT en tablas externas.
 
@@ -332,7 +332,7 @@ CREATE EXTERNAL TABLE admite la capacidad de configurar el nombre de columna, ti
 
 Al leer archivos con formato Parquet, solo puede especificar las columnas que desea leer y omitir el resto.
 
-LOCATION = ' *folder_or_filepath* '
+LOCATION = '*folder_or_filepath*'
 
 Especifica la carpeta o la ruta de acceso del archivo y el nombre de archivo de los datos reales en Azure Blob Storage. La ubicación empieza desde la carpeta raíz. La carpeta raíz es la ubicación de datos especificada en el origen de datos externo.
 
@@ -345,9 +345,9 @@ En este ejemplo, si LOCATION='/webdata/', una consulta del grupo de SQL sin serv
 
 ![Datos recursivos para tablas externas](./media/develop-tables-external-tables/folder-traversal.png)
 
-DATA_SOURCE = *external_data_source_name* : especifica el nombre del origen de datos externo que contiene la ubicación de los datos externos. Para crear un origen de datos externo, use[CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
+DATA_SOURCE = *external_data_source_name*: especifica el nombre del origen de datos externo que contiene la ubicación de los datos externos. Para crear un origen de datos externo, use[CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
-FILE_FORMAT = *external_file_format_name* : especifica el nombre del objeto de formato de archivo externo que almacena el tipo de archivo y el método de compresión de los datos externos. Para crear un formato de archivo externo, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+FILE_FORMAT = *external_file_format_name*: especifica el nombre del objeto de formato de archivo externo que almacena el tipo de archivo y el método de compresión de los datos externos. Para crear un formato de archivo externo, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
 
 ### <a name="permissions-create-external-table"></a>Permisos de CREATE EXTERNAL TABLE
 
@@ -388,8 +388,6 @@ Mediante las funcionalidades de exploración de Data Lake ya se puede crear y co
 - Debe acceder al área de trabajo al menos con el rol de acceso basado en ARM Colaborador de datos de blobs de almacenamiento a la cuenta de ADLS Gen2
 
 - Debe tener al menos [permisos para crear](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) y consultar tablas externas en el grupo de SQL o SQL a petición
-
-- El servicio vinculado asociado a la cuenta de ADLS Gen2 **debe tener acceso al archivo**. Por ejemplo, si el mecanismo de autenticación del servicio vinculado es Identidad administrada, la identidad administrada del área de trabajo debe tener, al menos, permiso de lectura de Blob Storage en la cuenta de almacenamiento
 
 En el panel Data (Datos), seleccione el archivo desde el que desea crear la tabla externa:
 > [!div class="mx-imgBorder"]

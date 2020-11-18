@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 95626836afb09ada286cf7e171f97db450167999
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341913"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564351"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service con nodos de computación confidencial mediante la CLI de Azure (versión preliminar)
 
@@ -19,7 +19,7 @@ Este inicio rápido está destinado a aquellos desarrolladores u operadores de c
 
 ## <a name="overview"></a>Información general
 
-En este inicio rápido, aprenderá a implementar un clúster de Azure Kubernetes Service con nodos de computación confidencial mediante la CLI de Azure y ejecutar una aplicación Hola mundo en un enclave. AKS es un servicio de Kubernetes administrado que permite implementar y administrar clústeres rápidamente. [Aquí](https://docs.microsoft.com/azure/aks/intro-kubernetes) encontrará más información sobre AKS.
+En este inicio rápido, aprenderá a implementar un clúster de Azure Kubernetes Service con nodos de computación confidencial mediante la CLI de Azure y ejecutar una aplicación Hola mundo en un enclave. AKS es un servicio de Kubernetes administrado que permite implementar y administrar clústeres rápidamente. [Aquí](../aks/intro-kubernetes.md) encontrará más información sobre AKS.
 
 > [!NOTE]
 > Las máquinas virtuales de la serie DCsv2 de computación confidencial sacan provecho de hardware especializado que está sujeto a una mayor disponibilidad de precios y regiones. Para más información, consulte en la página de máquinas virtuales [las SKU disponibles y las regiones que se admiten](virtual-machine-solutions.md).
@@ -27,17 +27,17 @@ En este inicio rápido, aprenderá a implementar un clúster de Azure Kubernetes
 ### <a name="deployment-pre-requisites"></a>Requisitos previos a la implementación
 
 1. Tener una suscripción a Azure activa. Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-1. Tener la versión 2.0.64 de la CLI de Azure, o cualquier versión posterior, instalada y configurada en la máquina de implementación (ejecute `az --version` para encontrar la versión). Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
+1. Tener la versión 2.0.64 de la CLI de Azure, o cualquier versión posterior, instalada y configurada en la máquina de implementación (ejecute `az --version` para encontrar la versión). Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](../container-registry/container-registry-get-started-azure-cli.md)
 1. [Extensión aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview), versión mínima 0.4.62 
-1. Tener un mínimo de seis núcleos de **DC<x>s-v2** en su suscripción disponibles para su uso. De forma predeterminada, la cuota de núcleos de máquina virtual para la computación confidencial por suscripción de Azure es 8 núcleos. Si planea aprovisionar un clúster que requiera más de 8 núcleos, siga [estas](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instrucciones para generar una incidencia de aumento de cuota.
+1. Tener un mínimo de seis núcleos de **DC<x>s-v2** en su suscripción disponibles para su uso. De forma predeterminada, la cuota de núcleos de máquina virtual para la computación confidencial por suscripción de Azure es 8 núcleos. Si planea aprovisionar un clúster que requiera más de 8 núcleos, siga [estas](../azure-portal/supportability/per-vm-quota-requests.md) instrucciones para generar una incidencia de aumento de cuota.
 
 ### <a name="confidential-computing-node-features-dcxs-v2"></a>Características de los nodos de computación confidencial (DC<x>s-v2)
 
 1. Nodos de trabajo de Linux que admiten solo contenedores de Linux
 1. Máquinas virtuales Ubuntu de generación 2 18.04
-1. CPU basada en Intel SGX con memoria caché de páginas cifrada (EPC). Obtenga más información [aquí](https://docs.microsoft.com/azure/confidential-computing/faq)
+1. CPU basada en Intel SGX con memoria caché de páginas cifrada (EPC). Obtenga más información [aquí](./faq.md)
 1. Versión de Kubernetes 1.16+
-1. Controlador Intel SGX DCAP. Obtenga más información [aquí](https://docs.microsoft.com/azure/confidential-computing/faq)
+1. Controlador Intel SGX DCAP. Obtenga más información [aquí](./faq.md)
 1. Basado en CLI implementado durante la versión preliminar
 
 
@@ -75,13 +75,13 @@ az provider register --namespace Microsoft.ContainerService
 
 Si ya tiene un clúster de AKS que cumpla los requisitos anteriores, [vaya a la sección de clúster existente](#existing-cluster) para agregar un nuevo grupo de nodos de computación confidencial.
 
-Primero, cree un grupo de recursos para el clúster con el comando az group create. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región *westus2* :
+Primero, cree un grupo de recursos para el clúster con el comando az group create. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región *westus2*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
 ```
 
-Ahora cree un clúster de AKS con el comando az aks create. En el ejemplo siguiente se crea un clúster con un solo nodo de tamaño `Standard_DC2s_v2`. [Aquí](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) puede elegir otra lista admitida de SKU de DCsv2:
+Ahora cree un clúster de AKS con el comando az aks create. En el ejemplo siguiente se crea un clúster con un solo nodo de tamaño `Standard_DC2s_v2`. [Aquí](../virtual-machines/dcv2-series.md) puede elegir otra lista admitida de SKU de DCsv2:
 
 ```azurecli-interactive
 az aks create \
@@ -244,6 +244,3 @@ az aks nodepool delete --cluster-name myAKSCluster --name myNodePoolName --resou
 Ejecute las aplicaciones Python, Node etc. de forma confidencial mediante contenedores confidenciales visitando [ejemplos de contenedores confidenciales](https://github.com/Azure-Samples/confidential-container-samples).
 
 Para ejecutar aplicaciones compatibles con enclave, visite [ejemplos de contenedores de Azure compatibles con enclave](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
-
-
-

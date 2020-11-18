@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45b8ed75a87d1ac638e5ca55058a3d1ad7fcdffa
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: eaf033f7da7a5bd4882d0c78a2321640aa64d8ac
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135012"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646566"
 ---
 # <a name="what-is-hr-driven-provisioning"></a>¿Qué es el aprovisionamiento controlado por RR. HH.?
 
@@ -46,4 +46,3 @@ Para más información sobre Microsoft Identity Manager y los sistemas que admit
 - [¿Qué es el aprovisionamiento?](what-is-provisioning.md)
 - [¿Qué es el aprovisionamiento de aplicaciones?](what-is-app-provisioning.md)
 - [¿Qué es el aprovisionamiento entre directorios?](what-is-inter-directory-provisioning.md)
-- [¿Qué es el aprovisionamiento de directorios?](what-is-inter-directory-provisioning.md)

@@ -1,18 +1,18 @@
 ---
 title: 'Inicio rápido: Conexión (MySQL Workbench): Azure Database for MySQL'
 description: En esta guía de inicio rápido se proporcionan los pasos para usar MySQL Workbench para conectarse a Azure Database for MySQL y consultar datos en este servicio.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 57bd8348977270de9b0e445e0a40c006b65d8392
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5e27cfec0a3f0a58c1e94a822e0c831f4efa1b32
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332047"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535544"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de MySQL Workbench para conectarse y consultar datos en Azure Database for MySQL
 
@@ -47,7 +47,7 @@ Para conectarse al servidor Azure MySQL mediante la herramienta MySQL Workbench 
 
 1.    Inicie la aplicación MySQL Workbench en el equipo. 
 
-2.    En el cuadro de diálogo **Setup New Connection** (Establecer nueva conexión), escriba la siguiente información en la pestaña **Parámetros** :
+2.    En el cuadro de diálogo **Setup New Connection** (Establecer nueva conexión), escriba la siguiente información en la pestaña **Parámetros**:
 
 :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Configuración de una conexión nueva":::
 
@@ -64,7 +64,7 @@ Para conectarse al servidor Azure MySQL mediante la herramienta MySQL Workbench 
 
 4.   Haga clic en **Aceptar** para guardar la conexión. 
 
-5.   En la lista de **conexiones de MySQL** , haga clic en el icono que corresponde al servidor y, luego, espere que se establezca la conexión.
+5.   En la lista de **conexiones de MySQL**, haga clic en el icono que corresponde al servidor y, luego, espere que se establezca la conexión.
 
         Una pestaña SQL nueva se abre con un editor en blanco en el que puede escribir las consultas.
     

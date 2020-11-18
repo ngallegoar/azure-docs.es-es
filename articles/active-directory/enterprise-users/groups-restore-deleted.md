@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 092288d320874488cee4d2f097d7406c0757e8a0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e5cec8802fba3852f4600b9fb426ee4c175314b1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378830"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647127"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Restauración de un grupo de Microsoft 365 eliminado en Azure Active Directory
 
@@ -43,10 +43,10 @@ Usuario | Puede restaurar cualquier grupo de Microsoft 365 eliminado de su prop
 
     ![ver los grupos que están disponibles para restaurar](./media/groups-restore-deleted/deleted-groups3.png)
 
-3. En la hoja **Grupos eliminados** , puede:
+3. En la hoja **Grupos eliminados**, puede:
 
    - Seleccionar **Restaurar grupo** para restaurar el grupo eliminado y su contenido.
-   - Quite de forma permanente el grupo eliminado mediante la selección de **Eliminar permanentemente** . Para quitar de forma definitiva un grupo, debe ser un administrador.
+   - Quite de forma permanente el grupo eliminado mediante la selección de **Eliminar permanentemente**. Para quitar de forma definitiva un grupo, debe ser un administrador.
 
 ## <a name="view-the-deleted-microsoft-365-groups-that-are-available-to-restore-using-powershell"></a>Ver los grupos de Microsoft 365 eliminados disponibles para restaurar con PowerShell
 

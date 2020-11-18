@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3644891f12a6475ec9cfec51f572df4742481e8f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506352"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541851"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Inicio rápido: Creación de un grupo de SQL dedicado mediante Synapse Studio
 
@@ -110,6 +110,7 @@ Si está seguro de que quiere eliminar el grupo de SQL dedicado, haga lo siguien
 1. Confirme la eliminación y presione el botón **Eliminar**.
 1. Cuando el proceso se complete correctamente, el grupo de SQL dedicado dejará de aparecer en los recursos del área de trabajo.
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes
+ 
 - Consulte [Quickstart: Creación de un cuaderno de Apache Spark](quickstart-apache-spark-notebook.md)
 - Consulte [Quickstart: Creación de un grupo de SQL dedicado mediante Azure Portal](quickstart-create-sql-pool-portal.md).

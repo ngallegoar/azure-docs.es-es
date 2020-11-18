@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0dcf05f829cfcdc79fcd7be903b96fb601c095a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7a594d42485510a525ce4e3c7f03b432554100f8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378849"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650604"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guía de inicio rápido: Directiva de nomenclatura para grupos de Azure Active Directory
 
@@ -34,24 +34,24 @@ si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Configuración de la directiva de nomenclatura de grupos en Azure Portal
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador de usuarios.
-1. Seleccione **Grupos** , a continuación, seleccione **Directiva de nomenclatura** para abrir la página de la directiva de nomenclatura.
+1. Seleccione **Grupos**, a continuación, seleccione **Directiva de nomenclatura** para abrir la página de la directiva de nomenclatura.
 
     ![apertura de la página de la directiva de nomenclatura en el centro de administración](./media/groups-quickstart-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visualización o edición de la directiva de nomenclatura de prefijo-sufijo
 
-1. En la página **Directiva de nomenclatura** , seleccione **Directiva de nomenclatura de grupos** .
+1. En la página **Directiva de nomenclatura**, seleccione **Directiva de nomenclatura de grupos**.
 1. Puede ver o editar las directivas de nomenclatura de prefijo o sufijo actuales individualmente seleccionando los atributos o cadenas que desea aplicar como parte de la directiva de nomenclatura.
-1. Para quitar un prefijo o sufijo de la lista, seleccione el prefijo o sufijo y luego seleccione **Eliminar** . Se pueden eliminar varios elementos al mismo tiempo.
+1. Para quitar un prefijo o sufijo de la lista, seleccione el prefijo o sufijo y luego seleccione **Eliminar**. Se pueden eliminar varios elementos al mismo tiempo.
 1. Seleccione **Guardar** para que los cambios en la directiva entren en vigor.
 
 ### <a name="view-or-edit-the-custom-blocked-words"></a>Visualización o edición de las palabras bloqueadas personalizadas
 
-1. En la página **Directiva de nomenclatura** , seleccione **Palabras bloqueadas** .
+1. En la página **Directiva de nomenclatura**, seleccione **Palabras bloqueadas**.
 
     ![edición y carga de la lista de palabras bloqueadas para la directiva de nomenclatura](./media/groups-quickstart-naming-policy/blockedwords.png)
 
-1. Vea o edite la lista actual de palabras bloqueadas personalizadas seleccionando **Descargar** .
+1. Vea o edite la lista actual de palabras bloqueadas personalizadas seleccionando **Descargar**.
 1. Cargue la nueva lista de palabras bloqueadas personalizadas seleccionando el icono del archivo.
 1. Seleccione **Guardar** para que los cambios en la directiva entren en vigor.
 
@@ -61,7 +61,7 @@ Eso es todo. Ha establecido la directiva de nomenclatura y ha agregado las palab
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>Eliminación de la directiva de nomenclatura mediante Azure Portal
 
-1. En la página **Directiva de nomenclatura** , seleccione **Eliminar directiva** .
+1. En la página **Directiva de nomenclatura**, seleccione **Eliminar directiva**.
 1. Después de confirmar la eliminación, se quita la directiva de nomenclatura, incluida toda la directiva de nomenclatura de prefijos y sufijos y cualquier palabra bloqueada personalizada.
 
 ## <a name="next-steps"></a>Pasos siguientes

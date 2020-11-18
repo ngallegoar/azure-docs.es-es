@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Conexión mediante Ruby: Azure Database for MySQL'
 description: En este tutorial rápido se proporcionan ejemplos de código Ruby que se pueden usar para conectarse a Azure Database for MySQL y consultar datos en este servicio.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: f370794aafb4a5ac0948c219593e7028ff1b2e55
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 20e51100eba595f9261be24e0e3675aa565479cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337306"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535561"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de Ruby para conectarse y consultar datos en Azure Database for MySQL
 
@@ -70,7 +70,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 4. En el sistema operativo Windows, si la aplicación Ruby no está en la variable de entorno path, puede que deba usar la ruta de acceso completa para iniciar la aplicación de Node, por ejemplo, `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>Conexión y creación de una tabla
-Use el código siguiente para conectarse y crear una tabla mediante la instrucción SQL **CREATE TABLE** , seguida de las instrucciones SQL **INSERT INTO** para agregar filas a la tabla.
+Use el código siguiente para conectarse y crear una tabla mediante la instrucción SQL **CREATE TABLE**, seguida de las instrucciones SQL **INSERT INTO** para agregar filas a la tabla.
 
 El código usa una clase [mysql2::client](https://www.rubydoc.info/gems/mysql2) para conectarse al servidor MySQL. A continuación, realiza una llamada al método ```query()``` para ejecutar los comandos DROP, CREATE TABLE e INSERT INTO. A continuación, llama al método ```close()``` para cerrar la conexión antes de terminar.
 

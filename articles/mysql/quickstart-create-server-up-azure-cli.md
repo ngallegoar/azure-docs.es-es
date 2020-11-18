@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de una instancia de Azure Database for MySQL mediante az mysql up'
 description: Inicio rápido para crear un servidor Azure Database for MySQL mediante el comando up de la CLI (interfaz de la línea de comandos) de Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a02d2e32a035581d486f22b97fc789957d0b4138
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d89cc41ed26124ae4ad2e6689be6d59278c3d9da
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534046"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542174"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Inicio rápido: Creación de una instancia de Azure Database for MySQL mediante un sencillo comando de la CLI de Azure: az mysql up (versión preliminar)
 
