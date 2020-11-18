@@ -7,30 +7,30 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: 2d4ed76e849385c4edecb7bd97d58087c8e5b4b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 86538f6d0467eb15e549179166ca957902a2d0c3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132795"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659563"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Registros de Azure Monitor para Azure Firewall
 
-Los siguientes ejemplos de registros de Azure Monitor pueden usarse para analizar los registros de Azure Firewall. El archivo de ejemplo se basa en el Diseñador de vistas de Azure Monitor; en el artículo [Diseñador de vistas de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) se proporciona más información sobre el concepto de diseño de vistas.
+Los siguientes ejemplos de registros de Azure Monitor pueden usarse para analizar los registros de Azure Firewall. El archivo de ejemplo se basa en el Diseñador de vistas de Azure Monitor; en el artículo [Diseñador de vistas de Azure Monitor](../azure-monitor/platform/view-designer.md) se proporciona más información sobre el concepto de diseño de vistas.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="azure-monitor-logs-view"></a>Vista de registros de Azure Monitor
 
-Aquí se indica cómo puede configurar una visualización de registros de Azure Monitor. Puede descargar la visualización de ejemplo desde el repositorio [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview). La manera más fácil es hacer clic con el botón derecho en el hipervínculo de esta página y elegir *Guardar como* y proporcionar un nombre como **AzureFirewall.omsview** . 
+Aquí se indica cómo puede configurar una visualización de registros de Azure Monitor. Puede descargar la visualización de ejemplo desde el repositorio [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview). La manera más fácil es hacer clic con el botón derecho en el hipervínculo de esta página y elegir *Guardar como* y proporcionar un nombre como **AzureFirewall.omsview**. 
 
 Ejecute los siguientes pasos para agregar la vista al área de trabajo de Log Analytics:
 
 1. Abra el área de trabajo de Log Analytics en Azure Portal.
-2. Abra **Diseñador de vistas** que está debajo de **General** .
-3. Haga clic en **Import** .
+2. Abra **Diseñador de vistas** que está debajo de **General**.
+3. Haga clic en **Import**.
 4. Busque y seleccione el archivo **AzureFirewall.omsview** que descargó antes.
-5. Haga clic en **Save** (Guardar).
+5. Haga clic en **Save**(Guardar).
 
 Este es el aspecto de la vista de los datos de registro de la regla de aplicación:
 
@@ -40,7 +40,7 @@ Y el de los datos de registro de la regla de red:
 
 ![Datos de registro de regla de red]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure Firewall registra los datos de AzureDiagnostics con la categoría **AzureFirewallApplicationRule** o **AzureFirewallApplicationRule** . Los datos que contienen los detalles se almacenan en el campo msg_s. Mediante el operador [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator), se pueden extraer las distintas propiedades interesantes del campo msg_s. Las consultas siguientes permiten extraer la información de ambas categorías.
+Azure Firewall registra los datos de AzureDiagnostics con la categoría **AzureFirewallApplicationRule** o **AzureFirewallApplicationRule**. Los datos que contienen los detalles se almacenan en el campo msg_s. Mediante el operador [parse](/azure/kusto/query/parseoperator), se pueden extraer las distintas propiedades interesantes del campo msg_s. Las consultas siguientes permiten extraer la información de ambas categorías.
 
 ## <a name="application-rules-log-data-query"></a>Consulta de datos de registro de reglas de aplicación
 
@@ -172,9 +172,9 @@ En los siguientes ejemplos de registro se muestran los datos incluidos en una en
 
 :::image type="content" source="media/log-analytics-samples/log1.png" alt-text="Captura de pantalla de una entrada de registro. Hay varios valores visibles, como una marca de tiempo, un protocolo, un número de puerto, una acción, una colección de reglas y una regla." border="false":::
 
-:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="Captura de pantalla de una entrada de registro. Hay varios valores visibles, como una marca de tiempo, un protocolo, un número de puerto, una acción, una colección de reglas y una regla." border="false":::
+:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="Captura de pantalla de una entrada de registro. Hay varios valores visibles, como una marca de tiempo, un protocolo, direcciones IP de origen y de destino, y una acción." border="false":::
 
-:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Captura de pantalla de una entrada de registro. Hay varios valores visibles, como una marca de tiempo, un protocolo, un número de puerto, una acción, una colección de reglas y una regla." border="false":::
+:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Captura de pantalla de una entrada de registro. Hay varios valores visibles, como una marca de tiempo, un protocolo, direcciones IP y puertos de origen y de destino, y un mensaje." border="false":::
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la supervisión y el diagnóstico de Azure Firewall, vea [Tutorial: Métricas y registros de Azure Firewall](tutorial-diagnostics.md).
+Para más información sobre la supervisión y el diagnóstico de Azure Firewall, vea [Tutorial: Métricas y registros de Azure Firewall](./firewall-diagnostics.md).

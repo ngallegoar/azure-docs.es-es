@@ -6,7 +6,7 @@
       href: lab-services-overview.md
 - name: Guías de inicio rápido
   items:
-    - name: Introducción
+    - name: Primeros pasos
       href: get-started-manage-labs.md
 - name: Tutoriales
   items:
@@ -167,7 +167,7 @@
 - name: Referencia
   items:
     - name: API DE REST
-      href: 'https://docs.microsoft.com/rest/api/labservices/'
+      href: /rest/api/labservices/
     - name: Módulo Az.LabServices de PowerShell (versión preliminar)
       href: reference-powershell-module.md
 - name: Recursos

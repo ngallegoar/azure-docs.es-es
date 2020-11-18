@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: philmea
-ms.openlocfilehash: bd87f15ff63edf1da447faf986cad2f9591610dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 201318a5a5680f248b831bb480888f106286fbe1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502977"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660054"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Administración de IoT Central desde la CLI de Azure
 
@@ -22,24 +22,11 @@ ms.locfileid: "87502977"
 
 En lugar de crear y administrar aplicaciones de IoT Central desde el sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral), puede usar la [CLI de Azure](/cli/azure/) para administrar las aplicaciones.
 
-## <a name="prerequisites"></a>Prerrequisitos
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Si prefiere ejecutar la CLI de Azure en el equipo local, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Cuando ejecute la CLI de Azure localmente, use el comando **az login** para iniciar sesión en Azure antes de probar los comandos descritos en este artículo.
-
-> [!TIP]
-> Si tiene que ejecutar los comandos de la CLI en otra suscripción a Azure, consulte [Cambio de la suscripción activa](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
-
-## <a name="install-the-extension"></a>Instalación de la extensión
-
-Los comandos de este artículo forman parte de la extensión **azure-iot** de la CLI. Para instalar la extensión, ejecute el comando siguiente:
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+ - Si tiene que ejecutar los comandos de la CLI en otra suscripción a Azure, consulte [Cambio de la suscripción activa](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
 
 ## <a name="create-an-application"></a>Crear una aplicación
 

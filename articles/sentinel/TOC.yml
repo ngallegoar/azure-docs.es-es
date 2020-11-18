@@ -208,7 +208,7 @@
 - name: Referencia (nuevo)
   items:
     - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/securityinsights/'
+      href: /rest/api/securityinsights/
     - name: Esquema de normalización de la red
       href: normalization-schema.md
 - name: Recursos
@@ -218,7 +218,7 @@
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel'
     - name: 'Blog sobre seguridad, privacidad y cumplimiento de Azure'
-      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
+      href: /archive/blogs/azuresecurity/
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: Precios

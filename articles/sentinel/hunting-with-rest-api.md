@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
-ms.openlocfilehash: ca60b9350171cee55462c9df28915c811e1cfd25
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd52f22004bf72f3328d1e6a0d1ec988c2406317
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377053"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660855"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Administración de consultas de búsqueda y Live Stream en Azure Sentinel mediante la API de REST
 
 Azure Sentinel, que se integra en parte en Log Analytics de Azure Monitor, le permite usar la API REST de Log Analytics para administrar consultas de búsqueda y Live Stream. En este documento se muestra cómo crear y administrar consultas de búsqueda mediante la API REST.  Las consultas creadas de este modo se mostrarán en la interfaz de usuario de Azure Sentinel.
 
-Consulte la referencia de la API REST definitiva para más detalles sobre la [API de búsquedas guardadas](https://docs.microsoft.com/rest/api/loganalytics/savedsearches).
+Consulte la referencia de la API REST definitiva para más detalles sobre la [API de búsquedas guardadas](/rest/api/loganalytics/savedsearches).
 
 ## <a name="api-examples"></a>Ejemplos de API
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 4783016e472907392f2d379efa0fed2d90ed21bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb59674d678ed9c61c9ee0b425da7032794ca64
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595366"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660617"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Trabajo de forma remota: Consideraciones sobre el trabajo remoto en la aplicación virtual de red (NVA)
 
@@ -30,7 +30,7 @@ Todos los proveedores importantes de NVA en Azure Marketplace deben tener recome
 
 - **Capacidad y número de usuarios simultáneos**: este número es especialmente importante para los usuarios de VPN de punto a sitio, ya que cada usuario conectado creará un túnel cifrado (VPN SSL o IPSec).  
 - **Rendimiento agregado**: el ancho de banda agregado que necesitará para incluir el número de usuarios necesarios a los cuales deberá proporcionar acceso remoto.
-- **El tamaño de VM que necesitará**: siempre debe usar los tamaños de VM que recomienda el proveedor de NVA.  En el caso de una VPN de punto a sitio, si tiene muchas conexiones de usuario simultáneas, debe usar tamaños de VM más grandes, como máquinas virtuales de las [series Dv2 y DSv2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series "Series Dv2 y Dsv2"). Estas máquinas virtuales tienden a tener más CPU virtuales y pueden manejar más sesiones de VPN simultáneas.  Además de tener más núcleos virtuales, los tamaños de máquina virtual más grandes de Azure tienen más capacidad de ancho de banda agregada que los tamaños de máquina virtual más pequeños.
+- **El tamaño de VM que necesitará**: siempre debe usar los tamaños de VM que recomienda el proveedor de NVA.  En el caso de una VPN de punto a sitio, si tiene muchas conexiones de usuario simultáneas, debe usar tamaños de VM más grandes, como máquinas virtuales de las [series Dv2 y DSv2](../virtual-machines/dv2-dsv2-series.md "Series Dv2 y Dsv2"). Estas máquinas virtuales tienden a tener más CPU virtuales y pueden manejar más sesiones de VPN simultáneas.  Además de tener más núcleos virtuales, los tamaños de máquina virtual más grandes de Azure tienen más capacidad de ancho de banda agregada que los tamaños de máquina virtual más pequeños.
     > **Importante:** Cada proveedor utiliza los recursos de manera diferente.  Si no está claro qué tamaños de instancia debe utilizar para dar cabida a la carga de usuarios estimada, debe ponerse en contacto directamente con el proveedor de software y solicitarle una recomendación.
 - **Número de instancias**: si espera tener un gran número de usuarios y conexiones, existen límites con respecto a lo que puede conseguir al escalar de manera vertical los tamaños de las instancias de NVA.  Considere la posibilidad de implementar varias instancias de VM.
 - **VPN de IPSec frente a VPN SSL**: en general, las implementaciones de VPN de IPSec funcionan mejor que las implementaciones de VPN SSL.  

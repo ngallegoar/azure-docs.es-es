@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398515"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660940"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Validación del rendimiento de la VPN en una red virtual
 
@@ -119,7 +119,7 @@ Descargue [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Pa
 1. Después de completar los pasos anteriores, ejecute los mismos pasos con los roles invertidos, de manera que el nodo servidor será ahora el nodo cliente y viceversa.
 
 > [!Note]
-> Iperf no es la única herramienta. [NTTTCP es una solución alternativa para la realización de pruebas](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
+> Iperf no es la única herramienta. [NTTTCP es una solución alternativa para la realización de pruebas](../virtual-network/virtual-network-bandwidth-testing.md).
 
 ## <a name="test-vms-running-windows"></a>Prueba de máquinas virtuales que ejecutan Windows
 
@@ -225,7 +225,7 @@ En particular, el análisis del seguimiento de la captura de paquetes (Wireshark
 
 Incluso si el rendimiento global evaluado con los pasos anteriores (iPERF/NTTTCP/etc.) era correcto, es posible que experimente una copia lenta de los archivos al usar el Explorador de Windows o al arrastrar y soltar en una sesión de RDP. Este problema suele ser debido a uno o ambos de los siguientes factores:
 
-* Las aplicaciones de copia de archivos, como el Explorador de Windows y RDP, no utilizan varios subprocesos al copiar archivos. Para mejorar el rendimiento, utilice una aplicación de copia de archivos de multiproceso como [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) para copiar archivos mediante 16 o 32 subprocesos. Para cambiar el número de subprocesos de copia de archivos en Richcopy, haga clic en **Acción** > **Opciones de copia** > **Copia de archivos**.
+* Las aplicaciones de copia de archivos, como el Explorador de Windows y RDP, no utilizan varios subprocesos al copiar archivos. Para mejorar el rendimiento, utilice una aplicación de copia de archivos de multiproceso como [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)) para copiar archivos mediante 16 o 32 subprocesos. Para cambiar el número de subprocesos de copia de archivos en Richcopy, haga clic en **Acción** > **Opciones de copia** > **Copia de archivos**.
 
    ![Problemas de copia lenta de archivos](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -233,7 +233,7 @@ Incluso si el rendimiento global evaluado con los pasos anteriores (iPERF/NTTTCP
    > No todas las aplicaciones funcionan de la misma manera y no todas las aplicaciones o procesos utilizan todos los subprocesos. Si ejecuta la prueba, puede ver que algunos subprocesos están vacíos y no proporcionarán resultados precisos de rendimiento.
    > Para comprobar el rendimiento de la transferencia de archivos de la aplicación, utilice varios subprocesos aumentando el número de subprocesos sucesivamente o disminuyéndolo para encontrar el rendimiento óptimo de la aplicación o de la transferencia de archivos.
 
-* Velocidad de lectura/escritura del disco de VM insuficiente. Para más información, vea [Solución de problemas de Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
+* Velocidad de lectura/escritura del disco de VM insuficiente. Para más información, vea [Solución de problemas de Azure Storage](/previous-versions/azure/storage/common/storage-e2e-troubleshooting).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interfaz con orientación externa del dispositivo local
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908602dff3be2f392bc595f0074db7f95b8936a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035960"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660991"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
 
@@ -298,7 +298,7 @@ Este problema puede producirse si el cliente VPN no obtiene las rutas de la inst
 
 ### <a name="solution"></a>Solución
 
-Para solucionar este problema, [restablezca la instancia de Azure VPN Gateway](vpn-gateway-resetgw-classic.md). Para asegurarse de que se están usando las nuevas rutas, los clientes VPN de punto a sitio deben descargarse de nuevo después de que el emparejamiento de red virtual se haya configurado correctamente.
+Para solucionar este problema, [restablezca la instancia de Azure VPN Gateway](./reset-gateway.md). Para asegurarse de que se están usando las nuevas rutas, los clientes VPN de punto a sitio deben descargarse de nuevo después de que el emparejamiento de red virtual se haya configurado correctamente.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Error: "La función de revocación no pudo comprobar la revocación debido a que el servidor de revocación estaba sin conexión (Error 0x80092013)"
 

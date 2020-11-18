@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 98e04ba6bb1310935c4893a3616dfd68c2e99a55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29f6be5319c5a142ad3ea0d73deb2f95d8cb0d7a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797639"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659733"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Administración de costos de Azure Lab Services
 
@@ -31,7 +31,7 @@ Esta estimación podría no mostrar todos los costos posibles. No se incluyen al
 
 ## <a name="analyze-the-previous-months-usage"></a>Análisis del uso del mes anterior
 
-El análisis de costos sirve para revisar el uso del mes anterior a fin de ayudarle a determinar cualquier ajuste necesario para el laboratorio. Puede encontrar el desglose de los costos anteriores en el [análisis del costo de la suscripción](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis). En Azure Portal, escriba **Suscripciones** en el campo de búsqueda y seleccione la opción **Suscripciones**. 
+El análisis de costos sirve para revisar el uso del mes anterior a fin de ayudarle a determinar cualquier ajuste necesario para el laboratorio. Puede encontrar el desglose de los costos anteriores en el [análisis del costo de la suscripción](../cost-management-billing/costs/quick-acm-cost-analysis.md). En Azure Portal, escriba **Suscripciones** en el campo de búsqueda y seleccione la opción **Suscripciones**. 
 
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla que muestra el cuadro de búsqueda y la opción Suscripciones.](./media/cost-management-guide/subscription-search.png)
@@ -46,7 +46,7 @@ Seleccione **Análisis de costos** en el panel de la izquierda, en **Administrac
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla que muestra un análisis del costo de la suscripción en un gráfico.](./media/cost-management-guide/subscription-cost-analysis.png)
 
-Este panel permite un análisis de costos en profundidad, incluida la posibilidad de exportar a diferentes tipos de archivo siguiendo una programación. Para más información, consulte [Información general sobre Cost Management y facturación](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+Este panel permite un análisis de costos en profundidad, incluida la posibilidad de exportar a diferentes tipos de archivo siguiendo una programación. Para más información, consulte [Información general sobre Cost Management y facturación](../cost-management-billing/cost-management-billing-overview.md).
 
 Puede filtrar por tipo de recurso. El uso de `microsoft.labservices/labaccounts` mostrará solo el costo asociado con Lab Services.
 
@@ -70,7 +70,7 @@ Para obtener el costo total de la galería de imágenes, cambie el tipo de recur
 
 Algunas universidades han usado la cuenta de laboratorio y el grupo de recursos como formas de separar las clases. Cada clase tiene su propia cuenta de laboratorio y su propio grupo de recursos. 
 
-En el panel de análisis de costos, agregue un filtro basado en el nombre del grupo de recursos con el nombre del grupo de recursos adecuado para la clase. Con ello, solo estarán visibles los costos de esa clase. Esto permite una demarcación más clara entre las clases al visualizar los costos. Puede usar la característica de [exportación programada](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) del análisis de costos para descargar los costos de cada clase en archivos independientes.
+En el panel de análisis de costos, agregue un filtro basado en el nombre del grupo de recursos con el nombre del grupo de recursos adecuado para la clase. Con ello, solo estarán visibles los costos de esa clase. Esto permite una demarcación más clara entre las clases al visualizar los costos. Puede usar la característica de [exportación programada](../cost-management-billing/costs/tutorial-export-acm-data.md) del análisis de costos para descargar los costos de cada clase en archivos independientes.
 
 ## <a name="manage-costs"></a>Administrar costos
 
@@ -90,7 +90,7 @@ Puede configurar estos valores tanto a nivel de cuenta de laboratorio como a niv
 > [!NOTE]
 > Esta opción solo está disponible para las máquinas virtuales Windows.
 
-Cuando la opción **Desconectar a los usuarios cuando las máquinas virtuales estén inactivas** está activada, se desconecta al usuario de las máquinas del laboratorio cuando el sistema operativo Windows considera que la sesión está inactiva (lo que incluye las máquinas virtuales de plantilla). La [definición de inactividad del sistema operativo Windows](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) usa dos criterios: 
+Cuando la opción **Desconectar a los usuarios cuando las máquinas virtuales estén inactivas** está activada, se desconecta al usuario de las máquinas del laboratorio cuando el sistema operativo Windows considera que la sesión está inactiva (lo que incluye las máquinas virtuales de plantilla). La [definición de inactividad del sistema operativo Windows](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) usa dos criterios: 
 
 * Ausencia de usuario: no hay ninguna entrada del teclado ni del mouse.
 * Ausencia de consumo de recursos: Todos los procesadores y todos los discos han estado inactivos durante un cierto porcentaje de tiempo.
@@ -122,7 +122,7 @@ El valor **Apagar las máquinas virtuales cuando los usuarios se desconectan** a
 * En Linux, la conexión SSH está desconectada.
  
 > [!NOTE]
-> Solo se admiten [distribuciones y versiones específicas de Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions).
+> Solo se admiten [distribuciones y versiones específicas de Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions).
  
 Puede especificar el tiempo que las máquinas virtuales deben esperar a que el usuario vuelva a conectarse antes de que se apaguen automáticamente. 
 

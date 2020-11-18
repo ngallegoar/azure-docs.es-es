@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: radwiv
-ms.openlocfilehash: 3be01f6d8e1fb1f6ba541f8d1cb0c92d2a43b0da
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c6aa2b63344ef629d55f5a4efb66e4ee0e55975e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073111"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661042"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Configuración de captura de paquetes para instancias de VPN Gateway
 
@@ -318,7 +318,7 @@ Los ejemplos siguientes de JSON y un esquema JSON proporcionan explicaciones de 
 
 ## <a name="set-up-packet-capture-by-using-powershell"></a>Configuración de la captura de paquetes con PowerShell
 
-En los siguientes ejemplos se muestran comandos de PowerShell que inician y detienen capturas de paquetes. Para obtener más información sobre las opciones de parámetros, consulte [Start-AzVirtualnetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+En los siguientes ejemplos se muestran comandos de PowerShell que inician y detienen capturas de paquetes. Para obtener más información sobre las opciones de parámetros, consulte [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Iniciar la captura de paquetes para una VPN Gateway
 
@@ -354,7 +354,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - La duración de la captura de paquetes mínima sugerida es de 600 segundos. Debido a los problemas de sincronización entre varios componentes de la ruta de acceso, es posible que las capturas de paquetes más cortas no proporcionen datos completos.
 - Los archivos de datos de captura de paquetes se generan en formato PCAP. Use Wireshark u otras aplicaciones disponibles habitualmente para abrir archivos PCAP.
 - Las capturas de paquetes no se admiten en las puertas de enlace basadas en directivas.
-- Si el parámetro `SASurl` no está configurado correctamente, es posible que se produzcan errores de almacenamiento en el seguimiento. Para obtener ejemplos sobre cómo generar correctamente un parámetro `SASurl`, consulte [Stop-AzVirtualNetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+- Si el parámetro `SASurl` no está configurado correctamente, es posible que se produzcan errores de almacenamiento en el seguimiento. Para obtener ejemplos sobre cómo generar correctamente un parámetro `SASurl`, consulte [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
 
 
 

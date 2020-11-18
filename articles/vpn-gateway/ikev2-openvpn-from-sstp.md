@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 59aa6f5560917651d8f60c667145b0953bf72ef5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442169"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660872"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transición al protocolo OpenVPN o IKEv2 desde SSTP
 
@@ -58,9 +58,9 @@ Si quiere, puede habilitar OpenVPN junto con IKEv2. OpenVPN está basado en TLS 
 
 ![point-to-site](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
 
-Una vez configurada la puerta de enlace, los clientes existentes no podrán conectarse hasta que haya [implementado y configurado los clientes de OpenVPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients).
+Una vez configurada la puerta de enlace, los clientes existentes no podrán conectarse hasta que haya [implementado y configurado los clientes de OpenVPN](./vpn-gateway-howto-openvpn-clients.md).
 
-Si usa Windows 10, también puede usar el [cliente VPN de Azure para Windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
+Si usa Windows 10, también puede usar el [cliente VPN de Azure para Windows](./openvpn-azure-ad-client.md#to-download-the-azure-vpn-client)
 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes

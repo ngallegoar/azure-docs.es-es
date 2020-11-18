@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88761734"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660736"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Mejora en la administración de SOC con métricas de incidentes
 
@@ -39,7 +39,7 @@ La tabla **SecurityIncident** está integrada en Azure Sentinel. La encontrará 
 
 Cada vez que se crea o se actualiza un incidente, se agregará una nueva entrada del registro a la tabla. Esto le permite realizar un seguimiento de los cambios realizados en incidentes y permite usar métricas de SOC aún más eficaces, pero debe ser consciente de ello al construir consultas para esta tabla, ya que puede que tenga que quitar entradas duplicadas de un incidente (en función de la consulta exacta que esté ejecutando). 
 
-Por ejemplo, si deseara devolver una lista de todos los incidentes ordenados por número de incidente, pero solo deseara devolver el registro más reciente por incidente, podría hacerlo mediante el [operador summarize](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) de KQL con la `arg_max()` [función aggregation](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction):
+Por ejemplo, si deseara devolver una lista de todos los incidentes ordenados por número de incidente, pero solo deseara devolver el registro más reciente por incidente, podría hacerlo mediante el [operador summarize](/azure/data-explorer/kusto/query/summarizeoperator) de KQL con la `arg_max()` [función aggregation](/azure/data-explorer/kusto/query/arg-max-aggfunction):
 
 
 ```Kusto
@@ -82,9 +82,9 @@ Para complementar la tabla **SecurityIncidents**, se ha proporcionado una planti
 
 Para encontrar esta plantilla de libro nueva, elija **Libros** en el menú de navegación de Azure Sentinel y seleccione la pestaña **Plantillas**. Elija **Security operations efficiency** (Eficiencia de operaciones de seguridad) en la galería y haga clic en uno de estos botones: **Ver libro guardado** y **Ver plantilla**.
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tabla de incidentes de seguridad"::: (Libro de incidentes de seguridad)
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Galería de Security incidents workbook"::: (Libro de incidentes de seguridad)
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tabla de incidentes de seguridad":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Security incidents workbook (Libro de incidentes de seguridad) completado":::
 
 Puede usar la plantilla para crear sus propios libros personalizados adaptados a sus necesidades específicas.
 

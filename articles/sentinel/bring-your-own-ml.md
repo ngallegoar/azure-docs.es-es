@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 17c0ba7306ab4cc51fe8bbe3709d5b6bc85fa487
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a891a301d5869603a7d90d28bb9063d7d5bdb1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340687"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660583"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Traiga su propio aprendizaje automático a Azure Sentinel
 
@@ -32,7 +32,7 @@ Los modelos de detección de aprendizaje automático se pueden adaptar a entorno
 
 ## <a name="what-is-the-bring-your-own-machine-learning-byo-ml-platform"></a>¿Qué es la plataforma Traiga su propio aprendizaje automático (BYO-ML)?
 
-Para aquellas organizaciones que tienen recursos de aprendizaje automático y desean crear modelos de aprendizaje automático personalizados para sus necesidades empresariales exclusivas, ofrecemos la **plataforma BYO-ML**. La plataforma utiliza el entorno [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks)/[Apache Spark](http://spark.apache.org/) y Jupyter Notebook para generar el entorno de aprendizaje automático. Ofrece los siguientes componentes:
+Para aquellas organizaciones que tienen recursos de aprendizaje automático y desean crear modelos de aprendizaje automático personalizados para sus necesidades empresariales exclusivas, ofrecemos la **plataforma BYO-ML**. La plataforma utiliza el entorno [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)/[Apache Spark](http://spark.apache.org/) y Jupyter Notebook para generar el entorno de aprendizaje automático. Ofrece los siguientes componentes:
 
 - un paquete BYO-ML, que incluye bibliotecas para ayudarle a acceder a los datos y a insertar los resultados en Log Analytics, de forma que pueda integrar los resultados con la detección, la investigación y la búsqueda. 
 
@@ -95,7 +95,7 @@ Ahora que está familiarizado con los componentes clave de la plataforma BYO-ML,
 
 ### <a name="setup-the-databricksspark-environment"></a>Configuración del entorno Databricks/Spark
 
-Deberá configurar su propio entorno de Databricks si no dispone ya de uno. Consulte el documento de [inicio rápido de Databricks](https://docs.microsoft.com/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) para obtener instrucciones.
+Deberá configurar su propio entorno de Databricks si no dispone ya de uno. Consulte el documento de [inicio rápido de Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) para obtener instrucciones.
 
 ### <a name="auto-export-instruction"></a>Instrucción de exportación automática
 
@@ -103,7 +103,7 @@ Para compilar modelos de aprendizaje automático personalizados basados en sus p
 
 En este ejemplo, debe tener los datos de entrenamiento para el registro de acceso a los recursos compartidos de archivos en Azure Blob Storage. El formato de los datos está documentado en el cuaderno y las bibliotecas.
 
-Puede exportar automáticamente los datos desde Log Analytics mediante la [interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/monitor/log-analytics). 
+Puede exportar automáticamente los datos desde Log Analytics mediante la [interfaz de la línea de comandos (CLI) de Azure](/cli/azure/monitor/log-analytics). 
 
 Debe tener asignado el rol **Colaborador** en el área de trabajo de Log Analytics, la cuenta de almacenamiento y el recurso de EventHub para poder ejecutar los comandos. 
 
@@ -159,13 +159,13 @@ Una vez que obtenga la puntuación programada, puede usar el módulo en el cuade
 
 Para ver los resultados puntuados junto con los detalles de registro relacionados, vuelva al portal de Azure Sentinel. En **Registros** > Registros personalizados, verá los resultados en la tabla **AnomalousResourceAccessResult_CL** (o en una con su propio nombre de tabla personalizado). Puede utilizar estos resultados para mejorar su experiencia de investigación y búsqueda.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="plataforma de aprendizaje automático":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="registros de acceso a recursos anómalo":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>Creación de una regla de análisis personalizado con resultados de aprendizaje automático
 
 Una vez que haya confirmado que los resultados de aprendizaje automático están en la tabla de registros personalizados y esté satisfecho con la fidelidad de las puntuaciones, puede crear una detección basada en los resultados. Vaya a **Analytics** desde el portal de Azure Sentinel y [cree una nueva regla de detección](tutorial-detect-threats-custom.md). En el siguiente ejemplo se muestra la consulta utilizada para crear la detección.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="plataforma de aprendizaje automático":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="creación de una regla de análisis personalizada para las detecciones de B Y O M L":::
 
 ### <a name="view-and-respond-to-incidents"></a>Visualización de incidentes y respuesta a estos
 Una vez que haya configurado la regla de análisis según los resultados del aprendizaje automático, si hay resultados por encima del umbral establecido en la consulta, se generará un incidente y se mostrará en la página **Incidentes** en Azure Sentinel. 
