@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e64b7efdd430287a7a3a969c5bf62b0c0e2aec9c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329353"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626901"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -46,7 +46,7 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 Asegúrese de que el puerto 445 esté abierto: el protocolo SMB requiere que esté abierto el puerto TCP 445; las conexiones producirán errores si el puerto 445 está bloqueado. Puede comprobar si el firewall está bloqueando el puerto 445 con el cmdlet `Test-NetConnection`. Para obtener información sobre las formas de solucionar un puerto 445 bloqueado, vea la sección [Causa 1: el puerto 445 está bloqueado](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) de nuestra guía de solución de problemas de Windows.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
-Para usar un recurso compartido de archivos de Azure con Windows, debe montarlo, lo que significa asignarle una letra de unidad o una ruta de acceso a un punto de montaje, o acceder a él mediante su [ruta de acceso UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
+Para usar un recurso compartido de archivos de Azure con Windows, debe montarlo, lo que significa asignarle una letra de unidad o una ruta de acceso a un punto de montaje, o acceder a él mediante su [ruta de acceso UNC](/windows/win32/fileio/naming-a-file). 
 
 En este artículo se usa la clave de la cuenta de almacenamiento para tener acceso al recurso compartido de archivos. Una clave de cuenta de almacenamiento es una clave de administrador para una cuenta de almacenamiento, lo que incluye los permisos de administrador de todos los archivos y carpetas dentro de un recurso compartido de archivos al que accede, y de todos los recursos compartidos de archivos y otros recursos de almacenamiento (blobs, colas, tablas, etc.) contenidos en la cuenta de almacenamiento. Si esto no es suficiente para la carga de trabajo, se puede usar [Azure File Sync](storage-sync-files-planning.md), o bien se puede usar la [autenticación basada en identidad a través de SMB](storage-files-active-directory-overview.md).
 
@@ -67,12 +67,12 @@ Para obtener este script:
 
 1. Seleccione **Conectar**.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="ejemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Captura de pantalla del icono de conexión para el recurso compartido de archivos.":::
 
 1. Seleccione la letra de unidad en la que montar el recurso compartido.
 1. Copie el script proporcionado.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="ejemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Texto de ejemplo":::
 
 1. Pegue el script en un shell del host en el que desea montar el recurso compartido de archivos y ejecútelo.
 
@@ -196,11 +196,11 @@ Después de crear esta clave del Registro, debe reiniciar el servidor para desha
 ### <a name="smb-resources"></a>Recursos de SMB
 - [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/) (Dejar de usar SMB1)
 - [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/) (Centro de enrutamiento de productos de SMB 1)
-- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Detección de SMB 1 en el entorno con DSCEA)
-- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Deshabilitación de SMB 1 mediante directiva de grupo)
+- [Discover SMB 1 in your environment with DSCEA](/archive/blogs/ralphkyttle/discover-smb1-in-your-environment-with-dscea) (Detección de SMB 1 en el entorno con DSCEA)
+- [Disabling SMB 1 through Group Policy](/archive/blogs/secguide/disabling-smbv1-through-group-policy) (Deshabilitación de SMB 1 mediante directiva de grupo)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los vínculos siguientes para más información sobre Azure Files:
 - [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
-- [P+F](../storage-files-faq.md)
-- [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [P+F](./storage-files-faq.md)
+- [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)

@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: b4009f3c132c76f6632d6bb706649befa746001f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a0ea9a0871dd57088473999b28553258ff210038
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972533"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628771"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opciones de disponibilidad para las máquinas virtuales de Azure
 
@@ -55,7 +55,7 @@ Los conjuntos de escalado de máquinas virtuales simplifican el diseño para log
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidad
-Un conjunto de disponibilidad es una agrupación lógica de máquinas virtuales dentro de un centro de datos que permite a Azure conocer cómo se crea su aplicación para proporcionar redundancia y disponibilidad. Se recomienda la creación de dos, o más, máquinas virtuales en un conjunto de disponibilidad no solo para proporcionar una aplicación de alta disponibilidad sino también para cumplir el [99,95 % del Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). No hay ningún costo asociado con el conjunto de disponibilidad propiamente dicho, solo se paga por cada instancia de máquina virtual que cree. Cuando una sola máquina virtual usa [discos SSD Premium de Azure](./disks-types.md#premium-ssd), se aplica el Acuerdo de Nivel de Servicio de Azure para los eventos de mantenimiento no planeados.
+Un conjunto de disponibilidad es una agrupación lógica de máquinas virtuales que permite a Azure conocer cómo se crea su aplicación para proporcionar redundancia y disponibilidad. Se recomienda la creación de dos, o más, máquinas virtuales en un conjunto de disponibilidad no solo para proporcionar una aplicación de alta disponibilidad sino también para cumplir el [99,95 % del Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). No hay ningún costo asociado con el conjunto de disponibilidad propiamente dicho, solo se paga por cada instancia de máquina virtual que cree. Cuando una sola máquina virtual usa [discos SSD Premium de Azure](./disks-types.md#premium-ssd), se aplica el Acuerdo de Nivel de Servicio de Azure para los eventos de mantenimiento no planeados.
 
 En un conjunto de disponibilidad, las máquinas virtuales se distribuyen automáticamente entre estos dominios de error. Este enfoque limita el impacto de potenciales errores de hardware físico, interrupciones de red o cortes de alimentación eléctrica.
 

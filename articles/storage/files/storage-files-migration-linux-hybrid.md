@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46bcfd48d8fdfb228670b87df166c1ad8de61e52
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563512"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626357"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migración desde Linux a una implementación de nube híbrida con Azure File Sync
 
@@ -219,6 +219,6 @@ Consulte el vínculo de la sección siguiente para solucionar problemas de Azure
 
 Hay más información sobre los recursos compartidos de archivos de Azure y Azure File Sync. Los artículos siguientes contienen opciones avanzadas, procedimientos recomendados y ayuda para la solución de problemas. Estos artículos se vinculan a la [documentación de recursos compartidos de archivos de Azure](storage-files-introduction.md) según corresponda.
 
-* [Introducción a Azure File Sync](https://aka.ms/AFS)
+* [Introducción a Azure File Sync](./storage-sync-files-planning.md)
 * [Guía de implementación de Azure File Sync](storage-files-deployment-guide.md)
 * [Solución de problemas de Azure File Sync](storage-sync-files-troubleshoot.md)

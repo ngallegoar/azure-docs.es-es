@@ -12,18 +12,18 @@ ms.date: 09/14/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image identifier, image recognition app, custom vision
-ms.openlocfilehash: 47227a60b1ed45499afdb42fbc062abc5ae51ff9
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: aa338bf708abaa49d65b6a817009224973f3fb29
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605503"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616916"
 ---
 # <a name="what-is-custom-vision"></a>¿Qué es Custom Vision?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Custom Vision es un servicio de reconocimiento de imágenes que permite crear, implementar y mejorar sus propios identificadores de imágenes. Un identificador de imágenes aplica etiquetas (que representan clases u objetos) a las imágenes, en función de sus características visuales. A diferencia del servicio [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), Custom Vision te permite especificar las etiquetas y entrenar modelos personalizados para detectarlas.
+Azure Custom Vision es un servicio de reconocimiento de imágenes que permite crear, implementar y mejorar sus propios identificadores de imágenes. Un identificador de imágenes aplica etiquetas (que representan clases u objetos) a las imágenes, en función de sus características visuales. A diferencia del servicio [Computer Vision](../computer-vision/overview.md), Custom Vision te permite especificar las etiquetas y entrenar modelos personalizados para detectarlas.
 
 ## <a name="what-it-does"></a>Qué hace
 

@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 15f9387aac909c0245d25b3a208ed24444b2b343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4df4c3d91c30dfd63de9073d8435f6f96c6ecd95
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329417"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626833"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
@@ -34,8 +34,8 @@ Para más información sobre estas tres opciones, consulte [Planeamiento de una 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 - En este artículo se supone que ya ha creado una suscripción a Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-- Si planea usar Azure PowerShell, [instale la versión más reciente](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Si planea usar la CLI de Azure, [instale la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Si planea usar Azure PowerShell, [instale la versión más reciente](/powershell/azure/install-az-ps).
+- Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 Los recursos compartidos de archivos de Azure se implementan en *cuentas de almacenamiento*, que son objetos de nivel superior que representan un grupo compartido de almacenamiento. Este grupo de almacenamiento se puede usar para implementar varios recursos compartidos de archivos. 
@@ -226,9 +226,9 @@ New-AzRmStorageShare `
 > La capacidad de establecer y cambiar los niveles mediante PowerShell se proporciona en la versión preliminar del módulo Az.Storage de PowerShell. Puede que estos cmdlets o sus salidas cambien antes de su publicación en la versión con disponibilidad general del módulo Az.Storage de PowerShell, por lo que debe crear scripts con esto en mente.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-Puede crear un recurso compartido de archivos con el comando [`az storage share-rm create`](https://docs.microsoft.com/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=true#az_storage_share_rm_create). Los siguientes comandos de la CLI de Azure suponen que ha establecido las variables `$resourceGroupName` y `$storageAccountName` como se ha definido anteriormente en la sección sobre la creación de una cuenta de almacenamiento con la CLI de Azure.
+Puede crear un recurso compartido de archivos con el comando [`az storage share-rm create`](/cli/azure/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create). Los siguientes comandos de la CLI de Azure suponen que ha establecido las variables `$resourceGroupName` y `$storageAccountName` como se ha definido anteriormente en la sección sobre la creación de una cuenta de almacenamiento con la CLI de Azure.
 
-La funcionalidad para crear o mover un recurso compartido de archivos a un nivel específico está disponible en la actualización más reciente de la CLI de Azure. La actualización de la CLI de Azure es específica de la distribución de Linux o del sistema operativo que está usando. Para obtener instrucciones sobre cómo actualizar la CLI de Azure en el sistema, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+La funcionalidad para crear o mover un recurso compartido de archivos a un nivel específico está disponible en la actualización más reciente de la CLI de Azure. La actualización de la CLI de Azure es específica de la distribución de Linux o del sistema operativo que está usando. Para obtener instrucciones sobre cómo actualizar la CLI de Azure en el sistema, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 > [!Important]  
 > En el caso de los recursos compartidos de archivos prémium, el parámetro `--quota` hace referencia al tamaño aprovisionado del recurso compartido de archivos. El tamaño aprovisionado del recurso compartido de archivos es la cantidad que se facturará, independientemente del uso. Los recursos compartidos de archivos estándar se facturan en función del uso en lugar de basarse en el tamaño aprovisionado.
@@ -251,7 +251,7 @@ az storage share-rm create \
 ---
 
 > [!Note]  
-> El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte  [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener detalles completos sobre cómo asignar un nombre a los recursos compartidos y los archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ### <a name="changing-the-tier-of-an-azure-file-share"></a>Cambio del nivel de un recurso compartido de archivos de Azure
 Los recursos compartidos de archivos que se implementan en una **cuenta de almacenamiento de uso general v2 (GPv2)** pueden pertenecer a los niveles optimizado para transacciones, de acceso frecuente o de acceso esporádico. Puede cambiar el nivel del recurso compartido de archivos de Azure en cualquier momento, en función de los costos de las transacciones, tal como se ha descrito anteriormente.

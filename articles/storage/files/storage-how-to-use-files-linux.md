@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 957e827e621d07ed9b5533a1607f955f05985d9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004789"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626748"
 ---
 # <a name="use-azure-files-with-linux"></a>Uso de Azure Files con Linux
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el [cliente kernel de SMB](https://wiki.samba.org/index.php/LinuxCIFS). En este artículo se muestran dos maneras de montar un recurso compartido de archivos de Azure: a petición, con el comando `mount` y al inicio, mediante la creación de una entrada en `/etc/fstab`.
@@ -67,7 +67,7 @@ uname -r
 
     En otras distribuciones, use el administrador de paquetes apropiado o [compile desde el origen](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **La versión más reciente de la interfaz de la línea de comandos (CLI).** Para más información sobre cómo instalar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y seleccione el sistema operativo. Si prefiere usar el módulo de Azure PowerShell en PowerShell 6+, puede hacerlo. Sin embargo, las instrucciones siguientes son para la CLI de Azure.
+* **La versión más reciente de la interfaz de la línea de comandos (CLI).** Para más información sobre cómo instalar la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) y seleccione el sistema operativo. Si prefiere usar el módulo de Azure PowerShell en PowerShell 6+, puede hacerlo. Sin embargo, las instrucciones siguientes son para la CLI de Azure.
 
 * **Asegurarse de que el puerto 445 está abierto**: SMB se comunica a través del puerto TCP 445, así que compruebe que el firewall no bloquea el puerto TCP 445 en la máquina cliente.  Reemplace `<your-resource-group>` y `<your-storage-account>` y luego ejecute el siguiente script:
     ```bash
@@ -326,5 +326,5 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 Consulte los vínculos siguientes para más información sobre Azure Files:
 
 * [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
-* [P+F](../storage-files-faq.md)
+* [P+F](./storage-files-faq.md)
 * [Solución de problemas](storage-troubleshoot-linux-file-connection-problems.md)
