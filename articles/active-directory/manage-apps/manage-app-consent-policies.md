@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4368f20171da0c1896e642361578580b1d958296
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442266"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659053"
 ---
 # <a name="manage-app-consent-policies"></a>Administración de directivas de consentimiento de aplicaciones
 
@@ -31,7 +31,7 @@ Las directivas de consentimiento de aplicaciones en las que el id. comienza por 
 
 ## <a name="pre-requisites"></a>Requisitos previos
 
-1. Asegúrese de que usa el módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Este paso es importante si ha instalado el módulo [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) y el módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true).
+1. Asegúrese de que usa el módulo [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview). Este paso es importante si ha instalado el módulo [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) y el módulo [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview).
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -149,7 +149,7 @@ Para obtener más información:
 * [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)
 * [Aprenda a administrar el consentimiento de aplicaciones y a evaluar las solicitudes de consentimiento](manage-consent-requests.md)
 * [Concesión del consentimiento del administrador para todo el inquilino a una aplicación](grant-admin-consent.md)
-* [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/active-directory-v2-scopes.md)
+* [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obtener ayuda o encontrar respuestas a sus preguntas:
 * [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
