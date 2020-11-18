@@ -4,15 +4,15 @@ description: En este inicio rápido, aprenderá a crear una instancia de Azure S
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: zhshang
 ms.date: 10/02/2020
-ms.openlocfilehash: a7e8183f21ab49fe4662470d30e52977dd89153a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4ab029048b37a4dcb44ef405249dcb9e20de70cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289913"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841639"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Inicio rápido: Uso de una plantilla de Resource Manager para implementar Azure SignalR Service
 
@@ -62,20 +62,20 @@ Seleccione el siguiente vínculo para implementar Azure SignalR Service mediante
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Botón para implementar Azure SignalR Service en Azure mediante la plantilla de Resource Manager en Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
-En la página **Implementación de Azure SignalR Service** :
+En la página **Implementación de Azure SignalR Service**:
 
 1. Si lo desea, cambie el valor predeterminado de **Suscripción**.
 
-2. En **Grupo de recursos** , seleccione **Crear nuevo** y, después, especifique un nombre válido para el nuevo grupo de recursos y seleccione **Aceptar**.
+2. En **Grupo de recursos**, seleccione **Crear nuevo** y, después, especifique un nombre válido para el nuevo grupo de recursos y seleccione **Aceptar**.
 
 3. Si ha creado un grupo de recursos, seleccione un valor de **Región** para el grupo de recursos.
 
-4. Si lo desea, escriba un nuevo **nombre** y la **ubicación** (por ejemplo, **eastus2** ) de Azure SignalR Service. Si no especifica un nombre, se genera automáticamente. La ubicación de Azure SignalR Service puede ser la misma que la de la región del grupo de recursos, o bien otra diferente. Si no especifica una ubicación, se establece en la misma región que la del grupo de recursos.
+4. Si lo desea, escriba un nuevo **nombre** y la **ubicación** (por ejemplo, **eastus2**) de Azure SignalR Service. Si no especifica un nombre, se genera automáticamente. La ubicación de Azure SignalR Service puede ser la misma que la de la región del grupo de recursos, o bien otra diferente. Si no especifica una ubicación, se establece en la misma región que la del grupo de recursos.
 
-5. En **Pricing Tier** (Plan de tarifa), elija ( **Free_F1** o **Standard_S1** ), escriba el valor de **Capacity** (Capacidad) (número de unidades de SignalR) y, en **Service Mode** (Modo de servicio), elija **Default** (Predeterminado) (se requiere un servidor concentrador), **Serverless** (Sin servidor) (no permite ninguna conexión de servidor) o **Classic** (Clásico) (se enruta al servidor concentrador solo si el concentrador tiene conexión de servidor). Luego, elija entre **Enable Connectivity Logs** (Habilitar registros de conectividad) o **Enable Messaging Logs** (Habilitar registros de mensajería).
+5. En **Pricing Tier** (Plan de tarifa), elija (**Free_F1** o **Standard_S1**), escriba el valor de **Capacity** (Capacidad) (número de unidades de SignalR) y, en **Service Mode** (Modo de servicio), elija **Default** (Predeterminado) (se requiere un servidor concentrador), **Serverless** (Sin servidor) (no permite ninguna conexión de servidor) o **Classic** (Clásico) (se enruta al servidor concentrador solo si el concentrador tiene conexión de servidor). Luego, elija entre **Enable Connectivity Logs** (Habilitar registros de conectividad) o **Enable Messaging Logs** (Habilitar registros de mensajería).
 
     > [!NOTE]
-    > En el plan de tarifa **Free_F1** , la capacidad está limitada a una unidad.
+    > En el plan de tarifa **Free_F1**, la capacidad está limitada a una unidad.
 
     :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Captura de pantalla de la plantilla de Resource Manager para crear una instancia de Azure SignalR Service en Azure Portal.":::
 
@@ -92,12 +92,12 @@ Use el siguiente código para implementar Azure SignalR Service mediante la plan
 
 * El nombre y la región de la nueva instancia de Azure SignalR Service
 * El nombre y la región de un nuevo grupo de recursos
-* El plan de tarifa de Azure ( **Free_F1** o **Standard_S1** )
+* El plan de tarifa de Azure (**Free_F1** o **Standard_S1**)
 * La capacidad de la unidad de SignalR (1, 2, 5, 10, 20, 50 o 100)
   > [!NOTE]
-  > En el plan de tarifa **Free_F1** , la capacidad está limitada a una unidad.
+  > En el plan de tarifa **Free_F1**, la capacidad está limitada a una unidad.
 * El modo de servicio: **Default** (Predeterminado) para exigir un servidor concentrador, **Serverless** (Sin servidor) para no permitir ninguna conexión de servidor o **Classic** (Clásico) para el enrutamiento a un servidor concentrador solo si el concentrador tiene una conexión de servidor.
-* Si se habilitan los registros de conectividad o de mensajería ( **true** o **false** ).
+* Si se habilitan los registros de conectividad o de mensajería (**true** o **false**).
 
 ```azurepowershell-interactive
 $serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
@@ -137,12 +137,12 @@ Use el siguiente código para implementar Azure SignalR Service mediante la plan
 
 * El nombre y la región de la nueva instancia de Azure SignalR Service
 * El nombre y la región de un nuevo grupo de recursos
-* El plan de tarifa de Azure ( **Free_F1** o **Standard_S1** )
+* El plan de tarifa de Azure (**Free_F1** o **Standard_S1**)
 * La capacidad de la unidad de SignalR (1, 2, 5, 10, 20, 50 o 100)
     > [!NOTE]
-    > En el plan de tarifa **Free_F1** , la capacidad está limitada a una unidad.
+    > En el plan de tarifa **Free_F1**, la capacidad está limitada a una unidad.
 * El modo de servicio: **Default** (Predeterminado) para exigir un servidor concentrador, **Serverless** (Sin servidor) para no permitir ninguna conexión de servidor o **Classic** (Clásico) para el enrutamiento a un servidor concentrador solo si el concentrador tiene una conexión de servidor.
-* Si se habilitan los registros de conectividad o de mensajería ( **true** o **false** ).
+* Si se habilitan los registros de conectividad o de mensajería (**true** o **false**).
 
 ```azurecli-interactive
 read -p "Enter a name for the new Azure SignalR Service: " serviceName &&

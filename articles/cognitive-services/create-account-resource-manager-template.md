@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.custom: subject-armqs
-ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363398"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842114"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Inicio rápido: Creación de un recurso de Cognitive Services mediante una plantilla de Resource Manager
 
@@ -60,7 +60,7 @@ En la plantilla, se define un recurso de Azure:
     |Value  |Descripción  |
     |---------|---------|
     | **Suscripción** | Seleccione una suscripción de Azure. |
-    | **Grupos de recursos** | Seleccione **Crear nuevo** , escriba un nombre único para el grupo de recursos y haga clic en **Aceptar**. |
+    | **Grupos de recursos** | Seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y haga clic en **Aceptar**. |
     | **Región** | Seleccione una región.  Por ejemplo **Este de EE. UU.** |
     | **Nombre de Cognitive Service** | Reemplácelo por un nombre único para el recurso. Necesitará el nombre en la sección siguiente cuando valide la implementación. |
     | **Ubicación** | Reemplácelo por la región utilizada anteriormente. |
