@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
-ms.openlocfilehash: b44f626546b313299701687157b37b7df021bd61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88038145"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695000"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configuración del equilibrador de carga solo de salida
 
@@ -316,4 +316,4 @@ Esta configuración permite equilibrar la carga del tráfico interno entrante en
 - Más información sobre [Azure Load Balancer](load-balancer-overview.md).
 - Aprenda sobre las [conexiones salientes en Azure](load-balancer-outbound-connections.md).
 - [Preguntas frecuentes sobre Load Balancer](load-balancer-faqs.md).
-- Más información sobre [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview).
+- Más información sobre [Azure Bastion](../bastion/bastion-overview.md).

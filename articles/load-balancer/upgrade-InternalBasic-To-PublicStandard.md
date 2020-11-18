@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c69f528328d5ff983c7de9d7fad052a7c41285
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078763"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696258"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Actualización de Azure Load Balancer interno con necesidad de conexión de salida
-[Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](https://docs.microsoft.com/azure/load-balancer/skus#skus). Dado que Standard Load Balancer interno no proporciona conexión de salida, se ofrece una solución para crear una instancia de Standard Public Load Balancer en su lugar.
+[Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](./skus.md#skus). Dado que Standard Load Balancer interno no proporciona conexión de salida, se ofrece una solución para crear una instancia de Standard Public Load Balancer en su lugar.
 
 Hay cuatro fases en una actualización:
 
@@ -109,16 +109,16 @@ Estos son algunos escenarios en los que puede agregar máquinas virtuales a los 
     >En el caso de las máquinas virtuales que tienen direcciones IP públicas, deberá crear direcciones IP estándar primero en aquellos casos en los que no se garantice la misma dirección IP. Desasocie las máquinas virtuales de las direcciones IP básicas y asócielas con las direcciones IP estándar recién creadas. A continuación, podrá seguir las instrucciones para agregar máquinas virtuales al grupo de back-end de Standard Load Balancer. 
 
 * **Creación de nuevas máquinas virtuales para agregarlas a los grupos de back-end de la instancia de Standard Public Load Balancer recién creada**.
-    * [Aquí](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines) encontrará más instrucciones sobre cómo crear una máquina virtual y cómo asociarla con Standard Load Balancer.
+    * [Aquí](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines) encontrará más instrucciones sobre cómo crear una máquina virtual y cómo asociarla con Standard Load Balancer.
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Creación de una regla de salida para la conexión de salida
 
-Siga las [instrucciones ](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) para crear una regla de salida para poder:
+Siga las [instrucciones ](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) para crear una regla de salida para poder:
 * Definir la NAT de salida desde cero.
 * Escalar y ajustar el comportamiento de la NAT de salida existente.
 
 ### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>Creación de reglas de NSG para las máquinas virtuales a fin de evitar la comunicación en Internet
-Si quiere evitar que el tráfico de Internet llegue a las máquinas virtuales, puede crear una [regla de NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) en la interfaz de red de las máquinas virtuales.
+Si quiere evitar que el tráfico de Internet llegue a las máquinas virtuales, puede crear una [regla de NSG](../virtual-network/manage-network-security-group.md) en la interfaz de red de las máquinas virtuales.
 
 ## <a name="common-questions"></a>Preguntas frecuentes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735910"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696870"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Creación de un equilibrador de carga público con IPv6 mediante la CLI de Azure
 
@@ -48,17 +48,17 @@ Los pasos siguientes muestran cómo crear un equilibrador de carga público medi
 
 Para implementar un equilibrador de carga, cree y configure los objetos siguientes:
 
-* **Configuración de direcciones IP de front-end** : contiene direcciones IP públicas para el tráfico de red entrante.
-* **Grupo de direcciones de back-end** : contiene interfaces de red (NIC) para que las máquinas virtuales reciban tráfico de red del equilibrador de carga.
-* **Reglas de equilibrio de carga** : contiene reglas que asignan un puerto público en el equilibrador de carga a un puerto del grupo de direcciones de back-end.
-* **Reglas NAT de entrada** : contiene reglas de traslación de direcciones de red (NAT) que asignan un puerto público en el equilibrador de carga a un puerto de una máquina virtual específica en el grupo de direcciones de back-end.
-* **Sondeos** : contiene los sondeos de estado que se usan para comprobar la disponibilidad de las instancias de las máquinas virtuales del grupo de direcciones de back-end.
+* **Configuración de direcciones IP de front-end**: contiene direcciones IP públicas para el tráfico de red entrante.
+* **Grupo de direcciones de back-end**: contiene interfaces de red (NIC) para que las máquinas virtuales reciban tráfico de red del equilibrador de carga.
+* **Reglas de equilibrio de carga**: contiene reglas que asignan un puerto público en el equilibrador de carga a un puerto del grupo de direcciones de back-end.
+* **Reglas NAT de entrada**: contiene reglas de traslación de direcciones de red (NAT) que asignan un puerto público en el equilibrador de carga a un puerto de una máquina virtual específica en el grupo de direcciones de back-end.
+* **Sondeos**: contiene los sondeos de estado que se usan para comprobar la disponibilidad de las instancias de las máquinas virtuales del grupo de direcciones de back-end.
 
 ## <a name="set-up-azure-cli"></a>Configuración de la CLI de Azure
 
 En este ejemplo, puede ejecutar las herramientas de la CLI de Azure en una ventana de comandos de PowerShell. Para mejorar la legibilidad y la reutilización, puede usar las funcionalidades de scripting de PowerShell en lugar de los cmdlets de Azure PowerShell.
 
-1. [Instale y configure la CLI de Azure ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) siguiendo los pasos que se describen en el artículo vinculado e inicie sesión en la cuenta de Azure.
+1. [Instale y configure la CLI de Azure ](/cli/azure/install-azure-cli?view=azure-cli-latest) siguiendo los pasos que se describen en el artículo vinculado e inicie sesión en la cuenta de Azure.
 
 2. Configure variables de PowerShell para usarlas con los comandos de la CLI de Azure:
 
@@ -122,7 +122,7 @@ En este ejemplo, puede ejecutar las herramientas de la CLI de Azure en una venta
     > [!IMPORTANT]
     > El equilibrador de carga usa la etiqueta de dominio de la dirección IP pública como nombre de dominio completo (FQDN). Esto representa un cambio en la implementación clásica, que usa el nombre del servicio en la nube como el FQDN del equilibrador de carga.
     >
-    > En este ejemplo, el FQDN es *contoso09152016.southcentralus.cloudapp.azure.com* .
+    > En este ejemplo, el FQDN es *contoso09152016.southcentralus.cloudapp.azure.com*.
 
 ## <a name="create-front-end-and-back-end-pools"></a>Creación de grupos de servidores front-end y back-end
 
@@ -284,7 +284,7 @@ Para crear máquinas virtuales, debe tener una cuenta de almacenamiento. Para el
     ```
 
     > [!WARNING]
-    > En este ejemplo se usa el nombre de usuario y la contraseña de las máquinas virtuales en texto no cifrado. Tome las precauciones necesarias cuando use estas credenciales en texto no cifrado. Para ver un método más seguro de administración de credenciales en PowerShell, consulte el cmdlet [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx).
+    > En este ejemplo se usa el nombre de usuario y la contraseña de las máquinas virtuales en texto no cifrado. Tome las precauciones necesarias cuando use estas credenciales en texto no cifrado. Para ver un método más seguro de administración de credenciales en PowerShell, consulte el cmdlet [`Get-Credential`](/powershell/module/microsoft.powershell.security/get-credential).
 
 2. Cree el conjunto de disponibilidad:
 
@@ -299,5 +299,3 @@ Para crear máquinas virtuales, debe tener una cuenta de almacenamiento. Para el
 
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
-
-

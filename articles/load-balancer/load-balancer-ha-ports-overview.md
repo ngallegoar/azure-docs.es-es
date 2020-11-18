@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 6f089af71e4d32023e9cebd6613872f7db0eed7a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664880"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694966"
 ---
 # <a name="high-availability-ports-overview"></a>Introducción a los puertos de alta disponibilidad
 
@@ -54,7 +54,7 @@ En el diagrama siguiente se muestra una implementación de la red virtual de tip
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>Equilibrado de carga de un gran número de puertos
 
-También puede usar puertos de alta disponibilidad para aplicaciones que requieran equilibrar la carga de un gran número de puertos. Igualmente, puede simplificar estos escenarios mediante una instancia interna de [Load Balancer estándar](load-balancer-standard-overview.md) con puertos de alta disponibilidad. Una regla de equilibrio de carga única sustituye a varias reglas individuales de equilibrio de carga, una por cada puerto.
+También puede usar puertos de alta disponibilidad para aplicaciones que requieran equilibrar la carga de un gran número de puertos. Igualmente, puede simplificar estos escenarios mediante una instancia interna de [Load Balancer estándar](./load-balancer-overview.md) con puertos de alta disponibilidad. Una regla de equilibrio de carga única sustituye a varias reglas individuales de equilibrio de carga, una por cada puerto.
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
@@ -99,5 +99,4 @@ Puede configurar *un* recurso de una instancia pública de Load Balancer estánd
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Aprenda a configurar los puertos de alta disponibilidad para su ILB mediante Azure Portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [la CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)o [plantillas](quickstart-load-balancer-standard-internal-template.md).
-- [Más información sobre Load Balancer estándar](load-balancer-standard-overview.md)
+- [Más información sobre Load Balancer estándar](load-balancer-overview.md)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855247"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696326"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Solución de problemas de disponibilidad de front-end y back-end y de mantenimiento de recursos 
 
@@ -52,7 +52,7 @@ Supongamos que comprobamos el estado de sondeo de mantenimiento y encontramos qu
   * Si existe este problema de NSG, mueva la regla de permiso existente o cree una nueva regla de prioridad alta para permitir el tráfico de AzureLoadBalancer.
 * Compruebe el sistema operativo. Asegúrese de que las máquinas virtuales están escuchando en el puerto de sondeo y revise las reglas de firewall del sistema operativo para asegurarse de que no estén bloqueando el tráfico de sondeo procedente de la dirección IP 168.63.129.16.
   * Puede comprobar los puertos de escucha ejecutando netstat -a en el símbolo del sistema de Windows o netstat-l en un terminal de Linux.
-* No coloque una máquina virtual NVA de firewall en el grupo de back-end del equilibrador de carga, use [rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) para enrutar el tráfico a las instancias de back-end a través del firewall.
+* No coloque una máquina virtual NVA de firewall en el grupo de back-end del equilibrador de carga, use [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md#user-defined) para enrutar el tráfico a las instancias de back-end a través del firewall.
 * Asegúrese de que usa el protocolo correcto, si usa HTTP para sondear un puerto que escucha una aplicación que no es HTTP, se producirá un error en el sondeo.
 
 Si ha recorrido esta lista de comprobación y todavía se producen errores de sondeo de estado, puede haber problemas de plataforma poco frecuentes que afecten al servicio de sondeo para las instancias. En este caso, Azure le respaldará. Se envía una alerta automatizada a nuestro equipo para resolver rápidamente todos los problemas de la plataforma.
@@ -61,5 +61,3 @@ Si ha recorrido esta lista de comprobación y todavía se producen errores de so
 
 * [Más información sobre los sondeos de estado de Azure Load Balancer](load-balancer-custom-probe-overview.md)
 * [Más información sobre las métricas de Azure Load Balancer](load-balancer-standard-diagnostics.md)
-
-

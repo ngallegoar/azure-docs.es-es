@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 82763842e6145b3883c46bcb9ddb45b7836c3cf2
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241827"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695527"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -121,7 +121,7 @@ A continuación se muestra cómo puede expresar este tipo de configuración de s
 ### <a name="http--https-probe"></a><a name="httpprobe"></a> <a name="httpsprobe"></a> Sondeo HTTP/HTTPS
 
 >[!NOTE]
->El sondeo HTTPS solo está disponible para [Standard Load Balancer](load-balancer-standard-overview.md).
+>El sondeo HTTPS solo está disponible para [Standard Load Balancer](./load-balancer-overview.md).
 
 Los sondeos HTTP y HTTPS se basan en el sondeo TCP y emiten una solicitud HTTP GET con la ruta de acceso especificada. Ambos sondeos admiten rutas de acceso relativas para la solicitud HTTP GET. Los sondeos HTTPS son lo mismo que los sondeos de HTTP con un contenedor de Seguridad de la capa de transporte (TLS, conocida anteriormente como SSL) añadido. El sondeo de estado se marca cuando la instancia responde con un código de estado 200 de HTTP dentro del período de tiempo de espera.  De forma predeterminada, el sondeo de estado intenta comprobar cada 15 segundos el puerto de sondeo de estado configurado. El intervalo de sondeo mínimo es 5 segundos. La duración total de todos los intervalos no puede superar los 120 segundos.
 
@@ -169,7 +169,7 @@ Los roles del servicio en la nube (roles de trabajo y roles web) usan un agente 
 
 Un sondeo del agente invitado es una comprobación del agente invitado dentro de la máquina virtual. A continuación, escucha y responde con una respuesta HTTP 200 OK solo cuando la instancia está en estado Preparado. (Otros estados son Ocupado, Reciclando o Deteniendo).
 
-Para obtener más información, consulte [Configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/ee758710.aspx) (Configuración del archivo de definición de servicio (csdef) para los sondeos de estado) o [Get started by creating a public load balancer for cloud services](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services) (Introducción a la creación de un equilibrador de carga público para servicios en la nube).
+Para obtener más información, consulte [Configuring the service definition file (csdef) for health probes](/previous-versions/azure/reference/ee758710(v=azure.100)) (Configuración del archivo de definición de servicio (csdef) para los sondeos de estado) o [Get started by creating a public load balancer for cloud services](/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services) (Introducción a la creación de un equilibrador de carga público para servicios en la nube).
 
 Si el agente invitado no responde con HTTP 200 OK, el equilibrador de carga marca la instancia como sin respuesta. y deja de enviar flujos a dicha instancia. El equilibrador de carga sigue comprobando la instancia. 
 
@@ -215,7 +215,7 @@ Si se produce un error en todos los sondeos de todas las instancias de un grupo 
 
 Load Balancer usa un servicio de sondeo distribuido para su modelo de mantenimiento interno. El servicio de sondeos reside en todos los host donde residan las máquinas virtuales y se puede programar a petición para generar sondeos de estado por cada configuración de cliente. El tráfico del sondeo de estado se realiza directamente entre el servicio de sondeos que genera el sondeo de estado y la máquina virtual del cliente. Todos los sondeos de Load Balancer tienen como origen la dirección IP 168.63.129.16.  Puede usar el espacio de direcciones IP dentro de una red virtual que no sea el espacio RFC1918.  El uso de una dirección IP propiedad de Microsoft reservada de forma global reduce la posibilidad de un conflicto de dirección IP con el espacio de direcciones IP que se usa dentro de la red virtual.  Esta dirección IP es la misma en todas las regiones y no cambia, y no supone un riesgo de seguridad porque solo el componente de la plataforma interna de Azure puede originar un paquete desde esta dirección IP. 
 
-La etiqueta del servicio AzureLoadBalancer identifica esta dirección IP de origen en los [grupos de seguridad de red](../virtual-network/security-overview.md) y permite el tráfico de sondeo de estado de forma predeterminada.
+La etiqueta del servicio AzureLoadBalancer identifica esta dirección IP de origen en los [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md) y permite el tráfico de sondeo de estado de forma predeterminada.
 
 Además de los sondeos de estado de Load Balancer, en las [operaciones siguientes se usa esta dirección IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
@@ -233,15 +233,15 @@ En ocasiones, puede ser útil que la aplicación genere una respuesta de sondeo 
 
 En el caso del equilibrio de carga de UDP, debe generar una señal de sondeo de estado personalizada desde el punto de conexión de back-end y usar un sondeo de estado TCP, HTTP o HTTPS destinado al agente de escucha correspondiente para reflejar el estado de la aplicación de UDP.
 
-Si se usan [reglas de equilibrio de carga de puertos de alta disponibilidad](load-balancer-ha-ports-overview.md) con [Standard Load Balancer](load-balancer-standard-overview.md), todos los puertos tienen la carga equilibrada y una sola respuesta del sondeo de estado tiene que reflejar el estado de toda la instancia.
+Si se usan [reglas de equilibrio de carga de puertos de alta disponibilidad](load-balancer-ha-ports-overview.md) con [Standard Load Balancer](./load-balancer-overview.md), todos los puertos tienen la carga equilibrada y una sola respuesta del sondeo de estado tiene que reflejar el estado de toda la instancia.
 
 No se debe traducir ni conectar mediante proxy un sondeo de estado a través de la instancia que recibe el sondeo de estado con otra instancia de la red virtual, porque se podrían provocar errores en cascada en el escenario.  Considere el escenario siguiente: un conjunto de aplicaciones de terceros se implementa en el grupo de back-end de un recurso de Load Balancer para proporcionar escalabilidad y redundancia para los dispositivos, y el sondeo de estado se configura para sondear un puerto que la aplicación de terceros redirige mediante un proxy o traduce a otras máquinas virtuales detrás del dispositivo.  Si se sondea el mismo puerto que se usa para traducir o redirigir mediante un proxy a las otras máquinas virtuales detrás de la aplicación, cualquier respuesta de sondeo de una sola máquina virtual detrás de la aplicación marcará el propio dispositivo como inactivo. Esta configuración puede provocar un error en cascada del escenario completo de la aplicación a consecuencia de un punto de conexión de back-end único detrás del dispositivo.  El desencadenador puede ser un error de sondeo intermitente que provocará que Load Balancer marque como inactivo el destino original (la instancia de la aplicación) y, a su vez, puede deshabilitar el escenario de toda la aplicación. En su lugar, sondee el estado del propio dispositivo. La selección del sondeo para determinar la señal de estado es una consideración importante para los escenarios de aplicaciones de red virtual (NVA) y debe consultar con su proveedor de aplicaciones cuál es la señal de estado adecuada para esos escenarios.
 
 Si en las directivas de firewall no se permite la [dirección IP de origen](#probesource) del sondeo, se producirá un error en el sondeo de estado, ya que no puede acceder a la instancia.  A su vez, Load Balancer marcará la instancia como inactiva debido al error del sondeo de estado,  Esta configuración incorrecta puede producir un error en el escenario de aplicación con equilibrio de carga.
 
-Para que el sondeo de estado de Load Balancer marque la instancia como activa, se **debe** permitir esta dirección IP en todos los [grupos de seguridad de red](../virtual-network/security-overview.md) de Azure y en las directivas de firewall locales.  De forma predeterminada, todos los grupos de seguridad de red incluyen la [etiqueta de servicio](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer para permitir el tráfico de sondeo de estado.
+Para que el sondeo de estado de Load Balancer marque la instancia como activa, se **debe** permitir esta dirección IP en todos los [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md) de Azure y en las directivas de firewall locales.  De forma predeterminada, todos los grupos de seguridad de red incluyen la [etiqueta de servicio](../virtual-network/network-security-groups-overview.md#service-tags) AzureLoadBalancer para permitir el tráfico de sondeo de estado.
 
-Si quiere probar un error de un sondeo de mantenimiento o marcar como inactiva una instancia individual, puede usar un [grupo de seguridad de red](../virtual-network/security-overview.md) para bloquear de forma explícita el sondeo de mantenimiento (puerto de destino o [dirección IP de origen](#probesource)) y simular el error del sondeo.
+Si quiere probar un error de un sondeo de mantenimiento o marcar como inactiva una instancia individual, puede usar un [grupo de seguridad de red](../virtual-network/network-security-groups-overview.md) para bloquear de forma explícita el sondeo de mantenimiento (puerto de destino o [dirección IP de origen](#probesource)) y simular el error del sondeo.
 
 No configure la red virtual con el intervalo de direcciones IP propiedad de Microsoft que contiene 168.63.129.16.  Esas configuraciones entrarán en conflicto con la dirección IP del sondeo de estado y pueden provocar un error en el escenario.
 
@@ -251,7 +251,7 @@ No habilite [las marcas de tiempo TCP](https://tools.ietf.org/html/rfc1323).  Ha
 
 ## <a name="monitoring"></a>Supervisión
 
-[Standard Load Balancer](load-balancer-standard-overview.md), tanto público como interno, expone el estado del sondeo de estado por punto de conexión y punto de conexión de back-end como métricas multidimensionales mediante Azure Monitor. Otros servicios de Azure o aplicaciones de asociados pueden usar estas métricas. 
+[Standard Load Balancer](./load-balancer-overview.md), tanto público como interno, expone el estado del sondeo de estado por punto de conexión y punto de conexión de back-end como métricas multidimensionales mediante Azure Monitor. Otros servicios de Azure o aplicaciones de asociados pueden usar estas métricas. 
 
 La instancia pública básica de Load Balancer expone el estado del sondeo de estado resumido por grupo de back-end mediante registros de Azure Monitor.  Los registros de Azure Monitor no están disponible para las instancias internas básicas de Load Balancer.  Puede usar los [registros de Azure Monitor](load-balancer-monitor-log.md) para comprobar el estado del sondeo de estado y el número de sondeos del equilibrador de carga público. El registro se puede utilizar con Power BI o con Azure Operational Insights para proporcionar estadísticas del estado de mantenimiento del equilibrador de carga.
 
@@ -262,7 +262,7 @@ La instancia pública básica de Load Balancer expone el estado del sondeo de es
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [Load Balancer Estándar](load-balancer-standard-overview.md)
+- Más información sobre [Load Balancer Estándar](./load-balancer-overview.md)
 - [Empiece a crear un equilibrador de carga público en Resource Manager mediante Azure PowerShell](quickstart-load-balancer-standard-public-powershell.md)
-- [API REST para los sondeos de estado](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+- [API REST para los sondeos de estado](/rest/api/load-balancer/loadbalancerprobes/)
 - Solicite nuevas capacidades de sondeo de estado con [Uservoice de Load Balancer](https://aka.ms/lbuservoice)

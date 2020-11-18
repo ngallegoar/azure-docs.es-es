@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b59942731c8ca7b29de30e160d8370c9cf76ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcb322805ac3368dd6ed8e193875e083b27195e1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85807645"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695289"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalación del agente de aprovisionamiento en la nube de Azure AD Connect
 Este documento le guiará en el proceso de instalación del agente de aprovisionamiento de Azure Active Directory (Azure AD) Connect y en el modo de configurarlo inicialmente en Azure Portal.
@@ -39,24 +39,24 @@ Para instalar el agente, siga estos pasos.
 1. Seleccione **Administrar el aprovisionamiento (versión preliminar)**  > **Revisar todos los agentes**.
 1. Descargue el agente de aprovisionamiento de Azure AD Connect en Azure Portal.
 
-   ![Descargar el agente local](media/how-to-install/install9.png)</br>
+   ![Descargar el agente local](media/how-to-install/install-9.png)</br>
 1. Ejecute el instalador de aprovisionamiento de Azure AD Connect (AADConnectProvisioningAgent.Installer).
 1. En la pantalla **Microsoft Azure AD Connect Provisioning Agent Package**, acepte los términos de licencia y seleccione **Instalar**.
 
-   ![Pantalla Microsoft Azure AD Connect Provisioning Agent Package](media/how-to-install/install1.png)</br>
+   ![Pantalla Microsoft Azure AD Connect Provisioning Agent Package](media/how-to-install/install-1.png)</br>
 
 1. Una vez finalizada esta operación, se inicia el Asistente para configuración. Inicie sesión con su cuenta de administrador global de Azure AD.
 1. En la pantalla **Conectar Active Directory**, seleccione **Agregar directorio**. Después, inicie sesión con su cuenta de administrador de Active Directory. Esta operación permitirá agregar su directorio local. Seleccione **Next** (Siguiente).
 
-   ![Pantalla Conexión de Active Directory](media/how-to-install/install3.png)</br>
+   ![Pantalla Conexión de Active Directory](media/how-to-install/install-3.png)</br>
 
 1. En la pantalla **Configuración completa**, seleccione **Confirmar**. Esta operación registra y reinicia el agente.
 
-   ![Pantalla de configuración finalizada](media/how-to-install/install4.png)</br>
+   ![Pantalla de configuración finalizada](media/how-to-install/install-4a.png)</br>
 
 1. Una vez finalizada esta operación, verá el aviso **La configuración del agente se ha comprobado correctamente.** Seleccione **Salir**.
 
-   ![Botón Salir](media/how-to-install/install5.png)</br>
+   ![Botón Salir](media/how-to-install/install-5.png)</br>
 1. Si todavía ve la pantalla inicial **Microsoft Azure AD Connect Provisioning Agent Package**, seleccione **Cerrar**.
 
 ## <a name="verify-agent-installation"></a>Comprobación de la instalación del agente
@@ -68,15 +68,15 @@ Para comprobar que Azure ve el agente, siga estos pasos.
 1. Inicie sesión en Azure Portal.
 1. En la parte izquierda, seleccione **Azure Active Directory** > **Azure AD Connect**. En el centro, seleccione **Administración del aprovisionamiento (versión preliminar)** .
 
-   ![Azure portal](media/how-to-install/install6.png)</br>
+   ![Azure portal](media/how-to-install/install-6.png)</br>
 
 1.  En la pantalla **Aprovisionamiento de Azure AD (versión preliminar)** , seleccione **Revisar todos los agentes**.
 
-    ![Opción Revisar todos los agentes](media/how-to-install/install7.png)</br>
+    ![Opción Revisar todos los agentes](media/how-to-install/install-7.png)</br>
  
 1. En la pantalla **Agentes de aprovisionamiento locales**, verá los agentes que ha instalado. Compruebe que el agente en cuestión está ahí y que se ha marcado como *Activo*.
 
-   ![Pantalla de agentes de aprovisionamiento local](media/how-to-install/verify1.png)</br>
+   ![Pantalla de agentes de aprovisionamiento local](media/how-to-install/verify-1.png)</br>
 
 
 
@@ -87,7 +87,7 @@ Para comprobar que el agente se ejecuta, siga estos pasos.
 1.  Abra **Servicios**. Para ello, vaya ahí o a **Inicio** > **Ejecutar** > **Services.msc**.
 1.  En **Servicios**, asegúrese de que tanto el **Actualizador del Agente de Microsoft Azure AD Connect** como el **Agente de aprovisionamiento de Microsoft Azure AD Connect** están ahí y que su estado es *En ejecución*.
 
-    ![Pantalla de servicios](media/how-to-troubleshoot/troubleshoot1.png)
+    ![Pantalla de servicios](media/how-to-install/troubleshoot-1.png)
 
 >[!IMPORTANT]
 >El agente se ha instalado, pero debe configurarse y habilitarse antes de que empiece a sincronizar a los usuarios. Para configurar un nuevo agente, consulte [Creación de una nueva configuración para el aprovisionamiento basado en la nube de Azure AD Connect](how-to-configure.md).

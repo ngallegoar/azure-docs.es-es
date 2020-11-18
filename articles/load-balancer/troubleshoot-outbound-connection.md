@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 516576f4e005cc9fe2303945ecb1a13489908a5d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629002"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696360"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Solución de errores de conexiones salientes
 
 Este artículo está diseñado para proporcionar soluciones a los problemas habituales que pueden producirse con conexiones salientes de una instancia de Azure Load Balancer. La mayoría de los problemas con la conectividad saliente que experimentan los clientes se deben al agotamiento de puertos SNAT y a tiempos de espera de conexión agotados que generan pérdida de paquetes. En este artículo se proporcionan los pasos para mitigar cada uno de estos problemas.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Administración del agotamiento de puertos SNAT (PAT)
-Los [puertos efímeros](load-balancer-outbound-connections.md) usados para [PAT](load-balancer-outbound-connections.md) son un recurso agotable, como se describe en [Máquina virtual independiente sin una dirección IP pública](load-balancer-outbound-connections.md) y [Máquina virtual de carga equilibrada sin dirección IP pública](load-balancer-outbound-connections.md). Puede supervisar el uso de puertos efímeros y compararlos con su asignación actual para determinar la probabilidad o confirmar el agotamiento de SNAT mediante [esta guía](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation).
+Los [puertos efímeros](load-balancer-outbound-connections.md) usados para [PAT](load-balancer-outbound-connections.md) son un recurso agotable, como se describe en [Máquina virtual independiente sin una dirección IP pública](load-balancer-outbound-connections.md) y [Máquina virtual de carga equilibrada sin dirección IP pública](load-balancer-outbound-connections.md). Puede supervisar el uso de puertos efímeros y compararlos con su asignación actual para determinar la probabilidad o confirmar el agotamiento de SNAT mediante [esta guía](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation).
 
 Si sabe que se van a iniciar muchas conexiones TCP o UDP salientes a la misma dirección IP y puerto de destino, y observa errores en las conexiones salientes, o el soporte técnico está avisando del agotamiento de los puertos SNAT ([puertos efímeros](load-balancer-outbound-connections.md#preallocatedports) asignados previamente usados por [PAT](load-balancer-outbound-connections.md)), dispone de varias opciones generales para mitigar este problema. Revise estas opciones y vea cuál está disponible y resulta mejor para su escenario. Es posible que una o varias de ellas puedan ayudar a administrar este escenario.
 
@@ -63,7 +63,7 @@ Por ejemplo, dos máquinas virtuales en el grupo back-end tendrían 1024 puertos
 Si se escala horizontalmente al siguiente nivel de grupo de back-end de mayor tamaño, algunas de las conexiones salientes podrían agotar el tiempo de espera si hubiera que reasignar los puertos.  Si solo usa algunos de los puertos SNAT, no importa si se escala horizontalmente al siguiente mayor tamaño de grupo de back-end.  La mitad de los puertos existentes se volverá a asignar cada vez que cambie al siguiente nivel de grupo de back-end.  Si no quiere que suceda esto, tendrá que adaptar la implementación al tamaño del nivel.  O bien, asegúrese de que la aplicación puede detectar y volver a intentar según se requiera.  Las conexiones persistentes de TCP pueden ayudar a detectar cuándo dejan de funcionar los puertos SNAT por una reasignación.
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Uso de conexiones persistentes para restablecer el tiempo de espera de inactividad saliente
-Las conexiones salientes tienen un tiempo de espera de inactividad de 4 minutos. Este tiempo de espera se ajusta desde [Reglas de salida](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Pero también puede usar conexiones persistentes de transporte (por ejemplo, TCP) o de capa de aplicación para actualizar un flujo de inactividad y restablecer este tiempo de espera de inactividad en caso necesario.  
+Las conexiones salientes tienen un tiempo de espera de inactividad de 4 minutos. Este tiempo de espera se ajusta desde [Reglas de salida](outbound-rules.md). Pero también puede usar conexiones persistentes de transporte (por ejemplo, TCP) o de capa de aplicación para actualizar un flujo de inactividad y restablecer este tiempo de espera de inactividad en caso necesario.  
 
 Al utilizar conexiones persistentes de TCP, es suficiente con habilitarlas en un lado de la conexión. Por ejemplo, es suficiente habilitarlas solo en el servidor para restablecer el temporizador de inactividad del flujo y no se necesita para ambos lados en conexiones persistentes de TCP iniciadas.  Existen conceptos similares existen para la capa de aplicación, incluidas las configuraciones de cliente/servidor de base de datos.  Compruebe el lado del servidor para ver qué opciones existen para las conexiones persistentes específicas de la aplicación.
 

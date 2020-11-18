@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448101"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696887"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Varios servidores front-end para Azure Load Balancer
 
 Azure Load Balancer permite utilizar servicios de equilibrio de carga en varios puertos, varias direcciones IP, o en ambos. Puede usar las definiciones de equilibrador de carga públicas e internas para flujos de equilibrio de carga entre un conjunto de máquinas virtuales.
 
-En este artículo se describen los fundamentos de esta capacidad, los conceptos importantes y las restricciones. Si solo desea exponer los servicios en una dirección IP, puede encontrar instrucciones simplificadas para configuraciones [públicas](load-balancer-get-started-internet-portal.md) o [internas](load-balancer-get-started-ilb-arm-portal.md) del equilibrador de carga. Agregar varios servidores front-end es una acción incremental de la configuración de un único front-end. Mediante los conceptos de este artículo, puede expandir una configuración simplificada en cualquier momento.
+En este artículo se describen los fundamentos de esta capacidad, los conceptos importantes y las restricciones. Si solo desea exponer los servicios en una dirección IP, puede encontrar instrucciones simplificadas para configuraciones [públicas](./quickstart-load-balancer-standard-public-portal.md) o [internas](./quickstart-load-balancer-standard-internal-portal.md) del equilibrador de carga. Agregar varios servidores front-end es una acción incremental de la configuración de un único front-end. Mediante los conceptos de este artículo, puede expandir una configuración simplificada en cualquier momento.
 
 Al definir un Azure Load Balancer, las configuraciones de un grupo de servidores front-end y back-end están conectadas con reglas. El sondeo de estado a que hace referencia la regla se utiliza para determinar cómo se envían nuevos flujos a un nodo en el grupo de back-end. El front-end (también llamada VIP) se define mediante una tupla de 3 elementos formada por una dirección IP (pública o interna), un protocolo de transporte (UDP o TCP) y un número de puerto de la regla de equilibrio de carga. El grupo de servidores back-end es una colección de configuraciones de IP de máquinas virtuales (parte del recurso NIC) que hace referencia al grupo de servidores back-end de Load Balancer.
 

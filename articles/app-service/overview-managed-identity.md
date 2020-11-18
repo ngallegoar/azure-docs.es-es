@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 73b09c006b11e7f57dd3833191dd381b7f42a709
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c734c0ceb9c4d5418edc51a2c3ad3c052637ad31
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145844"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696989"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -37,7 +37,7 @@ Para configurar una identidad administrada en el portal, primero creará una apl
 
 3. Seleccione **Identidad**.
 
-4. En la pestaña **Asignado por el sistema** , cambie **Estado** a **Activado**. Haga clic en **Save** (Guardar).
+4. En la pestaña **Asignado por el sistema**, cambie **Estado** a **Activado**. Haga clic en **Save**(Guardar).
 
     ![Captura de pantalla que muestra dónde cambiar el estado a activado y, a continuación, seleccionar Guardar.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -202,7 +202,7 @@ En primer lugar, tendrá que crear un recurso de identidad asignada por el usuar
 
 4. Seleccione **Identidad**.
 
-5. En la pestaña **Usuario asignado** , haga clic **Agregar**.
+5. En la pestaña **Usuario asignado**, haga clic **Agregar**.
 
 6. Busque la identidad que creó anteriormente y selecciónela. Haga clic en **Agregar**.
 
@@ -345,7 +345,7 @@ Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 > | expires_on    | La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde "1970-01-01T0:0:0Z UTC" (se corresponde con la notificación `exp` del token).                                                                                |
 > | not_before    | El intervalo de tiempo cuando el token de acceso tiene efecto y se puede aceptar. La fecha se representa como el número de segundos desde "1970-01-01T0:0:0Z UTC" (se corresponde con la notificación `nbf` del token).                                                      |
 > | resource      | El recurso para el que se solicitó el token de acceso, que coincide con el parámetro de la cadena de consulta `resource` de la solicitud.                                                                                                                               |
-> | token_type    | Indica el valor de tipo de token. El único tipo que admite Azure AD es FBearer. Para más información sobre los tokens de portador, consulte [The OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
+> | token_type    | Indica el valor de tipo de token. El único tipo que admite Azure AD es portador. Para más información sobre los tokens de portador, consulte [The OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
 
 Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de Azure AD](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 

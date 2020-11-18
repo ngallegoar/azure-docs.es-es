@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59bf5eb22289238633b1f07c29a878bd0a9ae620
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500256"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696173"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Actualización de Azure Load Balancer interno sin necesidad de conexión de salida
-[Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](./skus.md#skus).
 
 En este artículo se presenta un script de PowerShell que crea una instancia de Standard Load Balancer con la misma configuración que la instancia básica de Load Balancer junto con la migración del tráfico desde la instancia básica hasta la estándar.
 
@@ -23,14 +23,14 @@ En este artículo se presenta un script de PowerShell que crea una instancia de 
 
 Existe un script de Azure PowerShell que hace lo siguiente:
 
-* Crea una instancia de Load Balancer interno de SKU estándar en la ubicación que se especifique. Tenga en cuenta que la instancia de Standard Load Balancer interno no proporciona ninguna [conexión de salida](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
+* Crea una instancia de Load Balancer interno de SKU estándar en la ubicación que se especifique. Tenga en cuenta que la instancia de Standard Load Balancer interno no proporciona ninguna [conexión de salida](./load-balancer-outbound-connections.md).
 * Copia perfectamente las configuraciones de Load Balancer de la SKU básica en la instancia de Standard Load Balancer recién creada.
 * Mueve sin problemas las direcciones IP privadas de la instancia básica de Load Balancer a la instancia de Standard Load Balancer recién creada.
 * Mueve sin problemas las máquinas virtuales del grupo de back-end de la instancia básica de Load Balancer al grupo de back-end de Standard Load Balancer.
 
 ### <a name="caveatslimitations"></a>Advertencias y limitaciones
 
-* El script solo admite la actualización de Load Balancer interno si no se requiere ninguna conexión de salida. Si necesita [conexión de salida](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para alguna de las máquinas virtuales, vea esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obtener instrucciones. 
+* El script solo admite la actualización de Load Balancer interno si no se requiere ninguna conexión de salida. Si necesita [conexión de salida](./load-balancer-outbound-connections.md) para alguna de las máquinas virtuales, vea esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obtener instrucciones. 
 * La instancia de Load Balancer básica debe estar en el mismo grupo de recursos que las NIC y VM de back-end.
 * Si se crea la instancia de Standard Load Balancer en una región diferente, no podrá asociar las máquinas virtuales existentes de la región antigua a la instancia de Standard Load Balancer recién creada. Para solucionar esta limitación, asegúrese de crear una nueva máquina virtual en la nueva región.
 * Si Load Balancer no tiene ninguna configuración de IP de front-end ni grupo de back-end, es probable que se produzca un error al ejecutar el script. Asegúrese de que no están vacíos.
