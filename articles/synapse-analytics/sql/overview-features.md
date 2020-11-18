@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe30a2a0885e1a579eb32ad84ef467f7162febe4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 03995166df5d40f7f8be7054aed0727be254ed73
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310325"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376900"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Características de Transact-SQL compatibles en Azure Synapse SQL
 
 Azure Synapse SQL es un servicio de análisis de macrodatos que permite consultar y analizar los datos mediante el lenguaje T-SQL. Puede usar el dialecto estándar compatible con ANSI del lenguaje SQL que se usa en SQL Server y Azure SQL Database para el análisis de datos. 
 
-El lenguaje Transact-SQL que se usa en el modelo sin servidor y aprovisionado de Synapse SQL puede hacer referencia a objetos diferentes y tiene algunas diferencias en el conjunto de características admitidas. En esta página, puede encontrar diferencias de alto nivel en el lenguaje Transact-SQL entre los modelos de consumo de Synapse SQL.
+El lenguaje Transact-SQL que se usa en el modelo sin servidor y dedicado de Synapse SQL puede hacer referencia a objetos diferentes y tiene algunas diferencias en el conjunto de características admitidas. En esta página, puede encontrar diferencias de alto nivel en el lenguaje Transact-SQL entre los modelos de consumo de Synapse SQL.
 
 ## <a name="database-objects"></a>Objetos de base de datos
 
 Los modelos de consumo de Synapse SQL permiten usar diferentes objetos de base de datos. En la siguiente tabla se muestra una comparación de los distintos tipos de objetos admitidos:
 
-|   | aprovisionado | Sin servidor |
+|   | Dedicado | Sin servidor |
 | --- | --- | --- |
 | **Tablas** | [Sí](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No, el modelo sin servidor solo puede consultar datos externos colocados en [Azure Storage](#storage-options) |
-| **Vistas** | [Sí](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Las vistas pueden utilizar [elementos del lenguaje de consulta](#query-language) que están disponibles en el modelo aprovisionado. | [Sí](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Las vistas pueden utilizar [elementos del lenguaje de consulta](#query-language) que están disponibles en el modelo sin servidor. |
+| **Vistas** | [Sí](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Las vistas pueden utilizar [elementos del lenguaje de consulta](#query-language) que están disponibles en el modelo dedicado. | [Sí](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Las vistas pueden utilizar [elementos del lenguaje de consulta](#query-language) que están disponibles en el modelo sin servidor. |
 | **Esquemas** | [Sí](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [Sí](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |
 | **Tablas temporales** | [Sí](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | No |
 | **Procedimientos** | [Sí](/sql/t-sql/statements/create-procedure-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No |
@@ -48,7 +48,7 @@ Los modelos de consumo de Synapse SQL permiten usar diferentes objetos de base d
 
 Los lenguajes de consulta que se usan en Synapse SQL pueden tener diferentes características admitidas según el modelo de consumo. En la tabla siguiente se describen las diferencias más importantes del lenguaje de consulta en los dialectos de Transact-SQL:
 
-|   | aprovisionado | Sin servidor |
+|   | Dedicado | Sin servidor |
 | --- | --- | --- |
 | **Instrucción SELECT** | Sí. No se admiten las cláusulas de consulta de Transact-SQL [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). | Sí. No se admiten las cláusulas de consulta de Transact-SQL [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), ni las sugerencias de consulta. [OFFSET/FETCH](/sql/t-sql/queries/select-order-by-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#using-offset-and-fetch-to-limit-the-rows-returned) y [PIVOT/UNPIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) se pueden usar para consultar objetos del sistema (no datos externos). |
 | **Instrucción INSERT** | Sí | No |
@@ -73,7 +73,7 @@ Los lenguajes de consulta que se usan en Synapse SQL pueden tener diferentes car
 
 Synapse SQL permite usar características de seguridad integradas para proteger los datos y controlar el acceso. En la siguiente tabla se comparan las diferencias de alto nivel que hay entre los modelos de consumo de Synapse SQL.
 
-|   | aprovisionado | Sin servidor |
+|   | Dedicado | Sin servidor |
 | --- | --- | --- |
 | **Inicios de sesión** | N/D (en las bases de datos solo se admiten los usuarios contenidos) | Sí |
 | **Usuarios** |  N/D (en las bases de datos solo se admiten los usuarios contenidos) | Sí |
@@ -96,7 +96,7 @@ Synapse SQL permite usar características de seguridad integradas para proteger 
 | **SERVER SCOPED CREDENTIAL** | No | Sí |
 | **Seguridad de nivel de fila** | [Sí](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&view=sql-server-ver15) | No |
 | **Cifrado de datos transparente (TDE)** | [Sí](/azure/sql-database/transparent-data-encryption-azure-sql?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=azure-portal) | No | 
-| **Clasificación y detección de datos** : | [Sí](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | No |
+| **Clasificación y detección de datos**: | [Sí](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | No |
 | **Evaluación de vulnerabilidad** | [Sí](/azure/sql-database/sql-vulnerability-assessment?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | No |
 | **Advanced Threat Protection** | [Sí](/azure/sql-database/sql-database-threat-detection-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 | **Auditoría** | [Sí](/azure/sql-database/sql-database-auditing?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | No |
@@ -109,7 +109,7 @@ Tanto el grupo de SQL dedicado como el grupo de SQL sin servidor usan el lenguaj
 
 Puede usar varias herramientas para conectarse a Synapse SQL para consultar datos.
 
-|   | aprovisionado | Sin servidor |
+|   | Dedicado | Sin servidor |
 | --- | --- | --- |
 | **Synapse Studio** | Sí, scripts de SQL | Sí, scripts de SQL |
 | **Power BI** | Sí | [Sí](tutorial-connect-power-bi-desktop.md) |
@@ -120,13 +120,13 @@ Puede usar varias herramientas para conectarse a Synapse SQL para consultar dato
 > [!NOTE]
 > Puede usar SSMS para conectarse al grupo de SQL sin servidor (versión preliminar) y realizar consultas. Es parcialmente compatible a partir de la versión 18.5, que solo se puede usar para establecer conexión y realizar consultas.
 
-La mayoría de las aplicaciones que usan el lenguaje Transact-SQL estándar pueden consultar modelos de consumo tanto aprovisionados como sin servidor de Synapse SQL.
+La mayoría de las aplicaciones que usan el lenguaje Transact-SQL estándar pueden consultar modelos de consumo dedicados y sin servidor de Synapse SQL.
 
 ## <a name="storage-options"></a>Opciones de almacenamiento
 
 Los datos que se analizan se pueden guardar en varios tipos de almacenamiento. En la siguiente tabla se enumeran todas las opciones de almacenamiento disponibles:
 
-|   | aprovisionado | Sin servidor |
+|   | Dedicado | Sin servidor |
 | --- | --- | --- |
 | **Almacenamiento interno** | Sí | No |
 | **Azure Data Lake v2** | Sí | Sí |
@@ -137,7 +137,7 @@ Los datos que se analizan se pueden guardar en varios tipos de almacenamiento. E
 
 Los datos que se analizan se pueden guardar en varios formatos de almacenamiento. En la tabla siguiente se enumeran todos los formatos de datos disponibles que se pueden analizar:
 
-|   | aprovisionado | Sin servidor |
+|   | Dedicado | Sin servidor |
 | --- | --- | --- |
 | **Delimitado** | [Sí](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [Sí](query-single-csv-file.md) |
 | **CSV** | Sí (no se admiten delimitadores con varios caracteres) | [Sí](query-single-csv-file.md) |

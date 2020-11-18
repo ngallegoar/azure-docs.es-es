@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 97853f0524b794169de3aaaec33cf1b30949d930
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d62ed31a68d9469a1bd1fc66e479b0f91db2f916
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901558"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372275"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
 
@@ -29,19 +29,19 @@ Proteger los recursos es un esfuerzo conjunto entre el proveedor de nube, Azure 
 
 Azure Security Center aborda los tres desafíos de seguridad más urgentes:
 
--   **Cargas de trabajo que cambian con rapidez** : se trata tanto de una fortaleza como de un desafío de la nube. Por un lado, los usuarios finales pueden hacer más cosas pero, por el otro, ¿cómo puede asegurarse de que los servicios en constante evolución que los usuarios utilizan y crean se rigen según los estándares de seguridad y siguen los procedimientos recomendados de seguridad?
+-   **Cargas de trabajo que cambian con rapidez**: se trata tanto de una fortaleza como de un desafío de la nube. Por un lado, los usuarios finales pueden hacer más cosas pero, por el otro, ¿cómo puede asegurarse de que los servicios en constante evolución que los usuarios utilizan y crean se rigen según los estándares de seguridad y siguen los procedimientos recomendados de seguridad?
 
--   **Ataques cada vez más sofisticados** : no importa dónde ejecute las cargas de trabajo, los ataques son cada vez más sofisticados. Debe proteger las cargas de trabajo de la nube pública que son, en realidad, una carga de trabajo con conexión a Internet que puede dejarlo incluso más vulnerable si no sigue los procedimientos recomendados de seguridad.
+-   **Ataques cada vez más sofisticados**: no importa dónde ejecute las cargas de trabajo, los ataques son cada vez más sofisticados. Debe proteger las cargas de trabajo de la nube pública que son, en realidad, una carga de trabajo con conexión a Internet que puede dejarlo incluso más vulnerable si no sigue los procedimientos recomendados de seguridad.
 
--   **Las aptitudes de seguridad son escasas** : el número de alertas de seguridad y de sistemas de alertas sobrepasa considerablemente la cantidad de administradores con la experiencia y los antecedentes necesarios para garantizar que los entornos estén protegidos. Mantenerse actualizado respecto de los ataques más recientes es un desafío constante, lo que no permiten quedarse donde mismo mientras el mundo de la seguridad es un frente en continuo cambio.
+-   **Las aptitudes de seguridad son escasas**: el número de alertas de seguridad y de sistemas de alertas sobrepasa considerablemente la cantidad de administradores con la experiencia y los antecedentes necesarios para garantizar que los entornos estén protegidos. Mantenerse actualizado respecto de los ataques más recientes es un desafío constante, lo que no permiten quedarse donde mismo mientras el mundo de la seguridad es un frente en continuo cambio.
 
 Para ayudarlo a protegerse contra estos desafíos, Security Center le brinda las herramientas para que haga lo siguiente:
 
--   **Reforzamiento de la posición de seguridad** : Security Center evalúa el entorno y le permite entender el estado de los recursos y si son seguros.
+-   **Reforzamiento de la posición de seguridad**: Security Center evalúa el entorno y le permite entender el estado de los recursos y si son seguros.
 
--   **Protección frente a amenazas** : Security Center evalúa las cargas de trabajo y genera alertas de seguridad y recomendaciones para la prevención de amenazas.
+-   **Protección frente a amenazas**: Security Center evalúa las cargas de trabajo y genera alertas de seguridad y recomendaciones para la prevención de amenazas.
 
--   **Protección con mayor rapidez** : En Security Center, todo se hace a la velocidad de la nube. Al integrarse de manera nativa, la implementación de Security Center es sencilla y le proporciona aprovisionamiento automático y protección con los servicios de Azure.
+-   **Protección con mayor rapidez**: En Security Center, todo se hace a la velocidad de la nube. Al integrarse de manera nativa, la implementación de Security Center es sencilla y le proporciona aprovisionamiento automático y protección con los servicios de Azure.
 
 > [!NOTE]
 > Este servicio admite [Azure Lighthouse](../lighthouse/overview.md), que permite a los proveedores de servicios iniciar sesión en su propio inquilino para administrar las suscripciones y los grupos de recursos que los clientes hayan delegado. En los escenarios Azure Security Center se debe delegar una suscripción en lugar de grupos de recursos individuales.
@@ -54,7 +54,7 @@ Además, Security Center protege las máquinas virtuales y los servidores que no
 
 Los eventos recopilado de los agentes y de Azure se correlacionan en el motor de análisis de seguridad para brindarle recomendaciones a medida (tareas de protección) que debe seguir para garantizar que las cargas de trabajo sean seguras, y alertas de seguridad. Debe investigar estas alertas tan pronto como sea posible para asegurarse de que no haya ataques malintencionados en sus cargas de trabajo.
 
-Al habilitar Security Center, la directiva de seguridad integrada en Security Center se refleja en Azure Policy como una iniciativa integrada en la categoría de Security Center. La iniciativa integrada se asigna automáticamente a todas las suscripciones registradas de Security Center (plan de tarifa Gratis o Estándar). La iniciativa integrada contiene solo las directivas de auditoría. Para más información acerca de las directivas de Security Center en Azure Policy, consulte [Uso de directivas de seguridad](tutorial-security-policy.md).
+Al habilitar Security Center, la directiva de seguridad integrada en Security Center se refleja en Azure Policy como una iniciativa integrada en la categoría de Security Center. La iniciativa integrada se asigna automáticamente a todas las suscripciones registradas de Security Center (al margen de si tienen o no Azure Defender habilitado). La iniciativa integrada contiene solo las directivas de auditoría. Para más información acerca de las directivas de Security Center en Azure Policy, consulte [Uso de directivas de seguridad](tutorial-security-policy.md).
 
 ## <a name="strengthen-security-posture"></a>Reforzamiento de la posición de seguridad
 
@@ -137,6 +137,6 @@ Recopilación extensiva de registros: los registros de Windows y Linux se usan e
 
 - Para empezar a trabajar con el Centro de seguridad, necesita una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
 
-- El plan de tarifa Gratis de Security Center está habilitado en todas las suscripciones de Azure actuales desde que visite el panel de Azure Security Center en Azure Portal por primera vez, o si se habilitó mediante programación a través de la API. Para aprovechar las funcionalidades avanzadas de administración de seguridad y detección de amenazas, debe actualizar al plan de tarifa Estándar. Dicho plan se puede probar de forma gratuita durante 30 días. Para más información, consulte la [página de precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+- El plan de tarifa Gratis de Security Center está habilitado en todas las suscripciones de Azure actuales desde que visite el panel de Azure Security Center en Azure Portal por primera vez, o si se habilitó mediante programación a través de la API. Para aprovechar la funcionalidad avanzada de administración de seguridad y de detección de amenazas, habilite Azure Defender. Azure Defender puede probarse gratis durante 30 días. Para más información, consulte la [página de precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-- Si está listo para habilitar ahora el nivel Estándar de Security Center, el [Inicio rápido: Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) lo guía a través de los pasos.
+- Si ya está preparado para habilitar Azure Defender ahora, el [Inicio rápido: Configuración de Azure Security Center](security-center-get-started.md) le guiará por los pasos.

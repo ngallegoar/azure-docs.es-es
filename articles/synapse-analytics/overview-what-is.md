@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 16e13a18f93da9063a7eb08e3a2df27db9e3090f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2052e27cde3427986dbf7784dcd5dbb179c5b209
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321697"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380936"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>¿Qué es Azure Synapse Analytics (versión preliminar para área de trabajo)?
 
@@ -22,7 +22,7 @@ ms.locfileid: "93321697"
 
 El análisis empresarial debe trabajar a gran escala en cualquier tipo de datos, ya sean sin procesar, refinados o muy seleccionados. Esto suele requerir que las empresas combinen tecnologías de macrodatos y almacenamiento de datos en canalizaciones de datos complejas que trabajan con datos de almacenes relacionales y lagos de datos. Estos tipos de soluciones son difíciles de compilar, mantener y proteger. Su complejidad retrasa la entrega de la información que la empresa necesita.
 
-**Azure Synapse** es un servicio de análisis integrado que acelera el tiempo necesario para obtener información de los sistemas de almacenamientos de datos y de macrodatos. Azure Synapse reúne lo mejor de las tecnologías **SQL** que se usan en el almacenamiento de datos empresariales, las tecnologías **Spark** que se utilizan para macrodatos y **Pipelines** para la integración de datos y ETL/ELT. **Synapse Studio** proporciona una experiencia homogénea de administración, supervisión, programación y seguridad. Synapse ofrece una integración profunda con otros servicios de Azure, como **Power BI** , **Cosmos DB** y **Azure ML**.
+**Azure Synapse** es un servicio de análisis integrado que acelera el tiempo necesario para obtener información de los sistemas de almacenamientos de datos y de macrodatos. Azure Synapse reúne lo mejor de las tecnologías **SQL** que se usan en el almacenamiento de datos empresariales, las tecnologías **Spark** que se utilizan para macrodatos y **Pipelines** para la integración de datos y ETL/ELT. **Synapse Studio** proporciona una experiencia homogénea de administración, supervisión, programación y seguridad. Synapse ofrece una integración profunda con otros servicios de Azure, como **Power BI**, **Cosmos DB** y **Azure ML**.
 
 ## <a name="key-features--benefits"></a>Principales características y ventajas
 
@@ -30,7 +30,7 @@ El análisis empresarial debe trabajar a gran escala en cualquier tipo de datos,
 
 * **Synapse SQL** es un sistema de consultas distribuidas que permite a las empresas implementar escenarios de virtualización de datos y almacenamiento de datos mediante experiencias estándar y conocidas de T-SQL. También amplía las funcionalidades de SQL para abordar los escenarios de streaming y aprendizaje automático.
 
-* Synapse SQL ofrece modelos de recursos **sin servidor** y **dedicados** , que ofrecen opciones de facturación y consumo para satisfacer sus necesidades. Para obtener un rendimiento y un costo predecibles, cree grupos de SQL dedicados para reservar la capacidad de procesamiento de los datos almacenados en tablas SQL. En el caso de cargas de trabajo no planeadas o en ráfagas, utilice el punto de conexión SQL sin servidor siempre disponible.
+* Synapse SQL ofrece modelos de recursos **sin servidor** y **dedicados**, que ofrecen opciones de facturación y consumo para satisfacer sus necesidades. Para obtener un rendimiento y un costo predecibles, cree grupos de SQL dedicados para reservar la capacidad de procesamiento de los datos almacenados en tablas SQL. En el caso de cargas de trabajo no planeadas o en ráfagas, utilice el punto de conexión SQL sin servidor siempre disponible.
 * Use las funcionalidades integradas de **streaming** para destinar datos de los orígenes de datos en la nube a tablas SQL.
 * Integración de IA con SQL mediante el uso de modelos de **aprendizaje automático** para puntuar los datos mediante la [función PREDICT de T-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
@@ -74,6 +74,11 @@ Azure Synapse proporciona a las empresas una única forma de administrar los rec
 * Creación de una solución de análisis de un extremo a otro en un solo lugar: ingesta, exploración, preparación, orquestación, visualización
 * Productividad líder del sector para ingenieros de datos que escriben código SQL o Spark: creación, depuración y optimización del rendimiento
 * Integración con procesos de CI/CD empresariales
+
+## <a name="engage-with-the-synapse-engineering-team"></a>Contacto con el equipo de ingeniería de Synapse
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): formule preguntas sobre desarrollo.
+- [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): realice preguntas técnicas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341338"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337753"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Uso de OPENROWSET con el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
 
@@ -129,7 +129,7 @@ A continuación, encontrará los valores de <storage account path> relevantes qu
 Especifica una ruta de acceso en el almacenamiento que apunta a la carpeta o archivo que desea leer. Si la ruta de acceso apunta a un contenedor o a una carpeta, se leerán todos los archivos de ese contenedor o carpeta. No se incluirán los archivos de las subcarpetas. 
 
 Puede usar caracteres comodín si el destino son varios archivos o carpetas. Se permite el uso de varios caracteres comodín no consecutivos.
-A continuación se muestra un ejemplo en el que se leen todos los archivos *csv* que comienzan por *population* de todas las carpetas a partir de */csv/population* :  
+A continuación se muestra un ejemplo en el que se leen todos los archivos *csv* que comienzan por *population* de todas las carpetas a partir de */csv/population*:  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Si especifica que el elemento unstructured_data_path sea una carpeta, una consulta del grupo de SQL sin servidor recupera los archivos de esa carpeta. 
@@ -261,12 +261,12 @@ Los archivos de Parquet contienen descripciones de tipos para cada columna. En l
 | BINARY |UTF8 |varchar \*(intercalación UTF8) |
 | BINARY |STRING |varchar \*(intercalación UTF8) |
 | BINARY |ENUM|varchar \*(intercalación UTF8) |
-| BINARY |UUID |UNIQUEIDENTIFIER |
+| FIXED_LEN_BYTE_ARRAY |UUID |UNIQUEIDENTIFIER |
 | BINARY |DECIMAL |Decimal |
-| BINARY |JSON |varchar(max) \*(intercalación UTF8) |
-| BINARY |BSON |varbinary(max) |
+| BINARY |JSON |varchar (8000) \*(intercalación UTF8) |
+| BINARY |BSON | No compatible |
 | FIXED_LEN_BYTE_ARRAY |DECIMAL |Decimal |
-| BYTE_ARRAY |INTERVAL |VARCHAR(max), serializado en formato normalizado |
+| BYTE_ARRAY |INTERVAL | No compatible |
 | INT32 |INT(8, true) |SMALLINT |
 | INT32 |INT(16, true) |SMALLINT |
 | INT32 |INT(32, true) |int |
@@ -279,10 +279,10 @@ Los archivos de Parquet contienen descripciones de tipos para cada columna. En l
 | INT64 |INT(64, true) |bigint |
 | INT64 |INT(64, false) |decimal(20,0) |
 | INT64 |DECIMAL |Decimal |
-| INT64 |TIME (MICROS / NANOS) |time |
-|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
-|[Tipo complejo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(max), serializado en JSON |
-|[Tipo complejo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), serializado en JSON |
+| INT64 |TIME (MICROS) |time - TIME(NANOS) no se admite |
+|INT64 |TIMESTAMP (MILLIS / MICROS) |datetime2 - TIMESTAMP(NANOS) no se admite |
+|[Tipo complejo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(8000), serializado en JSON |
+|[Tipo complejo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(8000), serializado en JSON |
 
 ## <a name="examples"></a>Ejemplos
 

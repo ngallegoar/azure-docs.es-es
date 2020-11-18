@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: memildin
-ms.openlocfilehash: 549a95b0b2ffc2b2d2bf5670a961e0454683e33a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: df863372cbf7abfb6fee145b7d13bb00d8deb074
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026724"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380172"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
@@ -31,49 +31,48 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 
 ## <a name="planned-changes"></a>Cambios planeados
 
-### <a name="recommendations-related-to-azure-security-benchmark-to-be-added-preview"></a>Recomendaciones relacionadas con Azure Security Benchmark que se van a agregar (versión preliminar)
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-getting-sub-recommendations"></a>La recomendación "Las actualizaciones del sistema deben estar instaladas en las máquinas" incluirá recomendaciones secundarias
+
+#### <a name="summary"></a>Resumen
 
 | Aspecto | Detalles |
 |---------|---------|
-|Fecha del anuncio | 26 de octubre de 2020  |
-|Fecha de este cambio  |  Noviembre de 2020 |
-|Impacto     | Posiblemente, más recomendaciones para revisar.<br>No tiene impacto inmediato en la puntuación segura (las recomendaciones de la versión preliminar no afectan a la puntuación segura).<br>No tiene impacto inmediato en el estado de mantenimiento de los recursos (las recomendaciones de la versión preliminar no representan un recurso "Incorrecto").|
+|Fecha del anuncio | 9 de noviembre de 2020  |
+|Fecha de este cambio  |  Entre mediados y finales de noviembre de 2020 |
+|Impacto     | Durante la transición de la versión actual de esta recomendación a la versión de sustitución, la puntuación de seguridad podría cambiar. |
 |  |  |
 
-Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. [Mas información sobre Azure Security Benchmark](../security/benchmarks/introduction.md).
+Vamos a publicar una versión mejorada de la recomendación **Las actualizaciones del sistema deben estar instaladas en las máquinas**. La nueva versión *reemplaza* la versión actual en el control de seguridad de aplicación de actualizaciones del sistema y ofrece las siguientes mejoras:
 
-Las 18 recomendaciones siguientes se agregarán a Security Center para aumentar la cobertura de la prueba comparativa.
+- Recomendaciones secundarias para las actualizaciones que faltan
+- Una nueva experiencia en las páginas Azure Security Center de Azure Portal
+- Datos enriquecidos para la recomendación de Azure Resource Graph
 
-Las recomendaciones de la versión preliminar no representan un recurso incorrecto y no se incluyen en los cálculos de una puntuación segura. Corríjalas siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación. Puede encontrar más información sobre cómo responder a estas recomendaciones en [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
+#### <a name="transition-period"></a>Período de transición
 
-- Azure Backup debería habilitarse en las máquinas virtuales
-- La aplicación de la conexión SSL debe estar habilitada para los servidores de bases de datos MySQL
-- La aplicación de la conexión SSL debe estar habilitada para los servidores de bases de datos PostgreSQL
-- La copia de seguridad con redundancia geográfica debe estar habilitada para Azure Database for MariaDB.
-- La copia de seguridad con redundancia geográfica debe estar habilitada para Azure Database for MySQL.
-- La copia de seguridad con redundancia geográfica debe estar habilitada para Azure Database for PostgreSQL.
-- Java debe actualizarse a la versión más reciente en la aplicación de API
-- Java debe actualizarse a la versión más reciente en la aplicación de funciones
-- Java debe actualizarse a la versión más reciente en la aplicación web
-- PHP debe actualizarse a la versión más reciente en la aplicación de API
-- PHP debe actualizarse a la versión más reciente en la aplicación web
-- El punto de conexión privado debe estar habilitado para servidores MariaDB
-- El punto de conexión privado debe estar habilitado para servidores MySQL
-- El punto de conexión privado debe estar habilitado para servidores PostgreSQL
-- Python debe actualizarse a la versión más reciente en la aplicación de API
-- Python debe actualizarse a la versión más reciente en la aplicación de funciones
-- Python debe actualizarse a la versión más reciente en la aplicación web
-- Las aplicaciones web deben solicitar un certificado SSL a todas las solicitudes entrantes
+Habrá un período de transición de 36 horas (aproximadamente). Para minimizar cualquier posible interrupción, hemos programado la actualización para que tenga lugar durante un fin de semana. Durante la transición, las puntuaciones de seguridad podrían verse afectadas.
 
-Vínculos relacionados:
+#### <a name="redesigned-portal-experience"></a>Nueva experiencia del portal
 
-- [Más información sobre Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Más información sobre las aplicaciones de API de Azure](../app-service/app-service-web-tutorial-rest-api.md)
-- [Más información sobre las aplicaciones de funciones de Azure](../azure-functions/functions-overview.md)
-- [Más información sobre las aplicaciones web de Azure](../app-service/overview.md)
-- [Más información sobre Azure Database for MariaDB](../mariadb/overview.md)
-- [Más información sobre Azure Database for MySQL](../mysql/overview.md)
-- [Más información sobre Azure Database for PostgreSQL](../postgresql/overview.md)
+La página de detalles de la recomendación **Las actualizaciones del sistema deben estar instaladas en las máquinas** incluye la lista de conclusiones que se muestran a continuación. Al seleccionar una única búsqueda, se abre el panel de detalles con un vínculo a la información de corrección y una lista de los recursos afectados.
+
+:::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Apertura de una de las recomendaciones secundarias en la experiencia del portal para la recomendación actualizada":::
+
+
+#### <a name="richer-data-from-azure-resource-graph"></a>Datos enriquecidos de Azure Resource Graph
+
+Azure Resource Graph (ARG) es un servicio de Azure diseñado para facilitar la exploración eficaz de los recursos. Puede usar ARG para realizar consultas a escala para un conjunto determinado de suscripciones a fin de controlar eficazmente su entorno. 
+
+Para Azure Security Center, puede usar ARG y el [lenguaje de consulta Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) para consultar una amplia variedad de datos de posición de seguridad.
+
+Si consulta la versión actual de **Las actualizaciones del sistema deben estar instaladas en las máquinas**, la única información disponible en ARG es que la recomendación necesita corregirse en una máquina. Cuando se publique la versión actualizada, la siguiente consulta devolverá las actualizaciones del sistema que falten agrupadas en función de la máquina.
+
+```kusto
+securityresources
+| where type =~ "microsoft.security/assessments/subassessments"
+| where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+| where properties.status.code == "Unhealthy"
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

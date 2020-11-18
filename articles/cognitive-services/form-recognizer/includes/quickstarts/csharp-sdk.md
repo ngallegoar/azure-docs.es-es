@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 164b3f9e0426db1f36360fee8f836216d4cad86a
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d425853b04a1d6f3b1f818e63154eadd1c7b3a2d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918735"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680962"
 ---
 > [!IMPORTANT]
 > Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas.
@@ -25,14 +25,16 @@ ms.locfileid: "92918735"
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 * El [IDE de Visual Studio](https://visualstudio.microsoft.com/vs/) o la versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Un blob de Azure Storage que contenga un conjunto de datos de entrenamiento. Consulte [Creación de un conjunto de datos de aprendizaje para un modelo personalizado](../../build-training-data-set.md) para ver sugerencias y opciones para reunir el conjunto de datos de aprendizaje. En este inicio rápido puede usar los archivos de la carpeta **Train** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (descargue y extraiga *sample_data.zip* ).
+* Un blob de Azure Storage que contenga un conjunto de datos de entrenamiento. Consulte [Creación de un conjunto de datos de aprendizaje para un modelo personalizado](../../build-training-data-set.md) para ver sugerencias y opciones para reunir el conjunto de datos de aprendizaje. En este inicio rápido puede usar los archivos de la carpeta **Train** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (descargue y extraiga *sample_data.zip*).
 * Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="cree un recurso de Form Recognizer"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Form Recognizer API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 
 ## <a name="setting-up"></a>Instalación
 
-#### <a name="visual-studio-ide"></a>[IDE de Visual Studio](#tab/visual-studio)
+### <a name="create-a-new-c-application"></a>Creación de una aplicación de C#
+
+#### <a name="visual-studio-ide"></a>[IDE de Visual Studio](#tab/visual-studio)
 
 En Visual Studio, cree una aplicación de .NET Core. 
 
@@ -63,15 +65,15 @@ Build succeeded.
  0 Error(s)
 ...
 ```
----
 
 ### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente 
 
-Dentro del directorio de aplicaciones, instale la biblioteca cliente de [nombre del producto] para .NET con el siguiente comando:
+Dentro del directorio de aplicaciones, instale la biblioteca cliente de Form Recognizer para .NET con el siguiente comando:
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
+---
 
 > [!TIP]
 > ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo en [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md), que contiene los ejemplos de código de este inicio rápido.
@@ -134,7 +136,7 @@ Estos fragmentos de código muestran cómo realizar las siguientes tareas con la
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Debajo de **Main** , cree un método denominado `AuthenticateClient`. Lo usará en otras tareas para autenticar las solicitudes en el servicio Form Recognizer. Este método usa el objeto `AzureKeyCredential`, de modo que, si es necesario, pueda actualizar la clave de API sin crear otros objetos de cliente.
+Debajo de **Main**, cree un método denominado `AuthenticateClient`. Lo usará en otras tareas para autenticar las solicitudes en el servicio Form Recognizer. Este método usa el objeto `AzureKeyCredential`, de modo que, si es necesario, pueda actualizar la clave de API sin crear otros objetos de cliente.
 
 > [!IMPORTANT]
 > Obtenga la clave y el punto de conexión en Azure Portal. Si el recurso de Form Recognizer que ha creado en la sección **Requisitos previos** se ha implementado correctamente, haga clic en el botón **Ir al recurso** en **Pasos siguientes**. Puede encontrar su clave y punto de conexión en la página de **clave y punto de conexión** del recurso, en **Administración de recursos**. 
@@ -157,7 +159,7 @@ También tendrá que agregar referencias a las direcciones URL de los datos de e
 
 ## <a name="recognize-form-content"></a>Reconocimiento del contenido del formulario
 
-Puede usar Form Recognizer para reconocer tablas, líneas y palabras de los documentos sin necesidad de entrenar un modelo. El valor devuelto es una colección de objetos **FormPage** , uno para cada página del documento enviado. 
+Puede usar Form Recognizer para reconocer tablas, líneas y palabras de los documentos sin necesidad de entrenar un modelo. El valor devuelto es una colección de objetos **FormPage**, uno para cada página del documento enviado. 
 
 Para reconocer el contenido de un archivo en una dirección URL determinada, use el método `StartRecognizeContentFromUri`.
 

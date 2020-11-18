@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: ba46d4dbe90b696398ed4c78383e127861c1a066
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e5cfc9beb5473917a76f822862ce3d61675d6493
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86050205"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93406769"
 ---
 1. Para crear un recurso de Azure SignalR Service, inicie sesión en [Azure Portal](https://portal.azure.com). En la parte superior izquierda de la página, seleccione **+ Crear un recurso**. En el cuadro de texto **Buscar en Marketplace**, escriba **SignalR Service**.
 
@@ -30,9 +30,11 @@ ms.locfileid: "86050205"
     | Plan de tarifa | *Gratis* | Actualmente, están disponibles las opciones **Gratis** y **Estándar**. |
     | Anclar al panel | ✔ | Active esta casilla para anclar el recurso al panel y que sea más fácil de encontrar. |
 
-4. Seleccione **Crear**. La implementación puede tardar unos minutos en finalizar.
+4. Seleccione **Revisar + crear**. Espere a que se complete la validación. 
 
-5. Una vez que se complete la implementación, seleccione **Claves** en **CONFIGURACIÓN**. Copie la cadena de conexión de la clave principal. Más adelante usará esta cadena para configurar la aplicación para que use el recurso Azure SignalR Service.
+5. Seleccione **Crear**. La implementación puede tardar unos minutos en finalizar.
+
+6. Una vez que se complete la implementación, seleccione **Claves** en **CONFIGURACIÓN**. Copie la cadena de conexión de la clave principal. Más adelante usará esta cadena para configurar la aplicación para que use el recurso Azure SignalR Service.
 
     La cadena de conexión tendrá la forma siguiente:
     

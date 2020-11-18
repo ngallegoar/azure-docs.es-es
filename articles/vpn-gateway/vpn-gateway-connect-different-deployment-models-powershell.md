@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63505f470410234f720dd28c29e87c4a2a6d123f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082059"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661144"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con PowerShell
 
@@ -35,7 +35,7 @@ Los siguientes pasos le guiarán a través de los valores necesarios para config
 
 ### <a name="prerequisites"></a><a name="pre"></a>Requisitos previos
 
-* Se han creado ambas redes virtuales. Si tiene que crear una red virtual del administrador de recursos, consulte [Creación de un grupo de recursos y una red virtual](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Para crear una red virtual clásica, consulte [Create a classic VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic) (Creación de una red virtual clásica).
+* Se han creado ambas redes virtuales. Si tiene que crear una red virtual del administrador de recursos, consulte [Creación de un grupo de recursos y una red virtual](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Para crear una red virtual clásica, consulte [Create a classic VNet](/previous-versions/azure/virtual-network/create-virtual-network-classic) (Creación de una red virtual clásica).
 * Los intervalos de direcciones de las redes virtuales no se superponen entre sí ni con alguno de los intervalos de otras conexiones con las que puedan estar conectadas las puertas de enlace.
 * Tiene instalados los últimos cmdlets de PowerShell. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/) . Asegúrese de instalar los cmdlets tanto de Service Management (SM) como de Resource Manager (RM). 
 
@@ -90,7 +90,7 @@ Configuración de direccionamiento IP de puerta de enlace = configpeip
    ```azurepowershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-3. Abra el archivo .xml que ha descargado para editarlo. Para obtener un ejemplo del archivo de configuración de red, consulte [Esquema de configuración de red virtual](https://msdn.microsoft.com/library/jj157100.aspx).
+3. Abra el archivo .xml que ha descargado para editarlo. Para obtener un ejemplo del archivo de configuración de red, consulte [Esquema de configuración de red virtual](/previous-versions/azure/reference/jj157100(v=azure.100)).
 
 ### <a name="2-verify-the-gateway-subnet"></a>2. Comprobación de la subred de puerta de enlace
 En el elemento **VirtualNetworkSites** , agregue una subred de puerta de enlace a la red virtual si no hay ya una creada. Al trabajar con el archivo de configuración de red, la puerta de enlace DEBE tener el nombre "GatewaySubnet" o Azure no podrá reconocerla y utilizarla como subred de puerta de enlace.

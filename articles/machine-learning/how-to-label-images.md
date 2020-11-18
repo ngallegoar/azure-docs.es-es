@@ -1,23 +1,23 @@
 ---
 title: Etiquetado de imágenes en un proyecto de etiquetado
 title.suffix: Azure Machine Learning
-description: Obtenga información sobre el uso de las herramientas de etiquetado de datos en un proyecto de etiquetado de Azure Machine Learning.
+description: Aprenda a usar las herramientas de etiquetado de datos para preparar rápidamente los datos para Machine Learning en un proyecto de etiquetado de Azure Machine Learning.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897565"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542191"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado 
 
-Después de que el administrador del proyecto [cree un proyecto de etiquetado](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) en Azure Machine Learning, puede usar la herramienta de etiquetado (versión preliminar pública) para preparar rápidamente los datos para un proyecto de Machine Learning. En este artículo se describe:
+Después de que el administrador del proyecto [cree un proyecto de etiquetado](./how-to-create-labeling-projects.md#create-a-labeling-project) en Azure Machine Learning, puede usar la herramienta de etiquetado para preparar rápidamente los datos para un proyecto de Machine Learning. En este artículo se describe:
 
 > [!div class="checklist"]
 > * Cómo acceder a proyectos de etiquetado
@@ -127,6 +127,28 @@ Para eliminar *todos* los rectángulos de selección de la imagen actual, selecc
 
 Después de crear los rectángulos de selección de una imagen, seleccione **Submit** (Enviar) para guardar el trabajo; de lo contrario, no se guardará el trabajo en curso.
 
+## <a name="tag-images-and-specify-polygons-for-image-segmentation"></a>Etiquetado de imágenes y especificación de polígonos para la segmentación de imágenes 
+
+Si el proyecto es de tipo "segmentación de instancias (Polygon)", deberá especificar uno o varios polígonos en la imagen y aplicar una etiqueta a cada uno. Las imágenes pueden tener varios polígonos de selección, cada uno con una sola etiqueta. Use **View detailed instructions** (Ver instrucciones detalladas) para determinar si se usan varios polígonos de selección en el proyecto.
+
+1. Seleccione una etiqueta para el polígono que planea crear.
+1. Seleccione la herramienta **Draw polygon region** (Dibujar región del polígono) ![herramienta Draw polygon region (Dibujar región del polígono)](./media/how-to-label-images/polygon-tool.png) o seleccione "P".
+3. Haga clic para crear cada punto del polígono.  Cuando haya completado la forma, haga doble clic para finalizar.
+
+    :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Creación de polígonos para perro y gato":::
+
+Para eliminar un polígono, haga clic en el objetivo en forma de X que aparece junto al polígono después de la creación.
+
+Si quiere cambiar la etiqueta de un polígono, seleccione la herramienta **Move region** (Mover región), haga clic en el polígono y seleccione la etiqueta correcta.
+
+Puede editar los polígonos existentes. La herramienta **Lock/unlock regions** (Bloquear o desbloquear regiones) ![Edición de polígonos con la herramienta Lock/unlock regions (Bloquear o desbloquear regiones)](./media/how-to-label-images/lock-bounding-boxes-tool.png) o la "L" alterna este comportamiento. Si las regiones están bloqueadas, solo puede cambiar la forma o la ubicación de un nuevo polígono.
+
+Use la herramienta **Add or remove polygon points** (Agregar o quitar puntos del polígono) ![Herramienta Add or remove polygon points (Agregar o quitar puntos del polígono)](./media/how-to-label-images/add-remove-points-tool.png) o la "U" para ajustar un polígono existente. Haga clic en el polígono para agregar o quitar un punto. Si no puede editar una región, es probable que haya activado la herramienta **Bloquear/desbloquear regiones**.
+
+Para eliminar *todos* los polígonos de la imagen actual, seleccione la herramienta **Delete all regions** (Eliminar todas las regiones) ![Herramienta Delete all regions (Eliminar todas las regiones)](./media/how-to-label-images/delete-regions-tool.png).
+
+Después de crear los polígonos de una imagen, seleccione **Submit** (Enviar) para guardar el trabajo; de lo contrario, no se guardará el trabajo en curso.
+
 ## <a name="finish-up"></a>Finalizar
 
 Cuando se envía una página de datos etiquetados, Azure asigna datos nuevos sin etiquetar desde una cola de trabajo. Si no hay más datos sin etiquetar disponibles, verá un mensaje de aviso junto con un vínculo a la página principal del portal.
@@ -135,5 +157,4 @@ Cuando haya terminado de etiquetar, seleccione su nombre en la esquina superior 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda a [entrenar modelos de clasificación de imágenes en Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml).
-
+* Aprenda a [entrenar modelos de clasificación de imágenes en Azure](./tutorial-train-models-with-aml.md).

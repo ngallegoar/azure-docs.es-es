@@ -1,26 +1,28 @@
 ---
 title: 'Script de la CLI: Creación de un servidor de Azure Database for MariaDB'
 description: Este script de la CLI de ejemplo crea un servidor de Azure Database for MariaDB y configura una regla de firewall de nivel de servidor.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 11/28/2018
-ms.openlocfilehash: b3a646e7f59f4002892edf9210658a966cbc051f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9a0ce595da1aecc3cd2ebdc071c99e42944ef9f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498657"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536812"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Cree un servidor de MariaDB y configure una regla de firewall mediante la CLI de Azure
 Este script de la CLI de ejemplo crea un servidor de Azure Database for MariaDB y configura una regla de firewall de nivel de servidor. Una vez que el script se ejecuta correctamente, todos los servicios de Azure y la dirección IP configurada pueden acceder al servidor de MariaDB.
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Si decide ejecutar la CLI localmente, este artículo necesita la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para comprobar la versión. Consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli) para instalar o actualizar su versión de la CLI de Azure.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+- En este artículo se necesita la versión 2.0 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="sample-script"></a>Script de ejemplo
 En este script de ejemplo, va a modificar las líneas resaltadas para actualizar el nombre de usuario administrador y la contraseña a los suyos propios.

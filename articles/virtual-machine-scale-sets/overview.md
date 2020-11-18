@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: f381afa69d1a445d2bdb14dd663341e4a18f8cd9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dff83159511c6e8a08e8f212c01244e923ad1f5b
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88648673"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376951"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>¿Qué son los conjuntos de escalado de máquina virtual?
 Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y administrar un grupo de máquinas virtuales con equilibrio de carga. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida. Los conjuntos de escalado proporcionan una alta disponibilidad a las aplicaciones y le permiten administrar, configurar y actualizar de forma centralizada un gran número de máquinas virtuales. Con los conjuntos de escalado de máquinas virtuales, puede crear servicios a gran escala para áreas como proceso, macrodatos y cargas de trabajo de contenedor.
@@ -61,9 +61,9 @@ Use [Azure Monitor para VM](../azure-monitor/insights/vminsights-overview.md), q
 
 Habilite la supervisión de la [aplicación del conjunto de escalado de máquinas virtuales](../azure-monitor/app/azure-vm-vmss-apps.md) con Application Insights para recopilar la información detallada acerca de la aplicación, como vistas de página, solicitudes de aplicación y excepciones. Compruebe de forma más exhaustiva la disponibilidad de la aplicación configurando una [prueba de disponibilidad](../azure-monitor/app/monitor-web-app-availability.md) para simular el tráfico de usuarios.
 
-## <a name="singapore-data-residency"></a>Residencia de datos en Singapur
+## <a name="data-residency"></a>Residencia de datos
 
-En Azure, la característica que permite almacenar los datos de clientes en una sola región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico. En todas las demás regiones, los datos del cliente se almacenan en la geoárea. Para más información, consulte el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
+En Azure, la característica que permite almacenar los datos de clientes en una única región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico y en la región Sur de Brasil de la geoárea Brasil. En todas las demás regiones, los datos del cliente se almacenan en la geoárea. Para más información, consulte el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para empezar cree su primer conjunto de escalado de máquinas virtuales en Azure Portal.

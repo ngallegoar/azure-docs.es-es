@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/30/2020
-ms.openlocfilehash: 75cacf0dc899f47d55c44e5262b23bae73bfa7ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df6da5ce1dcd5213b3e54abe54c087bfdd8480c5
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88924374"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379980"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Inicio rápido: Creación de un almacén de conocimiento de Azure Cognitive Search en Azure Portal
 
@@ -21,7 +21,7 @@ El almacén de conocimiento es una característica de Azure Cognitive Search que
 
 Una canalización acepta contenido de imágenes y texto no estructurado, aplica inteligencia artificial mediante Cognitive Services (como OCR y procesamiento de lenguaje natural) y genera nuevas estructuras e información que no existían anteriormente. Uno de los artefactos físicos creados por una canalización es un [almacén de conocimiento](knowledge-store-concept-intro.md), al que se puede acceder mediante herramientas para analizar y explorar el contenido.
 
-En este inicio rápido, combinará servicios y datos en la nube de Azure para crear un almacén de conocimiento. Una vez que todo esté en su lugar, ejecutará el **Asistente para la importación de datos** en el portal para extraerlo todo junto. El resultado final es el contenido de texto original más el generado por inteligencia artificial que puede ver en el portal ([Explorador de Storage](knowledge-store-view-storage-explorer.md)).
+En este inicio rápido, combinará servicios y datos en la nube de Azure para crear un almacén de conocimiento. Una vez que todo esté en su lugar, ejecutará el **Asistente para la importación de datos** en el portal para extraerlo todo junto. El resultado final es el contenido de texto original, además del contenido generado mediante inteligencia artificial que se puede ver en el portal ([Explorador de Storage](knowledge-store-view-storage-explorer.md)).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: d1ec251edf384e8032a67dc66982787d17c75dbd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f618b7203cdbf99d79079cf81de38c6d15c91981
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781471"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345574"
 ---
 # <a name="what-are-azure-queues"></a>¿Qué son las colas de Azure?
 
@@ -23,23 +23,23 @@ Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes
 
 El servicio Cola contiene los siguientes componentes:
 
-![Diagrama que muestra la relación entre una cuenta de almacenamiento, las colas y los mensajes](./media/storage-queues-introduction/queue1.png)
+![Diagrama que muestra la relación entre una cuenta de almacenamiento, las colas y los mensajes.](./media/storage-queues-introduction/queue1.png)
 
-* **Formato URL:** las colas son direccionables mediante el formato de dirección URL siguiente:
+- **Formato URL:** las colas son direccionables mediante el formato de dirección URL siguiente:
 
-    `https://<storage account>.queue.core.windows.net/<queue>`
-  
-    La siguiente dirección URL dirige a una cola del diagrama:  
-  
-    `https://myaccount.queue.core.windows.net/images-to-download`
+  `https://<storage account>.queue.core.windows.net/<queue>`
 
-* **Cuenta de almacenamiento** : Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Para más información sobre la capacidad de la cuenta de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+  La siguiente dirección URL dirige a una cola del diagrama:
 
-* **Cola:** una cola contiene un conjunto de mensajes. El nombre de la cola **debe** escribirse en minúsculas. Para más información, consulte [Asignar nombres a colas y metadatos](/rest/api/storageservices/Naming-Queues-and-Metadata).
+  `https://myaccount.queue.core.windows.net/images-to-download`
 
-* **Mensaje:** un mensaje, en cualquier formato, de hasta 64 KB. Antes de la versión 2017-07-29, el máximo tiempo de vida permitido es de siete días. A partir de la versión del 2017-07-29, inclusive, el tiempo de vida máximo puede ser cualquier número positivo o -1, lo que indica que el mensaje no expira. Si se omite este parámetro, el tiempo de vida predeterminado es siete días.
+- **Cuenta de almacenamiento**: Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Para más información sobre la capacidad de la cuenta de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+
+- **Cola:** una cola contiene un conjunto de mensajes. El nombre de la cola **debe** escribirse en minúsculas. Para más información, consulte [Asignar nombres a colas y metadatos](/rest/api/storageservices/Naming-Queues-and-Metadata).
+
+- **Mensaje:** un mensaje, en cualquier formato, de hasta 64 KB. Antes de la versión 2017-07-29, el máximo tiempo de vida permitido es de siete días. A partir de la versión del 2017-07-29, inclusive, el tiempo de vida máximo puede ser cualquier número positivo o -1, lo que indica que el mensaje no expira. Si se omite este parámetro, el tiempo de vida predeterminado es siete días.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Cree una cuenta de almacenamiento](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
-* [Introducción a las colas con .NET](storage-dotnet-how-to-use-queues.md)
+- [Cree una cuenta de almacenamiento](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
+- [Introducción a las colas con .NET](storage-dotnet-how-to-use-queues.md)

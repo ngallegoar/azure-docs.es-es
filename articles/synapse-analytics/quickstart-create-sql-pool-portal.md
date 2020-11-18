@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9dcb2fa8be22c21cc2b005cce1bf8bb1c614381
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324280"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505077"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Inicio rápido: Creación de un grupo de SQL dedicado (versión preliminar) mediante Azure Portal
 
@@ -59,6 +59,9 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 3. Seleccione **Siguiente: Configuración adicional**.
 4. Seleccione **None** (Ninguno) para aprovisionar el grupo de SQL dedicado sin datos. Deje seleccionada la intercalación predeterminada.
+
+    Si desea restaurar el grupo de SQL dedicado desde un punto de restauración, seleccione el **punto de restauración**. Para obtener más información sobre cómo realizar una restauración, vea [ Restauración de un grupo de SQL dedicado](backuprestore/restore-sql-pool.md)
+
 ![Flujo de creación del grupo de SQL dedicado: pestaña de configuración adicional.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
 5. Seleccione **Revisar + crear**.
@@ -84,7 +87,7 @@ Siga los pasos que se indican a continuación para eliminar el grupo de SQL dedi
 Si quiere eliminar el grupo de SQL dedicado, siga estos pasos:
 
 1. Vaya a la hoja de grupos de SQL en la hoja del área de trabajo.
-1. Seleccione el grupo de SQL dedicado que se va a eliminar (en este caso, **contosowdw** ).
+1. Seleccione el grupo de SQL dedicado que se va a eliminar (en este caso, **contosowdw**).
 1. Una vez seleccionado, seleccione **Delete** (Eliminar).
 1. Confirme la eliminación y haga clic en el botón **Delete** (Eliminar)![. Información general del grupo de SQL dedicado: se resalta la confirmación de eliminación.](media/quickstart-create-sql-pool/create-sql-pool-portal-11.png)
 1. Cuando el proceso se complete correctamente, el grupo de SQL dedicado dejará de aparecer en los recursos del área de trabajo.

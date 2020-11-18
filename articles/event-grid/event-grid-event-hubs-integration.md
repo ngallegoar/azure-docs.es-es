@@ -4,12 +4,12 @@ description: 'Tutorial: Describe cómo usar Azure Event Grid y Azure Event Hubs 
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fb26bf92e6af1fd9e97f3b9434b4ab5e76316b3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270566"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305282"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir macrodatos a un almacenamiento de datos
 Azure [Event Grid](overview.md) es un servicio inteligente de enrutamiento de eventos que permite reaccionar ante las notificaciones (eventos) procedentes de aplicaciones y servicios. Por ejemplo, puede desencadenar una función de Azure que procese los datos de Event Hubs que se han capturado en una instancia de Azure Blob Storage o Azure Data Lake Store y migrar esos datos a otros repositorios. En este [ejemplo de integración de Event Hubs y Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) se muestra cómo usar Event Hubs con Event Grid para migrar datos capturados de Event Hubs procedentes de Blob Storage a una instancia de Azure Synapse Analytics (anteriormente SQL Data Warehouse) sin ningún tipo de problema.
@@ -165,7 +165,7 @@ Para cerrar Cloud Shell, seleccione el botón **Cloud Shell** en el portal (o) e
 ### <a name="create-a-table-in-azure-synapse-analytics"></a>Creación de una tabla en Azure Synapse Analytics
 Para crear una tabla en el almacenamiento de datos, ejecute el script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Para ejecutar el script, puede usar Visual Studio o el Editor de consultas en el portal. Estos pasos le muestran cómo usar el Editor de consultas: 
 
-1. En la lista de recursos del grupo de recursos, seleccione el **grupo de Synapse SQL (almacenamiento de datos)** . 
+1. En la lista de recursos del grupo de recursos, seleccione el **grupo de SQL dedicado**. 
 2. En la página de Azure Synapse Analytics, seleccione **Editor de consultas (versión preliminar)** en el menú de la izquierda. 
 
     ![Página de Azure Synapse Analytics](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
@@ -210,7 +210,7 @@ Para crear una tabla en el almacenamiento de datos, ejecute el script [CreateDat
 4. Si ve la pantalla siguiente, seleccione **Iniciar**. 
 
    ![Captura de pantalla que muestra Visual Studio con el botón "Iniciar" en la sección Publicar.](media/event-grid-event-hubs-integration/start-publish-button.png) 
-5. En el cuadro de diálogo **Publicar**, seleccione **Azure** en **Destino**y seleccione **Siguiente**. 
+5. En el cuadro de diálogo **Publicar**, seleccione **Azure** en **Destino** y seleccione **Siguiente**. 
 
    ![Botón Iniciar publicación](media/event-grid-event-hubs-integration/publish-select-azure.png)
 6. Seleccione **Azure Function App (Windows)**  y seleccione **Siguiente**. 

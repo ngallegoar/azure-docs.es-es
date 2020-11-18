@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1aba87b2139fb8a7d395fb3180d2074e47310fa9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424296"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661161"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 
@@ -104,7 +104,7 @@ En el modelo de implementación de Resource Manager, cada configuración requier
 * ExpressRoute
 * VPNClient
 
-En el siguiente ejemplo de PowerShell, vamos a crear una conexión de S2S que requiere el tipo de conexión *IPsec* .
+En el siguiente ejemplo de PowerShell, vamos a crear una conexión de S2S que requiere el tipo de conexión *IPsec*.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
@@ -122,7 +122,7 @@ Una vez que se ha creado una puerta de enlace de red virtual, no puede cambiar e
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-En el siguiente ejemplo de PowerShell se especifica `-VpnType` como *RouteBased* . Al crear una puerta de enlace, debe asegurarse de que el tipo de VPN es el correcto para su configuración.
+En el siguiente ejemplo de PowerShell se especifica `-VpnType` como *RouteBased*. Al crear una puerta de enlace, debe asegurarse de que el tipo de VPN es el correcto para su configuración.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -176,7 +176,7 @@ Para más información sobre los recursos técnicos y los requisitos de sintaxis
 | **Clásico** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | No compatible | [CLI de Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Pasos siguientes

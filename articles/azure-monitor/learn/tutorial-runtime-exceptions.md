@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: af8479f6460a6cc555d7ea67dcfe65c779878624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 057b211179c6932d4214e6118e3fa97b95145ba0
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357869"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926638"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Búsqueda y diagnóstico de excepciones en tiempo de ejecución con Azure Application Insights
 
@@ -81,7 +81,7 @@ Snapshot Debugger recopila instantáneas de las excepciones que se producen con 
 
 3. La primera llamada que tiene valores válidos es **ValidZipCode** y podemos ver que se especificó un código postal con letras que no se puede convertir en un número entero.  Parece que este es el error que hay en el código y que debe corregirse.
 
-    ![Depurar instantánea](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+    ![Captura de pantalla en la que aparece un error en el código que se debe corregir.    ](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. Puede descargar esta instantánea en Visual Studio, donde se puede buscar el código que se debe corregir. Para ello, haga clic en **Descargar instantánea**.
 5. La instantánea se carga en Visual Studio.

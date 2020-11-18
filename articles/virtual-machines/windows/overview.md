@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8a42711bba8f77070e2b30a9b07d29d5b5095945
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9ff05f2cf9f29ef86a6db9955e7d28c9035e1bf4
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973893"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376968"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Máquinas virtuales Windows en Azure
 
@@ -104,6 +104,12 @@ Los recursos de esta tabla se usan en la máquina virtual y deben ya existir o c
 | [Dirección IP pública](../../virtual-network/public-ip-addresses.md) |No |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella. |
 | [Interfaz de red](../../virtual-network/virtual-network-network-interface.md) |Sí |La máquina virtual necesita la interfaz de red para comunicarse en la red. |
 | [Discos de datos](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento. |
+
+
+## <a name="data-residency"></a>Residencia de datos
+
+En Azure, la característica que permite almacenar los datos de clientes en una única región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico y en la región Sur de Brasil de la geoárea Brasil. En todas las demás regiones, los datos del cliente se almacenan en la geoárea. Para más información, consulte el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

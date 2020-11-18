@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c8ae47f89dcddd2253abd21239eb1a9bffee27c7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b3ae2c958b479f5f131de871b64663c2754713b6
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307830"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330435"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Hoja de referencia rápida de Azure Synapse Analytics
 
@@ -40,6 +40,7 @@ Para usar el análisis de Spark, cree y use **grupos de Apache Spark sin servido
 | Término                         | Definición      |
 |:---                                 |:---                 |
 | **Solicitud de SQL**  |   Algunas operaciones, como las consultas, se ejecutan mediante el grupo de SQL dedicado o el grupo de SQL sin servidor. |
+|**Script de SQL**| Conjunto de comandos SQL guardados en un archivo. Un script SQL puede contener una o varias instrucciones SQL. Se puede usar para ejecutar solicitudes SQL a través del grupo de SQL dedicado o el grupo de SQL sin servidor.|
 
 ## <a name="spark-terminology"></a>Terminología de Spark
 | Término                         | Definición      |
@@ -48,17 +49,24 @@ Para usar el análisis de Spark, cree y use **grupos de Apache Spark sin servido
 | **Grupo de Apache Spark**  | Se pueden implementar en un área de trabajo de 0 a N recursos aprovisionados de Spark con sus bases de datos correspondientes. Un grupo de Spark se puede pausar, reanudar y escalar automáticamente.  |
 | **Aplicación Spark**  |   Consta de un proceso de controlador y un conjunto de procesos del ejecutor. Una aplicación Spark se ejecuta en un grupo de Spark sin servidor.            |
 | **Sesión de Spark**  |   Punto de entrada unificado de una aplicación de Spark. Proporciona una manera de interactuar con las diversas funcionalidades de Spark y con un número menor de construcciones. Para ejecutar un cuaderno, es necesario crear una sesión. Una sesión se puede configurar para que se ejecute en un número específico de ejecutores de un tamaño específico. La configuración predeterminada de una sesión de un cuaderno es que se usen dos ejecutores de tamaño medio. |
-|**Integración de registros**| Proporciona la funcionalidad de introducir datos entre varios orígenes y coordinar las actividades que se ejecutan en un área de trabajo o fuera de ella.| 
-|**Artefactos**| Concepto que encapsula todos los objetos necesarios para que un usuario administre los orígenes de datos y los desarrolle, organice y visualice.|
 |**Cuaderno**| Interfaz de ciencia de datos e ingeniería interactiva y reactiva que admite Scala, PySpark, C# y SparkSQL. |
 |**Definición de trabajos de Spark**|Interfaz para enviar un trabajo de Spark con el archivo jar del ensamblado que contiene el código y sus dependencias.|
+
+## <a name="pipelines-terminology"></a>Terminología sobre canalizaciones
+| Término                         | Definición      |
+|:---                                 |:---                 |
+|**Integración de registros**| Proporciona la funcionalidad de introducir datos entre varios orígenes y coordinar las actividades que se ejecutan en un área de trabajo o fuera de ella.| 
 |**Flujo de datos**|  Proporciona una experiencia completamente visual que no requiere codificación para realizar la transformación de macrodatos. Toda la optimización y ejecución se administra sin servidor. |
-|**Script de SQL**| Conjunto de comandos SQL guardados en un archivo. Un script SQL puede contener una o varias instrucciones SQL. Se puede usar para ejecutar solicitudes SQL a través del grupo de SQL dedicado o el grupo de SQL sin servidor.|
 |**Canalización**| Una agrupación lógica de actividades que realizan una tarea juntas.|
 |**Actividad**| Define las acciones que se deben realizar en los datos, como la copia de datos, la ejecución de un bloc de notas o un script SQL.|
 |**Desencadenador**| Ejecuta una canalización. Se puede ejecutar de forma manual o automática (programación, ventana de saltos de tamaño constante o basada en eventos).|
+|**Conjunto de datos de integración**|  Vista con nombre de los datos que simplemente apunta o hace referencia a los datos que se van a usar en una actividad como entrada y salida. Pertenece a un servicio vinculado.|
+
+## <a name="general-terminology"></a>Terminología general
+| Término                         | Definición      |
+|:---                                 |:---                 |
+|**Artefactos**| Concepto que encapsula todos los objetos necesarios para que un usuario administre los orígenes de datos y los desarrolle, organice y visualice.|
 |**Servicio vinculado**| Las cadenas de conexión que definen la información de conexión necesaria para que el área de trabajo se conecte a recursos externos.|
-|**Dataset**|  Vista con nombre de los datos que simplemente apunta o hace referencia a los datos que se van a usar en una actividad como entrada y salida. Pertenece a un servicio vinculado.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

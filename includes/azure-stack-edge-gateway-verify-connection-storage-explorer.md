@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 12/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474a97f4b05fd1f944e18abebcef927232453e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 203c977fe9109cd8b2b6de561e975e20aacf700e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89081056"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376103"
 ---
 Si es la primera vez que usa el Explorador de Storage, deberá realizar los pasos siguientes.
 
@@ -24,11 +24,11 @@ Siga estos pasos para conectarse a la cuenta de almacenamiento y comprobar la co
 
 1. En el Explorador de Azure Storage, seleccione Cuentas de almacenamiento. Haga clic con el botón derecho y seleccione la opción **Conectar a Azure Storage**. 
 
-    ![Configuración del Explorador de Storage](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-2.png)
+    ![Configuración del Explorador de Storage 2](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-2.png)
 
 2. En el cuadro de diálogo **Connect to Azure Storage** (Conectar con Azure Storage), seleccione **Use a storage account name and key** (Usar un nombre y una clave de cuenta de almacenamiento).
 
-    ![Configuración del Explorador de Storage](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-3.png)
+    ![Configuración del Explorador de Storage 3](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-3.png)
 
 2. En el cuadro de diálogo **Conectarse con el nombre y la clave**, realice los pasos siguientes:
 
@@ -39,11 +39,11 @@ Siga estos pasos para conectarse a la cuenta de almacenamiento y comprobar la co
     5. Active la opción **Usar HTTP** cuando la transferencia se realice a través de *http*. 
     6. Seleccione **Next** (Siguiente).
 
-    ![Configuración del Explorador de Storage](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-4.png)    
+    ![Configuración del Explorador de Storage 4](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-4.png)    
 
 3. En el cuadro de diálogo **Connection Summary** (Resumen de conexiones), compruebe la información proporcionada. Seleccione **Conectar**.
 
-    ![Configuración del Explorador de Storage](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-5.png)
+    ![Configuración del Explorador de Storage 5](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-5.png)
 
 4. La cuenta que ha agregado correctamente se muestra en el panel izquierdo del Explorador de Storage, con (External, Other) anexado al nombre. Seleccione **Contenedores de blobs** para ver el contenedor.
 
@@ -59,27 +59,27 @@ Siga los pasos que se indican a continuación para cargar datos en la cuenta de 
 
 2. En el cuadro de diálogo **Cargar archivos**, vaya a los archivos que quiere cargar y selecciónelos. Seleccione **Next** (Siguiente).
 
-    ![Comprobación de la transferencia de datos](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-2.png)
+    ![Comprobación de la transferencia de datos 2](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-2.png)
 
 3. Compruebe que se han cargado los archivos. Los archivos cargados se muestran en el contenedor.
 
-    ![Comprobación de la transferencia de datos](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-3.png)
+    ![Comprobación de la transferencia de datos 3](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-3.png)
 
 4. A continuación, se conectará a la cuenta de Azure Storage que se asignó a esta cuenta de almacenamiento de Edge. Los datos que se cargan en la cuenta de almacenamiento de Edge deben organizarse por niveles automáticamente en la cuenta de Azure Storage. 
     
     Para obtener la cadena de conexión de la cuenta de Azure Storage, vaya a **Cuenta de Azure Storage > Claves de acceso** y copie la cadena de conexión.
 
-    ![Comprobación de la transferencia de datos](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-5.png)
+    ![Comprobación de la transferencia de datos 4](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-5.png)
 
     Use la cadena de conexión para conectarse a la cuenta de Azure Storage.  
 
-    ![Comprobación de la transferencia de datos](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-4.png)
+    ![Comprobación de la transferencia de datos 5](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-4.png)
 
 
 5. En el cuadro de diálogo **Connection Summary** (Resumen de conexiones), compruebe la información proporcionada. Seleccione **Conectar**.
 
-    ![Comprobación de la transferencia de datos](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-6.png)
+    ![Comprobación de la transferencia de datos 6](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-6.png)
 
 6. Verá que los archivos que ha cargado en la cuenta de almacenamiento de Edge se han transferido a la cuenta de Azure Storage.
 
-    ![Comprobación de la transferencia de datos](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-7.png)
+    ![Comprobación de la transferencia de datos 7](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-7.png)
