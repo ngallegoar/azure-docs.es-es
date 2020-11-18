@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87190e9a7aa3c3a26b77220dd0332d65c640bc2e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763217"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659002"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Administrar certificados para inicio de sesión único federado en Azure Active Directory
 
@@ -111,4 +111,4 @@ Si un certificado está a punto de expirar, se puede renovar mediante un procedi
 - [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
 - [Administración de aplicaciones con Azure Active Directory](what-is-application-management.md)
 - [Inicio de sesión único en aplicaciones en Azure Active Directory](what-is-single-sign-on.md)
-- [Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](./debug-saml-sso-issues.md)

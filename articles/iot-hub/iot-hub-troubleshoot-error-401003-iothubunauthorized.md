@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
-ms.date: 01/30/2020
+ms.date: 11/06/2020
 ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8fb891d5a47203c9905a7def9d04199d24327f70
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909648"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357256"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -26,7 +26,7 @@ En este artículo se describen las causas y las soluciones de los errores **4010
 
 ### <a name="symptom-1"></a>Síntoma 1
 
-En los registros, verá un patrón de dispositivos que se están desconectando con el error **401003 IoTHubUnauthorized** , seguido de **404104 DeviceConnectionClosedRemotely** y que se conectan correctamente poco después.
+En los registros, verá un patrón de dispositivos que se están desconectando con el error **401003 IoTHubUnauthorized**, seguido de **404104 DeviceConnectionClosedRemotely** y que se conectan correctamente poco después.
 
 ### <a name="symptom-2"></a>Síntoma 2
 
@@ -42,11 +42,11 @@ Las solicitudes a IoT Hub producen un error con uno de los siguientes mensajes d
 
 ### <a name="cause-1"></a>Causa 1
 
-Con el protocolo MQTT, algunos SDK se basan en IoT Hub para emitir la desconexión cuando el token de SAS expira para saber cuándo actualizarlo. Por lo tanto, 
+Con el protocolo MQTT, algunos SDK se basan en IoT Hub para emitir la desconexión cuando el token de SAS expira para saber cuándo actualizarlo. Por lo tanto,
 
 1. el token de SAS expira,
-1. IoT Hub lo reconoce y desconecta el dispositivo con **401003 IoTHubUnauthorized** ,
-1. el dispositivo completa la desconexión con **404104 DeviceConnectionClosedRemotely** ,
+1. IoT Hub lo reconoce y desconecta el dispositivo con **401003 IoTHubUnauthorized**,
+1. el dispositivo completa la desconexión con **404104 DeviceConnectionClosedRemotely**,
 1. el SDK de IoT genera un nuevo token de SAS y
 1. el dispositivo se vuelve a conectar con IoT Hub correctamente.
 
@@ -58,9 +58,11 @@ IoT Hub no ha podido autenticar el encabezado de autenticación, la regla o la c
 
 ### <a name="solution-1"></a>Solución 1
 
-Si se usa el SDK de IoT para la conexión mediante la cadena de conexión del dispositivo, no es necesario realizar ninguna acción. El SDK de IoT regenera el token nuevo para volver a realizar la conexión tras la expiración del token de SAS. 
+Si se usa el SDK de IoT para la conexión mediante la cadena de conexión del dispositivo, no es necesario realizar ninguna acción. El SDK de IoT regenera el token nuevo para volver a realizar la conexión tras la expiración del token de SAS.
 
-Si el volumen de errores es un problema, cambie al SDK de C, que renueva el token de SAS antes de la expiración. Además, con el protocolo AMQP, el token de SAS puede actualizarse sin desconexión.
+La duración predeterminada del token es de 60 minutos en los SDK; sin embargo, para algunos SDK se puede configurar la duración y el umbral de renovación de los token. Además, los errores generados cuando un dispositivo se desconecta y se vuelve a conectar en la renovación de tokens difiere para cada SDK. Para más información, y para obtener información sobre cómo determinar qué SDK usa el dispositivo en los registros, consulte [Comportamiento de desconexión de los dispositivos MQTT con los SDK de Azure IoT](iot-hub-troubleshoot-connectivity.md#mqtt-device-disconnect-behavior-with-azure-iot-sdks).
+
+Para los desarrolladores de dispositivos, si el volumen de errores es un problema, cambie al SDK de C, que renueva el token de SAS antes de la expiración. Para AMQP, el token de SAS puede actualizarse sin desconexión.
 
 ### <a name="solution-2"></a>Solución 2
 

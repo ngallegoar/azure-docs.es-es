@@ -12,12 +12,12 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0a103ac9b8e6d29830b5ecd6732cd19547014b0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601146"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659070"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Ocultación de aplicaciones empresariales de usuarios finales en Azure Active Directory
 
@@ -47,7 +47,7 @@ Siga estos pasos para ocultar una aplicación del panel MyApps y del iniciador d
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Uso de Azure AD PowerShell para ocultar una aplicación
 
-Para ocultar una aplicación del panel Mis aplicaciones, puede agregar manualmente la etiqueta HideApp a la entidad de servicio de la aplicación. Ejecute los siguientes comandos de [Azure AD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) para establecer la propiedad **¿Es visible para los usuarios?** en **No**. 
+Para ocultar una aplicación del panel Mis aplicaciones, puede agregar manualmente la etiqueta HideApp a la entidad de servicio de la aplicación. Ejecute los siguientes comandos de [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0#service_principals) para establecer la propiedad **¿Es visible para los usuarios?** en **No**. 
 
 ```PowerShell
 Connect-AzureAD
@@ -74,6 +74,5 @@ Siga estos pasos para ocultar todas las aplicaciones de Microsoft 365 del panel
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ver todos mis grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Asignar un usuario o grupo a una aplicación empresarial](assign-user-or-group-access-portal.md)
-* [Quitar una asignación de usuario o grupo de una aplicación empresarial](remove-user-or-group-access-portal.md)
-* [Cambio del nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)
-
+* [Quitar una asignación de usuario o grupo de una aplicación empresarial](./assign-user-or-group-access-portal.md)
+* [Cambio del nombre o el logotipo de una aplicación empresarial](./add-application-portal-configure.md)

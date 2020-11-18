@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 83d7ed6c937d515520058819636bc23c8de173fd
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015283"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658084"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
@@ -28,7 +28,7 @@ La audiencia objetivo para este artículo es:
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Cómo se adapta el proxy de aplicación a la implementación de RDS estándar
 
-Una implementación de RDS estándar incluye diversos servicios de rol de Escritorio remoto que se ejecutan en Windows Server. Al examinar la [arquitectura de Servicios de Escritorio remoto](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture), vemos que hay varias opciones de implementación. A diferencia de otras opciones de implementación de RDS, la [implementación de RDS con el proxy de aplicación de Azure AD](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (mostrada en el siguiente diagrama) tiene una conexión de salida permanente desde el servidor que ejecuta el servicio del conector. Otras implementaciones dejan conexiones entrantes abiertas a través de un equilibrador de carga.
+Una implementación de RDS estándar incluye diversos servicios de rol de Escritorio remoto que se ejecutan en Windows Server. Al examinar la [arquitectura de Servicios de Escritorio remoto](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture), vemos que hay varias opciones de implementación. A diferencia de otras opciones de implementación de RDS, la [implementación de RDS con el proxy de aplicación de Azure AD](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) (mostrada en el siguiente diagrama) tiene una conexión de salida permanente desde el servidor que ejecuta el servicio del conector. Otras implementaciones dejan conexiones entrantes abiertas a través de un equilibrador de carga.
 
 ![El proxy de aplicación se sitúa entre la máquina virtual RDS y la red pública de Internet](./media/application-proxy-integrate-with-remote-desktop-services/rds-with-app-proxy.png)
 
@@ -37,13 +37,13 @@ En una implementación de RDS, el rol web de Escritorio remoto y el rol Puerta d
 - Puerta de enlace de Escritorio remoto aparece en escena una vez que un usuario inicia la conexión RDP. Puerta de enlace de Escritorio remoto controla el tráfico RDP que llega a través de Internet y lo traduce al servidor local al que se conecta el usuario. En este escenario, el tráfico que recibe Puerta de enlace de Escritorio remoto procede del proxy de aplicación de Azure AD.
 
 >[!TIP]
->Si no ha implementado nunca RDS o desea más información antes de empezar, obtenga información sobre cómo [implementar RDS sin problemas con Azure Resource Manager y Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
+>Si no ha implementado nunca RDS o desea más información antes de empezar, obtenga información sobre cómo [implementar RDS sin problemas con Azure Resource Manager y Azure Marketplace](/windows-server/remote/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Requisitos
 
 - Los puntos de conexión de Acceso web y Puerta de enlace de Escritorio remoto deben estar en la misma máquina y compartir una raíz. Acceso de Escritorio remoto y Puerta de enlace de Escritorio remoto se publican como una sola aplicación con el proxy de aplicación para que pueda tener experiencia de inicio de sesión único entre las dos aplicaciones.
 
-- Ya debe tener [RDS implementados](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) y el [proxy de aplicación habilitado](application-proxy-add-on-premises-application.md).
+- Ya debe tener [RDS implementados](/windows-server/remote/remote-desktop-services/rds-in-azure) y el [proxy de aplicación habilitado](application-proxy-add-on-premises-application.md).
 
 - Los usuarios finales deben usar un explorador compatible para conectarse a Acceso web de Escritorio remoto o al cliente web de Escritorio remoto. Para más información, consulte [Compatibilidad con otras configuraciones de cliente](#support-for-other-client-configurations).
 
@@ -51,9 +51,9 @@ En una implementación de RDS, el rol web de Escritorio remoto y el rol Puerta d
 
 - Si usa Acceso web de Escritorio remoto en Internet Explorer, deberá habilitar el complemento ActiveX de RDS.
 
-- Si usa el cliente web de Escritorio remoto, deberá utilizar la [versión del conector 1.5.1975 o posterior](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-release-version-history) de Application Proxy.
+- Si usa el cliente web de Escritorio remoto, deberá utilizar la [versión del conector 1.5.1975 o posterior](./application-proxy-release-version-history.md) de Application Proxy.
 
-- Para el flujo de autenticación previa de Azure AD, los usuarios solo pueden conectarse a los recursos publicados para ellos en el panel **RemoteApp y escritorios** . Los usuarios no se pueden conectar a un escritorio mediante el panel **Conectarse a un equipo remoto** .
+- Para el flujo de autenticación previa de Azure AD, los usuarios solo pueden conectarse a los recursos publicados para ellos en el panel **RemoteApp y escritorios**. Los usuarios no se pueden conectar a un escritorio mediante el panel **Conectarse a un equipo remoto**.
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Implementar el escenario conjunto de RDS y el proxy de aplicación
 
@@ -67,13 +67,13 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
    - Método de autenticación previa: Azure Active Directory
    - Traducir URL en encabezados: No
 2. Asigne usuarios a la aplicación publicada de RD. Asegúrese también de que todos tienen acceso a RDS.
-3. Deje el método de inicio de sesión único de la aplicación como **Se desactivó el inicio de sesión único de Azure AD** .
+3. Deje el método de inicio de sesión único de la aplicación como **Se desactivó el inicio de sesión único de Azure AD**.
 
    >[!Note]
    >Se solicita a los usuarios que se autentiquen una vez en Azure AD y otra en Acceso web de Escritorio remoto, pero tienen inicio de sesión único en Puerta de enlace de Escritorio remoto.
 
-4. Seleccione **Azure Active Directory** y **Registros de aplicaciones** . Elija la aplicación en la lista.
-5. En **Administrar** , seleccione **Personalización de marca** .
+4. Seleccione **Azure Active Directory** y **Registros de aplicaciones**. Elija la aplicación en la lista.
+5. En **Administrar**, seleccione **Personalización de marca**.
 6. Actualice el campo **Dirección URL de la página principal** para que apunte al punto de conexión web de Escritorio remoto (por ejemplo, `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigir el tráfico RDS al proxy de aplicación
@@ -81,12 +81,12 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
 Conéctese a la implementación de RDS como administrador y cambie el nombre del servidor de Puerta de enlace de Escritorio remoto para la implementación. Esta configuración garantiza que las conexiones pasen por el servicio del proxy de aplicación de Azure AD.
 
 1. Conéctese al servidor RDS que ejecuta el rol Agente de conexión a Escritorio remoto.
-2. Inicie **Administrador del servidor** .
+2. Inicie **Administrador del servidor**.
 3. Seleccione **Servicios de Escritorio remoto** en el panel de la izquierda.
-4. Seleccione **Información general** .
-5. En la sección Descripción general de la implementación, seleccione el menú desplegable y elija **Editar propiedades de implementación** .
+4. Seleccione **Información general**.
+5. En la sección Descripción general de la implementación, seleccione el menú desplegable y elija **Editar propiedades de implementación**.
 6. En la pestaña Puerta de enlace de Escritorio remoto, cambie el campo **Nombre del servidor** por la dirección URL externa que ha establecido para el punto de conexión del host de RD en el proxy de aplicación.
-7. Cambie el campo **Método de inicio de sesión** por **Autenticación de contraseña** .
+7. Cambie el campo **Método de inicio de sesión** por **Autenticación de contraseña**.
 
    ![Pantalla Propiedades de implementación de RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
@@ -111,7 +111,7 @@ Conéctese a la implementación de RDS como administrador y cambie el nombre del
 Ahora que ha configurado Escritorio remoto, el proxy de aplicación de Azure AD ha asumido el papel de componente accesible desde Internet de RDS. Puede quitar los otros puntos de conexión accesibles desde Internet públicos de sus máquinas Acceso web de Escritorio remoto y Puerta de enlace de Escritorio remoto.
 
 ### <a name="enable-the-rd-web-client"></a>Habilitación del cliente web de Escritorio remoto
-Si también quiere que los usuarios puedan usar el cliente web de Escritorio remoto, siga los pasos descritos en [Configuración del cliente web de Escritorio remoto para los usuarios](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin) para habilitarlo.
+Si también quiere que los usuarios puedan usar el cliente web de Escritorio remoto, siga los pasos descritos en [Configuración del cliente web de Escritorio remoto para los usuarios](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin) para habilitarlo.
 
 El cliente web de Escritorio remoto permite a los usuarios acceder a la infraestructura de Escritorio remoto de su organización mediante un explorador web compatible con HTML5, como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari o Mozilla Firefox (v55.0 y versiones posteriores).
 
@@ -130,14 +130,14 @@ La configuración descrita en este artículo es para el acceso a RDS a través d
 
 | Método de autenticación | Configuración de cliente compatible |
 | --------------------- | ------------------------------ |
-| Autenticación previa    | Acceso web de Escritorio remoto: Windows 7/10 con Internet Explorer o [modo IE de Edge Chromium](https://docs.microsoft.com/deployedge/edge-ie-mode) y complemento ActiveX de RDS |
+| Autenticación previa    | Acceso web de Escritorio remoto: Windows 7/10 con Internet Explorer o [modo IE de Edge Chromium](/deployedge/edge-ie-mode) y complemento ActiveX de RDS |
 | Autenticación previa    | Cliente web de escritorio remoto: explorador web compatible con HTML5, como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari o Mozilla Firefox (v55.0 y versiones posteriores) |
 | Acceso directo | Cualquier otro sistema operativo compatible con la aplicación Escritorio remoto de Microsoft |
 
 El flujo de autenticación previa ofrece más ventajas de seguridad que el flujo de acceso directo. Con la autenticación previa, puede utilizar características de autenticación de Azure AD como el inicio de sesión único, el acceso condicional y la verificación en dos pasos para recursos locales. También garantiza que solo el tráfico autenticado alcance la red.
 
 Para usar la autenticación de acceso directo, solo es necesario realizar dos modificaciones en los pasos indicados en este artículo:
-1. En el paso 1 [Publicar el punto de conexión del host de RD](#publish-the-rd-host-endpoint), establezca el método de autenticación previa en **Acceso directo** .
+1. En el paso 1 [Publicar el punto de conexión del host de RD](#publish-the-rd-host-endpoint), establezca el método de autenticación previa en **Acceso directo**.
 2. Omita completamente el paso 8, [Dirigir el tráfico RDS al proxy de aplicación](#direct-rds-traffic-to-application-proxy).
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127531"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337294"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use la interfaz de usuario web local para administrar los dispositivos Data Box y Data Box Heavy
 
@@ -212,7 +212,7 @@ Para habilitar los privilegios de operador de copia de seguridad en el dispositi
 
 1. En la esquina superior derecha de la interfaz de usuario web local del dispositivo, seleccione **Configuración**.
 
-   ![Apertura de Settings (Configuración) de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Abrir configuración de Data Box: 1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. Haga clic en **Enable** (Habilitar) para habilitar los privilegios de operador de copia de seguridad.
 
@@ -235,7 +235,7 @@ Para habilitar la transferencia de ACL para Azure Files:
 
 1. En la esquina superior derecha de la interfaz de usuario web local del dispositivo, seleccione **Configuración**.
 
-    ![Apertura de Settings (Configuración) de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Abrir configuración de Data Box: 2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. Haga clic en **Enable** (Habilitar) para las ACL para Azure Files.
 
@@ -255,7 +255,7 @@ Para habilitar TLS 1.1 en el dispositivo de Azure:
 
 1. En la esquina superior derecha de la interfaz de usuario web local del dispositivo, seleccione **Configuración**.
 
-    ![Apertura de Settings (Configuración) de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Abrir configuración de Data Box: 3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Habilite** TLS 1.1.
 

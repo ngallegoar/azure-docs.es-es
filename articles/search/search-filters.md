@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d83e5c39f97db49e2cc9b77cc806cff0a1fa6de
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534801"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355991"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros de Azure Cognitive Search 
 
@@ -138,11 +138,11 @@ Consulte estos artículos para obtener una guía completa de casos de uso espec�
 
 En la API REST, el filtrado está *activado* de forma predeterminada para campos simples. Los campos que se pueden filtrar aumentan el tamaño del índice. Asegúrese de definir `"filterable": false` para los campos que no tiene previsto usar en un filtro. Para obtener más información sobre la configuración de definiciones de campos, consulte [Create Index](/rest/api/searchservice/create-index) (Creación de índices).
 
-En el SDK de. NET, el filtrado está *desactivado* de forma predeterminada. Puede hacer que un campo se pueda filtrar si establece la [propiedad IsFilterable](/dotnet/api/microsoft.azure.search.models.field.isfilterable) del objeto de [campo](/dotnet/api/microsoft.azure.search.models.field) correspondiente en `true`. También puede hacerlo mediante declaración con el [atributo IsFilterable](/dotnet/api/microsoft.azure.search.isfilterableattribute). En el ejemplo siguiente, el atributo se establece en la propiedad `BaseRate` de una clase de modelo que se asigna a la definición del índice.
+En el SDK de. NET, el filtrado está *desactivado* de forma predeterminada. Para hacer que un campo se pueda filtrar, establezca la [propiedad IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) del objeto [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) correspondiente en `true`. En el ejemplo siguiente, el atributo se establece en la propiedad `BaseRate` de una clase de modelo que se asigna a la definición del índice.
 
 ```csharp
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? BaseRate { get; set; }
+[IsFilterable, IsSortable, IsFacetable]
+public double? BaseRate { get; set; }
 ```
 
 ### <a name="making-an-existing-field-filterable"></a>Hacer que un campo existente se pueda filtrar
@@ -171,7 +171,7 @@ Los documentos que contienen campos numéricos (precio, tamaño, SKU, id.) propo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En primer lugar, pruebe el **Explorador de búsqueda**  en el portal para enviar consultas con parámetros **$filter**. El [índice real-estate-sample](search-get-started-portal.md) proporciona resultados interesantes para las siguiente consultas filtradas al pegarlas en la barra de búsqueda:
+En primer lugar, pruebe el **Explorador de búsqueda** en el portal para enviar consultas con parámetros **$filter**. El [índice real-estate-sample](search-get-started-portal.md) proporciona resultados interesantes para las siguiente consultas filtradas al pegarlas en la barra de búsqueda:
 
 ```
 # Geo-filter returning documents within 5 kilometers of Redmond, Washington state
@@ -202,4 +202,4 @@ Para trabajar con más ejemplos, consulte [OData Filter Expression Syntax > Exam
 + [API de REST de documentos de búsqueda](/rest/api/searchservice/search-documents)
 + [Sintaxis de consulta simplificada](/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Sintaxis de consulta de Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Supported data types](/rest/api/searchservice/supported-data-types) (Tipos de datos admitidos)
++ [Tipos de datos admitidos](/rest/api/searchservice/supported-data-types)

@@ -3,12 +3,12 @@ title: Creación de un túnel IPSec en Azure VMware Solution
 description: Obtenga más información sobre cómo crear un centro de conectividad de Virtual WAN para establecer un túnel IPSec en instancias de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: 74cc31abf432954008cbb20bf64825d199732dab
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 9f869f04bf165f4791f13c626b63257ea98a7ca9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951135"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506454"
 ---
 # <a name="create-an-ipsec-tunnel-into-azure-vmware-solution"></a>Creación de un túnel IPSec en Azure VMware Solution
 
@@ -16,7 +16,7 @@ En este artículo analizaremos los pasos necesarios para establecer un túnel VP
 
 ## <a name="topology"></a>Topología
 
-![Arquitectura de túnel VPN de sitio a sitio.](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
+![Diagrama que muestra la arquitectura de un túnel VPN de sitio a sitio.](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
 
 El centro de Azure Virtual WAN contiene la puerta de enlace de ExpressRoute de Azure VMware Solution y la puerta de enlace de VPN de sitio a sitio. Conecta un dispositivo VPN local con un punto de conexión de Azure VMware Solution.
 
@@ -39,7 +39,7 @@ Para crear el túnel VPN de sitio a sitio, deberá crear una dirección IP de a
    | **Tipo** | Seleccione **Estándar**, lo que permitirá algo más que el tráfico de la puerta de enlace de VPN.  |
 
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="Creación de una red WAN.":::
+    :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="Captura de pantalla que muestra la página de creación de una instancia de Virtual WAN en Azure Portal.":::
 
 3. En Azure Portal, seleccione la instancia de Virtual WAN que creó en el paso anterior, elija **Crear centro de conectividad virtual**, escriba los campos obligatorios y seleccione **Siguiente: Sitio a sitio**. 
 
@@ -49,7 +49,7 @@ Para crear el túnel VPN de sitio a sitio, deberá crear una dirección IP de a
    | **Nombre** |    |
    | **Espacio de direcciones privado del centro** | Escriba la subred con un valor `/24` (mínimo).  |
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="Creación de una red WAN.":::
+    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="Captura de pantalla que muestra la página de creación de un centro virtual.":::
 
 4. En la pestaña **Sitio a sitio**, defina la puerta de enlace de sitio a sitio estableciendo el rendimiento agregado desde la lista desplegable **Unidades de escalado de puerta de enlace**. 
 
@@ -70,7 +70,7 @@ Para crear el túnel VPN de sitio a sitio, deberá crear una dirección IP de a
 2. En la página **Información general** del centro virtual, seleccione **Conectividad** > **VPN (De sitio a sitio)** y, luego, **Crear un nuevo sitio de VPN**.
 
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="Creación de una red WAN.":::  
+    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="Captura de pantalla de la página de información general del centro virtual, con las opciones VPN (De sitio a sitio) y Crear un nuevo sitio de VPN seleccionadas.":::  
  
 3. En la pestaña **Aspectos básicos**, escriba los campos obligatorios y seleccione **Siguiente: Vínculos**. 
 
@@ -91,16 +91,16 @@ Esta sección se aplica únicamente a las VPN basadas en directivas. En la mayor
 
 1. En Azure Portal, vaya al sitio del centro de Virtual WAN; en **Conectividad**, seleccione **VPN (De sitio a sitio)** .
 
-2. Seleccione el nombre del sitio de VPN, el botón de puntos suspensivos (...) situado en el extremo derecho y, luego, **Editar conexión VPN**.
+2. Seleccione el nombre del sitio de VPN, el botón de puntos suspensivos (...) situado en el extremo derecho y, luego, **Editar la conexión de VPN a este concentrador**.
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Creación de una red WAN." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Captura de pantalla de la página de Azure para el sitio del centro de WAN virtual que muestra un botón de puntos suspensivos seleccionado para acceder a la opción Editar la conexión de VPN a este concentrador." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
 3. Edite la conexión entre el sitio de VPN y el centro y, luego, seleccione **Guardar**.
    - Para el protocolo de seguridad de Internet (IPSec), seleccione **Personalizado**.
    - Para la opción Usar el selector de tráfico basado en directivas, seleccione **Habilitar**.
    - Especifique los detalles de **Fase 1 IKE** y **Fase 2 IKE (IPsec)** . 
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Creación de una red WAN."::: 
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Captura de pantalla de la página Editar conexión VPN."::: 
  
     Los selectores de tráfico o las subredes que forman parte del dominio de cifrado basado en directivas deben ser los siguientes:
     
@@ -122,14 +122,14 @@ Esta sección se aplica únicamente a las VPN basadas en directivas. En la mayor
 
     Vaya a la sección **Conectividad** de la nube privada de Azure VMware Solution. En la pestaña **ExpressRoute**, seleccione **+ Solicitar una clave de autorización**. Asígnele un nombre y seleccione **Crear**. (La clave puede tardar unos 30 segundos en crearse). Copie la clave de autorización y el identificador de ExpressRoute. 
 
-    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="Creación de una red WAN.":::
+    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="Captura de pantalla de la página Conectividad de la nube privada, con la opción Solicitar una clave de autorización seleccionada en la pestaña ExpressRoute.":::
 
     > [!NOTE]
     > La clave de autorización desaparecerá tras un tiempo, por lo que debe copiarla en cuanto aparezca.
 
 4. Seguidamente, vincularemos Azure VMware Solution y la puerta de enlace de VPN en el centro de Virtual WAN. En Azure Portal, abra la instancia de Virtual WAN que creó anteriormente. Seleccione el centro de Virtual WAN creado y **ExpressRoute** en el panel izquierdo. Seleccione **+ Canjear la clave de autorización**.
 
-    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Creación de una red WAN.":::
+    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Captura de pantalla que muestra la página de ExpressRoute de la nube privada con la opción Canjear la clave de autorización seleccionada.":::
 
     Pegue la clave de autorización en el campo Clave de autorización y el identificador de ExpressRoute en el campo **URI de circuito del mismo nivel**. Asegúrese de seleccionar **Asocie automáticamente este circuito de ExpressRoute con el centro**. Seleccione **Agregar** para establecer el vínculo. 
 

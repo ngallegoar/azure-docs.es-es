@@ -2,13 +2,13 @@
 title: Plantillas de vínculo para la implementación
 description: Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 603445fdd96cc72a2d64bae21a47cfeabd6dd167
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369321"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366344"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -283,7 +283,7 @@ En el ejemplo siguiente se implementa un servidor SQL Server y se recupera el se
 
 ## <a name="linked-template"></a>Plantilla vinculada
 
-Para vincular una plantilla, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad **templateLink**, especifique el URI de la plantilla que se va a incluir. El ejemplo siguiente está vinculado a una plantilla que implementa una nueva cuenta de almacenamiento.
+Para vincular una plantilla, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad **templateLink**, especifique el URI de la plantilla que se va a incluir. El ejemplo siguiente está vinculado a una plantilla que se encuentra en una cuenta de almacenamiento.
 
 ```json
 {
@@ -310,13 +310,17 @@ Para vincular una plantilla, agregue un [recurso de implementaciones](/azure/tem
 }
 ```
 
-Al hacer referencia a una plantilla vinculada, el valor de `uri` no debe ser un archivo local o un archivo que solo esté disponible en la red local. Debe proporcionar un valor de URI que se puede descargar como **http** o **https**.
+Al hacer referencia a una plantilla vinculada, el valor de `uri` no puede ser un archivo local ni un archivo que solo esté disponible en la red local. Azure Resource Manager debe tener acceso a la plantilla. Proporcione un valor de URI que se pueda descargar como **http** o **https**. 
 
-> [!NOTE]
->
-> Puede hacer referencia a plantillas mediante parámetros que, en última instancia, se resuelven en algo que usa **http** o **https**, por ejemplo, usando el parámetro `_artifactsLocation` de esta manera: `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+Puede hacer referencia a plantillas mediante parámetros que incluyen **http** o **https**. Por ejemplo, un patrón común es usar el parámetro `_artifactsLocation`. Puede establecer la plantilla vinculada con una expresión como la siguiente:
 
-Resource Manager debe tener acceso a la plantilla. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento.
+```json
+"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
+```
+
+Si va a vincular a una plantilla en GitHub, use la dirección URL sin procesar. El vínculo tiene el formato: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json`. Para obtener el vínculo sin formato, seleccione **Sin formato**.
+
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Selección de dirección URL sin formato":::
 
 ### <a name="parameters-for-linked-template"></a>Parámetros de la plantilla vinculada
 

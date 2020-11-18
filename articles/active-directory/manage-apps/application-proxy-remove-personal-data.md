@@ -15,12 +15,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e78efd71943332e8a40e5b44b6b78f88e516649a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99fb466debd5a2ee4bb659aea3494469a8bbe8e1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759970"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658424"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Quitar datos personales para Azure Active Directory Application Proxy
 
@@ -35,7 +35,7 @@ Es posible que Application Proxy escriba datos personales en los siguientes tipo
 
 ## <a name="remove-personal-data-from-windows-event-logs"></a>Quitar datos personales de los registros de eventos de Windows
 
-Para más información sobre cómo configurar la retención de datos de los registros de eventos de Windows, consulte [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx) (Configuración de registro de eventos). Para obtener información sobre los registros de eventos de Windows, vea [Using Windows Event Log](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx) (Uso del registro de eventos de Windows).
+Para más información sobre cómo configurar la retención de datos de los registros de eventos de Windows, consulte [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx) (Configuración de registro de eventos). Para obtener información sobre los registros de eventos de Windows, vea [Using Windows Event Log](/windows/win32/wes/using-windows-event-log) (Uso del registro de eventos de Windows).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -54,7 +54,7 @@ Lea las secciones siguientes para quitar datos personales de los registros de ev
 
 Para ver o exportar datos específicos, busque las correspondientes entradas en cada uno de los registros de eventos del conector. Los registros se encuentran en `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`.
 
-Puesto que los registros son archivos de texto, puede usar [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) para buscar entradas de texto relacionadas con un usuario.  
+Puesto que los registros son archivos de texto, puede usar [findstr](/windows-server/administration/windows-commands/findstr) para buscar entradas de texto relacionadas con un usuario.  
 
 Para encontrar datos personales, busque el id. de usuario en los archivos de registro.
 

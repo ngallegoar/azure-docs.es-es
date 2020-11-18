@@ -3,12 +3,12 @@ title: Introducción
 description: Obtenga información sobre las características y las ventajas de Azure VMware Solution para implementar y administrar las cargas de trabajo basadas en VMware en Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: b71427402e08167e5868128ed1e553c69bef425d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1875f535a5ca3e346362409c143da82cb8c07a12
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574471"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488594"
 ---
 # <a name="what-is-azure-vmware-solution"></a>¿Qué es Azure VMware Solution?
 
@@ -44,7 +44,7 @@ Las actualizaciones periódicas del software de VMware y de la nube privada de A
 
 ## <a name="monitoring-your-private-cloud"></a>Supervisión de una nube privada
 
-Una vez que se ha implementado Azure VMware Solution en la suscripción, se generan [registros de Azure Monitor](../azure-monitor/overview.md) automáticamente. Además, puede recopilar registros en cada una de las máquinas virtuales dentro de la nube privada. Puede [descargar e instalar el agente de MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) en máquinas virtuales Linux y Windows que se ejecutan en las nubes privadas de Azure VMware Solution, así como habilitar la [extensión Azure Diagnostics](../azure-monitor/platform/diagnostics-extension-overview.md). Incluso puede ejecutar las mismas consultas que se ejecutan normalmente en las máquinas virtuales. Para más información sobre cómo crear consultas, consulte el apartado en que se indica [cómo escribir consultas](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries). Los patrones de supervisión dentro de Azure VMware Solution son similares a los de Azure Virtual Machines en la plataforma IaaS. Para información adicional y de procedimientos, consulte [Supervisión de máquinas virtuales de Azure con Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Una vez que se ha implementado Azure VMware Solution en la suscripción, se generan [registros de Azure Monitor](../azure-monitor/overview.md) automáticamente. Además, puede recopilar registros en cada una de las máquinas virtuales dentro de la nube privada. Puede [descargar e instalar el agente de MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) en máquinas virtuales Linux y Windows que se ejecutan en las nubes privadas de Azure VMware Solution, así como habilitar la [extensión Azure Diagnostics](../azure-monitor/platform/diagnostics-extension-overview.md). Incluso puede ejecutar las mismas consultas que se ejecutan normalmente en las máquinas virtuales. Para más información sobre la creación de consultas, consulte [Introducción a los registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md). Los patrones de supervisión dentro de Azure VMware Solution son similares a los de Azure Virtual Machines en la plataforma IaaS. Para información adicional y de procedimientos, consulte [Supervisión de máquinas virtuales de Azure con Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

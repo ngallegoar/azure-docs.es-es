@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76fd09b5e2c2540cbc1608558800e7897a6cf839
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898541"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375370"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo Decision Forest Regression (Regresión de bosque de decisión)
 
@@ -52,7 +52,7 @@ Para obtener más información sobre el marco teórico de este algoritmo y su im
 
     - **Replicate** (replicación): en la replicación, cada árbol se entrena exactamente con los mismos datos de entrada. La determinación de qué predicado de división se utiliza para cada nodo de árbol sigue siendo aleatoria y los árboles serán diversos.
 
-         Para obtener más información sobre el proceso de entrenamiento con la opción **Replicate** (Replicación), consulte [Bosques de decisión para Computer Vision y análisis de imágenes médicas. Criminisi y J. Shotton. Springer 2013. ](https://research.microsoft.com/projects/decisionforests/).
+         Para obtener más información sobre el proceso de entrenamiento con la opción **Replicate** (Replicación), consulte [Bosques de decisión para Computer Vision y análisis de imágenes médicas. Criminisi y J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/).
 
 3. Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).
 
@@ -67,7 +67,7 @@ Para obtener más información sobre el marco teórico de este algoritmo y su im
 4. Para **Number of decision trees** (Número de árboles de decisión), indique el número total de árboles de decisión que se creará en el conjunto. Si crea más árboles de decisión, puede obtener una cobertura potencialmente mejor, pero aumentará el tiempo de entrenamiento.
 
     > [!TIP]
-    > Este valor también controla el número de árboles que se muestran al visualizar el modelo entrenado. Si desea ver o imprimir un único árbol, puede establecer el valor en 1; sin embargo, esto significa que solo se producirá un único árbol (el árbol con el conjunto inicial de parámetros) y que no se realizarán más iteraciones.
+    > Si establece el valor en 1; sin embargo, esto significa que solo se generará un único árbol (el árbol con el conjunto inicial de parámetros) y que no se realizarán más iteraciones.
 
 5. En **Maximum depth of the decision trees** (Profundidad máxima de los árboles de decisión), escriba un número para limitar la profundidad máxima de cualquier árbol de decisión. Al aumentar la profundidad del árbol podría aumentar la precisión, a riesgo de que se produzca un sobreajuste y aumente el tiempo de entrenamiento.
 

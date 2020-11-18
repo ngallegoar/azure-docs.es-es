@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 54e6f4abd5ca6d15a4cc5a7bc9015abb005296a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013651"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369246"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Solución de problemas de grupos de capacidad
 
@@ -34,11 +34,14 @@ En este artículo se describen las resoluciones a las incidencias que puede tene
 | La creación o modificación del volumen ha fallado con el error `Requested throughput not available`. | El rendimiento disponible para un volumen lo determina el tamaño del grupo de capacidad y el nivel de servicio. Si no tiene suficiente rendimiento, debería aumentar el tamaño del grupo o ajustar el rendimiento del volumen existente. | 
 
 ## <a name="issues-moving-a-capacity-pool"></a>Incidencias al mover un grupo de capacidad 
+
+> [!IMPORTANT] 
+> El registro de versión preliminar de [Cambio dinámico del nivel de servicio de un volumen](dynamic-change-volume-service-level.md) está en espera hasta nuevo aviso.
+
 |     Condición de error    |     Resolución    |
 |-|-|
 | No se permite cambiar el grupo de capacidad para un volumen. | Es posible que no esté autorizado todavía para usar esta característica. <br> La característica para trasladar un volumen a otro grupo de capacidad está actualmente en versión preliminar. Si usa esta característica por primera vez, debe registrarla primero y establecer `-FeatureName ANFTierChange`. Vea los pasos de registro en [Cambio dinámico del nivel de servicio de un volumen](dynamic-change-volume-service-level.md). |
 | El tamaño del grupo de capacidad es demasiado pequeño para el tamaño total del volumen. |  El error se debe a que el grupo de capacidad de destino no tiene la capacidad disponible para el volumen que se está moviendo.  <br> Aumente el tamaño del grupo de destino o elija otro grupo más grande.  Vea [Cambiar el tamaño de un grupo de capacidad o de un volumen](azure-netapp-files-resize-capacity-pools-or-volumes.md).   |
-| No se puede mover un volumen cuando el grupo de capacidad de destino tiene un tipo de cifrado diferente del grupo de capacidad original.  Por ejemplo, cuando se mueve de un cifrado doble a uno único o viceversa.  | Seleccione un grupo de capacidad de destino con el mismo tipo de cifrado que el grupo de capacidad de origen.   |
 |  No se puede completar el cambio de grupo porque ya existe un volumen llamado `'{source pool name}'` en el grupo de destino `'{target pool name}'`. | Este error se produce porque el volumen con el mismo nombre ya existe en el grupo de capacidad de destino.  Seleccione otro grupo de capacidad que no tenga un volumen con el mismo nombre.   | 
 
 ## <a name="next-steps"></a>Pasos siguientes  

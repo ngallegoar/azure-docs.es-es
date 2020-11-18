@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 301bc64bee291fa25506e7f435e923be7e244cd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d083607782f96744ecbd7d23976f77ee53fec49d
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267523"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515576"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Escenario: Azure Firewall: personalizado
 
@@ -28,10 +28,10 @@ Para averiguar el número de tablas de rutas que se necesitarán, puede crear un
 
 | From           | A:      | *Redes virtuales*      | *Ramas*    | *Internet*   |
 |---             |---       |---           |---            |---           |
-| **Redes virtuales**      |   &#8594;|     X        |     AzFW      |     AzFW     |
-| **Ramas**   |   &#8594;|    AzFW      |       X       |       X      |
+| **Redes virtuales**      |   &#8594;|    Directo    |     AzFW      |     AzFW     |
+| **Ramas**   |   &#8594;|    AzFW      |    Directo     |    Directo    |
 
-En la tabla anterior, una "X" representa la conectividad directa entre dos conexiones sin que el tráfico atraviese Azure Firewall en Virtual WAN y "AzFW" indica que el flujo pasará por Azure Firewall. Dado que hay dos patrones de conectividad distintos en la matriz, se necesitarán dos tablas de rutas que se configurarán de la siguiente manera:
+En la tabla anterior, "Directo" representa la conectividad directa entre dos conexiones sin que el tráfico atraviese Azure Firewall en Virtual WAN y "AzFW" indica que el flujo pasará por Azure Firewall. Dado que hay dos patrones de conectividad distintos en la matriz, se necesitarán dos tablas de rutas que se configurarán de la siguiente manera:
 
 * Redes virtuales:
   * Tabla de rutas asociada: **RT_VNet**

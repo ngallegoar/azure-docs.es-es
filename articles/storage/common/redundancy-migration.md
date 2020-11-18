@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784225"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330298"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Cambio en la forma en que se replican las cuentas de almacenamiento
 
@@ -61,8 +61,8 @@ El cambio de la forma en que se replica la cuenta de almacenamiento no provoca u
 Para cambiar la opción de redundancia de la cuenta de almacenamiento en Azure Portal, siga estos pasos:
 
 1. Vaya a la cuenta de almacenamiento en Azure Portal.
-1. Seleccione el valor de **Configuración** .
-1. Actualice el valor de **Replicación** .
+1. Seleccione el valor de **Configuración**.
+1. Actualice el valor de **Replicación**.
 
 ![Captura de pantalla que muestra cómo cambiar la opción de replicación en el portal](media/redundancy-migration/change-replication-option.png)
 
@@ -123,26 +123,26 @@ La migración manual debe realizarse en los siguientes casos:
 
 Puede solicitar la migración en vivo mediante el [Portal de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). En el portal, seleccione la cuenta de almacenamiento que quiere convertir a ZRS.
 
-1. Seleccione **Nueva solicitud de soporte técnico** .
+1. Seleccione **Nueva solicitud de soporte técnico**.
 2. Complete los **aspectos básicos** según la información de su cuenta: 
-    - **Tipo de problema** : seleccione **Técnico** .
-    - **Servicio** : seleccione **Mis servicios** y **Administración de cuentas de almacenamiento** .
-    - **Recursos** : seleccione el recurso que quiera convertir a ZRS.
+    - **Tipo de problema**: seleccione **Técnico**.
+    - **Servicio**: seleccione **Mis servicios** y **Administración de cuentas de almacenamiento**.
+    - **Recursos**: seleccione el recurso que quiera convertir a ZRS.
 3. Seleccione **Next** (Siguiente).
-4. Especifique los siguientes valores en la sección **Problema** :
-    - **Gravedad** : deje el valor predeterminado tal cual.
-    - **Tipo de problema** : seleccione **Migración de datos** .
-    - **Categoría** : seleccione **Migración a ZRS** .
-    - **Título** : escriba un título descriptivo, por ejemplo, **migración de cuentas de ZRS** .
-    - **Detalles** : escriba información adicional en el cuadro **Detalles** ; por ejemplo, me gustaría migrar a ZRS desde [LRS, GRS] en la región \_\_.
+4. Especifique los siguientes valores en la sección **Problema**:
+    - **Gravedad**: deje el valor predeterminado tal cual.
+    - **Tipo de problema**: seleccione **Migración de datos**.
+    - **Categoría**: seleccione **Migración a ZRS**.
+    - **Título**: escriba un título descriptivo, por ejemplo, **migración de cuentas de ZRS**.
+    - **Detalles**: escriba información adicional en el cuadro **Detalles**; por ejemplo, me gustaría migrar a ZRS desde [LRS, GRS] en la región \_\_.
 5. Seleccione **Next** (Siguiente).
-6. Compruebe que la información de contacto sea correcta en la hoja **Información de contacto** .
-7. Seleccione **Crear** .
+6. Compruebe que la información de contacto sea correcta en la hoja **Información de contacto**.
+7. Seleccione **Crear**.
 
 Un responsable de soporte técnico se pondrá en contacto con usted para proporcionarle la asistencia que necesite.
 
 > [!NOTE]
-> La migración en vivo no se admite actualmente para recursos compartidos de archivos Prémium. Actualmente solo se admite copiar o mover datos manualmente.
+> Los recursos compartidos de archivos prémium (cuentas de FileStorage) solo están disponibles para LRS y ZRS.
 >
 > Las cuentas de almacenamiento de GZRS no admiten actualmente el nivel de archivo. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para más información.
 >
@@ -165,7 +165,7 @@ Las cuentas de almacenamiento de ZRS clásico también se pueden actualizar a ZR
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Para actualizar a ZRS en Azure Portal, vaya a las opciones de **Configuración** de la cuenta y elija **Actualizar** :
+Para actualizar a ZRS en Azure Portal, vaya a las opciones de **Configuración** de la cuenta y elija **Actualizar**:
 
 ![Actualización de ZRS clásico a ZRS en el portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 

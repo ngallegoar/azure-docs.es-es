@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 29f50b2cf9523b9266de2f73607b0099f32852e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005419"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506420"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configuración de una regla de límite de velocidad de Firewall de aplicaciones web con Azure PowerShell
 La regla de límite de frecuencia del firewall de aplicaciones web (WAF) de Azure para Azure Front Door controla el número de solicitudes permitidas desde clientes durante un minuto.
@@ -20,7 +20,10 @@ En este artículo se muestra cómo configurar una regla de límite de frecuencia
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+> [!NOTE]
+> Los límites de frecuencia se aplican para cada dirección IP de cliente. Si tiene varios clientes que acceden a su instancia de Front Door desde distintas direcciones IP, tendrán sus propios límites de frecuencia aplicados.
+
+## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar a configurar una directiva de limitación de velocidad, configure el entorno de PowerShell y cree un perfil de Front Door.
 ### <a name="set-up-your-powershell-environment"></a>Configuración del entorno de PowerShell
 Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para administrar los recursos de Azure. 
@@ -46,7 +49,7 @@ Install-Module -Name Az.FrontDoor
 ### <a name="create-a-front-door-profile"></a>Creación de un perfil de Front Door
 Para crear un perfil de Front Door siga las instrucciones que se describen en [Inicio rápido: Creación de un perfil de Front Door](../../frontdoor/quickstart-create-front-door.md)
 
-## <a name="define-url-match-conditions"></a>Definición de condiciones de coincidencia de URL
+## <a name="define-url-match-conditions"></a>Definición de condiciones de coincidencia de direcciones URL
 Defina una condición de coincidencia de URL (la URL contiene /promo) mediante [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
 En el ejemplo siguiente se define el elemento */promo* con el valor de la variable *RequestUri*:
 
@@ -73,9 +76,7 @@ Establezca un límite de volumen mediante [New AzFrontDoorWafCustomRuleObject](/
 
 Busque el nombre del grupo de recursos que contiene el perfil de Front Door que usan `Get-AzureRmResourceGroup`. A continuación, configure una directiva de seguridad con una regla de limitación de volumen personalizada mediante [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) en el grupo de recursos especificado que contiene el perfil de Front Door.
 
-En el ejemplo siguiente se usa el nombre de grupo de recursos *myResourceGroupFD1* con la suposición de que ha creado el perfil de Front Door mediante las instrucciones proporcionadas en el artículo [Inicio rápido: Creación de una instancia de Front Door](../../frontdoor/quickstart-create-front-door.md).
-
- mediante [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+En el ejemplo siguiente se usa el nombre de grupo de recursos *myResourceGroupFD1* con la suposición de que ha creado el perfil de Front Door mediante las instrucciones proporcionadas en el artículo [Inicio rápido: Cree un artículo de Front Door](../../frontdoor/quickstart-create-front-door.md), mediante [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
    $ratePolicy = New-AzFrontDoorWafPolicy `

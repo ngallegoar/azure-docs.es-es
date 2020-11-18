@@ -6,21 +6,20 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 78fbdbb91925bbe9954cc7a17e194de9c78c6389
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: seo-nov-2020
+ms.openlocfilehash: aaedca5acf7861db05f0ec724e05449316379829
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097352"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337549"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creación de contenedores y bases de datos de Azure Cosmos con rendimiento de escalabilidad automática
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB le permite establecer el rendimiento aprovisionado estándar (manual) o de escalabilidad automática en las bases de datos y contenedores. En este artículo se describen las ventajas y los casos de uso del rendimiento aprovisionado con escalabilidad automática. 
+En Azure Cosmos DB, puede configurar el rendimiento aprovisionado estándar (manual) o de escalado automático en las bases de datos y los contenedores. El rendimiento aprovisionado de escalado automático de Azure Cosmos DB permite **escalar el rendimiento (RU/s) de la base de datos o el contenedor de forma automática e instantánea**. El rendimiento se escala en función del uso, sin afectar a la disponibilidad, la latencia o el rendimiento de la carga de trabajo.
 
-El rendimiento aprovisionado con escalabilidad automática es adecuado para cargas de trabajo críticas que tienen patrones de tráfico variables o imprevisibles y requieren SLA para el alto rendimiento y la escala. 
-
-Con la escalabilidad automática, Azure Cosmos DB **escala automáticamente y de forma instantánea el rendimiento (RU/s)** de la base de datos o el contenedor en función del uso, sin afectar a la disponibilidad, la latencia o el rendimiento de la carga de trabajo. 
+El rendimiento aprovisionado con escalabilidad automática es adecuado para cargas de trabajo críticas que tienen patrones de tráfico variables o imprevisibles y requieren SLA para el alto rendimiento y la escala. En este artículo se describen las ventajas y los casos de uso del rendimiento aprovisionado con escalabilidad automática.
 
 ## <a name="benefits-of-autoscale"></a>Ventajas del escalado automático
 

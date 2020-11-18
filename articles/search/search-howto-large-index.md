@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 081f073fa4933d67604173d2169a7abdc3ac7c3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4f54aff78526ba52e56ed9f4cf1feddf40fa69b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403575"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358399"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Indexación de grandes conjuntos de datos en Azure Cognitive Search
 
@@ -27,7 +27,7 @@ En las secciones siguientes se exploran técnicas para indexar grandes cantidade
 
 ## <a name="use-the-push-api"></a>Uso de la API de inserción
 
-Cuando se insertan datos en un índice mediante la [API REST para agregar documentos](/rest/api/searchservice/addupdate-or-delete-documents) o el [método de índice](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index), hay varias consideraciones clave que afectan a la velocidad de indexación. Esos factores se describen en la siguiente sección y van desde el establecimiento de la capacidad del servicio a las optimizaciones de código.
+Cuando se insertan datos en un índice mediante la [API REST para agregar documentos](/rest/api/searchservice/addupdate-or-delete-documents) o el [método IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments), hay varias consideraciones clave que afectan a la velocidad de indexación. Esos factores se describen en la siguiente sección y van desde el establecimiento de la capacidad del servicio a las optimizaciones de código.
 
 Para más información y ejemplos de código que ilustran la indexación de modelos de inserción, consulte [Tutorial: Optimización de la indexación mediante la API de inserción](tutorial-optimize-indexing-push-api.md).
 
@@ -52,7 +52,7 @@ El esquema del índice desempeña un papel importante en la indexación de los d
 
 ### <a name="check-the-batch-size"></a>Comprobación del tamaño de lote
 
-Uno de los mecanismos más sencillos para la indización de un conjunto de datos más grande es enviar varios documentos o registros en una sola solicitud. Siempre y cuando la carga completa sea menor a 16 MB, una solicitud puede administrar hasta 1000 documentos en una operación de carga masiva. Estos límites se aplican tanto si usa la [API REST para agregar documentos](/rest/api/searchservice/addupdate-or-delete-documents) como el [método Index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) del SDK de .NET. Con cualquier API, se empaquetarían 1000 documentos en el cuerpo de cada solicitud.
+Uno de los mecanismos más sencillos para la indización de un conjunto de datos más grande es enviar varios documentos o registros en una sola solicitud. Siempre y cuando la carga completa sea menor a 16 MB, una solicitud puede administrar hasta 1000 documentos en una operación de carga masiva. Estos límites se aplican tanto si usa la [API REST para agregar documentos](/rest/api/searchservice/addupdate-or-delete-documents) como el [método IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments) del SDK de .NET. Con cualquier API, se empaquetarían 1000 documentos en el cuerpo de cada solicitud.
 
 El uso de lotes para indexar los documentos mejora significativamente el rendimiento de la indexación. Determinar el tamaño de lote óptimo para los datos es un aspecto fundamental de la optimización de las velocidades de indexación. Los dos principales aspectos que influyen en el tamaño de lote óptimo son:
 

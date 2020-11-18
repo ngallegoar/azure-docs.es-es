@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: a3d7386e976551d70fbbc08930b2ab5603aa5d50
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 11/06/2020
+ms.openlocfilehash: 4070f373175f3497156ced011a57e2ed7bd6e770
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269053"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364265"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -288,7 +288,7 @@ La [definición de recursos del flujo de trabajo de la aplicación lógica de un
 * El identificador de cualquier cuenta de integración que use la aplicación lógica
 * La definición de flujo de trabajo de la aplicación lógica
 * Un objeto `parameters` que establece los valores que se van a usar en tiempo de ejecución
-* Otra información sobre los recursos de la aplicación lógica, como el nombre, el tipo, la ubicación, etc.
+* Otra información sobre los recursos de la aplicación lógica, como el nombre, el tipo, la ubicación, cualquier valor de configuración del entorno de ejecución, etc.
 
 ```json
 {
@@ -307,7 +307,8 @@ La [definición de recursos del flujo de trabajo de la aplicación lógica de un
             },
             "definition": {<workflow-definition>},
             "parameters": {<workflow-definition-parameter-values>},
-            "accessControl": {}
+            "accessControl": {},
+            "runtimeConfiguration": {}
          },
          "name": "[parameters('LogicAppName')]", // Template parameter reference
          "type": "Microsoft.Logic/workflows",
@@ -334,7 +335,8 @@ Estos son los atributos que son específicos de la definición de recursos de la
 | `definition` | Sí | Object | La definición de flujo de trabajo subyacente de la aplicación lógica, que es el mismo objeto que aparece en la vista de código y se describe detalladamente en el tema [Referencia de esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md). En esta definición de flujo de trabajo, el objeto `parameters` declara los parámetros de los valores que se van a usar en el tiempo de ejecución de la aplicación lógica. Para obtener más información, consulte [Definición y parámetros del flujo de trabajo](#workflow-definition-parameters). <p><p>Para ver los atributos de la definición de flujo de trabajo de la aplicación lógica, cambie de la "vista de diseño" a la "vista de código" en Azure Portal o Visual Studio, o mediante una herramienta como [Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | No | Object | [Valores del parámetro de definición de flujo de trabajo](#workflow-definition-parameters) que se usarán en el tiempo de ejecución de la aplicación lógica. Las definiciones de los parámetros de estos valores se muestran dentro del [objeto de parámetros de la definición de flujo de trabajo](#workflow-definition-parameters). Además, si la aplicación lógica usa [conectores administrados](../connectors/apis-list.md) para acceder a otros servicios y sistemas, este objeto incluye un objeto `$connections` que establece los valores de conexión que se usarán en tiempo de ejecución. |
 | `accessControl` | No | Object | Se usa para especificar los atributos de seguridad de la aplicación lógica, por ejemplo, para restringir el acceso IP a los desencadenadores de solicitud o ejecutar entradas y salidas del historial. Para obtener más información, consulte [Protección del acceso a las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md). |
-||||
+| `runtimeConfiguration` | No | Object | Para especificar las propiedades `operationOptions` que controlan la forma en que se comporta su aplicación lógica en el entorno de ejecución. Por ejemplo, puede ejecutar la aplicación lógica en [modo de alto rendimiento](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode). |
+|||||
 
 Para más información sobre las definiciones de recursos para estos objetos de Logic Apps, vea [Tipos de recursos de Microsoft.Logic](/azure/templates/microsoft.logic/allversions):
 
@@ -437,7 +439,7 @@ En esta sintaxis se muestra dónde puede declarar parámetros en los niveles de 
 }
 ```
 
-<a name="secure-workflow-definition-parmameters"></a>
+<a name="secure-workflow-definition-parameters"></a>
 
 ### <a name="secure-workflow-definition-parameters"></a>Protección de los parámetros de definición de flujo de trabajo
 

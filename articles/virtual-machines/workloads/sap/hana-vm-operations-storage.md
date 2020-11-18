@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/26/2020
+ms.date: 11/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0861d1fd3ab2a378f0b9afc4e8b35b32badfc3db
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bbaa9d33d3a31b682a66b2a3254fc2265b6f8d7b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670673"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357084"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -37,7 +37,7 @@ Azure ofrece dos métodos de implementación de VHD en Azure Standard Storage y 
 Para obtener una lista de tipos de almacenamiento y sus Acuerdos de Nivel de Servicio sobre IOPS y rendimiento del almacenamiento, revise la [documentación de Azure para Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 > [!IMPORTANT]
-> Independientemente del tipo de almacenamiento de Azure elegido, el sistema de archivos que se usa en ese almacenamiento debe ser compatible con SAP para el sistema operativo y el DBMS específicos. La [nota de compatibilidad 405827 de SAP](https://launchpad.support.sap.com/#/notes/405827) enumera los sistemas de archivos admitidos para los diferentes sistemas operativos y bases de datos, incluido SAP HANA. Esto se aplica a todos los volúmenes SAP HANA con acceso de lectura y escritura para cualquier tarea. Especialmente si usa NFS en Azure para SAP HANA, se aplican restricciones adicionales de versiones de NFS como se indica más adelante en este artículo. 
+> Independientemente del tipo de almacenamiento de Azure elegido, el sistema de archivos que se usa en ese almacenamiento debe ser compatible con SAP para el sistema operativo y el DBMS específicos. La [nota de compatibilidad 2972496 de SAP](https://launchpad.support.sap.com/#/notes/2972496) enumera los sistemas de archivos admitidos para los diferentes sistemas operativos y bases de datos, incluido SAP HANA. Esto se aplica a todos los volúmenes SAP HANA con acceso de lectura y escritura para cualquier tarea. Especialmente si usa NFS en Azure para SAP HANA, se aplican restricciones adicionales de versiones de NFS como se indica más adelante en este artículo. 
 
 
 Las condiciones de certificación mínimas de SAP HANA para los diferentes tipos de almacenamiento son: 
@@ -46,7 +46,7 @@ Las condiciones de certificación mínimas de SAP HANA para los diferentes tipos
 - Disco Ultra de Azure al menos para el volumen **/hana/log**. El volumen **/hana/data** se puede colocar en el Premium Storage sin el Acelerador de escritura de Azure o en un disco Ultra para obtener un tiempo de reinicio más rápido.
 - Volúmenes de **NFS v4.1** sobre Azure NetApp Files para **/hana/log y /hana/data**. El volumen de /hana/shared puede usar el protocolo NFS v3 o NFS v 4.1.
 
-Algunos de los tipos de almacenamiento se pueden combinar. Por ejemplo, es posible colocar **/hana/data** en Premium Storage y **/hana/log** se puede colocar en un almacenamiento en disco Ultra para obtener la baja latencia necesaria. Si usa un volumen basado en ANF para **/hana/data** , el volumen **/hana/log** se debe basar también en NFS, además de en ANF. **No se admite** el uso de NFS sobre ANF para uno de los volúmenes (como /hana/data) y Azure Premium Storage o almacenamiento en disco Ultra para el otro volumen (como **/hana/log** ).
+Algunos de los tipos de almacenamiento se pueden combinar. Por ejemplo, es posible colocar **/hana/data** en Premium Storage y **/hana/log** se puede colocar en un almacenamiento en disco Ultra para obtener la baja latencia necesaria. Si usa un volumen basado en ANF para **/hana/data**, el volumen **/hana/log** se debe basar también en NFS, además de en ANF. **No se admite** el uso de NFS sobre ANF para uno de los volúmenes (como /hana/data) y Azure Premium Storage o almacenamiento en disco Ultra para el otro volumen (como **/hana/log**).
 
 En el mundo local, casi nunca ha tenido que preocuparse sobre los subsistemas de E/S y sus funcionalidades. El motivo era que el proveedor de las aplicaciones tenía que asegurarse de que se cumplieran los requisitos de almacenamiento mínimo para SAP HANA. Mientras crea la infraestructura de Azure, debe tener en cuenta algunos de estos requisitos que emite SAP. Algunas de las características de rendimiento mínimas que recomienda SAP son:
 
@@ -87,10 +87,10 @@ Las recomendaciones de almacenamiento en caché para los siguientes discos Premi
 
 **Recomendación: Como resultado de estos patrones de E/S observados por SAP HANA, debe establecer el almacenamiento en caché de los diferentes volúmenes con Azure Premium Storage como sigue:**
 
-- **/hana/data** : sin almacenamiento en caché ni almacenamiento en caché de lectura
-- **/hana/log** : Sin almacenamiento en caché. Excepción para las VM de las series M y Mv2, en las que el Acelerador de escritura de Azure debe estar habilitado. 
-- **/hana/shared** : almacenamiento en caché de lecturas
-- **Disco de SO** : no cambie el almacenamiento en caché predeterminado establecido por Azure en el momento de la creación de la VM.
+- **/hana/data**: sin almacenamiento en caché ni almacenamiento en caché de lectura
+- **/hana/log**: Sin almacenamiento en caché. Excepción para las VM de las series M y Mv2, en las que el Acelerador de escritura de Azure debe estar habilitado. 
+- **/hana/shared**: almacenamiento en caché de lecturas
+- **Disco de SO**: no cambie el almacenamiento en caché predeterminado establecido por Azure en el momento de la creación de la VM.
 
 
 Si usa LVM o mdadm para crear conjuntos de franjas en varios discos Premium de Azure, debe definir tamaños de franja. Estos tamaños difieren entre **/hana/data** y **/hana/log**. **Recomendación: En cuanto a tamaños de franja, la recomendación es usar:**
@@ -179,8 +179,8 @@ For the other volumes, the configuration would look like:
 
 | SKU de la máquina virtual | RAM | Máx. E/S de VM<br /> Throughput | /hana/shared | /root volume | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts | 192 GiB | 500 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
-| M32ls | 256 GiB | 500 MBps |  1 x P20 | 1 x P6 | 1 x P6 |
+| M32ts | 192 GiB | 500 MBps | 1 x P15 | 1 x P6 | 1 x P6 |
+| M32ls | 256 GiB | 500 MBps |  1 x P15 | 1 x P6 | 1 x P6 |
 | M64ls | 512 GB | 1000 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
 | M64s | 1000 GiB | 1000 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
 | M64ms | 1750 GiB | 1000 MBps | 1 x P30 | 1 x P6 | 1 x P6 | 
@@ -192,7 +192,7 @@ For the other volumes, the configuration would look like:
 | M416ms_v2 | 11 400 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
 
 
-Compruebe si el rendimiento del almacenamiento para los diferentes volúmenes sugeridos se adapta a la carga de trabajo que se va a ejecutar. Si la carga de trabajo requiere volúmenes mayores para **/hana/data** y **/hana/log** , debe aumentar el número de VHD de Azure Premium Storage. Ajustar el tamaño de un volumen con más discos duros virtuales de los que se enumeran, aumenta el IOPS y el rendimiento de E/S dentro de los límites del tipo de máquina virtual de Azure.
+Compruebe si el rendimiento del almacenamiento para los diferentes volúmenes sugeridos se adapta a la carga de trabajo que se va a ejecutar. Si la carga de trabajo requiere volúmenes mayores para **/hana/data** y **/hana/log**, debe aumentar el número de VHD de Azure Premium Storage. Ajustar el tamaño de un volumen con más discos duros virtuales de los que se enumeran, aumenta el IOPS y el rendimiento de E/S dentro de los límites del tipo de máquina virtual de Azure.
 
 El Acelerador de escritura de Azure solo funciona en conjunto con [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Así pues, al menos los discos de Azure Premium Storage que forman el volumen **/hana/log** deben implementarse como discos administrados. Puede encontrar instrucciones y restricciones del Acelerador de escritura de Azure en el artículo [Acelerador de escritura](../../how-to-enable-write-accelerator.md).
 

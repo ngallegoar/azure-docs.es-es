@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 8d067d30220c76de5617aab2c42365351888d744
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780026"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505672"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introducción a la auditoría de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
       > - Si la cuenta de almacenamiento está detrás de una Virtual Network o un firewall, consulte [conceder acceso desde una red virtual](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network).
       > - Si cambia el período de retención de 0 (retención ilimitada) a cualquier otro valor, tenga en cuenta que la retención solo se aplicará a los registros escritos una vez cambiado el valor de retención (los registros escritos durante el período en el que la retención se estableció en ilimitada se conservan, incluso después de habilitarse la retención).
 
-   1. En la cuenta de almacenamiento, vaya a **Información general** y haga clic en **Blobs** .
+   1. En la cuenta de almacenamiento, vaya a **Información general** y haga clic en **Blobs**.
 
       ![Widget de blobs de Azure](./media/auditing-configure/1_blobs_widget.png)
 
@@ -50,7 +50,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
       ![Icono Crear contenedor de blobs](./media/auditing-configure/2_create_container_button.png)
 
-   1. En **Nombre** proporcione un nombre de contenedor, establezca **Nivel de acceso público** en **Privado** y haga clic en **Aceptar** .
+   1. En **Nombre** proporcione un nombre de contenedor, establezca **Nivel de acceso público** en **Privado** y haga clic en **Aceptar**.
 
       ![Configuración de la opción Crear contenedor de blobs](./media/auditing-configure/3_create_container_config.png)
 
@@ -59,9 +59,9 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
   
 3. Después de crear el contenedor para los registros de auditoría, hay dos maneras de configurarlo como destino de los registros de auditoría: [mediante T-SQL](#blobtsql) o [mediante la interfaz de usuario de SQL Server Management Studio (SSMS)](#blobssms):
 
-   - <a id="blobtsql"></a>Configuración del almacenamiento de blobs para los registros de auditoría con T-SQL:
+   - <a id="blobtsql"></a>**Configuración del almacenamiento de blobs para los registros de auditoría con T-SQL:**
 
-     1. En la lista de contenedores, haga clic en el contenedor recién creado y luego en **Propiedades del contenedor** .
+     1. En la lista de contenedores, haga clic en el contenedor recién creado y luego en **Propiedades del contenedor**.
 
         ![Botón Propiedades del contenedor de blobs](./media/auditing-configure/4_container_properties_button.png)
 
@@ -73,22 +73,22 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
         - Vaya a la cuenta de Azure Storage donde se creó el contenedor en el paso anterior.
 
-        - Haga clic en **Firma de acceso compartido** en el menú **Configuración de Storage** .
+        - Haga clic en **Firma de acceso compartido** en el menú **Configuración de Storage**.
 
           ![Icono de Firma de acceso compartido en el menú Configuración de Storage](./media/auditing-configure/6_storage_settings_menu.png)
 
         - Configure SAS de la siguiente manera:
 
-          - **Servicios permitidos** : Blob
+          - **Servicios permitidos**: Blob
 
-          - **Fecha de inicio** : para evitar problemas relacionados con la zona horaria, se recomienda usar la fecha de ayer.
+          - **Fecha de inicio**: para evitar problemas relacionados con la zona horaria, se recomienda usar la fecha de ayer.
 
-          - **Fecha de finalización** : elija la fecha en que expira este token de SAS.
+          - **Fecha de finalización**: elija la fecha en que expira este token de SAS.
 
             > [!NOTE]
             > Renueve el token tras la expiración para evitar errores de auditoría.
 
-          - Haga clic en **Generar SAS** .
+          - Haga clic en **Generar SAS**.
 
             ![Configuración de SAS](./media/auditing-configure/7_sas_configure.png)
 
@@ -118,19 +118,19 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
         GO
         ```
 
-        Continúe con la [creación de una especificación de auditoría de servidor o de auditoría de base de datos](#createspec).
+     1. Continúe con la [creación de una especificación de auditoría de servidor o de auditoría de base de datos](#createspec).
 
-   - <a id="blobssms"></a>Configuración del almacenamiento de blobs para los registros de auditoría mediante SQL Server Management Studio 18 (versión preliminar):
+   - <a id="blobssms"></a>**Configuración del almacenamiento de blobs para los registros de auditoría mediante SQL Server Management Studio 18:**
 
      1. Conéctese a la instancia administrada mediante la interfaz de usuario de SQL Server Management Studio.
 
      1. Expanda la nota de raíz de Explorador de objetos.
 
-     1. Expanda el nodo **Seguridad** , haga clic con el botón derecho en el nodo **Auditorías** y haga clic en **Nueva auditoría** :
+     1. Expanda el nodo **Seguridad**, haga clic con el botón derecho en el nodo **Auditorías** y haga clic en **Nueva auditoría**:
 
         ![Expandir nodo security y audit](./media/auditing-configure/10_mi_SSMS_new_audit.png)
 
-     1. Asegúrese de que la opción **URL** está seleccionada en **Destino de auditoría** y haga clic en **Examinar** :
+     1. Asegúrese de que la opción **URL** está seleccionada en **Destino de auditoría** y haga clic en **Examinar**:
 
         ![Examinar Azure Storage](./media/auditing-configure/11_mi_SSMS_audit_browse.png)
 
@@ -138,13 +138,13 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
         ![Inicio de sesión en Azure](./media/auditing-configure/12_mi_SSMS_sign_in_to_azure.png)
 
-     1. Seleccione una suscripción, la cuenta de almacenamiento y el contenedor de blobs en los menús desplegables o cree su propio contenedor. Para ello, haga clic en **Crear** . Cuando haya terminado, haga clic en **Aceptar** :
+     1. Seleccione una suscripción, la cuenta de almacenamiento y el contenedor de blobs en los menús desplegables o cree su propio contenedor. Para ello, haga clic en **Crear**. Cuando haya terminado, haga clic en **Aceptar**:
 
         ![Seleccionar la suscripción de Azure, la cuenta de almacenamiento y el contenedor de blobs](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
-     1. Haga clic en **Aceptar** en el cuadro de diálogo **Crear auditoría** .
-
-4. <a id="createspec"></a>Después de configurar el contenedor de blobs como destino para los registros de auditoría, cree y habilite una especificación de auditoría de servidor o de base de datos como lo haría para SQL Server:
+     1. Haga clic en **Aceptar** en el cuadro de diálogo **Crear auditoría**.
+     
+     1. <a id="createspec"></a>Después de configurar el contenedor de blobs como destino para los registros de auditoría, cree y habilite una especificación de auditoría de servidor o de base de datos como lo haría para SQL Server:
 
    - [Guía de T-SQL de creación de la especificación de auditoría de servidor](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Guía de T-SQL de creación de la especificación de auditoría](/sql/t-sql/statements/create-database-audit-specification-transact-sql)
@@ -169,15 +169,15 @@ Los registros de auditoría de una instancia administrada se pueden enviar a Azu
 
 1. En [Azure Portal ](https://portal.azure.com/), vaya a la instancia administrada.
 
-2. Haga clic en **Configuración de diagnóstico** .
+2. Haga clic en **Configuración de diagnóstico**.
 
-3. Haga clic en **Activar diagnóstico** . Si ya está habilitado el diagnóstico, se mostrará **+Agregar configuración de diagnóstico** .
+3. Haga clic en **Activar diagnóstico**. Si ya está habilitado el diagnóstico, se mostrará **+Agregar configuración de diagnóstico**.
 
 4. Seleccione **SQLSecurityAuditEvents** en la lista de registros.
 
 5. Seleccione un destino para los eventos de auditoría: Event Hubs, registros de Azure Monitor o ambos. Configure los parámetros necesarios (por ejemplo, el área de trabajo de Log Analytics) en cada destino.
 
-6. Haga clic en **Save** (Guardar).
+6. Haga clic en **Save**(Guardar).
 
     ![Configuración de valores de diagnóstico](./media/auditing-configure/9_mi_configure_diagnostics.png)
 
@@ -221,7 +221,7 @@ Para consumir datos de registros de auditoría desde Event Hubs, deberá configu
 
 ### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consumo y análisis de los registros almacenados en los registros de Azure Monitor
 
-Si se escriben registros de auditoría en registros de Azure Monitor, estarán disponibles en el área de trabajo de Log Analytics, donde podrá ejecutar búsquedas avanzadas en los datos de auditoría. Como punto de partida, vaya al área de trabajo de Log Analytics. En la sección **General** , haga clic en **Registros** y escriba una consulta simple, como `search "SQLSecurityAuditEvents"` para ver los registros de auditoría.  
+Si se escriben registros de auditoría en registros de Azure Monitor, estarán disponibles en el área de trabajo de Log Analytics, donde podrá ejecutar búsquedas avanzadas en los datos de auditoría. Como punto de partida, vaya al área de trabajo de Log Analytics. En la sección **General**, haga clic en **Registros** y escriba una consulta simple, como `search "SQLSecurityAuditEvents"` para ver los registros de auditoría.  
 
 Los registros de Azure Monitor proporcionan conclusiones operativas en tiempo real gracias a uso de paneles personalizados y de búsqueda integrados para analizar fácilmente millones de registros en todas las cargas de trabajo y servidores. Para información útil adicional sobre los comandos y el lenguaje de búsqueda de registros de Azure Monitor, consulte la [referencia de búsqueda de registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
@@ -241,8 +241,8 @@ Las principales diferencias en la sintaxis de `CREATE AUDIT` para la auditoría 
 - Se proporciona una nueva sintaxis `TO URL` que permite especificar la dirección URL del contenedor de Azure Blob Storage donde se colocarán los archivos `.xel`.
 - Se proporciona una nueva sintaxis `TO EXTERNAL MONITOR` para habilitar los destinos de registro de Event Hubs y Azure Monitor.
 - La sintaxis `TO FILE` **no se admite** porque Instancia administrada de Azure SQL no pueda acceder a los recursos compartidos de archivos de Windows.
-- La opción de apagado **no se admite** .
-- `queue_delay` de 0 **no se admite** .
+- La opción de apagado **no se admite**.
+- `queue_delay` de 0 **no se admite**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,15 +3,15 @@ title: 'Instalación de paquetes de idioma en VM con Windows 10 en Windows Virt
 description: Procedimiento para instalar paquetes de idioma para VM multisesión con Windows 10 en Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 11/06/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fbc2aba21212a83bd73d5664f4fe288017954c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d79d08e3f6ed422f0354074ebc6e0acc125553
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084216"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354043"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Adición de paquetes de idioma a una imagen multisesión de Windows 10
 
@@ -43,6 +43,11 @@ Necesita lo siguiente para personalizar las imágenes multisesión de Windows 1
      - Archivo ISO de aplicaciones de bandeja de entrada:
         - [Archivo ISO de aplicaciones de bandeja de entrada de Windows 10, versión 1903 o 1909](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Archivo ISO de aplicaciones de bandeja de entrada de Windows 10, versión 2004](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
+        - [Archivo ISO de aplicaciones de bandeja de entrada de Windows 10, versión 20H2](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+     
+     - Si usa Windows 10, versión 2004 o 20H2, puede usar los archivos ISO de paquete de experiencia local (LXP) para descargar nuevos idiomas. Use la información del artículo [Adición de idiomas en Windows 10: problemas conocidos](/windows-hardware/manufacture/desktop/language-packs-known-issue) para saer si debe descargar la versión 9B o 9C:
+        - [Windows 10, versión 2004 o 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+        - [Windows 10, versión 2004 o 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY) 
 
 - Un recurso compartido de Azure Files o un recurso compartido de archivos en una máquina virtual del servidor de archivos de Windows
 

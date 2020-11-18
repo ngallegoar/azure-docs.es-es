@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49a4ab0315dad539a594a20e53eae9fd2890e551
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760519"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504975"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas de habilitación de Application Insights Snapshot Debugger o ver instantáneas
 Si habilitó Application Insights Snapshot Debugger para la aplicación, pero no puede ver las instantáneas para las excepciones, puede usar estas instrucciones para solucionar problemas. Puede haber muchas razones diferentes de por qué no se generan las instantáneas. Puede ejecutar la comprobación de estado de instantáneas para identificar algunas de las posibles causas comunes.
@@ -57,19 +57,21 @@ Para comprobar la configuración, abra el archivo web.config y busque la secció
 > Si targetFramework es 4.7 o superior, Windows determina los protocolos disponibles. En Azure App Service, está disponible TLS 1.2. Sin embargo, si usa su propia máquina virtual, es posible que tenga que habilitar TLS 1.2 en el sistema operativo.
 
 ## <a name="preview-versions-of-net-core"></a>Versiones preliminares de .NET Core
-Si la aplicación usa una versión preliminar de .NET Core y Snapshot Debugger se ha habilitado mediante el [panel de Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) del portal, puede que Snapshot Debugger no se inicie. Siga primero las instrucciones del artículo sobre la [Habilitación de Snapshot Debugger para otros entornos](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) para incluir el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) con la aplicación ***además de*** habilitarlo mediante el [panel de Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Si la aplicación usa una versión preliminar de .NET Core y Snapshot Debugger se ha habilitado mediante el [panel de Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) del portal, puede que Snapshot Debugger no se inicie. Siga primero las instrucciones del artículo sobre la [Habilitación de Snapshot Debugger para otros entornos](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) para incluir el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) con la aplicación ***además de** _ habilitarlo mediante el [panel de Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Actualización a la versión más reciente del paquete NuGet
 
 Si se habilitó Snapshot Debugger con el [panel Application Insights en el portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), la aplicación ya debería estar ejecutando el paquete NuGet más reciente. Si se habilitó Snapshot Debugger mediante la inclusión del paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector), use el administrador de paquetes NuGet de Visual Studio para asegurarse de que usa la versión más reciente de Microsoft.ApplicationInsights.SnapshotCollector.
 
+Para obtener las actualizaciones y correcciones de errores más recientes, [consulte las notas de la versión](./snapshot-collector-release-notes.md).
+
 ## <a name="check-the-uploader-logs"></a>Comprobar los registros de usuario de carga
 
 Después de crear una instantánea, se crea un archivo de minivolcado (.dmp) en el disco. Un proceso de usuario de carga independiente crea ese archivo de minivolcado y lo carga, junto con los archivos PDB asociados, en el almacenamiento de Snapshot Debugger de Application Insights. Después de cargar correctamente el minivolcado, se elimina del disco. Los archivos de registro del proceso de usuario de carga se conservan en el disco. En un entorno de App Service, puede encontrar estos registros en `D:\Home\LogFiles`. Use el sitio de administración de Kudu para App Service para buscar estos archivos de registro.
 
 1. Abra la aplicación App Service en Azure Portal.
-2. Haga clic en **Herramientas avanzadas** o busque **Kudu**.
+2. Haga clic en _*Herramientas avanzadas** o busque **Kudu**.
 3. Haga clic en **Ir**.
 4. En el cuadro de lista desplegable **Consola de depuración**, seleccione **CMD**.
 5. Haga clic en **LogFiles**.

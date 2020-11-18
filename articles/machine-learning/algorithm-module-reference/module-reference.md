@@ -1,6 +1,6 @@
 ---
 title: Referencia de módulos y algoritmos
-description: Obtenga información sobre los módulos disponibles en el diseñador de Azure Machine Learning
+description: Obtenga información sobre los módulos del diseñador de Azure Machine Learning que puede usar para crear sus propios proyectos de aprendizaje automático.
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/19/2020
-ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 89ad9aae7c0d01971bbcfc7e392cb9d455ef85cd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886399"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376849"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning
 
@@ -45,7 +45,7 @@ Para obtener ayuda con la elección de algoritmos, consulte
 | --- |--- | --- |
 | Regresión | Prediga un valor. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) (Regresión del árbol de decisión ampliado) <br/> [Regresión de bosque de decisión](decision-forest-regression.md) <br/> [Regresión rápida de bosque por cuantiles](fast-forest-quantile-regression.md)  <br/> [Regresión lineal](linear-regression.md)  <br/> [Regresión de red neuronal](neural-network-regression.md)  <br/> [Regresión de Poisson](poisson-regression.md)  <br/>|
 | Agrupación en clústeres | Agrupe datos.| [Agrupación en clústeres K-Means](k-means-clustering.md)
-| clasificación | Prediga una clase.  Elija en algoritmos binarios (dos clases) o multiclase.| [Árbol de decisión ampliado multiclase](multiclass-boosted-decision-tree.md) <br/> [Bosque de decisión multiclase](multiclass-decision-forest.md) <br/> [Regresión logística multiclase](multiclass-logistic-regression.md)  <br/> [Red neuronal multiclase](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) (Multiclase uno frente a todos) <br/> [Perceptrón promedio de dos clases](two-class-averaged-perceptron.md) <br/>  [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md) (Árbol de decisión promovido por dos clases)  <br/> [Bosque de decisión de dos clases](two-class-decision-forest.md) <br/>  [Regresión logística de dos clases](two-class-logistic-regression.md) <br/> [Red neuronal de dos clases](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) (Máquina de vectores compatible con dos clases) | 
+| clasificación | Prediga una clase.  Elija en algoritmos binarios (dos clases) o multiclase.| [Árbol de decisión ampliado multiclase](multiclass-boosted-decision-tree.md) <br/> [Bosque de decisión multiclase](multiclass-decision-forest.md) <br/> [Regresión logística multiclase](multiclass-logistic-regression.md)  <br/> [Red neuronal multiclase](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) (Multiclase uno frente a todos) <br/> [Uno contra One Multiclass](one-vs-one-multiclass.md) <br/>[Perceptrón promedio de dos clases](two-class-averaged-perceptron.md) <br/>  [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md) (Árbol de decisión promovido por dos clases)  <br/> [Bosque de decisión de dos clases](two-class-decision-forest.md) <br/>  [Regresión logística de dos clases](two-class-logistic-regression.md) <br/> [Red neuronal de dos clases](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) (Máquina de vectores compatible con dos clases) | 
 
 ## <a name="modules-for-building-and-evaluating-models"></a>Módulos para compilar y evaluar modelos
 

@@ -4,12 +4,12 @@ description: Cómo desarrollar funciones de Azure con C#.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 19edfaf7998632ed1ebb48ff4ad36468669732ae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167753"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380970"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
 
@@ -139,7 +139,7 @@ El proceso de compilación crea un archivo *function.json* en una carpeta de la 
 
 El propósito de este archivo es proporcionar información al controlador de escala que se usará para [escalar decisiones en el plan de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Por esta razón, el archivo solo tiene información del desencadenador, no sobre los enlaces de entrada o salida.
 
-El archivo *function.json* generado incluye una propiedad `configurationSource` que indica el tiempo de ejecución para utilizar atributos de .NET para los enlaces, en lugar de la configuración de *function.json* . Este es un ejemplo:
+El archivo *function.json* generado incluye una propiedad `configurationSource` que indica el tiempo de ejecución para utilizar atributos de .NET para los enlaces, en lugar de la configuración de *function.json*. Este es un ejemplo:
 
 ```json
 {
@@ -199,7 +199,7 @@ El código fuente de `Microsoft.NET.Sdk.Functions` está disponible en el reposi
 
 Visual Studio usa [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) para ejecutar proyectos de Functions. Core Tools es una interfaz de línea de comandos para Functions Runtime.
 
-Core Tools se instala mediante npm, que no afecta a la versión de Core Tools que Visual Studio utiliza. Para la versión 1.x de Functions Runtime, Visual Studio almacena Core Tools en *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* y utiliza la versión más reciente almacenada allí. Para Functions 2.x, Core Tools se incluye en la extensión **Azure Functions and Web Jobs Tools** . Para 1.x y 2.x, puede ver qué versión se usa en la salida de la consola cuando se ejecuta un proyecto de Functions:
+Core Tools se instala mediante npm, que no afecta a la versión de Core Tools que Visual Studio utiliza. Para la versión 1.x de Functions Runtime, Visual Studio almacena Core Tools en *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* y utiliza la versión más reciente almacenada allí. Para Functions 2.x, Core Tools se incluye en la extensión **Azure Functions and Web Jobs Tools**. Para 1.x y 2.x, puede ver qué versión se usa en la salida de la consola cuando se ejecuta un proyecto de Functions:
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
@@ -565,7 +565,7 @@ public static class EnvironmentVariablesExample
 }
 ```
 
-La configuración de la aplicación se puede leer de las variables de entorno tanto cuando se desarrolla de manera local como cuando se ejecuta en Azure. Cuando se desarrolla de manera local, la configuración de la aplicación procede de la colección `Values` en el archivo *local.settings.json* . En ambos entornos, tanto local como Azure, `GetEnvironmentVariable("<app setting name>")` recupera el valor de la configuración de aplicación con nombre. Por ejemplo, cuando se ejecuta de manera local, se devolvería "My Site Name" si el archivo *local.settings.json* contiene `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
+La configuración de la aplicación se puede leer de las variables de entorno tanto cuando se desarrolla de manera local como cuando se ejecuta en Azure. Cuando se desarrolla de manera local, la configuración de la aplicación procede de la colección `Values` en el archivo *local.settings.json*. En ambos entornos, tanto local como Azure, `GetEnvironmentVariable("<app setting name>")` recupera el valor de la configuración de aplicación con nombre. Por ejemplo, cuando se ejecuta de manera local, se devolvería "My Site Name" si el archivo *local.settings.json* contiene `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
 La propiedad [System.Configuration.ConfigurationManager.AppSettings](/dotnet/api/system.configuration.configurationmanager.appsettings) es una API alternativa para obtener los valores de configuración de la aplicación, pero se recomienda que use `GetEnvironmentVariable` como se muestra aquí.
 

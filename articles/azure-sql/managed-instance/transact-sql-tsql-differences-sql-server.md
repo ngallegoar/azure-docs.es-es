@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 06/02/2020
+ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 873bebc462ce4756d38f966a87edda167bd49501
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790617"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506386"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -114,7 +114,7 @@ Una Instancia administrada de SQL no puede acceder a los recursos compartidos de
 
 Consulte [CREATE CERTIFICATE](/sql/t-sql/statements/create-certificate-transact-sql) y [BACKUP CERTIFICATE](/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Solución alternativa** : En lugar de crear una copia de seguridad del certificado y restaurar la copia de seguridad, [obtenga el contenido binario del certificado y la clave privada, almacénelo como archivo .sql y cree a partir del binario](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
+**Solución alternativa**: En lugar de crear una copia de seguridad del certificado y restaurar la copia de seguridad, [obtenga el contenido binario del certificado y la clave privada, almacénelo como archivo .sql y cree a partir del binario](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -158,6 +158,8 @@ Una Instancia administrada de SQL no puede acceder a archivos, por lo que no se 
 
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
+
+  - Para suplantar a un usuario con la instrucción EXECUTE AS, el usuario se debe asignar directamente a la entidad de seguridad (inicio de sesión) del servidor de Azure AD. Los usuarios que son miembros de grupos de Azure AD asignados a entidades de seguridad del servidor de Azure AD no se pueden suplantar eficazmente con la instrucción EXECUTE AS, aunque el autor de la llamada tenga permisos de suplantación en el nombre de usuario especificado.
 
 - Se admite la exportación e importación de bases de datos con archivos bacpac para usuarios de Azure AD en una Instancia administrada de SQL mediante [SSMS V18.4 o una versión posterior](/sql/ssms/download-sql-server-management-studio-ssms) o [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - Se admiten las siguientes configuraciones mediante el uso del archivo bacpac de la base de datos: 
@@ -300,6 +302,7 @@ Para más información, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-da
   - Aún no se admiten las alertas.
   - No se admiten los servidores proxy.
 - No se admite EventLog.
+- El usuario debe estar asignado directamente a la entidad de seguridad del servidor (inicio de sesión) de Azure AD para crear, modificar o ejecutar trabajos del Agente SQL. Los usuarios que no estén directamente asignados, por ejemplo, los usuarios que pertenecen a un grupo de Azure AD que tenga derechos para crear, modificar o ejecutar trabajos del Agente SQL, no podrán realizar estas acciones de forma eficaz. Esto se debe a la suplantación de Instancia administrada y las [limitaciones de EXECUTE AS](#logins-and-users).
 
 Actualmente, no se admiten las siguientes características del Agente SQL:
 
@@ -407,7 +410,7 @@ Operaciones:
 
 ### <a name="polybase"></a>PolyBase
 
-No se admiten tablas externas que hacen referencia a archivos en HDFS o Azure Blob Storage. Para más información acerca de Polybase, consulte [Polybase](/sql/relational-databases/polybase/polybase-guide).
+Para Azure SQL Database y otros servicios de SQL Managed Instance, el único tipo admitido de origen externo es RDBMS. Para más información acerca de Polybase, consulte [Polybase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicación
 

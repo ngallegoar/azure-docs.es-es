@@ -2,15 +2,15 @@
 title: Creación e implementación de una especificación de plantilla
 description: Obtenga información sobre cómo crear una especificación de plantilla a partir de una plantilla de Resource Manager. A continuación, implemente la especificación de plantilla en un grupo de recursos de su suscripción.
 author: tfitzmac
-ms.date: 10/02/2020
+ms.date: 11/10/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 96ef5796aac1d0ee02e6bbafc40b7d3bcdea4e2f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728784"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506369"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Inicio rápido: Creación e implementación de una especificación de plantilla (versión preliminar)
 
@@ -88,7 +88,7 @@ Estas opciones se muestran a continuación.
 1. Cuando se usa una plantilla de Resource Manager para crear la especificación de plantilla, la plantilla se incrusta en la definición de recurso. Copie la siguiente plantilla y guárdela localmente como **azuredeploy.json**. En esta guía de inicio rápido se da por supuesto que se ha guardado en la ruta de acceso **c:\Templates\azuredeploy.json**, pero puede usar cualquier ruta de acceso.
 
     > [!NOTE]
-    > En la plantilla insertada, todos los corchetes de apertura se deben escapar con un segundo corchete de apertura. Use `[[` en lugar de `[`.
+    > En la plantilla insertada, todas las [expresiones de plantilla](template-expressions.md) se deben escapar con un segundo corchete de apertura. Use `"[[` en lugar de `"[`. Las matrices JSON siguen usando un solo corchete de apertura.
 
     ```json
     {

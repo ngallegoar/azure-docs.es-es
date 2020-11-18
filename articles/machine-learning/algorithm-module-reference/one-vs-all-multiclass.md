@@ -1,7 +1,7 @@
 ---
 title: Uno frente a todos multiclase
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar el módulo de Uno frente a todos multiclase en Azure Machine Learning para crear un modelo de clasificación multiclase a partir de un conjunto de modelos de clasificación binaria.
+description: Obtenga información sobre cómo usar el módulo Uno frente a todos multiclase en el diseñador de Azure Machine Learning para crear un conjunto de modelos de clasificación binaria.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: dfe01e16b55325db03e4150a33ae5c4aa5822ae2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23077d7d6b476bcca0812dcff8660376568f7dd9
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898497"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376339"
 ---
 # <a name="one-vs-all-multiclass"></a>Uno frente a todos multiclase
 
@@ -26,7 +26,7 @@ Este módulo es útil para crear modelos que predicen tres o más resultados pos
 
 Algunos algoritmos de clasificación permiten el uso de más de dos clases intencionadamente. Otros restringen los posibles resultados a uno de dos valores (un modelo binario, o de dos clases). Pero, incluso los algoritmos de clasificación binaria se pueden adaptar a las tareas de clasificación de varias clases con diversas estrategias. 
 
-Este módulo implementa el método uno frente a todos, en el que se crea un modelo binario para cada una de las distintas clases de salida. El módulo evalúa cada uno de estos modelos binarios para las clases individuales con respecto a su complemento (todas las demás clases del modelo) como si fuese un problema de clasificación binaria. El módulo realiza entonces la predicción mediante la ejecución de estos clasificadores binarios, y la elección de la predicción con la puntuación de confianza más alta.  
+Este módulo implementa el método uno frente a todos, en el que se crea un modelo binario para cada una de las distintas clases de salida. El módulo evalúa cada uno de estos modelos binarios para las clases individuales con respecto a su complemento (todas las demás clases del modelo) como si fuese un problema de clasificación binaria. Además de la eficacia de cálculo (solo se necesitan clasificadores `n_classes` ), una ventaja de este enfoque es su interpretación. Puesto que cada clase solo está representada por un clasificador de uno contra uno, es posible obtener información sobre la clase mediante la inspección de su clasificador correspondiente. Esta es la estrategia que se usa con más frecuencia para la clasificación multiclase y es una opción predeterminada apropiada. El módulo realiza entonces la predicción mediante la ejecución de estos clasificadores binarios, y la elección de la predicción con la puntuación de confianza más alta. 
 
 En esencia, el módulo crea un conjunto de modelos individuales, y luego combina los resultados para crear un único modelo que predice todas las clases. Cualquier clasificador binario se puede utilizar como base para un modelo uno frente a todos.  
 

@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 05ce944d195cf43f860fc2b39975a736a4454c05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0e8743d78c8eeafb5bdeb6ade783d5e75991f91
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226521"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330995"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
@@ -28,7 +28,7 @@ Por ejemplo, puede hacer que la aplicación lógica:
 
 En este artículo se muestra cómo usar el desencadenador de solicitud y la acción de respuesta para que la aplicación lógica pueda recibir y responder a las llamadas entrantes.
 
-Para información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL) o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), consulte [Proteger el acceso y los datos: Acceso de llamadas entrantes para desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+Para más información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL) o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), exponer la aplicación lógica con Azure API Management o restringir las direcciones IP que originan las llamadas entrantes, consulte [Proteger el acceso y los datos en Azure Logic Apps: acceso de las llamadas entrantes a desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -42,8 +42,7 @@ Para información sobre el cifrado, la seguridad y la autorización de llamadas 
 
 Este desencadenador integrado crea un punto de conexión invocable manualmente que *solo* puede administrar solicitudes entrantes través de HTTPS. Cuando un autor de llamada envía una solicitud a este punto de conexión, el [desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) se activa y ejecuta la aplicación lógica. Para más información sobre cómo llamar a este desencadenador, consulte [Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTPS en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-La aplicación lógica solo mantiene abierta una solicitud entrante durante un [tiempo limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Suponiendo que la aplicación lógica incluya una [acción de respuesta](#add-response), si la aplicación lógica no envía ninguna respuesta al autor de la llamada después de que transcurra este tiempo, la aplicación lógica devuelve un estado `504 GATEWAY TIMEOUT` al autor de la llamada. Si la aplicación lógica no incluye una acción de respuesta, 
-> devuelve inmediatamente un estado `202 ACCEPTED` al autor de la llamada.
+La aplicación lógica solo mantiene abierta una solicitud entrante durante un [tiempo limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Suponiendo que la aplicación lógica incluya una [acción de respuesta](#add-response), si la aplicación lógica no envía ninguna respuesta al autor de la llamada después de que transcurra este tiempo, la aplicación lógica devuelve un estado `504 GATEWAY TIMEOUT` al autor de la llamada. Si la aplicación lógica no incluye ninguna acción de respuesta, la aplicación lógica devuelve inmediatamente un estado `202 ACCEPTED` al autor de la llamada.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Crear una aplicación lógica en blanco.
 
@@ -194,6 +193,8 @@ La aplicación lógica solo mantiene abierta una solicitud entrante durante un [
 1. Para desencadenar la aplicación lógica, envíe una solicitud HTTP POST a la URL generada.
 
    Por ejemplo, puede usar una herramienta como [Postman](https://www.getpostman.com/) para enviar HTTP POST. Para obtener más información sobre la definición JSON subyacente del desencadenador y sobre cómo llamar a este desencadenador, vea estos temas: [Tipo de desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) y [Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+
+Para más información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL) o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), exponer la aplicación lógica con Azure API Management o restringir las direcciones IP que originan las llamadas entrantes, consulte [Proteger el acceso y los datos en Azure Logic Apps: acceso de las llamadas entrantes a desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="trigger-outputs"></a>Salidas del desencadenador
 

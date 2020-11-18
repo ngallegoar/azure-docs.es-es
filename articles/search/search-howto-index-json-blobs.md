@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d41146b01b6b81804cdba31fbbf2541ba7ae0f03
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403643"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372394"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Indexación de blobs JSON con el indexador de blobs de Azure Cognitive Search
 
@@ -63,7 +63,7 @@ En la página **origen de datos**, el origen debe ser **Azure Blob Storage** con
    
 + El **Contenedor de almacenamiento** debe especificar su cuenta de almacenamiento y contenedor o una cadena de conexión que se resuelva en el contenedor. Puede obtener las cadenas de conexión en la página del portal de Blob service.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Comando de importación de datos en el portal" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Definición del origen de datos del blob" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4: omitir la página"Enriquecer contenido" del asistente
 
@@ -81,7 +81,7 @@ Revise la descripción de [atributos de índice](/rest/api/searchservice/create-
 
 Dedique un momento a la revisión de las selecciones. Una vez que se ejecuta al asistente, se crean las estructuras de datos físicas y no podrá modificar estos campos sin quitar y volver a crear todos los objetos.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Comando de importación de datos en el portal" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Definición de índice de blob" border="false":::
 
 ### <a name="6---create-indexer"></a>6: Creación del indizador
 
@@ -89,7 +89,7 @@ Con todas las especificaciones agregadas, el asistente crea tres objetos distint
 
 Si no está familiarizado con los indexadores, un *indexador* es un recurso en Azure Cognitive Search que rastrea un origen de datos externo en busca de contenido utilizable en búsquedas. La salida del asistente **Importar datos**  es un indexador que rastrea el origen de datos JSON, extrae el contenido utilizable en búsquedas y lo importa a un índice en Azure Cognitive Search.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Comando de importación de datos en el portal" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Definición del indizador del blob" border="false":::
 
 Haga clic en **Aceptar** para ejecutar el asistente y crear todos los objetos. La indexación comienza inmediatamente.
 
@@ -120,9 +120,9 @@ Los blobs JSON de Azure Blob Storage suelen ser un documento JSON único o una "
 
 | Documento JSON | parsingMode | Descripción | Disponibilidad |
 |--------------|-------------|--------------|--------------|
-| Uno por blob | `json` | Analiza los blobs JSON como un único fragmento de texto. Cada blob JSON se convierte en un único documento de Azure Cognitive Search. | Por lo general, está disponible en la API [REST](/rest/api/searchservice/indexer-operations) y el SDK de [.NET](/dotnet/api/microsoft.azure.search.models.indexer). |
-| Varios por blob | `jsonArray` | Analiza una matriz JSON en el blob, donde cada elemento de la matriz se convierte en un documento de Azure Cognitive Search independiente.  | Por lo general, está disponible en la API [REST](/rest/api/searchservice/indexer-operations) y el SDK de [.NET](/dotnet/api/microsoft.azure.search.models.indexer). |
-| Varios por blob | `jsonLines` | Analiza un blob que contiene varias entidades JSON (una "matriz"), separadas por una nueva línea, donde cada entidad se convierte en un documento de Azure Cognitive Search independiente. | Por lo general, está disponible en la API [REST](/rest/api/searchservice/indexer-operations) y el SDK de [.NET](/dotnet/api/microsoft.azure.search.models.indexer). |
+| Uno por blob | `json` | Analiza los blobs JSON como un único fragmento de texto. Cada blob JSON se convierte en un único documento de Azure Cognitive Search. | Por lo general, está disponible en la API [REST](/rest/api/searchservice/indexer-operations) y el SDK de [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer). |
+| Varios por blob | `jsonArray` | Analiza una matriz JSON en el blob, donde cada elemento de la matriz se convierte en un documento de Azure Cognitive Search independiente.  | Por lo general, está disponible en la API [REST](/rest/api/searchservice/indexer-operations) y el SDK de [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer). |
+| Varios por blob | `jsonLines` | Analiza un blob que contiene varias entidades JSON (una "matriz"), separadas por una nueva línea, donde cada entidad se convierte en un documento de Azure Cognitive Search independiente. | Por lo general, está disponible en la API [REST](/rest/api/searchservice/indexer-operations) y el SDK de [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer). |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1\. Ensamblado de las entradas para la solicitud
 
@@ -280,10 +280,10 @@ Si se crea el indexador en Azure Cognitive Search, se desencadena la importació
 
 El SDK de .NET tiene paridad completa con la API REST. Se recomienda que revise la sección anterior de la API REST para obtener información sobre los conceptos, el flujo de trabajo y los requisitos. A continuación, puede consultar la siguiente documentación de referencia de la API de .NET para implementar un indizador JSON en código administrado.
 
-+ [Microsoft.Azure.Search.Models.DataSource](/dotnet/api/microsoft.azure.search.models.datasource)
-+ [Microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype) 
-+ [Microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index) 
-+ [Microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer)
++ [azure.search.documents.indexes.models.searchindexerdatasourceconnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
++ [azure.search.documents.indexes.models.searchindexerdatasourcetype](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) 
++ [azure.search.documents.indexes.models.searchindex](/dotnet/api/azure.search.documents.indexes.models.searchindex) 
++ [azure.search.documents.indexes.models.searchindexer](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 <a name="parsing-modes"></a>
 

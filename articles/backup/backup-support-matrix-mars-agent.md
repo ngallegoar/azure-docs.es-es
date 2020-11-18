@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para el agente de MARS
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53034d058e0cd2e1623acc6629da0a694b35e60b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173536"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363245"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -168,6 +168,17 @@ Windows Server 2008 R2 SP1 |1700 GB
 Windows Server 2008 SP2| 1700 GB
 Windows 8 o posterior| 54 400 GB
 Windows 7| 1700 GB
+
+### <a name="minimum-retention-limits"></a>Límites de retención mínimos
+
+A continuación se indican las duraciones de retención mínimas que se pueden establecer para los diferentes puntos de recuperación:
+
+|Punto de recuperación |Duration  |
+|---------|---------|
+|Punto de recuperación diario    |   7 días      |
+|Punto de recuperación semanal     |    4 semanas     |
+|Punto de recuperación mensual    |   3 meses      |
+|Punto de recuperación anual  |      1 año   |
 
 ### <a name="other-limitations"></a>Otras limitaciones
 

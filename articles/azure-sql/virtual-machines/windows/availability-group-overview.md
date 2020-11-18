@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146695"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504397"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -72,13 +72,13 @@ Para empezar, consulte [Configuración de un agente de escucha de DNN](availabil
 
 Hay varias opciones para implementar un grupo de disponibilidad en SQL Server en Azure Virtual Machines, algunas con más automatización que otras. 
 
-En la tabla siguiente se proporciona una comparación de las opciones disponibles: 
+En la tabla siguiente se proporciona una comparación de las opciones disponibles:
 
-| |**[Azure Portal](availability-group-azure-portal-configure.md)**|**[CLI de Azure/PowerShell](./availability-group-az-commandline-configure.md)**|**[Plantillas de inicio rápido](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Azure portal | CLI de Azure/PowerShell | Plantillas de inicio rápido | Manual |
+|---------|---------|---------|---------|---------|
 |**Versión de SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Edición de SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Versión de Windows Server**| 2016 + | 2016 + | 2016 + | All| 
+|**Versión de Windows Server**| 2016 + | 2016 + | 2016 + | All|
 |**Crea el clúster automáticamente**|Sí|Sí | Sí |No|
 |**Crea el grupo de disponibilidad automáticamente** |Sí |No|No|No|
 |**Crea el agente de escucha y el equilibrador de carga de forma independiente** |No|No|No|Sí|
@@ -90,9 +90,8 @@ En la tabla siguiente se proporciona una comparación de las opciones disponible
 |**Recuperación ante desastres con varias zonas en la misma región**|Sí|Sí|Sí|Sí|
 |**Grupo de disponibilidad distribuido sin AD**|No|No|No|Sí|
 |**Grupo de disponibilidad distribuido sin clúster** |No|No|No|Sí|
-||||||
 
-
+Para más información, consulte [Azure Portal](availability-group-azure-portal-configure.md), [CLI de Azure y PowerShell](./availability-group-az-commandline-configure.md), [plantillas de inicio rápido](availability-group-quickstart-template-configure.md) y [manual](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## <a name="considerations"></a>Consideraciones 
 

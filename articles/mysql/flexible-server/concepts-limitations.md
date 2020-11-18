@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: a064b2b2d0bad5fc8ded9a59b66d84a361facec9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650296"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504346"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitaciones de Azure Database for MySQL con servidor flexible (versión preliminar)
 
@@ -23,9 +23,9 @@ En este artículo se describen las limitaciones del servicio Azure Database for 
 ## <a name="server-parameters"></a>Parámetros del servidor
 
 > [!NOTE]
-> Si busca valores mínimos y máximos para los parámetros del servidor, como `max_connections` y `innodb_buffer_pool_size`, esta información se ha pasado al artículo sobre los conceptos de los parámetros del servidor <!-- **[server parameters](./concepts-server-parameters.md)** --> .
+> Si busca valores mínimos y máximos para los parámetros del servidor, como `max_connections` y `innodb_buffer_pool_size`, esta información se ha pasado al artículo sobre los conceptos de los [parámetros del servidor](./concepts-server-parameters.md).
 
-Azure Database for MySQL admite el ajuste de los valores de parámetros del servidor. Los valores mínimo y máximo de algunos parámetros (por ejemplo, `max_connections`, `join_buffer_size`, `query_cache_size`) vienen determinados por el nivel de proceso y el tamaño de proceso del servidor. Consulte los conceptos de los parámetros del servidor <!-- [server parameters](./concepts-server-parameters.md)--> para obtener más información acerca de estos límites.
+Azure Database for MySQL admite el ajuste de los valores de parámetros del servidor. Los valores mínimo y máximo de algunos parámetros (por ejemplo, `max_connections`, `join_buffer_size`, `query_cache_size`) vienen determinados por el nivel de proceso y el tamaño de proceso del servidor. Consulte los [parámetros del servidor](./concepts-server-parameters.md) para más información sobre estos límites.
 
 Los complementos de contraseñas como "validate_password" y "caching_sha2_password" no son compatibles con el servicio.
 

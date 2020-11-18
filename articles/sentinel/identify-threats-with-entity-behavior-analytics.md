@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425939"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658798"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificación de amenazas avanzadas con el Análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel
 
@@ -180,7 +180,7 @@ Las páginas de entidad están diseñadas para formar parte de varios escenarios
 
 ### <a name="querying-behavior-analytics-data"></a>Consulta de datos de análisis de comportamiento
 
-Mediante [KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/), se puede consultar la tabla de análisis de comportamiento.
+Mediante [KQL](/azure/data-explorer/kusto/query/), se puede consultar la tabla de análisis de comportamiento.
 
 Por ejemplo, si queremos encontrar todos los casos en los que un usuario no pudo iniciar sesión en un recurso de Azure, donde era el primer intento de conexión del usuario desde un país determinado, y las conexiones desde ese país son poco frecuentes incluso para los homólogos de ese usuario, podemos usar la siguiente consulta:
 

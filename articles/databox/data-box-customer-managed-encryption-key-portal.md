@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40b777342c2c565efc5b40d361a259c98eae693c
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739942"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337727"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Uso de claves administradas por el cliente en Azure Key Vault para Azure Data Box
 
@@ -55,40 +55,40 @@ La configuración de la clave administrada por el cliente de Azure Data Box es o
 
     ![Selección de la clave administrada por el cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-5. En la hoja **Seleccionar clave en Azure Key Vault**, la suscripción se rellena automáticamente. Para **Almacén de claves**, puede seleccionar un almacén de claves existente de la lista desplegable.
+4. En la hoja **Seleccionar clave en Azure Key Vault**, la suscripción se rellena automáticamente. Para **Almacén de claves**, puede seleccionar un almacén de claves existente de la lista desplegable.
 
-    ![Creación de una nueva instancia de Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)
+    ![Selección de una instancia de Azure Key Vault existente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
     También puede seleccionar **Crear nuevo** para crear un nuevo almacén de claves. En la hoja **Crear el almacén de claves**, escriba el grupo de recursos y el nombre del almacén de claves. Asegúrese de que estén habilitadas las opciones de **Eliminación temporal** y **Purgar protección**. Acepte todos los otros valores predeterminados. Seleccione **Revisar + crear**.
 
-    ![Creación de una nueva instancia de Azure Key Vault 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![Revisar y crear en Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-7. Revise la información asociada con el almacén de claves y seleccione **Crear**. Espere un par de minutos hasta que se complete la creación del almacén de claves.
+5. Revise la información asociada con el almacén de claves y seleccione **Crear**. Espere un par de minutos hasta que se complete la creación del almacén de claves.
 
-    ![Crear una instancia de Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
+    ![Creación de una instancia de Azure Key Vault con la configuración](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
-8. En la hoja **Seleccionar clave en Azure Key Vault**, puede seleccionar una clave del almacén de claves existente.
+6. En la hoja **Seleccionar clave en Azure Key Vault**, puede seleccionar una clave del almacén de claves existente.
 
-    ![Creación de una clave en Azure Key Vault 3](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![Seleccionar clave en Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-9. Si quiere crear una clave nueva, seleccione **Crear nuevo** para crear una clave. El tamaño de la clave RSA puede ser de 2048 o superior.
+7. Si quiere crear una clave nueva, seleccione **Crear nuevo** para crear una clave. El tamaño de la clave RSA puede ser de 2048 o superior.
 
-    ![Creación de una clave en Azure Key Vault 4](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![Creación de una clave nueva en Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-10. Proporcione el nombre de la clave, acepte los otros valores predeterminados y seleccione **Crear**. 
+8. Proporcione el nombre de la clave, acepte los otros valores predeterminados y seleccione **Crear**.
 
-    ![Creación de una clave nueva](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
+    ![Nombre de la nueva clave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
 
-11. Se le notificará que se ha creado una clave en el almacén de claves. Seleccione la **Versión** y, a continuación, elija **Seleccionar**.
+9. Se le notificará que se ha creado una clave en el almacén de claves. Seleccione la **Versión** y, a continuación, elija **Seleccionar**.
 
-    ![Nueva clave creada en el almacén de claves](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
+    ![Selección de la versión de la nueva clave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-12. En el panel **Tipo de cifrado**, puede ver el almacén de claves y la clave seleccionados para la clave administrada por el cliente.
+10. En el panel **Tipo de cifrado**, puede ver el almacén de claves y la clave seleccionados para la clave administrada por el cliente.
 
     ![Clave y almacén de claves para la clave administrada por el cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
-13. Guarde la clave. 
+11. Guarde la clave. 
 
     ![Guardar la clave administrada por el cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 

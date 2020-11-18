@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8000d07824c27f60dd5d8d6a457521691fe2b7d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210867"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658407"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy de aplicación de Azure AD ofrece estas ventajas: Historial de lanzamiento de versiones
 En este artículo se enumeran las versiones y características de Azure Active Directory (Azure AD) Application Proxy que se han publicado. El equipo de Azure AD actualiza periódicamente Application Proxy con nuevas características y funciones. Los conectores de Application Proxy se actualizan de forma automática cuando se publica una nueva versión. 
@@ -38,7 +38,7 @@ Descarga del conector de Azure Active Directory Application Proxy |  [Descargue 
 22 de julio de 2020: Publicada para descarga. Esta versión solo está disponible para su instalación a través de la página de descarga. En una fecha futura se publicará una versión de actualización automática de esta versión.
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
--   Se mejoró la compatibilidad con los entornos de nube de Azure Government. Para conocer los pasos para instalar correctamente el conector para la nube de Azure Government, consulte los [requisitos previos](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) y siga los [pasos de instalación](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+-   Se mejoró la compatibilidad con los entornos de nube de Azure Government. Para conocer los pasos para instalar correctamente el conector para la nube de Azure Government, consulte los [requisitos previos](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) y siga los [pasos de instalación](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Compatibilidad con el uso del cliente web de Servicios de Escritorio remoto con Application Proxy. Para obtener más información, consulte [Publicación del Escritorio Remoto con Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md).
 - Se mejoraron las negociaciones de la extensión websocket. 
 

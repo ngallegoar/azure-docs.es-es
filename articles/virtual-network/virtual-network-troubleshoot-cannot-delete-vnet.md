@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167821"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335701"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Solución de problemas: No se pudo eliminar una red virtual en Azure
 
@@ -31,10 +31,11 @@ Podría recibir errores al intentar eliminar una red virtual en Microsoft Azure.
 
 1. [Compruebe si se está ejecutando una puerta de enlace de red virtual en la red virtual](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
 2. [Compruebe si se está ejecutando una puerta de enlace de aplicación en la red virtual](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
-3. [Compruebe si Azure Active Directory Domain Service está habilitado en la red virtual](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
-4. [Compruebe si la red virtual está conectada a otro recurso](#check-whether-the-virtual-network-is-connected-to-other-resource).
-5. [Compruebe si aún se está ejecutando una máquina virtual en la red virtual](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
-6. [Compruebe si la red virtual se quedó bloqueada en la migración](#check-whether-the-virtual-network-is-stuck-in-migration).
+3. [Compruebe si siguen existiendo instancias de contenedor de Azure en la red virtual](#check-whether-azure-container-instances-still-exist-in-the-virtual-network).
+4. [Compruebe si Azure Active Directory Domain Service está habilitado en la red virtual](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
+5. [Compruebe si la red virtual está conectada a otro recurso](#check-whether-the-virtual-network-is-connected-to-other-resource).
+6. [Compruebe si aún se está ejecutando una máquina virtual en la red virtual](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
+7. [Compruebe si la red virtual se quedó bloqueada en la migración](#check-whether-the-virtual-network-is-stuck-in-migration).
 
 ## <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 
@@ -42,7 +43,7 @@ Podría recibir errores al intentar eliminar una red virtual en Microsoft Azure.
 
 Para quitar la red virtual, primero debe quitar la puerta de enlace de red virtual.
 
-Para las redes virtuales clásicas, vaya a la página **Información general** de la red virtual clásica en Azure Portal. En la sección **Conexiones VPN** , si la puerta de enlace se está ejecutado en la red virtual, verá la dirección IP de la puerta de enlace. 
+Para las redes virtuales clásicas, vaya a la página **Información general** de la red virtual clásica en Azure Portal. En la sección **Conexiones VPN**, si la puerta de enlace se está ejecutado en la red virtual, verá la dirección IP de la puerta de enlace. 
 
 ![Compruebe si la puerta de enlace se está ejecutando](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
@@ -59,6 +60,19 @@ Vaya a la página **Información general** de la red virtual. Compruebe si hay *
 ![Captura de pantalla de la lista de dispositivos conectados para una red virtual en Azure Portal. La puerta de enlace de aplicación está resaltada en la lista.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 Si hay una puerta de enlace de aplicación, debe quitarla para poder eliminar la red virtual.
+
+### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>Compruebe si las instancias de contenedor de Azure todavía existen en la red virtual.
+
+1. En Azure Portal, vaya a la página de **información general** del grupo de recursos.
+1. En el encabezado de la lista de recursos del grupo de recursos, seleccione **Mostrar tipos ocultos**. De forma predeterminada, el tipo de perfil de red está oculto en Azure Portal.
+1. Seleccione el perfil de red relacionado con los grupos de contenedores.
+1. Seleccione **Eliminar**.
+
+   ![Captura de pantalla de la lista de perfiles de red ocultos.](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
+
+1. Vuelva a eliminar la subred o la red virtual.
+
+Si estos pasos no resuelven el problema, use estos [comandos de la CLI de Azure](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) para limpiar los recursos. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Compruebe si Azure Active Directory Domain Services está habilitado en la red virtual
 

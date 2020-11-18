@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
-ms.openlocfilehash: 9870b5366ac629fe1b10cfde15a58b85c7c6fbc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c303a7640454ba0cb6622b21fd161354266068
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907725"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375948"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de bosque de decisión de dos clases
 
@@ -72,7 +72,7 @@ Para obtener más información, consulte [Bosques de decisión](https://go.micro
 4.  En **Número de árboles de decisión**, escriba el número máximo de árboles de decisión que se pueden crear en el conjunto. Al crear más árboles de decisión, puede obtener una mejor cobertura, pero el tiempo de entrenamiento aumenta.  
   
     > [!NOTE]
-    >  Este valor también controla el número de árboles que se muestran al visualizar el modelo entrenado. Si quiere ver o imprimir un único árbol, puede establecer el valor en 1. Sin embargo, solo se puede producir un único árbol (el árbol con el conjunto inicial de parámetros) y no se realizan iteraciones adicionales.
+    >  Si se establece el valor en 1. Sin embargo, solo se puede producir un único árbol (el árbol con el conjunto inicial de parámetros) y no se realizan iteraciones adicionales.
   
 5.  En **Maximum depth of the decision trees** (Profundidad máxima de los árboles de decisión), escriba un número para limitar la profundidad máxima de cualquier árbol de decisión. Al aumentar la profundidad del árbol podría aumentar la precisión, a riesgo de que se produzca un sobreajuste y aumente el tiempo de entrenamiento.
   

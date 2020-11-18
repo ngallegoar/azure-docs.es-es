@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: efba69372f46c9b8a7f2857e37b34ec8c88654a0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1a9d5fe69cd9d853d0bf8ec971f31518bbf47c9a
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546286"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504703"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure Cache for Redis con Azure Private Link (versión preliminar pública)
 En este artículo, obtendrá información sobre cómo crear una red virtual y una instancia de Azure Cache for Redis con un punto de conexión privado mediante Azure Portal. También aprenderá a agregar un punto de conexión privado a una instancia de Azure Cache for Redis existente.
@@ -37,11 +37,11 @@ En esta sección, creará una nueva instancia de Azure Cache for Redis con un pu
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Selección de Crear un recurso.":::
 
-2. En la página **Nuevo** , seleccione **Redes** y seleccione **Red virtual**.
+2. En la página **Nuevo**, seleccione **Redes** y seleccione **Red virtual**.
 
 3. Seleccione **Agregar** para crear una red virtual.
 
-4. En **Crear red virtual** , escriba o seleccione esta información en la pestaña **Conceptos básicos** :
+4. En **Crear red virtual**, escriba o seleccione esta información en la pestaña **Conceptos básicos**:
 
    | Parámetro      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -52,11 +52,11 @@ En esta sección, creará una nueva instancia de Azure Cache for Redis con un pu
 
 5. Seleccione la pestaña **Direcciones IP** o haga clic en el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
 
-6. En la pestaña **Direcciones IP** , especifique la opción **Espacio de direcciones IPv4** como uno o varios prefijos de dirección en la notación CIDR (por ejemplo, 192.168.1.0/24).
+6. En la pestaña **Direcciones IP**, especifique la opción **Espacio de direcciones IPv4** como uno o varios prefijos de dirección en la notación CIDR (por ejemplo, 192.168.1.0/24).
 
-7. En **Nombre de subred** , haga clic en **predeterminada** para editar las propiedades de la subred.
+7. En **Nombre de subred**, haga clic en **predeterminada** para editar las propiedades de la subred.
 
-8. En el panel **Editar subred** , especifique un nombre en **Nombre de subred** así como un valor en **Intervalo de direcciones de subred**. Se debe usar la notación CIDR para el intervalo de direcciones de la subred (por ejemplo 192.168.1.0/24). Debe incluirse en el espacio de direcciones de la red virtual.
+8. En el panel **Editar subred**, especifique un nombre en **Nombre de subred** así como un valor en **Intervalo de direcciones de subred**. Se debe usar la notación CIDR para el intervalo de direcciones de la subred (por ejemplo 192.168.1.0/24). Debe incluirse en el espacio de direcciones de la red virtual.
 
 9. Seleccione **Guardar**.
 
@@ -69,11 +69,11 @@ Para crear una instancia de caché, siga estos pasos.
 
 1. Vuelva a la página principal de Azure Portal o abra el menú de barra lateral y seleccione **Crear un recurso**. 
    
-1. En la página **Nuevo** , seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
+1. En la página **Nuevo**, seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selección de Azure Cache for Redis.":::
    
-1. En la página **Nueva instancia de Redis Cache** , configure las opciones de la nueva caché.
+1. En la página **Nueva instancia de Redis Cache**, configure las opciones de la nueva caché.
    
    | Configuración      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -85,13 +85,13 @@ Para crear una instancia de caché, siga estos pasos.
 
 1. Seleccione la pestaña **Redes** o haga clic en el botón **Redes** de la parte inferior de la página.
 
-1. En la pestaña **Redes** , seleccione **Punto de conexión privado** para el método de conectividad.
+1. En la pestaña **Redes**, seleccione **Punto de conexión privado** para el método de conectividad.
 
 1. Haga clic en el botón **Agregar** para crear el punto de conexión privado.
 
     :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="En redes, agregue un punto de conexión privado.":::
 
-1. En la página **Crear un punto de conexión privado** , defina la configuración del punto de conexión privado con la red virtual y la subred que creó en la última sección y seleccione **Aceptar**. 
+1. En la página **Crear un punto de conexión privado**, defina la configuración del punto de conexión privado con la red virtual y la subred que creó en la última sección y seleccione **Aceptar**. 
 
 1. Seleccione el botón **Siguiente: Opciones avanzadas** o haga clic en el botón **Siguiente: Opciones avanzadas** de la parte inferior de la página.
 
@@ -99,16 +99,15 @@ Para crear una instancia de caché, siga estos pasos.
 
 1. En la pestaña **Opciones avanzadas** de la instancia de caché Premium, configure el puerto no TLS, la agrupación en clústeres y la persistencia de datos.
 
-
 1. Seleccione el botón **Siguiente: Etiquetas** o haga clic en el botón **Siguiente: Etiquetas** situado en la parte inferior de la página.
 
-1. Opcionalmente, en la pestaña **Etiquetas** , escriba el nombre y el valor si desea clasificar el recurso. 
+1. Opcionalmente, en la pestaña **Etiquetas**, escriba el nombre y el valor si desea clasificar el recurso. 
 
 1. Seleccione **Revisar + crear**. Pasará a la pestaña Revisar y crear, donde Azure validará la configuración.
 
 1. Tras aparecer el mensaje verde Validación superada, seleccione **Crear**.
 
-La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución** , la memoria caché está lista para su uso. 
+La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso. 
     
 > [!IMPORTANT]
 > 
@@ -137,11 +136,11 @@ Para crear una red virtual, siga estos pasos.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Crear un recurso**.
 
-2. En la página **Nuevo** , seleccione **Redes** y seleccione **Red virtual**.
+2. En la página **Nuevo**, seleccione **Redes** y seleccione **Red virtual**.
 
 3. Seleccione **Agregar** para crear una red virtual.
 
-4. En **Crear red virtual** , escriba o seleccione esta información en la pestaña **Conceptos básicos** :
+4. En **Crear red virtual**, escriba o seleccione esta información en la pestaña **Conceptos básicos**:
 
    | Parámetro      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -152,11 +151,11 @@ Para crear una red virtual, siga estos pasos.
 
 5. Seleccione la pestaña **Direcciones IP** o haga clic en el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
 
-6. En la pestaña **Direcciones IP** , especifique la opción **Espacio de direcciones IPv4** como uno o varios prefijos de dirección en la notación CIDR (por ejemplo, 192.168.1.0/24).
+6. En la pestaña **Direcciones IP**, especifique la opción **Espacio de direcciones IPv4** como uno o varios prefijos de dirección en la notación CIDR (por ejemplo, 192.168.1.0/24).
 
-7. En **Nombre de subred** , haga clic en **predeterminada** para editar las propiedades de la subred.
+7. En **Nombre de subred**, haga clic en **predeterminada** para editar las propiedades de la subred.
 
-8. En el panel **Editar subred** , especifique un nombre en **Nombre de subred** así como un valor en **Intervalo de direcciones de subred**. Se debe usar la notación CIDR para el intervalo de direcciones de la subred (por ejemplo 192.168.1.0/24). Debe incluirse en el espacio de direcciones de la red virtual.
+8. En el panel **Editar subred**, especifique un nombre en **Nombre de subred** así como un valor en **Intervalo de direcciones de subred**. Se debe usar la notación CIDR para el intervalo de direcciones de la subred (por ejemplo 192.168.1.0/24). Debe incluirse en el espacio de direcciones de la red virtual.
 
 9. Seleccione **Guardar**.
 
@@ -180,7 +179,7 @@ Para crear un punto de conexión privado, siga estos pasos.
 
     :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Agregue un punto de conexión privado.":::
 
-5. En la **página Crear un punto de conexión privado** , configure las opciones del punto de conexión privado.
+5. En la **página Crear un punto de conexión privado**, configure las opciones del punto de conexión privado.
 
    | Configuración      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -191,21 +190,51 @@ Para crear un punto de conexión privado, siga estos pasos.
 
 6. Haga clic en el botón **Siguiente: Recurso** en la parte inferior de la página.
 
-7. En la pestaña **Recurso** , seleccione su suscripción, elija el tipo de recurso `Microsoft.Cache/Redis` y seleccione la memoria caché a la que desea conectar el punto de conexión privado.
+7. En la pestaña **Recurso**, seleccione su suscripción, elija el tipo de recurso `Microsoft.Cache/Redis` y seleccione la memoria caché a la que desea conectar el punto de conexión privado.
 
 8. Haga clic en el botón **Siguiente: Configuración** situado en la parte inferior de la página.
 
-9. En la pestaña **Configuración** , seleccione la red virtual y la subred que creó en la sección anterior.
+9. En la pestaña **Configuración**, seleccione la red virtual y la subred que creó en la sección anterior.
 
 10. Haga clic en el botón **Siguiente: Etiquetas** situado en la parte inferior de la página.
 
-11. Opcionalmente, en la pestaña **Etiquetas** , escriba el nombre y el valor si desea clasificar el recurso.
+11. Opcionalmente, en la pestaña **Etiquetas**, escriba el nombre y el valor si desea clasificar el recurso.
 
-12. Seleccione **Revisar + crear**. Pasará a la pestaña **Revisar y crear** , donde Azure valida la configuración.
+12. Seleccione **Revisar + crear**. Pasará a la pestaña **Revisar y crear**, donde Azure valida la configuración.
 
-13. Tras aparecer el mensaje verde **Validación superada** , seleccione **Crear**.
+13. Tras aparecer el mensaje verde **Validación superada**, seleccione **Crear**.
 
+## <a name="faq"></a>Preguntas más frecuentes
+
+### <a name="why-cant-i-connect-to-a-private-endpoint"></a>¿Por qué no puedo conectarme a un punto de conexión privado?
+Si la memoria caché ya está insertada en la red virtual, los puntos de conexión privados no se pueden usar con la instancia de la memoria caché. Si la instancia de la memoria caché usa una característica no admitida (se enumeran a continuación), no podrá conectarse a su instancia de punto de conexión privado. Además, las instancias de la memoria caché se deben haber creado después del 27 de julio para usar puntos de conexión privados.
+
+### <a name="what-features-are-not-supported-with-private-endpoints"></a>¿Qué características no son compatibles con los puntos de conexión privados?
+La replicación geográfica, las reglas de firewall, la compatibilidad con la consola del portal, varios puntos de conexión por memoria caché en clúster, la persistencia de las reglas de firewall y la redundancia de zona. 
+
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>¿Cómo puedo cambiar el punto de conexión privado para que esté deshabilitado el acceso desde la red pública?
+Hay una marca `publicNetworkAccess` que está establecida en `Enabled` de manera predeterminada. Esta marca está pensada para que pueda, de manera opcional, permitir el acceso de puntos de conexión públicos y privados a la memoria caché si está establecida en `Enabled`. Si se establece en `Disabled`, solo permitirá el acceso a puntos de conexión privados. Puede establecer el valor en `Disabled` con la siguiente solicitud PATCH.
+```http
+PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+{    "properties": {
+       "publicNetworkAccess":"Disabled"
+   }
+}
+```
+
+### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>¿Están habilitados los grupos de seguridad de red (NSG) para los puntos de conexión privados?
+No, están deshabilitados para los puntos de conexión privados. Sin embargo, si hay otros recursos en la subred, la obligatoriedad de NSG se aplicará a esos recursos.
+
+### <a name="how-can-i-connect-to-a-clustered-cache"></a>¿Cómo puedo conectarme a una memoria caché en clúster?
+Se debe establecer `publicNetworkAccess` en `Disabled` y solo puede haber una conexión de punto de conexión privado.
+
+### <a name="since-my-private-endpoint-instance-is-not-in-my-vnet-how-is-it-associated-with-my-vnet"></a>Como mi instancia de punto de conexión privado no está en mi red virtual, ¿cómo se asocia a la red virtual?
+Solo está vinculada a la red virtual. Dado que no está en la red virtual, no es necesario modificar las reglas del NSG para los puntos de conexión dependientes.
+
+### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>¿Cómo puedo migrar mi memoria caché insertada en la red virtual a una memoria caché de punto de conexión privado?
+Tendrá que eliminar la memoria caché insertada en la red virtual y crear una nueva instancia de memoria caché con un punto de conexión privado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure Private Link, consulte la [documentación de Azure Private Link](../private-link/private-link-overview.md).
+* Para más información sobre Azure Private Link, consulte la [documentación de Azure Private Link](../private-link/private-link-overview.md).
+* Para comparar las distintas opciones de aislamiento de red para la instancia de memoria caché, consulte [Opciones de aislamiento de red de Azure Cache for Redis](cache-network-isolation.md).

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85f14329359eaf051b992f657ac0e4e634d504cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb8d578c05166f88ed7e91681dd6b5f15b1e3e5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020837"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358650"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Administración de la simultaneidad en Azure Cognitive Search
 
@@ -27,10 +27,10 @@ Al administrar recursos de Azure Cognitive Search, como los índices y los oríg
 
 La simultaneidad optimista se implementa mediante comprobaciones de condiciones de acceso en las llamadas de API que se escriben en índices, indexadores, orígenes de datos y recursos de synonymMap.
 
-Todos los recursos tienen una [*etiqueta de entidad (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) que proporciona información sobre la versión del objeto. Si comprueba primero la etiqueta ETag, puede evitar que se produzcan actualizaciones simultáneas en un flujo de trabajo típico (obtener, modificar localmente, actualizar, etc.) asegurándose de que la etiqueta ETag del recurso coincida con la copia local.
+Todos los recursos tienen una [*etiqueta de entidad (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) que proporciona información sobre la versión del objeto. Si comprueba primero la etiqueta ETag, puede evitar que se produzcan actualizaciones simultáneas en un flujo de trabajo típico (obtener, modificar localmente, actualizar, etc.) asegurándose de que la etiqueta ETag del recurso coincida con la copia local.
 
 + La API de REST usa una etiqueta [ETag](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) en el encabezado de solicitud.
-+ El SDK de .NET establece la etiqueta ETag mediante un objeto accessCondition, estableciendo el [encabezado If-Match | If-Match-None](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) en el recurso. Todos los objetos heredados de [IResourceWithETag (SDK de .NET)](/dotnet/api/microsoft.azure.search.models.iresourcewithetag) tienen un objeto accessCondition.
++ El SDK de .NET establece la etiqueta ETag mediante un objeto accessCondition, estableciendo el [encabezado If-Match | If-Match-None](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) en el recurso. Los objetos que usan ETags, como [SynonymMap.ETag](/dotnet/api/azure.search.documents.indexes.models.synonymmap.etag) y [SearchIndex.ETag](/dotnet/api/azure.search.documents.indexes.models.searchindex.etag), tienen un objeto accessCondition.
 
 Cada vez que actualice un recurso, la etiqueta ETag correspondiente cambiará de forma automática. Al implementar la administración de simultaneidad, lo único que está haciendo es colocar una condición previa en la solicitud de actualización que requiere que el recurso remoto tenga la misma ETag que la copia del recurso que modificó en el cliente. Si un proceso simultáneo ya cambió el recurso remoto, la etiqueta ETag no coincidirá con la condición previa y se producirá el error HTTP 412 en la solicitud. Si usa el SDK de .NET, esto se manifiesta como una excepción `CloudException`, donde el método de extensión `IsAccessConditionFailed()` devuelve "true".
 

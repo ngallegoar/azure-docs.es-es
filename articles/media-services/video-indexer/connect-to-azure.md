@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 8cd5969e4362b1581a7b9aebf39f8c6871839918
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 0d954123b0d48a4b78c0dcda98898b7ab539d502
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558771"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504516"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creación de una cuenta de Video Indexer conectada a Azure
 
-Al crear una cuenta de Video Indexer, puede optar entre una cuenta de evaluación gratuita (donde obtiene un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con una versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 minutos de indexación gratuita a los usuarios de API. Con la opción de pago, se crea una cuenta de Video Indexer que está conectada a su suscripción de Azure y a una cuenta de Azure Media Services. Se paga por minutos de indexación y por los cargos relacionados con la cuenta de Media Services.
+Al crear una cuenta de Video Indexer, puede optar entre una cuenta de evaluación gratuita (donde obtiene un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con una versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 minutos de indexación gratuita a los usuarios de API. Con la opción de pago, se crea una cuenta de Video Indexer que está conectada a la suscripción de Azure. Se paga por minutos de indexación. Para más información, consulte [Precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
 En este artículo se muestra cómo crear una cuenta de Video Indexer que está vinculada a su suscripción de Azure y a una cuenta de Azure Media Services. Se proporcionan los pasos para conectarse a Azure mediante el flujo automático (predeterminado). También se muestra cómo conectarse a Azure manualmente (avanzado).
 
@@ -45,7 +45,7 @@ Si va a pasar de una *cuenta de prueba* a una *cuenta de pago* de Video Indexer,
 
     Usará a este miembro para conectar su cuenta de Video Indexer a Azure.
 
-    Este usuario debe ser miembro de la suscripción de Azure con un rol de **Propietario** , o con los roles de **Colaborador** y **Administrador de acceso de usuario**. Un usuario se puede agregar dos veces, con dos roles. Una vez como Colaborador y otra como Administrador de acceso de usuario. Para más información, consulte [Visualización del acceso de un usuario a los recursos de Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+    Este usuario debe ser miembro de la suscripción de Azure con un rol de **Propietario**, o con los roles de **Colaborador** y **Administrador de acceso de usuario**. Un usuario se puede agregar dos veces, con dos roles. Una vez como Colaborador y otra como Administrador de acceso de usuario. Para más información, consulte [Visualización del acceso de un usuario a los recursos de Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
     ![control de acceso](./media/create-account/access-control-iam.png)
 
@@ -53,7 +53,7 @@ Si va a pasar de una *cuenta de prueba* a una *cuenta de pago* de Video Indexer,
 
 * Registrar el proveedor de recursos EventGrid mediante Azure Portal.
 
-    En [Azure Portal](https://portal.azure.com/), vaya a **Suscripciones** ->[suscripción]-> **ResourceProviders**.
+    En [Azure Portal](https://portal.azure.com/), vaya a **Suscripciones**->[suscripción]->**ResourceProviders**.
 
     Busque **Microsoft.Media** y **Microsoft.EventGrid**. Si no se encuentra en el estado "Registrado", haga clic en **Registrarse**. Tarda unos minutos en registrarse.
 
@@ -65,14 +65,14 @@ Si va a pasar de una *cuenta de prueba* a una *cuenta de pago* de Video Indexer,
 > Si su suscripción de Azure usa la autenticación multifactor basada en certificados, es fundamental que siga estos pasos en un dispositivo que tenga instalados los certificados necesarios.
 
 1. Vaya al sitio web de [Video Indexer](https://www.videoindexer.ai/) e inicie sesión.
-1. Seleccione el botón **Crear cuenta ilimitada** :
+1. Seleccione el botón **Crear cuenta ilimitada**:
 
     ![Creación de una cuenta de Video Indexer](./media/create-account/create-unlimited-account.png)
 1. Cuando aparezca la lista de suscripciones, seleccione la suscripción que desea usar.
 
     ![Conexión de Video Indexer a Azure](./media/create-account/new-account-on-azure-subscription.png)
 1. Seleccione una región de Azure de las ubicaciones admitidas: Oeste de EE. UU. 2, Norte de Europa o Este de Asia.
-1. En **Cuenta de Azure Media Services** , elija una de estas opciones:
+1. En **Cuenta de Azure Media Services**, elija una de estas opciones:
 
     * Para crear una cuenta de Media Services nueva, seleccione **Crear nuevo grupo de recursos**. Escriba un nombre para el grupo de recursos.
 
@@ -127,7 +127,7 @@ Si se produjo un error en la conexión a Azure, puede intentar solucionar el pro
     2. Seleccione [Service principal authentication method](../previous/media-services-portal-get-started-with-aad.md) (Método de autenticación de la entidad de servicio).
     3. Obtención del identificador de cliente y del secreto de cliente
 
-        Después de seleccionar **Configuración**->**Claves** , agregue una **Descripción** , presione **Guardar** y el valor de la clave se rellenará.
+        Después de seleccionar **Configuración**->**Claves**, agregue una **Descripción**, presione **Guardar** y el valor de la clave se rellenará.
 
         Si la clave expira, el propietario de la cuenta tendrá que ponerse en contacto con el soporte técnico de Video Indexer para renovar la clave.
 
@@ -152,7 +152,7 @@ En el cuadro de diálogo, proporcione la siguiente información:
 
 ## <a name="import-your-content-from-the-trial-account"></a>Importación del contenido de la cuenta de *prueba*
 
-Al crear una cuenta, tiene la opción de importar el contenido de la cuenta de *prueba* a la nueva cuenta. Si activa la opción *Importar* en el cuadro de diálogo **Crear una cuenta nueva en una suscripción a Azure** , todas las personalizaciones de modelos de contenido y medios se copiarán de la cuenta de *prueba* a la nueva cuenta.
+Al crear una cuenta, tiene la opción de importar el contenido de la cuenta de *prueba* a la nueva cuenta. Si activa la opción *Importar* en el cuadro de diálogo **Crear una cuenta nueva en una suscripción a Azure**, todas las personalizaciones de modelos de contenido y medios se copiarán de la cuenta de *prueba* a la nueva cuenta.
 
 La capacidad de importar el contenido es válida para los enfoques automatizados y manuales descritos anteriormente.
 
@@ -184,6 +184,15 @@ Tenga en cuenta las siguientes consideraciones con relación a Azure Media Servi
 * Si se conecta automáticamente, Video Indexer establece las **unidades reservadas** en 10 unidades de S3:
 
     ![Unidades reservadas de Media Services](./media/create-account/ams-reserved-units.png)
+    
+## <a name="automate-creation-of-the-video-indexer-account"></a>Automatización de la creación de la cuenta de Video Indexer
+
+Para automatizar la creación de la cuenta hay un proceso de dos pasos:
+ 
+1. Use Azure Resource Manager para crear una cuenta de Azure Media Services y una aplicación de Azure AD.
+
+    Consulte un ejemplo de la [plantilla de creación de cuentas de Media Services](https://github.com/Azure-Samples/media-services-v3-arm-templates).
+1. Llame a [Create-Account con la aplicación de Media Services y Azure AD](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

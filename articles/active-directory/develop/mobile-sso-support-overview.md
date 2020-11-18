@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740154"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331613"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Compatibilidad con inicio de sesión único y directivas de protección de aplicaciones en el desarrollo de aplicaciones móviles
 
@@ -30,7 +30,7 @@ El [inicio de sesión único (SSO)](../manage-apps/plan-sso-deployment.md) permi
 
 Además, al habilitar el inicio de sesión único en la aplicación, se abre la puerta a nuevos mecanismos de autenticación que se incluyen con la autenticación moderna, como [inicios de sesión sin contraseña](../authentication/concept-authentication-passwordless.md). Los nombres de usuario y las contraseñas son uno de los vectores de ataque más conocidos contra las aplicaciones; sin embargo, con la habilitación del inicio de sesión único, puede mitigar este riesgo al aplicar acceso condicional o inicios de sesión sin contraseña que agregan seguridad adicional o se basan en mecanismos de autenticación más seguros. Por último, la habilitación del inicio de sesión único también habilita el [cierre de sesión único](v2-protocols-oidc.md#single-sign-out). Esto resulta útil en situaciones como aplicaciones de trabajo que se usarán en dispositivos compartidos.
 
-Las [directivas de protección de aplicaciones (APP)](/mem/intune/apps/app-protection-policy) garantizan que los datos de una organización permanecen seguros y restringidos. Permiten a las empresas administrar y proteger sus datos dentro de una aplicación y les otorga el control sobre quién puede acceder a la aplicación y sus datos. La implementación de directivas de protección de aplicaciones permite a la aplicación conectar los usuarios a los recursos protegidos mediante directivas de acceso condicional y transferir datos de forma segura a otras aplicaciones protegidas y desde allí. Los escenarios que surgen con las directivas de protección de aplicaciones incluyen solicitar un PIN para abrir una aplicación, controlar el uso compartido de los datos entre aplicaciones y evitar que los datos de la aplicación de la empresa se guarden en una ubicación de almacenamiento personal en el dispositivo.
+Las [directivas de protección de aplicaciones (APP)](/mem/intune/apps/app-protection-policy) garantizan que los datos de una organización permanecen seguros y restringidos. Permiten a las empresas administrar y proteger sus datos dentro de una aplicación y les otorga el control sobre quién puede acceder a la aplicación y sus datos. La implementación de directivas de protección de aplicaciones permite a la aplicación conectar los usuarios a los recursos protegidos mediante directivas de acceso condicional y transferir datos de forma segura a otras aplicaciones protegidas y desde allí. Los escenarios que surgen con las directivas de protección de aplicaciones incluyen solicitar un PIN para abrir una aplicación, controlar el uso compartido de los datos entre aplicaciones y evitar que los datos de la aplicación de la empresa se guarden en una ubicación de almacenamiento personal.
 
 ## <a name="implementing-single-sign-on"></a>Implementación del inicio de sesión único
 

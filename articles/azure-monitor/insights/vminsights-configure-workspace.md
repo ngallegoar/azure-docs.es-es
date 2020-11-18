@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ecfeebb9ce86d717531310c2ad1a33a3d27f4c0a
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995742"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506301"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configuración del área de trabajo de Log Analytics para Azure Monitor para VM
 Azure Monitor para VM recopila sus datos de una o varias áreas de trabajo de Log Analytics en Azure Monitor. Antes de incorporar agentes, debe crear y configurar un área de trabajo. En este artículo se describen los requisitos del área de trabajo y cómo configurarla para Azure Monitor para VM.
@@ -20,10 +20,10 @@ Azure Monitor para VM recopila sus datos de una o varias áreas de trabajo de Lo
 ## <a name="overview"></a>Información general
 Una suscripción única puede usar cualquier número de áreas de trabajo en función de sus requisitos. El único requisito del área de trabajo es que se encuentre en una ubicación admitida y esté configurada con la solución *VMInsights*.
 
-Una vez configurada el área de trabajo, puede usar cualquiera de las opciones disponibles para instalar los agentes necesarios en la VM y VMMS, y especificar un área de trabajo para que envíen sus datos. Azure Monitor para VM recopilará datos de cualquier área de trabajo configurada en su suscripción.
+Una vez configurada el área de trabajo, puede usar cualquiera de las opciones disponibles para instalar los agentes necesarios en la VM y el VMSS, y especificar un área de trabajo para que envíen sus datos. Azure Monitor para VM recopilará datos de cualquier área de trabajo configurada en su suscripción.
 
 > [!NOTE]
-> Al habilitar Azure Monitor para VM en una única VM o en VMMS con Azure Portal, se le ofrece la opción de seleccionar un área de trabajo existente o crear una nueva. La solución *VMInsights* se instalará en este área de trabajo si aún no lo está. Después, puede usar este área de trabajo para otros agentes.
+> Al habilitar Azure Monitor para VM en una única VM o en un VMSS con Azure Portal, se le ofrece la opción de seleccionar un área de trabajo existente o crear una nueva. La solución *VMInsights* se instalará en este área de trabajo si aún no lo está. Después, puede usar este área de trabajo para otros agentes.
 
 
 ## <a name="create-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
@@ -89,7 +89,7 @@ Para configurar varias áreas de trabajo, seleccione la pestaña **Configuració
 [![Configuración del área de trabajo](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 
 
-Al habilitar Azure Monitor para VM en una única VM o en VMMS con Azure Portal, se le ofrece la opción de seleccionar un área de trabajo existente o crear una nueva. La solución *VMInsights* se instalará en este área de trabajo si aún no lo está. Después, puede usar este área de trabajo para otros agentes.
+Al habilitar Azure Monitor para VM en una única VM o en un VMMS con Azure Portal, se le ofrece la opción de seleccionar un área de trabajo existente o crear una nueva. La solución *VMInsights* se instalará en este área de trabajo si aún no lo está. Después, puede usar este área de trabajo para otros agentes.
 
 [![Habilitación de una única VM en el portal](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png#lightbox)
 

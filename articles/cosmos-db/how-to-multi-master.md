@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a2b1ca8434c40eca610f95a3031e677782866e04
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
+ms.openlocfilehash: 6f71f4c0ec353f36614ea6dcabf4d698b31baacb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342018"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336733"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configuración de escrituras en varias regiones en las aplicaciones que usan Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +31,7 @@ Siga estos pasos para habilitar las escrituras en varias regiones desde Azure Po
 
 1. Vaya a la cuenta de Azure Cosmos y desde el menú, abra el panel **Replicar datos globalmente**.
 
-1. En la opción **Escrituras en varias regiones** , seleccione **Habilitar**. Agrega automáticamente las regiones existentes a las regiones de lectura y escritura.
+1. En la opción **Escrituras en varias regiones**, seleccione **Habilitar**. Agrega automáticamente las regiones existentes a las regiones de lectura y escritura.
 
 1. Puede agregar más regiones seleccionando los iconos en el mapa o el botón **Agregar región**. Todas las regiones que agregue tendrán habilitadas las operaciones de lectura y escritura.
 

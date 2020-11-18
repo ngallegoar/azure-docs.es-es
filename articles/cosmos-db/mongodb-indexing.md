@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 10/21/2020
+ms.date: 11/06/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096485"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369297"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Administración de la indexación en la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -148,7 +148,7 @@ Los índices de caracteres comodín no admiten ninguno de los siguientes tipos o
 - TTL
 - Único
 
-**A diferencia de MongoDB** , en la API de Azure Cosmos DB para MongoDB, **no puede** usar índices de caracteres comodín para:
+**A diferencia de MongoDB**, en la API de Azure Cosmos DB para MongoDB, **no puede** usar índices de caracteres comodín para:
 
 - Crear un índice de caracteres comodín que incluya varios campos específicos
 
@@ -211,7 +211,7 @@ globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { univ
         "ok" : 1,
         "collectionsharded" : "test.coll"
 }
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {unique:true})
+globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,
@@ -335,6 +335,51 @@ Al quitar índices y ejecutar consultas de inmediato que tienen filtros en los �
 
 > [!NOTE]
 > Puede [hacer un seguimiento del progreso del índice](#track-index-progress).
+
+## <a name="reindex-command"></a>Comando ReIndex
+
+El comando `reIndex` volverá a crear todos los índices de una colección. En la mayoría de los casos, esto no es necesario. Sin embargo, en raros casos, el rendimiento de las consultas puede mejorar después de ejecutar el comando `reIndex`.
+
+Puede ejecutar el comando `reIndex` con la siguiente sintaxis:
+
+`db.runCommand({ reIndex: <collection> })`
+
+Puede usar la siguiente sintaxis para comprobar si necesita ejecutar el comando `reIndex`:
+
+`db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
+
+Salida del ejemplo:
+
+```
+{
+        "database" : "myDB",
+        "collection" : "myCollection",
+        "provisionedThroughput" : 400,
+        "indexes" : [
+                {
+                        "v" : 1,
+                        "key" : {
+                                "_id" : 1
+                        },
+                        "name" : "_id_",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                },
+                {
+                        "v" : 1,
+                        "key" : {
+                                "b.$**" : 1
+                        },
+                        "name" : "b.$**_1",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                }
+        ],
+        "ok" : 1
+}
+```
+
+Si `reIndex` es necesario, **requiresReIndex** será true. Si `reIndex` no es necesario, se omitirá esta propiedad.
 
 ## <a name="migrate-collections-with-indexes"></a>Migración de colecciones con índices
 

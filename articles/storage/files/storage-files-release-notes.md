@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 11/5/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: e9a4e23c690b68ba5aac1e1685cf2aa5aeb3616e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e60c23ce07969a2c1f031e1981970ceffad1864e
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105658"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330281"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -25,6 +25,7 @@ Se admiten las siguientes versiones de agentes de Azure File Sync:
 
 | Hito | Número de versión del agente | Fecha de la versión | Estado |
 |----|----------------------|--------------|------------------|
+| Versión V11.1: [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 4 de noviembre de 2020 | Compatible: lanzamiento como paquete piloto |
 | Versión V10.1: [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 5 de junio de 2020 | Compatible |
 | Paquete acumulativo de actualizaciones de mayo de 2020: [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 de mayo de 2020 | Compatible |
 | Versión V10: [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 de abril de 2020 | Compatible |
@@ -46,6 +47,83 @@ Las siguientes versiones de agentes de Azure File Sync han expirado y ya no se a
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-11100"></a>Versión 11.1.0.0 del agente
+Las notas siguientes corresponden a la versión 11.1.0.0 del agente de Azure File Sync (publicada el 4 de noviembre de 2020).
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Mejoras y problemas que se han solucionado
+- Nuevos modos de nube por niveles para controlar la descarga inicial y la recuperación proactiva
+    - Modo de descarga inicial: ahora puede elegir cómo desea que los archivos se descarguen inicialmente en el nuevo punto de conexión de servidor. ¿Quiere todos sus archivos por niveles o la mayor cantidad posible de archivos descargados en su servidor con la última marca de tiempo modificada? ¡Puede hacerlo! ¿No puede usar la nube por niveles? Ahora puede optar por evitar los archivos por niveles en el sistema. Para obtener más información, consulte la sección [Creación de un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal%2Cproactive-portal#create-a-server-endpoint) en la documentación de implementación de Azure File Sync.
+    - Modo de recuperación proactiva: cada vez que se crea o se modifica un archivo, puede recuperarlo de forma proactiva en los servidores que especifique en el mismo grupo de sincronización. Esto hace que el archivo esté fácilmente disponible para su consumo en cada servidor que haya especificado. ¿Tiene equipos por todo el mundo trabajando con los mismos datos? Habilite la recuperación proactiva para que cuando el equipo llegue por la mañana, todos los archivos actualizados por un equipo en una zona horaria diferente se descarguen y estén listos para trabajar con ellos. Para más información, consulte la sección [Recuperación proactiva de archivos nuevos y modificados desde un recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal%2Cproactive-portal#proactively-recall-new-and-changed-files-from-an-azure-file-share) en la documentación de implementación de Azure File Sync.
+
+- Excluir aplicaciones del seguimiento de la hora del último acceso de la nube por niveles Ahora puede excluir aplicaciones del seguimiento de la hora del último acceso. Cuando una aplicación tiene acceso a un archivo, la hora de último acceso para el archivo se actualiza en la base de datos de la nube por niveles. Las aplicaciones que examinan el sistema de archivos, como un antivirus, provocan que todos los archivos tengan la misma hora de último acceso, lo que afecta al momento en que los archivos se dividen en niveles.
+
+    Para excluir las aplicaciones del seguimiento de la hora de último acceso, agregue el nombre del proceso al valor del Registro HeatTrackingProcessNameExclusionList, que se encuentra en HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
+
+    Ejemplo: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNameExclusionList /t REG_MULTI_SZ /d "SampleApp.exe\0AnotherApp.exe" /f
+
+    > [!Note]  
+    > Los procesos Desduplicación de datos y Administrador de recursos del servidor de archivos (FSRM) se excluyen de forma predeterminada (codificación rígida) y la lista de exclusión de procesos se actualiza cada 5 minutos.
+
+- Mejoras varias de rendimiento y confiabilidad
+    - Se mejoró el rendimiento de la detección de cambios para detectar archivos que han cambiado en el recurso compartido de archivos de Azure.
+    - Se mejoró el rendimiento de carga de sincronización.
+    - La carga inicial se realiza ahora desde una instantánea de VSS, lo que reduce los errores por elemento y los errores de sesión de sincronización.
+    - Se mejoró la confiabilidad de la sincronización para determinados patrones de E/S.
+    - Se corrigió un error para evitar que la base de datos de sincronización retroceda en el tiempo en los clústeres de conmutación por error cuando se produce una conmutación por error.
+    - Se mejoró el rendimiento de recuperación al obtener acceso a un archivo por niveles.
+
+### <a name="evaluation-tool"></a>Herramienta de evaluación
+Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) en la Guía de planeación. 
+
+### <a name="agent-installation-and-server-configuration"></a>Instalación del agente y configuración del servidor
+Para más información sobre cómo instalar y configurar el agente de Azure File Sync con Windows Server, vea [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md) y [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync).
+
+- El paquete de instalación del agente debe instalarse con permisos elevados (administrador).
+- El agente no es compatible con la opción de implementación de Nano Server.
+- El agente solo se admite en Windows Server 2019, Windows Server 2016 y Windows Server 2012 R2.
+- El agente requiere al menos 2 GB de memoria. Si el servidor se ejecuta en una máquina virtual con la memoria dinámica habilitada, la máquina virtual debe configurarse con un mínimo de 2048 MiB de memoria. Para más información, consulte el artículo en el que se indican los [recursos del sistema recomendados](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#recommended-system-resources).
+- El servicio del agente de sincronización de Storage (FileSyncSvc) no admite puntos de conexión de servidor ubicados en un volumen que tiene el directorio de información del volumen del sistema (SVI) comprimido. Esta configuración producirá resultados inesperados.
+
+### <a name="interoperability"></a>Interoperabilidad
+- Las aplicaciones antivirus, de copia de seguridad y de otro tipo que accedan a archivos organizados en niveles pueden provocar recuperaciones no deseadas, salvo que respeten el atributo sin conexión y pasen por alto la lectura del contenido de esos archivos. Para más información, vea [Solución de problemas de Azure File Sync](storage-sync-files-troubleshoot.md).
+- Los filtros de archivos del Administrador de recursos del servidor de archivos (FSRM) pueden provocar un gran número de errores de sincronización cuando los archivos están bloqueados debido al filtro de archivos.
+- No se admite la ejecución de sysprep en un servidor que tenga instalado el agente de Azure File Sync y esto puede provocar resultados inesperados. El agente de Azure File Sync se debe instalar después de implementar la imagen del servidor y completar la instalación mínima de la herramienta de preparación del sistema.
+
+### <a name="sync-limitations"></a>Limitaciones de la sincronización
+Los siguientes elementos no se sincronizan, pero el resto del sistema funciona con normalidad:
+- Archivos con caracteres no admitidos. Consulte la [Guía de solución de problemas](storage-sync-files-troubleshoot.md#handling-unsupported-characters) para obtener la lista de caracteres no admitidos.
+- Archivos o directorios que terminan con un punto.
+- Rutas de acceso de más de 2,048 caracteres.
+- La parte de la lista de control de acceso del sistema (SACL) de un descriptor de seguridad que se utiliza para la auditoría.
+- Atributos extendidos.
+- Flujos de datos alternativos.
+- Puntos de repetición de análisis.
+- Vínculos físicos.
+- La compresión (si se establece en un archivo de servidor) no se conserva al sincronizarse los cambios con ese archivo desde otros puntos de conexión.
+- Los archivos cifrados con EFS (u otros cifrados con modo de usuario) que evitan que el servicio lea los datos.
+
+    > [!Note]  
+    > Azure File Sync siempre cifra los datos en tránsito. Los datos siempre se cifran en reposo en Azure.
+ 
+### <a name="server-endpoint"></a>Punto de conexión de servidor
+- Un punto de conexión de servidor solo se puede crear en un volumen NTFS. En este momento Azure File Sync no admite ReFS, FAT, FAT32 ni otros sistemas de archivos.
+- Los niveles de nube no se admiten en el volumen del sistema. Para crear un punto de conexión de servidor en el volumen del sistema, deshabilite los niveles de la nube al crear el punto de conexión de servidor.
+- Los clústeres de conmutación por error solo son compatibles con discos en clúster, pero no con volúmenes compartidos de clúster (CSV).
+- No se puede anidar un punto de conexión de servidor. Puede coexistir en el mismo volumen en paralelo con otro punto de conexión.
+- No almacene un archivo de paginación de aplicación o sistema operativo en una ubicación de punto de conexión de servidor.
+- Si se cambia el nombre del servidor, no se actualiza en el portal.
+
+### <a name="cloud-endpoint"></a>Punto de conexión de nube
+- Azure File Sync admite realizar cambios directamente en el recurso compartido de archivos de Azure. Sin embargo, los cambios realizados en el recurso compartido de archivos de Azure primero deben ser detectados por un trabajo de detección de cambios de Azure File Sync. Se inicia un trabajo de detección de cambios para un punto de conexión de nube una vez cada 24 horas. Para sincronizar inmediatamente los archivos que se modifican en el recurso compartido de archivos de Azure, se puede usar el cmdlet [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) de PowerShell para iniciar de forma manual la detección de cambios en el recurso compartido. Además, los cambios realizados en un recurso compartido de archivos de Azure a través del protocolo de REST no actualizarán la hora de la última modificación de SMB y no se verán como cambios derivados de la sincronización.
+- El servicio de sincronización del almacenamiento o la cuenta de almacenamiento se pueden mover a un grupo de recursos, suscripción o inquilino de Azure AD diferentes. Después de mover el servicio de sincronización de almacenamiento o la cuenta de almacenamiento, debe dar acceso a la aplicación Microsoft.StorageSync a la cuenta de almacenamiento (consulte [Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+
+    > [!Note]  
+    > Al crear el punto de conexión de nube, el servicio de sincronización de almacenamiento y la cuenta de almacenamiento deben estar en el mismo inquilino de Azure AD. Una vez creado el punto de conexión de nube, el servicio de sincronización de almacenamiento y la cuenta de almacenamiento se pueden migrar a distintos inquilinos de Azure AD.
+
+### <a name="cloud-tiering"></a>Niveles de nube
+- Si un archivo en niveles se copia en otra ubicación mediante el uso de Robocopy, el archivo resultante no estará en niveles. El atributo sin conexión podría estar establecido porque Robocopy incluye incorrectamente dicho atributo en las operaciones de copia.
+- Al copiar los archivos mediante Robocopy, utilice la opción /MIR para conservar las marcas de tiempo de archivo. Esto garantizará que los archivos antiguos se organicen por niveles antes que los archivos a los que se ha accedido recientemente.
 
 ## <a name="agent-version-10100"></a>Versión 10.1.0.0 del agente
 Las notas siguientes corresponden a la versión 10.1.0.0 del agente de Azure File Sync, publicada el 5 de junio de 2020. Estas notas son adicionales a las notas de la versión enumeradas para las versiones 10.0.0.0 y 10.0.2.0.

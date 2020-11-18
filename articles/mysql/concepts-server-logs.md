@@ -5,18 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/6/2020
+ms.openlocfilehash: 1e967c77bc41f0f91674fe55bc622adaf5046f6d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81271988"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359007"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registros de consultas lentas en Azure Database for MySQL
 En Azure Database for MySQL, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema.
 
 Para obtener más información sobre el registro de consultas lentas de MySQL, vea la [sección de registro de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) del manual de referencia.
+
+Cuando [Almacén de consultas](concepts-query-store.md) está habilitado en el servidor, puede ver que las consultas como "`CALL mysql.az_procedure_collect_wait_stats (900, 30);`" se han registrado en los registros de consultas lentas. Este comportamiento es el esperado, ya que la característica Almacén de consultas recopila estadísticas sobre las consultas. 
 
 ## <a name="configure-slow-query-logging"></a>Configuración del registro de consultas lentas 
 De forma predeterminada, el registro de consultas lentas está deshabilitado. Para habilitarlo, cambie `slow_query_log` a Activado. Para ello, se puede usar Azure Portal o la CLI de Azure. 

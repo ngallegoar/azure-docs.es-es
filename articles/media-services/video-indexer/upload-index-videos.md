@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a5106e1089e2353d2db884977eb51a4fd2717b99
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218986"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506182"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
@@ -26,7 +26,7 @@ Al cargar vídeos con Video Indexer API, tiene las siguientes opciones de carga:
 * enviar el archivo de vídeo como una matriz de bytes en el cuerpo de la solicitud.
 * Para usar el recurso de Azure Media Services existente, proporcione el [identificador del recurso](../latest/assets-concept.md) (solo se admite en cuentas de pago).
 
-Una vez cargado el vídeo, Video Indexer puede codificarlo (lo que se explica en este artículo). Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gratuita (donde obtendrá un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con la versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 horas de indexación gratuita a los usuarios de API. Con la opción de pago, se crea una cuenta de Video Indexer que está [conectada a su suscripción de Azure y a una cuenta de Azure Media Services](connect-to-azure.md). Se paga por minutos de indexación y por los cargos relacionados con la cuenta de Media Services. 
+Una vez cargado el vídeo, Video Indexer puede codificarlo (lo que se explica en este artículo). Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gratuita (donde obtendrá un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con la versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 horas de indexación gratuita a los usuarios de API. Con la opción de pago, se crea una cuenta de Video Indexer que está [conectada a su suscripción de Azure y a una cuenta de Azure Media Services](connect-to-azure.md). Se paga por minutos de indexación. Para más información, consulte [Precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
 En el artículo se muestra cómo cargar e indexar los vídeos con estas opciones:
 
@@ -79,7 +79,7 @@ Consulte la sección [Formatos de archivo/contenedor de entrada](../latest/media
 1. Una vez cargado el vídeo, Video Indexer inicia la indexación y el análisis del vídeo.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Cargar":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progreso de la carga":::
 1. Cuando Video Indexer haya terminado el análisis, recibirá un correo electrónico con un vínculo a su vídeo y una breve descripción de lo que se ha encontrado en él. Por ejemplo: personas, temas u OCR.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>Carga e indexación con API
@@ -118,7 +118,7 @@ Una dirección URL que se usa para notificar al cliente (mediante una solicitud 
         
     - Ejemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-##### <a name="notes"></a>Notas
+##### <a name="other-considerations"></a>Otras consideraciones
 
 - Video Indexer devuelve los parámetros existentes proporcionados en la dirección URL original.
 - La dirección URL proporcionada debe estar codificada.
@@ -140,7 +140,7 @@ El precio depende de la opción de indexación seleccionada.
 
 #### <a name="priority"></a>priority
 
-Video Indexer indexa los vídeos según su prioridad. Use el parámetro **priority** para especificar la prioridad del índice. Los siguientes valores son válidos: **Low** , **Normal** (valor predeterminado) y **High** .
+Video Indexer indexa los vídeos según su prioridad. Use el parámetro **priority** para especificar la prioridad del índice. Los siguientes valores son válidos: **Low**, **Normal** (valor predeterminado) y **High**.
 
 El parámetro **priority** solo se admite en cuentas de pago.
 

@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/27/2020
-ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230813"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331981"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTPS en Azure Logic Apps
 
@@ -23,7 +23,8 @@ Para que se pueda llamar a la aplicación lógica a través de una dirección UR
 
 En este artículo se muestra cómo crear un punto de conexión al que se puede llamar en la aplicación lógica mediante el desencadenador de solicitud y llamar a ese punto de conexión desde otra aplicación lógica. Todos los principios se aplican de forma idéntica a los otros tipos de desencadenadores que se pueden usar para recibir solicitudes entrantes.
 
-Para información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL) o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), consulte [Proteger el acceso y los datos: Acceso de llamadas entrantes para desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
+Para más información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL) o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), exponer la aplicación lógica con Azure API Management o restringir las direcciones IP que originan las llamadas entrantes, consulte [Proteger el acceso y los datos en Azure Logic Apps: acceso de las llamadas entrantes a desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -301,7 +302,7 @@ Por ejemplo, si agrega más propiedades, como `"suite"`, al esquema JSON, los to
 
 ## <a name="create-nested-logic-apps"></a>Creación de aplicaciones lógicas anidadas
 
-Puede anidar los flujos de trabajo en la aplicación lógica mediante la adición de otras aplicaciones de lógica que pueden recibir solicitudes. Para incluir estas aplicaciones lógicas, siga los pasos siguientes:
+Puede anidar flujos de trabajo en la aplicación lógica mediante la adición de otras aplicaciones lógicas que pueden recibir solicitudes. Para incluir estas aplicaciones lógicas, siga los pasos siguientes:
 
 1. En el paso en el que quiera llamar a otra aplicación lógica, seleccione **Nuevo paso** > **Agregar una acción**.
 
@@ -391,6 +392,8 @@ Para ver la definición de JSON de la acción de respuesta y la definición comp
 > * La clave de acceso compartido aparece en la dirección URL.
 > * No puede administrar directivas de contenido de seguridad debido a los dominios compartidos entre los clientes de Azure Logic Apps.
 
+Para más información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL) o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), exponer la aplicación lógica con Azure API Management o restringir las direcciones IP que originan las llamadas entrantes, consulte [Proteger el acceso y los datos en Azure Logic Apps: acceso de las llamadas entrantes a desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>P: ¿Puedo configurar más puntos de conexión que se puedan llamar?
 
 **R.** : Sí, los puntos de conexión HTTPS admiten una configuración más avanzada con [Azure API Management](../api-management/api-management-key-concepts.md). Este servicio también ofrece la funcionalidad de administrar de forma coherente todas las API, incluidas las aplicaciones lógicas, configurar nombres de dominio personalizados, usar varios métodos de autenticación y muchas más, como, por ejemplo:
@@ -403,4 +406,4 @@ Para ver la definición de JSON de la acción de respuesta y la definición comp
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Recepción de llamadas HTTPS entrantes y respuesta e ellas mediante Azure Logic Apps](../connectors/connectors-native-reqres.md)
-* [Protección del acceso y los datos en Azure Logic Apps - Acceso a desencadenadores de solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Proteger el acceso y los datos en Azure Logic Apps: acceso de las llamadas entrantes a desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

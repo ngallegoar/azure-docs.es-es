@@ -2,15 +2,15 @@
 title: Habilitación de Update Management de Azure Automation desde una cuenta de Automation
 description: En este artículo se indica cómo habilitar Update Management desde una cuenta de Automation.
 services: automation
-ms.date: 11/04/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 6f14516f36975d84256f9bb1bd3b4949dbf80448
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b97e1e61401697204f79004e4678e6f2286f4a98
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348838"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380545"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Habilitación de Update Management desde una cuenta de Automation
 
@@ -49,7 +49,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="enable-non-azure-vms"></a>Habilitación de máquinas virtuales que no son de Azure
 
-Las máquinas que no estén en Azure se deben agregar manualmente.
+En el caso de las máquinas o los servidores hospedados fuera de Azure, incluidos los registrados con servidores habilitados para Azure Arc, realice los pasos siguientes para habilitarlos con Update Management.  
 
 1. En su cuenta de Automation, seleccione **Update Management** en **Update Management**.
 
@@ -61,13 +61,13 @@ Las máquinas instaladas manualmente o las máquinas que ya envían notificacion
 
 1. En su cuenta de Automation, seleccione **Update Management** en **Update Management**.
 
-2. Seleccione **Administrar máquinas**. Es posible que, si previamente ha seleccionado la opción **Habilitar en todas las máquinas disponibles y futuras** , el botón **Administrar máquinas** esté atenuado.
+2. Seleccione **Administrar máquinas**. Es posible que, si previamente ha seleccionado la opción **Habilitar en todas las máquinas disponibles y futuras**, el botón **Administrar máquinas** esté atenuado.
 
     ![Búsquedas guardadas](media/enable-from-automation-account/managemachines.png)
 
 3. Para habilitar Update Management en todas las máquinas disponibles que informan al área de trabajo, seleccione **Habilitar en todas las máquinas disponibles** en la página Administrar máquinas. Esta acción deshabilita el control para agregar máquinas individualmente y agrega todas las máquinas que informan al área de trabajo a la consulta de búsqueda guardada del grupo de equipos `MicrosoftDefaultComputerGroup`. Cuando se selecciona, esta acción deshabilita la opción **Administrar máquinas**.
 
-4. Para habilitar la característica en todas las máquinas disponibles y futuras, seleccione **Habilitar en todas las máquinas disponibles y futuras**. Esta opción elimina la búsqueda guardada y la configuración de ámbito del área de trabajo y permite a la característica incluir todas las máquinas de Azure y que no son de Azure que, actualmente o en el futuro, envían notificaciones al área de trabajo. Cuando está seleccionada, esta acción deshabilita permanentemente la opción **Administrar máquinas** , ya que no hay ninguna configuración de ámbito disponible.
+4. Para habilitar la característica en todas las máquinas disponibles y futuras, seleccione **Habilitar en todas las máquinas disponibles y futuras**. Esta opción elimina la búsqueda guardada y la configuración de ámbito del área de trabajo y permite a la característica incluir todas las máquinas de Azure y que no son de Azure que, actualmente o en el futuro, envían notificaciones al área de trabajo. Cuando está seleccionada, esta acción deshabilita permanentemente la opción **Administrar máquinas**, ya que no hay ninguna configuración de ámbito disponible.
 
     > [!NOTE]
     > Dado que esta opción elimina la búsqueda guardada y la configuración de ámbito dentro de Log Analytics, es importante quitar todos los bloqueos de eliminación en el área de trabajo de Log Analytics antes de seleccionar esta opción. Si no lo hace, la opción no quitará las configuraciones y deberá hacerlo manualmente.

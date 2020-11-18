@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 791c9e8ea8f7c8ffbf9268af2b3a93f592a77f9e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: a1bd303390626eaea71e588e325fedbd2d8fa4b9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629743"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353363"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Actualización de direcciones IP públicas
 
@@ -100,7 +100,7 @@ Para beneficiarse de las nuevas funcionalidades de Azure Resource Manager, puede
 
 En el ejemplo siguiente se da por supuesto que se ha creado previamente una IP reservada de Azure clásico **myReservedIP** en **myResourceGroup**. Otro requisito previo para la migración es asegurarse de que la suscripción de Azure Resource Manager se ha registrado. Este aspecto se trata de forma detallada en los pasos 3 y 4 de [esta página](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-ps).
 
-Para migrar la IP reservada, ejecute los siguientes comandos con PowerShell.  Tenga en cuenta que, si la dirección IP no está asociada a ningún servicio (a continuación, se muestra el servicio denominado **myService** ), ese paso se puede omitir.
+Para migrar la IP reservada, ejecute los siguientes comandos con PowerShell.  Tenga en cuenta que, si la dirección IP no está asociada a ningún servicio (a continuación, se muestra el servicio denominado **myService**), ese paso se puede omitir.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -118,13 +118,13 @@ El comando anterior muestra las advertencias y errores que bloqueen la migració
 Move-AzureReservedIP -ReservedIPName $name -Prepare
 Move-AzureReservedIP -ReservedIPName $name -Commit
 ```
-Se crea un grupo de recursos en Azure Resource Manager con el nombre de la dirección IP reservada migrada (en el ejemplo anterior, sería el grupo de recursos **myReservedIP-Migrated** ).
+Se crea un grupo de recursos en Azure Resource Manager con el nombre de la dirección IP reservada migrada (en el ejemplo anterior, sería el grupo de recursos **myReservedIP-Migrated**).
 
 # <a name="reserved-to-basic---cli"></a>[**Reservada a básica: CLI**](#tab/option-migrate-cli)
 
 En el ejemplo siguiente se da por supuesto que se ha creado previamente una IP reservada de Azure clásico **myReservedIP** en **myResourceGroup**. Otro requisito previo para la migración es asegurarse de que la suscripción de Azure Resource Manager se ha registrado. Este aspecto se trata de forma detallada en los pasos 3 y 4 de [esta página](https://docs.microsoft.com/azure/virtual-machines/linux/migration-classic-resource-manager-cli).
 
-Para migrar la dirección IP reservada, ejecute los siguientes comandos con la CLI de Azure.  Tenga en cuenta que, si la dirección IP no está asociada a ningún servicio (a continuación, se muestra el servicio denominado **myService** y la implementación **myDeployment** ), ese paso se puede omitir.
+Para migrar la dirección IP reservada, ejecute los siguientes comandos con la CLI de Azure.  Tenga en cuenta que, si la dirección IP no está asociada a ningún servicio (a continuación, se muestra el servicio denominado **myService** y la implementación **myDeployment**), ese paso se puede omitir.
 
 ```azurecli-interactive
 ## Variables for the command ##
@@ -142,7 +142,7 @@ El comando anterior muestra las advertencias y errores que bloqueen la migració
 azure network reserved-ip prepare-migration $name
 azure network reserved-ip commit-migration $name
 ```
-Se crea un grupo de recursos en Azure Resource Manager con el nombre de la dirección IP reservada migrada (en el ejemplo anterior, sería el grupo de recursos **myReservedIP-Migrated** ).
+Se crea un grupo de recursos en Azure Resource Manager con el nombre de la dirección IP reservada migrada (en el ejemplo anterior, sería el grupo de recursos **myReservedIP-Migrated**).
 
 ---
 
@@ -154,11 +154,18 @@ Centro-Norte de EE. UU<br>
 Oeste de EE. UU.<br>
 Oeste de EE. UU. 2<br>
 Este de Noruega<br>
+Norte de Sudáfrica<br>
 Este de EE. UU.<br>
+Norte de Europa<br>
+Centro de Corea del Sur<br>
+India central<br>
 Este de EE. UU. 2<br>
 Norte de Suiza<br>
 India occidental<br>
-Norte de Alemania
+Norte de Alemania<br>
+Centro de Canadá<br>
+Sur de Francia<br>
+India occidental
 
 * Para actualizar una dirección IP pública básica, no se puede asociar con ningún recurso de Azure.  Examine [esta página](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) para más información sobre cómo desasociar las direcciones IP públicas.  Del mismo modo, para migrar una dirección IP reservada, no se puede asociar con ningún servicio en la nube.  Revise [esta página](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) para más información sobre cómo desasociar direcciones IP reservadas.  
 * Las direcciones IP públicas actualizadas de la SKU de nivel básico a estándar seguirán sin tener [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) y, por lo tanto, no se pueden asociar a un recurso de Azure con redundancia de zona o zonal.  Tenga en cuenta que esto solo se aplica a las regiones que ofrecen zonas de disponibilidad.

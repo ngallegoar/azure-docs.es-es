@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 11/08/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8cf0652148ad54eeacdec874823ea680f39f670c
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340046"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372734"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoría para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ Puede usar la auditoría de SQL Database para:
 - **Analizar** informes. Puede buscar eventos sospechosos, actividades inusuales y tendencias.
 
 > [!IMPORTANT]
-> La auditoría de Azure SQL Database está optimizada para el rendimiento y la disponibilidad. Durante periodos de actividad muy elevada, Azure SQL Database o Azure Synapse permite que las operaciones continúen y es posible que no registre algunos eventos auditados.
+> La auditoría de Azure SQL Database y Azure Synapse está optimizada para el rendimiento y la disponibilidad. Durante periodos de actividad muy elevada o alta carga en la red, Azure SQL Database o Azure Synapse permiten que las operaciones continúen y es posible que no registren algunos eventos auditados.
 
 ### <a name="auditing-limitations"></a>Limitaciones de auditoría
 
@@ -54,14 +54,14 @@ Se puede definir una directiva de auditoría para una base de datos específica 
 
 - Una directiva de servidor se aplica a todas las bases de datos recién creadas en el servidor.
 
-- Si la *auditoría de servidor está habilitada* , *se aplica siempre a la base de datos*. La base de datos se auditará, independientemente de la configuración de auditoría de la base de datos.
+- Si la *auditoría de servidor está habilitada*, *se aplica siempre a la base de datos*. La base de datos se auditará, independientemente de la configuración de auditoría de la base de datos.
 
 - Al habilitar la auditoría en la base de datos, además de en el servidor, *no* se invalida ni cambia ninguna de las opciones de la auditoría del servidor. Ambas auditorías existirán en paralelo. En otras palabras, la base de datos se auditará dos veces en paralelo; una vez por la directiva de servidor y otra vez por la directiva de base de datos.
 
    > [!NOTE]
    > Debe evitar habilitar tanto la auditoría de servidor como la auditoría de blobs de base de datos, a menos que:
     >
-    > - Quiera usar una *cuenta de almacenamiento* , un *período de retención* o un *área de trabajo de Log Analytics* diferentes para una base de datos específica.
+    > - Quiera usar una *cuenta de almacenamiento*, un *período de retención* o un *área de trabajo de Log Analytics* diferentes para una base de datos específica.
     > - Quiera auditar tipos de eventos o categorías para una base de datos específica que difieren del resto de las bases de datos del servidor. Por ejemplo, es posible que tenga inserciones de tabla que solo tengan que deban auditarse para una base de datos concreta.
    >
    > En caso contrario, se recomienda habilitar solo la auditoría de nivel de servidor y dejar que la auditoría de nivel de base de datos esté deshabilitada para todas las bases de datos.
@@ -156,11 +156,11 @@ Si eligió escribir registros de auditoría en registros de Azure Monitor:
 
 - A continuación, dispone de dos formas de ver los registros:
 
-    Al hacer clic en **Log Analytics** en la parte superior de la página **Registros de auditoría** , se abrirá la vista de registros en el área de trabajo de Log Analytics, donde puede personalizar el intervalo de tiempo y la consulta de búsqueda.
+    Al hacer clic en **Log Analytics** en la parte superior de la página **Registros de auditoría**, se abrirá la vista de registros en el área de trabajo de Log Analytics, donde puede personalizar el intervalo de tiempo y la consulta de búsqueda.
 
     ![abrir en el área de trabajo de Log Analytics](./media/auditing-overview/auditing-log-analytics.png)
 
-    Al hacer clic en **Ver panel** en la parte superior de la página **Registros de auditoría** , se abrirá un panel con información sobre los registros de auditoría, donde puede explorar en profundidad la información de seguridad, el acceso a datos confidenciales y mucho más. Este panel se ha diseñado para ayudarle a obtener información de seguridad para sus datos.
+    Al hacer clic en **Ver panel** en la parte superior de la página **Registros de auditoría**, se abrirá un panel con información sobre los registros de auditoría, donde puede explorar en profundidad la información de seguridad, el acceso a datos confidenciales y mucho más. Este panel se ha diseñado para ayudarle a obtener información de seguridad para sus datos.
     También puede personalizar el intervalo de tiempo y la consulta de búsqueda.
     ![Ver panel de Log Analytics](media/auditing-overview/auditing-view-dashboard.png)
 
@@ -168,7 +168,7 @@ Si eligió escribir registros de auditoría en registros de Azure Monitor:
 
     ![Información de seguridad de Log Analytics](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
-- Como alternativa, también puede acceder a los registros de auditoría desde la hoja Log Analytics. Abra el área de trabajo de Log Analytics y, en la sección **General** , haga clic en **Registros**. Puede comenzar con una consulta simple, como: *buscar "SQLSecurityAuditEvents"* para ver los registros de auditoría.
+- Como alternativa, también puede acceder a los registros de auditoría desde la hoja Log Analytics. Abra el área de trabajo de Log Analytics y, en la sección **General**, haga clic en **Registros**. Puede comenzar con una consulta simple, como: *buscar "SQLSecurityAuditEvents"* para ver los registros de auditoría.
     Desde aquí, también puede usar los [registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para ejecutar búsquedas avanzadas en los datos de registro de auditoría. Los registros de Azure Monitor proporcionan conclusiones operativas en tiempo real gracias a uso de paneles personalizados y de búsqueda integrados para analizar fácilmente millones de registros en todas las cargas de trabajo y servidores. Para información útil adicional sobre los comandos y el lenguaje de búsqueda de registros de Azure Monitor, consulte la [referencia de búsqueda de registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 Si eligió escribir registros de auditoría en el centro de eventos:
@@ -184,7 +184,7 @@ Si eligió escribir los registros de auditoría en una cuenta de almacenamiento 
 
     ![Captura de pantalla que muestra el botón para ver los registros de auditoría resaltado en la página de auditoría de base de datos.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
 
-    Se abre la hoja **Registros de auditoría** , desde la que podrá ver los registros.
+    Se abre la hoja **Registros de auditoría**, desde la que podrá ver los registros.
 
   - Puede elegir ver fechas específicas si hace clic en **Filtrar** en la parte superior de la página **Registros de auditoría**.
   - Puede cambiar entre los registros de auditoría que se crearon con la *directiva de auditoría de servidor* y la *directiva de auditoría de base de datos* alternando **Origen de auditoría**.
@@ -219,11 +219,11 @@ Si eligió escribir los registros de auditoría en una cuenta de almacenamiento 
 
 ### <a name="auditing-geo-replicated-databases"></a>Auditoría de bases de datos con replicación geográfica
 
-Con bases de datos con replicación geográfica, cuando se habilita la auditoría en la base de datos principal, la base de datos secundaria tendrá una directiva de auditoría idéntica. También es posible configurar la auditoría en la base de datos secundaria habilitando la auditoría en el **servidor secundario** , independientemente de la base de datos principal.
+Con bases de datos con replicación geográfica, cuando se habilita la auditoría en la base de datos principal, la base de datos secundaria tendrá una directiva de auditoría idéntica. También es posible configurar la auditoría en la base de datos secundaria habilitando la auditoría en el **servidor secundario**, independientemente de la base de datos principal.
 
-- Nivel de servidor ( **recomendado** ): active la auditoría en el **servidor principal** así como en el **servidor secundario**. Las bases de datos principal y secundaria se auditarán de forma independiente en función de la directiva de nivel de servidor respectiva.
+- Nivel de servidor (**recomendado**): active la auditoría en el **servidor principal** así como en el **servidor secundario**. Las bases de datos principal y secundaria se auditarán de forma independiente en función de la directiva de nivel de servidor respectiva.
 - Nivel de base de datos: la auditoría en el nivel de base de datos para las bases de datos secundarias solo se puede configurar desde la configuración de auditoría de la base de datos principal.
-  - La auditoría debe estar habilitada en la *propia base de datos principal* , no en el servidor.
+  - La auditoría debe estar habilitada en la *propia base de datos principal*, no en el servidor.
   - Después de habilitar la auditoría en la base de datos principal, también se habilitará en la base de datos secundaria.
 
     > [!IMPORTANT]
@@ -233,7 +233,7 @@ Con bases de datos con replicación geográfica, cuando se habilita la auditorí
 
 En el entorno de producción, es probable que actualice periódicamente las claves de almacenamiento. Al escribir registros de auditoría en Azure Storage, debe volver a guardar la directiva de auditoría cuando se actualicen las claves. El proceso es el siguiente:
 
-1. Abra **Detalles de almacenamiento**. En el cuadro **Clave de acceso de almacenamiento** , seleccione **Secundaria** y haga clic en **Aceptar**. Después, haga clic en **Guardar** en la parte superior de la página de configuración de auditoría.
+1. Abra **Detalles de almacenamiento**. En el cuadro **Clave de acceso de almacenamiento**, seleccione **Secundaria** y haga clic en **Aceptar**. Después, haga clic en **Guardar** en la parte superior de la página de configuración de auditoría.
 
     ![Captura de pantalla que muestra el proceso para seleccionar una clave de acceso de almacenamiento secundaria.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Vaya al panel de configuración de almacenamiento y vuelva a generar la clave de acceso principal.
@@ -259,7 +259,7 @@ Para ver un script de ejemplo, consulte [Configuración de la auditoría y detec
 
 ### <a name="using-rest-api"></a>Uso de la API de REST
 
-**API REST** :
+**API REST**:
 
 - [Create or Update Database Auditing Policy](/rest/api/sql/database%20auditing%20settings/createorupdate) (Creación o actualización de la directiva de auditoría de la base de datos)
 - [Create or Update Server Auditing Policy](/rest/api/sql/server%20auditing%20settings/createorupdate) (Creación o actualización de la directiva de auditoría del servidor)

@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6ed00931e8cca1febac0b9b72b53eeb7e81042ea
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151815"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487999"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novedades en la documentación de Azure Monitor
 
@@ -157,7 +157,7 @@ En este artículo se enumeran los artículos de Azure Monitor que son nuevos o q
 ### <a name="alerts"></a>Alertas
 - [Reglas de acción para alertas de Azure Monitor](platform/alerts-action-rules.md): se han agregado procesos de la CLI.
 - [Creación y administración de grupos de acciones en Azure Portal](platform/action-groups.md): se ha actualizado para reflejar los cambios en la interfaz de usuario.
-- [Consultas guardadas en Log Analytics de Azure Monitor](log-query/saved-queries.md): artículo nuevo.
+- [Consultas de ejemplo en Log Analytics de Azure Monitor](log-query/example-queries.md): artículo nuevo.
 - [Solución de problemas de alertas de registro en Azure Monitor](platform/alerts-troubleshoot-log.md): se ha agregado la sección de la cuota de reglas de alerta.
 - [Solución de problemas en las alertas de métricas de Azure Monitor](platform/alerts-troubleshoot-metric.md): se ha agregado la sección sobre la regla de alerta de una métrica personalizada que todavía no se ha emitido.
 - [Descripción del funcionamiento de las alertas de métricas en Azure Monitor.](platform/alerts-metric-overview.md) : se ha agregado una recomendación para seleccionar la granularidad de la agregación.
@@ -448,7 +448,7 @@ Artículos nuevos y actualizados sobre reestructuración y consolidación del co
 - [Supervisión de aplicaciones de Python con Azure Monitor (versión preliminar)](app/opencensus-python.md): se han agregado métricas estándar.
 - [Compatibilidad del mapa de origen con las aplicaciones de JavaScript: Application Insights para Azure Monitor](app/source-map-support.md): nuevo artículo.
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Contenedores
 
 - [Preguntas más frecuentes sobre Azure Monitor](faq.md): actualización de Azure Monitor para contenedores.
 - [Configuración de la supervisión de GPU con Azure Monitor para contenedores](insights/container-insights-gpu-monitoring.md): nuevo artículo.

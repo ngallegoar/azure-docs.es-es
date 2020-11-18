@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: c72a2b134fc2c24789ebb75f61d9b64d63d3d48e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ec020ecd4c2bcf6e9186afb3d2c4a79ef235c371
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339485"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658917"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Configuración del inicio de sesión único basado en SAML
 
@@ -32,7 +32,7 @@ En la [serie de guías de inicio rápido](add-application-portal-setup-sso.md), 
 > [!IMPORTANT] 
 > Hay escenarios en los que la opción **Inicio de sesión único** no estará disponible al desplazarse por una aplicación en las **aplicaciones empresariales**. 
 >
-> Por ejemplo, si la aplicación se registró mediante **Registros de aplicaciones** , la característica de inicio de sesión único estará configurada para usar OAuth de OIDC de forma predeterminada. En este caso, la opción de **Inicio de sesión único** no se mostrará en la navegación en **Aplicaciones empresariales**. Cuando use **Registros de aplicaciones** para agregar su aplicación personalizada, configure las opciones en el archivo de manifiesto. Para obtener más información sobre el archivo de manifiesto, consulte [Manifiesto de aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para obtener más información sobre los estándares de SSO, consulte [Autenticación y autorización mediante la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Por ejemplo, si la aplicación se registró mediante **Registros de aplicaciones**, la característica de inicio de sesión único estará configurada para usar OAuth de OIDC de forma predeterminada. En este caso, la opción de **Inicio de sesión único** no se mostrará en la navegación en **Aplicaciones empresariales**. Cuando use **Registros de aplicaciones** para agregar su aplicación personalizada, configure las opciones en el archivo de manifiesto. Para obtener más información sobre el archivo de manifiesto, consulte [Manifiesto de aplicación de Azure Active Directory](../develop/reference-app-manifest.md). Para obtener más información sobre los estándares de SSO, consulte [Autenticación y autorización mediante la Plataforma de identidad de Microsoft](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Otros escenarios en los que falta **inicio de sesión único** en la navegación incluyen cuándo se hospeda una aplicación en otro inquilino o si su cuenta no tiene los permisos necesarios (Administrador global, Administrador de aplicaciones en la nube, Administrador de la aplicación o propietario de la entidad de servicio). Los permisos también pueden provocar un escenario en el que puede abrir **Inicio de sesión único** pero no podrá guardar. Para más información acerca de los roles administrativos de Azure AD, consulte (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
@@ -72,7 +72,7 @@ Se pueden añadir nuevas notificaciones. Para obtener más información, consult
 >- Para crear roles personalizados a través de Azure Portal, consulte [Configuración de notificaciones de rol](../develop/active-directory-enterprise-app-role-management.md).
 >- Para personalizar las notificaciones a través de PowerShell, consulte [Personalización de notificaciones: PowerShell](../develop/active-directory-claims-mapping.md).
 >- Para modificar el manifiesto de aplicación para configurar notificaciones opcionales, consulte [Configuración de notificaciones opcionales](../develop/active-directory-optional-claims.md).
->- Para establecer directivas de vigencia de los tokens de actualización, tokens de acceso, tokens de sesión y tokens de identificador consulte [Configuración de la vigencia de los tokens](../develop/active-directory-configurable-token-lifetimes.md). O bien, para restringir las sesiones de autenticación a través del acceso condicional de Azure AD, consulte las [funcionalidades de administración de sesiones de autenticación](https://go.microsoft.com/fwlink/?linkid=2083106).
+>- Para establecer directivas de vigencia de los tokens de actualización, tokens de acceso, tokens de sesión y tokens de identificador consulte [Configuración de la vigencia de los tokens](../develop/active-directory-configurable-token-lifetimes.md). O bien, para restringir las sesiones de autenticación a través del acceso condicional de Azure AD, consulte las [funcionalidades de administración de sesiones de autenticación](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 ## <a name="saml-signing-certificate"></a>Certificado de firma de SAML
 
@@ -85,18 +85,18 @@ Desde Azure AD, puede descargar el certificado activo en formato Base64 o Raw d
 
 Algunos aspectos comunes que se deben comprobar para verificar un certificado son, entre otros, los siguientes: 
    - *La fecha de expiración es correcta.* Puede configurar la fecha de expiración hasta tres años en el futuro.
-   - *El estado del certificado correspondiente es activo.* Si el estado es **Inactivo** , cambie el estado a **Activo**. Para cambiar el estado, haga clic con el botón derecho en la fila del certificado y seleccione **Activar el certificado**.
+   - *El estado del certificado correspondiente es activo.* Si el estado es **Inactivo**, cambie el estado a **Activo**. Para cambiar el estado, haga clic con el botón derecho en la fila del certificado y seleccione **Activar el certificado**.
    - *La opción de firma y el algoritmo correctos.*
    - *Los correos electrónicos de notificación correctos.* Cuando el certificado activo esté cerca de la fecha de expiración, Azure AD envía una notificación a la dirección de correo electrónico configurada en este campo.
 
-En ocasiones, es posible que tenga que descargar el certificado. Tenga en cuenta la ubicación donde lo guarda. Para descargar el certificado, seleccione una de las opciones de formato Base64, formato sin procesar o XML de metadatos de federación. Azure AD también proporciona la **dirección URL de metadatos de federación de la aplicación** , en donde puede acceder a los `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`metadatos específicos de la aplicación en el formato.
+En ocasiones, es posible que tenga que descargar el certificado. Tenga en cuenta la ubicación donde lo guarda. Para descargar el certificado, seleccione una de las opciones de formato Base64, formato sin procesar o XML de metadatos de federación. Azure AD también proporciona la **dirección URL de metadatos de federación de la aplicación**, en donde puede acceder a los `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`metadatos específicos de la aplicación en el formato.
 
 > [!NOTE]
 > La aplicación debe ser capaz de controlar un marcador de orden de bytes presente en el XML que se representa al utilizar https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id}. Al revisar los datos XML, el marcador de orden de bytes se representa en ASCII como un carácter no imprimible »¿ y en hexadecimal como EF BB BF.
 
-Para hacer cambios en el certificado, seleccione el botón Editar. Hay varias cosas que puede hacer en la página **Certificado de firma SAML** :
-   - Cree un certificado nuevo. Para ello, seleccione **Nuevo certificado** , **Fecha de expiración** y, por último, **Guardar**. Para activar el certificado, seleccione el menú contextual ( **...** ) y seleccione **Activar el certificado**.
-   - Cargue un certificado con una clave privada y credenciales pfx. Para ello, seleccione **Importar certificado** y busque la ubicación del certificado. Escriba la **Contraseña PFX** , y seleccione **Agregar**.  
+Para hacer cambios en el certificado, seleccione el botón Editar. Hay varias cosas que puede hacer en la página **Certificado de firma SAML**:
+   - Cree un certificado nuevo. Para ello, seleccione **Nuevo certificado**, **Fecha de expiración** y, por último, **Guardar**. Para activar el certificado, seleccione el menú contextual ( **...** ) y seleccione **Activar el certificado**.
+   - Cargue un certificado con una clave privada y credenciales pfx. Para ello, seleccione **Importar certificado** y busque la ubicación del certificado. Escriba la **Contraseña PFX**, y seleccione **Agregar**.  
    - Configure la firma avanzada del certificado. Para obtener más información sobre estas opciones, consulte [Opciones avanzadas de firma de certificados](certificate-signing-options.md).
    - Notifique a otras personas cuando la fecha de expiración del certificado activo se aproxime. Para ello, escriba las direcciones de correo electrónico en los campos **Direcciones de correo electrónico de notificación**.
 
@@ -128,12 +128,12 @@ Si aparece un mensaje de error, realice los pasos siguientes:
 
 4. Vuelva a ejecutar la prueba hasta que se complete correctamente.
 
-Para más información, consulte [Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
+Para más información, consulte [Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](./debug-saml-sso-issues.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
-- [Asignación de usuarios y grupos a la aplicación](methods-for-assigning-users-and-groups.md)
+- [Asignación de usuarios y grupos a la aplicación](./assign-user-or-group-access-portal.md)
 - [Configuración del aprovisionamiento automático de cuentas de usuario](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 - [Protocolo SAML de inicio de sesión único](../develop/single-sign-on-saml-protocol.md)

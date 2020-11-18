@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
-ms.openlocfilehash: 68789d3b8a4be51a381e95d6e6f840331b46b4e9
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 3c0e2033ee559af38a6816bdfa611eea86b14dea
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400118"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658322"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Compatibilidad con trabajo remoto de Azure Firewall
 
@@ -28,4 +28,4 @@ Windows Virtual Desktop es un servicio completo de virtualización de escritorio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre [Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/).
+Más información sobre [Windows Virtual Desktop](../virtual-desktop/index.yml).

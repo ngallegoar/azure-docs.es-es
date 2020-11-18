@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cdc6cbbea8b222007d94ecac99902bc4498a42fe
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791603"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505264"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -56,6 +56,11 @@ Los eventos en directo ahora tienen un estado StandBy.  Consulte [Eventos en dir
 Un evento en directo permite recibir varias relaciones de aspecto de entrada. El modo de ajuste permite a los clientes especificar el comportamiento de ajuste de la salida.
 
 La codificación en directo ahora agrega la capacidad de generar fragmentos de intervalo con fotogramas clave fijos de entre 0,5 y 20 segundos.
+
+## <a name="accounts"></a>Cuentas
+
+> [!WARNING]
+> Si crea una cuenta de Media Services con la versión de API 2020-05-01, no funcionará con RESTv2. 
 
 ## <a name="august-2020"></a>Agosto de 2020
 

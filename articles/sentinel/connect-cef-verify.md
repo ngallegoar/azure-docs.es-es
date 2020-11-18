@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0c38e72231fb343cb9b27def520f73d923a70f6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744206"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515717"
 ---
 # <a name="step-3-validate-connectivity"></a>PASO 3: Validar conectividad
 
@@ -29,7 +29,7 @@ Una vez que haya implementado el reenviador de registros (en el paso 1) y config
 
 - Debe tener permisos elevados (sudo) en la máquina del reenviador de registros.
 
-- Debe tener instalado **Python 2.7** en la máquina del reenviador de registros.<br>
+- Debe tener instalado **Python 2.7** o **3** en la máquina de reenvío de registros.<br>
 Use el comando `python –version` para comprobarlo.
 
 - En algún momento del proceso, es posible que necesite el id. del área de trabajo y la clave principal del área de trabajo. Puede encontrarlos en el recurso del área de trabajo, en **Administración de agentes**.

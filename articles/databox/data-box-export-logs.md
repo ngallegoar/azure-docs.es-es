@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147958"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337515"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Seguimiento y registro de eventos para Azure Data Box y Azure Data Box Heavy para pedidos de exportación
 
@@ -38,8 +38,8 @@ Puede controlar quién puede acceder a su pedido cuando se cree por primera vez.
 
 Los dos roles que se pueden definir para el servicio de Azure Data Box son los siguientes:
 
-- **Lector de Data Box** : tiene acceso de solo lectura a los pedidos, como defina el ámbito. Solo puede ver los detalles de un pedido. No puede acceder a otros detalles relacionados con las cuentas de almacenamiento ni editar los detalles del pedido, como la dirección y otros datos.
-- **Colaborador de Data Box** : solo puede crear un pedido para transferir datos a una cuenta de almacenamiento determinada *si ya tiene acceso de escritura a una cuenta de almacenamiento* . Si no tiene acceso a una cuenta de almacenamiento, ni siquiera puede crear un pedido de Data Box para copiar datos a la cuenta. Este rol no define permisos relacionados con la cuenta de almacenamiento ni concede acceso a las cuentas de almacenamiento.  
+- **Lector de Data Box**: tiene acceso de solo lectura a los pedidos, como defina el ámbito. Solo puede ver los detalles de un pedido. No puede acceder a otros detalles relacionados con las cuentas de almacenamiento ni editar los detalles del pedido, como la dirección y otros datos.
+- **Colaborador de Data Box**: solo puede crear un pedido para transferir datos a una cuenta de almacenamiento determinada *si ya tiene acceso de escritura a una cuenta de almacenamiento*. Si no tiene acceso a una cuenta de almacenamiento, ni siquiera puede crear un pedido de Data Box para copiar datos a la cuenta. Este rol no define permisos relacionados con la cuenta de almacenamiento ni concede acceso a las cuentas de almacenamiento.  
 
 Para restringir el acceso a un pedido, puede hacer lo siguiente:
 
@@ -52,9 +52,9 @@ Para más información sobre el uso sugerido de Azure RBAC, consulte [Procedimie
 
 Al hacer un pedido de exportación para Data Box, tiene la opción de habilitar la recopilación de registros detallados. Esta es la pantalla de pedidos en la que puede habilitar el registro detallado:
 
-![Selección de opción de exportación](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+![Selección de opción de exportación](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-Al seleccionar la opción **Incluir registro detallado** , se genera un archivo de registro detallado al copiar los datos de la cuenta de Azure Storage. Este registro contiene una lista de todos los archivos que se exportaron correctamente.      
+Al seleccionar la opción **Incluir registro detallado**, se genera un archivo de registro detallado al copiar los datos de la cuenta de Azure Storage. Este registro contiene una lista de todos los archivos que se exportaron correctamente.
 
 Para obtener más información sobre el pedido de exportación, consulte [Creación de un pedido de exportación para Data Box](data-box-deploy-export-ordered.md).
 
@@ -85,7 +85,7 @@ Antes de copiar los datos de Data Box, puede descargar y revisar el *registro de
 
 ### <a name="copy-log"></a>Registro de copia
 
-Antes de copiar los datos de Data Box, descargue el registro de copia de la página **Conectar y copiar** .
+Antes de copiar los datos de Data Box, descargue el registro de copia de la página **Conectar y copiar**.
 
 Este es un ejemplo de salida del *registro de copia* cuando no ha habido errores y todos los archivos se han copiado al copiar datos desde Azure al dispositivo de Data Box.
 
@@ -246,13 +246,13 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>Descarga del historial de pedidos
 
-El historial de pedidos está disponible en Azure Portal. Si el pedido está completo y se completa la limpieza del dispositivo (eliminación de datos de los discos), vaya al pedido de su dispositivo y navegue hasta **Detalles de pedido** . La opción **Descargar el historial de pedidos** está disponible. Para más información, consulte [Descargar historial de pedidos](data-box-portal-admin.md#download-order-history).
+El historial de pedidos está disponible en Azure Portal. Si el pedido está completo y se completa la limpieza del dispositivo (eliminación de datos de los discos), vaya al pedido de su dispositivo y navegue hasta **Detalles de pedido**. La opción **Descargar el historial de pedidos** está disponible. Para más información, consulte [Descargar historial de pedidos](data-box-portal-admin.md#download-order-history).
 
 Si se desplaza por el historial de pedidos, verá:
 
 - Información de seguimiento del operador para el dispositivo.
-- Los eventos con actividad *SecureErase* . Estos eventos se corresponden con el borrado de los datos en el disco.
-- Vínculos de registro de Data Box. Se presentan las rutas de acceso para los archivos de *registros de auditoría* , *registros de copia* y *BOM* .
+- Los eventos con actividad *SecureErase*. Estos eventos se corresponden con el borrado de los datos en el disco.
+- Vínculos de registro de Data Box. Se presentan las rutas de acceso para los archivos de *registros de auditoría*, *registros de copia* y *BOM*.
 
 Este es un ejemplo del registro del historial de pedidos de Azure Portal:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 502b93b4459fba4da04207d9186f8c7ce6b298c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d13f401fab126f57d07d405ab5d6ce461c26e139
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578485"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658951"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Extender Azure Sentinel por áreas de trabajo e inquilinos
 
@@ -84,7 +84,7 @@ Azure Sentinel admite una [vista de incidentes de varias áreas de trabajo](./mu
 Azure Sentinel admite la consulta [varias áreas de trabajo en una sola consulta](../azure-monitor/log-query/cross-workspace-query.md), lo que permite buscar y correlacionar datos de varias áreas de trabajo en una sola consulta. 
 
 - Use la [expresión workspace()](../azure-monitor/log-query/workspace-expression.md) para hacer referencia a una tabla de un área de trabajo diferente. 
-- Use el [operador unión](https://docs.microsoft.com/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) junto con la expresión workspace() para aplicar una consulta en las tablas de varias áreas de trabajo.
+- Use el [operador unión](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) junto con la expresión workspace() para aplicar una consulta en las tablas de varias áreas de trabajo.
 
 Puede usar las [funciones](../azure-monitor/log-query/functions.md) guardadas para simplificar las consultas entre áreas de trabajo. Por ejemplo, si una referencia a un área de trabajo es larga, puede que quiera guardar la expresión `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` como una función llamada `SecurityEventCustomerA`. Después, puede escribir consultas como `SecurityEventCustomerA | where ...`.
 

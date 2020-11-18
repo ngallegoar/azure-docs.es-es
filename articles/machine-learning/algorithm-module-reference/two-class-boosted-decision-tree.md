@@ -1,7 +1,7 @@
 ---
 title: 'Árbol de decisión ampliado de dos clases: referencia para los módulos'
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar el módulo de árbol de decisión ampliado de dos clases en Azure Machine Learning para crear un modelo de Machine Learning basado en el algoritmo de árboles de decisión ampliados.
+description: Aprenda a usar el módulo de árbol de decisión ampliado de dos clases en el diseñador para crear un clasificador binario.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 833caa0cf264fb49d8b32255f429132cd888c6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907728"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375934"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árbol de decisión ampliado de dos clases
 
@@ -56,7 +56,7 @@ Puede entrenar este tipo de modelo mediante [Entrenar modelo](././train-model.md
   
 6.  En **Número de árboles construidos**, indique el número total de árboles de decisión que se van a crear en el conjunto. Si crea más árboles de decisión, puede obtener una cobertura potencialmente mejor, pero aumentará el tiempo de entrenamiento.
   
-     Este valor también controla el número de árboles que se muestran al visualizar el modelo entrenado. Si quiere ver o imprimir un único árbol, establezca el valor en 1. Sin embargo, al hacerlo, solo se produce un único árbol (el árbol con el conjunto inicial de parámetros) y no se realizan iteraciones adicionales.
+     Si se establece el valor en 1, solo se genera un único árbol (el árbol con el conjunto inicial de parámetros) y no se realizan iteraciones adicionales.
   
 7.  En **Inicialización con número aleatorio**, escriba opcionalmente un número entero no negativo para que se use como valor de inicialización aleatorio. Al especificar un valor, se garantiza la reproducibilidad durante las ejecuciones que tienen los mismos datos y parámetros.  
   

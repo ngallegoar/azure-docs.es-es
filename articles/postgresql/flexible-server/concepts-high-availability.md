@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931858"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366730"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Conceptos de alta disponibilidad en Azure Database for PostgreSQL: Servidor flexible
 
@@ -43,7 +43,7 @@ El estado de la configuración de alta disponibilidad se supervisa y se registra
 
 Las aplicaciones cliente de PostgreSQL se conectan al servidor principal mediante el nombre del servidor de bases de datos. Las lecturas de aplicación se sirven directamente desde el servidor principal, mientras que las confirmaciones y escrituras se confirman en la aplicación solo después de que los datos se conserven en el servidor principal y en la réplica en espera. Debido a este requisito de ida y vuelta adicional, las aplicaciones pueden esperar una latencia elevada para las operaciones de escritura y confirmación. Puede supervisar el estado de la alta disponibilidad en el portal.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Alta disponibilidad con redundancia de zona"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Alta disponibilidad con redundancia de zona: estado estable"::: 
 
 1. Los clientes se conectan al servidor flexible y realizan operaciones de escritura.
 2. Los cambios se replican en el sitio en espera.
@@ -64,7 +64,7 @@ Para otras operaciones iniciadas por el usuario, como el proceso de escalado o a
 
 Las interrupciones no planificadas incluyen errores de software o de componentes de infraestructura que afectan a la disponibilidad de la base de datos. En caso de que el sistema de supervisión detecte la no disponibilidad del servidor, la replicación en la réplica en espera se anula y la réplica en espera se activa para ser el servidor de bases de datos principal. Los clientes pueden volver a conectarse al servidor de bases de datos mediante la misma cadena de conexión y reanudar sus operaciones. Se espera que el tiempo de conmutación por error global sea de 60 a 120 segundos. Pero en función de la actividad del servidor de bases de datos principal en el momento de la conmutación por error, como las transacciones de gran tamaño y el tiempo de recuperación, la conmutación por error puede tardar más.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Alta disponibilidad con redundancia de zona"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Alta disponibilidad con redundancia de zona: conmutación por error"::: 
 
 1. El servidor de bases de datos principal está inactivo y los clientes pierden la conectividad de la base de datos. 
 2. El servidor en espera se activa para convertirse en el servidor principal nuevo. El cliente se conecta al servidor principal nuevo con la misma cadena de conexión. Tener la aplicación cliente en la misma zona que el servidor de bases de datos principal reduce la latencia y mejora el rendimiento.
@@ -103,18 +103,20 @@ Los servidores flexibles que están configurados con alta disponibilidad replica
 
 -   No se puede usar la réplica en espera para las consultas de solo lectura.
 
--   En función de la actividad del servidor principal en el momento de la conmutación por error, esta puede tardar hasta dos minutos o más en completarse.
+-   En función de la carga de trabajo y la actividad en el servidor principal, el proceso de conmutación por error puede tardar más de 120 segundos.
 
--   Al reiniciar el servidor de bases de datos principal para elegir los cambios de los parámetros estáticos también se reinicia la réplica en espera.
+-   Al reiniciar el servidor de bases de datos principal también se reinicia la réplica en espera. 
 
 -   No se admite la configuración de réplicas de lectura adicionales.
 
 -   La configuración de las tareas de administración iniciadas por el cliente no se puede programar durante la ventana de mantenimiento administrado.
 
--   Los eventos planificados, como la escala de proceso y el almacenamiento de escalado, se producen primero en el servidor en espera y luego en el servidor principal. El servicio no se conmuta por error. 
+-   Los eventos planificados, como la escala de proceso y el almacenamiento de escalado, se producen primero en el servidor en espera y luego en el servidor principal. El servidor no realiza la conmutación por error para estas operaciones planeadas. 
+
+-  Si la descodificación lógica o la replicación lógica están configuradas con un servidor flexible configurado de alta disponibilidad, en el caso de una conmutación por error al servidor en espera, las ranuras de replicación lógica no se copian en el servidor en espera.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   Más información sobre [continuidad empresarial](./concepts-business-continuity.md)
+-   Más información sobre la [continuidad empresarial](./concepts-business-continuity.md)
 -   Más información sobre [administración de la alta disponibilidad](./how-to-manage-high-availability-portal.md)
 -   Más información sobre [copia de seguridad y recuperación](./concepts-backup-restore.md)

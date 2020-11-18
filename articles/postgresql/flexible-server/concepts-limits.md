@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932476"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366645"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Límites en Azure Database for PostgreSQL con servidor flexible
 
@@ -73,10 +73,12 @@ Una conexión de PostgreSQL, aunque no esté activa, puede ocupar aproximadament
 - No se admiten las reglas de firewall en la red virtual; en su lugar, se pueden usar grupos de seguridad de red.
 - Los servidores de bases de datos de acceso público pueden conectarse a Internet público, por ejemplo, a través de `postgres_fdw`, y este acceso no se puede restringir. A los servidores basados en la red virtual se les puede restringir el acceso de salida mediante grupos de seguridad de red.
 
-### <a name="high-availability"></a>Alta disponibilidad
+### <a name="high-availability-ha"></a>Alta disponibilidad (HA)
 
 - La alta disponibilidad con redundancia de zona no se admite actualmente en los servidores que pueden aumentar la velocidad.
 - La dirección IP del servidor de bases de datos cambia cuando el servidor conmuta por error al modo de espera de alta disponibilidad. Use el registro DNS en lugar de la dirección IP del servidor.
+- Si la replicación lógica está configurada con un servidor flexible configurado de alta disponibilidad, en el caso de una conmutación por error al servidor en espera, las ranuras de replicación lógica no se copian en el servidor en espera. 
+- Para más información sobre la alta disponibilidad con redundancia de zona, incluidas las limitaciones, consulte la página de [documentación sobre concepto de alta disponibilidad](concepts-high-availability.md).
 
 ### <a name="availability-zones"></a>Zonas de disponibilidad
 

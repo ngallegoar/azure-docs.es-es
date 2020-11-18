@@ -5,14 +5,15 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: eef0a4f24ba65fea4bb33c68f7e7d15f592e808d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+adobe-target: true
+ms.openlocfilehash: 8b88b8ef81dc8186c122a24896d85114ef8a163d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92915476"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506471"
 ---
-# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Python en Azure App Service en Linux
+# <a name="quickstart-create-a-python-app-in-azure-app-service-for-linux"></a>Inicio rápido: Creación de una aplicación de Python en Azure App Service para Linux
 
 En este inicio rápido se implementa una aplicación web de Python en [App Service en Linux](overview.md#app-service-on-linux), un servicio de Azure de hospedaje de sitios web muy escalable y con aplicación automática de revisiones. La [interfaz de la línea de comandos (CLI) de Azure](/cli/azure/install-azure-cli) local se puede usar en un equipo Mac, Linux o Windows para implementar un ejemplo con los marcos Flask o Django. La aplicación web que va a configurar usa un nivel de App Service gratuito, por lo que no incurrirá en ningún gasto en el transcurso de este artículo.
 
@@ -99,7 +100,7 @@ El ejemplo contiene código específico del marco que Azure App Service reconoce
 
 ## <a name="deploy-the-sample"></a>Implementación del ejemplo
 
-Implemente el código en la carpeta local ( *python-docs-hello-world* ) mediante el comando `az webapp up`:
+Implemente el código en la carpeta local (*python-docs-hello-world*) mediante el comando `az webapp up`:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -107,7 +108,7 @@ az webapp up --sku F1 --name <app-name>
 
 - Si no se reconoce el comando `az`, asegúrese de que tiene instalada la CLI de Azure tal y como se describe en [Configuración del entorno inicial](#set-up-your-initial-environment).
 - Si no se reconoce el comando `webapp`, es porque la versión de la CLI de Azure es 2.0.80 o posterior. De lo contrario, [instale la versión más reciente](/cli/azure/install-azure-cli).
-- Reemplace `<app_name>` por un nombre que sea único en todo Azure ( *los caracteres válidos son `a-z`, `0-9` y `-`* ). Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
+- Reemplace `<app_name>` por un nombre que sea único en todo Azure (*los caracteres válidos son `a-z`, `0-9` y `-`* ). Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
 - El argumento `--sku F1` crea la aplicación web en el plan de tarifa Gratuito. Omita este argumento para usar un nivel Premium más rápido, lo que supondrá un costo por hora.
 - Opcionalmente, incluya el argumento `--location <location-name>`, donde `<location_name>` es una región de Azure disponible. Puede recuperar una lista de las regiones permitidas para su cuenta de Azure mediante la ejecución del comando [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations).
 - Si ve el error "No se pudo detectar automáticamente la pila en tiempo de ejecución de la aplicación", asegúrese de que ejecuta el comando en la carpeta *python-docs-hello-world* (Flask) o en la carpeta *python-docs-hello-django* (Django) que contiene el archivo *requirements.txt*. (Consulte [Solución de problemas de detección automática con az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub)).
@@ -149,7 +150,7 @@ El código de ejemplo de Python se ejecuta en un contenedor de Linux en App Serv
     flask run
     ```
     
-    De forma predeterminada, el servidor supone que el módulo de entrada de la aplicación está en *app.py* , como se usa en el ejemplo. (Si usa un nombre de módulo diferente, establezca la variable de entorno `FLASK_APP` en ese nombre).
+    De forma predeterminada, el servidor supone que el módulo de entrada de la aplicación está en *app.py*, como se usa en el ejemplo. (Si usa un nombre de módulo diferente, establezca la variable de entorno `FLASK_APP` en ese nombre).
 
 1. Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:5000/`. La aplicación muestra el mensaje **Hola mundo**.
 
@@ -227,7 +228,7 @@ Guarde los cambios y vuelva a implementar la aplicación con el comando `az weba
 az webapp up
 ```
 
-Este comando utiliza valores que se almacenan en caché de forma local en el archivo *.azure/config* , incluidos el nombre de la aplicación, el grupo de recursos y el plan de App Service.
+Este comando utiliza valores que se almacenan en caché de forma local en el archivo *.azure/config*, incluidos el nombre de la aplicación, el grupo de recursos y el plan de App Service.
 
 Una vez completada la implementación, vuelva a la ventana del explorador abierta en `http://<app-name>.azurewebsites.net`. Actualice la página, lo que debería mostrar el mensaje modificado:
 
@@ -268,7 +269,7 @@ Seleccione el nombre de la aplicación de Azure.
 
 ![Aplicación de Python en App Services desde Azure Portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-Al seleccionar la aplicación, se abre la página **Información general** , donde puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar.
+Al seleccionar la aplicación, se abre la página **Información general**, donde puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar.
 
 ![Administración de la aplicación de Python en la página de información general de Azure Portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 

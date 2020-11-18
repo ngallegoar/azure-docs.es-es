@@ -3,12 +3,12 @@ title: archivo de inclusión
 description: archivo de inclusión
 services: cosmos-db
 ms.custom: include file
-ms.openlocfilehash: ecf45a692f83689ed56c03bec13f291781508474
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad4445cbea6553a7a96299e1276dbe8f3816e166
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77061727"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94503864"
 ---
 1. En una nueva ventana del explorador, inicie sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -29,6 +29,7 @@ ms.locfileid: "77061727"
     Nombre de cuenta|Escriba un nombre único.|Escriba un nombre único para identificar la cuenta de Azure Cosmos DB. El URI de la cuenta será *mongo.cosmos.azure.com* y se anexará al nombre único de la cuenta.<br><br>El nombre de la cuenta solo puede utilizar letras minúsculas, números y guiones (-), y debe tener entre 3 y 31 caracteres de longitud.
     API|Azure Cosmos DB para la API de Mongo DB|La API determina el tipo de cuenta que se va a crear. Azure Cosmos DB proporciona cinco API: Core (SQL) para bases de datos de documentos, Gremlin para bases de datos de grafos, API Mongo DB de Azure Cosmos DB para bases de datos de documentos, Azure Table y Cassandra. Actualmente, debe crear una cuenta independiente para cada API. <br><br>Seleccione **Azure Cosmos DB para la API de Mongo DB**, ya que en este inicio rápido va a crear una colección que funciona con MongoDB.<br><br>[Obtenga más información sobre Azure Cosmos DB para la API de Mongo DB](../articles/cosmos-db/mongodb-introduction.md).|
     Location|Seleccionar la región más cercana a los usuarios|Seleccione una ubicación geográfica para hospedar la cuenta de Azure Cosmos DB. Use la ubicación más cercana a los usuarios para proporcionarles el acceso más rápido a los datos.|
+    Capacity mode (Modo de capacidad)|Rendimiento aprovisionado o sin servidor|Seleccione **Provisioned throughput** (Rendimiento aprovisionado) para crear una cuenta en modo de [rendimiento aprovisionado](../articles/cosmos-db/set-throughput.md). Seleccione **Serverless** (Sin servidor) para crear una cuenta en modo [sin servidor](../articles/cosmos-db/serverless.md).<br><br>**Nota**: Solo se admite la versión 3.6 de MongoDB API en las cuentas sin servidor. Si elige la versión 3.2, se forzará la cuenta al modo de rendimiento aprovisionado.
 
     Seleccione **Revisar y crear**. Puede omitir las secciones **Red** y **Etiquetas**. 
 

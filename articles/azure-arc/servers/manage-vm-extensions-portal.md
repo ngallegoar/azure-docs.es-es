@@ -1,18 +1,21 @@
 ---
 title: Habilitación de la extensión de VM en Azure Portal
 description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbrida desde Azure Portal.
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: dcab7cb441c329a60b2c6fa3256aeedb2bb5b33d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 48d7d4085dce893d94436fe0c6be32cfeea9cda3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462836"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359092"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Habilitación de las extensiones de máquina virtual de Azure desde Azure Portal
 
 En este artículo se muestra cómo implementar y desinstalar extensiones de VM de Azure, compatibles con servidores habilitados para Azure Arc, en una máquina híbrida Linux o Windows mediante Azure Portal.
+
+> [!NOTE]
+> La extensión de máquina virtual de Key Vault (versión preliminar) no admite la implementación desde Azure Portal, solo mediante la CLI de Azure, Azure PowerShell o el uso de una plantilla de Azure Resource Manager.
 
 ## <a name="enable-extensions-from-the-portal"></a>Habilitación de extensiones desde el portal
 

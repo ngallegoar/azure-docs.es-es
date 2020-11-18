@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 2b71bee620ab7d5b1ef98b60013d1978f49d127f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043227"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505893"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -135,7 +135,7 @@ Especifica el repositorio o el proveedor que se utilizará para el almacenamient
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-El tiempo de ejecución de Azure Functions usa esta cadena de conexión de la cuenta de almacenamiento para todas las funciones, salvo en el caso de las desencadenadas de HTTP. La cuenta de almacenamiento debe ser una de uso general que admite blobs, colas y tablas. Consulte [Almacenamiento de la cuenta](functions-infrastructure-as-code.md#storage-account) y [Requisitos de almacenamiento de la cuenta](storage-considerations.md#storage-account-requirements).
+El entorno de ejecución de Azure Functions usa esta cadena de conexión de la cuenta de almacenamiento para la operativa normal. Algunos usos de esta cuenta de almacenamiento son la administración de claves, la administración de desencadenadores de temporizador y los puntos de comprobación de Event Hubs. La cuenta de almacenamiento debe ser una de uso general que admite blobs, colas y tablas. Consulte [Almacenamiento de la cuenta](functions-infrastructure-as-code.md#storage-account) y [Requisitos de almacenamiento de la cuenta](storage-considerations.md#storage-account-requirements).
 
 |Clave|Valor de ejemplo|
 |---|------------|

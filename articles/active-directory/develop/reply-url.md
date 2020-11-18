@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042914"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331862"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restricciones y limitaciones del identificador URI de redirección (dirección URL de respuesta)
 
@@ -63,6 +63,8 @@ Según las [secciones 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) y [7
 Desde el punto de vista del desarrollo, esto significa algunas cosas:
 
 * No registre varios identificadores URI de redirección en los que solo el puerto es distinto. El servidor de inicio de sesión seleccionará uno arbitrariamente y usará el comportamiento asociado a ese identificador URI de redirección (por ejemplo, si es una redirección de tipo `web`, `native` o `spa`).
+
+    Esto es especialmente importante si desea utilizar flujos de autenticación diferentes en el mismo registro de aplicación, por ejemplo, la concesión de código de autorización y el flujo implícito. Para asociar el comportamiento de respuesta correcto con cada identificador URI de redirección, el servidor de inicio de sesión debe ser capaz de distinguir entre los identificadores URI de redirección y no puede hacerlo cuando solo difiere el puerto.
 * Si necesita que registrar varios URI de redirección en localhost para probar flujos diferentes durante el desarrollo, puede diferenciarlos mediante el componente de *ruta de acceso* del URI. Por ejemplo, `http://127.0.0.1/MyWebApp` no coincide con `http://127.0.0.1/MyNativeApp`.
 * La dirección de bucle invertido IPv6 (`[::1]`) no se admite actualmente.
 * Para evitar la interrupción de la aplicación a causa de firewalls mal configurados o interfaces de red cuyo nombre ha cambiado, use la dirección de bucle invertido del literal de IP `127.0.0.1` en el URI de redirección en lugar de `localhost`.

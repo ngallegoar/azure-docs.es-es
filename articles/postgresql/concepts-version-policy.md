@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/05/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b88d42071beba0ddd5a5627cefbe50229b4d27eb
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f325a43895e1e9d73b11c06662851d7654d31ddb
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294220"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331828"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Directiva de versión de Azure Database for PostgreSQL
 
@@ -47,15 +47,15 @@ En la tabla siguiente se proporcionan los detalles de la retirada de las version
 | [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Características](https://www.postgresql.org/docs/11/release-11.html) | 24 de julio de 2019  | 9 de noviembre de 2023
 | [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Características](https://www.postgresql.org/docs/12/release-12.html) | 22 de septiembre de 2020  | 14 de noviembre de 2024
 
-## <a name="retired-postgresql-engine-versions-not-supported-in-azure-postgresql"></a>Versiones del motor de PostgreSQL retiradas que no son compatibles con Azure PostgreSQL
+## <a name="retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql"></a>Versiones del motor de PostgreSQL retiradas que no se admiten en Azure Database for PostgreSQL
 
 Después de la fecha de retirada de cada versión de la base de datos de PostgreSQL, si continúa ejecutando la versión retirada, tenga en cuenta las siguientes restricciones:
-- Dado que la comunidad no va a publicar correcciones de errores ni correcciones de seguridad adicionales, Azure for PostgreSQL no revisará el motor de base de datos retirado en busca de errores o problemas de seguridad, ni tomará medidas de seguridad relacionadas con el motor de base de datos retirado. Como resultado, puede encontrarse con vulnerabilidades de seguridad u otros problemas. No obstante, Azure continuará realizando tareas periódicas de mantenimiento y revisión para el host, el sistema operativo, los contenedores y cualquier otro componente relacionado con el servicio.
-- Si experimenta algún problema de compatibilidad con la base de datos de PostgreSQL, no se le ofrecerá soporte técnico. En tales casos, tendrá que actualizar la base de datos para que se le proporcione soporte técnico.
+- Dado que la comunidad no va a publicar más correcciones de errores ni correcciones de seguridad, Azure Database for PostgreSQL no revisará el motor de base de datos retirado en busca de errores o problemas de seguridad, ni tomará medidas de seguridad relacionadas con el motor de base de datos retirado. Como resultado, puede encontrarse con vulnerabilidades de seguridad u otros problemas. No obstante, Azure continuará realizando tareas periódicas de mantenimiento y revisión para el host, el sistema operativo, los contenedores y cualquier otro componente relacionado con el servicio.
+- Si experimenta algún problema de compatibilidad con la base de datos de PostgreSQL, quizá no le podamos proporcionar soporte técnico. En tales casos, tendrá que actualizar la base de datos para que se le proporcione soporte técnico.
 - No podrá crear nuevos servidores de bases de datos para la versión retirada. Sin embargo, podrá realizar recuperaciones a un momento dado, así como crear réplicas de lectura para los servidores existentes.
 - Las nuevas capacidades de servicio que ha desarrollado Azure Database for PostgreSQL podrían solo estar disponibles para las versiones de servidor de bases de datos compatibles.
 - Los acuerdos de nivel de servicio de tiempo de actividad solo se aplicarán a los problemas relacionados con los servicios de Azure Database for PostgreSQL, no a los tiempos de inactividad causados por los errores relacionados con el motor.  
-- En el caso de una vulnerabilidad de seguridad de base de datos importante que se haya identificado en la versión de base de datos retirada, Azure podrá optar por actualizar automáticamente la base de datos a una versión posterior.
+- En el caso de una amenaza grave para el servicio causada por la vulnerabilidad del motor de base de datos PostgreSQL identificada en la versión de base de datos retirada, Azure puede optar por detener el servidor de bases de datos para proteger el servicio. En tal caso, se le indicará que debe actualizar el servidor antes de ponerlo en línea.
 
 ## <a name="postgresql-version-syntax"></a>Sintaxis de la versión de PostgreSQL
 Antes de la versión 10 de PostgreSQL, la [directiva de versiones de PostgreSQL](https://www.postgresql.org/support/versioning/) consideraba que una actualización de la _versión principal_ suponía un aumento en el primer _o_ segundo número. Por ejemplo, de 9.5 a 9.6 se consideraba una actualización de la versión _principal_. A partir de la versión 10, solo se considera una actualización de la versión principal un cambio en el primer número. Por ejemplo, de 10.0 a 10.1 es una actualización de versión _secundaria_. De la versión 10 a la 11 se consideraría una actualización de versión _principal_.

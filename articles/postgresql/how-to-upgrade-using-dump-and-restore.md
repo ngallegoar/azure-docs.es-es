@@ -1,27 +1,27 @@
 ---
 title: 'Actualización mediante volcado y restauración en Azure Database for PostgreSQL: servidor único'
-description: 'Se describen un par de métodos para volcar y restaurar las bases de datos que se van a migrar a una versión posterior de Azure Database for PostgreSQL: servidor único.'
+description: 'Se describen los métodos de actualización sin conexión que usan bases de datos de volcado y restauración para la migración a una versión posterior de Azure Database for PostgreSQL: servidor único.'
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/03/2020
-ms.openlocfilehash: 26154f4501daba373f1f8b108f1ee7105b1b194f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.date: 11/10/2020
+ms.openlocfilehash: e756e033c8e5b2508dca9bde76ad16be26a940fa
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294225"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505791"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Actualización de una base de datos de PostgreSQL mediante volcado y restauración
 
-En Azure Database for PostgreSQL: un solo servidor, se recomienda actualizar el motor de base de datos de PostgreSQL a una versión principal superior mediante uno de estos métodos:
-* Método sin conexión que usa los comandos [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) y [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) de PostgreSQL. En este método, primero se realiza el volcado desde el servidor de origen y, a continuación, se restaura dicho volcado en el servidor de destino.
-* Método en línea que usa [**Database Migration Service**](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). Este método mantiene sincronizada la base de datos de destino con el origen, y puede elegir cuándo se trasladará. No obstante, existen algunos requisitos previos y restricciones que debe solucionar. 
+Puede actualizar el servidor de PostgreSQL implementado en Azure Database for PostgreSQL: servidor único; para ello, migre las bases de datos a una versión principal posterior del servidor mediante los métodos siguientes.
+* Método **sin conexión** mediante [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) y [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) de PostgreSQL que implica tiempo de inactividad para migrar los datos. En este documento se aborda este método de actualización/migración.
+* Método **en línea** que usa [Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). Este método ofrece una migración con tiempo de inactividad reducido y mantiene sincronizada la base de datos de destino con el origen. Además, permite elegir el momento del traslado. No obstante, existen algunos requisitos previos y restricciones que se deben abordar para usar DMS. Para más información, consulte la [documentación de DMS](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal). 
 
-Puede usar la siguiente recomendación para decidir entre los métodos en línea y sin conexión para realizar actualizaciones de las versiones principales.
+ En la tabla siguiente se proporcionan algunas recomendaciones según el escenario y el tamaño de la base de datos.
 
-| **Base de datos** | **Volcado y restauración (sin conexión)** | **DMS (en línea)** |
+| **Base de datos/escenario** | **Volcado y restauración (sin conexión)** | **DMS (en línea)** |
 | ------ | :------: | :-----: |
 | Tiene una base de datos pequeña y puede permitirse un tiempo de inactividad para realizar la actualización.  | X | |
 | Bases de datos pequeñas (< 10 GB).  | X | X | 
@@ -31,20 +31,23 @@ Puede usar la siguiente recomendación para decidir entre los métodos en línea
 | ¿Se puede encargar de los [requisitos previos](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites) de DMS, incluido el reinicio? |  | X |
 | ¿Se puede evitar el uso de DDL y las tablas no registradas durante el proceso de actualización? | |  X |
 
-En esta guía de procedimientos se proporcionan dos métodos de ejemplo acerca de cómo actualizar las bases de datos mediante los comandos pg_dump y pg_restore de PostgreSQL. El proceso de este documento se conoce como **actualización** , aunque la base de datos se **migra** desde el servidor de origen al servidor de destino. 
+En esta guía se proporcionan algunas metodologías de migración sin conexión y ejemplos para mostrar cómo se puede migrar desde el servidor de origen al servidor de destino con una versión posterior de PostgreSQL.
 
 > [!NOTE]
-> El volcado y restauración de PostgreSQL puede realizarse de muchas maneras. Puede optar por usar métodos diferentes a los que se mencionan en este documento. Por ejemplo, para realizar un volcado de memoria seguido de una restauración desde un cliente de PostgreSQL, consulte la [documentación](./howto-migrate-using-dump-and-restore.md) para obtener procedimientos recomendados e información detallada sobre los procedimientos. Para obtener información detallada sobre la sintaxis de volcado y restauración con parámetros adicionales, consulte los artículos sobre [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) y [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html). 
+> El volcado y restauración de PostgreSQL puede realizarse de muchas maneras. Puede optar por migrar mediante uno de los métodos proporcionados en esta guía o elegir otras formas que se adapten a sus necesidades. Para obtener información detallada sobre la sintaxis de volcado y restauración con parámetros adicionales, consulte los artículos sobre [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) y [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html). 
 
 
-## <a name="prerequisites-for-using-dump-and-restore-with-azure-postgresql"></a>Requisitos previos para usar el volcado y restauración con Azure PostgreSQL
+## <a name="prerequisites-for-using-dump-and-restore-with-azure-database-for-postgresql"></a>Requisitos previos para el uso del volcado y la restauración con Azure Database for PostgreSQL
  
 Para seguir esta guía, necesitará lo siguiente:
-- Una base de datos de origen que ejecute la versión 9.5, 9.6 o 10 de Azure Database for PostgreSQL: servidor único.
-- El servidor de base de datos de destino con la versión principal de PostgreSQL deseada; un [servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md). 
-- Un sistema cliente (Linux) con PostgreSQL instalado y con las utilidades de línea de comandos [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) y [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) instaladas. 
-- También puede usar [Azure Cloud Shell](https://shell.azure.com) o hacer clic en la opción Azure Cloud Shell de la barra de menús de la parte superior derecha de [Azure Portal](https://portal.azure.com). Tendrá que iniciar sesión en su cuenta con `az login` antes de ejecutar los comandos de volcado y restauración.
-- La ubicación del cliente de PostgreSQL, como una máquina virtual, que preferentemente se ejecutará en la misma región que los servidores de origen y de destino. 
+
+- Un **origen** de base de datos PostgreSQL que ejecuta la versión 9.5, la 9.6 o la 10 que desee actualizar.
+- Un servidor de bases de datos PostgreSQL de **destino** con la versión principal del [servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md). 
+- Un sistema cliente de PostgreSQL para ejecutar los comandos de volcado y restauración.
+  - Puede ser un cliente Linux o Windows con PostgreSQL instalado y con las utilidades de línea de comandos [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) y [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) instaladas. 
+  - También puede usar [Azure Cloud Shell](https://shell.azure.com) o hacer clic en la opción Azure Cloud Shell de la barra de menús de la parte superior derecha de [Azure Portal](https://portal.azure.com). Tendrá que iniciar sesión en su cuenta con `az login` antes de ejecutar los comandos de volcado y restauración.
+- El cliente de PostgreSQL preferentemente se ejecutará en la misma región que los servidores de origen y de destino. 
+
 
 ## <a name="additional-details-and-considerations"></a>Detalles y consideraciones adicionales
 - Para encontrar la cadena de conexión a las bases de datos de origen y de destino, haga clic en "Cadenas de conexión" en el portal. 
@@ -52,16 +55,12 @@ Para seguir esta guía, necesitará lo siguiente:
 - Cree las bases de datos correspondientes en el servidor de base de datos de destino.
 - Puede omitir la actualización de `azure_maintenance` o de las bases de datos de plantilla.
 - Consulte las tablas anteriores para determinar si la base de datos es adecuada para este modo de migración.
-- Si quiere usar Azure Cloud Shell, el tiempo de espera de la sesión se agota después de 20 minutos. Si el tamaño de la base de datos es menor que 10 GB, podrá completar la actualización sin que se agote el tiempo de espera. De lo contrario, quizá tenga que mantener la sesión abierta por otros medios, como presionar la tecla <Enter> una vez cada 10 a 15 minutos. 
+- Si quiere usar Azure Cloud Shell, recuerde que el tiempo de espera de la sesión se agota después de 20 minutos. Si el tamaño de la base de datos es menor que 10 GB, podrá completar la actualización sin que se agote el tiempo de espera de la sesión. De lo contrario, quizá tenga que mantener la sesión abierta por otros medios, como presionar la tecla <Enter> una vez cada 10 a 15 minutos. 
 
-> [!TIP] 
-> - Si usa la misma contraseña para la base de datos de origen y destino, puede configurar la variable de entorno `PGPASSWORD=yourPassword`.  De este modo, no será necesario especificar la contraseña cada vez que se ejecutan comandos como psql, pg_dump y pg_restore.  Del mismo modo, puede configurar variables adicionales como `PGUSER`, `PGSSLMODE`, entre otras. Consulte las [variables de entorno de PostgreSQL](https://www.postgresql.org/docs/11/libpq-envars.html).
->  
-> - Si el servidor de PostgreSQL requiere conexiones TLS/SSL (que lo sucede de forma predeterminada en los servidores de Azure Database for PostgreSQL), establezca una variable de entorno `PGSSLMODE=require` para que la herramienta pg_restore se conecte con TLS. Sin TSL, el error podría ser `FATAL:  SSL connection is required. Please specify SSL options and retry.`
->
-> - En la línea de comandos de Windows, ejecute el comando `SET PGSSLMODE=require` antes de ejecutar el comando pg_restore. En Linux o Bash, ejecute el comando `export PGSSLMODE=require` antes de ejecutar el comando pg_restore.
 
 ## <a name="example-database-used-in-this-guide"></a>Base de datos de ejemplo usada en esta guía
+
+En esta guía se usan los siguientes servidores de origen y de destino, y esto se ilustra con ejemplos de nombres de base de datos.
 
  | **Descripción** | **Valor** |
  | ------- | ------- |
@@ -73,15 +72,28 @@ Para seguir esta guía, necesitará lo siguiente:
  | Base de datos de destino | bench5gb |
  | Nombre de usuario de destino | pg@pg-11 |
 
-## <a name="method-1-upgrade-with-streaming-backups-to-the-target"></a>Método 1: Actualización mediante la transmisión de copias de seguridad al destino 
+## <a name="upgrade-your-databases-using-offline-migration-methods"></a>Actualización de las bases de datos mediante métodos de migración sin conexión
+Puede optar por utilizar uno de los métodos descritos en esta sección para las actualizaciones. Puede usar las siguientes sugerencias mientras realiza las tareas.
 
-En este método, el volcado de la base de datos completo se transmite directamente al servidor de base de datos de destino, y no se almacena el volcado en el cliente. Por lo tanto, se puede usar con un cliente que tenga almacenamiento limitado, e incluso se puede ejecutar desde Azure Cloud Shell. 
+- Si usa la misma contraseña para la base de datos de origen y destino, puede configurar la variable de entorno `PGPASSWORD=yourPassword`.  De este modo no será necesario especificar la contraseña cada vez que se ejecuten comandos como psql, pg_dump y pg_restore.  Del mismo modo, puede configurar variables adicionales como `PGUSER`, `PGSSLMODE`, entre otras. Consulte las [variables de entorno de PostgreSQL](https://www.postgresql.org/docs/11/libpq-envars.html).
+  
+- Si el servidor de PostgreSQL requiere conexiones TLS/SSL (que lo sucede de forma predeterminada en los servidores de Azure Database for PostgreSQL), establezca una variable de entorno `PGSSLMODE=require` para que la herramienta pg_restore se conecte con TLS. Sin TSL, el error podría ser `FATAL:  SSL connection is required. Please specify SSL options and retry.`
+
+- En la línea de comandos de Windows, ejecute el comando `SET PGSSLMODE=require` antes de ejecutar el comando pg_restore. En Linux o Bash, ejecute el comando `export PGSSLMODE=require` antes de ejecutar el comando pg_restore.
+
+### <a name="method-1-migrate-using-dump-file"></a>Método 1: Migración mediante un archivo de volcado
+
+Este método consta de dos pasos. En primer lugar, se realiza un volcado desde el servidor de origen. El segundo paso consiste en restaurar el archivo de volcado en el servidor de destino. Para más información, consulte la documentación sobre la [Migración mediante el volcado y la restauración](howto-migrate-using-dump-and-restore.md). Este es el método recomendado si tiene bases de datos grandes y el sistema cliente tiene suficiente espacio de almacenamiento para almacenar el archivo de volcado.
+
+### <a name="method-2-migrate-using-streaming-the-dump-data-to-the-target-database"></a>Método 2: Migración mediante transmisión de los datos de volcado a la base de datos de destino
+
+Si no tiene un cliente de PostgreSQL o si desea usar Azure Cloud Shell, puede usar este método. El volcado de la base de datos se transmite directamente al servidor de bases de datos de destino y no se almacena el volcado en el cliente. Por lo tanto, se puede usar con un cliente que tenga almacenamiento limitado, e incluso se puede ejecutar desde Azure Cloud Shell. 
 
 1. Asegúrese de que la base de datos existe en el servidor de destino mediante el comando `\l`. Si la base de datos no existe, créela.
    ```azurecli-interactive
     psql "host=myTargetServer port=5432 dbname=postgres user=myUser password=###### sslmode=mySSLmode"
     ```
-    ```bash
+    ```SQL
     postgres> \l   
     postgres> create database myTargetDB;
    ```
@@ -99,7 +111,7 @@ En este método, el volcado de la base de datos completo se transmite directamen
 3. Una vez completado el proceso de actualización (migración), puede probar la aplicación con el servidor de destino. 
 4. Repita el mismo proceso para todas las bases de datos del servidor.
 
- En la tabla siguiente se muestra el tiempo necesario para actualizar mediante este método. Los datos se rellenan mediante [pgbench](https://www.postgresql.org/docs/10/pgbench.html). Como la base de datos puede tener un número diferente de objetos con tamaños variados en comparación con las tablas e índices generados por pgbench, se recomienda que pruebe el volcado y la restauración de la base de datos para comprender el tiempo real que se tarda en actualizar la base de datos. 
+ Como ejemplo, en la tabla siguiente se muestra el tiempo que se ha tardado en migrar mediante el método de transmisión del volcado. Los datos de ejemplo se rellenan mediante [pgbench](https://www.postgresql.org/docs/10/pgbench.html). Como la base de datos puede tener un número diferente de objetos con tamaños variados en comparación con las tablas e índices generados por pgbench, se recomienda que pruebe el volcado y la restauración de la base de datos para comprender el tiempo real que se tarda en actualizar la base de datos. 
 
 | **Tamaño de la base de datos** | **Tiempo invertido aproximado** | 
 | ----- | ------ |
@@ -109,9 +121,9 @@ En este método, el volcado de la base de datos completo se transmite directamen
 | 50 GB | 1 a 1,5 horas |
 | 100 GB | 2,5 a 3 horas|
    
-## <a name="method-2-upgrade-with-parallel-dump-and-restore"></a>Método 2: Actualización con volcado y restauración paralelos 
+### <a name="method-3-migrate-using-parallel-dump-and-restore"></a>Método 3: Migración mediante volcado y restauración paralelos 
 
-Este método resulta útil si tiene algunas tablas de gran tamaño en la base de datos y quiere paralelizar el proceso de volcado y restauración de esa base de datos. Necesita suficiente almacenamiento en disco local para alojar los volcados de copia de seguridad para las bases de datos. Este proceso de volcado y restauración paralelo reduce el consumo de tiempo para completar la migración/actualización completa. Por ejemplo, la base de datos de pgbench de 50 GB que tardó 1 a 1,5 horas en migrar se completó en menos de 30 minutos.
+Puede considerar este método si tiene pocas tablas de mayor tamaño en la base de datos y quiere paralelizar el proceso de volcado y restauración de esa base de datos. También necesitará almacenamiento suficiente en el sistema cliente para dar cabida a los volcados de copia de seguridad. Este proceso de volcado y restauración paralelo reduce el consumo de tiempo para completar toda la migración. Por ejemplo, la base de datos de pgbench de 50 GB que tardó 1 a 1,5 horas en migrar se completó con el método 1 y 2; con este método tardó menos de 30 minutos.
 
 1. Para cada base de datos del servidor de origen, cree una base de datos correspondiente en el servidor de destino.
 
@@ -151,6 +163,6 @@ Este método resulta útil si tiene algunas tablas de gran tamaño en la base de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Una vez que esté satisfecho con la función de base de datos de destino, puede quitar el servidor de base de datos anterior. 
+- Una vez que esté satisfecho con la función de base de datos de destino, puede quitar el servidor de bases de datos anterior. 
 - Si quiere usar el mismo punto de conexión de base de datos que el servidor de origen, puede crear una réplica de lectura con el nombre de servidor de base de datos anterior después de eliminar el servidor de base de datos de origen anterior. Una vez alcanzado el estado estable, puede detener la réplica, lo que promoverá el servidor de réplica para que sea un servidor independiente. Consulte [Replicación](./concepts-read-replicas.md) para obtener más detalles.
 - No olvide probar y validar estos comandos en un entorno de prueba antes de usarlos en producción.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 6884b0c5d351d5cca160a1e00e409397f21311ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b3cac51ffd4ccd138994ac65b4f96b07816970
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380570"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368702"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Configuración de los detalles de la descripción de la oferta de SaaS
 
@@ -24,7 +24,7 @@ La información que especifica en la página **Offer listing** (Descripción de 
 
 ## <a name="marketplace-details"></a>Detalles del marketplace
 
-En la página **Offer listing** (Descripción de la oferta), en **Marketplace details** (Detalles de Marketplace), complete los pasos siguientes. Para más información sobre estos detalles necesarios, consulte la sección de [detalles de la descripción de la oferta](plan-saas-offer.md#offer-listing-details).
+En la página **Offer listing** (Descripción de la oferta), en **Marketplace details** (Detalles de Marketplace), complete los pasos siguientes. Para más información sobre estos detalles necesarios, consulte la sección de [detalles de la descripción de la oferta](plan-azure-application-offer.md#offer-listing-details).
 
 1. El cuadro **Nombre** se llena previamente con el nombre que escribió en el cuadro de diálogo **Nueva oferta**. Puede cambiar el nombre en cualquier momento.
 1. En el cuadro **Resumen de resultados de búsqueda** escriba un máximo de 50 caracteres de texto. Este resumen se usa en los resultados de búsqueda de la descripción del marketplace.
@@ -33,7 +33,9 @@ En la página **Offer listing** (Descripción de la oferta), en **Marketplace de
 1. (Opcional) En los cuadros de **Palabras clave de búsqueda**, escriba un máximo de tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en el marketplace comercial. No es necesario incluir el **nombre** y la **descripción** de la oferta: ese texto se incluye automáticamente en la búsqueda.
 1. En el cuadro **Vínculo a la directiva de privacidad**, escriba un vínculo (que comience por https) a la directiva de privacidad de su organización. Usted es el responsable no solo de garantizar que la aplicación cumple la normativa y la legislación en lo relativo a la privacidad, sino también de proporcionar una directiva de privacidad válida.
 
-## <a name="add-links-to-supplemental-online-documentation-optional"></a>Adición de vínculos a la documentación en línea complementaria (opcional)
+## <a name="add-supplemental-links-optional"></a>Adición de vínculos complementarios (opcional)
+
+Siga estos pasos para agregar vínculos a la documentación en línea complementaria.
 
 1. Para agregar documentos en línea complementarios sobre la aplicación o los servicios relacionados, en **Vínculos útiles** seleccione **Agregar un vínculo**.
 1. En los campos que aparecen, escriba un título (hasta 255 caracteres) y el vínculo (que comience por https) en el documento en línea.
@@ -76,7 +78,7 @@ Los tres tamaños de logotipo se usan en distintos lugares de las tiendas en lí
 - El logotipo **mediano** aparece cuando se crea un recurso en Microsoft Azure.
 - El logotipo **grande** aparece en la página de descripción de la oferta de Azure Marketplace y Microsoft AppSource.
 - El logotipo **pequeño** aparece en los resultados de la búsqueda de Azure Marketplace y en la página principal y en las páginas de resultados de búsqueda de Microsoft AppSource.
-   
+
 ### <a name="add-screenshots"></a>Adición de capturas de pantalla
 
 Debe agregar entre una y cinco capturas de pantallas que muestren la oferta. Todas las imágenes deben tener el tamaño 1280 x 720 píxeles y estar en formato PNG.
@@ -96,7 +98,7 @@ Puede agregar vínculos a vídeos de YouTube o Vimeo que muestren la oferta. Est
 4. Para agregar otro vídeo, repita los pasos 1 a 3.
 
 > [!TIP]
-> Si surge algún problema al cargar archivos, asegúrese de que la red local no bloquea el servicio [ **https://upload.xboxlive.com** ](https://upload.xboxlive.com/) que usa el Centro de partners.
+> Si surge algún problema al cargar archivos, asegúrese de que la red local no bloquea el servicio [ **https://upload.xboxlive.com**](https://upload.xboxlive.com/) que usa el Centro de partners.
 
 Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña: Público en versión preliminar.
 

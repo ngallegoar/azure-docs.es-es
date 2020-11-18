@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cde5afe01c90b68567f411bcf26063f02ca5a34a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 7fc688ca0981024e5e08c9fb20ecb6704efbd7f2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027251"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658781"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configuración del flujo de trabajo de consentimiento del administrador (versión preliminar)
 
@@ -35,9 +35,9 @@ Para habilitar el flujo de trabajo de consentimiento del administrador y elegir 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
 2. Haga clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo. Se abrirá la **extensión de Azure Active Directory**
-3. En el cuadro de búsqueda del filtro, escriba " **Azure Active Directory** " y seleccione el elemento **Azure Active Directory**.
+3. En el cuadro de búsqueda del filtro, escriba "**Azure Active Directory**" y seleccione el elemento **Azure Active Directory**.
 4. En el menú de navegación, haga clic en **Aplicaciones empresariales**. 
-5. En **Administrar** , seleccione **Configuración del usuario**.
+5. En **Administrar**, seleccione **Configuración del usuario**.
 6. En **Solicitudes de consentimiento del administrador (versión preliminar)** , establezca **Los usuarios pueden solicitar el consentimiento del administrador para las aplicaciones en las que no puedan proporcionar un consentimiento** en **Sí**.
 
    ![Configuración del flujo de trabajo de consentimiento del administrador](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
@@ -76,9 +76,9 @@ Para revisar las solicitudes de consentimiento del administrador y tomar medidas
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como uno de los revisores registrados del flujo de trabajo de consentimiento del administrador.
 2. Haga clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo. Se abrirá la **extensión de Azure Active Directory**
-3. En el cuadro de búsqueda del filtro, escriba " **Azure Active Directory** " y seleccione el elemento **Azure Active Directory**.
+3. En el cuadro de búsqueda del filtro, escriba "**Azure Active Directory**" y seleccione el elemento **Azure Active Directory**.
 4. En el menú de navegación, haga clic en **Aplicaciones empresariales**.
-5. En **Actividad** , seleccione **Solicitudes de consentimiento del administrador (versión preliminar)** .
+5. En **Actividad**, seleccione **Solicitudes de consentimiento del administrador (versión preliminar)** .
 
    > [!NOTE]
    > Los revisores solo verán las solicitudes de administración que se crearon después de designarse como revisor.
@@ -147,7 +147,7 @@ No, por ahora los solicitantes solo pueden obtener actualizaciones a través de 
 
 **Como revisor, ¿se puede aprobar la aplicación, pero no para todos?**
  
-Si le preocupa conceder el consentimiento del administrador y permitir que todos los usuarios del inquilino utilicen la aplicación, recomendamos denegar la solicitud. Después, conceda manualmente el consentimiento del administrador restringiendo el acceso a la aplicación solicitando la asignación de usuarios y asignando usuarios o grupos a la aplicación. Para más información, consulte [Métodos para asignar usuarios y grupos](methods-for-assigning-users-and-groups.md).
+Si le preocupa conceder el consentimiento del administrador y permitir que todos los usuarios del inquilino utilicen la aplicación, recomendamos denegar la solicitud. Después, conceda manualmente el consentimiento del administrador restringiendo el acceso a la aplicación solicitando la asignación de usuarios y asignando usuarios o grupos a la aplicación. Para más información, consulte [Métodos para asignar usuarios y grupos](./assign-user-or-group-access-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -157,6 +157,6 @@ Para más información acerca de cómo dar consentimiento a las aplicaciones, co
 
 [Concesión del consentimiento del administrador para todo el inquilino a una aplicación](grant-admin-consent.md)
 
-[Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/active-directory-v2-scopes.md)
+[Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)
 
 [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

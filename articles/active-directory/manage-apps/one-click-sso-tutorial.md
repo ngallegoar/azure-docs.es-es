@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe4e981782878ce4f86dd7dcb8ae635a60b2405a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763132"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658713"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configuración del inicio de sesión único mediante un solo clic de una aplicación
 
@@ -40,7 +40,7 @@ La característica de SSO con un clic se ha diseñado para configurar el inicio 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción activa de la aplicación en la que se va a configurar el inicio de sesión único. También se necesitan credenciales de administrador.
-- La **extensión de inicio de sesión seguro de Mis aplicaciones** de Microsoft instalada en el explorador. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- La **extensión de inicio de sesión seguro de Mis aplicaciones** de Microsoft instalada en el explorador. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="one-click-sso-configuration-steps"></a>Pasos para la configuración de SSO con un clic
 
@@ -84,6 +84,5 @@ La característica de SSO con un clic se ha diseñado para configurar el inicio 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [¿Qué es la extensión de inicio de sesión seguro de Mis aplicaciones para el explorador?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
- 
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
+* [¿Qué es la extensión de inicio de sesión seguro de Mis aplicaciones para el explorador?](../user-help/my-apps-portal-end-user-access.md)

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f6ec6bced9c84e4e5b0f04cc32eebb438052bd6c
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927981"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348294"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -75,7 +75,7 @@ Tiene dos opciones de red para conectar su instancia de Servidor flexible de Azu
    * Uso de VPN o ExpressRoute para conectarse desde recursos que no son de Azure al servidor flexible
    * Ningún punto de conexión público
 
-* **Acceso público (direcciones IP permitidas)** : puede implementar el servidor flexible a con un punto de conexión público. El punto de conexión público es una dirección DNS que se puede resolver públicamente. La frase "direcciones IP permitidas" hace referencia a un intervalo de direcciones IP a las que decida conceder permiso para acceder al servidor. Estos permisos se denominan **reglas de firewall**.
+* **Acceso público (direcciones IP permitidas)** : puede implementar el servidor flexible a con un punto de conexión público. El punto de conexión público es una dirección DNS que se puede resolver públicamente. La frase "direcciones IP permitidas" hace referencia a un intervalo de direcciones IP a las que decida conceder permiso para acceder al servidor. Estos permisos se denominan **reglas de firewall**.
 
 Consulte los [conceptos de redes](concepts-networking.md) para obtener más información.
 
@@ -89,7 +89,7 @@ Consulte [Conceptos de proceso y almacenamiento](concepts-compute-storage.md) pa
 
 MySQL es uno de los motores de base de datos populares para ejecutar aplicaciones web y móviles a escala de Internet. Muchos de nuestros clientes lo usan para sus servicios de educación en línea, servicios de streaming de vídeo, soluciones de pago digital, plataformas de comercio electrónico, servicios de juegos, portales de noticias, gobierno y sitios web de atención sanitaria. Estos servicios son necesarios para servir y escalar a medida que aumenta el tráfico en la aplicación web o móvil.
 
-En el caso de las aplicaciones, la aplicación se desarrolla normalmente en Java o PHP y se migra para ejecutarse en  [conjuntos de escalado de máquinas virtuales de Azure](/azure/virtual-machine-scale-sets/overview.md)  o en instancias de  [Azure App Services](/azure/app-service/overview.md) , o bien se incluye en contenedores para ejecutarse en  [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes.md). Con el conjunto de escalado de máquinas virtuales, App Service o AKS como infraestructura subyacente, el escalado de aplicaciones se simplifica al aprovisionar de forma instantánea nuevas máquinas virtuales y replicar los componentes sin estado de las aplicaciones para satisfacer las solicitudes. Sin embargo, la base de datos a menudo acaba siendo un cuello de botella como componente con estado centralizado.
+En el caso de las aplicaciones, la aplicación se desarrolla normalmente en Java o PHP y se migra para ejecutarse en  [conjuntos de escalado de máquinas virtuales de Azure](../../virtual-machine-scale-sets/overview.md)  o en instancias de  [Azure App Services](../../app-service/overview.md) , o bien se incluye en contenedores para ejecutarse en  [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). Con el conjunto de escalado de máquinas virtuales, App Service o AKS como infraestructura subyacente, el escalado de aplicaciones se simplifica al aprovisionar de forma instantánea nuevas máquinas virtuales y replicar los componentes sin estado de las aplicaciones para satisfacer las solicitudes. Sin embargo, la base de datos a menudo acaba siendo un cuello de botella como componente con estado centralizado.
 
 La característica de réplica de lectura permite replicar datos de Azure Database for MySQL con servidor flexible en un servidor de solo lectura. Puede replicar desde el servidor de origen en **hasta 10 réplicas**. Las réplicas se actualizan asincrónicamente mediante la [tecnología de replicación basada en la posición de los archivos de registros binarios (binlog)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) nativa del motor de MySQL. Puede usar una solución de proxy de equilibrador de carga como [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) para escalar horizontalmente la carga de trabajo de la aplicación para leer réplicas sin ningún costo de refactorización de la aplicación. 
 
@@ -125,8 +125,8 @@ Consulte los [conceptos de supervisión](concepts-monitoring.md) para obtener m�
 
 El servicio ejecuta la versión Community de MySQL. Esto ofrece una compatibilidad total con las aplicaciones y requiere un costo mínimo de refactorización para migrar la aplicación existente desarrollada en el motor de MySQL a un servicio de servidor único. La migración al servidor único se puede realizar mediante una de las siguientes opciones:
 
-- **Volcado y restauración** : en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad como mysqldump/mydumper pueden proporcionar una manera más rápida de migrar. Consulte Migración mediante volcado y restauración para más información. 
-- **Azure Database Migration Service** : puede aprovechar [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-online.md) para las migraciones sin problemas y simplificadas a un servidor único con un tiempo de inactividad mínimo. 
+- **Volcado y restauración**: en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad como mysqldump/mydumper pueden proporcionar una manera más rápida de migrar. Consulte Migración mediante volcado y restauración para más información. 
+- **Azure Database Migration Service**: puede aprovechar [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-online.md) para las migraciones sin problemas y simplificadas a un servidor único con un tiempo de inactividad mínimo. 
 
 ## <a name="azure-regions"></a>Regiones de Azure
 

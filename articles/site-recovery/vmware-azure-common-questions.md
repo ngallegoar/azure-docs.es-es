@@ -3,12 +3,12 @@ title: Preguntas comunes sobre la recuperación ante desastres de VMware con Azu
 description: Obtenga respuestas a las preguntas comunes sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359805"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379997"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
@@ -106,7 +106,7 @@ En cada máquina virtual que quiera replicar, instale el servicio empleando uno 
 Site Recovery replica servidores físicos y máquinas virtuales locales de VMware en discos administrados en Azure.
 
 - El servidor de procesos de Site Recovery escribe los registros de replicación en una cuenta de almacenamiento en caché de la región de destino.
-- Estos registros se utilizan para crear puntos de recuperación en los discos administrados de Azure que tengan el prefijo **asrseeddisk** .
+- Estos registros se utilizan para crear puntos de recuperación en los discos administrados de Azure que tengan el prefijo **asrseeddisk**.
 - Cuando se produzca una conmutación por error, el punto de recuperación que seleccione se usa para crear un disco administrado de destino. Este disco administrado está conectado a la máquina virtual en Azure.
 - Las máquinas virtuales que antes se replicaban en una cuenta de almacenamiento (antes de marzo de 2019) no se ven afectadas por esto.
 
@@ -124,7 +124,7 @@ La replicación de máquinas virtuales nuevas en una cuenta de almacenamiento se
 
 Sí, le resultará muy fácil [cambiar el tipo de disco administrado](../virtual-machines/windows/convert-disk-storage.md) de las replicaciones en curso. Antes de cambiar el tipo, asegúrese de que no se ha generado ninguna dirección URL de firma de acceso compartido en el disco administrado:
 
-1. Vaya al recurso **Disco administrado** en Azure Portal y compruebe si tiene un banner de dirección URL de firma de acceso compartido en la hoja **Información general** .
+1. Vaya al recurso **Disco administrado** en Azure Portal y compruebe si tiene un banner de dirección URL de firma de acceso compartido en la hoja **Información general**.
 1. Si ve el banner, selecciónelo para cancelar la exportación en curso.
 1. Cambie el tipo del disco en los minutos siguientes. Si cambia el tipo del disco administrado, espere a que Azure Site Recovery genere puntos de recuperación nuevos.
 1. Use esos puntos de recuperación nuevos en cualquier conmutación por error de prueba o conmutación por error futura.
@@ -153,7 +153,7 @@ La replicación sin conexión no es posible. Solicite esta característica en el
 
 ### <a name="what-is-asrseeddisk"></a>¿Qué es asrseeddisk?
 
-En cada disco de origen, los datos se replican en un disco administrado en Azure. Este disco tiene un prefijo, **asrseeddisk** , y en él se almacena la copia del disco de origen y todas las instantáneas de punto de recuperación.
+En cada disco de origen, los datos se replican en un disco administrado en Azure. Este disco tiene un prefijo, **asrseeddisk**, y en él se almacena la copia del disco de origen y todas las instantáneas de punto de recuperación.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>¿Se pueden excluir discos de la replicación?
 
@@ -176,7 +176,7 @@ Para realizar una replicación de VMware en Azure, el tamaño del disco de las V
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>¿Puedo migrar máquinas locales a una nueva instancia de vCenter Server sin que ello repercuta en la replicación en curso?
 
-No. Un cambio en la instancia de VMware vCenter o la migración afectará a la replicación en curso. Configure Site Recovery con la nueva instancia de vCenter Server y habilite la replicación de máquinas de nuevo.
+Consulte nuestra [guía](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) para migrar máquinas a un nuevo vCenter.
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>¿Puedo replicar en una cuenta de almacenamiento en caché o de destino que tenga una red virtual (con instancias de Azure Firewall) configurada?
 
@@ -258,11 +258,11 @@ Se recomienda programar copias de seguridad periódicas del servidor de configur
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Cuando estoy configurando el servidor de configuración, ¿puedo descargar e instalar MySQL manualmente?
 
-Sí. Descargue MySQL y colóquelo en la carpeta C:\Temp\ASRSetup. Después, instálelo manualmente. Cuando configure la máquina virtual del servidor de configuración y acepte los términos, MySQL aparecerá como **Ya instalado** en **Descargar e instalar** .
+Sí. Descargue MySQL y colóquelo en la carpeta C:\Temp\ASRSetup. Después, instálelo manualmente. Cuando configure la máquina virtual del servidor de configuración y acepte los términos, MySQL aparecerá como **Ya instalado** en **Descargar e instalar**.
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>¿Se puedo evitar descargar MySQL pero dejar que Site Recovery lo instale?
 
-Sí. Descargue el instalador de MySQL y colóquelo en la carpeta C:\Temp\ASRSetup. Al configurar la máquina virtual del servidor de configuración, acepte los términos y seleccione **Descargar e instalar** . Portal usará el instalador que haya agregado para instalar MySQL.
+Sí. Descargue el instalador de MySQL y colóquelo en la carpeta C:\Temp\ASRSetup. Al configurar la máquina virtual del servidor de configuración, acepte los términos y seleccione **Descargar e instalar**. Portal usará el instalador que haya agregado para instalar MySQL.
 
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>¿Se puede usar la VM del servidor de configuración para cualquier otra cosa?
 
@@ -286,7 +286,7 @@ Sí, pero tenga en cuenta que solo se puede realizar la conmutación por recuper
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>¿Dónde puedo descargar las claves de registro del almacén?
 
-En el almacén de Recovery Services, seleccione **Servidores de configuración** en **Infraestructura de Site Recovery** > **Administrar** . Después, en **Servidores** , seleccione **Descargar clave de registro** para descargar el archivo de credenciales del almacén.
+En el almacén de Recovery Services, seleccione **Servidores de configuración** en **Infraestructura de Site Recovery** > **Administrar**. Después, en **Servidores**, seleccione **Descargar clave de registro** para descargar el archivo de credenciales del almacén.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>¿Se puede usar un solo servidor de configuración para proteger varias instancias de vCenter?
 

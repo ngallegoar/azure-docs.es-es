@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 403fa4cab94ad6149e388b10acccd9d5e7a2b7a8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764594"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658169"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidad y equilibrio de carga de los conectores y las aplicaciones de Application Proxy
 
@@ -39,7 +39,7 @@ Los conectores establecen sus conexiones en función de principios de alta dispo
 
 1. Un usuario de un dispositivo cliente intenta acceder a una aplicación local publicada a través de Application Proxy.
 2. La solicitud pasa por una instancia de Azure Load Balancer para determinar qué instancia de servicio de Application Proxy debe llevarla a cabo. Hay decenas de instancias disponibles por región para aceptar la solicitud. Este método ayuda a distribuir uniformemente el tráfico entre las instancias de servicio.
-3. La solicitud se envía a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/).
+3. La solicitud se envía a [Service Bus](../../service-bus-messaging/index.yml).
 4. Service Bus señala a un conector disponible. A continuación, el conector recoge la solicitud de Service Bus.
    - En el paso 2, las solicitudes van a diferentes instancias de servicio de Application Proxy, por lo que es más probable que las conexiones se realicen con conectores diferentes. Como resultado, los conectores se usan de manera casi uniforme dentro del grupo.
 5. El conector pasa la solicitud al servidor back-end de la aplicación. A continuación, la aplicación envía la respuesta de vuelta al conector.
@@ -98,4 +98,4 @@ Consulte la documentación del proveedor de software para conocer los requisitos
 - [Habilitar el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Habilitar el acceso condicional](application-proxy-integrate-with-sharepoint-server.md)
 - [Solucionar los problemas que tiene con el Proxy de aplicación](application-proxy-troubleshoot.md)
-- [Aprenda cómo la arquitectura de Azure AD admite alta disponibilidad](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [Aprenda cómo la arquitectura de Azure AD admite alta disponibilidad](../fundamentals/active-directory-architecture.md)

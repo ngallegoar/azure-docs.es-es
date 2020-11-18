@@ -3,27 +3,27 @@ title: 'Inicio rápido: Creación y administración de tokens de acceso'
 titleSuffix: An Azure Communication Services quickstart
 description: Aprenda a administrar identidades y tokens de acceso mediante la biblioteca cliente de administración de Azure Communication Services.
 author: tomaschladek
-manager: jken
+manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
 ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: e323f1f50fe6c67a841c300fcbec1eed3afc4497
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b67d0808643797d88628b626403c1b9d97cf1cad
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074131"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506245"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Inicio rápido: Creación y administración de tokens de acceso
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Para empezar a usar Azure Communication Services, utilice la biblioteca cliente de administración de Communication Services para aprovisionar y administrar sus tokens de acceso. Los tokens de acceso permiten que las aplicaciones cliente de chat y llamada se autentiquen directamente en Azure Communication Services. Estos tokens se generan en un servicio de aprovisionamiento de token del lado servidor que implemente. A continuación, se usan para inicializar las bibliotecas cliente de Communication Services en los dispositivos cliente.
+Para empezar a usar Azure Communication Services, utilice la biblioteca cliente de administración de Communication Services. Permite crear identidades y administrar los tokens de acceso. La identidad representa la entidad de la aplicación en Azure Communication Services (por ejemplo, usuario o dispositivo). Los tokens de acceso permiten que las aplicaciones cliente de chat y llamada se autentiquen directamente en Azure Communication Services. Se recomienda generar tokens de acceso en un servicio del lado servidor. Los tokens de acceso se usan para inicializar las bibliotecas cliente de Communication Services en los dispositivos cliente.
 
-Tenga en cuenta que los precios que se muestran en las imágenes de este tutorial son ejemplos solamente.
+Los precios que se muestran en las imágenes de este tutorial son ejemplos solamente.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/user-access-token-net.md)]
@@ -46,15 +46,14 @@ La salida de la aplicación describe cada acción que se completa:
 ```console
 Azure Communication Services - Access Tokens Quickstart
 
-Issued a access token with 'voip' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
+Created an identity: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Issued a access token with 'voip' scope for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502:
 <token signature here>
 
-Issued a access token with 'chat' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
-<token signature here>
+Successfully deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Successfully deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
-
-Deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
+Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 ```
 <!---cSpell:enable --->
 
@@ -81,3 +80,4 @@ Puede que también le interese:
  - [Información sobre la autenticación](../concepts/authentication.md)
  - [Incorporación de chat a una aplicación](./chat/get-started.md)
  - [Información sobre la arquitectura de cliente y servidor](../concepts/client-and-server-architecture.md)
+ 

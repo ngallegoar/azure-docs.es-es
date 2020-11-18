@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: baa6e10d33d1c0a1a9c367baa8888fdfb5a47c01
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e0409f289289aaebc760473f1f74130b34fbdd39
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746222"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357732"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Windows
 
@@ -135,7 +135,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | keyVaultName | Nombre del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerlo mediante el cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o el comando de la CLI de Azure `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nombre del grupo de recursos que contiene el almacén de claves|
 |  keyEncryptionKeyURL | La dirección URL de la clave de cifrado de claves con el formato https://&lt;nombreDelAlmacénDeClaves&gt;.vault.azure.net/key/&lt;nombreDeClave&gt;. Si no desea usar una KEK, deje este campo en blanco. |
-| volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_ , _Datos_ y _Todo_ . 
+| volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_, _Datos_ y _Todo_. 
 | forceUpdateTag | Cada vez que la operación tenga que ejecutarse, pase un valor único como GUID. |
 | resizeOSDisk | Si se debería cambiar el tamaño de la partición del sistema operativo para ocupar el VHD del sistema operativo completo antes de dividir el volumen del sistema. |
 | ubicación | Ubicación para todos los recursos. |
@@ -266,6 +266,7 @@ Azure Disk Encryption no funciona para los siguientes escenarios, característic
 - Máquinas virtuales de la serie M con discos de Acelerador de escritura.
 - Aplicación de ADE a una máquina virtual que tiene discos cifrados con el [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md) (SSE + CMK). La aplicación de SSE + CMK a un disco de datos en una máquina virtual cifrada con ADE tampoco es un escenario admitido.
 - Migración de una máquina virtual cifrada con ADE, o que **alguna vez** haya estado cifrada con ADE, al [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md).
+- [Tamaños de máquina virtual de Azure sin disco temporal local](../azure-vms-no-temp-disk.md); concretamente, Dv4, Dsv4, Ev4 y Esv4.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

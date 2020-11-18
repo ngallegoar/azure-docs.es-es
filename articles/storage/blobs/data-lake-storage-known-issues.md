@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 909d64d3d32e8b9a314f7afb06b9c0121f624cec
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186593"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358491"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -54,7 +54,9 @@ Las siguientes API REST de blob no se admiten:
 * [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges) (Conseguir intervalos de páginas)
 * [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob) (Copia incremental del blob)
 * [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) (Poner página de dirección URL)
+* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url) (Anexar bloque desde dirección URL)
+
 
 No se admiten discos de máquina virtual no administrados en cuentas que tengan un espacio de nombres jerárquico. Si desea habilitar un espacio de nombres jerárquico en una cuenta de almacenamiento, coloque los discos de máquina virtual no administrados en una cuenta de almacenamiento que no tenga habilitada la característica de espacio de nombres jerárquico.
 
@@ -62,7 +64,7 @@ No se admiten discos de máquina virtual no administrados en cuentas que tengan 
 
 ## <a name="support-for-setting-access-control-lists-acls-recursively"></a>Compatibilidad con la configuración de listas de control de acceso (ACL) de forma recursiva
 
-La capacidad de aplicar cambios de ACL de forma recursiva desde el directorio principal a los elementos secundarios está en [versión preliminar pública](recursive-access-control-lists.md). En la versión actual de esta funcionalidad, puede aplicar cambios de ACL mediante PowerShell, el SDK de .NET y el SDK de Python. Todavía no está disponible la compatibilidad con el SDK de Java, la CLI de Azure, Azure Portal o Explorador de Azure Storage.
+La capacidad de aplicar cambios de ACL de forma recursiva desde el directorio principal a los elementos secundarios está disponible con carácter general. En la versión actual de esta funcionalidad, puede aplicar cambios de ACL mediante PowerShell, la CLI de Azure y el SDK de .NET, Java y Python. Todavía no está disponible la compatibilidad con Azure Portal o el Explorador de Azure Storage.
 
 <a id="known-issues-tools"></a>
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123722"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336503"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use Azure Portal para administrar Azure Data Box y Azure Data Box Heavy
 
@@ -34,11 +34,11 @@ Realice los pasos siguientes para cancelar un pedido.
 
 1.  Vaya a **Overview > Cancel** (Información general > Cancelar).
 
-    ![Cancelación del pedido 1](media/data-box-portal-admin/cancel-order1.png)
+    ![Comando para cancelar en la pestaña de información general de un pedido](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  Indique un motivo para cancelar el pedido.  
 
-    ![Cancelación del pedido 2](media/data-box-portal-admin/cancel-order2.png)
+    ![Cuadro de diálogo para cancelar un pedido](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
 3.  Una vez que se cancela el pedido, el portal actualiza su estado y lo muestra como **Canceled** (Cancelado).
 
@@ -53,7 +53,7 @@ Realice los pasos siguientes para clonar un pedido de importación.
 
 1.  Vaya a **Overview > Clone** (Información general > Clonar). 
 
-    ![Clonación del pedido 1](media/data-box-portal-admin/clone-order1.png)
+    ![Comando para clonar en la pestaña de información general de un pedido](media/data-box-portal-admin/portal-admin-clone-command.png)
 
 2.  Todos los detalles del pedido permanecen iguales. El nombre del pedido es el del pedido original seguido de *-Clone*. Seleccione la casilla para confirmar que ha revisado la información de privacidad. Haga clic en **Crear**.
 
@@ -70,7 +70,7 @@ Solo se pueden eliminar pedidos completados o cancelados. Realice los siguientes
 
 2. Haga clic en el pedido que desee eliminar y vaya a **Overview** (Información general). En la barra de comandos, haga clic en **Delete** (Eliminar).
 
-    ![Eliminación del pedido de Data Box 1](media/data-box-portal-admin/delete-order1.png)
+    ![Comando para eliminar en la pestaña de información general de un pedido](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Escriba el nombre del pedido cuando se le pida que confirme su eliminación. Haga clic en **Eliminar**.
 
@@ -82,11 +82,11 @@ Siga estos pasos para descargar una etiqueta de envío.
 
 1.  Vaya a **Overview > Download shipping label** (Información general > Descargar etiqueta de envío). Esta opción está disponible solo una vez enviado el dispositivo. 
 
-    ![Descarga de la etiqueta de envío](media/data-box-portal-admin/download-shipping-label.png)
+    ![Descarga de la etiqueta de envío](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.  Se descargará la siguiente etiqueta de envío devuelto. Guarde la etiqueta e imprímala. Doble e inserte la etiqueta en la funda transparente del dispositivo. Asegúrese de que la etiqueta está visible. Quite cualquier etiqueta del envío anterior que aún se encuentre en el dispositivo.
 
-    ![Ejemplo de etiqueta de envío](media/data-box-portal-admin/example-shipping-label.png)
+    ![Ejemplo de etiqueta de envío](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Edición de la dirección de envío
 
@@ -96,11 +96,11 @@ Realice los pasos siguientes para editar el pedido.
 
 1. Vaya a **Order details > Edit shipping address** (Detalles del pedido > Editar dirección de envío).
 
-    ![Edición de la dirección de envío 1](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![Comando para editar la dirección de envío en los detalles del pedido](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. Edite y valide la dirección de envío y, a continuación, guarde los cambios.
 
-    ![Edición de la dirección de envío 2](media/data-box-portal-admin/edit-shipping-address2.png)
+    ![Cuadro de diálogo para editar la dirección de envío](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Edición de los detalles de la notificación
 
@@ -110,11 +110,11 @@ Realice los siguientes pasos para editar una plantilla de notificación.
 
 1. Vaya a **Order details > Edit notification details** (Detalles de pedidos > Editar detalles de la notificación).
 
-    ![Edición de los detalles de la notificación 1](media/data-box-portal-admin/edit-notification-details1.png)
+    ![Comando para editar los detalles de la notificación en los detalles del pedido](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. Ahora puede editar los detalles de la notificación y, a continuación, guardar los cambios.
  
-    ![Edición de los detalles de la notificación 2](media/data-box-portal-admin/edit-notification-details2.png)
+    ![Cuadro de diálogo para editar los detalles de la notificación](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## <a name="download-order-history"></a>Descarga del historial de pedidos
@@ -125,7 +125,7 @@ Realice los siguientes pasos para descargar el historial de pedidos.
 
 1. En el pedido de Data Box, vaya a **Introducción**. Asegúrese de que el pedido se haya completado. Con el pedido completado y el dispositivo limpio, vaya a **Detalles del pedido**. La opción **Descargar el historial de pedidos** está disponible.
 
-    ![Descarga del historial de pedidos](media/data-box-portal-admin/download-order-history-1.png)
+    ![Descarga del historial de pedidos](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
 2. Haga clic en **Descargar el historial de pedidos**. En el historial descargado verá un registro de las entradas de seguimiento del transportista. Habrá dos conjuntos de registros correspondientes a los dos nodos en un dispositivo Data Box Heavy. Al desplazarse hasta el final de este registro verá los vínculos a:
     
@@ -198,11 +198,11 @@ Realice los siguientes pasos para descargar el historial de pedidos.
 
     A continuación, puede ir a la cuenta de almacenamiento y ver los registros de copia.
 
-![Registros en las cuentas de almacenamiento](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![Registros de copia de una cuenta de almacenamiento](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-También puede ver la cadena de los registros de custodia que incluyen los registros de auditoría y los archivos de la lista de materiales.
+   También puede ver la cadena de los registros de custodia que incluyen los registros de auditoría y los archivos BOM.
 
-![Registros en las cuentas de almacenamiento 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![Cadena de los registros de custodia de una cuenta de almacenamiento](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## <a name="view-order-status"></a>Visualización del estado del pedido
 

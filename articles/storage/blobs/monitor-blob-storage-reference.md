@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: b51b219daec01d0bce3bbfb71c29e9374363665d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8caa39bea2d0d835a94bc95a747f1f870bae3b12
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711112"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357545"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Blob Storage
 
@@ -26,7 +26,7 @@ En las tablas siguientes se indican las métricas de plataforma recopiladas de A
 
 ### <a name="capacity-metrics"></a>Métricas de capacidad
 
-Los valores de las métricas de capacidad se envían a Azure Monitor cada hora. Los valores se actualizan a diario. El intervalo de agregación define el intervalo de tiempo para el que se presentan los valores de las métricas. El intervalo de agregación que se admite en las métricas de capacidad es una hora (PT1H).
+Los valores de las métricas de capacidad se actualizan diariamente (hasta 24 horas). El intervalo de agregación define el intervalo de tiempo para el que se presentan los valores de las métricas. El intervalo de agregación que se admite en las métricas de capacidad es una hora (PT1H).
 
 Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor.
 

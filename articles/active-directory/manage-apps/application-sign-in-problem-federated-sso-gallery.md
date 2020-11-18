@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: ec39a6d106973808e26b7c06dce8b3054af490ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427378"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357919"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML
 Para solucionar estos problemas de inicio de sesión, se recomienda que siga los siguientes consejos para obtener un mejor diagnóstico y automatizar los pasos de resolución:
@@ -28,12 +28,12 @@ Para solucionar estos problemas de inicio de sesión, se recomienda que siga los
 Si usa la [experiencia de pruebas](../azuread-dev/howto-v1-debug-saml-sso-issues.md) de Azure Portal con la extensión del explorador seguro de Aplicaciones, no tiene que seguir los siguientes pasos manualmente para abrir la página de configuración del inicio de sesión único basado en SAML.
 
 Para abrir la página de configuración del inicio de sesión único basado en SAML:
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador** .
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
 1.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
-1.  Escriba **"Azure Active Directory"** en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory** .
+1.  Escriba **"Azure Active Directory"** en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 1.  Seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 1.  Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
-    Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones** .
+    Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones**.
 1.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
 1. Cuando se cargue la aplicación, seleccione **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 1. Seleccione Inicio de sesión único basado en SAML.
@@ -49,7 +49,7 @@ El atributo `Issuer` que se envía de la aplicación a Azure AD en la solicitud
 
 Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD.
 
-En la página de configuración del inicio de sesión único basado en SAML, en la sección **Configuración básica de SAML** , compruebe que el valor del cuadro de texto Identificador coincide con el valor del identificador que aparece en el error.
+En la página de configuración del inicio de sesión único basado en SAML, en la sección **Configuración básica de SAML**, compruebe que el valor del cuadro de texto Identificador coincide con el valor del identificador que aparece en el error.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>La dirección de respuesta no coincide con las direcciones de respuesta configuradas para la aplicación
 `Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application.`
@@ -118,10 +118,10 @@ El objeto de aplicación está dañado y Azure AD no reconoce el certificado con
 **Resolución**
 
 Para eliminar y crear un nuevo certificado, siga estos pasos:
-1. En la pantalla de configuración del inicio de sesión único basado en SAML, seleccione **Crear nuevo certificado** en la sección **Certificado de firma de SAML** .
-1. Seleccione la fecha de expiración y, a continuación, haga clic en **Guardar** .
+1. En la pantalla de configuración del inicio de sesión único basado en SAML, seleccione **Crear nuevo certificado** en la sección **Certificado de firma de SAML**.
+1. Seleccione la fecha de expiración y, a continuación, haga clic en **Guardar**.
 1. Active **Activar el certificado nuevo** para reemplazar el certificado activo. Después, haga clic en **Guardar** en la parte superior del panel y en Aceptar para activar el certificado de sustitución.
-1. En la sección **Certificado de firma de SAML** , haga clic en **Quitar** para quitar el certificado **no usado** .
+1. En la sección **Certificado de firma de SAML**, haga clic en **Quitar** para quitar el certificado **no usado**.
 
 ## <a name="saml-request-not-present-in-the-request"></a>La solicitud SAML no existe en la solicitud
 `Error AADSTS750054: SAMLRequest or SAMLResponse must be present as query string parameters in HTTP request for SAML Redirect binding.`
@@ -146,6 +146,23 @@ Cuando la aplicación se agregó como una aplicación que no es de la galería, 
 Elimine las direcciones URL de respuesta no utilizadas configuradas para la aplicación.
 
 En la página de configuración del inicio de sesión único basado en SAML, en la **URL de respuesta (URL del Servicio de consumidor de aserciones)** , elimine las direcciones URL de respuesta no utilizadas o predeterminadas creadas por el sistema. Por ejemplo, `https://127.0.0.1:444/applications/default.aspx`.
+
+
+## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>El método de autenticación mediante el cual se autenticó el usuario en el servicio no coincide con el método de autenticación solicitado.
+`Error: AADSTS75011 Authentication method by which the user authenticated with the service doesn't match requested authentication method 'AuthnContextClassRef'. `
+
+**Causa posible**
+
+`RequestedAuthnContext` está en la solicitud SAML. Esto significa que la aplicación espera el elemento `AuthnContext` especificado por `AuthnContextClassRef`. Sin embargo, el usuario ya se ha autenticado antes de tener acceso a la aplicación y el elemento `AuthnContext` (método de autenticación) usado para esa autenticación anterior es diferente del que se solicita. Por ejemplo, se produjo un acceso de usuario federado a mis aplicaciones y WIA. El elemento `AuthnContextClassRef` será `urn:federation:authentication:windows`. AAD no realizará una solicitud de autenticación nueva, utilizará el contexto de autenticación que pasó a través del IdP (ADFS o cualquier otro servicio de federación en este caso). Por lo tanto, se producirá un error de coincidencia si la aplicación solicita algo diferente de `urn:federation:authentication:windows`. Otro escenario es cuando se usó MultiFactor: `'X509, MultiFactor`.
+
+**Resolución**
+
+
+`RequestedAuthnContext` es un valor opcional. A continuación, si es posible, pregunte a la aplicación si se puede quitar.
+
+Otra opción consiste en asegurarse de que se respetará `RequestedAuthnContext`. Esto se realizará solicitando una nueva autenticación. Al hacerlo, cuando se procese la solicitud SAML, se realizará una nueva autenticación y se respetará `AuthnContext`. Para solicitar una nueva autenticación, la solicitud de SAML contiene el valor `forceAuthn="true"`. 
+
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema al personalizar las notificaciones SAML que se han enviado a una aplicación
 Para obtener información sobre cómo personalizar las notificaciones de atributo SAML que se han enviado a su aplicación, vea [Asignación de notificaciones en Azure Active Directory](../develop/active-directory-claims-mapping.md).

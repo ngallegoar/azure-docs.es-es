@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 07/27/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 262c3a7c8a668ef25d092b5d523743e0ece89cc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3483701d34b8fef5b40a411e22b33a73db2de44b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88641150"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658747"
 ---
 # <a name="using-azure-ad-for-applications-not-listed-in-the-app-gallery"></a>Uso de Azure AD para aplicaciones que no se enumeran en la galería de aplicaciones
 
 En el inicio rápido [Adición de una aplicación](add-application-portal.md), aprenderá a añadir una aplicación al inquilino de Azure AD.
 
-Además de las opciones de la [galería de aplicaciones de Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/), tiene la opción de agregar una **aplicación que no sea de la galería**. 
+Además de las opciones de la [galería de aplicaciones de Azure AD](../saas-apps/tutorial-list.md), tiene la opción de agregar una **aplicación que no sea de la galería**. 
 
 ## <a name="capabilities-for-apps-not-listed-in-the-azure-ad-gallery"></a>Funcionalidad de las aplicaciones que no se enumeran en la galería de Azure AD
 
@@ -33,9 +33,8 @@ Puede agregar cualquier aplicación que ya exista en su organización o cualquie
 - Conexión de autoservicio de las aplicaciones que usan el protocolo [System for Cross-Domain Identity Management (SCIM) para el aprovisionamiento de usuarios](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 - Posibilidad de agregar vínculos a cualquier aplicación del [iniciador de aplicaciones de Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) o de la página [Aplicaciones](sso-options.md#linked-sign-on)
 
-Si necesita directrices de los desarrolladores sobre cómo integrar aplicaciones personalizadas con Azure AD, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md). Cuando desarrolle una aplicación que use un protocolo moderno como [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) para autenticar a los usuarios, puede registrarla en la plataforma de identidad de Microsoft mediante la experiencia [Registros de aplicaciones](../develop/quickstart-register-app.md) en Azure Portal.
+Si necesita directrices de los desarrolladores sobre cómo integrar aplicaciones personalizadas con Azure AD, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-vs-authorization.md). Cuando desarrolle una aplicación que use un protocolo moderno como [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) para autenticar a los usuarios, puede registrarla en la plataforma de identidad de Microsoft mediante la experiencia [Registros de aplicaciones](../develop/quickstart-register-app.md) en Azure Portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
-

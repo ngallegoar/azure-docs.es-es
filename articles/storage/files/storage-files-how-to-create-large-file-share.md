@@ -8,16 +8,16 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 190aaae81d51434b57b5aaa6817a443dc541d26e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c611d65c30cceba5fd6ff409ef71b906cd8674c
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069143"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330315"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitación y creación de recursos compartidos de archivos grandes
 
-Cuando se habilitan recursos compartidos de archivos de gran tamaño en la cuenta de almacenamiento, los recursos compartidos de archivos se pueden escalar verticalmente hasta 100 TiB. Esta escalabilidad se puede habilitar para los recursos compartidos de archivos existentes en las cuentas de almacenamiento existentes.
+Al habilitar recursos compartidos de archivos de gran tamaño en la cuenta de almacenamiento, estos se pueden escalar hasta 100 TiB, a la vez que se aumentan el número de operaciones de entrada y salida y los límites de rendimiento de los recursos compartidos estándar. Esta escalabilidad también se puede habilitar para los recursos compartidos de archivos existentes en las cuentas de almacenamiento existentes. Consulte [Objetivos de escalabilidad de archivos y recursos compartidos de archivos](storage-files-scale-targets.md#azure-files-scale-targets) para más información. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 

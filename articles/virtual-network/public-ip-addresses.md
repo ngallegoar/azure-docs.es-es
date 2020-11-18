@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329268"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358174"
 ---
 # <a name="public-ip-addresses"></a>Direcciones IP públicas
 
@@ -38,6 +38,8 @@ En el Administrador de recursos de Azure, una dirección [IP pública](virtual-n
 Las direcciones IP públicas se crean con una dirección IPv4 o IPv6. 
 
 ## <a name="sku"></a>SKU
+
+Para obtener información acerca de la actualización de SKU, consulte [Actualización de IP pública](../virtual-network/virtual-network-public-ip-address-upgrade.md).
 
 Las direcciones IP públicas se crean con una de las SKU siguientes:
 

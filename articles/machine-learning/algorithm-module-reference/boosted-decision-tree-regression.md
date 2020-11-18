@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664943fc5535883b3df77b2795383e5c0586a71c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898837"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375336"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regresión del árbol de decisión potenciado
 
@@ -73,7 +73,7 @@ El método de potenciación de gradientes también se puede usar para clasificar
 
 6. **Número de árboles construidos**: indica el número total de árboles de decisión que se va a crear en el conjunto. Al crear más árboles de decisión, puede obtener una mejor cobertura, pero el tiempo de entrenamiento aumenta.
 
-    Este valor también controla el número de árboles que se muestran al visualizar el modelo entrenado. Si desea ver o imprimir un árbol único, puede establecer el valor en 1; sin embargo, solo se genera un árbol (el árbol con el conjunto inicial de parámetros) y no se llevan a cabo más iteraciones.
+    Si se establece el valor en 1; sin embargo, al hacerlo, solo se genera un único árbol (el árbol con el conjunto inicial de parámetros) y no se realizan iteraciones adicionales.
 
 7. **Número de iniciación aleatorio**: introduzca un número entero no negativo opcional para que se use como valor de inicialización aleatorio. Al especificar un valor, se garantiza la reproducibilidad durante las ejecuciones que tienen los mismos datos y parámetros.
 

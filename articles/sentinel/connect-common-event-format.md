@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347614"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517978"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conexión de su solución externa con Common Event Format
 
@@ -27,14 +27,14 @@ Al conectar una solución externa que envía mensajes de CEF, hay tres pasos par
 
 PASO 1: [Conecte CEF implementando un reenviador de Syslog/CEF](connect-cef-agent.md) PASO 2: [Seguir los pasos específicos para la solución](connect-cef-solution-config.md) PASO 3: [Comprobar la conectividad](connect-cef-verify.md)
 
-En este artículo se describe el funcionamiento de la conexión, se proporcionan los requisitos previos y los pasos para implementar el agente en soluciones de seguridad que envían mensajes de formato de evento común (CEF) sobre Syslog. 
+En este artículo se describe el funcionamiento de la conexión, se enumeran los requisitos previos y se muestran los pasos para implementar un mecanismo con soluciones de seguridad que envía mensajes de formato de evento común (CEF) además de Syslog. 
 
 > [!NOTE] 
 > Los datos se almacenan en la ubicación geográfica del área de trabajo en la que se ejecute Azure Sentinel.
 
 Para establecer esta conexión, debe implementar un servidor de reenviador Syslog para admitir la comunicación entre el dispositivo y Azure Sentinel.  El servidor consta de una máquina Linux dedicada (VM o local) con el agente de Log Analytics para Linux instalado. 
 
-En el siguiente diagrama se describe la configuración en el caso de una VM Linux en Azure:
+En el siguiente diagrama se describe la configuración en el caso de una máquina virtual Linux en Azure:
 
  ![CEF en Azure](./media/connect-cef/cef-syslog-azure.png)
 
@@ -53,18 +53,18 @@ Para usar la comunicación TLS entre el origen y el reenviador de Syslog, debe c
 Asegúrese de que la máquina Linux que usa como reenviador de registros ejecuta alguno de los siguientes sistemas operativos:
 
 - 64 bits
-  - CentOS 7 y 8, incluidas las subversiones (no la 6)
+  - CentOS 7 y 8, incluidas las versiones secundarias (no la 6)
   - Amazon Linux 2017.09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 y 8, incluidas las subversiones (no la 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 y 8, incluidas las versiones secundarias (no la 6)
   - Debian GNU/Linux 8 y 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS y 18.04 LTS
   - SUSE Linux Enterprise Server 12, 15
 
 - 32 bits
-  - CentOS 7 y 8, incluidas las subversiones (no la 6)
+  - CentOS 7 y 8, incluidas las versiones secundarias (no la 6)
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 y 8, incluidas las subversiones (no la 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 y 8, incluidas las versiones secundarias (no la 6)
   - Debian GNU/Linux 8 y 9
   - Ubuntu Linux 14.04 LTS y 16.04 LTS
  
@@ -82,7 +82,7 @@ Asegúrese de que la máquina cumpla también con los requisitos siguientes:
   - Debe tener permisos elevados (sudo) en la máquina. 
 
 - Requisitos de software
-  - Asegúrese de que Python 2.7 se esté ejecutando en el equipo.
+  - Asegúrese de que Python 2.7 o 3 se esté ejecutando en la máquina.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

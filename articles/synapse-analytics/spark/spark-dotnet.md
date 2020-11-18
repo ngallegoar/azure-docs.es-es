@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 44c9dbb0eed5e8f7a868832af93a3b841f67f784
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d0ae4ef48bfb79130180cc477eb2a6fbeb470eb6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310691"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506437"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Uso de .NET para Apache Spark con Azure Synapse Analytics
 
@@ -48,15 +48,15 @@ Visite el tutorial para aprender a usar Azure Synapse Analytics para [crear defi
 
     **En Windows:**
 
-Use un programa de extracción, como [7-zip](https://www.7-zip.org/) o [WinZip](https://www.winzip.com/), para extraer el archivo en el directorio bin con todos los archivos binarios publicados.
+    Use un programa de extracción, como [7-zip](https://www.7-zip.org/) o [WinZip](https://www.winzip.com/), para extraer el archivo en el directorio bin con todos los archivos binarios publicados.
 
-     **On Linux:**
+    **En Linux:**
 
-     1. Open a bash shell and cd into the bin directory with all the published binaries and run the following command.
+    Abra un shell de bash, cambie al directorio bin con todos los archivos binarios publicados y ejecute el siguiente comando.
 
-       ```bash
-       zip -r publish.zip
-       ```
+    ```bash
+    zip -r publish.zip
+    ```
 
 ## <a name="net-for-apache-spark-in-azure-synapse-analytics-notebooks"></a>.NET para Apache Spark en cuadernos de Azure Synapse Analytics 
 

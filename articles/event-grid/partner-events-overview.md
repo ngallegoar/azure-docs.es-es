@@ -2,16 +2,16 @@
 title: 'Azure Event Grid: Eventos de asociado'
 description: Envíe eventos de los asociados PaaS y SaaS de Event Grid de terceros directamente a los servicios de Azure con Azure Event Grid.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 87d1d40b3696229344b0b5c20d06d9d993a514a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102754"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506153"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Eventos de asociado en Azure Event Grid (versión preliminar)
-La característica **Eventos de asociado** permite que un proveedor de SaaS de terceros publique eventos desde sus servicios para ponerlos a disposición de los consumidores que pueden suscribirse a esos eventos. Ofrece una experiencia propia a orígenes de eventos de terceros mediante la exposición de un tipo de [tema](concepts.md#topics), un **tema de asociado** , que los suscriptores usan para consumir eventos. También ofrece un modelo de publicación/suscripción limpio al separar las preocupaciones y la propiedad de los recursos que los suscriptores y los publicadores de eventos usan.
+La característica **Eventos de asociado** permite que un proveedor de SaaS de terceros publique eventos desde sus servicios para que los consumidores puedan suscribirse a esos eventos. Esta característica ofrece una experiencia propia para orígenes de eventos de terceros mediante la exposición de un tipo de [tema](concepts.md#topics), un **tema del asociado**. Los suscriptores crean suscripciones a este tema para consumir eventos. También proporciona un modelo de publicación y suscripción claro, ya que separa los intereses y la propiedad de los recursos que usan los publicadores y los suscriptores de eventos.
 
 > [!NOTE]
 > Si es la primera vez que usa Event Grid, consulte la [información general](overview.md), los [conceptos](concepts.md) y los [controladores de eventos](event-handlers.md).
@@ -75,6 +75,20 @@ Un canal de eventos es un recurso reflejado a un tema de asociado. Cuando un pub
 
 ## <a name="resources-managed-by-subscribers"></a>Recursos administrados por los suscriptores 
 Los suscriptores pueden usar temas de asociado definidos por un publicador y este es el único tipo de recurso que pueden ver y administrar. Una vez creado un tema de asociado, un suscriptor puede crear suscripciones de eventos que definan las reglas de filtro para [destinos/controladores de eventos](overview.md#event-handlers). En el caso de los suscriptores, un tema de asociado y sus suscripciones de eventos asociadas proporcionan las mismas funcionalidades enriquecidas que los [temas personalizados](custom-topics.md) y sus suscripciones relacionadas sí lo hacen, con una diferencia importante: los temas de asociado solo admiten el [esquema de CloudEvents 1.0](cloudevents-schema.md), que ofrece un conjunto de funcionalidades más completo que otros esquemas compatibles.
+
+En la imagen siguiente se muestra el flujo de las operaciones del plano de control.
+
+:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="Eventos de asociado: flujo del plano de control":::
+
+1. El publicador crea un **registro de asociado**. Los registros de asociados son globales. Es decir, no están asociados a una región de Azure determinada. Este paso es opcional.
+1. El publicador crea un **espacio de nombres de asociado** en una región específica.
+1. Cuando el suscriptor 1 intenta crear un tema de asociado, en primer lugar se crea un **canal de eventos**, el Canal de eventos 1, en la suscripción de Azure del publicador.
+1. A continuación, se crea un **tema de asociado**, el Tema de asociado 1, en la suscripción de Azure del suscriptor. El suscriptor debe activar el tema de asociado. 
+1. El suscriptor 1 crea una **suscripción de Azure Logic Apps** al Tema de asociado 1.
+1. El suscriptor 1 crea una **suscripción de Azure Blob Storage** al Tema de asociado 1. 
+1. Cuando el suscriptor 2 intenta crear un tema de asociado, en primer lugar se crea otro **canal de eventos**, el Canal de eventos 2, en la suscripción de Azure del publicador. 
+1. A continuación, se crea un **tema de asociado**, el Tema de asociado 2, en la suscripción de Azure del segundo suscriptor. El suscriptor debe activar el tema de asociado. 
+1. El suscriptor 2 crea una **suscripción de Azure Functions** al Tema de asociado 2. 
 
 ## <a name="pricing"></a>Precios
 Los temas de asociado se cobran según el número de operaciones realizadas al usar Event Grid. Para más información sobre todos los tipos de operaciones que se usan como base para la facturación e información detallada de precios, consulte [Precios de Event Grid](https://azure.microsoft.com/pricing/details/event-grid/).
